@@ -6,7 +6,7 @@ A new Flutter application by Open Food Facts
 
 This new mobile application aims to showcase Open Food Facts's power to a broad range of users through a smooth user experience and sleek user interface.
 
-*mockups comming soon*
+*mockups coming soon*
 
 Smooth-app is developed in parallel to the [openfoodfacts-dart](https://github.com/openfoodfacts/openfoodfacts-dart) plugin, which provides a high level interface with the Open Food Facts API.
 Every new interaction with the API should be implemented in the plugin in order to provide these new features to other developers.
