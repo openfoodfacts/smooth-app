@@ -2,6 +2,7 @@ library smooth_ui_library;
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
 import 'package:smooth_ui_library/navigation/models/smooth_navigation_state_model.dart';
 import 'package:smooth_ui_library/navigation/models/smooth_navigation_layout_model.dart';
 import 'package:smooth_ui_library/navigation/widgets/smooth_action_button.dart';
@@ -94,14 +95,19 @@ class SmoothNavigationLayout extends StatelessWidget {
       if (layout.screens[smoothNavigationStateModel.currentIndex]
           .action !=
           null) {
-        return SmoothActionButton(
-          borderRadius: borderRadius,
-          color: color,
-          textColor: textColor,
-          shadowColor: shadowColor,
-          action: layout
-              .screens[smoothNavigationStateModel.currentIndex]
-              .action,
+        return SmoothRevealAnimation(
+          child: SmoothActionButton(
+            borderRadius: borderRadius,
+            color: color,
+            textColor: textColor,
+            shadowColor: shadowColor,
+            action: layout
+                .screens[smoothNavigationStateModel.currentIndex]
+                .action,
+          ),
+          animationCurve: animationCurve,
+          animationDuration: animationDuration,
+          startOffset: const Offset(-1.0, 0.0),
         );
       } else {
         return Container();

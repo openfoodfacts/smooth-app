@@ -4,7 +4,8 @@ import 'package:smooth_ui_library/navigation/models/smooth_navigation_state_mode
 import 'package:smooth_ui_library/navigation/models/smooth_navigation_layout_model.dart';
 
 class SmoothNavigationButton extends StatelessWidget {
-  const SmoothNavigationButton({@required this.icon, @required this.index, this.alternativeOnPress});
+  const SmoothNavigationButton(
+      {@required this.icon, @required this.index, this.alternativeOnPress});
 
   final Widget icon;
   final int index;
@@ -29,8 +30,8 @@ class SmoothNavigationButton extends StatelessWidget {
         smoothNavigationBarStateModel.currentIndex = index;
       },
       child: Container(
-        width: 50.0,
-        height: 50.0,
+        width: 60.0,
+        height: 60.0,
         child: Center(
           child: icon,
         ),

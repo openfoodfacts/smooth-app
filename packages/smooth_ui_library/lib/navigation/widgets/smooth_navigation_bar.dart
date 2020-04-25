@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
 import 'package:smooth_ui_library/navigation/models/smooth_navigation_state_model.dart';
 import 'package:smooth_ui_library/navigation/widgets/smooth_navigation_button.dart';
 
@@ -80,7 +81,14 @@ class _SmoothNavigationBarState extends State<SmoothNavigationBar>
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: List<Widget>.generate(widget.buttons.length, (int i) {
           return Expanded(
-            child: widget.buttons[i],
+            child: SmoothRevealAnimation(
+              child: widget.buttons[i],
+              delay: (widget.animationDuration -
+                      (i * (widget.animationDuration / widget.buttons.length)))
+                  .toInt(),
+              animationCurve: widget.animationCurve,
+              animationDuration: widget.animationDuration,
+            ),
           );
         }),
       );
