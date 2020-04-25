@@ -33,8 +33,7 @@ class SmoothApp extends StatelessWidget {
             height: 20.0,
             decoration: BoxDecoration(
                 borderRadius: const BorderRadius.all(Radius.circular(10.0)),
-                color: Colors.greenAccent
-            ),
+                color: Colors.greenAccent),
           ),
           page: TestPage(Colors.greenAccent),
           action: SmoothNavigationActionModel(
@@ -43,10 +42,9 @@ class SmoothApp extends StatelessWidget {
               height: 20.0,
               decoration: BoxDecoration(
                   borderRadius: const BorderRadius.all(Radius.circular(10.0)),
-                  color: Colors.greenAccent
-              ),
+                  color: Colors.greenAccent),
             ),
-            action: () {
+            onTap: () {
               print('Test');
             },
             title: 'Green main action',
@@ -58,8 +56,7 @@ class SmoothApp extends StatelessWidget {
             height: 20.0,
             decoration: BoxDecoration(
                 borderRadius: const BorderRadius.all(Radius.circular(10.0)),
-                color: Colors.yellow
-            ),
+                color: Colors.yellow),
           ),
           page: TestPage(Colors.yellow),
         ),
@@ -69,8 +66,7 @@ class SmoothApp extends StatelessWidget {
             height: 20.0,
             decoration: BoxDecoration(
                 borderRadius: const BorderRadius.all(Radius.circular(10.0)),
-                color: Colors.redAccent
-            ),
+                color: Colors.redAccent),
           ),
           page: TestPage(Colors.redAccent),
           action: SmoothNavigationActionModel(
@@ -79,10 +75,9 @@ class SmoothApp extends StatelessWidget {
               height: 20.0,
               decoration: BoxDecoration(
                   borderRadius: const BorderRadius.all(Radius.circular(10.0)),
-                  color: Colors.redAccent
-              ),
+                  color: Colors.redAccent),
             ),
-            action: () {
+            onTap: () {
               print('Test');
             },
             title: 'Red main action',

@@ -33,73 +33,75 @@ class SmoothNavigationLayout extends StatelessWidget {
       create: (BuildContext context) => layout,
       child: Stack(
         children: <Widget>[
-          Consumer<SmoothNavigationLayoutModel>(
-            builder: (BuildContext context, SmoothNavigationLayoutModel layout,
-                Widget child) {
-              return layout.currentScreen.page;
-            },
-          ),
-          Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              Container(
-                padding: const EdgeInsets.only(
-                    left: 25.0, right: 25.0, bottom: 40.0),
-                child: ChangeNotifierProvider<SmoothNavigationStateModel>(
-                  create: (BuildContext context) =>
-                      SmoothNavigationStateModel(),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: <Widget>[
-                      Consumer<SmoothNavigationStateModel>(builder:
-                          (BuildContext context,
-                              SmoothNavigationStateModel
-                                  smoothNavigationStateModel,
-                              Widget child) {
-                        if (layout
-                                .screens[
-                                    smoothNavigationStateModel.currentIndex]
-                                .action !=
-                            null) {
-                          return SmoothActionButton(
-                            borderRadius: borderRadius,
-                            color: color,
-                            textColor: textColor,
-                            shadowColor: shadowColor,
-                            action: layout
-                                .screens[
-                                    smoothNavigationStateModel.currentIndex]
-                                .action,
-                          );
-                        } else {
-                          return Container();
-                        }
-                      }),
-                      SmoothNavigationBar(
-                        color: color,
-                        shadowColor: shadowColor,
-                        borderRadius: borderRadius,
-                        buttons: List<SmoothNavigationButton>.generate(
-                            layout.screens.length, (int i) {
-                          return SmoothNavigationButton(
-                            icon: layout.screens[i].icon,
-                            index: i,
-                          );
-                        }),
-                        animationCurve: animationCurve,
-                        animationDuration: animationDuration,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
+          _getBottomLayer(),
+          _getTopLayer(),
         ],
       ),
+    );
+  }
+
+  Widget _getBottomLayer() {
+    return Consumer<SmoothNavigationLayoutModel>(
+      builder: (BuildContext context, SmoothNavigationLayoutModel layout,
+          Widget child) {
+        return layout.currentScreen.page;
+      },
+    );
+  }
+
+  Widget _getTopLayer() {
+    return Column(
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: <Widget>[
+        Container(
+          padding: const EdgeInsets.only(left: 25.0, right: 25.0, bottom: 40.0),
+          child: ChangeNotifierProvider<SmoothNavigationStateModel>(
+            create: (BuildContext context) => SmoothNavigationStateModel(),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: <Widget>[
+                Consumer<SmoothNavigationStateModel>(builder:
+                    (BuildContext context,
+                        SmoothNavigationStateModel smoothNavigationStateModel,
+                        Widget child) {
+                  if (layout.screens[smoothNavigationStateModel.currentIndex]
+                          .action !=
+                      null) {
+                    return SmoothActionButton(
+                      borderRadius: borderRadius,
+                      color: color,
+                      textColor: textColor,
+                      shadowColor: shadowColor,
+                      action: layout
+                          .screens[smoothNavigationStateModel.currentIndex]
+                          .action,
+                    );
+                  } else {
+                    return Container();
+                  }
+                }),
+                SmoothNavigationBar(
+                  color: color,
+                  shadowColor: shadowColor,
+                  borderRadius: borderRadius,
+                  buttons: List<SmoothNavigationButton>.generate(
+                      layout.screens.length, (int i) {
+                    return SmoothNavigationButton(
+                      icon: layout.screens[i].icon,
+                      index: i,
+                    );
+                  }),
+                  animationCurve: animationCurve,
+                  animationDuration: animationDuration,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

@@ -33,7 +33,8 @@ class _SmoothNavigationBarState extends State<SmoothNavigationBar>
           (BuildContext context,
               SmoothNavigationStateModel smoothNavigationBarStateModel,
               Widget child) {
-        return _getNavigationExpandableBar(smoothNavigationBarStateModel.state, smoothNavigationBarStateModel.currentIndex);
+        return _getNavigationExpandableBar(smoothNavigationBarStateModel.state,
+            smoothNavigationBarStateModel.currentIndex);
       }),
     );
   }
@@ -48,7 +49,8 @@ class _SmoothNavigationBarState extends State<SmoothNavigationBar>
     }
   }
 
-  Widget _getNavigationExpandableBar(SmoothNavigationBarState state, int currentIconIndex) {
+  Widget _getNavigationExpandableBar(
+      SmoothNavigationBarState state, int currentIconIndex) {
     return AnimatedContainer(
         duration: Duration(milliseconds: widget.animationDuration),
         curve: widget.animationCurve,
@@ -70,7 +72,8 @@ class _SmoothNavigationBarState extends State<SmoothNavigationBar>
         child: _getNavigationBarChildren(state, currentIconIndex));
   }
 
-  Widget _getNavigationBarChildren(SmoothNavigationBarState state, int currentIconIndex) {
+  Widget _getNavigationBarChildren(
+      SmoothNavigationBarState state, int currentIconIndex) {
     if (state == SmoothNavigationBarState.OPEN) {
       return Column(
         mainAxisSize: MainAxisSize.max,

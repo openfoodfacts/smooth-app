@@ -1,26 +1,15 @@
 import 'package:flutter/widgets.dart';
 import 'package:smooth_ui_library/navigation/models/smooth_navigation_screen_model.dart';
 
-enum SmoothNavigationLayoutState { EXPANDED, COLLAPSED }
-
 class SmoothNavigationLayoutModel extends ChangeNotifier {
   SmoothNavigationLayoutModel(
-      {@required this.screens,
-      this.initialState = SmoothNavigationLayoutState.COLLAPSED}) {
-    if (initialState == SmoothNavigationLayoutState.EXPANDED) {
-      isExpanded = true;
-    } else {
-      isExpanded = false;
-    }
-
-    _currentScreenIndex = 0;
+      {@required this.screens, this.initialScreenIndex = 0}) {
+    _currentScreenIndex = initialScreenIndex;
   }
 
-  List<SmoothNavigationScreenModel> screens;
-  int initialScreenIndex;
-  SmoothNavigationLayoutState initialState;
+  final List<SmoothNavigationScreenModel> screens;
+  final int initialScreenIndex;
 
-  bool isExpanded;
   int _currentScreenIndex;
 
   SmoothNavigationScreenModel get currentScreen {
@@ -28,7 +17,7 @@ class SmoothNavigationLayoutModel extends ChangeNotifier {
   }
 
   set currentScreenIndex(int index) {
-    if (index != _currentScreenIndex) {
+    if (index != _currentScreenIndex && index < screens.length) {
       _currentScreenIndex = index;
       notifyListeners();
     }
