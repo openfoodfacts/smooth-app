@@ -16,7 +16,8 @@ class SmoothNavigationLayout extends StatelessWidget {
       this.textColor = Colors.black,
       this.shadowColor = Colors.black45,
       this.animationCurve = Curves.fastLinearToSlowEaseIn,
-      this.animationDuration = 400})
+      this.animationDuration = 400,
+      this.reverseLayout = false})
       : assert(borderRadius >= 0.0);
 
   final SmoothNavigationLayoutModel layout;
@@ -26,6 +27,7 @@ class SmoothNavigationLayout extends StatelessWidget {
   final Color shadowColor;
   final Curve animationCurve;
   final int animationDuration;
+  final bool reverseLayout;
 
   @override
   Widget build(BuildContext context) {
@@ -62,46 +64,65 @@ class SmoothNavigationLayout extends StatelessWidget {
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.end,
-              children: <Widget>[
-                Consumer<SmoothNavigationStateModel>(builder:
-                    (BuildContext context,
-                        SmoothNavigationStateModel smoothNavigationStateModel,
-                        Widget child) {
-                  if (layout.screens[smoothNavigationStateModel.currentIndex]
-                          .action !=
-                      null) {
-                    return SmoothActionButton(
-                      borderRadius: borderRadius,
-                      color: color,
-                      textColor: textColor,
-                      shadowColor: shadowColor,
-                      action: layout
-                          .screens[smoothNavigationStateModel.currentIndex]
-                          .action,
-                    );
-                  } else {
-                    return Container();
-                  }
-                }),
-                SmoothNavigationBar(
-                  color: color,
-                  shadowColor: shadowColor,
-                  borderRadius: borderRadius,
-                  buttons: List<SmoothNavigationButton>.generate(
-                      layout.screens.length, (int i) {
-                    return SmoothNavigationButton(
-                      icon: layout.screens[i].icon,
-                      index: i,
-                    );
-                  }),
-                  animationCurve: animationCurve,
-                  animationDuration: animationDuration,
-                ),
-              ],
+              children: _getLayout(),
             ),
           ),
         ),
       ],
+    );
+  }
+
+  List<Widget> _getLayout() {
+    if(reverseLayout) {
+      return <Widget>[
+        _getNavigationBar(),
+        _getActionButton()
+      ];
+    }
+
+    return <Widget>[
+      _getActionButton(),
+      _getNavigationBar()
+    ];
+  }
+
+  Widget _getActionButton() {
+    return Consumer<SmoothNavigationStateModel>(builder:
+        (BuildContext context,
+        SmoothNavigationStateModel smoothNavigationStateModel,
+        Widget child) {
+      if (layout.screens[smoothNavigationStateModel.currentIndex]
+          .action !=
+          null) {
+        return SmoothActionButton(
+          borderRadius: borderRadius,
+          color: color,
+          textColor: textColor,
+          shadowColor: shadowColor,
+          action: layout
+              .screens[smoothNavigationStateModel.currentIndex]
+              .action,
+        );
+      } else {
+        return Container();
+      }
+    });
+  }
+
+  Widget _getNavigationBar() {
+    return SmoothNavigationBar(
+      color: color,
+      shadowColor: shadowColor,
+      borderRadius: borderRadius,
+      buttons: List<SmoothNavigationButton>.generate(
+          layout.screens.length, (int i) {
+        return SmoothNavigationButton(
+          icon: layout.screens[i].icon,
+          index: i,
+        );
+      }),
+      animationCurve: animationCurve,
+      animationDuration: animationDuration,
     );
   }
 }

@@ -20,6 +20,7 @@ class SmoothApp extends StatelessWidget {
         //color: Colors.black54,
         //textColor: Colors.white,
         //borderRadius: 15.0,
+        //reverseLayout: true,
       ),
     );
   }
