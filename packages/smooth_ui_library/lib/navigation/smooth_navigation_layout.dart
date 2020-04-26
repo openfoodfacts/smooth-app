@@ -107,7 +107,7 @@ class SmoothNavigationLayout extends StatelessWidget {
           ),
           animationCurve: animationCurve,
           animationDuration: animationDuration,
-          startOffset: const Offset(-1.0, 0.0),
+          startOffset: Offset(reverseLayout ? 1.0 : -1.0, 0.0),
         );
       } else {
         return Container();
@@ -129,6 +129,7 @@ class SmoothNavigationLayout extends StatelessWidget {
       }),
       animationCurve: animationCurve,
       animationDuration: animationDuration,
+      reverseLayout: reverseLayout,
     );
   }
 }

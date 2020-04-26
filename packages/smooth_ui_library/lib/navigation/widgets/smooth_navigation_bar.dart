@@ -11,7 +11,8 @@ class SmoothNavigationBar extends StatefulWidget {
       @required this.borderRadius,
       @required this.buttons,
       this.animationCurve,
-      this.animationDuration});
+      this.animationDuration,
+      this.reverseLayout = false});
 
   final Color color;
   final Color shadowColor;
@@ -19,6 +20,7 @@ class SmoothNavigationBar extends StatefulWidget {
   final List<SmoothNavigationButton> buttons;
   final Curve animationCurve;
   final int animationDuration;
+  final bool reverseLayout;
 
   @override
   State<StatefulWidget> createState() => _SmoothNavigationBarState();
@@ -88,6 +90,7 @@ class _SmoothNavigationBarState extends State<SmoothNavigationBar>
                   .toInt(),
               animationCurve: widget.animationCurve,
               animationDuration: widget.animationDuration,
+              startOffset: Offset(widget.reverseLayout ? -1.0 : 1.0, 0.0),
             ),
           );
         }),

@@ -15,8 +15,8 @@ class SmoothApp extends StatelessWidget {
     return MaterialApp(
       home: SmoothNavigationLayout(
         layout: layout,
-        //animationDuration: 400,
-        //animationCurve: Curves.elasticInOut,
+        animationDuration: 280,
+        animationCurve: Curves.easeInOutBack,
         //color: Colors.black54,
         //textColor: Colors.white,
         //borderRadius: 15.0,
