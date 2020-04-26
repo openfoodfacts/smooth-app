@@ -18,6 +18,9 @@ class SmoothActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: () {
+        action.onTap();
+      },
       child: Container(
         width: 220.0,
         height: 60.0,
