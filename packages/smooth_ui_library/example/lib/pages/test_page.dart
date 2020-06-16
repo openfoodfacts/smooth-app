@@ -10,7 +10,9 @@ class TestPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColor,
-      body: null,
+      body: Center(
+       child: Container(),
+      )
     );
   }
 

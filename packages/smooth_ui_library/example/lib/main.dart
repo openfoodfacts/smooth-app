@@ -46,7 +46,7 @@ class SmoothUILibraryExample extends StatelessWidget {
                   color: Colors.greenAccent),
             ),
             onTap: () {
-              print('Test');
+
             },
             title: 'Green main action',
           ),
@@ -79,7 +79,7 @@ class SmoothUILibraryExample extends StatelessWidget {
                   color: Colors.redAccent),
             ),
             onTap: () {
-              print('Test');
+
             },
             title: 'Red main action',
           ),

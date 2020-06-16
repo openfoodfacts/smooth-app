@@ -2,6 +2,7 @@ library smooth_ui_library;
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
 import 'package:smooth_ui_library/navigation/models/smooth_navigation_state_model.dart';
 import 'package:smooth_ui_library/navigation/models/smooth_navigation_layout_model.dart';
@@ -32,6 +33,7 @@ class SmoothNavigationLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context = context;
     return ChangeNotifierProvider<SmoothNavigationLayoutModel>(
       create: (BuildContext context) => layout,
       child: Stack(
@@ -74,26 +76,17 @@ class SmoothNavigationLayout extends StatelessWidget {
   }
 
   List<Widget> _getLayout() {
-    if(reverseLayout) {
-      return <Widget>[
-        _getNavigationBar(),
-        _getActionButton()
-      ];
+    if (reverseLayout) {
+      return <Widget>[_getNavigationBar(), _getActionButton()];
     }
 
-    return <Widget>[
-      _getActionButton(),
-      _getNavigationBar()
-    ];
+    return <Widget>[_getActionButton(), _getNavigationBar()];
   }
 
   Widget _getActionButton() {
-    return Consumer<SmoothNavigationStateModel>(builder:
-        (BuildContext context,
-        SmoothNavigationStateModel smoothNavigationStateModel,
-        Widget child) {
-      if (layout.screens[smoothNavigationStateModel.currentIndex]
-          .action !=
+    return Consumer<SmoothNavigationStateModel>(builder: (BuildContext context,
+        SmoothNavigationStateModel smoothNavigationStateModel, Widget child) {
+      if (layout.screens[smoothNavigationStateModel.currentIndex].action !=
           null) {
         return SmoothRevealAnimation(
           child: SmoothActionButton(
@@ -101,9 +94,8 @@ class SmoothNavigationLayout extends StatelessWidget {
             color: color,
             textColor: textColor,
             shadowColor: shadowColor,
-            action: layout
-                .screens[smoothNavigationStateModel.currentIndex]
-                .action,
+            action:
+                layout.screens[smoothNavigationStateModel.currentIndex].action,
           ),
           animationCurve: animationCurve,
           animationDuration: animationDuration,
@@ -120,8 +112,8 @@ class SmoothNavigationLayout extends StatelessWidget {
       color: color,
       shadowColor: shadowColor,
       borderRadius: borderRadius,
-      buttons: List<SmoothNavigationButton>.generate(
-          layout.screens.length, (int i) {
+      buttons:
+          List<SmoothNavigationButton>.generate(layout.screens.length, (int i) {
         return SmoothNavigationButton(
           icon: layout.screens[i].icon,
           index: i,
