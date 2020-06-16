@@ -1,0 +1,24 @@
+import 'package:flutter/material.dart';
+import 'package:percent_indicator/percent_indicator.dart';
+
+class SmoothGauge extends StatelessWidget {
+  const SmoothGauge({@required this.value, this.size = 80.0, @required this.color, this.backgroundColor});
+
+  final double value;
+  final double size;
+  final Color color;
+  final Color backgroundColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return CircularPercentIndicator(
+      radius: size,
+      lineWidth: 5.0,
+      percent: value <= 1.0 ? value : 1.0,
+      center: Text('${(value * 100).floor()}%', style: TextStyle(color: Colors.white),),
+      progressColor: color,
+      backgroundColor: backgroundColor ?? color.withAlpha(50),
+      circularStrokeCap: CircularStrokeCap.round,
+    );
+  }
+}

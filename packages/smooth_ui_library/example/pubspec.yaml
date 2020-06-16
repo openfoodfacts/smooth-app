@@ -1,5 +1,5 @@
-name: smooth_app
-description: A new official Open Food Facts application build with great user experience in mind.
+name: example
+description: A new Flutter project.
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -11,34 +11,25 @@ description: A new official Open Food Facts application build with great user ex
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 0.0.1+1
+version: 1.0.0+1
 
 environment:
-  sdk: ">=2.6.0 <3.0.0"
+  sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
-  flutter_svg: ^0.17.4
-  modal_bottom_sheet: ^0.1.5
-  provider: ^4.0.5
-  # openfoodfacts: ^0.3.2
-  flutter_qr_bar_scanner: ^1.0.1
-  sembast: ^2.4.4+1
-  path_provider: ^1.6.9
-  carousel_slider: ^2.1.0
-  flutter_staggered_grid_view: ^0.3.0
-
-  smooth_ui_library:
-    path: ../smooth_ui_library
-
-  openfoodfacts:
-    path: ../../../openfoodfacts-dart
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^0.1.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  smooth_ui_library:
+    path: ../
 
 
 # For information on the generic Dart part of this file, see the
@@ -51,13 +42,6 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-
-  assets:
-    - assets/navigation/
-    - assets/actions/
-    - assets/product/
-    - assets/data/
-    - assets/misc/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
