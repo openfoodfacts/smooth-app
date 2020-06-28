@@ -20,3 +20,8 @@ You can join the Open Food Facts's Slack here : [Our Slack](openfoodfacts.slack.
 
 *full project documentation will be added here when ready*
 
+## Building
+
+In order to build the application, make sure you are in the packages/smooth_app directory and run these commands :
+ - flutter pub get
+ - flutter run
