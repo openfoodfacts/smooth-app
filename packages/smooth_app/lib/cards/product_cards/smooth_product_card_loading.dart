@@ -8,7 +8,7 @@ class SmoothProductCardLoading extends SmoothProductCardTemplate {
   final String barcode;
 
   @override
-  Widget build() {
+  Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
         color: Colors.white,

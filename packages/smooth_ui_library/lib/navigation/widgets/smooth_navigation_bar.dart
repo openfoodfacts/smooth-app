@@ -1,4 +1,6 @@
-import 'package:flutter/widgets.dart';
+import 'dart:ui';
+
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
 import 'package:smooth_ui_library/navigation/models/smooth_navigation_state_model.dart';
@@ -54,25 +56,31 @@ class _SmoothNavigationBarState extends State<SmoothNavigationBar>
 
   Widget _getNavigationExpandableBar(
       SmoothNavigationBarState state, int currentIconIndex) {
-    return AnimatedContainer(
-        duration: Duration(milliseconds: widget.animationDuration),
-        curve: widget.animationCurve,
-        width: 60.0,
-        height: state == SmoothNavigationBarState.OPEN
-            ? 60.0 * widget.buttons.length
-            : 60.0,
-        decoration: BoxDecoration(
+    return Material(
+      elevation: 24.0,
+      shadowColor: widget.shadowColor.withAlpha(160),
+      color: Colors.transparent,
+      borderRadius: BorderRadius.all(Radius.circular(widget.borderRadius)),
+      child: ClipRRect(
           borderRadius: BorderRadius.all(Radius.circular(widget.borderRadius)),
-          color: widget.color,
-          boxShadow: <BoxShadow>[
-            BoxShadow(
-              color: widget.shadowColor,
-              blurRadius: 16.0,
-              offset: const Offset(4.0, 4.0),
-            )
-          ],
-        ),
-        child: _getNavigationBarChildren(state, currentIconIndex));
+          child: BackdropFilter(
+            filter: ImageFilter.blur(
+              sigmaX: 4.0,
+              sigmaY: 4.0,
+            ),
+            child: AnimatedContainer(
+          duration: Duration(milliseconds: widget.animationDuration),
+          curve: widget.animationCurve,
+          width: 60.0,
+          height: state == SmoothNavigationBarState.OPEN
+              ? 60.0 * widget.buttons.length
+              : 60.0,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(widget.borderRadius)),
+            color: widget.color,
+          ),
+          child: _getNavigationBarChildren(state, currentIconIndex)),
+    )));
   }
 
   Widget _getNavigationBarChildren(

@@ -13,7 +13,7 @@ class SmoothProductCarousel extends StatelessWidget {
     return CarouselSlider.builder(
       itemCount: productCards.length,
       itemBuilder: (BuildContext context, int index) {
-        return productCards[productCards.keys.elementAt(index)].build();
+        return productCards[productCards.keys.elementAt(index)].build(context);
       },
       carouselController: controller,
       options: CarouselOptions(

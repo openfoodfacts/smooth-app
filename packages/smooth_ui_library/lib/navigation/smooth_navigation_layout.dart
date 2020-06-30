@@ -16,7 +16,7 @@ class SmoothNavigationLayout extends StatelessWidget {
       this.borderRadius = 60.0,
       this.color = Colors.white,
       this.textColor = Colors.black,
-      this.shadowColor = Colors.black45,
+      this.shadowColor = Colors.black,
       this.animationCurve = Curves.fastLinearToSlowEaseIn,
       this.animationDuration = 400,
       this.reverseLayout = false})
