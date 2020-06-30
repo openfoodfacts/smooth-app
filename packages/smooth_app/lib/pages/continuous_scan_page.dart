@@ -1,22 +1,16 @@
-import 'package:carousel_slider/carousel_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_qr_bar_scanner/flutter_qr_bar_scanner.dart';
 import 'package:flutter_qr_bar_scanner/qr_bar_scanner_camera.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/cards/product_cards/smooth_product_card_not_found.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
-import 'package:smooth_app/database/full_products_database.dart';
-import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/lists/smooth_product_carousel.dart';
 import 'package:smooth_app/pages/smooth_it_page.dart';
 
 import 'package:smooth_ui_library/widgets/smooth_view_finder.dart';
 
 class ContinuousScanPage extends StatelessWidget {
-  final CarouselController carouselController = CarouselController();
-
   final List<String> barcodesError = <String>[];
 
   final List<Product> foundProducts = <Product>[];
@@ -40,7 +34,9 @@ class ContinuousScanPage extends StatelessWidget {
           Navigator.push<dynamic>(
             context,
             MaterialPageRoute<dynamic>(
-                builder: (BuildContext context) => SmoothItPage(input: foundProducts,)),
+                builder: (BuildContext context) => SmoothItPage(
+                      input: foundProducts,
+                    )),
           );
         },
       ),
@@ -57,7 +53,7 @@ class ContinuousScanPage extends StatelessWidget {
                       BarcodeFormats.EAN_13
                     ],
                     qrCodeCallback: (String code) {
-                      _onScan(code, continuousScanModel, context);
+                      continuousScanModel.onScan(code);
                     },
                   );
                 },
@@ -67,7 +63,7 @@ class ContinuousScanPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.only(top: 100.0),
+                    padding: const EdgeInsets.only(top: 50.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -90,7 +86,8 @@ class ContinuousScanPage extends StatelessWidget {
                           return Container(
                             child: SmoothProductCarousel(
                               productCards: continuousScanModel.cardTemplates,
-                              controller: carouselController,
+                              controller:
+                                  continuousScanModel.carouselController,
                             ),
                           );
                         }
@@ -113,61 +110,5 @@ class ContinuousScanPage extends StatelessWidget {
             ],
           )),
     );
-  }
-
-  void _onScan(String code, ContinuousScanModel continuousScanModel,
-      BuildContext context) {
-    if (continuousScanModel.addBarcode(code)) {
-      _generateScannedProductsCardTemplates(continuousScanModel, context);
-      if (continuousScanModel.cardTemplates.isNotEmpty) {
-        carouselController.animateToPage(
-          continuousScanModel.cardTemplates.length - 1,
-        );
-      }
-    }
-  }
-
-  Future<bool> _generateScannedProductsCardTemplates(
-      ContinuousScanModel continuousScanModel, BuildContext context) async {
-    final FullProductsDatabase productsDatabase = FullProductsDatabase();
-
-    for (final String scannedBarcode
-        in continuousScanModel.scannedBarcodes.keys) {
-      switch (continuousScanModel.scannedBarcodes[scannedBarcode]) {
-        case ScannedProductState.FOUND:
-          break;
-        case ScannedProductState.NOT_FOUND:
-          break;
-        case ScannedProductState.LOADING:
-          final bool result =
-              await productsDatabase.checkAndFetchProduct(scannedBarcode);
-          if (result) {
-            continuousScanModel.scannedBarcodes[scannedBarcode] =
-                ScannedProductState.FOUND;
-            final Product product =
-                await productsDatabase.getProduct(scannedBarcode);
-            continuousScanModel.setCardTemplate(
-                scannedBarcode,
-                SmoothProductCardFound(
-                  heroTag: product.barcode,
-                  product: product,
-                  context: context,
-                ));
-            foundProducts.add(product);
-          } else {
-            continuousScanModel.scannedBarcodes[scannedBarcode] =
-                ScannedProductState.NOT_FOUND;
-            continuousScanModel.setCardTemplate(
-              scannedBarcode,
-              SmoothProductCardNotFound(
-                barcode: scannedBarcode,
-              ),
-            );
-            barcodesError.add(scannedBarcode);
-          }
-          break;
-      }
-    }
-    return true;
   }
 }

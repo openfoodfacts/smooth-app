@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
+import 'package:smooth_app/pages/alternative_continuous_scan_page.dart';
 
 import 'package:smooth_app/pages/choose_page.dart';
 import 'package:smooth_app/pages/collaboration_page.dart';
@@ -32,6 +34,7 @@ class SmoothApp extends StatelessWidget {
       animationDuration: 300,
       animationCurve: Curves.easeInOutBack,
       borderRadius: 20.0,
+      color: Colors.white70,
     );
   }
 
@@ -68,11 +71,15 @@ class SmoothApp extends StatelessWidget {
             height: _navigationIconSize,
           ),
         ),
-        onTap: () => Navigator.push<Widget>(
-          context,
-          MaterialPageRoute<Widget>(
-              builder: (BuildContext context) => ContinuousScanPage()),
-        ),
+        onTap: () async {
+          final SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+          final Widget newPage = sharedPreferences.getBool('useMlKit') ?? true ? ContinuousScanPage() : AlternativeContinuousScanPage();
+          Navigator.push<Widget>(
+            context,
+            MaterialPageRoute<Widget>(
+                builder: (BuildContext context) => newPage),
+          );
+        },
       ),
     );
   }
@@ -145,6 +152,8 @@ class SmoothApp extends StatelessWidget {
           expand: false,
           context: context,
           backgroundColor: Colors.transparent,
+          bounce: true,
+          barrierColor: Colors.black45,
           builder: (BuildContext context, ScrollController scrollController) =>
               UserPreferencesView(scrollController),
         ),

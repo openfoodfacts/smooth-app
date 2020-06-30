@@ -1,14 +1,11 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_template.dart';
 import 'package:smooth_app/pages/smooth_upload_page.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 
-class SmoothProductCardNotFound extends SmoothProductCardTemplate {
-  SmoothProductCardNotFound({@required this.barcode, this.callback});
-
-  final String barcode;
-  final Function callback;
+class SmoothProductCardThanks extends SmoothProductCardTemplate {
 
   @override
   Widget build(BuildContext context) {
@@ -21,21 +18,17 @@ class SmoothProductCardNotFound extends SmoothProductCardTemplate {
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          const Text('This product is missing'),
-          const SizedBox(height: 12.0,),
-          Text(barcode),
+          const Text('Thank you for adding this product !'),
           const SizedBox(height: 12.0,),
           Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              SmoothSimpleButton(
-                text: 'Add',
-                width: 100.0,
-                onPressed: () {
-                  Navigator.push<dynamic>(context, MaterialPageRoute<dynamic>(builder: (BuildContext context) => SmoothUploadPage(barcode: barcode)));
-                  callback();
-                },
+              SvgPicture.asset(
+                'assets/misc/checkmark.svg',
+                width: 36.0,
+                height: 36.0,
+                color: Colors.greenAccent,
               ),
             ],
           ),

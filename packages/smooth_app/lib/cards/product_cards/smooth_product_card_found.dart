@@ -10,17 +10,17 @@ import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
 class SmoothProductCardFound extends SmoothProductCardTemplate {
   SmoothProductCardFound(
       {@required this.product,
-      @required this.context,
       @required this.heroTag});
 
   final Product product;
-  final BuildContext context;
   final String heroTag;
 
   @override
-  Widget build() {
+  Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: _openSneakPeek,
+      onTap: () {
+        _openSneakPeek(context);
+      },
       child: Hero(
         tag: heroTag,
         child: Container(
@@ -134,7 +134,7 @@ class SmoothProductCardFound extends SmoothProductCardTemplate {
     );
   }
 
-  void _openSneakPeek() {
+  void _openSneakPeek(BuildContext context) {
     Navigator.push<dynamic>(
         context,
         SmoothSneakPeekRoute<dynamic>(

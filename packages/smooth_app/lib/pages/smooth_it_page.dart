@@ -57,7 +57,7 @@ class SmoothItPage extends StatelessWidget {
       itemBuilder: (BuildContext context, int index) {
         return Padding(
           padding: const EdgeInsets.all(10.0),
-          child: SmoothProductCardFound(product: products[index], context: context, heroTag: '${tag}_card_$index').build(),
+          child: SmoothProductCardFound(product: products[index], heroTag: '${tag}_card_$index').build(context),
         );
       }
     ) : const Center(

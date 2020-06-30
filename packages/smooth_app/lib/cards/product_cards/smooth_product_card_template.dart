@@ -2,6 +2,6 @@
 import 'package:flutter/widgets.dart';
 
 abstract class SmoothProductCardTemplate {
-  Widget build();
+  Widget build(BuildContext context);
 }
 

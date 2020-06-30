@@ -1,14 +1,17 @@
+
+import 'package:flutter/widgets.dart';
 import 'package:flutter/foundation.dart';
 import 'package:openfoodfacts/model/RecommendedDailyIntake.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/UnitHelper.dart';
+import 'package:rubber/rubber.dart';
 
 class SneakPeakModel extends ChangeNotifier {
-  SneakPeakModel(this.product) {
+  SneakPeakModel(this.product, this.rubberAnimationController) {
     try {
       recommendedDailyIntake =
           RecommendedDailyIntake.getRecommendedDailyIntakes();
-      servingQuantity = int.parse(product.servingQuantity ?? '100');
+      servingQuantity = product.servingQuantity ?? 100.0;
       packageQuantity = product.packagingQuantity is! int
           ? int.parse(product.packagingQuantity as String ?? '1000')
           : product.packagingQuantity as int;
@@ -19,13 +22,21 @@ class SneakPeakModel extends ChangeNotifier {
     } catch (e) {
       print('Error while getting recommendations : $e');
     }
+    rubberAnimationController.animateTo(to: 0.28);
+    rubberAnimationController.addListener(() {
+      if(rubberAnimationController.animationState.value == AnimationState.collapsed) {
+        rubberAnimationController.animateTo(to: 0.28);
+      }
+    });
   }
+  
+  RubberAnimationController rubberAnimationController;
 
   Product product;
   RecommendedDailyIntake recommendedDailyIntake;
 
   int servingCount = 1;
-  int servingQuantity = 100;
+  double servingQuantity = 100.0;
   int packageQuantity = 500;
 
   double energy = 0.0;
