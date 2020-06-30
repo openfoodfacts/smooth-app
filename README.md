@@ -22,6 +22,9 @@ You can join the Open Food Facts's Slack here : [Our Slack](openfoodfacts.slack.
 
 ## Building
 
-In order to build the application, make sure you are in the packages/smooth_app directory and run these commands :
+In order to build the application, *make sure you are in the packages/smooth_app* directory and run these commands :
  - flutter pub get
  - flutter run
+
+If you get the error message:  
+Because smooth_app depends on openfoodfacts from path which doesn't exist (could not find package openfoodfacts at "../../../openfoodfacts-dart"), version solving failed.
