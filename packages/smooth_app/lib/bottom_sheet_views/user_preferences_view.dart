@@ -42,15 +42,18 @@ class UserPreferencesView extends StatelessWidget {
                           ),
                         ),
                         Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: List<Widget>.generate(
-                                UserPreferencesVariableExtension
-                                        .getMandatoryVariables()
-                                    .length,
-                                (int index) => _generateMandatoryRow(
-                                    UserPreferencesVariableExtension
-                                            .getMandatoryVariables()
-                                        .elementAt(index)))),
+                          mainAxisSize: MainAxisSize.min,
+                          children: List<Widget>.generate(
+                            UserPreferencesVariableExtension
+                                    .getMandatoryVariables()
+                                .length,
+                            (int index) => _generateMandatoryRow(
+                              UserPreferencesVariableExtension
+                                      .getMandatoryVariables()
+                                  .elementAt(index),
+                            ),
+                          ),
+                        ),
                         Container(
                           padding: const EdgeInsets.symmetric(horizontal: 20.0),
                           margin: const EdgeInsets.only(top: 20.0),
@@ -60,15 +63,18 @@ class UserPreferencesView extends StatelessWidget {
                           ),
                         ),
                         Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: List<Widget>.generate(
-                                UserPreferencesVariableExtension
-                                        .getAccountableVariables()
-                                    .length,
-                                (int index) => _generateMandatoryRow(
-                                    UserPreferencesVariableExtension
-                                            .getAccountableVariables()
-                                        .elementAt(index)))),
+                          mainAxisSize: MainAxisSize.min,
+                          children: List<Widget>.generate(
+                            UserPreferencesVariableExtension
+                                    .getAccountableVariables()
+                                .length,
+                            (int index) => _generateMandatoryRow(
+                              UserPreferencesVariableExtension
+                                      .getAccountableVariables()
+                                  .elementAt(index),
+                            ),
+                          ),
+                        ),
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.15,
                         )
