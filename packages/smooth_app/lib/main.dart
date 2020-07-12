@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
-import 'package:smooth_app/pages/alternative_continuous_scan_page.dart';
 
+import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
+import 'package:smooth_app/generated/l10n.dart';
+import 'package:smooth_app/pages/alternative_continuous_scan_page.dart';
 import 'package:smooth_app/pages/choose_page.dart';
 import 'package:smooth_app/pages/collaboration_page.dart';
 import 'package:smooth_app/pages/continuous_scan_page.dart';
@@ -18,10 +20,19 @@ import 'package:smooth_ui_library/navigation/models/smooth_navigation_layout_mod
 import 'package:smooth_ui_library/navigation/models/smooth_navigation_screen_model.dart';
 import 'package:smooth_ui_library/navigation/smooth_navigation_layout.dart';
 
-void main() => runApp(MaterialApp(
-      home: SmoothApp(),
-      theme: SmoothThemes.getSmoothThemeData(),
-    ));
+void main() => runApp(
+      MaterialApp(
+        localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
+          S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: S.delegate.supportedLocales,
+        home: SmoothApp(),
+        theme: SmoothThemes.getSmoothThemeData(),
+      ),
+    );
 
 class SmoothApp extends StatelessWidget {
   final double _navigationIconSize = 24.0;
@@ -62,7 +73,7 @@ class SmoothApp extends StatelessWidget {
       ),
       page: ChoosePage(),
       action: SmoothNavigationActionModel(
-        title: 'Scan products',
+        title: S.of(context).scanProductTitle,
         icon: Container(
           padding: EdgeInsets.all(_navigationIconPadding),
           child: SvgPicture.asset(
@@ -72,8 +83,11 @@ class SmoothApp extends StatelessWidget {
           ),
         ),
         onTap: () async {
-          final SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-          final Widget newPage = sharedPreferences.getBool('useMlKit') ?? true ? ContinuousScanPage() : AlternativeContinuousScanPage();
+          final SharedPreferences sharedPreferences =
+              await SharedPreferences.getInstance();
+          final Widget newPage = sharedPreferences.getBool('useMlKit') ?? true
+              ? ContinuousScanPage()
+              : AlternativeContinuousScanPage();
           Navigator.push<Widget>(
             context,
             MaterialPageRoute<Widget>(
@@ -139,7 +153,7 @@ class SmoothApp extends StatelessWidget {
       ),
       page: ProfilePage(),
       action: SmoothNavigationActionModel(
-        title: 'My preferences',
+        title: S.of(context).preferencesText,
         icon: Container(
           padding: EdgeInsets.all(_navigationIconPadding),
           child: SvgPicture.asset(
