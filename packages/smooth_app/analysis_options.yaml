@@ -11,6 +11,8 @@ analyzer:
     - "bin/cache/**"
     - "lib/i18n/messages_*.dart"
     - "lib/src/http/**"
+    # ignore generated code from flutter intl plugin
+    - "lib/generated/intl/messages_*.dart"
 
 linter:
   rules:
