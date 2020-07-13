@@ -8,10 +8,10 @@ import 'package:smooth_app/views//smooth_product_sneak_peek_view.dart';
 import 'package:smooth_ui_library/page_routes/smooth_sneak_peek_route.dart';
 import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
 
-class SmoothProductCardFound extends SmoothProductCardTemplate {
-  SmoothProductCardFound(
+class SmoothProductCardEdit extends SmoothProductCardTemplate {
+  SmoothProductCardEdit(
       {@required this.product,
-      @required this.heroTag});
+        @required this.heroTag});
 
   final Product product;
   final String heroTag;
@@ -98,16 +98,16 @@ class SmoothProductCardFound extends SmoothProductCardTemplate {
                     width: 100.0,
                     child: product.nutriscore != null
                         ? Image.asset(
-                            'assets/product/nutri_score_${product.nutriscore}.png',
-                            fit: BoxFit.contain,
-                          )
+                      'assets/product/nutri_score_${product.nutriscore}.png',
+                      fit: BoxFit.contain,
+                    )
                         : Center(
-                            child: Text(
-                              'Nutri-score unavailable',
-                              style: Theme.of(context).textTheme.subtitle1,
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
+                      child: Text(
+                        'Nutri-score unavailable',
+                        style: Theme.of(context).textTheme.subtitle1,
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
                   ),
                   Container(
                     width: 50.0,

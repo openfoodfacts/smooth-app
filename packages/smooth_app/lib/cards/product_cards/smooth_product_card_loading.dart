@@ -14,8 +14,20 @@ class SmoothProductCardLoading extends SmoothProductCardTemplate {
         color: Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(15.0)),
       ),
-      child: const Center(
-        child: CircularProgressIndicator(),
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(barcode),
+            ],
+          ),
+          const SizedBox(height: 12.0,),
+          const CircularProgressIndicator()
+        ],
       ),
     );
   }

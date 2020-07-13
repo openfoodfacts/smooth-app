@@ -24,7 +24,7 @@ class AlternativeContinuousScanPage extends StatelessWidget {
           height: 24.0,
           color: Colors.black,
         ),
-        label: Text(
+        label: const Text(
           'Smooth-it !',
           style: TextStyle(color: Colors.black),
         ),

@@ -12,70 +12,85 @@ class ChoosePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ChangeNotifierProvider<ChoosePageModel>(
-        create: (BuildContext context) => ChoosePageModel(),
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(
-                  top: 46.0, right: 16.0, left: 16.0, bottom: 4.0),
-              child: Row(
-                children: <Widget>[
-                  Flexible(
-                    child: Text(
-                      S.of(context).searchTitle,
-                      style: Theme.of(context).textTheme.headline1,
-                    ),
-                  )
-                ],
-              ),
-            ),
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
-              child: SmoothSearchBar(
-                hintText: S.of(context).searchHintText,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 12.0,
-                right: 12.0,
-                top: 8.0,
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Flexible(
-                    child: Text(
-                      S.of(context).categories,
-                      style: Theme.of(context).textTheme.headline3,
-                    ),
-                  ),
-                  Consumer<ChoosePageModel>(
-                    builder: (BuildContext context,
-                        ChoosePageModel choosePageModel, Widget child) {
-                      return MaterialButton(
-                        child: Text(
-                          S.of(context).showAll,
-                          style: Theme.of(context)
-                              .textTheme
-                              .subtitle1
-                              .copyWith(color: Colors.black),
+        body: ChangeNotifierProvider<ChoosePageModel>(
+      create: (BuildContext context) => ChoosePageModel(),
+      child: NestedScrollView(
+          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+            return <Widget>[
+              SliverAppBar(
+                expandedHeight: 228.0,
+                backgroundColor: Colors.transparent,
+                pinned: true,
+                elevation: 0.0,
+                flexibleSpace: FlexibleSpaceBar(
+                  background: Column(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            top: 46.0, right: 16.0, left: 16.0, bottom: 4.0),
+                        child: Row(
+                          children: <Widget>[
+                            Flexible(
+                              child: Text(
+                                S.of(context).searchTitle,
+                                style: Theme.of(context).textTheme.headline1,
+                              ),
+                            )
+                          ],
                         ),
-                        onPressed: () {
-                          choosePageModel.unSelectCategory();
-                        },
-                      );
-                    },
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16.0, vertical: 12.0),
+                        child: SmoothSearchBar(
+                          hintText: S.of(context).searchHintText,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          left: 12.0,
+                          right: 0.0,
+                          top: 8.0,
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Flexible(
+                              child: Text(
+                                S.of(context).categories,
+                                style: Theme.of(context).textTheme.headline3,
+                              ),
+                            ),
+                            Consumer<ChoosePageModel>(builder:
+                                (BuildContext context,
+                                ChoosePageModel choosePageModel, Widget child) {
+                              return MaterialButton(
+                                child: Text(
+                                  S.of(context).showAll,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .subtitle1
+                                      .copyWith(color: Colors.black),
+                                ),
+                                onPressed: () {
+                                  choosePageModel.unSelectCategory();
+                                },
+                              );
+                            }),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
-            ),
-            Consumer<ChoosePageModel>(
-              builder: (BuildContext context, ChoosePageModel choosePageModel,
-                  Widget child) {
+            ];
+          },
+          body: Column(
+            children: <Widget>[
+              Consumer<ChoosePageModel>(builder: (BuildContext context,
+                  ChoosePageModel choosePageModel, Widget child) {
                 if (choosePageModel.selectedCategory != null) {
                   return Container(
                     padding: const EdgeInsets.only(bottom: 0.0),
@@ -84,38 +99,33 @@ class ChoosePage extends StatelessWidget {
                     child: ListView(
                       scrollDirection: Axis.horizontal,
                       children: List<Widget>.generate(
-                        choosePageModel.categories.length,
-                        (int index) {
-                          final String key =
-                              choosePageModel.categories.keys.toList()[index];
-                          return AnimationConfiguration.staggeredList(
-                            position: index,
-                            duration: const Duration(milliseconds: 250),
-                            child: SlideAnimation(
-                              verticalOffset: 50.0,
-                              child: FadeInAnimation(
+                          choosePageModel.categories.length, (int index) {
+                        final String key =
+                            choosePageModel.categories.keys.toList()[index];
+                        return AnimationConfiguration.staggeredList(
+                          position: index,
+                          duration: const Duration(milliseconds: 250),
+                          child: SlideAnimation(
+                            verticalOffset: 50.0,
+                            child: FadeInAnimation(
                                 child: CategoryChip(
-                                  title: key,
-                                  color: choosePageModel.categories[key],
-                                  onTap: () {
-                                    choosePageModel.selectCategory(key);
-                                  },
-                                ),
-                              ),
-                            ),
-                          );
-                        },
-                      ),
+                              title: key,
+                              color: choosePageModel.categories[key],
+                              onTap: () {
+                                choosePageModel.selectCategory(key);
+                              },
+                            )),
+                          ),
+                        );
+                      }),
                     ),
                   );
                 }
                 return Container();
-              },
-            ),
-            Expanded(
-              child: Consumer<ChoosePageModel>(
-                builder: (BuildContext context, ChoosePageModel choosePageModel,
-                    Widget child) {
+              }),
+              Expanded(
+                child: Consumer<ChoosePageModel>(builder: (BuildContext context,
+                    ChoosePageModel choosePageModel, Widget child) {
                   if (choosePageModel.selectedCategory == null) {
                     return GridView.count(
                       crossAxisCount: 2,
@@ -152,34 +162,29 @@ class ChoosePage extends StatelessWidget {
                   return ListView(
                     padding: const EdgeInsets.only(top: 8.0, bottom: 100.0),
                     children: List<Widget>.generate(
-                      choosePageModel
-                          .subCategories[choosePageModel.selectedCategory]
-                          .length,
-                      (int index) {
-                        return AnimationConfiguration.staggeredList(
-                          position: index,
-                          duration: const Duration(milliseconds: 250),
-                          child: SlideAnimation(
-                            horizontalOffset: 50.0,
-                            child: FadeInAnimation(
+                        choosePageModel
+                            .subCategories[choosePageModel.selectedCategory]
+                            .length, (int index) {
+                      return AnimationConfiguration.staggeredList(
+                        position: index,
+                        duration: const Duration(milliseconds: 250),
+                        child: SlideAnimation(
+                          horizontalOffset: 50.0,
+                          child: FadeInAnimation(
                               child: SubcategoryCard(
-                                title: choosePageModel.subCategories[
-                                    choosePageModel.selectedCategory][index],
-                                color: choosePageModel.categories[
-                                    choosePageModel.selectedCategory],
-                              ),
-                            ),
-                          ),
-                        );
-                      },
-                    ),
+                            title: choosePageModel.subCategories[
+                                choosePageModel.selectedCategory][index],
+                            color: choosePageModel
+                                .categories[choosePageModel.selectedCategory],
+                          )),
+                        ),
+                      );
+                    }),
                   );
-                },
-              ),
-            )
-          ],
-        ),
-      ),
-    );
+                }),
+              )
+            ],
+          )),
+    ));
   }
 }

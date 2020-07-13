@@ -1,7 +1,5 @@
 name: smooth_app
-description:
-  A new official Open Food Facts application build with great user experience in
-  mind.
+description: A new official Open Food Facts application build with great user experience in mind.
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -27,7 +25,7 @@ dependencies:
   flutter_svg: ^0.17.4
   modal_bottom_sheet: ^0.1.5
   provider: ^4.0.5
-  openfoodfacts: ^0.3.5
+  openfoodfacts: ^0.3.6
   flutter_qr_bar_scanner: ^1.0.1
   qr_code_scanner: ^0.0.13
   sembast: ^2.4.4+1
@@ -45,14 +43,17 @@ dependencies:
     path: ../smooth_ui_library
   # openfoodfacts:
   #  path: ../../../openfoodfacts-dart
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
+
 # The following section is specific to Flutter.
 flutter:
+
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -64,14 +65,18 @@ flutter:
     - assets/product/
     - assets/data/
     - assets/misc/
+
   # To add assets to your application, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
+
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
+
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a

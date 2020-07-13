@@ -38,7 +38,9 @@ class FullProductsDatabase {
               ProductField.SERVING_SIZE,
               ProductField.PACKAGING_QUANTITY,
               ProductField.NUTRIMENTS,
+              ProductField.NUTRIENT_LEVELS,
               ProductField.NUTRIMENT_ENERGY_UNIT,
+              ProductField.ADDITIVES,
               ProductField.LANGUAGE
             ],
             language: OpenFoodFactsLanguage.ENGLISH);
@@ -47,8 +49,7 @@ class FullProductsDatabase {
         await OpenFoodAPIClient.getProduct(configuration);
 
     if (result.status == 1) {
-      saveProduct(result.product);
-      return true;
+      return await saveProduct(result.product);
     }
 
     return false;
@@ -59,6 +60,7 @@ class FullProductsDatabase {
     final String path = join(directory.path, 'full_products_database.db');
     final Database database = await factory.openDatabase(path);
 
+    print(newProduct.toJson());
     try {
       final StoreRef<dynamic, dynamic> store =
           StoreRef<dynamic, dynamic>.main();

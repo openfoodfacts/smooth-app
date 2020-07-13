@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:smooth_app/cards/product_cards/smooth_product_card_edit.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_not_found.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_template.dart';
@@ -29,6 +30,10 @@ class ContinuousScanModel extends ChangeNotifier {
 
   List<Product> foundProducts = <Product>[];
 
+  String barcodeTrustCheck;
+
+  bool contributionMode = false;
+
   void setupScanner(QRViewController controller) {
     scannerController = controller;
     scannerController.scannedDataStream.listen((String barcode) {
@@ -38,6 +43,10 @@ class ContinuousScanModel extends ChangeNotifier {
 
   void onScan(String code) {
     print('Barcode detected : $code');
+    if (barcodeTrustCheck != code) {
+      barcodeTrustCheck = code;
+      return;
+    }
     if (addBarcode(code)) {
       _generateScannedProductsCardTemplates();
       if (cardTemplates.isNotEmpty) {
@@ -60,12 +69,24 @@ class ContinuousScanModel extends ChangeNotifier {
     }
   }
 
-  Future<bool> _generateScannedProductsCardTemplates() async {
+  Future<bool> _generateScannedProductsCardTemplates(
+      {bool switchMode = false}) async {
     final FullProductsDatabase productsDatabase = FullProductsDatabase();
 
     for (final String scannedBarcode in scannedBarcodes.keys) {
       switch (scannedBarcodes[scannedBarcode]) {
         case ScannedProductState.FOUND:
+          if (switchMode) {
+            final Product product = await productsDatabase.getProduct(
+                scannedBarcode); // Acceptable thanks to offline first
+            setCardTemplate(
+                scannedBarcode,
+                contributionMode
+                    ? SmoothProductCardEdit(
+                        heroTag: product.barcode, product: product)
+                    : SmoothProductCardFound(
+                        heroTag: product.barcode, product: product));
+          }
           break;
         case ScannedProductState.NOT_FOUND:
           break;
@@ -78,8 +99,11 @@ class ContinuousScanModel extends ChangeNotifier {
                 await productsDatabase.getProduct(scannedBarcode);
             setCardTemplate(
                 scannedBarcode,
-                SmoothProductCardFound(
-                    heroTag: product.barcode, product: product));
+                contributionMode
+                    ? SmoothProductCardEdit(
+                        heroTag: product.barcode, product: product)
+                    : SmoothProductCardFound(
+                        heroTag: product.barcode, product: product));
             foundProducts.add(product);
           } else {
             scannedBarcodes[scannedBarcode] = ScannedProductState.NOT_FOUND;
@@ -116,6 +140,11 @@ class ContinuousScanModel extends ChangeNotifier {
 
   void setCardTemplate(String barcode, SmoothProductCardTemplate cardTemplate) {
     cardTemplates[barcode] = cardTemplate;
+    notifyListeners();
+  }
+
+  void contributionModeSwitch(bool value) {
+    contributionMode = value;
     notifyListeners();
   }
 }

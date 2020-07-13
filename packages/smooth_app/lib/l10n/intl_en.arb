@@ -3,7 +3,7 @@
   "searchTitle": "Search.\nFind the perfect product",
   "searchHintText": "Enter a barcode, category or product name",
   "categories": "Categories",
-  "showAll": "showAll",
+  "showAll": "Show all",
   "scanProductTitle": "Scan products",
   "testerSettingTitle": "Testers settings",
   "useMLKitText": "Use ML Kit powered scanner",

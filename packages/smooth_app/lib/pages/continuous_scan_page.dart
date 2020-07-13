@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/lists/smooth_product_carousel.dart';
 import 'package:smooth_app/pages/smooth_it_page.dart';
+import 'package:smooth_ui_library/widgets/smooth_toggle.dart';
 
 import 'package:smooth_ui_library/widgets/smooth_view_finder.dart';
 
@@ -25,7 +26,7 @@ class ContinuousScanPage extends StatelessWidget {
           height: 24.0,
           color: Colors.black,
         ),
-        label: Text(
+        label: const Text(
           'Smooth-it !',
           style: TextStyle(color: Colors.black),
         ),
@@ -62,17 +63,45 @@ class ContinuousScanPage extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(top: 50.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
+                  Container(
+                    child: Column(
                       children: <Widget>[
-                        SmoothViewFinder(
-                          width: MediaQuery.of(context).size.width * 0.8,
-                          height: MediaQuery.of(context).size.width * 0.45,
-                          animationDuration: 1500,
-                        )
+                        Padding(
+                          padding: const EdgeInsets.only(top: 32.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Consumer<ContinuousScanModel>(builder:
+                                  (BuildContext context,
+                                      ContinuousScanModel continuousScanModel,
+                                      Widget child) {
+                                return SmoothToggle(
+                                  value: continuousScanModel.contributionMode,
+                                  onChanged: (bool value) {
+                                    continuousScanModel
+                                        .contributionModeSwitch(value);
+                                  },
+                                );
+                              }),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 14.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              SmoothViewFinder(
+                                width: MediaQuery.of(context).size.width * 0.8,
+                                height:
+                                    MediaQuery.of(context).size.width * 0.45,
+                                animationDuration: 1500,
+                              )
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),

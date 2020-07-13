@@ -2,8 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_template.dart';
-import 'package:smooth_app/pages/smooth_upload_page.dart';
-import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 
 class SmoothProductCardThanks extends SmoothProductCardTemplate {
 
