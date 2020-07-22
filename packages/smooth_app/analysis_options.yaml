@@ -13,6 +13,7 @@ analyzer:
     - "lib/src/http/**"
     # ignore generated code from flutter intl plugin
     - "lib/generated/intl/messages_*.dart"
+    - "lib/generated/l10n.dart"
 
 linter:
   rules:

@@ -5,11 +5,13 @@ class SmoothNavigationScreenModel {
   SmoothNavigationScreenModel(
       {@required this.page,
       @required this.icon,
+      this.title,
       this.action,
       this.alternativeOnPress});
 
   Widget page;
   Widget icon;
+  String title;
   SmoothNavigationActionModel action;
   Function alternativeOnPress;
 }

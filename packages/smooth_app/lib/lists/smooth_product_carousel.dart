@@ -18,7 +18,8 @@ class SmoothProductCarousel extends StatelessWidget {
       carouselController: controller,
       options: CarouselOptions(
         enlargeCenterPage: true,
-        viewportFraction: 4 / 5,
+        viewportFraction: 0.85,
+        height: 140.0,
         enableInfiniteScroll: false,
       ),
     );

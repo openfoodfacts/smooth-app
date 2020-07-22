@@ -5,11 +5,12 @@ import 'package:smooth_ui_library/navigation/models/smooth_navigation_layout_mod
 
 class SmoothNavigationButton extends StatelessWidget {
   const SmoothNavigationButton(
-      {@required this.icon, @required this.index, this.alternativeOnPress});
+      {@required this.icon, @required this.index, this.alternativeOnPress, this.title = ''});
 
   final Widget icon;
   final int index;
   final Function alternativeOnPress;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -30,8 +31,7 @@ class SmoothNavigationButton extends StatelessWidget {
         smoothNavigationBarStateModel.currentIndex = index;
       },
       child: Container(
-        width: 60.0,
-        height: 60.0,
+        width: MediaQuery.of(context).size.width * 0.2,
         child: Center(
           child: icon,
         ),

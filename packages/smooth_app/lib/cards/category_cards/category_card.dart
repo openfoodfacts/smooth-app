@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CategoryCard extends StatelessWidget {
-  const CategoryCard({@required this.title, @required this.color, this.onTap});
+  const CategoryCard({@required this.title, @required this.color, this.onTap, this.iconName = 'smoothie.svg'});
 
   final String title;
   final Color color;
+  final String iconName;
   final Function onTap;
 
   @override
@@ -22,28 +23,32 @@ class CategoryCard extends StatelessWidget {
             borderRadius: const BorderRadius.all(Radius.circular(20.0)),
           ),
           padding: const EdgeInsets.all(10.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: Stack(
             children: <Widget>[
               Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
                   SvgPicture.asset(
-                    'assets/actions/smoothie.svg',
+                    'assets/categories/$iconName',
                     color: color,
-                    height: 50.0,
+                    height: 80.0,
                   ),
                 ],
               ),
-              Text(
-                title,
-                style: Theme.of(context)
-                    .textTheme
-                    .headline3
-                    .copyWith(color: Colors.white),
+              Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    title,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline4
+                        .copyWith(color: Colors.white, fontWeight: FontWeight.normal),
+                  ),
+                ],
               ),
             ],
           ),

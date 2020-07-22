@@ -81,6 +81,8 @@ class FilterRankingHelper {
       }
     }
 
+    /* Those ordering loops are a bit janky, could probably be improved
+    *  May require to change the data structure */
     Iterable<int> sortedScores = ((dismissed.values.toList())..sort((int a, int b) {
       return a.compareTo(b);
     })).reversed;
@@ -151,8 +153,11 @@ class FilterRankingHelper {
   }
 
   static int palmFreePoints(Product product) {
-    // TODO(primael): missing implementation
-    return 0;
+    if (product.ingredientsAnalysisTags != null && product.ingredientsAnalysisTags.palmOilFreeStatus != PalmOilFreeStatus.MAYBE) {
+      return product.ingredientsAnalysisTags.palmOilFreeStatus == PalmOilFreeStatus.MAYBE ? 5 : -5;
+    } else {
+      return 0;
+    }
   }
 
   static int additivesPoints(Product product) {

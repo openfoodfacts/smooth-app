@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/utils/PnnsGroupQueryConfiguration.dart';
+import 'package:openfoodfacts/utils/PnnsGroups.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
 import 'package:sembast/sembast.dart';
@@ -14,6 +16,30 @@ class FullProductsDatabase {
 
   DatabaseFactory factory;
   bool useLocalDatabase = false;
+
+  static const User SMOOTH_USER = User(
+    userId: 'project-smoothie',
+    password: 'smoothie',
+    comment: 'Test user for project smoothie',
+  );
+
+  static const List<ProductField> fields = <ProductField>[
+    ProductField.NAME,
+    ProductField.BRANDS,
+    ProductField.BARCODE,
+    ProductField.NUTRISCORE,
+    ProductField.FRONT_IMAGE,
+    ProductField.QUANTITY,
+    ProductField.SERVING_SIZE,
+    ProductField.PACKAGING_QUANTITY,
+    ProductField.NUTRIMENTS,
+    ProductField.NUTRIENT_LEVELS,
+    ProductField.NUTRIMENT_ENERGY_UNIT,
+    ProductField.ADDITIVES,
+    ProductField.INGREDIENTS_ANALYSIS_TAGS,
+    ProductField.LABELS_TAGS,
+    ProductField.LANGUAGE
+  ];
 
   Future<bool> checkAndFetchProduct(String barcode) async {
     final Directory directory = await getApplicationDocumentsDirectory();
@@ -28,21 +54,7 @@ class FullProductsDatabase {
 
     final ProductQueryConfiguration configuration =
         ProductQueryConfiguration(barcode,
-            fields: <ProductField>[
-              ProductField.NAME,
-              ProductField.BRANDS,
-              ProductField.BARCODE,
-              ProductField.NUTRISCORE,
-              ProductField.FRONT_IMAGE,
-              ProductField.QUANTITY,
-              ProductField.SERVING_SIZE,
-              ProductField.PACKAGING_QUANTITY,
-              ProductField.NUTRIMENTS,
-              ProductField.NUTRIENT_LEVELS,
-              ProductField.NUTRIMENT_ENERGY_UNIT,
-              ProductField.ADDITIVES,
-              ProductField.LANGUAGE
-            ],
+            fields: fields,
             language: OpenFoodFactsLanguage.ENGLISH);
 
     final ProductResult result =
@@ -53,6 +65,20 @@ class FullProductsDatabase {
     }
 
     return false;
+  }
+
+  Future<List<Product>> queryPnnsGroup(PnnsGroup2 group, {int page = 1}) async {
+    final PnnsGroupQueryConfiguration configuration =
+        PnnsGroupQueryConfiguration(group,
+            fields: fields,
+            page: page,
+            language: OpenFoodFactsLanguage.ENGLISH);
+
+     final SearchResult result = await OpenFoodAPIClient.queryPnnsGroup(SMOOTH_USER, configuration);
+
+     result.products.forEach(saveProduct);
+
+     return result.products;
   }
 
   Future<bool> saveProduct(Product newProduct) async {

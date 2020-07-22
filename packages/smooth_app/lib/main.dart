@@ -35,7 +35,7 @@ void main() => runApp(
     );
 
 class SmoothApp extends StatelessWidget {
-  final double _navigationIconSize = 24.0;
+  final double _navigationIconSize = 32.0;
   final double _navigationIconPadding = 5.0;
 
   @override
@@ -46,6 +46,7 @@ class SmoothApp extends StatelessWidget {
       animationCurve: Curves.easeInOutBack,
       borderRadius: 20.0,
       color: Colors.white70,
+      classicMode: true,
     );
   }
 
@@ -71,13 +72,14 @@ class SmoothApp extends StatelessWidget {
           height: _navigationIconSize,
         ),
       ),
+      title: 'Choose',
       page: ChoosePage(),
       action: SmoothNavigationActionModel(
         title: S.of(context).scanProductTitle,
         icon: Container(
           padding: EdgeInsets.all(_navigationIconPadding),
           child: SvgPicture.asset(
-            'assets/actions/barcode_scanner.svg',
+            'assets/actions/camera.svg',
             width: _navigationIconSize,
             height: _navigationIconSize,
           ),
@@ -103,11 +105,12 @@ class SmoothApp extends StatelessWidget {
       icon: Container(
         padding: EdgeInsets.all(_navigationIconPadding),
         child: SvgPicture.asset(
-          'assets/navigation/organization.svg',
+          'assets/navigation/organize.svg',
           width: _navigationIconSize,
           height: _navigationIconSize,
         ),
       ),
+      title: 'Organize',
       page: OrganizationPage(),
     );
   }
@@ -117,11 +120,12 @@ class SmoothApp extends StatelessWidget {
       icon: Container(
         padding: EdgeInsets.all(_navigationIconPadding),
         child: SvgPicture.asset(
-          'assets/navigation/collaboration.svg',
+          'assets/navigation/contribute.svg',
           width: _navigationIconSize,
           height: _navigationIconSize,
         ),
       ),
+      title: 'Contribute',
       page: CollaborationPage(),
     );
   }
@@ -131,11 +135,12 @@ class SmoothApp extends StatelessWidget {
       icon: Container(
         padding: EdgeInsets.all(_navigationIconPadding),
         child: SvgPicture.asset(
-          'assets/navigation/tracking.svg',
+          'assets/navigation/track.svg',
           width: _navigationIconSize,
           height: _navigationIconSize,
         ),
       ),
+      title: 'Track',
       page: TrackingPage(),
     );
   }
@@ -151,6 +156,7 @@ class SmoothApp extends StatelessWidget {
           height: _navigationIconSize,
         ),
       ),
+      title: 'Profile',
       page: ProfilePage(),
       action: SmoothNavigationActionModel(
         title: S.of(context).preferencesText,

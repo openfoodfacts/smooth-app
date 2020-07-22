@@ -43,10 +43,10 @@ class S {
     );
   }
 
-  /// `Enter a barcode, category or product name`
+  /// `Enter a barcode or keywords`
   String get searchHintText {
     return Intl.message(
-      'Enter a barcode, category or product name',
+      'Enter a barcode or keywords',
       name: 'searchHintText',
       desc: '',
       args: [],
@@ -63,10 +63,10 @@ class S {
     );
   }
 
-  /// `showAll`
+  /// `Show all`
   String get showAll {
     return Intl.message(
-      'showAll',
+      'Show all',
       name: 'showAll',
       desc: '',
       args: [],

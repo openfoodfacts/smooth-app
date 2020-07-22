@@ -10,11 +10,11 @@ import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
 
 class SmoothProductCardFound extends SmoothProductCardTemplate {
   SmoothProductCardFound(
-      {@required this.product,
-      @required this.heroTag});
+      {@required this.product, @required this.heroTag, this.elevation = 0.0});
 
   final Product product;
   final String heroTag;
+  final double elevation;
 
   @override
   Widget build(BuildContext context) {
@@ -23,116 +23,130 @@ class SmoothProductCardFound extends SmoothProductCardTemplate {
         //_openSneakPeek(context);
         Navigator.push<dynamic>(
           context,
-          MaterialPageRoute<dynamic>(builder: (BuildContext context) => ProductPage(product: product,)),
+          MaterialPageRoute<dynamic>(
+              builder: (BuildContext context) => ProductPage(
+                    product: product,
+                  )),
         );
       },
       child: Hero(
         tag: heroTag,
-        child: Container(
-          decoration: const BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.all(Radius.circular(15.0)),
-          ),
-          padding: const EdgeInsets.all(10.0),
-          child: Column(
-            children: <Widget>[
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  SmoothProductImage(
-                    product: product,
-                    width: 100.0,
-                    height: 120.0,
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(left: 10.0),
-                    padding: const EdgeInsets.only(top: 7.5),
-                    width: 150.0,
-                    height: 120.0,
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: <Widget>[
-                        Row(
-                          children: <Widget>[
-                            Flexible(
-                              child: Text(
-                                product.productName,
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 4.0,
-                        ),
-                        Row(
-                          children: <Widget>[
-                            Flexible(
-                              child: Text(
-                                product.brands ?? 'Unknown brand',
-                                style: const TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w300,
-                                    fontStyle: FontStyle.italic),
-                              ),
-                            )
-                          ],
-                        ),
-                      ],
+        child: Material(
+          elevation: elevation,
+          borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+          child: Container(
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.all(Radius.circular(15.0)),
+            ),
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              children: <Widget>[
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    SmoothProductImage(
+                      product: product,
+                      width: MediaQuery.of(context).size.width * 0.25,
+                      height: 120.0,
                     ),
-                  )
-                ],
-              ),
-              const SizedBox(
-                height: 8.0,
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Container(
-                    width: 100.0,
-                    child: product.nutriscore != null
-                        ? Image.asset(
-                            'assets/product/nutri_score_${product.nutriscore}.png',
-                            fit: BoxFit.contain,
+                    Container(
+                      margin: const EdgeInsets.only(left: 10.0),
+                      padding: const EdgeInsets.only(top: 7.5),
+                      width: MediaQuery.of(context).size.width * 0.5,
+                      height: 120.0,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Column(
+                            children: <Widget>[
+                              Row(
+                                children: <Widget>[
+                                  Flexible(
+                                    child: Text(
+                                      product.productName,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.fade,
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 4.0,),
+                              Row(
+                                children: <Widget>[
+                                  Flexible(
+                                    child: Text(
+                                      product.brands ?? 'Unknown brand',
+                                      maxLines: 1,
+                                      overflow: TextOverflow.fade,
+                                      style: const TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.w300,
+                                          fontStyle: FontStyle.italic),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ],
                           )
-                        : Center(
-                            child: Text(
-                              'Nutri-score unavailable',
-                              style: Theme.of(context).textTheme.subtitle1,
-                              textAlign: TextAlign.center,
-                            ),
+                          ,
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Container(
+                                width: 100.0,
+                                child: product.nutriscore != null
+                                    ? Image.asset(
+                                        'assets/product/nutri_score_${product.nutriscore}.png',
+                                        fit: BoxFit.contain,
+                                      )
+                                    : Center(
+                                        child: Text(
+                                          'Nutri-score unavailable',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .subtitle1,
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ),
+                              ),
+                              Container(
+                                width: 50.0,
+                                height: 50.0,
+                                decoration: const BoxDecoration(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(15.0)),
+                                  color: Colors.white,
+                                  boxShadow: <BoxShadow>[
+                                    BoxShadow(
+                                      color: Colors.black26,
+                                      blurRadius: 16.0,
+                                      offset: Offset(4.0, 4.0),
+                                    )
+                                  ],
+                                ),
+                                child: Center(
+                                  child: Icon(
+                                    Icons.add,
+                                    size: 32.0,
+                                  ),
+                                ),
+                              )
+                            ],
                           ),
-                  ),
-                  Container(
-                    width: 50.0,
-                    height: 50.0,
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                      color: Colors.white,
-                      boxShadow: <BoxShadow>[
-                        BoxShadow(
-                          color: Colors.black26,
-                          blurRadius: 16.0,
-                          offset: Offset(4.0, 4.0),
-                        )
-                      ],
-                    ),
-                    child: Center(
-                      child: Icon(
-                        Icons.add,
-                        size: 32.0,
+                        ],
                       ),
-                    ),
-                  )
-                ],
-              ),
-            ],
+                    )
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

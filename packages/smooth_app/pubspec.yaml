@@ -25,7 +25,7 @@ dependencies:
   flutter_svg: ^0.17.4
   modal_bottom_sheet: ^0.1.5
   provider: ^4.0.5
-  openfoodfacts: ^0.3.6
+  openfoodfacts: ^0.3.7
   flutter_qr_bar_scanner: ^1.0.1
   qr_code_scanner: ^0.0.13
   sembast: ^2.4.4+1
@@ -60,11 +60,13 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/navigation/
     - assets/actions/
-    - assets/product/
+    - assets/categories/
     - assets/data/
+    - assets/labels/
     - assets/misc/
+    - assets/navigation/
+    - assets/product/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

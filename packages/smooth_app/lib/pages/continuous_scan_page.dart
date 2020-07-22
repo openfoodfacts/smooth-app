@@ -113,6 +113,7 @@ class ContinuousScanPage extends StatelessWidget {
                           Widget child) {
                         if (continuousScanModel.cardTemplates.isNotEmpty) {
                           return Container(
+                            width: MediaQuery.of(context).size.width,
                             child: SmoothProductCarousel(
                               productCards: continuousScanModel.cardTemplates,
                               controller:

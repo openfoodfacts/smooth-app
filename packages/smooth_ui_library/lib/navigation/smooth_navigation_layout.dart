@@ -8,6 +8,7 @@ import 'package:smooth_ui_library/navigation/models/smooth_navigation_state_mode
 import 'package:smooth_ui_library/navigation/models/smooth_navigation_layout_model.dart';
 import 'package:smooth_ui_library/navigation/widgets/smooth_action_button.dart';
 import 'package:smooth_ui_library/navigation/widgets/smooth_navigation_bar.dart';
+import 'package:smooth_ui_library/navigation/widgets/smooth_navigation_bar_classic.dart';
 import 'package:smooth_ui_library/navigation/widgets/smooth_navigation_button.dart';
 
 class SmoothNavigationLayout extends StatelessWidget {
@@ -19,7 +20,8 @@ class SmoothNavigationLayout extends StatelessWidget {
       this.shadowColor = Colors.black,
       this.animationCurve = Curves.fastLinearToSlowEaseIn,
       this.animationDuration = 400,
-      this.reverseLayout = false})
+      this.reverseLayout = false,
+      this.classicMode = true})
       : assert(borderRadius >= 0.0);
 
   final SmoothNavigationLayoutModel layout;
@@ -30,6 +32,7 @@ class SmoothNavigationLayout extends StatelessWidget {
   final Curve animationCurve;
   final int animationDuration;
   final bool reverseLayout;
+  final bool classicMode;
 
   @override
   Widget build(BuildContext context) {
@@ -60,12 +63,12 @@ class SmoothNavigationLayout extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       children: <Widget>[
         Container(
-          padding: const EdgeInsets.only(left: 25.0, right: 25.0, bottom: 40.0),
+          padding: classicMode ? const EdgeInsets.only() : const EdgeInsets.only(left: 25.0, right: 25.0, bottom: 40.0),
           child: ChangeNotifierProvider<SmoothNavigationStateModel>(
             create: (BuildContext context) => SmoothNavigationStateModel(),
             child: Row(
               mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: classicMode ? MainAxisAlignment.center : MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: _getLayout(),
             ),
@@ -76,11 +79,16 @@ class SmoothNavigationLayout extends StatelessWidget {
   }
 
   List<Widget> _getLayout() {
-    if (reverseLayout) {
-      return <Widget>[_getNavigationBar(), _getActionButton()];
+    if(classicMode) {
+      return <Widget>[_getNavigationBar()];
+    } else {
+      if (reverseLayout) {
+        return <Widget>[_getNavigationBar(), _getActionButton()];
+      }
+
+      return <Widget>[_getActionButton(), _getNavigationBar()];
     }
 
-    return <Widget>[_getActionButton(), _getNavigationBar()];
   }
 
   Widget _getActionButton() {
@@ -108,20 +116,39 @@ class SmoothNavigationLayout extends StatelessWidget {
   }
 
   Widget _getNavigationBar() {
-    return SmoothNavigationBar(
-      color: color,
-      shadowColor: shadowColor,
-      borderRadius: borderRadius,
-      buttons:
-          List<SmoothNavigationButton>.generate(layout.screens.length, (int i) {
-        return SmoothNavigationButton(
-          icon: layout.screens[i].icon,
-          index: i,
-        );
-      }),
-      animationCurve: animationCurve,
-      animationDuration: animationDuration,
-      reverseLayout: reverseLayout,
-    );
+    if(classicMode) {
+      return SmoothNavigationBarClassic(
+        color: color,
+        shadowColor: shadowColor,
+        borderRadius: borderRadius,
+        buttons:
+        List<SmoothNavigationButton>.generate(layout.screens.length, (int i) {
+          return SmoothNavigationButton(
+            icon: layout.screens[i].icon,
+            index: i,
+            title: layout.screens[i].title,
+          );
+        }),
+        animationCurve: animationCurve,
+        animationDuration: animationDuration,
+        reverseLayout: reverseLayout,
+      );
+    } else {
+      return SmoothNavigationBar(
+        color: color,
+        shadowColor: shadowColor,
+        borderRadius: borderRadius,
+        buttons:
+        List<SmoothNavigationButton>.generate(layout.screens.length, (int i) {
+          return SmoothNavigationButton(
+            icon: layout.screens[i].icon,
+            index: i,
+          );
+        }),
+        animationCurve: animationCurve,
+        animationDuration: animationDuration,
+        reverseLayout: reverseLayout,
+      );
+    }
   }
 }

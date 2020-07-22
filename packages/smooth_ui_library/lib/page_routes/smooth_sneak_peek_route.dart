@@ -12,13 +12,13 @@ class SmoothSneakPeekRoute<T> extends PageRoute<T> {
   bool get opaque => false;
 
   @override
-  Color get barrierColor => Colors.black.withAlpha(140);
+  Color get barrierColor => Colors.black26;
 
   @override
   String get barrierLabel => 'Closed sneak peek';
 
   @override
-  bool get barrierDismissible => false;
+  bool get barrierDismissible => true;
 
   @override
   Widget buildPage(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {

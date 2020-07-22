@@ -48,7 +48,7 @@ class SmoothExpandableCard extends StatelessWidget {
         child: Material(
           elevation: 8.0,
           shadowColor: Colors.black45,
-          borderRadius: const BorderRadius.all(Radius.circular(20.0)),
+          borderRadius: const BorderRadius.all(Radius.circular(10.0)),
           child: Container(
             padding: const EdgeInsets.all(12.0),
             child: Row(
@@ -76,7 +76,7 @@ class SmoothExpandableCard extends StatelessWidget {
       child: Material(
         elevation: 8.0,
         shadowColor: Colors.black45,
-        borderRadius: const BorderRadius.all(Radius.circular(20.0)),
+        borderRadius: const BorderRadius.all(Radius.circular(10.0)),
         child: Container(
           padding: const EdgeInsets.all(12.0),
           child: Column(

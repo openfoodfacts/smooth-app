@@ -13,7 +13,7 @@ class NutriscoreExpandable extends StatelessWidget {
     return SmoothExpandableCard(
       headerHeight: 50.0,
       collapsedHeader: Row(
-        children: <Widget>[
+        children: nutriscore != null ? <Widget>[
           Container(
             width: MediaQuery.of(context).size.width * 0.25,
             child: Image.asset(
@@ -30,6 +30,18 @@ class NutriscoreExpandable extends StatelessWidget {
               children: const <Widget>[
                 Flexible(
                   child: Text('Message according to the score'),
+                )
+              ],
+            ),
+          ),
+        ] : <Widget> [
+          Container(
+            width: MediaQuery.of(context).size.width * 0.75,
+            margin: const EdgeInsets.only(left: 12.0),
+            child: Row(
+              children: const <Widget>[
+                Flexible(
+                  child: Text('Nutri-score not found'),
                 )
               ],
             ),

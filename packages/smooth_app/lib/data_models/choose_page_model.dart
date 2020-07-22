@@ -1,45 +1,79 @@
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:openfoodfacts/utils/PnnsGroups.dart';
 
 class ChoosePageModel extends ChangeNotifier {
+  List<Color> colors = <Color>[
+    Colors.deepPurpleAccent,
+    Colors.deepOrangeAccent,
+    Colors.blueAccent,
+    Colors.brown,
+    Colors.redAccent,
+    Colors.lightGreen,
+    Colors.amber,
+    Colors.indigoAccent,
+    Colors.pink
+  ];
 
-  Map<String, Color> categories = <String, Color> {
-    'Category 1' : Colors.deepPurpleAccent,
-    'Category 2' : Colors.deepOrangeAccent,
-    'Category 3' : Colors.blueAccent,
-    'Category 4' : Colors.brown,
-    'Category 5' : Colors.redAccent,
-    'Category 6' : Colors.blueGrey,
-    'Category 7' : Colors.amber,
-    'Category 8' : Colors.indigoAccent,
-    'Category 9' : Colors.pink,
-  };
+  PnnsGroup1 selectedCategory;
+  Color selectedColor;
 
-  Map<String, List<String>> subCategories = <String, List<String>> {
-    'Category 1' : <String>['Category 1 : sub 1', 'Category 1 : sub 2', 'Category 1 : sub 3', 'Category 1 : sub 4',],
-    'Category 2' : <String>['Category 2 : sub 1', 'Category 2 : sub 2',],
-    'Category 3' : <String>['Category 3 : sub 1', 'Category 3 : sub 2', 'Category 3 : sub 3', 'Category 3 : sub 4',],
-    'Category 4' : <String>['Category 4 : sub 1', 'Category 4 : sub 2', 'Category 4 : sub 3',],
-    'Category 5' : <String>['Category 5 : sub 1', 'Category 5 : sub 2',],
-    'Category 6' : <String>['Category 6 : sub 1', 'Category 6 : sub 2', 'Category 6 : sub 3', 'Category 6 : sub 4', 'Category 6 : sub 5',],
-    'Category 7' : <String>['Category 7 : sub 1', 'Category 7 : sub 2', 'Category 7 : sub 3',],
-    'Category 8' : <String>['Category 8 : sub 1', 'Category 8 : sub 2', 'Category 8 : sub 3', 'Category 8 : sub 4'],
-    'Category 9' : <String>['Category 9 : sub 1',],
-  };
-
-  String selectedCategory;
-
-  void selectCategory(String key) {
-    selectedCategory = key;
+  void selectCategory(PnnsGroup1 group, Color color) {
+    selectedCategory = group;
+    selectedColor = color;
     notifyListeners();
   }
 
   void unSelectCategory() {
-    if(selectedCategory != null) {
+    if (selectedCategory != null) {
       selectedCategory = null;
+      selectedColor = null;
       notifyListeners();
     }
   }
 
+  Future<bool> onWillPop() async {
+    if (selectedCategory != null) {
+      unSelectCategory();
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  // Icons are from project noun, made by Vectors Market, requires attribution
+  String getCategoryIcon(PnnsGroup1 group) {
+    switch (group) {
+      case PnnsGroup1.BEVERAGES:
+        return 'beverages.svg';
+        break;
+      case PnnsGroup1.CEREALS_AND_POTATOES:
+        return 'cereals_and_potatoes.svg';
+        break;
+      case PnnsGroup1.COMPOSITE_FOODS:
+        return 'composite_foods.svg';
+        break;
+      case PnnsGroup1.FAT_AND_SAUCES:
+        return 'fat_and_sauces.svg';
+        break;
+      case PnnsGroup1.FISH_MEAT_AND_EGGS:
+        return 'fish_meat_and_eggs.svg';
+        break;
+      case PnnsGroup1.FRUITS_AND_VEGETABLES:
+        return 'fruits_and_vegetables.svg';
+        break;
+      case PnnsGroup1.MILK_AND_DAIRIES:
+        return 'milk_and_dairies.svg';
+        break;
+      case PnnsGroup1.SALTY_SNACKS:
+        return 'salty_snacks.svg';
+        break;
+      case PnnsGroup1.SUGARY_SNACKS:
+        return 'sugary_snacks.svg';
+        break;
+      default:
+        return null;
+        break;
+    }
+  }
 }

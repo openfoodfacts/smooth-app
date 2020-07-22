@@ -29,9 +29,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "preferencesText" : MessageLookupByLibrary.simpleMessage("My Preferences"),
     "saveButtonText" : MessageLookupByLibrary.simpleMessage("Save"),
     "scanProductTitle" : MessageLookupByLibrary.simpleMessage("Scan products"),
-    "searchHintText" : MessageLookupByLibrary.simpleMessage("Enter a barcode, category or product name"),
+    "searchHintText" : MessageLookupByLibrary.simpleMessage("Enter a barcode or keywords"),
     "searchTitle" : MessageLookupByLibrary.simpleMessage("Search.\nFind the perfect product"),
-    "showAll" : MessageLookupByLibrary.simpleMessage("showAll"),
+    "showAll" : MessageLookupByLibrary.simpleMessage("Show all"),
     "testerSettingTitle" : MessageLookupByLibrary.simpleMessage("Testers settings"),
     "trackingPage" : MessageLookupByLibrary.simpleMessage("Tracking Page"),
     "useMLKitText" : MessageLookupByLibrary.simpleMessage("Use ML Kit powered scanner")
