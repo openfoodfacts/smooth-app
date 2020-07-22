@@ -94,16 +94,16 @@ lane :beta do
 
   sentry_create_release(
     org_slug: 'openfoodfacts',
-    project_slug: 'openfoodfacts-ios',
-    version: 'off-ios@'+version+'.'+build_number,
+    project_slug: 'openfoodfacts-smoothie-ios',
+    version: 'off-smoothie-ios@'+version+'.'+build_number,
     app_identifier: APP_IDENTIFIER,
     finalize: false # Release will be finalized by the "daily" lane, when the version is in production
   )
 
   sentry_set_commits(
     org_slug: 'openfoodfacts',
-    project_slug: 'openfoodfacts-ios',
-    version: 'off-ios@'+version+'.'+build_number,
+    project_slug: 'openfoodfacts-smoothie-ios',
+    version: 'off-smoothie-ios@'+version+'.'+build_number,
     app_identifier: APP_IDENTIFIER, # pass in the bundle_identifer of your app
     auto: true, # enable completely automated commit management
     clear: false, # clear all current commits from the release
@@ -117,7 +117,7 @@ lane :refresh_dsyms do
     #api_host: 'https://mysentry.invalid/', #TODO: add this settings when we switch to self hosted sentry instance
     #auth_token: this should be filled using SENTRY_AUTH_TOKEN 
     org_slug: 'openfoodfacts',
-    project_slug: 'openfoodfacts-ios',
+    project_slug: 'openfoodfacts-smoothie-ios',
   )
   clean_build_artifacts           # Delete the local dSYM files
 end
@@ -132,8 +132,8 @@ lane :finalize_sentry_release do
     build_number = app_store_build_number(initial_build_number: 1, live: true).to_f.ceil
     sentry_finalize_release(
         org_slug: 'openfoodfacts',
-        project_slug: 'openfoodfacts-ios',
-        version: 'openfoodfacts-ios@'+liveVersion.to_s+'.'+build_number.to_s,
+        project_slug: 'openfoodfacts-smoothie-ios',
+        version: 'openfoodfacts-smoothie-ios@'+liveVersion.to_s+'.'+build_number.to_s,
         app_identifier: APP_IDENTIFIER
     )
     download_dsyms(min_version: liveVersion, output_directory: './ios/dSYMs') # Download dSYM files from iTC
