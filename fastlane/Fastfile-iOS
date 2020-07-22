@@ -1,0 +1,146 @@
+setup_travis
+require_relative 'utils'
+fastlane_require "spaceship"
+
+fastlane_version "1.109.0"
+
+default_platform :ios
+
+desc "Run all the tests"
+lane :test do
+  carthage(command: "bootstrap", platform: "iOS", cache_builds: true, use_binaries: false)
+  if !is_ci
+    sh("defaults write com.apple.iphonesimulator ConnectHardwareKeyboard -bool no")
+  end
+  scan(
+    scheme: "OpenFoodFactsTests",
+    devices: ["iPhone 8"],
+    output_types: "html",
+    skip_build: true
+  )
+  scan(
+    scheme: "OpenFoodFactsUITests",
+    devices: ["iPhone 8"],
+    output_types: "html",
+    skip_build: true
+  )
+  if !is_ci
+    sh("defaults write com.apple.iphonesimulator ConnectHardwareKeyboard -bool yes")
+  end
+end
+
+desc "Build and send the beta to TestFlight. The script will perform the following actions: \n"\
+      "- Fetch the latest version and build_number from AppStoreConnect\n"\
+      "- set the project version to either 'editVersion' or 'liveVersion + 0.0.1'\n"\
+      "- set the build number to build_number + 1\n"\
+      "- build and upload to AppStoreConnect\n"\
+      "- commit new version, tag and push\n"\
+      "- create a new release in sentry corresponding to the release we just uploaded\n"\
+      "\nIf you want a specific version number (for example if you want to bump a major instead of patch by default), set it in the xcode project. It will be taken if it is greater than the version from the appstore. Same goes for the build number."
+lane :beta do
+  APP_IDENTIFIER = CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)
+
+  carthage(command: "bootstrap", platform: "iOS", cache_builds: true)
+
+  # get the version to upload to from the app store (editing version if any, or live + 1)
+  # if the version set in the project is higher than the one in live or edit, then it is chosen
+  VERSION_FROM_PROJECT = get_version_number(xcodeproj: "OpenFoodFacts.xcodeproj")
+
+  version = app_store_version_to_upload_to(
+    projectVersion: VERSION_FROM_PROJECT
+  )
+
+  # get the latest build number from the app store, and bump it
+  BUILD_NUMBER_FROM_PROJECT = get_build_number(xcodeproj: "OpenFoodFacts.xcodeproj")
+  build_number = app_store_build_number(initial_build_number: 1, live: false).to_f.ceil + 1
+  build_number = BUILD_NUMBER_FROM_PROJECT.to_f > build_number ? BUILD_NUMBER_FROM_PROJECT : build_number.to_s
+
+  UI.important "Releasing #{APP_IDENTIFIER} v#{version} \##{build_number}"
+
+  increment_version_number(
+    version_number: version,
+    xcodeproj: "OpenFoodFacts.xcodeproj"
+  )
+  increment_build_number(
+    build_number: build_number,
+    xcodeproj: "OpenFoodFacts.xcodeproj"
+  )
+
+  sync_code_signing(type: "appstore", readonly: is_ci, clone_branch_directly: false)
+  update_code_signing_settings(
+    path: "OpenFoodFacts.xcodeproj",
+    use_automatic_signing: false,
+    build_configurations: "Release",
+    code_sign_identity: 'iPhone Distribution',
+    profile_name: 'match AppStore org.openfoodfacts.app',
+    targets: ["OpenFoodFacts"]
+  )
+
+  # build your iOS app
+  gym(
+    scheme: "OpenFoodFacts",
+    export_options: {
+        provisioningProfiles: {
+            "org.openfoodfacts.app" => "match AppStore org.openfoodfacts.app", 
+        }
+    }
+  )
+
+  # Upload to test flight
+  upload_to_testflight(
+    skip_submission: true,
+    skip_waiting_for_build_processing: true,
+  )
+
+  sentry_create_release(
+    org_slug: 'openfoodfacts',
+    project_slug: 'openfoodfacts-ios',
+    version: 'off-ios@'+version+'.'+build_number,
+    app_identifier: APP_IDENTIFIER,
+    finalize: false # Release will be finalized by the "daily" lane, when the version is in production
+  )
+
+  sentry_set_commits(
+    org_slug: 'openfoodfacts',
+    project_slug: 'openfoodfacts-ios',
+    version: 'off-ios@'+version+'.'+build_number,
+    app_identifier: APP_IDENTIFIER, # pass in the bundle_identifer of your app
+    auto: true, # enable completely automated commit management
+    clear: false, # clear all current commits from the release
+  )
+end
+
+desc "Upload dsyms to Sentry. This lane needs to be launched when the build has been processed by the AppStoreConnect."
+lane :refresh_dsyms do
+  download_dsyms                  # Download dSYM files from iTC
+  sentry_upload_dsym(
+    #api_host: 'https://mysentry.invalid/', #TODO: add this settings when we switch to self hosted sentry instance
+    #auth_token: this should be filled using SENTRY_AUTH_TOKEN 
+    org_slug: 'openfoodfacts',
+    project_slug: 'openfoodfacts-ios',
+  )
+  clean_build_artifacts           # Delete the local dSYM files
+end
+
+desc "Mark the current live version on the app store as \"finalized\" on Sentry. This lane needs to be launched after a version is \"ready for sale\" on the AppStore"
+lane :finalize_sentry_release do
+  APP_IDENTIFIER = CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)
+
+  liveVersion, editVersion = highest_app_version_number()
+
+  unless liveVersion.nil?
+    build_number = app_store_build_number(initial_build_number: 1, live: true).to_f.ceil
+    sentry_finalize_release(
+        org_slug: 'openfoodfacts',
+        project_slug: 'openfoodfacts-ios',
+        version: 'openfoodfacts-ios@'+liveVersion.to_s+'.'+build_number.to_s,
+        app_identifier: APP_IDENTIFIER
+    )
+    download_dsyms(min_version: liveVersion, output_directory: './ios/dSYMs') # Download dSYM files from iTC
+  end
+end
+
+desc "Upload metadata"
+lane :metadata do
+  deliver(skip_binary_upload: true)
+end
