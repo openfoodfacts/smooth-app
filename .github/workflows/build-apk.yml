@@ -17,9 +17,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install dependencies
-      run: pub get
+      run: pub get smooth-app/packages/smooth_app/
     - name: Run tests
-      run: pub run test
+      run: pub run test smooth-app/packages/smooth_app/
     - uses: actions/checkout@v1
     - uses: actions/setup-java@v1
       with:
@@ -27,6 +27,6 @@ jobs:
     - uses: subosito/flutter-action@v1
       with:
         flutter-version: '1.9.1+hotfix.6'
-    - run: flutter pub get
-    - run: flutter test
-    - run: flutter build apk
+    - run: flutter pub get smooth-app/packages/smooth_app/
+    - run: flutter test smooth-app/packages/smooth_app/
+    - run: flutter build apk smooth-app/packages/smooth_app/
