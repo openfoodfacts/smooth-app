@@ -1,1 +1,77 @@
+require_relative 'utils'
+fastlane_require "spaceship"
 
+desc 'Create an Android release and upload to internal channel of the Google Play Store'
+lane :release do
+    PACKAGE_NAME = CredentialsManager::AppfileConfig.try_fetch_value(:package_name)
+    gradle_file = "./app/build.gradle.kts"
+
+    localVersionName = android_get_version_name(gradle_file: gradle_file)
+    UI.important "Local is v#{localVersionName}"
+
+    #fetch versionName from playstore and bump minor if needed
+    versionName = play_store_version_to_upload_to(minimumVersionName: localVersionName).to_s
+    #fetch versionCode from playstore and bump it
+    versionCode = play_store_version_code_to_upload_to().to_s
+
+    UI.important "Releasing android app #{PACKAGE_NAME} v#{versionName} \##{versionCode}"
+
+    android_set_version_name(
+        version_name: versionName,
+        gradle_file: gradle_file
+    )
+    increment_version_code(
+        version_code: versionCode,
+        gradle_file_path: gradle_file
+    )
+
+    #build the bundle
+    gradle(
+        project_dir: './',
+        task: 'clean bundle',
+        build_type: 'offRelease'
+    )
+
+    #upload the bundle to internal track of play store
+    supply(
+        track: 'internal',
+        skip_upload_apk: true,
+#        version_codes_to_retain: ['12', '23'],
+        package_name: PACKAGE_NAME,
+        skip_upload_metadata: true,
+        skip_upload_changelogs: true,
+        skip_upload_images: true,
+        skip_upload_screenshots: true
+    )
+
+    sentry_create_release(
+        org_slug: 'openfoodfacts',
+        project_slug: 'openfoodfacts-smoothie-android',
+        version: 'off-smoothie-android@'+versionName+'.'+versionCode,
+        app_identifier: PACKAGE_NAME,
+        finalize: false # Release will be finalized by the "daily" lane, when the version is in production
+    )
+
+    sentry_set_commits(
+        org_slug: 'openfoodfacts',
+        project_slug: 'openfoodfacts-smoothie-android',
+        version: 'off-smoothie-android@'+versionName+'.'+versionCode,
+        app_identifier: PACKAGE_NAME, # pass in the bundle_identifer of your app
+        auto: true, # enable completely automated commit management
+        clear: false, # clear all current commits from the release
+    )
+end
+
+desc 'Check the Android version currently in production and mark it as "finalized"'
+lane :daily do
+    PACKAGE_NAME = CredentialsManager::AppfileConfig.try_fetch_value(:package_name)
+    versionName = google_play_track_version_name(track: 'production')
+    versionCode = google_play_track_version_codes(track: 'production').max
+
+    sentry_finalize_release(
+        org_slug: 'openfoodfacts',
+        project_slug: 'openfoodfacts-smoothie-android',
+        version: 'off-smoothie-android@'+versionName+'.'+versionCode,
+        app_identifier: PACKAGE_NAME
+    )
+end
