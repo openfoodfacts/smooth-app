@@ -6,7 +6,7 @@ fastlane_version "1.109.0"
 
 default_platform :ios
 
-desc "Run all the tests"
+desc "Run all the iOS tests"
 lane :test do
   carthage(command: "bootstrap", platform: "iOS", cache_builds: true, use_binaries: false)
   if !is_ci
@@ -29,7 +29,7 @@ lane :test do
   end
 end
 
-desc "Build and send the beta to TestFlight. The script will perform the following actions: \n"\
+desc "Build and send the iOS beta to TestFlight. The script will perform the following actions: \n"\
       "- Fetch the latest version and build_number from AppStoreConnect\n"\
       "- set the project version to either 'editVersion' or 'liveVersion + 0.0.1'\n"\
       "- set the build number to build_number + 1\n"\
