@@ -1,0 +1,3 @@
+files:
+  - source: /smooth-app/packages/smooth_app/lib/l10n/intl_en.arb
+    translation: /smooth-app/packages/smooth_app/lib/l10n/intl_%locale_with_underscore%.arb
