@@ -1,0 +1,17 @@
+{
+    "@@locale": "en",
+    "searchTitle": "Search.\nFind the perfect product",
+    "searchHintText": "Enter a barcode or keywords",
+    "categories": "Categories",
+    "showAll": "Show all",
+    "scanProductTitle": "Scan products",
+    "testerSettingTitle": "Testers settings",
+    "useMLKitText": "Use ML Kit powered scanner",
+    "organizationPage": "Organization Page",
+    "collaborationPage": "Collaboration Page",
+    "trackingPage": "Tracking Page",
+    "preferencesText": "My Preferences",
+    "mandatory": "Mandatory",
+    "accountable": "Accountable",
+    "saveButtonText": "ساقلاش"
+}

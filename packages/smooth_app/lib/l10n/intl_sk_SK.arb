@@ -1,0 +1,17 @@
+{
+    "@@locale": "en",
+    "searchTitle": "Vyhľadávanie.\nNájdite dokonalý produkt",
+    "searchHintText": "Zadajte čiarový kód alebo kľúčové slová",
+    "categories": "Kategórie",
+    "showAll": "Zobraziť všetko",
+    "scanProductTitle": "Naskenujte produkty",
+    "testerSettingTitle": "Nastavenia testerov",
+    "useMLKitText": "Použite skener napájaný z ML Kit",
+    "organizationPage": "Organizácie",
+    "collaborationPage": "Spolupráca",
+    "trackingPage": "Sledovanie",
+    "preferencesText": "Moje nastavenia",
+    "mandatory": "Povinné",
+    "accountable": "Zodpovedný",
+    "saveButtonText": "Uložiť"
+}

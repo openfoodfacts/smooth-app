@@ -1,0 +1,17 @@
+{
+    "@@locale": "en",
+    "searchTitle": "Søg.\nFind det perfekte produkt",
+    "searchHintText": "Indtast en stregkode eller nøgleord",
+    "categories": "Kategorier",
+    "showAll": "Vis alle",
+    "scanProductTitle": "Skan produkter",
+    "testerSettingTitle": "Testers settings",
+    "useMLKitText": "Use ML Kit powered scanner",
+    "organizationPage": "Organisationsside",
+    "collaborationPage": "Samarbejdsside",
+    "trackingPage": "Sporingsside",
+    "preferencesText": "Mine indstillinger",
+    "mandatory": "Obligatorisk",
+    "accountable": "Ansvarlig",
+    "saveButtonText": "Gem"
+}

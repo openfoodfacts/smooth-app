@@ -1,0 +1,17 @@
+{
+    "@@locale": "en",
+    "searchTitle": "Suchen.\nFinden Sie das perfekte Produkt",
+    "searchHintText": "Geben Sie einen Strichcode oder Schlüsselwörter ein",
+    "categories": "Kategorien",
+    "showAll": "Alle zeigen",
+    "scanProductTitle": "Produkte erfassen",
+    "testerSettingTitle": "Testers settings",
+    "useMLKitText": "Use ML Kit powered scanner",
+    "organizationPage": "Webseite der Organisation",
+    "collaborationPage": "Collaboration Page",
+    "trackingPage": "Tracking Page",
+    "preferencesText": "Meine Einstellungen",
+    "mandatory": "Pflichtfeld",
+    "accountable": "Verantwortlich",
+    "saveButtonText": "Speichern"
+}
