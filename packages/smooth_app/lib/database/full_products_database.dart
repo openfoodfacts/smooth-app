@@ -41,6 +41,7 @@ class FullProductsDatabase {
     ProductField.INGREDIENTS_ANALYSIS_TAGS,
     ProductField.LABELS_TAGS,
     ProductField.ENVIRONMENT_IMPACT_LEVELS,
+    ProductField.CATEGORIES_TAGS,
     ProductField.LANGUAGE
   ];
 
