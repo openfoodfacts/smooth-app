@@ -10,21 +10,23 @@ class ProfilePageModel extends ChangeNotifier {
 
   Future<bool> _loadData() async {
     sharedPreferences = await SharedPreferences.getInstance();
-    useMlKit = sharedPreferences.getBool('useMlKit') ?? true;
-
+    useMlKit = sharedPreferences.getBool('useMlKit') ?? false;
     notifyListeners();
     return true;
   }
 
   SharedPreferences sharedPreferences;
 
-  bool useMlKit = true;
+  bool useMlKit;
+  bool initialBuild = true;
 
   void setMlKitState(bool state) {
-    if(sharedPreferences != null) {
+    if(!initialBuild && sharedPreferences != null) {
       sharedPreferences.setBool('useMlKit', state);
       useMlKit = state;
       notifyListeners();
+    } else {
+      initialBuild = false;
     }
   }
 

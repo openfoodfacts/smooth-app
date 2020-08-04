@@ -200,6 +200,8 @@ class ChoosePage extends StatelessWidget {
                                   horizontalOffset: 50.0,
                                   child: FadeInAnimation(
                                       child: SubcategoryCard(
+                                    heroTag: choosePageModel
+                                        .selectedCategory.subGroups[index].name,
                                     title: choosePageModel
                                         .selectedCategory.subGroups[index].name,
                                     color: choosePageModel.selectedColor,
@@ -209,6 +211,12 @@ class ChoosePage extends StatelessWidget {
                                           MaterialPageRoute<dynamic>(
                                               builder: (BuildContext context) =>
                                                   ProductGroupQueryPage(
+                                                      heroTag: choosePageModel
+                                                          .selectedCategory
+                                                          .subGroups[index]
+                                                          .name,
+                                                      mainColor: choosePageModel
+                                                          .selectedColor,
                                                       group: choosePageModel
                                                           .selectedCategory
                                                           .subGroups[index])));

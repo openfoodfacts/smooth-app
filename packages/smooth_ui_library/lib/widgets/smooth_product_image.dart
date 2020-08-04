@@ -53,20 +53,21 @@ class SmoothProductImage extends StatelessWidget {
             ),
           ));
     } else {
-      return Container(
-        width: 100.0,
-        height: 120.0,
-        decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(Radius.circular(15.0)),
-          border: Border.all(color: Colors.black54, width: 1.0),
+      return ClipRRect(
+        borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+        child: Container(
+          width: width,
+          height: height,
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(15.0)),
+          ),
+          child: Center(
+              child: SvgPicture.asset(
+            'assets/product/product_not_found.svg',
+            fit: BoxFit.cover,
+            height: height,
+          )),
         ),
-        child: Center(
-            child: SvgPicture.asset(
-          'assets/product/missing_image.svg',
-          color: Colors.black54,
-          width: 36.0,
-          height: 36.0,
-        )),
       );
     }
   }

@@ -22,7 +22,7 @@ class SmoothItPage extends StatelessWidget {
                   length: 3,
                   child: Scaffold(
                     appBar: AppBar(
-                      title: const Text('Smooth It'),
+                      title: const Text('My personalized ranking'),
                       backgroundColor: Colors.black,
                       bottom: const TabBar(
                         tabs: <Tab>[
@@ -57,11 +57,11 @@ class SmoothItPage extends StatelessWidget {
       itemBuilder: (BuildContext context, int index) {
         return Padding(
           padding: const EdgeInsets.all(10.0),
-          child: SmoothProductCardFound(product: products[index], heroTag: '${tag}_card_$index').build(context),
+          child: SmoothProductCardFound(product: products[index], heroTag: '${tag}_card_$index', elevation: 8.0).build(context),
         );
       }
     ) : const Center(
-      child: Text('Aucun résultat dans cette catégorie'),
+      child: Text('No product in this selection'),
     );
   }
 }

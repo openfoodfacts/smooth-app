@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
+import 'package:smooth_ui_library/navigation/models/smooth_navigation_action_model.dart';
 import 'package:smooth_ui_library/navigation/models/smooth_navigation_state_model.dart';
 import 'package:smooth_ui_library/navigation/models/smooth_navigation_layout_model.dart';
 import 'package:smooth_ui_library/navigation/widgets/smooth_action_button.dart';
@@ -128,6 +129,22 @@ class SmoothNavigationLayout extends StatelessWidget {
             index: i,
             title: layout.screens[i].title,
           );
+        }),
+        actionSvgIcons: List<String>.generate(layout.screens.length, (int i) {
+          final SmoothNavigationActionModel action = layout.screens[i].action;
+          if(action != null) {
+            return  action.icon;
+          } else {
+            return 'assets/actions/scanner_alt_2.svg';
+          }
+        }),
+        actions: List<Function>.generate(layout.screens.length, (int i) {
+          final SmoothNavigationActionModel action = layout.screens[i].action;
+          if(action != null) {
+            return  action.onTap;
+          } else {
+            return null;
+          }
         }),
         animationCurve: animationCurve,
         animationDuration: animationDuration,

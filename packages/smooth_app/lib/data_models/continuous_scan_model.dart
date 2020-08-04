@@ -14,7 +14,7 @@ import 'package:smooth_app/database/full_products_database.dart';
 enum ScannedProductState { FOUND, NOT_FOUND, LOADING }
 
 class ContinuousScanModel extends ChangeNotifier {
-  ContinuousScanModel() {
+  ContinuousScanModel({@required this.contributionMode}) {
     carouselController = CarouselController();
 
     scannedBarcodes = <String, ScannedProductState>{};
@@ -34,6 +34,8 @@ class ContinuousScanModel extends ChangeNotifier {
 
   bool contributionMode = false;
 
+  bool firstScan = true;
+
   void setupScanner(QRViewController controller) {
     scannerController = controller;
     scannerController.scannedDataStream.listen((String barcode) {
@@ -49,10 +51,12 @@ class ContinuousScanModel extends ChangeNotifier {
     }
     if (addBarcode(code)) {
       _generateScannedProductsCardTemplates();
-      if (cardTemplates.isNotEmpty) {
+      if (!firstScan) {
         carouselController.animateToPage(
           cardTemplates.length - 1,
         );
+      } else {
+        firstScan = false;
       }
     }
   }
@@ -145,6 +149,7 @@ class ContinuousScanModel extends ChangeNotifier {
 
   void contributionModeSwitch(bool value) {
     contributionMode = value;
+    _generateScannedProductsCardTemplates(switchMode: true);
     notifyListeners();
   }
 }

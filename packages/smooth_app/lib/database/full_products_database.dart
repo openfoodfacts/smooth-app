@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/model/parameter/TagFilter.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/PnnsGroupQueryConfiguration.dart';
 import 'package:openfoodfacts/utils/PnnsGroups.dart';
@@ -29,6 +30,7 @@ class FullProductsDatabase {
     ProductField.BARCODE,
     ProductField.NUTRISCORE,
     ProductField.FRONT_IMAGE,
+    ProductField.SELECTED_IMAGE,
     ProductField.QUANTITY,
     ProductField.SERVING_SIZE,
     ProductField.PACKAGING_QUANTITY,
@@ -38,6 +40,7 @@ class FullProductsDatabase {
     ProductField.ADDITIVES,
     ProductField.INGREDIENTS_ANALYSIS_TAGS,
     ProductField.LABELS_TAGS,
+    ProductField.ENVIRONMENT_IMPACT_LEVELS,
     ProductField.LANGUAGE
   ];
 
@@ -79,6 +82,23 @@ class FullProductsDatabase {
      result.products.forEach(saveProduct);
 
      return result.products;
+  }
+
+  Future<List<Product>> queryProductsFromKeyword(String keyword) async {
+    final ProductSearchQueryConfiguration configuration =
+    ProductSearchQueryConfiguration(
+        fields: fields,
+        parametersList: <Parameter>[
+          const PageSize(size: 500),
+          TagFilter(tagType: 'categories', contains: true, tagName: keyword)
+        ],
+        language: OpenFoodFactsLanguage.ENGLISH);
+
+    final SearchResult result = await OpenFoodAPIClient.searchProducts(SMOOTH_USER, configuration);
+
+    result.products.forEach(saveProduct);
+
+    return result.products;
   }
 
   Future<bool> saveProduct(Product newProduct) async {

@@ -12,7 +12,7 @@ dependencies:
     sdk: flutter
 
   provider: ^4.0.5
-  openfoodfacts: ^0.3.6
+  openfoodfacts: ^0.3.8
   carousel_slider: ^2.1.0
   flutter_svg: ^0.17.4
   percent_indicator: ^2.1.3

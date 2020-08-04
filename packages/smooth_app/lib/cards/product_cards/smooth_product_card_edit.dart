@@ -2,11 +2,9 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/model/ProductImage.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_template.dart';
 import 'package:smooth_app/pages/product_page.dart';
-import 'package:smooth_app/views//smooth_product_sneak_peek_view.dart';
-import 'package:smooth_ui_library/page_routes/smooth_sneak_peek_route.dart';
-import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
 
 class SmoothProductCardEdit extends SmoothProductCardTemplate {
   SmoothProductCardEdit(
@@ -35,101 +33,32 @@ class SmoothProductCardEdit extends SmoothProductCardTemplate {
           ),
           padding: const EdgeInsets.all(10.0),
           child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-                  SmoothProductImage(
-                    product: product,
-                    width: 100.0,
-                    height: 120.0,
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(left: 10.0),
-                    padding: const EdgeInsets.only(top: 7.5),
-                    width: 150.0,
-                    height: 120.0,
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: <Widget>[
-                        Row(
-                          children: <Widget>[
-                            Flexible(
-                              child: Text(
-                                product.productName,
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 4.0,
-                        ),
-                        Row(
-                          children: <Widget>[
-                            Flexible(
-                              child: Text(
-                                product.brands ?? 'Unknown brand',
-                                style: const TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w300,
-                                    fontStyle: FontStyle.italic),
-                              ),
-                            )
-                          ],
-                        ),
-                      ],
+                  Flexible(
+                    child: Text(
+                      product.productName,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold),
                     ),
-                  )
+                  ),
                 ],
-              ),
-              const SizedBox(
-                height: 8.0,
               ),
               Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Container(
-                    width: 100.0,
-                    child: product.nutriscore != null
-                        ? Image.asset(
-                      'assets/product/nutri_score_${product.nutriscore}.png',
-                      fit: BoxFit.contain,
-                    )
-                        : Center(
-                      child: Text(
-                        'Nutri-score unavailable',
-                        style: Theme.of(context).textTheme.subtitle1,
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    width: 50.0,
-                    height: 50.0,
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                      color: Colors.white,
-                      boxShadow: <BoxShadow>[
-                        BoxShadow(
-                          color: Colors.black26,
-                          blurRadius: 16.0,
-                          offset: Offset(4.0, 4.0),
-                        )
-                      ],
-                    ),
-                    child: Center(
-                      child: Icon(
-                        Icons.add,
-                        size: 32.0,
-                      ),
-                    ),
-                  )
+                  _generateImageView(ImageField.FRONT, context),
+                  _generateImageView(ImageField.INGREDIENTS, context),
+                  _generateImageView(ImageField.NUTRITION, context),
                 ],
               ),
             ],
@@ -139,7 +68,61 @@ class SmoothProductCardEdit extends SmoothProductCardTemplate {
     );
   }
 
-  void _openSneakPeek(BuildContext context) {
+  Widget _generateImageView(ImageField field, BuildContext context) {
+    final Iterable<ProductImage> candidates = product.selectedImages.where((ProductImage image) => image.field == field).where((ProductImage image) => image.size == ImageSize.SMALL);
+    final String url = candidates.isNotEmpty ? candidates.first.url : null;
+    return url != null ? ClipRRect(
+        borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+        child: Container(
+          width: MediaQuery.of(context).size.width * 0.25,
+          height: 105.0,
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: NetworkImage(
+                url,
+                scale: 1.0,
+              ),
+            ),
+          ),
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 12.0, sigmaY: 12.0),
+            child: Image.network(
+              url,
+              fit: BoxFit.contain,
+              loadingBuilder: (BuildContext context, Widget child,
+                  ImageChunkEvent progress) {
+                if (progress == null) {
+                  return child;
+                }
+                return Center(
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2.5,
+                    valueColor:
+                    const AlwaysStoppedAnimation<Color>(Colors.white),
+                    value: progress.cumulativeBytesLoaded /
+                        progress.expectedTotalBytes,
+                  ),
+                );
+              },
+            ),
+          ),
+        )) : Container(
+      width: MediaQuery.of(context).size.width * 0.25,
+      height: 105.0,
+      padding: const EdgeInsets.all(5.0),
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+        border: Border.all(color: Colors.grey, width: 0.5),
+      ),
+      child: Center(
+        child: Text('Missing ${field.value} picture', textAlign: TextAlign.center, style: Theme.of(context).textTheme.subtitle1.copyWith(color: Colors.black),),
+      ),
+    );
+  }
+
+  /*void _openSneakPeek(BuildContext context) {
     Navigator.push<dynamic>(
         context,
         SmoothSneakPeekRoute<dynamic>(
@@ -156,5 +139,5 @@ class SmoothProductCardEdit extends SmoothProductCardTemplate {
               );
             },
             duration: 250));
-  }
+  }*/
 }

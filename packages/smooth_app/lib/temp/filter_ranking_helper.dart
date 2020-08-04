@@ -12,7 +12,7 @@ enum RankingType {
 class FilterRankingHelper {
 
   static Map<RankingType, List<Product>> process(List<Product> products, UserPreferences userPreferences) {
-    final Map<RankingType, List<Product>> result = <RankingType, List<Product>>{
+    final Map<RankingType, List<Product>> result = <RankingType, List<Product>> {
       RankingType.TOP_PICKS: <Product>[],
       RankingType.CONTENDERS: <Product>[],
       RankingType.DISMISSED: <Product>[]
@@ -84,8 +84,8 @@ class FilterRankingHelper {
     /* Those ordering loops are a bit janky, could probably be improved
     *  May require to change the data structure */
     Iterable<int> sortedScores = ((dismissed.values.toList())..sort((int a, int b) {
-      return a.compareTo(b);
-    })).reversed;
+      return b.compareTo(a);
+    }));
 
     for(final int score in sortedScores) {
       for(final Product product in dismissed.keys) {
@@ -96,8 +96,8 @@ class FilterRankingHelper {
     }
 
     sortedScores = ((topPicks.values.toList())..sort((int a, int b) {
-      return a.compareTo(b);
-    })).reversed;
+      return b.compareTo(a);
+    }));
 
     for(final int score in sortedScores) {
       for(final Product product in topPicks.keys) {
@@ -108,8 +108,8 @@ class FilterRankingHelper {
     }
 
     sortedScores = ((contenders.values.toList())..sort((int a, int b) {
-      return a.compareTo(b);
-    })).reversed;
+      return b.compareTo(a);
+    }));
 
     for(final int score in sortedScores) {
       for(final Product product in contenders.keys) {

@@ -25,7 +25,7 @@ dependencies:
   flutter_svg: ^0.17.4
   modal_bottom_sheet: ^0.1.5
   provider: ^4.0.5
-  openfoodfacts: ^0.3.7
+  openfoodfacts: ^0.3.9
   flutter_qr_bar_scanner: ^1.0.1
   qr_code_scanner: ^0.0.13
   sembast: ^2.4.4+1
@@ -38,6 +38,7 @@ dependencies:
   image_cropper: ^1.2.3
   flutter_staggered_animations: ^0.1.2
   intl: ^0.16.1
+  sentry: ^3.0.1
 
   smooth_ui_library:
     path: ../smooth_ui_library
@@ -67,6 +68,8 @@ flutter:
     - assets/misc/
     - assets/navigation/
     - assets/product/
+    - assets/ikonate_thin/
+    - assets/ikonate_bold/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

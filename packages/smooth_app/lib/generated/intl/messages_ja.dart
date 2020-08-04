@@ -23,7 +23,6 @@ class MessageLookup extends MessageLookupByLibrary {
   static _notInlinedMessages(_) => <String, Function> {
     "accountable" : MessageLookupByLibrary.simpleMessage("Accountable"),
     "categories" : MessageLookupByLibrary.simpleMessage("カテゴリ"),
-    "collaborationPage" : MessageLookupByLibrary.simpleMessage("Collaboration Page"),
     "mandatory" : MessageLookupByLibrary.simpleMessage("Mandatory"),
     "organizationPage" : MessageLookupByLibrary.simpleMessage("Organization Page"),
     "preferencesText" : MessageLookupByLibrary.simpleMessage("My Preferences"),

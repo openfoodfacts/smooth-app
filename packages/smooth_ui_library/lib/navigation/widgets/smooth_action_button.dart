@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_ui_library/navigation/models/smooth_navigation_action_model.dart';
 
 class SmoothActionButton extends StatelessWidget {
@@ -50,7 +51,14 @@ class SmoothActionButton extends StatelessWidget {
                         width: 50.0,
                         height: 50.0,
                         child: Center(
-                          child: action.icon,
+                          child: Container(
+                            padding: EdgeInsets.all(action.iconPadding),
+                            child: SvgPicture.asset(
+                              action.icon,
+                              width: action.iconSize,
+                              height: action.iconSize,
+                            ),
+                          ),
                         ),
                       ),
                       Row(

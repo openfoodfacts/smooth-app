@@ -30,12 +30,15 @@ class UserPreferencesModel extends ChangeNotifier {
   bool dataLoaded = false;
 
   bool getVariable(UserPreferencesVariable variable) {
+    print(dataLoaded);
     return userPreferences.getVariable(variable);
   }
 
   void setVariable(UserPreferencesVariable variable, bool value) {
-    userPreferences.setVariable(variable, value);
-    notifyListeners();
+    if(dataLoaded) {
+      userPreferences.setVariable(variable, value);
+      notifyListeners();
+    }
   }
 
   void saveUserPreferences() {

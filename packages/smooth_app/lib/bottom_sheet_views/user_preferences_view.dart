@@ -47,7 +47,7 @@ class UserPreferencesView extends StatelessWidget {
                             UserPreferencesVariableExtension
                                     .getMandatoryVariables()
                                 .length,
-                            (int index) => _generateMandatoryRow(
+                            (int index) => _generatePreferenceRow(
                               UserPreferencesVariableExtension
                                       .getMandatoryVariables()
                                   .elementAt(index),
@@ -68,7 +68,7 @@ class UserPreferencesView extends StatelessWidget {
                             UserPreferencesVariableExtension
                                     .getAccountableVariables()
                                 .length,
-                            (int index) => _generateMandatoryRow(
+                            (int index) => _generatePreferenceRow(
                               UserPreferencesVariableExtension
                                       .getAccountableVariables()
                                   .elementAt(index),
@@ -122,7 +122,7 @@ class UserPreferencesView extends StatelessWidget {
     );
   }
 
-  Widget _generateMandatoryRow(UserPreferencesVariable variable) {
+  Widget _generatePreferenceRow(UserPreferencesVariable variable) {
     return Container(
       padding: const EdgeInsets.all(10.0),
       margin: const EdgeInsets.all(10.0),
@@ -137,14 +137,21 @@ class UserPreferencesView extends StatelessWidget {
           Consumer<UserPreferencesModel>(
             builder: (BuildContext context,
                 UserPreferencesModel userPreferencesModel, Widget child) {
-              return SmoothToggle(
-                value: userPreferencesModel.dataLoaded
-                    ? userPreferencesModel.getVariable(variable)
-                    : userPreferencesModel.dataLoaded,
-                onChanged: (bool newValue) {
-                  userPreferencesModel.setVariable(variable, newValue);
-                },
-              );
+              if(userPreferencesModel.dataLoaded) {
+                return SmoothToggle(
+                  value: userPreferencesModel.getVariable(variable),
+                  width: 80.0,
+                  height: 38.0,
+                  textLeft: 'Yes',
+                  textRight: 'No',
+                  onChanged: (bool newValue) {
+                    userPreferencesModel.setVariable(variable, newValue);
+                  },
+                );
+              } else {
+                return Container();
+              }
+
             },
           ),
         ],

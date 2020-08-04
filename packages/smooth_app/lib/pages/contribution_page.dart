@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
 
-class TrackingPage extends StatelessWidget {
+class CollaborationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +15,7 @@ class TrackingPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               SvgPicture.asset(
-                'assets/misc/work_in_progress_alt_3.svg',
+                'assets/misc/work_in_progress_alt_2.svg',
                 width: MediaQuery.of(context).size.width * 0.6,
               ),
               const SizedBox(

@@ -19,12 +19,15 @@ class SmoothSearchBar extends StatelessWidget {
       shadowColor: color.withAlpha(160),
       child: TextField(
         controller: controller,
+        style: Theme.of(context).textTheme.bodyText1,
+        textCapitalization: TextCapitalization.sentences,
         decoration: InputDecoration(
           border: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
             borderSide: BorderSide.none
           ),
           hintText: hintText,
+          hintStyle: Theme.of(context).textTheme.subtitle1.copyWith(color: Colors.black),
           prefixIcon: Padding(
             padding: const EdgeInsets.all(12.0),
             child: SvgPicture.asset('assets/navigation/search.svg', color: Colors.grey,),
