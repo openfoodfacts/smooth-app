@@ -3,6 +3,22 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/utils/PnnsGroups.dart';
 
 class ChoosePageModel extends ChangeNotifier {
+
+  ChoosePageModel() {
+    scrollController.addListener(() {
+      if(scrollController.offset < 60.0) {
+        opacity = scrollController.offset / 60.0;
+        appBarColor = Colors.white.withOpacity(opacity);
+        preventAppBarColorRefresh = false;
+        notifyListeners();
+      } else if(!preventAppBarColorRefresh) {
+        preventAppBarColorRefresh = true;
+        appBarColor = Colors.white;
+        notifyListeners();
+      }
+    });
+  }
+
   List<Color> colors = <Color>[
     Colors.deepPurpleAccent,
     Colors.deepOrangeAccent,
@@ -17,6 +33,11 @@ class ChoosePageModel extends ChangeNotifier {
 
   PnnsGroup1 selectedCategory;
   Color selectedColor;
+  Color appBarColor = Colors.transparent;
+  double opacity = 0.0;
+  bool preventAppBarColorRefresh = false;
+
+  ScrollController scrollController = ScrollController();
 
   void selectCategory(PnnsGroup1 group, Color color) {
     selectedCategory = group;
@@ -29,6 +50,7 @@ class ChoosePageModel extends ChangeNotifier {
       selectedCategory = null;
       selectedColor = null;
       notifyListeners();
+      scrollController.animateTo(0.0, duration: const Duration(milliseconds: 280), curve: Curves.easeIn);
     }
   }
 

@@ -1,6 +1,8 @@
 
+import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/IngredientsAnalysisTags.dart';
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:smooth_app/structures/ranked_product.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 
 enum RankingType {
@@ -11,16 +13,8 @@ enum RankingType {
 
 class FilterRankingHelper {
 
-  static Map<RankingType, List<Product>> process(List<Product> products, UserPreferences userPreferences) {
-    final Map<RankingType, List<Product>> result = <RankingType, List<Product>> {
-      RankingType.TOP_PICKS: <Product>[],
-      RankingType.CONTENDERS: <Product>[],
-      RankingType.DISMISSED: <Product>[]
-    };
-
-    final Map<Product, int> topPicks = <Product, int>{};
-    final Map<Product, int> contenders = <Product, int>{};
-    final Map<Product, int> dismissed = <Product, int>{};
+  static List<RankedProduct> process(List<Product> products, UserPreferences userPreferences) {
+    final List<RankedProduct> result = <RankedProduct>[];
 
     for(final Product product in products) {
       bool isFiltered = false;
@@ -30,19 +24,31 @@ class FilterRankingHelper {
         switch(variable) {
           case UserPreferencesVariable.VEGAN:
             if(!isVegan(product)) {
-              dismissed[product] = score;
+              result.add(RankedProduct(
+                product: product,
+                type: RankingType.DISMISSED,
+                score: score,
+              ));
               isFiltered = true;
             }
             break;
           case UserPreferencesVariable.VEGETARIAN:
             if(!isVegetarian(product)) {
-              dismissed[product] = score;
+              result.add(RankedProduct(
+                product: product,
+                type: RankingType.DISMISSED,
+                score: score,
+              ));
               isFiltered = true;
             }
             break;
           case UserPreferencesVariable.GLUTEN_FREE:
             if(!isGlutenFree(product)) {
-              dismissed[product] = score;
+              result.add(RankedProduct(
+                product: product,
+                type: RankingType.DISMISSED,
+                score: score,
+              ));
               isFiltered = true;
             }
             break;
@@ -72,52 +78,28 @@ class FilterRankingHelper {
       }
       if(!isFiltered) {
         if(score < 0) {
-          dismissed[product] = score;
+          result.add(RankedProduct(
+            product: product,
+            type: RankingType.DISMISSED,
+            score: score,
+          ));
         } else if(score > 100) {
-          topPicks[product] = score;
+          result.add(RankedProduct(
+            product: product,
+            type: RankingType.TOP_PICKS,
+            score: score,
+          ));
         } else {
-          contenders[product] = score;
+          result.add(RankedProduct(
+            product: product,
+            type: RankingType.CONTENDERS,
+            score: score,
+          ));
         }
       }
     }
 
-    /* Those ordering loops are a bit janky, could probably be improved
-    *  May require to change the data structure */
-    Iterable<int> sortedScores = ((dismissed.values.toList())..sort((int a, int b) {
-      return b.compareTo(a);
-    }));
-
-    for(final int score in sortedScores) {
-      for(final Product product in dismissed.keys) {
-        if(dismissed[product] == score && !result[RankingType.DISMISSED].contains(product)) {
-          result[RankingType.DISMISSED].add(product);
-        }
-      }
-    }
-
-    sortedScores = ((topPicks.values.toList())..sort((int a, int b) {
-      return b.compareTo(a);
-    }));
-
-    for(final int score in sortedScores) {
-      for(final Product product in topPicks.keys) {
-        if(topPicks[product] == score && !result[RankingType.TOP_PICKS].contains(product)) {
-          result[RankingType.TOP_PICKS].add(product);
-        }
-      }
-    }
-
-    sortedScores = ((contenders.values.toList())..sort((int a, int b) {
-      return b.compareTo(a);
-    }));
-
-    for(final int score in sortedScores) {
-      for(final Product product in contenders.keys) {
-        if(contenders[product] == score && !result[RankingType.CONTENDERS].contains(product)) {
-          result[RankingType.CONTENDERS].add(product);
-        }
-      }
-    }
+    result.sort((RankedProduct a, RankedProduct b) => a.score.compareTo(b.score));
 
     return result;
   }
@@ -187,6 +169,40 @@ class FilterRankingHelper {
         break;
       default:
         return 0;
+        break;
+    }
+  }
+
+  static String getRankingTypeTitle(RankingType type) {
+    switch(type) {
+      case RankingType.TOP_PICKS:
+        return 'Top picks';
+        break;
+      case RankingType.CONTENDERS:
+        return 'Contenders';
+        break;
+      case RankingType.DISMISSED:
+        return 'Dismissed';
+        break;
+      default:
+        return 'Ranking type';
+        break;
+    }
+  }
+
+  static Color getRankingTypeColor(RankingType type) {
+    switch(type) {
+      case RankingType.TOP_PICKS:
+        return Colors.greenAccent;
+        break;
+      case RankingType.CONTENDERS:
+        return Colors.blueAccent;
+        break;
+      case RankingType.DISMISSED:
+        return Colors.redAccent;
+        break;
+      default:
+        return Colors.grey;
         break;
     }
   }

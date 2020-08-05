@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+/*import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
@@ -64,4 +64,4 @@ class SmoothItPage extends StatelessWidget {
       child: Text('No product in this selection'),
     );
   }
-}
+}*/

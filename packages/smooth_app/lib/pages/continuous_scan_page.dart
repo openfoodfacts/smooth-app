@@ -6,7 +6,7 @@ import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/lists/smooth_product_carousel.dart';
-import 'package:smooth_app/pages/smooth_it_page.dart';
+import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
 import 'package:smooth_ui_library/widgets/smooth_toggle.dart';
 
@@ -42,7 +42,7 @@ class ContinuousScanPage extends StatelessWidget {
             Navigator.push<dynamic>(
               context,
               MaterialPageRoute<dynamic>(
-                  builder: (BuildContext context) => SmoothItPage(
+                  builder: (BuildContext context) => PersonalizedRankingPage(
                         input: foundProducts,
                       )),
             );

@@ -83,7 +83,7 @@ class ProductPage extends StatelessWidget {
                         ),
                         Flexible(
                           child: Text(
-                            '${product.quantity}',
+                            product.quantity != null ? '${product.quantity}' : '',
                             style: Theme.of(context)
                                 .textTheme
                                 .headline4

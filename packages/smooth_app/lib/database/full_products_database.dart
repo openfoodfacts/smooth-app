@@ -107,7 +107,7 @@ class FullProductsDatabase {
     final String path = join(directory.path, 'full_products_database.db');
     final Database database = await factory.openDatabase(path);
 
-    print(newProduct.toJson());
+    //print(newProduct.toJson());
     try {
       final StoreRef<dynamic, dynamic> store =
           StoreRef<dynamic, dynamic>.main();
@@ -129,7 +129,7 @@ class FullProductsDatabase {
         await store.record(barcode).get(database) as Map<String, dynamic>;
 
     if (jsonProduct != null) {
-      print(jsonProduct);
+      //print(jsonProduct);
       return Product.fromJson(jsonProduct);
     }
 

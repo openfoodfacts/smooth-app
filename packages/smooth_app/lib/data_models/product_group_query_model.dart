@@ -17,7 +17,12 @@ class ProductGroupQueryModel extends ChangeNotifier {
   final ScrollController scrollController = ScrollController();
 
   List<Product> products;
+  List<Product> displayProducts;
   FullProductsDatabase productsDatabase;
+
+  Map<String, String> categories = <String, String>{};
+  List<String> sortedCategories;
+  String selectedCategory = 'all';
 
   bool showTitle = true;
 
@@ -33,8 +38,38 @@ class ProductGroupQueryModel extends ChangeNotifier {
       return p2Score.compareTo(p1Score);
     });
 
+    displayProducts = products;
+
+    categories['all'] = 'All';
+
+    for(final Product product in products) {
+      for(final String category in product.categoriesTags) {
+        categories.putIfAbsent(category, () {
+          String title = category.substring(3).replaceAll('-', ' ');
+          title = '${title[0].toUpperCase()}${title.substring(1)}';
+          return title;
+        });
+      }
+    }
+
+    sortedCategories = categories.keys.toList();
+    sortedCategories.sort();
+
     notifyListeners();
     return true;
+  }
+
+
+  void selectCategory(String category) {
+    selectedCategory = category;
+
+    if(category == 'all') {
+      displayProducts = products;
+    } else {
+      displayProducts = products.where((Product product) => product.categoriesTags.contains(category)).toList();
+    }
+
+    notifyListeners();
   }
 
   void _scrollListener() {

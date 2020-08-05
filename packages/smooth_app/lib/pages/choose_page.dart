@@ -21,15 +21,22 @@ class ChoosePage extends StatelessWidget {
             onWillPop: choosePageModel.onWillPop,
             child: Scaffold(
               body: NestedScrollView(
+                  controller: choosePageModel.scrollController,
                   headerSliverBuilder:
                       (BuildContext context, bool innerBoxIsScrolled) {
                     return <Widget>[
                       SliverAppBar(
                         expandedHeight: 228.0,
-                        backgroundColor: Colors.transparent,
+                        backgroundColor: choosePageModel.appBarColor,
                         pinned: true,
                         elevation: 0.0,
+                        /*title: Padding(
+                          padding: const EdgeInsets.only(top: 8.0),
+                          child: Text('Smoothie', style: Theme.of(context).textTheme.headline2.copyWith(color: Colors.black.withOpacity(choosePageModel.opacity)),),
+                        ),*/
+                        centerTitle: true,
                         flexibleSpace: FlexibleSpaceBar(
+                          collapseMode: CollapseMode.parallax,
                           background: Column(
                             children: <Widget>[
                               Padding(
@@ -58,46 +65,47 @@ class ChoosePage extends StatelessWidget {
                                   hintText: S.of(context).searchHintText,
                                 ),
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                  left: 12.0,
-                                  right: 0.0,
-                                  top: 8.0,
-                                ),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: <Widget>[
-                                    Flexible(
-                                      child: Text(
-                                        S.of(context).categories,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .headline3,
-                                      ),
-                                    ),
-                                    Consumer<ChoosePageModel>(builder:
-                                        (BuildContext context,
-                                            ChoosePageModel choosePageModel,
-                                            Widget child) {
-                                      return MaterialButton(
-                                        child: Text(
-                                          S.of(context).showAll,
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .subtitle1
-                                              .copyWith(color: Colors.black),
-                                        ),
-                                        onPressed: () {
-                                          choosePageModel.unSelectCategory();
-                                        },
-                                      );
-                                    }),
-                                  ],
-                                ),
-                              ),
                             ],
+                          ),
+                        ),
+                        bottom: PreferredSize(
+                          preferredSize:
+                              Size(MediaQuery.of(context).size.width, 20.0),
+                          child: Container(
+                            padding: const EdgeInsets.only(
+                              left: 12.0,
+                            ),
+                            decoration: BoxDecoration(
+                              color: choosePageModel.appBarColor,
+                              boxShadow: <BoxShadow>[
+                                BoxShadow(color: Colors.black.withOpacity(choosePageModel.opacity / 8.0), offset: const Offset(0.0, 6.0), blurRadius: 4.0),
+                              ],
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Flexible(
+                                  child: Text(
+                                    S.of(context).categories,
+                                    style:
+                                        Theme.of(context).textTheme.headline3,
+                                  ),
+                                ),
+                                MaterialButton(
+                                  child: Text(
+                                    S.of(context).showAll,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .subtitle1
+                                        .copyWith(color: Colors.black),
+                                  ),
+                                  onPressed: () {
+                                    choosePageModel.unSelectCategory();
+                                  },
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),

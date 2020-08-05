@@ -39,6 +39,7 @@ dependencies:
   flutter_staggered_animations: ^0.1.2
   intl: ^0.16.1
   sentry: ^3.0.1
+  sticky_grouped_list: ^0.3.0
 
   smooth_ui_library:
     path: ../smooth_ui_library

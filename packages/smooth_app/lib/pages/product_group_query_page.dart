@@ -4,7 +4,7 @@ import 'package:openfoodfacts/utils/PnnsGroups.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/data_models/product_group_query_model.dart';
-import 'package:smooth_app/pages/smooth_it_page.dart';
+import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
 
 class ProductGroupQueryPage extends StatelessWidget {
@@ -32,7 +32,9 @@ class ProductGroupQueryPage extends StatelessWidget {
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          SizedBox(width: MediaQuery.of(context).size.width * 0.09,),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.09,
+                          ),
                           FloatingActionButton.extended(
                             elevation: 12.0,
                             icon: SvgPicture.asset(
@@ -50,9 +52,11 @@ class ProductGroupQueryPage extends StatelessWidget {
                               Navigator.push<dynamic>(
                                 context,
                                 MaterialPageRoute<dynamic>(
-                                    builder: (BuildContext context) => SmoothItPage(
-                                      input: productGroupQueryModel.products,
-                                    )),
+                                    builder: (BuildContext context) =>
+                                        PersonalizedRankingPage(
+                                          input:
+                                              productGroupQueryModel.displayProducts,
+                                        )),
                               );
                             },
                           ),
@@ -69,27 +73,37 @@ class ProductGroupQueryPage extends StatelessWidget {
                         height: MediaQuery.of(context).size.height,
                         decoration: BoxDecoration(
                           color: mainColor.withAlpha(32),
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(20.0)),
+                          borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(20.0),
+                              bottomRight: Radius.circular(20.0)),
                         ),
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 10.0, vertical: 42.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        padding: const EdgeInsets.only(
+                            left: 10.0, right: 10.0, top: 96.0),
+                        child: Column(
                           children: <Widget>[
-                            Flexible(
-                              child: AnimatedOpacity(
-                                opacity: productGroupQueryModel.showTitle
-                                    ? 1.0
-                                    : 0.0,
-                                duration: const Duration(milliseconds: 250),
-                                child: Text(group.name,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headline1
-                                        .copyWith(color: mainColor)),
+                            Container(
+                              height: 80.0,
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Flexible(
+                                    child: AnimatedOpacity(
+                                        opacity:
+                                            productGroupQueryModel.showTitle
+                                                ? 1.0
+                                                : 0.0,
+                                        duration:
+                                            const Duration(milliseconds: 250),
+                                        child: Text(group.name,
+                                            textAlign: TextAlign.center,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .headline1
+                                                .copyWith(color: mainColor))),
+                                  ),
+                                ],
                               ),
                             ),
                           ],
@@ -98,21 +112,21 @@ class ProductGroupQueryPage extends StatelessWidget {
                   if (productGroupQueryModel.products != null)
                     if (productGroupQueryModel.products.isNotEmpty)
                       ListView.builder(
-                        itemCount: productGroupQueryModel.products.length,
+                        itemCount: productGroupQueryModel.displayProducts.length,
                         itemBuilder: (BuildContext context, int index) {
                           return Padding(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 12.0, vertical: 8.0),
                             child: SmoothProductCardFound(
                                     heroTag: productGroupQueryModel
-                                        .products[index].barcode,
+                                        .displayProducts[index].barcode,
                                     product:
-                                        productGroupQueryModel.products[index],
+                                        productGroupQueryModel.displayProducts[index],
                                     elevation: 4.0)
                                 .build(context),
                           );
                         },
-                        padding: const EdgeInsets.only(top: 120.0),
+                        padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.25),
                         controller: productGroupQueryModel.scrollController,
                       )
                     else
@@ -136,9 +150,63 @@ class ProductGroupQueryPage extends StatelessWidget {
                   else
                     Center(
                       child: Container(
-                        child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(mainColor),),
+                        child: CircularProgressIndicator(
+                          valueColor: AlwaysStoppedAnimation<Color>(mainColor),
+                        ),
                       ),
                     ),
+                  AnimatedOpacity(
+                    opacity: productGroupQueryModel.showTitle ? 1.0 : 0.0,
+                    duration: const Duration(milliseconds: 250),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.only(top: 28.0),
+                          child: IconButton(
+                            icon: Icon(
+                              Icons.arrow_back,
+                              color: mainColor,
+                            ),
+                            onPressed: () => Navigator.pop(context),
+                          ),
+                        ),
+                        if (productGroupQueryModel.products != null)
+                          if (productGroupQueryModel.products.isNotEmpty)
+                            Container(
+                              margin:
+                                  const EdgeInsets.only(top: 28.0, right: 8.0),
+                              padding: const EdgeInsets.only(left: 10.0),
+                              width: MediaQuery.of(context).size.width * 0.75,
+                              decoration: BoxDecoration(
+                                color: Colors.white30,
+                                borderRadius: const BorderRadius.all(Radius.circular(12.0))
+                              ),
+                              child: DropdownButton<String>(
+                                items: productGroupQueryModel.sortedCategories
+                                    .map((String key) {
+                                  return DropdownMenuItem<String>(
+                                    value: key,
+                                    child: Container(
+                                      width: MediaQuery.of(context).size.width * 0.65,
+                                      child: Text(productGroupQueryModel.categories[key] ?? 'error', style: Theme.of(context)
+                                          .textTheme
+                                          .bodyText1
+                                          .copyWith(
+                                          color: mainColor, fontSize: 12.0)),
+                                    ),
+                                  );
+                                }).toList(),
+                                value: productGroupQueryModel.selectedCategory,
+                                onChanged: (String value) => productGroupQueryModel.selectCategory(value),
+                                icon: Icon(Icons.arrow_drop_down, color: mainColor,),
+                                underline: Container(),
+                              ),
+                            ),
+                      ],
+                    ),
+                  ),
                 ],
               ));
           /**/
