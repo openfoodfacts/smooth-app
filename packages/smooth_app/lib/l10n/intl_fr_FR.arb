@@ -13,5 +13,16 @@
     "preferencesText": "Mes préférences",
     "mandatory": "Obligatoire",
     "accountable": "Redevable",
-    "saveButtonText": "Enregistrer"
+    "saveButtonText": "Enregistrer",
+    "myPersonalizedRanking": "My personalized ranking",
+    "scannerProductsEmpty": "Products you scan will appear here",
+    "featureInProgress": "We're still working on this feature, stay tuned",
+    "configurePreferences": "Configure my preferences",
+    "yes": "Oui",
+    "no": "Non",
+    "unknownBrand": "Unknown brand",
+    "unknownProductName": "Unknown product name",
+    "nutrition": "Nutrition",
+    "ingredients": "Ingrédients",
+    "ecology": "Ecology"
 }
