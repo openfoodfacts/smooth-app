@@ -13,5 +13,16 @@
     "preferencesText": "My Preferences",
     "mandatory": "Mandatory",
     "accountable": "Accountable",
-    "saveButtonText": "Mentés"
+    "saveButtonText": "Mentés",
+    "myPersonalizedRanking": "My personalized ranking",
+    "scannerProductsEmpty": "Products you scan will appear here",
+    "featureInProgress": "We're still working on this feature, stay tuned",
+    "configurePreferences": "Configure my preferences",
+    "yes": "Igen",
+    "no": "Nem",
+    "unknownBrand": "Unknown brand",
+    "unknownProductName": "Unknown product name",
+    "nutrition": "Tápanyag",
+    "ingredients": "Összetevők",
+    "ecology": "Ecology"
 }
