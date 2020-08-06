@@ -13,5 +13,16 @@
     "preferencesText": "My Preferences",
     "mandatory": "Mandatory",
     "accountable": "Accountable",
-    "saveButtonText": "I-save"
+    "saveButtonText": "I-save",
+    "myPersonalizedRanking": "My personalized ranking",
+    "scannerProductsEmpty": "Products you scan will appear here",
+    "featureInProgress": "We're still working on this feature, stay tuned",
+    "configurePreferences": "Configure my preferences",
+    "yes": "Oo",
+    "no": "Hindi",
+    "unknownBrand": "Unknown brand",
+    "unknownProductName": "Unknown product name",
+    "nutrition": "Nutrisyon",
+    "ingredients": "Mga sangkap",
+    "ecology": "Ecology"
 }
