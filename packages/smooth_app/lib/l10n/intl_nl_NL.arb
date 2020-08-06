@@ -13,5 +13,16 @@
     "preferencesText": "Mijn instellingen",
     "mandatory": "* Verplicht",
     "accountable": "Verantwoordelijk",
-    "saveButtonText": "Opslaan"
+    "saveButtonText": "Opslaan",
+    "myPersonalizedRanking": "My personalized ranking",
+    "scannerProductsEmpty": "Products you scan will appear here",
+    "featureInProgress": "We're still working on this feature, stay tuned",
+    "configurePreferences": "Configure my preferences",
+    "yes": "Ja",
+    "no": "Nee",
+    "unknownBrand": "Unknown brand",
+    "unknownProductName": "Unknown product name",
+    "nutrition": "Voedingswaarde",
+    "ingredients": "Ingrediënten",
+    "ecology": "Ecology"
 }
