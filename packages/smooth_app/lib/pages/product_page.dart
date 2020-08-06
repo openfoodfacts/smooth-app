@@ -9,6 +9,7 @@ import 'package:smooth_app/cards/expandables/product_processing_expandable.dart'
 import 'package:smooth_app/cards/information_cards/palm_oil_free_information_card.dart';
 import 'package:smooth_app/cards/information_cards/vegan_information_card.dart';
 import 'package:smooth_app/cards/information_cards/vegetarian_information_card.dart';
+import 'package:smooth_app/generated/l10n.dart';
 
 class ProductPage extends StatelessWidget {
   const ProductPage({@required this.product});
@@ -58,7 +59,7 @@ class ProductPage extends StatelessWidget {
                       children: <Widget>[
                         Flexible(
                           child: Text(
-                            product.productName ?? 'Unknown product name',
+                            product.productName ?? S.of(context).unknownProductName,
                             style: Theme.of(context).textTheme.headline1,
                           ),
                         )
@@ -74,7 +75,7 @@ class ProductPage extends StatelessWidget {
                       children: <Widget>[
                         Flexible(
                           child: Text(
-                            product.brands ?? 'Unknown brand',
+                            product.brands ?? S.of(context).unknownBrand,
                             style: Theme.of(context)
                                 .textTheme
                                 .subtitle1
@@ -132,7 +133,7 @@ class ProductPage extends StatelessWidget {
                       children: <Widget>[
                         Flexible(
                           child: Text(
-                            'Nutrition',
+                            S.of(context).nutrition,
                             style: Theme.of(context).textTheme.headline2,
                           ),
                         )
@@ -152,7 +153,7 @@ class ProductPage extends StatelessWidget {
                       children: <Widget>[
                         Flexible(
                           child: Text(
-                            'Ingredients',
+                            S.of(context).ingredients,
                             style: Theme.of(context).textTheme.headline2,
                           ),
                         )
@@ -170,14 +171,14 @@ class ProductPage extends StatelessWidget {
                       children: <Widget>[
                         Flexible(
                           child: Text(
-                            'Ecology',
+                            S.of(context).ecology,
                             style: Theme.of(context).textTheme.headline2,
                           ),
                         )
                       ],
                     ),
                   ),
-                  LabelsExpandable(labels: product.labelsTags,),
+                  LabelsExpandable(labels: product.labelsTags),
                 ],
               ),
             ),

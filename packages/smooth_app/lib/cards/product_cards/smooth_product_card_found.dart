@@ -73,7 +73,7 @@ class SmoothProductCardFound extends SmoothProductCardTemplate {
                                     product.productName,
                                     maxLines: 2,
                                     overflow: TextOverflow.fade,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         color: Colors.black,
                                         fontWeight: FontWeight.bold),
                                   ),
@@ -192,7 +192,7 @@ class SmoothProductCardFound extends SmoothProductCardTemplate {
                               child: Center(
                                 child: Stack(
                                   children: <Widget>[
-                                    Text(
+                                    const Text(
                                       'CO  ',
                                       style: TextStyle(
                                           fontSize: 12.0,
@@ -201,7 +201,7 @@ class SmoothProductCardFound extends SmoothProductCardTemplate {
                                     ),
                                     Transform.translate(
                                       offset: const Offset(16.0, 4.0),
-                                      child: Text(
+                                      child: const Text(
                                         '2',
                                         style: TextStyle(
                                             fontSize: 10.0,
@@ -276,7 +276,7 @@ class SmoothProductCardFound extends SmoothProductCardTemplate {
                                       product.productName,
                                       maxLines: 3,
                                       overflow: TextOverflow.fade,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           color: Colors.black,
                                           fontWeight: FontWeight.bold),
                                     ),

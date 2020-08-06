@@ -45,7 +45,7 @@ class SmoothProductCardEdit extends SmoothProductCardTemplate {
                       product.productName,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold),
                     ),

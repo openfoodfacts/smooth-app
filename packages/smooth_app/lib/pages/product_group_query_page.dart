@@ -179,9 +179,9 @@ class ProductGroupQueryPage extends StatelessWidget {
                                   const EdgeInsets.only(top: 28.0, right: 8.0),
                               padding: const EdgeInsets.only(left: 10.0),
                               width: MediaQuery.of(context).size.width * 0.75,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: Colors.white30,
-                                borderRadius: const BorderRadius.all(Radius.circular(12.0))
+                                borderRadius: BorderRadius.all(Radius.circular(12.0))
                               ),
                               child: DropdownButton<String>(
                                 items: productGroupQueryModel.sortedCategories

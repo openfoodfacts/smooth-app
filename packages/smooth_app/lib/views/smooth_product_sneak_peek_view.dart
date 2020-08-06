@@ -94,7 +94,7 @@ class SmoothProductSneakPeekViewState extends State<SmoothProductSneakPeekView>
                                   color: Colors.transparent,
                                   child: Text(
                                     widget.product.productName,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         color: Colors.black,
                                         fontWeight: FontWeight.bold),
                                   ),
@@ -112,7 +112,7 @@ class SmoothProductSneakPeekViewState extends State<SmoothProductSneakPeekView>
                                     color: Colors.transparent,
                                     child: Text(
                                       widget.product.brands ?? 'Unknown brand',
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           color: Colors.black,
                                           fontWeight: FontWeight.w300,
                                           fontStyle: FontStyle.italic),
@@ -162,7 +162,7 @@ class SmoothProductSneakPeekViewState extends State<SmoothProductSneakPeekView>
                           )
                         ],
                       ),
-                      child: Center(
+                      child: const Center(
                         child: Icon(
                           Icons.remove,
                           size: 32.0,

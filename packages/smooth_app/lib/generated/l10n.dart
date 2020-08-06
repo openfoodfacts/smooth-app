@@ -172,6 +172,116 @@ class S {
       args: [],
     );
   }
+
+  /// `My personalized ranking`
+  String get myPersonalizedRanking {
+    return Intl.message(
+      'My personalized ranking',
+      name: 'myPersonalizedRanking',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Products you scan will appear here`
+  String get scannerProductsEmpty {
+    return Intl.message(
+      'Products you scan will appear here',
+      name: 'scannerProductsEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We're still working on this feature, stay tuned`
+  String get featureInProgress {
+    return Intl.message(
+      'We\'re still working on this feature, stay tuned',
+      name: 'featureInProgress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Configure my preferences`
+  String get configurePreferences {
+    return Intl.message(
+      'Configure my preferences',
+      name: 'configurePreferences',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yes`
+  String get yes {
+    return Intl.message(
+      'Yes',
+      name: 'yes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No`
+  String get no {
+    return Intl.message(
+      'No',
+      name: 'no',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unknown brand`
+  String get unknownBrand {
+    return Intl.message(
+      'Unknown brand',
+      name: 'unknownBrand',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unknown product name`
+  String get unknownProductName {
+    return Intl.message(
+      'Unknown product name',
+      name: 'unknownProductName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Nutrition`
+  String get nutrition {
+    return Intl.message(
+      'Nutrition',
+      name: 'nutrition',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ingredients`
+  String get ingredients {
+    return Intl.message(
+      'Ingredients',
+      name: 'ingredients',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ecology`
+  String get ecology {
+    return Intl.message(
+      'Ecology',
+      name: 'ecology',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -57,16 +57,19 @@ class SmoothQuantitySelectorCard extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
-              SmoothGauge(
-                value: sneakPeakModel.servingCount * sneakPeakModel.servingQuantity / sneakPeakModel.packageQuantity,
+              const SmoothGauge(
+                value: 0.0,//sneakPeakModel.servingCount * sneakPeakModel.servingQuantity / sneakPeakModel.packageQuantity,
                 size: 60.0,
                 color: Colors.deepPurple,
               ),
               Column(
-                children: <Widget>[
-                  Text('${sneakPeakModel.servingCount} portion', style: const TextStyle(color: Colors.white)),
+                children: const  <Widget>[
+                  /*Text('${sneakPeakModel.servingCount} portion', style: const TextStyle(color: Colors.white)),
                   const SizedBox(height: 8.0,),
-                  Text('${sneakPeakModel.servingCount * sneakPeakModel.servingQuantity} g', style: const TextStyle(color: Colors.white),),
+                  Text('${sneakPeakModel.servingCount * sneakPeakModel.servingQuantity} g', style: const TextStyle(color: Colors.white),),*/
+                  Text('1 portion', style: TextStyle(color: Colors.white)),
+                  SizedBox(height: 8.0,),
+                  Text('0 g', style: TextStyle(color: Colors.white),),
                 ],
               )
             ],
@@ -76,7 +79,7 @@ class SmoothQuantitySelectorCard extends StatelessWidget {
             color: Colors.transparent,
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
             onPressed: () {
-              sneakPeakModel.increaseServingCount();
+              //sneakPeakModel.increaseServingCount();
             },
           ),
         ],

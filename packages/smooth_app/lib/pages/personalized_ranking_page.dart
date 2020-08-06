@@ -3,9 +3,8 @@ import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/data_models/smooth_it_model.dart';
-import 'package:smooth_app/structures/ranked_product.dart';
 import 'package:smooth_app/temp/filter_ranking_helper.dart';
-import 'package:sticky_grouped_list/sticky_grouped_list.dart';
+import 'package:smooth_ui_library/widgets/smooth_sticky_list_view.dart';
 
 class PersonalizedRankingPage extends StatelessWidget {
   const PersonalizedRankingPage({@required this.input});
@@ -51,10 +50,13 @@ class PersonalizedRankingPage extends StatelessWidget {
                       ),
                     ],
                   )),
-              StickyGroupedListView<RankedProduct, String>(
-                elements: personalizedRakingModel.products,
-                groupBy: (RankedProduct element) => element.type.toString(),
-                groupSeparatorBuilder: (RankedProduct element) => Row(
+              SmoothStickyListView(
+                itemCount: personalizedRakingModel.products.length,
+                hasSameHeader: (int indexA, int indexB) {
+                  return personalizedRakingModel.products[indexA].type ==
+                      personalizedRakingModel.products[indexB].type;
+                },
+                headerBuilder: (BuildContext context, int index) => Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -64,13 +66,13 @@ class PersonalizedRankingPage extends StatelessWidget {
                       margin: const EdgeInsets.only(top: 32.0, bottom: 8.0),
                       decoration: BoxDecoration(
                           color: FilterRankingHelper.getRankingTypeColor(
-                              element.type),
+                              personalizedRakingModel.products[index].type),
                           borderRadius:
                               const BorderRadius.all(Radius.circular(50.0))),
                       child: Center(
                         child: Text(
                             FilterRankingHelper.getRankingTypeTitle(
-                                element.type),
+                                personalizedRakingModel.products[index].type),
                             style: Theme.of(context)
                                 .textTheme
                                 .headline3
@@ -79,20 +81,22 @@ class PersonalizedRankingPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                itemBuilder: (BuildContext context, RankedProduct element) =>
-                    Padding(
+                itemBuilder: (BuildContext context, int index) => Padding(
                   padding: const EdgeInsets.symmetric(
                       horizontal: 12.0, vertical: 8.0),
                   child: SmoothProductCardFound(
-                          heroTag: element.product.barcode,
-                          product: element.product,
+                          heroTag: personalizedRakingModel
+                              .products[index].product.barcode,
+                          product:
+                              personalizedRakingModel.products[index].product,
                           elevation: 4.0)
                       .build(context),
                 ),
-                itemScrollController: GroupedItemScrollController(),
-                order: StickyGroupedListOrder.ASC,
+                headerPadding: const EdgeInsets.only(
+                    top: 0.0, left: 42.0),
                 padding: EdgeInsets.only(
                     top: MediaQuery.of(context).size.height * 0.25),
+                itemExtend: 140.0,
               ),
               AnimatedOpacity(
                 opacity: personalizedRakingModel.showTitle ? 1.0 : 0.0,
@@ -104,7 +108,7 @@ class PersonalizedRankingPage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 28.0),
                       child: IconButton(
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.arrow_back,
                         ),
                         onPressed: () => Navigator.pop(context),

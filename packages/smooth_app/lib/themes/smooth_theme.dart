@@ -5,7 +5,7 @@ class SmoothThemes {
     return ThemeData(
       primaryColorDark: Colors.black,
       accentColor: Colors.black,
-      textTheme: TextTheme(
+      textTheme: const TextTheme(
         headline1: TextStyle(
             fontSize: 28.0, fontWeight: FontWeight.bold, color: Colors.black),
         headline2: TextStyle(

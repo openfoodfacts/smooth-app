@@ -150,7 +150,7 @@ class SmoothUploadPage extends StatelessWidget {
             await imagePicker.getImage(source: ImageSource.camera);
         final File croppedFile = await ImageCropper.cropImage(
           sourcePath: pickedFile.path,
-          androidUiSettings: AndroidUiSettings(
+          androidUiSettings: const AndroidUiSettings(
               toolbarTitle: 'Smooth crop',
               toolbarColor: Colors.black,
               toolbarWidgetColor: Colors.white,

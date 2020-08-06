@@ -54,8 +54,8 @@ class ProfilePage extends StatelessWidget {
                           value: profilePageModel.useMlKit,
                           width: 80.0,
                           height: 38.0,
-                          textLeft: 'Yes',
-                          textRight: 'No',
+                          textLeft: S.of(context).yes,
+                          textRight: S.of(context).no,
                           onChanged: (bool newValue) {
                             profilePageModel.setMlKitState(newValue);
                           },
@@ -91,7 +91,7 @@ class ProfilePage extends StatelessWidget {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    const Text('Configure my preferences'),
+                    Text(S.of(context).configurePreferences),
                     SvgPicture.asset('assets/misc/right_arrow.svg', color: Colors.black,),
                   ],
                 ),

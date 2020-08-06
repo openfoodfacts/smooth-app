@@ -4,6 +4,7 @@ import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
+import 'package:smooth_app/generated/l10n.dart';
 import 'package:smooth_app/lists/smooth_product_carousel.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
@@ -33,9 +34,9 @@ class AlternativeContinuousScanPage extends StatelessWidget {
             height: 24.0,
             color: Colors.black,
           ),
-          label: const Text(
-            'Smooth-it !',
-            style: TextStyle(color: Colors.black),
+          label: Text(
+            S.of(context).myPersonalizedRanking,
+            style: const TextStyle(color: Colors.black),
           ),
           backgroundColor: Colors.white,
           onPressed: () {
@@ -126,16 +127,6 @@ class AlternativeContinuousScanPage extends StatelessWidget {
                             ],
                           ),
                         );
-                        if (continuousScanModel.cardTemplates.isNotEmpty) {
-                          return Center(
-                            child: Container(
-                              height: MediaQuery.of(context).size.height * 0.3,
-                            ),
-                          );
-                        }
-                        return Container(
-                          height: MediaQuery.of(context).size.height * 0.3,
-                        );
                       },
                     ),
                     Center(
@@ -172,7 +163,7 @@ class AlternativeContinuousScanPage extends StatelessWidget {
                           padding: EdgeInsets.only(
                               top: MediaQuery.of(context).size.height * 0.08),
                           child: Text(
-                            'Products you scan will appear here',
+                            S.of(context).scannerProductsEmpty,
                             style: Theme.of(context).textTheme.subtitle1,
                             textAlign: TextAlign.center,
                           ),

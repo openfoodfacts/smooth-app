@@ -153,7 +153,7 @@ class _SmoothToggleState extends State<SmoothToggle>
                   height: widget.height - 10,
                   width: widget.height - 10,
                   alignment: Alignment.center,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       shape: BoxShape.circle, color: Colors.white),
                   child: Stack(
                     children: <Widget>[

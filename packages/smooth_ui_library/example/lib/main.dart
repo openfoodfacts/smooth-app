@@ -31,31 +31,31 @@ class SmoothUILibraryExample extends StatelessWidget {
           icon: Container(
             width: 20.0,
             height: 20.0,
-            decoration: BoxDecoration(
-                borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+            decoration: const BoxDecoration(
+                borderRadius:  BorderRadius.all(Radius.circular(10.0)),
                 color: Colors.greenAccent),
           ),
-          page: TestPage(Colors.greenAccent),
+          page: const TestPage(Colors.greenAccent),
         ),
         SmoothNavigationScreenModel(
           icon: Container(
             width: 20.0,
             height: 20.0,
-            decoration: BoxDecoration(
-                borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+            decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
                 color: Colors.yellow),
           ),
-          page: TestPage(Colors.yellow),
+          page: const TestPage(Colors.yellow),
         ),
         SmoothNavigationScreenModel(
           icon: Container(
             width: 20.0,
             height: 20.0,
-            decoration: BoxDecoration(
-                borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+            decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
                 color: Colors.redAccent),
           ),
-          page: TestPage(Colors.redAccent),
+          page: const TestPage(Colors.redAccent),
         ),
       ],
     );

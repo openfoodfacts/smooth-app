@@ -24,7 +24,7 @@ class NutritionLevelsExpandable extends StatelessWidget {
               chip: true,
               level: nutrientLevels.levels[NutrientLevels.NUTRIENT_SUGARS],
               title: 'Sugars',
-              icon: Icon(
+              icon: const Icon(
                 Icons.check_box_outline_blank,
                 color: Colors.white,
               ),
@@ -33,7 +33,7 @@ class NutritionLevelsExpandable extends StatelessWidget {
               chip: true,
               level: nutrientLevels.levels[NutrientLevels.NUTRIENT_SALT],
               title: 'Salt',
-              icon: Icon(
+              icon: const Icon(
                 Icons.strikethrough_s,
                 color: Colors.white,
               ),
@@ -42,7 +42,7 @@ class NutritionLevelsExpandable extends StatelessWidget {
               chip: true,
               level: nutrientLevels.levels[NutrientLevels.NUTRIENT_FAT],
               title: 'Fat',
-              icon: Icon(
+              icon: const Icon(
                 Icons.fastfood,
                 color: Colors.white,
               ),
@@ -52,7 +52,7 @@ class NutritionLevelsExpandable extends StatelessWidget {
               level:
                   nutrientLevels.levels[NutrientLevels.NUTRIENT_SATURATED_FAT],
               title: 'Saturated-fat',
-              icon: Icon(
+              icon: const Icon(
                 Icons.fastfood,
                 color: Colors.white,
               ),

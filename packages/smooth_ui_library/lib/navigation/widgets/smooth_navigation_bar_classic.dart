@@ -208,9 +208,8 @@ class _SmoothNavigationBarClassicState extends State<SmoothNavigationBarClassic>
                         child: Container(
                           width: 56.0,
                           height: 56.0,
-                          decoration: BoxDecoration(
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(60.0)),
+                          decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.all(Radius.circular(60.0)),
                               color: Colors.black),
                           child: Center(
                             child: SvgPicture.asset(

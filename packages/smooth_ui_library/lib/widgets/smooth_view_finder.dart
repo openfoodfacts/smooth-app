@@ -56,7 +56,7 @@ class SmoothViewFinderState extends State<SmoothViewFinder>
               child: AnimatedContainer(
                 width: goRight ? 288.0 : 0.0,
                 height: widget.height,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   border: Border(
                       right: BorderSide(
                     width: 1.0,

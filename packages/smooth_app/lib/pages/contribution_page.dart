@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:smooth_app/generated/l10n.dart';
 import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
 
 class CollaborationPage extends StatelessWidget {
@@ -21,7 +22,7 @@ class CollaborationPage extends StatelessWidget {
               const SizedBox(
                 height: 28.0,
               ),
-              Text('We\'re still working on this feature, stay tuned', style: Theme.of(context).textTheme.subtitle1.copyWith(color: Colors.black),),
+              Text(S.of(context).featureInProgress, style: Theme.of(context).textTheme.subtitle1.copyWith(color: Colors.black),),
             ],
           ),
         ),

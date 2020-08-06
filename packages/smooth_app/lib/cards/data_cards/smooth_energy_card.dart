@@ -55,10 +55,11 @@ class SmoothEnergyCard extends StatelessWidget {
           const SizedBox(
             height: 5.0,
           ),
-          Expanded(
+          const Expanded(
             child: Center(
               child: SmoothGauge(
-                value: sneakPeakModel.energy,
+                //value: sneakPeakModel.energy,
+                value: 0.0,
                 color: Colors.greenAccent,
               ),
             ),
