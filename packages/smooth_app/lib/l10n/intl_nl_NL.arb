@@ -7,11 +7,11 @@
     "scanProductTitle": "Scan producten",
     "testerSettingTitle": "Instellingen voor testers",
     "useMLKitText": "Gebruik ML Kit powered scanner",
-    "organizationPage": "Organization Page",
+    "organizationPage": "Organisatiepagina",
     "contributionPage": "Contribution Page",
     "trackingPage": "Tracking Page",
-    "preferencesText": "My Preferences",
-    "mandatory": "Mandatory",
-    "accountable": "Accountable",
+    "preferencesText": "Mijn instellingen",
+    "mandatory": "* Verplicht",
+    "accountable": "Verantwoordelijk",
     "saveButtonText": "Opslaan"
 }
