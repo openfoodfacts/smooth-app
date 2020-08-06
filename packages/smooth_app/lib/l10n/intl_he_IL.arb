@@ -13,5 +13,16 @@
     "preferencesText": "ההעדפות שלי",
     "mandatory": "חובה",
     "accountable": "אחריות",
-    "saveButtonText": "שמירה"
+    "saveButtonText": "שמירה",
+    "myPersonalizedRanking": "My personalized ranking",
+    "scannerProductsEmpty": "Products you scan will appear here",
+    "featureInProgress": "We're still working on this feature, stay tuned",
+    "configurePreferences": "Configure my preferences",
+    "yes": "כן",
+    "no": "לא",
+    "unknownBrand": "Unknown brand",
+    "unknownProductName": "Unknown product name",
+    "nutrition": "תזונה",
+    "ingredients": "רכיבים",
+    "ecology": "Ecology"
 }
