@@ -14,15 +14,15 @@
     "mandatory": "Obligatorisk",
     "accountable": "Ansvarlig",
     "saveButtonText": "Gem",
-    "myPersonalizedRanking": "My personalized ranking",
-    "scannerProductsEmpty": "Products you scan will appear here",
-    "featureInProgress": "We're still working on this feature, stay tuned",
-    "configurePreferences": "Configure my preferences",
+    "myPersonalizedRanking": "Min personlige indplacering",
+    "scannerProductsEmpty": "Produkter, du skanner, vil fremgå hér",
+    "featureInProgress": "Vi arbejder stadig på denne funktion, så hold øje med den",
+    "configurePreferences": "Opsæt mine præferencer",
     "yes": "Ja",
     "no": "Nej",
-    "unknownBrand": "Unknown brand",
-    "unknownProductName": "Unknown product name",
+    "unknownBrand": "Ukendt varemærle",
+    "unknownProductName": "Ukendt produktnavn",
     "nutrition": "Ernæring",
     "ingredients": "Ingredienser",
-    "ecology": "Ecology"
+    "ecology": "Økologi"
 }
