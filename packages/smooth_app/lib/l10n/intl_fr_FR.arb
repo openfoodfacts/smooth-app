@@ -6,12 +6,12 @@
     "showAll": "Afficher tout",
     "scanProductTitle": "Scannez des produits",
     "testerSettingTitle": "Paramètres des testeurs",
-    "useMLKitText": "Use ML Kit powered scanner",
+    "useMLKitText": "Utiliser le scanner alimenté par ML Kit",
     "organizationPage": "Organization Page",
-    "collaborationPage": "Page de collaboration",
+    "contributionPage": "Contribution Page",
     "trackingPage": "Page de suivi",
     "preferencesText": "Mes préférences",
     "mandatory": "Obligatoire",
-    "accountable": "Accountable",
+    "accountable": "Redevable",
     "saveButtonText": "Enregistrer"
 }
