@@ -13,5 +13,16 @@
     "preferencesText": "Mine indstillinger",
     "mandatory": "Obligatorisk",
     "accountable": "Ansvarlig",
-    "saveButtonText": "Gem"
+    "saveButtonText": "Gem",
+    "myPersonalizedRanking": "Min personlige indplacering",
+    "scannerProductsEmpty": "Produkter, du skanner, vil fremgå hér",
+    "featureInProgress": "Vi arbejder stadig på denne funktion, så hold øje med den",
+    "configurePreferences": "Opsæt mine præferencer",
+    "yes": "Ja",
+    "no": "Nej",
+    "unknownBrand": "Ukendt varemærle",
+    "unknownProductName": "Ukendt produktnavn",
+    "nutrition": "Ernæring",
+    "ingredients": "Ingredienser",
+    "ecology": "Økologi"
 }

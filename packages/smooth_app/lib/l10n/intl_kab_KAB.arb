@@ -13,5 +13,16 @@
     "preferencesText": "My Preferences",
     "mandatory": "Mandatory",
     "accountable": "Accountable",
-    "saveButtonText": "Sekles"
+    "saveButtonText": "Sekles",
+    "myPersonalizedRanking": "My personalized ranking",
+    "scannerProductsEmpty": "Products you scan will appear here",
+    "featureInProgress": "We're still working on this feature, stay tuned",
+    "configurePreferences": "Configure my preferences",
+    "yes": "Ih",
+    "no": "Uhu",
+    "unknownBrand": "Unknown brand",
+    "unknownProductName": "Unknown product name",
+    "nutrition": "Tuččit",
+    "ingredients": "Isufar",
+    "ecology": "Ecology"
 }

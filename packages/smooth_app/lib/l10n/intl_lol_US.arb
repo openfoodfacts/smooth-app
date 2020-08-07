@@ -13,5 +13,16 @@
     "preferencesText": "crwdns139896:0crwdne139896:0",
     "mandatory": "crwdns139898:0crwdne139898:0",
     "accountable": "crwdns139900:0crwdne139900:0",
-    "saveButtonText": "crwdns139902:0crwdne139902:0"
+    "saveButtonText": "crwdns139902:0crwdne139902:0",
+    "myPersonalizedRanking": "crwdns140524:0crwdne140524:0",
+    "scannerProductsEmpty": "crwdns140526:0crwdne140526:0",
+    "featureInProgress": "crwdns140528:0crwdne140528:0",
+    "configurePreferences": "crwdns140530:0crwdne140530:0",
+    "yes": "crwdns140532:0crwdne140532:0",
+    "no": "crwdns140534:0crwdne140534:0",
+    "unknownBrand": "crwdns140536:0crwdne140536:0",
+    "unknownProductName": "crwdns140538:0crwdne140538:0",
+    "nutrition": "crwdns140540:0crwdne140540:0",
+    "ingredients": "crwdns140542:0crwdne140542:0",
+    "ecology": "crwdns140544:0crwdne140544:0"
 }

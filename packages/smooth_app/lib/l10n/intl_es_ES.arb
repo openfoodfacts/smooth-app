@@ -13,5 +13,16 @@
     "preferencesText": "Mis preferencias",
     "mandatory": "Obligatorio",
     "accountable": "Contable",
-    "saveButtonText": "Guardar"
+    "saveButtonText": "Guardar",
+    "myPersonalizedRanking": "My personalized ranking",
+    "scannerProductsEmpty": "Products you scan will appear here",
+    "featureInProgress": "We're still working on this feature, stay tuned",
+    "configurePreferences": "Configure my preferences",
+    "yes": "Sí",
+    "no": "No",
+    "unknownBrand": "Unknown brand",
+    "unknownProductName": "Unknown product name",
+    "nutrition": "Nutrición",
+    "ingredients": "Ingredientes",
+    "ecology": "Ecology"
 }

@@ -13,5 +13,16 @@
     "preferencesText": "My Preferences",
     "mandatory": "Mandatory",
     "accountable": "Accountable",
-    "saveButtonText": "保存"
+    "saveButtonText": "保存",
+    "myPersonalizedRanking": "My personalized ranking",
+    "scannerProductsEmpty": "Products you scan will appear here",
+    "featureInProgress": "We're still working on this feature, stay tuned",
+    "configurePreferences": "Configure my preferences",
+    "yes": "はい",
+    "no": "いいえ",
+    "unknownBrand": "Unknown brand",
+    "unknownProductName": "Unknown product name",
+    "nutrition": "栄養",
+    "ingredients": "原材料",
+    "ecology": "Ecology"
 }

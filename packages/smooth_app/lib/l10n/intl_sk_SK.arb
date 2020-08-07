@@ -13,5 +13,16 @@
     "preferencesText": "Moje nastavenia",
     "mandatory": "Povinné",
     "accountable": "Zodpovedný",
-    "saveButtonText": "Uložiť"
+    "saveButtonText": "Uložiť",
+    "myPersonalizedRanking": "My personalized ranking",
+    "scannerProductsEmpty": "Products you scan will appear here",
+    "featureInProgress": "We're still working on this feature, stay tuned",
+    "configurePreferences": "Configure my preferences",
+    "yes": "Áno",
+    "no": "Nie",
+    "unknownBrand": "Unknown brand",
+    "unknownProductName": "Unknown product name",
+    "nutrition": "Nutričné hodnoty",
+    "ingredients": "Ingrediencie",
+    "ecology": "Ecology"
 }
