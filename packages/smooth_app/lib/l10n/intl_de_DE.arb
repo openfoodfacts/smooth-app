@@ -16,13 +16,13 @@
     "saveButtonText": "Speichern",
     "myPersonalizedRanking": "Meine persönliche Rangliste",
     "scannerProductsEmpty": "Die von Ihnen erfassten Produkte werden hier angezeigt",
-    "featureInProgress": "We're still working on this feature, stay tuned",
-    "configurePreferences": "Configure my preferences",
+    "featureInProgress": "An dieser Funktion wird noch gearbeitet, bleiben Sie dran",
+    "configurePreferences": "Meine Einstellungen konfigurieren",
     "yes": "Ja",
     "no": "Nein",
-    "unknownBrand": "Unknown brand",
-    "unknownProductName": "Unknown product name",
+    "unknownBrand": "Unbekannte Marke",
+    "unknownProductName": "Unbekannter Produktname",
     "nutrition": "Nährwertangaben",
-    "ingredients": "Inhaltsstoffe",
-    "ecology": "Ecology"
+    "ingredients": "Zutaten",
+    "ecology": "Ökologie"
 }
