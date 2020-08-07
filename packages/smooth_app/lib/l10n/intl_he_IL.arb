@@ -14,15 +14,15 @@
     "mandatory": "חובה",
     "accountable": "אחריות",
     "saveButtonText": "שמירה",
-    "myPersonalizedRanking": "My personalized ranking",
-    "scannerProductsEmpty": "Products you scan will appear here",
-    "featureInProgress": "We're still working on this feature, stay tuned",
-    "configurePreferences": "Configure my preferences",
+    "myPersonalizedRanking": "הדירוג האישי שלי",
+    "scannerProductsEmpty": "מוצרים שסרקת יופיעו כאן",
+    "featureInProgress": "אנחנו עדיין עובדים על התכונה הזאת, עדכונים בקרוב",
+    "configurePreferences": "הגדרת ההעדפות שלי",
     "yes": "כן",
     "no": "לא",
-    "unknownBrand": "Unknown brand",
-    "unknownProductName": "Unknown product name",
+    "unknownBrand": "מותג לא ידוע",
+    "unknownProductName": "שם מוצר לא ידוע",
     "nutrition": "תזונה",
     "ingredients": "רכיבים",
-    "ecology": "Ecology"
+    "ecology": "איכות הסביבה"
 }
