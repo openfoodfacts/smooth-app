@@ -1,19 +1,20 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/database/user_database.dart';
 import 'package:smooth_app/structures/ranked_product.dart';
 import 'package:smooth_app/temp/filter_ranking_helper.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
-import 'package:sticky_grouped_list/sticky_grouped_list.dart';
 
 class SmoothItModel extends ChangeNotifier {
 
   SmoothItModel(List<Product> input) {
     _loadData(input);
+    scrollController.addListener(_scrollListener);
   }
 
-  final GroupedItemScrollController scrollController = GroupedItemScrollController();
+  final ScrollController scrollController = ScrollController();
 
   Future<bool> _loadData(List<Product> input) async {
     try {
@@ -34,5 +35,17 @@ class SmoothItModel extends ChangeNotifier {
   bool dataLoaded = false;
 
   bool showTitle = true;
+
+  void _scrollListener() {
+    if (scrollController.offset <= scrollController.position.minScrollExtent &&
+        !scrollController.position.outOfRange) {
+      // Reached Top
+      showTitle = true;
+      notifyListeners();
+    } else {
+      showTitle = false;
+      notifyListeners();
+    }
+  }
 
 }

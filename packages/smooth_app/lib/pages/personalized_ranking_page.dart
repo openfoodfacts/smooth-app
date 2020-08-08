@@ -3,8 +3,9 @@ import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/data_models/smooth_it_model.dart';
+import 'package:smooth_app/structures/ranked_product.dart';
 import 'package:smooth_app/temp/filter_ranking_helper.dart';
-import 'package:smooth_ui_library/widgets/smooth_sticky_list_view.dart';
+import 'package:sticky_headers/sticky_headers.dart';
 
 class PersonalizedRankingPage extends StatelessWidget {
   const PersonalizedRankingPage({@required this.input});
@@ -50,53 +51,65 @@ class PersonalizedRankingPage extends StatelessWidget {
                       ),
                     ],
                   )),
-              SmoothStickyListView(
+              ListView.builder(
                 itemCount: personalizedRakingModel.products.length,
-                hasSameHeader: (int indexA, int indexB) {
-                  return personalizedRakingModel.products[indexA].type ==
-                      personalizedRakingModel.products[indexB].type;
-                },
-                headerBuilder: (BuildContext context, int index) => Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.5,
-                      height: 40.0,
-                      margin: const EdgeInsets.only(top: 32.0, bottom: 8.0),
-                      decoration: BoxDecoration(
-                          color: FilterRankingHelper.getRankingTypeColor(
-                              personalizedRakingModel.products[index].type),
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(50.0))),
-                      child: Center(
-                        child: Text(
-                            FilterRankingHelper.getRankingTypeTitle(
-                                personalizedRakingModel.products[index].type),
-                            style: Theme.of(context)
-                                .textTheme
-                                .headline3
-                                .copyWith(color: Colors.white)),
+                itemBuilder: (BuildContext context, int index) {
+                  final RankedProduct rankedProduct =
+                      personalizedRakingModel.products[index];
+                  if (rankedProduct.isHeader) {
+                    return StickyHeader(
+                      header: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.5,
+                            height: 40.0,
+                            margin:
+                                const EdgeInsets.only(top: 32.0, bottom: 8.0),
+                            decoration: BoxDecoration(
+                                color: FilterRankingHelper.getRankingTypeColor(
+                                    rankedProduct.type),
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(50.0))),
+                            child: Center(
+                              child: Text(
+                                  FilterRankingHelper.getRankingTypeTitle(
+                                      rankedProduct.type),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headline3
+                                      .copyWith(color: Colors.white)),
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                  ],
-                ),
-                itemBuilder: (BuildContext context, int index) => Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 12.0, vertical: 8.0),
-                  child: SmoothProductCardFound(
-                          heroTag: personalizedRakingModel
-                              .products[index].product.barcode,
-                          product:
-                              personalizedRakingModel.products[index].product,
-                          elevation: 4.0)
-                      .build(context),
-                ),
-                headerPadding: const EdgeInsets.only(
-                    top: 0.0, left: 42.0),
+                      content: rankedProduct.product != null
+                          ? _buildSmoothProductCard(
+                              rankedProduct.product, context)
+                          : Container(
+                              height: 80.0,
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Flexible(
+                                    child: Text(
+                                        'There is no product in this section', style: Theme.of(context)
+                                        .textTheme
+                                        .subtitle1.copyWith(color: Colors.black)),
+                                  )
+                                ],
+                              ),
+                            ),
+                    );
+                  }
+                  return _buildSmoothProductCard(
+                      rankedProduct.product, context);
+                },
                 padding: EdgeInsets.only(
                     top: MediaQuery.of(context).size.height * 0.25),
-                itemExtend: 140.0,
+                controller: personalizedRakingModel.scrollController,
               ),
               AnimatedOpacity(
                 opacity: personalizedRakingModel.showTitle ? 1.0 : 0.0,
@@ -121,6 +134,15 @@ class PersonalizedRankingPage extends StatelessWidget {
           ));
         },
       ),
+    );
+  }
+
+  Widget _buildSmoothProductCard(Product product, BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+      child: SmoothProductCardFound(
+              heroTag: product.barcode, product: product, elevation: 4.0)
+          .build(context),
     );
   }
 }

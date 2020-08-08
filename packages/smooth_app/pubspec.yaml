@@ -40,6 +40,7 @@ dependencies:
   intl: ^0.16.1
   sentry: ^3.0.1
   sticky_grouped_list: ^0.3.0
+  sticky_headers: ^0.1.8+1
 
   smooth_ui_library:
     path: ../smooth_ui_library

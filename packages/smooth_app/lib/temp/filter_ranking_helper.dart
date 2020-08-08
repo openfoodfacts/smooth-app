@@ -16,6 +16,10 @@ class FilterRankingHelper {
   static List<RankedProduct> process(List<Product> products, UserPreferences userPreferences) {
     final List<RankedProduct> result = <RankedProduct>[];
 
+    int topPicksCounter = 0;
+    int contendersCounter = 0;
+    int dismissedCounter = 0;
+
     for(final Product product in products) {
       bool isFiltered = false;
       int score = 0;
@@ -29,6 +33,7 @@ class FilterRankingHelper {
                 type: RankingType.DISMISSED,
                 score: score,
               ));
+              dismissedCounter++;
               isFiltered = true;
             }
             break;
@@ -39,6 +44,7 @@ class FilterRankingHelper {
                 type: RankingType.DISMISSED,
                 score: score,
               ));
+              dismissedCounter++;
               isFiltered = true;
             }
             break;
@@ -49,6 +55,7 @@ class FilterRankingHelper {
                 type: RankingType.DISMISSED,
                 score: score,
               ));
+              dismissedCounter++;
               isFiltered = true;
             }
             break;
@@ -83,23 +90,46 @@ class FilterRankingHelper {
             type: RankingType.DISMISSED,
             score: score,
           ));
+          dismissedCounter++;
         } else if(score > 100) {
           result.add(RankedProduct(
             product: product,
             type: RankingType.TOP_PICKS,
             score: score,
           ));
+          topPicksCounter++;
         } else {
           result.add(RankedProduct(
             product: product,
             type: RankingType.CONTENDERS,
             score: score,
           ));
+          contendersCounter++;
         }
       }
     }
 
-    result.sort((RankedProduct a, RankedProduct b) => a.score.compareTo(b.score));
+    result.sort((RankedProduct a, RankedProduct b) => b.score.compareTo(a.score));
+
+    if(topPicksCounter == 0) {
+      result.insert(0, RankedProduct(type: RankingType.TOP_PICKS, product: null, isHeader: true, score: 0));
+      topPicksCounter++;
+    } else {
+      result.first.isHeader = true;
+    }
+
+    if(contendersCounter == 0) {
+      result.insert(topPicksCounter, RankedProduct(type: RankingType.CONTENDERS, product: null, isHeader: true, score: 0));
+      contendersCounter++;
+    } else {
+      result[topPicksCounter].isHeader = true;
+    }
+
+    if(dismissedCounter == 0) {
+      result.insert(topPicksCounter + contendersCounter, RankedProduct(type: RankingType.DISMISSED, product: null, isHeader: true, score: 0));
+    } else {
+      result[topPicksCounter + contendersCounter].isHeader = true;
+    }
 
     return result;
   }
