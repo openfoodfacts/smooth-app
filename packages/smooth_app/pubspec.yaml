@@ -41,6 +41,7 @@ dependencies:
   sentry: ^3.0.1
   sticky_grouped_list: ^0.3.0
   sticky_headers: ^0.1.8+1
+  flutter_sticky_header: ^0.4.5
 
   smooth_ui_library:
     path: ../smooth_ui_library

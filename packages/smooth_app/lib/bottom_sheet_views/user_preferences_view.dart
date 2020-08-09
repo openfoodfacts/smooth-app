@@ -9,9 +9,10 @@ import 'package:smooth_ui_library/buttons/smooth_main_button.dart';
 import 'package:smooth_ui_library/widgets/smooth_toggle.dart';
 
 class UserPreferencesView extends StatelessWidget {
-  const UserPreferencesView(this._scrollController);
+  const UserPreferencesView(this._scrollController, {this.callback});
 
   final ScrollController _scrollController;
+  final Function callback;
 
   @override
   Widget build(BuildContext context) {
@@ -106,6 +107,7 @@ class UserPreferencesView extends StatelessWidget {
                               onPressed: () {
                                 userPreferencesModel.saveUserPreferences();
                                 Navigator.pop(context);
+                                callback();
                               },
                             );
                           },
