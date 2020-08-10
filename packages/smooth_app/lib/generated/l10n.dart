@@ -282,6 +282,16 @@ class S {
       args: [],
     );
   }
+
+  /// `My preferences`
+  String get myPreferences {
+    return Intl.message(
+      'My preferences',
+      name: 'myPreferences',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

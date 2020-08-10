@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "ingredients" : MessageLookupByLibrary.simpleMessage("Ingredients"),
     "mandatory" : MessageLookupByLibrary.simpleMessage("Mandatory"),
     "myPersonalizedRanking" : MessageLookupByLibrary.simpleMessage("My personalized ranking"),
+    "myPreferences" : MessageLookupByLibrary.simpleMessage("My preferences"),
     "no" : MessageLookupByLibrary.simpleMessage("No"),
     "nutrition" : MessageLookupByLibrary.simpleMessage("Nutrition"),
     "organizationPage" : MessageLookupByLibrary.simpleMessage("Organization Page"),

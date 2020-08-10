@@ -6,7 +6,6 @@ import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/generated/l10n.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_ui_library/buttons/smooth_main_button.dart';
-import 'package:smooth_ui_library/widgets/smooth_toggle.dart';
 
 class UserPreferencesView extends StatelessWidget {
   const UserPreferencesView(this._scrollController, {this.callback});
@@ -38,7 +37,7 @@ class UserPreferencesView extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(horizontal: 20.0),
                           margin: const EdgeInsets.only(top: 20.0),
                           child: Text(
-                            S.of(context).mandatory,
+                            S.of(context).myPreferences,
                             style: Theme.of(context).textTheme.headline1,
                           ),
                         ),
@@ -46,32 +45,11 @@ class UserPreferencesView extends StatelessWidget {
                           mainAxisSize: MainAxisSize.min,
                           children: List<Widget>.generate(
                             UserPreferencesVariableExtension
-                                    .getMandatoryVariables()
+                                    .getVariables()
                                 .length,
                             (int index) => _generatePreferenceRow(
                               UserPreferencesVariableExtension
-                                      .getMandatoryVariables()
-                                  .elementAt(index),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                          margin: const EdgeInsets.only(top: 20.0),
-                          child: Text(
-                            S.of(context).accountable,
-                            style: Theme.of(context).textTheme.headline1,
-                          ),
-                        ),
-                        Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: List<Widget>.generate(
-                            UserPreferencesVariableExtension
-                                    .getAccountableVariables()
-                                .length,
-                            (int index) => _generatePreferenceRow(
-                              UserPreferencesVariableExtension
-                                      .getAccountableVariables()
+                                      .getVariables()
                                   .elementAt(index),
                             ),
                           ),
@@ -131,29 +109,41 @@ class UserPreferencesView extends StatelessWidget {
       decoration: BoxDecoration(
           color: Colors.black.withAlpha(5),
           borderRadius: const BorderRadius.all(Radius.circular(20.0))),
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Column(
         children: <Widget>[
-          Text(variable.name),
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Text(variable.name),
+
+            ],
+          ),
           Consumer<UserPreferencesModel>(
             builder: (BuildContext context,
                 UserPreferencesModel userPreferencesModel, Widget child) {
               if(userPreferencesModel.dataLoaded) {
-                return SmoothToggle(
-                  value: userPreferencesModel.getVariable(variable),
-                  width: 80.0,
-                  height: 38.0,
-                  textLeft: 'Yes',
-                  textRight: 'No',
-                  onChanged: (bool newValue) {
-                    userPreferencesModel.setVariable(variable, newValue);
-                  },
+                return SliderTheme(
+                  data: SliderThemeData(
+                    thumbColor: Colors.black,
+                    activeTrackColor: Colors.black54,
+                    valueIndicatorColor: userPreferencesModel.getVariable(variable).color,
+                    trackHeight: 5.0,
+                    inactiveTrackColor: Colors.black12,
+                  ),
+                  child: Slider(
+                    min: 0.0,
+                    max: 3.0,
+                    divisions: 3,
+                    value: userPreferencesModel.getVariable(variable).value.toDouble(),
+                    onChanged: (double value) => userPreferencesModel.setVariable(variable, value.toInt()),
+                    activeColor: Colors.black,
+                    label: userPreferencesModel.getVariable(variable).label,
+                  ),
                 );
               } else {
                 return Container();
               }
-
             },
           ),
         ],

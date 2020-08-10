@@ -29,14 +29,13 @@ class UserPreferencesModel extends ChangeNotifier {
   UserPreferences userPreferences;
   bool dataLoaded = false;
 
-  bool getVariable(UserPreferencesVariable variable) {
-    print(dataLoaded);
+  UserPreferencesVariableValue getVariable(UserPreferencesVariable variable) {
     return userPreferences.getVariable(variable);
   }
 
-  void setVariable(UserPreferencesVariable variable, bool value) {
+  void setVariable(UserPreferencesVariable variable, int value) {
     if(dataLoaded) {
-      userPreferences.setVariable(variable, value);
+      userPreferences.setVariable(variable, UserPreferencesVariableValueExtention.fromInt(value));
       notifyListeners();
     }
   }

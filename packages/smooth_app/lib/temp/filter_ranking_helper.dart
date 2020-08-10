@@ -23,75 +23,83 @@ class FilterRankingHelper {
     for(final Product product in products) {
       bool isFiltered = false;
       int score = 0;
-      for(final UserPreferencesVariable variable in userPreferences.getActiveVariables()) {
-        print(variable);
+      for(final UserPreferencesVariable variable in UserPreferencesVariableExtension.getVariables()) {
         switch(variable) {
           case UserPreferencesVariable.VEGAN:
-            if(!isVegan(product)) {
-              result.add(RankedProduct(
-                product: product,
-                type: RankingType.DISMISSED,
-                score: score,
-              ));
-              dismissedCounter++;
+            if(userPreferences.getVariable(variable) == UserPreferencesVariableValue.MANDATORY && !isVegan(product)) {
               isFiltered = true;
+            } else {
+              score += 10 * userPreferences.getVariable(variable).value;
             }
             break;
           case UserPreferencesVariable.VEGETARIAN:
-            if(!isVegetarian(product)) {
-              result.add(RankedProduct(
-                product: product,
-                type: RankingType.DISMISSED,
-                score: score,
-              ));
-              dismissedCounter++;
+            if(userPreferences.getVariable(variable) == UserPreferencesVariableValue.MANDATORY && !isVegetarian(product)) {
               isFiltered = true;
+            } else {
+              score += 10 * userPreferences.getVariable(variable).value;
             }
             break;
           case UserPreferencesVariable.GLUTEN_FREE:
-            if(!isGlutenFree(product)) {
-              result.add(RankedProduct(
-                product: product,
-                type: RankingType.DISMISSED,
-                score: score,
-              ));
-              dismissedCounter++;
+            if(userPreferences.getVariable(variable) == UserPreferencesVariableValue.MANDATORY && !isGlutenFree(product)) {
               isFiltered = true;
+            } else {
+              score += 10 * userPreferences.getVariable(variable).value;
             }
             break;
           case UserPreferencesVariable.ORGANIC_LABELS:
-            score += organicPoints(product);
+            final int points = organicPoints(product);
+            if(userPreferences.getVariable(variable) == UserPreferencesVariableValue.MANDATORY && points <= 0) {
+              isFiltered = true;
+            }
+            score += points * userPreferences.getVariable(variable).value;
             break;
           case UserPreferencesVariable.FAIR_TRADE_LABELS:
-            score += fairTradePoints(product);
+            final int points = fairTradePoints(product);
+            if(userPreferences.getVariable(variable) == UserPreferencesVariableValue.MANDATORY && points <= 0) {
+              isFiltered = true;
+            }
+            score += points * userPreferences.getVariable(variable).value;
             break;
           case UserPreferencesVariable.PALM_FREE_LABELS:
-            score += palmFreePoints(product);
+            final int points = palmFreePoints(product);
+            if(userPreferences.getVariable(variable) == UserPreferencesVariableValue.MANDATORY && points <= 0) {
+              isFiltered = true;
+            }
+            score += points * userPreferences.getVariable(variable).value;
             break;
           case UserPreferencesVariable.ADDITIVES:
-            score += additivesPoints(product);
+            final int points = additivesPoints(product);
+            if(userPreferences.getVariable(variable) == UserPreferencesVariableValue.MANDATORY && points <= 0) {
+              isFiltered = true;
+            }
+            score += points * userPreferences.getVariable(variable).value;
             break;
           case UserPreferencesVariable.NOVA_GROUP:
-            score += novaGroupPoints(product);
+            final int points = novaGroupPoints(product);
+            if(userPreferences.getVariable(variable) == UserPreferencesVariableValue.MANDATORY && points <= 0) {
+              isFiltered = true;
+            }
+            score += points * userPreferences.getVariable(variable).value;
             break;
           case UserPreferencesVariable.NUTRI_SCORE:
-            score += nutriScorePoints(product);
+            final int points = nutriScorePoints(product);
+            if(userPreferences.getVariable(variable) == UserPreferencesVariableValue.MANDATORY && points <= 0) {
+              isFiltered = true;
+            }
+            score += points * userPreferences.getVariable(variable).value;
             break;
-        }
-
-        if(isFiltered) {
-          break;
         }
       }
       if(!isFiltered) {
-        if(score < 0) {
+        final int max = maximumScore(userPreferences);
+        if(score < (max * 0.2)) {
           result.add(RankedProduct(
             product: product,
             type: RankingType.DISMISSED,
             score: score,
           ));
           dismissedCounter++;
-        } else if(score > 100) {
+        } else if(score > (max * 0.8)) {
           result.add(RankedProduct(
             product: product,
             type: RankingType.TOP_PICKS,
@@ -106,6 +114,13 @@ class FilterRankingHelper {
           ));
           contendersCounter++;
         }
+      } else {
+        result.add(RankedProduct(
+          product: product,
+          type: RankingType.DISMISSED,
+          score: score,
+        ));
+        dismissedCounter++;
       }
     }
 
@@ -151,6 +166,7 @@ class FilterRankingHelper {
   }
 
   static bool isGlutenFree(Product product) {
+    // TODO(primael): missing implementation
     return false;
   }
 
@@ -166,18 +182,33 @@ class FilterRankingHelper {
 
   static int palmFreePoints(Product product) {
     if (product.ingredientsAnalysisTags != null && product.ingredientsAnalysisTags.palmOilFreeStatus != PalmOilFreeStatus.MAYBE) {
-      return product.ingredientsAnalysisTags.palmOilFreeStatus == PalmOilFreeStatus.MAYBE ? 5 : -5;
+      return product.ingredientsAnalysisTags.palmOilFreeStatus == PalmOilFreeStatus.IS_PALM_OIL_FREE ? 10 : -10;
     } else {
       return 0;
     }
   }
 
   static int additivesPoints(Product product) {
-    return product.additives != null ? product.additives.ids.length * 10 : 0;
+    return product.additives != null ? product.additives.ids.length * -10 : 10;
   }
 
   static int novaGroupPoints(Product product) {
-    return product.nutriments.novaGroup == 4 ? -10 : 0;
+    switch(product.nutriments.novaGroup) {
+      case 1:
+        return 10;
+        break;
+      case 2:
+        return 5;
+        break;
+      case 3:
+        return 0;
+        break;
+      case 4:
+        return -10;
+      default:
+        return 0;
+        break;
+    }
   }
 
   static int nutriScorePoints(Product product) {
@@ -235,6 +266,30 @@ class FilterRankingHelper {
         return Colors.grey;
         break;
     }
+  }
+
+  static int maximumScore(UserPreferences userPreferences) {
+    int score = 0;
+    //vegan points
+    score += 10 * userPreferences.getVariable(UserPreferencesVariable.VEGAN).value;
+    //vegetarian points
+    score += 10 * userPreferences.getVariable(UserPreferencesVariable.VEGETARIAN).value;
+    //gluten-free points
+    score += 0 * userPreferences.getVariable(UserPreferencesVariable.GLUTEN_FREE).value;
+    //organic points
+    score += 0 * userPreferences.getVariable(UserPreferencesVariable.ORGANIC_LABELS).value;
+    //fair-trade points
+    score += 0 * userPreferences.getVariable(UserPreferencesVariable.FAIR_TRADE_LABELS).value;
+    //palm-free points
+    score += 10 * userPreferences.getVariable(UserPreferencesVariable.PALM_FREE_LABELS).value;
+    //additives points
+    score += 10 * userPreferences.getVariable(UserPreferencesVariable.ADDITIVES).value;
+    //nova group points
+    score += 0 * userPreferences.getVariable(UserPreferencesVariable.NOVA_GROUP).value;
+    //nutri-score points
+    score += 10 * userPreferences.getVariable(UserPreferencesVariable.NUTRI_SCORE).value;
+
+    return score;
   }
 
 }

@@ -26,10 +26,10 @@ class ChoosePage extends StatelessWidget {
                       (BuildContext context, bool innerBoxIsScrolled) {
                     return <Widget>[
                       SliverAppBar(
-                        expandedHeight: 228.0,
-                        backgroundColor: choosePageModel.appBarColor,
+                        expandedHeight: 248.0,
+                        backgroundColor: Theme.of(context).scaffoldBackgroundColor,//choosePageModel.appBarColor,
                         pinned: true,
-                        elevation: 0.0,
+                        elevation: 8.0,
                         /*title: Padding(
                           padding: const EdgeInsets.only(top: 8.0),
                           child: Text('Smoothie', style: Theme.of(context).textTheme.headline2.copyWith(color: Colors.black.withOpacity(choosePageModel.opacity)),),
@@ -76,10 +76,10 @@ class ChoosePage extends StatelessWidget {
                               left: 12.0,
                             ),
                             decoration: BoxDecoration(
-                              color: choosePageModel.appBarColor,
-                              boxShadow: <BoxShadow>[
+                              color: Theme.of(context).scaffoldBackgroundColor, //choosePageModel.appBarColor,
+                              /*boxShadow: <BoxShadow>[
                                 BoxShadow(color: Colors.black.withOpacity(choosePageModel.opacity / 8.0), offset: const Offset(0.0, 6.0), blurRadius: 4.0),
-                              ],
+                              ],*/
                             ),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,

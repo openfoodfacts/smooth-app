@@ -47,8 +47,12 @@ class SmoothItModel extends ChangeNotifier {
       userPreferences = await UserDatabase().getUserPreferences();
       products = FilterRankingHelper.process(unprocessedProducts, userPreferences);
       topPicks = products.where((RankedProduct rankedProduct) => rankedProduct.type == RankingType.TOP_PICKS).toList();
+      topPicks.sort((RankedProduct a, RankedProduct b) => b.score.compareTo(a.score));
       contenders = products.where((RankedProduct rankedProduct) => rankedProduct.type == RankingType.CONTENDERS).toList();
+      contenders.sort((RankedProduct a, RankedProduct b) => b.score.compareTo(a.score));
       dismissed = products.where((RankedProduct rankedProduct) => rankedProduct.type == RankingType.DISMISSED).toList();
+      dismissed.sort((RankedProduct a, RankedProduct b) => b.score.compareTo(a.score));
+      print('Processed products');
       notifyListeners();
       return true;
     } catch(e) {

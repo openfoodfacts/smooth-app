@@ -1,6 +1,98 @@
 
 // Note to myself : this needs to be transferred to the openfoodfacts-dart plugin when ready
 
+import 'package:flutter/material.dart';
+
+enum UserPreferencesVariableValue {
+  NOT_IMPORTANT,
+  IMPORTANT,
+  VERY_IMPORTANT,
+  MANDATORY
+}
+
+extension UserPreferencesVariableValueExtention on UserPreferencesVariableValue {
+
+  int get value {
+    switch (this) {
+      case UserPreferencesVariableValue.NOT_IMPORTANT:
+        return 0;
+        break;
+      case UserPreferencesVariableValue.IMPORTANT:
+        return 1;
+        break;
+      case UserPreferencesVariableValue.VERY_IMPORTANT:
+        return 2;
+        break;
+      case UserPreferencesVariableValue.MANDATORY:
+        return 3;
+        break;
+      default:
+        return 0;
+        break;
+    }
+  }
+
+  String get label {
+    switch (this) {
+      case UserPreferencesVariableValue.NOT_IMPORTANT:
+        return 'Not important';
+        break;
+      case UserPreferencesVariableValue.IMPORTANT:
+        return 'Important';
+        break;
+      case UserPreferencesVariableValue.VERY_IMPORTANT:
+        return 'Very important';
+        break;
+      case UserPreferencesVariableValue.MANDATORY:
+        return 'Mandatory';
+        break;
+      default:
+        return 'Not important';
+        break;
+    }
+  }
+
+  Color get color {
+    switch (this) {
+      case UserPreferencesVariableValue.NOT_IMPORTANT:
+        return Colors.black87;
+        break;
+      case UserPreferencesVariableValue.IMPORTANT:
+        return Colors.green.withOpacity(0.87);
+        break;
+      case UserPreferencesVariableValue.VERY_IMPORTANT:
+        return Colors.deepOrangeAccent.withOpacity(0.87);
+        break;
+      case UserPreferencesVariableValue.MANDATORY:
+        return Colors.redAccent.withOpacity(0.87);
+        break;
+      default:
+        return Colors.black26;
+        break;
+    }
+  }
+
+  static UserPreferencesVariableValue fromInt(int i) {
+    switch(i) {
+      case 0:
+        return UserPreferencesVariableValue.NOT_IMPORTANT;
+        break;
+      case 1:
+        return UserPreferencesVariableValue.IMPORTANT;
+        break;
+      case 2:
+        return UserPreferencesVariableValue.VERY_IMPORTANT;
+        break;
+      case 3:
+        return UserPreferencesVariableValue.MANDATORY;
+        break;
+      default:
+        return UserPreferencesVariableValue.NOT_IMPORTANT;
+        break;
+    }
+  }
+}
+
 enum UserPreferencesVariable {
   VEGAN,
   VEGETARIAN,
@@ -67,13 +159,27 @@ extension UserPreferencesVariableExtension on UserPreferencesVariable {
       UserPreferencesVariable.NUTRI_SCORE
     ];
   }
+
+  static List<UserPreferencesVariable> getVariables() {
+    return <UserPreferencesVariable>[
+      UserPreferencesVariable.VEGAN,
+      UserPreferencesVariable.VEGETARIAN,
+      UserPreferencesVariable.GLUTEN_FREE,
+      UserPreferencesVariable.ORGANIC_LABELS,
+      UserPreferencesVariable.FAIR_TRADE_LABELS,
+      UserPreferencesVariable.PALM_FREE_LABELS,
+      UserPreferencesVariable.ADDITIVES,
+      UserPreferencesVariable.NOVA_GROUP,
+      UserPreferencesVariable.NUTRI_SCORE
+    ];
+  }
 }
 
 class UserPreferences {
 
   UserPreferences() {
     for(final UserPreferencesVariable variable in UserPreferencesVariable.values) {
-      setVariable(variable, false);
+      setVariable(variable, UserPreferencesVariableValue.NOT_IMPORTANT);
     }
   }
 
@@ -81,20 +187,18 @@ class UserPreferences {
     loadJson(data);
   }
 
-  // Mandatory
-  bool _vegan;
-  bool _vegetarian;
-  bool _glutenFree;
+  UserPreferencesVariableValue _vegan;
+  UserPreferencesVariableValue _vegetarian;
+  UserPreferencesVariableValue _glutenFree;
 
-  // Accountable
-  bool _organicLabels;
-  bool _fairTradeLabels;
-  bool _palmFreeLabels;
-  bool _additives;
-  bool _novaGroup;
-  bool _nutriScore;
+  UserPreferencesVariableValue _organicLabels;
+  UserPreferencesVariableValue _fairTradeLabels;
+  UserPreferencesVariableValue _palmFreeLabels;
+  UserPreferencesVariableValue _additives;
+  UserPreferencesVariableValue _novaGroup;
+  UserPreferencesVariableValue _nutriScore;
 
-  void setVariable(UserPreferencesVariable variable, bool value) {
+  void setVariable(UserPreferencesVariable variable, UserPreferencesVariableValue value) {
     switch(variable) {
       case UserPreferencesVariable.VEGAN:
         _vegan = value;
@@ -126,7 +230,7 @@ class UserPreferences {
     }
   }
 
-  bool getVariable(UserPreferencesVariable variable) {
+  UserPreferencesVariableValue getVariable(UserPreferencesVariable variable) {
     switch(variable) {
       case UserPreferencesVariable.VEGAN:
         return _vegan;
@@ -156,7 +260,7 @@ class UserPreferences {
         return _nutriScore;
         break;
       default:
-        return false;
+        return null;
         break;
     }
   }
@@ -164,7 +268,7 @@ class UserPreferences {
   List<UserPreferencesVariable> getActiveVariables() {
     final List<UserPreferencesVariable> result = <UserPreferencesVariable>[];
     for(final UserPreferencesVariable variable in UserPreferencesVariable.values) {
-      if(getVariable(variable)) {
+      if(getVariable(variable) != UserPreferencesVariableValue.NOT_IMPORTANT) {
         result.add(variable);
       }
     }
@@ -173,15 +277,19 @@ class UserPreferences {
 
   void loadJson(Map<String, dynamic> data) {
     for(final UserPreferencesVariable variable in UserPreferencesVariable.values) {
-      setVariable(variable, data[variable.name] as bool ?? false);
+      if(data[variable.name] is! int) {
+        setVariable(variable, UserPreferencesVariableValue.NOT_IMPORTANT);
+      } else {
+        setVariable(variable, UserPreferencesVariableValueExtention.fromInt(data[variable.name] as int ?? 0));
+      }
     }
   }
 
-  Map<String, bool> toJson() {
-    final Map<String, bool> result = <String, bool>{};
+  Map<String, int> toJson() {
+    final Map<String, int> result = <String, int>{};
 
     for(final UserPreferencesVariable variable in UserPreferencesVariable.values) {
-      result[variable.name] = getVariable(variable);
+      result[variable.name] = getVariable(variable).value;
     }
 
     return result;
