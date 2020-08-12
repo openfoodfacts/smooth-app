@@ -24,5 +24,6 @@
     "unknownProductName": "Unknown product name",
     "nutrition": "Θρεπτική Αξία",
     "ingredients": "Συστατικά",
-    "ecology": "Ecology"
+    "ecology": "Ecology",
+    "myPreferences": "My preferences"
 }
