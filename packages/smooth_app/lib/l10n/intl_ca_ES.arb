@@ -14,15 +14,16 @@
     "mandatory": "Obligatori",
     "accountable": "Responsable",
     "saveButtonText": "Desa",
-    "myPersonalizedRanking": "My personalized ranking",
-    "scannerProductsEmpty": "Products you scan will appear here",
-    "featureInProgress": "We're still working on this feature, stay tuned",
-    "configurePreferences": "Configure my preferences",
+    "myPersonalizedRanking": "El meu rànquing personalitzat",
+    "scannerProductsEmpty": "Els productes que escanegeu apareixeran aquí",
+    "featureInProgress": "Encara estem treballant en aquesta funció, estigueu atents",
+    "configurePreferences": "Configura les meves preferències",
     "yes": "Si",
     "no": "No",
-    "unknownBrand": "Unknown brand",
-    "unknownProductName": "Unknown product name",
+    "unknownBrand": "Marca desconeguda",
+    "unknownProductName": "Nom del producte desconegut",
     "nutrition": "Nutrició",
     "ingredients": "Ingredients",
-    "ecology": "Ecology"
+    "ecology": "Ecologia",
+    "myPreferences": "My preferences"
 }
