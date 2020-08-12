@@ -24,5 +24,6 @@
     "unknownProductName": "Unknown product name",
     "nutrition": "Ravinto",
     "ingredients": "Ainesosat",
-    "ecology": "Ecology"
+    "ecology": "Ecology",
+    "myPreferences": "My preferences"
 }
