@@ -24,5 +24,6 @@
     "unknownProductName": "Unknown product name",
     "nutrition": "อาหารการกิน",
     "ingredients": "ส่วนผสม",
-    "ecology": "Ecology"
+    "ecology": "Ecology",
+    "myPreferences": "My preferences"
 }
