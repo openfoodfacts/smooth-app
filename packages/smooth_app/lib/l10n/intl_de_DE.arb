@@ -23,6 +23,7 @@
     "unknownBrand": "Unbekannte Marke",
     "unknownProductName": "Unbekannter Produktname",
     "nutrition": "Nährwertangaben",
-    "ingredients": "Zutaten",
-    "ecology": "Ökologie"
+    "ingredients": "Inhaltsstoffe",
+    "ecology": "Ökologie",
+    "myPreferences": "My preferences"
 }
