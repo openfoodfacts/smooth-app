@@ -24,5 +24,6 @@
     "unknownProductName": "Unknown product name",
     "nutrition": "영양",
     "ingredients": "성분",
-    "ecology": "Ecology"
+    "ecology": "Ecology",
+    "myPreferences": "My preferences"
 }
