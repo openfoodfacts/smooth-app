@@ -25,3 +25,6 @@ You can join the Open Food Facts's Slack here : [Our Slack](openfoodfacts.slack.
 In order to build the application, make sure you are in the packages/smooth_app directory and run these commands :
  - flutter pub get
  - flutter run
+
+## Thank you
+Smooth_app is made possible thanks to a grant by the Mozilla Foundation, after pitching them the idea at FOSDEM. a HUGE thank you :-) 
