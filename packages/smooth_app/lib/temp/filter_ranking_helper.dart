@@ -1,46 +1,48 @@
-
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/IngredientsAnalysisTags.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/structures/ranked_product.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 
-enum RankingType {
-  TOP_PICKS,
-  CONTENDERS,
-  DISMISSED
-}
+enum RankingType { TOP_PICKS, CONTENDERS, DISMISSED }
 
 class FilterRankingHelper {
-
-  static List<RankedProduct> process(List<Product> products, UserPreferences userPreferences) {
+  static List<RankedProduct> process(
+      List<Product> products, UserPreferences userPreferences) {
     final List<RankedProduct> result = <RankedProduct>[];
 
     int topPicksCounter = 0;
     int contendersCounter = 0;
     int dismissedCounter = 0;
 
-    for(final Product product in products) {
+    for (final Product product in products) {
       bool isFiltered = false;
       int score = 0;
-      for(final UserPreferencesVariable variable in UserPreferencesVariableExtension.getVariables()) {
-        switch(variable) {
+      for (final UserPreferencesVariable variable
+          in UserPreferencesVariableExtension.getVariables()) {
+        switch (variable) {
           case UserPreferencesVariable.VEGAN:
-            if(userPreferences.getVariable(variable) == UserPreferencesVariableValue.MANDATORY && !isVegan(product)) {
+            if (userPreferences.getVariable(variable) ==
+                    UserPreferencesVariableValue.MANDATORY &&
+                !isVegan(product)) {
               isFiltered = true;
             } else {
               score += 10 * userPreferences.getVariable(variable).value;
             }
             break;
           case UserPreferencesVariable.VEGETARIAN:
-            if(userPreferences.getVariable(variable) == UserPreferencesVariableValue.MANDATORY && !isVegetarian(product)) {
+            if (userPreferences.getVariable(variable) ==
+                    UserPreferencesVariableValue.MANDATORY &&
+                !isVegetarian(product)) {
               isFiltered = true;
             } else {
               score += 10 * userPreferences.getVariable(variable).value;
             }
             break;
           case UserPreferencesVariable.GLUTEN_FREE:
-            if(userPreferences.getVariable(variable) == UserPreferencesVariableValue.MANDATORY && !isGlutenFree(product)) {
+            if (userPreferences.getVariable(variable) ==
+                    UserPreferencesVariableValue.MANDATORY &&
+                !isGlutenFree(product)) {
               isFiltered = true;
             } else {
               score += 10 * userPreferences.getVariable(variable).value;
@@ -48,58 +50,70 @@ class FilterRankingHelper {
             break;
           case UserPreferencesVariable.ORGANIC_LABELS:
             final int points = organicPoints(product);
-            if(userPreferences.getVariable(variable) == UserPreferencesVariableValue.MANDATORY && points <= 0) {
+            if (userPreferences.getVariable(variable) ==
+                    UserPreferencesVariableValue.MANDATORY &&
+                points <= 0) {
               isFiltered = true;
             }
             score += points * userPreferences.getVariable(variable).value;
             break;
           case UserPreferencesVariable.FAIR_TRADE_LABELS:
             final int points = fairTradePoints(product);
-            if(userPreferences.getVariable(variable) == UserPreferencesVariableValue.MANDATORY && points <= 0) {
+            if (userPreferences.getVariable(variable) ==
+                    UserPreferencesVariableValue.MANDATORY &&
+                points <= 0) {
               isFiltered = true;
             }
             score += points * userPreferences.getVariable(variable).value;
             break;
           case UserPreferencesVariable.PALM_FREE_LABELS:
             final int points = palmFreePoints(product);
-            if(userPreferences.getVariable(variable) == UserPreferencesVariableValue.MANDATORY && points <= 0) {
+            if (userPreferences.getVariable(variable) ==
+                    UserPreferencesVariableValue.MANDATORY &&
+                points <= 0) {
               isFiltered = true;
             }
             score += points * userPreferences.getVariable(variable).value;
             break;
           case UserPreferencesVariable.ADDITIVES:
             final int points = additivesPoints(product);
-            if(userPreferences.getVariable(variable) == UserPreferencesVariableValue.MANDATORY && points <= 0) {
+            if (userPreferences.getVariable(variable) ==
+                    UserPreferencesVariableValue.MANDATORY &&
+                points <= 0) {
               isFiltered = true;
             }
             score += points * userPreferences.getVariable(variable).value;
             break;
           case UserPreferencesVariable.NOVA_GROUP:
             final int points = novaGroupPoints(product);
-            if(userPreferences.getVariable(variable) == UserPreferencesVariableValue.MANDATORY && points <= 0) {
+            if (userPreferences.getVariable(variable) ==
+                    UserPreferencesVariableValue.MANDATORY &&
+                points <= 0) {
               isFiltered = true;
             }
             score += points * userPreferences.getVariable(variable).value;
             break;
           case UserPreferencesVariable.NUTRI_SCORE:
             final int points = nutriScorePoints(product);
-            if(userPreferences.getVariable(variable) == UserPreferencesVariableValue.MANDATORY && points <= 0) {
+            if (userPreferences.getVariable(variable) ==
+                    UserPreferencesVariableValue.MANDATORY &&
+                points <= 0) {
               isFiltered = true;
             }
             score += points * userPreferences.getVariable(variable).value;
             break;
         }
       }
-      if(!isFiltered) {
+      if (!isFiltered) {
         final int max = maximumScore(userPreferences);
-        if(score < (max * 0.2)) {
+        if (score < (max * 0.2)) {
           result.add(RankedProduct(
             product: product,
             type: RankingType.DISMISSED,
             score: score,
           ));
           dismissedCounter++;
-        } else if(score > (max * 0.8)) {
+        } else if (score > (max * 0.8)) {
           result.add(RankedProduct(
             product: product,
             type: RankingType.TOP_PICKS,
@@ -124,24 +138,43 @@ class FilterRankingHelper {
       }
     }
 
-    result.sort((RankedProduct a, RankedProduct b) => b.score.compareTo(a.score));
+    result
+        .sort((RankedProduct a, RankedProduct b) => b.score.compareTo(a.score));
 
-    if(topPicksCounter == 0) {
-      result.insert(0, RankedProduct(type: RankingType.TOP_PICKS, product: null, isHeader: true, score: 0));
+    if (topPicksCounter == 0) {
+      result.insert(
+          0,
+          RankedProduct(
+              type: RankingType.TOP_PICKS,
+              product: null,
+              isHeader: true,
+              score: 0));
       topPicksCounter++;
     } else {
       result.first.isHeader = true;
     }
 
-    if(contendersCounter == 0) {
-      result.insert(topPicksCounter, RankedProduct(type: RankingType.CONTENDERS, product: null, isHeader: true, score: 0));
+    if (contendersCounter == 0) {
+      result.insert(
+          topPicksCounter,
+          RankedProduct(
+              type: RankingType.CONTENDERS,
+              product: null,
+              isHeader: true,
+              score: 0));
       contendersCounter++;
     } else {
       result[topPicksCounter].isHeader = true;
     }
 
-    if(dismissedCounter == 0) {
-      result.insert(topPicksCounter + contendersCounter, RankedProduct(type: RankingType.DISMISSED, product: null, isHeader: true, score: 0));
+    if (dismissedCounter == 0) {
+      result.insert(
+          topPicksCounter + contendersCounter,
+          RankedProduct(
+              type: RankingType.DISMISSED,
+              product: null,
+              isHeader: true,
+              score: 0));
     } else {
       result[topPicksCounter + contendersCounter].isHeader = true;
     }
@@ -151,7 +184,8 @@ class FilterRankingHelper {
 
   static bool isVegan(Product product) {
     if (product.ingredientsAnalysisTags != null) {
-      return product.ingredientsAnalysisTags.veganStatus == VeganStatus.IS_VEGAN;
+      return product.ingredientsAnalysisTags.veganStatus ==
+          VeganStatus.IS_VEGAN;
     } else {
       return false;
     }
@@ -159,7 +193,8 @@ class FilterRankingHelper {
 
   static bool isVegetarian(Product product) {
     if (product.ingredientsAnalysisTags != null) {
-      return product.ingredientsAnalysisTags.vegetarianStatus == VegetarianStatus.IS_VEGETARIAN;
+      return product.ingredientsAnalysisTags.vegetarianStatus ==
+          VegetarianStatus.IS_VEGETARIAN;
     } else {
       return false;
     }
@@ -181,8 +216,13 @@ class FilterRankingHelper {
   }
 
   static int palmFreePoints(Product product) {
-    if (product.ingredientsAnalysisTags != null && product.ingredientsAnalysisTags.palmOilFreeStatus != PalmOilFreeStatus.MAYBE) {
-      return product.ingredientsAnalysisTags.palmOilFreeStatus == PalmOilFreeStatus.IS_PALM_OIL_FREE ? 10 : -10;
+    if (product.ingredientsAnalysisTags != null &&
+        product.ingredientsAnalysisTags.palmOilFreeStatus !=
+            PalmOilFreeStatus.MAYBE) {
+      return product.ingredientsAnalysisTags.palmOilFreeStatus ==
+              PalmOilFreeStatus.IS_PALM_OIL_FREE
+          ? 10
+          : -10;
     } else {
       return 0;
     }
@@ -193,7 +233,7 @@ class FilterRankingHelper {
   }
 
   static int novaGroupPoints(Product product) {
-    switch(product.nutriments.novaGroup) {
+    switch (product.nutriments.novaGroup) {
       case 1:
         return 10;
         break;
@@ -212,7 +252,7 @@ class FilterRankingHelper {
   }
 
   static int nutriScorePoints(Product product) {
-    switch(product.nutriscore) {
+    switch (product.nutriscore) {
       case 'a':
         return 10;
         break;
@@ -235,7 +275,7 @@ class FilterRankingHelper {
   }
 
   static String getRankingTypeTitle(RankingType type) {
-    switch(type) {
+    switch (type) {
       case RankingType.TOP_PICKS:
         return 'Top picks';
         break;
@@ -252,7 +292,7 @@ class FilterRankingHelper {
   }
 
   static Color getRankingTypeColor(RankingType type) {
-    switch(type) {
+    switch (type) {
       case RankingType.TOP_PICKS:
         return Colors.greenAccent;
         break;
@@ -271,25 +311,39 @@ class FilterRankingHelper {
   static int maximumScore(UserPreferences userPreferences) {
     int score = 0;
     //vegan points
-    score += 10 * userPreferences.getVariable(UserPreferencesVariable.VEGAN).value;
+    score +=
+        10 * userPreferences.getVariable(UserPreferencesVariable.VEGAN).value;
     //vegetarian points
-    score += 10 * userPreferences.getVariable(UserPreferencesVariable.VEGETARIAN).value;
+    score += 10 *
+        userPreferences.getVariable(UserPreferencesVariable.VEGETARIAN).value;
     //gluten-free points
-    score += 0 * userPreferences.getVariable(UserPreferencesVariable.GLUTEN_FREE).value;
+    score += 0 *
+        userPreferences.getVariable(UserPreferencesVariable.GLUTEN_FREE).value;
     //organic points
-    score += 0 * userPreferences.getVariable(UserPreferencesVariable.ORGANIC_LABELS).value;
+    score += 0 *
+        userPreferences
+            .getVariable(UserPreferencesVariable.ORGANIC_LABELS)
+            .value;
     //fair-trade points
-    score += 0 * userPreferences.getVariable(UserPreferencesVariable.FAIR_TRADE_LABELS).value;
+    score += 0 *
+        userPreferences
+            .getVariable(UserPreferencesVariable.FAIR_TRADE_LABELS)
+            .value;
     //palm-free points
-    score += 10 * userPreferences.getVariable(UserPreferencesVariable.PALM_FREE_LABELS).value;
+    score += 10 *
+        userPreferences
+            .getVariable(UserPreferencesVariable.PALM_FREE_LABELS)
+            .value;
     //additives points
-    score += 10 * userPreferences.getVariable(UserPreferencesVariable.ADDITIVES).value;
+    score += 10 *
+        userPreferences.getVariable(UserPreferencesVariable.ADDITIVES).value;
     //nova group points
-    score += 0 * userPreferences.getVariable(UserPreferencesVariable.NOVA_GROUP).value;
+    score += 0 *
+        userPreferences.getVariable(UserPreferencesVariable.NOVA_GROUP).value;
     //nutri-score points
-    score += 10 * userPreferences.getVariable(UserPreferencesVariable.NUTRI_SCORE).value;
+    score += 10 *
+        userPreferences.getVariable(UserPreferencesVariable.NUTRI_SCORE).value;
 
     return score;
   }
-
 }

@@ -21,31 +21,35 @@ class ProductPage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          if (product.imgSmallUrl != null) Image.network(
-            product.imgSmallUrl,
-            fit: BoxFit.cover,
-            height: double.infinity,
-            width: double.infinity,
-            alignment: Alignment.center,
-            loadingBuilder:
-                (BuildContext context, Widget child, ImageChunkEvent progress) {
-              if (progress == null) {
-                return child;
-              }
-              return Center(
-                child: CircularProgressIndicator(
-                  strokeWidth: 2.5,
-                  valueColor: const AlwaysStoppedAnimation<Color>(Colors.white),
-                  value: progress.cumulativeBytesLoaded /
-                      progress.expectedTotalBytes,
-                ),
-              );
-            },
-          ) else Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            color: Colors.black54,
-          ),
+          if (product.imgSmallUrl != null)
+            Image.network(
+              product.imgSmallUrl,
+              fit: BoxFit.cover,
+              height: double.infinity,
+              width: double.infinity,
+              alignment: Alignment.center,
+              loadingBuilder: (BuildContext context, Widget child,
+                  ImageChunkEvent progress) {
+                if (progress == null) {
+                  return child;
+                }
+                return Center(
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2.5,
+                    valueColor:
+                        const AlwaysStoppedAnimation<Color>(Colors.white),
+                    value: progress.cumulativeBytesLoaded /
+                        progress.expectedTotalBytes,
+                  ),
+                );
+              },
+            )
+          else
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              color: Colors.black54,
+            ),
           BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 18.0, sigmaY: 18.0),
             child: Container(
@@ -59,7 +63,8 @@ class ProductPage extends StatelessWidget {
                       children: <Widget>[
                         Flexible(
                           child: Text(
-                            product.productName ?? S.of(context).unknownProductName,
+                            product.productName ??
+                                S.of(context).unknownProductName,
                             style: Theme.of(context).textTheme.headline1,
                           ),
                         )
@@ -84,7 +89,9 @@ class ProductPage extends StatelessWidget {
                         ),
                         Flexible(
                           child: Text(
-                            product.quantity != null ? '${product.quantity}' : '',
+                            product.quantity != null
+                                ? '${product.quantity}'
+                                : '',
                             style: Theme.of(context)
                                 .textTheme
                                 .headline4

@@ -5,7 +5,6 @@ import 'package:smooth_app/data_models/sneak_peek_model.dart';
 import 'package:smooth_ui_library/widgets/smooth_gauge.dart';
 
 class SmoothEnergyCard extends StatelessWidget {
-
   const SmoothEnergyCard({@required this.sneakPeakModel});
 
   final SneakPeakModel sneakPeakModel;
@@ -46,9 +45,7 @@ class SmoothEnergyCard extends StatelessWidget {
                   width: 24.0,
                   height: 20.0,
                 ),
-                onTap: () {
-
-                },
+                onTap: () {},
               )
             ],
           ),

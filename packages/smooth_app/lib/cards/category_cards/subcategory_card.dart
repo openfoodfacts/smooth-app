@@ -3,7 +3,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class SubcategoryCard extends StatelessWidget {
   const SubcategoryCard(
-      {@required this.title, @required this.color, this.onTap, @required this.heroTag});
+      {@required this.title,
+      @required this.color,
+      this.onTap,
+      @required this.heroTag});
 
   final String title;
   final Color color;
@@ -34,7 +37,10 @@ class SubcategoryCard extends StatelessWidget {
                           .textTheme
                           .headline4
                           .copyWith(color: color)),
-                  SvgPicture.asset('assets/misc/right_arrow.svg', color: color,),
+                  SvgPicture.asset(
+                    'assets/misc/right_arrow.svg',
+                    color: color,
+                  ),
                 ],
               )),
         ),

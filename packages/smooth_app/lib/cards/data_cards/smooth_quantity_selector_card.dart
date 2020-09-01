@@ -5,7 +5,6 @@ import 'package:smooth_app/data_models/sneak_peek_model.dart';
 import 'package:smooth_ui_library/widgets/smooth_gauge.dart';
 
 class SmoothQuantitySelectorCard extends StatelessWidget {
-
   const SmoothQuantitySelectorCard({@required this.sneakPeakModel});
 
   final SneakPeakModel sneakPeakModel;
@@ -58,26 +57,35 @@ class SmoothQuantitySelectorCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               const SmoothGauge(
-                value: 0.0,//sneakPeakModel.servingCount * sneakPeakModel.servingQuantity / sneakPeakModel.packageQuantity,
+                value:
+                    0.0, //sneakPeakModel.servingCount * sneakPeakModel.servingQuantity / sneakPeakModel.packageQuantity,
                 size: 60.0,
                 color: Colors.deepPurple,
               ),
               Column(
-                children: const  <Widget>[
+                children: const <Widget>[
                   /*Text('${sneakPeakModel.servingCount} portion', style: const TextStyle(color: Colors.white)),
                   const SizedBox(height: 8.0,),
                   Text('${sneakPeakModel.servingCount * sneakPeakModel.servingQuantity} g', style: const TextStyle(color: Colors.white),),*/
                   Text('1 portion', style: TextStyle(color: Colors.white)),
-                  SizedBox(height: 8.0,),
-                  Text('0 g', style: TextStyle(color: Colors.white),),
+                  SizedBox(
+                    height: 8.0,
+                  ),
+                  Text(
+                    '0 g',
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ],
               )
             ],
           ),
           MaterialButton(
-            child: const Text('Tap to increase', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w300)),
+            child: const Text('Tap to increase',
+                style: TextStyle(
+                    color: Colors.white, fontWeight: FontWeight.w300)),
             color: Colors.transparent,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0)),
             onPressed: () {
               //sneakPeakModel.increaseServingCount();
             },

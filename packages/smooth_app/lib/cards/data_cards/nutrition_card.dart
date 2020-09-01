@@ -1,12 +1,10 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Nutriments.dart';
 import 'package:smooth_ui_library/widgets/smooth_gauge.dart';
 
 class NutritionCard extends StatelessWidget {
-
-  const NutritionCard({@required this.title, @required this.color, @required this.nutriments});
+  const NutritionCard(
+      {@required this.title, @required this.color, @required this.nutriments});
 
   final String title;
   final Color color;
@@ -40,7 +38,8 @@ class NutritionCard extends StatelessWidget {
     );
   }
 
-  Widget _getLine(String title, double value, double recommendation, BuildContext context) {
+  Widget _getLine(
+      String title, double value, double recommendation, BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 6.0),
       child: Column(
@@ -81,7 +80,9 @@ class NutritionCard extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 5.0,),
+          const SizedBox(
+            height: 5.0,
+          ),
           Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -95,10 +96,8 @@ class NutritionCard extends StatelessWidget {
               ),
             ],
           ),
-
         ],
       ),
     );
   }
-
 }

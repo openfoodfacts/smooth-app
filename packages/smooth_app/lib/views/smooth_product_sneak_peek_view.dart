@@ -62,8 +62,7 @@ class SmoothProductSneakPeekViewState extends State<SmoothProductSneakPeekView>
                       height: 4.0,
                       margin: const EdgeInsets.only(bottom: 8.0),
                       decoration: const BoxDecoration(
-                        borderRadius:
-                            BorderRadius.all(Radius.circular(6.0)),
+                        borderRadius: BorderRadius.all(Radius.circular(6.0)),
                         color: Colors.black26,
                       ),
                     )
@@ -151,8 +150,7 @@ class SmoothProductSneakPeekViewState extends State<SmoothProductSneakPeekView>
                       width: 50.0,
                       height: 50.0,
                       decoration: const BoxDecoration(
-                        borderRadius:
-                            BorderRadius.all(Radius.circular(15.0)),
+                        borderRadius: BorderRadius.all(Radius.circular(15.0)),
                         color: Colors.white,
                         boxShadow: <BoxShadow>[
                           BoxShadow(

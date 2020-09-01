@@ -7,9 +7,7 @@ import 'package:smooth_app/cards/product_cards/smooth_product_card_template.dart
 import 'package:smooth_app/pages/product_page.dart';
 
 class SmoothProductCardEdit extends SmoothProductCardTemplate {
-  SmoothProductCardEdit(
-      {@required this.product,
-        @required this.heroTag});
+  SmoothProductCardEdit({@required this.product, @required this.heroTag});
 
   final Product product;
   final String heroTag;
@@ -21,7 +19,10 @@ class SmoothProductCardEdit extends SmoothProductCardTemplate {
         //_openSneakPeek(context);
         Navigator.push<dynamic>(
           context,
-          MaterialPageRoute<dynamic>(builder: (BuildContext context) => ProductPage(product: product,)),
+          MaterialPageRoute<dynamic>(
+              builder: (BuildContext context) => ProductPage(
+                    product: product,
+                  )),
         );
       },
       child: Hero(
@@ -46,8 +47,7 @@ class SmoothProductCardEdit extends SmoothProductCardTemplate {
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold),
+                          color: Colors.black, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ],
@@ -69,57 +69,68 @@ class SmoothProductCardEdit extends SmoothProductCardTemplate {
   }
 
   Widget _generateImageView(ImageField field, BuildContext context) {
-    final Iterable<ProductImage> candidates = product.selectedImages.where((ProductImage image) => image.field == field).where((ProductImage image) => image.size == ImageSize.SMALL);
+    final Iterable<ProductImage> candidates = product.selectedImages
+        .where((ProductImage image) => image.field == field)
+        .where((ProductImage image) => image.size == ImageSize.SMALL);
     final String url = candidates.isNotEmpty ? candidates.first.url : null;
-    return url != null ? ClipRRect(
-        borderRadius: const BorderRadius.all(Radius.circular(15.0)),
-        child: Container(
-          width: MediaQuery.of(context).size.width * 0.25,
-          height: 105.0,
-          decoration: BoxDecoration(
+    return url != null
+        ? ClipRRect(
             borderRadius: const BorderRadius.all(Radius.circular(15.0)),
-            image: DecorationImage(
-              fit: BoxFit.cover,
-              image: NetworkImage(
-                url,
-                scale: 1.0,
+            child: Container(
+              width: MediaQuery.of(context).size.width * 0.25,
+              height: 105.0,
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: NetworkImage(
+                    url,
+                    scale: 1.0,
+                  ),
+                ),
+              ),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 12.0, sigmaY: 12.0),
+                child: Image.network(
+                  url,
+                  fit: BoxFit.contain,
+                  loadingBuilder: (BuildContext context, Widget child,
+                      ImageChunkEvent progress) {
+                    if (progress == null) {
+                      return child;
+                    }
+                    return Center(
+                      child: CircularProgressIndicator(
+                        strokeWidth: 2.5,
+                        valueColor:
+                            const AlwaysStoppedAnimation<Color>(Colors.white),
+                        value: progress.cumulativeBytesLoaded /
+                            progress.expectedTotalBytes,
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ))
+        : Container(
+            width: MediaQuery.of(context).size.width * 0.25,
+            height: 105.0,
+            padding: const EdgeInsets.all(5.0),
+            decoration: BoxDecoration(
+              borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+              border: Border.all(color: Colors.grey, width: 0.5),
+            ),
+            child: Center(
+              child: Text(
+                'Missing ${field.value} picture',
+                textAlign: TextAlign.center,
+                style: Theme.of(context)
+                    .textTheme
+                    .subtitle1
+                    .copyWith(color: Colors.black),
               ),
             ),
-          ),
-          child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 12.0, sigmaY: 12.0),
-            child: Image.network(
-              url,
-              fit: BoxFit.contain,
-              loadingBuilder: (BuildContext context, Widget child,
-                  ImageChunkEvent progress) {
-                if (progress == null) {
-                  return child;
-                }
-                return Center(
-                  child: CircularProgressIndicator(
-                    strokeWidth: 2.5,
-                    valueColor:
-                    const AlwaysStoppedAnimation<Color>(Colors.white),
-                    value: progress.cumulativeBytesLoaded /
-                        progress.expectedTotalBytes,
-                  ),
-                );
-              },
-            ),
-          ),
-        )) : Container(
-      width: MediaQuery.of(context).size.width * 0.25,
-      height: 105.0,
-      padding: const EdgeInsets.all(5.0),
-      decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(Radius.circular(15.0)),
-        border: Border.all(color: Colors.grey, width: 0.5),
-      ),
-      child: Center(
-        child: Text('Missing ${field.value} picture', textAlign: TextAlign.center, style: Theme.of(context).textTheme.subtitle1.copyWith(color: Colors.black),),
-      ),
-    );
+          );
   }
 
   /*void _openSneakPeek(BuildContext context) {

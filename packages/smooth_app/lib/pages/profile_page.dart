@@ -49,7 +49,7 @@ class ProfilePage extends StatelessWidget {
                   Consumer<ProfilePageModel>(
                     builder: (BuildContext context,
                         ProfilePageModel profilePageModel, Widget child) {
-                      if(profilePageModel.useMlKit != null) {
+                      if (profilePageModel.useMlKit != null) {
                         return SmoothToggle(
                           value: profilePageModel.useMlKit,
                           width: 80.0,
@@ -63,7 +63,6 @@ class ProfilePage extends StatelessWidget {
                       } else {
                         return Container();
                       }
-
                     },
                   ),
                 ],
@@ -76,23 +75,28 @@ class ProfilePage extends StatelessWidget {
                 backgroundColor: Colors.transparent,
                 bounce: true,
                 barrierColor: Colors.black45,
-                builder: (BuildContext context, ScrollController scrollController) =>
-                    UserPreferencesView(scrollController),
+                builder:
+                    (BuildContext context, ScrollController scrollController) =>
+                        UserPreferencesView(scrollController),
               ),
               child: Container(
                 height: 60.0,
                 padding:
-                const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+                    const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
                 margin: const EdgeInsets.all(10.0),
                 decoration: BoxDecoration(
                     color: Colors.black.withAlpha(5),
-                    borderRadius: const BorderRadius.all(Radius.circular(20.0))),
+                    borderRadius:
+                        const BorderRadius.all(Radius.circular(20.0))),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text(S.of(context).configurePreferences),
-                    SvgPicture.asset('assets/misc/right_arrow.svg', color: Colors.black,),
+                    SvgPicture.asset(
+                      'assets/misc/right_arrow.svg',
+                      color: Colors.black,
+                    ),
                   ],
                 ),
               ),

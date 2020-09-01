@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CategoryCard extends StatelessWidget {
-  const CategoryCard({@required this.title, @required this.color, this.onTap, this.iconName = 'smoothie.svg'});
+  const CategoryCard(
+      {@required this.title,
+      @required this.color,
+      this.onTap,
+      this.iconName = 'smoothie.svg'});
 
   final String title;
   final Color color;
@@ -43,10 +47,8 @@ class CategoryCard extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     title,
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline4
-                        .copyWith(color: Colors.white, fontWeight: FontWeight.normal),
+                    style: Theme.of(context).textTheme.headline4.copyWith(
+                        color: Colors.white, fontWeight: FontWeight.normal),
                   ),
                 ],
               ),

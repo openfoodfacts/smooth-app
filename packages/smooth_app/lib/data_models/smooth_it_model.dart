@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +8,6 @@ import 'package:smooth_app/temp/filter_ranking_helper.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 
 class SmoothItModel extends ChangeNotifier {
-
   SmoothItModel(this.unprocessedProducts) {
     _loadData();
     scrollController.addListener(_scrollListener);
@@ -23,7 +21,7 @@ class SmoothItModel extends ChangeNotifier {
       dataLoaded = await processProductList();
       notifyListeners();
       return true;
-    } catch(e) {
+    } catch (e) {
       print('An error occurred while processing the product list : $e');
       dataLoaded = false;
       return false;
@@ -45,21 +43,33 @@ class SmoothItModel extends ChangeNotifier {
   Future<bool> processProductList() async {
     try {
       userPreferences = await UserDatabase().getUserPreferences();
-      products = FilterRankingHelper.process(unprocessedProducts, userPreferences);
-      topPicks = products.where((RankedProduct rankedProduct) => rankedProduct.type == RankingType.TOP_PICKS).toList();
-      topPicks.sort((RankedProduct a, RankedProduct b) => b.score.compareTo(a.score));
-      contenders = products.where((RankedProduct rankedProduct) => rankedProduct.type == RankingType.CONTENDERS).toList();
-      contenders.sort((RankedProduct a, RankedProduct b) => b.score.compareTo(a.score));
-      dismissed = products.where((RankedProduct rankedProduct) => rankedProduct.type == RankingType.DISMISSED).toList();
-      dismissed.sort((RankedProduct a, RankedProduct b) => b.score.compareTo(a.score));
+      products =
+          FilterRankingHelper.process(unprocessedProducts, userPreferences);
+      topPicks = products
+          .where((RankedProduct rankedProduct) =>
+              rankedProduct.type == RankingType.TOP_PICKS)
+          .toList();
+      topPicks.sort(
+          (RankedProduct a, RankedProduct b) => b.score.compareTo(a.score));
+      contenders = products
+          .where((RankedProduct rankedProduct) =>
+              rankedProduct.type == RankingType.CONTENDERS)
+          .toList();
+      contenders.sort(
+          (RankedProduct a, RankedProduct b) => b.score.compareTo(a.score));
+      dismissed = products
+          .where((RankedProduct rankedProduct) =>
+              rankedProduct.type == RankingType.DISMISSED)
+          .toList();
+      dismissed.sort(
+          (RankedProduct a, RankedProduct b) => b.score.compareTo(a.score));
       print('Processed products');
       notifyListeners();
       return true;
-    } catch(e) {
+    } catch (e) {
       print(e);
       return false;
     }
-
   }
 
   void _scrollListener() {
@@ -73,5 +83,4 @@ class SmoothItModel extends ChangeNotifier {
       notifyListeners();
     }
   }
-
 }

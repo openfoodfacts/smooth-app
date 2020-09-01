@@ -1,4 +1,3 @@
-
 // Note to myself : this needs to be transferred to the openfoodfacts-dart plugin when ready
 
 import 'package:flutter/material.dart';
@@ -10,8 +9,8 @@ enum UserPreferencesVariableValue {
   MANDATORY
 }
 
-extension UserPreferencesVariableValueExtention on UserPreferencesVariableValue {
-
+extension UserPreferencesVariableValueExtention
+    on UserPreferencesVariableValue {
   int get value {
     switch (this) {
       case UserPreferencesVariableValue.NOT_IMPORTANT:
@@ -73,7 +72,7 @@ extension UserPreferencesVariableValueExtention on UserPreferencesVariableValue 
   }
 
   static UserPreferencesVariableValue fromInt(int i) {
-    switch(i) {
+    switch (i) {
       case 0:
         return UserPreferencesVariableValue.NOT_IMPORTANT;
         break;
@@ -176,9 +175,9 @@ extension UserPreferencesVariableExtension on UserPreferencesVariable {
 }
 
 class UserPreferences {
-
   UserPreferences() {
-    for(final UserPreferencesVariable variable in UserPreferencesVariable.values) {
+    for (final UserPreferencesVariable variable
+        in UserPreferencesVariable.values) {
       setVariable(variable, UserPreferencesVariableValue.NOT_IMPORTANT);
     }
   }
@@ -198,8 +197,9 @@ class UserPreferences {
   UserPreferencesVariableValue _novaGroup;
   UserPreferencesVariableValue _nutriScore;
 
-  void setVariable(UserPreferencesVariable variable, UserPreferencesVariableValue value) {
-    switch(variable) {
+  void setVariable(
+      UserPreferencesVariable variable, UserPreferencesVariableValue value) {
+    switch (variable) {
       case UserPreferencesVariable.VEGAN:
         _vegan = value;
         break;
@@ -231,7 +231,7 @@ class UserPreferences {
   }
 
   UserPreferencesVariableValue getVariable(UserPreferencesVariable variable) {
-    switch(variable) {
+    switch (variable) {
       case UserPreferencesVariable.VEGAN:
         return _vegan;
         break;
@@ -267,8 +267,9 @@ class UserPreferences {
 
   List<UserPreferencesVariable> getActiveVariables() {
     final List<UserPreferencesVariable> result = <UserPreferencesVariable>[];
-    for(final UserPreferencesVariable variable in UserPreferencesVariable.values) {
-      if(getVariable(variable) != UserPreferencesVariableValue.NOT_IMPORTANT) {
+    for (final UserPreferencesVariable variable
+        in UserPreferencesVariable.values) {
+      if (getVariable(variable) != UserPreferencesVariableValue.NOT_IMPORTANT) {
         result.add(variable);
       }
     }
@@ -276,11 +277,15 @@ class UserPreferences {
   }
 
   void loadJson(Map<String, dynamic> data) {
-    for(final UserPreferencesVariable variable in UserPreferencesVariable.values) {
-      if(data[variable.name] is! int) {
+    for (final UserPreferencesVariable variable
+        in UserPreferencesVariable.values) {
+      if (data[variable.name] is! int) {
         setVariable(variable, UserPreferencesVariableValue.NOT_IMPORTANT);
       } else {
-        setVariable(variable, UserPreferencesVariableValueExtention.fromInt(data[variable.name] as int ?? 0));
+        setVariable(
+            variable,
+            UserPreferencesVariableValueExtention.fromInt(
+                data[variable.name] as int ?? 0));
       }
     }
   }
@@ -288,7 +293,8 @@ class UserPreferences {
   Map<String, int> toJson() {
     final Map<String, int> result = <String, int>{};
 
-    for(final UserPreferencesVariable variable in UserPreferencesVariable.values) {
+    for (final UserPreferencesVariable variable
+        in UserPreferencesVariable.values) {
       result[variable.name] = getVariable(variable).value;
     }
 

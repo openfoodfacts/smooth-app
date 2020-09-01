@@ -1,9 +1,7 @@
-
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfilePageModel extends ChangeNotifier {
-
   ProfilePageModel() {
     _loadData();
   }
@@ -21,7 +19,7 @@ class ProfilePageModel extends ChangeNotifier {
   bool initialBuild = true;
 
   void setMlKitState(bool state) {
-    if(!initialBuild && sharedPreferences != null) {
+    if (!initialBuild && sharedPreferences != null) {
       sharedPreferences.setBool('useMlKit', state);
       useMlKit = state;
       notifyListeners();
@@ -29,5 +27,4 @@ class ProfilePageModel extends ChangeNotifier {
       initialBuild = false;
     }
   }
-
 }

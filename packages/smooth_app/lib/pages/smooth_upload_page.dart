@@ -23,52 +23,63 @@ class SmoothUploadPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: ChangeNotifierProvider<SmoothUploadModel>(
-        create: (BuildContext context) => SmoothUploadModel(),
-    child: Consumer<SmoothUploadModel>(
-      builder: (BuildContext context,
-          SmoothUploadModel smoothUploadModel,
-          Widget child) {
-        return Stack(
-          children: <Widget>[
-            ListView(
-              children: <Widget>[
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                  margin: const EdgeInsets.only(top: 20.0),
-                  child: Text(
-                    'Add a new product',
-                    style: Theme.of(context).textTheme.headline1,
-                  ),
-                ),
-                const SizedBox(
-                  height: 20.0,
-                ),
-                _generatePicturePicker(
-                    context, 'Product front', PhotoType.FRONT, Colors.lightBlueAccent, smoothUploadModel),
-                _generatePicturePicker(context, 'Ingredients list',
-                    PhotoType.INGREDIENTS, Colors.orangeAccent, smoothUploadModel),
-                _generatePicturePicker(context, 'Nutrition-table',
-                    PhotoType.NUTRITION_TABLE, Colors.deepPurpleAccent, smoothUploadModel),
-              ],
-            ),
-            Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                ClipRect(
-                  child: BackdropFilter(
-                    filter: ImageFilter.blur(
-                      sigmaX: 4.0,
-                      sigmaY: 4.0,
+      create: (BuildContext context) => SmoothUploadModel(),
+      child: Consumer<SmoothUploadModel>(
+        builder: (BuildContext context, SmoothUploadModel smoothUploadModel,
+            Widget child) {
+          return Stack(
+            children: <Widget>[
+              ListView(
+                children: <Widget>[
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    margin: const EdgeInsets.only(top: 20.0),
+                    child: Text(
+                      'Add a new product',
+                      style: Theme.of(context).textTheme.headline1,
                     ),
-                    child: Container(
-                      color: Colors.black12,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 12.0, vertical: 20.0),
-                      child: SmoothMainButton(
-                        text: 'Send',
-                        onPressed: () {
-                          /*if(smoothUploadModel.frontPath != null && smoothUploadModel.ingredientsPath != null && smoothUploadModel.nutritionPath != null) {
+                  ),
+                  const SizedBox(
+                    height: 20.0,
+                  ),
+                  _generatePicturePicker(
+                      context,
+                      'Product front',
+                      PhotoType.FRONT,
+                      Colors.lightBlueAccent,
+                      smoothUploadModel),
+                  _generatePicturePicker(
+                      context,
+                      'Ingredients list',
+                      PhotoType.INGREDIENTS,
+                      Colors.orangeAccent,
+                      smoothUploadModel),
+                  _generatePicturePicker(
+                      context,
+                      'Nutrition-table',
+                      PhotoType.NUTRITION_TABLE,
+                      Colors.deepPurpleAccent,
+                      smoothUploadModel),
+                ],
+              ),
+              Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  ClipRect(
+                    child: BackdropFilter(
+                      filter: ImageFilter.blur(
+                        sigmaX: 4.0,
+                        sigmaY: 4.0,
+                      ),
+                      child: Container(
+                        color: Colors.black12,
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 12.0, vertical: 20.0),
+                        child: SmoothMainButton(
+                          text: 'Send',
+                          onPressed: () {
+                            /*if(smoothUploadModel.frontPath != null && smoothUploadModel.ingredientsPath != null && smoothUploadModel.nutritionPath != null) {
                             final SendImage frontSendImage = SendImage(
                               lang: OpenFoodFactsLanguage.ENGLISH,
                               barcode: barcode,
@@ -91,22 +102,23 @@ class SmoothUploadPage extends StatelessWidget {
                             );
                             OpenFoodAPIClient.addProductImage(const User(), nutritionSendImage);
                           }*/
-                          Navigator.pop(context);
-                        },
+                            Navigator.pop(context);
+                          },
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
-            ),
-          ],
-        );
-      },
-    ),));
+                ],
+              ),
+            ],
+          );
+        },
+      ),
+    ));
   }
 
-  Widget _generatePicturePicker(
-      BuildContext context, String title, PhotoType type, Color color, SmoothUploadModel model) {
+  Widget _generatePicturePicker(BuildContext context, String title,
+      PhotoType type, Color color, SmoothUploadModel model) {
     return GestureDetector(
       child: Container(
         width: MediaQuery.of(context).size.width * 0.8,
@@ -157,7 +169,7 @@ class SmoothUploadPage extends StatelessWidget {
               initAspectRatio: CropAspectRatioPreset.original,
               lockAspectRatio: false),
         );
-        switch(type) {
+        switch (type) {
           case PhotoType.FRONT:
             model.setFrontPath(croppedFile.path);
             break;
@@ -173,15 +185,21 @@ class SmoothUploadPage extends StatelessWidget {
   }
 
   String getIconPath(PhotoType type, SmoothUploadModel model) {
-    switch(type) {
+    switch (type) {
       case PhotoType.FRONT:
-        return model.frontPath == null ? 'assets/actions/camera.svg' : 'assets/misc/checkmark.svg';
+        return model.frontPath == null
+            ? 'assets/actions/camera.svg'
+            : 'assets/misc/checkmark.svg';
         break;
       case PhotoType.INGREDIENTS:
-        return model.ingredientsPath == null ? 'assets/actions/camera.svg' : 'assets/misc/checkmark.svg';
+        return model.ingredientsPath == null
+            ? 'assets/actions/camera.svg'
+            : 'assets/misc/checkmark.svg';
         break;
       case PhotoType.NUTRITION_TABLE:
-        return model.nutritionPath == null ? 'assets/actions/camera.svg' : 'assets/misc/checkmark.svg';
+        return model.nutritionPath == null
+            ? 'assets/actions/camera.svg'
+            : 'assets/misc/checkmark.svg';
         break;
       default:
         return null;
