@@ -70,7 +70,8 @@ class SmoothProductCardFound extends SmoothProductCardTemplate {
                               children: <Widget>[
                                 Flexible(
                                   child: Text(
-                                    product.productName,
+                                    product.productName ??
+                                        'Unknown product name',
                                     maxLines: 2,
                                     overflow: TextOverflow.fade,
                                     style: const TextStyle(
@@ -185,7 +186,8 @@ class SmoothProductCardFound extends SmoothProductCardTemplate {
                               width: 30.0,
                               height: 30.0,
                               decoration: BoxDecoration(
-                                color: _getEnvironmentImpactColor(product.environmentImpactLevels),
+                                color: _getEnvironmentImpactColor(
+                                    product.environmentImpactLevels),
                                 borderRadius: const BorderRadius.all(
                                     Radius.circular(30.0)),
                               ),
@@ -359,13 +361,14 @@ class SmoothProductCardFound extends SmoothProductCardTemplate {
     }
   }
 
-  Color _getEnvironmentImpactColor(EnvironmentImpactLevels environmentImpactLevels) {
-
-    if(environmentImpactLevels == null || environmentImpactLevels.levels.isEmpty) {
+  Color _getEnvironmentImpactColor(
+      EnvironmentImpactLevels environmentImpactLevels) {
+    if (environmentImpactLevels == null ||
+        environmentImpactLevels.levels.isEmpty) {
       return Colors.black.withAlpha(15);
     }
 
-    switch(environmentImpactLevels.levels.first) {
+    switch (environmentImpactLevels.levels.first) {
       case Level.LOW:
         return Colors.green;
         break;

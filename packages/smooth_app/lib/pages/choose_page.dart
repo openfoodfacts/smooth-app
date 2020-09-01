@@ -1,16 +1,24 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/utils/PnnsGroups.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/category_cards/category_card.dart';
 import 'package:smooth_app/cards/category_cards/category_chip.dart';
 import 'package:smooth_app/cards/category_cards/subcategory_card.dart';
 import 'package:smooth_app/data_models/choose_page_model.dart';
+import 'package:smooth_app/database/full_products_database.dart';
 import 'package:smooth_app/pages/product_group_query_page.dart';
+import 'package:smooth_app/pages/product_keywords_search_result_page.dart';
+import 'package:smooth_app/pages/product_page.dart';
 import 'package:smooth_ui_library/widgets/smooth_search_bar.dart';
 import 'package:smooth_app/generated/l10n.dart';
 
 class ChoosePage extends StatelessWidget {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<ChoosePageModel>(
@@ -20,6 +28,7 @@ class ChoosePage extends StatelessWidget {
         return WillPopScope(
             onWillPop: choosePageModel.onWillPop,
             child: Scaffold(
+              key: _scaffoldKey,
               body: NestedScrollView(
                   controller: choosePageModel.scrollController,
                   headerSliverBuilder:
@@ -27,7 +36,8 @@ class ChoosePage extends StatelessWidget {
                     return <Widget>[
                       SliverAppBar(
                         expandedHeight: 248.0,
-                        backgroundColor: Theme.of(context).scaffoldBackgroundColor,//choosePageModel.appBarColor,
+                        backgroundColor: Theme.of(context)
+                            .scaffoldBackgroundColor, //choosePageModel.appBarColor,
                         pinned: true,
                         elevation: 8.0,
                         /*title: Padding(
@@ -63,6 +73,76 @@ class ChoosePage extends StatelessWidget {
                                     horizontal: 16.0, vertical: 12.0),
                                 child: SmoothSearchBar(
                                   hintText: S.of(context).searchHintText,
+                                  onSubmitted: (String value) {
+                                    if (int.parse(value,
+                                            onError: (String e) => null) !=
+                                        null) {
+                                      showDialog<Widget>(
+                                          context: context,
+                                          builder: (BuildContext context) {
+                                            barcodeSearch(value, context);
+                                            return Dialog(
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                child: ClipRRect(
+                                                    borderRadius:
+                                                        const BorderRadius.all(
+                                                            Radius.circular(
+                                                                20.0)),
+                                                    child: BackdropFilter(
+                                                      filter: ImageFilter.blur(
+                                                        sigmaX: 4.0,
+                                                        sigmaY: 4.0,
+                                                      ),
+                                                      child: Container(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(12.0),
+                                                        width: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .width *
+                                                            0.8,
+                                                        height: 120.0,
+                                                        decoration:
+                                                            const BoxDecoration(
+                                                          borderRadius:
+                                                              BorderRadius.all(
+                                                                  Radius
+                                                                      .circular(
+                                                                          20.0)),
+                                                          color: Colors.white70,
+                                                        ),
+                                                        child: Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
+                                                            children: <Widget>[
+                                                              Text(
+                                                                  'Looking for : $value'),
+                                                              const SizedBox(
+                                                                height: 24.0,
+                                                              ),
+                                                              const CircularProgressIndicator(),
+                                                            ]),
+                                                      ),
+                                                    )));
+                                          });
+                                    } else {
+                                      Navigator.push<dynamic>(
+                                          context,
+                                          MaterialPageRoute<dynamic>(
+                                              builder: (BuildContext context) =>
+                                                  ProductKeywordsSearchResultPage(
+                                                      heroTag: 'search_bar',
+                                                      mainColor:
+                                                          Colors.deepPurple,
+                                                      keywords: value)));
+                                    }
+                                  },
                                 ),
                               ),
                             ],
@@ -76,7 +156,8 @@ class ChoosePage extends StatelessWidget {
                               left: 12.0,
                             ),
                             decoration: BoxDecoration(
-                              color: Theme.of(context).scaffoldBackgroundColor, //choosePageModel.appBarColor,
+                              color: Theme.of(context)
+                                  .scaffoldBackgroundColor, //choosePageModel.appBarColor,
                               /*boxShadow: <BoxShadow>[
                                 BoxShadow(color: Colors.black.withOpacity(choosePageModel.opacity / 8.0), offset: const Offset(0.0, 6.0), blurRadius: 4.0),
                               ],*/
@@ -241,5 +322,121 @@ class ChoosePage extends StatelessWidget {
             ));
       }),
     );
+  }
+
+  Future<void> barcodeSearch(String code, BuildContext context) async {
+    final FullProductsDatabase productsDatabase = FullProductsDatabase();
+
+    final bool result = await productsDatabase.checkAndFetchProduct(code);
+
+    if (result) {
+      final Product product = await productsDatabase.getProduct(code);
+      Navigator.pop(context);
+      Navigator.push<dynamic>(
+          context,
+          MaterialPageRoute<dynamic>(
+              builder: (BuildContext context) => ProductPage(
+                    product: product,
+                  )));
+    } else {
+      Navigator.pop(context);
+      showDialog<Widget>(
+          context: context,
+          builder: (BuildContext context) {
+            return Dialog(
+                backgroundColor: Colors.transparent,
+                child: ClipRRect(
+                    borderRadius: const BorderRadius.all(Radius.circular(20.0)),
+                    child: BackdropFilter(
+                      filter: ImageFilter.blur(
+                        sigmaX: 4.0,
+                        sigmaY: 4.0,
+                      ),
+                      child: Container(
+                        padding: const EdgeInsets.all(12.0),
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        height: 120.0,
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                          color: Colors.white70,
+                        ),
+                        child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Flexible(
+                                    child: Text(
+                                      'No product found with matching barcode : $code',
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  )
+                                ],
+                              ),
+                              const SizedBox(
+                                height: 24.0,
+                              ),
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: <Widget>[
+                                  GestureDetector(
+                                    onTap: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: Container(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.3,
+                                      height: 40.0,
+                                      decoration: BoxDecoration(
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.circular(50.0)),
+                                        color: Colors.redAccent.withAlpha(50),
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          'Close',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headline4
+                                              .copyWith(
+                                                  color: Colors.redAccent),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    child: Container(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.3,
+                                      height: 40.0,
+                                      decoration: BoxDecoration(
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.circular(50.0)),
+                                        color: Colors.lightBlue.withAlpha(50),
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          'Contribute',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headline4
+                                              .copyWith(
+                                                  color: Colors.lightBlue),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ]),
+                      ),
+                    )));
+          });
+    }
   }
 }

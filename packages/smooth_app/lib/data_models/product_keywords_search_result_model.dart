@@ -1,17 +1,16 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Product.dart';
-import 'package:openfoodfacts/utils/PnnsGroups.dart';
 import 'package:smooth_app/database/full_products_database.dart';
 import 'package:smooth_app/temp/filter_ranking_helper.dart';
 
-class ProductGroupQueryModel extends ChangeNotifier {
-  ProductGroupQueryModel(this.group) {
+class ProductKeywordsSearchResultModel extends ChangeNotifier {
+  ProductKeywordsSearchResultModel(this.keywords) {
     _loadData();
     scrollController.addListener(_scrollListener);
   }
 
-  final PnnsGroup2 group;
+  final String keywords;
   final ScrollController scrollController = ScrollController();
 
   List<Product> products;
@@ -28,7 +27,7 @@ class ProductGroupQueryModel extends ChangeNotifier {
   Future<bool> _loadData() async {
     productsDatabase = FullProductsDatabase();
 
-    products = await productsDatabase.queryProductsFromKeyword(group.id);
+    products = await productsDatabase.queryProductsFromKeyword(keywords);
 
     products.sort((Product p1, Product p2) {
       final int p1Score = FilterRankingHelper.nutriScorePoints(p1) +

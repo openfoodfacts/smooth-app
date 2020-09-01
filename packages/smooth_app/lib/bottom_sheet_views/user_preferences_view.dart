@@ -35,7 +35,8 @@ class UserPreferencesView extends StatelessWidget {
                       children: <Widget>[
                         Container(
                           padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                          margin: const EdgeInsets.only(top: 20.0),
+                          margin:
+                              const EdgeInsets.only(top: 20.0, bottom: 24.0),
                           child: Text(
                             S.of(context).myPreferences,
                             style: Theme.of(context).textTheme.headline1,
@@ -44,12 +45,10 @@ class UserPreferencesView extends StatelessWidget {
                         Column(
                           mainAxisSize: MainAxisSize.min,
                           children: List<Widget>.generate(
-                            UserPreferencesVariableExtension
-                                    .getVariables()
+                            UserPreferencesVariableExtension.getVariables()
                                 .length,
                             (int index) => _generatePreferenceRow(
-                              UserPreferencesVariableExtension
-                                      .getVariables()
+                              UserPreferencesVariableExtension.getVariables()
                                   .elementAt(index),
                             ),
                           ),
@@ -116,27 +115,32 @@ class UserPreferencesView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text(variable.name),
-
             ],
           ),
           Consumer<UserPreferencesModel>(
             builder: (BuildContext context,
                 UserPreferencesModel userPreferencesModel, Widget child) {
-              if(userPreferencesModel.dataLoaded) {
+              if (userPreferencesModel.dataLoaded) {
                 return SliderTheme(
                   data: SliderThemeData(
-                    thumbColor: Colors.black,
+                    //thumbColor: Colors.black,
                     activeTrackColor: Colors.black54,
-                    valueIndicatorColor: userPreferencesModel.getVariable(variable).color,
+                    valueIndicatorColor:
+                        userPreferencesModel.getVariable(variable).color,
                     trackHeight: 5.0,
                     inactiveTrackColor: Colors.black12,
+                    showValueIndicator: ShowValueIndicator.always,
                   ),
                   child: Slider(
                     min: 0.0,
                     max: 3.0,
                     divisions: 3,
-                    value: userPreferencesModel.getVariable(variable).value.toDouble(),
-                    onChanged: (double value) => userPreferencesModel.setVariable(variable, value.toInt()),
+                    value: userPreferencesModel
+                        .getVariable(variable)
+                        .value
+                        .toDouble(),
+                    onChanged: (double value) => userPreferencesModel
+                        .setVariable(variable, value.toInt()),
                     activeColor: Colors.black,
                     label: userPreferencesModel.getVariable(variable).label,
                   ),

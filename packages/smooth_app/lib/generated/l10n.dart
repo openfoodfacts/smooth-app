@@ -12,22 +12,23 @@ import 'intl/messages_all.dart';
 
 class S {
   S();
-  
+
   static S current;
-  
-  static const AppLocalizationDelegate delegate =
-    AppLocalizationDelegate();
+
+  static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
   static Future<S> load(Locale locale) {
-    final name = (locale.countryCode?.isEmpty ?? false) ? locale.languageCode : locale.toString();
-    final localeName = Intl.canonicalizedLocale(name); 
+    final name = (locale.countryCode?.isEmpty ?? false)
+        ? locale.languageCode
+        : locale.toString();
+    final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
       S.current = S();
-      
+
       return S.current;
     });
-  } 
+  }
 
   static S of(BuildContext context) {
     return Localizations.of<S>(context, S);
@@ -168,6 +169,16 @@ class S {
     return Intl.message(
       'Save',
       name: 'saveButtonText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Apply`
+  String get applyButtonText {
+    return Intl.message(
+      'Apply',
+      name: 'applyButtonText',
       desc: '',
       args: [],
     );
@@ -412,7 +423,8 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
       Locale.fromSubtags(languageCode: 'son'),
       Locale.fromSubtags(languageCode: 'sq', countryCode: 'AL'),
       Locale.fromSubtags(languageCode: 'sr', countryCode: 'CS'),
-      Locale.fromSubtags(languageCode: 'sr', scriptCode: 'Cyrl', countryCode: 'ME'),
+      Locale.fromSubtags(
+          languageCode: 'sr', scriptCode: 'Cyrl', countryCode: 'ME'),
       Locale.fromSubtags(languageCode: 'sr', countryCode: 'SP'),
       Locale.fromSubtags(languageCode: 'ss', countryCode: 'ZA'),
       Locale.fromSubtags(languageCode: 'st', countryCode: 'ZA'),

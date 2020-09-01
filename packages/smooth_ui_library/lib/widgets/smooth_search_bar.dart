@@ -4,12 +4,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class SmoothSearchBar extends StatelessWidget {
 
-  const SmoothSearchBar({this.controller, this.hintText, this.color = Colors.black, this.borderRadius = 20.0});
+  const SmoothSearchBar({this.controller, this.hintText, this.color = Colors.black, this.borderRadius = 20.0, this.onSubmitted});
 
   final TextEditingController controller;
   final String hintText;
   final Color color;
   final double borderRadius;
+  final Function(String) onSubmitted;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +35,7 @@ class SmoothSearchBar extends StatelessWidget {
           ),
           focusColor: color,
         ),
+        onSubmitted: onSubmitted,
       ),
     );
   }

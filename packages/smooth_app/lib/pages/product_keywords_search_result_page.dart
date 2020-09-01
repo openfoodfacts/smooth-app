@@ -1,71 +1,76 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
-import 'package:openfoodfacts/utils/PnnsGroups.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/bottom_sheet_views/group_query_filter_view.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
-import 'package:smooth_app/data_models/product_group_query_model.dart';
+import 'package:smooth_app/data_models/product_keywords_search_result_model.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
 
-class ProductGroupQueryPage extends StatelessWidget {
-  const ProductGroupQueryPage(
-      {@required this.group, @required this.heroTag, @required this.mainColor});
+class ProductKeywordsSearchResultPage extends StatelessWidget {
+  const ProductKeywordsSearchResultPage(
+      {@required this.keywords,
+      @required this.heroTag,
+      @required this.mainColor});
 
-  final PnnsGroup2 group;
+  final String keywords;
   final String heroTag;
   final Color mainColor;
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<ProductGroupQueryModel>(
-      create: (BuildContext context) => ProductGroupQueryModel(group),
-      child: Consumer<ProductGroupQueryModel>(
+    return ChangeNotifierProvider<ProductKeywordsSearchResultModel>(
+      create: (BuildContext context) =>
+          ProductKeywordsSearchResultModel(keywords),
+      child: Consumer<ProductKeywordsSearchResultModel>(
         builder: (BuildContext context,
-            ProductGroupQueryModel productGroupQueryModel, Widget child) {
+            ProductKeywordsSearchResultModel productKeywordsSearchResultModel,
+            Widget child) {
           return Scaffold(
-              floatingActionButton: productGroupQueryModel.products != null &&
-                      productGroupQueryModel.products.isNotEmpty
-                  ? SmoothRevealAnimation(
-                      animationCurve: Curves.easeInOutBack,
-                      startOffset: const Offset(0.0, 1.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.09,
+              floatingActionButton:
+                  productKeywordsSearchResultModel.products != null &&
+                          productKeywordsSearchResultModel.products.isNotEmpty
+                      ? SmoothRevealAnimation(
+                          animationCurve: Curves.easeInOutBack,
+                          startOffset: const Offset(0.0, 1.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width * 0.09,
+                              ),
+                              FloatingActionButton.extended(
+                                elevation: 12.0,
+                                icon: SvgPicture.asset(
+                                  'assets/actions/smoothie.svg',
+                                  width: 24.0,
+                                  height: 24.0,
+                                  color: mainColor,
+                                ),
+                                label: Text(
+                                  'My personalized ranking',
+                                  style: TextStyle(color: mainColor),
+                                ),
+                                backgroundColor: Colors.white,
+                                onPressed: () {
+                                  Navigator.push<dynamic>(
+                                    context,
+                                    MaterialPageRoute<dynamic>(
+                                        builder: (BuildContext context) =>
+                                            PersonalizedRankingPage(
+                                              input:
+                                                  productKeywordsSearchResultModel
+                                                      .displayProducts,
+                                            )),
+                                  );
+                                },
+                              ),
+                            ],
                           ),
-                          FloatingActionButton.extended(
-                            elevation: 12.0,
-                            icon: SvgPicture.asset(
-                              'assets/actions/smoothie.svg',
-                              width: 24.0,
-                              height: 24.0,
-                              color: mainColor,
-                            ),
-                            label: Text(
-                              'My personalized ranking',
-                              style: TextStyle(color: mainColor),
-                            ),
-                            backgroundColor: Colors.white,
-                            onPressed: () {
-                              Navigator.push<dynamic>(
-                                context,
-                                MaterialPageRoute<dynamic>(
-                                    builder: (BuildContext context) =>
-                                        PersonalizedRankingPage(
-                                          input: productGroupQueryModel
-                                              .displayProducts,
-                                        )),
-                              );
-                            },
-                          ),
-                        ],
-                      ),
-                    )
-                  : null,
+                        )
+                      : null,
               body: Stack(
                 children: <Widget>[
                   Hero(
@@ -93,12 +98,13 @@ class ProductGroupQueryPage extends StatelessWidget {
                                   Flexible(
                                     child: AnimatedOpacity(
                                         opacity:
-                                            productGroupQueryModel.showTitle
+                                            productKeywordsSearchResultModel
+                                                    .showTitle
                                                 ? 1.0
                                                 : 0.0,
                                         duration:
                                             const Duration(milliseconds: 250),
-                                        child: Text(group.name,
+                                        child: Text(keywords,
                                             textAlign: TextAlign.center,
                                             style: Theme.of(context)
                                                 .textTheme
@@ -111,19 +117,19 @@ class ProductGroupQueryPage extends StatelessWidget {
                           ],
                         )),
                   ),
-                  if (productGroupQueryModel.products != null)
-                    if (productGroupQueryModel.products.isNotEmpty)
+                  if (productKeywordsSearchResultModel.products != null)
+                    if (productKeywordsSearchResultModel.products.isNotEmpty)
                       ListView.builder(
-                        itemCount:
-                            productGroupQueryModel.displayProducts.length,
+                        itemCount: productKeywordsSearchResultModel
+                            .displayProducts.length,
                         itemBuilder: (BuildContext context, int index) {
                           return Padding(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 12.0, vertical: 8.0),
                             child: SmoothProductCardFound(
-                                    heroTag: productGroupQueryModel
+                                    heroTag: productKeywordsSearchResultModel
                                         .displayProducts[index].barcode,
-                                    product: productGroupQueryModel
+                                    product: productKeywordsSearchResultModel
                                         .displayProducts[index],
                                     elevation: 4.0)
                                 .build(context),
@@ -132,7 +138,8 @@ class ProductGroupQueryPage extends StatelessWidget {
                         padding: EdgeInsets.only(
                             top: MediaQuery.of(context).size.height * 0.25,
                             bottom: 80.0),
-                        controller: productGroupQueryModel.scrollController,
+                        controller:
+                            productKeywordsSearchResultModel.scrollController,
                       )
                     else
                       Center(
@@ -161,7 +168,8 @@ class ProductGroupQueryPage extends StatelessWidget {
                       ),
                     ),
                   AnimatedOpacity(
-                    opacity: productGroupQueryModel.showTitle ? 1.0 : 0.0,
+                    opacity:
+                        productKeywordsSearchResultModel.showTitle ? 1.0 : 0.0,
                     duration: const Duration(milliseconds: 250),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
@@ -177,8 +185,9 @@ class ProductGroupQueryPage extends StatelessWidget {
                             onPressed: () => Navigator.pop(context),
                           ),
                         ),
-                        if (productGroupQueryModel.products != null)
-                          if (productGroupQueryModel.products.isNotEmpty)
+                        if (productKeywordsSearchResultModel.products != null)
+                          if (productKeywordsSearchResultModel
+                              .products.isNotEmpty)
                             Padding(
                               padding: const EdgeInsets.only(top: 24.0),
                               child: FlatButton.icon(
@@ -200,11 +209,13 @@ class ProductGroupQueryPage extends StatelessWidget {
                                                 scrollController) =>
                                         GroupQueryFilterView(
                                       categories:
-                                          productGroupQueryModel.categories,
-                                      categoriesList: productGroupQueryModel
-                                          .sortedCategories,
-                                      callback:
-                                          productGroupQueryModel.selectCategory,
+                                          productKeywordsSearchResultModel
+                                              .categories,
+                                      categoriesList:
+                                          productKeywordsSearchResultModel
+                                              .sortedCategories,
+                                      callback: productKeywordsSearchResultModel
+                                          .selectCategory,
                                     ),
                                   );
                                 },

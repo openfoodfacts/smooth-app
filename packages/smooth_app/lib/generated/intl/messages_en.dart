@@ -20,32 +20,46 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static _notInlinedMessages(_) => <String, Function> {
-    "accountable" : MessageLookupByLibrary.simpleMessage("Accountable"),
-    "categories" : MessageLookupByLibrary.simpleMessage("Categories"),
-    "configurePreferences" : MessageLookupByLibrary.simpleMessage("Configure my preferences"),
-    "contributionPage" : MessageLookupByLibrary.simpleMessage("Contribution Page"),
-    "ecology" : MessageLookupByLibrary.simpleMessage("Ecology"),
-    "featureInProgress" : MessageLookupByLibrary.simpleMessage("We\'re still working on this feature, stay tuned"),
-    "ingredients" : MessageLookupByLibrary.simpleMessage("Ingredients"),
-    "mandatory" : MessageLookupByLibrary.simpleMessage("Mandatory"),
-    "myPersonalizedRanking" : MessageLookupByLibrary.simpleMessage("My personalized ranking"),
-    "myPreferences" : MessageLookupByLibrary.simpleMessage("My preferences"),
-    "no" : MessageLookupByLibrary.simpleMessage("No"),
-    "nutrition" : MessageLookupByLibrary.simpleMessage("Nutrition"),
-    "organizationPage" : MessageLookupByLibrary.simpleMessage("Organization Page"),
-    "preferencesText" : MessageLookupByLibrary.simpleMessage("My Preferences"),
-    "saveButtonText" : MessageLookupByLibrary.simpleMessage("Save"),
-    "scanProductTitle" : MessageLookupByLibrary.simpleMessage("Scan products"),
-    "scannerProductsEmpty" : MessageLookupByLibrary.simpleMessage("Products you scan will appear here"),
-    "searchHintText" : MessageLookupByLibrary.simpleMessage("Enter a barcode or keywords"),
-    "searchTitle" : MessageLookupByLibrary.simpleMessage("Search.\nFind the perfect product"),
-    "showAll" : MessageLookupByLibrary.simpleMessage("Show all"),
-    "testerSettingTitle" : MessageLookupByLibrary.simpleMessage("Testers settings"),
-    "trackingPage" : MessageLookupByLibrary.simpleMessage("Tracking Page"),
-    "unknownBrand" : MessageLookupByLibrary.simpleMessage("Unknown brand"),
-    "unknownProductName" : MessageLookupByLibrary.simpleMessage("Unknown product name"),
-    "useMLKitText" : MessageLookupByLibrary.simpleMessage("Use ML Kit powered scanner"),
-    "yes" : MessageLookupByLibrary.simpleMessage("Yes")
-  };
+  static _notInlinedMessages(_) => <String, Function>{
+        "accountable": MessageLookupByLibrary.simpleMessage("Accountable"),
+        "applyButtonText": MessageLookupByLibrary.simpleMessage("Apply"),
+        "categories": MessageLookupByLibrary.simpleMessage("Categories"),
+        "configurePreferences":
+            MessageLookupByLibrary.simpleMessage("Configure my preferences"),
+        "contributionPage":
+            MessageLookupByLibrary.simpleMessage("Contribution Page"),
+        "ecology": MessageLookupByLibrary.simpleMessage("Ecology"),
+        "featureInProgress": MessageLookupByLibrary.simpleMessage(
+            "We\'re still working on this feature, stay tuned"),
+        "ingredients": MessageLookupByLibrary.simpleMessage("Ingredients"),
+        "mandatory": MessageLookupByLibrary.simpleMessage("Mandatory"),
+        "myPersonalizedRanking":
+            MessageLookupByLibrary.simpleMessage("My personalized ranking"),
+        "myPreferences": MessageLookupByLibrary.simpleMessage("My preferences"),
+        "no": MessageLookupByLibrary.simpleMessage("No"),
+        "nutrition": MessageLookupByLibrary.simpleMessage("Nutrition"),
+        "organizationPage":
+            MessageLookupByLibrary.simpleMessage("Organization Page"),
+        "preferencesText":
+            MessageLookupByLibrary.simpleMessage("My Preferences"),
+        "saveButtonText": MessageLookupByLibrary.simpleMessage("Save"),
+        "scanProductTitle":
+            MessageLookupByLibrary.simpleMessage("Scan products"),
+        "scannerProductsEmpty": MessageLookupByLibrary.simpleMessage(
+            "Products you scan will appear here"),
+        "searchHintText":
+            MessageLookupByLibrary.simpleMessage("Enter a barcode or keywords"),
+        "searchTitle": MessageLookupByLibrary.simpleMessage(
+            "Search.\nFind the perfect product"),
+        "showAll": MessageLookupByLibrary.simpleMessage("Show all"),
+        "testerSettingTitle":
+            MessageLookupByLibrary.simpleMessage("Testers settings"),
+        "trackingPage": MessageLookupByLibrary.simpleMessage("Tracking Page"),
+        "unknownBrand": MessageLookupByLibrary.simpleMessage("Unknown brand"),
+        "unknownProductName":
+            MessageLookupByLibrary.simpleMessage("Unknown product name"),
+        "useMLKitText":
+            MessageLookupByLibrary.simpleMessage("Use ML Kit powered scanner"),
+        "yes": MessageLookupByLibrary.simpleMessage("Yes")
+      };
 }
