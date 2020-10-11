@@ -25,6 +25,10 @@ You can join the Open Food Facts's Slack here : [Our Slack](openfoodfacts.slack.
 In order to build the application, make sure you are in the packages/smooth_app directory and run these commands :
  - flutter pub get
  - flutter run
+ 
+### Android
+### iOS
+We need to change the supported architectures for iOS when we open the project in Xcode. There, in the settings, you can specify which ones you want to build for, and only specify the ones that are 64 bit. After that it should build fine for the MLKit component.
 
 ## Thank you
 Smooth_app is made possible thanks to a grant by the Mozilla Foundation, after pitching them the idea at FOSDEM. a HUGE thank you :-) 
