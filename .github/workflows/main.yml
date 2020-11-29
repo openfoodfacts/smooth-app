@@ -1,0 +1,48 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI iOS
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  deploy:
+    runs-on: macos-latest
+steps:
+  - uses: actions/checkout@v2
+  - name: Select Xcode version
+    run: sudo xcode-select -s '/Applications/Xcode_11.3.app/Contents/Developer'
+  - name: Bundle install
+    run: cd ./ios && bundle install
+  - name: Setup JDK
+    uses: actions/setup-java@v1
+    with:
+      java-version: "12.x"
+  - name: Setup flutter
+    uses: subosito/flutter-action@v1
+    with:
+      flutter-version: "1.17.0"
+      channel: "stable"
+  - name: Install tools
+    run: |
+      flutter pub get
+      cd ./ios && pod install
+  - name: Setup SSH Keys and known_hosts for fastlane match
+    run: |
+      ...
+    env:
+      PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+  - name: Deploy to TestFlight
+    run: |
+      cd ./ios && bundle exec fastlane beta
+    env:
+      ...
