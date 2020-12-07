@@ -24,7 +24,7 @@ You can join the Open Food Facts's Slack here : [Our Slack](openfoodfacts.slack.
 
 ## Roadmap
 - [ ] Add Eco-Score support
-- [ ] Add Fastlane publishing to the AppStore and the Play Store
+- [ ] Add Fastlane publishing to the AppStore and the Play Store and GitHub Actions
 - [ ] Add multilingual screenshot generation using Fastlane
 - [ ] Fix navigation for the iOS build (iOS does not have a back button, and gestures are not intuitive for most people)
 - [ ] Remove the hack on the category explorer
