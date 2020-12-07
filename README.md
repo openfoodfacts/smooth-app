@@ -22,6 +22,14 @@ You can join the Open Food Facts's Slack here : [Our Slack](openfoodfacts.slack.
 
 *full project documentation will be added here when ready*
 
+## Roadmap
+- [ ] Add Eco-Score support
+- [ ] Add Fastlane publishing to the AppStore and the Play Store
+- [ ] Add multilingual screenshot generation using Fastlane
+- [ ] Fix navigation for the iOS build (iOS does not have a back button, and gestures are not intuitive for most people)
+- [ ] Remove the hack on the category explorer
+- [ ] User management + Small point system for contributions
+
 ## Building
 
 In order to build the application, make sure you are in the packages/smooth_app directory and run these commands :
