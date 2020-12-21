@@ -84,7 +84,9 @@ class UserPreferencesView extends StatelessWidget {
                               onPressed: () {
                                 userPreferencesModel.saveUserPreferences();
                                 Navigator.pop(context);
-                                callback();
+                                if (callback != null) {
+                                  callback();
+                                }
                               },
                             );
                           },
