@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
+import 'package:smooth_app/bottom_sheet_views/food_preferences_view.dart';
 import 'package:smooth_app/data_models/profile_page_model.dart';
 import 'package:smooth_app/generated/l10n.dart';
 import 'package:smooth_ui_library/widgets/smooth_toggle.dart';
@@ -77,22 +78,55 @@ class ProfilePage extends StatelessWidget {
                 barrierColor: Colors.black45,
                 builder:
                     (BuildContext context, ScrollController scrollController) =>
-                        UserPreferencesView(scrollController),
+                    UserPreferencesView(scrollController),
               ),
               child: Container(
                 height: 60.0,
                 padding:
-                    const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+                const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
                 margin: const EdgeInsets.all(10.0),
                 decoration: BoxDecoration(
                     color: Colors.black.withAlpha(5),
                     borderRadius:
-                        const BorderRadius.all(Radius.circular(20.0))),
+                    const BorderRadius.all(Radius.circular(20.0))),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text(S.of(context).configurePreferences),
+                    SvgPicture.asset(
+                      'assets/misc/right_arrow.svg',
+                      color: Colors.black,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: () => showCupertinoModalBottomSheet<Widget>(
+                expand: false,
+                context: context,
+                backgroundColor: Colors.transparent,
+                bounce: true,
+                barrierColor: Colors.black45,
+                builder:
+                    (BuildContext context, ScrollController scrollController) =>
+                    FoodPreferencesView(scrollController),
+              ),
+              child: Container(
+                height: 60.0,
+                padding:
+                const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+                margin: const EdgeInsets.all(10.0),
+                decoration: BoxDecoration(
+                    color: Colors.black.withAlpha(5),
+                    borderRadius:
+                    const BorderRadius.all(Radius.circular(20.0))),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(S.of(context).configureMyFoodPreferences),
                     SvgPicture.asset(
                       'assets/misc/right_arrow.svg',
                       color: Colors.black,

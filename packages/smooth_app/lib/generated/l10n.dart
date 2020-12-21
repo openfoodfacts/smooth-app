@@ -9,26 +9,27 @@ import 'intl/messages_all.dart';
 // **************************************************************************
 
 // ignore_for_file: non_constant_identifier_names, lines_longer_than_80_chars
+// ignore_for_file: join_return_with_assignment, prefer_final_in_for_each
+// ignore_for_file: avoid_redundant_argument_values
 
 class S {
   S();
-
+  
   static S current;
-
-  static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
+  
+  static const AppLocalizationDelegate delegate =
+    AppLocalizationDelegate();
 
   static Future<S> load(Locale locale) {
-    final name = (locale.countryCode?.isEmpty ?? false)
-        ? locale.languageCode
-        : locale.toString();
-    final localeName = Intl.canonicalizedLocale(name);
+    final name = (locale.countryCode?.isEmpty ?? false) ? locale.languageCode : locale.toString();
+    final localeName = Intl.canonicalizedLocale(name); 
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
       S.current = S();
-
+      
       return S.current;
     });
-  }
+  } 
 
   static S of(BuildContext context) {
     return Localizations.of<S>(context, S);
@@ -219,6 +220,16 @@ class S {
     return Intl.message(
       'Configure my preferences',
       name: 'configurePreferences',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Configure my food preferences`
+  String get configureMyFoodPreferences {
+    return Intl.message(
+      'Configure my food preferences',
+      name: 'configureMyFoodPreferences',
       desc: '',
       args: [],
     );
@@ -423,8 +434,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
       Locale.fromSubtags(languageCode: 'son'),
       Locale.fromSubtags(languageCode: 'sq', countryCode: 'AL'),
       Locale.fromSubtags(languageCode: 'sr', countryCode: 'CS'),
-      Locale.fromSubtags(
-          languageCode: 'sr', scriptCode: 'Cyrl', countryCode: 'ME'),
+      Locale.fromSubtags(languageCode: 'sr', scriptCode: 'Cyrl', countryCode: 'ME'),
       Locale.fromSubtags(languageCode: 'sr', countryCode: 'SP'),
       Locale.fromSubtags(languageCode: 'ss', countryCode: 'ZA'),
       Locale.fromSubtags(languageCode: 'st', countryCode: 'ZA'),

@@ -20,23 +20,19 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ja';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static _notInlinedMessages(_) => <String, Function>{
-        "accountable": MessageLookupByLibrary.simpleMessage("Accountable"),
-        "categories": MessageLookupByLibrary.simpleMessage("カテゴリ"),
-        "mandatory": MessageLookupByLibrary.simpleMessage("Mandatory"),
-        "organizationPage":
-            MessageLookupByLibrary.simpleMessage("Organization Page"),
-        "preferencesText":
-            MessageLookupByLibrary.simpleMessage("My Preferences"),
-        "saveButtonText": MessageLookupByLibrary.simpleMessage("セーブ"),
-        "scanProductTitle": MessageLookupByLibrary.simpleMessage("プロダクトをスキャン"),
-        "searchHintText":
-            MessageLookupByLibrary.simpleMessage("バーコード、カテゴリや食品の名前を入力"),
-        "searchTitle": MessageLookupByLibrary.simpleMessage(
-            "Search.\nFind the perfect product"),
-        "showAll": MessageLookupByLibrary.simpleMessage("すべてを表示"),
-        "testerSettingTitle": MessageLookupByLibrary.simpleMessage("テスター設定"),
-        "trackingPage": MessageLookupByLibrary.simpleMessage("Tracking Page"),
-        "useMLKitText": MessageLookupByLibrary.simpleMessage("ML Kitスキャナーを利用する")
-      };
+  static _notInlinedMessages(_) => <String, Function> {
+    "accountable" : MessageLookupByLibrary.simpleMessage("Accountable"),
+    "categories" : MessageLookupByLibrary.simpleMessage("カテゴリ"),
+    "mandatory" : MessageLookupByLibrary.simpleMessage("Mandatory"),
+    "organizationPage" : MessageLookupByLibrary.simpleMessage("Organization Page"),
+    "preferencesText" : MessageLookupByLibrary.simpleMessage("My Preferences"),
+    "saveButtonText" : MessageLookupByLibrary.simpleMessage("セーブ"),
+    "scanProductTitle" : MessageLookupByLibrary.simpleMessage("プロダクトをスキャン"),
+    "searchHintText" : MessageLookupByLibrary.simpleMessage("バーコード、カテゴリや食品の名前を入力"),
+    "searchTitle" : MessageLookupByLibrary.simpleMessage("Search.\nFind the perfect product"),
+    "showAll" : MessageLookupByLibrary.simpleMessage("すべてを表示"),
+    "testerSettingTitle" : MessageLookupByLibrary.simpleMessage("テスター設定"),
+    "trackingPage" : MessageLookupByLibrary.simpleMessage("Tracking Page"),
+    "useMLKitText" : MessageLookupByLibrary.simpleMessage("ML Kitスキャナーを利用する")
+  };
 }

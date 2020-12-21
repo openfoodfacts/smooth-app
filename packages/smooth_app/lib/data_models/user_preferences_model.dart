@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:smooth_app/data_models/food_preferences_model.dart';
 import 'package:smooth_app/database/user_database.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 
