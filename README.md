@@ -18,7 +18,7 @@ Every new interaction with the API should be implemented in the plugin in order 
 Are you a developer? A graphic designer? Full of innovative ideas to help users improve their mode of consumption? Then join us!
 We are always looking for new contributors, if you're willing to help please let us know, we'll be pleased to introduce you to the project.
 
-You can join the Open Food Facts's Slack here : [Our Slack](openfoodfacts.slack.com).
+You can join the Open Food Facts's Slack here : [Get an invite](https://slack.openfoodfacts.org) - [Open our Slack](https://openfoodfacts.slack.com).
 
 *full project documentation will be added here when ready*
 
