@@ -6,35 +6,12 @@ import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/data_models/smooth_it_model.dart';
 import 'package:smooth_app/structures/ranked_product.dart';
-import 'package:smooth_app/temp/filter_ranking_helper.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class PersonalizedRankingPage extends StatelessWidget {
   const PersonalizedRankingPage({@required this.input});
 
   final List<Product> input;
-
-  static const Map<RankingType, Color> _RANKING_TYPE_COLORS =
-      <RankingType, Color>{
-    RankingType.TOP_PICKS: Colors.greenAccent,
-    RankingType.CONTENDERS: Colors.blueAccent,
-    RankingType.DISMISSED: Colors.redAccent,
-  };
-  static const Color _RANKING_TYPE_COLOR_DEFAULT = Colors.grey;
-
-  static const Map<RankingType, String> _RANKING_TYPE_TITLES =
-      <RankingType, String>{
-    RankingType.TOP_PICKS: 'Top picks',
-    RankingType.CONTENDERS: 'Contenders',
-    RankingType.DISMISSED: 'Dismissed',
-  };
-  static const String _RANKING_TYPE_TITLE_DEFAULT = 'Ranking type';
-
-  static String getRankingTypeTitle(RankingType type) =>
-      _RANKING_TYPE_TITLES[type] ?? _RANKING_TYPE_TITLE_DEFAULT;
-
-  static Color getRankingTypeColor(RankingType type) =>
-      _RANKING_TYPE_COLORS[type] ?? _RANKING_TYPE_COLOR_DEFAULT;
 
   @override
   Widget build(BuildContext context) {
@@ -240,12 +217,12 @@ class PersonalizedRankingPage extends StatelessWidget {
                   width: MediaQuery.of(context).size.width * 0.5,
                   height: 40.0,
                   margin: const EdgeInsets.only(top: 32.0, bottom: 8.0),
-                  decoration: BoxDecoration(
-                      color: getRankingTypeColor(RankingType.TOP_PICKS),
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(50.0))),
+                  decoration: const BoxDecoration(
+                      color: Colors.greenAccent,
+                      borderRadius: BorderRadius.all(Radius.circular(50.0))),
                   child: Center(
-                    child: Text(getRankingTypeTitle(RankingType.TOP_PICKS),
+                    child: Text(
+                        'Products', // TODO(monsieurtanuki): better text?
                         style: Theme.of(context)
                             .textTheme
                             .headline3
@@ -257,7 +234,7 @@ class PersonalizedRankingPage extends StatelessWidget {
             sliver: SliverList(
               delegate: SliverChildBuilderDelegate(
                 (BuildContext context, int index) =>
-                    personalizedRakingModel.topPicks.first.product == null
+                    personalizedRakingModel.products.first.product == null
                         ? Container(
                             height: 80.0,
                             child: Row(
@@ -276,108 +253,8 @@ class PersonalizedRankingPage extends StatelessWidget {
                             ),
                           )
                         : _buildSmoothProductCard(
-                            personalizedRakingModel.topPicks[index], context),
-                childCount: personalizedRakingModel.topPicks.length,
-              ),
-            ),
-          ),
-          SliverStickyHeader(
-            header: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  width: MediaQuery.of(context).size.width * 0.5,
-                  height: 40.0,
-                  margin: const EdgeInsets.only(top: 32.0, bottom: 8.0),
-                  decoration: BoxDecoration(
-                      color: getRankingTypeColor(RankingType.CONTENDERS),
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(50.0))),
-                  child: Center(
-                    child: Text(getRankingTypeTitle(RankingType.CONTENDERS),
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline3
-                            .copyWith(color: Colors.white)),
-                  ),
-                ),
-              ],
-            ),
-            sliver: SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (BuildContext context, int index) =>
-                    personalizedRakingModel.contenders.first.product == null
-                        ? Container(
-                            height: 80.0,
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Flexible(
-                                  child: Text(
-                                      'There is no product in this section',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .subtitle1
-                                          .copyWith(color: Colors.black)),
-                                )
-                              ],
-                            ),
-                          )
-                        : _buildSmoothProductCard(
-                            personalizedRakingModel.contenders[index], context),
-                childCount: personalizedRakingModel.contenders.length,
-              ),
-            ),
-          ),
-          SliverStickyHeader(
-            header: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  width: MediaQuery.of(context).size.width * 0.5,
-                  height: 40.0,
-                  margin: const EdgeInsets.only(top: 32.0, bottom: 8.0),
-                  decoration: BoxDecoration(
-                      color: getRankingTypeColor(RankingType.DISMISSED),
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(50.0))),
-                  child: Center(
-                    child: Text(getRankingTypeTitle(RankingType.DISMISSED),
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline3
-                            .copyWith(color: Colors.white)),
-                  ),
-                ),
-              ],
-            ),
-            sliver: SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (BuildContext context, int index) =>
-                    personalizedRakingModel.dismissed.first.product == null
-                        ? Container(
-                            height: 80.0,
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Flexible(
-                                  child: Text(
-                                      'There is no product in this section',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .subtitle1
-                                          .copyWith(color: Colors.black)),
-                                )
-                              ],
-                            ),
-                          )
-                        : _buildSmoothProductCard(
-                            personalizedRakingModel.dismissed[index], context),
-                childCount: personalizedRakingModel.dismissed.length,
+                            personalizedRakingModel.products[index], context),
+                childCount: personalizedRakingModel.products.length,
               ),
             ),
           ),

@@ -46,12 +46,12 @@ class UserPreferencesModel extends ChangeNotifier {
     }
   }
 
-  String getStringValue(final String variable) =>
-      _preferenceValues[_userPreferences.getValue(variable)].id;
-
-  int getScoreIndex(final String variable) =>
-      _preferenceValuesReverse[getStringValue(variable)] ??
+  int getValueIndex(final String variable) =>
+      _preferenceValuesReverse[getPreferencesValue(variable).id] ??
       UserPreferences.INDEX_NOT_IMPORTANT;
+
+  PreferencesValue getPreferencesValue(final String variable) =>
+      _preferenceValues[_userPreferences.getValue(variable)];
 
   void setValue(final String variable, final int value) {
     if (_dataLoaded) {
@@ -98,23 +98,24 @@ class UserPreferencesModel extends ChangeNotifier {
 }
 
 class PreferencesValue {
-  PreferencesValue({this.id, this.name});
+  PreferencesValue({this.id, this.name, this.factor, this.minimalMatch});
 
   factory PreferencesValue.fromJson(dynamic json) => PreferencesValue(
         id: json['id'] as String,
         name: json['name'] as String,
+        factor: json['factor'] as int,
+        minimalMatch: json['minimum_match'] as int,
       );
 
   final String id;
   final String name;
-
-  static const String NOT_IMPORTANT = 'not_important';
-  static const String IMPORTANT = 'important';
-  static const String VERY_IMPORTANT = 'very_important';
-  static const String MANDATORY = 'mandatory';
+  final int factor;
+  final int minimalMatch;
 
   @override
-  String toString() => 'PreferencesValue(id: $id, name: $name)';
+  String toString() => 'PreferencesValue('
+      'id: $id, name: $name, factor: $factor, minimalWatch: $minimalMatch'
+      ')';
 }
 
 class PreferencesVariable {
@@ -149,7 +150,8 @@ class PreferencesVariable {
   final String description;
   final String descriptionShort;
 
-  static const String VEGAN = 'vegan';
+  @deprecated
+  static const String VEGAN = 'vegan'; // TODO(monsieurtanuki): still relevant?
   static const String VEGETARIAN = 'vegetarian';
   static const String GLUTEN_FREE = 'allergens_no_gluten';
   static const String ORGANIC_LABELS = 'labels_organic';
@@ -159,13 +161,17 @@ class PreferencesVariable {
   static const String NOVA_GROUP = 'nova';
   static const String NUTRI_SCORE = 'nutriscore';
 
+  @deprecated
   static List<String> getMandatoryVariables() => <String>[
+        // TODO(monsieurtanuki): still relevant?
         VEGAN,
         VEGETARIAN,
         //GLUTEN_FREE,
       ];
 
+  @deprecated
   static List<String> getAccountableVariables() => <String>[
+        // TODO(monsieurtanuki): still relevant?
         ORGANIC_LABELS,
         FAIR_TRADE_LABELS,
         PALM_FREE_LABELS,
@@ -175,16 +181,15 @@ class PreferencesVariable {
       ];
 
   @override
-  String toString() =>
-      'PreferencesVariable(' +
-      'id: $id' +
-      ', name: $name' +
-      ', icon_url: $iconUrl' +
-      ', default: $defaultF' +
-      ', settingNote: $settingNote' +
-      ', settingName: $settingName' +
-      ', description: $description' +
-      ', description_short: $descriptionShort' +
+  String toString() => 'PreferencesVariable('
+      'id: $id'
+      ', name: $name'
+      ', icon_url: $iconUrl'
+      ', default: $defaultF'
+      ', settingNote: $settingNote'
+      ', settingName: $settingName'
+      ', description: $description'
+      ', description_short: $descriptionShort'
       ')';
 }
 
@@ -215,8 +220,7 @@ class PreferencesVariableGroup {
   final List<PreferencesVariable> list;
 
   @override
-  String toString() =>
-      'PreferencesVariableGroup(' +
-      'id: $id, name: $name, warning: $warning, list: $list' +
+  String toString() => 'PreferencesVariableGroup('
+      'id: $id, name: $name, warning: $warning, list: $list'
       ')';
 }

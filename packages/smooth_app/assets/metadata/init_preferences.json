@@ -3,11 +3,15 @@
   "name": "Not important"
 }, {
   "id": "important",
-  "name": "Important"
+  "name": "Important",
+  "factor": 1
 }, {
   "id": "very_important",
-  "name": "Very important"
+  "name": "Very important",
+  "factor": 2
 }, {
   "id": "mandatory",
-  "name": "Mandatory"
+  "name": "Mandatory",
+  "factor": 4,
+  "minimum_match": 20
 }]

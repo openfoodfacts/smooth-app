@@ -12,15 +12,15 @@ class UserPreferencesView extends StatelessWidget {
   final ScrollController _scrollController;
   final Function callback;
 
-  static final Map<String, Color> _colors = <String, Color>{
-    PreferencesValue.NOT_IMPORTANT: Colors.black87,
-    PreferencesValue.IMPORTANT: Colors.green.withOpacity(0.87),
-    PreferencesValue.VERY_IMPORTANT: Colors.deepOrangeAccent.withOpacity(0.87),
-    PreferencesValue.MANDATORY: Colors.redAccent.withOpacity(0.87),
-  };
+  static final List<Color> _colors = <Color>[
+    Colors.black87,
+    Colors.green.withOpacity(0.87),
+    Colors.deepOrangeAccent.withOpacity(0.87),
+    Colors.redAccent.withOpacity(0.87),
+  ];
   static const Color _COLOR_DEFAULT = Colors.black26;
 
-  static Color getColor(final String value) => _colors[value] ?? _COLOR_DEFAULT;
+  static Color getColor(final int index) => _colors[index] ?? _COLOR_DEFAULT;
 
   @override
   Widget build(BuildContext context) {
@@ -134,12 +134,12 @@ class UserPreferencesView extends StatelessWidget {
               if (!userPreferencesModel.dataLoaded) {
                 return Container();
               }
+              final int index = userPreferencesModel.getValueIndex(variable);
               return SliderTheme(
                 data: SliderThemeData(
                   //thumbColor: Colors.black,
                   activeTrackColor: Colors.black54,
-                  valueIndicatorColor:
-                      getColor(userPreferencesModel.getStringValue(variable)),
+                  valueIndicatorColor: getColor(index),
                   trackHeight: 5.0,
                   inactiveTrackColor: Colors.black12,
                   showValueIndicator: ShowValueIndicator.always,
@@ -148,8 +148,7 @@ class UserPreferencesView extends StatelessWidget {
                   min: 0.0,
                   max: 3.0,
                   divisions: 3,
-                  value:
-                      userPreferencesModel.getScoreIndex(variable).toDouble(),
+                  value: index.toDouble(),
                   onChanged: (double value) =>
                       userPreferencesModel.setValue(variable, value.toInt()),
                   activeColor: Colors.black,

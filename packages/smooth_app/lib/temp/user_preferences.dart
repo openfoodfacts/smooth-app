@@ -3,7 +3,7 @@
 import 'package:smooth_app/data_models/user_preferences_model.dart';
 
 class UserPreferences {
-  UserPreferences() {}
+  UserPreferences();
 
   UserPreferences.filled(Map<String, dynamic> data) {
     loadJson(data);
