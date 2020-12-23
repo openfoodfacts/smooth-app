@@ -2,23 +2,22 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Product.dart';
-import 'package:smooth_app/database/user_database.dart';
 import 'package:smooth_app/structures/ranked_product.dart';
-import 'package:smooth_app/temp/filter_ranking_helper.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
+import 'package:smooth_app/data_models/user_preferences_model.dart';
+import 'package:smooth_app/data_models/match.dart';
 
 class SmoothItModel extends ChangeNotifier {
-  SmoothItModel(this.unprocessedProducts) {
-    _loadData();
+  SmoothItModel(this.unprocessedProducts, final BuildContext context) {
+    _loadData(context);
     scrollController.addListener(_scrollListener);
   }
 
   final ScrollController scrollController = ScrollController();
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
-  Future<bool> _loadData() async {
+  Future<bool> _loadData(final BuildContext context) async {
     try {
-      dataLoaded = await processProductList();
+      dataLoaded = await processProductList(context);
       notifyListeners();
       return true;
     } catch (e) {
@@ -31,37 +30,16 @@ class SmoothItModel extends ChangeNotifier {
   List<Product> unprocessedProducts;
   List<RankedProduct> products;
 
-  List<RankedProduct> topPicks;
-  List<RankedProduct> contenders;
-  List<RankedProduct> dismissed;
-
-  UserPreferences userPreferences;
   bool dataLoaded = false;
 
   bool showTitle = true;
 
-  Future<bool> processProductList() async {
+  Future<bool> processProductList(final BuildContext context) async {
     try {
-      userPreferences = await UserDatabase().getUserPreferences();
-      products =
-          FilterRankingHelper.process(unprocessedProducts, userPreferences);
-      topPicks = products
-          .where((RankedProduct rankedProduct) =>
-              rankedProduct.type == RankingType.TOP_PICKS)
-          .toList();
-      topPicks.sort(
-          (RankedProduct a, RankedProduct b) => b.score.compareTo(a.score));
-      contenders = products
-          .where((RankedProduct rankedProduct) =>
-              rankedProduct.type == RankingType.CONTENDERS)
-          .toList();
-      contenders.sort(
-          (RankedProduct a, RankedProduct b) => b.score.compareTo(a.score));
-      dismissed = products
-          .where((RankedProduct rankedProduct) =>
-              rankedProduct.type == RankingType.DISMISSED)
-          .toList();
-      dismissed.sort(
+      final UserPreferencesModel model = UserPreferencesModel();
+      await model.loadData(context);
+      products = Match.sort(unprocessedProducts, model);
+      products.sort(
           (RankedProduct a, RankedProduct b) => b.score.compareTo(a.score));
       print('Processed products');
       notifyListeners();

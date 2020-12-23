@@ -1,12 +1,13 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/database/full_products_database.dart';
-import 'package:smooth_app/temp/filter_ranking_helper.dart';
+import 'package:smooth_app/data_models/match.dart';
 
 class ProductKeywordsSearchResultModel extends ChangeNotifier {
-  ProductKeywordsSearchResultModel(this.keywords) {
-    _loadData();
+  ProductKeywordsSearchResultModel(this.keywords, BuildContext context) {
+    _loadData(context);
     scrollController.addListener(_scrollListener);
   }
 
@@ -24,19 +25,13 @@ class ProductKeywordsSearchResultModel extends ChangeNotifier {
 
   bool showTitle = true;
 
-  Future<bool> _loadData() async {
+  Future<bool> _loadData(final BuildContext context) async {
     productsDatabase = FullProductsDatabase();
 
     products = await productsDatabase.queryProductsFromKeyword(keywords);
-
-    products.sort((Product p1, Product p2) {
-      final int p1Score = FilterRankingHelper.nutriScorePoints(p1) +
-          FilterRankingHelper.novaGroupPoints(p1);
-      final int p2Score = FilterRankingHelper.nutriScorePoints(p2) +
-          FilterRankingHelper.novaGroupPoints(p2);
-
-      return p2Score.compareTo(p1Score);
-    });
+    final UserPreferencesModel model = UserPreferencesModel();
+    await model.loadData(context);
+    Match.sort(products, model);
 
     displayProducts = products;
 

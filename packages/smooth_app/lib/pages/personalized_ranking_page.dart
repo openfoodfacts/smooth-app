@@ -6,7 +6,6 @@ import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/data_models/smooth_it_model.dart';
 import 'package:smooth_app/structures/ranked_product.dart';
-import 'package:smooth_app/temp/filter_ranking_helper.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class PersonalizedRankingPage extends StatelessWidget {
@@ -17,26 +16,27 @@ class PersonalizedRankingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<SmoothItModel>(
-      create: (BuildContext context) => SmoothItModel(input),
+      create: (BuildContext context) => SmoothItModel(input, context),
       child: Consumer<SmoothItModel>(
-        builder: (BuildContext context, SmoothItModel personalizedRakingModel,
+        builder: (BuildContext context, SmoothItModel personalizedRankingModel,
             Widget child) {
           return Scaffold(
-            key: personalizedRakingModel.scaffoldKey,
+            key: personalizedRankingModel.scaffoldKey,
             floatingActionButton: AnimatedOpacity(
-              opacity: !personalizedRakingModel.showTitle ? 1.0 : 0.0,
+              opacity: !personalizedRankingModel.showTitle ? 1.0 : 0.0,
               duration: const Duration(milliseconds: 250),
               child: FloatingActionButton(
                 heroTag: 'do_not_use_hero_animation',
                 child: const Icon(Icons.arrow_upward),
                 onPressed: () {
-                  personalizedRakingModel.scrollController.animateTo(0.0,
+                  personalizedRankingModel.scrollController.animateTo(0.0,
                       duration: const Duration(milliseconds: 400),
                       curve: Curves.ease);
                 },
               ),
             ),
-            body: _buildGroupedStickyListView(context, personalizedRakingModel),
+            body:
+                _buildGroupedStickyListView(context, personalizedRankingModel),
             /*Stack(
                 children: <Widget>[
                   Container(
@@ -53,7 +53,7 @@ class PersonalizedRankingPage extends StatelessWidget {
                               children: <Widget>[
                                 Flexible(
                                   child: AnimatedOpacity(
-                                      opacity: personalizedRakingModel.showTitle
+                                      opacity: personalizedRankingModel.showTitle
                                           ? 1.0
                                           : 0.0,
                                       duration:
@@ -69,9 +69,9 @@ class PersonalizedRankingPage extends StatelessWidget {
                           ),
                         ],
                       )),
-                  _buildGroupedStickyListView(context, personalizedRakingModel),
+                  _buildGroupedStickyListView(context, personalizedRankingModel),
                   AnimatedOpacity(
-                    opacity: personalizedRakingModel.showTitle ? 1.0 : 0.0,
+                    opacity: personalizedRankingModel.showTitle ? 1.0 : 0.0,
                     duration: const Duration(milliseconds: 250),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
@@ -103,14 +103,14 @@ class PersonalizedRankingPage extends StatelessWidget {
                                       ScrollController scrollController) =>
                                   UserPreferencesView(scrollController,
                                       callback: () {
-                                personalizedRakingModel.processProductList();
+                                personalizedRankingModel.processProductList();
                                 const SnackBar snackBar = SnackBar(
                                   content: Text(
                                     'Reloaded with new preferences',
                                   ),
                                   duration: Duration(milliseconds: 1500),
                                 );
-                                personalizedRakingModel.scaffoldKey.currentState
+                                personalizedRankingModel.scaffoldKey.currentState
                                     .showSnackBar(snackBar);
                               }),
                             ),
@@ -145,8 +145,8 @@ class PersonalizedRankingPage extends StatelessWidget {
   }
 
   Widget _buildGroupedStickyListView(
-      BuildContext context, SmoothItModel personalizedRakingModel) {
-    if (!personalizedRakingModel.dataLoaded) {
+      BuildContext context, SmoothItModel personalizedRankingModel) {
+    if (!personalizedRankingModel.dataLoaded) {
       return const Center(
         child: CircularProgressIndicator(),
       );
@@ -154,11 +154,11 @@ class PersonalizedRankingPage extends StatelessWidget {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 200),
       padding: EdgeInsets.only(
-          top: personalizedRakingModel.showTitle
+          top: personalizedRankingModel.showTitle
               ? MediaQuery.of(context).size.height * 0.0
               : 0.0),
       child: CustomScrollView(
-        controller: personalizedRakingModel.scrollController,
+        controller: personalizedRankingModel.scrollController,
         slivers: <Widget>[
           SliverAppBar(
             leading: IconButton(
@@ -180,7 +180,7 @@ class PersonalizedRankingPage extends StatelessWidget {
                       .headline4
                       .copyWith(color: Colors.black)),
             ),
-            actions: [
+            actions: <IconButton>[
               IconButton(
                 icon: const Icon(
                   Icons.settings,
@@ -195,14 +195,14 @@ class PersonalizedRankingPage extends StatelessWidget {
                   builder: (BuildContext context,
                           ScrollController scrollController) =>
                       UserPreferencesView(scrollController, callback: () {
-                    personalizedRakingModel.processProductList();
+                    personalizedRankingModel.processProductList(context);
                     const SnackBar snackBar = SnackBar(
                       content: Text(
                         'Reloaded with new preferences',
                       ),
                       duration: Duration(milliseconds: 1500),
                     );
-                    personalizedRakingModel.scaffoldKey.currentState
+                    personalizedRankingModel.scaffoldKey.currentState
                         .showSnackBar(snackBar);
                   }),
                 ),
@@ -218,15 +218,12 @@ class PersonalizedRankingPage extends StatelessWidget {
                   width: MediaQuery.of(context).size.width * 0.5,
                   height: 40.0,
                   margin: const EdgeInsets.only(top: 32.0, bottom: 8.0),
-                  decoration: BoxDecoration(
-                      color: FilterRankingHelper.getRankingTypeColor(
-                          RankingType.TOP_PICKS),
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(50.0))),
+                  decoration: const BoxDecoration(
+                      color: Colors.greenAccent,
+                      borderRadius: BorderRadius.all(Radius.circular(50.0))),
                   child: Center(
                     child: Text(
-                        FilterRankingHelper.getRankingTypeTitle(
-                            RankingType.TOP_PICKS),
+                        'Products', // TODO(monsieurtanuki): better text?
                         style: Theme.of(context)
                             .textTheme
                             .headline3
@@ -238,7 +235,7 @@ class PersonalizedRankingPage extends StatelessWidget {
             sliver: SliverList(
               delegate: SliverChildBuilderDelegate(
                 (BuildContext context, int index) =>
-                    personalizedRakingModel.topPicks.first.product == null
+                    personalizedRankingModel.products.first.product == null
                         ? Container(
                             height: 80.0,
                             child: Row(
@@ -257,114 +254,8 @@ class PersonalizedRankingPage extends StatelessWidget {
                             ),
                           )
                         : _buildSmoothProductCard(
-                            personalizedRakingModel.topPicks[index], context),
-                childCount: personalizedRakingModel.topPicks.length,
-              ),
-            ),
-          ),
-          SliverStickyHeader(
-            header: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  width: MediaQuery.of(context).size.width * 0.5,
-                  height: 40.0,
-                  margin: const EdgeInsets.only(top: 32.0, bottom: 8.0),
-                  decoration: BoxDecoration(
-                      color: FilterRankingHelper.getRankingTypeColor(
-                          RankingType.CONTENDERS),
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(50.0))),
-                  child: Center(
-                    child: Text(
-                        FilterRankingHelper.getRankingTypeTitle(
-                            RankingType.CONTENDERS),
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline3
-                            .copyWith(color: Colors.white)),
-                  ),
-                ),
-              ],
-            ),
-            sliver: SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (BuildContext context, int index) =>
-                    personalizedRakingModel.contenders.first.product == null
-                        ? Container(
-                            height: 80.0,
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Flexible(
-                                  child: Text(
-                                      'There is no product in this section',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .subtitle1
-                                          .copyWith(color: Colors.black)),
-                                )
-                              ],
-                            ),
-                          )
-                        : _buildSmoothProductCard(
-                            personalizedRakingModel.contenders[index], context),
-                childCount: personalizedRakingModel.contenders.length,
-              ),
-            ),
-          ),
-          SliverStickyHeader(
-            header: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  width: MediaQuery.of(context).size.width * 0.5,
-                  height: 40.0,
-                  margin: const EdgeInsets.only(top: 32.0, bottom: 8.0),
-                  decoration: BoxDecoration(
-                      color: FilterRankingHelper.getRankingTypeColor(
-                          RankingType.DISMISSED),
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(50.0))),
-                  child: Center(
-                    child: Text(
-                        FilterRankingHelper.getRankingTypeTitle(
-                            RankingType.DISMISSED),
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline3
-                            .copyWith(color: Colors.white)),
-                  ),
-                ),
-              ],
-            ),
-            sliver: SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (BuildContext context, int index) =>
-                    personalizedRakingModel.dismissed.first.product == null
-                        ? Container(
-                            height: 80.0,
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Flexible(
-                                  child: Text(
-                                      'There is no product in this section',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .subtitle1
-                                          .copyWith(color: Colors.black)),
-                                )
-                              ],
-                            ),
-                          )
-                        : _buildSmoothProductCard(
-                            personalizedRakingModel.dismissed[index], context),
-                childCount: personalizedRakingModel.dismissed.length,
+                            personalizedRankingModel.products[index], context),
+                childCount: personalizedRankingModel.products.length,
               ),
             ),
           ),

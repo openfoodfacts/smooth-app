@@ -20,7 +20,7 @@ class ProductGroupQueryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<ProductGroupQueryModel>(
-      create: (BuildContext context) => ProductGroupQueryModel(group),
+      create: (BuildContext context) => ProductGroupQueryModel(group, context),
       child: Consumer<ProductGroupQueryModel>(
         builder: (BuildContext context,
             ProductGroupQueryModel productGroupQueryModel, Widget child) {
