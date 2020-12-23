@@ -22,7 +22,7 @@ class ProductKeywordsSearchResultPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<ProductKeywordsSearchResultModel>(
       create: (BuildContext context) =>
-          ProductKeywordsSearchResultModel(keywords),
+          ProductKeywordsSearchResultModel(keywords, context),
       child: Consumer<ProductKeywordsSearchResultModel>(
         builder: (BuildContext context,
             ProductKeywordsSearchResultModel productKeywordsSearchResultModel,

@@ -5,9 +5,11 @@ import 'package:smooth_app/database/user_database.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 
 class UserPreferencesModel extends ChangeNotifier {
-  UserPreferencesModel(final BuildContext context)
+  UserPreferencesModel() : _userDatabase = UserDatabase();
+
+  UserPreferencesModel.load(final BuildContext context)
       : _userDatabase = UserDatabase() {
-    _loadData(context);
+    loadData(context);
   }
 
   static final List<String> _preferencesVariables = <String>[];
@@ -24,7 +26,7 @@ class UserPreferencesModel extends ChangeNotifier {
   bool get dataLoaded => _dataLoaded;
   UserPreferences get userPreferences => _userPreferences;
 
-  Future<bool> _loadData(final BuildContext context) async {
+  Future<bool> loadData(final BuildContext context) async {
     try {
       final String valueString = await DefaultAssetBundle.of(context)
           .loadString('assets/metadata/init_preferences.json');
@@ -75,7 +77,7 @@ class UserPreferencesModel extends ChangeNotifier {
     _preferenceValues = (json as List)
         .map((dynamic item) => PreferencesValue.fromJson(item))
         .toList();
-    _preferenceValuesReverse = {};
+    _preferenceValuesReverse = <String, int>{};
     int i = 0;
     for (final PreferencesValue preferencesValue in _preferenceValues) {
       _preferenceValuesReverse[preferencesValue.id] = i++;
@@ -149,36 +151,6 @@ class PreferencesVariable {
   final String settingName;
   final String description;
   final String descriptionShort;
-
-  @deprecated
-  static const String VEGAN = 'vegan'; // TODO(monsieurtanuki): still relevant?
-  static const String VEGETARIAN = 'vegetarian';
-  static const String GLUTEN_FREE = 'allergens_no_gluten';
-  static const String ORGANIC_LABELS = 'labels_organic';
-  static const String FAIR_TRADE_LABELS = 'labels_fair_trade';
-  static const String PALM_FREE_LABELS = 'palm_oil_free';
-  static const String ADDITIVES = 'additives';
-  static const String NOVA_GROUP = 'nova';
-  static const String NUTRI_SCORE = 'nutriscore';
-
-  @deprecated
-  static List<String> getMandatoryVariables() => <String>[
-        // TODO(monsieurtanuki): still relevant?
-        VEGAN,
-        VEGETARIAN,
-        //GLUTEN_FREE,
-      ];
-
-  @deprecated
-  static List<String> getAccountableVariables() => <String>[
-        // TODO(monsieurtanuki): still relevant?
-        ORGANIC_LABELS,
-        FAIR_TRADE_LABELS,
-        PALM_FREE_LABELS,
-        ADDITIVES,
-        NOVA_GROUP,
-        NUTRI_SCORE,
-      ];
 
   @override
   String toString() => 'PreferencesVariable('

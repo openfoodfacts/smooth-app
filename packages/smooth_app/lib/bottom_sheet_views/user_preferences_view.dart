@@ -28,7 +28,7 @@ class UserPreferencesView extends StatelessWidget {
         UserPreferencesModel.getVariables();
     return Material(
       child: ChangeNotifierProvider<UserPreferencesModel>(
-        create: (BuildContext context) => UserPreferencesModel(context),
+        create: (BuildContext context) => UserPreferencesModel.load(context),
         child: Container(
           height: MediaQuery.of(context).size.height * 0.9,
           child: Stack(

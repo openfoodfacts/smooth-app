@@ -36,8 +36,9 @@ class SmoothItModel extends ChangeNotifier {
 
   Future<bool> processProductList(final BuildContext context) async {
     try {
-      final UserPreferencesModel model = UserPreferencesModel(context);
-      products = _process(unprocessedProducts, model);
+      final UserPreferencesModel model = UserPreferencesModel();
+      await model.loadData(context);
+      products = Match.sort(unprocessedProducts, model);
       products.sort(
           (RankedProduct a, RankedProduct b) => b.score.compareTo(a.score));
       print('Processed products');
@@ -47,18 +48,6 @@ class SmoothItModel extends ChangeNotifier {
       print(e);
       return false;
     }
-  }
-
-  List<RankedProduct> _process(
-      final List<Product> products, final UserPreferencesModel model) {
-    final List<RankedProduct> result = <RankedProduct>[];
-    for (final Product product in products) {
-      final Match match = Match(product, model);
-      result.add(RankedProduct(product: product, score: match.score));
-    }
-    result
-        .sort((RankedProduct a, RankedProduct b) => b.score.compareTo(a.score));
-    return result;
   }
 
   void _scrollListener() {
