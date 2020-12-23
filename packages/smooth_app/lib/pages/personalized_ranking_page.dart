@@ -14,10 +14,32 @@ class PersonalizedRankingPage extends StatelessWidget {
 
   final List<Product> input;
 
+  static const Map<RankingType, Color> _RANKING_TYPE_COLORS =
+      <RankingType, Color>{
+    RankingType.TOP_PICKS: Colors.greenAccent,
+    RankingType.CONTENDERS: Colors.blueAccent,
+    RankingType.DISMISSED: Colors.redAccent,
+  };
+  static const Color _RANKING_TYPE_COLOR_DEFAULT = Colors.grey;
+
+  static const Map<RankingType, String> _RANKING_TYPE_TITLES =
+      <RankingType, String>{
+    RankingType.TOP_PICKS: 'Top picks',
+    RankingType.CONTENDERS: 'Contenders',
+    RankingType.DISMISSED: 'Dismissed',
+  };
+  static const String _RANKING_TYPE_TITLE_DEFAULT = 'Ranking type';
+
+  static String getRankingTypeTitle(RankingType type) =>
+      _RANKING_TYPE_TITLES[type] ?? _RANKING_TYPE_TITLE_DEFAULT;
+
+  static Color getRankingTypeColor(RankingType type) =>
+      _RANKING_TYPE_COLORS[type] ?? _RANKING_TYPE_COLOR_DEFAULT;
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<SmoothItModel>(
-      create: (BuildContext context) => SmoothItModel(input),
+      create: (BuildContext context) => SmoothItModel(input, context),
       child: Consumer<SmoothItModel>(
         builder: (BuildContext context, SmoothItModel personalizedRakingModel,
             Widget child) {
@@ -180,7 +202,7 @@ class PersonalizedRankingPage extends StatelessWidget {
                       .headline4
                       .copyWith(color: Colors.black)),
             ),
-            actions: [
+            actions: <IconButton>[
               IconButton(
                 icon: const Icon(
                   Icons.settings,
@@ -195,7 +217,7 @@ class PersonalizedRankingPage extends StatelessWidget {
                   builder: (BuildContext context,
                           ScrollController scrollController) =>
                       UserPreferencesView(scrollController, callback: () {
-                    personalizedRakingModel.processProductList();
+                    personalizedRakingModel.processProductList(context);
                     const SnackBar snackBar = SnackBar(
                       content: Text(
                         'Reloaded with new preferences',
@@ -219,14 +241,11 @@ class PersonalizedRankingPage extends StatelessWidget {
                   height: 40.0,
                   margin: const EdgeInsets.only(top: 32.0, bottom: 8.0),
                   decoration: BoxDecoration(
-                      color: FilterRankingHelper.getRankingTypeColor(
-                          RankingType.TOP_PICKS),
+                      color: getRankingTypeColor(RankingType.TOP_PICKS),
                       borderRadius:
                           const BorderRadius.all(Radius.circular(50.0))),
                   child: Center(
-                    child: Text(
-                        FilterRankingHelper.getRankingTypeTitle(
-                            RankingType.TOP_PICKS),
+                    child: Text(getRankingTypeTitle(RankingType.TOP_PICKS),
                         style: Theme.of(context)
                             .textTheme
                             .headline3
@@ -272,14 +291,11 @@ class PersonalizedRankingPage extends StatelessWidget {
                   height: 40.0,
                   margin: const EdgeInsets.only(top: 32.0, bottom: 8.0),
                   decoration: BoxDecoration(
-                      color: FilterRankingHelper.getRankingTypeColor(
-                          RankingType.CONTENDERS),
+                      color: getRankingTypeColor(RankingType.CONTENDERS),
                       borderRadius:
                           const BorderRadius.all(Radius.circular(50.0))),
                   child: Center(
-                    child: Text(
-                        FilterRankingHelper.getRankingTypeTitle(
-                            RankingType.CONTENDERS),
+                    child: Text(getRankingTypeTitle(RankingType.CONTENDERS),
                         style: Theme.of(context)
                             .textTheme
                             .headline3
@@ -325,14 +341,11 @@ class PersonalizedRankingPage extends StatelessWidget {
                   height: 40.0,
                   margin: const EdgeInsets.only(top: 32.0, bottom: 8.0),
                   decoration: BoxDecoration(
-                      color: FilterRankingHelper.getRankingTypeColor(
-                          RankingType.DISMISSED),
+                      color: getRankingTypeColor(RankingType.DISMISSED),
                       borderRadius:
                           const BorderRadius.all(Radius.circular(50.0))),
                   child: Center(
-                    child: Text(
-                        FilterRankingHelper.getRankingTypeTitle(
-                            RankingType.DISMISSED),
+                    child: Text(getRankingTypeTitle(RankingType.DISMISSED),
                         style: Theme.of(context)
                             .textTheme
                             .headline3

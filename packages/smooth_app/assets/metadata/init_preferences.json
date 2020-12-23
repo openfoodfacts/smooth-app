@@ -1,0 +1,13 @@
+[{
+  "id": "not_important",
+  "name": "Not important"
+}, {
+  "id": "important",
+  "name": "Important"
+}, {
+  "id": "very_important",
+  "name": "Very important"
+}, {
+  "id": "mandatory",
+  "name": "Mandatory"
+}]

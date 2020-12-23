@@ -68,6 +68,7 @@ flutter:
     - assets/categories/
     - assets/data/
     - assets/labels/
+    - assets/metadata/
     - assets/misc/
     - assets/navigation/
     - assets/product/

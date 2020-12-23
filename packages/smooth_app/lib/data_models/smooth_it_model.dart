@@ -2,23 +2,22 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Product.dart';
-import 'package:smooth_app/database/user_database.dart';
 import 'package:smooth_app/structures/ranked_product.dart';
+import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/temp/filter_ranking_helper.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
 
 class SmoothItModel extends ChangeNotifier {
-  SmoothItModel(this.unprocessedProducts) {
-    _loadData();
+  SmoothItModel(this.unprocessedProducts, final BuildContext context) {
+    _loadData(context);
     scrollController.addListener(_scrollListener);
   }
 
   final ScrollController scrollController = ScrollController();
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
-  Future<bool> _loadData() async {
+  Future<bool> _loadData(final BuildContext context) async {
     try {
-      dataLoaded = await processProductList();
+      dataLoaded = await processProductList(context);
       notifyListeners();
       return true;
     } catch (e) {
@@ -35,16 +34,14 @@ class SmoothItModel extends ChangeNotifier {
   List<RankedProduct> contenders;
   List<RankedProduct> dismissed;
 
-  UserPreferences userPreferences;
   bool dataLoaded = false;
 
   bool showTitle = true;
 
-  Future<bool> processProductList() async {
+  Future<bool> processProductList(final BuildContext context) async {
     try {
-      userPreferences = await UserDatabase().getUserPreferences();
-      products =
-          FilterRankingHelper.process(unprocessedProducts, userPreferences);
+      final UserPreferencesModel model = UserPreferencesModel(context);
+      products = FilterRankingHelper.process(unprocessedProducts, model);
       topPicks = products
           .where((RankedProduct rankedProduct) =>
               rankedProduct.type == RankingType.TOP_PICKS)
