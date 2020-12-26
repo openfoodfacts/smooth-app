@@ -22,6 +22,10 @@ You can join the Open Food Facts's Slack here : [Get an invite](https://slack.op
 
 *full project documentation will be added here when ready*
 
+## Wiki 
+https://github.com/openfoodfacts/smooth-app/wiki
+https://wiki.openfoodfacts.org/Project_Smoothie
+
 ## Roadmap
 - [ ] Add Eco-Score support
 - [ ] Add Fastlane publishing to the AppStore and the Play Store and GitHub Actions
