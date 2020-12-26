@@ -1,5 +1,5 @@
 {
-    "@@locale": "da_DK",
+    "@@locale": "en",
     "searchTitle": "Søg.\nFind det perfekte produkt",
     "searchHintText": "Indtast en stregkode eller nøgleord",
     "categories": "Kategorier",
@@ -14,7 +14,7 @@
     "mandatory": "Obligatorisk",
     "accountable": "Ansvarlig",
     "saveButtonText": "Gem",
-    "applyButtonText": "Apply",
+    "applyButtonText": "Anvend",
     "myPersonalizedRanking": "Min personlige indplacering",
     "scannerProductsEmpty": "Produkter, du skanner, vil fremgå hér",
     "featureInProgress": "Vi arbejder stadig på denne funktion, så hold øje med den",
