@@ -56,10 +56,10 @@ class FullProductsDatabase {
       return true;
     }
 
-    final ProductQueryConfiguration configuration =
-        ProductQueryConfiguration(barcode,
-            fields: fields,
-            language: OpenFoodFactsLanguage.ENGLISH);
+    final ProductQueryConfiguration configuration = ProductQueryConfiguration(
+        barcode,
+        fields: fields,
+        language: OpenFoodFactsLanguage.ENGLISH);
 
     final ProductResult result =
         await OpenFoodAPIClient.getProduct(configuration);
@@ -78,24 +78,26 @@ class FullProductsDatabase {
             page: page,
             language: OpenFoodFactsLanguage.ENGLISH);
 
-     final SearchResult result = await OpenFoodAPIClient.queryPnnsGroup(SMOOTH_USER, configuration);
+    final SearchResult result =
+        await OpenFoodAPIClient.queryPnnsGroup(SMOOTH_USER, configuration);
 
-     result.products.forEach(saveProduct);
+    result.products.forEach(saveProduct);
 
-     return result.products;
+    return result.products;
   }
 
   Future<List<Product>> queryProductsFromKeyword(String keyword) async {
     final ProductSearchQueryConfiguration configuration =
-    ProductSearchQueryConfiguration(
-        fields: fields,
-        parametersList: <Parameter>[
-          const PageSize(size: 500),
-          TagFilter(tagType: 'categories', contains: true, tagName: keyword)
-        ],
-        language: OpenFoodFactsLanguage.ENGLISH);
+        ProductSearchQueryConfiguration(
+            fields: fields,
+            parametersList: <Parameter>[
+              const PageSize(size: 500),
+              TagFilter(tagType: 'categories', contains: true, tagName: keyword)
+            ],
+            language: OpenFoodFactsLanguage.ENGLISH);
 
-    final SearchResult result = await OpenFoodAPIClient.searchProducts(SMOOTH_USER, configuration);
+    final SearchResult result =
+        await OpenFoodAPIClient.searchProducts(SMOOTH_USER, configuration);
 
     result.products.forEach(saveProduct);
 

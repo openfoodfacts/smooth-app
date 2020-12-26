@@ -1,8 +1,6 @@
-
 import 'package:flutter/foundation.dart';
 
 class SmoothUploadModel extends ChangeNotifier {
-
   String frontPath;
   String ingredientsPath;
   String nutritionPath;
@@ -21,5 +19,4 @@ class SmoothUploadModel extends ChangeNotifier {
     nutritionPath = path;
     notifyListeners();
   }
-
 }

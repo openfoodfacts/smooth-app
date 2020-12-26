@@ -22,7 +22,13 @@ class TrackingPage extends StatelessWidget {
               const SizedBox(
                 height: 28.0,
               ),
-              Text(S.of(context).featureInProgress, style: Theme.of(context).textTheme.subtitle1.copyWith(color: Colors.black),),
+              Text(
+                S.of(context).featureInProgress,
+                style: Theme.of(context)
+                    .textTheme
+                    .subtitle1
+                    .copyWith(color: Colors.black),
+              ),
             ],
           ),
         ),

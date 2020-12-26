@@ -1,4 +1,3 @@
-
 import 'package:flutter/widgets.dart';
 import 'package:flutter/foundation.dart';
 import 'package:openfoodfacts/model/RecommendedDailyIntake.dart';
@@ -24,12 +23,13 @@ class SneakPeakModel extends ChangeNotifier {
     }
     rubberAnimationController.animateTo(to: 0.28);
     rubberAnimationController.addListener(() {
-      if(rubberAnimationController.animationState.value == AnimationState.collapsed) {
+      if (rubberAnimationController.animationState.value ==
+          AnimationState.collapsed) {
         rubberAnimationController.animateTo(to: 0.28);
       }
     });
   }
-  
+
   RubberAnimationController rubberAnimationController;
 
   Product product;

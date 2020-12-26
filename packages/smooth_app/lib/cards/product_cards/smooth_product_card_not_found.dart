@@ -1,11 +1,11 @@
-
 import 'package:flutter/material.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_template.dart';
 import 'package:smooth_app/pages/smooth_upload_page.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 
 class SmoothProductCardNotFound extends SmoothProductCardTemplate {
-  SmoothProductCardNotFound({@required this.barcode, this.callback, this.elevation = 0.0});
+  SmoothProductCardNotFound(
+      {@required this.barcode, this.callback, this.elevation = 0.0});
 
   final String barcode;
   final Function callback;
@@ -26,9 +26,13 @@ class SmoothProductCardNotFound extends SmoothProductCardTemplate {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text('This product is missing'),
-            const SizedBox(height: 12.0,),
+            const SizedBox(
+              height: 12.0,
+            ),
             Text(barcode),
-            const SizedBox(height: 12.0,),
+            const SizedBox(
+              height: 12.0,
+            ),
             Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -37,7 +41,11 @@ class SmoothProductCardNotFound extends SmoothProductCardTemplate {
                   text: 'Add',
                   width: 100.0,
                   onPressed: () {
-                    Navigator.push<dynamic>(context, MaterialPageRoute<dynamic>(builder: (BuildContext context) => SmoothUploadPage(barcode: barcode)));
+                    Navigator.push<dynamic>(
+                        context,
+                        MaterialPageRoute<dynamic>(
+                            builder: (BuildContext context) =>
+                                SmoothUploadPage(barcode: barcode)));
                     callback();
                   },
                 ),

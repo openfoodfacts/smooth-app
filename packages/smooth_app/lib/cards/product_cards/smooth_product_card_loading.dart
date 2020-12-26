@@ -25,7 +25,9 @@ class SmoothProductCardLoading extends SmoothProductCardTemplate {
               Text(barcode),
             ],
           ),
-          const SizedBox(height: 12.0,),
+          const SizedBox(
+            height: 12.0,
+          ),
           const CircularProgressIndicator()
         ],
       ),

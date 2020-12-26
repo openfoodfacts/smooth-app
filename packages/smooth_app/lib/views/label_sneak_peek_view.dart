@@ -27,7 +27,8 @@ class LabelSneakPeekView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Padding(
-                      padding: const EdgeInsets.only(left: 12.0, right: 12.0, top: 12.0),
+                      padding: const EdgeInsets.only(
+                          left: 12.0, right: 12.0, top: 12.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -39,8 +40,13 @@ class LabelSneakPeekView extends StatelessWidget {
                               fit: BoxFit.contain,
                             ),
                           ),
-                          const SizedBox(width: 12.0,),
-                          Text('AB Label', style: Theme.of(context).textTheme.headline2,),
+                          const SizedBox(
+                            width: 12.0,
+                          ),
+                          Text(
+                            'AB Label',
+                            style: Theme.of(context).textTheme.headline2,
+                          ),
                         ],
                       ),
                     ),
@@ -50,32 +56,56 @@ class LabelSneakPeekView extends StatelessWidget {
                           Container(
                             child: Column(
                               children: <Widget>[
-                                Text('At least 95% organic ingredients', style: Theme.of(context).textTheme.headline3,),
-                                Text('Composé d\'au moins 95 % d\'ingrédients issus d\'un mode de production biologique', style: Theme.of(context).textTheme.bodyText1,)
+                                Text(
+                                  'At least 95% organic ingredients',
+                                  style: Theme.of(context).textTheme.headline3,
+                                ),
+                                Text(
+                                  'Composé d\'au moins 95 % d\'ingrédients issus d\'un mode de production biologique',
+                                  style: Theme.of(context).textTheme.bodyText1,
+                                )
                               ],
                             ),
                           ),
                           Container(
                             child: Column(
                               children: <Widget>[
-                                Text('Absence d\'OGM (traces <0,9% éventuellement possibles)', style: Theme.of(context).textTheme.headline3,),
-                                Text('Absence d\'OGM (possibilité de traces fortuites, accidentelles ou inévitables, dans la limite de 0,9 %)', style: Theme.of(context).textTheme.bodyText1,)
+                                Text(
+                                  'Absence d\'OGM (traces <0,9% éventuellement possibles)',
+                                  style: Theme.of(context).textTheme.headline3,
+                                ),
+                                Text(
+                                  'Absence d\'OGM (possibilité de traces fortuites, accidentelles ou inévitables, dans la limite de 0,9 %)',
+                                  style: Theme.of(context).textTheme.bodyText1,
+                                )
                               ],
                             ),
                           ),
                           Container(
                             child: Column(
                               children: <Widget>[
-                                Text('Certifié par un organisme indépendant', style: Theme.of(context).textTheme.headline3,),
-                                Text('Certifié par un organisme agréé par les pouvoirs publics français et répondant aux critères d\'indépendance, d\'impartialité, de compétence et d\'efficacité définis par la norme européenne EN 45011', style: Theme.of(context).textTheme.bodyText1,)
+                                Text(
+                                  'Certifié par un organisme indépendant',
+                                  style: Theme.of(context).textTheme.headline3,
+                                ),
+                                Text(
+                                  'Certifié par un organisme agréé par les pouvoirs publics français et répondant aux critères d\'indépendance, d\'impartialité, de compétence et d\'efficacité définis par la norme européenne EN 45011',
+                                  style: Theme.of(context).textTheme.bodyText1,
+                                )
                               ],
                             ),
                           ),
                           Container(
                             child: Column(
                               children: <Widget>[
-                                Text('Respect de la réglementation française', style: Theme.of(context).textTheme.headline3,),
-                                Text('Respect de la réglementation en vigueur en France', style: Theme.of(context).textTheme.bodyText1,)
+                                Text(
+                                  'Respect de la réglementation française',
+                                  style: Theme.of(context).textTheme.headline3,
+                                ),
+                                Text(
+                                  'Respect de la réglementation en vigueur en France',
+                                  style: Theme.of(context).textTheme.bodyText1,
+                                )
                               ],
                             ),
                           )
@@ -101,11 +131,18 @@ class LabelSneakPeekView extends StatelessWidget {
                               width: MediaQuery.of(context).size.width * 0.4,
                               height: 40.0,
                               decoration: BoxDecoration(
-                                borderRadius: const BorderRadius.all(Radius.circular(50.0)),
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(50.0)),
                                 color: Colors.redAccent.withAlpha(50),
                               ),
                               child: Center(
-                                child: Text('Close', style: Theme.of(context).textTheme.headline4.copyWith(color: Colors.redAccent),),
+                                child: Text(
+                                  'Close',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headline4
+                                      .copyWith(color: Colors.redAccent),
+                                ),
                               ),
                             ),
                           ),
@@ -114,11 +151,18 @@ class LabelSneakPeekView extends StatelessWidget {
                               width: MediaQuery.of(context).size.width * 0.4,
                               height: 40.0,
                               decoration: BoxDecoration(
-                                borderRadius: const BorderRadius.all(Radius.circular(50.0)),
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(50.0)),
                                 color: Colors.lightBlue.withAlpha(50),
                               ),
                               child: Center(
-                                child: Text('Learn more', style: Theme.of(context).textTheme.headline4.copyWith(color: Colors.lightBlue),),
+                                child: Text(
+                                  'Learn more',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headline4
+                                      .copyWith(color: Colors.lightBlue),
+                                ),
                               ),
                             ),
                           ),

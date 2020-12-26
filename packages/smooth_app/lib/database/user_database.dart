@@ -1,4 +1,3 @@
-
 import 'dart:io';
 
 import 'package:path_provider/path_provider.dart';
@@ -21,11 +20,14 @@ class UserDatabase {
 
     try {
       final StoreRef<dynamic, dynamic> store =
-      StoreRef<dynamic, dynamic>.main();
-      await store.record('user_preferences').put(database, userPreferences.toJson());
+          StoreRef<dynamic, dynamic>.main();
+      await store
+          .record('user_preferences')
+          .put(database, userPreferences.toJson());
       return true;
     } catch (e) {
-      print('An error occurred while saving user preferences to local database : $e');
+      print(
+          'An error occurred while saving user preferences to local database : $e');
       return false;
     }
   }
@@ -37,13 +39,16 @@ class UserDatabase {
 
     try {
       final StoreRef<dynamic, dynamic> store =
-      StoreRef<dynamic, dynamic>.main();
-      final Map<String, dynamic> jsonUserPreferences = await store.record('user_preferences').get(database) as Map<String, dynamic>;
-      return jsonUserPreferences != null ? UserPreferences.filled(jsonUserPreferences) : UserPreferences();
+          StoreRef<dynamic, dynamic>.main();
+      final Map<String, dynamic> jsonUserPreferences = await store
+          .record('user_preferences')
+          .get(database) as Map<String, dynamic>;
+      return jsonUserPreferences != null
+          ? UserPreferences.filled(jsonUserPreferences)
+          : UserPreferences();
     } catch (e) {
       print('An error occurred while loading user preferences : $e');
       return null;
     }
   }
-
 }

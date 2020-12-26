@@ -1,38 +1,64 @@
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Product.dart';
-import 'package:smooth_app/database/user_database.dart';
 import 'package:smooth_app/structures/ranked_product.dart';
-import 'package:smooth_app/temp/filter_ranking_helper.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
-import 'package:sticky_grouped_list/sticky_grouped_list.dart';
+import 'package:smooth_app/data_models/user_preferences_model.dart';
+import 'package:smooth_app/data_models/match.dart';
 
 class SmoothItModel extends ChangeNotifier {
-
-  SmoothItModel(List<Product> input) {
-    _loadData(input);
+  SmoothItModel(this.unprocessedProducts, final BuildContext context) {
+    _loadData(context);
+    scrollController.addListener(_scrollListener);
   }
 
-  final GroupedItemScrollController scrollController = GroupedItemScrollController();
+  final ScrollController scrollController = ScrollController();
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
-  Future<bool> _loadData(List<Product> input) async {
+  Future<bool> _loadData(final BuildContext context) async {
     try {
-      userPreferences = await UserDatabase().getUserPreferences();
-      dataLoaded = true;
-      products = FilterRankingHelper.process(input, userPreferences);
+      dataLoaded = await processProductList(context);
       notifyListeners();
       return true;
-    } catch(e) {
-      print('An error occurred while loading user preferences : $e');
+    } catch (e) {
+      print('An error occurred while processing the product list : $e');
       dataLoaded = false;
       return false;
     }
   }
 
+  List<Product> unprocessedProducts;
   List<RankedProduct> products;
-  UserPreferences userPreferences;
+
   bool dataLoaded = false;
 
   bool showTitle = true;
 
+  Future<bool> processProductList(final BuildContext context) async {
+    try {
+      final UserPreferencesModel model = UserPreferencesModel();
+      await model.loadData(context);
+      products = Match.sort(unprocessedProducts, model);
+      products.sort(
+          (RankedProduct a, RankedProduct b) => b.score.compareTo(a.score));
+      print('Processed products');
+      notifyListeners();
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
+
+  void _scrollListener() {
+    if (scrollController.offset <= scrollController.position.minScrollExtent &&
+        !scrollController.position.outOfRange) {
+      // Reached Top
+      showTitle = true;
+      notifyListeners();
+    } else {
+      showTitle = false;
+      notifyListeners();
+    }
+  }
 }

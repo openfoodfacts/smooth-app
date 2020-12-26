@@ -3,7 +3,8 @@ import 'package:flutter/widgets.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_template.dart';
 
 class SmoothProductCarousel extends StatelessWidget {
-  const SmoothProductCarousel({@required this.productCards, this.controller, this.height = 120.0});
+  const SmoothProductCarousel(
+      {@required this.productCards, this.controller, this.height = 120.0});
 
   final Map<String, SmoothProductCardTemplate> productCards;
   final CarouselController controller;
@@ -16,7 +17,8 @@ class SmoothProductCarousel extends StatelessWidget {
       itemBuilder: (BuildContext context, int index) {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 4.0),
-          child: productCards[productCards.keys.elementAt(index)].build(context),
+          child:
+              productCards[productCards.keys.elementAt(index)].build(context),
         );
       },
       carouselController: controller,

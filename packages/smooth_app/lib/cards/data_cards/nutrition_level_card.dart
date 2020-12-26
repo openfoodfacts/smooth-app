@@ -24,7 +24,8 @@ class NutritionLevelCard extends StatelessWidget {
           shadowColor: _getColor().withAlpha(60),
           child: Container(
               height: 36.0,
-              padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 4.0),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 4.0),
               decoration: BoxDecoration(
                 color: _getColor().withAlpha(60),
                 borderRadius: const BorderRadius.all(Radius.circular(20.0)),

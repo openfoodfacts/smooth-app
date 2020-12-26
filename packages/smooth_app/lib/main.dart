@@ -18,7 +18,9 @@ import 'package:smooth_ui_library/navigation/models/smooth_navigation_layout_mod
 import 'package:smooth_ui_library/navigation/models/smooth_navigation_screen_model.dart';
 import 'package:smooth_ui_library/navigation/smooth_navigation_layout.dart';
 
-final SentryClient sentry = SentryClient(dsn: 'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745');
+final SentryClient sentry = SentryClient(
+    dsn:
+        'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745');
 
 // ignore: avoid_void_async
 void main() async {
@@ -36,7 +38,7 @@ void main() async {
         theme: SmoothThemes.getSmoothThemeData(),
       ),
     );
-  } catch(error, stackTrace) {
+  } catch (error, stackTrace) {
     await sentry.captureException(
       exception: error,
       stackTrace: stackTrace,
@@ -47,7 +49,6 @@ void main() async {
 class SmoothApp extends StatelessWidget {
   final double _navigationIconSize = 32.0;
   final double _navigationIconPadding = 5.0;
-
 
   @override
   Widget build(BuildContext context) {
@@ -121,7 +122,8 @@ class SmoothApp extends StatelessWidget {
     );
   }*/
 
-  SmoothNavigationScreenModel _generateCollaborationScreenModel(BuildContext context) {
+  SmoothNavigationScreenModel _generateCollaborationScreenModel(
+      BuildContext context) {
     return SmoothNavigationScreenModel(
       icon: Container(
         padding: EdgeInsets.all(_navigationIconPadding),
@@ -140,7 +142,7 @@ class SmoothApp extends StatelessWidget {
         iconSize: _navigationIconSize,
         onTap: () async {
           final SharedPreferences sharedPreferences =
-          await SharedPreferences.getInstance();
+              await SharedPreferences.getInstance();
           final Widget newPage = sharedPreferences.getBool('useMlKit') ?? true
               ? ContinuousScanPage()
               : AlternativeContinuousScanPage();
@@ -154,7 +156,8 @@ class SmoothApp extends StatelessWidget {
     );
   }
 
-  SmoothNavigationScreenModel _generateTrackingScreenModel(BuildContext context) {
+  SmoothNavigationScreenModel _generateTrackingScreenModel(
+      BuildContext context) {
     return SmoothNavigationScreenModel(
       icon: Container(
         padding: EdgeInsets.all(_navigationIconPadding),
@@ -173,7 +176,7 @@ class SmoothApp extends StatelessWidget {
         iconSize: _navigationIconSize,
         onTap: () async {
           final SharedPreferences sharedPreferences =
-          await SharedPreferences.getInstance();
+              await SharedPreferences.getInstance();
           final Widget newPage = sharedPreferences.getBool('useMlKit') ?? true
               ? ContinuousScanPage()
               : AlternativeContinuousScanPage();
@@ -207,7 +210,7 @@ class SmoothApp extends StatelessWidget {
         iconSize: _navigationIconSize,
         onTap: () async {
           final SharedPreferences sharedPreferences =
-          await SharedPreferences.getInstance();
+              await SharedPreferences.getInstance();
           final Widget newPage = sharedPreferences.getBool('useMlKit') ?? true
               ? ContinuousScanPage()
               : AlternativeContinuousScanPage();

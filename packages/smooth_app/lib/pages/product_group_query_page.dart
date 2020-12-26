@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:openfoodfacts/utils/PnnsGroups.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/bottom_sheet_views/group_query_filter_view.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/data_models/product_group_query_model.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
@@ -18,7 +20,7 @@ class ProductGroupQueryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<ProductGroupQueryModel>(
-      create: (BuildContext context) => ProductGroupQueryModel(group),
+      create: (BuildContext context) => ProductGroupQueryModel(group, context),
       child: Consumer<ProductGroupQueryModel>(
         builder: (BuildContext context,
             ProductGroupQueryModel productGroupQueryModel, Widget child) {
@@ -54,8 +56,8 @@ class ProductGroupQueryPage extends StatelessWidget {
                                 MaterialPageRoute<dynamic>(
                                     builder: (BuildContext context) =>
                                         PersonalizedRankingPage(
-                                          input:
-                                              productGroupQueryModel.displayProducts,
+                                          input: productGroupQueryModel
+                                              .displayProducts,
                                         )),
                               );
                             },
@@ -112,7 +114,8 @@ class ProductGroupQueryPage extends StatelessWidget {
                   if (productGroupQueryModel.products != null)
                     if (productGroupQueryModel.products.isNotEmpty)
                       ListView.builder(
-                        itemCount: productGroupQueryModel.displayProducts.length,
+                        itemCount:
+                            productGroupQueryModel.displayProducts.length,
                         itemBuilder: (BuildContext context, int index) {
                           return Padding(
                             padding: const EdgeInsets.symmetric(
@@ -120,13 +123,15 @@ class ProductGroupQueryPage extends StatelessWidget {
                             child: SmoothProductCardFound(
                                     heroTag: productGroupQueryModel
                                         .displayProducts[index].barcode,
-                                    product:
-                                        productGroupQueryModel.displayProducts[index],
+                                    product: productGroupQueryModel
+                                        .displayProducts[index],
                                     elevation: 4.0)
                                 .build(context),
                           );
                         },
-                        padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.25),
+                        padding: EdgeInsets.only(
+                            top: MediaQuery.of(context).size.height * 0.25,
+                            bottom: 80.0),
                         controller: productGroupQueryModel.scrollController,
                       )
                     else
@@ -174,7 +179,38 @@ class ProductGroupQueryPage extends StatelessWidget {
                         ),
                         if (productGroupQueryModel.products != null)
                           if (productGroupQueryModel.products.isNotEmpty)
-                            Container(
+                            Padding(
+                              padding: const EdgeInsets.only(top: 24.0),
+                              child: FlatButton.icon(
+                                icon: Icon(
+                                  Icons.filter_list,
+                                  color: mainColor,
+                                ),
+                                label: const Text('Filter'),
+                                textColor: mainColor,
+                                onPressed: () {
+                                  showCupertinoModalBottomSheet<Widget>(
+                                    expand: false,
+                                    context: context,
+                                    backgroundColor: Colors.transparent,
+                                    bounce: true,
+                                    barrierColor: Colors.black45,
+                                    builder: (BuildContext context,
+                                            ScrollController
+                                                scrollController) =>
+                                        GroupQueryFilterView(
+                                      categories:
+                                          productGroupQueryModel.categories,
+                                      categoriesList: productGroupQueryModel
+                                          .sortedCategories,
+                                      callback:
+                                          productGroupQueryModel.selectCategory,
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                        /*Container(
                               margin:
                                   const EdgeInsets.only(top: 28.0, right: 8.0),
                               padding: const EdgeInsets.only(left: 10.0),
@@ -203,7 +239,7 @@ class ProductGroupQueryPage extends StatelessWidget {
                                 icon: Icon(Icons.arrow_drop_down, color: mainColor,),
                                 underline: Container(),
                               ),
-                            ),
+                            ),*/
                       ],
                     ),
                   ),

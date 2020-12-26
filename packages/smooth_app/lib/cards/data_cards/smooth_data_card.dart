@@ -3,17 +3,15 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
 
-enum SmoothDataCardFormat {
-  SQUARE,
-  WIDE
-}
+enum SmoothDataCardFormat { SQUARE, WIDE }
 
 class SmoothDataCard extends StatelessWidget {
-  const SmoothDataCard(
-      {@required this.content,
-      this.width,
-      this.height,
-      this.color = Colors.white,});
+  const SmoothDataCard({
+    @required this.content,
+    this.width,
+    this.height,
+    this.color = Colors.white,
+  });
 
   final Widget content;
   final double width;

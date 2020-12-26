@@ -1,10 +1,7 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/IngredientsAnalysisTags.dart';
 
 class VegetarianInformationCard extends StatelessWidget {
-
   const VegetarianInformationCard({@required this.status});
 
   final VegetarianStatus status;
@@ -13,7 +10,7 @@ class VegetarianInformationCard extends StatelessWidget {
   Widget build(BuildContext context) {
     Color color;
     String text;
-    switch(status) {
+    switch (status) {
       case VegetarianStatus.IS_VEGETARIAN:
         color = Colors.lightGreen;
         text = 'This product is vegetarian';
@@ -42,5 +39,4 @@ class VegetarianInformationCard extends StatelessWidget {
       ),
     );
   }
-
 }

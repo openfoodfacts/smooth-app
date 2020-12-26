@@ -1,10 +1,7 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/IngredientsAnalysisTags.dart';
 
 class PalmOilFreeInformationCard extends StatelessWidget {
-
   const PalmOilFreeInformationCard({@required this.status});
 
   final PalmOilFreeStatus status;
@@ -13,7 +10,7 @@ class PalmOilFreeInformationCard extends StatelessWidget {
   Widget build(BuildContext context) {
     Color color;
     String text;
-    switch(status) {
+    switch (status) {
       case PalmOilFreeStatus.IS_PALM_OIL_FREE:
         color = Colors.lightGreen;
         text = 'This product is palm oil free';
@@ -42,5 +39,4 @@ class PalmOilFreeInformationCard extends StatelessWidget {
       ),
     );
   }
-
 }

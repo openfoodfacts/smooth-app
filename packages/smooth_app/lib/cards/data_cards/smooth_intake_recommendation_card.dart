@@ -59,28 +59,30 @@ class SmoothIntakeRecommendationCard extends StatelessWidget {
                 const SizedBox(
                   width: 12.0,
                 ),
-                _generateNutritionPercentageDisplay(
-                    'Energy', Colors.greenAccent, 0.0),//sneakPeakModel.energy),
+                _generateNutritionPercentageDisplay('Energy',
+                    Colors.greenAccent, 0.0), //sneakPeakModel.energy),
+                const SizedBox(
+                  width: 12.0,
+                ),
+                _generateNutritionPercentageDisplay('Sugars',
+                    Colors.orangeAccent, 0.0), //sneakPeakModel.sugars),
                 const SizedBox(
                   width: 12.0,
                 ),
                 _generateNutritionPercentageDisplay(
-                    'Sugars', Colors.orangeAccent, 0.0),//sneakPeakModel.sugars),
-                const SizedBox(
-                  width: 12.0,
-                ),
-                _generateNutritionPercentageDisplay(
-                    'Fat', Colors.redAccent, 0.0),//sneakPeakModel.fat),
+                    'Fat', Colors.redAccent, 0.0), //sneakPeakModel.fat),
                 const SizedBox(
                   width: 12.0,
                 ),
                 _generateNutritionPercentageDisplay('Saturated-fat',
-                    Colors.blueAccent, 0.0),//sneakPeakModel.saturatedFat),
+                    Colors.blueAccent, 0.0), //sneakPeakModel.saturatedFat),
                 const SizedBox(
                   width: 12.0,
                 ),
-                _generateNutritionPercentageDisplay('Carbohydrates',
-                    Colors.deepPurpleAccent, 0.0),//sneakPeakModel.carbohydrates),
+                _generateNutritionPercentageDisplay(
+                    'Carbohydrates',
+                    Colors.deepPurpleAccent,
+                    0.0), //sneakPeakModel.carbohydrates),
                 const SizedBox(
                   width: 12.0,
                 ),
