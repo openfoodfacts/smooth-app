@@ -14,6 +14,7 @@
     "mandatory": "Obligatorisk",
     "accountable": "Ansvarlig",
     "saveButtonText": "Gem",
+    "applyButtonText": "Apply",
     "myPersonalizedRanking": "Min personlige indplacering",
     "scannerProductsEmpty": "Produkter, du skanner, vil fremgå hér",
     "featureInProgress": "Vi arbejder stadig på denne funktion, så hold øje med den",
@@ -25,5 +26,5 @@
     "nutrition": "Ernæring",
     "ingredients": "Ingredienser",
     "ecology": "Økologi",
-    "myPreferences": "My preferences"
+    "myPreferences": "Mine præferencer"
 }
