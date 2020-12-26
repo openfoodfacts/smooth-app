@@ -14,6 +14,7 @@
     "mandatory": "חובה",
     "accountable": "אחריות",
     "saveButtonText": "שמירה",
+    "applyButtonText": "Apply",
     "myPersonalizedRanking": "הדירוג האישי שלי",
     "scannerProductsEmpty": "מוצרים שסרקת יופיעו כאן",
     "featureInProgress": "אנחנו עדיין עובדים על התכונה הזאת, עדכונים בקרוב",
@@ -25,5 +26,5 @@
     "nutrition": "תזונה",
     "ingredients": "רכיבים",
     "ecology": "איכות הסביבה",
-    "myPreferences": "My preferences"
+    "myPreferences": "ההעדפות שלי"
 }
