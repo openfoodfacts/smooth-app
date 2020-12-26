@@ -4,7 +4,7 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
 import 'package:smooth_app/data_models/profile_page_model.dart';
-import 'package:smooth_app/generated/l10n.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_ui_library/widgets/smooth_toggle.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -22,7 +22,7 @@ class ProfilePage extends StatelessWidget {
                 children: <Widget>[
                   Flexible(
                     child: Text(
-                      S.of(context).testerSettingTitle,
+                      AppLocalizations.of(context).testerSettingTitle,
                       style: Theme.of(context).textTheme.headline1,
                       textAlign: TextAlign.start,
                     ),
@@ -45,7 +45,7 @@ class ProfilePage extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text(S.of(context).useMLKitText),
+                  Text(AppLocalizations.of(context).useMLKitText),
                   Consumer<ProfilePageModel>(
                     builder: (BuildContext context,
                         ProfilePageModel profilePageModel, Widget child) {
@@ -54,8 +54,8 @@ class ProfilePage extends StatelessWidget {
                           value: profilePageModel.useMlKit,
                           width: 80.0,
                           height: 38.0,
-                          textLeft: S.of(context).yes,
-                          textRight: S.of(context).no,
+                          textLeft: AppLocalizations.of(context).yes,
+                          textRight: AppLocalizations.of(context).no,
                           onChanged: (bool newValue) {
                             profilePageModel.setMlKitState(newValue);
                           },
@@ -92,7 +92,7 @@ class ProfilePage extends StatelessWidget {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text(S.of(context).configurePreferences),
+                    Text(AppLocalizations.of(context).configurePreferences),
                     SvgPicture.asset(
                       'assets/misc/right_arrow.svg',
                       color: Colors.black,

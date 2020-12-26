@@ -14,7 +14,7 @@ import 'package:smooth_app/pages/product_group_query_page.dart';
 import 'package:smooth_app/pages/product_keywords_search_result_page.dart';
 import 'package:smooth_app/pages/product_page.dart';
 import 'package:smooth_ui_library/widgets/smooth_search_bar.dart';
-import 'package:smooth_app/generated/l10n.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ChoosePage extends StatelessWidget {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -59,7 +59,7 @@ class ChoosePage extends StatelessWidget {
                                   children: <Widget>[
                                     Flexible(
                                       child: Text(
-                                        S.of(context).searchTitle,
+                                        AppLocalizations.of(context).searchTitle,
                                         style: Theme.of(context)
                                             .textTheme
                                             .headline1,
@@ -72,7 +72,7 @@ class ChoosePage extends StatelessWidget {
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 16.0, vertical: 12.0),
                                 child: SmoothSearchBar(
-                                  hintText: S.of(context).searchHintText,
+                                  hintText: AppLocalizations.of(context).searchHintText,
                                   onSubmitted: (String value) {
                                     if (int.parse(value,
                                             onError: (String e) => null) !=
@@ -168,14 +168,14 @@ class ChoosePage extends StatelessWidget {
                               children: <Widget>[
                                 Flexible(
                                   child: Text(
-                                    S.of(context).categories,
+                                    AppLocalizations.of(context).categories,
                                     style:
                                         Theme.of(context).textTheme.headline3,
                                   ),
                                 ),
                                 MaterialButton(
                                   child: Text(
-                                    S.of(context).showAll,
+                                    AppLocalizations.of(context).showAll,
                                     style: Theme.of(context)
                                         .textTheme
                                         .subtitle1

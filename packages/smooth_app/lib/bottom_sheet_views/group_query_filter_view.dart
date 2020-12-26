@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/generated/l10n.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_ui_library/buttons/smooth_main_button.dart';
 
 class GroupQueryFilterView extends StatelessWidget {
@@ -145,7 +145,7 @@ class GroupQueryFilterView extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 12.0, vertical: 20.0),
                             child: SmoothMainButton(
-                              text: S.of(context).applyButtonText,
+                              text: AppLocalizations.of(context).applyButtonText,
                               onPressed: () {
                                 Navigator.pop(context);
                                 callback(

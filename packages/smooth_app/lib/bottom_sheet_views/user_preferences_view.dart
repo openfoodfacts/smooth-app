@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
-import 'package:smooth_app/generated/l10n.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_ui_library/buttons/smooth_main_button.dart';
 
 class UserPreferencesView extends StatelessWidget {
@@ -49,7 +49,7 @@ class UserPreferencesView extends StatelessWidget {
                           margin:
                               const EdgeInsets.only(top: 20.0, bottom: 24.0),
                           child: Text(
-                            S.of(context).myPreferences,
+                            AppLocalizations.of(context).myPreferences,
                             style: Theme.of(context).textTheme.headline1,
                           ),
                         ),
@@ -89,7 +89,7 @@ class UserPreferencesView extends StatelessWidget {
                               UserPreferencesModel userPreferencesModel,
                               Widget child) {
                             return SmoothMainButton(
-                              text: S.of(context).saveButtonText,
+                              text: AppLocalizations.of(context).saveButtonText,
                               onPressed: () {
                                 userPreferencesModel.saveUserPreferences();
                                 Navigator.pop(context);

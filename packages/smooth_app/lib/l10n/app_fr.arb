@@ -1,5 +1,4 @@
 {
-    "@@locale": "en",
     "searchTitle": "Cherchez.\nTrouvez le produit parfait",
     "searchHintText": "Entrez un code-barres ou des mots-clés",
     "categories": "Catégories",
@@ -11,8 +10,6 @@
     "contributionPage": "Contribution Page",
     "trackingPage": "Page de suivi",
     "preferencesText": "Mes préférences",
-    "mandatory": "Obligatoire",
-    "accountable": "Redevable",
     "saveButtonText": "Enregistrer",
     "myPersonalizedRanking": "My personalized ranking",
     "scannerProductsEmpty": "Products you scan will appear here",
