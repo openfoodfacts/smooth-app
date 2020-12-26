@@ -14,6 +14,7 @@
     "mandatory": "Obbligatorio",
     "accountable": "Responsabile",
     "saveButtonText": "Salva",
+    "applyButtonText": "Apply",
     "myPersonalizedRanking": "La mia classifica personale",
     "scannerProductsEmpty": "I prodotti scansionati compariranno qui",
     "featureInProgress": "Stiamo ancora lavorando su questa funzione, rimanete sintonizzati",
@@ -25,5 +26,5 @@
     "nutrition": "Nutrizione",
     "ingredients": "Ingredienti",
     "ecology": "Ecologia",
-    "myPreferences": "My preferences"
+    "myPreferences": "Le mie preferenze"
 }
