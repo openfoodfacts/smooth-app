@@ -14,6 +14,7 @@
     "mandatory": "Mandatory",
     "accountable": "Accountable",
     "saveButtonText": "บันทึก",
+    "applyButtonText": "Apply",
     "myPersonalizedRanking": "My personalized ranking",
     "scannerProductsEmpty": "Products you scan will appear here",
     "featureInProgress": "We're still working on this feature, stay tuned",
