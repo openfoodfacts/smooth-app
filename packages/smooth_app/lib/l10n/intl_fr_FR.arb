@@ -8,13 +8,14 @@
     "testerSettingTitle": "Paramètres des testeurs",
     "useMLKitText": "Utiliser le scanner alimenté par ML Kit",
     "organizationPage": "Page de l'organisation",
-    "contributionPage": "Contribution Page",
+    "contributionPage": "Page de contribution",
     "trackingPage": "Page de suivi",
     "preferencesText": "Mes préférences",
     "mandatory": "Obligatoire",
     "accountable": "Redevable",
     "saveButtonText": "Enregistrer",
-    "myPersonalizedRanking": "My personalized ranking",
+    "applyButtonText": "Apply",
+    "myPersonalizedRanking": "Mon classement personnel",
     "scannerProductsEmpty": "Les produits que vous scannez apparaîtront ici",
     "featureInProgress": "Nous travaillons encore sur cette fonctionnalité. Restez à l'écoute",
     "configurePreferences": "Configurer mes préférences",
@@ -25,5 +26,5 @@
     "nutrition": "Nutrition",
     "ingredients": "Ingrédients",
     "ecology": "Écologie",
-    "myPreferences": "My preferences"
+    "myPreferences": "Mes préférences"
 }
