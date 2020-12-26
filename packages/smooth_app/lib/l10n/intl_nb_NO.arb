@@ -3,7 +3,7 @@
     "searchTitle": "Search.\nFind the perfect product",
     "searchHintText": "Enter a barcode or keywords",
     "categories": "Kategorier",
-    "showAll": "Show all",
+    "showAll": "Vis alt",
     "scanProductTitle": "Scan products",
     "testerSettingTitle": "Testers settings",
     "useMLKitText": "Use ML Kit powered scanner",
@@ -14,6 +14,7 @@
     "mandatory": "Mandatory",
     "accountable": "Accountable",
     "saveButtonText": "Lagre",
+    "applyButtonText": "Apply",
     "myPersonalizedRanking": "My personalized ranking",
     "scannerProductsEmpty": "Products you scan will appear here",
     "featureInProgress": "We're still working on this feature, stay tuned",
@@ -25,5 +26,5 @@
     "nutrition": "Ernæring",
     "ingredients": "Ingredienser",
     "ecology": "Ecology",
-    "myPreferences": "My preferences"
+    "myPreferences": "Mine innstillinger"
 }
