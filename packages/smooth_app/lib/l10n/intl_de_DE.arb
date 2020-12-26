@@ -14,6 +14,7 @@
     "mandatory": "Pflichtfeld",
     "accountable": "Verantwortlich",
     "saveButtonText": "Speichern",
+    "applyButtonText": "Apply",
     "myPersonalizedRanking": "Meine persönliche Rangliste",
     "scannerProductsEmpty": "Die von Ihnen erfassten Produkte werden hier angezeigt",
     "featureInProgress": "An dieser Funktion wird noch gearbeitet, bleiben Sie dran",
@@ -25,5 +26,5 @@
     "nutrition": "Nährwertangaben",
     "ingredients": "Inhaltsstoffe",
     "ecology": "Ökologie",
-    "myPreferences": "My preferences"
+    "myPreferences": "Meine Voreinstellungen"
 }
