@@ -14,16 +14,17 @@
     "mandatory": "Mandatory",
     "accountable": "Accountable",
     "saveButtonText": "Shrani",
+    "applyButtonText": "Apply",
     "myPersonalizedRanking": "My personalized ranking",
     "scannerProductsEmpty": "Products you scan will appear here",
     "featureInProgress": "We're still working on this feature, stay tuned",
-    "configurePreferences": "Configure my preferences",
+    "configurePreferences": "Konfiguracija nastavitev",
     "yes": "Da",
     "no": "Ne",
-    "unknownBrand": "Unknown brand",
-    "unknownProductName": "Unknown product name",
+    "unknownBrand": "Neznana znamka",
+    "unknownProductName": "Neznano ime izdelka",
     "nutrition": "Prehrana",
     "ingredients": "Sestavine",
-    "ecology": "Ecology",
-    "myPreferences": "My preferences"
+    "ecology": "Ekologija",
+    "myPreferences": "Moje nastavitve"
 }
