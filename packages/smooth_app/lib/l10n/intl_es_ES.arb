@@ -1,5 +1,5 @@
 {
-    "@@locale": "es_ES",
+    "@@locale": "en",
     "searchTitle": "Buscar.\nEncuentra el producto perfecto",
     "searchHintText": "Ingrese un código de barras o palabras clave",
     "categories": "Categorías",
@@ -14,7 +14,7 @@
     "mandatory": "Obligatorio",
     "accountable": "Contable",
     "saveButtonText": "Guardar",
-    "applyButtonText": "Apply",
+    "applyButtonText": "Aplicar",
     "myPersonalizedRanking": "Mi ranking personalizado",
     "scannerProductsEmpty": "Los productos que escanee aparecerán aquí",
     "featureInProgress": "Todavía estamos trabajando en esta función, estad atentos",
