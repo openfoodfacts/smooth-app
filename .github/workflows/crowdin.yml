@@ -70,8 +70,9 @@ jobs:
         # base_path: # optional
         # Path to the source files
         # source: # optional
+        source: /packages/smooth_app/lib/l10n/intl_en.arb
         # Path to the translation files
-        # translation: # optional
+        translation: /packages/smooth_app/lib/l10n/intl_%locale_with_underscore%.arb
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
