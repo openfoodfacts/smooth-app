@@ -1,5 +1,5 @@
 {
-    "@@locale": "de_DE",
+    "@@locale": "en",
     "searchTitle": "Suchen.\nFinden Sie das perfekte Produkt",
     "searchHintText": "Geben Sie einen Strichcode oder Schlüsselwörter ein",
     "categories": "Kategorien",
@@ -14,7 +14,7 @@
     "mandatory": "Pflichtfeld",
     "accountable": "Verantwortlich",
     "saveButtonText": "Speichern",
-    "applyButtonText": "Apply",
+    "applyButtonText": "Anwenden",
     "myPersonalizedRanking": "Meine persönliche Rangliste",
     "scannerProductsEmpty": "Die von Ihnen erfassten Produkte werden hier angezeigt",
     "featureInProgress": "An dieser Funktion wird noch gearbeitet, bleiben Sie dran",
