@@ -1,5 +1,5 @@
 {
-    "@@locale": "fr_FR",
+    "@@locale": "en",
     "searchTitle": "Cherchez.\nTrouvez le produit parfait",
     "searchHintText": "Entrez un code-barres ou des mots-clés",
     "categories": "Catégories",
@@ -14,7 +14,7 @@
     "mandatory": "Obligatoire",
     "accountable": "Redevable",
     "saveButtonText": "Enregistrer",
-    "applyButtonText": "Apply",
+    "applyButtonText": "Appliquer",
     "myPersonalizedRanking": "Mon classement personnel",
     "scannerProductsEmpty": "Les produits que vous scannez apparaîtront ici",
     "featureInProgress": "Nous travaillons encore sur cette fonctionnalité. Restez à l'écoute",
