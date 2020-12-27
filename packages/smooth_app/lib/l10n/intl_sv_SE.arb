@@ -1,5 +1,5 @@
 {
-    "@@locale": "sv_SE",
+    "@@locale": "en",
     "searchTitle": "Sök.\nHitta den perfekta produkten",
     "searchHintText": "Ange en streckkod eller nyckelord",
     "categories": "Kategorier",
@@ -14,7 +14,7 @@
     "mandatory": "Mandatory",
     "accountable": "Accountable",
     "saveButtonText": "Spara",
-    "applyButtonText": "Apply",
+    "applyButtonText": "Verkställ",
     "myPersonalizedRanking": "My personalized ranking",
     "scannerProductsEmpty": "Products you scan will appear here",
     "featureInProgress": "We're still working on this feature, stay tuned",
