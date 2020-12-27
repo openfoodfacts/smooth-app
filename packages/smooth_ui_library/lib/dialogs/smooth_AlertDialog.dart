@@ -2,6 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 
 
+///
+///	Open by calling 
+///
+///showDialog<void>(
+///        context: context,
+///        builder: (BuildContext context) {
+///          return SmoothAlertDialog(...)
+///	}
+///)
+///
+///
+
+
 class SmoothAlertDialog extends StatelessWidget {
 
   const SmoothAlertDialog({
