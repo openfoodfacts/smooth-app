@@ -39,17 +39,17 @@ jobs:
         # Download translations with pushing to branch
         # push_translations: # default is true
         # Commit message for download translations
-        # commit_message: # default is New Crowdin translations by Github Action
+        commit_message: "New Crowdin translations by Github Action"
         # To download translations to the specified version branch
-        # localization_branch_name: # default is l10n_crowdin_action
+        localization_branch_name: l10n_master_gh
         # Create pull request after pushing to branch
         # create_pull_request: # default is true
         # The title of the new pull request
-        # pull_request_title: # default is New Crowdin translations by Github Action
+        pull_request_title: "New Crowdin translations to review and merge"
         # The contents of the pull request
         # pull_request_body: # optional
         # To add labels for created pull request
-        # pull_request_labels: # optional
+        pull_request_labels: "translations"
         # Create pull request to specified branch instead of default one
         # pull_request_base_branch_name: # optional
         # Option to upload or download files to the specified version branch in your Crowdin project
@@ -65,9 +65,9 @@ jobs:
         # Personal access token required for authentication
         # token: # optional
         # Base URL of Crowdin server for API requests execution
-        # base_url: # optional
+        base_url: 'https://crowdin.com'
         # Path to your project directory on a local machine
-        # base_path: # optional
+        base_path: '/openfoodfacts'
         # Path to the source files
         # source: # optional
         source: /packages/smooth_app/lib/l10n/intl_en.arb
