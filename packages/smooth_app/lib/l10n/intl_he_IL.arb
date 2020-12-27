@@ -1,5 +1,5 @@
 {
-    "@@locale": "he_IL",
+    "@@locale": "en",
     "searchTitle": "חיפוש.\nלמצוא את המוצר המושלם",
     "searchHintText": "יש למלא ברקוד או מילות מפתח",
     "categories": "קטגוריות",
@@ -14,7 +14,7 @@
     "mandatory": "חובה",
     "accountable": "אחריות",
     "saveButtonText": "שמירה",
-    "applyButtonText": "Apply",
+    "applyButtonText": "החלה",
     "myPersonalizedRanking": "הדירוג האישי שלי",
     "scannerProductsEmpty": "מוצרים שסרקת יופיעו כאן",
     "featureInProgress": "אנחנו עדיין עובדים על התכונה הזאת, עדכונים בקרוב",
