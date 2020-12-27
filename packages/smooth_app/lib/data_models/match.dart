@@ -2,10 +2,15 @@ import 'package:openfoodfacts/model/AttributeGroups.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/structures/ranked_product.dart';
+import 'package:smooth_app/temp/user_preferences.dart';
 
 /// cf. https://github.com/openfoodfacts/smooth-app/issues/39
 class Match {
-  Match(final Product product, final UserPreferencesModel model) {
+  Match(
+    final Product product,
+    final UserPreferences userPreferences,
+    final UserPreferencesModel userPreferencesModel,
+  ) {
     final AttributeGroups attributeGroups = product.attributeGroups;
     if (attributeGroups == null) {
       _status = null;
@@ -15,7 +20,7 @@ class Match {
       for (final Attribute attribute in attributes) {
         final String variable = attribute.id;
         final PreferencesValue preferencesValue =
-            model.getPreferencesValue(variable);
+            userPreferencesModel.getPreferencesValue(variable, userPreferences);
         final String value = preferencesValue.id;
         _attributes[value] ??= <Attribute>[];
         _attributes[value].add(attribute);
@@ -54,15 +59,16 @@ class Match {
 
   static List<RankedProduct> sort(
     final List<Product> products,
-    final UserPreferencesModel model,
+    final UserPreferences userPreferences,
+    final UserPreferencesModel userPreferencesModel,
   ) {
     final List<RankedProduct> result = <RankedProduct>[];
     for (final Product product in products) {
-      final Match match = Match(product, model);
-      result.add(RankedProduct(product: product, score: match.score));
+      final Match match = Match(product, userPreferences, userPreferencesModel);
+      result.add(RankedProduct(product: product, match: match));
     }
-    result
-        .sort((RankedProduct a, RankedProduct b) => b.score.compareTo(a.score));
+    result.sort((RankedProduct a, RankedProduct b) =>
+        b.match.score.compareTo(a.match.score));
     return result;
   }
 }
