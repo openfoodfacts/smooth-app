@@ -138,7 +138,7 @@ class UserPreferencesView extends StatelessWidget {
               variable.iconUrl,
               alignment: Alignment.centerLeft,
               width: iconWidth,
-              fit: BoxFit.scaleDown,
+              fit: BoxFit.contain,
               placeholderBuilder: (BuildContext context) => Container(
                   padding: const EdgeInsets.all(30.0),
                   child: const CircularProgressIndicator()),
