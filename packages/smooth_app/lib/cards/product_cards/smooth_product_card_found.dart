@@ -1,16 +1,16 @@
 import 'dart:ui';
 
+import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:openfoodfacts/model/EnvironmentImpactLevels.dart';
-import 'package:openfoodfacts/model/NutrientLevels.dart';
 import 'package:openfoodfacts/model/Product.dart';
-import 'package:smooth_app/cards/product_cards/smooth_product_card_template.dart';
 import 'package:smooth_app/pages/product_page.dart';
 import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
+import 'package:smooth_app/cards/category_cards/attribute_card.dart';
+import 'package:smooth_app/temp/user_preferences.dart';
+import 'package:smooth_app/data_models/user_preferences_model.dart';
 
-class SmoothProductCardFound extends SmoothProductCardTemplate {
-  SmoothProductCardFound({
+class SmoothProductCardFound extends StatelessWidget {
+  const SmoothProductCardFound({
     @required this.product,
     @required this.heroTag,
     this.elevation = 0.0,
@@ -28,6 +28,20 @@ class SmoothProductCardFound extends SmoothProductCardTemplate {
   Widget build(BuildContext context) {
     if (!useNewStyle) {
       return _getOldStyle(context);
+    }
+
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
+    final UserPreferencesModel userPreferencesModel =
+        context.watch<UserPreferencesModel>();
+
+    final List<String> orderedVariables =
+        userPreferencesModel.getOrderedVariables(userPreferences);
+    final List<Widget> scores = <Widget>[];
+    for (final String variable in orderedVariables) {
+      if (scores.isNotEmpty) {
+        scores.add(_getDivider());
+      }
+      scores.add(AttributeCard(product, variable));
     }
     return GestureDetector(
       onTap: () {
@@ -115,109 +129,7 @@ class SmoothProductCardFound extends SmoothProductCardTemplate {
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          Container(
-                            width: MediaQuery.of(context).size.width * 0.225,
-                            child: product.nutriscore != null
-                                ? Image.asset(
-                                    'assets/product/nutri_score_${product.nutriscore}.png',
-                                    fit: BoxFit.fitWidth,
-                                  )
-                                : Row(
-                                    children: <Widget>[
-                                      Flexible(
-                                        child: Text(
-                                          'Nutri-score unavailable',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .subtitle1
-                                              .copyWith(
-                                                  color: Colors.black,
-                                                  fontSize: 12.0),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                          ),
-                          Container(
-                            height: 35.0,
-                            width: 1.0,
-                            margin: const EdgeInsets.symmetric(horizontal: 4.0),
-                            color: Colors.grey,
-                          ),
-                          Container(
-                            width: 20.0,
-                            height: 40.0,
-                            child: product.nutriments.novaGroup != null
-                                ? SvgPicture.asset(
-                                    'assets/product/nova_group_${product.nutriments.novaGroup}.svg',
-                                    fit: BoxFit.contain,
-                                  )
-                                : Container(),
-                          ),
-                          Container(
-                            width: MediaQuery.of(context).size.width * 0.225,
-                            margin: const EdgeInsets.only(left: 4.0),
-                            child: Row(
-                              children: <Widget>[
-                                Flexible(
-                                  child: Text(
-                                    product.nutriments.novaGroup != null
-                                        ? _getNovaText(
-                                            product.nutriments.novaGroup)
-                                        : 'NOVA group unavailable',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .subtitle1
-                                        .copyWith(
-                                            color: Colors.black,
-                                            fontSize: 12.0),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Container(
-                            height: 35.0,
-                            width: 1.0,
-                            margin: const EdgeInsets.symmetric(horizontal: 4.0),
-                            color: Colors.grey,
-                          ),
-                          Container(
-                            width: 30.0,
-                            height: 30.0,
-                            decoration: BoxDecoration(
-                              color: _getEnvironmentImpactColor(
-                                  product.environmentImpactLevels),
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(30.0)),
-                            ),
-                            child: Center(
-                              child: Stack(
-                                children: <Widget>[
-                                  const Text(
-                                    'CO  ',
-                                    style: TextStyle(
-                                        fontSize: 12.0,
-                                        fontWeight: FontWeight.w900,
-                                        color: Colors.white),
-                                  ),
-                                  Transform.translate(
-                                    offset: const Offset(16.0, 4.0),
-                                    child: const Text(
-                                      '2',
-                                      style: TextStyle(
-                                          fontSize: 10.0,
-                                          fontWeight: FontWeight.w900,
-                                          color: Colors.white),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
+                        children: scores,
                       ),
                     ),
                   ],
@@ -229,6 +141,13 @@ class SmoothProductCardFound extends SmoothProductCardTemplate {
       ),
     );
   }
+
+  Widget _getDivider() => Container(
+        height: 35.0,
+        width: 1.0,
+        margin: const EdgeInsets.symmetric(horizontal: 4.0),
+        color: Colors.grey,
+      );
 
   Widget _getOldStyle(final BuildContext context) => GestureDetector(
         onTap: () {
@@ -342,69 +261,4 @@ class SmoothProductCardFound extends SmoothProductCardTemplate {
           ),
         ),
       );
-
-  String _getNovaText(int novaGroup) {
-    switch (novaGroup) {
-      case 1:
-        return 'Un-processed product';
-        break;
-      case 2:
-        return 'Processed ingredient';
-        break;
-      case 3:
-        return 'Processed product';
-        break;
-      case 4:
-        return 'ultra-processed product';
-        break;
-      default:
-        return '';
-        break;
-    }
-  }
-
-  Color _getEnvironmentImpactColor(
-      EnvironmentImpactLevels environmentImpactLevels) {
-    if (environmentImpactLevels == null ||
-        environmentImpactLevels.levels.isEmpty) {
-      return Colors.black.withAlpha(15);
-    }
-
-    switch (environmentImpactLevels.levels.first) {
-      case Level.LOW:
-        return Colors.green;
-        break;
-      case Level.MODERATE:
-        return Colors.orange;
-        break;
-      case Level.HIGH:
-        return Colors.red;
-        break;
-      case Level.UNDEFINED:
-        return Colors.black.withAlpha(15);
-        break;
-      default:
-        return Colors.black.withAlpha(15);
-        break;
-    }
-  }
-
-  /*void _openSneakPeek(BuildContext context) {
-    Navigator.push<dynamic>(
-        context,
-        SmoothSneakPeekRoute<dynamic>(
-            builder: (BuildContext context) {
-              return Material(
-                color: Colors.transparent,
-                child: Center(
-                  child: SmoothProductSneakPeekView(
-                    product: product,
-                    context: context,
-                    heroTag: heroTag,
-                  ),
-                ),
-              );
-            },
-            duration: 250));
-  }*/
 }

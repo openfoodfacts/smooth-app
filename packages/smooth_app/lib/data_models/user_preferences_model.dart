@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/temp/attribute_group.dart';
+import 'package:smooth_app/temp/attribute.dart';
 
 class UserPreferencesModel extends ChangeNotifier {
   UserPreferencesModel._();
@@ -60,6 +61,38 @@ class UserPreferencesModel extends ChangeNotifier {
       print('An error occurred while loading user preferences : $e');
       return false;
     }
+  }
+
+  List<String> getOrderedVariables(final UserPreferences userPreferences) {
+    final Map<int, List<String>> map = <int, List<String>>{};
+    for (final AttributeGroup attributeGroup in preferenceVariableGroups) {
+      for (final Attribute attribute in attributeGroup.attributes) {
+        final String variable = attribute.id;
+        final int importance = getAttributeValueIndex(variable, userPreferences);
+        if (importance == null ||
+            importance == UserPreferences.INDEX_NOT_IMPORTANT) {
+          continue;
+        }
+        List<String> list = map[importance];
+        if (list == null) {
+          list = <String>[];
+          map[importance] = list;
+        }
+        list.add(variable);
+      }
+    }
+    final List<String> result = <String>[];
+    if (map.isEmpty) {
+      return result;
+    }
+    final List<int> decreasingImportances = <int>[];
+    decreasingImportances.addAll(map.keys);
+    decreasingImportances.sort((int a, int b) => b - a);
+    for (final int importance in decreasingImportances) {
+      final List<String> list = map[importance];
+      list.forEach(result.add);
+    }
+    return result;
   }
 
   int getAttributeValueIndex(
