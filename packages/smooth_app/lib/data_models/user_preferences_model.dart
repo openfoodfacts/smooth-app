@@ -68,7 +68,7 @@ class UserPreferencesModel extends ChangeNotifier {
     for (final AttributeGroup attributeGroup in preferenceVariableGroups) {
       for (final Attribute attribute in attributeGroup.attributes) {
         final String variable = attribute.id;
-        final int importance = getValueIndex(variable, userPreferences);
+        final int importance = getAttributeValueIndex(variable, userPreferences);
         if (importance == null ||
             importance == UserPreferences.INDEX_NOT_IMPORTANT) {
           continue;
@@ -95,13 +95,14 @@ class UserPreferencesModel extends ChangeNotifier {
     return result;
   }
 
-  int getValueIndex(
+  int getAttributeValueIndex(
     final String variable,
     final UserPreferences userPreferences,
   ) =>
-      _preferenceValuesReverse[
-          getPreferencesValue(variable, userPreferences).id] ??
-      UserPreferences.INDEX_NOT_IMPORTANT;
+      getValueIndex(getPreferencesValue(variable, userPreferences).id);
+
+  int getValueIndex(final String value) =>
+      _preferenceValuesReverse[value] ?? UserPreferences.INDEX_NOT_IMPORTANT;
 
   PreferencesValue getPreferencesValue(
     final String variable,
