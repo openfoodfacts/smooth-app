@@ -10,8 +10,9 @@ import 'package:smooth_app/cards/category_cards/category_chip.dart';
 import 'package:smooth_app/cards/category_cards/subcategory_card.dart';
 import 'package:smooth_app/data_models/choose_page_model.dart';
 import 'package:smooth_app/database/full_products_database.dart';
-import 'package:smooth_app/pages/product_group_query_page.dart';
-import 'package:smooth_app/pages/product_keywords_search_result_page.dart';
+import 'package:smooth_app/database/keywords_product_query.dart';
+import 'package:smooth_app/database/group_product_query.dart';
+import 'package:smooth_app/pages/product_query_page.dart';
 import 'package:smooth_app/pages/product_page.dart';
 import 'package:smooth_ui_library/widgets/smooth_search_bar.dart';
 import 'package:smooth_app/generated/l10n.dart';
@@ -136,11 +137,15 @@ class ChoosePage extends StatelessWidget {
                                           context,
                                           MaterialPageRoute<dynamic>(
                                               builder: (BuildContext context) =>
-                                                  ProductKeywordsSearchResultPage(
-                                                      heroTag: 'search_bar',
-                                                      mainColor:
-                                                          Colors.deepPurple,
-                                                      keywords: value)));
+                                                  ProductQueryPage(
+                                                    productQuery:
+                                                        KeywordsProductQuery(
+                                                            value),
+                                                    heroTag: 'search_bar',
+                                                    mainColor:
+                                                        Colors.deepPurple,
+                                                    name: value,
+                                                  )));
                                     }
                                   },
                                 ),
@@ -294,22 +299,19 @@ class ChoosePage extends StatelessWidget {
                                     title: choosePageModel
                                         .selectedCategory.subGroups[index].name,
                                     color: choosePageModel.selectedColor,
-                                    onTap: () {
-                                      Navigator.push<dynamic>(
-                                          context,
-                                          MaterialPageRoute<dynamic>(
-                                              builder: (BuildContext context) =>
-                                                  ProductGroupQueryPage(
-                                                      heroTag: choosePageModel
-                                                          .selectedCategory
-                                                          .subGroups[index]
-                                                          .name,
-                                                      mainColor: choosePageModel
-                                                          .selectedColor,
-                                                      group: choosePageModel
-                                                          .selectedCategory
-                                                          .subGroups[index])));
-                                    },
+                                    onTap: () => Navigator.push<dynamic>(
+                                        context, MaterialPageRoute<dynamic>(
+                                            builder: (BuildContext context) {
+                                      final PnnsGroup2 group = choosePageModel
+                                          .selectedCategory.subGroups[index];
+                                      return ProductQueryPage(
+                                        productQuery: GroupProductQuery(group),
+                                        heroTag: group.id,
+                                        mainColor:
+                                            choosePageModel.selectedColor,
+                                        name: group.name,
+                                      );
+                                    })),
                                   )),
                                 ),
                               );
