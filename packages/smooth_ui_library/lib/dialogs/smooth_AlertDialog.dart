@@ -18,11 +18,15 @@ import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 class SmoothAlertDialog extends StatelessWidget {
 
   const SmoothAlertDialog({
+    this.title,
+    @required this.context,
     @required this.body,
     @required this.actions,
     this.height,
   });
 
+  final String title;
+  final BuildContext context;
   final Widget body;
   final List<SmoothSimpleButton> actions;
   final double height;
@@ -36,6 +40,7 @@ class SmoothAlertDialog extends StatelessWidget {
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
+          _buildTitle(),
           Container(
             height: height,
             child: body,
@@ -61,4 +66,30 @@ class SmoothAlertDialog extends StatelessWidget {
       ],
     );
   }
-}
+
+  Widget _buildTitle(){
+
+    if(title == null){
+      return Container();
+    }
+    else{
+      return Column(
+        children: [
+            Text(
+              '$title',
+              style: Theme.of(context).textTheme.headline2,
+            ),
+          const Divider(
+            color: Colors.black,
+          ),
+          SizedBox(
+            height: 15,
+          ),
+        ],
+      );
+    }
+  }
+
+
+
+  }
