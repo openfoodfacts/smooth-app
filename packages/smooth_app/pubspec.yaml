@@ -23,6 +23,7 @@ dependencies:
     sdk: flutter
 
   flutter_svg: ^0.18.0
+  basic_utils: ^2.6.3
   modal_bottom_sheet: ^0.2.0+1
   provider: ^4.3.1
   openfoodfacts: ^0.3.10
@@ -36,14 +37,14 @@ dependencies:
   shared_preferences: ^0.5.8
   image_picker: ^0.6.7+4
   image_cropper: ^1.2.3
+  url_launcher: ^5.7.10
   flutter_staggered_animations: ^0.1.2
   intl: ^0.16.1
   sentry: ^3.0.1
   sticky_grouped_list: ^0.3.0
   sticky_headers: ^0.1.8+1
   flutter_sticky_header: ^0.4.5
-  url_launcher: ^5.7.10
-  basic_utils: ^2.6.3
+
 
   smooth_ui_library:
     path: ../smooth_ui_library
