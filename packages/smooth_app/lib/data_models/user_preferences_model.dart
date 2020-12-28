@@ -62,13 +62,14 @@ class UserPreferencesModel extends ChangeNotifier {
     }
   }
 
-  int getValueIndex(
+  int getAttributeValueIndex(
     final String variable,
     final UserPreferences userPreferences,
   ) =>
-      _preferenceValuesReverse[
-          getPreferencesValue(variable, userPreferences).id] ??
-      UserPreferences.INDEX_NOT_IMPORTANT;
+      getValueIndex(getPreferencesValue(variable, userPreferences).id);
+
+  int getValueIndex(final String value) =>
+      _preferenceValuesReverse[value] ?? UserPreferences.INDEX_NOT_IMPORTANT;
 
   PreferencesValue getPreferencesValue(
     final String variable,
