@@ -11,7 +11,7 @@ class SmoothListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => onPressed,
+      onTap: () => onPressed(),
       child: Container(
         height: 60.0,
         padding:
@@ -25,7 +25,9 @@ class SmoothListTile extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Text(text),
+            Text(text,
+              style: Theme.of(context).textTheme.bodyText1,
+            ),
             SvgPicture.asset(
               'assets/misc/right_arrow.svg',
               color: Colors.black,
