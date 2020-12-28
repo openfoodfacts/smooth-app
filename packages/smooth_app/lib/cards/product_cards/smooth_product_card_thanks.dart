@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:smooth_app/cards/product_cards/smooth_product_card_template.dart';
 
-class SmoothProductCardThanks extends SmoothProductCardTemplate {
+class SmoothProductCardThanks extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(

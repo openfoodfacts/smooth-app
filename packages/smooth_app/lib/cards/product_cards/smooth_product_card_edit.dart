@@ -3,11 +3,13 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/model/ProductImage.dart';
-import 'package:smooth_app/cards/product_cards/smooth_product_card_template.dart';
 import 'package:smooth_app/pages/product_page.dart';
 
-class SmoothProductCardEdit extends SmoothProductCardTemplate {
-  SmoothProductCardEdit({@required this.product, @required this.heroTag});
+class SmoothProductCardEdit extends StatelessWidget {
+  const SmoothProductCardEdit({
+    @required this.product,
+    @required this.heroTag,
+  });
 
   final Product product;
   final String heroTag;
