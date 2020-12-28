@@ -20,11 +20,18 @@ class Launcher{
   void launchURL(BuildContext context, String url, bool isOFF ) async{
 
     String openURL;
+    String LocaleString;
 
     if(isOFF){
-      Locale locale = Localizations.localeOf(context);
-      openURL = StringUtils.addCharAtPosition(url, '${locale.countryCode.toString()}', 8);
-      print(openURL);
+        Locale locale = Localizations.localeOf(context);
+        if(locale.countryCode.toString() == null){
+          LocaleString = 'world.';
+        }
+        else{
+          LocaleString = '${locale.countryCode.toString()}.';
+        }
+        openURL = StringUtils.addCharAtPosition(url, '$LocaleString', 8);
+        print(openURL);
     }
     else{
       openURL = url;
