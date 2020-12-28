@@ -26,7 +26,7 @@ class UserPreferencesView extends StatelessWidget {
 
   static Color getColor(final int index) => _colors[index] ?? _COLOR_DEFAULT;
 
-  static const double _TYPICAL_PADDING_OR_MARGIN = 10;
+  static const double _TYPICAL_PADDING_OR_MARGIN = 12;
   static const double _PCT_ICON = .20;
 
   @override
@@ -35,6 +35,8 @@ class UserPreferencesView extends StatelessWidget {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final UserPreferencesModel userPreferencesModel =
         context.watch<UserPreferencesModel>();
+    final double buttonWidth =
+        (screenSize.width - _TYPICAL_PADDING_OR_MARGIN * 3) / 2;
     return Material(
       child: Container(
         height: screenSize.height * 0.9,
@@ -85,15 +87,31 @@ class UserPreferencesView extends StatelessWidget {
                     child: Container(
                       color: Colors.black12,
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 12.0, vertical: 20.0),
-                      child: SmoothMainButton(
-                        text: 'OK',
-                        onPressed: () {
-                          Navigator.pop(context);
-                          if (callback != null) {
-                            callback();
-                          }
-                        },
+                          horizontal: _TYPICAL_PADDING_OR_MARGIN,
+                          vertical: 20.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          SmoothMainButton(
+                            text: 'Reset',
+                            minWidth: buttonWidth,
+                            important: false,
+                            onPressed: () => userPreferences
+                                .resetImportances(userPreferencesModel),
+                          ),
+                          SmoothMainButton(
+                            text: 'OK',
+                            minWidth: buttonWidth,
+                            important: true,
+                            onPressed: () {
+                              Navigator.pop(context);
+                              if (callback != null) {
+                                callback();
+                              }
+                            },
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -157,7 +175,7 @@ class UserPreferencesView extends StatelessWidget {
                     //thumbColor: Colors.black,
                     activeTrackColor: Colors.black54,
                     valueIndicatorColor: getColor(userPreferencesModel
-                        .getValueIndex(variable.id, userPreferences)),
+                        .getAttributeValueIndex(variable.id, userPreferences)),
                     trackHeight: 5.0,
                     inactiveTrackColor: Colors.black12,
                     showValueIndicator: ShowValueIndicator.always,
@@ -167,7 +185,7 @@ class UserPreferencesView extends StatelessWidget {
                     max: 3.0,
                     divisions: 3,
                     value: userPreferencesModel
-                        .getValueIndex(variable.id, userPreferences)
+                        .getAttributeValueIndex(variable.id, userPreferences)
                         .toDouble(),
                     onChanged: (double value) => userPreferences.setImportance(
                         variable.id, value.toInt()),

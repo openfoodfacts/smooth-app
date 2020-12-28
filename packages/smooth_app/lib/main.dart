@@ -50,6 +50,7 @@ class _MyAppState extends State<MyApp> {
     userPreferences = await UserPreferences.getUserPreferences();
     userPreferencesModel =
         await UserPreferencesModel.getUserPreferencesModel(context);
+    await userPreferences.init(userPreferencesModel);
   }
 
   @override
