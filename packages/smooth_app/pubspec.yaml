@@ -42,6 +42,8 @@ dependencies:
   sticky_grouped_list: ^0.3.0
   sticky_headers: ^0.1.8+1
   flutter_sticky_header: ^0.4.5
+  url_launcher: ^5.7.10
+  basic_utils: ^2.6.3
 
   smooth_ui_library:
     path: ../smooth_ui_library
