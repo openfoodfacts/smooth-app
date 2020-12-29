@@ -12,87 +12,116 @@ import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 ///	}
 ///)
 ///
-///
 
-
-class SmoothAlertDialog extends StatelessWidget {
-
-  const SmoothAlertDialog({
-    this.title,
-    this.close = true,
-    @required this.context,
-    @required this.body,
-    @required this.actions,
-    this.height,
-  });
-
+class SmoothAlertDialog extends StatefulWidget {
+  final BuildContext context;
   final String title;
   final bool close;
-  final BuildContext context;
+  final double height;
   final Widget body;
   final List<SmoothSimpleButton> actions;
-  final double height;
+
+  SmoothAlertDialog(
+      {Key key,
+        this.context,
+        this.title,
+        this.close,
+        this.height,
+        this.body,
+        this.actions
+      })
+      : super(key: key);
 
   @override
+  _SmoothAlertDialogState createState() => _SmoothAlertDialogState(
+    key: key,
+    context: context,
+    title: title,
+    close: close,
+    height: height,
+    body: body,
+    actions: actions,
+  );
+}
+
+class _SmoothAlertDialogState extends State<SmoothAlertDialog> {
+  final BuildContext context;
+  final String title;
+  final bool close;
+  final double height;
+  final Widget body;
+  final List<SmoothSimpleButton> actions;
+
+  _SmoothAlertDialogState({Key key,
+    this.context,
+    this.title,
+    this.close,
+    this.height,
+    this.body,
+    this.actions});
+
   Widget build(BuildContext context) {
     return AlertDialog(
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.0)), //this right here
 
       content: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          _buildTitle(),
-          Container(
-            height: height,
-            child: body,
-          ),
-        ]
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            _buildTitle(title),
+            Container(
+              height: height,
+              child: body,
+            ),
+          ]
       ),
-
 
 
       actions: [
         SizedBox(
           height: 58,
-            width: MediaQuery.of(context).size.width,
-            child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly, // Credits to https://stackoverflow.com/a/64697189/13313941
-                children: actions,
-            ),
+          width: MediaQuery
+              .of(context)
+              .size
+              .width,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            // Credits to https://stackoverflow.com/a/64697189/13313941
+            children: actions,
+          ),
         ),
-
-
-
       ],
     );
   }
 
-  Widget _buildTitle(){
+
+  Widget _buildTitle(String _title) {
     double height = 29;
 
-    if(title == null){
+    if (_title == null) {
       return Container();
     }
-    else{
+    else {
       return Column(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children:[
+            children: [
 
               _buildCrossPlaceHolder(),
               Container(
                 height: height,
                 child: Text(
-                  '$title',
-                  style: Theme.of(context).textTheme.headline2,
+                  '${_title}',
+                  style: Theme
+                      .of(context)
+                      .textTheme
+                      .headline2,
                 ),
               ),
               _buildCross(),
-
 
 
             ],
@@ -109,28 +138,31 @@ class SmoothAlertDialog extends StatelessWidget {
     }
   }
 
-  Widget _buildCross(){
-    if(close){
+  Widget _buildCross() {
+    if (close) {
       return InkWell(
         child: Icon(Icons.close, size: height,),
-        onTap: () => Navigator.of(context, rootNavigator: true)
-            .pop('dialog'),
+        onTap: () =>
+            Navigator.of(context, rootNavigator: true)
+                .pop('dialog'),
       );
-    } else{
+    } else {
       return Container();
     }
   }
 
-  Widget _buildCrossPlaceHolder(){  //Just a placeholder that the title is still centered
-    if(close){
+  Widget _buildCrossPlaceHolder() {
+    //Just a placeholder that the title is still centered
+    if (close) {
       return Visibility(
         child: SizedBox(
           height: height,
           width: height,
           child: InkWell(
             child: Icon(Icons.close, size: height,),
-            onTap: () => Navigator.of(context, rootNavigator: true)
-                .pop('dialog'),
+            onTap: () =>
+                Navigator.of(context, rootNavigator: true)
+                    .pop('dialog'),
           ),
         ),
         maintainSize: true,
@@ -139,12 +171,19 @@ class SmoothAlertDialog extends StatelessWidget {
         visible: false,
       );
     }
-    else{
-    return Container();
+    else {
+      return Container();
     }
-
   }
 
 
+}
 
-  }
+///
+///   final BuildContext context;
+///   final String title;
+///   final bool close;
+///   final Widget body;
+///   final List<SmoothSimpleButton> actions;
+///   final double height;
+///
