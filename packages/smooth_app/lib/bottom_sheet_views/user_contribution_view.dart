@@ -103,9 +103,8 @@ class UserContributionView extends StatelessWidget {
                                               S
                                                   .of(context)
                                                   .contribute_contribute_contributionMissions,
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .bodyText1,
+                                              style: const TextStyle(
+                                                  color: Colors.blue),
                                             ),
                                           ),
                                           FlatButton(
@@ -117,9 +116,8 @@ class UserContributionView extends StatelessWidget {
                                               S
                                                   .of(context)
                                                   .contribute_contribute_qualityIssues,
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .bodyText1,
+                                              style: const TextStyle(
+                                                  color: Colors.blue),
                                             ),
                                           ),
                                         ],
@@ -267,7 +265,9 @@ class UserContributionView extends StatelessWidget {
                                   actions: [
                                     SmoothSimpleButton(
                                       text: S.of(context).okay,
-                                      onPressed: null,
+                                      onPressed: () => Navigator.of(context,
+                                              rootNavigator: true)
+                                          .pop('dialog'),
                                       width: 150,
                                     )
                                   ],
