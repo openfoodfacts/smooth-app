@@ -3,9 +3,10 @@ import 'package:flutter_svg/svg.dart';
 
 class SmoothListTile extends StatelessWidget {
 
-  const SmoothListTile({@required this.text, @required this.onPressed,});
+  const SmoothListTile({@required this.text, @required this.onPressed, this.Widgeticon});
 
   final String text;
+  final Widget Widgeticon;
   final Function onPressed;
 
   @override
@@ -28,13 +29,27 @@ class SmoothListTile extends StatelessWidget {
             Text(text,
               style: Theme.of(context).textTheme.bodyText1,
             ),
-            SvgPicture.asset(
-              'assets/misc/right_arrow.svg',
-              color: Colors.black,
-            ),
+            _buildIcon(),
           ],
         ),
       ),
     );
   }
+
+  Widget _buildIcon(){
+
+    if(Widgeticon == null){
+      return SvgPicture.asset(
+        'assets/misc/right_arrow.svg',
+        color: Colors.black,
+      );
+    }
+    else{
+      return Widgeticon;
+    }
+
+
+  }
+
+
 }
