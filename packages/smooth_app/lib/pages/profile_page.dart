@@ -3,8 +3,9 @@ import 'package:flutter/cupertino.dart';
 
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/bottom_sheet_views/user_contribution_view.dart';
+import 'package:package_info/package_info.dart';
 
+import 'package:smooth_app/bottom_sheet_views/user_contribution_view.dart';
 import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
 import 'package:smooth_app/data_models/profile_page_model.dart';
 import 'package:smooth_app/generated/l10n.dart';
@@ -131,84 +132,116 @@ class _ProfilePageState extends State<ProfilePage> {
               text: S.of(context).about,
               onPressed: () {
                 showDialog<void>(
-                    context: context,
-                    builder: (BuildContext context) {
-                      //ToDo: Implement https://pub.dev/packages/package_info + show App Icon  !!! 2x !!!
-                      /// Maybe onTap open App in Store https://pub.dev/packages/open_appstore
-                      return SmoothAlertDialog(
-                        context: context,
-                        //height: 280,
-                        body: Column(
-                          children: <Widget>[
-                            ListTile(
-                              leading: const Icon(Icons.no_sim_outlined),
-                              title: Text(
-                                'smooth-app',
-                                style: Theme.of(context).textTheme.headline1,
-                              ),
-                              subtitle: Text(
-                                '0.0.1+1',
-                                style: Theme.of(context).textTheme.subtitle2,
-                              ),
-                            ),
-                            const Divider(
-                              color: Colors.black,
-                            ),
-                            const SizedBox(
-                              height: 20,
-                            ),
-                            Text(
-                              '${S.of(context).whatIsOff}',
-                              style: Theme.of(context).textTheme.bodyText1,
-                            ),
-                            FlatButton(
-                              onPressed: () {},
-                              child: Text(
-                                '${S.of(context).learnMore}',
-                                style: const TextStyle(
-                                  color: Colors.blue,
-                                ),
-                              ),
-                            ),
-                            FlatButton(
-                              onPressed: () => launcher.launchURL(
-                                  context,
-                                  'https://openfoodfacts.org/terms-of-use',
-                                  true),
-                              child: Text(
-                                '${S.of(context).termsOfUse}',
-                                style: const TextStyle(
-                                  color: Colors.blue,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
+                  context: context,
+                  builder: (BuildContext context) {
+                    //ToDo: Show App Icon  !!! 2x !!! + onTap open App in Store https://pub.dev/packages/open_appstore
 
-                        actions: <SmoothSimpleButton>[
-                          SmoothSimpleButton(
-                            onPressed: () {
-                              showLicensePage(context: context);
-                            },
-                            text: '${S.of(context).licenses}',
-                            width: 100,
-                          ),
-                          SmoothSimpleButton(
-                            onPressed: () {
-                              Navigator.of(context, rootNavigator: true)
-                                  .pop('dialog');
-                            },
-                            text: '${S.of(context).okay}',
-                            width: 100,
-                          ),
+                    return SmoothAlertDialog(
+                      close: true,
+                      title: 'Heyy',
+                      context: context,
+                      body: Column(
+                        children: [
+                          FutureBuilder(
+                              future: _getPubspecData(),
+                              builder: (BuildContext context,
+                                  AsyncSnapshot snapshot) {
+                                if (snapshot.connectionState ==
+                                        ConnectionState.none &&
+                                    snapshot.hasData == null) {
+                                  return Container();
+                                }
+                                return Column(
+                                  children: [
+                                    ListTile(
+                                      leading:
+                                          const Icon(Icons.no_sim_outlined),
+                                      title: Text(
+                                        snapshot.data[0].toString(),
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headline1,
+                                      ),
+                                      subtitle: Text(
+                                        snapshot.data[2].toString(),
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .subtitle2,
+                                      ),
+                                    ),
+                                    const Divider(
+                                      color: Colors.black,
+                                    ),
+                                    const SizedBox(
+                                      height: 20,
+                                    ),
+                                    Text(
+                                      '${S.of(context).whatIsOff}',
+                                      style:
+                                          Theme.of(context).textTheme.bodyText1,
+                                    ),
+                                    FlatButton(
+                                      onPressed: () {},
+                                      child: Text(
+                                        '${S.of(context).learnMore}',
+                                        style: const TextStyle(
+                                          color: Colors.blue,
+                                        ),
+                                      ),
+                                    ),
+                                    FlatButton(
+                                      onPressed: () => launcher.launchURL(
+                                          context,
+                                          'https://openfoodfacts.org/terms-of-use',
+                                          true),
+                                      child: Text(
+                                        '${S.of(context).termsOfUse}',
+                                        style: const TextStyle(
+                                          color: Colors.blue,
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                );
+                              }),
                         ],
-                      );
-                    });
+                      ),
+                      actions: <SmoothSimpleButton>[
+                        SmoothSimpleButton(
+                          onPressed: () {
+                            showLicensePage(context: context);
+                          },
+                          text: '${S.of(context).licenses}',
+                          width: 100,
+                        ),
+                        SmoothSimpleButton(
+                          onPressed: () {
+                            Navigator.of(context, rootNavigator: true)
+                                .pop('dialog');
+                          },
+                          text: '${S.of(context).okay}',
+                          width: 100,
+                        ),
+                      ],
+                    );
+                  },
+                );
               },
             ),
           ],
         ),
       ),
     );
+  }
+
+  Future<List<String>> _getPubspecData() async {
+    final PackageInfo packageInfo = await PackageInfo.fromPlatform();
+
+    String appName = packageInfo.appName;
+    //String packageName = packageInfo.packageName; // Unused at the time
+    String packageName = '';
+    String version = packageInfo.version;
+
+    return <String>[appName, packageName, version];
   }
 }
