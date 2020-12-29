@@ -4,7 +4,6 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:smooth_app/generated/l10n.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_ui_library/widgets/smooth_toggle.dart';
 
