@@ -1,12 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sentry/sentry.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
 
-import 'package:smooth_app/generated/l10n.dart';
 import 'package:smooth_app/pages/alternative_continuous_scan_page.dart';
 import 'package:smooth_app/pages/choose_page.dart';
 import 'package:smooth_app/pages/contribution_page.dart';
@@ -67,13 +66,8 @@ class _MyAppState extends State<MyApp> {
                   value: userPreferencesModel),
             ],
             child: MaterialApp(
-              localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
-                S.delegate,
-                GlobalMaterialLocalizations.delegate,
-                GlobalWidgetsLocalizations.delegate,
-                GlobalCupertinoLocalizations.delegate,
-              ],
-              supportedLocales: S.delegate.supportedLocales,
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
+              supportedLocales: AppLocalizations.supportedLocales,
               home: SmoothApp(),
               theme: SmoothThemes.getSmoothThemeData(),
             ),
@@ -126,7 +120,7 @@ class SmoothApp extends StatelessWidget {
       title: 'Choose',
       page: ChoosePage(),
       action: SmoothNavigationActionModel(
-        title: S.of(context).scanProductTitle,
+        title: AppLocalizations.of(context).scanProductTitle,
         icon: 'assets/actions/scanner_alt_2.svg',
         iconPadding: _navigationIconPadding,
         iconSize: _navigationIconSize,
@@ -175,7 +169,7 @@ class SmoothApp extends StatelessWidget {
       title: 'Contribute',
       page: CollaborationPage(),
       action: SmoothNavigationActionModel(
-        title: S.of(context).scanProductTitle,
+        title: AppLocalizations.of(context).scanProductTitle,
         icon: 'assets/actions/scanner_alt_2.svg',
         iconPadding: _navigationIconPadding,
         iconSize: _navigationIconSize,
@@ -209,7 +203,7 @@ class SmoothApp extends StatelessWidget {
       title: 'Track',
       page: TrackingPage(),
       action: SmoothNavigationActionModel(
-        title: S.of(context).scanProductTitle,
+        title: AppLocalizations.of(context).scanProductTitle,
         icon: 'assets/actions/scanner_alt_2.svg',
         iconPadding: _navigationIconPadding,
         iconSize: _navigationIconSize,
@@ -243,7 +237,7 @@ class SmoothApp extends StatelessWidget {
       title: 'Profile',
       page: ProfilePage(),
       action: SmoothNavigationActionModel(
-        title: S.of(context).scanProductTitle,
+        title: AppLocalizations.of(context).scanProductTitle,
         icon: 'assets/actions/scanner_alt_2.svg',
         iconPadding: _navigationIconPadding,
         iconSize: _navigationIconSize,

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
-import 'package:smooth_app/generated/l10n.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_ui_library/buttons/smooth_main_button.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/temp/attribute.dart';
@@ -57,7 +57,7 @@ class UserPreferencesView extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 20.0),
                         margin: const EdgeInsets.only(top: 20.0, bottom: 24.0),
                         child: Text(
-                          S.of(context).myPreferences,
+                          AppLocalizations.of(context).myPreferences,
                           style: Theme.of(context).textTheme.headline1,
                         ),
                       ),

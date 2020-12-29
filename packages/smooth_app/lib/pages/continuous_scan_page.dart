@@ -5,7 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
-import 'package:smooth_app/generated/l10n.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/lists/smooth_product_carousel.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
@@ -35,7 +35,7 @@ class ContinuousScanPage extends StatelessWidget {
             color: Colors.black,
           ),
           label: Text(
-            S.of(context).myPersonalizedRanking,
+            AppLocalizations.of(context).myPersonalizedRanking,
             style: const TextStyle(color: Colors.black),
           ),
           backgroundColor: Colors.white,
@@ -187,7 +187,7 @@ class ContinuousScanPage extends StatelessWidget {
                             height: MediaQuery.of(context).size.height * 0.5,
                             child: Center(
                               child: Text(
-                                S.of(context).scannerProductsEmpty,
+                                AppLocalizations.of(context).scannerProductsEmpty,
                                 style: Theme.of(context).textTheme.subtitle1,
                                 textAlign: TextAlign.start,
                               ),
