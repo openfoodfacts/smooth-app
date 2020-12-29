@@ -6,7 +6,7 @@ import 'package:basic_utils/basic_utils.dart';
 class Launcher{
 
   ///
-  /// ifOFF (is Open food facts)
+  /// ifOFF (is Open Food Facts)
   /// when true add language identifier at start
   ///
   /// !!!
