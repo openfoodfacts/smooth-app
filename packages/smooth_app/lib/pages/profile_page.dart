@@ -118,6 +118,13 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ),
 
+            //More Links
+            SmoothListTile(
+              text: S.of(context).support,
+              Widgeticon: Icon(Icons.launch),
+              onPressed: () => launcher.launchURL(context, 'https://openfoodfacts.uservoice.com/', false),
+            ),
+
             //About
             SmoothListTile(
               text: S.of(context).about,

@@ -56,5 +56,7 @@
   "contribute_translate_text_2" : "Translations is one of the key tasks of the project",
   "contribute_translate_link_text" : "Start Translating",
 
-  "contribute_donate_header" : "Donate to Open Food Facts"
+  "contribute_donate_header" : "Donate to Open Food Facts",
+
+  "support": "Support"
 }
