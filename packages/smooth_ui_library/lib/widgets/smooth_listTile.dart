@@ -3,10 +3,10 @@ import 'package:flutter_svg/svg.dart';
 
 class SmoothListTile extends StatelessWidget {
 
-  const SmoothListTile({@required this.text, @required this.onPressed, this.Widgeticon});
+  const SmoothListTile({@required this.text, @required this.onPressed, this.leadingWidget});
 
   final String text;
-  final Widget Widgeticon;
+  final Widget leadingWidget;
   final Function onPressed;
 
   @override
@@ -38,14 +38,14 @@ class SmoothListTile extends StatelessWidget {
 
   Widget _buildIcon(){
 
-    if(Widgeticon == null){
+    if(leadingWidget == null){
       return SvgPicture.asset(
         'assets/misc/right_arrow.svg',
         color: Colors.black,
       );
     }
     else{
-      return Widgeticon;
+      return leadingWidget;
     }
 
 

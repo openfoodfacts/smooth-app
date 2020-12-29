@@ -110,7 +110,7 @@ class _SmoothAlertDialogState extends State<SmoothAlertDialog> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
 
-              _buildCrossPlaceHolder(),
+              _buildCross(true),
               Container(
                 height: height,
                 child: Text(
@@ -121,7 +121,7 @@ class _SmoothAlertDialogState extends State<SmoothAlertDialog> {
                       .headline2,
                 ),
               ),
-              _buildCross(),
+              _buildCross(false),
 
 
             ],
@@ -138,43 +138,29 @@ class _SmoothAlertDialogState extends State<SmoothAlertDialog> {
     }
   }
 
-  Widget _buildCross() {
+
+
+  Widget _buildCross(bool isPlaceHolder) {
     if (close) {
-      return InkWell(
-        child: Icon(Icons.close, size: height,),
-        onTap: () =>
-            Navigator.of(context, rootNavigator: true)
-                .pop('dialog'),
+      return Visibility(
+        child: InkWell(
+          child: Icon(Icons.close, size: height,),
+          onTap: () =>
+              Navigator.of(context, rootNavigator: true)
+                  .pop('dialog'),
+        ),
+        maintainSize: true,
+        maintainAnimation: true,
+        maintainState: true,
+        visible: !isPlaceHolder,
       );
+
     } else {
       return Container();
     }
   }
 
-  Widget _buildCrossPlaceHolder() {
-    //Just a placeholder that the title is still centered
-    if (close) {
-      return Visibility(
-        child: SizedBox(
-          height: height,
-          width: height,
-          child: InkWell(
-            child: Icon(Icons.close, size: height,),
-            onTap: () =>
-                Navigator.of(context, rootNavigator: true)
-                    .pop('dialog'),
-          ),
-        ),
-        maintainSize: true,
-        maintainAnimation: true,
-        maintainState: true,
-        visible: false,
-      );
-    }
-    else {
-      return Container();
-    }
-  }
+
 
 
 }

@@ -1,6 +1,7 @@
+import 'dart:core';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:basic_utils/basic_utils.dart';
+
 
 
 class Launcher{
@@ -23,6 +24,9 @@ class Launcher{
     String localeString;
 
     if(isOFF){
+
+      //Get countrycode
+
         final Locale locale = Localizations.localeOf(context);
         if(locale.countryCode.toString() == null){
           localeString = 'world.';
@@ -30,12 +34,22 @@ class Launcher{
         else{
           localeString = '${locale.countryCode.toString()}.';
         }
-        openURL = StringUtils.addCharAtPosition(url, '$localeString', 8);
-        print(openURL);
-    }
-    else{
+        print('locale = $localeString');
+
+        //Check + Add to url
+        if(!url.contains('https://openfoodfacts')){
+          throw 'Error do not use local identifier';
+        }
+        print('url1 $url');
+        //url.replaceAll(from, replace)
+        openURL = url.replaceAll('https://openfoodfacts.org/', 'https://${localeString}openfoodfacts.org/');
+
+    }else{
       openURL = url;
     }
+
+
+
 
     if (await canLaunch(openURL)) {
       await launch(openURL);

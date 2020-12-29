@@ -122,7 +122,7 @@ class _ProfilePageState extends State<ProfilePage> {
             //More Links
             SmoothListTile(
               text: S.of(context).support,
-              Widgeticon: const Icon(Icons.launch),
+              leadingWidget: const Icon(Icons.launch),
               onPressed: () => launcher.launchURL(
                   context, 'https://openfoodfacts.uservoice.com/', false),
             ),
@@ -140,7 +140,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       close: false,
                       context: context,
                       body: Column(
-                        children: [
+                        children: <Widget>[
                           FutureBuilder<PackageInfo>(
                               future: _getPubspecData(),
                               builder: (BuildContext context,
@@ -163,7 +163,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                       );
 
                                 return Column(
-                                  children: [
+                                  children: <Widget>[
                                     ListTile(
                                       leading:
                                           const Icon(Icons.no_sim_outlined),
@@ -192,7 +192,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                           Theme.of(context).textTheme.bodyText1,
                                     ),
                                     FlatButton(
-                                      onPressed: () {},
+                                      onPressed: () {launcher.launchURL(context, 'https://openfoodfacts.org/who-we-are', true);},
                                       child: Text(
                                         '${S.of(context).learnMore}',
                                         style: const TextStyle(
@@ -246,7 +246,7 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   Future<PackageInfo> _getPubspecData() async {
-    PackageInfo packageInfo = await PackageInfo.fromPlatform();
+    final PackageInfo packageInfo = await PackageInfo.fromPlatform();
 
     return packageInfo;
   }

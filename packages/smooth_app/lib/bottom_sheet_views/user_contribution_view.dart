@@ -53,228 +53,29 @@ class UserContributionView extends StatelessWidget {
                         ),
                       ),
                       Column(
-                        /// NGO FEE
-                        /// https://stackoverflow.com/questions/46505660/how-to-create-a-google-play-console-developper-account-for-our-ngo
-                        ///
-
                         mainAxisSize: MainAxisSize.min,
                         children: <SmoothListTile>[
                           //Contribute
                           SmoothListTile(
                               text: S.of(context).contribute_contribute_header,
-                              onPressed: () => showDialog<void>(
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    return SmoothAlertDialog(
-                                      context: context,
-                                      close: false,
-                                      title: S
-                                          .of(context)
-                                          .contribute_contribute_header,
-                                      body: Column(
-                                        children: <Widget>[
-                                          Text(
-                                            S
-                                                .of(context)
-                                                .contribute_contribute_text,
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyText1,
-                                          ),
-                                          FlatButton(
-                                            onPressed: () => launcher.launchURL(
-                                                context,
-                                                'https://world.openfoodfacts.org/state/to-be-completed',
-                                                false),
-                                            child: Text(
-                                              S
-                                                  .of(context)
-                                                  .contribute_contribute_toBeCompleted,
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .bodyText1,
-                                            ),
-                                          ),
-                                          FlatButton(
-                                            onPressed: () => launcher.launchURL(
-                                                context,
-                                                'https://wiki.openfoodfacts.org/Contribution_missions',
-                                                false),
-                                            child: Text(
-                                              S
-                                                  .of(context)
-                                                  .contribute_contribute_contributionMissions,
-                                              style: const TextStyle(
-                                                  color: Colors.blue),
-                                            ),
-                                          ),
-                                          FlatButton(
-                                            onPressed: () => launcher.launchURL(
-                                                context,
-                                                'https://wiki.openfoodfacts.org/Quality',
-                                                false),
-                                            child: Text(
-                                              S
-                                                  .of(context)
-                                                  .contribute_contribute_qualityIssues,
-                                              style: const TextStyle(
-                                                  color: Colors.blue),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      actions: <SmoothSimpleButton>[
-                                        SmoothSimpleButton(
-                                          onPressed: () {
-                                            Navigator.of(context,
-                                                    rootNavigator: true)
-                                                .pop('dialog');
-                                          },
-                                          text: '${S.of(context).okay}',
-                                          width: 100,
-                                        ),
-                                      ],
-                                    );
-                                  })),
+                              onPressed: () => _contribute(context)),
 
-                          //Develope
+                          //Develop
                           SmoothListTile(
                             text: S.of(context).contribute_develop,
-                            onPressed: () => showDialog<void>(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return SmoothAlertDialog(
-                                  title: S.of(context).contribute_develop,
-                                  context: context,
-                                  body: Column(
-                                    children: <Widget>[
-                                      Text(
-                                        S.of(context).contribute_develop_text,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyText1,
-                                      ),
-                                      const SizedBox(
-                                        height: 20,
-                                      ),
-                                      Text(
-                                        S.of(context).contribute_develop_text_2,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyText1,
-                                      ),
-                                      FlatButton(
-                                        onPressed: () => launcher.launchURL(
-                                            context,
-                                            'https://wiki.openfoodfacts.org/Software_Development',
-                                            false),
-                                        child: Text(
-                                          '${S.of(context).learnMore}',
-                                          style: const TextStyle(
-                                            color: Colors.blue,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  actions: <SmoothSimpleButton>[
-                                    SmoothSimpleButton(
-                                      onPressed: () => launcher.launchURL(
-                                          context,
-                                          'https://github.com/openfoodfacts',
-                                          false),
-                                      text: 'GitHub',
-                                      width: 100,
-                                    ),
-                                    SmoothSimpleButton(
-                                      onPressed: () => launcher.launchURL(
-                                          context,
-                                          'https://slack.openfoodfacts.org/',
-                                          false),
-                                      text: 'Slack',
-                                      width: 100,
-                                    ),
-                                  ],
-                                );
-                              },
-                            ),
+                            onPressed: () => _develop(context),
                           ),
 
                           //Translate
                           SmoothListTile(
                             text: S.of(context).contribute_translate_header,
-                            onPressed: () => showDialog<void>(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return SmoothAlertDialog(
-                                  title:
-                                      S.of(context).contribute_translate_header,
-                                  context: context,
-                                  body: Column(
-                                    children: <Widget>[
-                                      Text(
-                                        S.of(context).contribute_translate_text,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyText1,
-                                      ),
-                                      Text(
-                                        S
-                                            .of(context)
-                                            .contribute_translate_text_2,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyText1,
-                                      ),
-                                    ],
-                                  ),
-                                  actions: <SmoothSimpleButton>[
-                                    SmoothSimpleButton(
-                                      onPressed: () => launcher.launchURL(
-                                          context,
-                                          'https://translate.openfoodfacts.org/',
-                                          false),
-                                      text: S
-                                          .of(context)
-                                          .contribute_translate_link_text,
-                                      width: 200,
-                                    ),
-                                  ],
-                                );
-                              },
-                            ),
+                            onPressed: () => _translate(context),
                           ),
 
                           //Donate
                           SmoothListTile(
                             text: S.of(context).contribute_donate_header,
-                            onPressed: () => showDialog<void>(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return SmoothAlertDialog(
-                                  context: context,
-                                  body: Column(
-                                    children: <Widget>[
-                                      Text(
-                                        S.of(context).featureInProgress,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyText1,
-                                      ),
-                                    ],
-                                  ),
-                                  actions: <SmoothSimpleButton>[
-                                    SmoothSimpleButton(
-                                      text: S.of(context).okay,
-                                      onPressed: () => Navigator.of(context,
-                                              rootNavigator: true)
-                                          .pop('dialog'),
-                                      width: 150,
-                                    )
-                                  ],
-                                );
-                              },
-                            ),
+                            onPressed: () => _donate(context),
                           ),
                         ],
                       ),
@@ -291,4 +92,223 @@ class UserContributionView extends StatelessWidget {
       ),
     );
   }
+
+
+  Future<void> _contribute(BuildContext context){
+    return showDialog<void>(
+        context: context,
+        builder: (BuildContext context) {
+          return SmoothAlertDialog(
+            context: context,
+            close: false,
+            title: S
+                .of(context)
+                .contribute_contribute_header,
+            body: Column(
+              children: <Widget>[
+                Text(
+                  S
+                      .of(context)
+                      .contribute_contribute_text,
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyText1,
+                ),
+                FlatButton(
+                  onPressed: () => launcher.launchURL(
+                      context,
+                      'https://world.openfoodfacts.org/state/to-be-completed',
+                      false),
+                  child: Text(
+                    S
+                        .of(context)
+                        .contribute_contribute_toBeCompleted,
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyText1,
+                  ),
+                ),
+                FlatButton(
+                  onPressed: () => launcher.launchURL(
+                      context,
+                      'https://wiki.openfoodfacts.org/Contribution_missions',
+                      false),
+                  child: Text(
+                    S
+                        .of(context)
+                        .contribute_contribute_contributionMissions,
+                    style: const TextStyle(
+                        color: Colors.blue),
+                  ),
+                ),
+                FlatButton(
+                  onPressed: () => launcher.launchURL(
+                      context,
+                      'https://wiki.openfoodfacts.org/Quality',
+                      false),
+                  child: Text(
+                    S
+                        .of(context)
+                        .contribute_contribute_qualityIssues,
+                    style: const TextStyle(
+                        color: Colors.blue),
+                  ),
+                ),
+              ],
+            ),
+            actions: <SmoothSimpleButton>[
+              SmoothSimpleButton(
+                onPressed: () {
+                  Navigator.of(context,
+                      rootNavigator: true)
+                      .pop('dialog');
+                },
+                text: '${S.of(context).okay}',
+                width: 100,
+              ),
+            ],
+          );
+        });
+  }
+
+
+  Future<void> _develop(BuildContext context){
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return SmoothAlertDialog(
+          title: S.of(context).contribute_develop,
+          context: context,
+          body: Column(
+            children: <Widget>[
+              Text(
+                S.of(context).contribute_develop_text,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyText1,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Text(
+                S.of(context).contribute_develop_text_2,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyText1,
+              ),
+              FlatButton(
+                onPressed: () => launcher.launchURL(
+                    context,
+                    'https://wiki.openfoodfacts.org/Software_Development',
+                    false),
+                child: Text(
+                  '${S.of(context).learnMore}',
+                  style: const TextStyle(
+                    color: Colors.blue,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          actions: <SmoothSimpleButton>[
+            SmoothSimpleButton(
+              onPressed: () => launcher.launchURL(
+                  context,
+                  'https://github.com/openfoodfacts',
+                  false),
+              text: 'GitHub',
+              width: 100,
+            ),
+            SmoothSimpleButton(
+              onPressed: () => launcher.launchURL(
+                  context,
+                  'https://slack.openfoodfacts.org/',
+                  false),
+              text: 'Slack',
+              width: 100,
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+
+  Future<void> _translate(BuildContext context){
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return SmoothAlertDialog(
+          title:
+          S.of(context).contribute_translate_header,
+          context: context,
+          body: Column(
+            children: <Widget>[
+              Text(
+                S.of(context).contribute_translate_text,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyText1,
+              ),
+              Text(
+                S
+                    .of(context)
+                    .contribute_translate_text_2,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyText1,
+              ),
+            ],
+          ),
+          actions: <SmoothSimpleButton>[
+            SmoothSimpleButton(
+              onPressed: () => launcher.launchURL(
+                  context,
+                  'https://translate.openfoodfacts.org/',
+                  false),
+              text: S
+                  .of(context)
+                  .contribute_translate_link_text,
+              width: 200,
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+
+  Future<void> _donate(BuildContext context){
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return SmoothAlertDialog(
+          context: context,
+          body: Column(
+            children: <Widget>[
+              Text(
+                S.of(context).featureInProgress,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyText1,
+              ),
+            ],
+          ),
+          actions: <SmoothSimpleButton>[
+            SmoothSimpleButton(
+              text: S.of(context).okay,
+              onPressed: () => Navigator.of(context,
+                  rootNavigator: true)
+                  .pop('dialog'),
+              width: 150,
+            )
+          ],
+        );
+      },
+    );
+  }
+
+
+
+
 }
