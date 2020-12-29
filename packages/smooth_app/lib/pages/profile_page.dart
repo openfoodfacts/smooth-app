@@ -1,13 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter/cupertino.dart';
+
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/bottom_sheet_views/user_contribution_view.dart';
+
 import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
 import 'package:smooth_app/data_models/profile_page_model.dart';
 import 'package:smooth_app/generated/l10n.dart';
+import 'package:smooth_app/functions/launchURL.dart';
 import 'package:smooth_ui_library/widgets/smooth_toggle.dart';
+import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
+import 'package:smooth_ui_library/dialogs/smooth_AlertDialog.dart';
+import 'package:smooth_ui_library/widgets/smooth_listTile.dart';
 
-class ProfilePage extends StatelessWidget {
+Launcher launcher = Launcher();
+
+class ProfilePage extends StatefulWidget {
+  @override
+  _ProfilePageState createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,19 +47,24 @@ class ProfilePage extends StatelessWidget {
             const SizedBox(
               height: 10.0,
             ),
+
+            //Use ML Kit
             Container(
               height: 60.0,
               padding:
                   const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
               margin: const EdgeInsets.all(10.0),
               decoration: BoxDecoration(
-                  color: Colors.black.withAlpha(5),
+                  color: Colors.black.withAlpha(10),
                   borderRadius: const BorderRadius.all(Radius.circular(20.0))),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text(S.of(context).useMLKitText),
+                  Text(
+                    S.of(context).useMLKitText,
+                    style: Theme.of(context).textTheme.bodyText1,
+                  ),
                   Consumer<ProfilePageModel>(
                     builder: (BuildContext context,
                         ProfilePageModel profilePageModel, Widget child) {
@@ -68,8 +87,11 @@ class ProfilePage extends StatelessWidget {
                 ],
               ),
             ),
-            GestureDetector(
-              onTap: () => showCupertinoModalBottomSheet<Widget>(
+
+            //Configure Preferences
+            SmoothListTile(
+              text: S.of(context).configurePreferences,
+              onPressed: () => showCupertinoModalBottomSheet<Widget>(
                 expand: false,
                 context: context,
                 backgroundColor: Colors.transparent,
@@ -79,27 +101,101 @@ class ProfilePage extends StatelessWidget {
                     (BuildContext context, ScrollController scrollController) =>
                         UserPreferencesView(scrollController),
               ),
-              child: Container(
-                height: 60.0,
-                padding:
-                    const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
-                margin: const EdgeInsets.all(10.0),
-                decoration: BoxDecoration(
-                    color: Colors.black.withAlpha(5),
-                    borderRadius:
-                        const BorderRadius.all(Radius.circular(20.0))),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text(S.of(context).configurePreferences),
-                    SvgPicture.asset(
-                      'assets/misc/right_arrow.svg',
-                      color: Colors.black,
-                    ),
-                  ],
-                ),
+            ),
+
+            //Contribute
+            SmoothListTile(
+              text: S.of(context).contribute,
+              onPressed: () => showCupertinoModalBottomSheet<Widget>(
+                expand: false,
+                context: context,
+                backgroundColor: Colors.transparent,
+                bounce: true,
+                barrierColor: Colors.black45,
+                builder:
+                    (BuildContext context, ScrollController scrollController) =>
+                        UserContributionView(scrollController),
               ),
+            ),
+
+            //About
+            SmoothListTile(
+              text: S.of(context).about,
+              onPressed: () {
+                showDialog<void>(
+                    context: context,
+                    builder: (BuildContext context) {
+                      //ToDo: Implement https://pub.dev/packages/package_info + show App Icon  !!! 2x !!!
+                      return SmoothAlertDialog(
+                        context: context,
+                        //height: 280,
+                        body: Column(
+                          children: [
+                            ListTile(
+                              leading: const Icon(Icons.no_sim_outlined),
+                              title: Text(
+                                'smooth-app',
+                                style: Theme.of(context).textTheme.headline1,
+                              ),
+                              subtitle: Text(
+                                '0.0.1+1',
+                                style: Theme.of(context).textTheme.subtitle2,
+                              ),
+                            ),
+                            const Divider(
+                              color: Colors.black,
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            Text(
+                              '${S.of(context).whatIsOff}',
+                              style: Theme.of(context).textTheme.bodyText1,
+                            ),
+                            FlatButton(
+                              onPressed: () {},
+                              child: Text(
+                                '${S.of(context).learnMore}',
+                                style: const TextStyle(
+                                  color: Colors.blue,
+                                ),
+                              ),
+                            ),
+                            FlatButton(
+                              onPressed: () => launcher.launchURL(
+                                  context,
+                                  'https://openfoodfacts.org/terms-of-use',
+                                  true),
+                              child: Text(
+                                '${S.of(context).termsOfUse}',
+                                style: const TextStyle(
+                                  color: Colors.blue,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+
+                        actions: [
+                          SmoothSimpleButton(
+                            onPressed: () {
+                              showLicensePage(context: context);
+                            },
+                            text: '${S.of(context).licenses}',
+                            width: 100,
+                          ),
+                          SmoothSimpleButton(
+                            onPressed: () {
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                            },
+                            text: '${S.of(context).okay}',
+                            width: 100,
+                          ),
+                        ],
+                      );
+                    });
+              },
             ),
           ],
         ),
