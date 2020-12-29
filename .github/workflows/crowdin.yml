@@ -31,9 +31,9 @@ jobs:
         # Use this option to download translations for a single specified language
         # download_language: # optional
         # Skip untranslated strings in exported files (does not work with .docx, .html, .md and other document files)
-        # skip_untranslated_strings: # default is false
+        skip_untranslated_strings: true
         # Omit downloading not fully downloaded files
-        # skip_untranslated_files: # default is false
+        skip_untranslated_files: true
         # Include approved translations only in exported files. If not combined with --skip-untranslated-strings option, strings without approval are fulfilled with the source language
         # export_only_approved: # default is false
         # Download translations with pushing to branch
