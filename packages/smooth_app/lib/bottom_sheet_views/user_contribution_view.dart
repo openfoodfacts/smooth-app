@@ -58,7 +58,7 @@ class UserContributionView extends StatelessWidget {
                         ///
 
                         mainAxisSize: MainAxisSize.min,
-                        children: [
+                        children: <SmoothListTile>[
                           //Contribute
                           SmoothListTile(
                               text: S.of(context).contribute_contribute_header,
@@ -67,11 +67,12 @@ class UserContributionView extends StatelessWidget {
                                   builder: (BuildContext context) {
                                     return SmoothAlertDialog(
                                       context: context,
+                                      close: false,
                                       title: S
                                           .of(context)
                                           .contribute_contribute_header,
                                       body: Column(
-                                        children: [
+                                        children: <Widget>[
                                           Text(
                                             S
                                                 .of(context)
@@ -122,7 +123,7 @@ class UserContributionView extends StatelessWidget {
                                           ),
                                         ],
                                       ),
-                                      actions: [
+                                      actions: <SmoothSimpleButton>[
                                         SmoothSimpleButton(
                                           onPressed: () {
                                             Navigator.of(context,
@@ -146,14 +147,14 @@ class UserContributionView extends StatelessWidget {
                                   title: S.of(context).contribute_develop,
                                   context: context,
                                   body: Column(
-                                    children: [
+                                    children: <Widget>[
                                       Text(
                                         S.of(context).contribute_develop_text,
                                         style: Theme.of(context)
                                             .textTheme
                                             .bodyText1,
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 20,
                                       ),
                                       Text(
@@ -166,7 +167,7 @@ class UserContributionView extends StatelessWidget {
                                         onPressed: () => launcher.launchURL(
                                             context,
                                             'https://wiki.openfoodfacts.org/Software_Development',
-                                            true),
+                                            false),
                                         child: Text(
                                           '${S.of(context).learnMore}',
                                           style: const TextStyle(
@@ -176,11 +177,11 @@ class UserContributionView extends StatelessWidget {
                                       ),
                                     ],
                                   ),
-                                  actions: [
+                                  actions: <SmoothSimpleButton>[
                                     SmoothSimpleButton(
                                       onPressed: () => launcher.launchURL(
                                           context,
-                                          'https://slack.openfoodfacts.org/',
+                                          'https://github.com/openfoodfacts',
                                           false),
                                       text: 'GitHub',
                                       width: 100,
@@ -188,7 +189,7 @@ class UserContributionView extends StatelessWidget {
                                     SmoothSimpleButton(
                                       onPressed: () => launcher.launchURL(
                                           context,
-                                          'https://github.com/openfoodfacts',
+                                          'https://slack.openfoodfacts.org/',
                                           false),
                                       text: 'Slack',
                                       width: 100,
@@ -210,7 +211,7 @@ class UserContributionView extends StatelessWidget {
                                       S.of(context).contribute_translate_header,
                                   context: context,
                                   body: Column(
-                                    children: [
+                                    children: <Widget>[
                                       Text(
                                         S.of(context).contribute_translate_text,
                                         style: Theme.of(context)
@@ -227,11 +228,11 @@ class UserContributionView extends StatelessWidget {
                                       ),
                                     ],
                                   ),
-                                  actions: [
+                                  actions: <SmoothSimpleButton>[
                                     SmoothSimpleButton(
                                       onPressed: () => launcher.launchURL(
                                           context,
-                                          'https://slack.openfoodfacts.org/',
+                                          'https://translate.openfoodfacts.org/',
                                           false),
                                       text: S
                                           .of(context)
@@ -253,7 +254,7 @@ class UserContributionView extends StatelessWidget {
                                 return SmoothAlertDialog(
                                   context: context,
                                   body: Column(
-                                    children: [
+                                    children: <Widget>[
                                       Text(
                                         S.of(context).featureInProgress,
                                         style: Theme.of(context)
@@ -262,7 +263,7 @@ class UserContributionView extends StatelessWidget {
                                       ),
                                     ],
                                   ),
-                                  actions: [
+                                  actions: <SmoothSimpleButton>[
                                     SmoothSimpleButton(
                                       text: S.of(context).okay,
                                       onPressed: () => Navigator.of(context,

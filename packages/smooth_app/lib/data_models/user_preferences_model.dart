@@ -74,7 +74,7 @@ class UserPreferencesModel extends ChangeNotifier {
   static List<String> getVariables() => _preferencesVariables;
 
   void _loadValues(dynamic json) {
-    _preferenceValues = (json as List)
+    _preferenceValues = (json as List<dynamic>)
         .map((dynamic item) => PreferencesValue.fromJson(item))
         .toList();
     _preferenceValuesReverse = <String, int>{};
@@ -85,7 +85,7 @@ class UserPreferencesModel extends ChangeNotifier {
   }
 
   void _loadVariables(dynamic json) {
-    _preferenceVariableGroups = (json as List)
+    _preferenceVariableGroups = (json as List<dynamic>)
         .map((dynamic item) => PreferencesVariableGroup.fromJson(item))
         .toList();
     _preferencesVariables.clear();
@@ -174,7 +174,8 @@ class PreferencesVariableGroup {
   });
 
   factory PreferencesVariableGroup.fromJson(dynamic json) {
-    final attributes = json['attributes'] as List;
+
+    final  List<dynamic> attributes = json['attributes'] as List<dynamic>;
     final List<PreferencesVariable> variables = attributes
         .map((dynamic item) => PreferencesVariable.fromJson(item))
         .toList();

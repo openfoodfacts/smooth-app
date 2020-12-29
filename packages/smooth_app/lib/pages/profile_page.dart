@@ -121,8 +121,9 @@ class _ProfilePageState extends State<ProfilePage> {
             //More Links
             SmoothListTile(
               text: S.of(context).support,
-              Widgeticon: Icon(Icons.launch),
-              onPressed: () => launcher.launchURL(context, 'https://openfoodfacts.uservoice.com/', false),
+              Widgeticon: const Icon(Icons.launch),
+              onPressed: () => launcher.launchURL(
+                  context, 'https://openfoodfacts.uservoice.com/', false),
             ),
 
             //About
@@ -133,11 +134,12 @@ class _ProfilePageState extends State<ProfilePage> {
                     context: context,
                     builder: (BuildContext context) {
                       //ToDo: Implement https://pub.dev/packages/package_info + show App Icon  !!! 2x !!!
+                      /// Maybe onTap open App in Store https://pub.dev/packages/open_appstore
                       return SmoothAlertDialog(
                         context: context,
                         //height: 280,
                         body: Column(
-                          children: [
+                          children: <Widget>[
                             ListTile(
                               leading: const Icon(Icons.no_sim_outlined),
                               title: Text(
@@ -183,7 +185,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           ],
                         ),
 
-                        actions: [
+                        actions: <SmoothSimpleButton>[
                           SmoothSimpleButton(
                             onPressed: () {
                               showLicensePage(context: context);

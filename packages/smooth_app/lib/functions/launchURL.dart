@@ -17,20 +17,20 @@ class Launcher{
 
 
 
-  void launchURL(BuildContext context, String url, bool isOFF ) async{
+  Future<void> launchURL(BuildContext context, String url, bool isOFF ) async{
 
     String openURL;
-    String LocaleString;
+    String localeString;
 
     if(isOFF){
-        Locale locale = Localizations.localeOf(context);
+        final Locale locale = Localizations.localeOf(context);
         if(locale.countryCode.toString() == null){
-          LocaleString = 'world.';
+          localeString = 'world.';
         }
         else{
-          LocaleString = '${locale.countryCode.toString()}.';
+          localeString = '${locale.countryCode.toString()}.';
         }
-        openURL = StringUtils.addCharAtPosition(url, '$LocaleString', 8);
+        openURL = StringUtils.addCharAtPosition(url, '$localeString', 8);
         print(openURL);
     }
     else{
