@@ -19,6 +19,7 @@ class SmoothAlertDialog extends StatelessWidget {
 
   const SmoothAlertDialog({
     this.title,
+    this.close = true,
     @required this.context,
     @required this.body,
     @required this.actions,
@@ -26,6 +27,7 @@ class SmoothAlertDialog extends StatelessWidget {
   });
 
   final String title;
+  final bool close;
   final BuildContext context;
   final Widget body;
   final List<SmoothSimpleButton> actions;
@@ -68,6 +70,7 @@ class SmoothAlertDialog extends StatelessWidget {
   }
 
   Widget _buildTitle(){
+    double height = 29;
 
     if(title == null){
       return Container();
@@ -75,10 +78,26 @@ class SmoothAlertDialog extends StatelessWidget {
     else{
       return Column(
         children: [
-            Text(
-              '$title',
-              style: Theme.of(context).textTheme.headline2,
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children:[
+
+              _buildCrossPlaceHolder(),
+              Container(
+                height: height,
+                child: Text(
+                  '$title',
+                  style: Theme.of(context).textTheme.headline2,
+                ),
+              ),
+              _buildCross(),
+
+
+
+            ],
+          ),
+
           const Divider(
             color: Colors.black,
           ),
@@ -88,6 +107,42 @@ class SmoothAlertDialog extends StatelessWidget {
         ],
       );
     }
+  }
+
+  Widget _buildCross(){
+    if(close){
+      return InkWell(
+        child: Icon(Icons.close, size: height,),
+        onTap: () => Navigator.of(context, rootNavigator: true)
+            .pop('dialog'),
+      );
+    } else{
+      return Container();
+    }
+  }
+
+  Widget _buildCrossPlaceHolder(){  //Just a placeholder that the title is still centered
+    if(close){
+      return Visibility(
+        child: SizedBox(
+          height: height,
+          width: height,
+          child: InkWell(
+            child: Icon(Icons.close, size: height,),
+            onTap: () => Navigator.of(context, rootNavigator: true)
+                .pop('dialog'),
+          ),
+        ),
+        maintainSize: true,
+        maintainAnimation: true,
+        maintainState: true,
+        visible: false,
+      );
+    }
+    else{
+    return Container();
+    }
+
   }
 
 
