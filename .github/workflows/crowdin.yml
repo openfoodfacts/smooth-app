@@ -65,9 +65,9 @@ jobs:
         # Personal access token required for authentication
         # token: # optional
         # Base URL of Crowdin server for API requests execution
-        base_url: 'https://crowdin.com'
+        #base_url: 'https://crowdin.com'
         # Path to your project directory on a local machine
-        base_path: '/openfoodfacts'
+        #base_path: '/openfoodfacts'
         # Path to the source files
         # source: # optional
         source: /packages/smooth_app/lib/l10n/intl_en.arb
