@@ -87,7 +87,6 @@ class _SmoothAlertDialogState extends State<SmoothAlertDialog> {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            // Credits to https://stackoverflow.com/a/64697189/13313941
             children: actions,
           ),
         ),
