@@ -1,3 +1,0 @@
-files:
-  - source: /packages/smooth_app/lib/l10n/app_en.arb
-    translation: /packages/smooth_app/lib/l10n/app_%two_letters_code%.arb
