@@ -25,7 +25,7 @@ class SmoothAlertDialog extends StatefulWidget {
       {Key key,
         this.context,
         this.title,
-        this.close,
+        this.close  = true,
         this.height,
         this.body,
         this.actions

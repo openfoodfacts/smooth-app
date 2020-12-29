@@ -145,16 +145,22 @@ class _ProfilePageState extends State<ProfilePage> {
                               future: _getPubspecData(),
                               builder: (BuildContext context,
                                   AsyncSnapshot<PackageInfo> snapshot) {
-
                                 if (snapshot.hasError) {
-                                  return Center(child: Text('Something went wrong #2'));
+                                  return Center(
+                                      child: Text('${S.of(context).error} #0'));
                                 }
 
-                                if (snapshot.connectionState == ConnectionState.waiting) {
-                                  return Center(child: Text('1'));
+                                if (snapshot.connectionState ==
+                                    ConnectionState.waiting) {
+                                  return const Center(child: CircularProgressIndicator());
                                 }
 
-                                if (!snapshot.hasData) return Center(child: CircularProgressIndicator());
+                                if (!snapshot.hasData)
+                                  return Center(
+                                      child: Text(
+                                        '${S.of(context).error} #1',
+                                        )
+                                      );
 
                                 return Column(
                                   children: [
