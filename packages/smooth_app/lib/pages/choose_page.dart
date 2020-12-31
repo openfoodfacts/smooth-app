@@ -10,11 +10,12 @@ import 'package:smooth_app/cards/category_cards/category_chip.dart';
 import 'package:smooth_app/cards/category_cards/subcategory_card.dart';
 import 'package:smooth_app/data_models/choose_page_model.dart';
 import 'package:smooth_app/database/full_products_database.dart';
-import 'package:smooth_app/pages/product_group_query_page.dart';
-import 'package:smooth_app/pages/product_keywords_search_result_page.dart';
+import 'package:smooth_app/database/keywords_product_query.dart';
+import 'package:smooth_app/database/group_product_query.dart';
+import 'package:smooth_app/pages/product_query_page.dart';
 import 'package:smooth_app/pages/product_page.dart';
 import 'package:smooth_ui_library/widgets/smooth_search_bar.dart';
-import 'package:smooth_app/generated/l10n.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ChoosePage extends StatelessWidget {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -59,7 +60,7 @@ class ChoosePage extends StatelessWidget {
                                   children: <Widget>[
                                     Flexible(
                                       child: Text(
-                                        S.of(context).searchTitle,
+                                        AppLocalizations.of(context).searchTitle,
                                         style: Theme.of(context)
                                             .textTheme
                                             .headline1,
@@ -72,7 +73,7 @@ class ChoosePage extends StatelessWidget {
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 16.0, vertical: 12.0),
                                 child: SmoothSearchBar(
-                                  hintText: S.of(context).searchHintText,
+                                  hintText: AppLocalizations.of(context).searchHintText,
                                   onSubmitted: (String value) {
                                     if (int.parse(value,
                                             onError: (String e) => null) !=
@@ -136,11 +137,15 @@ class ChoosePage extends StatelessWidget {
                                           context,
                                           MaterialPageRoute<dynamic>(
                                               builder: (BuildContext context) =>
-                                                  ProductKeywordsSearchResultPage(
-                                                      heroTag: 'search_bar',
-                                                      mainColor:
-                                                          Colors.deepPurple,
-                                                      keywords: value)));
+                                                  ProductQueryPage(
+                                                    productQuery:
+                                                        KeywordsProductQuery(
+                                                            value),
+                                                    heroTag: 'search_bar',
+                                                    mainColor:
+                                                        Colors.deepPurple,
+                                                    name: value,
+                                                  )));
                                     }
                                   },
                                 ),
@@ -168,14 +173,14 @@ class ChoosePage extends StatelessWidget {
                               children: <Widget>[
                                 Flexible(
                                   child: Text(
-                                    S.of(context).categories,
+                                    AppLocalizations.of(context).categories,
                                     style:
                                         Theme.of(context).textTheme.headline3,
                                   ),
                                 ),
                                 MaterialButton(
                                   child: Text(
-                                    S.of(context).showAll,
+                                    AppLocalizations.of(context).showAll,
                                     style: Theme.of(context)
                                         .textTheme
                                         .subtitle1
@@ -294,22 +299,19 @@ class ChoosePage extends StatelessWidget {
                                     title: choosePageModel
                                         .selectedCategory.subGroups[index].name,
                                     color: choosePageModel.selectedColor,
-                                    onTap: () {
-                                      Navigator.push<dynamic>(
-                                          context,
-                                          MaterialPageRoute<dynamic>(
-                                              builder: (BuildContext context) =>
-                                                  ProductGroupQueryPage(
-                                                      heroTag: choosePageModel
-                                                          .selectedCategory
-                                                          .subGroups[index]
-                                                          .name,
-                                                      mainColor: choosePageModel
-                                                          .selectedColor,
-                                                      group: choosePageModel
-                                                          .selectedCategory
-                                                          .subGroups[index])));
-                                    },
+                                    onTap: () => Navigator.push<dynamic>(
+                                        context, MaterialPageRoute<dynamic>(
+                                            builder: (BuildContext context) {
+                                      final PnnsGroup2 group = choosePageModel
+                                          .selectedCategory.subGroups[index];
+                                      return ProductQueryPage(
+                                        productQuery: GroupProductQuery(group),
+                                        heroTag: group.id,
+                                        mainColor:
+                                            choosePageModel.selectedColor,
+                                        name: group.name,
+                                      );
+                                    })),
                                   )),
                                 ),
                               );

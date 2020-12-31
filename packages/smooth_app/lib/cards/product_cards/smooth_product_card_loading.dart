@@ -1,9 +1,8 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:smooth_app/cards/product_cards/smooth_product_card_template.dart';
 
-class SmoothProductCardLoading extends SmoothProductCardTemplate {
-  SmoothProductCardLoading({@required this.barcode});
+class SmoothProductCardLoading extends StatelessWidget {
+  const SmoothProductCardLoading({@required this.barcode});
 
   final String barcode;
 

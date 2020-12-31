@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_app/generated/l10n.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class OrganizationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text(S.of(context).organizationPage),
+        child: Text(AppLocalizations.of(context).organizationPage),
       ),
     );
   }
