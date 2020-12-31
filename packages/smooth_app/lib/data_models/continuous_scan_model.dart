@@ -6,7 +6,6 @@ import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_edit.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_not_found.dart';
-import 'package:smooth_app/cards/product_cards/smooth_product_card_template.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_loading.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_thanks.dart';
 import 'package:smooth_app/database/full_products_database.dart';
@@ -18,7 +17,7 @@ class ContinuousScanModel extends ChangeNotifier {
     carouselController = CarouselController();
 
     scannedBarcodes = <String, ScannedProductState>{};
-    cardTemplates = <String, SmoothProductCardTemplate>{};
+    cardTemplates = <String, Widget>{};
   }
 
   final GlobalKey scannerViewKey = GlobalKey(debugLabel: 'Barcode Scanner');
@@ -26,7 +25,7 @@ class ContinuousScanModel extends ChangeNotifier {
   CarouselController carouselController;
 
   Map<String, ScannedProductState> scannedBarcodes;
-  Map<String, SmoothProductCardTemplate> cardTemplates;
+  Map<String, Widget> cardTemplates;
 
   List<Product> foundProducts = <Product>[];
 
@@ -142,7 +141,7 @@ class ContinuousScanModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void setCardTemplate(String barcode, SmoothProductCardTemplate cardTemplate) {
+  void setCardTemplate(String barcode, Widget cardTemplate) {
     cardTemplates[barcode] = cardTemplate;
     notifyListeners();
   }

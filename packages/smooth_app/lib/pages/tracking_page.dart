@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:smooth_app/generated/l10n.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
 
 class TrackingPage extends StatelessWidget {
@@ -23,7 +23,7 @@ class TrackingPage extends StatelessWidget {
                 height: 28.0,
               ),
               Text(
-                S.of(context).featureInProgress,
+                AppLocalizations.of(context).featureInProgress,
                 style: Theme.of(context)
                     .textTheme
                     .subtitle1

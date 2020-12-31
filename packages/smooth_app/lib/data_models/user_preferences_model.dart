@@ -1,80 +1,117 @@
 import 'dart:convert';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:smooth_app/database/user_database.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
+import 'package:smooth_app/temp/attribute_group.dart';
+import 'package:smooth_app/temp/attribute.dart';
 
 class UserPreferencesModel extends ChangeNotifier {
-  UserPreferencesModel() : _userDatabase = UserDatabase();
+  UserPreferencesModel._();
 
-  UserPreferencesModel.load(final BuildContext context)
-      : _userDatabase = UserDatabase() {
-    loadData(context);
+  static Future<UserPreferencesModel> getUserPreferencesModel(
+      final BuildContext context) async {
+    final UserPreferencesModel result = UserPreferencesModel._();
+    final bool ok = await result._loadAssets(context);
+    return ok ? result : null;
   }
 
-  static final List<String> _preferencesVariables = <String>[];
-  static final Map<String, String> _preferencesVariableLabels =
-      <String, String>{};
-  static List<PreferencesValue> _preferenceValues;
-  static Map<String, int> _preferenceValuesReverse;
-  static List<PreferencesVariableGroup> _preferenceVariableGroups;
+  List<PreferencesValue> _preferenceValues;
+  Map<String, int> _preferenceValuesReverse;
+  List<AttributeGroup> _preferenceVariableGroups;
 
-  final UserDatabase _userDatabase;
-  UserPreferences _userPreferences;
-  bool _dataLoaded = false;
+  List<AttributeGroup> get preferenceVariableGroups =>
+      _preferenceVariableGroups;
 
-  bool get dataLoaded => _dataLoaded;
-  UserPreferences get userPreferences => _userPreferences;
-
-  Future<bool> loadData(final BuildContext context) async {
+  bool _loadStrings(
+      final String importanceString, final String variableString) {
     try {
-      final String valueString = await DefaultAssetBundle.of(context)
-          .loadString('assets/metadata/init_preferences.json');
-      final dynamic valueJson =
-          json.decode(valueString).cast<Map<String, dynamic>>();
-      _loadValues(valueJson);
-      final String variableString = await DefaultAssetBundle.of(context)
-          .loadString('assets/metadata/init_attribute_groups.json');
-      final dynamic variableJson = json.decode(variableString);
-      _loadVariables(variableJson);
-      _userPreferences = await _userDatabase.getUserPreferences();
-      _dataLoaded = true;
+      if (!_loadJsonString(importanceString, _loadValues)) {
+        return false;
+      }
+      if (!_loadJsonString(variableString, _loadVariables)) {
+        return false;
+      }
       notifyListeners();
       return true;
     } catch (e) {
       print('An error occurred while loading user preferences : $e');
-      _dataLoaded = false;
       return false;
     }
   }
 
-  int getValueIndex(final String variable) =>
-      _preferenceValuesReverse[getPreferencesValue(variable).id] ??
-      UserPreferences.INDEX_NOT_IMPORTANT;
-
-  PreferencesValue getPreferencesValue(final String variable) =>
-      _preferenceValues[_userPreferences.getValue(variable)];
-
-  void setValue(final String variable, final int value) {
-    if (_dataLoaded) {
-      _userPreferences.setValue(variable, value);
-      notifyListeners();
+  Future<bool> _loadAssets(final BuildContext context) async {
+    try {
+      final String importanceString = await DefaultAssetBundle.of(context)
+          .loadString('assets/metadata/init_preferences.json');
+      final String variableString = await DefaultAssetBundle.of(context)
+          .loadString('assets/metadata/init_attribute_groups.json');
+      return _loadStrings(importanceString, variableString);
+    } catch (e) {
+      print('An error occurred while loading user preferences : $e');
+      return false;
     }
   }
 
-  void saveUserPreferences() =>
-      _userDatabase.saveUserPreferences(_userPreferences);
+  bool _loadJsonString(final String inputString, final Function fromJson) {
+    try {
+      final dynamic inputJson = json.decode(inputString);
+      fromJson(inputJson);
+      return true;
+    } catch (e) {
+      print('An error occurred while loading user preferences : $e');
+      return false;
+    }
+  }
 
-  static String getVariableName(final String variable) =>
-      _preferencesVariableLabels[variable];
+  List<String> getOrderedVariables(final UserPreferences userPreferences) {
+    final Map<int, List<String>> map = <int, List<String>>{};
+    for (final AttributeGroup attributeGroup in preferenceVariableGroups) {
+      for (final Attribute attribute in attributeGroup.attributes) {
+        final String variable = attribute.id;
+        final int importance = getAttributeValueIndex(variable, userPreferences);
+        if (importance == null ||
+            importance == UserPreferences.INDEX_NOT_IMPORTANT) {
+          continue;
+        }
+        List<String> list = map[importance];
+        if (list == null) {
+          list = <String>[];
+          map[importance] = list;
+        }
+        list.add(variable);
+      }
+    }
+    final List<String> result = <String>[];
+    if (map.isEmpty) {
+      return result;
+    }
+    final List<int> decreasingImportances = <int>[];
+    decreasingImportances.addAll(map.keys);
+    decreasingImportances.sort((int a, int b) => b - a);
+    for (final int importance in decreasingImportances) {
+      final List<String> list = map[importance];
+      list.forEach(result.add);
+    }
+    return result;
+  }
 
-  String getValueName(final String variable) =>
-      _preferenceValues[_userPreferences.getValue(variable)].name;
+  int getAttributeValueIndex(
+    final String variable,
+    final UserPreferences userPreferences,
+  ) =>
+      getValueIndex(getPreferencesValue(variable, userPreferences).id);
 
-  static List<String> getVariables() => _preferencesVariables;
+  int getValueIndex(final String value) =>
+      _preferenceValuesReverse[value] ?? UserPreferences.INDEX_NOT_IMPORTANT;
+
+  PreferencesValue getPreferencesValue(
+    final String variable,
+    final UserPreferences userPreferences,
+  ) =>
+      _preferenceValues[userPreferences.getImportance(variable)];
 
   void _loadValues(dynamic json) {
-    _preferenceValues = (json as List)
+    _preferenceValues = (json as List<dynamic>)
         .map((dynamic item) => PreferencesValue.fromJson(item))
         .toList();
     _preferenceValuesReverse = <String, int>{};
@@ -84,19 +121,10 @@ class UserPreferencesModel extends ChangeNotifier {
     }
   }
 
-  void _loadVariables(dynamic json) {
-    _preferenceVariableGroups = (json as List)
-        .map((dynamic item) => PreferencesVariableGroup.fromJson(item))
-        .toList();
-    _preferencesVariables.clear();
-    _preferencesVariableLabels.clear();
-    for (final PreferencesVariableGroup group in _preferenceVariableGroups) {
-      for (final PreferencesVariable variable in group.list) {
-        _preferencesVariables.add(variable.id);
-        _preferencesVariableLabels[variable.id] = variable.name;
-      }
-    }
-  }
+  void _loadVariables(dynamic json) =>
+      _preferenceVariableGroups = (json as List<dynamic>)
+          .map((dynamic item) => AttributeGroup.fromJson(item))
+          .toList();
 }
 
 class PreferencesValue {
@@ -117,82 +145,5 @@ class PreferencesValue {
   @override
   String toString() => 'PreferencesValue('
       'id: $id, name: $name, factor: $factor, minimalWatch: $minimalMatch'
-      ')';
-}
-
-class PreferencesVariable {
-  PreferencesVariable({
-    this.id,
-    this.name,
-    this.iconUrl,
-    this.defaultF,
-    this.settingNote,
-    this.settingName,
-    this.description,
-    this.descriptionShort,
-  });
-
-  factory PreferencesVariable.fromJson(dynamic json) => PreferencesVariable(
-        id: json['id'] as String,
-        name: json['name'] as String,
-        iconUrl: json['icon_url'] as String,
-        defaultF: json['default'] as String,
-        settingNote: json['setting_note'] as String,
-        settingName: json['setting_name'] as String,
-        description: json['description'] as String,
-        descriptionShort: json['description_short'] as String,
-      );
-
-  final String id;
-  final String name;
-  final String iconUrl;
-  final String defaultF;
-  final String settingNote;
-  final String settingName;
-  final String description;
-  final String descriptionShort;
-
-  @override
-  String toString() => 'PreferencesVariable('
-      'id: $id'
-      ', name: $name'
-      ', icon_url: $iconUrl'
-      ', default: $defaultF'
-      ', settingNote: $settingNote'
-      ', settingName: $settingName'
-      ', description: $description'
-      ', description_short: $descriptionShort'
-      ')';
-}
-
-class PreferencesVariableGroup {
-  PreferencesVariableGroup({
-    this.id,
-    this.name,
-    this.warning,
-    this.list,
-  });
-
-  factory PreferencesVariableGroup.fromJson(dynamic json) {
-    final attributes = json['attributes'] as List;
-    final List<PreferencesVariable> variables = attributes
-        .map((dynamic item) => PreferencesVariable.fromJson(item))
-        .toList();
-    return PreferencesVariableGroup(
-      id: json['id'] as String,
-      name: json['name'] as String,
-      warning: json['warning'] as String,
-      list: variables,
-    );
-  }
-
-  final String id;
-  final String name;
-  final String warning;
-  final List<PreferencesVariable> list;
-
-  @override
-  String toString() => 'PreferencesVariableGroup('
-      'id: $id, name: $name, warning: $warning, list: $list'
       ')';
 }

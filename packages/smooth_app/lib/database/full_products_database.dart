@@ -42,13 +42,12 @@ class FullProductsDatabase {
     ProductField.LABELS_TAGS,
     ProductField.ENVIRONMENT_IMPACT_LEVELS,
     ProductField.CATEGORIES_TAGS,
-    ProductField.LANGUAGE
+    ProductField.LANGUAGE,
+    ProductField.ATTRIBUTE_GROUPS,
   ];
 
   Future<bool> checkAndFetchProduct(String barcode) async {
-    final Directory directory = await getApplicationDocumentsDirectory();
-    final String path = join(directory.path, 'full_products_database.db');
-    final Database database = await factory.openDatabase(path);
+    final Database database = await _getDatabase();
 
     final StoreRef<dynamic, dynamic> store = StoreRef<dynamic, dynamic>.main();
 
@@ -105,11 +104,8 @@ class FullProductsDatabase {
   }
 
   Future<bool> saveProduct(Product newProduct) async {
-    final Directory directory = await getApplicationDocumentsDirectory();
-    final String path = join(directory.path, 'full_products_database.db');
-    final Database database = await factory.openDatabase(path);
+    final Database database = await _getDatabase();
 
-    //print(newProduct.toJson());
     try {
       final StoreRef<dynamic, dynamic> store =
           StoreRef<dynamic, dynamic>.main();
@@ -121,17 +117,36 @@ class FullProductsDatabase {
     }
   }
 
-  Future<Product> getProduct(String barcode) async {
+  Future<bool> saveProducts(List<Product> products) async {
+    final Database database = await _getDatabase();
+
+    try {
+      final StoreRef<dynamic, dynamic> store =
+          StoreRef<dynamic, dynamic>.main();
+      for (final Product product in products) {
+        await store.record(product.barcode).put(database, product.toJson());
+      }
+      return true;
+    } catch (e) {
+      print('An error occurred while saving product to local database : $e');
+      return false;
+    }
+  }
+
+  Future<Database> _getDatabase() async {
     final Directory directory = await getApplicationDocumentsDirectory();
     final String path = join(directory.path, 'full_products_database.db');
-    final Database database = await factory.openDatabase(path);
+    return await factory.openDatabase(path);
+  }
+
+  Future<Product> getProduct(String barcode) async {
+    final Database database = await _getDatabase();
 
     final StoreRef<dynamic, dynamic> store = StoreRef<dynamic, dynamic>.main();
     final Map<String, dynamic> jsonProduct =
         await store.record(barcode).get(database) as Map<String, dynamic>;
 
     if (jsonProduct != null) {
-      //print(jsonProduct);
       return Product.fromJson(jsonProduct);
     }
 

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_app/cards/product_cards/smooth_product_card_template.dart';
 import 'package:smooth_app/pages/smooth_upload_page.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 
-class SmoothProductCardNotFound extends SmoothProductCardTemplate {
-  SmoothProductCardNotFound(
-      {@required this.barcode, this.callback, this.elevation = 0.0});
+class SmoothProductCardNotFound extends StatelessWidget {
+  const SmoothProductCardNotFound({
+    @required this.barcode,
+    this.callback,
+    this.elevation = 0.0,
+  });
 
   final String barcode;
   final Function callback;
