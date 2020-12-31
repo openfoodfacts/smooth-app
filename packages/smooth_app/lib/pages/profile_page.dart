@@ -10,6 +10,7 @@ import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
 import 'package:smooth_app/functions/launchURL.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_ui_library/widgets/smooth_toggle.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 import 'package:smooth_ui_library/dialogs/smooth_AlertDialog.dart';
@@ -25,6 +26,7 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
+    final DarkThemeProvider themeChange = context.watch<DarkThemeProvider>();
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     return Scaffold(
       body: Column(
@@ -60,6 +62,21 @@ class _ProfilePageState extends State<ProfilePage> {
                 textRight: AppLocalizations.of(context).no,
                 onChanged: (bool newValue) async =>
                     userPreferences.setMlKitState(newValue)),
+          ),
+
+          //Darkmode
+          SmoothListTile(
+            text: AppLocalizations.of(context).useMLKitText,
+            onPressed: null,
+            leadingWidget: SmoothToggle(
+                value: themeChange.darkTheme,
+                width: 80.0,
+                height: 38.0,
+                textLeft: AppLocalizations.of(context).yes,
+                textRight: AppLocalizations.of(context).no,
+                onChanged: (bool newValue) async {
+                  themeChange.darkTheme = newValue;
+                }),
           ),
 
           //Configure Preferences

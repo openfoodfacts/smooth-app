@@ -13,6 +13,7 @@ import 'package:smooth_app/pages/continuous_scan_page.dart';
 import 'package:smooth_app/pages/profile_page.dart';
 import 'package:smooth_app/pages/tracking_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_ui_library/navigation/models/smooth_navigation_action_model.dart';
 import 'package:smooth_ui_library/navigation/models/smooth_navigation_layout_model.dart';
 import 'package:smooth_ui_library/navigation/models/smooth_navigation_screen_model.dart';
@@ -42,6 +43,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final DarkThemeProvider themeChangeProvider = DarkThemeProvider();
   UserPreferences userPreferences;
   UserPreferencesModel userPreferencesModel;
 
@@ -50,6 +52,8 @@ class _MyAppState extends State<MyApp> {
     userPreferencesModel =
         await UserPreferencesModel.getUserPreferencesModel(context);
     await userPreferences.init(userPreferencesModel);
+    themeChangeProvider.darkTheme =
+        await themeChangeProvider.darkThemePreference.getTheme();
   }
 
   @override
@@ -64,12 +68,20 @@ class _MyAppState extends State<MyApp> {
                   value: userPreferences),
               ChangeNotifierProvider<UserPreferencesModel>.value(
                   value: userPreferencesModel),
+              ChangeNotifierProvider<DarkThemeProvider>.value(
+                  value: themeChangeProvider),
             ],
-            child: MaterialApp(
-              localizationsDelegates: AppLocalizations.localizationsDelegates,
-              supportedLocales: AppLocalizations.supportedLocales,
-              home: SmoothApp(),
-              theme: SmoothThemes.getSmoothThemeData(),
+            child: Consumer<DarkThemeProvider>(
+              builder: (BuildContext context, value, Widget child) {
+                return MaterialApp(
+                  localizationsDelegates:
+                      AppLocalizations.localizationsDelegates,
+                  supportedLocales: AppLocalizations.supportedLocales,
+                  theme: SmoothThemes.getSmoothThemeData(
+                      themeChangeProvider.darkTheme, context),
+                  home: SmoothApp(),
+                );
+              },
             ),
           );
         }
