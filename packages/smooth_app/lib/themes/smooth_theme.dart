@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class SmoothThemes {
-  static ThemeData getSmoothThemeData() {
+  static ThemeData getSmoothThemeData(bool isDarkTheme, BuildContext context) {
     return ThemeData(
-      primaryColorDark: Colors.black,
+      primaryColorDark: isDarkTheme ? Colors.black : Colors.white,
       accentColor: Colors.black,
       textTheme: const TextTheme(
         headline1: TextStyle(
