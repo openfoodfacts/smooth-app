@@ -51,8 +51,6 @@ class SmoothThemes {
       dialogBackgroundColor: isDarkTheme ? basicDark2 : Colors.white,
       //
       //
-      //
-      //
       textTheme: TextTheme(
         headline1: TextStyle(
           fontSize: 28.0,
