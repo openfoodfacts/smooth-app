@@ -24,10 +24,7 @@ class TrackingPage extends StatelessWidget {
               ),
               Text(
                 AppLocalizations.of(context).featureInProgress,
-                style: Theme.of(context)
-                    .textTheme
-                    .subtitle1
-                    .copyWith(color: Colors.black),
+                style: Theme.of(context).textTheme.subtitle1,
               ),
             ],
           ),

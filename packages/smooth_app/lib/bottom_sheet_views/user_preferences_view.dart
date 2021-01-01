@@ -39,6 +39,7 @@ class UserPreferencesView extends StatelessWidget {
         (screenSize.width - _TYPICAL_PADDING_OR_MARGIN * 3) / 2;
     return Material(
       child: Container(
+        color: Theme.of(context).primaryColor,
         height: screenSize.height * 0.9,
         child: Stack(
           children: <Widget>[
@@ -62,6 +63,7 @@ class UserPreferencesView extends StatelessWidget {
                         ),
                       ),
                       _generateGroups(
+                        context,
                         screenSize.width,
                         userPreferences,
                         userPreferencesModel,
@@ -125,6 +127,7 @@ class UserPreferencesView extends StatelessWidget {
   }
 
   Widget _generatePreferenceRow(
+    final BuildContext context,
     final Attribute variable,
     final double screenWidth,
     final UserPreferences userPreferences,
@@ -144,7 +147,7 @@ class UserPreferencesView extends StatelessWidget {
       margin: const EdgeInsets.all(_TYPICAL_PADDING_OR_MARGIN),
       width: screenWidth,
       decoration: BoxDecoration(
-          color: Colors.black.withAlpha(5),
+          color: Theme.of(context).cardColor,
           borderRadius: const BorderRadius.all(Radius.circular(20.0))),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -169,10 +172,13 @@ class UserPreferencesView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(variable.settingName),
+                Text(
+                  variable.settingName,
+                  style: TextStyle(color: Theme.of(context).accentColor),
+                ),
                 SliderTheme(
                   data: SliderThemeData(
-                    //thumbColor: Colors.black,
+                    //thumbColor: Colors.red,
                     activeTrackColor: Colors.black54,
                     valueIndicatorColor: getColor(userPreferencesModel
                         .getAttributeValueIndex(variable.id, userPreferences)),
@@ -189,7 +195,7 @@ class UserPreferencesView extends StatelessWidget {
                         .toDouble(),
                     onChanged: (double value) => userPreferences.setImportance(
                         variable.id, value.toInt()),
-                    activeColor: Colors.black,
+                    activeColor: Theme.of(context).primaryColor,
                     label: importance.name,
                   ),
                 ),
@@ -202,6 +208,7 @@ class UserPreferencesView extends StatelessWidget {
   }
 
   Widget _generateGroups(
+    final BuildContext context,
     final double screenWidth,
     final UserPreferences userPreferences,
     final UserPreferencesModel userPreferencesModel,
@@ -213,6 +220,7 @@ class UserPreferencesView extends StatelessWidget {
       children: List<Widget>.generate(
           groups.length,
           (int index) => _generateGroup(
+                context,
                 groups[index],
                 screenWidth,
                 userPreferences,
@@ -222,22 +230,24 @@ class UserPreferencesView extends StatelessWidget {
   }
 
   Widget _generateGroup(
+    final BuildContext context,
     final AttributeGroup group,
     final double screenWidth,
     final UserPreferences userPreferences,
     final UserPreferencesModel userPreferencesModel,
   ) =>
       !userPreferences.isAttributeGroupVisible(group)
-          ? _generateGroupTitle(group, userPreferences)
+          ? _generateGroupTitle(context, group, userPreferences)
           : Column(
               mainAxisSize: MainAxisSize.min,
               children: List<Widget>.generate(
                 group.attributes.length + 2,
                 (int index) => index == 0
-                    ? _generateGroupTitle(group, userPreferences)
+                    ? _generateGroupTitle(context, group, userPreferences)
                     : index == 1
                         ? _generateGroupWarning(group.warning)
                         : _generatePreferenceRow(
+                            context,
                             group.attributes[index - 2],
                             screenWidth,
                             userPreferences,
@@ -247,15 +257,19 @@ class UserPreferencesView extends StatelessWidget {
             );
 
   Widget _generateGroupTitle(
+    final BuildContext context,
     final AttributeGroup group,
     final UserPreferences userPreferences,
   ) =>
       GestureDetector(
           child: Container(
-            color: Colors.grey[300],
+            color: Theme.of(context).primaryColor,
             width: double.infinity,
             padding: const EdgeInsets.all(_TYPICAL_PADDING_OR_MARGIN),
-            child: Text(group.name),
+            child: Text(
+              group.name,
+              style: TextStyle(color: Theme.of(context).accentColor),
+            ),
           ),
           onTap: () => userPreferences.setAttributeGroupVisibility(
               group, !userPreferences.isAttributeGroupVisible(group)));

@@ -2,13 +2,8 @@ import 'package:flutter/material.dart';
 
 class SmoothSimpleButton extends StatelessWidget {
   const SmoothSimpleButton(
-      {@required this.context,
-      @required this.text,
-      @required this.onPressed,
-      this.width,
-      this.height});
+      {@required this.text, @required this.onPressed, this.width, this.height});
 
-  final BuildContext context;
   final String text;
   final Function onPressed;
   final double width;
@@ -20,7 +15,7 @@ class SmoothSimpleButton extends StatelessWidget {
       width: width,
       child: MaterialButton(
         color: Theme.of(context).buttonColor,
-        textColor: Theme.of(context).primaryColor,
+        textColor: Theme.of(context).accentColor,
         child: Text(text),
         height: height,
         minWidth: double.infinity,

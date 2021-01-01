@@ -28,16 +28,12 @@ class CollaborationPage extends StatelessWidget {
               ),
               Text(
                 AppLocalizations.of(context).featureInProgress,
-                style: Theme.of(context)
-                    .textTheme
-                    .subtitle1
-                    .copyWith(color: Colors.black),
+                style: Theme.of(context).textTheme.subtitle1,
               ),
               const SizedBox(
                 height: 28.0,
               ),
               SmoothSimpleButton(
-                context: context,
                 text: 'Try the contribution scanner',
                 width: 240.0,
                 onPressed: () async {

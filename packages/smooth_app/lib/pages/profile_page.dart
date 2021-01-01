@@ -214,7 +214,6 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                     actions: <SmoothSimpleButton>[
                       SmoothSimpleButton(
-                        context: context,
                         onPressed: () {
                           showLicensePage(context: context);
                         },
@@ -222,7 +221,6 @@ class _ProfilePageState extends State<ProfilePage> {
                         width: 100,
                       ),
                       SmoothSimpleButton(
-                        context: context,
                         onPressed: () {
                           Navigator.of(context, rootNavigator: true)
                               .pop('dialog');

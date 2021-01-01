@@ -40,7 +40,6 @@ class SmoothProductCardNotFound extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 SmoothSimpleButton(
-                  context: context,
                   text: 'Add',
                   width: 100.0,
                   onPressed: () {

@@ -30,6 +30,7 @@ class UserContributionView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: Container(
+        color: Theme.of(context).primaryColor,
         height: MediaQuery.of(context).size.height * 0.9,
         child: Stack(
           children: <Widget>[
@@ -146,7 +147,6 @@ class UserContributionView extends StatelessWidget {
             ),
             actions: <SmoothSimpleButton>[
               SmoothSimpleButton(
-                context: context,
                 onPressed: () {
                   Navigator.of(context, rootNavigator: true).pop('dialog');
                 },
@@ -194,14 +194,12 @@ class UserContributionView extends StatelessWidget {
           ),
           actions: <SmoothSimpleButton>[
             SmoothSimpleButton(
-              context: context,
               onPressed: () => launcher.launchURL(
                   context, 'https://github.com/openfoodfacts', false),
               text: 'GitHub',
               width: 100,
             ),
             SmoothSimpleButton(
-              context: context,
               onPressed: () => launcher.launchURL(
                   context, 'https://slack.openfoodfacts.org/', false),
               text: 'Slack',
@@ -234,7 +232,6 @@ class UserContributionView extends StatelessWidget {
           ),
           actions: <SmoothSimpleButton>[
             SmoothSimpleButton(
-              context: context,
               onPressed: () => launcher.launchURL(
                   context, 'https://translate.openfoodfacts.org/', false),
               text: AppLocalizations.of(context).contribute_translate_link_text,
@@ -262,7 +259,6 @@ class UserContributionView extends StatelessWidget {
           ),
           actions: <SmoothSimpleButton>[
             SmoothSimpleButton(
-              context: context,
               text: AppLocalizations.of(context).okay,
               onPressed: () =>
                   Navigator.of(context, rootNavigator: true).pop('dialog'),
