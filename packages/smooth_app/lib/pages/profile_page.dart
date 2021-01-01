@@ -13,7 +13,7 @@ import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_ui_library/widgets/smooth_toggle.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
-import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_ui_library/dialogs/smooth_AlertDialog.dart';
 import 'package:smooth_ui_library/widgets/smooth_listTile.dart';
 
 Launcher launcher = Launcher();
@@ -125,8 +125,10 @@ class _ProfilePageState extends State<ProfilePage> {
                 context: context,
                 builder: (BuildContext context) {
                   //ToDo: Show App Icon  !!! 2x !!! + onTap open App in Store https://pub.dev/packages/open_appstore
+
                   return SmoothAlertDialog(
                     close: false,
+                    context: context,
                     body: Column(
                       children: <Widget>[
                         FutureBuilder<PackageInfo>(
