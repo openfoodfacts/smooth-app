@@ -129,7 +129,6 @@ class _ProfilePageState extends State<ProfilePage> {
 
                   return SmoothAlertDialog(
                     close: false,
-                    context: context,
                     body: Column(
                       children: <Widget>[
                         FutureBuilder<PackageInfo>(

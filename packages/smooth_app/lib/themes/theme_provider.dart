@@ -2,14 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'theme_manager.dart';
 
 class DarkThemeProvider with ChangeNotifier {
-  DarkThemePreference darkThemePreference = DarkThemePreference();
+  UserThemePreference userThemePreference = UserThemePreference();
   bool _darkTheme = false;
 
   bool get darkTheme => _darkTheme;
 
   set darkTheme(bool value) {
     _darkTheme = value;
-    darkThemePreference.setDarkTheme(value);
+    userThemePreference.setDarkTheme(value);
     notifyListeners();
   }
 }

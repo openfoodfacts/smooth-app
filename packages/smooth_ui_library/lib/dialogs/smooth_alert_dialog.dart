@@ -13,27 +13,17 @@ import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 ///
 
 class SmoothAlertDialog extends StatefulWidget {
-  final BuildContext context;
+  const SmoothAlertDialog(
+      {this.title, this.close = true, this.height, this.body, this.actions});
+
   final String title;
   final bool close;
   final double height;
   final Widget body;
   final List<SmoothSimpleButton> actions;
 
-  SmoothAlertDialog(
-      {Key key,
-      this.context,
-      this.title,
-      this.close = true,
-      this.height,
-      this.body,
-      this.actions})
-      : super(key: key);
-
   @override
   _SmoothAlertDialogState createState() => _SmoothAlertDialogState(
-        key: key,
-        context: context,
         title: title,
         close: close,
         height: height,
@@ -43,22 +33,16 @@ class SmoothAlertDialog extends StatefulWidget {
 }
 
 class _SmoothAlertDialogState extends State<SmoothAlertDialog> {
-  final BuildContext context;
+  _SmoothAlertDialogState(
+      {this.title, this.close, this.height, this.body, this.actions});
+
   final String title;
   final bool close;
   final double height;
   final Widget body;
   final List<SmoothSimpleButton> actions;
 
-  _SmoothAlertDialogState(
-      {Key key,
-      this.context,
-      this.title,
-      this.close,
-      this.height,
-      this.body,
-      this.actions});
-
+  @override
   Widget build(BuildContext context) {
     return AlertDialog(
       backgroundColor: Theme.of(context).dialogBackgroundColor,
@@ -114,7 +98,7 @@ class _SmoothAlertDialogState extends State<SmoothAlertDialog> {
           const Divider(
             color: Colors.black,
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
         ],
@@ -144,7 +128,6 @@ class _SmoothAlertDialogState extends State<SmoothAlertDialog> {
 }
 
 ///
-///   final BuildContext context;
 ///   final String title;
 ///   final bool close;
 ///   final Widget body;

@@ -53,7 +53,7 @@ class _MyAppState extends State<MyApp> {
         await UserPreferencesModel.getUserPreferencesModel(context);
     await userPreferences.init(userPreferencesModel);
     themeChangeProvider.darkTheme =
-        await themeChangeProvider.darkThemePreference.getTheme();
+        await themeChangeProvider.userThemePreference.getTheme();
   }
 
   @override

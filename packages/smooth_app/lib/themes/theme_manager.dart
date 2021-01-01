@@ -1,6 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-class DarkThemePreference {
+class UserThemePreference {
   // ignore: non_constant_identifier_names
   static String THEME_STATUS = 'THEMESTATUS';
 
