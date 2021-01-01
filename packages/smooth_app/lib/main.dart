@@ -102,7 +102,8 @@ class SmoothApp extends StatelessWidget {
       animationDuration: 300,
       animationCurve: Curves.easeInOutBack,
       borderRadius: 20.0,
-      color: Colors.white60,
+      color: Theme.of(context).bottomAppBarColor,
+      textColor: Theme.of(context).accentColor,
       classicMode: true,
     );
   }
@@ -125,6 +126,7 @@ class SmoothApp extends StatelessWidget {
         padding: EdgeInsets.all(_navigationIconPadding),
         child: SvgPicture.asset(
           'assets/ikonate_thin/search.svg',
+          color: Theme.of(context).accentColor,
           width: _navigationIconSize,
           height: _navigationIconSize,
         ),
@@ -174,6 +176,7 @@ class SmoothApp extends StatelessWidget {
         padding: EdgeInsets.all(_navigationIconPadding),
         child: SvgPicture.asset(
           'assets/ikonate_thin/add.svg',
+          color: Theme.of(context).accentColor,
           width: _navigationIconSize,
           height: _navigationIconSize,
         ),
@@ -208,6 +211,7 @@ class SmoothApp extends StatelessWidget {
         padding: EdgeInsets.all(_navigationIconPadding),
         child: SvgPicture.asset(
           'assets/ikonate_thin/activity.svg',
+          color: Theme.of(context).accentColor,
           width: _navigationIconSize,
           height: _navigationIconSize,
         ),
@@ -242,6 +246,7 @@ class SmoothApp extends StatelessWidget {
         padding: EdgeInsets.all(_navigationIconPadding),
         child: SvgPicture.asset(
           'assets/ikonate_thin/person.svg',
+          color: Theme.of(context).accentColor,
           width: _navigationIconSize,
           height: _navigationIconSize,
         ),

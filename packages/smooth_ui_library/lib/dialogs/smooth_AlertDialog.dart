@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 
-
 ///
-///	Open by calling 
+///	Open by calling
 ///
 ///showDialog<void>(
 ///        context: context,
@@ -23,25 +22,24 @@ class SmoothAlertDialog extends StatefulWidget {
 
   SmoothAlertDialog(
       {Key key,
-        this.context,
-        this.title,
-        this.close  = true,
-        this.height,
-        this.body,
-        this.actions
-      })
+      this.context,
+      this.title,
+      this.close = true,
+      this.height,
+      this.body,
+      this.actions})
       : super(key: key);
 
   @override
   _SmoothAlertDialogState createState() => _SmoothAlertDialogState(
-    key: key,
-    context: context,
-    title: title,
-    close: close,
-    height: height,
-    body: body,
-    actions: actions,
-  );
+        key: key,
+        context: context,
+        title: title,
+        close: close,
+        height: height,
+        body: body,
+        actions: actions,
+      );
 }
 
 class _SmoothAlertDialogState extends State<SmoothAlertDialog> {
@@ -52,38 +50,34 @@ class _SmoothAlertDialogState extends State<SmoothAlertDialog> {
   final Widget body;
   final List<SmoothSimpleButton> actions;
 
-  _SmoothAlertDialogState({Key key,
-    this.context,
-    this.title,
-    this.close,
-    this.height,
-    this.body,
-    this.actions});
+  _SmoothAlertDialogState(
+      {Key key,
+      this.context,
+      this.title,
+      this.close,
+      this.height,
+      this.body,
+      this.actions});
 
   Widget build(BuildContext context) {
     return AlertDialog(
+      backgroundColor: Theme.of(context).dialogBackgroundColor,
+      elevation: 4,
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.0)), //this right here
 
-      content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            _buildTitle(title),
-            Container(
-              height: height,
-              child: body,
-            ),
-          ]
-      ),
-
+      content: Column(mainAxisSize: MainAxisSize.min, children: [
+        _buildTitle(title),
+        Container(
+          height: height,
+          child: body,
+        ),
+      ]),
 
       actions: [
         SizedBox(
           height: 58,
-          width: MediaQuery
-              .of(context)
-              .size
-              .width,
+          width: MediaQuery.of(context).size.width,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -94,38 +88,29 @@ class _SmoothAlertDialogState extends State<SmoothAlertDialog> {
     );
   }
 
-
   Widget _buildTitle(String _title) {
     double height = 29;
 
     if (_title == null) {
       return Container();
-    }
-    else {
+    } else {
       return Column(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-
               _buildCross(true),
               Container(
                 height: height,
                 child: Text(
                   '${_title}',
-                  style: Theme
-                      .of(context)
-                      .textTheme
-                      .headline2,
+                  style: Theme.of(context).textTheme.headline2,
                 ),
               ),
               _buildCross(false),
-
-
             ],
           ),
-
           const Divider(
             color: Colors.black,
           ),
@@ -137,31 +122,25 @@ class _SmoothAlertDialogState extends State<SmoothAlertDialog> {
     }
   }
 
-
-
   Widget _buildCross(bool isPlaceHolder) {
     if (close) {
       return Visibility(
         child: InkWell(
-          child: Icon(Icons.close, size: height,),
-          onTap: () =>
-              Navigator.of(context, rootNavigator: true)
-                  .pop('dialog'),
+          child: Icon(
+            Icons.close,
+            size: height,
+          ),
+          onTap: () => Navigator.of(context, rootNavigator: true).pop('dialog'),
         ),
         maintainSize: true,
         maintainAnimation: true,
         maintainState: true,
         visible: !isPlaceHolder,
       );
-
     } else {
       return Container();
     }
   }
-
-
-
-
 }
 
 ///

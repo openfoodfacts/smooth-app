@@ -37,6 +37,7 @@ class CollaborationPage extends StatelessWidget {
                 height: 28.0,
               ),
               SmoothSimpleButton(
+                context: context,
                 text: 'Try the contribution scanner',
                 width: 240.0,
                 onPressed: () async {

@@ -66,7 +66,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
           //Darkmode
           SmoothListTile(
-            text: AppLocalizations.of(context).useMLKitText,
+            text: AppLocalizations.of(context).darkmode,
             onPressed: null,
             leadingWidget: SmoothToggle(
                 value: themeChange.darkTheme,
@@ -112,7 +112,8 @@ class _ProfilePageState extends State<ProfilePage> {
           //Support
           SmoothListTile(
             text: AppLocalizations.of(context).support,
-            leadingWidget: const Icon(Icons.launch),
+            leadingWidget:
+                Icon(Icons.launch, color: Theme.of(context).accentColor),
             onPressed: () => launcher.launchURL(
                 context, 'https://openfoodfacts.uservoice.com/', false),
           ),
@@ -156,7 +157,8 @@ class _ProfilePageState extends State<ProfilePage> {
                               return Column(
                                 children: <Widget>[
                                   ListTile(
-                                    leading: const Icon(Icons.no_sim_outlined),
+                                    leading: Icon(Icons.no_sim_outlined,
+                                        color: Theme.of(context).accentColor),
                                     title: Text(
                                       snapshot.data.appName.toString(),
                                       style:
@@ -212,6 +214,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                     actions: <SmoothSimpleButton>[
                       SmoothSimpleButton(
+                        context: context,
                         onPressed: () {
                           showLicensePage(context: context);
                         },
@@ -219,6 +222,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         width: 100,
                       ),
                       SmoothSimpleButton(
+                        context: context,
                         onPressed: () {
                           Navigator.of(context, rootNavigator: true)
                               .pop('dialog');
