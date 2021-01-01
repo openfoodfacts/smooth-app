@@ -1,6 +1,8 @@
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/data_models/match.dart';
+import 'package:smooth_app/database/local_database.dart';
+import 'package:openfoodfacts/model/SearchResult.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 
@@ -20,12 +22,15 @@ class ProductQueryModel {
     final ProductQuery productQuery,
     final UserPreferences userPreferences,
     final UserPreferencesModel userPreferencesModel,
+    final LocalDatabase localDatabase,
   ) async {
     if (_products != null) {
       return true;
     }
 
-    _products = await productQuery.queryProducts();
+    final SearchResult searchResult = await productQuery.getSearchResult();
+    _products = searchResult.products;
+    localDatabase.putProducts(_products);
     Match.sort(_products, userPreferences, userPreferencesModel);
 
     displayProducts = _products;

@@ -3,21 +3,20 @@ import 'dart:async';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:openfoodfacts/model/parameter/TagFilter.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:smooth_app/database/full_products_database.dart';
 import 'package:openfoodfacts/model/SearchResult.dart';
 import 'package:openfoodfacts/utils/LanguageHelper.dart';
 
-class KeywordsProductQuery extends ProductQuery {
-  KeywordsProductQuery(this.keywords) : super();
+class KeywordsProductQuery implements ProductQuery {
+  KeywordsProductQuery(this.keywords);
 
   final String keywords;
 
   @override
-  Future<SearchResult> runInnerQuery() async =>
+  Future<SearchResult> getSearchResult() async =>
       await OpenFoodAPIClient.searchProducts(
-        FullProductsDatabase.SMOOTH_USER,
+        ProductQuery.SMOOTH_USER,
         ProductSearchQueryConfiguration(
-          fields: FullProductsDatabase.fields,
+          fields: ProductQuery.fields,
           parametersList: <Parameter>[
             const PageSize(size: 500),
             TagFilter(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/bottom_sheet_views/group_query_filter_view.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
@@ -58,6 +59,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final UserPreferencesModel userPreferencesModel =
         context.watch<UserPreferencesModel>();
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final Size screenSize = MediaQuery.of(context).size;
     final ThemeData themeData = Theme.of(context);
     return FutureBuilder<bool>(
@@ -65,6 +67,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
           widget.productQuery,
           userPreferences,
           userPreferencesModel,
+          localDatabase,
         ),
         builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
           if (snapshot.hasData) {
@@ -80,7 +83,13 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                 body: Stack(
                   children: <Widget>[
                     _innerGetHero(screenSize, themeData),
-                    _getList(_model, screenSize, themeData, widget.mainColor),
+                    _getList(
+                      _model.displayProducts,
+                      screenSize,
+                      themeData,
+                      widget.mainColor,
+                      _scrollController,
+                    ),
                     AnimatedOpacity(
                       opacity: _showTitle ? 1.0 : 0.0,
                       duration: const Duration(milliseconds: 250),
@@ -256,29 +265,30 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
         ),
       );
 
-  Widget _getList(
-    final ProductQueryModel model,
+  static Widget _getList(
+    final List<Product> products,
     final Size screenSize,
     final ThemeData themeData,
     final Color color,
+    final ScrollController scrollController,
   ) =>
-      _model.isNotEmpty()
+      products.isNotEmpty
           ? ListView.builder(
-              itemCount: model.displayProducts.length,
+              itemCount: products.length,
               itemBuilder: (BuildContext context, int index) {
                 return Padding(
                   padding: const EdgeInsets.symmetric(
                       horizontal: 12.0, vertical: 8.0),
                   child: SmoothProductCardFound(
-                          heroTag: model.displayProducts[index].barcode,
-                          product: model.displayProducts[index],
+                          heroTag: products[index].barcode,
+                          product: products[index],
                           elevation: 4.0)
                       .build(context),
                 );
               },
               padding:
                   EdgeInsets.only(top: screenSize.height * 0.25, bottom: 80.0),
-              controller: _scrollController,
+              controller: scrollController,
             )
           : Center(
               child: Row(
