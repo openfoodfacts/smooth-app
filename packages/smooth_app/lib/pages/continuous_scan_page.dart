@@ -21,10 +21,7 @@ class ContinuousScanPage extends StatefulWidget {
   @override
   _ContinuousScanPageState createState() => _ContinuousScanPageState();
 
-  static Widget getContributeChooseToggle(
-    final ContinuousScanModel model,
-    final Function setState,
-  ) =>
+  static Widget getContributeChooseToggle(final ContinuousScanModel model) =>
       SmoothToggle(
         value: model.contributionMode,
         textLeft: '  CONTRIBUTE',
@@ -37,12 +34,7 @@ class ContinuousScanPage extends StatefulWidget {
         animationDuration: const Duration(milliseconds: 320),
         width: 150.0,
         height: 50.0,
-        onChanged: (bool value) async {
-          if (value != model.contributionMode) {
-            await model.contributionModeSwitch(value);
-            setState(() {});
-          }
-        },
+        onChanged: (bool value) => model.contributionModeSwitch(value),
       );
 
   static Widget getHero(final Size screenSize) => Hero(
@@ -78,6 +70,8 @@ class _ContinuousScanPageState extends State<ContinuousScanPage> {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     _continuousScanModel.setLocalDatabase(localDatabase);
     final Size screenSize = MediaQuery.of(context).size;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final ThemeData themeData = Theme.of(context);
     return Scaffold(
       floatingActionButton: SmoothRevealAnimation(
         delay: 400,
@@ -90,7 +84,7 @@ class _ContinuousScanPageState extends State<ContinuousScanPage> {
             color: Colors.black,
           ),
           label: Text(
-            AppLocalizations.of(context).myPersonalizedRanking,
+            appLocalizations.myPersonalizedRanking,
             style: const TextStyle(color: Colors.black),
           ),
           backgroundColor: Colors.white,
@@ -98,7 +92,7 @@ class _ContinuousScanPageState extends State<ContinuousScanPage> {
             context,
             MaterialPageRoute<dynamic>(
               builder: (BuildContext context) => PersonalizedRankingPage(
-                input: _continuousScanModel.foundProducts,
+                input: _continuousScanModel.getFoundProducts(),
               ),
             ),
           ),
@@ -117,7 +111,7 @@ class _ContinuousScanPageState extends State<ContinuousScanPage> {
                 BarcodeFormats.EAN_13
               ],
               qrCodeCallback: (String code) =>
-                  _continuousScanModel.onScan(code, setState),
+                  _continuousScanModel.onScan(code),
               notStartedBuilder: (BuildContext context) => Container(),
             ),
           ),
@@ -139,9 +133,7 @@ class _ContinuousScanPageState extends State<ContinuousScanPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             ContinuousScanPage.getContributeChooseToggle(
-                              _continuousScanModel,
-                              setState,
-                            ),
+                                _continuousScanModel),
                           ],
                         ),
                       ),
@@ -164,12 +156,11 @@ class _ContinuousScanPageState extends State<ContinuousScanPage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 80.0),
-                  child: _continuousScanModel.cardTemplates.isNotEmpty
+                  child: _continuousScanModel.isNotEmpty
                       ? Container(
                           width: screenSize.width,
                           child: SmoothProductCarousel(
-                            productCards: _continuousScanModel.cardTemplates,
-                            controller: _continuousScanModel.carouselController,
+                            continuousScanModel: _continuousScanModel,
                             height: _continuousScanModel.contributionMode
                                 ? 160.0
                                 : 120.0,
@@ -180,8 +171,8 @@ class _ContinuousScanPageState extends State<ContinuousScanPage> {
                           height: screenSize.height * 0.5,
                           child: Center(
                             child: Text(
-                              AppLocalizations.of(context).scannerProductsEmpty,
-                              style: Theme.of(context).textTheme.subtitle1,
+                              appLocalizations.scannerProductsEmpty,
+                              style: themeData.textTheme.subtitle1,
                               textAlign: TextAlign.start,
                             ),
                           ),

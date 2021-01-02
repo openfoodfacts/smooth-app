@@ -73,6 +73,11 @@ class LocalDatabase extends ChangeNotifier {
     );
   }
 
+  void dummyNotifyListeners() {
+    print('localDatabase/notifyListeners');
+    notifyListeners();
+  }
+
   Future<Product> getProduct(final String barcode) async {
     final List<Map<String, dynamic>> queryResult = await _database.query(
       _TABLE_PRODUCT,

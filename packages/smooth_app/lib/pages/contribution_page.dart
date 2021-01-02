@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/pages/alternative_continuous_scan_page.dart';
 import 'package:smooth_app/pages/continuous_scan_page.dart';
+import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
+import 'package:provider/provider.dart';
 
 class CollaborationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
     return Scaffold(
       body: SmoothRevealAnimation(
         animationCurve: Curves.easeInOutBack,
@@ -39,23 +41,17 @@ class CollaborationPage extends StatelessWidget {
               SmoothSimpleButton(
                 text: 'Try the contribution scanner',
                 width: 240.0,
-                onPressed: () async {
-                  final SharedPreferences sharedPreferences =
-                      await SharedPreferences.getInstance();
-                  final Widget newPage =
-                      sharedPreferences.getBool('useMlKit') ?? true
-                          ? ContinuousScanPage(
-                              initializeWithContributionMode: true,
-                            )
-                          : AlternativeContinuousScanPage(
-                              initializeWithContributionMode: true,
-                            );
-                  Navigator.push<Widget>(
-                    context,
-                    MaterialPageRoute<Widget>(
-                        builder: (BuildContext context) => newPage),
-                  );
-                },
+                onPressed: () => Navigator.push<Widget>(
+                  context,
+                  MaterialPageRoute<Widget>(
+                    builder: (BuildContext context) =>
+                        userPreferences.getMlKitState()
+                            ? const ContinuousScanPage(
+                                initializeWithContributionMode: true)
+                            : const AlternativeContinuousScanPage(
+                                initializeWithContributionMode: true),
+                  ),
+                ),
               ),
             ],
           ),

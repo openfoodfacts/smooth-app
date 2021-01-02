@@ -39,6 +39,8 @@ class _AlternativeContinuousScanPageState
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     _continuousScanModel.setLocalDatabase(localDatabase);
     final Size screenSize = MediaQuery.of(context).size;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final ThemeData themeData = Theme.of(context);
     return Scaffold(
       floatingActionButton: SmoothRevealAnimation(
         delay: 400,
@@ -51,7 +53,7 @@ class _AlternativeContinuousScanPageState
             color: Colors.black,
           ),
           label: Text(
-            AppLocalizations.of(context).myPersonalizedRanking,
+            appLocalizations.myPersonalizedRanking,
             style: const TextStyle(color: Colors.black),
           ),
           backgroundColor: Colors.white,
@@ -59,7 +61,7 @@ class _AlternativeContinuousScanPageState
             context,
             MaterialPageRoute<dynamic>(
               builder: (BuildContext context) => PersonalizedRankingPage(
-                input: _continuousScanModel.foundProducts,
+                input: _continuousScanModel.getFoundProducts(),
               ),
             ),
           ),
@@ -75,10 +77,7 @@ class _AlternativeContinuousScanPageState
             child: QRView(
               key: _scannerViewKey,
               onQRViewCreated: (QRViewController controller) =>
-                  _continuousScanModel.setupScanner(
-                controller,
-                setState,
-              ),
+                  _continuousScanModel.setupScanner(controller),
             ),
           ),
           SmoothRevealAnimation(
@@ -95,9 +94,7 @@ class _AlternativeContinuousScanPageState
                   child: Column(
                     children: <Widget>[
                       ContinuousScanPage.getContributeChooseToggle(
-                        _continuousScanModel,
-                        setState,
-                      ),
+                          _continuousScanModel),
                     ],
                   ),
                 ),
@@ -110,13 +107,12 @@ class _AlternativeContinuousScanPageState
                     ),
                   ),
                 ),
-                if (_continuousScanModel.cardTemplates.isNotEmpty)
+                if (_continuousScanModel.isNotEmpty)
                   Container(
                     height: screenSize.height * 0.35,
                     padding: EdgeInsets.only(bottom: screenSize.height * 0.08),
                     child: SmoothProductCarousel(
-                      productCards: _continuousScanModel.cardTemplates,
-                      controller: _continuousScanModel.carouselController,
+                      continuousScanModel: _continuousScanModel,
                     ),
                   )
                 else
@@ -125,8 +121,8 @@ class _AlternativeContinuousScanPageState
                     height: screenSize.height * 0.35,
                     padding: EdgeInsets.only(top: screenSize.height * 0.08),
                     child: Text(
-                      AppLocalizations.of(context).scannerProductsEmpty,
-                      style: Theme.of(context).textTheme.subtitle1,
+                      appLocalizations.scannerProductsEmpty,
+                      style: themeData.textTheme.subtitle1,
                       textAlign: TextAlign.center,
                     ),
                   ),
