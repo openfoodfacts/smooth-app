@@ -28,11 +28,6 @@ class SmoothAlertDialog extends StatefulWidget {
 
 class _SmoothAlertDialogState extends State<SmoothAlertDialog> {
 
-  final String title = _SmoothAlertDialogState().title;
-  final bool close = _SmoothAlertDialogState().close;
-  final double height = _SmoothAlertDialogState().height;
-  final Widget body = _SmoothAlertDialogState().body;
-  final List<SmoothSimpleButton> actions = _SmoothAlertDialogState().actions;
 
   @override
   Widget build(BuildContext context) {
@@ -43,10 +38,10 @@ class _SmoothAlertDialogState extends State<SmoothAlertDialog> {
           borderRadius: BorderRadius.circular(20.0)), //this right here
 
       content: Column(mainAxisSize: MainAxisSize.min, children: [
-        _buildTitle(title),
+        _buildTitle(widget.title),
         Container(
-          height: height,
-          child: body,
+          height: widget.height,
+          child: widget.body,
         ),
       ]),
 
@@ -57,7 +52,7 @@ class _SmoothAlertDialogState extends State<SmoothAlertDialog> {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: actions,
+            children: widget.actions,
           ),
         ),
       ],
@@ -99,12 +94,12 @@ class _SmoothAlertDialogState extends State<SmoothAlertDialog> {
   }
 
   Widget _buildCross(bool isPlaceHolder) {
-    if (close) {
+    if (widget.close) {
       return Visibility(
         child: InkWell(
           child: Icon(
             Icons.close,
-            size: height,
+            size: widget.height,
           ),
           onTap: () => Navigator.of(context, rootNavigator: true).pop('dialog'),
         ),
