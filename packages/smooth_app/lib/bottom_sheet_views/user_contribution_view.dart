@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/functions/launchURL.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
-import 'package:smooth_ui_library/dialogs/smooth_AlertDialog.dart';
+import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_ui_library/widgets/smooth_listTile.dart';
 
 Launcher launcher = Launcher();
@@ -103,7 +103,6 @@ class UserContributionView extends StatelessWidget {
         context: context,
         builder: (BuildContext context) {
           return SmoothAlertDialog(
-            context: context,
             close: false,
             title: AppLocalizations.of(context).contribute_contribute_header,
             body: Column(
@@ -164,7 +163,6 @@ class UserContributionView extends StatelessWidget {
       builder: (BuildContext context) {
         return SmoothAlertDialog(
           title: AppLocalizations.of(context).contribute_develop,
-          context: context,
           body: Column(
             children: <Widget>[
               Text(
@@ -217,7 +215,6 @@ class UserContributionView extends StatelessWidget {
       builder: (BuildContext context) {
         return SmoothAlertDialog(
           title: AppLocalizations.of(context).contribute_translate_header,
-          context: context,
           body: Column(
             children: <Widget>[
               Text(
@@ -248,7 +245,6 @@ class UserContributionView extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return SmoothAlertDialog(
-          context: context,
           body: Column(
             children: <Widget>[
               Text(

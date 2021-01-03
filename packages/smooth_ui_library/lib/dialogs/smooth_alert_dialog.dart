@@ -23,24 +23,16 @@ class SmoothAlertDialog extends StatefulWidget {
   final List<SmoothSimpleButton> actions;
 
   @override
-  _SmoothAlertDialogState createState() => _SmoothAlertDialogState(
-        title: title,
-        close: close,
-        height: height,
-        body: body,
-        actions: actions,
-      );
+  _SmoothAlertDialogState createState() => _SmoothAlertDialogState();
 }
 
 class _SmoothAlertDialogState extends State<SmoothAlertDialog> {
-  _SmoothAlertDialogState(
-      {this.title, this.close, this.height, this.body, this.actions});
 
-  final String title;
-  final bool close;
-  final double height;
-  final Widget body;
-  final List<SmoothSimpleButton> actions;
+  final String title = _SmoothAlertDialogState().title;
+  final bool close = _SmoothAlertDialogState().close;
+  final double height = _SmoothAlertDialogState().height;
+  final Widget body = _SmoothAlertDialogState().body;
+  final List<SmoothSimpleButton> actions = _SmoothAlertDialogState().actions;
 
   @override
   Widget build(BuildContext context) {
