@@ -70,14 +70,17 @@ class _ProfilePageState extends State<ProfilePage> {
             text: AppLocalizations.of(context).darkmode,
             onPressed: null,
             leadingWidget: SmoothToggle(
-              value: themeChange.darkTheme,
-              width: 80.0,
-              height: 38.0,
-              textLeft: AppLocalizations.of(context).yes,
-              textRight: AppLocalizations.of(context).no,
-              onChanged: (bool newValue) async =>
-                  themeChange.darkTheme = newValue,
-            ),
+                value: themeChange.darkTheme,
+                width: 80.0,
+                height: 38.0,
+                textLeft: AppLocalizations.of(context).yes,
+                textRight: AppLocalizations.of(context).no,
+                onChanged: (bool newValue) async {
+                  //themeChange.darkTheme = newValue,
+                  if (themeChange.darkTheme != newValue) {
+                    themeChange.darkTheme = newValue;
+                  }
+                }),
           ),
 
           //Configure Preferences
