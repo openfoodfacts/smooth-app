@@ -26,11 +26,12 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    final DarkThemeProvider themeChange = context.watch<DarkThemeProvider>();
     final UserPreferences userPreferences = context.watch<UserPreferences>();
+    final DarkThemeProvider themeChange = context.watch<DarkThemeProvider>();
     return Scaffold(
       body: Column(
         children: <Widget>[
+          //Title
           Padding(
             padding: const EdgeInsets.only(
                 top: 46.0, right: 16.0, left: 16.0, bottom: 4.0),
@@ -69,14 +70,14 @@ class _ProfilePageState extends State<ProfilePage> {
             text: AppLocalizations.of(context).darkmode,
             onPressed: null,
             leadingWidget: SmoothToggle(
-                value: themeChange.darkTheme,
-                width: 80.0,
-                height: 38.0,
-                textLeft: AppLocalizations.of(context).yes,
-                textRight: AppLocalizations.of(context).no,
-                onChanged: (bool newValue) async {
-                  themeChange.darkTheme = newValue;
-                }),
+              value: themeChange.darkTheme,
+              width: 80.0,
+              height: 38.0,
+              textLeft: AppLocalizations.of(context).yes,
+              textRight: AppLocalizations.of(context).no,
+              onChanged: (bool newValue) async =>
+                  themeChange.darkTheme = newValue,
+            ),
           ),
 
           //Configure Preferences
@@ -169,8 +170,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                           Theme.of(context).textTheme.subtitle2,
                                     ),
                                   ),
-                                  const Divider(
-                                    color: Colors.black,
+                                  Divider(
+                                    color: Theme.of(context).accentColor,
                                   ),
                                   const SizedBox(
                                     height: 20,

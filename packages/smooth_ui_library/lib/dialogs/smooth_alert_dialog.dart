@@ -82,8 +82,8 @@ class _SmoothAlertDialogState extends State<SmoothAlertDialog> {
               _buildCross(false),
             ],
           ),
-          const Divider(
-            color: Colors.black,
+          Divider(
+            color: Theme.of(context).accentColor,
           ),
           const SizedBox(
             height: 15,

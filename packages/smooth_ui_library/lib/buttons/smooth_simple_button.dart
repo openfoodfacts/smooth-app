@@ -15,7 +15,7 @@ class SmoothSimpleButton extends StatelessWidget {
       width: width,
       child: MaterialButton(
         color: Theme.of(context).buttonColor,
-        textColor: Theme.of(context).accentColor,
+        textColor: Colors.white,
         child: Text(text),
         height: height,
         minWidth: double.infinity,
