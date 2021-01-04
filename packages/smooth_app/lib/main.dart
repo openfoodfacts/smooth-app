@@ -103,7 +103,9 @@ class SmoothApp extends StatelessWidget {
       animationCurve: Curves.easeInOutBack,
       borderRadius: 20.0,
       color: Theme.of(context).bottomAppBarColor,
-      textColor: Colors.red,
+      scanButtonColor: Theme.of(context).accentColor,
+      scanShadowColor: Colors.deepPurple,
+      scanIconColor: Theme.of(context).accentIconTheme.color,
       classicMode: true,
     );
   }

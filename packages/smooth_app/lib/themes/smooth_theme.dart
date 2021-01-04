@@ -30,7 +30,7 @@ class SmoothThemes {
     return ThemeData(
       //
       // bottom_sheet
-      primaryColor: isDarkTheme ? basicDark3 : Colors.white,
+      primaryColor: isDarkTheme ? Colors.red : Colors.white,
       //
       // Icons, SVG images
       accentColor: isDarkTheme ? Colors.white : Colors.black,
@@ -49,6 +49,10 @@ class SmoothThemes {
       //
       //
       dialogBackgroundColor: isDarkTheme ? basicDark2 : Colors.white,
+      //
+      //
+      accentIconTheme:
+          IconThemeData(color: isDarkTheme ? Colors.black : Colors.white),
       //
       //
       appBarTheme: AppBarTheme(

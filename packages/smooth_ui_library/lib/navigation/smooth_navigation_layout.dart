@@ -17,8 +17,11 @@ class SmoothNavigationLayout extends StatelessWidget {
       {@required this.layout,
       this.borderRadius = 60.0,
       this.color = Colors.white,
-      this.textColor,
+      this.textColor = Colors.white,
       this.shadowColor = Colors.black,
+      this.scanButtonColor = Colors.black,
+      this.scanShadowColor = Colors.deepPurple,
+      this.scanIconColor = Colors.white,
       this.animationCurve = Curves.fastLinearToSlowEaseIn,
       this.animationDuration = 400,
       this.reverseLayout = false,
@@ -30,6 +33,9 @@ class SmoothNavigationLayout extends StatelessWidget {
   final Color color;
   final Color textColor;
   final Color shadowColor;
+  final Color scanButtonColor;
+  final Color scanShadowColor;
+  final Color scanIconColor;
   final Curve animationCurve;
   final int animationDuration;
   final bool reverseLayout;
@@ -122,6 +128,9 @@ class SmoothNavigationLayout extends StatelessWidget {
   Widget _getNavigationBar() {
     if (classicMode) {
       return SmoothNavigationBarClassic(
+        scanButtonColor: scanButtonColor,
+        scanShadowColor: scanShadowColor,
+        scanIconColor: scanIconColor,
         color: color,
         shadowColor: shadowColor,
         borderRadius: borderRadius,

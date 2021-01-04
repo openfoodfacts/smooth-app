@@ -12,6 +12,9 @@ class SmoothNavigationBarClassic extends StatefulWidget {
   const SmoothNavigationBarClassic(
       {@required this.color,
       @required this.shadowColor,
+      @required this.scanButtonColor,
+      @required this.scanShadowColor,
+      @required this.scanIconColor,
       @required this.borderRadius,
       @required this.buttons,
       @required this.actionSvgIcons,
@@ -22,6 +25,9 @@ class SmoothNavigationBarClassic extends StatefulWidget {
 
   final Color color;
   final Color shadowColor;
+  final Color scanButtonColor;
+  final Color scanShadowColor;
+  final Color scanIconColor;
   final double borderRadius;
   final List<SmoothNavigationButton> buttons;
   final List<String> actionSvgIcons;
@@ -67,6 +73,7 @@ class _SmoothNavigationBarClassicState extends State<SmoothNavigationBarClassic>
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
+                              //left side of scanButton
                               Row(
                                 children: List<Widget>.generate(
                                   (widget.buttons.length / 2).floor(),
@@ -84,9 +91,10 @@ class _SmoothNavigationBarClassicState extends State<SmoothNavigationBarClassic>
                                                   .textTheme
                                                   .bodyText1
                                                   .copyWith(
-                                                      color: Colors.black,
                                                       fontWeight:
-                                                          FontWeight.w500),
+                                                          FontWeight.w500,
+                                                          fontSize: 15,
+                                              ),
                                             ),
                                             animationCurve:
                                                 widget.animationCurve,
@@ -106,10 +114,9 @@ class _SmoothNavigationBarClassicState extends State<SmoothNavigationBarClassic>
                                                 .textTheme
                                                 .bodyText1
                                                 .copyWith(
-                                                    color: Colors.black54,
                                                     fontWeight:
                                                         FontWeight.normal,
-                                                    fontSize: 12.0),
+                                                    fontSize: 10.0),
                                           )
                                         ],
                                       );
@@ -117,6 +124,7 @@ class _SmoothNavigationBarClassicState extends State<SmoothNavigationBarClassic>
                                   },
                                 ),
                               ),
+                              //right side of scanButton
                               Row(
                                 children: List<Widget>.generate(
                                   widget.buttons.length -
@@ -144,9 +152,10 @@ class _SmoothNavigationBarClassicState extends State<SmoothNavigationBarClassic>
                                                   .textTheme
                                                   .bodyText1
                                                   .copyWith(
-                                                      color: Colors.black,
                                                       fontWeight:
-                                                          FontWeight.w500),
+                                                          FontWeight.w500,
+                                                          fontSize: 15,
+                                              ),
                                             ),
                                             animationCurve:
                                                 widget.animationCurve,
@@ -172,10 +181,10 @@ class _SmoothNavigationBarClassicState extends State<SmoothNavigationBarClassic>
                                                 .textTheme
                                                 .bodyText1
                                                 .copyWith(
-                                                    color: Colors.black54,
                                                     fontWeight:
                                                         FontWeight.normal,
-                                                    fontSize: 12.0),
+                                                        fontSize: 10.0,
+                                            ),
                                           )
                                         ],
                                       );
@@ -183,9 +192,15 @@ class _SmoothNavigationBarClassicState extends State<SmoothNavigationBarClassic>
                                   },
                                 ),
                               )
-                            ]),
+                            ],
+                        ),
                       );
-                    })))),
+                    },
+                    ),
+                ),
+            ),
+        ),
+        //Scan button
         Consumer<SmoothNavigationStateModel>(builder: (BuildContext context,
             SmoothNavigationStateModel smoothNavigationStateModel,
             Widget child) {
@@ -200,7 +215,8 @@ class _SmoothNavigationBarClassicState extends State<SmoothNavigationBarClassic>
                   child: GestureDetector(
                     child: Material(
                       elevation: 12.0,
-                      shadowColor: Colors.deepPurple,
+                      shadowColor: widget.scanShadowColor, //Colors.deepPurple,
+                      //shadowColor: Colors.deepPurple,
                       borderRadius:
                           const BorderRadius.all(Radius.circular(60.0)),
                       child: Hero(
@@ -208,16 +224,17 @@ class _SmoothNavigationBarClassicState extends State<SmoothNavigationBarClassic>
                         child: Container(
                           width: 56.0,
                           height: 56.0,
-                          decoration: const BoxDecoration(
+                          decoration:  BoxDecoration(
                               borderRadius: BorderRadius.all(Radius.circular(60.0)),
-                              color: Colors.black),
+                              color: widget.scanButtonColor,
+                          ),
                           child: Center(
                             child: SvgPicture.asset(
                               widget.actionSvgIcons[
                                   smoothNavigationStateModel.currentIndex],
                               width: 24.0,
                               height: 24.0,
-                              color: Colors.white,
+                              color: widget.scanIconColor,
                             ),
                           ),
                         ),
@@ -229,14 +246,15 @@ class _SmoothNavigationBarClassicState extends State<SmoothNavigationBarClassic>
                           null) {
                         widget
                             .actions[smoothNavigationStateModel.currentIndex]();
-                      }
+                      };
                     },
                   ),
                 ),
               ],
             ),
           );
-        }),
+         },
+        ),
       ],
     );
   }
