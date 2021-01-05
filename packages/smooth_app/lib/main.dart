@@ -21,18 +21,16 @@ import 'package:smooth_ui_library/navigation/smooth_navigation_layout.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 
+final SentryClient sentry = SentryClient(
+    dsn:
+        'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745');
+
 Future<void> main() async {
-  await Sentry.init(
-    (dynamic options) {
-      options.dsn =
-          'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745';
-    },
-  );
   try {
     runApp(MyApp());
-  } catch (exception, stackTrace) {
-    await Sentry.captureException(
-      exception,
+  } catch (error, stackTrace) {
+    await sentry.captureException(
+      exception: error,
       stackTrace: stackTrace,
     );
   }
