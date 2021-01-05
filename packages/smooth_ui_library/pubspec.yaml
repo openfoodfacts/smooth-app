@@ -9,12 +9,12 @@ dependencies:
   flutter:
     sdk: flutter
 
-  provider: ^4.3.1
-  openfoodfacts: ^0.3.8
-  carousel_slider: ^2.2.1
+  provider: ^4.3.2+3
+  openfoodfacts: ^0.3.14
+  carousel_slider: ^2.3.1
   flutter_svg: ^0.18.0
-  percent_indicator: ^2.1.5
-  flutter_staggered_grid_view: ^0.3.2
+  percent_indicator: ^2.1.9
+  flutter_staggered_grid_view: ^0.3.3
   rubber: ^0.4.0
 
   #openfoodfacts:
