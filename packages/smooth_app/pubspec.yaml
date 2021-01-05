@@ -24,7 +24,7 @@ dependencies:
 
   flutter_svg: ^0.18.0
   basic_utils: ^2.6.3
-  modal_bottom_sheet: ^0.2.0+1
+  modal_bottom_sheet: ^1.0.0+1
   provider: ^4.3.2+3
   openfoodfacts: ^0.3.14
   flutter_qr_bar_scanner: ^1.0.2

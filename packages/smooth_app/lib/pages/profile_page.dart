@@ -71,9 +71,9 @@ class _ProfilePageState extends State<ProfilePage> {
               backgroundColor: Colors.transparent,
               bounce: true,
               barrierColor: Colors.black45,
-              builder:
-                  (BuildContext context, ScrollController scrollController) =>
-                      UserPreferencesView(scrollController),
+              builder: (BuildContext context) => UserPreferencesView(
+                ModalScrollController.of(context),
+              ),
             ),
           ),
 
@@ -86,9 +86,9 @@ class _ProfilePageState extends State<ProfilePage> {
               backgroundColor: Colors.transparent,
               bounce: true,
               barrierColor: Colors.black45,
-              builder:
-                  (BuildContext context, ScrollController scrollController) =>
-                      UserContributionView(scrollController),
+              builder: (BuildContext context) => UserContributionView(
+                ModalScrollController.of(context),
+              ),
             ),
           ),
 
