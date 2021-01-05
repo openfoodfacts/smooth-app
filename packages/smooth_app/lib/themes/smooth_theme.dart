@@ -30,7 +30,7 @@ class SmoothThemes {
     return ThemeData(
       //
       // bottom_sheet
-      primaryColor: isDarkTheme ? Colors.red : Colors.white,
+      primaryColor: isDarkTheme ? basicDark : Colors.white,
       //
       // Icons, SVG images
       accentColor: isDarkTheme ? Colors.white : Colors.black,

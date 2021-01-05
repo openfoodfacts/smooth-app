@@ -16,16 +16,6 @@ class UserContributionView extends StatelessWidget {
   final ScrollController _scrollController;
   final Function callback;
 
-  static final List<Color> _colors = <Color>[
-    Colors.black87,
-    Colors.green.withOpacity(0.87),
-    Colors.deepOrangeAccent.withOpacity(0.87),
-    Colors.redAccent.withOpacity(0.87),
-  ];
-  static const Color _COLOR_DEFAULT = Colors.black26;
-
-  static Color getColor(final int index) => _colors[index] ?? _COLOR_DEFAULT;
-
   @override
   Widget build(BuildContext context) {
     return Material(
