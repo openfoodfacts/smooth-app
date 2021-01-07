@@ -22,6 +22,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
+  cupertino_icons: ^1.0.0
   flutter_svg: ^0.18.0
   modal_bottom_sheet: ^0.2.0+1
   provider: ^4.3.1

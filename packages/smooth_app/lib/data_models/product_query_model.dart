@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/data_models/match.dart';
@@ -6,9 +7,23 @@ import 'package:openfoodfacts/model/SearchResult.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 
-class ProductQueryModel {
-  ProductQueryModel();
+enum LoadingStatus {
+  LOADING,
+  LOADED,
+  POST_LOAD_STARTED,
+  COMPLETE,
+  ERROR,
+}
 
+class ProductQueryModel with ChangeNotifier {
+  ProductQueryModel(final ProductQuery productQuery) {
+    _asyncLoad(productQuery);
+  }
+
+  static const String _CATEGORY_ALL = 'all';
+
+  LoadingStatus _loadingStatus = LoadingStatus.LOADING;
+  String _loadingError;
   List<Product> _products;
   List<Product> displayProducts;
   bool isNotEmpty() => _products != null && _products.isNotEmpty;
@@ -16,26 +31,39 @@ class ProductQueryModel {
   Map<String, String> categories = <String, String>{};
   Map<String, int> categoriesCounter = <String, int>{};
   List<String> sortedCategories;
-  String selectedCategory = 'all';
 
-  Future<bool> loadData(
-    final ProductQuery productQuery,
+  String get loadingError => _loadingError;
+  LoadingStatus get loadingStatus => _loadingStatus;
+
+  Future<void> _asyncLoad(final ProductQuery productQuery) async {
+    try {
+      final SearchResult searchResult = await productQuery.getSearchResult();
+      _products = searchResult.products;
+      _loadingStatus = LoadingStatus.LOADED;
+    } catch (e) {
+      _loadingStatus = LoadingStatus.ERROR;
+      _loadingError = e.toString();
+    }
+    notifyListeners();
+  }
+
+  void sort(
     final UserPreferences userPreferences,
     final UserPreferencesModel userPreferencesModel,
     final LocalDatabase localDatabase,
-  ) async {
-    if (_products != null) {
-      return true;
+  ) {
+    if (_loadingStatus != LoadingStatus.LOADED) {
+      return;
     }
+    _loadingStatus = LoadingStatus.POST_LOAD_STARTED;
 
-    final SearchResult searchResult = await productQuery.getSearchResult();
-    _products = searchResult.products;
     localDatabase.putProducts(_products);
     Match.sort(_products, userPreferences, userPreferencesModel);
 
     displayProducts = _products;
 
-    categories['all'] = 'All';
+    categories[_CATEGORY_ALL] =
+        'All'; // TODO(monsieurtanuki): find a translation
 
     for (final Product product in _products) {
       for (final String category in product.categoriesTags) {
@@ -51,7 +79,7 @@ class ProductQueryModel {
     final List<String> tempCategories = categories.keys.toList();
 
     for (final String category in tempCategories) {
-      if (category != 'all') {
+      if (category != _CATEGORY_ALL) {
         if (categoriesCounter[category] <= 1) {
           categories.remove(category);
         } else {
@@ -63,21 +91,19 @@ class ProductQueryModel {
 
     sortedCategories = categories.keys.toList();
     sortedCategories.sort((String a, String b) {
-      if (a == 'all') {
+      if (a == _CATEGORY_ALL) {
         return -1;
-      } else if (b == 'all') {
+      } else if (b == _CATEGORY_ALL) {
         return 1;
       }
       return categoriesCounter[b].compareTo(categoriesCounter[a]);
     });
 
-    return true;
+    _loadingStatus = LoadingStatus.COMPLETE;
   }
 
   void selectCategory(String category) {
-    selectedCategory = category;
-
-    if (category == 'all') {
+    if (category == _CATEGORY_ALL) {
       displayProducts = _products;
     } else {
       displayProducts = _products
