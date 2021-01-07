@@ -31,7 +31,7 @@ class CollaborationPage extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .subtitle1
-                    .copyWith(color: Colors.black),
+                    .copyWith(fontSize: 12, fontWeight: FontWeight.bold),
               ),
               const SizedBox(
                 height: 28.0,

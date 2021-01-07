@@ -16,20 +16,11 @@ class UserContributionView extends StatelessWidget {
   final ScrollController _scrollController;
   final Function callback;
 
-  static final List<Color> _colors = <Color>[
-    Colors.black87,
-    Colors.green.withOpacity(0.87),
-    Colors.deepOrangeAccent.withOpacity(0.87),
-    Colors.redAccent.withOpacity(0.87),
-  ];
-  static const Color _COLOR_DEFAULT = Colors.black26;
-
-  static Color getColor(final int index) => _colors[index] ?? _COLOR_DEFAULT;
-
   @override
   Widget build(BuildContext context) {
     return Material(
       child: Container(
+        color: Theme.of(context).primaryColor,
         height: MediaQuery.of(context).size.height * 0.9,
         child: Stack(
           children: <Widget>[
@@ -102,7 +93,6 @@ class UserContributionView extends StatelessWidget {
         context: context,
         builder: (BuildContext context) {
           return SmoothAlertDialog(
-            //context: context,
             close: false,
             title: AppLocalizations.of(context).contribute_contribute_header,
             body: Column(
@@ -163,7 +153,6 @@ class UserContributionView extends StatelessWidget {
       builder: (BuildContext context) {
         return SmoothAlertDialog(
           title: AppLocalizations.of(context).contribute_develop,
-          //context: context,
           body: Column(
             children: <Widget>[
               Text(
@@ -216,7 +205,6 @@ class UserContributionView extends StatelessWidget {
       builder: (BuildContext context) {
         return SmoothAlertDialog(
           title: AppLocalizations.of(context).contribute_translate_header,
-          //context: context,
           body: Column(
             children: <Widget>[
               Text(
@@ -247,7 +235,6 @@ class UserContributionView extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return SmoothAlertDialog(
-          //context: context,
           body: Column(
             children: <Widget>[
               Text(

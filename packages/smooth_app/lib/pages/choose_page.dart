@@ -60,7 +60,8 @@ class ChoosePage extends StatelessWidget {
                                   children: <Widget>[
                                     Flexible(
                                       child: Text(
-                                        AppLocalizations.of(context).searchTitle,
+                                        AppLocalizations.of(context)
+                                            .searchTitle,
                                         style: Theme.of(context)
                                             .textTheme
                                             .headline1,
@@ -73,7 +74,10 @@ class ChoosePage extends StatelessWidget {
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 16.0, vertical: 12.0),
                                 child: SmoothSearchBar(
-                                  hintText: AppLocalizations.of(context).searchHintText,
+                                  color:
+                                      Theme.of(context).dialogBackgroundColor,
+                                  hintText: AppLocalizations.of(context)
+                                      .searchHintText,
                                   onSubmitted: (String value) {
                                     if (int.parse(value,
                                             onError: (String e) => null) !=

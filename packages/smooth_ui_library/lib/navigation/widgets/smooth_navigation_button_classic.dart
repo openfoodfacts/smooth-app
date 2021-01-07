@@ -4,12 +4,15 @@ import 'package:smooth_ui_library/navigation/models/smooth_navigation_state_mode
 import 'package:smooth_ui_library/navigation/models/smooth_navigation_layout_model.dart';
 
 class SmoothNavigationButtonClassic extends StatelessWidget {
-  const SmoothNavigationButtonClassic(
-      {@required this.icon,
-      @required this.index,
-      this.alternativeOnPress,
-      this.title = ''});
+  const SmoothNavigationButtonClassic({
+    @required this.titleColor,
+    @required this.icon,
+    @required this.index,
+    this.alternativeOnPress,
+    this.title = '',
+  });
 
+  final Color titleColor;
   final Widget icon;
   final int index;
   final Function alternativeOnPress;
@@ -38,7 +41,12 @@ class SmoothNavigationButtonClassic extends StatelessWidget {
         child: Column(
           children: <Widget>[
             icon,
-            Text(title)
+            Text(
+              title,
+              style: TextStyle(
+                color: titleColor,
+              ),
+            )
           ],
         ),
       ),

@@ -14,13 +14,7 @@ import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 
 class SmoothAlertDialog extends StatefulWidget {
   const SmoothAlertDialog(
-      {Key key,
-      this.title,
-      this.close = true,
-      this.height,
-      this.body,
-      this.actions})
-      : super(key: key);
+      {this.title, this.close = true, this.height, this.body, this.actions});
 
   final String title;
   final bool close;
@@ -34,13 +28,16 @@ class SmoothAlertDialog extends StatefulWidget {
 
 class _SmoothAlertDialogState extends State<SmoothAlertDialog> {
 
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      backgroundColor: Theme.of(context).dialogBackgroundColor,
+      elevation: 4,
       shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.0)),
+          borderRadius: BorderRadius.circular(20.0)), //this right here
 
-      content: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+      content: Column(mainAxisSize: MainAxisSize.min, children: [
         _buildTitle(widget.title),
         Container(
           height: widget.height,
@@ -48,9 +45,9 @@ class _SmoothAlertDialogState extends State<SmoothAlertDialog> {
         ),
       ]),
 
-      actions: <Widget>[
+      actions: [
         SizedBox(
-          height: 58.0,
+          height: 58,
           width: MediaQuery.of(context).size.width,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,32 +60,33 @@ class _SmoothAlertDialogState extends State<SmoothAlertDialog> {
   }
 
   Widget _buildTitle(String _title) {
+    double height = 29;
 
     if (_title == null) {
       return Container();
     } else {
       return Column(
-        children: <Widget>[
+        children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
+            children: [
               _buildCross(true),
-              Flexible(
+              Container(
+                height: height,
                 child: Text(
-                  '$_title',
+                  '${_title}',
                   style: Theme.of(context).textTheme.headline2,
-                  textAlign: TextAlign.center,
                 ),
               ),
               _buildCross(false),
             ],
           ),
-          const Divider(
-            color: Colors.black,
+          Divider(
+            color: Theme.of(context).accentColor,
           ),
           const SizedBox(
-            height: 15.0,
+            height: 15,
           ),
         ],
       );

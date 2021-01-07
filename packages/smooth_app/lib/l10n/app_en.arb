@@ -96,5 +96,7 @@
   "support": "Support",
   "@support": { },
   "error": "Something went wrong",
-  "@error": { }
+  "@error": { },
+  "darkmode": "Darkmode",
+  "@darkmode": { }
 }

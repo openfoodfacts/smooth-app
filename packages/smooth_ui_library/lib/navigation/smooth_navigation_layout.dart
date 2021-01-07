@@ -17,8 +17,11 @@ class SmoothNavigationLayout extends StatelessWidget {
       {@required this.layout,
       this.borderRadius = 60.0,
       this.color = Colors.white,
-      this.textColor = Colors.black,
+      this.textColor = Colors.white,
       this.shadowColor = Colors.black,
+      this.scanButtonColor = Colors.black,
+      this.scanShadowColor = Colors.deepPurple,
+      this.scanIconColor = Colors.white,
       this.animationCurve = Curves.fastLinearToSlowEaseIn,
       this.animationDuration = 400,
       this.reverseLayout = false,
@@ -30,6 +33,9 @@ class SmoothNavigationLayout extends StatelessWidget {
   final Color color;
   final Color textColor;
   final Color shadowColor;
+  final Color scanButtonColor;
+  final Color scanShadowColor;
+  final Color scanIconColor;
   final Curve animationCurve;
   final int animationDuration;
   final bool reverseLayout;
@@ -64,12 +70,16 @@ class SmoothNavigationLayout extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       children: <Widget>[
         Container(
-          padding: classicMode ? const EdgeInsets.only() : const EdgeInsets.only(left: 25.0, right: 25.0, bottom: 40.0),
+          padding: classicMode
+              ? const EdgeInsets.only()
+              : const EdgeInsets.only(left: 25.0, right: 25.0, bottom: 40.0),
           child: ChangeNotifierProvider<SmoothNavigationStateModel>(
             create: (BuildContext context) => SmoothNavigationStateModel(),
             child: Row(
               mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: classicMode ? MainAxisAlignment.center : MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: classicMode
+                  ? MainAxisAlignment.center
+                  : MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: _getLayout(),
             ),
@@ -80,7 +90,7 @@ class SmoothNavigationLayout extends StatelessWidget {
   }
 
   List<Widget> _getLayout() {
-    if(classicMode) {
+    if (classicMode) {
       return <Widget>[_getNavigationBar()];
     } else {
       if (reverseLayout) {
@@ -89,7 +99,6 @@ class SmoothNavigationLayout extends StatelessWidget {
 
       return <Widget>[_getActionButton(), _getNavigationBar()];
     }
-
   }
 
   Widget _getActionButton() {
@@ -117,13 +126,16 @@ class SmoothNavigationLayout extends StatelessWidget {
   }
 
   Widget _getNavigationBar() {
-    if(classicMode) {
+    if (classicMode) {
       return SmoothNavigationBarClassic(
+        scanButtonColor: scanButtonColor,
+        scanShadowColor: scanShadowColor,
+        scanIconColor: scanIconColor,
         color: color,
         shadowColor: shadowColor,
         borderRadius: borderRadius,
-        buttons:
-        List<SmoothNavigationButton>.generate(layout.screens.length, (int i) {
+        buttons: List<SmoothNavigationButton>.generate(layout.screens.length,
+            (int i) {
           return SmoothNavigationButton(
             icon: layout.screens[i].icon,
             index: i,
@@ -132,16 +144,16 @@ class SmoothNavigationLayout extends StatelessWidget {
         }),
         actionSvgIcons: List<String>.generate(layout.screens.length, (int i) {
           final SmoothNavigationActionModel action = layout.screens[i].action;
-          if(action != null) {
-            return  action.icon;
+          if (action != null) {
+            return action.icon;
           } else {
             return 'assets/actions/scanner_alt_2.svg';
           }
         }),
         actions: List<Function>.generate(layout.screens.length, (int i) {
           final SmoothNavigationActionModel action = layout.screens[i].action;
-          if(action != null) {
-            return  action.onTap;
+          if (action != null) {
+            return action.onTap;
           } else {
             return null;
           }
@@ -155,8 +167,8 @@ class SmoothNavigationLayout extends StatelessWidget {
         color: color,
         shadowColor: shadowColor,
         borderRadius: borderRadius,
-        buttons:
-        List<SmoothNavigationButton>.generate(layout.screens.length, (int i) {
+        buttons: List<SmoothNavigationButton>.generate(layout.screens.length,
+            (int i) {
           return SmoothNavigationButton(
             icon: layout.screens[i].icon,
             index: i,

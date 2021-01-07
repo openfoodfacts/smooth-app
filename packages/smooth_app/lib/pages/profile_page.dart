@@ -10,6 +10,7 @@ import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
 import 'package:smooth_app/functions/launchURL.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_ui_library/widgets/smooth_toggle.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
@@ -26,9 +27,11 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
+    final DarkThemeProvider themeChange = context.watch<DarkThemeProvider>();
     return Scaffold(
       body: Column(
         children: <Widget>[
+          //Title
           Padding(
             padding: const EdgeInsets.only(
                 top: 46.0, right: 16.0, left: 16.0, bottom: 4.0),
@@ -60,6 +63,24 @@ class _ProfilePageState extends State<ProfilePage> {
                 textRight: AppLocalizations.of(context).no,
                 onChanged: (bool newValue) async =>
                     userPreferences.setMlKitState(newValue)),
+          ),
+
+          //Darkmode
+          SmoothListTile(
+            text: AppLocalizations.of(context).darkmode,
+            onPressed: null,
+            leadingWidget: SmoothToggle(
+                value: themeChange.darkTheme,
+                width: 80.0,
+                height: 38.0,
+                textLeft: AppLocalizations.of(context).yes,
+                textRight: AppLocalizations.of(context).no,
+                onChanged: (bool newValue) async {
+                  //themeChange.darkTheme = newValue,
+                  if (themeChange.darkTheme != newValue) {
+                    themeChange.darkTheme = newValue;
+                  }
+                }),
           ),
 
           //Configure Preferences
@@ -95,7 +116,8 @@ class _ProfilePageState extends State<ProfilePage> {
           //Support
           SmoothListTile(
             text: AppLocalizations.of(context).support,
-            leadingWidget: const Icon(Icons.launch),
+            leadingWidget:
+                Icon(Icons.launch, color: Theme.of(context).accentColor),
             onPressed: () => launcher.launchURL(
                 context, 'https://openfoodfacts.uservoice.com/', false),
           ),
@@ -108,6 +130,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 context: context,
                 builder: (BuildContext context) {
                   //ToDo: Show App Icon  !!! 2x !!! + onTap open App in Store https://pub.dev/packages/open_appstore
+
                   return SmoothAlertDialog(
                     close: false,
                     body: Column(
@@ -137,7 +160,8 @@ class _ProfilePageState extends State<ProfilePage> {
                               return Column(
                                 children: <Widget>[
                                   ListTile(
-                                    leading: const Icon(Icons.no_sim_outlined),
+                                    leading: Icon(Icons.no_sim_outlined,
+                                        color: Theme.of(context).accentColor),
                                     title: Text(
                                       snapshot.data.appName.toString(),
                                       style:
@@ -149,8 +173,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                           Theme.of(context).textTheme.subtitle2,
                                     ),
                                   ),
-                                  const Divider(
-                                    color: Colors.black,
+                                  Divider(
+                                    color: Theme.of(context).accentColor,
                                   ),
                                   const SizedBox(
                                     height: 20,
