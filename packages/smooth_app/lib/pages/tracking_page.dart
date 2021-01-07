@@ -27,7 +27,7 @@ class TrackingPage extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .subtitle1
-                    .copyWith(color: Colors.black),
+                    .copyWith(fontSize: 12, fontWeight: FontWeight.bold),
               ),
             ],
           ),

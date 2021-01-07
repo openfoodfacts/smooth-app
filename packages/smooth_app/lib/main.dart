@@ -12,6 +12,7 @@ import 'package:smooth_app/pages/continuous_scan_page.dart';
 import 'package:smooth_app/pages/profile_page.dart';
 import 'package:smooth_app/pages/tracking_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_ui_library/navigation/models/smooth_navigation_action_model.dart';
 import 'package:smooth_ui_library/navigation/models/smooth_navigation_layout_model.dart';
 import 'package:smooth_ui_library/navigation/models/smooth_navigation_screen_model.dart';
@@ -45,6 +46,7 @@ class _MyAppState extends State<MyApp> {
   UserPreferences _userPreferences;
   UserPreferencesModel _userPreferencesModel;
   LocalDatabase _localDatabase;
+  final DarkThemeProvider themeChangeProvider = DarkThemeProvider();
 
   Future<void> _init(BuildContext context) async {
     _userPreferences = await UserPreferences.getUserPreferences();
@@ -52,6 +54,8 @@ class _MyAppState extends State<MyApp> {
         await UserPreferencesModel.getUserPreferencesModel(context);
     await _userPreferences.init(_userPreferencesModel);
     _localDatabase = await LocalDatabase.getLocalDatabase();
+    themeChangeProvider.darkTheme =
+        await themeChangeProvider.userThemePreference.getTheme();
   }
 
   @override
@@ -68,12 +72,20 @@ class _MyAppState extends State<MyApp> {
                   value: _userPreferencesModel),
               ChangeNotifierProvider<LocalDatabase>.value(
                   value: _localDatabase),
+              ChangeNotifierProvider<DarkThemeProvider>.value(
+                  value: themeChangeProvider),
             ],
-            child: MaterialApp(
-              localizationsDelegates: AppLocalizations.localizationsDelegates,
-              supportedLocales: AppLocalizations.supportedLocales,
-              home: SmoothApp(),
-              theme: SmoothThemes.getSmoothThemeData(),
+            child: Consumer<DarkThemeProvider>(
+              builder: (BuildContext context, value, Widget child) {
+                return MaterialApp(
+                  localizationsDelegates:
+                      AppLocalizations.localizationsDelegates,
+                  supportedLocales: AppLocalizations.supportedLocales,
+                  theme: SmoothThemes.getSmoothThemeData(
+                      themeChangeProvider.darkTheme, context),
+                  home: SmoothApp(),
+                );
+              },
             ),
           );
         }
@@ -136,7 +148,12 @@ class SmoothApp extends StatelessWidget {
       animationDuration: 300,
       animationCurve: Curves.easeInOutBack,
       borderRadius: 20.0,
-      color: Colors.white60,
+      color: Theme.of(context).bottomAppBarColor,
+      scanButtonColor: Theme.of(context).accentColor,
+      scanShadowColor: context.watch<DarkThemeProvider>().darkTheme
+          ? Colors.white.withOpacity(0.0)
+          : Colors.deepPurple,
+      scanIconColor: Theme.of(context).accentIconTheme.color,
       classicMode: true,
     );
   }
