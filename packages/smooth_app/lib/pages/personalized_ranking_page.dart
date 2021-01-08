@@ -215,9 +215,8 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
                     backgroundColor: Colors.transparent,
                     bounce: true,
                     barrierColor: Colors.black45,
-                    builder: (BuildContext context,
-                            ScrollController scrollController) =>
-                        UserPreferencesView(scrollController, callback: () {
+                    builder: (BuildContext context) => UserPreferencesView(
+                        ModalScrollController.of(context), callback: () {
                       // TODO(monsieurtanuki): refresh??? personalizedRankingModel.processProductList(usercontext);
                       const SnackBar snackBar = SnackBar(
                         content: Text(

@@ -115,9 +115,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                                     backgroundColor: Colors.transparent,
                                     bounce: true,
                                     barrierColor: Colors.black45,
-                                    builder: (BuildContext context,
-                                            ScrollController
-                                                scrollController) =>
+                                    builder: (BuildContext context) =>
                                         GroupQueryFilterView(
                                       categories: _model.categories,
                                       categoriesList: _model.sortedCategories,
