@@ -174,9 +174,7 @@ class SmoothApp extends StatelessWidget {
             svg,
             width: _navigationIconSize,
             height: _navigationIconSize,
-            color: context.watch<DarkThemeProvider>().darkTheme
-                ? Colors.white
-                : Colors.black,
+            color: Theme.of(context).accentColor,
           ),
         ),
         title: title,

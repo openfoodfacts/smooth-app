@@ -185,11 +185,10 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                     child: SmoothProductCardFound(
                       heroTag: _model.displayProducts[index].barcode,
                       product: _model.displayProducts[index],
-                      elevation: context.watch<DarkThemeProvider>().darkTheme
+                      elevation: Theme.of(context).brightness == Brightness.light
                           ? 0.0
                           : 4.0,
-                      translucentBackground:
-                          context.watch<DarkThemeProvider>().darkTheme,
+                      translucentBackground: Theme.of(context).brightness == Brightness.light,
                     ).build(context),
                   );
                 },
