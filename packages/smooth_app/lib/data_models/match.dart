@@ -1,4 +1,5 @@
-import 'package:openfoodfacts/model/AttributeGroups.dart';
+import 'package:openfoodfacts/model/Attribute.dart';
+import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/structures/ranked_product.dart';
@@ -11,13 +12,13 @@ class Match {
     final UserPreferences userPreferences,
     final UserPreferencesModel userPreferencesModel,
   ) {
-    final AttributeGroups attributeGroups = product.attributeGroups;
+    final List<AttributeGroup> attributeGroups = product.attributeGroups;
     if (attributeGroups == null) {
       _status = null;
       return;
     }
-    for (final List<Attribute> attributes in attributeGroups.groups.values) {
-      for (final Attribute attribute in attributes) {
+    for (final AttributeGroup group in attributeGroups) {
+      for (final Attribute attribute in group.attributes) {
         final String variable = attribute.id;
         final PreferencesValue preferencesValue =
             userPreferencesModel.getPreferencesValue(variable, userPreferences);
@@ -30,7 +31,7 @@ class Match {
           _debug += '$variable $value\n';
         } else {
           if (attribute.status == _UNKNOWN_STATUS) {
-            if (_status) {
+            if (_status ?? false) {
               _status = null;
             }
           } else {

@@ -230,36 +230,6 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                         },
                       ),
                     ),
-                    /*Container(
-                              margin:
-                                  const EdgeInsets.only(top: 28.0, right: 8.0),
-                              padding: const EdgeInsets.only(left: 10.0),
-                              width: screenSize.width * 0.75,
-                              decoration: const BoxDecoration(
-                                color: Colors.white30,
-                                borderRadius: BorderRadius.all(Radius.circular(12.0))
-                              ),
-                              child: DropdownButton<String>(
-                                items: productGroupQueryModel.sortedCategories
-                                    .map((String key) {
-                                  return DropdownMenuItem<String>(
-                                    value: key,
-                                    child: Container(
-                                      width: screenSize.width * 0.65,
-                                      child: Text(productGroupQueryModel.categories[key] ?? 'error', style: Theme.of(context)
-                                          .textTheme
-                                          .bodyText1
-                                          .copyWith(
-                                          color: mainColor, fontSize: 12.0)),
-                                    ),
-                                  );
-                                }).toList(),
-                                value: productGroupQueryModel.selectedCategory,
-                                onChanged: (String value) => productGroupQueryModel.selectCategory(value),
-                                icon: Icon(Icons.arrow_drop_down, color: mainColor,),
-                                underline: Container(),
-                              ),
-                            ),*/
                   ],
                 ),
               ),
