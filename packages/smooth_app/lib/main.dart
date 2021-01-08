@@ -160,21 +160,6 @@ class SmoothApp extends StatelessWidget {
     );
   }
 
-  /*SmoothNavigationScreenModel _generateOrganizationScreenModel() {
-    return SmoothNavigationScreenModel(
-      icon: Container(
-        padding: EdgeInsets.all(_navigationIconPadding),
-        child: SvgPicture.asset(
-          'assets/ikonate_thin/organize.svg',
-          width: _navigationIconSize,
-          height: _navigationIconSize,
-        ),
-      ),
-      title: 'Organize',
-      page: OrganizationPage(),
-    );
-  }*/
-
   SmoothNavigationScreenModel _generateCollaborationScreenModel(
       BuildContext context) {
     return SmoothNavigationScreenModel(
