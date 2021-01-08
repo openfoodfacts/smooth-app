@@ -12,11 +12,11 @@ class LabelsExpandable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return SmoothExpandableCard(
       headerHeight: 50.0,
       collapsedHeader: Row(
-          children: labels != null
-              ? <Widget>[
+          children: <Widget>[
                   Container(
                     child: labels.isNotEmpty
                         ? Row(
@@ -38,10 +38,7 @@ class LabelsExpandable extends StatelessWidget {
                                   child: Center(
                                     child: Text(
                                       '+${labels.length - 3}',
-                                      style: const TextStyle(
-                                          fontSize: 18.0,
-                                          color: Colors.grey,
-                                          fontWeight: FontWeight.w300),
+                                      style: Theme.of(context).textTheme.subtitle1,
                                     ),
                                   ),
                                 );
@@ -54,22 +51,12 @@ class LabelsExpandable extends StatelessWidget {
                             'No label found',
                             style: Theme.of(context)
                                 .textTheme
-                                .headline4
-                                .copyWith(color: Colors.black),
+                                .headline3,
                           ),
-                  ),
-                ]
-              : <Widget>[
-                  Text(
-                    'No label found',
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline4
-                        .copyWith(color: Colors.black),
                   ),
                 ]),
       content: Container(
-        height: 70.0 * labels.length,
+        height: 70.0 * (labels.length),
         child: Column(
           children: List<Widget>.generate(labels.length, (int index) {
             return Container(
@@ -81,7 +68,7 @@ class LabelsExpandable extends StatelessWidget {
                   const SizedBox(
                     width: 8.0,
                   ),
-                  Text(cleanLabelName(labels[index])),
+                  Text(cleanLabelName(labels[index]), style: Theme.of(context).textTheme.bodyText1),
                 ],
               ),
             );

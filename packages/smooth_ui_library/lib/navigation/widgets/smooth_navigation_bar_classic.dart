@@ -208,7 +208,7 @@ class _SmoothNavigationBarClassicState extends State<SmoothNavigationBarClassic>
                             height: 56.0,
                             decoration: BoxDecoration(
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(60.0)),
+                                  const BorderRadius.all(Radius.circular(60.0)),
                               color: widget.scanButtonColor,
                             ),
                             child: Center(
@@ -230,7 +230,6 @@ class _SmoothNavigationBarClassicState extends State<SmoothNavigationBarClassic>
                           widget.actions[
                               smoothNavigationStateModel.currentIndex]();
                         }
-                        ;
                       },
                     ),
                   ),

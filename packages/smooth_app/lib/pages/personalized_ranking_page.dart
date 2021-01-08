@@ -185,7 +185,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
           slivers: <Widget>[
             SliverAppBar(
               leading: IconButton(
-                icon: const Icon(Icons.arrow_back, color: Colors.black),
+                icon: Icon(Icons.arrow_back, color: Theme.of(context).accentColor,),
                 onPressed: () => Navigator.of(context).pop(),
               ),
               expandedHeight: 120.0,
@@ -200,14 +200,13 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
                     textAlign: TextAlign.center,
                     style: Theme.of(context)
                         .textTheme
-                        .headline4
-                        .copyWith(color: Colors.black)),
+                        .headline4),
               ),
               actions: <IconButton>[
                 IconButton(
-                  icon: const Icon(
+                  icon: Icon(
                     Icons.settings,
-                    color: Colors.black,
+                    color: Theme.of(context).accentColor,
                   ),
                   onPressed: () => showCupertinoModalBottomSheet<Widget>(
                     expand: false,

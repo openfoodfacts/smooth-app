@@ -7,7 +7,6 @@ class SmoothSearchBar extends StatelessWidget {
   const SmoothSearchBar({
     this.controller,
     this.hintText,
-    this.color = Colors.white,
     this.shadowColor = Colors.black,
     this.textColor = Colors.black,
     this.borderRadius = 20.0,
@@ -17,7 +16,6 @@ class SmoothSearchBar extends StatelessWidget {
   final TextEditingController controller;
   final String hintText;
   final Color shadowColor;
-  final Color color;
   final Color textColor;
   final double borderRadius;
   final Function(String) onSubmitted;
@@ -25,7 +23,7 @@ class SmoothSearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-     color: color,
+     color: Theme.of(context).cardColor,
       elevation: 24.0,
       borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
       shadowColor: shadowColor.withAlpha(160),
@@ -44,7 +42,7 @@ class SmoothSearchBar extends StatelessWidget {
             padding: const EdgeInsets.all(12.0),
             child: SvgPicture.asset('assets/navigation/search.svg', color: Colors.grey,),
           ),
-          focusColor: color,
+          focusColor: Theme.of(context).cardColor,
         ),
         onSubmitted: onSubmitted,
       ),

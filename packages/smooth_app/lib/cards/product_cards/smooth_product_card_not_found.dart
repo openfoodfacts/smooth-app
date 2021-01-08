@@ -19,19 +19,19 @@ class SmoothProductCardNotFound extends StatelessWidget {
       elevation: elevation,
       borderRadius: const BorderRadius.all(Radius.circular(15.0)),
       child: Container(
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.all(Radius.circular(15.0)),
+        decoration: BoxDecoration(
+          color: Theme.of(context).cardColor,
+          borderRadius: const BorderRadius.all(Radius.circular(15.0)),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text('This product is missing'),
+            Text('This product is missing', style: Theme.of(context).textTheme.bodyText1),
             const SizedBox(
               height: 12.0,
             ),
-            Text(barcode),
+            Text(barcode, style: Theme.of(context).textTheme.subtitle1),
             const SizedBox(
               height: 12.0,
             ),

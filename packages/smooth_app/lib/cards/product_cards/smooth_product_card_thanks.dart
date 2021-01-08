@@ -5,15 +5,15 @@ class SmoothProductCardThanks extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.all(Radius.circular(15.0)),
+      decoration: BoxDecoration(
+        color: Theme.of(context).cardColor,
+        borderRadius: const BorderRadius.all(Radius.circular(15.0)),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          const Text('Thank you for adding this product !'),
+          Text('Thank you for adding this product !', style: Theme.of(context).textTheme.bodyText1),
           const SizedBox(
             height: 12.0,
           ),

@@ -10,6 +10,7 @@ import 'package:smooth_app/data_models/product_query_model.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 
@@ -182,10 +183,14 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 12.0, vertical: 8.0),
                     child: SmoothProductCardFound(
-                            heroTag: _model.displayProducts[index].barcode,
-                            product: _model.displayProducts[index],
-                            elevation: 4.0)
-                        .build(context),
+                      heroTag: _model.displayProducts[index].barcode,
+                      product: _model.displayProducts[index],
+                      elevation: context.watch<DarkThemeProvider>().darkTheme
+                          ? 0.0
+                          : 4.0,
+                      translucentBackground:
+                          context.watch<DarkThemeProvider>().darkTheme,
+                    ).build(context),
                   );
                 },
                 padding: EdgeInsets.only(
