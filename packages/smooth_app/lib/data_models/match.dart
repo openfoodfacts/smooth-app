@@ -31,7 +31,7 @@ class Match {
           _debug += '$variable $value\n';
         } else {
           if (attribute.status == _UNKNOWN_STATUS) {
-            if (_status) {
+            if (_status ?? false) {
               _status = null;
             }
           } else {

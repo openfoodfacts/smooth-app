@@ -1,154 +1,106 @@
-import 'package:carousel_slider/carousel_controller.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
-import 'package:smooth_app/cards/product_cards/smooth_product_card_edit.dart';
-import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
-import 'package:smooth_app/cards/product_cards/smooth_product_card_not_found.dart';
-import 'package:smooth_app/cards/product_cards/smooth_product_card_loading.dart';
-import 'package:smooth_app/cards/product_cards/smooth_product_card_thanks.dart';
-import 'package:smooth_app/database/full_products_database.dart';
+import 'package:smooth_app/database/barcode_product_query.dart';
+import 'package:smooth_app/database/local_database.dart';
 
-enum ScannedProductState { FOUND, NOT_FOUND, LOADING }
+enum ScannedProductState {
+  FOUND,
+  NOT_FOUND,
+  LOADING,
+  THANKS,
+}
 
-class ContinuousScanModel extends ChangeNotifier {
-  ContinuousScanModel({@required this.contributionMode}) {
-    carouselController = CarouselController();
+class ContinuousScanModel {
+  ContinuousScanModel({@required bool contributionMode})
+      : _contributionMode = contributionMode;
 
-    scannedBarcodes = <String, ScannedProductState>{};
-    cardTemplates = <String, Widget>{};
+  final Map<String, ScannedProductState> _states =
+      <String, ScannedProductState>{};
+  final Map<String, Product> _products = <String, Product>{};
+  final List<String> _barcodes = <String>[];
+  bool _contributionMode;
+  QRViewController _scannerController;
+  String _barcodeTrustCheck;
+  LocalDatabase _localDatabase;
+
+  bool get isNotEmpty => getBarcodes().isNotEmpty;
+  bool get contributionMode => _contributionMode;
+
+  List<String> getBarcodes() => _barcodes;
+
+  void setBarcodeState(
+    final String barcode,
+    final ScannedProductState state,
+  ) {
+    _states[barcode] = state;
+    _localDatabase.dummyNotifyListeners();
   }
 
-  final GlobalKey scannerViewKey = GlobalKey(debugLabel: 'Barcode Scanner');
-  QRViewController scannerController;
-  CarouselController carouselController;
+  ScannedProductState getBarcodeState(final String barcode) => _states[barcode];
 
-  Map<String, ScannedProductState> scannedBarcodes;
-  Map<String, Widget> cardTemplates;
+  Product getProduct(final String barcode) => _products[barcode];
 
-  List<Product> foundProducts = <Product>[];
-
-  String barcodeTrustCheck;
-
-  bool contributionMode = false;
-
-  bool firstScan = true;
+  void setLocalDatabase(final LocalDatabase localDatabase) =>
+      _localDatabase = localDatabase;
 
   void setupScanner(QRViewController controller) {
-    scannerController = controller;
-    scannerController.scannedDataStream.listen((String barcode) {
-      onScan(barcode);
-    });
+    _scannerController = controller;
+    _scannerController.scannedDataStream.listen(
+      (String barcode) => onScan(barcode),
+    );
   }
 
-  void onScan(String code) {
+  List<Product> getFoundProducts() {
+    final List<Product> result = <Product>[];
+    for (final String barcode in _barcodes) {
+      if (getBarcodeState(barcode) == ScannedProductState.FOUND) {
+        result.add(_products[barcode]);
+      }
+    }
+    return result;
+  }
+
+  Future<void> onScan(String code) async {
     print('Barcode detected : $code');
-    if (barcodeTrustCheck != code) {
-      barcodeTrustCheck = code;
+    if (_barcodeTrustCheck != code) {
+      _barcodeTrustCheck = code;
       return;
     }
-    if (addBarcode(code)) {
-      _generateScannedProductsCardTemplates();
-      if (!firstScan) {
-        carouselController.animateToPage(
-          cardTemplates.length - 1,
-        );
-      } else {
-        firstScan = false;
-      }
-    }
+    _addBarcode(code);
   }
 
-  void onScanAlt(String code, List<Offset> offsets) {
+  Future<void> onScanAlt(String code, List<Offset> offsets) async {
     print('Barcode detected : $code');
-    if (addBarcode(code)) {
-      _generateScannedProductsCardTemplates();
-      if (cardTemplates.isNotEmpty) {
-        carouselController.animateToPage(
-          cardTemplates.length - 1,
-        );
-      }
+    _addBarcode(code);
+  }
+
+  void contributionModeSwitch(bool value) {
+    if (_contributionMode != value) {
+      _contributionMode = value;
+      _localDatabase.dummyNotifyListeners();
     }
   }
 
-  Future<bool> _generateScannedProductsCardTemplates(
-      {bool switchMode = false}) async {
-    final FullProductsDatabase productsDatabase = FullProductsDatabase();
-
-    for (final String scannedBarcode in scannedBarcodes.keys) {
-      switch (scannedBarcodes[scannedBarcode]) {
-        case ScannedProductState.FOUND:
-          if (switchMode) {
-            final Product product = await productsDatabase.getProduct(
-                scannedBarcode); // Acceptable thanks to offline first
-            setCardTemplate(
-                scannedBarcode,
-                contributionMode
-                    ? SmoothProductCardEdit(
-                        heroTag: product.barcode, product: product)
-                    : SmoothProductCardFound(
-                        heroTag: product.barcode, product: product));
-          }
-          break;
-        case ScannedProductState.NOT_FOUND:
-          break;
-        case ScannedProductState.LOADING:
-          final bool result =
-              await productsDatabase.checkAndFetchProduct(scannedBarcode);
-          if (result) {
-            scannedBarcodes[scannedBarcode] = ScannedProductState.FOUND;
-            final Product product =
-                await productsDatabase.getProduct(scannedBarcode);
-            setCardTemplate(
-                scannedBarcode,
-                contributionMode
-                    ? SmoothProductCardEdit(
-                        heroTag: product.barcode, product: product)
-                    : SmoothProductCardFound(
-                        heroTag: product.barcode, product: product));
-            foundProducts.add(product);
-          } else {
-            scannedBarcodes[scannedBarcode] = ScannedProductState.NOT_FOUND;
-            setCardTemplate(
-              scannedBarcode,
-              SmoothProductCardNotFound(
-                barcode: scannedBarcode,
-                callback: () {
-                  setCardTemplate(scannedBarcode, SmoothProductCardThanks());
-                },
-              ),
-            );
-          }
-          break;
-      }
-    }
-    return true;
-  }
-
-  bool addBarcode(String newBarcode) {
-    if (scannedBarcodes[newBarcode] == null) {
-      scannedBarcodes[newBarcode] = ScannedProductState.LOADING;
-      cardTemplates[newBarcode] = SmoothProductCardLoading(barcode: newBarcode);
-      notifyListeners();
+  bool _addBarcode(final String barcode) {
+    if (getBarcodeState(barcode) == null) {
+      _barcodes.add(barcode);
+      setBarcodeState(barcode, ScannedProductState.LOADING);
+      _loadBarcode(barcode);
       return true;
     }
     return false;
   }
 
-  void setProductState(String barcode, ScannedProductState state) {
-    scannedBarcodes[barcode] = state;
-    notifyListeners();
-  }
-
-  void setCardTemplate(String barcode, Widget cardTemplate) {
-    cardTemplates[barcode] = cardTemplate;
-    notifyListeners();
-  }
-
-  void contributionModeSwitch(bool value) {
-    contributionMode = value;
-    _generateScannedProductsCardTemplates(switchMode: true);
-    notifyListeners();
+  Future<void> _loadBarcode(final String barcode) async {
+    final Product product = await BarcodeProductQuery(barcode).getProduct();
+    if (product != null) {
+      _localDatabase.putProduct(product);
+      _products[barcode] = product;
+      setBarcodeState(barcode, ScannedProductState.FOUND);
+    } else {
+      setBarcodeState(barcode, ScannedProductState.NOT_FOUND);
+    }
   }
 }

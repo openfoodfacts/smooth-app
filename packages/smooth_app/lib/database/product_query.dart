@@ -1,21 +1,34 @@
-import 'package:openfoodfacts/model/SearchResult.dart';
-import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:smooth_app/database/full_products_database.dart';
+import 'package:openfoodfacts/model/SearchResult.dart';
 
 abstract class ProductQuery {
-  ProductQuery();
+  static const User SMOOTH_USER = User(
+    userId: 'project-smoothie',
+    password: 'smoothie',
+    comment: 'Test user for project smoothie',
+  );
 
-  final FullProductsDatabase database = FullProductsDatabase();
+  static const List<ProductField> fields = <ProductField>[
+    ProductField.NAME,
+    ProductField.BRANDS,
+    ProductField.BARCODE,
+    ProductField.NUTRISCORE,
+    ProductField.FRONT_IMAGE,
+    ProductField.SELECTED_IMAGE,
+    ProductField.QUANTITY,
+    ProductField.SERVING_SIZE,
+    ProductField.PACKAGING_QUANTITY,
+    ProductField.NUTRIMENTS,
+    ProductField.NUTRIENT_LEVELS,
+    ProductField.NUTRIMENT_ENERGY_UNIT,
+    ProductField.ADDITIVES,
+    ProductField.INGREDIENTS_ANALYSIS_TAGS,
+    ProductField.LABELS_TAGS,
+    ProductField.ENVIRONMENT_IMPACT_LEVELS,
+    ProductField.CATEGORIES_TAGS,
+    ProductField.LANGUAGE,
+    ProductField.ATTRIBUTE_GROUPS,
+  ];
 
-  static const User SMOOTH_USER = FullProductsDatabase.SMOOTH_USER;
-  static const List<ProductField> fields = FullProductsDatabase.fields;
-
-  Future<SearchResult> runInnerQuery();
-
-  Future<List<Product>> queryProducts() async {
-    final SearchResult result = await runInnerQuery();
-    database.saveProducts(result.products);
-    return result.products;
-  }
+  Future<SearchResult> getSearchResult();
 }

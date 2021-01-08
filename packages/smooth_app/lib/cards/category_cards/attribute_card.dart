@@ -45,6 +45,7 @@ class AttributeCard extends StatelessWidget {
                 fit: BoxFit.fitHeight,
               )
             : Row(
+                mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   Flexible(
                     child: Text(

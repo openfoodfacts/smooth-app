@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sentry/sentry.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
 
 import 'package:smooth_app/pages/alternative_continuous_scan_page.dart';
@@ -20,6 +19,7 @@ import 'package:smooth_ui_library/navigation/models/smooth_navigation_screen_mod
 import 'package:smooth_ui_library/navigation/smooth_navigation_layout.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
+import 'package:smooth_app/database/local_database.dart';
 
 Future<void> main() async {
   await Sentry.init(
@@ -45,15 +45,17 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  UserPreferences _userPreferences;
+  UserPreferencesModel _userPreferencesModel;
+  LocalDatabase _localDatabase;
   final DarkThemeProvider themeChangeProvider = DarkThemeProvider();
-  UserPreferences userPreferences;
-  UserPreferencesModel userPreferencesModel;
 
   Future<void> _init(BuildContext context) async {
-    userPreferences = await UserPreferences.getUserPreferences();
-    userPreferencesModel =
+    _userPreferences = await UserPreferences.getUserPreferences();
+    _userPreferencesModel =
         await UserPreferencesModel.getUserPreferencesModel(context);
-    await userPreferences.init(userPreferencesModel);
+    await _userPreferences.init(_userPreferencesModel);
+    _localDatabase = await LocalDatabase.getLocalDatabase();
     themeChangeProvider.darkTheme =
         await themeChangeProvider.userThemePreference.getTheme();
   }
@@ -67,9 +69,11 @@ class _MyAppState extends State<MyApp> {
           return MultiProvider(
             providers: <ChangeNotifierProvider<dynamic>>[
               ChangeNotifierProvider<UserPreferences>.value(
-                  value: userPreferences),
+                  value: _userPreferences),
               ChangeNotifierProvider<UserPreferencesModel>.value(
-                  value: userPreferencesModel),
+                  value: _userPreferencesModel),
+              ChangeNotifierProvider<LocalDatabase>.value(
+                  value: _localDatabase),
               ChangeNotifierProvider<DarkThemeProvider>.value(
                   value: themeChangeProvider),
             ],
@@ -99,8 +103,50 @@ class SmoothApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
+    final bool mlKitState = userPreferences.getMlKitState();
     return SmoothNavigationLayout(
-      layout: _generateNavigationModel(context),
+      layout: SmoothNavigationLayoutModel(
+        screens: <SmoothNavigationScreenModel>[
+          _generateScreenModel(
+            context,
+            mlKitState,
+            'assets/ikonate_thin/search.svg',
+            'Choose',
+            ChoosePage(),
+          ),
+          /*
+          _generateScreenModel(
+            context,
+            mlKitState,
+            'assets/ikonate_thin/organize.svg',
+            'Organize',
+            OrganizationPage(),
+          ),
+           */
+          _generateScreenModel(
+            context,
+            mlKitState,
+            'assets/ikonate_thin/add.svg',
+            'Contribute',
+            CollaborationPage(),
+          ),
+          _generateScreenModel(
+            context,
+            mlKitState,
+            'assets/ikonate_thin/activity.svg',
+            'Track',
+            TrackingPage(),
+          ),
+          _generateScreenModel(
+            context,
+            mlKitState,
+            'assets/ikonate_thin/person.svg',
+            'Profile',
+            ProfilePage(),
+          ),
+        ],
+      ),
       animationDuration: 300,
       animationCurve: Curves.easeInOutBack,
       borderRadius: 20.0,
@@ -114,154 +160,39 @@ class SmoothApp extends StatelessWidget {
     );
   }
 
-  SmoothNavigationLayoutModel _generateNavigationModel(BuildContext context) {
-    return SmoothNavigationLayoutModel(
-      screens: <SmoothNavigationScreenModel>[
-        _generateChooseScreenModel(context),
-        //_generateOrganizationScreenModel(),
-        _generateCollaborationScreenModel(context),
-        _generateTrackingScreenModel(context),
-        _generateProfileScreenModel(context)
-      ],
-    );
-  }
-
-  SmoothNavigationScreenModel _generateChooseScreenModel(BuildContext context) {
-    return SmoothNavigationScreenModel(
-      icon: Container(
-        padding: EdgeInsets.all(_navigationIconPadding),
-        child: SvgPicture.asset(
-          'assets/ikonate_thin/search.svg',
-          color: Theme.of(context).accentColor,
-          width: _navigationIconSize,
-          height: _navigationIconSize,
+  SmoothNavigationScreenModel _generateScreenModel(
+    final BuildContext context,
+    final bool mlKitState,
+    final String svg,
+    final String title,
+    final Widget page,
+  ) =>
+      SmoothNavigationScreenModel(
+        icon: Container(
+          padding: EdgeInsets.all(_navigationIconPadding),
+          child: SvgPicture.asset(
+            svg,
+            width: _navigationIconSize,
+            height: _navigationIconSize,
+          ),
         ),
-      ),
-      title: 'Choose',
-      page: ChoosePage(),
-      action: SmoothNavigationActionModel(
-        title: AppLocalizations.of(context).scanProductTitle,
-        icon: 'assets/actions/scanner_alt_2.svg',
-        iconPadding: _navigationIconPadding,
-        iconSize: _navigationIconSize,
-        onTap: () async {
-          final SharedPreferences sharedPreferences =
-              await SharedPreferences.getInstance();
-          final Widget newPage = sharedPreferences.getBool('useMlKit') ?? true
-              ? ContinuousScanPage()
-              : AlternativeContinuousScanPage();
-          Navigator.push<Widget>(
-            context,
-            MaterialPageRoute<Widget>(
-                builder: (BuildContext context) => newPage),
-          );
-        },
-      ),
-    );
-  }
-
-  SmoothNavigationScreenModel _generateCollaborationScreenModel(
-      BuildContext context) {
-    return SmoothNavigationScreenModel(
-      icon: Container(
-        padding: EdgeInsets.all(_navigationIconPadding),
-        child: SvgPicture.asset(
-          'assets/ikonate_thin/add.svg',
-          color: Theme.of(context).accentColor,
-          width: _navigationIconSize,
-          height: _navigationIconSize,
+        title: title,
+        page: page,
+        action: SmoothNavigationActionModel(
+          title: AppLocalizations.of(context).scanProductTitle,
+          icon: 'assets/actions/scanner_alt_2.svg',
+          iconPadding: _navigationIconPadding,
+          iconSize: _navigationIconSize,
+          onTap: () {
+            final Widget newPage = mlKitState
+                ? const ContinuousScanPage()
+                : const AlternativeContinuousScanPage();
+            Navigator.push<Widget>(
+              context,
+              MaterialPageRoute<Widget>(
+                  builder: (BuildContext context) => newPage),
+            );
+          },
         ),
-      ),
-      title: 'Contribute',
-      page: CollaborationPage(),
-      action: SmoothNavigationActionModel(
-        title: AppLocalizations.of(context).scanProductTitle,
-        icon: 'assets/actions/scanner_alt_2.svg',
-        iconPadding: _navigationIconPadding,
-        iconSize: _navigationIconSize,
-        onTap: () async {
-          final SharedPreferences sharedPreferences =
-              await SharedPreferences.getInstance();
-          final Widget newPage = sharedPreferences.getBool('useMlKit') ?? true
-              ? ContinuousScanPage()
-              : AlternativeContinuousScanPage();
-          Navigator.push<Widget>(
-            context,
-            MaterialPageRoute<Widget>(
-                builder: (BuildContext context) => newPage),
-          );
-        },
-      ),
-    );
-  }
-
-  SmoothNavigationScreenModel _generateTrackingScreenModel(
-      BuildContext context) {
-    return SmoothNavigationScreenModel(
-      icon: Container(
-        padding: EdgeInsets.all(_navigationIconPadding),
-        child: SvgPicture.asset(
-          'assets/ikonate_thin/activity.svg',
-          color: Theme.of(context).accentColor,
-          width: _navigationIconSize,
-          height: _navigationIconSize,
-        ),
-      ),
-      title: 'Track',
-      page: TrackingPage(),
-      action: SmoothNavigationActionModel(
-        title: AppLocalizations.of(context).scanProductTitle,
-        icon: 'assets/actions/scanner_alt_2.svg',
-        iconPadding: _navigationIconPadding,
-        iconSize: _navigationIconSize,
-        onTap: () async {
-          final SharedPreferences sharedPreferences =
-              await SharedPreferences.getInstance();
-          final Widget newPage = sharedPreferences.getBool('useMlKit') ?? true
-              ? ContinuousScanPage()
-              : AlternativeContinuousScanPage();
-          Navigator.push<Widget>(
-            context,
-            MaterialPageRoute<Widget>(
-                builder: (BuildContext context) => newPage),
-          );
-        },
-      ),
-    );
-  }
-
-  SmoothNavigationScreenModel _generateProfileScreenModel(
-      BuildContext context) {
-    return SmoothNavigationScreenModel(
-      icon: Container(
-        padding: EdgeInsets.all(_navigationIconPadding),
-        child: SvgPicture.asset(
-          'assets/ikonate_thin/person.svg',
-          color: Theme.of(context).accentColor,
-          width: _navigationIconSize,
-          height: _navigationIconSize,
-        ),
-      ),
-      title: 'Profile',
-      page: ProfilePage(),
-      action: SmoothNavigationActionModel(
-        title: AppLocalizations.of(context).scanProductTitle,
-        icon: 'assets/actions/scanner_alt_2.svg',
-        iconPadding: _navigationIconPadding,
-        iconSize: _navigationIconSize,
-        onTap: () async {
-          final SharedPreferences sharedPreferences =
-              await SharedPreferences.getInstance();
-          final Widget newPage = sharedPreferences.getBool('useMlKit') ?? true
-              ? ContinuousScanPage()
-              : AlternativeContinuousScanPage();
-          Navigator.push<Widget>(
-            context,
-            MaterialPageRoute<Widget>(
-                builder: (BuildContext context) => newPage),
-          );
-        },
-      ),
-    );
-  }
+      );
 }

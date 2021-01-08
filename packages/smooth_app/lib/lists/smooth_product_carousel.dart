@@ -1,34 +1,75 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/widgets.dart';
+import 'package:smooth_app/data_models/continuous_scan_model.dart';
+import 'package:openfoodfacts/model/Product.dart';
+import 'package:smooth_app/cards/product_cards/smooth_product_card_edit.dart';
+import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
+import 'package:smooth_app/cards/product_cards/smooth_product_card_not_found.dart';
+import 'package:smooth_app/cards/product_cards/smooth_product_card_loading.dart';
+import 'package:smooth_app/cards/product_cards/smooth_product_card_thanks.dart';
 
-class SmoothProductCarousel extends StatelessWidget {
+class SmoothProductCarousel extends StatefulWidget {
   const SmoothProductCarousel({
-    @required this.productCards,
-    this.controller,
+    @required this.continuousScanModel,
     this.height = 120.0,
   });
 
-  final Map<String, Widget> productCards;
-  final CarouselController controller;
+  final ContinuousScanModel continuousScanModel;
   final double height;
 
   @override
+  _SmoothProductCarouselState createState() => _SmoothProductCarouselState();
+}
+
+class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
+  final CarouselController _controller = CarouselController();
+  int _length = 0;
+
+  @override
   Widget build(BuildContext context) {
+    final List<String> barcodes = widget.continuousScanModel.getBarcodes();
+    final int barcodesLength = barcodes.length;
+    if (_length != barcodesLength) {
+      _length = barcodesLength;
+      if (_length > 1) {
+        _controller.animateToPage(_length - 1);
+      }
+    }
     return CarouselSlider.builder(
-      itemCount: productCards.length,
-      itemBuilder: (BuildContext context, int index) {
-        return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 4.0),
-          child: productCards[productCards.keys.elementAt(index)],
-        );
-      },
-      carouselController: controller,
+      itemCount: _length,
+      itemBuilder: (BuildContext context, int index) => Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 4.0),
+        child: _getWidget(barcodes[index]),
+      ),
+      carouselController: _controller,
       options: CarouselOptions(
         enlargeCenterPage: false,
         viewportFraction: 0.95,
-        height: height,
+        height: widget.height,
         enableInfiniteScroll: false,
       ),
     );
+  }
+
+  Widget _getWidget(final String barcode) {
+    final Product product = widget.continuousScanModel.getProduct(barcode);
+    switch (widget.continuousScanModel.getBarcodeState(barcode)) {
+      case ScannedProductState.FOUND:
+        if (widget.continuousScanModel.contributionMode) {
+          return SmoothProductCardEdit(heroTag: barcode, product: product);
+        }
+        return SmoothProductCardFound(heroTag: barcode, product: product);
+      case ScannedProductState.LOADING:
+        return SmoothProductCardLoading(barcode: barcode);
+      case ScannedProductState.NOT_FOUND:
+        return SmoothProductCardNotFound(
+          barcode: barcode,
+          callback: () => widget.continuousScanModel
+              .setBarcodeState(barcode, ScannedProductState.THANKS),
+        );
+      case ScannedProductState.THANKS:
+        return SmoothProductCardThanks();
+    }
+    throw Exception('scanned barcode without state');
   }
 }

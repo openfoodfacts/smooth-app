@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_qr_bar_scanner/flutter_qr_bar_scanner.dart';
 import 'package:flutter_qr_bar_scanner/qr_bar_scanner_camera.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/lists/smooth_product_carousel.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
@@ -13,16 +13,65 @@ import 'package:smooth_ui_library/widgets/smooth_toggle.dart';
 
 import 'package:smooth_ui_library/widgets/smooth_view_finder.dart';
 
-class ContinuousScanPage extends StatelessWidget {
-  ContinuousScanPage({this.initializeWithContributionMode = false});
+class ContinuousScanPage extends StatefulWidget {
+  const ContinuousScanPage({this.initializeWithContributionMode = false});
 
   final bool initializeWithContributionMode;
 
-  final List<String> barcodesError = <String>[];
-  final List<Product> foundProducts = <Product>[];
+  @override
+  _ContinuousScanPageState createState() => _ContinuousScanPageState();
+
+  static Widget getContributeChooseToggle(final ContinuousScanModel model) =>
+      SmoothToggle(
+        value: model.contributionMode,
+        textLeft: '  CONTRIBUTE',
+        textRight: 'CHOOSE      ',
+        colorLeft: Colors.black.withAlpha(160),
+        colorRight: Colors.black.withAlpha(160),
+        iconLeft: SvgPicture.asset('assets/ikonate_bold/add.svg'),
+        iconRight: SvgPicture.asset('assets/ikonate_bold/search.svg'),
+        textSize: 12.0,
+        animationDuration: const Duration(milliseconds: 320),
+        width: 150.0,
+        height: 50.0,
+        onChanged: (bool value) => model.contributionModeSwitch(value),
+      );
+
+  static Widget getHero(final Size screenSize) => Hero(
+        tag: 'action_button',
+        child: Container(
+          width: screenSize.width,
+          height: screenSize.height,
+          color: Colors.black,
+          child: Center(
+            child: SvgPicture.asset(
+              'assets/actions/scanner_alt_2.svg',
+              width: 60.0,
+              height: 60.0,
+              color: Colors.white,
+            ),
+          ),
+        ),
+      );
+}
+
+class _ContinuousScanPageState extends State<ContinuousScanPage> {
+  ContinuousScanModel _continuousScanModel;
+
+  @override
+  void initState() {
+    super.initState();
+    _continuousScanModel = ContinuousScanModel(
+        contributionMode: widget.initializeWithContributionMode);
+  }
 
   @override
   Widget build(BuildContext context) {
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
+    _continuousScanModel.setLocalDatabase(localDatabase);
+    final Size screenSize = MediaQuery.of(context).size;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final ThemeData themeData = Theme.of(context);
     return Scaffold(
       floatingActionButton: SmoothRevealAnimation(
         delay: 400,
@@ -35,172 +84,105 @@ class ContinuousScanPage extends StatelessWidget {
             color: Colors.black,
           ),
           label: Text(
-            AppLocalizations.of(context).myPersonalizedRanking,
+            appLocalizations.myPersonalizedRanking,
             style: const TextStyle(color: Colors.black),
           ),
           backgroundColor: Colors.white,
-          onPressed: () {
-            Navigator.push<dynamic>(
-              context,
-              MaterialPageRoute<dynamic>(
-                  builder: (BuildContext context) => PersonalizedRankingPage(
-                        input: foundProducts,
-                      )),
-            );
-          },
+          onPressed: () => Navigator.push<dynamic>(
+            context,
+            MaterialPageRoute<dynamic>(
+              builder: (BuildContext context) => PersonalizedRankingPage(
+                input: _continuousScanModel.getFoundProducts(),
+              ),
+            ),
+          ),
         ),
       ),
-      body: ChangeNotifierProvider<ContinuousScanModel>(
-          create: (BuildContext context) => ContinuousScanModel(
-              contributionMode: initializeWithContributionMode),
-          child: Stack(
-            children: <Widget>[
-              Hero(
-                tag: 'action_button',
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height,
-                  color: Colors.black,
-                  child: Center(
-                    child: SvgPicture.asset(
-                      'assets/actions/scanner_alt_2.svg',
-                      width: 60.0,
-                      height: 60.0,
-                      color: Colors.white,
-                    ),
+      body: Stack(
+        children: <Widget>[
+          ContinuousScanPage.getHero(screenSize),
+          SmoothRevealAnimation(
+            delay: 400,
+            startOffset: const Offset(0.0, 0.0),
+            animationCurve: Curves.easeInOutBack,
+            child: QRBarScannerCamera(
+              formats: const <BarcodeFormats>[
+                BarcodeFormats.EAN_8,
+                BarcodeFormats.EAN_13
+              ],
+              qrCodeCallback: (String code) =>
+                  _continuousScanModel.onScan(code),
+              notStartedBuilder: (BuildContext context) => Container(),
+            ),
+          ),
+          SmoothRevealAnimation(
+            delay: 400,
+            startOffset: const Offset(0.0, 0.1),
+            animationCurve: Curves.easeInOutBack,
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Container(
+                  child: Column(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(top: 36.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            ContinuousScanPage.getContributeChooseToggle(
+                                _continuousScanModel),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 14.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            SmoothViewFinder(
+                              width: screenSize.width * 0.8,
+                              height: screenSize.width * 0.45,
+                              animationDuration: 1500,
+                            )
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-              ),
-              Consumer<ContinuousScanModel>(
-                builder: (BuildContext context,
-                    ContinuousScanModel continuousScanModel, Widget child) {
-                  return SmoothRevealAnimation(
-                    delay: 400,
-                    startOffset: const Offset(0.0, 0.0),
-                    animationCurve: Curves.easeInOutBack,
-                    child: QRBarScannerCamera(
-                      formats: const <BarcodeFormats>[
-                        BarcodeFormats.EAN_8,
-                        BarcodeFormats.EAN_13
-                      ],
-                      qrCodeCallback: (String code) {
-                        continuousScanModel.onScan(code);
-                      },
-                      notStartedBuilder: (BuildContext context) {
-                        return Container();
-                      },
-                    ),
-                  );
-                },
-              ),
-              SmoothRevealAnimation(
-                delay: 400,
-                startOffset: const Offset(0.0, 0.1),
-                animationCurve: Curves.easeInOutBack,
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Container(
-                      child: Column(
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.only(top: 36.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Consumer<ContinuousScanModel>(builder:
-                                    (BuildContext context,
-                                        ContinuousScanModel continuousScanModel,
-                                        Widget child) {
-                                  foundProducts.clear();
-                                  foundProducts.addAll(
-                                      continuousScanModel.foundProducts);
-                                  return SmoothToggle(
-                                    value: continuousScanModel.contributionMode,
-                                    textLeft: '  CONTRIBUTE',
-                                    textRight: 'CHOOSE      ',
-                                    colorLeft: Colors.black.withAlpha(160),
-                                    colorRight: Colors.black.withAlpha(160),
-                                    iconLeft: SvgPicture.asset(
-                                        'assets/ikonate_bold/add.svg'),
-                                    iconRight: SvgPicture.asset(
-                                        'assets/ikonate_bold/search.svg'),
-                                    textSize: 12.0,
-                                    animationDuration:
-                                        const Duration(milliseconds: 320),
-                                    width: 150.0,
-                                    height: 50.0,
-                                    onChanged: (bool value) {
-                                      continuousScanModel
-                                          .contributionModeSwitch(value);
-                                    },
-                                  );
-                                }),
-                              ],
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 80.0),
+                  child: _continuousScanModel.isNotEmpty
+                      ? Container(
+                          width: screenSize.width,
+                          child: SmoothProductCarousel(
+                            continuousScanModel: _continuousScanModel,
+                            height: _continuousScanModel.contributionMode
+                                ? 160.0
+                                : 120.0,
+                          ),
+                        )
+                      : Container(
+                          width: screenSize.width,
+                          height: screenSize.height * 0.5,
+                          child: Center(
+                            child: Text(
+                              appLocalizations.scannerProductsEmpty,
+                              style: themeData.textTheme.subtitle1,
+                              textAlign: TextAlign.start,
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 14.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                SmoothViewFinder(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.8,
-                                  height:
-                                      MediaQuery.of(context).size.width * 0.45,
-                                  animationDuration: 1500,
-                                )
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 80.0),
-                      child: Consumer<ContinuousScanModel>(
-                        builder: (BuildContext context,
-                            ContinuousScanModel continuousScanModel,
-                            Widget child) {
-                          foundProducts.clear();
-                          foundProducts
-                              .addAll(continuousScanModel.foundProducts);
-                          if (continuousScanModel.cardTemplates.isNotEmpty) {
-                            return Container(
-                              width: MediaQuery.of(context).size.width,
-                              child: SmoothProductCarousel(
-                                productCards: continuousScanModel.cardTemplates,
-                                controller:
-                                    continuousScanModel.carouselController,
-                                height: continuousScanModel.contributionMode
-                                    ? 160.0
-                                    : 120.0,
-                              ),
-                            );
-                          }
-                          return Container(
-                            width: MediaQuery.of(context).size.width,
-                            height: MediaQuery.of(context).size.height * 0.5,
-                            child: Center(
-                              child: Text(
-                                AppLocalizations.of(context).scannerProductsEmpty,
-                                style: Theme.of(context).textTheme.subtitle1,
-                                textAlign: TextAlign.start,
-                              ),
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                  ],
+                        ),
                 ),
-              ),
-            ],
-          )),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
