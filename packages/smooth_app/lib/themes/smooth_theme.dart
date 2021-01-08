@@ -83,11 +83,10 @@ class SmoothThemes {
           fontWeight: FontWeight.bold,
           color: isDarkTheme ? Colors.white : Colors.black,
         ),
-        bodyText1: TextStyle(
-          color: isDarkTheme ? Colors.white : Colors.black,
-        ),
         bodyText2: TextStyle(
-          color: isDarkTheme ? basicDark : Colors.black,
+          color: isDarkTheme ? Colors.white : Colors.black,
+          fontSize: 14,
+          letterSpacing: 0.5,
         ),
         subtitle1: TextStyle(
           fontSize: 14.0,

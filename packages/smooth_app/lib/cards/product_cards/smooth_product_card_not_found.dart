@@ -27,7 +27,7 @@ class SmoothProductCardNotFound extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('This product is missing', style: Theme.of(context).textTheme.bodyText1),
+            const Text('This product is missing'),
             const SizedBox(
               height: 12.0,
             ),

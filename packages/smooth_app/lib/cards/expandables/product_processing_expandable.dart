@@ -59,7 +59,7 @@ class ProductProcessingExpandable extends StatelessWidget {
             children: <Widget>[
               Flexible(
                 child: Text(
-                    'We\'ve found ${additives.names.length} additives in this product :', style: Theme.of(context).textTheme.bodyText1,),
+                    'We\'ve found ${additives.names.length} additives in this product :'),
               )
             ],
           ),

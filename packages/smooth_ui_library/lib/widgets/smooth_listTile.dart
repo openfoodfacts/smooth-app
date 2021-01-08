@@ -26,7 +26,6 @@ class SmoothListTile extends StatelessWidget {
           children: <Widget>[
             Text(
               text,
-              style: Theme.of(context).textTheme.bodyText1,
             ),
             _buildIcon(context),
           ],

@@ -26,9 +26,9 @@ class NutriscoreExpandable extends StatelessWidget {
                 Container(
                   width: MediaQuery.of(context).size.width * 0.5,
                   child: Row(
-                    children: <Widget>[
+                    children: const <Widget>[
                       Flexible(
-                        child: Text('Message according to the score', style: Theme.of(context).textTheme.bodyText1),
+                        child: Text('Message according to the score'),
                       )
                     ],
                   ),

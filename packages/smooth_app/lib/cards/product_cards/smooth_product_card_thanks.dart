@@ -13,7 +13,7 @@ class SmoothProductCardThanks extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text('Thank you for adding this product !', style: Theme.of(context).textTheme.bodyText1),
+          const Text('Thank you for adding this product !'),
           const SizedBox(
             height: 12.0,
           ),

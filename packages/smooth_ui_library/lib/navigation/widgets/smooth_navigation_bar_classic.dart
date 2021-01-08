@@ -85,7 +85,7 @@ class _SmoothNavigationBarClassicState extends State<SmoothNavigationBarClassic>
                                         widget.buttons[i].title,
                                         style: Theme.of(context)
                                             .textTheme
-                                            .bodyText1
+                                            .bodyText2
                                             .copyWith(
                                               fontWeight: FontWeight.w500,
                                               fontSize: 15,
@@ -106,7 +106,7 @@ class _SmoothNavigationBarClassicState extends State<SmoothNavigationBarClassic>
                                       widget.buttons[i].title,
                                       style: Theme.of(context)
                                           .textTheme
-                                          .bodyText1
+                                          .bodyText2
                                           .copyWith(
                                               fontWeight: FontWeight.normal,
                                               fontSize: 10.0),
@@ -137,7 +137,7 @@ class _SmoothNavigationBarClassicState extends State<SmoothNavigationBarClassic>
                                             .title,
                                         style: Theme.of(context)
                                             .textTheme
-                                            .bodyText1
+                                            .bodyText2
                                             .copyWith(
                                               fontWeight: FontWeight.w500,
                                               fontSize: 15,
@@ -163,7 +163,7 @@ class _SmoothNavigationBarClassicState extends State<SmoothNavigationBarClassic>
                                           .title,
                                       style: Theme.of(context)
                                           .textTheme
-                                          .bodyText1
+                                          .bodyText2
                                           .copyWith(
                                             fontWeight: FontWeight.normal,
                                             fontSize: 10.0,

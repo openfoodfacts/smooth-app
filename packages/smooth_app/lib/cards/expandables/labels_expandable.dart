@@ -12,49 +12,42 @@ class LabelsExpandable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return SmoothExpandableCard(
       headerHeight: 50.0,
-      collapsedHeader: Row(
-          children: <Widget>[
-                  Container(
-                    child: labels.isNotEmpty
-                        ? Row(
-                            children: List<Widget>.generate(
-                                labels.length > 3 ? 4 : labels.length,
-                                (int index) {
-                              if (index == 3) {
-                                return Container(
-                                  width: 50.0,
-                                  height: 50.0,
-                                  margin: const EdgeInsets.only(left: 12.0),
-                                  decoration: BoxDecoration(
-                                    borderRadius: const BorderRadius.all(
-                                        Radius.circular(40.0)),
-                                    color: Colors.transparent,
-                                    border: Border.all(
-                                        color: Colors.grey, width: 1.0),
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      '+${labels.length - 3}',
-                                      style: Theme.of(context).textTheme.subtitle1,
-                                    ),
-                                  ),
-                                );
-                              }
-                              return generateLabelWidget(
-                                  labels[index], context);
-                            }),
-                          )
-                        : Text(
-                            'No label found',
-                            style: Theme.of(context)
-                                .textTheme
-                                .headline3,
+      collapsedHeader: Row(children: <Widget>[
+        Container(
+          child: labels.isNotEmpty
+              ? Row(
+                  children: List<Widget>.generate(
+                      labels.length > 3 ? 4 : labels.length, (int index) {
+                    if (index == 3) {
+                      return Container(
+                        width: 50.0,
+                        height: 50.0,
+                        margin: const EdgeInsets.only(left: 12.0),
+                        decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(40.0)),
+                          color: Colors.transparent,
+                          border: Border.all(color: Colors.grey, width: 1.0),
+                        ),
+                        child: Center(
+                          child: Text(
+                            '+${labels.length - 3}',
+                            style: Theme.of(context).textTheme.subtitle1,
                           ),
-                  ),
-                ]),
+                        ),
+                      );
+                    }
+                    return generateLabelWidget(labels[index], context);
+                  }),
+                )
+              : Text(
+                  'No label found',
+                  style: Theme.of(context).textTheme.headline3,
+                ),
+        ),
+      ]),
       content: Container(
         height: 70.0 * (labels.length),
         child: Column(
@@ -68,7 +61,7 @@ class LabelsExpandable extends StatelessWidget {
                   const SizedBox(
                     width: 8.0,
                   ),
-                  Text(cleanLabelName(labels[index]), style: Theme.of(context).textTheme.bodyText1),
+                  Text(cleanLabelName(labels[index])),
                 ],
               ),
             );
