@@ -14,62 +14,42 @@ class LabelsExpandable extends StatelessWidget {
   Widget build(BuildContext context) {
     return SmoothExpandableCard(
       headerHeight: 50.0,
-      collapsedHeader: Row(
-          children: labels != null
-              ? <Widget>[
-                  Container(
-                    child: labels.isNotEmpty
-                        ? Row(
-                            children: List<Widget>.generate(
-                                labels.length > 3 ? 4 : labels.length,
-                                (int index) {
-                              if (index == 3) {
-                                return Container(
-                                  width: 50.0,
-                                  height: 50.0,
-                                  margin: const EdgeInsets.only(left: 12.0),
-                                  decoration: BoxDecoration(
-                                    borderRadius: const BorderRadius.all(
-                                        Radius.circular(40.0)),
-                                    color: Colors.transparent,
-                                    border: Border.all(
-                                        color: Colors.grey, width: 1.0),
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      '+${labels.length - 3}',
-                                      style: const TextStyle(
-                                          fontSize: 18.0,
-                                          color: Colors.grey,
-                                          fontWeight: FontWeight.w300),
-                                    ),
-                                  ),
-                                );
-                              }
-                              return generateLabelWidget(
-                                  labels[index], context);
-                            }),
-                          )
-                        : Text(
-                            'No label found',
-                            style: Theme.of(context)
-                                .textTheme
-                                .headline4
-                                .copyWith(color: Colors.black),
+      collapsedHeader: Row(children: <Widget>[
+        Container(
+          child: labels.isNotEmpty
+              ? Row(
+                  children: List<Widget>.generate(
+                      labels.length > 3 ? 4 : labels.length, (int index) {
+                    if (index == 3) {
+                      return Container(
+                        width: 50.0,
+                        height: 50.0,
+                        margin: const EdgeInsets.only(left: 12.0),
+                        decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(40.0)),
+                          color: Colors.transparent,
+                          border: Border.all(color: Colors.grey, width: 1.0),
+                        ),
+                        child: Center(
+                          child: Text(
+                            '+${labels.length - 3}',
+                            style: Theme.of(context).textTheme.subtitle1,
                           ),
-                  ),
-                ]
-              : <Widget>[
-                  Text(
-                    'No label found',
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline4
-                        .copyWith(color: Colors.black),
-                  ),
-                ]),
+                        ),
+                      );
+                    }
+                    return generateLabelWidget(labels[index], context);
+                  }),
+                )
+              : Text(
+                  'No label found',
+                  style: Theme.of(context).textTheme.headline3,
+                ),
+        ),
+      ]),
       content: Container(
-        height: 70.0 * labels.length,
+        height: 70.0 * (labels.length),
         child: Column(
           children: List<Widget>.generate(labels.length, (int index) {
             return Container(

@@ -179,11 +179,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   const SizedBox(
                                     height: 20,
                                   ),
-                                  Text(
-                                    '${AppLocalizations.of(context).whatIsOff}',
-                                    style:
-                                        Theme.of(context).textTheme.bodyText1,
-                                  ),
+                                  Text(AppLocalizations.of(context).whatIsOff),
                                   FlatButton(
                                     onPressed: () {
                                       launcher.launchURL(

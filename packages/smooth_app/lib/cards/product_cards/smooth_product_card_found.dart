@@ -15,6 +15,7 @@ class SmoothProductCardFound extends StatelessWidget {
     @required this.heroTag,
     this.elevation = 0.0,
     this.useNewStyle = true,
+    this.translucentBackground = false,
     this.backgroundColor = Colors.white,
   });
 
@@ -22,6 +23,7 @@ class SmoothProductCardFound extends StatelessWidget {
   final String heroTag;
   final double elevation;
   final bool useNewStyle;
+  final bool translucentBackground;
   final Color backgroundColor;
 
   @override
@@ -59,9 +61,10 @@ class SmoothProductCardFound extends StatelessWidget {
         child: Material(
           elevation: elevation,
           borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+          color: Colors.transparent,
           child: Container(
             decoration: BoxDecoration(
-              color: backgroundColor,
+              color: translucentBackground ? Theme.of(context).cardColor.withOpacity(0.25) : Theme.of(context).cardColor,
               borderRadius: const BorderRadius.all(Radius.circular(15.0)),
             ),
             padding: const EdgeInsets.all(5.0),
@@ -92,9 +95,7 @@ class SmoothProductCardFound extends StatelessWidget {
                                   product.productName ?? 'Unknown product name',
                                   maxLines: 2,
                                   overflow: TextOverflow.fade,
-                                  style: const TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold),
+                                  style: Theme.of(context).textTheme.headline4,
                                 ),
                               ),
                             ],
@@ -109,10 +110,7 @@ class SmoothProductCardFound extends StatelessWidget {
                                   product.brands ?? 'Unknown brand',
                                   maxLines: 1,
                                   overflow: TextOverflow.fade,
-                                  style: const TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w300,
-                                      fontStyle: FontStyle.italic),
+                                  style: Theme.of(context).textTheme.subtitle1,
                                 ),
                               )
                             ],

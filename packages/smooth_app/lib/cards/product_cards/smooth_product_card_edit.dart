@@ -30,9 +30,9 @@ class SmoothProductCardEdit extends StatelessWidget {
       child: Hero(
         tag: heroTag,
         child: Container(
-          decoration: const BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.all(Radius.circular(15.0)),
+          decoration: BoxDecoration(
+            color: Theme.of(context).cardColor,
+            borderRadius: const BorderRadius.all(Radius.circular(15.0)),
           ),
           padding: const EdgeInsets.all(10.0),
           child: Column(
@@ -48,8 +48,7 @@ class SmoothProductCardEdit extends StatelessWidget {
                       product.productName,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.bold),
+                      style: Theme.of(context).textTheme.headline4,
                     ),
                   ),
                 ],
@@ -128,8 +127,7 @@ class SmoothProductCardEdit extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: Theme.of(context)
                     .textTheme
-                    .subtitle1
-                    .copyWith(color: Colors.black),
+                    .subtitle1,
               ),
             ),
           );

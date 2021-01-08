@@ -37,7 +37,7 @@ class _SmoothAlertDialogState extends State<SmoothAlertDialog> {
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.0)), //this right here
 
-      content: Column(mainAxisSize: MainAxisSize.min, children: [
+      content: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
         _buildTitle(widget.title),
         Container(
           height: widget.height,
@@ -45,7 +45,7 @@ class _SmoothAlertDialogState extends State<SmoothAlertDialog> {
         ),
       ]),
 
-      actions: [
+      actions: <Widget>[
         SizedBox(
           height: 58,
           width: MediaQuery.of(context).size.width,
@@ -60,22 +60,22 @@ class _SmoothAlertDialogState extends State<SmoothAlertDialog> {
   }
 
   Widget _buildTitle(String _title) {
-    double height = 29;
+    const double height = 29;
 
     if (_title == null) {
       return Container();
     } else {
       return Column(
-        children: [
+        children: <Widget>[
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
+            children: <Widget>[
               _buildCross(true),
               Container(
                 height: height,
                 child: Text(
-                  '${_title}',
+                  '$_title',
                   style: Theme.of(context).textTheme.headline2,
                 ),
               ),

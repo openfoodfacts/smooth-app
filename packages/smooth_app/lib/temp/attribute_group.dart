@@ -45,7 +45,7 @@ class AttributeGroup extends JsonObject {
     if (attributes == null || attributes.isEmpty) {
       return null;
     }
-    final List<Map<String, dynamic>> result = [];
+    final List<Map<String, dynamic>> result = <Map<String, dynamic>>[];
     for (final Attribute item in attributes) {
       result.add(item.toJson());
     }

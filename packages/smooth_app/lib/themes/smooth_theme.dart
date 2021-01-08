@@ -23,6 +23,8 @@ class SmoothThemes {
     const Color basicDark2 = Color(0xFF434343);
     const Color basicDark3 = Color(0xFF696464);
 
+    const Color lightGrey = Color(0xFFF5F5F5);
+
     const Color navBarBlack = Color(0xB3181818);
 
     const Color accentDark = Color(0xFF00c896);
@@ -45,7 +47,7 @@ class SmoothThemes {
       buttonColor: isDarkTheme ? basicDark3 : Colors.black,
       //
       // smooth_listTiles
-      cardColor: isDarkTheme ? basicDark2 : Colors.black.withAlpha(10),
+      cardColor: isDarkTheme ? basicDark2 : lightGrey,
       //
       //
       dialogBackgroundColor: isDarkTheme ? basicDark2 : Colors.white,
@@ -81,11 +83,10 @@ class SmoothThemes {
           fontWeight: FontWeight.bold,
           color: isDarkTheme ? Colors.white : Colors.black,
         ),
-        bodyText1: TextStyle(
-          color: isDarkTheme ? Colors.white : Colors.black,
-        ),
         bodyText2: TextStyle(
-          color: isDarkTheme ? basicDark : Colors.black,
+          color: isDarkTheme ? Colors.white : Colors.black,
+          fontSize: 14,
+          letterSpacing: 0.5,
         ),
         subtitle1: TextStyle(
           fontSize: 14.0,
