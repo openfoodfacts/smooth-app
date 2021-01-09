@@ -30,12 +30,18 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
     SmoothItModel.MATCH_INDEX_NO,
   ];
 
-  static const Map<int, Color> _COLORS = <int, Color>{
-    SmoothItModel.MATCH_INDEX_ALL: null,
-    SmoothItModel.MATCH_INDEX_YES: Colors.green,
-    SmoothItModel.MATCH_INDEX_MAYBE: Colors.grey,
-    SmoothItModel.MATCH_INDEX_NO: Colors.red,
-  };
+  static Map<int, Color> _COLORS = <int, Color>{};
+
+  void _getColors(BuildContext context) {
+    _COLORS.addAll(
+      <int, Color>{
+        SmoothItModel.MATCH_INDEX_ALL: Theme.of(context).accentColor,
+        SmoothItModel.MATCH_INDEX_YES: Colors.green,
+        SmoothItModel.MATCH_INDEX_MAYBE: Colors.grey,
+        SmoothItModel.MATCH_INDEX_NO: Colors.red,
+      },
+    );
+  }
 
   static const Map<int, IconData> _ICONS = <int, IconData>{
     SmoothItModel.MATCH_INDEX_ALL: Icons.sort,
@@ -72,6 +78,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
 
   @override
   Widget build(BuildContext context) {
+    _getColors(context);
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final UserPreferencesModel userPreferencesModel =
         context.watch<UserPreferencesModel>();
@@ -89,10 +96,15 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
     return Scaffold(
       key: _scaffoldKey,
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Theme.of(context).bottomAppBarColor.withAlpha(255),
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentTabIndex,
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.blueGrey,
+        selectedItemColor:
+            Theme.of(context).bottomNavigationBarTheme.selectedLabelStyle.color,
+        unselectedItemColor: Theme.of(context)
+            .bottomNavigationBarTheme
+            .unselectedLabelStyle
+            .color,
         items: bottomNavigationBarItems,
         onTap: (int tapped) => setState(() {
           _currentTabIndex = tapped;
@@ -133,7 +145,8 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
           slivers: <Widget>[
             SliverAppBar(
               leading: IconButton(
-                icon: Icon(ConstantIcons.getBackIcon(), color: Theme.of(context).accentColor),
+                icon: Icon(ConstantIcons.getBackIcon(),
+                    color: Theme.of(context).accentColor),
                 onPressed: () => Navigator.of(context).pop(),
               ),
               expandedHeight: 120.0,
@@ -146,9 +159,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
                 centerTitle: true,
                 title: Text(AppLocalizations.of(context).myPersonalizedRanking,
                     textAlign: TextAlign.center,
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline4),
+                    style: Theme.of(context).textTheme.headline4),
               ),
               actions: <IconButton>[
                 IconButton(
