@@ -30,18 +30,11 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
     SmoothItModel.MATCH_INDEX_NO,
   ];
 
-  static Map<int, Color> _COLORS = <int, Color>{};
-
-  void _getColors(BuildContext context) {
-    _COLORS.addAll(
-      <int, Color>{
-        SmoothItModel.MATCH_INDEX_ALL: Theme.of(context).accentColor,
-        SmoothItModel.MATCH_INDEX_YES: Colors.green,
-        SmoothItModel.MATCH_INDEX_MAYBE: Colors.grey,
-        SmoothItModel.MATCH_INDEX_NO: Colors.red,
-      },
-    );
-  }
+  static const Map<int, Color> _COLORS = <int, Color>{
+    SmoothItModel.MATCH_INDEX_YES: Colors.green,
+    SmoothItModel.MATCH_INDEX_MAYBE: Colors.grey,
+    SmoothItModel.MATCH_INDEX_NO: Colors.red,
+  };
 
   static const Map<int, IconData> _ICONS = <int, IconData>{
     SmoothItModel.MATCH_INDEX_ALL: Icons.sort,
@@ -78,7 +71,6 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
 
   @override
   Widget build(BuildContext context) {
-    _getColors(context);
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final UserPreferencesModel userPreferencesModel =
         context.watch<UserPreferencesModel>();
@@ -88,7 +80,8 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
     for (final int matchIndex in _ORDERED_MATCH_INDEXES) {
       bottomNavigationBarItems.add(
         BottomNavigationBarItem(
-          icon: Icon(_ICONS[matchIndex], color: _COLORS[matchIndex]),
+          icon: Icon(_ICONS[matchIndex],
+              color: _COLORS[matchIndex] ?? Theme.of(context).accentColor),
           label: _model.getRankedProducts(matchIndex).length.toString(),
         ),
       );
@@ -99,12 +92,6 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
         backgroundColor: Theme.of(context).bottomAppBarColor.withAlpha(255),
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentTabIndex,
-        selectedItemColor:
-            Theme.of(context).bottomNavigationBarTheme.selectedLabelStyle.color,
-        unselectedItemColor: Theme.of(context)
-            .bottomNavigationBarTheme
-            .unselectedLabelStyle
-            .color,
         items: bottomNavigationBarItems,
         onTap: (int tapped) => setState(() {
           _currentTabIndex = tapped;
