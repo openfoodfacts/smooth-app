@@ -5,37 +5,49 @@ import 'package:smooth_app/data_models/match.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 
 class SmoothItModel {
-  Future<bool> loadData(
+  static const int MATCH_INDEX_YES = 0;
+  static const int MATCH_INDEX_MAYBE = 1;
+  static const int MATCH_INDEX_NO = 2;
+  static const int MATCH_INDEX_ALL = 3;
+
+  final Map<int, List<RankedProduct>> _categorizedProducts =
+      <int, List<RankedProduct>>{};
+  List<RankedProduct> _allProducts;
+  bool _nextRefreshIsJustChangingTabs = false;
+
+  void refresh(
     final List<Product> unprocessedProducts,
     final UserPreferences userPreferences,
     final UserPreferencesModel userPreferencesModel,
-  ) async {
-    if (_loaded) {
-      return true;
+  ) {
+    if (_nextRefreshIsJustChangingTabs) {
+      _nextRefreshIsJustChangingTabs = false;
+      return;
     }
-    final List<RankedProduct> rankedProducts =
+    _allProducts =
         Match.sort(unprocessedProducts, userPreferences, userPreferencesModel);
-    greenProducts.clear();
-    redProducts.clear();
-    whiteProducts.clear();
-    for (final RankedProduct rankedProduct in rankedProducts) {
-      final bool status = rankedProduct.match.status;
-      List<RankedProduct> target;
-      if (status == null) {
-        target = whiteProducts;
-      } else if (status) {
-        target = greenProducts;
-      } else {
-        target = redProducts;
+    _categorizedProducts.clear();
+    for (final RankedProduct rankedProduct in _allProducts) {
+      final int index = getMatchIndex(rankedProduct);
+      if (_categorizedProducts[index] == null) {
+        _categorizedProducts[index] = <RankedProduct>[];
       }
-      target.add(rankedProduct);
+      _categorizedProducts[index].add(rankedProduct);
     }
-    _loaded = true;
-    return true;
   }
 
-  final List<RankedProduct> greenProducts = <RankedProduct>[];
-  final List<RankedProduct> redProducts = <RankedProduct>[];
-  final List<RankedProduct> whiteProducts = <RankedProduct>[];
-  bool _loaded = false;
+  void setNextRefreshAsJustChangingTabs() =>
+      _nextRefreshIsJustChangingTabs = true;
+
+  List<RankedProduct> getRankedProducts(final int matchIndex) =>
+      matchIndex == MATCH_INDEX_ALL
+          ? _allProducts
+          : _categorizedProducts[matchIndex] ?? <RankedProduct>[];
+
+  static int getMatchIndex(final RankedProduct product) =>
+      product.match.status == null
+          ? MATCH_INDEX_MAYBE
+          : product.match.status
+              ? MATCH_INDEX_YES
+              : MATCH_INDEX_NO;
 }

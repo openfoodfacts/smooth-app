@@ -51,7 +51,7 @@ class AttributeCard extends StatelessWidget {
                     child: Text(
                       'Nutri-score unavailable',
                       style: themeData.textTheme.subtitle1
-                          .copyWith(color: Colors.black, fontSize: 12.0),
+                          .copyWith(fontSize: 12.0),
                       textAlign: TextAlign.center,
                     ),
                   ),
