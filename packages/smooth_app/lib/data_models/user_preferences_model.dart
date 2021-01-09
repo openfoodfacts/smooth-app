@@ -2,8 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
-import 'package:smooth_app/temp/attribute_group.dart';
-import 'package:smooth_app/temp/attribute.dart';
+import 'package:openfoodfacts/model/AttributeGroup.dart';
+import 'package:openfoodfacts/model/Attribute.dart';
+import 'package:openfoodfacts/model/Product.dart';
 
 class UserPreferencesModel extends ChangeNotifier {
   UserPreferencesModel._();
@@ -17,10 +18,9 @@ class UserPreferencesModel extends ChangeNotifier {
 
   List<PreferencesValue> _preferenceValues;
   Map<String, int> _preferenceValuesReverse;
-  List<AttributeGroup> _preferenceVariableGroups;
+  List<AttributeGroup> _attributeGroups;
 
-  List<AttributeGroup> get preferenceVariableGroups =>
-      _preferenceVariableGroups;
+  List<AttributeGroup> get attributeGroups => _attributeGroups;
 
   bool _loadStrings(
       final String importanceString, final String variableString) {
@@ -65,10 +65,11 @@ class UserPreferencesModel extends ChangeNotifier {
 
   List<String> getOrderedVariables(final UserPreferences userPreferences) {
     final Map<int, List<String>> map = <int, List<String>>{};
-    for (final AttributeGroup attributeGroup in preferenceVariableGroups) {
+    for (final AttributeGroup attributeGroup in attributeGroups) {
       for (final Attribute attribute in attributeGroup.attributes) {
         final String variable = attribute.id;
-        final int importance = getAttributeValueIndex(variable, userPreferences);
+        final int importance =
+            getAttributeValueIndex(variable, userPreferences);
         if (importance == null ||
             importance == UserPreferences.INDEX_NOT_IMPORTANT) {
           continue;
@@ -93,6 +94,26 @@ class UserPreferencesModel extends ChangeNotifier {
       list.forEach(result.add);
     }
     return result;
+  }
+
+  Attribute getAttribute(final Product product, final String attributeId) {
+    if (product == null) {
+      return null;
+    }
+    if (attributeId == null) {
+      return null;
+    }
+    if (product.attributeGroups == null) {
+      return null;
+    }
+    for (final AttributeGroup attributeGroup in product.attributeGroups) {
+      for (final Attribute attribute in attributeGroup.attributes) {
+        if (attribute.id == attributeId) {
+          return attribute;
+        }
+      }
+    }
+    return null;
   }
 
   int getAttributeValueIndex(
@@ -122,7 +143,7 @@ class UserPreferencesModel extends ChangeNotifier {
   }
 
   void _loadVariables(dynamic json) =>
-      _preferenceVariableGroups = (json as List<dynamic>)
+      _attributeGroups = (json as List<dynamic>)
           .map((dynamic item) => AttributeGroup.fromJson(item))
           .toList();
 }

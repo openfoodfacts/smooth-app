@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Product.dart';
@@ -8,6 +9,7 @@ import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
 import 'package:smooth_app/cards/category_cards/attribute_card.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
+import 'package:openfoodfacts/model/Attribute.dart';
 
 class SmoothProductCardFound extends StatelessWidget {
   const SmoothProductCardFound({
@@ -35,15 +37,16 @@ class SmoothProductCardFound extends StatelessWidget {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final UserPreferencesModel userPreferencesModel =
         context.watch<UserPreferencesModel>();
+    final Size screenSize = MediaQuery.of(context).size;
+    final ThemeData themeData = Theme.of(context);
 
     final List<String> orderedVariables =
         userPreferencesModel.getOrderedVariables(userPreferences);
     final List<Widget> scores = <Widget>[];
     for (final String variable in orderedVariables) {
-      if (scores.isNotEmpty) {
-        scores.add(_getDivider());
-      }
-      scores.add(AttributeCard(product, variable));
+      final Attribute attribute =
+          userPreferencesModel.getAttribute(product, variable);
+      scores.add(AttributeCard(attribute, height: 40));
     }
     return GestureDetector(
       onTap: () {
@@ -64,17 +67,19 @@ class SmoothProductCardFound extends StatelessWidget {
           color: Colors.transparent,
           child: Container(
             decoration: BoxDecoration(
-              color: translucentBackground ? Theme.of(context).cardColor.withOpacity(0.25) : Theme.of(context).cardColor,
+              color: translucentBackground
+                  ? backgroundColor.withOpacity(0.25)
+                  : backgroundColor,
               borderRadius: const BorderRadius.all(Radius.circular(15.0)),
             ),
             padding: const EdgeInsets.all(5.0),
-            height: 120.0,
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 SmoothProductImage(
                   product: product,
-                  width: MediaQuery.of(context).size.width * 0.20,
-                  height: double.infinity,
+                  width: screenSize.width * 0.20,
                 ),
                 const SizedBox(
                   width: 8.0,
@@ -85,7 +90,7 @@ class SmoothProductCardFound extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Container(
-                      width: MediaQuery.of(context).size.width * 0.65,
+                      width: screenSize.width * 0.65,
                       child: Column(
                         children: <Widget>[
                           Row(
@@ -95,7 +100,7 @@ class SmoothProductCardFound extends StatelessWidget {
                                   product.productName ?? 'Unknown product name',
                                   maxLines: 2,
                                   overflow: TextOverflow.fade,
-                                  style: Theme.of(context).textTheme.headline4,
+                                  style: themeData.textTheme.headline4,
                                 ),
                               ),
                             ],
@@ -110,7 +115,7 @@ class SmoothProductCardFound extends StatelessWidget {
                                   product.brands ?? 'Unknown brand',
                                   maxLines: 1,
                                   overflow: TextOverflow.fade,
-                                  style: Theme.of(context).textTheme.subtitle1,
+                                  style: themeData.textTheme.subtitle1,
                                 ),
                               )
                             ],
@@ -123,10 +128,11 @@ class SmoothProductCardFound extends StatelessWidget {
                         border: Border(
                             top: BorderSide(color: Colors.grey, width: 1.0)),
                       ),
-                      width: MediaQuery.of(context).size.width * 0.65,
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.start,
+                      width: screenSize.width * 0.65,
+                      child: Wrap(
+                        direction: Axis.horizontal,
+                        runSpacing: 12,
+                        spacing: 10,
                         children: scores,
                       ),
                     ),
@@ -139,13 +145,6 @@ class SmoothProductCardFound extends StatelessWidget {
       ),
     );
   }
-
-  Widget _getDivider() => Container(
-        height: 35.0,
-        width: 1.0,
-        margin: const EdgeInsets.symmetric(horizontal: 4.0),
-        color: Colors.grey,
-      );
 
   Widget _getOldStyle(final BuildContext context) => GestureDetector(
         onTap: () {
@@ -232,8 +231,8 @@ class SmoothProductCardFound extends StatelessWidget {
                                 Container(
                                   width: 100.0,
                                   child: product.nutriscore != null
-                                      ? Image.asset(
-                                          'assets/product/nutri_score_${product.nutriscore}.png',
+                                      ? SvgPicture.network(
+                                          'https://static.openfoodfacts.org/images/misc/nutriscore-${product.nutriscore}.svg',
                                           fit: BoxFit.contain,
                                         )
                                       : Center(

@@ -7,8 +7,8 @@ import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_ui_library/buttons/smooth_main_button.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
-import 'package:smooth_app/temp/attribute.dart';
-import 'package:smooth_app/temp/attribute_group.dart';
+import 'package:openfoodfacts/model/AttributeGroup.dart';
+import 'package:openfoodfacts/model/Attribute.dart';
 
 class UserPreferencesView extends StatelessWidget {
   const UserPreferencesView(this._scrollController, {this.callback});
@@ -213,8 +213,7 @@ class UserPreferencesView extends StatelessWidget {
     final UserPreferences userPreferences,
     final UserPreferencesModel userPreferencesModel,
   ) {
-    final List<AttributeGroup> groups =
-        userPreferencesModel.preferenceVariableGroups;
+    final List<AttributeGroup> groups = userPreferencesModel.attributeGroups;
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: List<Widget>.generate(
