@@ -34,7 +34,7 @@ class VegetarianInformationCard extends StatelessWidget {
       child: Center(
         child: Text(
           text,
-          style: Theme.of(context).textTheme.bodyText1.copyWith(color: color),
+          style: Theme.of(context).textTheme.bodyText2.copyWith(color: color),
         ),
       ),
     );

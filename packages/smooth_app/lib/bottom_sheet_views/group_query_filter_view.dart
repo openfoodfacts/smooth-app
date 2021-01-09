@@ -65,7 +65,7 @@ class GroupQueryFilterView extends StatelessWidget {
                                 child: Text(categories[key] ?? 'error',
                                     style: Theme.of(context)
                                         .textTheme
-                                        .bodyText1
+                                        .bodyText2
                                         .copyWith(
                                             color: Colors.black,
                                             fontSize: 12.0)),
@@ -112,7 +112,7 @@ class GroupQueryFilterView extends StatelessWidget {
                                 child: Text(categories[key] ?? 'error',
                                     style: Theme.of(context)
                                         .textTheme
-                                        .bodyText1
+                                        .bodyText2
                                         .copyWith(
                                         color: Colors.black,
                                         fontSize: 12.0)),
@@ -145,7 +145,8 @@ class GroupQueryFilterView extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 12.0, vertical: 20.0),
                             child: SmoothMainButton(
-                              text: AppLocalizations.of(context).applyButtonText,
+                              text:
+                                  AppLocalizations.of(context).applyButtonText,
                               onPressed: () {
                                 Navigator.pop(context);
                                 callback(

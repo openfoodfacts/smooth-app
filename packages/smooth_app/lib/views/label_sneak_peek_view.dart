@@ -60,10 +60,8 @@ class LabelSneakPeekView extends StatelessWidget {
                                   'At least 95% organic ingredients',
                                   style: Theme.of(context).textTheme.headline3,
                                 ),
-                                Text(
-                                  'Composé d\'au moins 95 % d\'ingrédients issus d\'un mode de production biologique',
-                                  style: Theme.of(context).textTheme.bodyText1,
-                                )
+                                const Text(
+                                    'Composé d\'au moins 95 % d\'ingrédients issus d\'un mode de production biologique')
                               ],
                             ),
                           ),
@@ -74,9 +72,8 @@ class LabelSneakPeekView extends StatelessWidget {
                                   'Absence d\'OGM (traces <0,9% éventuellement possibles)',
                                   style: Theme.of(context).textTheme.headline3,
                                 ),
-                                Text(
+                                const Text(
                                   'Absence d\'OGM (possibilité de traces fortuites, accidentelles ou inévitables, dans la limite de 0,9 %)',
-                                  style: Theme.of(context).textTheme.bodyText1,
                                 )
                               ],
                             ),
@@ -88,9 +85,8 @@ class LabelSneakPeekView extends StatelessWidget {
                                   'Certifié par un organisme indépendant',
                                   style: Theme.of(context).textTheme.headline3,
                                 ),
-                                Text(
+                                const Text(
                                   'Certifié par un organisme agréé par les pouvoirs publics français et répondant aux critères d\'indépendance, d\'impartialité, de compétence et d\'efficacité définis par la norme européenne EN 45011',
-                                  style: Theme.of(context).textTheme.bodyText1,
                                 )
                               ],
                             ),
@@ -102,10 +98,8 @@ class LabelSneakPeekView extends StatelessWidget {
                                   'Respect de la réglementation française',
                                   style: Theme.of(context).textTheme.headline3,
                                 ),
-                                Text(
-                                  'Respect de la réglementation en vigueur en France',
-                                  style: Theme.of(context).textTheme.bodyText1,
-                                )
+                                const Text(
+                                    'Respect de la réglementation en vigueur en France')
                               ],
                             ),
                           )

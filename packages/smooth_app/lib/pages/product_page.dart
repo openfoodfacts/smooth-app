@@ -53,7 +53,7 @@ class ProductPage extends StatelessWidget {
           BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 18.0, sigmaY: 18.0),
             child: Container(
-              color: Colors.white.withAlpha(220),
+              color: Theme.of(context).cardColor.withAlpha(220),
               child: ListView(
                 children: <Widget>[
                   Padding(
@@ -81,10 +81,7 @@ class ProductPage extends StatelessWidget {
                         Flexible(
                           child: Text(
                             product.brands ?? AppLocalizations.of(context).unknownBrand,
-                            style: Theme.of(context)
-                                .textTheme
-                                .subtitle1
-                                .copyWith(color: Colors.black, fontSize: 18.0),
+                            style: Theme.of(context).textTheme.subtitle1,
                           ),
                         ),
                         Flexible(
@@ -185,7 +182,7 @@ class ProductPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  LabelsExpandable(labels: product.labelsTags),
+                  LabelsExpandable(labels: product.labelsTags ?? <String>[]),
                 ],
               ),
             ),

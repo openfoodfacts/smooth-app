@@ -99,7 +99,6 @@ class UserContributionView extends StatelessWidget {
               children: <Widget>[
                 Text(
                   AppLocalizations.of(context).contribute_contribute_text,
-                  style: Theme.of(context).textTheme.bodyText1,
                 ),
                 FlatButton(
                   onPressed: () => launcher.launchURL(
@@ -109,7 +108,6 @@ class UserContributionView extends StatelessWidget {
                   child: Text(
                     AppLocalizations.of(context)
                         .contribute_contribute_toBeCompleted,
-                    style: Theme.of(context).textTheme.bodyText1,
                   ),
                 ),
                 FlatButton(
@@ -157,14 +155,12 @@ class UserContributionView extends StatelessWidget {
             children: <Widget>[
               Text(
                 AppLocalizations.of(context).contribute_develop_text,
-                style: Theme.of(context).textTheme.bodyText1,
               ),
               const SizedBox(
                 height: 20,
               ),
               Text(
                 AppLocalizations.of(context).contribute_develop_text_2,
-                style: Theme.of(context).textTheme.bodyText1,
               ),
               FlatButton(
                 onPressed: () => launcher.launchURL(
@@ -209,11 +205,9 @@ class UserContributionView extends StatelessWidget {
             children: <Widget>[
               Text(
                 AppLocalizations.of(context).contribute_translate_text,
-                style: Theme.of(context).textTheme.bodyText1,
               ),
               Text(
                 AppLocalizations.of(context).contribute_translate_text_2,
-                style: Theme.of(context).textTheme.bodyText1,
               ),
             ],
           ),
@@ -239,7 +233,6 @@ class UserContributionView extends StatelessWidget {
             children: <Widget>[
               Text(
                 AppLocalizations.of(context).featureInProgress,
-                style: Theme.of(context).textTheme.bodyText1,
               ),
             ],
           ),

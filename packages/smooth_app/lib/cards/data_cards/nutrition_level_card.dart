@@ -22,6 +22,7 @@ class NutritionLevelCard extends StatelessWidget {
           elevation: 4.0,
           borderRadius: const BorderRadius.all(Radius.circular(20.0)),
           shadowColor: _getColor().withAlpha(60),
+          color: Colors.transparent,
           child: Container(
               height: 36.0,
               padding:
@@ -44,6 +45,7 @@ class NutritionLevelCard extends StatelessWidget {
       elevation: 4.0,
       borderRadius: const BorderRadius.all(Radius.circular(20.0)),
       shadowColor: _getColor().withAlpha(60),
+      color: Colors.transparent,
       child: Container(
         width: MediaQuery.of(context).size.width * 0.4,
         height: 80.0,

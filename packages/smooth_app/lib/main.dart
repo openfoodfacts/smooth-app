@@ -78,7 +78,7 @@ class _MyAppState extends State<MyApp> {
                   value: themeChangeProvider),
             ],
             child: Consumer<DarkThemeProvider>(
-              builder: (BuildContext context, value, Widget child) {
+              builder: (BuildContext context, DarkThemeProvider value, Widget child) {
                 return MaterialApp(
                   localizationsDelegates:
                       AppLocalizations.localizationsDelegates,
@@ -174,6 +174,7 @@ class SmoothApp extends StatelessWidget {
             svg,
             width: _navigationIconSize,
             height: _navigationIconSize,
+            color: Theme.of(context).accentColor,
           ),
         ),
         title: title,

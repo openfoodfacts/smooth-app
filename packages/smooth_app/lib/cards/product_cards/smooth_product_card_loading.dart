@@ -9,9 +9,9 @@ class SmoothProductCardLoading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.all(Radius.circular(15.0)),
+      decoration: BoxDecoration(
+        color: Theme.of(context).cardColor,
+        borderRadius: const BorderRadius.all(Radius.circular(15.0)),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.max,
@@ -21,7 +21,7 @@ class SmoothProductCardLoading extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(barcode),
+              Text(barcode, style: Theme.of(context).textTheme.subtitle1),
             ],
           ),
           const SizedBox(

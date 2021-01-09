@@ -26,8 +26,8 @@ class SmoothExpandableCard extends StatelessWidget {
             duration: const Duration(milliseconds: 160),
             firstCurve: Curves.easeInOutBack,
             secondCurve: Curves.easeInOutBack,
-            firstChild: _buildCollapsedWidget(singleBooleanModel),
-            secondChild: _buildExpandedWidget(singleBooleanModel),
+            firstChild: _buildCollapsedWidget(singleBooleanModel, Theme.of(context)),
+            secondChild: _buildExpandedWidget(singleBooleanModel, Theme.of(context)),
             crossFadeState: singleBooleanModel.isActive
                 ? CrossFadeState.showSecond
                 : CrossFadeState.showFirst,
@@ -37,7 +37,7 @@ class SmoothExpandableCard extends StatelessWidget {
     );
   }
 
-  Widget _buildCollapsedWidget(SingleBooleanModel singleBooleanModel) {
+  Widget _buildCollapsedWidget(SingleBooleanModel singleBooleanModel, ThemeData themeData) {
     return Padding(
       padding:
           const EdgeInsets.only(right: 8.0, left: 8.0, top: 4.0, bottom: 20.0),
@@ -49,6 +49,7 @@ class SmoothExpandableCard extends StatelessWidget {
           elevation: 8.0,
           shadowColor: Colors.black45,
           borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+          color: themeData.cardColor,
           child: Container(
             padding: const EdgeInsets.all(12.0),
             child: Row(
@@ -60,7 +61,7 @@ class SmoothExpandableCard extends StatelessWidget {
                   height: headerHeight,
                   child: collapsedHeader,
                 ),
-                const Icon(Icons.keyboard_arrow_down),
+                Icon(Icons.keyboard_arrow_down, color: themeData.accentColor),
               ],
             ),
           ),
@@ -69,7 +70,7 @@ class SmoothExpandableCard extends StatelessWidget {
     );
   }
 
-  Widget _buildExpandedWidget(SingleBooleanModel singleBooleanModel) {
+  Widget _buildExpandedWidget(SingleBooleanModel singleBooleanModel, ThemeData themeData) {
     return Padding(
       padding:
           const EdgeInsets.only(right: 8.0, left: 8.0, top: 4.0, bottom: 20.0),
@@ -77,6 +78,7 @@ class SmoothExpandableCard extends StatelessWidget {
         elevation: 8.0,
         shadowColor: Colors.black45,
         borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+        color: themeData.cardColor,
         child: Container(
           padding: const EdgeInsets.all(12.0),
           child: Column(
@@ -94,7 +96,7 @@ class SmoothExpandableCard extends StatelessWidget {
                       height: headerHeight,
                       child: expandedHeader,
                     ),
-                    const Icon(Icons.keyboard_arrow_up),
+                    Icon(Icons.keyboard_arrow_up, color: themeData.accentColor),
                   ],
                 ),
               ),
