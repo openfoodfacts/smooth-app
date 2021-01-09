@@ -133,7 +133,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
           slivers: <Widget>[
             SliverAppBar(
               leading: IconButton(
-                icon: Icon(ConstantIcons.getBackIcon(), Theme.of(context).accentColor),
+                icon: Icon(ConstantIcons.getBackIcon(), color: Theme.of(context).accentColor),
                 onPressed: () => Navigator.of(context).pop(),
               ),
               expandedHeight: 120.0,
