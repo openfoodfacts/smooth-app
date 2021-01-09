@@ -62,6 +62,10 @@ class SmoothThemes {
       ),
       //
       //
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        selectedItemColor: isDarkTheme ? Colors.white : Colors.black,
+        unselectedItemColor: Colors.grey,
+      ),
       textTheme: TextTheme(
         headline1: TextStyle(
           fontSize: 28.0,
