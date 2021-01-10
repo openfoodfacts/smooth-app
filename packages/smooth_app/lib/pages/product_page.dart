@@ -3,13 +3,16 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/cards/expandables/labels_expandable.dart';
-import 'package:smooth_app/cards/expandables/nutriscore_expandable.dart';
+import 'package:smooth_app/cards/expandables/attribute_expandable.dart';
 import 'package:smooth_app/cards/expandables/nutrition_levels_expandable.dart';
 import 'package:smooth_app/cards/expandables/product_processing_expandable.dart';
 import 'package:smooth_app/cards/information_cards/palm_oil_free_information_card.dart';
 import 'package:smooth_app/cards/information_cards/vegan_information_card.dart';
 import 'package:smooth_app/cards/information_cards/vegetarian_information_card.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:smooth_app/data_models/user_preferences_model.dart';
+import 'package:provider/provider.dart';
+import 'package:openfoodfacts/model/Attribute.dart';
 
 class ProductPage extends StatelessWidget {
   const ProductPage({@required this.product});
@@ -18,6 +21,10 @@ class ProductPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final UserPreferencesModel userPreferencesModel =
+        context.watch<UserPreferencesModel>();
+    final Attribute nutriscoreAttribute =
+        userPreferencesModel.getAttribute(product, 'nutriscore');
     return Scaffold(
       body: Stack(
         children: <Widget>[
@@ -80,7 +87,8 @@ class ProductPage extends StatelessWidget {
                       children: <Widget>[
                         Flexible(
                           child: Text(
-                            product.brands ?? AppLocalizations.of(context).unknownBrand,
+                            product.brands ??
+                                AppLocalizations.of(context).unknownBrand,
                             style: Theme.of(context).textTheme.subtitle1,
                           ),
                         ),
@@ -144,9 +152,7 @@ class ProductPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  NutriscoreExpandable(
-                    nutriscore: product.nutriscore,
-                  ),
+                  AttributeExpandable(nutriscoreAttribute),
                   NutritionLevelsExpandable(
                       nutrientLevels: product.nutrientLevels,
                       nutriments: product.nutriments),
