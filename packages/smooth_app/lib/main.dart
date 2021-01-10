@@ -78,7 +78,8 @@ class _MyAppState extends State<MyApp> {
                   value: themeChangeProvider),
             ],
             child: Consumer<DarkThemeProvider>(
-              builder: (BuildContext context, DarkThemeProvider value, Widget child) {
+              builder: (BuildContext context, DarkThemeProvider value,
+                  Widget child) {
                 return MaterialApp(
                   localizationsDelegates:
                       AppLocalizations.localizationsDelegates,
@@ -91,7 +92,9 @@ class _MyAppState extends State<MyApp> {
             ),
           );
         }
-        return Container(); // as simple as possible
+        return Container(
+          child: const CircularProgressIndicator(),
+        ); // as simple as possible
       },
     );
   }
