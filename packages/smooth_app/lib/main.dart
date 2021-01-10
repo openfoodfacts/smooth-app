@@ -1,10 +1,16 @@
+import 'dart:async';
+import 'dart:typed_data';
+import 'dart:ui' as ui;
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sentry/sentry.dart';
-import 'package:smooth_app/data_models/user_preferences_model.dart';
+import 'package:provider/provider.dart';
 
+import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/pages/alternative_continuous_scan_page.dart';
 import 'package:smooth_app/pages/choose_page.dart';
 import 'package:smooth_app/pages/contribution_page.dart';
@@ -13,13 +19,12 @@ import 'package:smooth_app/pages/profile_page.dart';
 import 'package:smooth_app/pages/tracking_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/temp/user_preferences.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_ui_library/navigation/models/smooth_navigation_action_model.dart';
 import 'package:smooth_ui_library/navigation/models/smooth_navigation_layout_model.dart';
 import 'package:smooth_ui_library/navigation/models/smooth_navigation_screen_model.dart';
 import 'package:smooth_ui_library/navigation/smooth_navigation_layout.dart';
-import 'package:provider/provider.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
-import 'package:smooth_app/database/local_database.dart';
 
 Future<void> main() async {
   await Sentry.init(
@@ -92,9 +97,7 @@ class _MyAppState extends State<MyApp> {
             ),
           );
         }
-        return Container(
-          child: const CircularProgressIndicator(),
-        ); // as simple as possible
+        return Splash();
       },
     );
   }
@@ -199,4 +202,60 @@ class SmoothApp extends StatelessWidget {
           },
         ),
       );
+}
+
+class Splash extends StatefulWidget {
+  @override
+  _SplashState createState() => _SplashState();
+}
+
+class _SplashState extends State<Splash> {
+  Future<ui.Image> _loadImage() async {
+    final ByteData bd = await rootBundle.load('assets/temp/Logo.png');
+
+    final Uint8List bytes = Uint8List.view(bd.buffer);
+
+    final ui.Image image = await decodeImageFromList(bytes);
+    return image;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<ui.Image>(
+      future: _loadImage(),
+      builder: (BuildContext context, AsyncSnapshot<ui.Image> snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          return Container(
+            color: Colors.white,
+            child: FittedBox(
+              child: SizedBox(
+                child: CustomPaint(
+                  size: Size(snapshot.data.width.toDouble(),
+                      snapshot.data.height.toDouble()),
+                  painter: SplashPainter(snapshot.data),
+                ),
+              ),
+            ),
+          );
+        } else {
+          return Container(
+            color: Colors.white,
+          );
+        }
+      },
+    );
+  }
+}
+
+class SplashPainter extends CustomPainter {
+  SplashPainter(this.image);
+  final ui.Image image;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    canvas.drawImage(image, Offset.zero, Paint());
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
