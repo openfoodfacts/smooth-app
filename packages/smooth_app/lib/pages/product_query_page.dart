@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/bottom_sheet_views/group_query_filter_view.dart';
+import 'package:smooth_app/data_models/product_list_supplier.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/data_models/product_query_model.dart';
@@ -15,13 +15,13 @@ import 'package:smooth_app/themes/constant_icons.dart';
 
 class ProductQueryPage extends StatefulWidget {
   const ProductQueryPage({
-    @required this.productQuery,
+    @required this.productListSupplier,
     @required this.heroTag,
     @required this.mainColor,
     @required this.name,
   });
 
-  final ProductQuery productQuery;
+  final ProductListSupplier productListSupplier;
   final String heroTag;
   final Color mainColor;
   final String name;
@@ -38,7 +38,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
   @override
   void initState() {
     super.initState();
-    _model = ProductQueryModel(widget.productQuery);
+    _model = ProductQueryModel(widget.productListSupplier);
     _scrollController.addListener(() {
       if (_scrollController.offset <=
               _scrollController.position.minScrollExtent &&

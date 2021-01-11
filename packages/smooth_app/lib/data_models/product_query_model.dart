@@ -3,9 +3,10 @@ import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/data_models/match.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:openfoodfacts/model/SearchResult.dart';
-import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
+import 'package:smooth_app/database/dao_product_list.dart';
+import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/data_models/product_list_supplier.dart';
 
 enum LoadingStatus {
   LOADING,
@@ -16,9 +17,11 @@ enum LoadingStatus {
 }
 
 class ProductQueryModel with ChangeNotifier {
-  ProductQueryModel(final ProductQuery productQuery) {
-    _asyncLoad(productQuery);
+  ProductQueryModel(this.supplier) {
+    _asyncLoad();
   }
+
+  final ProductListSupplier supplier;
 
   static const String _CATEGORY_ALL = 'all';
 
@@ -35,14 +38,13 @@ class ProductQueryModel with ChangeNotifier {
   String get loadingError => _loadingError;
   LoadingStatus get loadingStatus => _loadingStatus;
 
-  Future<void> _asyncLoad(final ProductQuery productQuery) async {
-    try {
-      final SearchResult searchResult = await productQuery.getSearchResult();
-      _products = searchResult.products;
-      _loadingStatus = LoadingStatus.LOADED;
-    } catch (e) {
+  Future<void> _asyncLoad() async {
+    _loadingError = await supplier.asyncLoad();
+    if (_loadingError != null) {
       _loadingStatus = LoadingStatus.ERROR;
-      _loadingError = e.toString();
+    } else {
+      _loadingStatus = LoadingStatus.LOADED;
+      _products = supplier.getProductList().getList();
     }
     notifyListeners();
   }
@@ -57,7 +59,11 @@ class ProductQueryModel with ChangeNotifier {
     }
     _loadingStatus = LoadingStatus.POST_LOAD_STARTED;
 
-    localDatabase.putProducts(_products);
+    final ProductList productList = supplier.getProductList();
+    _products = productList.getList();
+    if (supplier.needsToBeSavedIntoDb()) {
+      DaoProductList(localDatabase).put(productList);
+    }
     Match.sort(_products, userPreferences, userPreferencesModel);
 
     displayProducts = _products;

@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:smooth_app/database/barcode_product_query.dart';
+import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 
 enum ScannedProductState {
@@ -96,7 +97,7 @@ class ContinuousScanModel {
   Future<void> _loadBarcode(final String barcode) async {
     final Product product = await BarcodeProductQuery(barcode).getProduct();
     if (product != null) {
-      _localDatabase.putProduct(product);
+      await DaoProduct(_localDatabase).put(product);
       _products[barcode] = product;
       setBarcodeState(barcode, ScannedProductState.FOUND);
     } else {

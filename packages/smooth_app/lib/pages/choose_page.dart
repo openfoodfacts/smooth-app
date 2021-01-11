@@ -11,11 +11,12 @@ import 'package:smooth_app/cards/category_cards/subcategory_card.dart';
 import 'package:smooth_app/database/keywords_product_query.dart';
 import 'package:smooth_app/database/group_product_query.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/pages/product_query_page.dart';
 import 'package:smooth_app/pages/product_page.dart';
 import 'package:smooth_app/database/barcode_product_query.dart';
 import 'package:smooth_ui_library/widgets/smooth_search_bar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:smooth_app/database/dao_product.dart';
+import 'package:smooth_app/pages/product_query_page_helper.dart';
 
 class ChoosePage extends StatefulWidget {
   @override
@@ -140,7 +141,7 @@ class _ChoosePageState extends State<ChoosePage> {
                             child: SmoothSearchBar(
                               hintText:
                                   AppLocalizations.of(context).searchHintText,
-                              onSubmitted: (String value) {
+                              onSubmitted: (String value) async {
                                 if (int.parse(value,
                                         onError: (String e) => null) !=
                                     null) {
@@ -199,17 +200,14 @@ class _ChoosePageState extends State<ChoosePage> {
                                                 )));
                                       });
                                 } else {
-                                  Navigator.push<dynamic>(
-                                      context,
-                                      MaterialPageRoute<dynamic>(
-                                          builder: (BuildContext context) =>
-                                              ProductQueryPage(
-                                                productQuery:
-                                                    KeywordsProductQuery(value),
-                                                heroTag: 'search_bar',
-                                                mainColor: Colors.deepPurple,
-                                                name: value,
-                                              )));
+                                  await ProductQueryPageHelper().openBestChoice(
+                                    color: Colors.deepPurple,
+                                    heroTag: 'search_bar',
+                                    name: value,
+                                    localDatabase: localDatabase,
+                                    productQuery: KeywordsProductQuery(value),
+                                    context: context,
+                                  );
                                 }
                               },
                             ),
@@ -283,12 +281,8 @@ class _ChoosePageState extends State<ChoosePage> {
                                   child: CategoryChip(
                                 title: group.name,
                                 color: color,
-                                onTap: () async {
-                                  final TableStats tableStats =
-                                      await localDatabase.getTableStats();
-                                  print('stats: $tableStats');
-                                  setState(() => _selectCategory(group, color));
-                                },
+                                onTap: () async => setState(
+                                    () => _selectCategory(group, color)),
                               )),
                             ),
                           );
@@ -301,6 +295,7 @@ class _ChoosePageState extends State<ChoosePage> {
                           : _showPnnsGroup2(
                               _selectedCategory,
                               _selectedColor,
+                              localDatabase,
                             ))
                 ],
               )),
@@ -314,7 +309,7 @@ class _ChoosePageState extends State<ChoosePage> {
   ) async {
     final Product product = await BarcodeProductQuery(code).getProduct();
     if (product != null) {
-      await localDatabase.putProduct(product);
+      await DaoProduct(localDatabase).put(product);
       Navigator.pop(context);
       Navigator.push<dynamic>(
           context,
@@ -458,6 +453,7 @@ class _ChoosePageState extends State<ChoosePage> {
   Widget _showPnnsGroup2(
     final PnnsGroup1 category,
     final Color color,
+    final LocalDatabase localDatabase,
   ) =>
       ListView(
         padding: const EdgeInsets.only(top: 8.0, bottom: 80.0),
@@ -468,21 +464,22 @@ class _ChoosePageState extends State<ChoosePage> {
             child: SlideAnimation(
               horizontalOffset: 50.0,
               child: FadeInAnimation(
-                  child: SubcategoryCard(
-                heroTag: category.subGroups[index].name,
-                title: category.subGroups[index].name,
-                color: color,
-                onTap: () => Navigator.push<dynamic>(context,
-                    MaterialPageRoute<dynamic>(builder: (BuildContext context) {
-                  final PnnsGroup2 group = category.subGroups[index];
-                  return ProductQueryPage(
-                    productQuery: GroupProductQuery(group),
-                    heroTag: group.id,
-                    mainColor: color,
-                    name: group.name,
-                  );
-                })),
-              )),
+                child: SubcategoryCard(
+                    heroTag: category.subGroups[index].name,
+                    title: category.subGroups[index].name,
+                    color: color,
+                    onTap: () async {
+                      final PnnsGroup2 group = category.subGroups[index];
+                      await ProductQueryPageHelper().openBestChoice(
+                        productQuery: GroupProductQuery(group),
+                        heroTag: group.id,
+                        color: color,
+                        name: group.name,
+                        localDatabase: localDatabase,
+                        context: context,
+                      );
+                    }),
+              ),
             ),
           );
         }),
