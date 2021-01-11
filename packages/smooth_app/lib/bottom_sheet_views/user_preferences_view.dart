@@ -195,7 +195,7 @@ class UserPreferencesView extends StatelessWidget {
                         .toDouble(),
                     onChanged: (double value) => userPreferences.setImportance(
                         variable.id, value.toInt()),
-                    activeColor: Theme.of(context).primaryColor,
+                    activeColor: Theme.of(context).colorScheme.onSurface,
                     label: importance.name,
                   ),
                 ),
