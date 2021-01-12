@@ -46,8 +46,8 @@ dependencies:
   sticky_headers: ^0.1.8+1
   package_info_plus: ^0.6.3
 
-  #smooth_ui_library:
-  #  path: ../smooth_ui_library
+  smooth_ui_library:
+    path: ../smooth_ui_library
   # openfoodfacts:
   #  path: ../../../openfoodfacts-dart
 

@@ -4,6 +4,7 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -54,6 +55,7 @@ class _MyAppState extends State<MyApp> {
   UserPreferencesModel _userPreferencesModel;
   LocalDatabase _localDatabase;
   final DarkThemeProvider themeChangeProvider = DarkThemeProvider();
+  bool systemDarkmodeOn = false;
 
   Future<void> _init(BuildContext context) async {
     _userPreferences = await UserPreferences.getUserPreferences();
@@ -63,6 +65,13 @@ class _MyAppState extends State<MyApp> {
     _localDatabase = await LocalDatabase.getLocalDatabase();
     themeChangeProvider.darkTheme =
         await themeChangeProvider.userThemePreference.getTheme();
+  }
+
+  @override
+  void initState() {
+    final brightness = SchedulerBinding.instance.window.platformBrightness;
+    systemDarkmodeOn = brightness == Brightness.dark;
+    super.initState();
   }
 
   @override
@@ -98,6 +107,7 @@ class _MyAppState extends State<MyApp> {
           );
         }
         return Container(
+          color: systemDarkmodeOn ? const Color(0xFF181818) : Colors.white,
           child: const Center(
             child: CircularProgressIndicator(),
           ),
