@@ -27,9 +27,9 @@ class SmoothThemes {
     const ColorScheme colorDark = ColorScheme(
       primary: Colors.black,
       primaryVariant: Colors.indigo,
-      secondary: Color(0xFF434343),
+      secondary: Colors.indigo,
       secondaryVariant: Colors.indigo,
-      surface: Colors.indigo,
+      surface: Color(0xFF434343),
       background: Color(0xFF181818),
       error: Colors.indigo,
       onPrimary: Colors.indigo,
@@ -61,12 +61,12 @@ class SmoothThemes {
     return ThemeData(
       colorScheme: myColorScheme,
       buttonColor: isDarkTheme ? const Color(0xFF696464) : Colors.black,
-      cardColor: isDarkTheme ? colorDark.secondary : const Color(0xFFF5F5F5),
-      dialogBackgroundColor: myColorScheme.secondary,
+      cardColor: isDarkTheme ? colorDark.surface : const Color(0xFFF5F5F5),
+      dialogBackgroundColor: myColorScheme.surface,
       accentIconTheme:
           IconThemeData(color: isDarkTheme ? Colors.black : Colors.white),
       appBarTheme: AppBarTheme(
-        color: myColorScheme.secondary,
+        color: myColorScheme.surface,
       ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor:
