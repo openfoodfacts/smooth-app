@@ -27,7 +27,6 @@ class SvgCache extends StatelessWidget {
     }
     final String filename = iconUrl.substring(position + 1);
     final String fullFilename = 'assets/cache/$filename';
-    return _getCachedAsset(fullFilename);
     return SvgPicture.network(
       iconUrl,
       width: width,
