@@ -97,7 +97,11 @@ class _MyAppState extends State<MyApp> {
             ),
           );
         }
-        return Splash();
+        return Container(
+          child: const Center(
+            child: CircularProgressIndicator(),
+          ),
+        );
       },
     );
   }
@@ -202,60 +206,4 @@ class SmoothApp extends StatelessWidget {
           },
         ),
       );
-}
-
-class Splash extends StatefulWidget {
-  @override
-  _SplashState createState() => _SplashState();
-}
-
-class _SplashState extends State<Splash> {
-  Future<ui.Image> _loadImage() async {
-    final ByteData bd = await rootBundle.load('assets/temp/Logo.png');
-
-    final Uint8List bytes = Uint8List.view(bd.buffer);
-
-    final ui.Image image = await decodeImageFromList(bytes);
-    return image;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return FutureBuilder<ui.Image>(
-      future: _loadImage(),
-      builder: (BuildContext context, AsyncSnapshot<ui.Image> snapshot) {
-        if (snapshot.connectionState == ConnectionState.done) {
-          return Container(
-            color: Colors.white,
-            child: FittedBox(
-              child: SizedBox(
-                child: CustomPaint(
-                  size: Size(snapshot.data.width.toDouble(),
-                      snapshot.data.height.toDouble()),
-                  painter: SplashPainter(snapshot.data),
-                ),
-              ),
-            ),
-          );
-        } else {
-          return Container(
-            color: Colors.white,
-          );
-        }
-      },
-    );
-  }
-}
-
-class SplashPainter extends CustomPainter {
-  SplashPainter(this.image);
-  final ui.Image image;
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    canvas.drawImage(image, Offset.zero, Paint());
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
