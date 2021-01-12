@@ -78,7 +78,8 @@ class _MyAppState extends State<MyApp> {
                   value: themeChangeProvider),
             ],
             child: Consumer<DarkThemeProvider>(
-              builder: (BuildContext context, DarkThemeProvider value, Widget child) {
+              builder: (BuildContext context, DarkThemeProvider value,
+                  Widget child) {
                 return MaterialApp(
                   localizationsDelegates:
                       AppLocalizations.localizationsDelegates,
@@ -150,8 +151,8 @@ class SmoothApp extends StatelessWidget {
       animationDuration: 300,
       animationCurve: Curves.easeInOutBack,
       borderRadius: 20.0,
-      color: Theme.of(context).bottomAppBarColor,
-      scanButtonColor: Theme.of(context).accentColor,
+      color: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
+      scanButtonColor: Theme.of(context).colorScheme.onBackground,
       scanShadowColor: context.watch<DarkThemeProvider>().darkTheme
           ? Colors.white.withOpacity(0.0)
           : Colors.deepPurple,
@@ -174,7 +175,10 @@ class SmoothApp extends StatelessWidget {
             svg,
             width: _navigationIconSize,
             height: _navigationIconSize,
-            color: Theme.of(context).accentColor,
+            color: Theme.of(context)
+                .bottomNavigationBarTheme
+                .selectedIconTheme
+                .color,
           ),
         ),
         title: title,

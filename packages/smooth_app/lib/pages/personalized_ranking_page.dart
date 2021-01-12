@@ -81,7 +81,8 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
     for (final int matchIndex in _ORDERED_MATCH_INDEXES) {
       bottomNavigationBarItems.add(
         BottomNavigationBarItem(
-          icon: Icon(_ICONS[matchIndex], color: _COLORS[matchIndex]),
+          icon: Icon(_ICONS[matchIndex],
+              color: _COLORS[matchIndex] ?? Colors.white),
           label: _model.getRankedProducts(matchIndex).length.toString(),
         ),
       );
@@ -91,8 +92,11 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentTabIndex,
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.blueGrey,
+        selectedItemColor: Theme.of(context).colorScheme.onSurface,
+        unselectedItemColor: Theme.of(context)
+            .bottomNavigationBarTheme
+            .unselectedIconTheme
+            .color,
         items: bottomNavigationBarItems,
         onTap: (int tapped) => setState(() {
           _currentTabIndex = tapped;
@@ -133,7 +137,9 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
           slivers: <Widget>[
             SliverAppBar(
               leading: IconButton(
-                icon: Icon(ConstantIcons.getBackIcon(), color: Theme.of(context).accentColor),
+                icon: Icon(
+                  ConstantIcons.getBackIcon(),
+                ),
                 onPressed: () => Navigator.of(context).pop(),
               ),
               expandedHeight: 120.0,
@@ -146,15 +152,12 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
                 centerTitle: true,
                 title: Text(AppLocalizations.of(context).myPersonalizedRanking,
                     textAlign: TextAlign.center,
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline4),
+                    style: Theme.of(context).textTheme.headline4),
               ),
               actions: <IconButton>[
                 IconButton(
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.settings,
-                    color: Theme.of(context).accentColor,
                   ),
                   onPressed: () => showCupertinoModalBottomSheet<Widget>(
                     expand: false,

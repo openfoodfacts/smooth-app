@@ -40,10 +40,7 @@ class GroupQueryFilterView extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             Text('Category',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headline4
-                                    .copyWith(color: Colors.black)),
+                                style: Theme.of(context).textTheme.headline4),
                           ],
                         ),
                       ),
@@ -66,9 +63,7 @@ class GroupQueryFilterView extends StatelessWidget {
                                     style: Theme.of(context)
                                         .textTheme
                                         .bodyText2
-                                        .copyWith(
-                                            color: Colors.black,
-                                            fontSize: 12.0)),
+                                        .copyWith(fontSize: 12.0)),
                               ),
                             );
                           }).toList(),

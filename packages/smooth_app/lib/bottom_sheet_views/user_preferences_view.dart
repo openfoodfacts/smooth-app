@@ -39,7 +39,7 @@ class UserPreferencesView extends StatelessWidget {
         (screenSize.width - _TYPICAL_PADDING_OR_MARGIN * 3) / 2;
     return Material(
       child: Container(
-        color: Theme.of(context).primaryColor,
+        color: Theme.of(context).colorScheme.background,
         height: screenSize.height * 0.9,
         child: Stack(
           children: <Widget>[
@@ -174,7 +174,6 @@ class UserPreferencesView extends StatelessWidget {
               children: <Widget>[
                 Text(
                   variable.settingName,
-                  style: TextStyle(color: Theme.of(context).accentColor),
                 ),
                 SliderTheme(
                   data: SliderThemeData(
@@ -263,12 +262,11 @@ class UserPreferencesView extends StatelessWidget {
   ) =>
       GestureDetector(
           child: Container(
-            color: Theme.of(context).primaryColor,
+            color: Theme.of(context).colorScheme.background,
             width: double.infinity,
             padding: const EdgeInsets.all(_TYPICAL_PADDING_OR_MARGIN),
             child: Text(
               group.name,
-              style: TextStyle(color: Theme.of(context).accentColor),
             ),
           ),
           onTap: () => userPreferences.setAttributeGroupVisibility(

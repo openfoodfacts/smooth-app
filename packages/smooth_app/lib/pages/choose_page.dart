@@ -244,10 +244,7 @@ class _ChoosePageState extends State<ChoosePage> {
                             MaterialButton(
                               child: Text(
                                 AppLocalizations.of(context).showAll,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .subtitle1
-                                    .copyWith(color: Colors.black),
+                                style: Theme.of(context).textTheme.subtitle1,
                               ),
                               onPressed: () =>
                                   setState(() => _unSelectCategory()),

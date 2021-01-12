@@ -116,8 +116,7 @@ class _ProfilePageState extends State<ProfilePage> {
           //Support
           SmoothListTile(
             text: AppLocalizations.of(context).support,
-            leadingWidget:
-                Icon(Icons.launch, color: Theme.of(context).accentColor),
+            leadingWidget: const Icon(Icons.launch),
             onPressed: () => launcher.launchURL(
                 context, 'https://openfoodfacts.uservoice.com/', false),
           ),
@@ -160,8 +159,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               return Column(
                                 children: <Widget>[
                                   ListTile(
-                                    leading: Icon(Icons.no_sim_outlined,
-                                        color: Theme.of(context).accentColor),
+                                    leading: const Icon(Icons.no_sim_outlined),
                                     title: Text(
                                       snapshot.data.appName.toString(),
                                       style:
@@ -174,7 +172,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                     ),
                                   ),
                                   Divider(
-                                    color: Theme.of(context).accentColor,
+                                    color:
+                                        Theme.of(context).colorScheme.onSurface,
                                   ),
                                   const SizedBox(
                                     height: 20,
