@@ -8,9 +8,10 @@ import 'package:openfoodfacts/utils/LanguageHelper.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 
 class KeywordsProductQuery implements ProductQuery {
-  KeywordsProductQuery(this.keywords);
+  KeywordsProductQuery(this.keywords, this.languageCode);
 
   final String keywords;
+  final String languageCode;
 
   @override
   Future<SearchResult> getSearchResult() async =>
@@ -26,7 +27,7 @@ class KeywordsProductQuery implements ProductQuery {
               tagName: keywords,
             )
           ],
-          language: OpenFoodFactsLanguage.ENGLISH,
+          language: LanguageHelper.fromJson(languageCode),
         ),
       );
 

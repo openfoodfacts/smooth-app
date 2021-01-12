@@ -205,7 +205,11 @@ class _ChoosePageState extends State<ChoosePage> {
                                     heroTag: 'search_bar',
                                     name: value,
                                     localDatabase: localDatabase,
-                                    productQuery: KeywordsProductQuery(value),
+                                    productQuery: KeywordsProductQuery(
+                                      value,
+                                      Localizations.localeOf(context)
+                                          .languageCode,
+                                    ),
                                     context: context,
                                   );
                                 }
@@ -471,7 +475,10 @@ class _ChoosePageState extends State<ChoosePage> {
                     onTap: () async {
                       final PnnsGroup2 group = category.subGroups[index];
                       await ProductQueryPageHelper().openBestChoice(
-                        productQuery: GroupProductQuery(group),
+                        productQuery: GroupProductQuery(
+                          group,
+                          Localizations.localeOf(context).languageCode,
+                        ),
                         heroTag: group.id,
                         color: color,
                         name: group.name,
