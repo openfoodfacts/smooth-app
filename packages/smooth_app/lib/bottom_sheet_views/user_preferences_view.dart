@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -155,15 +155,7 @@ class UserPreferencesView extends StatelessWidget {
         children: <Widget>[
           Container(
             width: iconWidth,
-            child: SvgPicture.network(
-              variable.iconUrl,
-              alignment: Alignment.centerLeft,
-              width: iconWidth,
-              fit: BoxFit.contain,
-              placeholderBuilder: (BuildContext context) => Container(
-                  padding: const EdgeInsets.all(30.0),
-                  child: const CircularProgressIndicator()),
-            ),
+            child: SvgCache(variable.iconUrl, width: iconWidth),
           ),
           Container(width: _TYPICAL_PADDING_OR_MARGIN),
           Container(

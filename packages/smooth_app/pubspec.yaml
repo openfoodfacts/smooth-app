@@ -69,6 +69,7 @@ flutter:
 
   assets:
     - assets/actions/
+    - assets/cache/
     - assets/categories/
     - assets/data/
     - assets/labels/
