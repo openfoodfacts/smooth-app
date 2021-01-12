@@ -46,8 +46,8 @@ dependencies:
   sticky_headers: ^0.1.8+1
   package_info_plus: ^0.6.3
 
-  smooth_ui_library:
-    path: ../smooth_ui_library
+  #smooth_ui_library:
+  #  path: ../smooth_ui_library
   # openfoodfacts:
   #  path: ../../../openfoodfacts-dart
 
@@ -61,6 +61,8 @@ dev_dependencies:
 flutter_native_splash:
   image: assets/temp/Logo.png
   color: "ffffff"
+  image_dark: assets/temp/Logo.png
+  color_dark: "#181818"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
