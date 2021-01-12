@@ -9,9 +9,10 @@ import 'package:openfoodfacts/utils/LanguageHelper.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 
 class GroupProductQuery implements ProductQuery {
-  GroupProductQuery(this.group);
+  GroupProductQuery(this.group, this.languageCode);
 
   final PnnsGroup2 group;
+  final String languageCode;
   final int page = 1;
 
   @override
@@ -22,7 +23,7 @@ class GroupProductQuery implements ProductQuery {
           group,
           fields: ProductQuery.fields,
           page: page,
-          language: OpenFoodFactsLanguage.ENGLISH,
+          language: LanguageHelper.fromJson(languageCode),
         ),
       );
 
