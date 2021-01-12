@@ -43,9 +43,9 @@ class SmoothThemes {
     const ColorScheme colorLight = ColorScheme(
       primary: Colors.white,
       primaryVariant: Colors.indigo,
-      secondary: Colors.white,
+      secondary: Colors.indigo,
       secondaryVariant: Colors.indigo,
-      surface: Colors.indigo,
+      surface: Colors.white,
       background: Colors.white,
       error: Colors.indigo,
       onPrimary: Colors.indigo,
