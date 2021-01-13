@@ -1,6 +1,4 @@
 import 'dart:async';
-import 'dart:typed_data';
-import 'dart:ui' as ui;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -69,7 +67,8 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
-    final brightness = SchedulerBinding.instance.window.platformBrightness;
+    final Brightness brightness =
+        SchedulerBinding.instance.window.platformBrightness;
     systemDarkmodeOn = brightness == Brightness.dark;
     super.initState();
   }
