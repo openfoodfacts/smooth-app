@@ -54,6 +54,15 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_native_splash: ^0.2.2
+
+# 'flutter pub run flutter_native_splash:create' to update
+# Error 65: Comment out all plugins provided by path
+flutter_native_splash:
+  image: assets/temp/Logo.png
+  color: "ffffff"
+  image_dark: assets/temp/Logo.png
+  color_dark: "#181818"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -69,6 +78,7 @@ flutter:
 
   assets:
     - assets/actions/
+    - assets/cache/
     - assets/categories/
     - assets/data/
     - assets/labels/
@@ -78,6 +88,7 @@ flutter:
     - assets/product/
     - assets/ikonate_thin/
     - assets/ikonate_bold/
+    - assets/temp/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
