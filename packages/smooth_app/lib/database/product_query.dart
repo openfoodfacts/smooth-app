@@ -1,5 +1,6 @@
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/model/SearchResult.dart';
+import 'package:smooth_app/data_models/product_list.dart';
 
 abstract class ProductQuery {
   static const User SMOOTH_USER = User(
@@ -31,4 +32,6 @@ abstract class ProductQuery {
   ];
 
   Future<SearchResult> getSearchResult();
+
+  ProductList getProductList();
 }

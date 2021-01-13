@@ -31,7 +31,6 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
   ];
 
   static const Map<int, Color> _COLORS = <int, Color>{
-    SmoothItModel.MATCH_INDEX_ALL: null,
     SmoothItModel.MATCH_INDEX_YES: Colors.green,
     SmoothItModel.MATCH_INDEX_MAYBE: Colors.grey,
     SmoothItModel.MATCH_INDEX_NO: Colors.red,
@@ -90,6 +89,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
     return Scaffold(
       key: _scaffoldKey,
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Theme.of(context).bottomAppBarColor.withAlpha(255),
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentTabIndex,
         selectedItemColor: Theme.of(context).colorScheme.onSurface,

@@ -1,37 +1,81 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:http/http.dart' as http;
 import 'package:smooth_app/temp/user_preferences.dart';
-import 'package:smooth_app/temp/attribute_group.dart';
-import 'package:smooth_app/temp/attribute.dart';
+import 'package:openfoodfacts/model/AttributeGroup.dart';
+import 'package:openfoodfacts/model/Attribute.dart';
+import 'package:openfoodfacts/model/Product.dart';
 
 class UserPreferencesModel extends ChangeNotifier {
   UserPreferencesModel._();
 
+  static const String _DEFAULT_LANGUAGE = 'en';
+
+  static String _getImportanceAssetPath(final String languageCode) =>
+      'assets/metadata/init_preferences_$languageCode.json';
+  static String _getAttributeAssetPath(final String languageCode) =>
+      'assets/metadata/init_attribute_groups_$languageCode.json';
+  static String _getImportanceUrl(final String languageCode) =>
+      'https://world.openfoodfacts.org/api/v2/preferences?lc=$languageCode';
+  static String _getAttributeUrl(final String languageCode) =>
+      'https://world.openfoodfacts.org/api/v2/attribute_groups?lc=$languageCode';
+
   static Future<UserPreferencesModel> getUserPreferencesModel(
-      final BuildContext context) async {
-    final UserPreferencesModel result = UserPreferencesModel._();
-    final bool ok = await result._loadAssets(context);
-    return ok ? result : null;
-  }
+          final AssetBundle assetBundle) async =>
+      _getAssets(assetBundle, _DEFAULT_LANGUAGE);
 
   List<PreferencesValue> _preferenceValues;
   Map<String, int> _preferenceValuesReverse;
-  List<AttributeGroup> _preferenceVariableGroups;
+  List<AttributeGroup> _attributeGroups;
+  String _languageCode;
+  bool _isHttps;
 
-  List<AttributeGroup> get preferenceVariableGroups =>
-      _preferenceVariableGroups;
+  List<AttributeGroup> get attributeGroups => _attributeGroups;
+  String get languageCode => _languageCode;
+
+  // TODO(monsieurtanuki): add a "previously downloaded file" cache layer
+  // TODO(monsieurtanuki): avoid an endless refresh (e.g. if no internet connection)
+  Future<void> refresh(
+    final AssetBundle assetBundle,
+    final String languageCode,
+  ) async {
+    if (_languageCode != languageCode) {
+      final UserPreferencesModel other =
+          await _getAssets(assetBundle, languageCode);
+      if (other != null) {
+        _copyFrom(other);
+      }
+    }
+    if (!_isHttps) {
+      final UserPreferencesModel other = await _getHttps(languageCode);
+      if (other != null) {
+        _copyFrom(other);
+      }
+    }
+  }
+
+  void _copyFrom(final UserPreferencesModel other) {
+    _languageCode = other._languageCode;
+    _isHttps = other._isHttps;
+    _preferenceValues = other._preferenceValues;
+    _preferenceValuesReverse = other._preferenceValuesReverse;
+    _attributeGroups = other._attributeGroups;
+    notifyListeners();
+  }
 
   bool _loadStrings(
-      final String importanceString, final String variableString) {
+    final String importanceString,
+    final String attributeGroupString,
+  ) {
     try {
       if (!_loadJsonString(importanceString, _loadValues)) {
         return false;
       }
-      if (!_loadJsonString(variableString, _loadVariables)) {
+      if (!_loadJsonString(attributeGroupString, _loadAttributeGroups)) {
         return false;
       }
-      notifyListeners();
       return true;
     } catch (e) {
       print('An error occurred while loading user preferences : $e');
@@ -39,17 +83,61 @@ class UserPreferencesModel extends ChangeNotifier {
     }
   }
 
-  Future<bool> _loadAssets(final BuildContext context) async {
+  static Future<UserPreferencesModel> _getAssets(
+    final AssetBundle assetBundle,
+    final String languageCode,
+  ) async {
+    String importanceString;
+    String attributeGroupString;
     try {
-      final String importanceString = await DefaultAssetBundle.of(context)
-          .loadString('assets/metadata/init_preferences.json');
-      final String variableString = await DefaultAssetBundle.of(context)
-          .loadString('assets/metadata/init_attribute_groups.json');
-      return _loadStrings(importanceString, variableString);
+      importanceString =
+          await assetBundle.loadString(_getImportanceAssetPath(languageCode));
+      attributeGroupString =
+          await assetBundle.loadString(_getAttributeAssetPath(languageCode));
+    } catch (e) {
+      /// we don't have all the languages in the assets
+      return null;
+    }
+    try {
+      final UserPreferencesModel userPreferencesModel =
+          UserPreferencesModel._();
+      userPreferencesModel._languageCode = languageCode;
+      userPreferencesModel._isHttps = false;
+      if (userPreferencesModel._loadStrings(
+          importanceString, attributeGroupString)) {
+        return userPreferencesModel;
+      }
     } catch (e) {
       print('An error occurred while loading user preferences : $e');
-      return false;
     }
+    return null;
+  }
+
+  static Future<UserPreferencesModel> _getHttps(
+    final String languageCode,
+  ) async {
+    try {
+      final String importanceUrl = _getImportanceUrl(languageCode);
+      final String attributeUrl = _getAttributeUrl(languageCode);
+      http.Response response;
+      response = await http.get(importanceUrl);
+      // TODO(monsieurtanuki): check response.statusCode
+      final String importanceString = response.body;
+      response = await http.get(attributeUrl);
+      // TODO(monsieurtanuki): check response.statusCode
+      final String attributeGroupString = response.body;
+      final UserPreferencesModel userPreferencesModel =
+          UserPreferencesModel._();
+      userPreferencesModel._languageCode = languageCode;
+      userPreferencesModel._isHttps = true;
+      if (userPreferencesModel._loadStrings(
+          importanceString, attributeGroupString)) {
+        return userPreferencesModel;
+      }
+    } catch (e) {
+      print('An error occurred while loading user preferences : $e');
+    }
+    return null;
   }
 
   bool _loadJsonString(final String inputString, final Function fromJson) {
@@ -65,10 +153,11 @@ class UserPreferencesModel extends ChangeNotifier {
 
   List<String> getOrderedVariables(final UserPreferences userPreferences) {
     final Map<int, List<String>> map = <int, List<String>>{};
-    for (final AttributeGroup attributeGroup in preferenceVariableGroups) {
+    for (final AttributeGroup attributeGroup in attributeGroups) {
       for (final Attribute attribute in attributeGroup.attributes) {
         final String variable = attribute.id;
-        final int importance = getAttributeValueIndex(variable, userPreferences);
+        final int importance =
+            getAttributeValueIndex(variable, userPreferences);
         if (importance == null ||
             importance == UserPreferences.INDEX_NOT_IMPORTANT) {
           continue;
@@ -93,6 +182,26 @@ class UserPreferencesModel extends ChangeNotifier {
       list.forEach(result.add);
     }
     return result;
+  }
+
+  Attribute getAttribute(final Product product, final String attributeId) {
+    if (product == null) {
+      return null;
+    }
+    if (attributeId == null) {
+      return null;
+    }
+    if (product.attributeGroups == null) {
+      return null;
+    }
+    for (final AttributeGroup attributeGroup in product.attributeGroups) {
+      for (final Attribute attribute in attributeGroup.attributes) {
+        if (attribute.id == attributeId) {
+          return attribute;
+        }
+      }
+    }
+    return null;
   }
 
   int getAttributeValueIndex(
@@ -121,8 +230,8 @@ class UserPreferencesModel extends ChangeNotifier {
     }
   }
 
-  void _loadVariables(dynamic json) =>
-      _preferenceVariableGroups = (json as List<dynamic>)
+  void _loadAttributeGroups(dynamic json) =>
+      _attributeGroups = (json as List<dynamic>)
           .map((dynamic item) => AttributeGroup.fromJson(item))
           .toList();
 }

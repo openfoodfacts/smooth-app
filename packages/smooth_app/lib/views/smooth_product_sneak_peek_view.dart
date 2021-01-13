@@ -5,11 +5,13 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
 import 'package:rubber/rubber.dart';
+import 'package:smooth_app/cards/category_cards/attribute_card.dart';
 import 'package:smooth_app/cards/data_cards/smooth_data_card.dart';
 import 'package:smooth_app/cards/data_cards/smooth_energy_card.dart';
 import 'package:smooth_app/cards/data_cards/smooth_intake_recommendation_card.dart';
 import 'package:smooth_app/cards/data_cards/smooth_quantity_selector_card.dart';
 import 'package:smooth_app/data_models/sneak_peek_model.dart';
+import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
 
 class SmoothProductSneakPeekView extends StatefulWidget {
@@ -28,6 +30,8 @@ class SmoothProductSneakPeekViewState extends State<SmoothProductSneakPeekView>
     with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
+    final UserPreferencesModel userPreferencesModel =
+        context.watch<UserPreferencesModel>();
     return ChangeNotifierProvider<SneakPeakModel>(
       create: (BuildContext context) => SneakPeakModel(
           widget.product,
@@ -131,20 +135,10 @@ class SmoothProductSneakPeekViewState extends State<SmoothProductSneakPeekView>
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Container(
+                    AttributeCard(
+                      userPreferencesModel.getAttribute(
+                          widget.product, 'nutriscore'),
                       width: 100.0,
-                      child: widget.product.nutriscore != null
-                          ? Image.asset(
-                              'assets/product/nutri_score_${widget.product.nutriscore}.png',
-                              fit: BoxFit.contain,
-                            )
-                          : Center(
-                              child: Text(
-                                'Nutri-score unavailable',
-                                style: Theme.of(context).textTheme.subtitle1,
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
                     ),
                     Container(
                       width: 50.0,

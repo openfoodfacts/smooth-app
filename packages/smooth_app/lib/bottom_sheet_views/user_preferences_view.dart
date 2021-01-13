@@ -1,14 +1,14 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_ui_library/buttons/smooth_main_button.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
-import 'package:smooth_app/temp/attribute.dart';
-import 'package:smooth_app/temp/attribute_group.dart';
+import 'package:openfoodfacts/model/AttributeGroup.dart';
+import 'package:openfoodfacts/model/Attribute.dart';
 
 class UserPreferencesView extends StatelessWidget {
   const UserPreferencesView(this._scrollController, {this.callback});
@@ -155,15 +155,7 @@ class UserPreferencesView extends StatelessWidget {
         children: <Widget>[
           Container(
             width: iconWidth,
-            child: SvgPicture.network(
-              variable.iconUrl,
-              alignment: Alignment.centerLeft,
-              width: iconWidth,
-              fit: BoxFit.contain,
-              placeholderBuilder: (BuildContext context) => Container(
-                  padding: const EdgeInsets.all(30.0),
-                  child: const CircularProgressIndicator()),
-            ),
+            child: SvgCache(variable.iconUrl, width: iconWidth),
           ),
           Container(width: _TYPICAL_PADDING_OR_MARGIN),
           Container(
@@ -194,7 +186,7 @@ class UserPreferencesView extends StatelessWidget {
                         .toDouble(),
                     onChanged: (double value) => userPreferences.setImportance(
                         variable.id, value.toInt()),
-                    activeColor: Theme.of(context).primaryColor,
+                    activeColor: Theme.of(context).colorScheme.onSurface,
                     label: importance.name,
                   ),
                 ),
@@ -212,8 +204,7 @@ class UserPreferencesView extends StatelessWidget {
     final UserPreferences userPreferences,
     final UserPreferencesModel userPreferencesModel,
   ) {
-    final List<AttributeGroup> groups =
-        userPreferencesModel.preferenceVariableGroups;
+    final List<AttributeGroup> groups = userPreferencesModel.attributeGroups;
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: List<Widget>.generate(

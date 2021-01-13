@@ -1,10 +1,17 @@
+import 'dart:async';
+import 'dart:typed_data';
+import 'dart:ui' as ui;
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sentry/sentry.dart';
-import 'package:smooth_app/data_models/user_preferences_model.dart';
+import 'package:provider/provider.dart';
 
+import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/pages/alternative_continuous_scan_page.dart';
 import 'package:smooth_app/pages/choose_page.dart';
 import 'package:smooth_app/pages/contribution_page.dart';
@@ -13,13 +20,12 @@ import 'package:smooth_app/pages/profile_page.dart';
 import 'package:smooth_app/pages/tracking_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/temp/user_preferences.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_ui_library/navigation/models/smooth_navigation_action_model.dart';
 import 'package:smooth_ui_library/navigation/models/smooth_navigation_layout_model.dart';
 import 'package:smooth_ui_library/navigation/models/smooth_navigation_screen_model.dart';
 import 'package:smooth_ui_library/navigation/smooth_navigation_layout.dart';
-import 'package:provider/provider.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
-import 'package:smooth_app/database/local_database.dart';
 
 Future<void> main() async {
   await Sentry.init(
@@ -49,15 +55,23 @@ class _MyAppState extends State<MyApp> {
   UserPreferencesModel _userPreferencesModel;
   LocalDatabase _localDatabase;
   final DarkThemeProvider themeChangeProvider = DarkThemeProvider();
+  bool systemDarkmodeOn = false;
 
   Future<void> _init(BuildContext context) async {
     _userPreferences = await UserPreferences.getUserPreferences();
-    _userPreferencesModel =
-        await UserPreferencesModel.getUserPreferencesModel(context);
+    _userPreferencesModel = await UserPreferencesModel.getUserPreferencesModel(
+        DefaultAssetBundle.of(context));
     await _userPreferences.init(_userPreferencesModel);
     _localDatabase = await LocalDatabase.getLocalDatabase();
     themeChangeProvider.darkTheme =
         await themeChangeProvider.userThemePreference.getTheme();
+  }
+
+  @override
+  void initState() {
+    final brightness = SchedulerBinding.instance.window.platformBrightness;
+    systemDarkmodeOn = brightness == Brightness.dark;
+    super.initState();
   }
 
   @override
@@ -78,29 +92,50 @@ class _MyAppState extends State<MyApp> {
                   value: themeChangeProvider),
             ],
             child: Consumer<DarkThemeProvider>(
-              builder: (BuildContext context, DarkThemeProvider value,
-                  Widget child) {
+              builder: (
+                BuildContext context,
+                DarkThemeProvider value,
+                Widget child,
+              ) {
                 return MaterialApp(
                   localizationsDelegates:
                       AppLocalizations.localizationsDelegates,
                   supportedLocales: AppLocalizations.supportedLocales,
                   theme: SmoothThemes.getSmoothThemeData(
                       themeChangeProvider.darkTheme, context),
-                  home: SmoothApp(),
+                  home: SmoothAppGetLanguage(),
                 );
               },
             ),
           );
         }
-        return Container(); // as simple as possible
+        return Container(
+          color: systemDarkmodeOn ? const Color(0xFF181818) : Colors.white,
+          child: const Center(
+            child: CircularProgressIndicator(),
+          ),
+        );
       },
     );
   }
 }
 
+/// Layer needed because we need to know the language
+class SmoothAppGetLanguage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final UserPreferencesModel userPreferencesModel =
+        context.watch<UserPreferencesModel>();
+    final Locale myLocale = Localizations.localeOf(context);
+    final String languageCode = myLocale.languageCode;
+    userPreferencesModel.refresh(DefaultAssetBundle.of(context), languageCode);
+    return SmoothApp();
+  }
+}
+
 class SmoothApp extends StatelessWidget {
-  final double _navigationIconSize = 32.0;
-  final double _navigationIconPadding = 5.0;
+  static const double _navigationIconSize = 32.0;
+  static const double _navigationIconPadding = 5.0;
 
   @override
   Widget build(BuildContext context) {
@@ -170,7 +205,7 @@ class SmoothApp extends StatelessWidget {
   ) =>
       SmoothNavigationScreenModel(
         icon: Container(
-          padding: EdgeInsets.all(_navigationIconPadding),
+          padding: const EdgeInsets.all(_navigationIconPadding),
           child: SvgPicture.asset(
             svg,
             width: _navigationIconSize,
