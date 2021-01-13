@@ -18,87 +18,98 @@ import 'package:flutter/material.dart';
 ///
 
 class SmoothThemes {
-  static ThemeData getSmoothThemeData(bool isDarkTheme, BuildContext context) {
-    const Color basicDark = Color(0xFF181818);
-    const Color basicDark2 = Color(0xFF434343);
-    const Color basicDark3 = Color(0xFF696464);
+  static ThemeData getSmoothThemeData(
+    bool isDarkTheme,
+    BuildContext context,
+  ) {
+    //accentDark = Color(0xFF00c896);
 
-    const Color lightGrey = Color(0xFFF5F5F5);
+    const ColorScheme colorDark = ColorScheme(
+      primary: Colors.black,
+      primaryVariant: Colors.indigo,
+      secondary: Colors.indigo,
+      secondaryVariant: Colors.indigo,
+      surface: Color(0xFF434343),
+      background: Color(0xFF181818),
+      error: Colors.indigo,
+      onPrimary: Colors.indigo,
+      onSecondary: Colors.indigo,
+      onSurface: Colors.white,
+      onBackground: Colors.white,
+      onError: Colors.indigo,
+      brightness: Brightness.dark,
+    );
 
-    const Color navBarBlack = Color(0xB3181818);
+    const ColorScheme colorLight = ColorScheme(
+      primary: Colors.white,
+      primaryVariant: Colors.indigo,
+      secondary: Colors.indigo,
+      secondaryVariant: Colors.indigo,
+      surface: Colors.white,
+      background: Colors.white,
+      error: Colors.indigo,
+      onPrimary: Colors.indigo,
+      onSecondary: Colors.indigo,
+      onSurface: Colors.black,
+      onBackground: Colors.black,
+      onError: Colors.indigo,
+      brightness: Brightness.light,
+    );
 
-    const Color accentDark = Color(0xFF00c896);
+    ColorScheme myColorScheme = isDarkTheme ? colorDark : colorLight;
 
     return ThemeData(
-      //
-      // bottom_sheet
-      primaryColor: isDarkTheme ? basicDark : Colors.white,
-      //
-      // Icons, SVG images
-      accentColor: isDarkTheme ? Colors.white : Colors.black,
-      //
-      // Scaffold,
-      scaffoldBackgroundColor: isDarkTheme ? basicDark : Colors.white,
-      //
-      // NavigationBar
-      bottomAppBarColor: isDarkTheme ? navBarBlack : Colors.white24,
-      //
-      // smooth_simple_button
-      buttonColor: isDarkTheme ? basicDark3 : Colors.black,
-      //
-      // smooth_listTiles
-      cardColor: isDarkTheme ? basicDark2 : lightGrey,
-      //
-      //
-      dialogBackgroundColor: isDarkTheme ? basicDark2 : Colors.white,
-      //
-      //
+      colorScheme: myColorScheme,
+      buttonColor: isDarkTheme ? const Color(0xFF696464) : Colors.black,
+      cardColor: isDarkTheme ? colorDark.surface : const Color(0xFFF5F5F5),
+      dialogBackgroundColor: myColorScheme.surface,
       accentIconTheme:
           IconThemeData(color: isDarkTheme ? Colors.black : Colors.white),
-      //
-      //
       appBarTheme: AppBarTheme(
-        color: isDarkTheme ? basicDark2 : Colors.white,
+        color: myColorScheme.surface,
       ),
-      //
-      //
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        selectedItemColor: isDarkTheme ? Colors.white : Colors.black,
-        unselectedItemColor: Colors.grey,
-      ),
+          backgroundColor:
+              isDarkTheme ? const Color(0xB3181818) : Colors.white24,
+          selectedIconTheme: IconThemeData(
+            color: myColorScheme.onSurface,
+          ),
+          unselectedIconTheme: const IconThemeData(
+            color: Colors.blueGrey,
+          )),
       textTheme: TextTheme(
         headline1: TextStyle(
           fontSize: 28.0,
           fontWeight: FontWeight.bold,
-          color: isDarkTheme ? Colors.white : Colors.black,
+          color: myColorScheme.onBackground,
         ),
         headline2: TextStyle(
           fontSize: 24.0,
           fontWeight: FontWeight.bold,
-          color: isDarkTheme ? Colors.white : Colors.black,
+          color: myColorScheme.onSurface,
         ),
         headline3: TextStyle(
           fontSize: 18.0,
           fontWeight: FontWeight.bold,
-          color: isDarkTheme ? Colors.white : Colors.black,
+          color: myColorScheme.onSurface,
         ),
         headline4: TextStyle(
           fontSize: 16.0,
           fontWeight: FontWeight.bold,
-          color: isDarkTheme ? Colors.white : Colors.black,
+          color: myColorScheme.onSurface,
         ),
         bodyText2: TextStyle(
-          color: isDarkTheme ? Colors.white : Colors.black,
+          color: myColorScheme.onSurface,
           fontSize: 14,
           letterSpacing: 0.5,
         ),
         subtitle1: TextStyle(
           fontSize: 14.0,
           fontWeight: FontWeight.w200,
-          color: isDarkTheme ? Colors.white : Colors.black,
+          color: myColorScheme.onSurface,
         ),
         subtitle2: TextStyle(
-          color: isDarkTheme ? Colors.white : Colors.black,
+          color: myColorScheme.onSurface,
         ),
       ),
     );

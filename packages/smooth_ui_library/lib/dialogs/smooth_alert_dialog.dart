@@ -27,8 +27,6 @@ class SmoothAlertDialog extends StatefulWidget {
 }
 
 class _SmoothAlertDialogState extends State<SmoothAlertDialog> {
-
-
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -83,7 +81,7 @@ class _SmoothAlertDialogState extends State<SmoothAlertDialog> {
             ],
           ),
           Divider(
-            color: Theme.of(context).accentColor,
+            color: Theme.of(context).colorScheme.onBackground,
           ),
           const SizedBox(
             height: 15,

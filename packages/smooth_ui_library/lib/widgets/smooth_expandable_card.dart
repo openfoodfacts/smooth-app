@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -8,7 +7,8 @@ class SmoothExpandableCard extends StatelessWidget {
   const SmoothExpandableCard(
       {@required this.collapsedHeader,
       this.expandedHeader,
-      @required this.content, this.headerHeight = 40.0});
+      @required this.content,
+      this.headerHeight = 40.0});
 
   final Widget collapsedHeader;
   final Widget expandedHeader;
@@ -26,8 +26,10 @@ class SmoothExpandableCard extends StatelessWidget {
             duration: const Duration(milliseconds: 160),
             firstCurve: Curves.easeInOutBack,
             secondCurve: Curves.easeInOutBack,
-            firstChild: _buildCollapsedWidget(singleBooleanModel, Theme.of(context)),
-            secondChild: _buildExpandedWidget(singleBooleanModel, Theme.of(context)),
+            firstChild:
+                _buildCollapsedWidget(singleBooleanModel, Theme.of(context)),
+            secondChild:
+                _buildExpandedWidget(singleBooleanModel, Theme.of(context)),
             crossFadeState: singleBooleanModel.isActive
                 ? CrossFadeState.showSecond
                 : CrossFadeState.showFirst,
@@ -37,7 +39,8 @@ class SmoothExpandableCard extends StatelessWidget {
     );
   }
 
-  Widget _buildCollapsedWidget(SingleBooleanModel singleBooleanModel, ThemeData themeData) {
+  Widget _buildCollapsedWidget(
+      SingleBooleanModel singleBooleanModel, ThemeData themeData) {
     return Padding(
       padding:
           const EdgeInsets.only(right: 8.0, left: 8.0, top: 4.0, bottom: 20.0),
@@ -61,7 +64,7 @@ class SmoothExpandableCard extends StatelessWidget {
                   height: headerHeight,
                   child: collapsedHeader,
                 ),
-                Icon(Icons.keyboard_arrow_down, color: themeData.accentColor),
+                const Icon(Icons.keyboard_arrow_down),
               ],
             ),
           ),
@@ -70,7 +73,8 @@ class SmoothExpandableCard extends StatelessWidget {
     );
   }
 
-  Widget _buildExpandedWidget(SingleBooleanModel singleBooleanModel, ThemeData themeData) {
+  Widget _buildExpandedWidget(
+      SingleBooleanModel singleBooleanModel, ThemeData themeData) {
     return Padding(
       padding:
           const EdgeInsets.only(right: 8.0, left: 8.0, top: 4.0, bottom: 20.0),
@@ -96,7 +100,7 @@ class SmoothExpandableCard extends StatelessWidget {
                       height: headerHeight,
                       child: expandedHeader,
                     ),
-                    Icon(Icons.keyboard_arrow_up, color: themeData.accentColor),
+                    const Icon(Icons.keyboard_arrow_up),
                   ],
                 ),
               ),

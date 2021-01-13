@@ -1,6 +1,4 @@
 import 'dart:async';
-import 'dart:typed_data';
-import 'dart:ui' as ui;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -69,7 +67,8 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
-    final brightness = SchedulerBinding.instance.window.platformBrightness;
+    final Brightness brightness =
+        SchedulerBinding.instance.window.platformBrightness;
     systemDarkmodeOn = brightness == Brightness.dark;
     super.initState();
   }
@@ -186,8 +185,8 @@ class SmoothApp extends StatelessWidget {
       animationDuration: 300,
       animationCurve: Curves.easeInOutBack,
       borderRadius: 20.0,
-      color: Theme.of(context).bottomAppBarColor,
-      scanButtonColor: Theme.of(context).accentColor,
+      color: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
+      scanButtonColor: Theme.of(context).colorScheme.onBackground,
       scanShadowColor: context.watch<DarkThemeProvider>().darkTheme
           ? Colors.white.withOpacity(0.0)
           : Colors.deepPurple,
@@ -210,7 +209,10 @@ class SmoothApp extends StatelessWidget {
             svg,
             width: _navigationIconSize,
             height: _navigationIconSize,
-            color: Theme.of(context).accentColor,
+            color: Theme.of(context)
+                .bottomNavigationBarTheme
+                .selectedIconTheme
+                .color,
           ),
         ),
         title: title,

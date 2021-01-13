@@ -81,7 +81,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
       bottomNavigationBarItems.add(
         BottomNavigationBarItem(
           icon: Icon(_ICONS[matchIndex],
-              color: _COLORS[matchIndex] ?? Theme.of(context).accentColor),
+              color: _COLORS[matchIndex] ?? Colors.white),
           label: _model.getRankedProducts(matchIndex).length.toString(),
         ),
       );
@@ -92,6 +92,11 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
         backgroundColor: Theme.of(context).bottomAppBarColor.withAlpha(255),
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentTabIndex,
+        selectedItemColor: Theme.of(context).colorScheme.onSurface,
+        unselectedItemColor: Theme.of(context)
+            .bottomNavigationBarTheme
+            .unselectedIconTheme
+            .color,
         items: bottomNavigationBarItems,
         onTap: (int tapped) => setState(() {
           _currentTabIndex = tapped;
@@ -132,8 +137,9 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
           slivers: <Widget>[
             SliverAppBar(
               leading: IconButton(
-                icon: Icon(ConstantIcons.getBackIcon(),
-                    color: Theme.of(context).accentColor),
+                icon: Icon(
+                  ConstantIcons.getBackIcon(),
+                ),
                 onPressed: () => Navigator.of(context).pop(),
               ),
               expandedHeight: 120.0,
@@ -150,9 +156,8 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
               ),
               actions: <IconButton>[
                 IconButton(
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.settings,
-                    color: Theme.of(context).accentColor,
                   ),
                   onPressed: () => showCupertinoModalBottomSheet<Widget>(
                     expand: false,

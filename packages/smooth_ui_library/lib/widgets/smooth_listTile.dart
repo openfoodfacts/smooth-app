@@ -38,7 +38,7 @@ class SmoothListTile extends StatelessWidget {
     if (leadingWidget == null) {
       return SvgPicture.asset(
         'assets/misc/right_arrow.svg',
-        color: Theme.of(context).accentColor,
+        color: Theme.of(context).colorScheme.onSurface,
       );
     } else {
       return leadingWidget;
