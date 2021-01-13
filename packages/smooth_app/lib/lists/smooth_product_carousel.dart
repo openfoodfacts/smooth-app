@@ -58,7 +58,10 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
         if (widget.continuousScanModel.contributionMode) {
           return SmoothProductCardEdit(heroTag: barcode, product: product);
         }
-        return SmoothProductCardFound(heroTag: barcode, product: product);
+        return SmoothProductCardFound(
+          heroTag: barcode,
+          product: product,
+        );
       case ScannedProductState.LOADING:
         return SmoothProductCardLoading(barcode: barcode);
       case ScannedProductState.NOT_FOUND:

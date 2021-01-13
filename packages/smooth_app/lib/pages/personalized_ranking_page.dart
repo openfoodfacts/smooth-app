@@ -156,8 +156,9 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
               ),
               actions: <IconButton>[
                 IconButton(
-                  icon: const Icon(
+                  icon: Icon(
                     Icons.settings,
+                    color: Theme.of(context).colorScheme.onBackground,
                   ),
                   onPressed: () => showCupertinoModalBottomSheet<Widget>(
                     expand: false,
