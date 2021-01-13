@@ -100,7 +100,8 @@ class SmoothProductCardFound extends StatelessWidget {
                                   product.productName ?? 'Unknown product name',
                                   maxLines: 2,
                                   overflow: TextOverflow.fade,
-                                  style: themeData.textTheme.headline4,
+                                  style: themeData.textTheme.headline4
+                                      .copyWith(color: Colors.black),
                                 ),
                               ),
                             ],

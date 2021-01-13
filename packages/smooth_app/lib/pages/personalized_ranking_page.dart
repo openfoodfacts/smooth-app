@@ -81,7 +81,8 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
       bottomNavigationBarItems.add(
         BottomNavigationBarItem(
           icon: Icon(_ICONS[matchIndex],
-              color: _COLORS[matchIndex] ?? Colors.white),
+              color: _COLORS[matchIndex] ??
+                  Theme.of(context).colorScheme.onSurface),
           label: _model.getRankedProducts(matchIndex).length.toString(),
         ),
       );
@@ -156,8 +157,9 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
               ),
               actions: <IconButton>[
                 IconButton(
-                  icon: const Icon(
+                  icon: Icon(
                     Icons.settings,
+                    color: Theme.of(context).colorScheme.onBackground,
                   ),
                   onPressed: () => showCupertinoModalBottomSheet<Widget>(
                     expand: false,
