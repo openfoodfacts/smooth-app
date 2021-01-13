@@ -59,8 +59,8 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> _init(BuildContext context) async {
     _userPreferences = await UserPreferences.getUserPreferences();
-    _userPreferencesModel =
-        await UserPreferencesModel.getUserPreferencesModel(context);
+    _userPreferencesModel = await UserPreferencesModel.getUserPreferencesModel(
+        DefaultAssetBundle.of(context));
     await _userPreferences.init(_userPreferencesModel);
     _localDatabase = await LocalDatabase.getLocalDatabase();
     themeChangeProvider.darkTheme =
@@ -92,15 +92,18 @@ class _MyAppState extends State<MyApp> {
                   value: themeChangeProvider),
             ],
             child: Consumer<DarkThemeProvider>(
-              builder: (BuildContext context, DarkThemeProvider value,
-                  Widget child) {
+              builder: (
+                BuildContext context,
+                DarkThemeProvider value,
+                Widget child,
+              ) {
                 return MaterialApp(
                   localizationsDelegates:
                       AppLocalizations.localizationsDelegates,
                   supportedLocales: AppLocalizations.supportedLocales,
                   theme: SmoothThemes.getSmoothThemeData(
                       themeChangeProvider.darkTheme, context),
-                  home: SmoothApp(),
+                  home: SmoothAppGetLanguage(),
                 );
               },
             ),
@@ -117,9 +120,22 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
+/// Layer needed because we need to know the language
+class SmoothAppGetLanguage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final UserPreferencesModel userPreferencesModel =
+        context.watch<UserPreferencesModel>();
+    final Locale myLocale = Localizations.localeOf(context);
+    final String languageCode = myLocale.languageCode;
+    userPreferencesModel.refresh(DefaultAssetBundle.of(context), languageCode);
+    return SmoothApp();
+  }
+}
+
 class SmoothApp extends StatelessWidget {
-  final double _navigationIconSize = 32.0;
-  final double _navigationIconPadding = 5.0;
+  static const double _navigationIconSize = 32.0;
+  static const double _navigationIconPadding = 5.0;
 
   @override
   Widget build(BuildContext context) {
@@ -189,7 +205,7 @@ class SmoothApp extends StatelessWidget {
   ) =>
       SmoothNavigationScreenModel(
         icon: Container(
-          padding: EdgeInsets.all(_navigationIconPadding),
+          padding: const EdgeInsets.all(_navigationIconPadding),
           child: SvgPicture.asset(
             svg,
             width: _navigationIconSize,
