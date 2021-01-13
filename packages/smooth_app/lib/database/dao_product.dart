@@ -13,6 +13,8 @@ class DaoProduct {
   static const String TABLE_PRODUCT_COLUMN_BARCODE = 'barcode';
   static const String _TABLE_PRODUCT_COLUMN_JSON = 'encoded_json';
 
+  static const String _WHERE_PK = '$TABLE_PRODUCT_COLUMN_BARCODE = ?';
+
   static FutureOr<void> onUpgrade(
     final Database db,
     final int oldVersion,
@@ -27,13 +29,16 @@ class DaoProduct {
     }
   }
 
+  Future<int> getLastUpdate(final String barcode) =>
+      _getLastUpdate(barcode, localDatabase.database);
+
   Future<Product> get(final String barcode) async {
     final List<Map<String, dynamic>> queryResult =
         await localDatabase.database.query(
       TABLE_PRODUCT,
       columns: <String>[_TABLE_PRODUCT_COLUMN_JSON],
-      where: '$TABLE_PRODUCT_COLUMN_BARCODE = ?',
-      whereArgs: <String>[barcode],
+      where: _WHERE_PK,
+      whereArgs: <dynamic>[barcode],
     );
     if (queryResult.isEmpty) {
       // not found
@@ -73,34 +78,99 @@ class DaoProduct {
   }
 
   Future<void> put(final Product product) async =>
-      await _put(product, localDatabase.database);
+      await _upsert(product, localDatabase.database);
 
-  Future<void> putProducts(final List<Product> products) async =>
-      await localDatabase.database
-          .transaction((final Transaction transaction) async {
-        for (final Product product in products) {
-          await _put(product, transaction);
-        }
-      });
+  Future<void> putProducts(final List<Product> products) async {
+    await localDatabase.database
+        .transaction((final Transaction transaction) async {
+      for (final Product product in products) {
+        await _upsert(product, transaction);
+      }
+    });
+  }
 
-  static Future<void> _put(
+  /// Upsert clumsy implementation due to poor SQLite support by sqlflite
+  /// (ConflictAlgorithm.replace is not an option because of FK cascade delete)
+  static Future<bool> _upsert(
     final Product product,
     final DatabaseExecutor databaseExecutor,
   ) async {
-    await databaseExecutor.execute(
-        'insert into $TABLE_PRODUCT('
-        ' $TABLE_PRODUCT_COLUMN_BARCODE,'
-        ' $_TABLE_PRODUCT_COLUMN_JSON,'
-        ' ${LocalDatabase.COLUMN_TIMESTAMP}'
-        ')values(?, ?, ?)'
-        ' on conflict($TABLE_PRODUCT_COLUMN_BARCODE) DO UPDATE SET '
-        '  $_TABLE_PRODUCT_COLUMN_JSON=excluded.$_TABLE_PRODUCT_COLUMN_JSON,'
-        '  ${LocalDatabase.COLUMN_TIMESTAMP}=excluded.${LocalDatabase.COLUMN_TIMESTAMP}',
-        <dynamic>[
-          product.barcode,
-          json.encode(product.toJson()),
-          LocalDatabase.nowInMillis(),
-        ]); // TODO(monsieurtanuki): check if this upsert does not cause delete+insert, but just update
+    try {
+      final int lastUpdate =
+          await _getLastUpdate(product.barcode, databaseExecutor);
+      if (lastUpdate != null) {
+        final int nbRows = await _update(product, databaseExecutor);
+        if (nbRows == 1) {
+          // very expected result
+          return true;
+        }
+      }
+      return await _insert(product, databaseExecutor);
+    } catch (e) {
+      print('exception: $e');
+    }
+    return false;
+  }
+
+  static Future<bool> _insert(
+    final Product product,
+    final DatabaseExecutor databaseExecutor,
+  ) async {
+    try {
+      await databaseExecutor.insert(
+        TABLE_PRODUCT,
+        <String, dynamic>{
+          TABLE_PRODUCT_COLUMN_BARCODE: product.barcode,
+          _TABLE_PRODUCT_COLUMN_JSON: json.encode(product.toJson()),
+          LocalDatabase.COLUMN_TIMESTAMP: LocalDatabase.nowInMillis(),
+        },
+      );
+      return true;
+    } catch (e) {
+      print('exception: $e');
+    }
+    return false;
+  }
+
+  static Future<int> _update(
+    final Product product,
+    final DatabaseExecutor databaseExecutor,
+  ) async {
+    try {
+      return await databaseExecutor.update(
+        TABLE_PRODUCT,
+        <String, dynamic>{
+          _TABLE_PRODUCT_COLUMN_JSON: json.encode(product.toJson()),
+          LocalDatabase.COLUMN_TIMESTAMP: LocalDatabase.nowInMillis(),
+        },
+        where: _WHERE_PK,
+        whereArgs: <dynamic>[product.barcode],
+      );
+    } catch (e) {
+      print('exception: $e');
+    }
+    return 0;
+  }
+
+  static Future<int> _getLastUpdate(
+    final String barcode,
+    final DatabaseExecutor databaseExecutor,
+  ) async {
+    final List<Map<String, dynamic>> queryResult = await databaseExecutor.query(
+      TABLE_PRODUCT,
+      columns: <String>[LocalDatabase.COLUMN_TIMESTAMP],
+      where: _WHERE_PK,
+      whereArgs: <dynamic>[barcode],
+    );
+    if (queryResult.isEmpty) {
+      // not found
+      return null;
+    }
+    if (queryResult.length > 1) {
+      // very very unlikely to happen
+      throw Exception('Several products with the same barcode $barcode');
+    }
+    return queryResult.first[LocalDatabase.COLUMN_TIMESTAMP] as int;
   }
 
   Product _getProductFromQueryResult(final Map<String, dynamic> row) {
