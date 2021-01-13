@@ -1,0 +1,18 @@
+{
+    "categories": "Категорії",
+    "@categories": {},
+    "saveButtonText": "Save",
+    "@saveButtonText": {},
+    "yes": "Так",
+    "@yes": {},
+    "no": "Ні",
+    "@no": {},
+    "nutrition": "Харчова цінність",
+    "@nutrition": {},
+    "ingredients": "Інгредієнти",
+    "@ingredients": {},
+    "termsOfUse": "Умови використання",
+    "@termsOfUse": {},
+    "error": "Щось пішло не так",
+    "@error": {}
+}

@@ -1,0 +1,12 @@
+{
+    "categories": "Kategorije",
+    "@categories": {},
+    "saveButtonText": "Spremi",
+    "@saveButtonText": {},
+    "ingredients": "Sastojci",
+    "@ingredients": {},
+    "termsOfUse": "Uvjeti korištenja",
+    "@termsOfUse": {},
+    "error": "Dogodila se greška.",
+    "@error": {}
+}

@@ -1,0 +1,20 @@
+{
+    "categories": "Κατηγορίες",
+    "@categories": {},
+    "saveButtonText": "Αποθήκευση",
+    "@saveButtonText": {},
+    "yes": "Ναι",
+    "@yes": {},
+    "no": "Όχι",
+    "@no": {},
+    "nutrition": "Θρεπτική Αξία",
+    "@nutrition": {},
+    "ingredients": "Συστατικά",
+    "@ingredients": {},
+    "termsOfUse": "Όροι χρήσης",
+    "@termsOfUse": {},
+    "contribute": "Συμβάλλετε",
+    "@contribute": {},
+    "error": "Κάτι πήγε στραβά",
+    "@error": {}
+}

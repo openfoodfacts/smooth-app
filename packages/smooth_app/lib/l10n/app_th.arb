@@ -1,0 +1,20 @@
+{
+    "categories": "หมวดหมู่",
+    "@categories": {},
+    "saveButtonText": "บันทึก",
+    "@saveButtonText": {},
+    "yes": "ถูกต้อง",
+    "@yes": {},
+    "no": "ไม่ใช่",
+    "@no": {},
+    "nutrition": "อาหารการกิน",
+    "@nutrition": {},
+    "ingredients": "ส่วนผสม",
+    "@ingredients": {},
+    "termsOfUse": "ข้อกำหนดการใช้งาน",
+    "@termsOfUse": {},
+    "contribute": "สนับสนุน",
+    "@contribute": {},
+    "error": "บางอย่างผิดพลาด",
+    "@error": {}
+}

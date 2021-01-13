@@ -1,0 +1,22 @@
+{
+    "categories": "Thể loại",
+    "@categories": {},
+    "saveButtonText": "Lưu",
+    "@saveButtonText": {},
+    "yes": "Có",
+    "@yes": {},
+    "no": "Không",
+    "@no": {},
+    "nutrition": "Dinh dưỡng",
+    "@nutrition": {},
+    "ingredients": "Thành phần",
+    "@ingredients": {},
+    "termsOfUse": "Điều khoản sử dụng",
+    "@termsOfUse": {},
+    "contribute": "Góp phần",
+    "@contribute": {},
+    "contribute_donate_header": "Đóng góp cho Open Food Facts",
+    "@contribute_donate_header": {},
+    "error": "Đã xảy ra lỗi",
+    "@error": {}
+}
