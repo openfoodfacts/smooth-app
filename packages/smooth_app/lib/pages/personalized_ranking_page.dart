@@ -81,7 +81,8 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
       bottomNavigationBarItems.add(
         BottomNavigationBarItem(
           icon: Icon(_ICONS[matchIndex],
-              color: _COLORS[matchIndex] ?? Colors.white),
+              color: _COLORS[matchIndex] ??
+                  Theme.of(context).colorScheme.onSurface),
           label: _model.getRankedProducts(matchIndex).length.toString(),
         ),
       );
