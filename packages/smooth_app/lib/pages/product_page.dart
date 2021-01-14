@@ -2,17 +2,10 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Product.dart';
-import 'package:smooth_app/cards/expandables/labels_expandable.dart';
-import 'package:smooth_app/cards/expandables/attribute_expandable.dart';
 import 'package:smooth_app/cards/expandables/nutrition_levels_expandable.dart';
 import 'package:smooth_app/cards/expandables/product_processing_expandable.dart';
-import 'package:smooth_app/cards/information_cards/palm_oil_free_information_card.dart';
-import 'package:smooth_app/cards/information_cards/vegan_information_card.dart';
-import 'package:smooth_app/cards/information_cards/vegetarian_information_card.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
-import 'package:provider/provider.dart';
-import 'package:openfoodfacts/model/Attribute.dart';
 
 class ProductPage extends StatelessWidget {
   const ProductPage({@required this.product});
@@ -21,10 +14,10 @@ class ProductPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final UserPreferencesModel userPreferencesModel =
-        context.watch<UserPreferencesModel>();
-    final Attribute nutriscoreAttribute =
-        userPreferencesModel.getAttribute(product, 'nutriscore');
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final Size screenSize = MediaQuery.of(context).size;
+    final double iconWidth = screenSize.width / 10;
+    final TextStyle dividerTextStyle = Theme.of(context).textTheme.headline2;
     return Scaffold(
       body: Stack(
         children: <Widget>[
@@ -53,8 +46,8 @@ class ProductPage extends StatelessWidget {
             )
           else
             Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
+              width: screenSize.width,
+              height: screenSize.height,
               color: Colors.black54,
             ),
           BackdropFilter(
@@ -71,7 +64,7 @@ class ProductPage extends StatelessWidget {
                         Flexible(
                           child: Text(
                             product.productName ??
-                                AppLocalizations.of(context).unknownProductName,
+                                appLocalizations.unknownProductName,
                             style: Theme.of(context).textTheme.headline1,
                           ),
                         )
@@ -87,8 +80,7 @@ class ProductPage extends StatelessWidget {
                       children: <Widget>[
                         Flexible(
                           child: Text(
-                            product.brands ??
-                                AppLocalizations.of(context).unknownBrand,
+                            product.brands ?? appLocalizations.unknownBrand,
                             style: Theme.of(context).textTheme.subtitle1,
                           ),
                         ),
@@ -106,89 +98,48 @@ class ProductPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  if (product.ingredientsAnalysisTags != null)
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 4.0, horizontal: 12.0),
-                      child: VeganInformationCard(
-                        status: product.ingredientsAnalysisTags.veganStatus,
-                      ),
-                    )
-                  else
-                    Container(),
-                  if (product.ingredientsAnalysisTags != null)
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 4.0, horizontal: 12.0),
-                      child: VegetarianInformationCard(
-                        status:
-                            product.ingredientsAnalysisTags.vegetarianStatus,
-                      ),
-                    )
-                  else
-                    Container(),
-                  if (product.ingredientsAnalysisTags != null)
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 4.0, horizontal: 12.0),
-                      child: PalmOilFreeInformationCard(
-                        status:
-                            product.ingredientsAnalysisTags.palmOilFreeStatus,
-                      ),
-                    )
-                  else
-                    Container(),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                        top: 14.0, right: 16.0, left: 16.0, bottom: 8.0),
-                    child: Row(
-                      children: <Widget>[
-                        Flexible(
-                          child: Text(
-                            AppLocalizations.of(context).nutrition,
-                            style: Theme.of(context).textTheme.headline2,
-                          ),
-                        )
-                      ],
-                    ),
+                  _getDivider(
+                    Text(appLocalizations.nutrition, style: dividerTextStyle),
                   ),
-                  AttributeExpandable(nutriscoreAttribute),
                   NutritionLevelsExpandable(
-                      nutrientLevels: product.nutrientLevels,
-                      nutriments: product.nutriments),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                        top: 14.0, right: 16.0, left: 16.0, bottom: 8.0),
-                    child: Row(
-                      children: <Widget>[
-                        Flexible(
-                          child: Text(
-                            AppLocalizations.of(context).ingredients,
-                            style: Theme.of(context).textTheme.headline2,
-                          ),
-                        )
-                      ],
-                    ),
+                    product: product,
+                    iconWidth: iconWidth,
+                    attributeTags: const <String>[
+                      UserPreferencesModel.ATTRIBUTE_VEGAN,
+                      UserPreferencesModel.ATTRIBUTE_VEGETARIAN,
+                      UserPreferencesModel.ATTRIBUTE_PALM_OIL_FREE,
+                    ],
+                    title: 'Nutrition levels',
                   ),
-                  ProductProcessingExpandable(
-                    additives: product.additives,
-                    novaGroup: product.nutriments.novaGroup,
+                  NutritionLevelsExpandable(
+                    product: product,
+                    iconWidth: iconWidth,
+                    attributeTags: const <String>[
+                      UserPreferencesModel.ATTRIBUTE_NUTRISCORE,
+                      UserPreferencesModel.ATTRIBUTE_LOW_SALT,
+                      UserPreferencesModel.ATTRIBUTE_LOW_SUGARS,
+                      UserPreferencesModel.ATTRIBUTE_LOW_FAT,
+                      UserPreferencesModel.ATTRIBUTE_LOW_SATURATED_FAT,
+                    ],
+                    title: 'Nutrition levels',
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                        top: 14.0, right: 16.0, left: 16.0, bottom: 8.0),
-                    child: Row(
-                      children: <Widget>[
-                        Flexible(
-                          child: Text(
-                            AppLocalizations.of(context).ecology,
-                            style: Theme.of(context).textTheme.headline2,
-                          ),
-                        )
-                      ],
-                    ),
+                  _getDivider(
+                    Text(appLocalizations.ingredients, style: dividerTextStyle),
                   ),
-                  LabelsExpandable(labels: product.labelsTags ?? <String>[]),
+                  ProductProcessingExpandable(product, iconWidth),
+                  _getDivider(
+                    Text(appLocalizations.ecology, style: dividerTextStyle),
+                  ),
+                  NutritionLevelsExpandable(
+                    product: product,
+                    iconWidth: iconWidth,
+                    attributeTags: const <String>[
+                      UserPreferencesModel.ATTRIBUTE_ECOSCORE,
+                      UserPreferencesModel.ATTRIBUTE_ORGANIC,
+                      UserPreferencesModel.ATTRIBUTE_FAIR_TRADE,
+                    ],
+                    title: 'Labels',
+                  ),
                 ],
               ),
             ),
@@ -197,4 +148,12 @@ class ProductPage extends StatelessWidget {
       ),
     );
   }
+
+  Widget _getDivider(final Widget child) => Padding(
+        padding: const EdgeInsets.only(
+            top: 14.0, right: 16.0, left: 16.0, bottom: 8.0),
+        child: Row(
+          children: <Widget>[Flexible(child: child)],
+        ),
+      );
 }

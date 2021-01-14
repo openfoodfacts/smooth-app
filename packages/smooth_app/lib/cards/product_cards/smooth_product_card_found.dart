@@ -45,7 +45,7 @@ class SmoothProductCardFound extends StatelessWidget {
     final List<Widget> scores = <Widget>[];
     for (final String variable in orderedVariables) {
       final Attribute attribute =
-          userPreferencesModel.getAttribute(product, variable);
+          UserPreferencesModel.getAttribute(product, variable);
       scores.add(AttributeCard(attribute, height: 40));
     }
     return GestureDetector(

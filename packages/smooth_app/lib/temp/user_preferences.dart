@@ -66,12 +66,16 @@ class UserPreferences extends ChangeNotifier {
     int valueIndex;
     valueIndex = userPreferencesModel.getValueIndex('very_important');
     if (valueIndex != null) {
-      await _setImportance('nutriscore', valueIndex, notify: false);
+      await _setImportance(
+          UserPreferencesModel.ATTRIBUTE_NUTRISCORE, valueIndex,
+          notify: false);
     }
     valueIndex = userPreferencesModel.getValueIndex('important');
     if (valueIndex != null) {
-      await _setImportance('nova', valueIndex, notify: false);
-      await _setImportance('ecoscore', valueIndex, notify: false);
+      await _setImportance(UserPreferencesModel.ATTRIBUTE_NOVA, valueIndex,
+          notify: false);
+      await _setImportance(UserPreferencesModel.ATTRIBUTE_ECOSCORE, valueIndex,
+          notify: false);
     }
     _sharedPreferences.setStringList(_TAG_HIDDEN_GROUPS, null);
     notifyListeners();

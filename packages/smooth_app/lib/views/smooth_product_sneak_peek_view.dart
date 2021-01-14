@@ -30,8 +30,6 @@ class SmoothProductSneakPeekViewState extends State<SmoothProductSneakPeekView>
     with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
-    final UserPreferencesModel userPreferencesModel =
-        context.watch<UserPreferencesModel>();
     return ChangeNotifierProvider<SneakPeakModel>(
       create: (BuildContext context) => SneakPeakModel(
           widget.product,
@@ -136,8 +134,8 @@ class SmoothProductSneakPeekViewState extends State<SmoothProductSneakPeekView>
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     AttributeCard(
-                      userPreferencesModel.getAttribute(
-                          widget.product, 'nutriscore'),
+                      UserPreferencesModel.getAttribute(widget.product,
+                          UserPreferencesModel.ATTRIBUTE_NUTRISCORE),
                       width: 100.0,
                     ),
                     Container(

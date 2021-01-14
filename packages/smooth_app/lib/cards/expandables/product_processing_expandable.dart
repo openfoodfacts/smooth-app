@@ -1,54 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:openfoodfacts/model/Additives.dart';
+import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_ui_library/widgets/smooth_expandable_card.dart';
+import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/model/Attribute.dart';
+import 'package:smooth_app/data_models/user_preferences_model.dart';
 
 class ProductProcessingExpandable extends StatelessWidget {
-  const ProductProcessingExpandable(
-      {@required this.additives, @required this.novaGroup});
+  const ProductProcessingExpandable(this.product, this.iconWidth);
 
-  final Additives additives;
-  final int novaGroup;
+  final Product product;
+  final double iconWidth;
 
   @override
   Widget build(BuildContext context) {
+    final Attribute nova = UserPreferencesModel.getAttribute(
+        product, UserPreferencesModel.ATTRIBUTE_NOVA);
+    final Attribute additives = UserPreferencesModel.getAttribute(
+        product, UserPreferencesModel.ATTRIBUTE_ADDITIVES);
+    final List<String> additiveNames = product.additives?.names;
     return SmoothExpandableCard(
-      collapsedHeader: Column(
-        mainAxisSize: MainAxisSize.max,
+      headerHeight: null,
+      collapsedHeader: Row(
         mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                getNovaText(),
-                style: Theme.of(context)
-                    .textTheme
-                    .subtitle2
-                    .copyWith(color: getNovaColor()),
-              ),
-            ],
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SvgCache(additives.iconUrl, width: iconWidth),
           ),
-          const SizedBox(
-            height: 6.0,
-          ),
-          if (additives != null)
-            Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  'with ${additives.names.length} additives',
-                  style: Theme.of(context)
-                      .textTheme
-                      .subtitle2
-                      .copyWith(color: getNovaColor()),
-                ),
-              ],
-            )
-          else
-            Container(),
+          Text(
+              (nova.descriptionShort ?? nova.description) +
+                  '\n' +
+                  additives.title,
+              style: Theme.of(context).textTheme.subtitle2),
         ],
       ),
       content: Column(
@@ -58,8 +42,7 @@ class ProductProcessingExpandable extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Flexible(
-                child: Text(
-                    'We\'ve found ${additives.names.length} additives in this product :'),
+                child: Text(additives.title),
               )
             ],
           ),
@@ -67,17 +50,13 @@ class ProductProcessingExpandable extends StatelessWidget {
             height: 12.0,
           ),
           Container(
-            height: 20.0 * additives.names.length,
+            height: 20.0 * additiveNames.length,
             child: ListView.builder(
-                itemCount: additives.names.length,
+                itemCount: additiveNames.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
                     height: 20.0,
-                    child: Row(
-                      children: <Widget>[
-                        Text(additives.names[index]),
-                      ],
-                    ),
+                    child: Row(children: <Widget>[Text(additiveNames[index])]),
                   );
                 }),
           ),
@@ -88,45 +67,5 @@ class ProductProcessingExpandable extends StatelessWidget {
         style: Theme.of(context).textTheme.headline3,
       ),
     );
-  }
-
-  String getNovaText() {
-    switch (novaGroup) {
-      case 1:
-        return 'Unprocessed or minimally processed foods';
-        break;
-      case 2:
-        return 'Processed culinary ingredients';
-        break;
-      case 3:
-        return 'Processed foods';
-        break;
-      case 4:
-        return 'Ultra processed product';
-        break;
-      default:
-        return 'Unknown NOVA group';
-        break;
-    }
-  }
-
-  Color getNovaColor() {
-    switch (novaGroup) {
-      case 1:
-        return Colors.green;
-        break;
-      case 2:
-        return Colors.orangeAccent;
-        break;
-      case 3:
-        return Colors.deepOrangeAccent;
-        break;
-      case 4:
-        return Colors.redAccent;
-        break;
-      default:
-        return Colors.grey;
-        break;
-    }
   }
 }
