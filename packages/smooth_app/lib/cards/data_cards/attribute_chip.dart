@@ -3,8 +3,8 @@ import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 
-class AttributeCard extends StatelessWidget {
-  const AttributeCard(
+class AttributeChip extends StatelessWidget {
+  const AttributeChip(
     this.attribute, {
     this.width,
     this.height,
@@ -15,6 +15,8 @@ class AttributeCard extends StatelessWidget {
   final double height;
 
   @override
-  Widget build(BuildContext context) =>
-      SvgCache(attribute?.iconUrl, width: width, height: height);
+  Widget build(BuildContext context) => Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: SvgCache(attribute?.iconUrl, width: width, height: height),
+      );
 }

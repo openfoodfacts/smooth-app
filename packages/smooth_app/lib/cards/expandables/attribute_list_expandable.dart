@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_app/cards/data_cards/nutrition_level_card.dart';
-import 'package:smooth_app/cards/data_cards/nutrition_level_chip.dart';
+import 'package:smooth_app/cards/data_cards/attribute_card.dart';
+import 'package:smooth_app/cards/data_cards/attribute_chip.dart';
 import 'package:smooth_ui_library/widgets/smooth_expandable_card.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
 
-class NutritionLevelsExpandable extends StatelessWidget {
-  const NutritionLevelsExpandable({
+class AttributeListExpandable extends StatelessWidget {
+  const AttributeListExpandable({
     @required this.product,
     @required this.iconWidth,
     @required this.attributeTags,
@@ -25,10 +25,21 @@ class NutritionLevelsExpandable extends StatelessWidget {
     final List<Widget> chips = <Widget>[];
     final List<Widget> cards = <Widget>[];
     for (final String attributeTag in attributeTags) {
-      final Attribute attribute =
+      Attribute attribute =
           UserPreferencesModel.getAttribute(product, attributeTag);
-      chips.add(NutritionLevelChip(attribute, iconWidth));
-      cards.add(NutritionLevelCard(attribute, iconWidth));
+      chips.add(AttributeChip(attribute, width: iconWidth));
+      if (attribute.id == UserPreferencesModel.ATTRIBUTE_ADDITIVES) {
+        // TODO(monsieurtanuki): remove that cheat when additives are more standard
+        final List<String> additiveNames = product.additives?.names;
+        attribute = Attribute(
+          id: attribute.id,
+          title: attribute.title,
+          iconUrl: attribute.iconUrl,
+          descriptionShort:
+              additiveNames == null ? '' : additiveNames.join(', '),
+        );
+      }
+      cards.add(AttributeCard(attribute, iconWidth));
     }
     return SmoothExpandableCard(
       headerHeight: null,

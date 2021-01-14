@@ -2,8 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Product.dart';
-import 'package:smooth_app/cards/expandables/nutrition_levels_expandable.dart';
-import 'package:smooth_app/cards/expandables/product_processing_expandable.dart';
+import 'package:smooth_app/cards/expandables/attribute_list_expandable.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
 
@@ -16,7 +15,8 @@ class ProductPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Size screenSize = MediaQuery.of(context).size;
-    final double iconWidth = screenSize.width / 10;
+    final double iconWidth =
+        screenSize.width / 10; // TODO(monsieurtanuki): target size?
     final TextStyle dividerTextStyle = Theme.of(context).textTheme.headline2;
     return Scaffold(
       body: Stack(
@@ -101,7 +101,7 @@ class ProductPage extends StatelessWidget {
                   _getDivider(
                     Text(appLocalizations.nutrition, style: dividerTextStyle),
                   ),
-                  NutritionLevelsExpandable(
+                  AttributeListExpandable(
                     product: product,
                     iconWidth: iconWidth,
                     attributeTags: const <String>[
@@ -111,7 +111,7 @@ class ProductPage extends StatelessWidget {
                     ],
                     title: 'Nutrition levels',
                   ),
-                  NutritionLevelsExpandable(
+                  AttributeListExpandable(
                     product: product,
                     iconWidth: iconWidth,
                     attributeTags: const <String>[
@@ -126,11 +126,19 @@ class ProductPage extends StatelessWidget {
                   _getDivider(
                     Text(appLocalizations.ingredients, style: dividerTextStyle),
                   ),
-                  ProductProcessingExpandable(product, iconWidth),
+                  AttributeListExpandable(
+                    product: product,
+                    iconWidth: iconWidth,
+                    attributeTags: const <String>[
+                      UserPreferencesModel.ATTRIBUTE_NOVA,
+                      UserPreferencesModel.ATTRIBUTE_ADDITIVES,
+                    ],
+                    title: 'Labels',
+                  ),
                   _getDivider(
                     Text(appLocalizations.ecology, style: dividerTextStyle),
                   ),
-                  NutritionLevelsExpandable(
+                  AttributeListExpandable(
                     product: product,
                     iconWidth: iconWidth,
                     attributeTags: const <String>[

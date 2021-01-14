@@ -5,7 +5,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
 import 'package:rubber/rubber.dart';
-import 'package:smooth_app/cards/category_cards/attribute_card.dart';
+import 'package:smooth_app/cards/data_cards/attribute_chip.dart';
 import 'package:smooth_app/cards/data_cards/smooth_data_card.dart';
 import 'package:smooth_app/cards/data_cards/smooth_energy_card.dart';
 import 'package:smooth_app/cards/data_cards/smooth_intake_recommendation_card.dart';
@@ -133,7 +133,7 @@ class SmoothProductSneakPeekViewState extends State<SmoothProductSneakPeekView>
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    AttributeCard(
+                    AttributeChip(
                       UserPreferencesModel.getAttribute(widget.product,
                           UserPreferencesModel.ATTRIBUTE_NUTRISCORE),
                       width: 100.0,
