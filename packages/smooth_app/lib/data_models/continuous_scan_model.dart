@@ -49,7 +49,7 @@ class ContinuousScanModel {
   void setupScanner(QRViewController controller) {
     _scannerController = controller;
     _scannerController.scannedDataStream.listen(
-      (String barcode) => onScan(barcode),
+      (Barcode barcode) => onScan(barcode.code),
     );
   }
 

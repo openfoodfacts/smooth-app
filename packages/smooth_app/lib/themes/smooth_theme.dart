@@ -56,7 +56,7 @@ class SmoothThemes {
       brightness: Brightness.light,
     );
 
-    ColorScheme myColorScheme = isDarkTheme ? colorDark : colorLight;
+    final ColorScheme myColorScheme = isDarkTheme ? colorDark : colorLight;
 
     return ThemeData(
       colorScheme: myColorScheme,
