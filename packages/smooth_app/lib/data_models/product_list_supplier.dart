@@ -7,4 +7,6 @@ abstract class ProductListSupplier {
   ProductList getProductList();
 
   bool needsToBeSavedIntoDb();
+
+  ProductListSupplier getRefreshSupplier();
 }

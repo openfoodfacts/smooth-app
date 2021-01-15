@@ -26,4 +26,7 @@ class QueryProductListSupplier implements ProductListSupplier {
 
   @override
   bool needsToBeSavedIntoDb() => true;
+
+  @override
+  ProductListSupplier getRefreshSupplier() => null;
 }
