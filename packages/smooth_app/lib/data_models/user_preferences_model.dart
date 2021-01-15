@@ -11,6 +11,20 @@ import 'package:openfoodfacts/model/Product.dart';
 class UserPreferencesModel extends ChangeNotifier {
   UserPreferencesModel._();
 
+  static const String ATTRIBUTE_VEGETARIAN = 'vegetarian';
+  static const String ATTRIBUTE_VEGAN = 'vegan';
+  static const String ATTRIBUTE_PALM_OIL_FREE = 'palm-oil-free';
+  static const String ATTRIBUTE_NOVA = 'nova';
+  static const String ATTRIBUTE_ADDITIVES = 'additives';
+  static const String ATTRIBUTE_NUTRISCORE = 'nutriscore';
+  static const String ATTRIBUTE_LOW_SALT = 'low_salt';
+  static const String ATTRIBUTE_LOW_SUGARS = 'low_sugars';
+  static const String ATTRIBUTE_LOW_FAT = 'low_fat';
+  static const String ATTRIBUTE_LOW_SATURATED_FAT = 'low_saturated_fat';
+  static const String ATTRIBUTE_ECOSCORE = 'ecoscore';
+  static const String ATTRIBUTE_ORGANIC = 'labels_organic';
+  static const String ATTRIBUTE_FAIR_TRADE = 'labels_fair_trade';
+
   static const String _DEFAULT_LANGUAGE = 'en';
 
   static String _getImportanceAssetPath(final String languageCode) =>
@@ -184,7 +198,10 @@ class UserPreferencesModel extends ChangeNotifier {
     return result;
   }
 
-  Attribute getAttribute(final Product product, final String attributeId) {
+  static Attribute getAttribute(
+    final Product product,
+    final String attributeId,
+  ) {
     if (product == null) {
       return null;
     }
