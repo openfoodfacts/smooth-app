@@ -1,4 +1,5 @@
 import 'package:smooth_app/data_models/product_list_supplier.dart';
+import 'package:smooth_app/data_models/query_product_list_supplier.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/data_models/product_list.dart';
@@ -31,4 +32,8 @@ class DatabaseProductListSupplier implements ProductListSupplier {
 
   @override
   bool needsToBeSavedIntoDb() => false;
+
+  @override
+  ProductListSupplier getRefreshSupplier() =>
+      QueryProductListSupplier(productQuery);
 }

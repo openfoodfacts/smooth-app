@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:provider/provider.dart';
@@ -12,6 +14,7 @@ import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
+import 'package:smooth_app/pages/product_query_page_helper.dart';
 
 class ProductQueryPage extends StatefulWidget {
   const ProductQueryPage({
@@ -19,25 +22,33 @@ class ProductQueryPage extends StatefulWidget {
     @required this.heroTag,
     @required this.mainColor,
     @required this.name,
+    this.lastUpdate,
   });
 
   final ProductListSupplier productListSupplier;
   final String heroTag;
   final Color mainColor;
   final String name;
+  final int lastUpdate;
 
   @override
   _ProductQueryPageState createState() => _ProductQueryPageState();
 }
 
 class _ProductQueryPageState extends State<ProductQueryPage> {
+  final GlobalKey<ScaffoldState> _scaffoldKeyEmpty = GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> _scaffoldKeyNotEmpty =
+      GlobalKey<ScaffoldState>();
+
   ProductQueryModel _model;
+  int _lastUpdate;
   final ScrollController _scrollController = ScrollController();
   bool _showTitle = true;
 
   @override
   void initState() {
     super.initState();
+    _lastUpdate = widget.lastUpdate;
     _model = ProductQueryModel(widget.productListSupplier);
     _scrollController.addListener(() {
       if (_scrollController.offset <=
@@ -83,8 +94,10 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
               );
             case LoadingStatus.COMPLETE:
               if (_model.isNotEmpty()) {
+                _showRefreshSnackBar(_scaffoldKeyNotEmpty);
                 return _getNotEmptyScreen(screenSize, themeData);
               }
+              _showRefreshSnackBar(_scaffoldKeyEmpty);
               return _getEmptyScreen(
                 screenSize,
                 themeData,
@@ -115,29 +128,31 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
     final Widget emptiness,
   ) =>
       Scaffold(
+          key: _scaffoldKeyEmpty,
           body: Stack(
-        children: <Widget>[
-          _getHero(screenSize, themeData),
-          Center(child: emptiness),
-          AnimatedOpacity(
-            opacity: _showTitle ? 1.0 : 0.0,
-            duration: const Duration(milliseconds: 250),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                getBackArrow(context, widget.mainColor),
-              ],
-            ),
-          ),
-        ],
-      ));
+            children: <Widget>[
+              _getHero(screenSize, themeData),
+              Center(child: emptiness),
+              AnimatedOpacity(
+                opacity: _showTitle ? 1.0 : 0.0,
+                duration: const Duration(milliseconds: 250),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    getBackArrow(context, widget.mainColor),
+                  ],
+                ),
+              ),
+            ],
+          ));
 
   Widget _getNotEmptyScreen(
     final Size screenSize,
     final ThemeData themeData,
   ) =>
       Scaffold(
+          key: _scaffoldKeyNotEmpty,
           floatingActionButton: SmoothRevealAnimation(
             animationCurve: Curves.easeInOutBack,
             startOffset: const Offset(0.0, 1.0),
@@ -296,6 +311,38 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
           ),
         ],
       );
+
+  void _showRefreshSnackBar(final GlobalKey<ScaffoldState> scaffoldKey) {
+    if (_lastUpdate == null) {
+      return;
+    }
+    final ProductListSupplier refreshSupplier =
+        widget.productListSupplier.getRefreshSupplier();
+    if (refreshSupplier == null) {
+      return;
+    }
+    final int now = LocalDatabase.nowInMillis();
+    final int seconds = ((now - _lastUpdate) / 1000).floor();
+    _lastUpdate = null;
+    final String lastTime = ProductQueryPageHelper.getDurationString(seconds);
+    final String message = 'Cached results from $lastTime.';
+
+    Future<void>.delayed(
+      const Duration(seconds: 0),
+      () => scaffoldKey.currentState.showSnackBar(
+        SnackBar(
+          content: Text(message),
+          duration: const Duration(seconds: 5),
+          action: SnackBarAction(
+            label: 'REFRESH',
+            onPressed: () => setState(
+              () => _model = ProductQueryModel(refreshSupplier),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 
   // TODO(monsieurtanuki): move to an appropriate class?
   static Widget getBackArrow(final BuildContext context, final Color color) =>

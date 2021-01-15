@@ -8,8 +8,6 @@ import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/product_query_page.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
-import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
-import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 
 class ProductQueryPageHelper {
   Future<void> openBestChoice({
@@ -22,72 +20,9 @@ class ProductQueryPageHelper {
   }) async {
     final int timestamp = await DaoProductList(localDatabase)
         .getTimestamp(productQuery.getProductList());
-    if (timestamp == null) {
-      _openQueryPage(
-        color: color,
-        heroTag: heroTag,
-        name: name,
-        context: context,
-        popBefore: false,
-        supplier: QueryProductListSupplier(productQuery),
-      );
-      return;
-    }
-    final int now = LocalDatabase.nowInMillis();
-    final int seconds = ((now - timestamp) / 1000).floor();
-    final String lastTime = getDurationString(seconds);
-    showDialog<void>(
-      context: context,
-      builder: (BuildContext context) {
-        return SmoothAlertDialog(
-          title: 'Cached products',
-          body: Text(
-            'You already ran the same search $lastTime.\n'
-            'Do you want to reuse the cached results or to refresh them via internet?',
-          ),
-          actions: <SmoothSimpleButton>[
-            SmoothSimpleButton(
-              onPressed: () => _openQueryPage(
-                color: color,
-                heroTag: heroTag,
-                name: name,
-                context: context,
-                popBefore: true,
-                supplier:
-                    DatabaseProductListSupplier(productQuery, localDatabase),
-              ),
-              text: 'reuse',
-              width: 100,
-            ),
-            SmoothSimpleButton(
-              onPressed: () => _openQueryPage(
-                color: color,
-                heroTag: heroTag,
-                name: name,
-                context: context,
-                popBefore: true,
-                supplier: QueryProductListSupplier(productQuery),
-              ),
-              text: 'refresh',
-              width: 100,
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  void _openQueryPage({
-    @required final Color color,
-    @required final String heroTag,
-    @required final String name,
-    @required final ProductListSupplier supplier,
-    @required final BuildContext context,
-    @required final bool popBefore,
-  }) {
-    if (popBefore) {
-      Navigator.pop(context);
-    }
+    final ProductListSupplier supplier = timestamp == null
+        ? QueryProductListSupplier(productQuery)
+        : DatabaseProductListSupplier(productQuery, localDatabase);
     Navigator.push<dynamic>(
       context,
       MaterialPageRoute<dynamic>(
@@ -96,6 +31,7 @@ class ProductQueryPageHelper {
           heroTag: heroTag,
           mainColor: color,
           name: name,
+          lastUpdate: timestamp,
         ),
       ),
     );
