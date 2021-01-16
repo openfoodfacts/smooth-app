@@ -3,6 +3,7 @@ import 'package:smooth_app/structures/ranked_product.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/data_models/match.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
+import 'package:smooth_app/data_models/product_list.dart';
 
 class SmoothItModel {
   static const int MATCH_INDEX_YES = 0;
@@ -16,7 +17,7 @@ class SmoothItModel {
   bool _nextRefreshIsJustChangingTabs = false;
 
   void refresh(
-    final List<Product> unprocessedProducts,
+    final ProductList productList,
     final UserPreferences userPreferences,
     final UserPreferencesModel userPreferencesModel,
   ) {
@@ -24,6 +25,7 @@ class SmoothItModel {
       _nextRefreshIsJustChangingTabs = false;
       return;
     }
+    final List<Product> unprocessedProducts = productList.getUniqueList();
     _allProducts =
         Match.sort(unprocessedProducts, userPreferences, userPreferencesModel);
     _categorizedProducts.clear();

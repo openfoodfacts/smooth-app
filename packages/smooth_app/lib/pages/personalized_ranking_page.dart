@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:openfoodfacts/model/Product.dart';
+import 'package:smooth_app/data_models/product_list.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
@@ -13,9 +13,9 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 
 class PersonalizedRankingPage extends StatefulWidget {
-  const PersonalizedRankingPage({@required this.input});
+  const PersonalizedRankingPage(this.productList);
 
-  final List<Product> input;
+  final ProductList productList;
 
   @override
   _PersonalizedRankingPageState createState() =>
@@ -74,7 +74,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final UserPreferencesModel userPreferencesModel =
         context.watch<UserPreferencesModel>();
-    _model.refresh(widget.input, userPreferences, userPreferencesModel);
+    _model.refresh(widget.productList, userPreferences, userPreferencesModel);
     final List<BottomNavigationBarItem> bottomNavigationBarItems =
         <BottomNavigationBarItem>[];
     for (final int matchIndex in _ORDERED_MATCH_INDEXES) {
