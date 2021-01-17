@@ -13,6 +13,8 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
+# ToDo: increment_version
+
 default_platform(:android)
 
 platform :android do
@@ -26,6 +28,7 @@ platform :android do
       )
       upload_to_play_store(
         track: 'Closed beta',
+        # Todo: Change to abb
         # aab: '../build/app/outputs/bundle/release/app-release.aab',
         apk: '../build/app/outputs/bundle/release/app-release.apk',
         skip_upload_metadata: true,

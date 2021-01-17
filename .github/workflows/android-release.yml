@@ -17,10 +17,12 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 12.x
-      - name: Decrypt Android keys
-        run: sh ./packages/smooth_app/.github/scripts/decrypt_android_keys.sh
+      - name: Decrypt api json file
+        run: cd ./packages/smooth_app/android/fastlane/envfiles && ./decrypt_secrets.sh
         env:
-          ANDROID_KEYS_SECRET_PASSPHRASE: ${{ secrets.ANDROID_KEYS_SECRET_PASSPHRASE }}
+          API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
+          STORE_JKS_DECRYPTKEY: ${{ secrets.STORE_JKS_DECRYPTKEY }}
+
       - name: Setup Flutter
         uses: subosito/flutter-action@v1
         with:
@@ -59,9 +61,10 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v1
         with:
-          flutter-version: 1.17.5
+          flutter-version: 1.22.5
       - name: Install Flutter dependencies
         run: flutter pub get
+        # ToDo: Change to aab
       - name: Build APK
         run: flutter build apk --release
       - name: Run Fastlane
