@@ -27,12 +27,12 @@ You can join the Open Food Facts's Slack here : [Get an invite](https://slack.op
 - https://wiki.openfoodfacts.org/Project_Smoothie
 
 ## Roadmap
-- [ ] Add Eco-Score support
 - [ ] Add Fastlane publishing to the AppStore and the Play Store and GitHub Actions
-- [ ] Add multilingual screenshot generation using Fastlane
+- [ ] Add multilingual screenshot generation using Fastlane (Scan screen, settings screen, personalized ranking screen, home screen)
 - [ ] Fix navigation for the iOS build (iOS does not have a back button, and gestures are not intuitive for most people)
 - [ ] Remove the hack on the category explorer
 - [ ] User management + Small point system for contributions
+- [ ] Add icon
 
 ## Building
 
