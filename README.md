@@ -46,7 +46,7 @@ You can join the Open Food Facts's Slack here : [Get an invite](https://slack.op
 
 ### Scanning
 - [ ] Allow the user to find alternatives products on a scan even if (s)he has scanned only 1 product https://github.com/openfoodfacts/smooth-app/issues/23
-- [ ] Add offline scanning  https://github.com/openfoodfacts/smooth-app/issues/18
+- [ ] Add offline scanning to ensure results in all conditions https://github.com/openfoodfacts/smooth-app/issues/18
 ### Design
 - [ ] Add icon
 
