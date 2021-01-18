@@ -27,11 +27,27 @@ You can join the Open Food Facts's Slack here : [Get an invite](https://slack.op
 - https://wiki.openfoodfacts.org/Project_Smoothie
 
 ## Roadmap
+### Release automation
 - [ ] Add Fastlane publishing to the AppStore and the Play Store and GitHub Actions
 - [ ] Add multilingual screenshot generation using Fastlane (Scan screen, settings screen, personalized ranking screen, home screen)
-- [ ] Fix navigation for the iOS build (iOS does not have a back button, and gestures are not intuitive for most people)
-- [ ] Remove the hack on the category explorer
+
+### Navigation
+- [ ] Fix navigation for the iOS build (iOS does not have a back button, and gestures are not intuitive for most people) - https://github.com/openfoodfacts/smooth-app/issues/17
+
+### Debt removal
+- [ ] Remove the hack on the category explorer - https://github.com/openfoodfacts/smooth-app/issues/19
+- [ ] Add Sentry to Smoothie for easier debugging - https://github.com/openfoodfacts/smooth-app/issues/9
+
+### Gamification
 - [ ] User management + Small point system for contributions
+
+### Product page
+- [ ] Show Eco-score details for a product - https://github.com/openfoodfacts/smooth-app/issues/37
+
+### Scanning
+- [ ] Allow the user to find alternatives products on a scan even if (s)he has scanned only 1 product https://github.com/openfoodfacts/smooth-app/issues/23
+- [ ] Add offline scanning  https://github.com/openfoodfacts/smooth-app/issues/18
+### Design
 - [ ] Add icon
 
 ## Building
