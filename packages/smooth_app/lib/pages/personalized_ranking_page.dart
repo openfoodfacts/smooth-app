@@ -108,8 +108,12 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
         opacity: !_showTitle ? 1.0 : 0.0,
         duration: const Duration(milliseconds: 250),
         child: FloatingActionButton(
+          backgroundColor: Theme.of(context).colorScheme.surface,
           heroTag: 'do_not_use_hero_animation',
-          child: const Icon(Icons.arrow_upward),
+          child: Icon(
+            Icons.arrow_upward,
+            color: Theme.of(context).colorScheme.onSurface,
+          ),
           onPressed: () {
             _scrollController.animateTo(0.0,
                 duration: const Duration(milliseconds: 400),

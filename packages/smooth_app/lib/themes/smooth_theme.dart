@@ -56,11 +56,18 @@ class SmoothThemes {
       brightness: Brightness.light,
     );
 
-    ColorScheme myColorScheme = isDarkTheme ? colorDark : colorLight;
+    final ColorScheme myColorScheme = isDarkTheme ? colorDark : colorLight;
 
     return ThemeData(
       colorScheme: myColorScheme,
-      buttonColor: isDarkTheme ? const Color(0xFF696464) : Colors.black,
+      buttonTheme: ButtonThemeData(
+        textTheme: ButtonTextTheme.accent,
+        colorScheme: Theme.of(context).colorScheme.copyWith(
+              primary: isDarkTheme ? const Color(0xFF696464) : Colors.black,
+              // secondary will be the textColor, when the textTheme is set to accent
+              secondary: Colors.white,
+            ),
+      ),
       cardColor: isDarkTheme ? colorDark.surface : const Color(0xFFF5F5F5),
       dialogBackgroundColor: myColorScheme.surface,
       accentIconTheme:
