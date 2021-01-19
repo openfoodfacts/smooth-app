@@ -26,10 +26,10 @@ class SmoothExpandableCard extends StatelessWidget {
             duration: const Duration(milliseconds: 160),
             firstCurve: Curves.easeInOutBack,
             secondCurve: Curves.easeInOutBack,
-            firstChild:
-                _buildCollapsedWidget(singleBooleanModel, Theme.of(context)),
-            secondChild:
-                _buildExpandedWidget(singleBooleanModel, Theme.of(context)),
+            firstChild: _buildExpandedWidget(
+                singleBooleanModel, Theme.of(context), true),
+            secondChild: _buildExpandedWidget(
+                singleBooleanModel, Theme.of(context), false),
             crossFadeState: singleBooleanModel.isActive
                 ? CrossFadeState.showSecond
                 : CrossFadeState.showFirst,
@@ -39,15 +39,18 @@ class SmoothExpandableCard extends StatelessWidget {
     );
   }
 
-  Widget _buildCollapsedWidget(
-      SingleBooleanModel singleBooleanModel, ThemeData themeData) {
-    return Padding(
-      padding:
-          const EdgeInsets.only(right: 8.0, left: 8.0, top: 4.0, bottom: 20.0),
-      child: GestureDetector(
-        onTap: () {
-          singleBooleanModel.setActive();
-        },
+  Widget _buildExpandedWidget(
+    final SingleBooleanModel singleBooleanModel,
+    final ThemeData themeData,
+    final bool collapsed,
+  ) {
+    return GestureDetector(
+      onTap: () => collapsed
+          ? singleBooleanModel.setActive()
+          : singleBooleanModel.setInactive(),
+      child: Padding(
+        padding: const EdgeInsets.only(
+            right: 8.0, left: 8.0, top: 4.0, bottom: 20.0),
         child: Material(
           elevation: 8.0,
           shadowColor: Colors.black45,
@@ -55,57 +58,25 @@ class SmoothExpandableCard extends StatelessWidget {
           color: themeData.cardColor,
           child: Container(
             padding: const EdgeInsets.all(12.0),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: Column(
               children: <Widget>[
-                Container(
-                  height: headerHeight,
-                  child: collapsedHeader,
-                ),
-                const Icon(Icons.keyboard_arrow_down),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildExpandedWidget(
-      SingleBooleanModel singleBooleanModel, ThemeData themeData) {
-    return Padding(
-      padding:
-          const EdgeInsets.only(right: 8.0, left: 8.0, top: 4.0, bottom: 20.0),
-      child: Material(
-        elevation: 8.0,
-        shadowColor: Colors.black45,
-        borderRadius: const BorderRadius.all(Radius.circular(10.0)),
-        color: themeData.cardColor,
-        child: Container(
-          padding: const EdgeInsets.all(12.0),
-          child: Column(
-            children: <Widget>[
-              GestureDetector(
-                onTap: () {
-                  singleBooleanModel.setInactive();
-                },
-                child: Row(
+                Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Container(
                       height: headerHeight,
-                      child: expandedHeader,
+                      child: collapsed ? collapsedHeader : expandedHeader,
                     ),
-                    const Icon(Icons.keyboard_arrow_up),
+                    Icon(collapsed
+                        ? Icons.keyboard_arrow_down
+                        : Icons.keyboard_arrow_up),
                   ],
                 ),
-              ),
-              content,
-            ],
+                if (!collapsed) content,
+              ],
+            ),
           ),
         ),
       ),
