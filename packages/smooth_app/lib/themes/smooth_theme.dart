@@ -1,66 +1,60 @@
 import 'package:flutter/material.dart';
 
-///
-/// dark-theme Color guide
-///
-/// The material standard dark-theme color is #181818 which is also in use here
-///
-/// Sec black:   #434343
-/// Third black: #696464
-/// Accent:      #00c896
-///
-/// Hex colors in dart = Color(0xAABBCCDD)
-///
-/// BB, CC, DD is the normal hex
-///
-/// AA is the opacity a tabel of the codes per procent can be found here:
-/// https://www.codegrepper.com/code-examples/dart/flutter+hex+opacity
-///
-
 class SmoothThemes {
   static ThemeData getSmoothThemeData(
     bool isDarkTheme,
     BuildContext context,
   ) {
-    //accentDark = Color(0xFF00c896);
-
-    const ColorScheme colorDark = ColorScheme(
-      primary: Colors.black,
-      primaryVariant: Colors.indigo,
-      secondary: Colors.indigo,
-      secondaryVariant: Colors.indigo,
-      surface: Color(0xFF434343),
-      background: Color(0xFF181818),
-      error: Colors.indigo,
-      onPrimary: Colors.indigo,
-      onSecondary: Colors.indigo,
-      onSurface: Colors.white,
-      onBackground: Colors.white,
-      onError: Colors.indigo,
-      brightness: Brightness.dark,
-    );
-
+    // yellowAccent == null
     const ColorScheme colorLight = ColorScheme(
       primary: Colors.white,
-      primaryVariant: Colors.indigo,
-      secondary: Colors.indigo,
-      secondaryVariant: Colors.indigo,
+      primaryVariant: Colors.yellowAccent,
+      secondary: Colors.yellowAccent,
+      secondaryVariant: Colors.yellowAccent,
       surface: Colors.white,
       background: Colors.white,
-      error: Colors.indigo,
-      onPrimary: Colors.indigo,
-      onSecondary: Colors.indigo,
+      error: Color(0xFFf00a2c),
+      onPrimary: Colors.black,
+      onSecondary: Colors.black,
       onSurface: Colors.black,
       onBackground: Colors.black,
-      onError: Colors.indigo,
+      onError: Colors.white,
       brightness: Brightness.light,
     );
 
-    ColorScheme myColorScheme = isDarkTheme ? colorDark : colorLight;
+    // yellowAccent == null
+    const ColorScheme colorDark = ColorScheme(
+      primary: Color(0xFF181818),
+      primaryVariant: Colors.yellowAccent,
+      secondary: Colors.yellowAccent,
+      secondaryVariant: Colors.yellowAccent,
+      surface: Color(0xFF181818),
+      background: Colors.black,
+      error: Color(0xFFf00a2c),
+      onPrimary: Colors.white,
+      onSecondary: Colors.white,
+      onSurface: Colors.white,
+      onBackground: Colors.white,
+      onError: Colors.white,
+      brightness: Brightness.dark,
+    );
+
+    final ColorScheme myColorScheme = isDarkTheme ? colorDark : colorLight;
 
     return ThemeData(
+      applyElevationOverlayColor: true,
       colorScheme: myColorScheme,
-      buttonColor: isDarkTheme ? const Color(0xFF696464) : Colors.black,
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor: isDarkTheme ? const Color(0xB3181818) : Colors.white24,
+        selectedIconTheme: IconThemeData(
+          color: myColorScheme.onSurface,
+        ),
+        unselectedIconTheme: const IconThemeData(
+          color: Colors.blueGrey,
+        ),
+      ),
+
+      /*buttonColor: isDarkTheme ? const Color(0xFF696464) : Colors.black,
       cardColor: isDarkTheme ? colorDark.surface : const Color(0xFFF5F5F5),
       dialogBackgroundColor: myColorScheme.surface,
       accentIconTheme:
@@ -68,15 +62,7 @@ class SmoothThemes {
       appBarTheme: AppBarTheme(
         color: myColorScheme.surface,
       ),
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          backgroundColor:
-              isDarkTheme ? const Color(0xB3181818) : Colors.white24,
-          selectedIconTheme: IconThemeData(
-            color: myColorScheme.onSurface,
-          ),
-          unselectedIconTheme: const IconThemeData(
-            color: Colors.blueGrey,
-          )),
+*/
       textTheme: TextTheme(
         headline1: TextStyle(
           fontSize: 28.0,
