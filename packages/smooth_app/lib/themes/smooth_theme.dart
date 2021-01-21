@@ -53,16 +53,9 @@ class SmoothThemes {
           color: Colors.blueGrey,
         ),
       ),
-
-      /*buttonColor: isDarkTheme ? const Color(0xFF696464) : Colors.black,
-      cardColor: isDarkTheme ? colorDark.surface : const Color(0xFFF5F5F5),
-      dialogBackgroundColor: myColorScheme.surface,
-      accentIconTheme:
-          IconThemeData(color: isDarkTheme ? Colors.black : Colors.white),
-      appBarTheme: AppBarTheme(
-        color: myColorScheme.surface,
-      ),
-*/
+      scaffoldBackgroundColor: myColorScheme.background,
+      cardColor: isDarkTheme ? myColorScheme.surface : const Color(0xFFF5F5F5),
+      buttonColor: isDarkTheme ? const Color(0xFF696464) : Colors.black,
       textTheme: TextTheme(
         headline1: TextStyle(
           fontSize: 28.0,

@@ -30,9 +30,8 @@ class SmoothProductCardEdit extends StatelessWidget {
       child: Hero(
         tag: heroTag,
         child: Container(
-          decoration: BoxDecoration(
-            color: Theme.of(context).cardColor,
-            borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(15.0)),
           ),
           padding: const EdgeInsets.all(10.0),
           child: Column(
@@ -125,9 +124,7 @@ class SmoothProductCardEdit extends StatelessWidget {
               child: Text(
                 'Missing ${field.value} picture',
                 textAlign: TextAlign.center,
-                style: Theme.of(context)
-                    .textTheme
-                    .subtitle1,
+                style: Theme.of(context).textTheme.subtitle1,
               ),
             ),
           );

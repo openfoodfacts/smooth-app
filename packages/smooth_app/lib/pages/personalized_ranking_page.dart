@@ -90,7 +90,10 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
     return Scaffold(
       key: _scaffoldKey,
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Theme.of(context).bottomAppBarColor.withAlpha(255),
+        backgroundColor: Theme.of(context)
+            .bottomNavigationBarTheme
+            .backgroundColor
+            .withAlpha(255),
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentTabIndex,
         selectedItemColor: Theme.of(context).colorScheme.onSurface,
@@ -148,7 +151,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
               pinned: true,
               snap: true,
               elevation: 8,
-              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+              backgroundColor: Theme.of(context).colorScheme.background,
               flexibleSpace: FlexibleSpaceBar(
                 centerTitle: true,
                 title: Text(AppLocalizations.of(context).myPersonalizedRanking,
