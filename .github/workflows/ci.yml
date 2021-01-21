@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - run: cd packages/smooth_app
+    - run: cd packages && cd smooth_app
     
     # Setup Java 
     - uses: actions/checkout@v1
