@@ -30,7 +30,6 @@ class _SmoothAlertDialogState extends State<SmoothAlertDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: Theme.of(context).dialogBackgroundColor,
       elevation: 4,
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.0)), //this right here

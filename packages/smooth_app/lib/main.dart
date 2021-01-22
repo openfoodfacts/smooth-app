@@ -189,7 +189,7 @@ class SmoothApp extends StatelessWidget {
       scanShadowColor: context.watch<DarkThemeProvider>().darkTheme
           ? Colors.white.withOpacity(0.0)
           : Colors.deepPurple,
-      scanIconColor: Theme.of(context).accentIconTheme.color,
+      scanIconColor: Theme.of(context).colorScheme.primary,
       classicMode: true,
     );
   }
