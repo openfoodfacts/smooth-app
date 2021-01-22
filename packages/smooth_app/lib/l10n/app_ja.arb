@@ -1,0 +1,22 @@
+{
+    "categories": "カテゴリー",
+    "@categories": {},
+    "saveButtonText": "保存",
+    "@saveButtonText": {},
+    "yes": "はい",
+    "@yes": {},
+    "no": "いいえ",
+    "@no": {},
+    "nutrition": "栄養",
+    "@nutrition": {},
+    "ingredients": "原材料",
+    "@ingredients": {},
+    "termsOfUse": "利用規約",
+    "@termsOfUse": {},
+    "contribute": "貢献する",
+    "@contribute": {},
+    "contribute_donate_header": "Open Food Facts に寄付する",
+    "@contribute_donate_header": {},
+    "error": "問題が発生しました",
+    "@error": {}
+}

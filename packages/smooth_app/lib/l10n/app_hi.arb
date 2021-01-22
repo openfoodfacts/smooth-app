@@ -1,0 +1,16 @@
+{
+    "categories": "श्रेणियाँ",
+    "@categories": {},
+    "saveButtonText": "सेव़",
+    "@saveButtonText": {},
+    "yes": "हाँ",
+    "@yes": {},
+    "no": "नहीं",
+    "@no": {},
+    "nutrition": "पोषण",
+    "@nutrition": {},
+    "ingredients": "सामग्री",
+    "@ingredients": {},
+    "error": "कुछ गड़बड़ हुई है।",
+    "@error": {}
+}

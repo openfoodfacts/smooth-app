@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:openfoodfacts/model/Product.dart';
+import 'package:smooth_app/data_models/product_list.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
@@ -13,9 +13,9 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 
 class PersonalizedRankingPage extends StatefulWidget {
-  const PersonalizedRankingPage({@required this.input});
+  const PersonalizedRankingPage(this.productList);
 
-  final List<Product> input;
+  final ProductList productList;
 
   @override
   _PersonalizedRankingPageState createState() =>
@@ -74,7 +74,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final UserPreferencesModel userPreferencesModel =
         context.watch<UserPreferencesModel>();
-    _model.refresh(widget.input, userPreferences, userPreferencesModel);
+    _model.refresh(widget.productList, userPreferences, userPreferencesModel);
     final List<BottomNavigationBarItem> bottomNavigationBarItems =
         <BottomNavigationBarItem>[];
     for (final int matchIndex in _ORDERED_MATCH_INDEXES) {
@@ -90,7 +90,10 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
     return Scaffold(
       key: _scaffoldKey,
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Theme.of(context).bottomAppBarColor.withAlpha(255),
+        backgroundColor: Theme.of(context)
+            .bottomNavigationBarTheme
+            .backgroundColor
+            .withAlpha(255),
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentTabIndex,
         selectedItemColor: Theme.of(context).colorScheme.onSurface,
@@ -108,6 +111,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
         opacity: !_showTitle ? 1.0 : 0.0,
         duration: const Duration(milliseconds: 250),
         child: FloatingActionButton(
+          //backgroundColor: Theme.of(context).colorScheme.primary,
           heroTag: 'do_not_use_hero_animation',
           child: const Icon(Icons.arrow_upward),
           onPressed: () {
@@ -148,7 +152,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
               pinned: true,
               snap: true,
               elevation: 8,
-              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+              backgroundColor: Theme.of(context).colorScheme.background,
               flexibleSpace: FlexibleSpaceBar(
                 centerTitle: true,
                 title: Text(AppLocalizations.of(context).myPersonalizedRanking,

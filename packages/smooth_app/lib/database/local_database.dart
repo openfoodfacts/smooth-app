@@ -40,10 +40,6 @@ class LocalDatabase extends ChangeNotifier {
   }
 
   static int nowInMillis() => DateTime.now().millisecondsSinceEpoch;
-
-  void dummyNotifyListeners() {
-    notifyListeners(); // TODO(monsieurtanuki): create a ScanNotifier instead
-  }
 }
 
 class TableStats {

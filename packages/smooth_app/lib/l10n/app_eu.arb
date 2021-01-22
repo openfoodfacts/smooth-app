@@ -1,0 +1,18 @@
+{
+    "categories": "Kategoriak",
+    "@categories": {},
+    "saveButtonText": "Gorde",
+    "@saveButtonText": {},
+    "yes": "Bai",
+    "@yes": {},
+    "no": "Ez",
+    "@no": {},
+    "nutrition": "Elikadura",
+    "@nutrition": {},
+    "ingredients": "Osagaiak",
+    "@ingredients": {},
+    "termsOfUse": "Erabilera baldintzak",
+    "@termsOfUse": {},
+    "error": "Zerbait ez da ondo atera",
+    "@error": {}
+}

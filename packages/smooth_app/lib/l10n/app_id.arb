@@ -1,0 +1,22 @@
+{
+    "categories": "Kategori",
+    "@categories": {},
+    "saveButtonText": "menyimpan ",
+    "@saveButtonText": {},
+    "yes": "Ya",
+    "@yes": {},
+    "no": "Tidak",
+    "@no": {},
+    "nutrition": "kandungan nutrisi",
+    "@nutrition": {},
+    "ingredients": "Bahan",
+    "@ingredients": {},
+    "termsOfUse": "Syarat Penggunaan",
+    "@termsOfUse": {},
+    "contribute": "Berkontribusi",
+    "@contribute": {},
+    "contribute_donate_header": "Donasi untuk Open Food Facts",
+    "@contribute_donate_header": {},
+    "error": "Ada yang salah",
+    "@error": {}
+}

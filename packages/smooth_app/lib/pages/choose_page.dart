@@ -98,9 +98,8 @@ class _ChoosePageState extends State<ChoosePage> {
                   (BuildContext context, bool innerBoxIsScrolled) {
                 return <Widget>[
                   SliverAppBar(
-                    expandedHeight: 248.0,
-                    backgroundColor: Theme.of(context)
-                        .scaffoldBackgroundColor, //choosePageModel.appBarColor,
+                    backgroundColor: Theme.of(context).colorScheme.background,
+                    expandedHeight: 248.0, //choosePageModel.appBarColor,
                     pinned: true,
                     elevation: 8.0,
                     /*title: Padding(
@@ -222,11 +221,7 @@ class _ChoosePageState extends State<ChoosePage> {
                           left: 12.0,
                         ),
                         decoration: BoxDecoration(
-                          color: Theme.of(context)
-                              .scaffoldBackgroundColor, //choosePageModel.appBarColor,
-                          /*boxShadow: <BoxShadow>[
-                              BoxShadow(color: Colors.black.withOpacity(choosePageModel.opacity / 8.0), offset: const Offset(0.0, 6.0), blurRadius: 4.0),
-                            ],*/
+                          color: Theme.of(context).colorScheme.background,
                         ),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,

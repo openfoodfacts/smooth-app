@@ -1,0 +1,18 @@
+{
+    "categories": "Категории",
+    "@categories": {},
+    "saveButtonText": "Запис",
+    "@saveButtonText": {},
+    "myPreferences": "Моите настройки",
+    "@myPreferences": {},
+    "yes": "Да",
+    "@yes": {},
+    "no": "Не",
+    "@no": {},
+    "nutrition": "Хранене",
+    "@nutrition": {},
+    "ingredients": "Съставки",
+    "@ingredients": {},
+    "contribute_donate_header": "Дарете за Open Food Facts",
+    "@contribute_donate_header": {}
+}

@@ -1,0 +1,18 @@
+{
+    "categories": "Kategorijos",
+    "@categories": {},
+    "saveButtonText": "Išsaugoti",
+    "@saveButtonText": {},
+    "yes": "Taip",
+    "@yes": {},
+    "no": "Ne",
+    "@no": {},
+    "termsOfUse": "Naudojimo sąlygos",
+    "@termsOfUse": {},
+    "contribute": "Prisidėti",
+    "@contribute": {},
+    "contribute_donate_header": "Paaukokite Open Food Facts",
+    "@contribute_donate_header": {},
+    "error": "Kažkas negerai nutiko",
+    "@error": {}
+}

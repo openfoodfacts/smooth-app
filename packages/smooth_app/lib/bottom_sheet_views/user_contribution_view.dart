@@ -20,7 +20,6 @@ class UserContributionView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: Container(
-        color: Theme.of(context).colorScheme.background,
         height: MediaQuery.of(context).size.height * 0.9,
         child: Stack(
           children: <Widget>[

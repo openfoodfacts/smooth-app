@@ -39,7 +39,6 @@ class UserPreferencesView extends StatelessWidget {
         (screenSize.width - _TYPICAL_PADDING_OR_MARGIN * 3) / 2;
     return Material(
       child: Container(
-        color: Theme.of(context).colorScheme.background,
         height: screenSize.height * 0.9,
         child: Stack(
           children: <Widget>[
@@ -87,7 +86,9 @@ class UserPreferencesView extends StatelessWidget {
                       sigmaY: 4.0,
                     ),
                     child: Container(
-                      color: Colors.black12,
+                      color: Theme.of(context)
+                          .bottomNavigationBarTheme
+                          .backgroundColor,
                       padding: const EdgeInsets.symmetric(
                           horizontal: _TYPICAL_PADDING_OR_MARGIN,
                           vertical: 20.0),
@@ -147,7 +148,7 @@ class UserPreferencesView extends StatelessWidget {
       margin: const EdgeInsets.all(_TYPICAL_PADDING_OR_MARGIN),
       width: screenWidth,
       decoration: BoxDecoration(
-          color: Theme.of(context).cardColor,
+          color: Theme.of(context).colorScheme.surface,
           borderRadius: const BorderRadius.all(Radius.circular(20.0))),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -253,11 +254,15 @@ class UserPreferencesView extends StatelessWidget {
   ) =>
       GestureDetector(
           child: Container(
-            color: Theme.of(context).colorScheme.background,
             width: double.infinity,
             padding: const EdgeInsets.all(_TYPICAL_PADDING_OR_MARGIN),
-            child: Text(
-              group.name,
+            child: ListTile(
+              title: Text(group.name),
+              trailing: Icon(
+                userPreferences.isAttributeGroupVisible(group)
+                    ? Icons.keyboard_arrow_up
+                    : Icons.keyboard_arrow_down,
+              ),
             ),
           ),
           onTap: () => userPreferences.setAttributeGroupVisibility(

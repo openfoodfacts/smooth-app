@@ -1,0 +1,22 @@
+{
+    "categories": "Mga kategorya",
+    "@categories": {},
+    "saveButtonText": "I-save",
+    "@saveButtonText": {},
+    "yes": "Oo",
+    "@yes": {},
+    "no": "Hindi",
+    "@no": {},
+    "nutrition": "Nutrisyon",
+    "@nutrition": {},
+    "ingredients": "Mga Sangkap",
+    "@ingredients": {},
+    "termsOfUse": "Mga tuntunin ng paggamit",
+    "@termsOfUse": {},
+    "contribute": "Mag-ambag",
+    "@contribute": {},
+    "contribute_donate_header": "Magbigay sa Open Food Facts",
+    "@contribute_donate_header": {},
+    "error": "May nangyaring mali",
+    "@error": {}
+}

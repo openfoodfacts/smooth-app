@@ -32,7 +32,10 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
     if (_length != barcodesLength) {
       _length = barcodesLength;
       if (_length > 1) {
-        _controller.animateToPage(_length - 1);
+        Future<void>.delayed(
+          const Duration(seconds: 0),
+          () => _controller.animateToPage(_length - 1),
+        );
       }
     }
     return CarouselSlider.builder(
@@ -55,6 +58,7 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
     final Product product = widget.continuousScanModel.getProduct(barcode);
     switch (widget.continuousScanModel.getBarcodeState(barcode)) {
       case ScannedProductState.FOUND:
+      case ScannedProductState.CACHED:
         if (widget.continuousScanModel.contributionMode) {
           return SmoothProductCardEdit(heroTag: barcode, product: product);
         }
