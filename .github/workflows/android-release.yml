@@ -1,10 +1,10 @@
 # cd.yml
 name: Smoothie Google Play closed_beta release
-
-on:
-  push:
-    branches:
-      - 'release/*'
+on: [push, pull_request]
+#on:
+ # push:
+  #  branches:
+   #   - 'release/*'
 
 jobs:
   #CI
