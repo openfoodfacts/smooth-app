@@ -10,6 +10,9 @@ jobs:
   #CI
   build_android:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./packages/smooth_app
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -18,7 +21,7 @@ jobs:
         with:
           java-version: 12.x
       - name: Decrypt api json file
-        run: cd ./packages/smooth_app/android/fastlane/envfiles && chmod +x ./decrypt_secrets.sh && ./decrypt_secrets.sh
+        run: cd ./android/fastlane/envfiles && chmod +x ./decrypt_secrets.sh && ./decrypt_secrets.sh
         env:
           API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
           STORE_JKS_DECRYPTKEY: ${{ secrets.STORE_JKS_DECRYPTKEY }}
@@ -55,7 +58,7 @@ jobs:
         with:
           java-version: 12.x
       - name: Decrypt Android keys
-        run: sh ./packages/smooth_app.github/scripts/decrypt_android_keys.sh
+        run: sh ./github/scripts/decrypt_android_keys.sh
         env:
           ANDROID_KEYS_SECRET_PASSPHRASE: ${{ secrets.ANDROID_KEYS_SECRET_PASSPHRASE }}
       - name: Setup Flutter
