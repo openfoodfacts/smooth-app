@@ -37,8 +37,8 @@ jobs:
       #   run: flutter format --set-exit-if-changed .
       - name: Analyze files
         run: flutter analyze .
-      - name: Run the tests
-        run: flutter test
+      #- name: Run the tests
+      #  run: flutter test
       - name: Build the APK
         run: flutter build apk --release
       - name: Upload artifact to Github
