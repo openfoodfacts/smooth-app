@@ -14,8 +14,13 @@ class SmoothSimpleButton extends StatelessWidget {
     return Container(
       width: width,
       child: MaterialButton(
-        color: Theme.of(context).buttonColor,
-        child: Text(text, style: Theme.of(context).textTheme.bodyText2.copyWith(color: Colors.white),),
+        color: Theme.of(context).colorScheme.secondary,
+        child: Text(text, style: Theme.of(context).textTheme.bodyText2
+            .copyWith(
+              color: Theme.of(context)
+                  .colorScheme
+                  .onSecondary),
+        ),
         height: height,
         minWidth: double.infinity,
         shape: const RoundedRectangleBorder(

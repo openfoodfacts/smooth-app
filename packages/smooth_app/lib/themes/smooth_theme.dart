@@ -9,13 +9,13 @@ class SmoothThemes {
     const ColorScheme colorLight = ColorScheme(
       primary: Colors.white,
       primaryVariant: Colors.yellowAccent,
-      secondary: Colors.yellowAccent,
+      secondary: Color(0xFF696464),
       secondaryVariant: Colors.yellowAccent,
       surface: Colors.white,
       background: Colors.white,
       error: Color(0xFFf00a2c),
       onPrimary: Colors.black,
-      onSecondary: Colors.black,
+      onSecondary: Colors.white,
       onSurface: Colors.black,
       onBackground: Colors.black,
       onError: Colors.white,
@@ -26,7 +26,7 @@ class SmoothThemes {
     const ColorScheme colorDark = ColorScheme(
       primary: Color(0xFF181818),
       primaryVariant: Colors.yellowAccent,
-      secondary: Colors.yellowAccent,
+      secondary: Colors.black,
       secondaryVariant: Colors.yellowAccent,
       surface: Color(0xFF181818),
       background: Colors.black,
@@ -55,7 +55,7 @@ class SmoothThemes {
       ),
       scaffoldBackgroundColor: myColorScheme.background,
       cardColor: isDarkTheme ? myColorScheme.surface : const Color(0xFFF5F5F5),
-      buttonColor: isDarkTheme ? const Color(0xFF696464) : Colors.black,
+      buttonColor: myColorScheme.secondary,
       textTheme: TextTheme(
         headline1: TextStyle(
           fontSize: 28.0,
