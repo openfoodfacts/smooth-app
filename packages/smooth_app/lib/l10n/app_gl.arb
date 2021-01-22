@@ -1,0 +1,20 @@
+{
+    "categories": "Categorías",
+    "@categories": {},
+    "scanProductTitle": "Escanear productos",
+    "@scanProductTitle": {},
+    "saveButtonText": "Gardar",
+    "@saveButtonText": {},
+    "yes": "Si",
+    "@yes": {},
+    "no": "Non",
+    "@no": {},
+    "nutrition": "Nutrición",
+    "@nutrition": {},
+    "ingredients": "Ingredientes",
+    "@ingredients": {},
+    "termsOfUse": "Condicións de uso",
+    "@termsOfUse": {},
+    "contribute": "Colaborar",
+    "@contribute": {}
+}

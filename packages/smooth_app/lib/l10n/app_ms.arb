@@ -1,0 +1,18 @@
+{
+    "categories": "Kategori-kategori",
+    "@categories": {},
+    "saveButtonText": "Simpan",
+    "@saveButtonText": {},
+    "myPreferences": "Keutamaan Saya",
+    "@myPreferences": {},
+    "nutrition": "Pemakanan",
+    "@nutrition": {},
+    "ingredients": "Bahan-bahan",
+    "@ingredients": {},
+    "termsOfUse": "Syarat-syarat penggunaan",
+    "@termsOfUse": {},
+    "contribute": "Sumbang",
+    "@contribute": {},
+    "contribute_donate_header": "Sumbang kepada Open Food Facts",
+    "@contribute_donate_header": {}
+}
