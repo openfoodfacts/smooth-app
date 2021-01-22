@@ -100,24 +100,3 @@
   "darkmode": "Darkmode",
   "@darkmode": { }
 }
-    "categories": "Categories",
-    "@categories": {},
-    "saveButtonText": "Save",
-    "@saveButtonText": {},
-    "yes": "Yes",
-    "@yes": {},
-    "no": "No",
-    "@no": {},
-    "nutrition": "Nutrition",
-    "@nutrition": {},
-    "ingredients": "Ingredients",
-    "@ingredients": {},
-    "termsOfUse": "Terms of use",
-    "@termsOfUse": {},
-    "contribute": "Contribute",
-    "@contribute": {},
-    "contribute_donate_header": "Donate to Open Food Facts",
-    "@contribute_donate_header": {},
-    "error": "Something went wrong",
-    "@error": {}
-}
