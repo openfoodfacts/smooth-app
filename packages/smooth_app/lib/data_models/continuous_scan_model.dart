@@ -5,103 +5,144 @@ import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:smooth_app/database/barcode_product_query.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/database/dao_product_list.dart';
 
 enum ScannedProductState {
   FOUND,
   NOT_FOUND,
   LOADING,
   THANKS,
+  CACHED,
 }
 
-class ContinuousScanModel {
+class ContinuousScanModel with ChangeNotifier {
   ContinuousScanModel({@required bool contributionMode})
       : _contributionMode = contributionMode;
 
   final Map<String, ScannedProductState> _states =
       <String, ScannedProductState>{};
-  final Map<String, Product> _products = <String, Product>{};
   final List<String> _barcodes = <String>[];
+  final ProductList _productList =
+      ProductList(listType: ProductList.LIST_TYPE_SCAN, parameters: '');
+
   bool _contributionMode;
-  QRViewController _scannerController;
+  String _barcodeLatest;
   String _barcodeTrustCheck;
-  LocalDatabase _localDatabase;
+  DaoProduct _daoProduct;
+  DaoProductList _daoProductList;
 
   bool get isNotEmpty => getBarcodes().isNotEmpty;
   bool get contributionMode => _contributionMode;
+  ProductList get productList => _productList;
 
   List<String> getBarcodes() => _barcodes;
+
+  Future<ContinuousScanModel> load(final LocalDatabase localDatabase) async {
+    try {
+      _daoProduct = DaoProduct(localDatabase);
+      _daoProductList = DaoProductList(localDatabase);
+      await _daoProductList.get(_productList);
+      for (final String barcode in _productList.barcodes) {
+        _barcodes.add(barcode);
+        _states[barcode] = ScannedProductState.CACHED;
+        _barcodeLatest = barcode;
+      }
+      return this;
+    } catch (e) {
+      print('exception: $e');
+    }
+    return null;
+  }
 
   void setBarcodeState(
     final String barcode,
     final ScannedProductState state,
   ) {
     _states[barcode] = state;
-    _localDatabase.dummyNotifyListeners();
+    notifyListeners();
   }
 
   ScannedProductState getBarcodeState(final String barcode) => _states[barcode];
 
-  Product getProduct(final String barcode) => _products[barcode];
+  Product getProduct(final String barcode) => _productList.getProduct(barcode);
 
-  void setLocalDatabase(final LocalDatabase localDatabase) =>
-      _localDatabase = localDatabase;
+  void setupScanner(QRViewController controller) =>
+      controller.scannedDataStream.listen((String barcode) => onScan(barcode));
 
-  void setupScanner(QRViewController controller) {
-    _scannerController = controller;
-    _scannerController.scannedDataStream.listen(
-      (String barcode) => onScan(barcode),
-    );
-  }
+  List<Product> getProducts() => _productList.getList();
 
-  List<Product> getFoundProducts() {
-    final List<Product> result = <Product>[];
-    for (final String barcode in _barcodes) {
-      if (getBarcodeState(barcode) == ScannedProductState.FOUND) {
-        result.add(_products[barcode]);
-      }
-    }
-    return result;
-  }
-
-  Future<void> onScan(String code) async {
-    print('Barcode detected : $code');
+  Future<void> onScan(final String code) async {
     if (_barcodeTrustCheck != code) {
       _barcodeTrustCheck = code;
       return;
     }
-    _addBarcode(code);
-  }
-
-  Future<void> onScanAlt(String code, List<Offset> offsets) async {
-    print('Barcode detected : $code');
+    if (_barcodeLatest == code) {
+      return;
+    }
+    _barcodeLatest = code;
     _addBarcode(code);
   }
 
   void contributionModeSwitch(bool value) {
     if (_contributionMode != value) {
       _contributionMode = value;
-      _localDatabase.dummyNotifyListeners();
+      notifyListeners();
     }
   }
 
-  bool _addBarcode(final String barcode) {
-    if (getBarcodeState(barcode) == null) {
+  Future<bool> _addBarcode(final String barcode) async {
+    final ScannedProductState state = getBarcodeState(barcode);
+    if (state == null) {
       _barcodes.add(barcode);
       setBarcodeState(barcode, ScannedProductState.LOADING);
-      _loadBarcode(barcode);
+      _cacheOrLoadBarcode(barcode);
+      return true;
+    }
+    if (state == ScannedProductState.FOUND ||
+        state == ScannedProductState.CACHED) {
+      final Product product = getProduct(barcode);
+      _barcodes.add(barcode);
+      _addProduct(product, state);
       return true;
     }
     return false;
   }
 
-  Future<void> _loadBarcode(final String barcode) async {
+  Future<void> _cacheOrLoadBarcode(final String barcode) async {
+    final bool cached = await _cachedBarcode(barcode);
+    if (!cached) {
+      _loadBarcode(barcode, ScannedProductState.NOT_FOUND);
+    }
+  }
+
+  Future<bool> _cachedBarcode(final String barcode) async {
+    final int latestUpdate = await _daoProduct.getLastUpdate(barcode);
+    if (latestUpdate != null) {
+      _addProduct(await _daoProduct.get(barcode), ScannedProductState.CACHED);
+      return true;
+    }
+    return false;
+  }
+
+  Future<void> _loadBarcode(
+    final String barcode,
+    final ScannedProductState notFound,
+  ) async {
     final Product product = await BarcodeProductQuery(barcode).getProduct();
     if (product != null) {
-      await DaoProduct(_localDatabase).put(product);
-      _products[barcode] = product;
-      setBarcodeState(barcode, ScannedProductState.FOUND);
+      _addProduct(product, ScannedProductState.FOUND);
     } else {
-      setBarcodeState(barcode, ScannedProductState.NOT_FOUND);
+      setBarcodeState(barcode, notFound);
     }
+  }
+
+  Future<void> _addProduct(
+    final Product product,
+    final ScannedProductState state,
+  ) async {
+    _productList.add(product);
+    _daoProductList.put(_productList);
+    setBarcodeState(product.barcode, state);
   }
 }

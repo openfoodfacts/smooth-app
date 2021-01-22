@@ -21,7 +21,7 @@ class UserPreferences extends ChangeNotifier {
   static const int INDEX_NOT_IMPORTANT = 0;
 
   static const String _TAG_PREFIX_IMPORTANCE = 'IMPORTANCE';
-  static const String _TAG_HIDDEN_GROUPS = 'hidden_groups';
+  static const String _TAG_VISIBLE_GROUPS = 'visible_groups';
   static const String _TAG_USE_ML_KIT = 'useMlKit';
   static const String _TAG_INIT = 'init';
 
@@ -77,34 +77,34 @@ class UserPreferences extends ChangeNotifier {
       await _setImportance(UserPreferencesModel.ATTRIBUTE_ECOSCORE, valueIndex,
           notify: false);
     }
-    _sharedPreferences.setStringList(_TAG_HIDDEN_GROUPS, null);
+    _sharedPreferences.setStringList(_TAG_VISIBLE_GROUPS, null);
     notifyListeners();
   }
 
   bool isAttributeGroupVisible(final AttributeGroup group) {
-    final List<String> hiddenList =
-        _sharedPreferences.getStringList(_TAG_HIDDEN_GROUPS);
-    return hiddenList == null || !hiddenList.contains(group.id);
+    final List<String> visibleList =
+        _sharedPreferences.getStringList(_TAG_VISIBLE_GROUPS);
+    return visibleList != null && visibleList.contains(group.id);
   }
 
   Future<void> setAttributeGroupVisibility(
       final AttributeGroup group, final bool visible) async {
-    List<String> hiddenList =
-        _sharedPreferences.getStringList(_TAG_HIDDEN_GROUPS);
+    List<String> visibleList =
+        _sharedPreferences.getStringList(_TAG_VISIBLE_GROUPS);
     final String tag = group.id;
-    if (hiddenList != null && hiddenList.contains(tag)) {
-      if (!visible) {
-        return;
-      }
-      hiddenList.remove(tag);
-    } else {
+    if (visibleList != null && visibleList.contains(tag)) {
       if (visible) {
         return;
       }
-      hiddenList ??= <String>[];
-      hiddenList.add(tag);
+      visibleList.remove(tag);
+    } else {
+      if (!visible) {
+        return;
+      }
+      visibleList ??= <String>[];
+      visibleList.add(tag);
     }
-    await _sharedPreferences.setStringList(_TAG_HIDDEN_GROUPS, hiddenList);
+    await _sharedPreferences.setStringList(_TAG_VISIBLE_GROUPS, visibleList);
     notifyListeners();
   }
 

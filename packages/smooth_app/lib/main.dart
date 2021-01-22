@@ -10,10 +10,9 @@ import 'package:sentry/sentry.dart';
 import 'package:provider/provider.dart';
 
 import 'package:smooth_app/data_models/user_preferences_model.dart';
-import 'package:smooth_app/pages/alternative_continuous_scan_page.dart';
+import 'package:smooth_app/pages/scan_page.dart';
 import 'package:smooth_app/pages/choose_page.dart';
 import 'package:smooth_app/pages/contribution_page.dart';
-import 'package:smooth_app/pages/continuous_scan_page.dart';
 import 'package:smooth_app/pages/profile_page.dart';
 import 'package:smooth_app/pages/tracking_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -222,16 +221,15 @@ class SmoothApp extends StatelessWidget {
           icon: 'assets/actions/scanner_alt_2.svg',
           iconPadding: _navigationIconPadding,
           iconSize: _navigationIconSize,
-          onTap: () {
-            final Widget newPage = mlKitState
-                ? const ContinuousScanPage()
-                : const AlternativeContinuousScanPage();
-            Navigator.push<Widget>(
-              context,
-              MaterialPageRoute<Widget>(
-                  builder: (BuildContext context) => newPage),
-            );
-          },
+          onTap: () => Navigator.push<Widget>(
+            context,
+            MaterialPageRoute<Widget>(
+              builder: (BuildContext context) => ScanPage(
+                contributionMode: false,
+                mlKit: mlKitState,
+              ),
+            ),
+          ),
         ),
       );
 }

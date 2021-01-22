@@ -53,8 +53,6 @@ class _ChoosePageState extends State<ChoosePage> {
 
   PnnsGroup1 _selectedCategory;
   Color _selectedColor;
-  Color _appBarColor = Colors.transparent;
-  double _opacity = 0.0;
   bool _preventAppBarColorRefresh = false;
 
   void _selectCategory(final PnnsGroup1 group, final Color color) {
@@ -77,14 +75,12 @@ class _ChoosePageState extends State<ChoosePage> {
     _scrollController.addListener(() {
       if (_scrollController.offset < 60.0) {
         setState(() {
-          _opacity = _scrollController.offset / 60.0;
-          _appBarColor = Colors.white.withOpacity(_opacity);
           _preventAppBarColorRefresh = false;
         });
       } else if (!_preventAppBarColorRefresh) {
         setState(() {
           _preventAppBarColorRefresh = true;
-          _appBarColor = Colors.white;
+          //_appBarColor = Colors.white;
         });
       }
     });

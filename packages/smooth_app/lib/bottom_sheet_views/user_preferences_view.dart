@@ -256,8 +256,13 @@ class UserPreferencesView extends StatelessWidget {
           child: Container(
             width: double.infinity,
             padding: const EdgeInsets.all(_TYPICAL_PADDING_OR_MARGIN),
-            child: Text(
-              group.name,
+            child: ListTile(
+              title: Text(group.name),
+              trailing: Icon(
+                userPreferences.isAttributeGroupVisible(group)
+                    ? Icons.keyboard_arrow_up
+                    : Icons.keyboard_arrow_down,
+              ),
             ),
           ),
           onTap: () => userPreferences.setAttributeGroupVisibility(

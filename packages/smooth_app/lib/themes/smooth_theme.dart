@@ -21,7 +21,6 @@ class SmoothThemes {
       onError: Colors.white,
       brightness: Brightness.light,
     );
-
     // yellowAccent == null
     const ColorScheme colorDark = ColorScheme(
       primary: Color(0xFF181818),

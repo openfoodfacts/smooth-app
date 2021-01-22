@@ -15,6 +15,7 @@ import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/pages/product_query_page_helper.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ProductQueryPage extends StatefulWidget {
   const ProductQueryPage({
@@ -170,7 +171,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                     color: widget.mainColor,
                   ),
                   label: Text(
-                    'My personalized ranking',
+                    AppLocalizations.of(context).myPersonalizedRanking,
                     style: TextStyle(color: widget.mainColor),
                   ),
                   backgroundColor: Colors.white,
@@ -178,9 +179,11 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                     Navigator.push<dynamic>(
                       context,
                       MaterialPageRoute<dynamic>(
-                          builder: (BuildContext context) =>
-                              PersonalizedRankingPage(
-                                  input: _model.displayProducts)),
+                        builder: (BuildContext context) =>
+                            PersonalizedRankingPage(
+                          _model.supplier.getProductList(),
+                        ),
+                      ),
                     );
                   },
                 ),

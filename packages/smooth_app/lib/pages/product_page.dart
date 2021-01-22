@@ -17,7 +17,6 @@ class ProductPage extends StatelessWidget {
     final Size screenSize = MediaQuery.of(context).size;
     final double iconWidth =
         screenSize.width / 10; // TODO(monsieurtanuki): target size?
-    final TextStyle dividerTextStyle = Theme.of(context).textTheme.headline2;
     return Scaffold(
       body: Stack(
         children: <Widget>[
@@ -98,9 +97,6 @@ class ProductPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  _getDivider(
-                    Text(appLocalizations.nutrition, style: dividerTextStyle),
-                  ),
                   AttributeListExpandable(
                     product: product,
                     iconWidth: iconWidth,
@@ -109,7 +105,7 @@ class ProductPage extends StatelessWidget {
                       UserPreferencesModel.ATTRIBUTE_VEGETARIAN,
                       UserPreferencesModel.ATTRIBUTE_PALM_OIL_FREE,
                     ],
-                    title: 'Nutrition levels',
+                    title: appLocalizations.nutrition,
                   ),
                   AttributeListExpandable(
                     product: product,
@@ -123,9 +119,6 @@ class ProductPage extends StatelessWidget {
                     ],
                     title: 'Nutrition levels',
                   ),
-                  _getDivider(
-                    Text(appLocalizations.ingredients, style: dividerTextStyle),
-                  ),
                   AttributeListExpandable(
                     product: product,
                     iconWidth: iconWidth,
@@ -133,10 +126,7 @@ class ProductPage extends StatelessWidget {
                       UserPreferencesModel.ATTRIBUTE_NOVA,
                       UserPreferencesModel.ATTRIBUTE_ADDITIVES,
                     ],
-                    title: 'Labels',
-                  ),
-                  _getDivider(
-                    Text(appLocalizations.ecology, style: dividerTextStyle),
+                    title: appLocalizations.ingredients,
                   ),
                   AttributeListExpandable(
                     product: product,
@@ -146,7 +136,7 @@ class ProductPage extends StatelessWidget {
                       UserPreferencesModel.ATTRIBUTE_ORGANIC,
                       UserPreferencesModel.ATTRIBUTE_FAIR_TRADE,
                     ],
-                    title: 'Labels',
+                    title: appLocalizations.ecology,
                   ),
                 ],
               ),
@@ -156,12 +146,4 @@ class ProductPage extends StatelessWidget {
       ),
     );
   }
-
-  Widget _getDivider(final Widget child) => Padding(
-        padding: const EdgeInsets.only(
-            top: 14.0, right: 16.0, left: 16.0, bottom: 8.0),
-        child: Row(
-          children: <Widget>[Flexible(child: child)],
-        ),
-      );
 }
