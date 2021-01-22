@@ -18,7 +18,7 @@ jobs:
         with:
           java-version: 12.x
       - name: Decrypt api json file
-        run: cd ./packages/smooth_app/android/fastlane/envfiles && ./decrypt_secrets.sh
+        run: cd ./packages/smooth_app/android/fastlane/envfiles && chmod +x ./decrypt_secrets.sh && ./decrypt_secrets.sh
         env:
           API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
           STORE_JKS_DECRYPTKEY: ${{ secrets.STORE_JKS_DECRYPTKEY }}
