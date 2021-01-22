@@ -25,7 +25,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
-signingConfigs {
+signingConfig {
     create("release") {
         if (System.getenv("CI_RELEASE")?.toBoolean() == true) { // CI=true is exported by github action
             val storeFilePath = System.getenv("SIGN_STORE_PATH")
