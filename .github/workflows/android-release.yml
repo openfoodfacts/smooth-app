@@ -35,11 +35,12 @@ jobs:
         uses: subosito/flutter-action@v1
         with:
           flutter-version: 1.22.5
+          working-directory: packages/smooth_app
       - name: Install Flutter dependencies
-        run: flutter pub get
+        run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get
         # ToDo: Change to aab
       - name: Build APK
-        run: flutter build appbundle --release
+        run: pwd && cd ./packages/smooth_app/ && pwd && flutter build appbundle --release
       #- name: Checkout
       #  uses: actions/checkout@v2
       #- name: Ruby
