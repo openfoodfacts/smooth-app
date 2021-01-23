@@ -54,7 +54,7 @@ jobs:
 #    needs: [build_android]
     defaults:
       run:
-        working-directory: ./../packages/smooth_app
+        working-directory: ./packages/smooth_app/android/
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -63,7 +63,7 @@ jobs:
         with:
           java-version: 12.x
       - name: Decrypt api json file
-        run: cd ./android/fastlane/envfiles && chmod +x ./decrypt_secrets.sh && ./decrypt_secrets.sh
+        run: cd ./fastlane/envfiles && chmod +x ./../decrypt_secrets.sh && ./../decrypt_secrets.sh
         env:
           API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
           STORE_JKS_DECRYPTKEY: ${{ secrets.STORE_JKS_DECRYPTKEY }}
@@ -86,4 +86,4 @@ jobs:
         uses: maierj/fastlane-action@v1.4.0
         with:
           lane: closed_beta
-          subdirectory: ./packages/smooth_app/android
+          #subdirectory: ./
