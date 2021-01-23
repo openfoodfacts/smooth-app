@@ -1,5 +1,4 @@
 source "https://rubygems.org"
-ruby "3.0.0"
 
 gem "fastlane"
 gem "fastlane-plugin-flutter_version", git: "https://github.com/tianhaoz95/fastlane-plugin-flutter-version"
