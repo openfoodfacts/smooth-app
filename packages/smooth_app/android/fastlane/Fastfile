@@ -22,10 +22,10 @@ platform :android do
   lane :closed_beta do
     begin
       #gradle(task: "clean")
-      gradle(task: "clean", project_dir: '/')
+      gradle(task: "clean", project_dir: './')
       gradle(
         task: "bundle",
-        project_dir: '/',
+        project_dir: './',
         build_type: 'Release'
       )
       upload_to_play_store(
