@@ -25,20 +25,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
-signingConfigs {
-    create("release") {
-        if (System.getenv("CI_RELEASE")?.toBoolean() == true) { // CI=true is exported by github action
-            val storeFilePath = System.getenv("SIGN_STORE_PATH")
-            if (storeFilePath != null) {
-                storeFile = file(storeFilePath)
-            }
-            storePassword = System.getenv("SIGN_STORE_PASSWORD")
-            keyAlias = System.getenv("SIGN_KEY_ALIAS")
-            keyPassword = System.getenv("SIGN_KEY_PASSWORD")
-        }
-    }
-}
-
 android {
     compileSdkVersion 28
 
@@ -59,7 +45,19 @@ android {
         versionName flutterVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
+signingConfigs {
+    create("release") {
+        if (System.getenv("CI_RELEASE")?.toBoolean() == true) { // CI=true is exported by github action
+            val storeFilePath = System.getenv("SIGN_STORE_PATH")
+            if (storeFilePath != null) {
+                storeFile = file(storeFilePath)
+            }
+            storePassword = System.getenv("SIGN_STORE_PASSWORD")
+            keyAlias = System.getenv("SIGN_KEY_ALIAS")
+            keyPassword = System.getenv("SIGN_KEY_PASSWORD")
+        }
+    }
+}
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
