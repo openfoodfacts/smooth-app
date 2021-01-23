@@ -68,7 +68,7 @@ jobs:
           API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
           STORE_JKS_DECRYPTKEY: ${{ secrets.STORE_JKS_DECRYPTKEY }}
       - name: Setup Flutter
-        uses: subosito/flutter-action@v1.4.0
+        uses: subosito/flutter-action@v1
         with:
           flutter-version: 1.22.5
       - name: Install Flutter dependencies
@@ -77,7 +77,7 @@ jobs:
       - name: Build APK
         run: flutter build apk --release   
       - name: Run Fastlane
-        uses: maierj/fastlane-action@v2.0.0
+        uses: maierj/fastlane-action@v1.4.0
         with:
           ruby-version: '>= 2.6'
           lane: closed_beta
