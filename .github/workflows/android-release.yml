@@ -75,7 +75,7 @@ jobs:
         run: flutter pub get
         # ToDo: Change to aab
       - name: Build APK
-        run: flutter build apk --release
+        run: flutter build appbundle --release
       - name: Checkout
         uses: actions/checkout@v2
       - name: Ruby
