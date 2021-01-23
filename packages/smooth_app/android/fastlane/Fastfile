@@ -29,7 +29,7 @@ platform :android do
         build_type: 'Release'
       )
       upload_to_play_store(
-        track: 'Closed beta',
+        track: 'internal',
         # Todo: Change to abb
         # aab: '../build/app/outputs/bundle/release/app-release.aab',
         apk: '../build/app/outputs/bundle/release/app-release.apk',
@@ -42,4 +42,3 @@ platform :android do
     end
   end
 end
-
