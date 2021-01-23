@@ -31,6 +31,7 @@ jobs:
         env:
           API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
           STORE_JKS_DECRYPTKEY: ${{ secrets.STORE_JKS_DECRYPTKEY }}
+          SIGN_STORE_PATH: ./packages/smooth_app/android/fastlane/envfiles/keystore.jks
       - name: Setup Flutter
         uses: subosito/flutter-action@v1
         with:
