@@ -52,6 +52,7 @@ signingConfigs {
             if (storeFilePath != null) {
                 storeFile = file(storeFilePath)
             }
+            println storeFilePath
             storePassword = System.getenv("SIGN_STORE_PASSWORD")
             keyAlias = System.getenv("SIGN_KEY_ALIAS")
             keyPassword = System.getenv("SIGN_KEY_PASSWORD")
