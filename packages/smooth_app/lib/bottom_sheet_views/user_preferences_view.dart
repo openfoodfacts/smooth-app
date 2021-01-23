@@ -86,9 +86,6 @@ class UserPreferencesView extends StatelessWidget {
                       sigmaY: 4.0,
                     ),
                     child: Container(
-                      color: Theme.of(context)
-                          .bottomNavigationBarTheme
-                          .backgroundColor,
                       padding: const EdgeInsets.symmetric(
                           horizontal: _TYPICAL_PADDING_OR_MARGIN,
                           vertical: 20.0),
