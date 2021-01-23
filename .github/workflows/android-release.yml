@@ -40,7 +40,7 @@ jobs:
         run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get
         # ToDo: Change to aab
       - name: Build AAB
-        run: pwd && cd ./packages/smooth_app/ && pwd && flutter build appbundle --release
+        run: echo $SIGN_STORE_PATH && pwd && cd ./packages/smooth_app/ && pwd && flutter build appbundle --release  
         env:
           SIGN_STORE_PATH: ./packages/smooth_app/android/fastlane/envfiles/keystore.jks
       #- name: Checkout
