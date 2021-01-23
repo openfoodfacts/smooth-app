@@ -75,10 +75,15 @@ jobs:
         run: flutter pub get
         # ToDo: Change to aab
       - name: Build APK
-        run: flutter build apk --release   
+        run: flutter build apk --release
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '>= 2.6'
       - name: Run Fastlane
         uses: maierj/fastlane-action@v2.0.0
         with:
-          ruby-version: '>= 2.6'
           lane: closed_beta
           subdirectory: packages/smooth_app/android
