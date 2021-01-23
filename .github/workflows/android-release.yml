@@ -31,7 +31,6 @@ jobs:
         env:
           API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
           STORE_JKS_DECRYPTKEY: ${{ secrets.STORE_JKS_DECRYPTKEY }}
-          SIGN_STORE_PATH: ./packages/smooth_app/android/fastlane/envfiles/keystore.jks
       - name: Setup Flutter
         uses: subosito/flutter-action@v1
         with:
@@ -42,6 +41,8 @@ jobs:
         # ToDo: Change to aab
       - name: Build AAB
         run: pwd && cd ./packages/smooth_app/ && pwd && flutter build appbundle --release
+        env:
+          SIGN_STORE_PATH: ./packages/smooth_app/android/fastlane/envfiles/keystore.jks
       #- name: Checkout
       #  uses: actions/checkout@v2
       #- name: Ruby
