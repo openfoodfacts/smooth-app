@@ -15,6 +15,10 @@ class SmoothTheme {
         backgroundColor: myColorScheme.onSurface,
         actionTextColor: myColorScheme.surface,
       ),
+      appBarTheme: AppBarTheme(
+        color: myColorScheme.background,
+      ),
+      scaffoldBackgroundColor: myColorScheme.background,
     );
   }
 
