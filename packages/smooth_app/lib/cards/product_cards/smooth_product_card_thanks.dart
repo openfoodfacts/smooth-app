@@ -6,7 +6,7 @@ class SmoothProductCardThanks extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Theme.of(context).cardColor,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: const BorderRadius.all(Radius.circular(15.0)),
       ),
       child: Column(

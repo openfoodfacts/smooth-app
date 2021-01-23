@@ -19,8 +19,9 @@ class SmoothSearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Color surface = Theme.of(context).colorScheme.surface;
     return Material(
-      color: Theme.of(context).cardColor,
+      color: surface,
       elevation: 24.0,
       borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
       shadowColor: shadowColor.withAlpha(160),
@@ -40,7 +41,7 @@ class SmoothSearchBar extends StatelessWidget {
               color: Colors.grey,
             ),
           ),
-          focusColor: Theme.of(context).cardColor,
+          focusColor: surface,
         ),
         onSubmitted: onSubmitted,
       ),

@@ -52,7 +52,7 @@ class ProductPage extends StatelessWidget {
           BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 18.0, sigmaY: 18.0),
             child: Container(
-              color: Theme.of(context).cardColor.withAlpha(220),
+              color: Theme.of(context).colorScheme.surface.withAlpha(220),
               child: ListView(
                 children: <Widget>[
                   Padding(
