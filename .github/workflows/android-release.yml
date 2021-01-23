@@ -68,7 +68,7 @@ jobs:
           API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
           STORE_JKS_DECRYPTKEY: ${{ secrets.STORE_JKS_DECRYPTKEY }}
       - name: Setup Flutter
-        uses: subosito/flutter-action@v1.0.8
+        uses: subosito/flutter-action@v1.4.0
         with:
           flutter-version: 1.22.5
       - name: Install Flutter dependencies
