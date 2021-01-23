@@ -54,7 +54,7 @@ jobs:
 #    needs: [build_android]
     defaults:
       run:
-        working-directory: ./packages/smooth_app
+        working-directory: ./../packages/smooth_app
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
