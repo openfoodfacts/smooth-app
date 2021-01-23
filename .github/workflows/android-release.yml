@@ -39,7 +39,7 @@ jobs:
       - name: Install Flutter dependencies
         run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get
         # ToDo: Change to aab
-      - name: Build APK
+      - name: Build AAB
         run: pwd && cd ./packages/smooth_app/ && pwd && flutter build appbundle --release
       #- name: Checkout
       #  uses: actions/checkout@v2
