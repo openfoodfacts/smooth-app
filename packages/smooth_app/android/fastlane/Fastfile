@@ -22,17 +22,16 @@ platform :android do
   lane :closed_beta do
     begin
       #gradle(task: "clean")
-      gradle(task: "clean", project_dir: './app')
+      gradle(task: "clean")
       gradle(
         task: "bundle",
-        project_dir: './app',
         build_type: 'Release'
       )
       upload_to_play_store(
         track: 'internal',
         # Todo: Change to abb
-        # aab: '../build/app/outputs/bundle/release/app-release.aab',
-        apk: '../build/app/outputs/bundle/release/app-release.apk',
+        aab: '../build/app/outputs/bundle/release/app-release.aab',
+        #apk: '../build/app/outputs/bundle/release/app-release.apk',
         skip_upload_metadata: true,
         skip_upload_images: true,
         skip_upload_screenshots: true,
