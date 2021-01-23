@@ -7,47 +7,6 @@ on: [push, pull_request]
    #   - 'release/*'
 
 jobs:
-  #CI
-#  build_android:
-#    runs-on: ubuntu-latest
-#    defaults:
-#      run:
-#        working-directory: ./packages/smooth_app
-#    steps:
-#      - name: Checkout code
-#        uses: actions/checkout@v2
-#      - name: Setup Java
-#        uses: actions/setup-java@v1
-#        with:
-#          java-version: 12.x
-#      - name: Decrypt api json file
-#        run: cd ./android/fastlane/envfiles && chmod +x ./decrypt_secrets.sh && ./decrypt_secrets.sh
-#        env:
-#          #API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
-#          STORE_JKS_DECRYPTKEY: ${{ secrets.STORE_JKS_DECRYPTKEY }}
-#
-#      - name: Setup Flutter
-#        uses: subosito/flutter-action@v1
-#        with:
-#          flutter-version: 1.22.5
-#      - name: Install Flutter dependencies
-#        run: flutter pub get
-#        # optional: add build runner commands
-#      # - name: Format files
-#      #   run: flutter format --set-exit-if-changed .
-#      - name: Analyze files
-#        run: flutter analyze .
-#      #- name: Run the tests
-#      #  run: flutter test
-#      - name: Build the APK
-#        run: flutter build apk --release
-#      - name: Upload artifact to Github
-#        uses: actions/upload-artifact@v2
-#        with:
-#          name: release-apk
-#          path: build/app/outputs/apk/release/app-release.apk
-  
-  
   # CD
   deploy_android:
     runs-on: ubuntu-latest
@@ -55,6 +14,7 @@ jobs:
     defaults:
       run:
         working-directory: ./packages/smooth_app/android/
+        shell: pwd
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -90,4 +50,4 @@ jobs:
         uses: maierj/fastlane-action@v2.0.0
         with:
           lane: closed_beta
-          subdirectory: ./../packages/smooth_app/android/
+          subdirectory: ./app/
