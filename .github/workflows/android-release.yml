@@ -38,7 +38,6 @@ jobs:
           working-directory: packages/smooth_app
       - name: Install Flutter dependencies
         run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get
-        # ToDo: Change to aab
       - name: Build AAB
         run: echo $SIGN_STORE_PATH && pwd && cd ./packages/smooth_app/ && pwd && flutter build appbundle --release  
         env:
@@ -46,12 +45,6 @@ jobs:
          SIGN_STORE_PASSWORD: ${{ secrets.SIGN_STORE_PASSWORD }}
          SIGN_KEY_ALIAS: ${{ secrets.SIGN_KEY_ALIAS }}
          SIGN_KEY_PASSWORD: ${{ secrets.SIGN_KEY_PASSWORD }}
-      #- name: Checkout
-      #  uses: actions/checkout@v2
-      #- name: Ruby
-      #  uses: actions/setup-ruby@v1
-      #  with:
-      #    ruby-version: '>= 2.6'
       - name: Run Fastlane
         uses: maierj/fastlane-action@v2.0.0
         with:
