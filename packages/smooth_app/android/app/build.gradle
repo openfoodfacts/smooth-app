@@ -25,6 +25,13 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
+   def keystoreProperties = new Properties()
+   def keystorePropertiesFile = rootProject.file('app/key.properties')
+   if (keystorePropertiesFile.exists()) {
+       keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+   }
+
+
 android {
     compileSdkVersion 28
 
@@ -45,6 +52,10 @@ android {
         versionName flutterVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    
+    
+    
+    
 signingConfigs {
     create("release") {
         if (System.getenv("CI_RELEASE")?.toBoolean() == true) { // CI=true is exported by github action
