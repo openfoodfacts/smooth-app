@@ -54,3 +54,5 @@ jobs:
         with:
           lane: closed_beta
           subdirectory: packages/smooth_app/android
+        env:
+         SIGN_STORE_PATH: ./packages/smooth_app/android/fastlane/envfiles/keystore.jks
