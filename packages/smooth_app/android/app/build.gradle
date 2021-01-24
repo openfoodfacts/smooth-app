@@ -31,6 +31,10 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
        keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
    }
 
+   keystoreProperties.setProperty('storePassword', System.getenv('STORE_JKS_DECRYPTKEY'));
+   keystoreProperties.setProperty('keyPassword', System.getenv('SIGN_KEY_PASSWORD'));
+   keystoreProperties.setProperty('keyAlias', System.getenv('SIGN_KEY_ALIAS'));
+   keystoreProperties.setProperty('storeFile', System.getenv('SIGN_STORE_PATH'));
 
 android {
     compileSdkVersion 28
