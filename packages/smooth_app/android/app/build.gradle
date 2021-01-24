@@ -25,16 +25,16 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
-   //def keystoreProperties = new Properties()
-   //def keystorePropertiesFile = rootProject.file('key.properties')
-   //if (keystorePropertiesFile.exists()) {
-   //    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-   //}
+   def keystoreProperties = new Properties()
+   def keystorePropertiesFile = rootProject.file('key.properties')
+   if (keystorePropertiesFile.exists()) {
+       keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+   }
 
-   //keystoreProperties.setProperty('storePassword', System.getenv('STORE_JKS_DECRYPTKEY'));
-   //keystoreProperties.setProperty('keyPassword', System.getenv('SIGN_KEY_PASSWORD'));
-   //keystoreProperties.setProperty('keyAlias', System.getenv('SIGN_KEY_ALIAS'));
-   //keystoreProperties.setProperty('storeFile', System.getenv('SIGN_STORE_PATH'));
+   keystoreProperties.setProperty('storePassword', System.getenv('STORE_JKS_DECRYPTKEY'));
+   keystoreProperties.setProperty('keyPassword', System.getenv('SIGN_KEY_PASSWORD'));
+   keystoreProperties.setProperty('keyAlias', System.getenv('SIGN_KEY_ALIAS'));
+   keystoreProperties.setProperty('storeFile', System.getenv('SIGN_STORE_PATH'));
 
 android {
     compileSdkVersion 28
@@ -62,10 +62,15 @@ android {
 
     signingConfigs {
         release {
-            storePassword System.getenv('STORE_JKS_DECRYPTKEY')
-            keyPassword System.getenv('SIGN_KEY_PASSWORD')
-            keyAlias System.getenv('SIGN_KEY_ALIAS')
-            storeFile System.getenv('SIGN_STORE_PATH') ? file(System.getenv('SIGN_STORE_PATH')) : null
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+            storePassword keystoreProperties['storePassword']
+
+            //storePassword System.getenv('STORE_JKS_DECRYPTKEY')
+            //keyPassword System.getenv('SIGN_KEY_PASSWORD')
+            //keyAlias System.getenv('SIGN_KEY_ALIAS')
+            //storeFile System.getenv('SIGN_STORE_PATH') ? file(System.getenv('SIGN_STORE_PATH')) : null
 
         }
     }
