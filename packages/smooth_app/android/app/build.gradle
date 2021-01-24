@@ -67,7 +67,7 @@ android {
             storePassword keystoreProperties['storePassword']
             keyAlias keystoreProperties['keyAlias']
             keyPassword keystoreProperties['keyPassword']
-            
+
             //storePassword System.getenv('STORE_JKS_DECRYPTKEY')
             //keyPassword System.getenv('SIGN_KEY_PASSWORD')
             //keyAlias System.getenv('SIGN_KEY_ALIAS')
