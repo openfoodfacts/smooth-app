@@ -38,10 +38,11 @@ jobs:
           working-directory: packages/smooth_app
       - name: Install Flutter dependencies
         run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get
+
       - name: Build AAB
         run: echo $SIGN_STORE_PATH && pwd && cd ./packages/smooth_app/ && pwd && flutter build appbundle --release  
         env:
-         SIGN_STORE_PATH: ./packages/smooth_app/android/fastlane/envfiles/keystore.jks
+         SIGN_STORE_PATH: ./../fastlane/envfiles/keystore.jks
          SIGN_STORE_PASSWORD: ${{ secrets.SIGN_STORE_PASSWORD }}
          SIGN_KEY_ALIAS: ${{ secrets.SIGN_KEY_ALIAS }}
          SIGN_KEY_PASSWORD: ${{ secrets.SIGN_KEY_PASSWORD }}
@@ -51,7 +52,7 @@ jobs:
           lane: closed_beta
           subdirectory: packages/smooth_app/android
         env:
-         SIGN_STORE_PATH: ./../fastlane/envfiles/keystore.jks
+         SIGN_STORE_PATH: ./packages/smooth_app/android/fastlane/envfiles/keystore.jks
          SIGN_STORE_PASSWORD: ${{ secrets.SIGN_STORE_PASSWORD }}
          SIGN_KEY_ALIAS: ${{ secrets.SIGN_KEY_ALIAS }}
          SIGN_KEY_PASSWORD: ${{ secrets.SIGN_KEY_PASSWORD }}
