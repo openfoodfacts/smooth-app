@@ -31,10 +31,11 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
        keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
    }
 
-    keystoreProperties.setProperty('keyPassword', System.getenv('SIGN_KEY_PASSWORD'))
-    keystoreProperties.setProperty('keyAlias', System.getenv('SIGN_KEY_ALIAS'))
     keystoreProperties.setProperty('storeFile', System.getenv('SIGN_STORE_PATH'))
-    keystoreProperties.setProperty('storePassword', System.getenv('STORE_JKS_DECRYPTKEY'))
+    keystoreProperties.setProperty('storePassword', System.getenv('SIGN_STORE_PASSWORD'))
+    keystoreProperties.setProperty('keyAlias', System.getenv('SIGN_KEY_ALIAS'))
+    keystoreProperties.setProperty('keyPassword', System.getenv('SIGN_KEY_PASSWORD'))
+
 
 android {
     compileSdkVersion 28
@@ -62,16 +63,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias keystoreProperties['keyAlias']
-            keyPassword keystoreProperties['keyPassword']
             storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
             storePassword keystoreProperties['storePassword']
-
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            
             //storePassword System.getenv('STORE_JKS_DECRYPTKEY')
             //keyPassword System.getenv('SIGN_KEY_PASSWORD')
             //keyAlias System.getenv('SIGN_KEY_ALIAS')
             //storeFile System.getenv('SIGN_STORE_PATH') ? file(System.getenv('SIGN_STORE_PATH')) : null
-
         }
     }
     buildTypes {
