@@ -21,7 +21,6 @@ platform :android do
   desc "Deploy to closed beta track"
   lane :closed_beta do
     begin
-      #gradle(task: "clean")
       gradle(task: "clean")
       gradle(
         task: "bundle",
@@ -29,9 +28,7 @@ platform :android do
       )
       upload_to_play_store(
         track: 'internal',
-        # Todo: Change to abb
-        aab: '../build/app/outputs/bundle/release/app-release.aab',
-        #apk: '../build/app/outputs/bundle/release/app-release.apk',
+        aab: '../build/app/outputs/bundle/release/app.aab',
         skip_upload_metadata: true,
         skip_upload_images: true,
         skip_upload_screenshots: true,

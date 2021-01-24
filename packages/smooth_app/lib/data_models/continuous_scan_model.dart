@@ -67,8 +67,8 @@ class ContinuousScanModel with ChangeNotifier {
 
   Product getProduct(final String barcode) => _productList.getProduct(barcode);
 
-  void setupScanner(QRViewController controller) =>
-      controller.scannedDataStream.listen((String barcode) => onScan(barcode));
+  void setupScanner(QRViewController controller) => controller.scannedDataStream
+      .listen((Barcode barcode) => onScan(barcode.code));
 
   List<Product> getProducts() => _productList.getList();
 
