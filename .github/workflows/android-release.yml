@@ -39,8 +39,8 @@ jobs:
       - name: Install Flutter dependencies
         run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get
 
-      - name: Bump version
-        run: pwd && cd ./packages/smooth_app/ && pwd && pub global activate cider && export PATH="$PATH":"$HOME/.pub-cache/bin" && cider bump build
+      #- name: Bump version
+      #  run: pwd && cd ./packages/smooth_app/ && pwd && pub global activate cider && export PATH="$PATH":"$HOME/.pub-cache/bin" && cider bump build
 
       - name: Install Flutter dependencies
         run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get
