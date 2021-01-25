@@ -1,10 +1,6 @@
 name: Flutter CI
 
-
 on: pull_request
-    
-# on: push    # Default will running for every branch.
-
     
 jobs:
   build:
@@ -15,7 +11,7 @@ jobs:
     steps:
     
       # Setup Java
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
 
       - name: Setup Java 
         uses: actions/setup-java@v1
@@ -33,7 +29,7 @@ jobs:
       # - run: flutter format --set-exit-if-changed .
       
       - name: Analyze
-        run: flutter analyze
+        run: flutter analyze .
       
       - name: Build debug APK
         run: flutter build apk --debug
