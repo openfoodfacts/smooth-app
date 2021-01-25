@@ -5,10 +5,16 @@ class ProductList {
   ProductList({
     @required this.listType,
     @required this.parameters,
+    this.databaseTimestamp,
+    this.databaseCount,
+    this.databaseCountDistinct,
   });
 
   final String listType;
   final String parameters;
+  final int databaseTimestamp;
+  final int databaseCount;
+  final int databaseCountDistinct;
 
   final List<String> _barcodes = <String>[];
   final Map<String, Product> _products = <String, Product>{};
@@ -16,6 +22,7 @@ class ProductList {
   static const String LIST_TYPE_HTTP_SEARCH_GROUP = 'http/search/group';
   static const String LIST_TYPE_HTTP_SEARCH_KEYWORDS = 'http/search/keywords';
   static const String LIST_TYPE_SCAN = 'scan';
+  static const String LIST_TYPE_HISTORY = 'history';
 
   List<String> get barcodes => _barcodes;
 

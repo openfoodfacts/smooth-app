@@ -8,6 +8,8 @@ import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/product_query_page.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
+import 'package:openfoodfacts/utils/PnnsGroups.dart';
+import 'package:smooth_app/data_models/product_list.dart';
 
 class ProductQueryPageHelper {
   Future<void> openBestChoice({
@@ -37,7 +39,7 @@ class ProductQueryPageHelper {
     );
   }
 
-  static String getDurationString(final int seconds) {
+  static String getDurationStringFromSeconds(final int seconds) {
     final double minutes = seconds / 60;
     final int roundMinutes = minutes.round();
     if (roundMinutes == 0) {
@@ -79,5 +81,45 @@ class ProductQueryPageHelper {
       return 'about 1 month ago';
     }
     return 'about $roundMonths months ago';
+  }
+
+  static String getDurationStringFromTimestamp(final int timestamp) {
+    final int now = LocalDatabase.nowInMillis();
+    final int seconds = ((now - timestamp) / 1000).floor();
+    return getDurationStringFromSeconds(seconds);
+  }
+
+  static String getProductListLabel(final ProductList productList) {
+    switch (productList.listType) {
+      case ProductList.LIST_TYPE_HTTP_SEARCH_GROUP:
+        return '${_getGroupName(productList.parameters)} (category search)';
+      case ProductList.LIST_TYPE_HTTP_SEARCH_KEYWORDS:
+        return '${productList.parameters} (keyword search)';
+      case ProductList.LIST_TYPE_SCAN:
+        return 'Scan';
+      case ProductList.LIST_TYPE_HISTORY:
+        return 'History';
+    }
+    return 'Unknown product list: ${productList.listType} / ${productList.parameters}';
+  }
+
+  static String _getGroupName(final String groupId) {
+    for (final PnnsGroup2 group2 in PnnsGroup2.values) {
+      if (group2.id == groupId) {
+        return group2.name;
+      }
+    }
+    return 'not found: $groupId';
+  }
+
+  static String getProductCount(final ProductList productList) {
+    if (productList.databaseCountDistinct == null ||
+        productList.databaseCountDistinct == 0) {
+      return 'no product';
+    }
+    if (productList.databaseCountDistinct == 1) {
+      return '1 product';
+    }
+    return '${productList.databaseCountDistinct} products';
   }
 }
