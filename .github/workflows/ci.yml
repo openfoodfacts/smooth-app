@@ -45,4 +45,4 @@ jobs:
       - uses: actions/upload-artifact@v1
         with:
           name: release-apk
-          path: packages/smooth_app/build/app/outputs/apk/release/app-release.apk
+          path: packages/smooth_app/build/app/outputs/flutter-apk/app-debug.apk
