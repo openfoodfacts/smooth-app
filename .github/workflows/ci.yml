@@ -29,6 +29,9 @@ jobs:
       # Get dependencies.
       - run: flutter pub get
       
+      #Cleanup git
+      - run: git clean -xffd
+
       # Check for formatting issues
       # - run: flutter format --set-exit-if-changed .
       
