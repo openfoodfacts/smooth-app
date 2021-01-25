@@ -67,7 +67,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     final Brightness brightness =
-        SchedulerBinding.instance.window.platformBrightness as Brightness;
+        SchedulerBinding.instance.window.platformBrightness;
     systemDarkmodeOn = brightness == Brightness.dark;
     super.initState();
   }
