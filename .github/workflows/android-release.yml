@@ -26,20 +26,24 @@ jobs:
         uses: actions/setup-ruby@v1
         with:
           ruby-version: '>= 2.6'
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v1
+        with:
+          flutter-version: 1.22.5
       - name: Decrypt API JSON file
         run: cd ./packages/smooth_app/android/fastlane/envfiles && chmod +x ./decrypt_secrets.sh && ./decrypt_secrets.sh
         env:
           API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
           STORE_JKS_DECRYPTKEY: ${{ secrets.STORE_JKS_DECRYPTKEY }}
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v1
-        with:
-          flutter-version: 1.22.5
+    
       - name: Install Flutter dependencies
         run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get
 
       - name: Bump version
-        run: pwd && cd ./packages/smooth_app/ && pwd && pub global activate cider && cider bump build
+        run: pwd && cd ./packages/smooth_app/ && pwd && pub global activate cider && export PATH="$PATH":"$HOME/.pub-cache/bin" && cider bump build
+
+            - name: Install Flutter dependencies
+        run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get
 
       - name: Build AAB
         run: echo $SIGN_STORE_PATH && pwd && cd ./packages/smooth_app/ && pwd && flutter build appbundle --release  
