@@ -90,14 +90,8 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
     return Scaffold(
       key: _scaffoldKey,
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Theme.of(context).bottomAppBarColor.withAlpha(255),
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentTabIndex,
-        selectedItemColor: Theme.of(context).colorScheme.onSurface,
-        unselectedItemColor: Theme.of(context)
-            .bottomNavigationBarTheme
-            .unselectedIconTheme
-            .color,
         items: bottomNavigationBarItems,
         onTap: (int tapped) => setState(() {
           _currentTabIndex = tapped;
@@ -108,6 +102,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
         opacity: !_showTitle ? 1.0 : 0.0,
         duration: const Duration(milliseconds: 250),
         child: FloatingActionButton(
+          //backgroundColor: Theme.of(context).colorScheme.primary,
           heroTag: 'do_not_use_hero_animation',
           child: const Icon(Icons.arrow_upward),
           onPressed: () {
@@ -148,7 +143,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
               pinned: true,
               snap: true,
               elevation: 8,
-              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+              backgroundColor: Theme.of(context).colorScheme.background,
               flexibleSpace: FlexibleSpaceBar(
                 centerTitle: true,
                 title: Text(AppLocalizations.of(context).myPersonalizedRanking,

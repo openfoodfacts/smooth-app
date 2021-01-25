@@ -53,8 +53,6 @@ class _ChoosePageState extends State<ChoosePage> {
 
   PnnsGroup1 _selectedCategory;
   Color _selectedColor;
-  Color _appBarColor = Colors.transparent;
-  double _opacity = 0.0;
   bool _preventAppBarColorRefresh = false;
 
   void _selectCategory(final PnnsGroup1 group, final Color color) {
@@ -77,14 +75,12 @@ class _ChoosePageState extends State<ChoosePage> {
     _scrollController.addListener(() {
       if (_scrollController.offset < 60.0) {
         setState(() {
-          _opacity = _scrollController.offset / 60.0;
-          _appBarColor = Colors.white.withOpacity(_opacity);
           _preventAppBarColorRefresh = false;
         });
       } else if (!_preventAppBarColorRefresh) {
         setState(() {
           _preventAppBarColorRefresh = true;
-          _appBarColor = Colors.white;
+          //_appBarColor = Colors.white;
         });
       }
     });
@@ -104,14 +100,8 @@ class _ChoosePageState extends State<ChoosePage> {
                 return <Widget>[
                   SliverAppBar(
                     expandedHeight: 248.0,
-                    backgroundColor: Theme.of(context)
-                        .scaffoldBackgroundColor, //choosePageModel.appBarColor,
                     pinned: true,
                     elevation: 8.0,
-                    /*title: Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: Text('Smoothie', style: Theme.of(context).textTheme.headline2.copyWith(color: Colors.black.withOpacity(choosePageModel.opacity)),),
-                      ),*/
                     centerTitle: true,
                     flexibleSpace: FlexibleSpaceBar(
                       collapseMode: CollapseMode.parallax,
@@ -225,13 +215,6 @@ class _ChoosePageState extends State<ChoosePage> {
                       child: Container(
                         padding: const EdgeInsets.only(
                           left: 12.0,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Theme.of(context)
-                              .scaffoldBackgroundColor, //choosePageModel.appBarColor,
-                          /*boxShadow: <BoxShadow>[
-                              BoxShadow(color: Colors.black.withOpacity(choosePageModel.opacity / 8.0), offset: const Offset(0.0, 6.0), blurRadius: 4.0),
-                            ],*/
                         ),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,

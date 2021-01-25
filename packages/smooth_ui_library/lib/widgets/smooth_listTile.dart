@@ -18,7 +18,7 @@ class SmoothListTile extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
         margin: const EdgeInsets.all(10.0),
         decoration: BoxDecoration(
-            color: Theme.of(context).cardColor,
+            color: Theme.of(context).colorScheme.surface,
             borderRadius: const BorderRadius.all(Radius.circular(20.0))),
         child: Row(
           mainAxisSize: MainAxisSize.max,
