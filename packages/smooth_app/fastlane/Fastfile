@@ -21,6 +21,7 @@ platform :android do
   desc "Deploy to closed beta track"
   lane :closed_beta do
     begin
+      cd android
       gradle(task: "clean")
       gradle(
         task: "bundle",
