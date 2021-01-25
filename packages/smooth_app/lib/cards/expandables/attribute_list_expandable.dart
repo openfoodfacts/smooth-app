@@ -45,9 +45,9 @@ class AttributeListExpandable extends StatelessWidget {
       headerHeight: null,
       collapsedHeader: Container(
         width: screenSize.width * 0.8,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
+        child: Wrap(
+          direction: Axis.horizontal,
+          crossAxisAlignment: WrapCrossAlignment.center,
           children: chips,
         ),
       ),
