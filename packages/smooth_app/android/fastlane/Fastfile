@@ -38,10 +38,3 @@ platform :android do
     end
   end
 end
-
-lane :apply_new_version do
-  flutter_version_manager(
-    arguments: "-apply",
-    yml: "./../version.yml",
-    pubspec: "./../example_pubspec.yaml")
-end

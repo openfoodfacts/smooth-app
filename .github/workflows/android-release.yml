@@ -39,10 +39,7 @@ jobs:
         run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get
 
       - name: Bump version
-        uses: maierj/fastlane-action@v2.0.0
-        with:
-          lane: apply_new_version
-          subdirectory: packages/smooth_app/android/
+        run: pwd && cd ./packages/smooth_app/ && pwd && cider bump build
 
       - name: Build AAB
         run: echo $SIGN_STORE_PATH && pwd && cd ./packages/smooth_app/ && pwd && flutter build appbundle --release  

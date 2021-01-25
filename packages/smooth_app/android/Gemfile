@@ -2,8 +2,6 @@ source "https://rubygems.org"
 
 gem "fastlane"
 gem "fastlane-plugin-flutter_version", git: "https://github.com/tianhaoz95/fastlane-plugin-flutter-version"
-gem 'git'
-gem 'fastlane-plugin-flutter_version_manager', git: "https://github.com/rubiconba/fastlane-plugin-flutter-version-manager"
 
 plugins_path = File.join(File.dirname(__FILE__), '.', 'Pluginfile')
 eval_gemfile(plugins_path) if File.exist?(plugins_path)
