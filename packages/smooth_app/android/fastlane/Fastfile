@@ -24,7 +24,7 @@ platform :android do
       #bump version
       flutter_version_manager(
        arguments: "-apply",
-       pubspec: "packages/smooth_app/pubspec.yaml"
+       pubspec: "packages/smooth_app/pubspec.yaml",
        yml: "packages/smooth_app/version.yml")
       gradle(task: "clean")
       gradle(
