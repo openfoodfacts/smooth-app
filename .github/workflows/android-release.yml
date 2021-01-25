@@ -38,6 +38,12 @@ jobs:
       - name: Install Flutter dependencies
         run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get
 
+      - name: Bump version
+        uses: maierj/fastlane-action@v2.0.0
+        with:
+          lane: apply_new_version
+          subdirectory: packages/smooth_app/android/
+
       - name: Build AAB
         run: echo $SIGN_STORE_PATH && pwd && cd ./packages/smooth_app/ && pwd && flutter build appbundle --release  
         env:
@@ -45,12 +51,6 @@ jobs:
          SIGN_STORE_PASSWORD: ${{ secrets.SIGN_STORE_PASSWORD }}
          SIGN_KEY_ALIAS: ${{ secrets.SIGN_KEY_ALIAS }}
          SIGN_KEY_PASSWORD: ${{ secrets.SIGN_KEY_PASSWORD }}
-
-      - name: Bump version
-        uses: maierj/fastlane-action@v2.0.0
-        with:
-          lane: closed_beta
-          subdirectory: packages/smooth_app/android/
 
       - name: Run Fastlane
         uses: maierj/fastlane-action@v2.0.0
