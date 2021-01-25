@@ -14,37 +14,31 @@ jobs:
         working-directory: ./packages/smooth_app
     steps:
     
-      # Setup Java 
+      # Setup Java
       - uses: actions/checkout@v1
+
+      - name: Setup Java 
       - uses: actions/setup-java@v1
         with:
           java-version: '14.x'
       
-      # Setup flutter 
+      - name: Setup Flutter
       - uses: subosito/flutter-action@v1
         with:
           channel: 'stable' 
-          # flutter-version: '1.12.x'
       
-      # Get dependencies.
       - run: flutter pub get
       
-      #Cleanup git
-      - run: git clean -xffd
-
       # Check for formatting issues
       # - run: flutter format --set-exit-if-changed .
       
-      # analyze Dart for errors
-      - run: flutter analyze .
+      - name: Analyze
+      - run: flutter analyze
       
-      # Run widget tests
-      # - run: flutter test
-      
-      # Build apk.
+      - name: Build debug APK
       - run: flutter build apk --debug
       
-      # Upload generated apk to the artifacts.
+      - name: Upload apk
       - uses: actions/upload-artifact@v1
         with:
           name: release-apk
