@@ -18,12 +18,12 @@ jobs:
       - uses: actions/checkout@v1
 
       - name: Setup Java 
-      - uses: actions/setup-java@v1
+        uses: actions/setup-java@v1
         with:
           java-version: '14.x'
       
       - name: Setup Flutter
-      - uses: subosito/flutter-action@v1
+        uses: subosito/flutter-action@v1
         with:
           channel: 'stable' 
       
@@ -33,13 +33,13 @@ jobs:
       # - run: flutter format --set-exit-if-changed .
       
       - name: Analyze
-      - run: flutter analyze
+        run: flutter analyze
       
       - name: Build debug APK
-      - run: flutter build apk --debug
+        run: flutter build apk --debug
       
       - name: Upload apk
-      - uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v1
         with:
           name: release-apk
           path: packages/smooth_app/build/app/outputs/flutter-apk/app-debug.apk
