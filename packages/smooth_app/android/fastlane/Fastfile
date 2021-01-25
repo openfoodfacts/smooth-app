@@ -24,8 +24,8 @@ platform :android do
       #bump version
       flutter_version_manager(
        arguments: "-apply",
-       yml: "./version.yml",
-       pubspec: "./pubspec.yaml")
+       yml: "./../../../version.yml",
+       pubspec: "./../../../pubspec.yaml")
       gradle(task: "clean")
       gradle(
         task: "bundle",
