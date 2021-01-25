@@ -11,6 +11,15 @@ import 'package:openfoodfacts/model/Product.dart';
 class UserPreferencesModel extends ChangeNotifier {
   UserPreferencesModel._();
 
+  static const String ATTRIBUTE_GROUP_INGREDIENT_ANALYSIS =
+      'ingredients_analysis';
+  static const String ATTRIBUTE_GROUP_NUTRITIONAL_QUALITY =
+      'nutritional_quality';
+  static const String ATTRIBUTE_GROUP_PROCESSING = 'processing';
+  static const String ATTRIBUTE_GROUP_ALLERGENS = 'allergens';
+  static const String ATTRIBUTE_GROUP_LABELS = 'labels';
+  static const String ATTRIBUTE_GROUP_ENVIRONMENT = 'environment';
+
   static const String ATTRIBUTE_VEGETARIAN = 'vegetarian';
   static const String ATTRIBUTE_VEGAN = 'vegan';
   static const String ATTRIBUTE_PALM_OIL_FREE = 'palm-oil-free';

@@ -5,6 +5,9 @@ import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/cards/expandables/attribute_list_expandable.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
+import 'package:provider/provider.dart';
+import 'package:openfoodfacts/model/AttributeGroup.dart';
+import 'package:smooth_app/temp/user_preferences.dart';
 
 class ProductPage extends StatelessWidget {
   const ProductPage({@required this.product});
@@ -13,10 +16,20 @@ class ProductPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
+    final UserPreferencesModel userPreferencesModel =
+        context.watch<UserPreferencesModel>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Size screenSize = MediaQuery.of(context).size;
     final double iconWidth =
         screenSize.width / 10; // TODO(monsieurtanuki): target size?
+    final Map<String, String> attributeGroupLabels = <String, String>{};
+    for (final AttributeGroup attributeGroup
+        in userPreferencesModel.attributeGroups) {
+      attributeGroupLabels[attributeGroup.id] = attributeGroup.name;
+    }
+    final List<String> mainVariables =
+        userPreferencesModel.getOrderedVariables(userPreferences);
     return Scaffold(
       body: Stack(
         children: <Widget>[
@@ -52,7 +65,7 @@ class ProductPage extends StatelessWidget {
           BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 18.0, sigmaY: 18.0),
             child: Container(
-              color: Theme.of(context).cardColor.withAlpha(220),
+              color: Theme.of(context).colorScheme.surface.withAlpha(220),
               child: ListView(
                 children: <Widget>[
                   Padding(
@@ -97,6 +110,13 @@ class ProductPage extends StatelessWidget {
                       ],
                     ),
                   ),
+                  if (mainVariables.isNotEmpty)
+                    AttributeListExpandable(
+                      product: product,
+                      iconWidth: iconWidth,
+                      attributeTags: mainVariables,
+                      title: 'MY PREFERENCES',
+                    ),
                   AttributeListExpandable(
                     product: product,
                     iconWidth: iconWidth,
@@ -105,7 +125,8 @@ class ProductPage extends StatelessWidget {
                       UserPreferencesModel.ATTRIBUTE_VEGETARIAN,
                       UserPreferencesModel.ATTRIBUTE_PALM_OIL_FREE,
                     ],
-                    title: appLocalizations.nutrition,
+                    title: attributeGroupLabels[UserPreferencesModel
+                        .ATTRIBUTE_GROUP_INGREDIENT_ANALYSIS],
                   ),
                   AttributeListExpandable(
                     product: product,
@@ -117,7 +138,8 @@ class ProductPage extends StatelessWidget {
                       UserPreferencesModel.ATTRIBUTE_LOW_FAT,
                       UserPreferencesModel.ATTRIBUTE_LOW_SATURATED_FAT,
                     ],
-                    title: 'Nutrition levels',
+                    title: attributeGroupLabels[UserPreferencesModel
+                        .ATTRIBUTE_GROUP_NUTRITIONAL_QUALITY],
                   ),
                   AttributeListExpandable(
                     product: product,
@@ -126,7 +148,8 @@ class ProductPage extends StatelessWidget {
                       UserPreferencesModel.ATTRIBUTE_NOVA,
                       UserPreferencesModel.ATTRIBUTE_ADDITIVES,
                     ],
-                    title: appLocalizations.ingredients,
+                    title: attributeGroupLabels[
+                        UserPreferencesModel.ATTRIBUTE_GROUP_PROCESSING],
                   ),
                   AttributeListExpandable(
                     product: product,
@@ -136,7 +159,8 @@ class ProductPage extends StatelessWidget {
                       UserPreferencesModel.ATTRIBUTE_ORGANIC,
                       UserPreferencesModel.ATTRIBUTE_FAIR_TRADE,
                     ],
-                    title: appLocalizations.ecology,
+                    title: attributeGroupLabels[
+                        UserPreferencesModel.ATTRIBUTE_GROUP_ENVIRONMENT],
                   ),
                 ],
               ),

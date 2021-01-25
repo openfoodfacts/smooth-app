@@ -67,7 +67,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     final Brightness brightness =
-        SchedulerBinding.instance.window.platformBrightness ?? Brightness.light;
+        SchedulerBinding.instance.window.platformBrightness as Brightness;
     systemDarkmodeOn = brightness == Brightness.dark;
     super.initState();
   }
@@ -99,8 +99,11 @@ class _MyAppState extends State<MyApp> {
                   localizationsDelegates:
                       AppLocalizations.localizationsDelegates,
                   supportedLocales: AppLocalizations.supportedLocales,
-                  theme: SmoothThemes.getSmoothThemeData(
-                      themeChangeProvider.darkTheme, context),
+                  theme: SmoothTheme.getThemeData(Brightness.light),
+                  darkTheme: SmoothTheme.getThemeData(Brightness.dark),
+                  themeMode: themeChangeProvider.darkTheme
+                      ? ThemeMode.dark
+                      : ThemeMode.light,
                   home: SmoothAppGetLanguage(),
                 );
               },
@@ -184,12 +187,10 @@ class SmoothApp extends StatelessWidget {
       animationDuration: 300,
       animationCurve: Curves.easeInOutBack,
       borderRadius: 20.0,
-      color: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
-      scanButtonColor: Theme.of(context).colorScheme.onBackground,
-      scanShadowColor: context.watch<DarkThemeProvider>().darkTheme
-          ? Colors.white.withOpacity(0.0)
-          : Colors.deepPurple,
-      scanIconColor: Theme.of(context).colorScheme.primary,
+      color: Colors.transparent,
+      scanButtonColor: Theme.of(context).colorScheme.secondary,
+      scanShadowColor: Theme.of(context).colorScheme.secondary,
+      scanIconColor: Theme.of(context).colorScheme.onSecondary,
       classicMode: true,
     );
   }
@@ -208,10 +209,7 @@ class SmoothApp extends StatelessWidget {
             svg,
             width: _navigationIconSize,
             height: _navigationIconSize,
-            color: Theme.of(context)
-                .bottomNavigationBarTheme
-                .selectedIconTheme
-                .color,
+            color: Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
           ),
         ),
         title: title,

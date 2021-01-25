@@ -90,17 +90,8 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
     return Scaffold(
       key: _scaffoldKey,
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Theme.of(context)
-            .bottomNavigationBarTheme
-            .backgroundColor
-            .withAlpha(255),
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentTabIndex,
-        selectedItemColor: Theme.of(context).colorScheme.onSurface,
-        unselectedItemColor: Theme.of(context)
-            .bottomNavigationBarTheme
-            .unselectedIconTheme
-            .color,
         items: bottomNavigationBarItems,
         onTap: (int tapped) => setState(() {
           _currentTabIndex = tapped;
