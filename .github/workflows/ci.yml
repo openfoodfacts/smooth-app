@@ -28,6 +28,8 @@ jobs:
       # Check for formatting issues
       # - run: flutter format --set-exit-if-changed .
       
+      - run: flutter clean
+
       - name: Analyze
         run: flutter analyze .
       
