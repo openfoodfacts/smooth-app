@@ -39,7 +39,7 @@ jobs:
         run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get
 
       - name: Bump version
-        run: pwd && cd ./packages/smooth_app/ && pwd && cider bump build
+        run: pwd && cd ./packages/smooth_app/ && pwd && pub global activate cider && cider bump build
 
       - name: Build AAB
         run: echo $SIGN_STORE_PATH && pwd && cd ./packages/smooth_app/ && pwd && flutter build appbundle --release  
