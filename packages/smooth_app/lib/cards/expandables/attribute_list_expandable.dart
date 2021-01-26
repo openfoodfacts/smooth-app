@@ -28,7 +28,8 @@ class AttributeListExpandable extends StatelessWidget {
       Attribute attribute =
           UserPreferencesModel.getAttribute(product, attributeTag);
       chips.add(AttributeChip(attribute, width: iconWidth));
-      if (attribute.id == UserPreferencesModel.ATTRIBUTE_ADDITIVES) {
+      if (attribute != null &&
+          attribute.id == UserPreferencesModel.ATTRIBUTE_ADDITIVES) {
         // TODO(monsieurtanuki): remove that cheat when additives are more standard
         final List<String> additiveNames = product.additives?.names;
         attribute = Attribute(

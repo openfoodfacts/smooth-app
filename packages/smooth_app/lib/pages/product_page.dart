@@ -7,6 +7,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:provider/provider.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
+import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/data_models/product_list.dart';
@@ -28,6 +29,15 @@ class _ProductPageState extends State<ProductPage> {
     _updateHistory(context);
   }
 
+  static const List<String> _ORDERED_ATTRIBUTE_GROUP_IDS = <String>[
+    UserPreferencesModel.ATTRIBUTE_GROUP_INGREDIENT_ANALYSIS,
+    UserPreferencesModel.ATTRIBUTE_GROUP_NUTRITIONAL_QUALITY,
+    UserPreferencesModel.ATTRIBUTE_GROUP_PROCESSING,
+    UserPreferencesModel.ATTRIBUTE_GROUP_ENVIRONMENT,
+    UserPreferencesModel.ATTRIBUTE_GROUP_LABELS,
+    UserPreferencesModel.ATTRIBUTE_GROUP_ALLERGENS,
+  ];
+
   @override
   Widget build(BuildContext context) {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
@@ -44,6 +54,49 @@ class _ProductPageState extends State<ProductPage> {
     }
     final List<String> mainVariables =
         userPreferencesModel.getOrderedVariables(userPreferences);
+    final List<Widget> listItems = <Widget>[];
+    listItems.add(
+      Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Flexible(
+              child: Text(
+                widget.product.brands ?? appLocalizations.unknownBrand,
+                style: Theme.of(context).textTheme.subtitle1,
+              ),
+            ),
+            Flexible(
+              child: Text(
+                widget.product.quantity != null
+                    ? '${widget.product.quantity}'
+                    : '',
+                style: Theme.of(context)
+                    .textTheme
+                    .headline4
+                    .copyWith(color: Colors.grey, fontSize: 18.0),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+    if (mainVariables.isNotEmpty) {
+      listItems.add(
+        AttributeListExpandable(
+          product: widget.product,
+          iconWidth: iconWidth,
+          attributeTags: mainVariables,
+          title: 'MY PREFERENCES',
+        ),
+      );
+    }
+    for (final AttributeGroup attributeGroup
+        in _getOrderedAttributeGroups(userPreferencesModel)) {
+      listItems.add(_getAttributeGroupWidget(attributeGroup, iconWidth));
+    }
     return Scaffold(
       appBar: AppBar(
         title: ListTile(
@@ -93,89 +146,7 @@ class _ProductPageState extends State<ProductPage> {
             filter: ImageFilter.blur(sigmaX: 18.0, sigmaY: 18.0),
             child: Container(
               color: Theme.of(context).colorScheme.surface.withAlpha(220),
-              child: ListView(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Flexible(
-                          child: Text(
-                            widget.product.brands ??
-                                appLocalizations.unknownBrand,
-                            style: Theme.of(context).textTheme.subtitle1,
-                          ),
-                        ),
-                        Flexible(
-                          child: Text(
-                            widget.product.quantity != null
-                                ? '${widget.product.quantity}'
-                                : '',
-                            style: Theme.of(context)
-                                .textTheme
-                                .headline4
-                                .copyWith(color: Colors.grey, fontSize: 18.0),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  if (mainVariables.isNotEmpty)
-                    AttributeListExpandable(
-                      product: widget.product,
-                      iconWidth: iconWidth,
-                      attributeTags: mainVariables,
-                      title: 'MY PREFERENCES',
-                    ),
-                  AttributeListExpandable(
-                    product: widget.product,
-                    iconWidth: iconWidth,
-                    attributeTags: const <String>[
-                      UserPreferencesModel.ATTRIBUTE_VEGAN,
-                      UserPreferencesModel.ATTRIBUTE_VEGETARIAN,
-                      UserPreferencesModel.ATTRIBUTE_PALM_OIL_FREE,
-                    ],
-                    title: attributeGroupLabels[UserPreferencesModel
-                        .ATTRIBUTE_GROUP_INGREDIENT_ANALYSIS],
-                  ),
-                  AttributeListExpandable(
-                    product: widget.product,
-                    iconWidth: iconWidth,
-                    attributeTags: const <String>[
-                      UserPreferencesModel.ATTRIBUTE_NUTRISCORE,
-                      UserPreferencesModel.ATTRIBUTE_LOW_SALT,
-                      UserPreferencesModel.ATTRIBUTE_LOW_SUGARS,
-                      UserPreferencesModel.ATTRIBUTE_LOW_FAT,
-                      UserPreferencesModel.ATTRIBUTE_LOW_SATURATED_FAT,
-                    ],
-                    title: attributeGroupLabels[UserPreferencesModel
-                        .ATTRIBUTE_GROUP_NUTRITIONAL_QUALITY],
-                  ),
-                  AttributeListExpandable(
-                    product: widget.product,
-                    iconWidth: iconWidth,
-                    attributeTags: const <String>[
-                      UserPreferencesModel.ATTRIBUTE_NOVA,
-                      UserPreferencesModel.ATTRIBUTE_ADDITIVES,
-                    ],
-                    title: attributeGroupLabels[
-                        UserPreferencesModel.ATTRIBUTE_GROUP_PROCESSING],
-                  ),
-                  AttributeListExpandable(
-                    product: widget.product,
-                    iconWidth: iconWidth,
-                    attributeTags: const <String>[
-                      UserPreferencesModel.ATTRIBUTE_ECOSCORE,
-                      UserPreferencesModel.ATTRIBUTE_ORGANIC,
-                      UserPreferencesModel.ATTRIBUTE_FAIR_TRADE,
-                    ],
-                    title: attributeGroupLabels[
-                        UserPreferencesModel.ATTRIBUTE_GROUP_ENVIRONMENT],
-                  ),
-                ],
-              ),
+              child: ListView(children: listItems),
             ),
           ),
         ],
@@ -192,5 +163,43 @@ class _ProductPageState extends State<ProductPage> {
     productList.add(widget.product);
     await daoProductList.put(productList);
     localDatabase.notifyListeners();
+  }
+
+  Widget _getAttributeGroupWidget(
+    final AttributeGroup attributeGroup,
+    final double iconWidth,
+  ) {
+    final List<String> attributeTags = <String>[];
+    for (final Attribute attribute in attributeGroup.attributes) {
+      attributeTags.add(attribute.id);
+    }
+    return AttributeListExpandable(
+      product: widget.product,
+      iconWidth: iconWidth,
+      attributeTags: attributeTags,
+      title: attributeGroup.name,
+    );
+  }
+
+  List<AttributeGroup> _getOrderedAttributeGroups(
+      final UserPreferencesModel userPreferencesModel) {
+    final List<AttributeGroup> attributeGroups = <AttributeGroup>[];
+    for (final String attributeGroupId in _ORDERED_ATTRIBUTE_GROUP_IDS) {
+      for (final AttributeGroup attributeGroup
+          in userPreferencesModel.attributeGroups) {
+        if (attributeGroupId == attributeGroup.id) {
+          attributeGroups.add(attributeGroup);
+        }
+      }
+    }
+
+    /// in case we get new attribute groups but we haven't included them yet
+    for (final AttributeGroup attributeGroup
+        in userPreferencesModel.attributeGroups) {
+      if (!_ORDERED_ATTRIBUTE_GROUP_IDS.contains(attributeGroup.id)) {
+        attributeGroups.add(attributeGroup);
+      }
+    }
+    return attributeGroups;
   }
 }
