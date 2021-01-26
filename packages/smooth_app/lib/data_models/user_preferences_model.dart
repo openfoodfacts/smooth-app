@@ -20,19 +20,19 @@ class UserPreferencesModel extends ChangeNotifier {
   static const String ATTRIBUTE_GROUP_LABELS = 'labels';
   static const String ATTRIBUTE_GROUP_ENVIRONMENT = 'environment';
 
-  static const String ATTRIBUTE_VEGETARIAN = 'vegetarian';
-  static const String ATTRIBUTE_VEGAN = 'vegan';
-  static const String ATTRIBUTE_PALM_OIL_FREE = 'palm-oil-free';
+//  static const String ATTRIBUTE_VEGETARIAN = 'vegetarian';
+//  static const String ATTRIBUTE_VEGAN = 'vegan';
+//  static const String ATTRIBUTE_PALM_OIL_FREE = 'palm-oil-free';
   static const String ATTRIBUTE_NOVA = 'nova';
   static const String ATTRIBUTE_ADDITIVES = 'additives';
   static const String ATTRIBUTE_NUTRISCORE = 'nutriscore';
-  static const String ATTRIBUTE_LOW_SALT = 'low_salt';
-  static const String ATTRIBUTE_LOW_SUGARS = 'low_sugars';
-  static const String ATTRIBUTE_LOW_FAT = 'low_fat';
-  static const String ATTRIBUTE_LOW_SATURATED_FAT = 'low_saturated_fat';
+//  static const String ATTRIBUTE_LOW_SALT = 'low_salt';
+//  static const String ATTRIBUTE_LOW_SUGARS = 'low_sugars';
+//  static const String ATTRIBUTE_LOW_FAT = 'low_fat';
+//  static const String ATTRIBUTE_LOW_SATURATED_FAT = 'low_saturated_fat';
   static const String ATTRIBUTE_ECOSCORE = 'ecoscore';
-  static const String ATTRIBUTE_ORGANIC = 'labels_organic';
-  static const String ATTRIBUTE_FAIR_TRADE = 'labels_fair_trade';
+//  static const String ATTRIBUTE_ORGANIC = 'labels_organic';
+//  static const String ATTRIBUTE_FAIR_TRADE = 'labels_fair_trade';
 
   static const String _DEFAULT_LANGUAGE = 'en';
 
@@ -223,6 +223,10 @@ class UserPreferencesModel extends ChangeNotifier {
     for (final AttributeGroup attributeGroup in product.attributeGroups) {
       for (final Attribute attribute in attributeGroup.attributes) {
         if (attribute.id == attributeId) {
+          return attribute;
+        }
+        // TODO(monsieurtanuki): have it fixed upstream
+        if (attribute.id == 'palm-oil-free' && attributeId == 'palm_oil_free') {
           return attribute;
         }
       }

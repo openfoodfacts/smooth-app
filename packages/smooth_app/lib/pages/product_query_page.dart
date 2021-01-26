@@ -323,10 +323,9 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
     if (refreshSupplier == null) {
       return;
     }
-    final int now = LocalDatabase.nowInMillis();
-    final int seconds = ((now - _lastUpdate) / 1000).floor();
+    final String lastTime =
+        ProductQueryPageHelper.getDurationStringFromTimestamp(_lastUpdate);
     _lastUpdate = null;
-    final String lastTime = ProductQueryPageHelper.getDurationString(seconds);
     final String message = 'Cached results from $lastTime.';
 
     Future<void>.delayed(

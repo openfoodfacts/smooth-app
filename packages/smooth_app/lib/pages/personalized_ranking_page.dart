@@ -8,9 +8,8 @@ import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/structures/ranked_product.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
+import 'package:smooth_app/pages/product_query_page_helper.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:smooth_app/themes/constant_icons.dart';
 
 class PersonalizedRankingPage extends StatefulWidget {
   const PersonalizedRankingPage(this.productList);
@@ -44,30 +43,9 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
   };
 
   final SmoothItModel _model = SmoothItModel();
-  final ScrollController _scrollController = ScrollController();
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  bool _showTitle = true;
   int _currentTabIndex = 0;
-
-  @override
-  void initState() {
-    super.initState();
-    _scrollController.addListener(() {
-      if (_scrollController.offset <=
-              _scrollController.position.minScrollExtent &&
-          !_scrollController.position.outOfRange) {
-        // Reached Top
-        if (!_showTitle) {
-          setState(() => _showTitle = true);
-        }
-      } else {
-        if (_showTitle) {
-          setState(() => _showTitle = false);
-        }
-      }
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -87,8 +65,41 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
         ),
       );
     }
+    final ColorScheme colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
       key: _scaffoldKey,
+      appBar: AppBar(
+        title: Text(
+          ProductQueryPageHelper.getProductListLabel(widget.productList),
+          style: TextStyle(color: colorScheme.onBackground),
+        ),
+        iconTheme: IconThemeData(color: colorScheme.onBackground),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.settings,
+              color: colorScheme.onBackground,
+            ),
+            onPressed: () => showCupertinoModalBottomSheet<Widget>(
+              expand: false,
+              context: context,
+              backgroundColor: Colors.transparent,
+              bounce: true,
+              barrierColor: Colors.black45,
+              builder: (BuildContext context) => UserPreferencesView(
+                  ModalScrollController.of(context), callback: () {
+                const SnackBar snackBar = SnackBar(
+                  content: Text(
+                    'Reloaded with new preferences',
+                  ),
+                  duration: Duration(milliseconds: 1500),
+                );
+                _scaffoldKey.currentState.showSnackBar(snackBar);
+              }),
+            ),
+          )
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentTabIndex,
@@ -98,21 +109,8 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
           _model.setNextRefreshAsJustChangingTabs();
         }),
       ),
-      floatingActionButton: AnimatedOpacity(
-        opacity: !_showTitle ? 1.0 : 0.0,
-        duration: const Duration(milliseconds: 250),
-        child: FloatingActionButton(
-          //backgroundColor: Theme.of(context).colorScheme.primary,
-          heroTag: 'do_not_use_hero_animation',
-          child: const Icon(Icons.arrow_upward),
-          onPressed: () {
-            _scrollController.animateTo(0.0,
-                duration: const Duration(milliseconds: 400),
-                curve: Curves.ease);
-          },
-        ),
-      ),
-      body: _buildGroupedStickyListView(),
+      body: _getStickyHeader(
+          _model.getRankedProducts(_ORDERED_MATCH_INDEXES[_currentTabIndex])),
     );
   }
 
@@ -126,85 +124,15 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
         ),
       );
 
-  Widget _buildGroupedStickyListView() => AnimatedContainer(
-        duration: const Duration(milliseconds: 200),
-        child: CustomScrollView(
-          controller: _scrollController,
-          slivers: <Widget>[
-            SliverAppBar(
-              leading: IconButton(
-                icon: Icon(
-                  ConstantIcons.getBackIcon(),
-                ),
-                onPressed: () => Navigator.of(context).pop(),
-              ),
-              expandedHeight: 120.0,
-              floating: true,
-              pinned: true,
-              snap: true,
-              elevation: 8,
-              backgroundColor: Theme.of(context).colorScheme.background,
-              flexibleSpace: FlexibleSpaceBar(
-                centerTitle: true,
-                title: Text(AppLocalizations.of(context).myPersonalizedRanking,
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.headline4),
-              ),
-              actions: <IconButton>[
-                IconButton(
-                  icon: Icon(
-                    Icons.settings,
-                    color: Theme.of(context).colorScheme.onBackground,
-                  ),
-                  onPressed: () => showCupertinoModalBottomSheet<Widget>(
-                    expand: false,
-                    context: context,
-                    backgroundColor: Colors.transparent,
-                    bounce: true,
-                    barrierColor: Colors.black45,
-                    builder: (BuildContext context) => UserPreferencesView(
-                        ModalScrollController.of(context), callback: () {
-                      const SnackBar snackBar = SnackBar(
-                        content: Text(
-                          'Reloaded with new preferences',
-                        ),
-                        duration: Duration(milliseconds: 1500),
-                      );
-                      _scaffoldKey.currentState.showSnackBar(snackBar);
-                    }),
-                  ),
-                )
-              ],
-            ),
-            _getStickyHeader(_model
-                .getRankedProducts(_ORDERED_MATCH_INDEXES[_currentTabIndex])),
-          ],
-        ),
-      );
-
   Widget _getStickyHeader(final List<RankedProduct> products) =>
       products.isEmpty
-          ? SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (BuildContext context, int index) => Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text('There is no product in this section',
-                          style: Theme.of(context).textTheme.subtitle1),
-                    ],
-                  ),
-                ),
-                childCount: 1,
-              ),
+          ? Center(
+              child: Text('There is no product in this section',
+                  style: Theme.of(context).textTheme.subtitle1),
             )
-          : SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (BuildContext context, int index) =>
-                    _buildSmoothProductCard(products[index]),
-                childCount: products.length,
-              ),
-              //),
+          : ListView.builder(
+              itemCount: products.length,
+              itemBuilder: (BuildContext context, int index) =>
+                  _buildSmoothProductCard(products[index]),
             );
 }
