@@ -19,44 +19,47 @@ class Match {
     }
     for (final AttributeGroup group in attributeGroups) {
       for (final Attribute attribute in group.attributes) {
-        final String variable = attribute.id;
-        final PreferencesValue preferencesValue =
-            userPreferencesModel.getPreferencesValue(variable, userPreferences);
+        final PreferencesValue preferencesValue = userPreferencesModel
+            .getPreferencesValue(attribute.id, userPreferences);
         final String value = preferencesValue.id;
-        _attributes[value] ??= <Attribute>[];
-        _attributes[value].add(attribute);
         final int factor = preferencesValue.factor ?? 0;
         final int minimalMatch = preferencesValue.minimalMatch;
+        bool currentAttributeStatus = true;
         if (value == null || factor == 0) {
-          _debug += '$variable $value\n';
+          _debug += '${attribute.id} $value\n';
         } else {
           if (attribute.status == _UNKNOWN_STATUS) {
+            currentAttributeStatus = null;
             if (_status ?? false) {
               _status = null;
             }
           } else {
-            _debug += '$variable $value - match: ${attribute.match}\n';
+            _debug += '${attribute.id} $value - match: ${attribute.match}\n';
             _score += attribute.match * factor;
             if (minimalMatch != null && attribute.match <= minimalMatch) {
+              currentAttributeStatus = false;
               _status = false;
             }
           }
         }
+        _attributeStatus[attribute.id] = currentAttributeStatus;
       }
     }
   }
 
   static const String _UNKNOWN_STATUS = 'unknown';
 
+  final Map<String, bool> _attributeStatus = <String, bool>{};
   double _score = 0;
   bool _status = true;
   String _debug = '';
-  final Map<String, List<Attribute>> _attributes = <String, List<Attribute>>{};
 
   double get score => _score;
   bool get status => _status;
   String get debug => _debug;
-  Map<String, List<Attribute>> get attributes => _attributes;
+
+  bool getAttributeStatus(final String attributeId) =>
+      _attributeStatus[attributeId];
 
   static List<RankedProduct> sort(
     final List<Product> products,

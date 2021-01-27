@@ -35,6 +35,9 @@ class _ListPageState extends State<ListPage> {
             if (snapshot.connectionState == ConnectionState.done) {
               final List<ProductList> list = snapshot.data;
               if (list != null) {
+                if (list.isEmpty) {
+                  return const Center(child: Text('No list so far'));
+                }
                 return ListView.builder(
                   itemCount: list.length,
                   itemBuilder: (final BuildContext context, final int index) {

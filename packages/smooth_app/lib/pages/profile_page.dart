@@ -86,16 +86,7 @@ class _ProfilePageState extends State<ProfilePage> {
           //Configure Preferences
           SmoothListTile(
             text: AppLocalizations.of(context).configurePreferences,
-            onPressed: () => showCupertinoModalBottomSheet<Widget>(
-              expand: false,
-              context: context,
-              backgroundColor: Colors.transparent,
-              bounce: true,
-              barrierColor: Colors.black45,
-              builder: (BuildContext context) => UserPreferencesView(
-                ModalScrollController.of(context),
-              ),
-            ),
+            onPressed: () => UserPreferencesView.showModal(context),
           ),
 
           //Contribute
