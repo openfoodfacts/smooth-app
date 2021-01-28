@@ -6,7 +6,6 @@ import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/data_models/smooth_it_model.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/structures/ranked_product.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/pages/product_query_page_helper.dart';
 import 'package:flutter/cupertino.dart';
@@ -29,17 +28,17 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
     SmoothItModel.MATCH_INDEX_NO,
   ];
 
-  static const Map<int, Color> _COLORS = <int, Color>{
-    SmoothItModel.MATCH_INDEX_YES: Colors.green,
-    SmoothItModel.MATCH_INDEX_MAYBE: Colors.grey,
-    SmoothItModel.MATCH_INDEX_NO: Colors.red,
-  };
-
   static const Map<int, IconData> _ICONS = <int, IconData>{
     SmoothItModel.MATCH_INDEX_ALL: Icons.sort,
     SmoothItModel.MATCH_INDEX_YES: Icons.check_circle,
     SmoothItModel.MATCH_INDEX_MAYBE: CupertinoIcons.question_diamond,
     SmoothItModel.MATCH_INDEX_NO: Icons.cancel,
+  };
+
+  static final Map<int, Color> _colors = <int, Color>{
+    SmoothItModel.MATCH_INDEX_YES: Colors.green[300],
+    SmoothItModel.MATCH_INDEX_MAYBE: Colors.grey[300],
+    SmoothItModel.MATCH_INDEX_NO: Colors.red[300],
   };
 
   final SmoothItModel _model = SmoothItModel();
@@ -59,7 +58,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
       bottomNavigationBarItems.add(
         BottomNavigationBarItem(
           icon: Icon(_ICONS[matchIndex],
-              color: _COLORS[matchIndex] ??
+              color: _colors[matchIndex] ??
                   Theme.of(context).colorScheme.onSurface),
           label: _model.getRankedProducts(matchIndex).length.toString(),
         ),
@@ -80,22 +79,16 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
               Icons.settings,
               color: colorScheme.onBackground,
             ),
-            onPressed: () => showCupertinoModalBottomSheet<Widget>(
-              expand: false,
-              context: context,
-              backgroundColor: Colors.transparent,
-              bounce: true,
-              barrierColor: Colors.black45,
-              builder: (BuildContext context) => UserPreferencesView(
-                  ModalScrollController.of(context), callback: () {
-                const SnackBar snackBar = SnackBar(
-                  content: Text(
-                    'Reloaded with new preferences',
+            onPressed: () => UserPreferencesView.showModal(
+              context,
+              callback: () {
+                _scaffoldKey.currentState.showSnackBar(
+                  const SnackBar(
+                    content: Text('Reloaded with new preferences'),
+                    duration: Duration(milliseconds: 1500),
                   ),
-                  duration: Duration(milliseconds: 1500),
                 );
-                _scaffoldKey.currentState.showSnackBar(snackBar);
-              }),
+              },
             ),
           )
         ],
@@ -120,7 +113,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
           heroTag: rankedProduct.product.barcode,
           product: rankedProduct.product,
           elevation: 4.0,
-          backgroundColor: _COLORS[SmoothItModel.getMatchIndex(rankedProduct)],
+          backgroundColor: _colors[SmoothItModel.getMatchIndex(rankedProduct)],
         ),
       );
 

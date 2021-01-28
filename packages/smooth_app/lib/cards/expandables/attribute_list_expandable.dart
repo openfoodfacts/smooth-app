@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smooth_app/cards/data_cards/attribute_card.dart';
 import 'package:smooth_app/cards/data_cards/attribute_chip.dart';
 import 'package:smooth_ui_library/widgets/smooth_expandable_card.dart';
+import 'package:smooth_ui_library/widgets/smooth_card.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
@@ -11,13 +12,17 @@ class AttributeListExpandable extends StatelessWidget {
     @required this.product,
     @required this.iconWidth,
     @required this.attributeTags,
-    @required this.title,
+    this.title,
+    this.collapsible = true,
+    this.background,
   });
 
   final Product product;
   final double iconWidth;
   final List<String> attributeTags;
   final String title;
+  final bool collapsible;
+  final Color background;
 
   @override
   Widget build(BuildContext context) {
@@ -42,8 +47,19 @@ class AttributeListExpandable extends StatelessWidget {
       }
       cards.add(AttributeCard(attribute, iconWidth));
     }
+    final Widget content = Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: cards,
+    );
+    if (!collapsible) {
+      return SmoothCard(
+        collapsed: null,
+        content: content,
+        background: background,
+      );
+    }
     return SmoothExpandableCard(
-      headerHeight: null,
       collapsedHeader: Container(
         width: screenSize.width * 0.8,
         child: Wrap(
@@ -52,14 +68,10 @@ class AttributeListExpandable extends StatelessWidget {
           children: chips,
         ),
       ),
-      content: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: cards,
-        ),
-      ),
-      expandedHeader: Text(title, style: Theme.of(context).textTheme.headline3),
+      content: content,
+      expandedHeader: title == null
+          ? null
+          : Text(title, style: Theme.of(context).textTheme.headline3),
     );
   }
 }

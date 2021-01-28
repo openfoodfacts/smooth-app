@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/cards/expandables/attribute_list_expandable.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:smooth_app/data_models/match.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:provider/provider.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
@@ -12,6 +13,7 @@ import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
+import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage({@required this.product});
@@ -52,7 +54,7 @@ class _ProductPageState extends State<ProductPage> {
         in userPreferencesModel.attributeGroups) {
       attributeGroupLabels[attributeGroup.id] = attributeGroup.name;
     }
-    final List<String> mainVariables =
+    final List<String> mainAttributes =
         userPreferencesModel.getOrderedVariables(userPreferences);
     final List<Widget> listItems = <Widget>[];
     listItems.add(
@@ -83,16 +85,29 @@ class _ProductPageState extends State<ProductPage> {
         ),
       ),
     );
-    if (mainVariables.isNotEmpty) {
+    final Map<String, double> matches =
+        Match.getAttributeMatches(widget.product, mainAttributes);
+    for (final String attributeId in mainAttributes) {
       listItems.add(
         AttributeListExpandable(
           product: widget.product,
           iconWidth: iconWidth,
-          attributeTags: mainVariables,
-          title: 'MY PREFERENCES',
+          attributeTags: <String>[attributeId],
+          collapsible: false,
+          background: _getBackgroundColor(matches[attributeId]),
         ),
       );
     }
+    listItems.add(
+      Padding(
+        padding: const EdgeInsets.only(
+            right: 8.0, left: 8.0, top: 4.0, bottom: 20.0),
+        child: ElevatedButton(
+          child: const Text('Update your food preferences'),
+          onPressed: () => UserPreferencesView.showModal(context),
+        ),
+      ),
+    );
     for (final AttributeGroup attributeGroup
         in _getOrderedAttributeGroups(userPreferencesModel)) {
       listItems.add(_getAttributeGroupWidget(attributeGroup, iconWidth));
@@ -201,5 +216,24 @@ class _ProductPageState extends State<ProductPage> {
       }
     }
     return attributeGroups;
+  }
+
+  Color _getBackgroundColor(final double match) {
+    if (match == null) {
+      return const Color.fromARGB(0xff, 0xEE, 0xEE, 0xEE);
+    }
+    if (match <= 20) {
+      return const HSLColor.fromAHSL(1, 0, 1, .9).toColor();
+    }
+    if (match <= 40) {
+      return const HSLColor.fromAHSL(1, 30, 1, .9).toColor();
+    }
+    if (match <= 60) {
+      return const HSLColor.fromAHSL(1, 60, 1, .9).toColor();
+    }
+    if (match <= 80) {
+      return const HSLColor.fromAHSL(1, 90, 1, .9).toColor();
+    }
+    return const HSLColor.fromAHSL(1, 120, 1, .9).toColor();
   }
 }

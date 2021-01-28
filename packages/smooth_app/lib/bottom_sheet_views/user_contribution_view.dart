@@ -8,13 +8,12 @@ import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_ui_library/widgets/smooth_listTile.dart';
 
-Launcher launcher = Launcher();
-
 class UserContributionView extends StatelessWidget {
-  const UserContributionView(this._scrollController, {this.callback});
+  UserContributionView(this._scrollController, {this.callback});
 
   final ScrollController _scrollController;
   final Function callback;
+  final Launcher launcher = Launcher();
 
   @override
   Widget build(BuildContext context) {
