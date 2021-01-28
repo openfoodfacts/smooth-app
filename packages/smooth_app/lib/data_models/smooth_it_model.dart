@@ -52,7 +52,4 @@ class SmoothItModel {
           : product.match.status
               ? MATCH_INDEX_YES
               : MATCH_INDEX_NO;
-
-  static bool getBoolFromMatchIndex(final int index) =>
-      index == MATCH_INDEX_MAYBE ? null : index == MATCH_INDEX_YES;
 }

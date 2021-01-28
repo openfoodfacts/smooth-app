@@ -13,7 +13,6 @@ import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
-import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
 
 class ProductPage extends StatefulWidget {
@@ -55,7 +54,7 @@ class _ProductPageState extends State<ProductPage> {
         in userPreferencesModel.attributeGroups) {
       attributeGroupLabels[attributeGroup.id] = attributeGroup.name;
     }
-    final List<String> mainVariables =
+    final List<String> mainAttributes =
         userPreferencesModel.getOrderedVariables(userPreferences);
     final List<Widget> listItems = <Widget>[];
     listItems.add(
@@ -86,17 +85,16 @@ class _ProductPageState extends State<ProductPage> {
         ),
       ),
     );
-    final Match match =
-        Match(widget.product, userPreferences, userPreferencesModel);
-    for (final String attributeTag in mainVariables) {
+    final Map<String, double> matches =
+        Match.getAttributeMatches(widget.product, mainAttributes);
+    for (final String attributeId in mainAttributes) {
       listItems.add(
         AttributeListExpandable(
           product: widget.product,
           iconWidth: iconWidth,
-          attributeTags: <String>[attributeTag],
+          attributeTags: <String>[attributeId],
           collapsible: false,
-          background: PersonalizedRankingPage.getBackgroundColor(
-              match.getAttributeStatus(attributeTag)),
+          background: _getBackgroundColor(matches[attributeId]),
         ),
       );
     }
@@ -218,5 +216,24 @@ class _ProductPageState extends State<ProductPage> {
       }
     }
     return attributeGroups;
+  }
+
+  Color _getBackgroundColor(final double match) {
+    if (match == null) {
+      return const Color.fromARGB(0xff, 0xEE, 0xEE, 0xEE);
+    }
+    if (match <= 20) {
+      return const HSLColor.fromAHSL(1, 0, 1, .9).toColor();
+    }
+    if (match <= 40) {
+      return const HSLColor.fromAHSL(1, 30, 1, .9).toColor();
+    }
+    if (match <= 60) {
+      return const HSLColor.fromAHSL(1, 60, 1, .9).toColor();
+    }
+    if (match <= 80) {
+      return const HSLColor.fromAHSL(1, 90, 1, .9).toColor();
+    }
+    return const HSLColor.fromAHSL(1, 120, 1, .9).toColor();
   }
 }

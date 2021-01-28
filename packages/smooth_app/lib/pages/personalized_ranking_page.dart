@@ -18,18 +18,6 @@ class PersonalizedRankingPage extends StatefulWidget {
   @override
   _PersonalizedRankingPageState createState() =>
       _PersonalizedRankingPageState();
-
-  static final Map<int, Color> _colors = <int, Color>{
-    SmoothItModel.MATCH_INDEX_YES: Colors.green[300],
-    SmoothItModel.MATCH_INDEX_MAYBE: Colors.grey[300],
-    SmoothItModel.MATCH_INDEX_NO: Colors.red[300],
-  };
-
-  static Color getBackgroundColor(final bool status) => _colors[status == null
-      ? SmoothItModel.MATCH_INDEX_MAYBE
-      : status
-          ? SmoothItModel.MATCH_INDEX_YES
-          : SmoothItModel.MATCH_INDEX_NO];
 }
 
 class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
@@ -45,6 +33,12 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
     SmoothItModel.MATCH_INDEX_YES: Icons.check_circle,
     SmoothItModel.MATCH_INDEX_MAYBE: CupertinoIcons.question_diamond,
     SmoothItModel.MATCH_INDEX_NO: Icons.cancel,
+  };
+
+  static final Map<int, Color> _colors = <int, Color>{
+    SmoothItModel.MATCH_INDEX_YES: Colors.green[300],
+    SmoothItModel.MATCH_INDEX_MAYBE: Colors.grey[300],
+    SmoothItModel.MATCH_INDEX_NO: Colors.red[300],
   };
 
   final SmoothItModel _model = SmoothItModel();
@@ -64,7 +58,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
       bottomNavigationBarItems.add(
         BottomNavigationBarItem(
           icon: Icon(_ICONS[matchIndex],
-              color: _getBackgroundColor(matchIndex) ??
+              color: _colors[matchIndex] ??
                   Theme.of(context).colorScheme.onSurface),
           label: _model.getRankedProducts(matchIndex).length.toString(),
         ),
@@ -119,8 +113,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
           heroTag: rankedProduct.product.barcode,
           product: rankedProduct.product,
           elevation: 4.0,
-          backgroundColor:
-              _getBackgroundColor(SmoothItModel.getMatchIndex(rankedProduct)),
+          backgroundColor: _colors[SmoothItModel.getMatchIndex(rankedProduct)],
         ),
       );
 
@@ -135,8 +128,4 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
               itemBuilder: (BuildContext context, int index) =>
                   _buildSmoothProductCard(products[index]),
             );
-
-  Color _getBackgroundColor(final int index) =>
-      PersonalizedRankingPage.getBackgroundColor(
-          SmoothItModel.getBoolFromMatchIndex(index));
 }
