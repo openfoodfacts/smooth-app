@@ -29,6 +29,7 @@ class SmoothTheme {
     secondaryVariant: Colors.black,
     onPrimary: Colors.black,
     onSecondary: Colors.white,
+    background: Colors.white,
   );
 
   static const ColorScheme _COLOR_DARK = ColorScheme.dark(
@@ -38,6 +39,7 @@ class SmoothTheme {
     secondaryVariant: Colors.white60,
     onPrimary: Colors.white,
     onSecondary: Colors.black,
+    background: Colors.black,
   );
 
   static const TextTheme _TEXT_THEME = TextTheme(
