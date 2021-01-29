@@ -19,6 +19,8 @@ import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
 import 'package:smooth_app/functions/launchURL.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:smooth_app/pages/product_query_page_helper.dart';
+import 'package:smooth_app/themes/constant_icons.dart';
+import 'package:wc_flutter_share/wc_flutter_share.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage({@required this.product});
@@ -136,6 +138,10 @@ class _ProductPageState extends State<ProductPage> {
             icon: Icon(Icons.launch),
             label: 'Web',
           ),
+          BottomNavigationBarItem(
+            icon: Icon(ConstantIcons.getShareIcon()),
+            label: 'share',
+          ),
         ],
         onTap: (final int index) {
           switch (index) {
@@ -150,6 +156,15 @@ class _ProductPageState extends State<ProductPage> {
                   context,
                   'https://openfoodfacts.org/product/${widget.product.barcode}/',
                   false);
+              return;
+            case 3:
+              WcFlutterShare.share(
+                  sharePopupTitle: 'Share',
+                  subject:
+                      '${widget.product.productName} (by openfoodfacts.org)',
+                  text:
+                      'Try this food: https://openfoodfacts.org/product/${widget.product.barcode}/',
+                  mimeType: 'text/plain');
               return;
           }
           throw 'Unexpected index $index';
