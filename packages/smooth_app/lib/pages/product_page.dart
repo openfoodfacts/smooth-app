@@ -1,6 +1,8 @@
 import 'dart:ui';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/cards/expandables/attribute_list_expandable.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -14,6 +16,9 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
+import 'package:smooth_app/functions/launchURL.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:smooth_app/pages/product_query_page_helper.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage({@required this.product});
@@ -98,16 +103,6 @@ class _ProductPageState extends State<ProductPage> {
         ),
       );
     }
-    listItems.add(
-      Padding(
-        padding: const EdgeInsets.only(
-            right: 8.0, left: 8.0, top: 4.0, bottom: 20.0),
-        child: ElevatedButton(
-          child: const Text('Update your food preferences'),
-          onPressed: () => UserPreferencesView.showModal(context),
-        ),
-      ),
-    );
     for (final AttributeGroup attributeGroup
         in _getOrderedAttributeGroups(userPreferencesModel)) {
       listItems.add(_getAttributeGroupWidget(attributeGroup, iconWidth));
@@ -125,6 +120,40 @@ class _ProductPageState extends State<ProductPage> {
         ),
         iconTheme:
             IconThemeData(color: Theme.of(context).colorScheme.onBackground),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset('assets/actions/food-cog.svg'),
+            label: 'preferences',
+          ),
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.playlist_add),
+            label: 'lists',
+          ),
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.launch),
+            label: 'Web',
+          ),
+        ],
+        onTap: (final int index) {
+          switch (index) {
+            case 0:
+              UserPreferencesView.showModal(context);
+              return;
+            case 1:
+              _openLists(widget.product.barcode);
+              return;
+            case 2:
+              Launcher().launchURL(
+                  context,
+                  'https://openfoodfacts.org/product/${widget.product.barcode}/',
+                  false);
+              return;
+          }
+          throw 'Unexpected index $index';
+        },
       ),
       body: Stack(
         children: <Widget>[
@@ -235,5 +264,111 @@ class _ProductPageState extends State<ProductPage> {
       return const HSLColor.fromAHSL(1, 90, 1, .9).toColor();
     }
     return const HSLColor.fromAHSL(1, 120, 1, .9).toColor();
+  }
+
+  Future<void> _openLists(final String barcode) async {
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final DaoProductList daoProductList = DaoProductList(localDatabase);
+    final List<ProductList> list =
+        await daoProductList.getAll(withStats: false);
+    final List<ProductList> listWithBarcode =
+        await daoProductList.getAllWithBarcode(barcode);
+    int index = 0;
+    final Set<int> already = <int>{};
+    final Set<int> editable = <int>{};
+    final Set<int> addable = <int>{};
+    for (final ProductList productList in list) {
+      switch (productList.listType) {
+        case ProductList.LIST_TYPE_HISTORY:
+        case ProductList.LIST_TYPE_USER_DEFINED:
+        case ProductList.LIST_TYPE_SCAN:
+          editable.add(index);
+      }
+      switch (productList.listType) {
+        case ProductList.LIST_TYPE_USER_DEFINED:
+          addable.add(index);
+      }
+      for (final ProductList withBarcode in listWithBarcode) {
+        if (productList.lousyKey == withBarcode.lousyKey) {
+          already.add(index);
+          break;
+        }
+      }
+      index++;
+    }
+    showCupertinoModalBottomSheet<Widget>(
+      expand: false,
+      context: context,
+      backgroundColor: Colors.transparent,
+      bounce: true,
+      barrierColor: Colors.black45,
+      builder: (BuildContext context) => Material(
+        child: ListView.builder(
+          itemCount: list.length + 1,
+          itemBuilder: (final BuildContext context, int index) {
+            if (index == 0) {
+              return ListTile(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                title: const Text('close'),
+                leading: const Icon(Icons.close),
+              );
+            }
+            index--;
+            final ProductList productList = list[index];
+            return StatefulBuilder(
+              builder:
+                  (final BuildContext context, final StateSetter setState) {
+                Function onPressed;
+                IconData iconData;
+                if (already.contains(index)) {
+                  if (!editable.contains(index)) {
+                    iconData = Icons.check;
+                  } else {
+                    iconData = Icons.check_box_outlined;
+                    onPressed = () async {
+                      already.remove(index);
+                      daoProductList.removeBarcode(productList, barcode);
+                      localDatabase.notifyListeners();
+                      setState(() {});
+                    };
+                  }
+                } else {
+                  if (!addable.contains(index)) {
+                    iconData = null;
+                  } else if (!editable.contains(index)) {
+                    iconData = null;
+                  } else {
+                    iconData = Icons.check_box_outline_blank_outlined;
+                    onPressed = () async {
+                      already.add(index);
+                      daoProductList.addBarcode(productList, barcode);
+                      localDatabase.notifyListeners();
+                      setState(() {});
+                    };
+                  }
+                }
+                return Card(
+                  child: ListTile(
+                    title: Text(
+                      ProductQueryPageHelper.getProductListLabel(productList),
+                    ),
+                    trailing: iconData == null
+                        ? null
+                        : IconButton(
+                            icon: Icon(iconData),
+                            onPressed: () {
+                              onPressed();
+                            },
+                          ),
+                  ),
+                );
+              },
+            );
+          },
+        ),
+      ),
+    );
   }
 }
