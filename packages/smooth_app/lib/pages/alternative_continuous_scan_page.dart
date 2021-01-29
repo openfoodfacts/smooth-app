@@ -28,6 +28,15 @@ class AlternativeContinuousScanPage extends StatelessWidget {
         builder:
             (BuildContext context, ContinuousScanModel dummy, Widget child) =>
                 Scaffold(
+          extendBodyBehindAppBar: true,
+          appBar: AppBar(
+            elevation: 0,
+            backgroundColor: Colors.transparent,
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () => Navigator.pop(context),
+            ),
+          ),
           floatingActionButton: SmoothRevealAnimation(
             delay: 400,
             animationCurve: Curves.easeInOutBack,
