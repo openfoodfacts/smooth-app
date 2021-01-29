@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -15,16 +16,87 @@ class ListPage extends StatefulWidget {
 }
 
 class _ListPageState extends State<ListPage> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  List<ProductList> _list;
+  ProductList _newProductList;
+
   @override
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
+    final ColorScheme colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
       appBar: AppBar(
         title: Text(
           'Lists',
-          style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+          style: TextStyle(color: colorScheme.onBackground),
         ),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.add, color: colorScheme.onBackground),
+            onPressed: () => showDialog<void>(
+              context: context,
+              // TODO(monsieurtanuki): rename list, delete list
+              builder: (BuildContext context) => SmoothAlertDialog(
+                title: 'New list',
+                body: Form(
+                  key: _formKey,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      TextFormField(
+                          decoration: const InputDecoration(
+                            hintText: 'My new custom list',
+                          ),
+                          validator: (final String value) {
+                            if (value.isEmpty) {
+                              return 'Please enter some text';
+                            }
+                            if (_list == null) {
+                              return null;
+                            }
+                            _newProductList = ProductList(
+                              listType: ProductList.LIST_TYPE_USER_DEFINED,
+                              parameters: value,
+                            );
+                            for (final ProductList productList in _list) {
+                              if (productList.lousyKey ==
+                                  _newProductList.lousyKey) {
+                                return 'There\'s already a list with that name';
+                              }
+                            }
+                            return null;
+                          }),
+                    ],
+                  ),
+                ),
+                actions: <SmoothSimpleButton>[
+                  SmoothSimpleButton(
+                    text: 'Cancel',
+                    onPressed: () => Navigator.pop(context),
+                    important: false,
+                  ),
+                  SmoothSimpleButton(
+                    text: 'OK',
+                    onPressed: () async {
+                      if (!_formKey.currentState.validate()) {
+                        return;
+                      }
+                      if (await daoProductList.get(_newProductList)) {
+                        // TODO(monsieurtanuki): unexpected, but do something!
+                        return;
+                      }
+                      await daoProductList.put(_newProductList);
+                      Navigator.pop(context);
+                      setState(() {});
+                    },
+                    important: true,
+                  ),
+                ],
+              ),
+            ),
+          )
+        ],
       ),
       body: FutureBuilder<List<ProductList>>(
           future: daoProductList.getAll(),
@@ -33,15 +105,15 @@ class _ListPageState extends State<ListPage> {
             final AsyncSnapshot<List<ProductList>> snapshot,
           ) {
             if (snapshot.connectionState == ConnectionState.done) {
-              final List<ProductList> list = snapshot.data;
-              if (list != null) {
-                if (list.isEmpty) {
+              _list = snapshot.data;
+              if (_list != null) {
+                if (_list.isEmpty) {
                   return const Center(child: Text('No list so far'));
                 }
                 return ListView.builder(
-                  itemCount: list.length,
+                  itemCount: _list.length,
                   itemBuilder: (final BuildContext context, final int index) {
-                    final ProductList item = list[index];
+                    final ProductList item = _list[index];
                     return Card(
                       child: ListTile(
                         title: Text(
@@ -76,7 +148,7 @@ class _ListPageState extends State<ListPage> {
                                   SmoothSimpleButton(
                                     onPressed: () => Navigator.pop(context),
                                     text: AppLocalizations.of(context).no,
-                                    width: 100,
+                                    important: false,
                                   ),
                                   SmoothSimpleButton(
                                     onPressed: () async {
@@ -85,7 +157,7 @@ class _ListPageState extends State<ListPage> {
                                       setState(() {});
                                     },
                                     text: AppLocalizations.of(context).yes,
-                                    width: 100,
+                                    important: true,
                                   ),
                                 ],
                               );

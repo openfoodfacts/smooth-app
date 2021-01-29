@@ -43,44 +43,44 @@ class ProductQueryPageHelper {
     final double minutes = seconds / 60;
     final int roundMinutes = minutes.round();
     if (roundMinutes == 0) {
-      return 'less than one minute ago';
+      return 'less than 1 minute ago';
     }
     if (roundMinutes == 1) {
-      return 'about 1 minute ago';
+      return '1 minute ago';
     }
     if (roundMinutes < 60) {
-      return 'about $roundMinutes minutes ago';
+      return '$roundMinutes minutes ago';
     }
     final double hours = minutes / 60;
     final int roundHours = hours.round();
     if (roundHours == 1) {
-      return 'about 1 hour ago';
+      return '1 hour ago';
     }
     if (roundHours < 24) {
-      return 'about $roundHours hours ago';
+      return '$roundHours hours ago';
     }
     final double days = hours / 24;
     final int roundDays = days.round();
     if (roundDays == 1) {
-      return 'about one day ago';
+      return 'one day ago';
     }
     if (roundDays < 7) {
-      return 'about $roundDays days ago';
+      return '$roundDays days ago';
     }
     final double weeks = days / 7;
     final int roundWeeks = weeks.round();
     if (roundWeeks == 1) {
-      return 'about 1 week ago';
+      return '1 week ago';
     }
     if (roundWeeks <= 4) {
-      return 'about $roundWeeks weeks ago';
+      return '$roundWeeks weeks ago';
     }
     final double months = days / (365 / 12);
     final int roundMonths = months.round();
     if (roundMonths == 1) {
-      return 'about 1 month ago';
+      return '1 month ago';
     }
-    return 'about $roundMonths months ago';
+    return '$roundMonths months ago';
   }
 
   static String getDurationStringFromTimestamp(final int timestamp) {
@@ -99,6 +99,8 @@ class ProductQueryPageHelper {
         return 'Scan';
       case ProductList.LIST_TYPE_HISTORY:
         return 'History';
+      case ProductList.LIST_TYPE_USER_DEFINED:
+        return '${productList.parameters} (my list)';
     }
     return 'Unknown product list: ${productList.listType} / ${productList.parameters}';
   }

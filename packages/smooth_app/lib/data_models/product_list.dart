@@ -23,6 +23,7 @@ class ProductList {
   static const String LIST_TYPE_HTTP_SEARCH_KEYWORDS = 'http/search/keywords';
   static const String LIST_TYPE_SCAN = 'scan';
   static const String LIST_TYPE_HISTORY = 'history';
+  static const String LIST_TYPE_USER_DEFINED = 'user';
 
   List<String> get barcodes => _barcodes;
 
@@ -34,6 +35,8 @@ class ProductList {
   }
 
   Product getProduct(final String barcode) => _products[barcode];
+
+  String get lousyKey => '$listType/$parameters';
 
   void add(final Product product) {
     if (product == null) {
