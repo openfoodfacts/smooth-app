@@ -92,18 +92,20 @@ class _ProductPageState extends State<ProductPage> {
         ),
       ),
     );
-    final Map<String, double> matches =
+    final Map<String, Attribute> matchingAttributes =
         Match.getAttributeMatches(widget.product, mainAttributes);
     for (final String attributeId in mainAttributes) {
-      listItems.add(
-        AttributeListExpandable(
-          product: widget.product,
-          iconWidth: iconWidth,
-          attributeTags: <String>[attributeId],
-          collapsible: false,
-          background: _getBackgroundColor(matches[attributeId]),
-        ),
-      );
+      if (matchingAttributes[attributeId] != null) {
+        listItems.add(
+          AttributeListExpandable(
+            product: widget.product,
+            iconWidth: iconWidth,
+            attributeTags: <String>[attributeId],
+            collapsible: false,
+            background: _getBackgroundColor(matchingAttributes[attributeId]),
+          ),
+        );
+      }
     }
     for (final AttributeGroup attributeGroup
         in _getOrderedAttributeGroups(userPreferencesModel)) {
@@ -262,23 +264,24 @@ class _ProductPageState extends State<ProductPage> {
     return attributeGroups;
   }
 
-  Color _getBackgroundColor(final double match) {
-    if (match == null) {
+  Color _getBackgroundColor(final Attribute attribute) {
+    if (attribute.status == "known") {
+      if (attribute.match <= 20) {
+        return const HSLColor.fromAHSL(1, 0, 1, .9).toColor();
+      }
+      if (attribute.match <= 40) {
+        return const HSLColor.fromAHSL(1, 30, 1, .9).toColor();
+      }
+      if (attribute.match <= 60) {
+        return const HSLColor.fromAHSL(1, 60, 1, .9).toColor();
+      }
+      if (attribute.match <= 80) {
+        return const HSLColor.fromAHSL(1, 90, 1, .9).toColor();
+      }
+      return const HSLColor.fromAHSL(1, 120, 1, .9).toColor();
+    } else {
       return const Color.fromARGB(0xff, 0xEE, 0xEE, 0xEE);
     }
-    if (match <= 20) {
-      return const HSLColor.fromAHSL(1, 0, 1, .9).toColor();
-    }
-    if (match <= 40) {
-      return const HSLColor.fromAHSL(1, 30, 1, .9).toColor();
-    }
-    if (match <= 60) {
-      return const HSLColor.fromAHSL(1, 60, 1, .9).toColor();
-    }
-    if (match <= 80) {
-      return const HSLColor.fromAHSL(1, 90, 1, .9).toColor();
-    }
-    return const HSLColor.fromAHSL(1, 120, 1, .9).toColor();
   }
 
   Future<void> _openLists(final String barcode) async {
