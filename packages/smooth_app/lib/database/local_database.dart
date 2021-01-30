@@ -12,6 +12,9 @@ class LocalDatabase extends ChangeNotifier {
 
   Database get database => _database;
 
+  @override
+  void notifyListeners() => super.notifyListeners();
+
   static Future<LocalDatabase> getLocalDatabase() async {
     final String databasesRootPath = await getDatabasesPath();
     final String databasePath = join(databasesRootPath, 'smoothie.db');

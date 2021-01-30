@@ -12,7 +12,7 @@ import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 ///)
 ///
 
-class SmoothAlertDialog extends StatefulWidget {
+class SmoothAlertDialog extends StatelessWidget {
   const SmoothAlertDialog(
       {this.title, this.close = true, this.height, this.body, this.actions});
 
@@ -23,24 +23,19 @@ class SmoothAlertDialog extends StatefulWidget {
   final List<SmoothSimpleButton> actions;
 
   @override
-  _SmoothAlertDialogState createState() => _SmoothAlertDialogState();
-}
-
-class _SmoothAlertDialogState extends State<SmoothAlertDialog> {
-  @override
   Widget build(BuildContext context) {
     return AlertDialog(
       elevation: 4,
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.0)), //this right here
 
-      content: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-        _buildTitle(widget.title),
-        Container(
-          height: widget.height,
-          child: widget.body,
-        ),
-      ]),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          _buildTitle(context),
+          Container(height: height, child: body),
+        ],
+      ),
 
       actions: <Widget>[
         SizedBox(
@@ -49,17 +44,17 @@ class _SmoothAlertDialogState extends State<SmoothAlertDialog> {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: widget.actions,
+            children: actions,
           ),
         ),
       ],
     );
   }
 
-  Widget _buildTitle(String _title) {
+  Widget _buildTitle(final BuildContext context) {
     const double height = 29;
 
-    if (_title == null) {
+    if (title == null) {
       return Container();
     } else {
       return Column(
@@ -68,15 +63,15 @@ class _SmoothAlertDialogState extends State<SmoothAlertDialog> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              _buildCross(true),
+              _buildCross(true, context),
               Container(
                 height: height,
                 child: Text(
-                  '$_title',
+                  title,
                   style: Theme.of(context).textTheme.headline2,
                 ),
               ),
-              _buildCross(false),
+              _buildCross(false, context),
             ],
           ),
           Divider(
@@ -90,13 +85,13 @@ class _SmoothAlertDialogState extends State<SmoothAlertDialog> {
     }
   }
 
-  Widget _buildCross(bool isPlaceHolder) {
-    if (widget.close) {
+  Widget _buildCross(final bool isPlaceHolder, final BuildContext context) {
+    if (close) {
       return Visibility(
         child: InkWell(
           child: Icon(
             Icons.close,
-            size: widget.height,
+            size: height,
           ),
           onTap: () => Navigator.of(context, rootNavigator: true).pop('dialog'),
         ),

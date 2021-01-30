@@ -14,7 +14,7 @@ import 'package:smooth_app/pages/scan_page.dart';
 import 'package:smooth_app/pages/choose_page.dart';
 import 'package:smooth_app/pages/contribution_page.dart';
 import 'package:smooth_app/pages/profile_page.dart';
-import 'package:smooth_app/pages/tracking_page.dart';
+import 'package:smooth_app/pages/list_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
@@ -148,9 +148,9 @@ class SmoothApp extends StatelessWidget {
           _generateScreenModel(
             context,
             mlKitState,
-            'assets/ikonate_thin/search.svg',
             'Choose',
             ChoosePage(),
+            svg: 'assets/ikonate_thin/search.svg',
           ),
           /*
           _generateScreenModel(
@@ -164,23 +164,23 @@ class SmoothApp extends StatelessWidget {
           _generateScreenModel(
             context,
             mlKitState,
-            'assets/ikonate_thin/add.svg',
             'Contribute',
             CollaborationPage(),
+            svg: 'assets/ikonate_thin/add.svg',
           ),
           _generateScreenModel(
             context,
             mlKitState,
-            'assets/ikonate_thin/activity.svg',
-            'Track',
-            TrackingPage(),
+            'Lists',
+            ListPage(),
+            iconData: Icons.list,
           ),
           _generateScreenModel(
             context,
             mlKitState,
-            'assets/ikonate_thin/person.svg',
             'Profile',
             ProfilePage(),
+            svg: 'assets/ikonate_thin/person.svg',
           ),
         ],
       ),
@@ -198,19 +198,30 @@ class SmoothApp extends StatelessWidget {
   SmoothNavigationScreenModel _generateScreenModel(
     final BuildContext context,
     final bool mlKitState,
-    final String svg,
     final String title,
-    final Widget page,
-  ) =>
+    final Widget page, {
+    final String svg,
+    final IconData iconData,
+  }) =>
       SmoothNavigationScreenModel(
         icon: Container(
           padding: const EdgeInsets.all(_navigationIconPadding),
-          child: SvgPicture.asset(
-            svg,
-            width: _navigationIconSize,
-            height: _navigationIconSize,
-            color: Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
-          ),
+          child: svg != null
+              ? SvgPicture.asset(
+                  svg,
+                  width: _navigationIconSize,
+                  height: _navigationIconSize,
+                  color: Theme.of(context)
+                      .bottomNavigationBarTheme
+                      .selectedItemColor,
+                )
+              : Icon(
+                  iconData,
+                  size: _navigationIconSize,
+                  color: Theme.of(context)
+                      .bottomNavigationBarTheme
+                      .selectedItemColor,
+                ),
         ),
         title: title,
         page: page,

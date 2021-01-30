@@ -19,23 +19,20 @@ class Match {
     }
     for (final AttributeGroup group in attributeGroups) {
       for (final Attribute attribute in group.attributes) {
-        final String variable = attribute.id;
-        final PreferencesValue preferencesValue =
-            userPreferencesModel.getPreferencesValue(variable, userPreferences);
+        final PreferencesValue preferencesValue = userPreferencesModel
+            .getPreferencesValue(attribute.id, userPreferences);
         final String value = preferencesValue.id;
-        _attributes[value] ??= <Attribute>[];
-        _attributes[value].add(attribute);
         final int factor = preferencesValue.factor ?? 0;
         final int minimalMatch = preferencesValue.minimalMatch;
         if (value == null || factor == 0) {
-          _debug += '$variable $value\n';
+          _debug += '${attribute.id} $value\n';
         } else {
           if (attribute.status == _UNKNOWN_STATUS) {
             if (_status ?? false) {
               _status = null;
             }
           } else {
-            _debug += '$variable $value - match: ${attribute.match}\n';
+            _debug += '${attribute.id} $value - match: ${attribute.match}\n';
             _score += attribute.match * factor;
             if (minimalMatch != null && attribute.match <= minimalMatch) {
               _status = false;
@@ -47,16 +44,15 @@ class Match {
   }
 
   static const String _UNKNOWN_STATUS = 'unknown';
+  static const String _KNOWN_STATUS = 'known';
 
   double _score = 0;
   bool _status = true;
   String _debug = '';
-  final Map<String, List<Attribute>> _attributes = <String, List<Attribute>>{};
 
   double get score => _score;
   bool get status => _status;
   String get debug => _debug;
-  Map<String, List<Attribute>> get attributes => _attributes;
 
   static List<RankedProduct> sort(
     final List<Product> products,
@@ -70,6 +66,27 @@ class Match {
     }
     result.sort((RankedProduct a, RankedProduct b) =>
         b.match.score.compareTo(a.match.score));
+    return result;
+  }
+
+  static Map<String, double> getAttributeMatches(
+    final Product product,
+    final List<String> attributeIds,
+  ) {
+    final Map<String, double> result = <String, double>{};
+    final List<AttributeGroup> attributeGroups = product.attributeGroups;
+    if (attributeGroups == null) {
+      return result;
+    }
+    for (final AttributeGroup group in attributeGroups) {
+      for (final Attribute attribute in group.attributes) {
+        final String attributeId = attribute.id;
+        if (attributeIds.contains(attributeId) &&
+            attribute.status == _KNOWN_STATUS) {
+          result[attributeId] = attribute.match;
+        }
+      }
+    }
     return result;
   }
 }

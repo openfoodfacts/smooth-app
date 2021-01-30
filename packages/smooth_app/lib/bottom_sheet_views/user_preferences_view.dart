@@ -9,6 +9,8 @@ import 'package:smooth_ui_library/buttons/smooth_main_button.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class UserPreferencesView extends StatelessWidget {
   const UserPreferencesView(this._scrollController, {this.callback});
@@ -28,6 +30,22 @@ class UserPreferencesView extends StatelessWidget {
 
   static const double _TYPICAL_PADDING_OR_MARGIN = 12;
   static const double _PCT_ICON = .20;
+
+  static void showModal(
+    final BuildContext context, {
+    final Function callback,
+  }) =>
+      showCupertinoModalBottomSheet<Widget>(
+        expand: false,
+        context: context,
+        backgroundColor: Colors.transparent,
+        bounce: true,
+        barrierColor: Colors.black45,
+        builder: (BuildContext context) => UserPreferencesView(
+          ModalScrollController.of(context),
+          callback: callback,
+        ),
+      );
 
   @override
   Widget build(BuildContext context) {

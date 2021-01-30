@@ -16,18 +16,12 @@ import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_ui_library/widgets/smooth_listTile.dart';
 
-Launcher launcher = Launcher();
-
-class ProfilePage extends StatefulWidget {
-  @override
-  _ProfilePageState createState() => _ProfilePageState();
-}
-
-class _ProfilePageState extends State<ProfilePage> {
+class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final DarkThemeProvider themeChange = context.watch<DarkThemeProvider>();
+    final Launcher launcher = Launcher();
     return Scaffold(
       body: Column(
         children: <Widget>[
@@ -86,16 +80,7 @@ class _ProfilePageState extends State<ProfilePage> {
           //Configure Preferences
           SmoothListTile(
             text: AppLocalizations.of(context).configurePreferences,
-            onPressed: () => showCupertinoModalBottomSheet<Widget>(
-              expand: false,
-              context: context,
-              backgroundColor: Colors.transparent,
-              bounce: true,
-              barrierColor: Colors.black45,
-              builder: (BuildContext context) => UserPreferencesView(
-                ModalScrollController.of(context),
-              ),
-            ),
+            onPressed: () => UserPreferencesView.showModal(context),
           ),
 
           //Contribute
@@ -135,7 +120,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     body: Column(
                       children: <Widget>[
                         FutureBuilder<PackageInfo>(
-                            future: _getPubspecData(),
+                            future: PackageInfo.fromPlatform(),
                             builder: (BuildContext context,
                                 AsyncSnapshot<PackageInfo> snapshot) {
                               if (snapshot.hasError) {
@@ -235,11 +220,5 @@ class _ProfilePageState extends State<ProfilePage> {
         ],
       ),
     );
-  }
-
-  Future<PackageInfo> _getPubspecData() async {
-    final PackageInfo packageInfo = await PackageInfo.fromPlatform();
-
-    return packageInfo;
   }
 }

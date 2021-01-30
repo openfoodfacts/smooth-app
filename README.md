@@ -28,7 +28,7 @@ You can join the Open Food Facts's Slack here : [Get an invite](https://slack.op
 
 ## Roadmap
 ### Release automation
-- [ ] Add Fastlane publishing to the AppStore and the Play Store and GitHub Actions
+- [ ] Add Fastlane publishing to the AppStore <s>and the Play Store</s> and GitHub Actions
 - [ ] Add multilingual screenshot generation using Fastlane (Scan screen, settings screen, personalized ranking screen, home screen)
 
 ### Navigation
@@ -45,7 +45,7 @@ You can join the Open Food Facts's Slack here : [Get an invite](https://slack.op
 - [ ] User management + Small point system for contributions
 
 ### Product page
-- [ ] Show Eco-score details for a product - https://github.com/openfoodfacts/smooth-app/issues/37
+- [ ] Show Eco-Score details for a product - https://github.com/openfoodfacts/smooth-app/issues/37
 
 ### Scanning
 - [ ] Allow the user to find alternatives products on a scan even if (s)he has scanned only 1 product https://github.com/openfoodfacts/smooth-app/issues/23
