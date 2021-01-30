@@ -35,6 +35,7 @@ class AttributeListExpandable extends StatelessWidget {
     for (final String attributeTag in attributeTags) {
       Attribute attribute =
           UserPreferencesModel.getAttribute(product, attributeTag);
+      // Some attributes selected in the user preferences might be unavailable for some products
       if (attribute == null) {
         attribute = userPreferencesModel.getReferenceAttribute(attributeTag);
         attribute = Attribute(
