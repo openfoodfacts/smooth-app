@@ -32,20 +32,23 @@ class AttributeListExpandable extends StatelessWidget {
     for (final String attributeTag in attributeTags) {
       Attribute attribute =
           UserPreferencesModel.getAttribute(product, attributeTag);
-      chips.add(AttributeChip(attribute, width: iconWidth));
-      if (attribute != null &&
-          attribute.id == UserPreferencesModel.ATTRIBUTE_ADDITIVES) {
-        // TODO(monsieurtanuki): remove that cheat when additives are more standard
-        final List<String> additiveNames = product.additives?.names;
-        attribute = Attribute(
-          id: attribute.id,
-          title: attribute.title,
-          iconUrl: attribute.iconUrl,
-          descriptionShort:
-              additiveNames == null ? '' : additiveNames.join(', '),
-        );
+
+      // Some attributes selected in the user preferences might be unavailable for some products
+      if (attribute != null) {
+        chips.add(AttributeChip(attribute, width: iconWidth));
+        if (attribute.id == UserPreferencesModel.ATTRIBUTE_ADDITIVES) {
+          // TODO(monsieurtanuki): remove that cheat when additives are more standard
+          final List<String> additiveNames = product.additives?.names;
+          attribute = Attribute(
+            id: attribute.id,
+            title: attribute.title,
+            iconUrl: attribute.iconUrl,
+            descriptionShort:
+                additiveNames == null ? '' : additiveNames.join(', '),
+          );
+        }
+        cards.add(AttributeCard(attribute, iconWidth));
       }
-      cards.add(AttributeCard(attribute, iconWidth));
     }
     final Widget content = Column(
       mainAxisAlignment: MainAxisAlignment.start,

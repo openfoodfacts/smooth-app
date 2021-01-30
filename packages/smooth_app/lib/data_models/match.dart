@@ -69,11 +69,12 @@ class Match {
     return result;
   }
 
-  static Map<String, double> getAttributeMatches(
+  // return a map of all existing product attributes matching a list of attribute ids
+  static Map<String, Attribute> getMatchingAttributes(
     final Product product,
     final List<String> attributeIds,
   ) {
-    final Map<String, double> result = <String, double>{};
+    final Map<String, Attribute> result = <String, Attribute>{};
     final List<AttributeGroup> attributeGroups = product.attributeGroups;
     if (attributeGroups == null) {
       return result;
@@ -81,9 +82,8 @@ class Match {
     for (final AttributeGroup group in attributeGroups) {
       for (final Attribute attribute in group.attributes) {
         final String attributeId = attribute.id;
-        if (attributeIds.contains(attributeId) &&
-            attribute.status == _KNOWN_STATUS) {
-          result[attributeId] = attribute.match;
+        if (attributeIds.contains(attributeId)) {
+          result[attributeId] = attribute;
         }
       }
     }
