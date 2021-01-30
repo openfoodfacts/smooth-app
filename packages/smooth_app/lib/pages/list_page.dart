@@ -124,8 +124,9 @@ class _ListPageState extends State<ListPage> {
                           '${ProductQueryPageHelper.getDurationStringFromTimestamp(item.databaseTimestamp)}, '
                           '${ProductQueryPageHelper.getProductCount(item)}',
                         ),
-                        onTap: () {
-                          Navigator.push<dynamic>(
+                        onTap: () async {
+                          await daoProductList.get(item);
+                          await Navigator.push<dynamic>(
                             context,
                             MaterialPageRoute<dynamic>(
                               builder: (BuildContext context) =>
@@ -135,6 +136,7 @@ class _ListPageState extends State<ListPage> {
                               ),
                             ),
                           );
+                          localDatabase.notifyListeners();
                         },
                         onLongPress: () {
                           showDialog<bool>(
