@@ -52,6 +52,7 @@ class SmoothBottomAppBarState extends State<SmoothBottomAppBar>
         child: widget.items[_selectedIndex].body,
       ),
       floatingActionButton: FloatingActionButton(
+        heroTag: 'action_button',
         child: SvgPicture.asset(
           'assets/actions/scanner_alt_2.svg',
           height: 25,
