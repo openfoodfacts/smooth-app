@@ -93,7 +93,7 @@ class _ProductPageState extends State<ProductPage> {
       ),
     );
     final Map<String, Attribute> matchingAttributes =
-        Match.getAttributeMatches(widget.product, mainAttributes);
+        Match.getMatchingAttributes(widget.product, mainAttributes);
     for (final String attributeId in mainAttributes) {
       if (matchingAttributes[attributeId] != null) {
         listItems.add(

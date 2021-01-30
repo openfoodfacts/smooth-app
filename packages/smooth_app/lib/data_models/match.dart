@@ -70,7 +70,7 @@ class Match {
   }
 
   // return a map of all existing product attributes matching a list of attribute ids
-  static Map<String, Attribute> getAttributeMatches(
+  static Map<String, Attribute> getMatchingAttributes(
     final Product product,
     final List<String> attributeIds,
   ) {
