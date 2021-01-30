@@ -234,6 +234,17 @@ class UserPreferencesModel extends ChangeNotifier {
     return null;
   }
 
+  Attribute getReferenceAttribute(final String attributeId) {
+    for (final AttributeGroup attributeGroup in _attributeGroups) {
+      for (final Attribute attribute in attributeGroup.attributes) {
+        if (attribute.id == attributeId) {
+          return attribute;
+        }
+      }
+    }
+    return null;
+  }
+
   int getAttributeValueIndex(
     final String variable,
     final UserPreferences userPreferences,
