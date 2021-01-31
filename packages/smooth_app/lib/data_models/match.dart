@@ -44,7 +44,7 @@ class Match {
   }
 
   static const String _UNKNOWN_STATUS = 'unknown';
-  static const String _KNOWN_STATUS = 'known';
+  static const String KNOWN_STATUS = 'known';
 
   double _score = 0;
   bool _status = true;
