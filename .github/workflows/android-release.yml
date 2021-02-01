@@ -42,13 +42,13 @@ jobs:
         run: pwd && cd ./packages/smooth_app/ && pwd && pub global activate cider && export PATH="$PATH":"$HOME/.pub-cache/bin"
 
       - name: Bump build version
-        run: pwd && cd ./packages/smooth_app/ && && cider bump build
+        run: pwd && cd ./packages/smooth_app/ && cider bump build
 
       #- name: Bump normal version
-      #  run: pwd && cd ./packages/smooth_app/ && && cider version ${GITHUB_REF##*/}
+      #  run: pwd && cd ./packages/smooth_app/ && cider version ${GITHUB_REF##*/}
 
       - name: Bump normal version
-        run: pwd && cd ./packages/smooth_app/ && && cider version release/1.1.1
+        run: pwd && cd ./packages/smooth_app/ && cider version release/1.1.1
 
 
       - name: Branch name
