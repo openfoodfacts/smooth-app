@@ -18,8 +18,8 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_ui_library/navigation/smooth_bottom_app_bar.dart';
-import 'package:smooth_ui_library/navigation/models/smooth_bottom_app_bar_item.dart';
+import 'package:smooth_ui_library/navigation/smooth_bottom_navigation_bar.dart';
+import 'package:smooth_ui_library/navigation/models/smooth_bottom_navigation_bar_item.dart';
 
 Future<void> main() async {
   await Sentry.init(
@@ -131,51 +131,40 @@ class SmoothAppGetLanguage extends StatelessWidget {
   }
 }
 
-class SmoothApp extends StatefulWidget {
-  @override
-  _SmoothAppState createState() => _SmoothAppState();
-}
-
-/// This is the private State class that goes with MyStatefulWidget.
-class _SmoothAppState extends State<SmoothApp> {
+class SmoothApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final bool mlKitState = userPreferences.getMlKitState();
-    return Scaffold(
-      body: Center(
-        child: Container(),
-      ),
-      bottomNavigationBar: SmoothBottomAppBar(
-        <SmoothBottomAppBarItem>[
-          SmoothBottomAppBarItem(
-            name: 'Choose',
-            body: ChoosePage(),
-            iconPath: 'assets/ikonate_thin/search.svg',
-          ),
-          SmoothBottomAppBarItem(
-            name: 'Contribute',
-            body: CollaborationPage(),
-            iconPath: 'assets/ikonate_thin/add.svg',
-          ),
-          SmoothBottomAppBarItem(
-            name: 'Lists',
-            body: ListPage(),
-            iconPath: 'assets/navigation/organize.svg',
-          ),
-          SmoothBottomAppBarItem(
-            name: 'Profile',
-            body: ProfilePage(),
-            iconPath: 'assets/ikonate_thin/person.svg',
-          ),
-        ],
-        fabAction: () => Navigator.push<Widget>(
-          context,
-          MaterialPageRoute<Widget>(
-            builder: (BuildContext context) => ScanPage(
-              contributionMode: false,
-              mlKit: mlKitState,
-            ),
+    return SmoothBottomNavigationBar(
+      <SmoothBottomNavigationBarItem>[
+        SmoothBottomNavigationBarItem(
+          name: 'Choose',
+          body: ChoosePage(),
+          iconPath: 'assets/ikonate_thin/search.svg',
+        ),
+        SmoothBottomNavigationBarItem(
+          name: 'Contribute',
+          body: CollaborationPage(),
+          iconPath: 'assets/ikonate_thin/add.svg',
+        ),
+        SmoothBottomNavigationBarItem(
+          name: 'Lists',
+          body: ListPage(),
+          iconPath: 'assets/navigation/organize.svg',
+        ),
+        SmoothBottomNavigationBarItem(
+          name: 'Profile',
+          body: ProfilePage(),
+          iconPath: 'assets/ikonate_thin/person.svg',
+        ),
+      ],
+      fabAction: () => Navigator.push<Widget>(
+        context,
+        MaterialPageRoute<Widget>(
+          builder: (BuildContext context) => ScanPage(
+            contributionMode: false,
+            mlKit: mlKitState,
           ),
         ),
       ),

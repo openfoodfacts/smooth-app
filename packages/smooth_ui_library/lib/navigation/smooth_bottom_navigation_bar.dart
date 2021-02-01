@@ -2,18 +2,18 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:smooth_ui_library/navigation/models/smooth_bottom_app_bar_item.dart';
+import 'package:smooth_ui_library/navigation/models/smooth_bottom_app_navigation_item.dart';
 
-class SmoothBottomAppBar extends StatefulWidget {
-  const SmoothBottomAppBar(this.items, {this.fabAction});
-  final List<SmoothBottomAppBarItem> items;
+class SmoothBottomNavigationBar extends StatefulWidget {
+  const SmoothBottomNavigationBar(this.items, {this.fabAction});
+  final List<SmoothBottomNavigationBarItem> items;
   final Function fabAction;
 
   @override
-  State<StatefulWidget> createState() => SmoothBottomAppBarState();
+  State<StatefulWidget> createState() => SmoothBottomNavigationBarState();
 }
 
-class SmoothBottomAppBarState extends State<SmoothBottomAppBar>
+class SmoothBottomNavigationBarState extends State<SmoothBottomNavigationBar>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
   Animation<Offset> _offsetAnimation;
