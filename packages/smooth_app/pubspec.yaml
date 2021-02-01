@@ -13,7 +13,7 @@ description: A new official Open Food Facts application build with great user ex
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 
 #{major}.{minor}.{patch}+{version}
-version: 0.0.1+12
+version: 1.1.1
 
 environment:
   sdk: ">=2.6.0 <3.0.0"
