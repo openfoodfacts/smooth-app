@@ -18,15 +18,13 @@ class VersionCommand extends ApplicationCommand {
 
   @override
   int run() {
-    //argResults.rest.first
-    return _setVersion('release/1.1.1');
+    var aStr = argResults.rest.first.replaceAll(RegExp(r'[^0-9.]'), '');
+    return _setVersion(aStr);
   }
 
   int _setVersion(String version) {
     try {
-      var aStr = version.replaceAll(RegExp(r'[^0-9.]'), '');
-      _console.log('Version: $aStr');
-      createApp().setVersion('1.1.1');
+      createApp().setVersion(version);
     } on FormatException {
       _console.error('Invalid version "$version".');
       return ExitCode.applicationError;
