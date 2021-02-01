@@ -39,7 +39,7 @@ jobs:
         run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get
 
       - name: Bump version
-        run: cd ./packages/smooth_app/ && pub global activate cider && export PATH="$PATH":"$HOME/.pub-cache/bin" && cider bump build && cider version "release/1.1.1"
+        run: cd ./packages/smooth_app/ && pub global activate cider && export PATH="$PATH":"$HOME/.pub-cache/bin" && cider bump build && cider version "1.1.1"
 
       - name: Setup git config
         run: |
