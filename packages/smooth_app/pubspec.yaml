@@ -47,13 +47,12 @@ dependencies:
   sticky_grouped_list: ^1.3.0
   sticky_headers: ^0.1.8+1
   package_info_plus: ^0.6.3
-  cider: ^0.0.5
   wc_flutter_share: ^0.2.2
 
   smooth_ui_library:
     path: ../smooth_ui_library
-  # openfoodfacts:
-  #  path: ../../../openfoodfacts-dart
+  cider:
+    path: ../cider
 
 dev_dependencies:
   flutter_test:

@@ -1,0 +1,6 @@
+include: package:pedantic/analysis_options.yaml
+
+linter:
+  rules:
+    - sort_constructors_first
+    - sort_unnamed_constructors_first

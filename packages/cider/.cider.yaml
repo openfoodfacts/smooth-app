@@ -1,0 +1,2 @@
+changelog:
+  diff_link_template: 'https://github.com/f3ath/cider/compare/%from%...%to%'
