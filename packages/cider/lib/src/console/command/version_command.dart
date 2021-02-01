@@ -8,7 +8,7 @@ class VersionCommand extends ApplicationCommand {
   final Console _console;
 
   @override
-  final String description = 'Prints your project version';
+  final String description = 'Prints/Sets your project version';
 
   @override
   final String name = 'version';
@@ -18,10 +18,8 @@ class VersionCommand extends ApplicationCommand {
 
   @override
   int run() {
-    if (argResults.rest.isEmpty) {
-      return _readVersion();
-    }
-    return _setVersion(argResults.rest.first);
+    //argResults.rest.first
+    return _setVersion('release/1.1.1');
   }
 
   int _setVersion(String version) {
@@ -33,11 +31,6 @@ class VersionCommand extends ApplicationCommand {
       return ExitCode.applicationError;
     }
     _console.log(version);
-    return ExitCode.ok;
-  }
-
-  int _readVersion() {
-    _console.log(createApp().readVersion());
     return ExitCode.ok;
   }
 }
