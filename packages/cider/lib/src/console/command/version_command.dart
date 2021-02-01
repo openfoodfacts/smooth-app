@@ -20,7 +20,7 @@ class VersionCommand extends ApplicationCommand {
   int run() {
     var aStr = '1.1.1';
     //var aStr = argResults.rest.first.replaceAll(RegExp(r'[^0-9.]'), '');
-    _console.log(aStr);
+    _console.error('ERR $aStr');
     return _setVersion(aStr);
   }
 
