@@ -38,11 +38,14 @@ jobs:
       - name: Install Flutter dependencies
         run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get
 
-      - name: Activate Cider
-        run: pwd && cd ./packages/smooth_app/ && pwd && pub global activate cider && export PATH="$PATH":"$HOME/.pub-cache/bin"
+      - name: Bump version
+        run: cd ./packages/smooth_app/ && pub global activate cider && export PATH="$PATH":"$HOME/.pub-cache/bin" && cider bump build
 
-      - name: Bump build version
-        run: pwd && cd ./packages/smooth_app/ && cider bump build
+      #- name:  Export path
+      #  run:
+
+      #- name: Bump build version
+      #  run: pwd && cd ./packages/smooth_app/ && cider bump build
 
       #- name: Bump normal version
       #  run: pwd && cd ./packages/smooth_app/ && cider version ${GITHUB_REF##*/}
