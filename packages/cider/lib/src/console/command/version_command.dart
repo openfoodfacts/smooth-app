@@ -20,7 +20,6 @@ class VersionCommand extends ApplicationCommand {
   int run() {
     var aStr = '1.1.1';
     //var aStr = argResults.rest.first.replaceAll(RegExp(r'[^0-9.]'), '');
-    _console.error('ERR $aStr');
     return _setVersion(aStr);
   }
 
@@ -28,7 +27,7 @@ class VersionCommand extends ApplicationCommand {
     try {
       createApp().setVersion(version);
     } on FormatException {
-      _console.error('Invalid version "$version".');
+      _console.error('Invalid version test "$version".');
       return ExitCode.applicationError;
     }
     _console.log(version);
