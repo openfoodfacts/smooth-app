@@ -19,6 +19,7 @@ class VersionCommand extends ApplicationCommand {
   @override
   int run() {
     var aStr = argResults.rest.first.replaceAll(RegExp(r'[^0-9.]'), '');
+    _console.log(aStr);
     return _setVersion(aStr);
   }
 
