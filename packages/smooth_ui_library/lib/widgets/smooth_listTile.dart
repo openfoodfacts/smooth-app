@@ -13,24 +13,30 @@ class SmoothListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => onPressed(),
-      child: Container(
-        height: 60.0,
-        padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
-        margin: const EdgeInsets.all(10.0),
-        decoration: BoxDecoration(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(0, 5.0 , 0 , 5.0),
+        child: Card(
             color: Theme.of(context).colorScheme.surface,
-            borderRadius: const BorderRadius.all(Radius.circular(20.0))),
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Text(
-              text,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20.0),
             ),
-            _buildIcon(context),
-          ],
+            elevation: 10,
+            child: Container(
+              height: 60,
+              padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    text,
+                  ),
+                  _buildIcon(context),
+                ],
+              ),
+            )
         ),
-      ),
+      )
     );
   }
 
