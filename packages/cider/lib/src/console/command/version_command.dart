@@ -18,7 +18,8 @@ class VersionCommand extends ApplicationCommand {
 
   @override
   int run() {
-    var aStr = argResults.rest.first.replaceAll(RegExp(r'[^0-9.]'), '');
+    var aStr = '1.1.1';
+    //var aStr = argResults.rest.first.replaceAll(RegExp(r'[^0-9.]'), '');
     _console.log(aStr);
     return _setVersion(aStr);
   }
