@@ -90,200 +90,189 @@ class _ChoosePageState extends State<ChoosePage> {
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     return WillPopScope(
-        onWillPop: _onWillPop,
-        child: Scaffold(
-          key: _scaffoldKey,
-          body: NestedScrollView(
-              controller: _scrollController,
-              headerSliverBuilder:
-                  (BuildContext context, bool innerBoxIsScrolled) {
-                return <Widget>[
-                  SliverAppBar(
-                    expandedHeight: 248.0,
-                    pinned: true,
-                    elevation: 8.0,
-                    centerTitle: true,
-                    flexibleSpace: FlexibleSpaceBar(
-                      collapseMode: CollapseMode.parallax,
-                      background: Column(
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                top: 46.0,
-                                right: 16.0,
-                                left: 16.0,
-                                bottom: 4.0),
-                            child: Row(
-                              children: <Widget>[
-                                Flexible(
-                                  child: Text(
-                                    AppLocalizations.of(context).searchTitle,
-                                    style:
-                                        Theme.of(context).textTheme.headline1,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 16.0, vertical: 12.0),
-                            child: SmoothSearchBar(
-                              hintText:
-                                  AppLocalizations.of(context).searchHintText,
-                              onSubmitted: (String value) async {
-                                if (int.parse(value,
-                                        onError: (String e) => null) !=
-                                    null) {
-                                  showDialog<Widget>(
-                                      context: context,
-                                      builder: (BuildContext context) {
-                                        _barcodeSearch(
-                                          value,
-                                          context,
-                                          localDatabase,
-                                        );
-                                        return Dialog(
-                                            backgroundColor: Colors.transparent,
-                                            child: ClipRRect(
-                                                borderRadius:
-                                                    const BorderRadius.all(
-                                                        Radius.circular(20.0)),
-                                                child: BackdropFilter(
-                                                  filter: ImageFilter.blur(
-                                                    sigmaX: 4.0,
-                                                    sigmaY: 4.0,
-                                                  ),
-                                                  child: Container(
-                                                    padding:
-                                                        const EdgeInsets.all(
-                                                            12.0),
-                                                    width:
-                                                        MediaQuery.of(context)
-                                                                .size
-                                                                .width *
-                                                            0.8,
-                                                    height: 120.0,
-                                                    decoration:
-                                                        const BoxDecoration(
-                                                      borderRadius:
-                                                          BorderRadius.all(
-                                                              Radius.circular(
-                                                                  20.0)),
-                                                      color: Colors.white70,
-                                                    ),
-                                                    child: Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .center,
-                                                        children: <Widget>[
-                                                          Text(
-                                                              'Looking for : $value'),
-                                                          const SizedBox(
-                                                            height: 24.0,
-                                                          ),
-                                                          const CircularProgressIndicator(),
-                                                        ]),
-                                                  ),
-                                                )));
-                                      });
-                                } else {
-                                  await ProductQueryPageHelper().openBestChoice(
-                                    color: Colors.deepPurple,
-                                    heroTag: 'search_bar',
-                                    name: value,
-                                    localDatabase: localDatabase,
-                                    productQuery: KeywordsProductQuery(
-                                      value,
-                                      Localizations.localeOf(context)
-                                          .languageCode,
-                                    ),
-                                    context: context,
-                                  );
-                                }
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    bottom: PreferredSize(
-                      preferredSize:
-                          Size(MediaQuery.of(context).size.width, 20.0),
-                      child: Container(
+      onWillPop: _onWillPop,
+      child: Scaffold(
+        key: _scaffoldKey,
+        body: NestedScrollView(
+          controller: _scrollController,
+          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+            return <Widget>[
+              SliverAppBar(
+                expandedHeight: 248.0,
+                pinned: true,
+                elevation: 8.0,
+                centerTitle: true,
+                flexibleSpace: FlexibleSpaceBar(
+                  collapseMode: CollapseMode.parallax,
+                  background: Column(
+                    children: <Widget>[
+                      Padding(
                         padding: const EdgeInsets.only(
-                          left: 12.0,
-                        ),
+                            top: 46.0, right: 16.0, left: 16.0, bottom: 4.0),
                         child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             Flexible(
                               child: Text(
-                                AppLocalizations.of(context).categories,
-                                style: Theme.of(context).textTheme.headline3,
+                                AppLocalizations.of(context).searchTitle,
+                                style: Theme.of(context).textTheme.headline1,
                               ),
-                            ),
-                            MaterialButton(
-                              child: Text(
-                                AppLocalizations.of(context).showAll,
-                                style: Theme.of(context).textTheme.subtitle1,
-                              ),
-                              onPressed: () =>
-                                  setState(() => _unSelectCategory()),
-                            ),
+                            )
                           ],
                         ),
                       ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16.0, vertical: 12.0),
+                        child: SmoothSearchBar(
+                          hintText: AppLocalizations.of(context).searchHintText,
+                          onSubmitted: (String value) async {
+                            if (int.parse(value, onError: (String e) => null) !=
+                                null) {
+                              showDialog<Widget>(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  _barcodeSearch(
+                                    value,
+                                    context,
+                                    localDatabase,
+                                  );
+                                  return Dialog(
+                                    backgroundColor: Colors.transparent,
+                                    child: ClipRRect(
+                                      borderRadius: const BorderRadius.all(
+                                          Radius.circular(20.0)),
+                                      child: BackdropFilter(
+                                        filter: ImageFilter.blur(
+                                          sigmaX: 4.0,
+                                          sigmaY: 4.0,
+                                        ),
+                                        child: Container(
+                                          padding: const EdgeInsets.all(12.0),
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.8,
+                                          height: 120.0,
+                                          decoration: const BoxDecoration(
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(20.0)),
+                                            color: Colors.white70,
+                                          ),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: <Widget>[
+                                              Text('Looking for : $value'),
+                                              const SizedBox(
+                                                height: 24.0,
+                                              ),
+                                              const CircularProgressIndicator(),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                },
+                              );
+                            } else {
+                              await ProductQueryPageHelper().openBestChoice(
+                                color: Colors.deepPurple,
+                                heroTag: 'search_bar',
+                                name: value,
+                                localDatabase: localDatabase,
+                                productQuery: KeywordsProductQuery(
+                                  value,
+                                  Localizations.localeOf(context).languageCode,
+                                ),
+                                context: context,
+                              );
+                            }
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                bottom: PreferredSize(
+                  preferredSize: Size(MediaQuery.of(context).size.width, 20.0),
+                  child: Container(
+                    padding: const EdgeInsets.only(
+                      left: 12.0,
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Flexible(
+                          child: Text(
+                            AppLocalizations.of(context).categories,
+                            style: Theme.of(context).textTheme.headline3,
+                          ),
+                        ),
+                        MaterialButton(
+                          child: Text(
+                            AppLocalizations.of(context).showAll,
+                            style: Theme.of(context).textTheme.subtitle1,
+                          ),
+                          onPressed: () => setState(() => _unSelectCategory()),
+                        ),
+                      ],
                     ),
                   ),
-                ];
-              },
-              body: Column(
-                children: <Widget>[
-                  if (_selectedCategory == null)
-                    Container()
-                  else
-                    Container(
-                      padding: const EdgeInsets.only(bottom: 0.0),
-                      width: MediaQuery.of(context).size.width,
-                      height: 100.0,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: List<Widget>.generate(
-                            PnnsGroup1.values.length, (int index) {
-                          final PnnsGroup1 group = PnnsGroup1.values[index];
-                          final Color color = _getColor(index);
-                          return AnimationConfiguration.staggeredList(
-                            position: index,
-                            duration: const Duration(milliseconds: 250),
-                            child: SlideAnimation(
-                              verticalOffset: 50.0,
-                              child: FadeInAnimation(
-                                  child: CategoryChip(
+                ),
+              ),
+            ];
+          },
+          body: Column(
+            children: <Widget>[
+              if (_selectedCategory == null)
+                Container()
+              else
+                Container(
+                  padding: const EdgeInsets.only(bottom: 0.0),
+                  width: MediaQuery.of(context).size.width,
+                  height: 100.0,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: List<Widget>.generate(
+                      PnnsGroup1.values.length,
+                      (int index) {
+                        final PnnsGroup1 group = PnnsGroup1.values[index];
+                        final Color color = _getColor(index);
+                        return AnimationConfiguration.staggeredList(
+                          position: index,
+                          duration: const Duration(milliseconds: 250),
+                          child: SlideAnimation(
+                            verticalOffset: 50.0,
+                            child: FadeInAnimation(
+                              child: CategoryChip(
                                 title: group.name,
                                 color: color,
                                 onTap: () async => setState(
                                     () => _selectCategory(group, color)),
-                              )),
+                              ),
                             ),
-                          );
-                        }),
-                      ),
+                          ),
+                        );
+                      },
                     ),
-                  Expanded(
-                      child: _selectedCategory == null
-                          ? _showAllPnnsGroup1()
-                          : _showPnnsGroup2(
-                              _selectedCategory,
-                              _selectedColor,
-                              localDatabase,
-                            ))
-                ],
-              )),
-        ));
+                  ),
+                ),
+              Expanded(
+                  child: _selectedCategory == null
+                      ? _showAllPnnsGroup1()
+                      : _showPnnsGroup2(
+                          _selectedCategory,
+                          _selectedColor,
+                          localDatabase,
+                        ))
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
   Future<void> _barcodeSearch(
@@ -296,110 +285,111 @@ class _ChoosePageState extends State<ChoosePage> {
       await DaoProduct(localDatabase).put(product);
       Navigator.pop(context);
       Navigator.push<dynamic>(
-          context,
-          MaterialPageRoute<dynamic>(
-              builder: (BuildContext context) => ProductPage(
-                    product: product,
-                  )));
+        context,
+        MaterialPageRoute<dynamic>(
+          builder: (BuildContext context) => ProductPage(
+            product: product,
+          ),
+        ),
+      );
     } else {
       Navigator.pop(context);
       showDialog<Widget>(
-          context: context,
-          builder: (BuildContext context) {
-            return Dialog(
-                backgroundColor: Colors.transparent,
-                child: ClipRRect(
-                    borderRadius: const BorderRadius.all(Radius.circular(20.0)),
-                    child: BackdropFilter(
-                      filter: ImageFilter.blur(
-                        sigmaX: 4.0,
-                        sigmaY: 4.0,
+        context: context,
+        builder: (BuildContext context) {
+          return Dialog(
+            backgroundColor: Colors.transparent,
+            child: ClipRRect(
+              borderRadius: const BorderRadius.all(Radius.circular(20.0)),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(
+                  sigmaX: 4.0,
+                  sigmaY: 4.0,
+                ),
+                child: Container(
+                  padding: const EdgeInsets.all(12.0),
+                  width: MediaQuery.of(context).size.width * 0.8,
+                  height: 120.0,
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    color: Colors.white70,
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Flexible(
+                            child: Text(
+                              'No product found with matching barcode : $code',
+                              textAlign: TextAlign.center,
+                            ),
+                          )
+                        ],
                       ),
-                      child: Container(
-                        padding: const EdgeInsets.all(12.0),
-                        width: MediaQuery.of(context).size.width * 0.8,
-                        height: 120.0,
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                          color: Colors.white70,
-                        ),
-                        child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Flexible(
-                                    child: Text(
-                                      'No product found with matching barcode : $code',
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  )
-                                ],
-                              ),
-                              const SizedBox(
-                                height: 24.0,
-                              ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: <Widget>[
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.pop(context);
-                                    },
-                                    child: Container(
-                                      width: MediaQuery.of(context).size.width *
-                                          0.3,
-                                      height: 40.0,
-                                      decoration: BoxDecoration(
-                                        borderRadius: const BorderRadius.all(
-                                            Radius.circular(50.0)),
-                                        color: Colors.redAccent.withAlpha(50),
-                                      ),
-                                      child: Center(
-                                        child: Text(
-                                          'Close',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .headline4
-                                              .copyWith(
-                                                  color: Colors.redAccent),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  GestureDetector(
-                                    child: Container(
-                                      width: MediaQuery.of(context).size.width *
-                                          0.3,
-                                      height: 40.0,
-                                      decoration: BoxDecoration(
-                                        borderRadius: const BorderRadius.all(
-                                            Radius.circular(50.0)),
-                                        color: Colors.lightBlue.withAlpha(50),
-                                      ),
-                                      child: Center(
-                                        child: Text(
-                                          'Contribute',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .headline4
-                                              .copyWith(
-                                                  color: Colors.lightBlue),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ]),
+                      const SizedBox(
+                        height: 24.0,
                       ),
-                    )));
-          });
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: Container(
+                              width: MediaQuery.of(context).size.width * 0.3,
+                              height: 40.0,
+                              decoration: BoxDecoration(
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(50.0)),
+                                color: Colors.redAccent.withAlpha(50),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  'Close',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headline4
+                                      .copyWith(color: Colors.redAccent),
+                                ),
+                              ),
+                            ),
+                          ),
+                          GestureDetector(
+                            child: Container(
+                              width: MediaQuery.of(context).size.width * 0.3,
+                              height: 40.0,
+                              decoration: BoxDecoration(
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(50.0)),
+                                color: Colors.lightBlue.withAlpha(50),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  'Contribute',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headline4
+                                      .copyWith(color: Colors.lightBlue),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          );
+        },
+      );
     }
   }
 

@@ -418,7 +418,7 @@ class _ProductPageState extends State<ProductPage> {
   }
 
   Color _getBackgroundColor(final Attribute attribute) {
-    if (attribute.status == "known") {
+    if (attribute.status == Match.KNOWN_STATUS) {
       if (attribute.match <= 20) {
         return const HSLColor.fromAHSL(1, 0, 1, .9).toColor();
       }
