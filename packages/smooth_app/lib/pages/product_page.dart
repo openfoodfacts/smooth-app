@@ -242,7 +242,7 @@ class _ProductPageState extends State<ProductPage> {
   }
 
   Widget _buildNewProductBody(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    //final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return ListView(children: <Widget>[
       Container(
@@ -256,20 +256,20 @@ class _ProductPageState extends State<ProductPage> {
       ImageUploadCard(
           product: widget.product,
           imageField: ImageField.FRONT,
-          buttonText: "Front photo"),
+          buttonText: 'Front photo'),
       ImageUploadCard(
           product: widget.product,
           imageField: ImageField.INGREDIENTS,
-          buttonText: "Ingredients photo"),
+          buttonText: 'Ingredients photo'),
       ImageUploadCard(
         product: widget.product,
         imageField: ImageField.NUTRITION,
-        buttonText: "Nutrition facts photo",
+        buttonText: 'Nutrition facts photo',
       ),
       ImageUploadCard(
           product: widget.product,
           imageField: ImageField.OTHER,
-          buttonText: "More interesting photos"),
+          buttonText: 'More interesting photos'),
     ]);
   }
 

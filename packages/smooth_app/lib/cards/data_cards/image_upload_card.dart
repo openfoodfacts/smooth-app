@@ -24,29 +24,30 @@ class ImageUploadCard extends StatefulWidget {
 
 class _ImageUploadCardState extends State<ImageUploadCard> {
   File _image;
-  final picker = ImagePicker();
+  final ImagePicker picker = ImagePicker();
 
-  Future _getImage() async {
-    print("getImage");
-    final pickedFile = await picker.getImage(source: ImageSource.camera);
-    print("got image");
+  Future<void> _getImage() async {
+    print('getImage');
+    final PickedFile pickedFile =
+        await picker.getImage(source: ImageSource.camera);
+    print('got image');
 
     if (pickedFile != null) {
-      File croppedImage = await ImageCropper.cropImage(
+      final File croppedImage = await ImageCropper.cropImage(
         sourcePath: pickedFile.path,
-        androidUiSettings: AndroidUiSettings(
+        androidUiSettings: const AndroidUiSettings(
           lockAspectRatio: false,
           hideBottomControls: true,
         ),
       );
-      print("cropping image - done");
+      print('cropping image - done');
 
       if (croppedImage != null) {
         setState(() {
           _image = croppedImage;
         });
 
-        SendImage image = new SendImage(
+        final SendImage image = SendImage(
           lang: OpenFoodFactsLanguage.ENGLISH,
           barcode: widget.product.barcode,
           imageField: widget.imageField,
@@ -54,16 +55,17 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
         );
 
         // a registered user login for https://world.openfoodfacts.org/ is required
-        User myUser =
-            new User(userId: "smoothie-app", password: "strawberrybanana");
+        const User myUser =
+            User(userId: 'smoothie-app', password: 'strawberrybanana');
 
         // query the OpenFoodFacts API
-        Status result = await OpenFoodAPIClient.addProductImage(myUser, image);
+        final Status result =
+            await OpenFoodAPIClient.addProductImage(myUser, image);
 
-        if (result.status != "status ok") {
-          throw new Exception("image could not be uploaded: " +
+        if (result.status != 'status ok') {
+          throw Exception('image could not be uploaded: ' +
               result.error +
-              " " +
+              ' ' +
               result.imageId.toString());
         }
       }
@@ -74,7 +76,7 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
       onPressed: _getImage,
-      icon: Icon(Icons.add_a_photo),
+      icon: const Icon(Icons.add_a_photo),
       label: Text(widget.buttonText),
     );
   }
