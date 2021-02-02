@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/pages/smooth_upload_page.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
+import 'package:openfoodfacts/model/Product.dart';
+import 'package:smooth_app/pages/product_page.dart';
 
 class SmoothProductCardNotFound extends StatelessWidget {
-  const SmoothProductCardNotFound({
+  SmoothProductCardNotFound({
     @required this.barcode,
     this.callback,
     this.elevation = 0.0,
-  });
+  }) {
+    this.product = Product(
+      barcode: barcode,
+    );
+  }
 
   final String barcode;
   final Function callback;
   final double elevation;
+
+  Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -44,12 +52,16 @@ class SmoothProductCardNotFound extends StatelessWidget {
                   width: 100.0,
                   onPressed: () {
                     Navigator.push<dynamic>(
-                        context,
-                        MaterialPageRoute<dynamic>(
-                            builder: (BuildContext context) =>
-                                SmoothUploadPage(barcode: barcode)));
+                      context,
+                      MaterialPageRoute<dynamic>(
+                          builder: (BuildContext context) => ProductPage(
+                                product: product,
+                                newProduct: true,
+                              )),
+                    );
                     callback();
                   },
+                  //onLongPress: () => ProductPage.showLists(product, context),
                 ),
               ],
             ),
