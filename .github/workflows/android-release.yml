@@ -37,26 +37,26 @@ jobs:
       - name: Install Flutter dependencies
         run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get
 
-      - name: Bump version
-        run: cd ./packages/smooth_app/ && pub global activate cider && export PATH="$PATH":"$HOME/.pub-cache/bin" && oldversion=$(cider version) && echo "Old version ${oldversion}" && oldBuild=$(echo $oldversion | cut -f2 -d"+") && newVersion=$(echo ${GITHUB_REF##*/} | cut -f2 -d"/") && versionToSet="${newVersion}+${oldBuild}"  && cider version $versionToSet && cider bump build
-        #                                                                                                             get oldversion                                     get old buildnumber (after +)                       get new version without "release/"                add strings                               set new version                     
+      #- name: Bump version
+        #run: cd ./packages/smooth_app/ && pub global activate cider && export PATH="$PATH":"$HOME/.pub-cache/bin" && oldversion=$(cider version) && echo "Old version ${oldversion}" && oldBuild=$(echo $oldversion | cut -f2 -d"+") && newVersion=$(echo ${GITHUB_REF##*/} | cut -f2 -d"/") && versionToSet="${newVersion}+${oldBuild}"  && cider version $versionToSet && cider bump build
+                                                                                                                     #get oldversion                                     get old buildnumber (after +)                       get new version without "release/"                add strings                               set new version                     
 
-      - name: Setup git config
-        run: |
-          git config user.name "Version Bump"
-          git config user.email "<>"
+      #- name: Setup git config
+        #run: |
+          #git config user.name "Version Bump"
+          #git config user.email "<>"
 
-      - name: Commit new version to master
-        run: |
-          git add packages/smooth_app/pubspec.yaml
-          git commit -m "Bumped Version"
-          git push
+      #- name: Commit new version to master
+        #run: |
+          #git add packages/smooth_app/pubspec.yaml
+          #git commit -m "Bumped Version"
+          #git push
 
-      - name: Commit new version to release branch
-        run: |
-          git add packages/smooth_app/pubspec.yaml
-          git commit -m "Bumped Version"
-          git push origin ${GITHUB_REF##*/}
+      #- name: Commit new version to release branch
+        #run: |
+          #git add packages/smooth_app/pubspec.yaml
+          #git commit -m "Bumped Version"
+          #git push origin ${GITHUB_REF##*/}
 
       - name: Install Flutter dependencies
         run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get
