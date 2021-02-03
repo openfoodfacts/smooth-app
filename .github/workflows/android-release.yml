@@ -26,7 +26,8 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v1
         with:
-          channel: 'stable' 
+          flutter-version: 1.22.5  
+          #channel: 'stable' 
 
       - name: Decrypt API JSON file
         run: cd ./packages/smooth_app/android/fastlane/envfiles && chmod +x ./decrypt_secrets.sh && ./decrypt_secrets.sh
