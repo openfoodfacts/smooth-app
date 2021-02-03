@@ -80,7 +80,6 @@ class _ChoosePageState extends State<ChoosePage> {
       } else if (!_preventAppBarColorRefresh) {
         setState(() {
           _preventAppBarColorRefresh = true;
-          //_appBarColor = Colors.white;
         });
       }
     });
