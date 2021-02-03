@@ -29,6 +29,116 @@ class ProductPage extends StatefulWidget {
 
   @override
   _ProductPageState createState() => _ProductPageState();
+
+  static Future<void> showLists(
+    final Product product,
+    final BuildContext context,
+  ) async {
+    final String barcode = product.barcode;
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final DaoProductList daoProductList = DaoProductList(localDatabase);
+    final List<ProductList> list =
+        await daoProductList.getAll(withStats: false);
+    final List<ProductList> listWithBarcode =
+        await daoProductList.getAllWithBarcode(barcode);
+    int index = 0;
+    final Set<int> already = <int>{};
+    final Set<int> editable = <int>{};
+    final Set<int> addable = <int>{};
+    for (final ProductList productList in list) {
+      switch (productList.listType) {
+        case ProductList.LIST_TYPE_HISTORY:
+        case ProductList.LIST_TYPE_USER_DEFINED:
+        case ProductList.LIST_TYPE_SCAN:
+          editable.add(index);
+      }
+      switch (productList.listType) {
+        case ProductList.LIST_TYPE_USER_DEFINED:
+          addable.add(index);
+      }
+      for (final ProductList withBarcode in listWithBarcode) {
+        if (productList.lousyKey == withBarcode.lousyKey) {
+          already.add(index);
+          break;
+        }
+      }
+      index++;
+    }
+    showCupertinoModalBottomSheet<Widget>(
+      expand: false,
+      context: context,
+      backgroundColor: Colors.transparent,
+      bounce: true,
+      barrierColor: Colors.black45,
+      builder: (BuildContext context) => Material(
+        child: ListView.builder(
+          itemCount: list.length + 1,
+          itemBuilder: (final BuildContext context, int index) {
+            if (index == 0) {
+              return ListTile(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                title: Text(product.productName),
+                leading: const Icon(Icons.close),
+              );
+            }
+            index--;
+            final ProductList productList = list[index];
+            return StatefulBuilder(
+              builder:
+                  (final BuildContext context, final StateSetter setState) {
+                Function onPressed;
+                IconData iconData;
+                if (already.contains(index)) {
+                  if (!editable.contains(index)) {
+                    iconData = Icons.check;
+                  } else {
+                    iconData = Icons.check_box_outlined;
+                    onPressed = () async {
+                      already.remove(index);
+                      daoProductList.removeBarcode(productList, barcode);
+                      localDatabase.notifyListeners();
+                      setState(() {});
+                    };
+                  }
+                } else {
+                  if (!addable.contains(index)) {
+                    iconData = null;
+                  } else if (!editable.contains(index)) {
+                    iconData = null;
+                  } else {
+                    iconData = Icons.check_box_outline_blank_outlined;
+                    onPressed = () async {
+                      already.add(index);
+                      daoProductList.addBarcode(productList, barcode);
+                      localDatabase.notifyListeners();
+                      setState(() {});
+                    };
+                  }
+                }
+                return Card(
+                  child: ListTile(
+                    title: Text(
+                      ProductQueryPageHelper.getProductListLabel(productList),
+                    ),
+                    trailing: iconData == null
+                        ? null
+                        : IconButton(
+                            icon: Icon(iconData),
+                            onPressed: () {
+                              onPressed();
+                            },
+                          ),
+                  ),
+                );
+              },
+            );
+          },
+        ),
+      ),
+    );
+  }
 }
 
 class _ProductPageState extends State<ProductPage> {
@@ -92,18 +202,20 @@ class _ProductPageState extends State<ProductPage> {
         ),
       ),
     );
-    final Map<String, double> matches =
-        Match.getAttributeMatches(widget.product, mainAttributes);
+    final Map<String, Attribute> matchingAttributes =
+        Match.getMatchingAttributes(widget.product, mainAttributes);
     for (final String attributeId in mainAttributes) {
-      listItems.add(
-        AttributeListExpandable(
-          product: widget.product,
-          iconWidth: iconWidth,
-          attributeTags: <String>[attributeId],
-          collapsible: false,
-          background: _getBackgroundColor(matches[attributeId]),
-        ),
-      );
+      if (matchingAttributes[attributeId] != null) {
+        listItems.add(
+          AttributeListExpandable(
+            product: widget.product,
+            iconWidth: iconWidth,
+            attributeTags: <String>[attributeId],
+            collapsible: false,
+            background: _getBackgroundColor(matchingAttributes[attributeId]),
+          ),
+        );
+      }
     }
     for (final AttributeGroup attributeGroup
         in _getOrderedAttributeGroups(userPreferencesModel)) {
@@ -149,7 +261,7 @@ class _ProductPageState extends State<ProductPage> {
               UserPreferencesView.showModal(context);
               return;
             case 1:
-              _openLists(widget.product.barcode);
+              ProductPage.showLists(widget.product, context);
               return;
             case 2:
               Launcher().launchURL(
@@ -262,128 +374,23 @@ class _ProductPageState extends State<ProductPage> {
     return attributeGroups;
   }
 
-  Color _getBackgroundColor(final double match) {
-    if (match == null) {
+  Color _getBackgroundColor(final Attribute attribute) {
+    if (attribute.status == Match.KNOWN_STATUS) {
+      if (attribute.match <= 20) {
+        return const HSLColor.fromAHSL(1, 0, 1, .9).toColor();
+      }
+      if (attribute.match <= 40) {
+        return const HSLColor.fromAHSL(1, 30, 1, .9).toColor();
+      }
+      if (attribute.match <= 60) {
+        return const HSLColor.fromAHSL(1, 60, 1, .9).toColor();
+      }
+      if (attribute.match <= 80) {
+        return const HSLColor.fromAHSL(1, 90, 1, .9).toColor();
+      }
+      return const HSLColor.fromAHSL(1, 120, 1, .9).toColor();
+    } else {
       return const Color.fromARGB(0xff, 0xEE, 0xEE, 0xEE);
     }
-    if (match <= 20) {
-      return const HSLColor.fromAHSL(1, 0, 1, .9).toColor();
-    }
-    if (match <= 40) {
-      return const HSLColor.fromAHSL(1, 30, 1, .9).toColor();
-    }
-    if (match <= 60) {
-      return const HSLColor.fromAHSL(1, 60, 1, .9).toColor();
-    }
-    if (match <= 80) {
-      return const HSLColor.fromAHSL(1, 90, 1, .9).toColor();
-    }
-    return const HSLColor.fromAHSL(1, 120, 1, .9).toColor();
-  }
-
-  Future<void> _openLists(final String barcode) async {
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final DaoProductList daoProductList = DaoProductList(localDatabase);
-    final List<ProductList> list =
-        await daoProductList.getAll(withStats: false);
-    final List<ProductList> listWithBarcode =
-        await daoProductList.getAllWithBarcode(barcode);
-    int index = 0;
-    final Set<int> already = <int>{};
-    final Set<int> editable = <int>{};
-    final Set<int> addable = <int>{};
-    for (final ProductList productList in list) {
-      switch (productList.listType) {
-        case ProductList.LIST_TYPE_HISTORY:
-        case ProductList.LIST_TYPE_USER_DEFINED:
-        case ProductList.LIST_TYPE_SCAN:
-          editable.add(index);
-      }
-      switch (productList.listType) {
-        case ProductList.LIST_TYPE_USER_DEFINED:
-          addable.add(index);
-      }
-      for (final ProductList withBarcode in listWithBarcode) {
-        if (productList.lousyKey == withBarcode.lousyKey) {
-          already.add(index);
-          break;
-        }
-      }
-      index++;
-    }
-    showCupertinoModalBottomSheet<Widget>(
-      expand: false,
-      context: context,
-      backgroundColor: Colors.transparent,
-      bounce: true,
-      barrierColor: Colors.black45,
-      builder: (BuildContext context) => Material(
-        child: ListView.builder(
-          itemCount: list.length + 1,
-          itemBuilder: (final BuildContext context, int index) {
-            if (index == 0) {
-              return ListTile(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                title: const Text('close'),
-                leading: const Icon(Icons.close),
-              );
-            }
-            index--;
-            final ProductList productList = list[index];
-            return StatefulBuilder(
-              builder:
-                  (final BuildContext context, final StateSetter setState) {
-                Function onPressed;
-                IconData iconData;
-                if (already.contains(index)) {
-                  if (!editable.contains(index)) {
-                    iconData = Icons.check;
-                  } else {
-                    iconData = Icons.check_box_outlined;
-                    onPressed = () async {
-                      already.remove(index);
-                      daoProductList.removeBarcode(productList, barcode);
-                      localDatabase.notifyListeners();
-                      setState(() {});
-                    };
-                  }
-                } else {
-                  if (!addable.contains(index)) {
-                    iconData = null;
-                  } else if (!editable.contains(index)) {
-                    iconData = null;
-                  } else {
-                    iconData = Icons.check_box_outline_blank_outlined;
-                    onPressed = () async {
-                      already.add(index);
-                      daoProductList.addBarcode(productList, barcode);
-                      localDatabase.notifyListeners();
-                      setState(() {});
-                    };
-                  }
-                }
-                return Card(
-                  child: ListTile(
-                    title: Text(
-                      ProductQueryPageHelper.getProductListLabel(productList),
-                    ),
-                    trailing: iconData == null
-                        ? null
-                        : IconButton(
-                            icon: Icon(iconData),
-                            onPressed: () {
-                              onPressed();
-                            },
-                          ),
-                  ),
-                );
-              },
-            );
-          },
-        ),
-      ),
-    );
   }
 }

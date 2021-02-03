@@ -24,6 +24,7 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_VISIBLE_GROUPS = 'visible_groups';
   static const String _TAG_USE_ML_KIT = 'useMlKit';
   static const String _TAG_INIT = 'init';
+  static const String _TAG_PRODUCT_LIST_COPY = 'productListCopy';
 
   Future<void> init(final UserPreferencesModel userPreferencesModel) async {
     final bool alreadyDone = _sharedPreferences.getBool(_TAG_INIT);
@@ -114,4 +115,11 @@ class UserPreferences extends ChangeNotifier {
   }
 
   bool getMlKitState() => _sharedPreferences.getBool(_TAG_USE_ML_KIT) ?? false;
+
+  String getProductListCopy() =>
+      _sharedPreferences.getString(_TAG_PRODUCT_LIST_COPY);
+
+  Future<void> setProductListCopy(final String productListLousyKey) async =>
+      await _sharedPreferences.setString(
+          _TAG_PRODUCT_LIST_COPY, productListLousyKey);
 }
