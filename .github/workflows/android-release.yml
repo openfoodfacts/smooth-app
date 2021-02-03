@@ -69,6 +69,9 @@ jobs:
          SIGN_KEY_ALIAS: ${{ secrets.SIGN_KEY_ALIAS }}
          SIGN_KEY_PASSWORD: ${{ secrets.SIGN_KEY_PASSWORD }}
 
+      - name: Check directory
+        run: pwd
+
       - name: Run Fastlane
         uses: maierj/fastlane-action@v2.0.0
         with:
