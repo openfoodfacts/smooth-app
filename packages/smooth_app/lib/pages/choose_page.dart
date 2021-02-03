@@ -258,7 +258,6 @@ class _ChoosePageState extends State<ChoosePage> {
           ),
           iconTheme: IconThemeData(color: colorScheme.onBackground),
         ),
-        //key: _scaffoldKey,
         body: Column(
           children: <Widget>[
             if (_selectedCategory == null)

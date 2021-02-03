@@ -1,0 +1,40 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+# ToDo: increment_version
+
+default_platform(:android)
+
+platform :android do
+  desc "Deploy to closed beta track"
+  lane :closed_beta do
+    begin
+      gradle(task: "clean")
+      gradle(
+        task: "bundle",
+        build_type: 'Release'
+      )
+      upload_to_play_store(
+        track: 'internal',
+        aab: '../build/app/outputs/bundle/release/app-release.aab',
+        skip_upload_metadata: true,
+        skip_upload_images: true,
+        skip_upload_screenshots: true,
+        release_status: "draft",
+        version_code: flutter_version()["version_code"],
+      )
+    end
+  end
+end
