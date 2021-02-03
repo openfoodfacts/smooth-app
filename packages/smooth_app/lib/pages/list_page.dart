@@ -11,6 +11,14 @@ import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 
 class ListPage extends StatefulWidget {
+  const ListPage({
+    this.title,
+    this.typeFilter,
+  });
+
+  final String title;
+  final List<String> typeFilter;
+
   @override
   _ListPageState createState() => _ListPageState();
 }
@@ -28,78 +36,80 @@ class _ListPageState extends State<ListPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Lists',
+          widget.title,
           style: TextStyle(color: colorScheme.onBackground),
         ),
+        iconTheme: IconThemeData(color: colorScheme.onBackground),
         actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.add, color: colorScheme.onBackground),
-            onPressed: () => showDialog<void>(
-              context: context,
-              // TODO(monsieurtanuki): rename list, delete list
-              builder: (BuildContext context) => SmoothAlertDialog(
-                title: 'New list',
-                body: Form(
-                  key: _formKey,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      TextFormField(
-                          decoration: const InputDecoration(
-                            hintText: 'My new custom list',
-                          ),
-                          validator: (final String value) {
-                            if (value.isEmpty) {
-                              return 'Please enter some text';
-                            }
-                            if (_list == null) {
-                              return null;
-                            }
-                            _newProductList = ProductList(
-                              listType: ProductList.LIST_TYPE_USER_DEFINED,
-                              parameters: value,
-                            );
-                            for (final ProductList productList in _list) {
-                              if (productList.lousyKey ==
-                                  _newProductList.lousyKey) {
-                                return 'There\'s already a list with that name';
+          if (widget.typeFilter.contains(ProductList.LIST_TYPE_USER_DEFINED))
+            IconButton(
+              icon: Icon(Icons.add, color: colorScheme.onBackground),
+              onPressed: () => showDialog<void>(
+                context: context,
+                // TODO(monsieurtanuki): rename list, delete list
+                builder: (BuildContext context) => SmoothAlertDialog(
+                  title: 'New list',
+                  body: Form(
+                    key: _formKey,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        TextFormField(
+                            decoration: const InputDecoration(
+                              hintText: 'My new custom list',
+                            ),
+                            validator: (final String value) {
+                              if (value.isEmpty) {
+                                return 'Please enter some text';
                               }
-                            }
-                            return null;
-                          }),
-                    ],
+                              if (_list == null) {
+                                return null;
+                              }
+                              _newProductList = ProductList(
+                                listType: ProductList.LIST_TYPE_USER_DEFINED,
+                                parameters: value,
+                              );
+                              for (final ProductList productList in _list) {
+                                if (productList.lousyKey ==
+                                    _newProductList.lousyKey) {
+                                  return 'There\'s already a list with that name';
+                                }
+                              }
+                              return null;
+                            }),
+                      ],
+                    ),
                   ),
+                  actions: <SmoothSimpleButton>[
+                    SmoothSimpleButton(
+                      text: 'Cancel',
+                      onPressed: () => Navigator.pop(context),
+                      important: false,
+                    ),
+                    SmoothSimpleButton(
+                      text: 'OK',
+                      onPressed: () async {
+                        if (!_formKey.currentState.validate()) {
+                          return;
+                        }
+                        if (await daoProductList.get(_newProductList)) {
+                          // TODO(monsieurtanuki): unexpected, but do something!
+                          return;
+                        }
+                        await daoProductList.put(_newProductList);
+                        Navigator.pop(context);
+                        setState(() {});
+                      },
+                      important: true,
+                    ),
+                  ],
                 ),
-                actions: <SmoothSimpleButton>[
-                  SmoothSimpleButton(
-                    text: 'Cancel',
-                    onPressed: () => Navigator.pop(context),
-                    important: false,
-                  ),
-                  SmoothSimpleButton(
-                    text: 'OK',
-                    onPressed: () async {
-                      if (!_formKey.currentState.validate()) {
-                        return;
-                      }
-                      if (await daoProductList.get(_newProductList)) {
-                        // TODO(monsieurtanuki): unexpected, but do something!
-                        return;
-                      }
-                      await daoProductList.put(_newProductList);
-                      Navigator.pop(context);
-                      setState(() {});
-                    },
-                    important: true,
-                  ),
-                ],
               ),
-            ),
-          )
+            )
         ],
       ),
       body: FutureBuilder<List<ProductList>>(
-          future: daoProductList.getAll(),
+          future: daoProductList.getAll(typeFilter: widget.typeFilter),
           builder: (
             final BuildContext context,
             final AsyncSnapshot<List<ProductList>> snapshot,

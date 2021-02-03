@@ -113,6 +113,41 @@ class DaoProductList {
     return true;
   }
 
+  Future<List<String>> getFirstBarcodes(
+    final ProductList productList,
+    final int limit,
+    final bool reverse,
+  ) async {
+    final Map<String, dynamic> record = await _getRecord(productList);
+    if (record == null) {
+      return null;
+    }
+    final int id = record[_TABLE_PRODUCT_LIST_COLUMN_ID] as int;
+    return await _getBarcodes(id, limit: limit, reverse: reverse);
+  }
+
+  Future<List<Product>> getFirstProducts(
+    final ProductList productList,
+    final int limit,
+    final bool reverse,
+  ) async {
+    final List<String> barcodes = await getFirstBarcodes(
+      productList,
+      limit,
+      reverse,
+    );
+    final Map<String, Product> products =
+        await DaoProduct(localDatabase).getAll(barcodes);
+    final List<Product> result = <Product>[];
+    for (final String barcode in barcodes) {
+      final Product product = products[barcode];
+      if (product != null) {
+        result.add(product);
+      }
+    }
+    return result;
+  }
+
   Future<int> removeBarcode(
     final ProductList productList,
     final String barcode,
@@ -199,7 +234,12 @@ class DaoProductList {
     return null;
   }
 
-  Future<List<ProductList>> getAll({final bool withStats = true}) async {
+  Future<List<ProductList>> getAll({
+    final bool withStats = true,
+    final List<String> typeFilter,
+    final bool reverse = true,
+    final int limit,
+  }) async {
     final Map<int, int> counts = <int, int>{};
     final Map<int, int> countDistincts = <int, int>{};
 
@@ -225,14 +265,21 @@ class DaoProductList {
 
     final List<ProductList> result = <ProductList>[];
     final List<Map<String, dynamic>> queryResult =
-        await localDatabase.database.query(_TABLE_PRODUCT_LIST,
-            columns: <String>[
-              _TABLE_PRODUCT_LIST_COLUMN_ID,
-              LocalDatabase.COLUMN_TIMESTAMP,
-              _TABLE_PRODUCT_LIST_COLUMN_TYPE,
-              _TABLE_PRODUCT_LIST_COLUMN_PARAMETERS
-            ],
-            orderBy: '${LocalDatabase.COLUMN_TIMESTAMP} DESC');
+        await localDatabase.database.query(
+      _TABLE_PRODUCT_LIST,
+      columns: <String>[
+        _TABLE_PRODUCT_LIST_COLUMN_ID,
+        LocalDatabase.COLUMN_TIMESTAMP,
+        _TABLE_PRODUCT_LIST_COLUMN_TYPE,
+        _TABLE_PRODUCT_LIST_COLUMN_PARAMETERS
+      ],
+      where: typeFilter == null || typeFilter.isEmpty
+          ? null
+          : '$_TABLE_PRODUCT_LIST_COLUMN_TYPE in (?${(', ?') * (typeFilter.length - 1)})',
+      whereArgs: typeFilter == null || typeFilter.isEmpty ? null : typeFilter,
+      limit: limit,
+      orderBy: '${LocalDatabase.COLUMN_TIMESTAMP} ${reverse ? 'DESC' : 'ASC'}',
+    );
     for (final Map<String, dynamic> row in queryResult) {
       final int productListId = row[_TABLE_PRODUCT_LIST_COLUMN_ID] as int;
       final ProductList item = ProductList(
@@ -272,14 +319,21 @@ class DaoProductList {
     return result;
   }
 
-  Future<List<String>> _getBarcodes(final int id) async {
+  Future<List<String>> _getBarcodes(
+    final int id, {
+    final int limit,
+    final bool reverse = false,
+  }) async {
     const String BARCODE_COLUMN_NAME = _TABLE_PRODUCT_LIST_ITEM_COLUMN_BARCODE;
     final List<Map<String, dynamic>> query = await localDatabase.database.query(
-        _TABLE_PRODUCT_LIST_ITEM,
-        where: '$_TABLE_PRODUCT_LIST_ITEM_COLUMN_LIST_ID = ?',
-        whereArgs: <dynamic>[id],
-        columns: <String>[BARCODE_COLUMN_NAME],
-        orderBy: '$_TABLE_PRODUCT_LIST_ITEM_COLUMN_ID ASC');
+      _TABLE_PRODUCT_LIST_ITEM,
+      where: '$_TABLE_PRODUCT_LIST_ITEM_COLUMN_LIST_ID = ?',
+      whereArgs: <dynamic>[id],
+      columns: <String>[BARCODE_COLUMN_NAME],
+      orderBy:
+          '$_TABLE_PRODUCT_LIST_ITEM_COLUMN_ID ${reverse ? 'DESC' : 'ASC'}',
+      limit: limit,
+    );
     final List<String> result = <String>[];
     for (final Map<String, dynamic> row in query) {
       result.add(row[BARCODE_COLUMN_NAME] as String);
