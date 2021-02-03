@@ -39,7 +39,7 @@ jobs:
 
       #- name: Bump version
         #run: cd ./packages/smooth_app/ && pub global activate cider && export PATH="$PATH":"$HOME/.pub-cache/bin" && oldversion=$(cider version) && echo "Old version ${oldversion}" && oldBuild=$(echo $oldversion | cut -f2 -d"+") && newVersion=$(echo ${GITHUB_REF##*/} | cut -f2 -d"/") && versionToSet="${newVersion}+${oldBuild}"  && cider version $versionToSet && cider bump build
-                                                                                                                     get oldversion                                     get old buildnumber (after +)                       get new version without "release/"                add strings                               set new version                     
+                                                                                                                     #get oldversion                                     get old buildnumber (after +)                       get new version without "release/"                add strings                               set new version                     
 
       #- name: Setup git config
         #run: |
