@@ -50,7 +50,7 @@ jobs:
         run: |
           git add packages/smooth_app/pubspec.yaml
           git commit -m "Bumped Version"
-          git push origin master
+          git push
 
       - name: Commit new version to release branch
         run: |
