@@ -77,7 +77,7 @@ jobs:
         with:
           ruby-version: '>= 2.6'
           lane: closed_beta
-          subdirectory: packages/smooth_app/android/
+          subdirectory: ./packages/smooth_app/android/
         env:
          SIGN_STORE_PATH: ./../fastlane/envfiles/keystore.jks
          SIGN_STORE_PASSWORD: ${{ secrets.SIGN_STORE_PASSWORD }}
