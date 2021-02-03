@@ -39,7 +39,7 @@ jobs:
         run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get
 
       - name: Bump version
-        run: cd ./packages/smooth_app/ && pub global activate cider && export PATH="$PATH":"$HOME/.pub-cache/bin" && oldversion=$(cider version) && echo ${oldversion} && oldBuild=$(1.1.1+99 | cut -f2 -d"+") && newVersion=$(release/1.1.1 | cut -f2 -d"/") && versionToSet="${newVersion}+${oldBuild}"  && cider version $versionToSet && cider bump build
+        run: cd ./packages/smooth_app/ && pub global activate cider && export PATH="$PATH":"$HOME/.pub-cache/bin" && oldversion=$(cider version) && echo ${oldversion} && oldBuild=$(echo 1.1.1+99 | cut -f2 -d"+") && newVersion=$(echo release/1.1.1 | cut -f2 -d"/") && versionToSet="${newVersion}+${oldBuild}"  && cider version $versionToSet && cider bump build
         #                                                                                                             get oldversion                 get old buildnumber (after +)                    get new version without "release/"                add strings                               set new version                     
 
       - name: Setup git config
