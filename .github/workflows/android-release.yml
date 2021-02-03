@@ -3,7 +3,6 @@ name: Smoothie Google Play internal release
 on:
   push:
     branches:
-      - 'fastlane-new'
       - 'release/*'
 
 jobs:
@@ -39,8 +38,7 @@ jobs:
         run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get
 
       - name: Bump version
-      #tmp                                                                                                                                                                                                                                    replace with branchname
-        run: cd ./packages/smooth_app/ && pub global activate cider && export PATH="$PATH":"$HOME/.pub-cache/bin" && oldversion=$(cider version) && echo "Old version ${oldversion}" && oldBuild=$(echo $oldversion | cut -f2 -d"+") && newVersion=$(echo release/5.5.5 | cut -f2 -d"/") && versionToSet="${newVersion}+${oldBuild}"  && cider version $versionToSet && cider bump build
+        run: cd ./packages/smooth_app/ && pub global activate cider && export PATH="$PATH":"$HOME/.pub-cache/bin" && oldversion=$(cider version) && echo "Old version ${oldversion}" && oldBuild=$(echo $oldversion | cut -f2 -d"+") && newVersion=$(echo ${GITHUB_REF##*/} | cut -f2 -d"/") && versionToSet="${newVersion}+${oldBuild}"  && cider version $versionToSet && cider bump build
         #                                                                                                             get oldversion                                     get old buildnumber (after +)                       get new version without "release/"                add strings                               set new version                     
 
       - name: Setup git config
@@ -48,11 +46,11 @@ jobs:
           git config user.name "Version Bump"
           git config user.email "<>"
 
-      #- name: Commit new version to master
-      #  run: |
-      #    git add packages/smooth_app/pubspec.yaml
-      #    git commit -m "Bumped Version"
-      #    git push origin master
+      - name: Commit new version to master
+        run: |
+          git add packages/smooth_app/pubspec.yaml
+          git commit -m "Bumped Version"
+          git push origin master
 
       - name: Commit new version to release branch
         run: |
@@ -71,14 +69,14 @@ jobs:
          SIGN_KEY_ALIAS: ${{ secrets.SIGN_KEY_ALIAS }}
          SIGN_KEY_PASSWORD: ${{ secrets.SIGN_KEY_PASSWORD }}
 
-      #- name: Run Fastlane
-      #  uses: maierj/fastlane-action@v2.0.0
-      #  with:
-      #    lane: closed_beta
-      #    subdirectory: packages/smooth_app/android/
-      #  env:
-      #   SIGN_STORE_PATH: ./../fastlane/envfiles/keystore.jks
-      #   SIGN_STORE_PASSWORD: ${{ secrets.SIGN_STORE_PASSWORD }}
-      #   SIGN_KEY_ALIAS: ${{ secrets.SIGN_KEY_ALIAS }}
-      #   SIGN_KEY_PASSWORD: ${{ secrets.SIGN_KEY_PASSWORD }}
+      - name: Run Fastlane
+        uses: maierj/fastlane-action@v2.0.0
+        with:
+          lane: closed_beta
+          subdirectory: packages/smooth_app/android/
+        env:
+         SIGN_STORE_PATH: ./../fastlane/envfiles/keystore.jks
+         SIGN_STORE_PASSWORD: ${{ secrets.SIGN_STORE_PASSWORD }}
+         SIGN_KEY_ALIAS: ${{ secrets.SIGN_KEY_ALIAS }}
+         SIGN_KEY_PASSWORD: ${{ secrets.SIGN_KEY_PASSWORD }}
 
