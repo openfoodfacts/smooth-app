@@ -58,8 +58,8 @@ jobs:
           #git commit -m "Bumped Version"
           #git push origin ${GITHUB_REF##*/}
 
-      - name: Install Flutter dependencies
-        run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get
+      #- name: Install Flutter dependencies
+      #  run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get
 
       - name: Build AAB
         run: echo $SIGN_STORE_PATH && pwd && cd ./packages/smooth_app/ && pwd && flutter build appbundle --release  
