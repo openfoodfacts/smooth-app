@@ -2,17 +2,17 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/utils/LanguageHelper.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:image_cropper/image_cropper.dart';
 
 class ImageUploadCard extends StatefulWidget {
   const ImageUploadCard({
-    Key key,
     this.product,
     this.imageField,
     this.buttonText,
-  }) : super(key: key);
+  });
 
   final Product product;
   final ImageField imageField;
@@ -27,10 +27,8 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
   final ImagePicker picker = ImagePicker();
 
   Future<void> _getImage() async {
-    print('getImage');
     final PickedFile pickedFile =
         await picker.getImage(source: ImageSource.camera);
-    print('got image');
 
     if (pickedFile != null) {
       final File croppedImage = await ImageCropper.cropImage(
@@ -40,7 +38,6 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
           hideBottomControls: true,
         ),
       );
-      print('cropping image - done');
 
       if (croppedImage != null) {
         setState(() {
@@ -48,7 +45,8 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
         });
 
         final SendImage image = SendImage(
-          lang: OpenFoodFactsLanguage.ENGLISH,
+          lang: LanguageHelper.fromJson(
+              Localizations.localeOf(context).languageCode),
           barcode: widget.product.barcode,
           imageField: widget.imageField,
           imageUrl: _image.uri,
