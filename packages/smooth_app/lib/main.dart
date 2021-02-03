@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sentry/sentry.dart';
 import 'package:provider/provider.dart';
 
@@ -19,10 +18,8 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_ui_library/navigation/models/smooth_navigation_action_model.dart';
-import 'package:smooth_ui_library/navigation/models/smooth_navigation_layout_model.dart';
-import 'package:smooth_ui_library/navigation/models/smooth_navigation_screen_model.dart';
-import 'package:smooth_ui_library/navigation/smooth_navigation_layout.dart';
+import 'package:smooth_ui_library/navigation/smooth_bottom_navigation_bar.dart';
+import 'package:smooth_ui_library/navigation/models/smooth_bottom_navigation_bar_item.dart';
 
 Future<void> main() async {
   await Sentry.init(
@@ -135,110 +132,42 @@ class SmoothAppGetLanguage extends StatelessWidget {
 }
 
 class SmoothApp extends StatelessWidget {
-  static const double _navigationIconSize = 32.0;
-  static const double _navigationIconPadding = 5.0;
-
   @override
   Widget build(BuildContext context) {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final bool mlKitState = userPreferences.getMlKitState();
-    return SmoothNavigationLayout(
-      layout: SmoothNavigationLayoutModel(
-        screens: <SmoothNavigationScreenModel>[
-          _generateScreenModel(
-            context,
-            mlKitState,
-            'Choose',
-            ChoosePage(),
-            svg: 'assets/ikonate_thin/search.svg',
+    return SmoothBottomNavigationBar(
+      <SmoothBottomNavigationBarItem>[
+        SmoothBottomNavigationBarItem(
+          name: 'Choose',
+          body: ChoosePage(),
+          iconPath: 'assets/ikonate_thin/search.svg',
+        ),
+        SmoothBottomNavigationBarItem(
+          name: 'Contribute',
+          body: CollaborationPage(),
+          iconPath: 'assets/ikonate_thin/add.svg',
+        ),
+        SmoothBottomNavigationBarItem(
+          name: 'Lists',
+          body: ListPage(),
+          iconPath: 'assets/navigation/organize.svg',
+        ),
+        SmoothBottomNavigationBarItem(
+          name: 'Profile',
+          body: ProfilePage(),
+          iconPath: 'assets/ikonate_thin/person.svg',
+        ),
+      ],
+      fabAction: () => Navigator.push<Widget>(
+        context,
+        MaterialPageRoute<Widget>(
+          builder: (BuildContext context) => ScanPage(
+            contributionMode: false,
+            mlKit: mlKitState,
           ),
-          /*
-          _generateScreenModel(
-            context,
-            mlKitState,
-            'assets/ikonate_thin/organize.svg',
-            'Organize',
-            OrganizationPage(),
-          ),
-           */
-          _generateScreenModel(
-            context,
-            mlKitState,
-            'Contribute',
-            CollaborationPage(),
-            svg: 'assets/ikonate_thin/add.svg',
-          ),
-          _generateScreenModel(
-            context,
-            mlKitState,
-            'Lists',
-            ListPage(),
-            iconData: Icons.list,
-          ),
-          _generateScreenModel(
-            context,
-            mlKitState,
-            'Profile',
-            ProfilePage(),
-            svg: 'assets/ikonate_thin/person.svg',
-          ),
-        ],
+        ),
       ),
-      animationDuration: 300,
-      animationCurve: Curves.easeInOutBack,
-      borderRadius: 20.0,
-      color: Colors.transparent,
-      scanButtonColor: Theme.of(context).colorScheme.secondary,
-      scanShadowColor: Theme.of(context).colorScheme.secondary,
-      scanIconColor: Theme.of(context).colorScheme.onSecondary,
-      classicMode: true,
     );
   }
-
-  SmoothNavigationScreenModel _generateScreenModel(
-    final BuildContext context,
-    final bool mlKitState,
-    final String title,
-    final Widget page, {
-    final String svg,
-    final IconData iconData,
-  }) =>
-      SmoothNavigationScreenModel(
-        icon: Container(
-          padding: const EdgeInsets.all(_navigationIconPadding),
-          child: svg != null
-              ? SvgPicture.asset(
-                  svg,
-                  width: _navigationIconSize,
-                  height: _navigationIconSize,
-                  color: Theme.of(context)
-                      .bottomNavigationBarTheme
-                      .selectedItemColor,
-                )
-              : Icon(
-                  iconData,
-                  size: _navigationIconSize,
-                  color: Theme.of(context)
-                      .bottomNavigationBarTheme
-                      .selectedItemColor,
-                ),
-        ),
-        title: title,
-        page: page,
-        action: SmoothNavigationActionModel(
-          title: AppLocalizations.of(context).scanProductTitle,
-          icon: 'assets/actions/scanner_alt_2.svg',
-          iconPadding: _navigationIconPadding,
-          iconSize: _navigationIconSize,
-          onTap: () => Navigator.push<Widget>(
-            context,
-            MaterialPageRoute<Widget>(
-              builder: (BuildContext context) => ScanPage(
-                contributionMode: false,
-                mlKit: mlKitState,
-              ),
-            ),
-          ),
-        ),
-      );
 }
