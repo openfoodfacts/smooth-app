@@ -70,7 +70,7 @@ jobs:
          SIGN_KEY_PASSWORD: ${{ secrets.SIGN_KEY_PASSWORD }}
 
       - name: Run Fastlane
-        uses: actions/checkout@v2, actions/setup-ruby@v1, maierj/fastlane-action@v2.0.0
+        uses: maierj/fastlane-action@v2.0.0
         with:
           ruby-version: '>= 2.6'
           lane: closed_beta
