@@ -21,30 +21,18 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final DarkThemeProvider themeChange = context.watch<DarkThemeProvider>();
+    final ThemeData themeData = Theme.of(context);
     final Launcher launcher = Launcher();
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          AppLocalizations.of(context).testerSettingTitle,
+          style: TextStyle(color: themeData.colorScheme.onBackground),
+        ),
+        iconTheme: IconThemeData(color: themeData.colorScheme.onBackground),
+      ),
       body: Column(
         children: <Widget>[
-          //Title
-          Padding(
-            padding: const EdgeInsets.only(
-                top: 46.0, right: 16.0, left: 16.0, bottom: 4.0),
-            child: Row(
-              children: <Widget>[
-                Flexible(
-                  child: Text(
-                    AppLocalizations.of(context).testerSettingTitle,
-                    style: Theme.of(context).textTheme.headline1,
-                    textAlign: TextAlign.start,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(
-            height: 10.0,
-          ),
-
           //useMLKit
           SmoothListTile(
             text: AppLocalizations.of(context).useMLKitText,
@@ -147,18 +135,15 @@ class ProfilePage extends StatelessWidget {
                                     leading: const Icon(Icons.no_sim_outlined),
                                     title: Text(
                                       snapshot.data.appName.toString(),
-                                      style:
-                                          Theme.of(context).textTheme.headline1,
+                                      style: themeData.textTheme.headline1,
                                     ),
                                     subtitle: Text(
                                       snapshot.data.version.toString(),
-                                      style:
-                                          Theme.of(context).textTheme.subtitle2,
+                                      style: themeData.textTheme.subtitle2,
                                     ),
                                   ),
                                   Divider(
-                                    color:
-                                        Theme.of(context).colorScheme.onSurface,
+                                    color: themeData.colorScheme.onSurface,
                                   ),
                                   const SizedBox(
                                     height: 20,
