@@ -1,5 +1,4 @@
 source "https://rubygems.org"
-gem install bundler:1.17.3
 gem "fastlane"
 gem "fastlane-plugin-flutter_version", git: "https://github.com/tianhaoz95/fastlane-plugin-flutter-version"
 
