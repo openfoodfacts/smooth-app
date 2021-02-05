@@ -193,8 +193,10 @@ class ChoosePage extends StatefulWidget {
         name: value,
         localDatabase: localDatabase,
         productQuery: KeywordsProductQuery(
-          value,
-          Localizations.localeOf(context).languageCode,
+          keywords: value,
+          languageCode: Localizations.localeOf(context).languageCode,
+          countryCode: window.locale.countryCode,
+          size: 500,
         ),
         context: context,
       );
