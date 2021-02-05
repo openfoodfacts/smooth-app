@@ -1,17 +1,24 @@
 import 'dart:async';
 
+import 'package:flutter/material.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:openfoodfacts/model/parameter/TagFilter.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/model/SearchResult.dart';
-import 'package:openfoodfacts/utils/LanguageHelper.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 
 class KeywordsProductQuery implements ProductQuery {
-  KeywordsProductQuery(this.keywords, this.languageCode);
+  KeywordsProductQuery({
+    @required this.keywords,
+    @required this.languageCode,
+    @required this.countryCode,
+    @required this.size,
+  });
 
   final String keywords;
   final String languageCode;
+  final String countryCode;
+  final int size;
 
   @override
   Future<SearchResult> getSearchResult() async =>
@@ -20,20 +27,22 @@ class KeywordsProductQuery implements ProductQuery {
         ProductSearchQueryConfiguration(
           fields: ProductQuery.fields,
           parametersList: <Parameter>[
-            const PageSize(size: 500),
+            PageSize(size: size),
             TagFilter(
               tagType: 'categories',
               contains: true,
               tagName: keywords,
-            )
+            ),
           ],
-          language: LanguageHelper.fromJson(languageCode),
+          lc: languageCode,
+          cc: countryCode,
         ),
       );
 
   @override
   ProductList getProductList() => ProductList(
         listType: ProductList.LIST_TYPE_HTTP_SEARCH_KEYWORDS,
+        // TODO(monsieurtanuki): parameters should include languageCode, countryCode and pageSize
         parameters: keywords,
       );
 }
