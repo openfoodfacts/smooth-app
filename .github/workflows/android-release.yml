@@ -25,7 +25,7 @@ jobs:
       - name: Setup Ruby
         uses: actions/setup-ruby@v1
         with:
-          ruby-version: '>= 2.6'
+          ruby-version: '2.7.2'
       - name: Decrypt API JSON file
         run: cd ./packages/smooth_app/android/fastlane/envfiles && chmod +x ./decrypt_secrets.sh && ./decrypt_secrets.sh
         env:
