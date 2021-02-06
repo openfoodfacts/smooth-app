@@ -55,7 +55,7 @@ jobs:
       #    git add packages/smooth_app/pubspec.yaml
       #    git commit -m "Bumped Version"
       #    git push origin ${GITHUB_REF##*/}
-      -
+    
       - name: Install Flutter dependencies
         run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get
 
