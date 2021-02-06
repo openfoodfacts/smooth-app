@@ -61,6 +61,7 @@ class SmoothProductCardFound extends StatelessWidget {
                   )),
         );
       },
+      onLongPress: () => ProductPage.showLists(product, context),
       child: Hero(
         tag: heroTag,
         child: Material(

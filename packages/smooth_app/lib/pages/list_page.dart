@@ -5,20 +5,24 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/pages/product_query_page_helper.dart';
+import 'package:smooth_app/pages/product_list_dialog_helper.dart';
 import 'package:smooth_app/pages/product_list_page.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
-import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 
 class ListPage extends StatefulWidget {
+  const ListPage({
+    this.title,
+    this.typeFilter,
+  });
+
+  final String title;
+  final List<String> typeFilter;
+
   @override
   _ListPageState createState() => _ListPageState();
 }
 
 class _ListPageState extends State<ListPage> {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   List<ProductList> _list;
-  ProductList _newProductList;
 
   @override
   Widget build(BuildContext context) {
@@ -28,78 +32,25 @@ class _ListPageState extends State<ListPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Lists',
+          widget.title,
           style: TextStyle(color: colorScheme.onBackground),
         ),
+        iconTheme: IconThemeData(color: colorScheme.onBackground),
         actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.add, color: colorScheme.onBackground),
-            onPressed: () => showDialog<void>(
-              context: context,
-              // TODO(monsieurtanuki): rename list, delete list
-              builder: (BuildContext context) => SmoothAlertDialog(
-                title: 'New list',
-                body: Form(
-                  key: _formKey,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      TextFormField(
-                          decoration: const InputDecoration(
-                            hintText: 'My new custom list',
-                          ),
-                          validator: (final String value) {
-                            if (value.isEmpty) {
-                              return 'Please enter some text';
-                            }
-                            if (_list == null) {
-                              return null;
-                            }
-                            _newProductList = ProductList(
-                              listType: ProductList.LIST_TYPE_USER_DEFINED,
-                              parameters: value,
-                            );
-                            for (final ProductList productList in _list) {
-                              if (productList.lousyKey ==
-                                  _newProductList.lousyKey) {
-                                return 'There\'s already a list with that name';
-                              }
-                            }
-                            return null;
-                          }),
-                    ],
-                  ),
-                ),
-                actions: <SmoothSimpleButton>[
-                  SmoothSimpleButton(
-                    text: 'Cancel',
-                    onPressed: () => Navigator.pop(context),
-                    important: false,
-                  ),
-                  SmoothSimpleButton(
-                    text: 'OK',
-                    onPressed: () async {
-                      if (!_formKey.currentState.validate()) {
-                        return;
-                      }
-                      if (await daoProductList.get(_newProductList)) {
-                        // TODO(monsieurtanuki): unexpected, but do something!
-                        return;
-                      }
-                      await daoProductList.put(_newProductList);
-                      Navigator.pop(context);
-                      setState(() {});
-                    },
-                    important: true,
-                  ),
-                ],
-              ),
-            ),
-          )
+          if (widget.typeFilter.contains(ProductList.LIST_TYPE_USER_DEFINED))
+            IconButton(
+              icon: Icon(Icons.add, color: colorScheme.onBackground),
+              onPressed: () async {
+                if (await ProductListDialogHelper.openNew(
+                    context, daoProductList, _list)) {
+                  setState(() {});
+                }
+              },
+            )
         ],
       ),
       body: FutureBuilder<List<ProductList>>(
-          future: daoProductList.getAll(),
+          future: daoProductList.getAll(typeFilter: widget.typeFilter),
           builder: (
             final BuildContext context,
             final AsyncSnapshot<List<ProductList>> snapshot,
@@ -117,15 +68,19 @@ class _ListPageState extends State<ListPage> {
                     return Card(
                       child: ListTile(
                         title: Text(
-                          ProductQueryPageHelper.getProductListLabel(item),
+                          ProductQueryPageHelper.getProductListLabel(
+                            item,
+                            verbose: false,
+                          ),
                           style: Theme.of(context).textTheme.bodyText1,
                         ),
                         subtitle: Text(
                           '${ProductQueryPageHelper.getDurationStringFromTimestamp(item.databaseTimestamp)}, '
                           '${ProductQueryPageHelper.getProductCount(item)}',
                         ),
-                        onTap: () {
-                          Navigator.push<dynamic>(
+                        onTap: () async {
+                          await daoProductList.get(item);
+                          await Navigator.push<dynamic>(
                             context,
                             MaterialPageRoute<dynamic>(
                               builder: (BuildContext context) =>
@@ -135,34 +90,13 @@ class _ListPageState extends State<ListPage> {
                               ),
                             ),
                           );
+                          localDatabase.notifyListeners();
                         },
-                        onLongPress: () {
-                          showDialog<bool>(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return SmoothAlertDialog(
-                                //title: AppLocalizations.of(context).contribute_translate_header,
-                                body: const Text(
-                                    'Do you want to delete this product list?'),
-                                actions: <SmoothSimpleButton>[
-                                  SmoothSimpleButton(
-                                    onPressed: () => Navigator.pop(context),
-                                    text: AppLocalizations.of(context).no,
-                                    important: false,
-                                  ),
-                                  SmoothSimpleButton(
-                                    onPressed: () async {
-                                      await daoProductList.delete(item);
-                                      Navigator.pop(context);
-                                      setState(() {});
-                                    },
-                                    text: AppLocalizations.of(context).yes,
-                                    important: true,
-                                  ),
-                                ],
-                              );
-                            },
-                          );
+                        onLongPress: () async {
+                          if (await ProductListDialogHelper.openDelete(
+                              context, daoProductList, item)) {
+                            setState(() {});
+                          }
                         },
                       ),
                     );
