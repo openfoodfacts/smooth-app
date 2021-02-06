@@ -94,6 +94,26 @@ class DaoProductList {
     return queryResult.first;
   }
 
+  Future<bool> rename(
+    final ProductList productList,
+    final String newName,
+  ) async {
+    try {
+      final int nbUpdated = await localDatabase.database.update(
+        _TABLE_PRODUCT_LIST,
+        <String, dynamic>{
+          _TABLE_PRODUCT_LIST_COLUMN_PARAMETERS: newName,
+          LocalDatabase.COLUMN_TIMESTAMP: LocalDatabase.nowInMillis(),
+        },
+        where: _getProductListUKWhere(),
+        whereArgs: _getProductListUKWhereArgs(productList),
+      );
+      return nbUpdated == 1;
+    } catch (e) {
+      return false;
+    }
+  }
+
   Future<void> put(final ProductList productList) async {
     final int productListId = await _upsertProductList(productList);
     await DaoProduct(localDatabase).putProducts(productList.getList());

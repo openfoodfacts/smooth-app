@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product_query_page_helper.dart';
+import 'package:smooth_app/pages/product_list_dialog_helper.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:openfoodfacts/model/Product.dart';
 
@@ -11,6 +12,7 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
+import 'package:wc_flutter_share/wc_flutter_share.dart';
 
 class ProductListPage extends StatefulWidget {
   const ProductListPage(
@@ -28,21 +30,32 @@ class ProductListPage extends StatefulWidget {
 }
 
 class _ProductListPageState extends State<ProductListPage> {
+  ProductList productList;
+
+  static const String _TRANSLATE_ME_RENAME = 'Rename';
+  static const String _TRANSLATE_ME_DELETE = 'Delete';
+  static const String _TRANSLATE_ME_COPY = 'copy';
+  static const String _TRANSLATE_ME_PASTE = 'paste';
+  static const String _TRANSLATE_ME_CLEAR = 'clear';
+  static const String _TRANSLATE_ME_GROCERY = 'grocery';
+
   @override
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
-    final ProductList productList = widget.productList;
+    productList ??= widget.productList;
     final List<Product> products = _compact(productList.getList());
     bool pastable = false;
+    bool renamable = false;
     bool deletable = false;
     switch (productList.listType) {
       case ProductList.LIST_TYPE_USER_DEFINED:
         // TODO(monsieurtanuki): clear the preference when the product list is deleted
         pastable = userPreferences.getProductListCopy() != null;
         deletable = true;
+        renamable = true;
         break;
       case ProductList.LIST_TYPE_HTTP_SEARCH_KEYWORDS:
       case ProductList.LIST_TYPE_HTTP_SEARCH_GROUP:
@@ -54,22 +67,22 @@ class _ProductListPageState extends State<ProductListPage> {
     const int INDEX_COPY = 0;
     final int indexPaste = pastable ? INDEX_COPY + 1 : -1;
     final int indexClear = pastable ? indexPaste + 1 : INDEX_COPY + 1;
-    final int indexDelete = deletable ? indexClear + 1 : -2;
+    final int indexGrocery = indexClear + 1;
     return Scaffold(
       bottomNavigationBar: Builder(
         builder: (BuildContext context) => BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           items: <BottomNavigationBarItem>[
             const BottomNavigationBarItem(
-                icon: Icon(Icons.copy), label: 'copy'),
+                icon: Icon(Icons.copy), label: _TRANSLATE_ME_COPY),
             if (pastable)
               const BottomNavigationBarItem(
-                  icon: Icon(Icons.paste), label: 'paste'),
+                  icon: Icon(Icons.paste), label: _TRANSLATE_ME_PASTE),
             const BottomNavigationBarItem(
-                icon: Icon(Icons.highlight_remove), label: 'clear'),
-            if (deletable)
-              const BottomNavigationBarItem(
-                  icon: Icon(Icons.delete), label: 'delete'),
+                icon: Icon(Icons.highlight_remove), label: _TRANSLATE_ME_CLEAR),
+            const BottomNavigationBarItem(
+                icon: Icon(Icons.local_grocery_store),
+                label: _TRANSLATE_ME_GROCERY),
           ],
           onTap: (final int index) async {
             if (index == INDEX_COPY) {
@@ -88,10 +101,20 @@ class _ProductListPageState extends State<ProductListPage> {
             } else if (index == indexClear) {
               await daoProductList.clear(productList);
               localDatabase.notifyListeners();
-            } else if (index == indexDelete) {
-              await daoProductList.delete(productList);
-              Navigator.pop(context);
-              localDatabase.notifyListeners();
+            } else if (index == indexGrocery) {
+              final List<String> names = <String>[];
+              for (final Product product in products) {
+                names.add(
+                  '* ${product.productName}'
+                  ', ${product.brands}'
+                  ', ${product.quantity}',
+                );
+              }
+              WcFlutterShare.share(
+                  sharePopupTitle: 'Grocery list',
+                  subject: productList.parameters,
+                  text: names.join('\n'),
+                  mimeType: 'text/plain');
             } else {
               throw Exception('Unexpected index $index');
             }
@@ -104,6 +127,50 @@ class _ProductListPageState extends State<ProductListPage> {
           style: TextStyle(color: colorScheme.onBackground),
         ),
         iconTheme: IconThemeData(color: colorScheme.onBackground),
+        actions: (!renamable) && (!deletable)
+            ? null
+            : <Widget>[
+                PopupMenuButton<String>(
+                  itemBuilder: (final BuildContext context) =>
+                      <PopupMenuEntry<String>>[
+                    if (renamable)
+                      const PopupMenuItem<String>(
+                        value: 'rename',
+                        child: Text(_TRANSLATE_ME_RENAME),
+                        enabled: true,
+                      ),
+                    if (deletable)
+                      const PopupMenuItem<String>(
+                        value: 'delete',
+                        child: Text(_TRANSLATE_ME_DELETE),
+                        enabled: true,
+                      ),
+                  ],
+                  onSelected: (final String value) async {
+                    switch (value) {
+                      case 'rename':
+                        final ProductList renamedProductList =
+                            await ProductListDialogHelper.openRename(
+                                context, daoProductList, productList);
+                        if (renamedProductList == null) {
+                          return;
+                        }
+                        productList = renamedProductList;
+                        setState(() {});
+                        break;
+                      case 'delete':
+                        if (await ProductListDialogHelper.openDelete(
+                            context, daoProductList, productList)) {
+                          Navigator.pop(context);
+                          localDatabase.notifyListeners();
+                        }
+                        break;
+                      default:
+                        throw Exception('Unknown value: $value');
+                    }
+                  },
+                ),
+              ],
       ),
       floatingActionButton: products.isEmpty
           ? null
@@ -141,7 +208,7 @@ class _ProductListPageState extends State<ProductListPage> {
                 return !pastable
                     ? child
                     : Dismissible(
-                        background: Container(color: Colors.red),
+                        background: Container(color: colorScheme.background),
                         key: Key(barcode),
                         onDismissed: (final DismissDirection direction) async {
                           await daoProductList.removeBarcode(
