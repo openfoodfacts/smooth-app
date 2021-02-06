@@ -13,7 +13,7 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
-# ToDo: increment_version
+
 
 default_platform(:android)
 
