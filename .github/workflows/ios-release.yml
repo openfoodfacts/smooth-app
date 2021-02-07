@@ -32,10 +32,8 @@ jobs:
         uses: subosito/flutter-action@v1
         with:
           flutter-version: 1.22.5
-      - name: Install tools
-        run: |
-          flutter pub get
-          cd ./packages/smooth_app/ios && pod install
+      - name: Install Flutter dependencies
+        run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get && pod install
       - name: Install Flutter dependencies
         run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get
       - name: Run Fastlane
