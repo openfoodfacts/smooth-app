@@ -33,11 +33,11 @@ jobs:
           STORE_JKS_DECRYPTKEY: ${{ secrets.STORE_JKS_DECRYPTKEY }}
 
       - name: Setup Flutter
-          uses: subosito/flutter-action@v1
-          with:
-            flutter-version: 1.22.5
-            - name: Install Flutter dependencies
-              run: flutter pub get
+        uses: subosito/flutter-action@v1
+        with:
+          flutter-version: 1.22.5
+          - name: Install Flutter dependencies
+            run: flutter pub get
 
       - name: Bump version
         run: pwd && cd android && pwd && echo ${fastlane action google_play_track_version_codes packagename:"org.openfoodfacts.app" track:"internal"}
