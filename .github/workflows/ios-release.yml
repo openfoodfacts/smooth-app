@@ -20,10 +20,22 @@ jobs:
         run: cd ./fastlane/envfiles && ./decrypt_secrets.sh
         env:
           AUTH_KEY_FILE_DECRYPTKEY: ${{ secrets.AUTH_KEY_FILE_DECRYPTKEY }}
+      - name: Select Xcode version
+        run: sudo xcode-select -s '/Applications/Xcode_11.3.app/Contents/Developer'
+      - name: Bundle install
+        run: cd ./ios && bundle install
+      - name: Setup JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: "12.x"
       - name: Setup Flutter
         uses: subosito/flutter-action@v1
         with:
           flutter-version: 1.22.5
+      - name: Install tools
+        run: |
+          flutter pub get
+          cd ./ios && pod install
       - name: Install Flutter dependencies
         run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get
       - name: Run Fastlane
@@ -45,4 +57,5 @@ jobs:
           SPACESHIP_CONNECT_API_KEY_ID: ${{ secrets.SPACESHIP_CONNECT_API_KEY_ID }}
           SPACESHIP_CONNECT_API_KEY_FILEPATH: envfiles/AuthKey_KDAUTTM76R.p8
           CI_RELEASE: true
+
 
