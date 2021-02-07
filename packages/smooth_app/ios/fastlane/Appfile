@@ -1,0 +1,3 @@
+app_identifier ENV["APP_BUNDLE_IDENTIFIER"]
+team_id "ZC9CYWD334"
+apple_id ENV["APPLE_ID"]
