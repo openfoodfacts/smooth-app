@@ -43,9 +43,9 @@ jobs:
 
       - name: Run Fastlane
         uses: maierj/fastlane-action@v2.0.0
-          with:
-            lane: getVersion
-            subdirectory: packages/smooth_app/android
+        with:
+          lane: getVersion
+          subdirectory: packages/smooth_app/android
 
       #- name: Bump version
       #  run: pwd && cd android && pwd && export PATH="$HOME/.fastlane/bin:$PATH" && fastlane action google_play_track_version_codes packagename:"org.openfoodfacts.app" track:"internal"
