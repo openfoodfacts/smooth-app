@@ -17,7 +17,7 @@ jobs:
         with:
           ruby-version: '2.7.2'
       - name: Decrypt AuthKey file
-        run: pwd && cd ./fastlane/envfiles && ./decrypt_secrets.sh
+        run: pwd && ls && cd ./fastlane/envfiles && ./decrypt_secrets.sh
         env:
           AUTH_KEY_FILE_DECRYPTKEY: ${{ secrets.AUTH_KEY_FILE_DECRYPTKEY }}
       - name: Select Xcode version
