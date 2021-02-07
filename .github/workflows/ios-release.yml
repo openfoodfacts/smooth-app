@@ -34,6 +34,20 @@ jobs:
           flutter-version: 1.22.5
       - name: Install Flutter dependencies
         run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get && flutter build ios && pod install
+        env:
+          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
+          FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
+          MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
+          MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL }}
+          MATCH_KEYCHAIN_PASSWORD: ${{ secrets.MATCH_KEYCHAIN_PASSWORD }}
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          PILOT_APPLE_ID: ${{ secrets.PILOT_APPLE_ID }}
+          SPACESHIP_CONNECT_API_ISSUER_ID: ${{ secrets.SPACESHIP_CONNECT_API_ISSUER_ID }}
+          SPACESHIP_CONNECT_API_KEY_ID: ${{ secrets.SPACESHIP_CONNECT_API_KEY_ID }}
+          SPACESHIP_CONNECT_API_KEY_FILEPATH: envfiles/AuthKey_KDAUTTM76R.p8
+          CI_RELEASE: true
       - name: Run Fastlane
         uses: maierj/fastlane-action@v2.0.0
         with:
