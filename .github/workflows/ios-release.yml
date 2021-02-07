@@ -23,7 +23,7 @@ jobs:
       - name: Select Xcode version
         run: sudo xcode-select -s '/Applications/Xcode_11.3.app/Contents/Developer'
       - name: Bundle install
-        run: cd ./ios && bundle install
+        run: cd ./packages/smooth_app/ios && bundle install
       - name: Setup JDK
         uses: actions/setup-java@v1
         with:
@@ -35,7 +35,7 @@ jobs:
       - name: Install tools
         run: |
           flutter pub get
-          cd ./ios && pod install
+          cd ./packages/smooth_app/ios && pod install
       - name: Install Flutter dependencies
         run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get
       - name: Run Fastlane
