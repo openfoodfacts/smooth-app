@@ -160,29 +160,33 @@ class _ProductPageState extends State<ProductPage> {
     UserPreferencesModel.ATTRIBUTE_GROUP_ALLERGENS,
   ];
 
+  static const double _OPACITY_FOR_DARK =
+      .3; // TODO(monsieurtanuki): make it more public?
+
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
+    final ThemeData themeData = Theme.of(context);
+    final ColorScheme colorScheme = themeData.colorScheme;
     return Scaffold(
         appBar: AppBar(
           title: ListTile(
             title: Text(
               widget.product.productName ?? appLocalizations.unknownProductName,
-              style: Theme.of(context)
-                  .textTheme
-                  .headline4
-                  .copyWith(color: Theme.of(context).colorScheme.onBackground),
+              style: themeData.textTheme.headline4
+                  .copyWith(color: colorScheme.onBackground),
             ),
           ),
-          iconTheme:
-              IconThemeData(color: Theme.of(context).colorScheme.onBackground),
+          iconTheme: IconThemeData(color: colorScheme.onBackground),
         ),
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/actions/food-cog.svg'),
+              icon: SvgPicture.asset(
+                'assets/actions/food-cog.svg',
+                color: themeData.bottomNavigationBarTheme.selectedItemColor,
+              ),
               label: 'preferences',
             ),
             const BottomNavigationBarItem(
@@ -191,7 +195,7 @@ class _ProductPageState extends State<ProductPage> {
             ),
             const BottomNavigationBarItem(
               icon: Icon(Icons.launch),
-              label: 'Web',
+              label: 'web',
             ),
             BottomNavigationBarItem(
               icon: Icon(ConstantIcons.getShareIcon()),
@@ -242,8 +246,6 @@ class _ProductPageState extends State<ProductPage> {
   }
 
   Widget _buildNewProductBody(BuildContext context) {
-    //final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
     return ListView(children: <Widget>[
       Container(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -279,6 +281,7 @@ class _ProductPageState extends State<ProductPage> {
         context.watch<UserPreferencesModel>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Size screenSize = MediaQuery.of(context).size;
+    final ThemeData themeData = Theme.of(context);
     final double iconWidth =
         screenSize.width / 10; // TODO(monsieurtanuki): target size?
     final Map<String, String> attributeGroupLabels = <String, String>{};
@@ -300,7 +303,7 @@ class _ProductPageState extends State<ProductPage> {
             Flexible(
               child: Text(
                 widget.product.brands ?? appLocalizations.unknownBrand,
-                style: Theme.of(context).textTheme.subtitle1,
+                style: themeData.textTheme.subtitle1,
               ),
             ),
             Flexible(
@@ -308,9 +311,7 @@ class _ProductPageState extends State<ProductPage> {
                 widget.product.quantity != null
                     ? '${widget.product.quantity}'
                     : '',
-                style: Theme.of(context)
-                    .textTheme
-                    .headline4
+                style: themeData.textTheme.headline4
                     .copyWith(color: Colors.grey, fontSize: 18.0),
               ),
             ),
@@ -320,6 +321,8 @@ class _ProductPageState extends State<ProductPage> {
     );
     final Map<String, Attribute> matchingAttributes =
         Match.getMatchingAttributes(widget.product, mainAttributes);
+    final double opacity =
+        themeData.brightness == Brightness.light ? 1 : _OPACITY_FOR_DARK;
     for (final String attributeId in mainAttributes) {
       if (matchingAttributes[attributeId] != null) {
         listItems.add(
@@ -328,7 +331,8 @@ class _ProductPageState extends State<ProductPage> {
             iconWidth: iconWidth,
             attributeTags: <String>[attributeId],
             collapsible: false,
-            background: _getBackgroundColor(matchingAttributes[attributeId]),
+            background: _getBackgroundColor(matchingAttributes[attributeId])
+                .withOpacity(opacity),
           ),
         );
       }
@@ -371,7 +375,7 @@ class _ProductPageState extends State<ProductPage> {
         BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 18.0, sigmaY: 18.0),
           child: Container(
-            color: Theme.of(context).colorScheme.surface.withAlpha(220),
+            color: themeData.colorScheme.surface.withAlpha(220),
             child: ListView(children: listItems),
           ),
         ),
