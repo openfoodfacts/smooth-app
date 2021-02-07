@@ -16,6 +16,7 @@ import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -28,7 +29,6 @@ class _HomePageState extends State<HomePage> {
 
   DaoProductList _daoProductList;
   ProductList _productListHistory;
-  int _colorIntensity;
 
   @override
   Widget build(BuildContext context) {
@@ -42,17 +42,19 @@ class _HomePageState extends State<HomePage> {
       parameters: '',
     );
     final ThemeData themeData = Theme.of(context);
+    final ColorScheme colorScheme = themeData.colorScheme;
     final bool mlKitState = userPreferences.getMlKitState();
-    final bool dark = themeData.colorScheme.brightness != Brightness.light;
-    _colorIntensity = dark ? 200 : 800;
-    final Color notYetColor = dark ? Colors.grey[700] : Colors.grey[200];
+    final Color notYetColor = SmoothTheme.getBackgroundColor(
+      colorScheme,
+      Colors.grey,
+    );
     return Scaffold(
       appBar: AppBar(
         title: Text(
           'Smoothie',
-          style: TextStyle(color: themeData.colorScheme.onBackground),
+          style: TextStyle(color: colorScheme.onBackground),
         ),
-        iconTheme: IconThemeData(color: themeData.colorScheme.onBackground),
+        iconTheme: IconThemeData(color: colorScheme.onBackground),
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.settings),
@@ -76,7 +78,10 @@ class _HomePageState extends State<HomePage> {
               child: ListTile(
                 leading: Icon(
                   Icons.search,
-                  color: Colors.red[_colorIntensity],
+                  color: SmoothTheme.getForegroundColor(
+                    colorScheme,
+                    Colors.red,
+                  ),
                 ),
                 title: TextField(
                   onSubmitted: (final String value) => ChoosePage.onSubmitted(
@@ -100,7 +105,10 @@ class _HomePageState extends State<HomePage> {
                 },
                 leading: Icon(
                   Icons.fastfood,
-                  color: Colors.orange[_colorIntensity],
+                  color: SmoothTheme.getForegroundColor(
+                    colorScheme,
+                    Colors.orange,
+                  ),
                 ),
                 subtitle: const Text('Food category search'),
                 title: Text(
@@ -122,7 +130,10 @@ class _HomePageState extends State<HomePage> {
               'Search history',
               Icon(
                 Icons.youtube_searched_for,
-                color: Colors.yellow[_colorIntensity],
+                color: SmoothTheme.getForegroundColor(
+                  colorScheme,
+                  Colors.yellow,
+                ),
               ),
             ),
             _getRankingPreferences(userPreferencesModel, userPreferences),
@@ -132,7 +143,10 @@ class _HomePageState extends State<HomePage> {
               'Your food lists',
               Icon(
                 Icons.list,
-                color: Colors.purple[_colorIntensity],
+                color: SmoothTheme.getForegroundColor(
+                  colorScheme,
+                  Colors.purple,
+                ),
               ),
             ),
             Card(
@@ -174,7 +188,7 @@ class _HomePageState extends State<HomePage> {
         child: SvgPicture.asset(
           'assets/actions/scanner_alt_2.svg',
           height: 25,
-          color: themeData.colorScheme.onSecondary,
+          color: colorScheme.onSecondary,
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
@@ -217,7 +231,10 @@ class _HomePageState extends State<HomePage> {
                 },
                 leading: Icon(
                   Icons.history,
-                  color: Colors.blue[_colorIntensity],
+                  color: SmoothTheme.getForegroundColor(
+                    Theme.of(context).colorScheme,
+                    Colors.blue,
+                  ),
                 ),
                 subtitle: const Text('Food history'),
                 title:
@@ -337,7 +354,10 @@ class _HomePageState extends State<HomePage> {
         onTap: () => UserPreferencesView.showModal(context),
         leading: Icon(
           Icons.bar_chart,
-          color: Colors.green[_colorIntensity],
+          color: SmoothTheme.getForegroundColor(
+            Theme.of(context).colorScheme,
+            Colors.green,
+          ),
         ),
         title: Text(
           attributes.isEmpty

@@ -10,6 +10,7 @@ class ProductListDialogHelper {
       'Do you want to delete this product list?';
   static const String _TRANSLATE_ME_NEW_LIST = 'New list';
   static const String _TRANSLATE_ME_RENAME_LIST = 'Rename list';
+  static const String _TRANSLATE_ME_CHANGE_ICON = 'Change icon';
   static const String _TRANSLATE_ME_HINT = 'My custom list';
   static const String _TRANSLATE_ME_EMPTY = 'Please enter some text';
   static const String _TRANSLATE_ME_ALREADY_OTHER =
@@ -52,7 +53,7 @@ class ProductListDialogHelper {
   ) async {
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
     ProductList newProductList;
-    return showDialog<bool>(
+    return await showDialog<bool>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
         close: false,
@@ -123,7 +124,7 @@ class ProductListDialogHelper {
     final List<ProductList> list =
         await daoProductList.getAll(withStats: false);
     ProductList newProductList;
-    return showDialog<ProductList>(
+    return await showDialog<ProductList>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
         close: false,
@@ -181,6 +182,52 @@ class ProductListDialogHelper {
               Navigator.pop(context, newProductList);
             },
             important: true,
+          ),
+        ],
+      ),
+    );
+  }
+
+  static Future<bool> openChangeIcon(
+    final BuildContext context,
+    final DaoProductList daoProductList,
+    final ProductList productList,
+  ) async {
+    final List<String> orderedIcons = productList.getPossibleIcons();
+    return await showDialog<bool>(
+      context: context,
+      builder: (BuildContext context) => SmoothAlertDialog(
+        close: false,
+        title: _TRANSLATE_ME_CHANGE_ICON,
+        body: Wrap(
+          children: List<Widget>.generate(
+            ProductList.ORDERED_COLORS.length * orderedIcons.length,
+            (final int index) {
+              final String colorTag = ProductList
+                  .ORDERED_COLORS[index % ProductList.ORDERED_COLORS.length];
+              final String iconTag =
+                  orderedIcons[index ~/ ProductList.ORDERED_COLORS.length];
+              return IconButton(
+                icon: ProductList.getReferenceIcon(
+                  colorScheme: Theme.of(context).colorScheme,
+                  colorTag: colorTag,
+                  iconTag: iconTag,
+                ),
+                onPressed: () async {
+                  productList.colorTag = colorTag;
+                  productList.iconTag = iconTag;
+                  await daoProductList.put(productList);
+                  Navigator.pop(context, true);
+                },
+              );
+            },
+          ),
+        ),
+        actions: <SmoothSimpleButton>[
+          SmoothSimpleButton(
+            text: _TRANSLATE_ME_CANCEL,
+            onPressed: () => Navigator.pop(context, false),
+            important: false,
           ),
         ],
       ),
