@@ -24,7 +24,8 @@ jobs:
       - name: Setup Ruby
         uses: actions/setup-ruby@v1
         with:
-          channel: 'stable'
+          ruby-version: '2.7.2'
+
 
       - name: Decrypt API JSON file
         run: cd ./android/fastlane/envfiles && chmod +x ./decrypt_secrets.sh && ./decrypt_secrets.sh
@@ -35,9 +36,10 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v1
         with:
-          flutter-version: 1.22.5
-          - name: Install Flutter dependencies
-            run: flutter pub get
+          channel: 'stable'
+
+      - name: Install Flutter dependencies
+        run: flutter pub get
 
       - name: Bump version
         run: pwd && cd android && pwd && echo ${fastlane action google_play_track_version_codes packagename:"org.openfoodfacts.app" track:"internal"}
