@@ -22,6 +22,7 @@ platform :ios do
       workspace: "Runner.xcworkspace",
       scheme: "MyApp",
       export_method: "app-store"
+      #version_code: flutter_version(pubspec_location: '../pubspec.yaml')["version_code"],
     )
     upload_to_testflight
   end
