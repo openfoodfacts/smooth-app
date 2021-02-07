@@ -33,9 +33,7 @@ jobs:
         with:
           flutter-version: 1.22.5
       - name: Install Flutter dependencies
-        run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get && pod install
-      - name: Install Flutter dependencies
-        run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get
+        run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get && flutter build ios && pod install
       - name: Run Fastlane
         uses: maierj/fastlane-action@v2.0.0
         with:
