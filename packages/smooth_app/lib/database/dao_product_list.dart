@@ -20,6 +20,11 @@ class DaoProductList {
   static const String _TABLE_PRODUCT_LIST_ITEM_COLUMN_LIST_ID = 'list_id';
   static const String _TABLE_PRODUCT_LIST_ITEM_COLUMN_BARCODE = 'barcode';
 
+  static const String _TABLE_PRODUCT_LIST_EXTRA = 'product_list_extra';
+  static const String _TABLE_PRODUCT_LIST_EXTRA_COLUMN_LIST_ID = 'list_id';
+  static const String _TABLE_PRODUCT_LIST_EXTRA_COLUMN_KEY = 'extra_key';
+  static const String _TABLE_PRODUCT_LIST_EXTRA_COLUMN_VALUE = 'extra_value';
+
   static FutureOr<void> onUpgrade(
     final Database db,
     final int oldVersion,
@@ -51,6 +56,21 @@ class DaoProductList {
           'FOREIGN KEY ($_TABLE_PRODUCT_LIST_ITEM_COLUMN_BARCODE)'
           ' REFERENCES ${DaoProduct.TABLE_PRODUCT}'
           '  (${DaoProduct.TABLE_PRODUCT_COLUMN_BARCODE})'
+          '   ON DELETE CASCADE'
+          ')');
+    }
+    if (oldVersion < 3) {
+      await db.execute('create table $_TABLE_PRODUCT_LIST_EXTRA('
+          '$_TABLE_PRODUCT_LIST_EXTRA_COLUMN_LIST_ID INT NOT NULL,'
+          '$_TABLE_PRODUCT_LIST_EXTRA_COLUMN_KEY TEXT NOT NULL,'
+          '$_TABLE_PRODUCT_LIST_EXTRA_COLUMN_VALUE TEXT NOT NULL,'
+          '${LocalDatabase.COLUMN_TIMESTAMP} INT NOT NULL,'
+          'PRIMARY KEY ('
+          '$_TABLE_PRODUCT_LIST_EXTRA_COLUMN_LIST_ID,'
+          '$_TABLE_PRODUCT_LIST_EXTRA_COLUMN_KEY),'
+          'FOREIGN KEY ($_TABLE_PRODUCT_LIST_EXTRA_COLUMN_LIST_ID)'
+          ' REFERENCES $_TABLE_PRODUCT_LIST'
+          '  ($_TABLE_PRODUCT_LIST_COLUMN_ID)'
           '   ON DELETE CASCADE'
           ')');
     }
@@ -254,6 +274,35 @@ class DaoProductList {
     return null;
   }
 
+  Future<Map<int, Map<String, String>>> _getExtras({final int listId}) async {
+    final Map<int, Map<String, String>> result = <int, Map<String, String>>{};
+    final List<Map<String, dynamic>> queryResult =
+        await localDatabase.database.query(
+      _TABLE_PRODUCT_LIST_EXTRA,
+      columns: <String>[
+        _TABLE_PRODUCT_LIST_EXTRA_COLUMN_LIST_ID,
+        _TABLE_PRODUCT_LIST_EXTRA_COLUMN_KEY,
+        _TABLE_PRODUCT_LIST_EXTRA_COLUMN_VALUE,
+      ],
+      where: listId == null
+          ? null
+          : '$_TABLE_PRODUCT_LIST_EXTRA_COLUMN_LIST_ID = ?',
+      whereArgs: listId == null ? null : <dynamic>[listId],
+    );
+    for (final Map<String, dynamic> row in queryResult) {
+      final int productListId =
+          row[_TABLE_PRODUCT_LIST_EXTRA_COLUMN_LIST_ID] as int;
+      final String key = row[_TABLE_PRODUCT_LIST_EXTRA_COLUMN_KEY] as String;
+      final String value =
+          row[_TABLE_PRODUCT_LIST_EXTRA_COLUMN_VALUE] as String;
+      if (result[productListId] == null) {
+        result[productListId] = <String, String>{};
+      }
+      result[productListId][key] = value;
+    }
+    return result;
+  }
+
   Future<List<ProductList>> getAll({
     final bool withStats = true,
     final List<String> typeFilter,
@@ -283,6 +332,7 @@ class DaoProductList {
       }
     }
 
+    final Map<int, Map<String, String>> extras = await _getExtras();
     final List<ProductList> result = <ProductList>[];
     final List<Map<String, dynamic>> queryResult =
         await localDatabase.database.query(
@@ -308,7 +358,7 @@ class DaoProductList {
         databaseTimestamp: row[LocalDatabase.COLUMN_TIMESTAMP] as int,
         databaseCount: counts[productListId],
         databaseCountDistinct: countDistincts[productListId],
-      );
+      )..extraTags = extras[productListId];
       result.add(item);
     }
     return result;
@@ -386,7 +436,33 @@ class DaoProductList {
         conflictAlgorithm: ConflictAlgorithm.fail,
       );
     }
+    _upsertProductListExtra(productList.extraTags, id);
     return id;
+  }
+
+  Future<void> _upsertProductListExtra(
+    final Map<String, String> extraTags,
+    final int productListId,
+  ) async {
+    await localDatabase.database.delete(
+      _TABLE_PRODUCT_LIST_EXTRA,
+      where: '$_TABLE_PRODUCT_LIST_EXTRA_COLUMN_LIST_ID = ?',
+      whereArgs: <dynamic>[productListId],
+    );
+    if (extraTags == null) {
+      return;
+    }
+    for (final MapEntry<String, String> entry in extraTags.entries) {
+      await localDatabase.database.insert(
+        _TABLE_PRODUCT_LIST_EXTRA,
+        <String, dynamic>{
+          _TABLE_PRODUCT_LIST_EXTRA_COLUMN_LIST_ID: productListId,
+          _TABLE_PRODUCT_LIST_EXTRA_COLUMN_KEY: entry.key,
+          _TABLE_PRODUCT_LIST_EXTRA_COLUMN_VALUE: entry.value,
+          LocalDatabase.COLUMN_TIMESTAMP: LocalDatabase.nowInMillis(),
+        },
+      );
+    }
   }
 
   Future<void> _refreshListItems(

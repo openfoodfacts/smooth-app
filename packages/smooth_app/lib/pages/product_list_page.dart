@@ -13,6 +13,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:wc_flutter_share/wc_flutter_share.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
 
 class ProductListPage extends StatefulWidget {
   const ProductListPage(
@@ -34,6 +35,7 @@ class _ProductListPageState extends State<ProductListPage> {
 
   static const String _TRANSLATE_ME_RENAME = 'Rename';
   static const String _TRANSLATE_ME_DELETE = 'Delete';
+  static const String _TRANSLATE_ME_CHANGE = 'Change icon';
   static const String _TRANSLATE_ME_COPY = 'copy';
   static const String _TRANSLATE_ME_PASTE = 'paste';
   static const String _TRANSLATE_ME_CLEAR = 'clear';
@@ -122,9 +124,20 @@ class _ProductListPageState extends State<ProductListPage> {
         ),
       ),
       appBar: AppBar(
-        title: Text(
-          ProductQueryPageHelper.getProductListLabel(productList),
-          style: TextStyle(color: colorScheme.onBackground),
+        backgroundColor: SmoothTheme.getBackgroundColor(
+          colorScheme,
+          productList.getMaterialColor(),
+        ),
+        title: Row(
+          children: <Widget>[
+            productList.getIcon(colorScheme),
+            const SizedBox(width: 8.0),
+            Text(
+              ProductQueryPageHelper.getProductListLabel(productList,
+                  verbose: false), // TODO(monsieurtanuki): handle the overflow
+              style: TextStyle(color: colorScheme.onBackground),
+            ),
+          ],
         ),
         iconTheme: IconThemeData(color: colorScheme.onBackground),
         actions: (!renamable) && (!deletable)
@@ -139,6 +152,11 @@ class _ProductListPageState extends State<ProductListPage> {
                         child: Text(_TRANSLATE_ME_RENAME),
                         enabled: true,
                       ),
+                    const PopupMenuItem<String>(
+                      value: 'change',
+                      child: Text(_TRANSLATE_ME_CHANGE),
+                      enabled: true,
+                    ),
                     if (deletable)
                       const PopupMenuItem<String>(
                         value: 'delete',
@@ -163,6 +181,14 @@ class _ProductListPageState extends State<ProductListPage> {
                             context, daoProductList, productList)) {
                           Navigator.pop(context);
                           localDatabase.notifyListeners();
+                        }
+                        break;
+                      case 'change':
+                        final bool changed =
+                            await ProductListDialogHelper.openChangeIcon(
+                                context, daoProductList, productList);
+                        if (changed) {
+                          setState(() {});
                         }
                         break;
                       default:

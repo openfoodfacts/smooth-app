@@ -7,6 +7,7 @@ import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/pages/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product_list_dialog_helper.dart';
 import 'package:smooth_app/pages/product_list_page.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
 
 class ListPage extends StatefulWidget {
   const ListPage({
@@ -66,7 +67,12 @@ class _ListPageState extends State<ListPage> {
                   itemBuilder: (final BuildContext context, final int index) {
                     final ProductList item = _list[index];
                     return Card(
+                      color: SmoothTheme.getBackgroundColor(
+                        colorScheme,
+                        item.getMaterialColor(),
+                      ),
                       child: ListTile(
+                        leading: item.getIcon(colorScheme),
                         title: Text(
                           ProductQueryPageHelper.getProductListLabel(
                             item,

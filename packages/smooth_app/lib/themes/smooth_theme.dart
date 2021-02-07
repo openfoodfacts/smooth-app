@@ -1,6 +1,22 @@
 import 'package:flutter/material.dart';
 
 class SmoothTheme {
+  static Color getForegroundColor(
+    final ColorScheme colorScheme,
+    final MaterialColor materialColor,
+  ) =>
+      colorScheme.brightness == Brightness.light
+          ? materialColor[800]
+          : materialColor[200];
+
+  static Color getBackgroundColor(
+    final ColorScheme colorScheme,
+    final MaterialColor materialColor,
+  ) =>
+      colorScheme.brightness == Brightness.light
+          ? materialColor[200]
+          : materialColor[700].withOpacity(.3);
+
   static ThemeData getThemeData(final Brightness brightness) {
     final ColorScheme myColorScheme =
         brightness == Brightness.dark ? _COLOR_DARK : _COLOR_LIGHT;
