@@ -1,0 +1,48 @@
+name: Smoothie Testflight internal release
+#on: [push, pull_request]
+on:
+  push:
+    branches:
+      - 'release/*'
+
+jobs:
+  testflight-release:
+    name: Build and deploy to TestFlight testers
+    runs-on: macos-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+      - name: Setup Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.7.2'
+      - name: Decrypt AuthKey file
+        run: cd ./fastlane/envfiles && ./decrypt_secrets.sh
+        env:
+          AUTH_KEY_FILE_DECRYPTKEY: ${{ secrets.AUTH_KEY_FILE_DECRYPTKEY }}
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v1
+        with:
+          flutter-version: 1.22.5
+      - name: Install Flutter dependencies
+        run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get
+      - name: Run Fastlane
+        uses: maierj/fastlane-action@v2.0.0
+        with:
+          lane: beta
+          subdirectory: packages/smooth_app/ios
+        env:
+          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
+          FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
+          MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
+          MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL }}
+          MATCH_KEYCHAIN_PASSWORD: ${{ secrets.MATCH_KEYCHAIN_PASSWORD }}
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          PILOT_APPLE_ID: ${{ secrets.PILOT_APPLE_ID }}
+          SPACESHIP_CONNECT_API_ISSUER_ID: ${{ secrets.SPACESHIP_CONNECT_API_ISSUER_ID }}
+          SPACESHIP_CONNECT_API_KEY_ID: ${{ secrets.SPACESHIP_CONNECT_API_KEY_ID }}
+          SPACESHIP_CONNECT_API_KEY_FILEPATH: envfiles/AuthKey_KDAUTTM76R.p8
+          CI_RELEASE: true
+
