@@ -1,0 +1,4 @@
+app_identifier "org.openfoodfacts.openfoodfacts"
+username ENV["APPLE_ID"]
+app_icon "./fastlane/metadata/Icon-App-iTunes.png"
+screenshots_path "./fastlane/screenshots"
