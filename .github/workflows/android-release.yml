@@ -1,10 +1,9 @@
-# cd.yml
 name: Smoothie Google Play internal release
-on: [push, pull_request]
-#on:
- # push:
-  #  branches:
-   #   - 'release/*'
+#on: [push, pull_request]
+on:
+  push:
+    branches:
+      - 'release/*'
 
 jobs:
   # CD
