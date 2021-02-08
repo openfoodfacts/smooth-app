@@ -8,6 +8,7 @@ import 'package:smooth_app/pages/choose_page.dart';
 import 'package:smooth_app/pages/profile_page.dart';
 import 'package:smooth_app/pages/list_page.dart';
 import 'package:smooth_app/pages/product_list_page.dart';
+import 'package:smooth_app/pages/product_list_button.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -257,7 +258,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget _getProductListCard(
     final List<String> typeFilter,
-    final String subtitle,
+    final String title,
     final Icon leadingIcon,
   ) =>
       FutureBuilder<List<ProductList>>(
@@ -273,57 +274,51 @@ class _HomePageState extends State<HomePage> {
         ) {
           if (snapshot.connectionState == ConnectionState.done) {
             final List<ProductList> list = snapshot.data;
-            String title;
+            List<Widget> cards;
             final bool empty = list == null || list.isEmpty;
             if (empty) {
-              title = 'Empty list';
+              cards = null;
             } else {
-              final List<String> names = <String>[];
+              cards = <Widget>[];
               for (final ProductList item in list) {
-                switch (item.listType) {
-                  case ProductList.LIST_TYPE_HTTP_SEARCH_GROUP:
-                    // TODO(monsieurtanuki): faster and nicer algorithm, please
-                    for (final PnnsGroup2 pnnsGroup2 in PnnsGroup2.values) {
-                      if (item.parameters == pnnsGroup2.id) {
-                        names.add(pnnsGroup2.name);
-                      }
-                    }
-                    break;
-                  case ProductList.LIST_TYPE_HTTP_SEARCH_KEYWORDS:
-                    names.add('"${item.parameters}"');
-                    break;
-                  default:
-                    names.add(item.parameters);
-                }
+                cards.add(ProductListButton(item, _daoProductList));
               }
-              title = names.join(', ') + ', ...';
             }
             return Card(
-              child: ListTile(
-                onTap: () async {
-                  await Navigator.push<dynamic>(
-                    context,
-                    MaterialPageRoute<dynamic>(
-                      builder: (BuildContext context) => ListPage(
-                        typeFilter: typeFilter,
-                        title: subtitle,
-                      ),
-                    ),
-                  );
-                  setState(() {});
-                },
-                leading: leadingIcon,
-                subtitle: Text(subtitle),
-                title:
-                    Text(title, style: Theme.of(context).textTheme.subtitle2),
+              child: Column(
+                children: <Widget>[
+                  ListTile(
+                    onTap: () async {
+                      await Navigator.push<dynamic>(
+                        context,
+                        MaterialPageRoute<dynamic>(
+                          builder: (BuildContext context) => ListPage(
+                            typeFilter: typeFilter,
+                            title: title,
+                          ),
+                        ),
+                      );
+                      setState(() {});
+                    },
+                    leading: leadingIcon,
+                    subtitle: cards == null ? const Text('Empty list') : null,
+                    title: Text(title,
+                        style: Theme.of(context).textTheme.subtitle2),
+                  ),
+                  Wrap(
+                    direction: Axis.horizontal,
+                    children: cards,
+                    spacing: 8.0,
+                  ),
+                ],
               ),
             );
           }
           return Card(
             child: ListTile(
               leading: const CircularProgressIndicator(),
-              subtitle: Text(subtitle),
-              title: Text(
+              title: Text(title),
+              subtitle: Text(
                 _TRANSLATE_ME_SEARCHING,
                 style: Theme.of(context).textTheme.subtitle2,
               ),
