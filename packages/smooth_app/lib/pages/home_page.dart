@@ -6,7 +6,6 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/pages/choose_page.dart';
 import 'package:smooth_app/pages/profile_page.dart';
 import 'package:smooth_app/pages/list_page.dart';
-import 'package:smooth_app/pages/product_list_page.dart';
 import 'package:smooth_app/pages/product_list_button.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -44,9 +43,15 @@ class _HomePageState extends State<HomePage> {
     );
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Smoothie',
-          style: TextStyle(color: colorScheme.onBackground),
+        title: Row(
+          children: <Widget>[
+            const Icon(Icons.pets),
+            const SizedBox(width: 8.0),
+            Text(
+              'Smoothie',
+              style: TextStyle(color: colorScheme.onBackground),
+            )
+          ],
         ),
         iconTheme: IconThemeData(color: colorScheme.onBackground),
         actions: <Widget>[
@@ -85,6 +90,26 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
+            ),
+            _getProductListCard(
+              <String>[ProductList.LIST_TYPE_USER_DEFINED],
+              'My lists',
+              Icon(
+                Icons.list,
+                color: SmoothTheme.getForegroundColor(
+                  colorScheme,
+                  Colors.purple,
+                ),
+              ),
+            ),
+            _getRankingPreferences(userPreferencesModel, userPreferences),
+            ProductListPreview(
+              daoProductList: _daoProductList,
+              productList: ProductList(
+                listType: ProductList.LIST_TYPE_HISTORY,
+                parameters: '',
+              ),
+              nbInPreview: 5,
             ),
             Card(
               child: ListTile(
@@ -127,26 +152,6 @@ class _HomePageState extends State<HomePage> {
                 color: SmoothTheme.getForegroundColor(
                   colorScheme,
                   Colors.yellow,
-                ),
-              ),
-            ),
-            _getRankingPreferences(userPreferencesModel, userPreferences),
-            ProductListPreview(
-              daoProductList: _daoProductList,
-              productList: ProductList(
-                listType: ProductList.LIST_TYPE_HISTORY,
-                parameters: '',
-              ),
-              nbInPreview: 10,
-            ),
-            _getProductListCard(
-              <String>[ProductList.LIST_TYPE_USER_DEFINED],
-              'Your food lists',
-              Icon(
-                Icons.list,
-                color: SmoothTheme.getForegroundColor(
-                  colorScheme,
-                  Colors.purple,
                 ),
               ),
             ),
@@ -272,7 +277,14 @@ class _HomePageState extends State<HomePage> {
   ) {
     final List<String> orderedVariables =
         userPreferencesModel.getOrderedVariables(userPreferences);
-    final List<String> attributes = <String>[];
+    final List<Widget> attributes = <Widget>[];
+    final Map<String, MaterialColor> colors = <String, MaterialColor>{
+      'important': Colors.green,
+      'very_important': Colors.orange,
+      'mandatory': Colors.red,
+    };
+
+    final Function onTap = () => UserPreferencesView.showModal(context);
     for (final String variable in orderedVariables) {
       final Attribute attribute =
           userPreferencesModel.getReferenceAttribute(variable);
@@ -281,25 +293,50 @@ class _HomePageState extends State<HomePage> {
         variable,
         userPreferences,
       );
-      attributes.add('${attribute.name} (${importance.name})');
-    }
-    return Card(
-      child: ListTile(
-        onTap: () => UserPreferencesView.showModal(context),
-        leading: Icon(
-          Icons.bar_chart,
-          color: SmoothTheme.getForegroundColor(
-            Theme.of(context).colorScheme,
-            Colors.green,
+      attributes.add(
+        ElevatedButton(
+          onPressed: () => onTap(),
+          child: Text('${attribute.name}'),
+          style: ElevatedButton.styleFrom(
+            primary: SmoothTheme.getBackgroundColor(
+              Theme.of(context).colorScheme,
+              colors[importance.id],
+            ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(32.0),
+            ),
           ),
         ),
-        title: Text(
-          attributes.isEmpty
-              ? 'Nothing set for the moment'
-              : attributes.join(', '),
-          style: Theme.of(context).textTheme.subtitle2,
+      );
+    }
+    return GestureDetector(
+      onTap: () => onTap(),
+      child: Card(
+        child: Column(
+          children: <Widget>[
+            ListTile(
+              leading: Icon(
+                Icons.bar_chart,
+                color: SmoothTheme.getForegroundColor(
+                  Theme.of(context).colorScheme,
+                  Colors.green,
+                ),
+              ),
+              subtitle: attributes.isEmpty
+                  ? const Text('Nothing set for the moment')
+                  : null,
+              title: Text(
+                'Food ranking parameters',
+                style: Theme.of(context).textTheme.subtitle2,
+              ),
+            ),
+            Wrap(
+              direction: Axis.horizontal,
+              children: attributes,
+              spacing: 8.0,
+            ),
+          ],
         ),
-        subtitle: const Text('Food ranking parameters'),
       ),
     );
   }
