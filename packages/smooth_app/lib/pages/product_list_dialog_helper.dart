@@ -146,7 +146,7 @@ class ProductListDialogHelper {
                   newProductList = ProductList(
                     listType: ProductList.LIST_TYPE_USER_DEFINED,
                     parameters: value,
-                  );
+                  )..extraTags = productList.extraTags;
                   for (final ProductList item in list) {
                     if (item.lousyKey == newProductList.lousyKey) {
                       if (item.lousyKey == productList.lousyKey) {
