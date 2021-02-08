@@ -174,7 +174,7 @@ class _ProductListPageState extends State<ProductListPage> {
                           return;
                         }
                         productList = renamedProductList;
-                        setState(() {});
+                        localDatabase.notifyListeners();
                         break;
                       case 'delete':
                         if (await ProductListDialogHelper.openDelete(
@@ -188,7 +188,7 @@ class _ProductListPageState extends State<ProductListPage> {
                             await ProductListDialogHelper.openChangeIcon(
                                 context, daoProductList, productList);
                         if (changed) {
-                          setState(() {});
+                          localDatabase.notifyListeners();
                         }
                         break;
                       default:

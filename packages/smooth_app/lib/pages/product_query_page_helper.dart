@@ -89,6 +89,10 @@ class ProductQueryPageHelper {
     return getDurationStringFromSeconds(seconds);
   }
 
+  static bool isListReversed(final ProductList productList) =>
+      productList.listType == ProductList.LIST_TYPE_HISTORY ||
+      productList.listType == ProductList.LIST_TYPE_SCAN;
+
   static String getProductListLabel(
     final ProductList productList, {
     final bool verbose = true,

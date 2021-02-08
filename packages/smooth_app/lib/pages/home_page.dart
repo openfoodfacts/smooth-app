@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/utils/PnnsGroups.dart';
 import 'package:provider/provider.dart';
@@ -7,16 +6,15 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/pages/choose_page.dart';
 import 'package:smooth_app/pages/profile_page.dart';
 import 'package:smooth_app/pages/list_page.dart';
-import 'package:smooth_app/pages/product_list_page.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
-import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/cards/product_cards/product_list_preview.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -24,11 +22,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  static const int _NB_IN_PREVIEW = 5;
   static const String _TRANSLATE_ME_SEARCHING = 'Searching...';
 
   DaoProductList _daoProductList;
-  ProductList _productListHistory;
 
   @override
   Widget build(BuildContext context) {
@@ -37,10 +33,6 @@ class _HomePageState extends State<HomePage> {
     final UserPreferencesModel userPreferencesModel =
         context.watch<UserPreferencesModel>();
     _daoProductList = DaoProductList(localDatabase);
-    _productListHistory = ProductList(
-      listType: ProductList.LIST_TYPE_HISTORY,
-      parameters: '',
-    );
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
     final bool mlKitState = userPreferences.getMlKitState();
@@ -137,7 +129,14 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             _getRankingPreferences(userPreferencesModel, userPreferences),
-            _getHistoryCard(),
+            ProductListPreview(
+              daoProductList: _daoProductList,
+              productList: ProductList(
+                listType: ProductList.LIST_TYPE_HISTORY,
+                parameters: '',
+              ),
+              nbInPreview: 10,
+            ),
             _getProductListCard(
               <String>[ProductList.LIST_TYPE_USER_DEFINED],
               'Your food lists',
@@ -194,67 +193,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _getHistoryCard() => FutureBuilder<List<Product>>(
-        future: _daoProductList.getFirstProducts(
-            _productListHistory, _NB_IN_PREVIEW, true),
-        builder: (
-          final BuildContext context,
-          final AsyncSnapshot<List<Product>> snapshot,
-        ) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            final List<Product> list = snapshot.data;
-            String title;
-            final bool empty = list == null || list.isEmpty;
-            if (empty) {
-              title = 'Empty list';
-            } else {
-              final List<String> names = <String>[];
-              for (final Product item in list) {
-                names.add(item.productName);
-              }
-              title = names.join(', ') + ', ...';
-            }
-            return Card(
-              child: ListTile(
-                onTap: () async {
-                  await _daoProductList.get(_productListHistory);
-                  await Navigator.push<dynamic>(
-                    context,
-                    MaterialPageRoute<dynamic>(
-                      builder: (BuildContext context) => ProductListPage(
-                        _productListHistory,
-                        reverse: true,
-                      ),
-                    ),
-                  );
-                  setState(() {});
-                },
-                leading: Icon(
-                  Icons.history,
-                  color: SmoothTheme.getForegroundColor(
-                    Theme.of(context).colorScheme,
-                    Colors.blue,
-                  ),
-                ),
-                subtitle: const Text('Food history'),
-                title:
-                    Text(title, style: Theme.of(context).textTheme.subtitle2),
-              ),
-            );
-          }
-          return Card(
-            child: ListTile(
-              leading: const CircularProgressIndicator(),
-              subtitle: const Text('Food history'),
-              title: Text(
-                _TRANSLATE_ME_SEARCHING,
-                style: Theme.of(context).textTheme.subtitle2,
-              ),
-            ),
-          );
-        },
-      );
-
   Widget _getProductListCard(
     final List<String> typeFilter,
     final String subtitle,
@@ -262,7 +200,7 @@ class _HomePageState extends State<HomePage> {
   ) =>
       FutureBuilder<List<ProductList>>(
         future: _daoProductList.getAll(
-          limit: _NB_IN_PREVIEW,
+          limit: 5,
           withStats: false,
           reverse: true,
           typeFilter: typeFilter,
