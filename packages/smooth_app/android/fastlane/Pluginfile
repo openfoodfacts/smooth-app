@@ -2,4 +2,4 @@
 #
 # Ensure this file is checked in to source control!
 
-gem 'fastlane-plugin-flutter_dart_version_manager', path: '../../../../../fastlane-plugin-flutter_dart_version_manager'
+gem 'fastlane-plugin-versioning'

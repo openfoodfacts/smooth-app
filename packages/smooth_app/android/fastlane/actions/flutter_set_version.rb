@@ -1,15 +1,11 @@
 module Fastlane
   module Actions
     module SharedValues
-      FLUTTER_VERSION_MANAGER_CUSTOM_VALUE = :FLUTTER_VERSION_MANAGER_CUSTOM_VALUE
+      FLUTTER_SET_VERSION_CUSTOM_VALUE = :FLUTTER_SET_VERSION_CUSTOM_VALUE
     end
 
-    class FlutterVersionManagerAction < Action
+    class FlutterSetVersionAction < Action
       def self.run(params)
-        # fastlane will take care of reading in the parameter and fetching the environment variable:
-        UI.message "Started FlutterVersionManager"
-
-        field_value = 
 
 
         versionName = params[:version_name]
@@ -72,19 +68,16 @@ module Fastlane
         # Below a few examples
         [
           FastlaneCore::ConfigItem.new(key: :version_name,
-                                       #env_name: "FL_FLUTTER_VERSION_MANAGER_API_TOKEN", # The name of the environment variable
                                        description: "The new version to be set {major}.{minor}.{patch}", # a short description of this parameter
                                        verify_block: proc do |value|
                                           UI.user_error!("No version given, pass using `newVersion: 'the version'`") unless (value and not value.empty?)
                                        end),
           FastlaneCore::ConfigItem.new(key: :version_code,
-                                      #env_name: "FL_FLUTTER_VERSION_MANAGER_API_TOKEN", # The name of the environment variable
                                       description: "The new build version", # a short description of this parameter
                                       verify_block: proc do |value|
                                           UI.user_error!("No version code given, pass using `version_code: 'your version_code'`") unless (value and not value.empty?)
                                       end),
           FastlaneCore::ConfigItem.new(key: :path_to_yaml,
-                                       env_name: "FL_FLUTTER_VERSION_MANAGER_DEVELOPMENT",
                                        description: "Create a development certificate instead of a distribution one",
                                        is_string: false, # true: verifies the input is a string, false: every kind of value
                                        default_value: false) # the default value if the user didn't provide one
@@ -95,7 +88,7 @@ module Fastlane
         # Define the shared values you are going to provide
         # Example
         [
-          ['FLUTTER_VERSION_MANAGER_CUSTOM_VALUE', 'A description of what this value contains']
+          ['FLUTTER_SET_VERSION_CUSTOM_VALUE', 'A description of what this value contains']
         ]
       end
 

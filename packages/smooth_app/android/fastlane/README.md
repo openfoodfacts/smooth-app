@@ -21,9 +21,9 @@ or alternatively using `brew install fastlane`
 fastlane android closed_beta
 ```
 Deploy to closed beta track
-### android set_version
+### android setVersion
 ```
-fastlane android set_version
+fastlane android setVersion
 ```
 
 
