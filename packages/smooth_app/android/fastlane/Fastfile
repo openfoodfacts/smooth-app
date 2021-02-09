@@ -38,12 +38,17 @@ platform :android do
   end
   lane :getVersion do
       begin
-          version = google_play_track_version_codes(
-              package_name: "org.openfoodfacts.app",
-              track: "internal",
-              json_key: "./fastlane/envfiles/api-4712693179220384697-162836-33ea08672303.json",
+          #version = google_play_track_version_codes(
+          #    package_name: "org.openfoodfacts.app",
+          #    track: "internal",
+          #    json_key: "./fastlane/envfiles/api-4712693179220384697-162836-33ea08672303.json",
+          #)
+
+          flutter_version_manager(
+            path_to_yaml: "../pubspec.yaml"
+            version_name: "0.0.69"
+            version_code: "10"
           )
-          puts calculate(version + 1)
       end
   end
 
