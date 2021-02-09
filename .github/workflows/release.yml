@@ -39,14 +39,17 @@ jobs:
           lane: getVersion
           subdirectory: packages/smooth_app/android
 
-      - name: Upload new Version 
-      - uses: actions/checkout@v2
-      - run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add "./pubspec.yaml"
-          git commit -m "Version Bump"
-          git push
+      - name: setup git config
+        run: |
+          # setup the username and email. I tend to use 'GitHub Actions Bot' with no email by default
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+      - name: commit
+        run: |
+          # Stage the file, commit and push
+          git add pubspec.yaml
+          git commit -m "Version Bump test"
+          git push origin advanced-fastlane
 
 
 
