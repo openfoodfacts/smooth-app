@@ -33,20 +33,13 @@ jobs:
           API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
           STORE_JKS_DECRYPTKEY: ${{ secrets.STORE_JKS_DECRYPTKEY }}
 
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v1
-        with:
-          channel: 'stable'
-
-      - name: Install Flutter dependencies
-        run: flutter pub get
-
       - name: Run Fastlane
         uses: maierj/fastlane-action@v2.0.0
         with:
           lane: getVersion
           subdirectory: packages/smooth_app/android
 
+      - name: Upload new Version 
       - uses: actions/checkout@v2
       - run: |
           git config user.name github-actions

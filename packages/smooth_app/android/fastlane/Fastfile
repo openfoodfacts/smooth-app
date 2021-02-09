@@ -45,9 +45,9 @@ platform :android do
           #)
 
           flutter_version_manager(
-            path_to_yaml: "../pubspec.yaml"
-            version_name: "0.0.69"
-            version_code: "10"
+            path_to_yaml: "../pubspec.yaml",
+            version_name: "0.0.69",
+            version_code: "10",
           )
       end
   end
