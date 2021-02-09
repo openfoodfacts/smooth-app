@@ -105,7 +105,7 @@ class ProductQueryPageHelper {
       case ProductList.LIST_TYPE_SCAN:
         return 'Scan';
       case ProductList.LIST_TYPE_HISTORY:
-        return 'History';
+        return 'My recently seen products';
       case ProductList.LIST_TYPE_USER_DEFINED:
         return '${productList.parameters}${verbose ? ' (my list)' : ''}';
     }
