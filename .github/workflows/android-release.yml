@@ -1,5 +1,5 @@
 name: Release
-on: [push, pull_request]
+on: push
 #on:
 #  push:
 #    branches:
@@ -36,7 +36,7 @@ jobs:
       - name: Run Fastlane
         uses: maierj/fastlane-action@v2.0.0
         with:
-          lane: getVersion
+          lane: setVersion
           subdirectory: packages/smooth_app/android
 
       - name: setup git config
