@@ -1,0 +1,20 @@
+on:
+  schedule:
+    - cron: 0 2 * * *
+jobs:
+  test:
+    name: example Flutter package updater
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '12.x'
+      - uses: subosito/flutter-action@v1
+        with:
+          flutter-version: '1.12.13+hotfix.5'
+          channel: 'stable'
+      - name: run flutter package updater
+        uses: tianhaoz95/update-flutter-packages@v0.0.1
+        with:
+          flutter-project: './smooth_app'
