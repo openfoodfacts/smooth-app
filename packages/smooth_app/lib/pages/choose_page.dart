@@ -13,20 +13,198 @@ import 'package:smooth_app/database/group_product_query.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/product_page.dart';
 import 'package:smooth_app/database/barcode_product_query.dart';
-import 'package:smooth_ui_library/widgets/smooth_search_bar.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/pages/product_query_page_helper.dart';
 
 class ChoosePage extends StatefulWidget {
   @override
   _ChoosePageState createState() => _ChoosePageState();
+
+  static Future<void> _barcodeSearch(
+    String code,
+    BuildContext context,
+    final LocalDatabase localDatabase,
+  ) async {
+    final Product product = await BarcodeProductQuery(code).getProduct();
+    if (product != null) {
+      await DaoProduct(localDatabase).put(product);
+      Navigator.pop(context);
+      Navigator.push<dynamic>(
+        context,
+        MaterialPageRoute<dynamic>(
+          builder: (BuildContext context) => ProductPage(
+            product: product,
+          ),
+        ),
+      );
+      return;
+    }
+    Navigator.pop(context);
+    showDialog<Widget>(
+      context: context,
+      builder: (BuildContext context) {
+        return Dialog(
+          backgroundColor: Colors.transparent,
+          child: ClipRRect(
+            borderRadius: const BorderRadius.all(Radius.circular(20.0)),
+            child: BackdropFilter(
+              filter: ImageFilter.blur(
+                sigmaX: 4.0,
+                sigmaY: 4.0,
+              ),
+              child: Container(
+                padding: const EdgeInsets.all(12.0),
+                width: MediaQuery.of(context).size.width * 0.8,
+                height: 120.0,
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                  color: Colors.white70,
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Flexible(
+                          child: Text(
+                            'No product found with matching barcode : $code',
+                            textAlign: TextAlign.center,
+                          ),
+                        )
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 24.0,
+                    ),
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: Container(
+                            width: MediaQuery.of(context).size.width * 0.3,
+                            height: 40.0,
+                            decoration: BoxDecoration(
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(50.0)),
+                              color: Colors.redAccent.withAlpha(50),
+                            ),
+                            child: Center(
+                              child: Text(
+                                'Close',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headline4
+                                    .copyWith(color: Colors.redAccent),
+                              ),
+                            ),
+                          ),
+                        ),
+                        GestureDetector(
+                          child: Container(
+                            width: MediaQuery.of(context).size.width * 0.3,
+                            height: 40.0,
+                            decoration: BoxDecoration(
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(50.0)),
+                              color: Colors.lightBlue.withAlpha(50),
+                            ),
+                            child: Center(
+                              child: Text(
+                                'Contribute',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headline4
+                                    .copyWith(color: Colors.lightBlue),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  static Future<void> onSubmitted(
+    final String value,
+    final BuildContext context,
+    final LocalDatabase localDatabase,
+  ) async {
+    if (int.parse(value, onError: (String e) => null) != null) {
+      showDialog<Widget>(
+        context: context,
+        builder: (BuildContext context) {
+          ChoosePage._barcodeSearch(
+            value,
+            context,
+            localDatabase,
+          );
+          return Dialog(
+            backgroundColor: Colors.transparent,
+            child: ClipRRect(
+              borderRadius: const BorderRadius.all(Radius.circular(20.0)),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(
+                  sigmaX: 4.0,
+                  sigmaY: 4.0,
+                ),
+                child: Container(
+                  padding: const EdgeInsets.all(12.0),
+                  width: MediaQuery.of(context).size.width * 0.8,
+                  height: 120.0,
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    color: Colors.white70,
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text('Looking for : $value'),
+                      const SizedBox(
+                        height: 24.0,
+                      ),
+                      const CircularProgressIndicator(),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          );
+        },
+      );
+    } else {
+      await ProductQueryPageHelper().openBestChoice(
+        color: Colors.deepPurple,
+        heroTag: 'search_bar',
+        name: value,
+        localDatabase: localDatabase,
+        productQuery: KeywordsProductQuery(
+          keywords: value,
+          languageCode: Localizations.localeOf(context).languageCode,
+          countryCode: window.locale.countryCode,
+          size: 500,
+        ),
+        context: context,
+      );
+    }
+  }
 }
 
 class _ChoosePageState extends State<ChoosePage> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  final ScrollController _scrollController = ScrollController();
-
   static const Map<PnnsGroup1, String> _CATEGORY_ICONS = <PnnsGroup1, String>{
     PnnsGroup1.BEVERAGES: 'beverages.svg',
     PnnsGroup1.CEREALS_AND_POTATOES: 'cereals_and_potatoes.svg',
@@ -53,7 +231,6 @@ class _ChoosePageState extends State<ChoosePage> {
 
   PnnsGroup1 _selectedCategory;
   Color _selectedColor;
-  bool _preventAppBarColorRefresh = false;
 
   void _selectCategory(final PnnsGroup1 group, final Color color) {
     _selectedCategory = group;
@@ -64,332 +241,72 @@ class _ChoosePageState extends State<ChoosePage> {
     if (_selectedCategory != null) {
       _selectedCategory = null;
       _selectedColor = null;
-      _scrollController.animateTo(0.0,
-          duration: const Duration(milliseconds: 280), curve: Curves.easeIn);
     }
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _scrollController.addListener(() {
-      if (_scrollController.offset < 60.0) {
-        setState(() {
-          _preventAppBarColorRefresh = false;
-        });
-      } else if (!_preventAppBarColorRefresh) {
-        setState(() {
-          _preventAppBarColorRefresh = true;
-        });
-      }
-    });
   }
 
   @override
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
+    final ColorScheme colorScheme = Theme.of(context).colorScheme;
     return WillPopScope(
       onWillPop: _onWillPop,
       child: Scaffold(
-        key: _scaffoldKey,
-        body: NestedScrollView(
-          controller: _scrollController,
-          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-            return <Widget>[
-              SliverAppBar(
-                expandedHeight: 248.0,
-                pinned: true,
-                elevation: 8.0,
-                centerTitle: true,
-                flexibleSpace: FlexibleSpaceBar(
-                  collapseMode: CollapseMode.parallax,
-                  background: Column(
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            top: 46.0, right: 16.0, left: 16.0, bottom: 4.0),
-                        child: Row(
-                          children: <Widget>[
-                            Flexible(
-                              child: Text(
-                                AppLocalizations.of(context).searchTitle,
-                                style: Theme.of(context).textTheme.headline1,
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 16.0, vertical: 12.0),
-                        child: SmoothSearchBar(
-                          hintText: AppLocalizations.of(context).searchHintText,
-                          onSubmitted: (String value) async {
-                            if (int.parse(value, onError: (String e) => null) !=
-                                null) {
-                              showDialog<Widget>(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  _barcodeSearch(
-                                    value,
-                                    context,
-                                    localDatabase,
-                                  );
-                                  return Dialog(
-                                    backgroundColor: Colors.transparent,
-                                    child: ClipRRect(
-                                      borderRadius: const BorderRadius.all(
-                                          Radius.circular(20.0)),
-                                      child: BackdropFilter(
-                                        filter: ImageFilter.blur(
-                                          sigmaX: 4.0,
-                                          sigmaY: 4.0,
-                                        ),
-                                        child: Container(
-                                          padding: const EdgeInsets.all(12.0),
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.8,
-                                          height: 120.0,
-                                          decoration: const BoxDecoration(
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(20.0)),
-                                            color: Colors.white70,
-                                          ),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: <Widget>[
-                                              Text('Looking for : $value'),
-                                              const SizedBox(
-                                                height: 24.0,
-                                              ),
-                                              const CircularProgressIndicator(),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  );
-                                },
-                              );
-                            } else {
-                              await ProductQueryPageHelper().openBestChoice(
-                                color: Colors.deepPurple,
-                                heroTag: 'search_bar',
-                                name: value,
-                                localDatabase: localDatabase,
-                                productQuery: KeywordsProductQuery(
-                                  value,
-                                  Localizations.localeOf(context).languageCode,
-                                ),
-                                context: context,
-                              );
-                            }
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                bottom: PreferredSize(
-                  preferredSize: Size(MediaQuery.of(context).size.width, 20.0),
-                  child: Container(
-                    padding: const EdgeInsets.only(
-                      left: 12.0,
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Flexible(
-                          child: Text(
-                            AppLocalizations.of(context).categories,
-                            style: Theme.of(context).textTheme.headline3,
+        appBar: AppBar(
+          title: Text(
+            _selectedCategory == null
+                ? 'Food Categories'
+                : _selectedCategory.name,
+            style: TextStyle(color: colorScheme.onBackground),
+          ),
+          iconTheme: IconThemeData(color: colorScheme.onBackground),
+        ),
+        body: Column(
+          children: <Widget>[
+            if (_selectedCategory == null)
+              Container()
+            else
+              Container(
+                padding: const EdgeInsets.only(bottom: 0.0),
+                width: MediaQuery.of(context).size.width,
+                height: 100.0,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: List<Widget>.generate(
+                    PnnsGroup1.values.length,
+                    (int index) {
+                      final PnnsGroup1 group = PnnsGroup1.values[index];
+                      final Color color = _getColor(index);
+                      return AnimationConfiguration.staggeredList(
+                        position: index,
+                        duration: const Duration(milliseconds: 250),
+                        child: SlideAnimation(
+                          verticalOffset: 50.0,
+                          child: FadeInAnimation(
+                            child: CategoryChip(
+                              title: group.name,
+                              color: color,
+                              onTap: () async =>
+                                  setState(() => _selectCategory(group, color)),
+                            ),
                           ),
                         ),
-                        MaterialButton(
-                          child: Text(
-                            AppLocalizations.of(context).showAll,
-                            style: Theme.of(context).textTheme.subtitle1,
-                          ),
-                          onPressed: () => setState(() => _unSelectCategory()),
-                        ),
-                      ],
-                    ),
+                      );
+                    },
                   ),
                 ),
               ),
-            ];
-          },
-          body: Column(
-            children: <Widget>[
-              if (_selectedCategory == null)
-                Container()
-              else
-                Container(
-                  padding: const EdgeInsets.only(bottom: 0.0),
-                  width: MediaQuery.of(context).size.width,
-                  height: 100.0,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: List<Widget>.generate(
-                      PnnsGroup1.values.length,
-                      (int index) {
-                        final PnnsGroup1 group = PnnsGroup1.values[index];
-                        final Color color = _getColor(index);
-                        return AnimationConfiguration.staggeredList(
-                          position: index,
-                          duration: const Duration(milliseconds: 250),
-                          child: SlideAnimation(
-                            verticalOffset: 50.0,
-                            child: FadeInAnimation(
-                              child: CategoryChip(
-                                title: group.name,
-                                color: color,
-                                onTap: () async => setState(
-                                    () => _selectCategory(group, color)),
-                              ),
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                ),
-              Expanded(
-                  child: _selectedCategory == null
-                      ? _showAllPnnsGroup1()
-                      : _showPnnsGroup2(
-                          _selectedCategory,
-                          _selectedColor,
-                          localDatabase,
-                        ))
-            ],
-          ),
+            Expanded(
+                child: _selectedCategory == null
+                    ? _showAllPnnsGroup1()
+                    : _showPnnsGroup2(
+                        _selectedCategory,
+                        _selectedColor,
+                        localDatabase,
+                      ))
+          ],
         ),
       ),
     );
-  }
-
-  Future<void> _barcodeSearch(
-    String code,
-    BuildContext context,
-    final LocalDatabase localDatabase,
-  ) async {
-    final Product product = await BarcodeProductQuery(code).getProduct();
-    if (product != null) {
-      await DaoProduct(localDatabase).put(product);
-      Navigator.pop(context);
-      Navigator.push<dynamic>(
-        context,
-        MaterialPageRoute<dynamic>(
-          builder: (BuildContext context) => ProductPage(
-            product: product,
-          ),
-        ),
-      );
-    } else {
-      Navigator.pop(context);
-      showDialog<Widget>(
-        context: context,
-        builder: (BuildContext context) {
-          return Dialog(
-            backgroundColor: Colors.transparent,
-            child: ClipRRect(
-              borderRadius: const BorderRadius.all(Radius.circular(20.0)),
-              child: BackdropFilter(
-                filter: ImageFilter.blur(
-                  sigmaX: 4.0,
-                  sigmaY: 4.0,
-                ),
-                child: Container(
-                  padding: const EdgeInsets.all(12.0),
-                  width: MediaQuery.of(context).size.width * 0.8,
-                  height: 120.0,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                    color: Colors.white70,
-                  ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Flexible(
-                            child: Text(
-                              'No product found with matching barcode : $code',
-                              textAlign: TextAlign.center,
-                            ),
-                          )
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 24.0,
-                      ),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.pop(context);
-                            },
-                            child: Container(
-                              width: MediaQuery.of(context).size.width * 0.3,
-                              height: 40.0,
-                              decoration: BoxDecoration(
-                                borderRadius: const BorderRadius.all(
-                                    Radius.circular(50.0)),
-                                color: Colors.redAccent.withAlpha(50),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  'Close',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .headline4
-                                      .copyWith(color: Colors.redAccent),
-                                ),
-                              ),
-                            ),
-                          ),
-                          GestureDetector(
-                            child: Container(
-                              width: MediaQuery.of(context).size.width * 0.3,
-                              height: 40.0,
-                              decoration: BoxDecoration(
-                                borderRadius: const BorderRadius.all(
-                                    Radius.circular(50.0)),
-                                color: Colors.lightBlue.withAlpha(50),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  'Contribute',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .headline4
-                                      .copyWith(color: Colors.lightBlue),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          );
-        },
-      );
-    }
   }
 
   Widget _showAllPnnsGroup1() => GridView.count(

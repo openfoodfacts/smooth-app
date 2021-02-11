@@ -9,17 +9,11 @@ import 'package:sentry/sentry.dart';
 import 'package:provider/provider.dart';
 
 import 'package:smooth_app/data_models/user_preferences_model.dart';
-import 'package:smooth_app/pages/scan_page.dart';
-import 'package:smooth_app/pages/choose_page.dart';
-import 'package:smooth_app/pages/contribution_page.dart';
-import 'package:smooth_app/pages/profile_page.dart';
-import 'package:smooth_app/pages/list_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/pages/home_page.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_ui_library/navigation/smooth_bottom_navigation_bar.dart';
-import 'package:smooth_ui_library/navigation/models/smooth_bottom_navigation_bar_item.dart';
 
 Future<void> main() async {
   await Sentry.init(
@@ -127,47 +121,6 @@ class SmoothAppGetLanguage extends StatelessWidget {
     final Locale myLocale = Localizations.localeOf(context);
     final String languageCode = myLocale.languageCode;
     userPreferencesModel.refresh(DefaultAssetBundle.of(context), languageCode);
-    return SmoothApp();
-  }
-}
-
-class SmoothApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final UserPreferences userPreferences = context.watch<UserPreferences>();
-    final bool mlKitState = userPreferences.getMlKitState();
-    return SmoothBottomNavigationBar(
-      <SmoothBottomNavigationBarItem>[
-        SmoothBottomNavigationBarItem(
-          name: 'Choose',
-          body: ChoosePage(),
-          iconPath: 'assets/ikonate_thin/search.svg',
-        ),
-        SmoothBottomNavigationBarItem(
-          name: 'Contribute',
-          body: CollaborationPage(),
-          iconPath: 'assets/ikonate_thin/add.svg',
-        ),
-        SmoothBottomNavigationBarItem(
-          name: 'Lists',
-          body: ListPage(),
-          iconPath: 'assets/navigation/organize.svg',
-        ),
-        SmoothBottomNavigationBarItem(
-          name: 'Profile',
-          body: ProfilePage(),
-          iconPath: 'assets/ikonate_thin/person.svg',
-        ),
-      ],
-      fabAction: () => Navigator.push<Widget>(
-        context,
-        MaterialPageRoute<Widget>(
-          builder: (BuildContext context) => ScanPage(
-            contributionMode: false,
-            mlKit: mlKitState,
-          ),
-        ),
-      ),
-    );
+    return HomePage();
   }
 }

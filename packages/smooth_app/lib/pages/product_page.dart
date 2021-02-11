@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:smooth_app/cards/data_cards/image_upload_card.dart';
 import 'package:smooth_app/cards/expandables/attribute_list_expandable.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/data_models/match.dart';
@@ -11,6 +12,7 @@ import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:provider/provider.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/data_models/product_list.dart';
@@ -23,8 +25,9 @@ import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:wc_flutter_share/wc_flutter_share.dart';
 
 class ProductPage extends StatefulWidget {
-  const ProductPage({@required this.product});
+  const ProductPage({@required this.product, this.newProduct = false});
 
+  final bool newProduct;
   final Product product;
 
   @override
@@ -157,172 +160,78 @@ class _ProductPageState extends State<ProductPage> {
     UserPreferencesModel.ATTRIBUTE_GROUP_ALLERGENS,
   ];
 
+  static const double _OPACITY_FOR_DARK =
+      .3; // TODO(monsieurtanuki): make it more public?
+
   @override
   Widget build(BuildContext context) {
-    final UserPreferences userPreferences = context.watch<UserPreferences>();
-    final UserPreferencesModel userPreferencesModel =
-        context.watch<UserPreferencesModel>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final Size screenSize = MediaQuery.of(context).size;
-    final double iconWidth =
-        screenSize.width / 10; // TODO(monsieurtanuki): target size?
-    final Map<String, String> attributeGroupLabels = <String, String>{};
-    for (final AttributeGroup attributeGroup
-        in userPreferencesModel.attributeGroups) {
-      attributeGroupLabels[attributeGroup.id] = attributeGroup.name;
-    }
-    final List<String> mainAttributes =
-        userPreferencesModel.getOrderedVariables(userPreferences);
-    final List<Widget> listItems = <Widget>[];
-    listItems.add(
-      Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Flexible(
-              child: Text(
-                widget.product.brands ?? appLocalizations.unknownBrand,
-                style: Theme.of(context).textTheme.subtitle1,
-              ),
+    final ThemeData themeData = Theme.of(context);
+    final ColorScheme colorScheme = themeData.colorScheme;
+    return Scaffold(
+        appBar: AppBar(
+          title: ListTile(
+            title: Text(
+              widget.product.productName ?? appLocalizations.unknownProductName,
+              style: themeData.textTheme.headline4
+                  .copyWith(color: colorScheme.onBackground),
             ),
-            Flexible(
-              child: Text(
-                widget.product.quantity != null
-                    ? '${widget.product.quantity}'
-                    : '',
-                style: Theme.of(context)
-                    .textTheme
-                    .headline4
-                    .copyWith(color: Colors.grey, fontSize: 18.0),
+          ),
+          iconTheme: IconThemeData(color: colorScheme.onBackground),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(
+                'assets/actions/food-cog.svg',
+                color: themeData.bottomNavigationBarTheme.selectedItemColor,
               ),
+              label: 'preferences',
+            ),
+            const BottomNavigationBarItem(
+              icon: Icon(Icons.playlist_add),
+              label: 'lists',
+            ),
+            const BottomNavigationBarItem(
+              icon: Icon(Icons.launch),
+              label: 'web',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(ConstantIcons.getShareIcon()),
+              label: 'share',
             ),
           ],
+          onTap: (final int index) {
+            switch (index) {
+              case 0:
+                UserPreferencesView.showModal(context);
+                return;
+              case 1:
+                ProductPage.showLists(widget.product, context);
+                return;
+              case 2:
+                Launcher().launchURL(
+                    context,
+                    'https://openfoodfacts.org/product/${widget.product.barcode}/',
+                    false);
+                return;
+              case 3:
+                WcFlutterShare.share(
+                    sharePopupTitle: 'Share',
+                    subject:
+                        '${widget.product.productName} (by openfoodfacts.org)',
+                    text:
+                        'Try this food: https://openfoodfacts.org/product/${widget.product.barcode}/',
+                    mimeType: 'text/plain');
+                return;
+            }
+            throw 'Unexpected index $index';
+          },
         ),
-      ),
-    );
-    final Map<String, Attribute> matchingAttributes =
-        Match.getMatchingAttributes(widget.product, mainAttributes);
-    for (final String attributeId in mainAttributes) {
-      if (matchingAttributes[attributeId] != null) {
-        listItems.add(
-          AttributeListExpandable(
-            product: widget.product,
-            iconWidth: iconWidth,
-            attributeTags: <String>[attributeId],
-            collapsible: false,
-            background: _getBackgroundColor(matchingAttributes[attributeId]),
-          ),
-        );
-      }
-    }
-    for (final AttributeGroup attributeGroup
-        in _getOrderedAttributeGroups(userPreferencesModel)) {
-      listItems.add(_getAttributeGroupWidget(attributeGroup, iconWidth));
-    }
-    return Scaffold(
-      appBar: AppBar(
-        title: ListTile(
-          title: Text(
-            widget.product.productName ?? appLocalizations.unknownProductName,
-            style: Theme.of(context)
-                .textTheme
-                .headline4
-                .copyWith(color: Theme.of(context).colorScheme.onBackground),
-          ),
-        ),
-        iconTheme:
-            IconThemeData(color: Theme.of(context).colorScheme.onBackground),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset('assets/actions/food-cog.svg'),
-            label: 'preferences',
-          ),
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.playlist_add),
-            label: 'lists',
-          ),
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.launch),
-            label: 'Web',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(ConstantIcons.getShareIcon()),
-            label: 'share',
-          ),
-        ],
-        onTap: (final int index) {
-          switch (index) {
-            case 0:
-              UserPreferencesView.showModal(context);
-              return;
-            case 1:
-              ProductPage.showLists(widget.product, context);
-              return;
-            case 2:
-              Launcher().launchURL(
-                  context,
-                  'https://openfoodfacts.org/product/${widget.product.barcode}/',
-                  false);
-              return;
-            case 3:
-              WcFlutterShare.share(
-                  sharePopupTitle: 'Share',
-                  subject:
-                      '${widget.product.productName} (by openfoodfacts.org)',
-                  text:
-                      'Try this food: https://openfoodfacts.org/product/${widget.product.barcode}/',
-                  mimeType: 'text/plain');
-              return;
-          }
-          throw 'Unexpected index $index';
-        },
-      ),
-      body: Stack(
-        children: <Widget>[
-          if (widget.product.imgSmallUrl != null)
-            Image.network(
-              widget.product.imgSmallUrl,
-              fit: BoxFit.cover,
-              height: double.infinity,
-              width: double.infinity,
-              alignment: Alignment.center,
-              loadingBuilder: (BuildContext context, Widget child,
-                  ImageChunkEvent progress) {
-                if (progress == null) {
-                  return child;
-                }
-                return Center(
-                  child: CircularProgressIndicator(
-                    strokeWidth: 2.5,
-                    valueColor:
-                        const AlwaysStoppedAnimation<Color>(Colors.white),
-                    value: progress.cumulativeBytesLoaded /
-                        progress.expectedTotalBytes,
-                  ),
-                );
-              },
-            )
-          else
-            Container(
-              width: screenSize.width,
-              height: screenSize.height,
-              color: Colors.black54,
-            ),
-          BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 18.0, sigmaY: 18.0),
-            child: Container(
-              color: Theme.of(context).colorScheme.surface.withAlpha(220),
-              child: ListView(children: listItems),
-            ),
-          ),
-        ],
-      ),
-    );
+        body: widget.newProduct
+            ? _buildNewProductBody(context)
+            : _buildProductBody(context));
   }
 
   Future<void> _updateHistory(final BuildContext context) async {
@@ -334,6 +243,144 @@ class _ProductPageState extends State<ProductPage> {
     productList.add(widget.product);
     await daoProductList.put(productList);
     localDatabase.notifyListeners();
+  }
+
+  Widget _buildNewProductBody(BuildContext context) {
+    return ListView(children: <Widget>[
+      Container(
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        margin: const EdgeInsets.only(top: 20.0),
+        child: Text(
+          'Add a new product',
+          style: Theme.of(context).textTheme.headline1,
+        ),
+      ),
+      ImageUploadCard(
+          product: widget.product,
+          imageField: ImageField.FRONT,
+          buttonText: 'Front photo'),
+      ImageUploadCard(
+          product: widget.product,
+          imageField: ImageField.INGREDIENTS,
+          buttonText: 'Ingredients photo'),
+      ImageUploadCard(
+        product: widget.product,
+        imageField: ImageField.NUTRITION,
+        buttonText: 'Nutrition facts photo',
+      ),
+      ImageUploadCard(
+          product: widget.product,
+          imageField: ImageField.OTHER,
+          buttonText: 'More interesting photos'),
+    ]);
+  }
+
+  Widget _buildProductBody(BuildContext context) {
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
+    final UserPreferencesModel userPreferencesModel =
+        context.watch<UserPreferencesModel>();
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final Size screenSize = MediaQuery.of(context).size;
+    final ThemeData themeData = Theme.of(context);
+    final double iconWidth =
+        screenSize.width / 10; // TODO(monsieurtanuki): target size?
+    final Map<String, String> attributeGroupLabels = <String, String>{};
+    for (final AttributeGroup attributeGroup
+        in userPreferencesModel.attributeGroups) {
+      attributeGroupLabels[attributeGroup.id] = attributeGroup.name;
+    }
+    final List<String> mainAttributes =
+        userPreferencesModel.getOrderedVariables(userPreferences);
+    final List<Widget> listItems = <Widget>[];
+
+    listItems.add(
+      Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Flexible(
+              child: Text(
+                widget.product.brands ?? appLocalizations.unknownBrand,
+                style: themeData.textTheme.subtitle1,
+              ),
+            ),
+            Flexible(
+              child: Text(
+                widget.product.quantity != null
+                    ? '${widget.product.quantity}'
+                    : '',
+                style: themeData.textTheme.headline4
+                    .copyWith(color: Colors.grey, fontSize: 18.0),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+    final Map<String, Attribute> matchingAttributes =
+        Match.getMatchingAttributes(widget.product, mainAttributes);
+    final double opacity =
+        themeData.brightness == Brightness.light ? 1 : _OPACITY_FOR_DARK;
+    for (final String attributeId in mainAttributes) {
+      if (matchingAttributes[attributeId] != null) {
+        listItems.add(
+          AttributeListExpandable(
+            product: widget.product,
+            iconWidth: iconWidth,
+            attributeTags: <String>[attributeId],
+            collapsible: false,
+            background: _getBackgroundColor(matchingAttributes[attributeId])
+                .withOpacity(opacity),
+          ),
+        );
+      }
+    }
+    for (final AttributeGroup attributeGroup
+        in _getOrderedAttributeGroups(userPreferencesModel)) {
+      listItems.add(_getAttributeGroupWidget(attributeGroup, iconWidth));
+    }
+
+    return Stack(
+      children: <Widget>[
+        if (widget.product.imgSmallUrl != null)
+          Image.network(
+            widget.product.imgSmallUrl,
+            fit: BoxFit.cover,
+            height: double.infinity,
+            width: double.infinity,
+            alignment: Alignment.center,
+            loadingBuilder:
+                (BuildContext context, Widget child, ImageChunkEvent progress) {
+              if (progress == null) {
+                return child;
+              }
+              return Center(
+                child: CircularProgressIndicator(
+                  strokeWidth: 2.5,
+                  valueColor: const AlwaysStoppedAnimation<Color>(Colors.white),
+                  value: progress.cumulativeBytesLoaded /
+                      progress.expectedTotalBytes,
+                ),
+              );
+            },
+          )
+        else
+          Container(
+            width: screenSize.width,
+            height: screenSize.height,
+            color: Colors.black54,
+          ),
+        BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 18.0, sigmaY: 18.0),
+          child: Container(
+            color: themeData.colorScheme.surface.withAlpha(220),
+            child: ListView(children: listItems),
+          ),
+        ),
+      ],
+    );
   }
 
   Widget _getAttributeGroupWidget(

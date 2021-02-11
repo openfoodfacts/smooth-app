@@ -70,7 +70,9 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
         return SmoothProductCardLoading(barcode: barcode);
       case ScannedProductState.NOT_FOUND:
         return SmoothProductCardNotFound(
-          barcode: barcode,
+          product: Product(
+            barcode: barcode,
+          ),
           callback: () => widget.continuousScanModel
               .setBarcodeState(barcode, ScannedProductState.THANKS),
         );

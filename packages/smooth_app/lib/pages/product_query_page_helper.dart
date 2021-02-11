@@ -89,18 +89,25 @@ class ProductQueryPageHelper {
     return getDurationStringFromSeconds(seconds);
   }
 
-  static String getProductListLabel(final ProductList productList) {
+  static bool isListReversed(final ProductList productList) =>
+      productList.listType == ProductList.LIST_TYPE_HISTORY ||
+      productList.listType == ProductList.LIST_TYPE_SCAN;
+
+  static String getProductListLabel(
+    final ProductList productList, {
+    final bool verbose = true,
+  }) {
     switch (productList.listType) {
       case ProductList.LIST_TYPE_HTTP_SEARCH_GROUP:
-        return '${_getGroupName(productList.parameters)} (category search)';
+        return '${_getGroupName(productList.parameters)}${verbose ? ' (category search)' : ''}';
       case ProductList.LIST_TYPE_HTTP_SEARCH_KEYWORDS:
-        return '${productList.parameters} (keyword search)';
+        return '${productList.parameters}${verbose ? ' (keyword search)' : ''}';
       case ProductList.LIST_TYPE_SCAN:
         return 'Scan';
       case ProductList.LIST_TYPE_HISTORY:
-        return 'History';
+        return 'My recently seen products';
       case ProductList.LIST_TYPE_USER_DEFINED:
-        return '${productList.parameters} (my list)';
+        return '${productList.parameters}${verbose ? ' (my list)' : ''}';
     }
     return 'Unknown product list: ${productList.listType} / ${productList.parameters}';
   }
