@@ -33,7 +33,7 @@ jobs:
         with:
           flutter-version: 1.22.5
       - name: Install Flutter dependencies
-        run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get && flutter build ios && pod install
+        run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get && flutter build ios --release --no-codesign && pod install
         env:
           GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
