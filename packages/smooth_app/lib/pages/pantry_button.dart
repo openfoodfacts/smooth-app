@@ -11,13 +11,13 @@ class PantryButton extends StatelessWidget {
   final int index;
   final OutlinedBorder shape;
 
-  static const OutlinedBorder SHAPE_BEVELED = BeveledRectangleBorder(
-    borderRadius: BorderRadius.horizontal(
-        left: Radius.circular(16.0), right: Radius.circular(16.0)),
-  );
-  static final OutlinedBorder SHAPE_ROUNDED = RoundedRectangleBorder(
-    borderRadius: BorderRadius.circular(32.0),
-  );
+  static OutlinedBorder getShapeBeveled() => const BeveledRectangleBorder(
+        borderRadius: BorderRadius.horizontal(
+            left: Radius.circular(16.0), right: Radius.circular(16.0)),
+      );
+  static OutlinedBorder getShapeRounded() => RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(32.0),
+      );
 
   @override
   Widget build(BuildContext context) => ElevatedButton.icon(

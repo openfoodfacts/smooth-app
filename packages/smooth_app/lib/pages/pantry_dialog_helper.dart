@@ -176,7 +176,7 @@ class PantryDialogHelper {
   ) async {
     final Pantry pantry = pantries[index];
     final List<String> orderedIcons = pantries[index].getPossibleIcons();
-    final List<String> orderedColors = Pantry.ORDERED_COLORS;
+    const List<String> orderedColors = Pantry.ORDERED_COLORS;
     final double size = MediaQuery.of(context).size.width / 8;
     return await showDialog<bool>(
       context: context,
