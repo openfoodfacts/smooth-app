@@ -21,6 +21,7 @@ class UserPreferences extends ChangeNotifier {
   static const int INDEX_NOT_IMPORTANT = 0;
 
   static const String _TAG_PREFIX_IMPORTANCE = 'IMPORTANCE';
+  static const String _TAG_PANTRY_REPOSITORY = 'pantry_repository';
   static const String _TAG_VISIBLE_GROUPS = 'visible_groups';
   static const String _TAG_USE_ML_KIT = 'useMlKit';
   static const String _TAG_INIT = 'init';
@@ -78,7 +79,7 @@ class UserPreferences extends ChangeNotifier {
       await _setImportance(UserPreferencesModel.ATTRIBUTE_ECOSCORE, valueIndex,
           notify: false);
     }
-    _sharedPreferences.setStringList(_TAG_VISIBLE_GROUPS, null);
+    await _sharedPreferences.setStringList(_TAG_VISIBLE_GROUPS, null);
     notifyListeners();
   }
 
@@ -122,4 +123,13 @@ class UserPreferences extends ChangeNotifier {
   Future<void> setProductListCopy(final String productListLousyKey) async =>
       await _sharedPreferences.setString(
           _TAG_PRODUCT_LIST_COPY, productListLousyKey);
+
+  Future<void> setPantryRepository(final List<String> encodedJsons) async {
+    await _sharedPreferences.setStringList(
+        _TAG_PANTRY_REPOSITORY, encodedJsons);
+    notifyListeners();
+  }
+
+  List<String> getPantryRepository() =>
+      _sharedPreferences.getStringList(_TAG_PANTRY_REPOSITORY) ?? <String>[];
 }

@@ -83,6 +83,7 @@ class SmoothProductCardFound extends StatelessWidget {
                 SmoothProductImage(
                   product: product,
                   width: screenSize.width * 0.20,
+                  height: screenSize.width * 0.20,
                 ),
                 const SizedBox(
                   width: 8.0,
