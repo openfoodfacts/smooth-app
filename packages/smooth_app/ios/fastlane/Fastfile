@@ -3,6 +3,7 @@ platform :ios do
   desc "Push a new beta build to TestFlight"
   lane :beta do
     APP_IDENTIFIER = CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)
+    TEAM_ID = CredentialsManager::AppfileConfig.try_fetch_value(:team_id)
     sync_code_signing(type: "appstore", readonly: is_ci, clone_branch_directly: false)
     update_code_signing_settings(
       path: "Runner.xcodeproj",
@@ -23,17 +24,38 @@ platform :ios do
       )
     end
     match(
+      app_identifier: "org.openfoodfacts.app",
       type: "appstore",
       readonly: is_ci,
       keychain_name: ENV['MATCH_KEYCHAIN_NAME'],
       keychain_password: ENV["MATCH_KEYCHAIN_PASSWORD"],
     )
-    build_app(
+    gym(
+      configuration: "Release",
       workspace: "Runner.xcworkspace",
       scheme: "Runner",
-      export_method: "app-store"
-      #version_code: flutter_version(pubspec_location: '../pubspec.yaml')["version_code"],
+      export_method: "app-store",
+      export_options: {
+        provisioningProfiles: { 
+            DEVELOPER_APP_ID => ENV['PILOT_APPLE_ID']
+        }
+      }
     )
-    upload_to_testflight
+    pilot(
+      apple_id: ENV['FASTLANE_USER'],
+      app_identifier: ENV['APP_BUNDLE_IDENTIFIER'],
+      skip_waiting_for_build_processing: true,
+      skip_submission: true,
+      distribute_external: false,
+      notify_external_testers: false,
+      ipa: "./Runner.ipa"
+    )
+ #   build_app(
+      #workspace: "Runner.xcworkspace",
+     # scheme: "Runner",
+     # export_method: "app-store"
+      #version_code: flutter_version(pubspec_location: '../pubspec.yaml')["version_code"],
+    #)
+    #upload_to_testflight
   end
 end
