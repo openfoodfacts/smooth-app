@@ -1,4 +1,4 @@
-app_identifier "org.openfoodfacts.openfoodfacts"
+app_identifier "org.openfoodfacts.app"
 #username ENV["APPLE_ID"]
 username ENV["PILOT_APPLE_ID"]
 app_icon "./fastlane/metadata/Icon-App-iTunes.png"
