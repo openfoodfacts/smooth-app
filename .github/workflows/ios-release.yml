@@ -1,5 +1,5 @@
 name: Smoothie Testflight internal release
-on: [push, pull_request]
+on: [push]
 #on:
   #push:
     #branches:
