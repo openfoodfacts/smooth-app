@@ -124,19 +124,28 @@ class ProductList {
 
   Product getProduct(final String barcode) => _products[barcode];
 
-  String get lousyKey => '$listType/$parameters';
+  String get lousyKey =>
+      '$listType/$parameters'; // TODO(monsieurtanuki): does not work if you change the name
 
   static Widget getReferenceIcon({
     final ColorScheme colorScheme,
     final String colorTag,
     final String iconTag,
   }) =>
+      getTintedIcon(
+        colorScheme: colorScheme,
+        materialColor: _getReferenceMaterialColor(colorTag),
+        iconData: _ICON_DATA[iconTag] ?? _ICON_DATA[_ICON_TAG],
+      );
+
+  static Widget getTintedIcon({
+    final ColorScheme colorScheme,
+    final MaterialColor materialColor,
+    final IconData iconData,
+  }) =>
       Icon(
-        _ICON_DATA[iconTag] ?? _ICON_DATA[_ICON_TAG],
-        color: SmoothTheme.getForegroundColor(
-          colorScheme,
-          _getReferenceMaterialColor(colorTag),
-        ),
+        iconData,
+        color: SmoothTheme.getForegroundColor(colorScheme, materialColor),
       );
 
   static MaterialColor _getReferenceMaterialColor(final String colorTag) =>

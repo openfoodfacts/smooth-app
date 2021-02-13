@@ -249,11 +249,10 @@ class DaoProductList {
     final ProductList destination,
     final String sourceLousyKey,
   ) async {
-    final int sourceId = await _getProductListIdFromLousyKey(sourceLousyKey);
-    if (sourceId == null) {
+    final List<String> barcodes = await getBarcodes(sourceLousyKey);
+    if (barcodes == null) {
       return null;
     }
-    final List<String> barcodes = await _getBarcodes(sourceId);
     _upsertProductList(destination);
     final Map<String, dynamic> record = await _getRecord(destination);
     if (record == null) {
@@ -264,6 +263,14 @@ class DaoProductList {
     final int result = await _insertListItems(destinationId, barcodes);
     await get(destination);
     return result;
+  }
+
+  Future<List<String>> getBarcodes(final String lousyKey) async {
+    final int sourceId = await _getProductListIdFromLousyKey(lousyKey);
+    if (sourceId == null) {
+      return null;
+    }
+    return await _getBarcodes(sourceId);
   }
 
   Future<int> _getProductListIdFromLousyKey(final String lousyKey) async {
