@@ -21,7 +21,7 @@ jobs:
         env:
           AUTH_KEY_FILE_DECRYPTKEY: ${{ secrets.AUTH_KEY_FILE_DECRYPTKEY }}
       - name: Select Xcode version
-        run: sudo xcode-select -s '/Applications/Xcode_11.3.app/Contents/Developer'
+        run: sudo xcode-select -s '/Applications/Xcode_11.7.app/Contents/Developer'
       - name: Bundle install
         run: cd ./packages/smooth_app/ios && bundle install
       - name: Setup JDK
