@@ -22,6 +22,7 @@ class PantryPage extends StatelessWidget {
   final List<Pantry> pantries;
   final int index;
 
+  static const String _EMPTY_DATE = '';
   static const String _TRANSLATE_ME_RENAME = 'Rename';
   static const String _TRANSLATE_ME_DELETE = 'Delete';
   static const String _TRANSLATE_ME_CHANGE = 'Change icon';
@@ -29,6 +30,7 @@ class PantryPage extends StatelessWidget {
   static const String _TRANSLATE_ME_CLEAR = 'clear';
   static const String _TRANSLATE_ME_GROCERY = 'grocery';
   static const String _TRANSLATE_ME_ANOTHER_DATE = 'Add another date';
+  static const String _TRANSLATE_ME_NO_DATE = 'No date';
 
   @override
   Widget build(BuildContext context) {
@@ -163,6 +165,7 @@ class PantryPage extends StatelessWidget {
                 final String now = DateTime.now().toIso8601String();
                 final List<String> sortedDays = <String>[...dates.keys];
                 sortedDays.sort();
+                final bool alreadyHasNoDate = sortedDays.contains(_EMPTY_DATE);
                 for (final String day in sortedDays) {
                   children.add(
                     Row(
@@ -188,12 +191,17 @@ class PantryPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        Text(day, style: textStyle),
+                        Text(
+                          day != _EMPTY_DATE ? day : _TRANSLATE_ME_NO_DATE,
+                          style: textStyle,
+                        ),
                         Container(
                           width: 60,
                           child: Center(
                             child: Text(
-                              '(${_getDayDifference(now, day)}d)',
+                              day == _EMPTY_DATE
+                                  ? ''
+                                  : '(${_getDayDifference(now, day)}d)',
                               style: textStyle,
                             ),
                           ),
@@ -202,51 +210,75 @@ class PantryPage extends StatelessWidget {
                     ),
                   );
                 }
+                final Widget dateButton = ElevatedButton(
+                  onPressed: () async {
+                    final DateTime dateTime = await showDatePicker(
+                      context: context,
+                      initialDate: DateTime.now(),
+                      firstDate: DateTime.now(),
+                      lastDate: DateTime(2026),
+                      builder: (BuildContext context, Widget child) {
+                        final Color color = SmoothTheme.getForegroundColor(
+                            colorScheme, pantry.materialColor);
+                        return Theme(
+                          data: ThemeData.light().copyWith(
+                            primaryColor: color,
+                            accentColor: color,
+                            colorScheme: ColorScheme.light(primary: color),
+                            buttonTheme: const ButtonThemeData(
+                                textTheme: ButtonTextTheme.primary),
+                          ),
+                          child: child,
+                        );
+                      },
+                    );
+                    if (dateTime == null) {
+                      return;
+                    }
+                    final String date =
+                        dateTime.toIso8601String().substring(0, 10);
+                    pantry.increaseItem(barcode, date, 1);
+                    await save(userPreferences);
+                  },
+                  child: const Text(
+                    _TRANSLATE_ME_ANOTHER_DATE,
+                    style: textStyle,
+                  ),
+                );
+                final Widget noDateButton = ElevatedButton(
+                  onPressed: () async {
+                    pantry.increaseItem(barcode, _EMPTY_DATE, 1);
+                    await save(userPreferences);
+                  },
+                  child: const Text(
+                    _TRANSLATE_ME_NO_DATE,
+                    style: textStyle,
+                  ),
+                );
                 children.add(
                   ListTile(
-                    title: ElevatedButton(
-                      onPressed: () async {
-                        final DateTime dateTime = await showDatePicker(
-                          context: context,
-                          initialDate: DateTime.now(),
-                          firstDate: DateTime.now(),
-                          lastDate: DateTime(2026),
-                          builder: (BuildContext context, Widget child) {
-                            final Color color = SmoothTheme.getForegroundColor(
-                                colorScheme, pantry.materialColor);
-                            return Theme(
-                              data: ThemeData.light().copyWith(
-                                primaryColor: color,
-                                accentColor: color,
-                                colorScheme: ColorScheme.light(primary: color),
-                                buttonTheme: const ButtonThemeData(
-                                    textTheme: ButtonTextTheme.primary),
-                              ),
-                              child: child,
-                            );
-                          },
-                        );
-                        if (dateTime == null) {
-                          return;
-                        }
-                        final String date =
-                            dateTime.toIso8601String().substring(0, 10);
-                        pantry.increaseItem(barcode, date, 1);
-                        await save(userPreferences);
-                      },
-                      child: const Text(
-                        _TRANSLATE_ME_ANOTHER_DATE,
-                        style: textStyle,
-                      ),
+                    title: alreadyHasNoDate
+                        ? dateButton
+                        : Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              dateButton,
+                              noDateButton,
+                            ],
+                          ),
+                    trailing: Container(
+                      width: 54,
+                      child: sortedDays.isNotEmpty
+                          ? null
+                          : IconButton(
+                              onPressed: () async {
+                                pantry.removeBarcode(barcode);
+                                await save(userPreferences);
+                              },
+                              icon:
+                                  Icon(Icons.delete, color: colorScheme.error),
+                            ),
                     ),
-                    trailing: sortedDays.isNotEmpty
-                        ? null
-                        : IconButton(
-                            onPressed: () async {
-                              pantry.removeBarcode(barcode);
-                              await save(userPreferences);
-                            },
-                            icon: Icon(Icons.delete, color: colorScheme.error)),
                   ),
                 );
                 return Padding(
