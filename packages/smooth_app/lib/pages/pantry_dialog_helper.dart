@@ -6,15 +6,23 @@ import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 
 /// A dialog helper for pantries
 class PantryDialogHelper {
-  static const String _TRANSLATE_ME_WANT_TO_DELETE =
+  static const String _TRANSLATE_ME_WANT_TO_DELETE_PANTRY =
       'Do you want to delete this pantry?';
-  static const String _TRANSLATE_ME_NEW_LIST = 'New pantry';
-  static const String _TRANSLATE_ME_RENAME_LIST = 'Rename pantry';
+  static const String _TRANSLATE_ME_WANT_TO_DELETE_SHOPPING =
+      'Do you want to delete this shopping list?';
+  static const String _TRANSLATE_ME_NEW_LIST_PANTRY = 'New pantry';
+  static const String _TRANSLATE_ME_NEW_LIST_SHOPPING = 'New shopping list';
+  static const String _TRANSLATE_ME_RENAME_LIST_PANTRY = 'Rename pantry';
+  static const String _TRANSLATE_ME_RENAME_LIST_SHOPPING =
+      'Rename shopping list';
   static const String _TRANSLATE_ME_CHANGE_ICON = 'Change icon';
-  static const String _TRANSLATE_ME_HINT = 'My own pantry';
+  static const String _TRANSLATE_ME_HINT_PANTRY = 'My own pantry';
+  static const String _TRANSLATE_ME_HINT_SHOPPING = 'My shopping list';
   static const String _TRANSLATE_ME_EMPTY = 'Please enter some text';
-  static const String _TRANSLATE_ME_ALREADY_OTHER =
+  static const String _TRANSLATE_ME_ALREADY_OTHER_PANTRY =
       'There\'s already a pantry with that name';
+  static const String _TRANSLATE_ME_ALREADY_OTHER_SHOPPING =
+      'There\'s already a shopping list with that name';
   static const String _TRANSLATE_ME_ALREADY_SAME = 'That\'s the same name!';
   static const String _TRANSLATE_ME_CANCEL = 'Cancel';
 
@@ -27,7 +35,11 @@ class PantryDialogHelper {
         context: context,
         builder: (BuildContext context) => SmoothAlertDialog(
           close: false,
-          body: const Text(_TRANSLATE_ME_WANT_TO_DELETE),
+          body: Text(
+            pantries[index].pantryType == PantryType.PANTRY
+                ? _TRANSLATE_ME_WANT_TO_DELETE_PANTRY
+                : _TRANSLATE_ME_WANT_TO_DELETE_SHOPPING,
+          ),
           actions: <SmoothSimpleButton>[
             SmoothSimpleButton(
               text: AppLocalizations.of(context).no,
@@ -49,21 +61,26 @@ class PantryDialogHelper {
   static Future<bool> openNew(
     final BuildContext context,
     final List<Pantry> pantries,
+    final PantryType pantryType,
   ) async {
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
     return await showDialog<bool>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
         close: false,
-        title: _TRANSLATE_ME_NEW_LIST,
+        title: pantryType == PantryType.PANTRY
+            ? _TRANSLATE_ME_NEW_LIST_PANTRY
+            : _TRANSLATE_ME_NEW_LIST_SHOPPING,
         body: Form(
           key: formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               TextFormField(
-                decoration: const InputDecoration(
-                  hintText: _TRANSLATE_ME_HINT,
+                decoration: InputDecoration(
+                  hintText: pantryType == PantryType.PANTRY
+                      ? _TRANSLATE_ME_HINT_PANTRY
+                      : _TRANSLATE_ME_HINT_SHOPPING,
                 ),
                 validator: (final String value) {
                   if (value.isEmpty) {
@@ -74,10 +91,12 @@ class PantryDialogHelper {
                   }
                   for (int i = 0; i < pantries.length; i++) {
                     if (value == pantries[i].name) {
-                      return _TRANSLATE_ME_ALREADY_OTHER;
+                      return pantryType == PantryType.PANTRY
+                          ? _TRANSLATE_ME_ALREADY_OTHER_PANTRY
+                          : _TRANSLATE_ME_ALREADY_OTHER_SHOPPING;
                     }
                   }
-                  pantries.add(Pantry(name: value));
+                  pantries.add(Pantry(name: value, pantryType: pantryType));
                   return null;
                 },
               ),
@@ -115,7 +134,9 @@ class PantryDialogHelper {
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
         close: false,
-        title: _TRANSLATE_ME_RENAME_LIST,
+        title: pantries[index].pantryType == PantryType.PANTRY
+            ? _TRANSLATE_ME_RENAME_LIST_PANTRY
+            : _TRANSLATE_ME_RENAME_LIST_SHOPPING,
         body: Form(
           key: formKey,
           child: Column(
@@ -123,8 +144,10 @@ class PantryDialogHelper {
             children: <Widget>[
               TextFormField(
                 initialValue: pantries[index].name,
-                decoration: const InputDecoration(
-                  hintText: _TRANSLATE_ME_HINT,
+                decoration: InputDecoration(
+                  hintText: pantries[index].pantryType == PantryType.PANTRY
+                      ? _TRANSLATE_ME_HINT_PANTRY
+                      : _TRANSLATE_ME_HINT_SHOPPING,
                 ),
                 validator: (final String value) {
                   if (value.isEmpty) {
@@ -138,7 +161,9 @@ class PantryDialogHelper {
                       if (i == index) {
                         return _TRANSLATE_ME_ALREADY_SAME;
                       }
-                      return _TRANSLATE_ME_ALREADY_OTHER;
+                      return pantries[index].pantryType == PantryType.PANTRY
+                          ? _TRANSLATE_ME_ALREADY_OTHER_PANTRY
+                          : _TRANSLATE_ME_ALREADY_OTHER_SHOPPING;
                     }
                   }
                   pantries[index].name = value;
@@ -197,7 +222,7 @@ class PantryDialogHelper {
                 final String iconTag =
                     orderedIcons[index ~/ orderedColors.length];
                 return IconButton(
-                  icon: Pantry.getReferenceIcon(
+                  icon: pantry.getReferenceIcon(
                     colorScheme: Theme.of(context).colorScheme,
                     colorTag: colorTag,
                     iconTag: iconTag,

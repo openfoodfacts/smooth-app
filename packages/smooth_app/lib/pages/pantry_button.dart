@@ -36,7 +36,9 @@ class PantryButton extends StatelessWidget {
             Theme.of(context).colorScheme,
             pantries[index].materialColor,
           ),
-          shape: shape,
+          shape: pantries[index].pantryType == PantryType.PANTRY
+              ? null
+              : getShapeBeveled(),
         ),
       );
 }
