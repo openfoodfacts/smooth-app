@@ -45,6 +45,8 @@ jobs:
           channel: 'stable' # or: 'dev' or 'beta'
       - run: flutter packages get
         working-directory: ./packages/smooth_app
+      - run: flutter pub get
+        working-directory: ./packages/smooth_app
       - run: flutter pub run intl_translation:extract_to_arb --output-dir=lib/l10n lib/messages.dart
         working-directory: ./packages/smooth_app
       - run: |
