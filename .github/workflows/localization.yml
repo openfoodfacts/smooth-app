@@ -42,7 +42,7 @@ jobs:
           java-version: '12.x'
       - uses: subosito/flutter-action@v1
         with:
-          channel: 'stable' # or: 'dev' or 'beta'
+          channel: 'beta' # or: 'dev' or 'beta'
       - run: flutter pub get && flutter pub run intl_translation:extract_to_arb --output-dir=lib/l10n lib/messages.dart
         working-directory: ./packages/smooth_app
       - run: |
