@@ -43,11 +43,7 @@ jobs:
       - uses: subosito/flutter-action@v1
         with:
           channel: 'stable' # or: 'dev' or 'beta'
-      - run: flutter packages get
-        working-directory: ./packages/smooth_app
-      - run: flutter pub get
-        working-directory: ./packages/smooth_app
-      - run: flutter pub run intl_translation:extract_to_arb --output-dir=lib/l10n lib/messages.dart
+      - run: flutter pub get && flutter pub run intl_translation:extract_to_arb --output-dir=lib/l10n lib/messages.dart
         working-directory: ./packages/smooth_app
       - run: |
           cat lib/l10n/intl_messages.arb | awk '{ if (NR == 2) { print "  \"@@locale\": \"en\"," } print $0 }' > lib/l10n/intl_en.arb
