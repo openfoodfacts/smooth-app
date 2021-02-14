@@ -1,0 +1,65 @@
+name: Flutter - localization
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - "ux/lib/messages.dart"
+      - ".github/workflows/localization.yml"
+  pull_request:
+    branches: [ main ]
+    paths:
+      - "ux/lib/messages.dart"
+      - ".github/workflows/localization.yml"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ github.head_ref }}
+      - name: Branch name
+        id: branch_name
+        run: |
+          echo ::set-output name=SOURCE_NAME::${GITHUB_REF#refs/*/}
+          echo ::set-output name=SOURCE_BRANCH::${GITHUB_REF#refs/heads/}
+          echo ::set-output name=SOURCE_TAG::${GITHUB_REF#refs/tags/}
+      - name: Dump env
+        run: |
+          echo ${SOURCE_TAG}
+          echo ${SOURCE_BRANCH}
+          echo ${SOURCE_TAG}
+          echo ${{ GITHUB.ref }}
+        env:
+          SOURCE_NAME: ${{ steps.branch_name.outputs.SOURCE_NAME }}
+          SOURCE_BRANCH: ${{ steps.branch_name.outputs.SOURCE_BRANCH }}
+          SOURCE_TAG: ${{ steps.branch_name.outputs.SOURCE_TAG }}
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '12.x'
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: 'stable' # or: 'dev' or 'beta'
+      - run: flutter packages get
+        working-directory: ux
+      - run: flutter pub run intl_translation:extract_to_arb --output-dir=lib/l10n lib/messages.dart
+        working-directory: ux
+      - run: |
+          cat lib/l10n/intl_messages.arb | awk '{ if (NR == 2) { print "  \"@@locale\": \"en\"," } print $0 }' > lib/l10n/intl_en.arb
+        working-directory: ux
+      - run: flutter pub run intl_translation:generate_from_arb  --output-dir=lib/l10n --no-use-deferred-loading lib/messages.dart lib/l10n/intl_??.arb
+        working-directory: ux
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -m "Update localization for ${{ steps.branch_name.outputs.SOURCE_TAG}} version" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUBPUSHTOKEN }}
+          branch: main
+          force: true
