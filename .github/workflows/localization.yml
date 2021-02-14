@@ -46,7 +46,7 @@ jobs:
       - run: flutter pub get && flutter pub run intl_translation:extract_to_arb --output-dir=lib/l10n lib/pages/pantry_dialog_helper.dart
         working-directory: ./packages/smooth_app
       - run: |
-          cat lib/l10n/app.arb | awk '{ if (NR == 2) { print "  \"@@locale\": \"en\"," } print $0 }' > lib/l10n/app_en.arb
+          cat lib/l10n/app.arb | awk '{ if (NR == 2) { print "  \"@@locale\": \"en\"," } print $0 }' > lib/l10n/app.arb
         working-directory: ./packages/smooth_app
       - run: flutter pub run intl_translation:generate_from_arb  --output-dir=lib/l10n --no-use-deferred-loading lib/pages/pantry_dialog_helper.dart lib/l10n/app_??.arb
         working-directory: ./packages/smooth_app
