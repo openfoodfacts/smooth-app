@@ -12,27 +12,34 @@ jobs:
     steps:
       - name: Checkout sources
         uses: actions/checkout@v2
+
       - name: Setup Ruby
         uses: actions/setup-ruby@v1
         with:
           ruby-version: '2.7.2'
+
       - name: Decrypt AuthKey file
         run: pwd && ls && cd ./fastlane/envfiles && ./decrypt_secrets.sh
         env:
           AUTH_KEY_FILE_DECRYPTKEY: ${{ secrets.AUTH_KEY_FILE_DECRYPTKEY }}
+
       - name: Select Xcode version
         run: sudo xcode-select -s '/Applications/Xcode_11.7.app/Contents/Developer'
+
       - name: Bundle install
         run: cd ./packages/smooth_app/ios && bundle install
+
       - name: Setup JDK
         uses: actions/setup-java@v1
         with:
           java-version: "12.x"
+
       - name: Setup Flutter
         uses: subosito/flutter-action@v1
         with:
-          flutter-version: 1.22.5
-      - name: Install Flutter dependencies
+          channel: 'stable'
+
+      - name: Build app
         run: pwd && cd ./packages/smooth_app/ios && pwd && flutter pub get && flutter clean && flutter build ios --release --no-codesign
         env:
           GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -48,6 +55,7 @@ jobs:
           SPACESHIP_CONNECT_API_KEY_ID: ${{ secrets.SPACESHIP_CONNECT_API_KEY_ID }}
           SPACESHIP_CONNECT_API_KEY_FILEPATH: envfiles/AuthKey_KDAUTTM76R.p8
           CI_RELEASE: true
+
       - name: Run Fastlane
         uses: maierj/fastlane-action@v2.0.0
         with:
