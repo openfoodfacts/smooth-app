@@ -2,15 +2,15 @@ name: Flutter - localization
 
 on:
   push:
-    branches: [ main ]
-    paths:
-      - "ux/lib/messages.dart"
-      - ".github/workflows/localization.yml"
-  pull_request:
-    branches: [ main ]
-    paths:
-      - "ux/lib/messages.dart"
-      - ".github/workflows/localization.yml"
+    branches: [ * ]
+   # paths:
+  #    - "ux/lib/messages.dart"
+  #    - ".github/workflows/localization.yml"
+ # pull_request:
+  #  branches: [ main ]
+ #   paths:
+ #     - "ux/lib/messages.dart"
+  #    - ".github/workflows/localization.yml"
 
 jobs:
   build:
