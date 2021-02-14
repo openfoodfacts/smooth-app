@@ -65,12 +65,12 @@ class PantryPage extends StatelessWidget {
               final Map<String, Product> products =
                   await daoProduct.getAll(barcodes);
               pantry.add(barcodes, products);
-              await save(userPreferences);
+              await _save(userPreferences);
               return;
             }
             if (index == 1) {
               pantry.clear();
-              await save(userPreferences);
+              await _save(userPreferences);
               return;
             }
           },
@@ -115,20 +115,20 @@ class PantryPage extends StatelessWidget {
                 case 'rename':
                   if (await PantryDialogHelper.openRename(
                       context, pantries, index)) {
-                    await save(userPreferences);
+                    await _save(userPreferences);
                   }
                   break;
                 case 'delete':
                   if (await PantryDialogHelper.openDelete(
                       context, pantries, index)) {
-                    await save(userPreferences);
+                    await _save(userPreferences);
                     Navigator.pop(context);
                   }
                   break;
                 case 'change':
                   if (await PantryDialogHelper.openChangeIcon(
                       context, pantries, index)) {
-                    await save(userPreferences);
+                    await _save(userPreferences);
                   }
                   break;
                 default:
@@ -162,125 +162,28 @@ class PantryPage extends StatelessWidget {
                   ),
                 ];
                 final Map<String, int> dates = pantry.data[barcode];
-                final String now = DateTime.now().toIso8601String();
-                final List<String> sortedDays = <String>[...dates.keys];
-                sortedDays.sort();
-                final bool alreadyHasNoDate = sortedDays.contains(_EMPTY_DATE);
-                for (final String day in sortedDays) {
-                  children.add(
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: <Widget>[
-                            IconButton(
-                              onPressed: () async {
-                                pantry.increaseItem(barcode, day, -1);
-                                await save(userPreferences);
-                              },
-                              icon: const Icon(Icons.remove_circle_outline),
-                            ),
-                            Text('${dates[day]}', style: textStyle),
-                            IconButton(
-                              onPressed: () async {
-                                pantry.increaseItem(barcode, day, 1);
-                                await save(userPreferences);
-                              },
-                              icon: const Icon(Icons.add_circle_outline),
-                            ),
-                          ],
-                        ),
-                        Text(
-                          day != _EMPTY_DATE ? day : _TRANSLATE_ME_NO_DATE,
-                          style: textStyle,
-                        ),
-                        Container(
-                          width: 60,
-                          child: Center(
-                            child: Text(
-                              day == _EMPTY_DATE
-                                  ? ''
-                                  : '(${_getDayDifference(now, day)}d)',
-                              style: textStyle,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                if (pantry.pantryType == PantryType.SHOPPING) {
+                  _addShoppingLines(
+                    children: children,
+                    barcode: barcode,
+                    count: dates[''] ?? 0,
+                    pantry: pantry,
+                    textStyle: textStyle,
+                    userPreferences: userPreferences,
+                    colorScheme: colorScheme,
+                  );
+                } else {
+                  _addPantryLines(
+                    pantry: pantry,
+                    userPreferences: userPreferences,
+                    barcode: barcode,
+                    textStyle: textStyle,
+                    dates: dates,
+                    colorScheme: colorScheme,
+                    children: children,
+                    context: context,
                   );
                 }
-                final Widget dateButton = ElevatedButton(
-                  onPressed: () async {
-                    final DateTime dateTime = await showDatePicker(
-                      context: context,
-                      initialDate: DateTime.now(),
-                      firstDate: DateTime.now(),
-                      lastDate: DateTime(2026),
-                      builder: (BuildContext context, Widget child) {
-                        final Color color = SmoothTheme.getForegroundColor(
-                            colorScheme, pantry.materialColor);
-                        return Theme(
-                          data: ThemeData.light().copyWith(
-                            primaryColor: color,
-                            accentColor: color,
-                            colorScheme: ColorScheme.light(primary: color),
-                            buttonTheme: const ButtonThemeData(
-                                textTheme: ButtonTextTheme.primary),
-                          ),
-                          child: child,
-                        );
-                      },
-                    );
-                    if (dateTime == null) {
-                      return;
-                    }
-                    final String date =
-                        dateTime.toIso8601String().substring(0, 10);
-                    pantry.increaseItem(barcode, date, 1);
-                    await save(userPreferences);
-                  },
-                  child: const Text(
-                    _TRANSLATE_ME_ANOTHER_DATE,
-                    style: textStyle,
-                  ),
-                );
-                final Widget noDateButton = ElevatedButton(
-                  onPressed: () async {
-                    pantry.increaseItem(barcode, _EMPTY_DATE, 1);
-                    await save(userPreferences);
-                  },
-                  child: const Text(
-                    _TRANSLATE_ME_NO_DATE,
-                    style: textStyle,
-                  ),
-                );
-                children.add(
-                  ListTile(
-                    title: alreadyHasNoDate
-                        ? dateButton
-                        : Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              dateButton,
-                              noDateButton,
-                            ],
-                          ),
-                    trailing: Container(
-                      width: 54,
-                      child: sortedDays.isNotEmpty
-                          ? null
-                          : IconButton(
-                              onPressed: () async {
-                                pantry.removeBarcode(barcode);
-                                await save(userPreferences);
-                              },
-                              icon:
-                                  Icon(Icons.delete, color: colorScheme.error),
-                            ),
-                    ),
-                  ),
-                );
                 return Padding(
                   padding: const EdgeInsets.symmetric(
                       horizontal: 12.0, vertical: 8.0),
@@ -304,6 +207,203 @@ class PantryPage extends StatelessWidget {
     return (difference.inHours / 24).round();
   }
 
-  Future<void> save(final UserPreferences userPreferences) async =>
-      Pantry.putAll(userPreferences, pantries);
+  Future<void> _save(final UserPreferences userPreferences) async =>
+      Pantry.putAll(userPreferences, pantries, pantries[index].pantryType);
+
+  Widget _getPantryDayLine({
+    @required final Pantry pantry,
+    @required final UserPreferences userPreferences,
+    @required final String barcode,
+    @required final String day,
+    @required final String now,
+    @required final TextStyle textStyle,
+    @required final Map<String, int> dates,
+  }) =>
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              IconButton(
+                onPressed: () async {
+                  pantry.increaseItem(barcode, day, -1);
+                  await _save(userPreferences);
+                },
+                icon: const Icon(Icons.remove_circle_outline),
+              ),
+              Text('${dates[day]}', style: textStyle),
+              IconButton(
+                onPressed: () async {
+                  pantry.increaseItem(barcode, day, 1);
+                  await _save(userPreferences);
+                },
+                icon: const Icon(Icons.add_circle_outline),
+              ),
+            ],
+          ),
+          Text(
+            day != _EMPTY_DATE ? day : _TRANSLATE_ME_NO_DATE,
+            style: textStyle,
+          ),
+          Container(
+            width: 60,
+            child: Center(
+              child: Text(
+                day == _EMPTY_DATE ? '' : '(${_getDayDifference(now, day)}d)',
+                style: textStyle,
+              ),
+            ),
+          ),
+        ],
+      );
+
+  void _addPantryLines({
+    @required final List<Widget> children,
+    @required final Pantry pantry,
+    @required final UserPreferences userPreferences,
+    @required final String barcode,
+    @required final TextStyle textStyle,
+    @required final Map<String, int> dates,
+    @required final ColorScheme colorScheme,
+    @required final BuildContext context,
+  }) {
+    final String now = DateTime.now().toIso8601String();
+    final List<String> sortedDays = <String>[...dates.keys];
+    sortedDays.sort();
+    final bool alreadyHasNoDate = sortedDays.contains(_EMPTY_DATE);
+    for (final String day in sortedDays) {
+      children.add(
+        _getPantryDayLine(
+          barcode: barcode,
+          dates: dates,
+          day: day,
+          now: now,
+          pantry: pantry,
+          textStyle: textStyle,
+          userPreferences: userPreferences,
+        ),
+      );
+    }
+    final Widget dateButton = ElevatedButton(
+      onPressed: () async {
+        final DateTime dateTime = await showDatePicker(
+          context: context,
+          initialDate: DateTime.now(),
+          firstDate: DateTime.now(),
+          lastDate: DateTime(2026),
+          builder: (BuildContext context, Widget child) {
+            final Color color = SmoothTheme.getForegroundColor(
+                colorScheme, pantry.materialColor);
+            return Theme(
+              data: ThemeData.light().copyWith(
+                primaryColor: color,
+                accentColor: color,
+                colorScheme: ColorScheme.light(primary: color),
+                buttonTheme:
+                    const ButtonThemeData(textTheme: ButtonTextTheme.primary),
+              ),
+              child: child,
+            );
+          },
+        );
+        if (dateTime == null) {
+          return;
+        }
+        final String date = dateTime.toIso8601String().substring(0, 10);
+        pantry.increaseItem(barcode, date, 1);
+        await _save(userPreferences);
+      },
+      child: Text(_TRANSLATE_ME_ANOTHER_DATE, style: textStyle),
+    );
+    final Widget noDateButton = ElevatedButton(
+      onPressed: () async {
+        pantry.increaseItem(barcode, _EMPTY_DATE, 1);
+        await _save(userPreferences);
+      },
+      child: Text(_TRANSLATE_ME_NO_DATE, style: textStyle),
+    );
+    children.add(
+      ListTile(
+        title: alreadyHasNoDate
+            ? dateButton
+            : Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  dateButton,
+                  noDateButton,
+                ],
+              ),
+        trailing: Container(
+          width: 60,
+          child: sortedDays.isNotEmpty
+              ? null
+              : _getDeleteButton(
+                  pantry,
+                  barcode,
+                  userPreferences,
+                  colorScheme,
+                ),
+        ),
+      ),
+    );
+  }
+
+  void _addShoppingLines({
+    @required final List<Widget> children,
+    @required final Pantry pantry,
+    @required final UserPreferences userPreferences,
+    @required final String barcode,
+    @required final int count,
+    @required final TextStyle textStyle,
+    @required final ColorScheme colorScheme,
+  }) =>
+      children.add(
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                IconButton(
+                  onPressed: () async {
+                    pantry.increaseItem(barcode, _EMPTY_DATE, -1);
+                    await _save(userPreferences);
+                  },
+                  icon: const Icon(Icons.remove_circle_outline),
+                ),
+                Text('$count', style: textStyle),
+                IconButton(
+                  onPressed: () async {
+                    pantry.increaseItem(barcode, _EMPTY_DATE, 1);
+                    await _save(userPreferences);
+                  },
+                  icon: const Icon(Icons.add_circle_outline),
+                ),
+              ],
+            ),
+            if (count == 0)
+              _getDeleteButton(
+                pantry,
+                barcode,
+                userPreferences,
+                colorScheme,
+              ),
+          ],
+        ),
+      );
+
+  Widget _getDeleteButton(
+    final Pantry pantry,
+    final String barcode,
+    final UserPreferences userPreferences,
+    final ColorScheme colorScheme,
+  ) =>
+      IconButton(
+        onPressed: () async {
+          pantry.removeBarcode(barcode);
+          await _save(userPreferences);
+        },
+        icon: Icon(Icons.delete, color: colorScheme.error),
+      );
 }

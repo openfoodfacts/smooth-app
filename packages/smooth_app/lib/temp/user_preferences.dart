@@ -3,6 +3,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
+import 'package:smooth_app/data_models/pantry.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 
@@ -22,10 +23,17 @@ class UserPreferences extends ChangeNotifier {
 
   static const String _TAG_PREFIX_IMPORTANCE = 'IMPORTANCE';
   static const String _TAG_PANTRY_REPOSITORY = 'pantry_repository';
+  static const String _TAG_SHOPPING_REPOSITORY = 'shopping_repository';
   static const String _TAG_VISIBLE_GROUPS = 'visible_groups';
   static const String _TAG_USE_ML_KIT = 'useMlKit';
   static const String _TAG_INIT = 'init';
   static const String _TAG_PRODUCT_LIST_COPY = 'productListCopy';
+
+  static const Map<PantryType, String> _PANTRY_TYPE_TO_TAG =
+      <PantryType, String>{
+    PantryType.PANTRY: _TAG_PANTRY_REPOSITORY,
+    PantryType.SHOPPING: _TAG_SHOPPING_REPOSITORY,
+  };
 
   Future<void> init(final UserPreferencesModel userPreferencesModel) async {
     final bool alreadyDone = _sharedPreferences.getBool(_TAG_INIT);
@@ -124,12 +132,18 @@ class UserPreferences extends ChangeNotifier {
       await _sharedPreferences.setString(
           _TAG_PRODUCT_LIST_COPY, productListLousyKey);
 
-  Future<void> setPantryRepository(final List<String> encodedJsons) async {
+  Future<void> setPantryRepository(
+    final List<String> encodedJsons,
+    final PantryType pantryType,
+  ) async {
     await _sharedPreferences.setStringList(
-        _TAG_PANTRY_REPOSITORY, encodedJsons);
+      _PANTRY_TYPE_TO_TAG[pantryType],
+      encodedJsons,
+    );
     notifyListeners();
   }
 
-  List<String> getPantryRepository() =>
-      _sharedPreferences.getStringList(_TAG_PANTRY_REPOSITORY) ?? <String>[];
+  List<String> getPantryRepository(final PantryType pantryType) =>
+      _sharedPreferences.getStringList(_PANTRY_TYPE_TO_TAG[pantryType]) ??
+      <String>[];
 }

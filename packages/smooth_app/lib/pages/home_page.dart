@@ -29,6 +29,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   static const String _TRANSLATE_ME_SEARCHING = 'Searching...';
   static const String _TRANSLATE_ME_PANTRIES = 'My pantries';
+  static const String _TRANSLATE_ME_SHOPPINGS = 'My shopping lists';
   static const String _TRANSLATE_ME_EMPTY = 'Empty!';
 
   DaoProductList _daoProductList;
@@ -110,7 +111,8 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            _getPantryCard(userPreferences, _daoProduct),
+            _getPantryCard(userPreferences, _daoProduct, PantryType.PANTRY),
+            _getPantryCard(userPreferences, _daoProduct, PantryType.SHOPPING),
             _getRankingPreferences(userPreferencesModel, userPreferences),
             ProductListPreview(
               daoProductList: _daoProductList,
@@ -354,13 +356,22 @@ class _HomePageState extends State<HomePage> {
   Widget _getPantryCard(
     final UserPreferences userPreferences,
     final DaoProduct daoProduct,
+    final PantryType pantryType,
   ) =>
       FutureBuilder<List<Pantry>>(
-        future: Pantry.getAll(userPreferences, daoProduct),
+        future: Pantry.getAll(userPreferences, daoProduct, pantryType),
         builder: (
           final BuildContext context,
           final AsyncSnapshot<List<Pantry>> snapshot,
         ) {
+          final String title = pantryType == PantryType.PANTRY
+              ? _TRANSLATE_ME_PANTRIES
+              : _TRANSLATE_ME_SHOPPINGS;
+          final IconData iconData = pantryType == PantryType.PANTRY
+              ? Icons.home
+              : Icons.shopping_cart;
+          final MaterialColor materialColor =
+              pantryType == PantryType.PANTRY ? Colors.orange : Colors.blueGrey;
           if (snapshot.connectionState == ConnectionState.done) {
             final List<Pantry> pantries = snapshot.data;
             final List<Widget> cards = <Widget>[];
@@ -375,22 +386,25 @@ class _HomePageState extends State<HomePage> {
                       await Navigator.push<dynamic>(
                         context,
                         MaterialPageRoute<dynamic>(
-                          builder: (BuildContext context) =>
-                              PantryListPage(_TRANSLATE_ME_PANTRIES, pantries),
+                          builder: (BuildContext context) => PantryListPage(
+                            title,
+                            pantries,
+                            pantryType,
+                          ),
                         ),
                       );
                       setState(() {});
                     },
                     leading: Icon(
-                      Icons.home,
+                      iconData,
                       color: SmoothTheme.getForegroundColor(
                         Theme.of(context).colorScheme,
-                        Colors.orange,
+                        materialColor,
                       ),
                     ),
                     subtitle:
                         cards.isEmpty ? const Text(_TRANSLATE_ME_EMPTY) : null,
-                    title: Text(_TRANSLATE_ME_PANTRIES,
+                    title: Text(title,
                         style: Theme.of(context).textTheme.subtitle2),
                   ),
                   if (cards.isNotEmpty)
@@ -406,7 +420,7 @@ class _HomePageState extends State<HomePage> {
           return Card(
             child: ListTile(
               leading: const CircularProgressIndicator(),
-              title: const Text(_TRANSLATE_ME_PANTRIES),
+              title: Text(title),
               subtitle: Text(
                 _TRANSLATE_ME_SEARCHING,
                 style: Theme.of(context).textTheme.subtitle2,

@@ -6,6 +6,11 @@ import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 
+enum PantryType {
+  PANTRY,
+  SHOPPING,
+}
+
 /// A pantry, with a name, a color, an icon,
 /// and a list of barcodes with quantity and dates
 /// It's stored in the SharedPreferences
@@ -13,25 +18,31 @@ import 'package:smooth_app/data_models/product_list.dart';
 class Pantry {
   Pantry({
     @required this.name,
+    @required this.pantryType,
     this.data = const <String, Map<String, int>>{},
     this.products = const <String, Product>{},
-    this.iconTag = _ICON_PAW,
+    this.iconTag = '',
     this.colorTag = _COLOR_DEFAULT,
   });
 
   String name;
   String colorTag;
   String iconTag;
+  final PantryType pantryType;
   final Map<String, Map<String, int>> data;
   final Map<String, Product> products;
 
-  static const String _ICON_DEFAULT = _ICON_PAW;
+  static const String _ICON_DEFAULT_PANTRY = _ICON_PAW;
+  static const String _ICON_DEFAULT_SHOPPING = _ICON_CART;
   static const String _COLOR_DEFAULT = _COLOR_BLUE;
 
   MaterialColor get materialColor =>
       _COLORS[colorTag] ?? _COLORS[_COLOR_DEFAULT];
-  IconData get iconData => _ICON_DATA[iconTag] ?? _ICON_DATA[_ICON_DEFAULT];
+  IconData get iconData => _ICON_DATA[iconTag] ?? _ICON_DATA[_defaultIconTag];
 
+  String get _defaultIconTag => pantryType == PantryType.PANTRY
+      ? _ICON_DEFAULT_PANTRY
+      : _ICON_DEFAULT_SHOPPING;
   void add(final List<String> barcodes, final Map<String, Product> products) {
     for (final String barcode in barcodes) {
       if (!data.containsKey(barcode)) {
@@ -44,17 +55,29 @@ class Pantry {
   static const String _ICON_PAW = 'paw';
   static const String _ICON_FREEZER = 'heart';
   static const String _ICON_HOME = 'home';
+  static const String _ICON_CART = 'cart';
+  static const String _ICON_TREE = 'tree';
+  static const String _ICON_SPARKLES = 'sparkles';
 
-  static const List<String> _ORDERED_ICONS = <String>[
+  static const List<String> _ORDERED_ICONS_PANTRY = <String>[
     _ICON_PAW,
     _ICON_FREEZER,
     _ICON_HOME,
+  ];
+
+  static const List<String> _ORDERED_ICONS_SHOPPING = <String>[
+    _ICON_CART,
+    _ICON_TREE,
+    _ICON_SPARKLES,
   ];
 
   static const Map<String, IconData> _ICON_DATA = <String, IconData>{
     _ICON_PAW: Icons.pets,
     _ICON_FREEZER: Icons.ac_unit,
     _ICON_HOME: Icons.home,
+    _ICON_CART: Icons.shopping_cart,
+    _ICON_TREE: CupertinoIcons.tree,
+    _ICON_SPARKLES: CupertinoIcons.sparkles,
   };
 
   static const String _COLOR_RED = 'red';
@@ -79,9 +102,11 @@ class Pantry {
     _COLOR_PURPLE,
   ];
 
-  List<String> getPossibleIcons() => _ORDERED_ICONS;
+  List<String> getPossibleIcons() => pantryType == PantryType.PANTRY
+      ? _ORDERED_ICONS_PANTRY
+      : _ORDERED_ICONS_SHOPPING;
 
-  static Widget getReferenceIcon({
+  Widget getReferenceIcon({
     final ColorScheme colorScheme,
     final String colorTag,
     final String iconTag,
@@ -89,7 +114,7 @@ class Pantry {
       ProductList.getTintedIcon(
         colorScheme: colorScheme,
         materialColor: _COLORS[colorTag],
-        iconData: _ICON_DATA[iconTag] ?? _ICON_DATA[_ICON_DEFAULT],
+        iconData: _ICON_DATA[iconTag] ?? _ICON_DATA[_defaultIconTag],
       );
 
   Widget getIcon(final ColorScheme colorScheme) => ProductList.getTintedIcon(
@@ -121,7 +146,11 @@ class Pantry {
       data[barcode][date] = previous + increment;
     }
     if (data[barcode][date] <= 0) {
-      data[barcode].remove(date);
+      if (pantryType == PantryType.PANTRY) {
+        data[barcode].remove(date);
+      } else {
+        data[barcode][date] = 0;
+      }
     }
     return data[barcode][date];
   }
@@ -139,22 +168,25 @@ class Pantry {
   static Future<void> putAll(
     final UserPreferences userPreferences,
     final List<Pantry> pantries,
+    final PantryType pantryType,
   ) async {
     final List<String> encodedJsons = <String>[];
     for (final Pantry pantry in pantries) {
       encodedJsons.add(_put(pantry));
     }
-    await userPreferences.setPantryRepository(encodedJsons);
+    await userPreferences.setPantryRepository(encodedJsons, pantryType);
   }
 
   static Future<List<Pantry>> getAll(
     final UserPreferences userPreferences,
     final DaoProduct daoProduct,
+    final PantryType pantryType,
   ) async {
     final List<Pantry> result = <Pantry>[];
-    final List<String> pantryJsons = userPreferences.getPantryRepository();
+    final List<String> pantryJsons =
+        userPreferences.getPantryRepository(pantryType);
     for (final String pantryJson in pantryJsons) {
-      result.add(await _get(pantryJson, daoProduct));
+      result.add(await _get(pantryJson, daoProduct, pantryType));
     }
     return result;
   }
@@ -167,6 +199,7 @@ class Pantry {
   static Future<Pantry> _get(
     final String encodedJson,
     final DaoProduct daoProduct,
+    final PantryType pantryType,
   ) async {
     final Map<String, dynamic> decodedJsonAll =
         json.decode(encodedJson) as Map<String, dynamic>;
@@ -193,6 +226,7 @@ class Pantry {
       data[barcode] = dataForBarcode;
     }
     return Pantry(
+      pantryType: pantryType,
       data: data,
       products: products,
       name: name,
