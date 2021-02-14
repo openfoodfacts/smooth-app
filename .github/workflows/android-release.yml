@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - 'release/*'
-      - 'advanced-fastlane'
 
 jobs:
   deploy_android:
