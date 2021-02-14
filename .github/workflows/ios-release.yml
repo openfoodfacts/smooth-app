@@ -17,18 +17,7 @@ jobs:
         uses: actions/setup-ruby@v1
         with:
           ruby-version: '2.7.2'
-
-      - name: Decrypt AuthKey file
-        run: pwd && ls && cd ./fastlane/envfiles && ./decrypt_secrets.sh
-        env:
-          AUTH_KEY_FILE_DECRYPTKEY: ${{ secrets.AUTH_KEY_FILE_DECRYPTKEY }}
-
-      - name: Select Xcode version
-        run: sudo xcode-select -s '/Applications/Xcode_11.7.app/Contents/Developer'
-
-      - name: Bundle install
-        run: cd ./packages/smooth_app/ios && bundle install
-
+      
       - name: Setup JDK
         uses: actions/setup-java@v1
         with:
@@ -38,6 +27,17 @@ jobs:
         uses: subosito/flutter-action@v1
         with:
           channel: 'stable'
+
+      - name: Decrypt AuthKey file
+        run: pwd && ls && cd ./fastlane/envfiles && ./decrypt_secrets.sh
+        env:
+          AUTH_KEY_FILE_DECRYPTKEY: ${{ secrets.AUTH_KEY_FILE_DECRYPTKEY }}
+
+#      - name: Select Xcode version
+#        run: sudo xcode-select -s '/Applications/Xcode_11.7.app/Contents/Developer'
+
+#      - name: Bundle install
+#        run: cd ./packages/smooth_app/ios && bundle install
 
       - name: Build app
         run: pwd && cd ./packages/smooth_app/ios && pwd && flutter pub get && flutter build ios --release --no-codesign
