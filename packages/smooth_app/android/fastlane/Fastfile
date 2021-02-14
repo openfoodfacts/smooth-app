@@ -52,7 +52,8 @@ platform :android do
 
           flutter_set_version(
             path_to_yaml: "../pubspec.yaml",
-            version_name: new_version_name.to_s,
+            #version_name: new_version_name.to_s,
+            version_name: "0.0.1",
             version_code: new_version_code.to_s,
           )
       end
