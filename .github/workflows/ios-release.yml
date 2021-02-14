@@ -33,11 +33,10 @@ jobs:
         env:
           AUTH_KEY_FILE_DECRYPTKEY: ${{ secrets.AUTH_KEY_FILE_DECRYPTKEY }}
 
-#      - name: Select Xcode version
-#        run: sudo xcode-select -s '/Applications/Xcode_11.7.app/Contents/Developer'
+      - name: Select Xcode version
+        run: sudo xcode-select -s '/Applications/Xcode_11.7.app/Contents/Developer'
 
-#      - name: Bundle install
-#        run: cd ./packages/smooth_app/ios && bundle install
+
 
       - name: Build app
         run: pwd && cd ./packages/smooth_app/ios && pwd && flutter pub get && flutter build ios --release --no-codesign
@@ -55,6 +54,9 @@ jobs:
           SPACESHIP_CONNECT_API_KEY_ID: ${{ secrets.SPACESHIP_CONNECT_API_KEY_ID }}
           SPACESHIP_CONNECT_API_KEY_FILEPATH: envfiles/AuthKey_KDAUTTM76R.p8
           CI_RELEASE: true
+
+      - name: Bundle install
+        run: cd ./packages/smooth_app/ios && bundle install
 
       - name: Run Fastlane
         uses: maierj/fastlane-action@v2.0.0
