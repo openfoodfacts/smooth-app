@@ -48,7 +48,7 @@ jobs:
       - run: |
           cat lib/l10n/app_en.arb | awk '{ if (NR == 2) { print "  \"@@locale\": \"en\"," } print $0 }' > lib/l10n/app_en.arb
         working-directory: ./packages/smooth_app
-      - run: flutter pub run intl_translation:generate_from_arb  --output-dir=lib/l10n --no-use-deferred-loading lib/messages.dart lib/l10n/app_??.arb
+      - run: flutter pub run intl_translation:generate_from_arb  --output-dir=lib/l10n --no-use-deferred-loading lib/pages/pantry_dialog_helper.dart lib/l10n/app_??.arb
         working-directory: ./packages/smooth_app
       - name: Commit files
         run: |
