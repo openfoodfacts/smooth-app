@@ -2,7 +2,7 @@ name: Flutter - localization
 
 on:
   push:
-    branches: [ * ]
+    branches: ['*']
    # paths:
   #    - "ux/lib/messages.dart"
   #    - ".github/workflows/localization.yml"
