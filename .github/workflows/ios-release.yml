@@ -36,7 +36,7 @@ jobs:
       - name: Select Xcode version
         run: sudo xcode-select -s '/Applications/Xcode_11.7.app/Contents/Developer'
 
-
+      - run: sudo gem uninstall cocoapods && sudo gem uninstall cocoapods && sudo gem install cocoapods -v 1.7.5
 
       - name: Build app
         run: pwd && cd ./packages/smooth_app/ios && pwd && flutter pub get && flutter build ios --release --no-codesign
