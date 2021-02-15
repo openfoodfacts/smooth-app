@@ -26,7 +26,8 @@ platform :ios do
     match(
       app_identifier: "org.openfoodfacts.app",
       type: "appstore",
-      readonly: is_ci,
+      #readonly: is_ci,
+      # disable to try to help the build
       keychain_name: ENV['MATCH_KEYCHAIN_NAME'],
       keychain_password: ENV["MATCH_KEYCHAIN_PASSWORD"],
     )
