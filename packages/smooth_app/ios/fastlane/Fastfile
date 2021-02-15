@@ -13,16 +13,16 @@ platform :ios do
       profile_name: 'match AppStore org.openfoodfacts.app',
       targets: ["Runner"]
   )
-    if is_ci
-      create_keychain(
-        name: ENV['MATCH_KEYCHAIN_NAME'],
-        password: ENV["MATCH_KEYCHAIN_PASSWORD"],
-        default_keychain: true,
-        unlock: true,
-        timeout: 3600,
-        lock_when_sleeps: false
-      )
-    end
+   # if is_ci
+      #create_keychain(
+       # name: ENV['MATCH_KEYCHAIN_NAME'],
+      #  password: ENV["MATCH_KEYCHAIN_PASSWORD"],
+      #  default_keychain: true,
+      #  unlock: true,
+      #  timeout: 3600,
+      #  lock_when_sleeps: false
+      #)
+  #  end
     match(
       app_identifier: "org.openfoodfacts.app",
       type: "appstore",
