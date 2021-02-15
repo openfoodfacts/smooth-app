@@ -44,12 +44,14 @@ jobs:
         with:
           channel: 'stable' # or: 'dev' or 'beta'
       # /lib/pages/organization_page.dart lib/pages/tracking_page.dart lib/pages/product_page.dart /lib/pages/product_query_page.dart lib/bottom_sheet_views/user_preferences_view.dart lib/pages/product_list_dialog_helper.dart /lib/pages/pantry_dialog_helper.dart lib/pages/profile_page.dart /lib/bottom_sheet_views/user_contribution_view.dart lib/bottom_sheet_views/group_query_filter_view.dart lib/pages/continuous_scan_page.dart lib/pages/contribution_page.dart lib/main.dart lib/pages/alternative_continuous_scan_page.dart  
-      - run: flutter pub get && flutter pub run intl_translation:extract_to_arb --output-dir=lib/l10n lib/pages/pantry_dialog_helper.dart
+      - run: flutter pub get && flutter pub run intl_translation:extract_to_arb --output-dir=lib/l10n lib/main.dart
+      #- run: flutter pub get && flutter pub run intl_translation:extract_to_arb --output-dir=lib/l10n lib/pages/pantry_dialog_helper.dart
         working-directory: ./packages/smooth_app
-      - run: |
-          cat lib/l10n/app_en.arb | awk '{ if (NR == 2) { print "  \"@@locale\": \"en\"," } print $0 }' > lib/l10n/app_en.arb
-        working-directory: ./packages/smooth_app
-      - run: flutter pub run intl_translation:generate_from_arb  --output-dir=lib/l10n --no-use-deferred-loading lib/pages/pantry_dialog_helper.dart lib/l10n/app_??.arb
+      #- run: |
+      #    cat lib/l10n/app_en.arb | awk '{ if (NR == 2) { print "  \"@@locale\": \"en\"," } print $0 }' > lib/l10n/app_en.arb
+      #  working-directory: ./packages/smooth_app
+      - run: flutter pub run intl_translation:generate_from_arb --output-dir=lib/l10n --no-use-deferred-loading lib/main.dart lib/l10n/intl_*.arb
+      #- run: flutter pub run intl_translation:generate_from_arb  --output-dir=lib/l10n --no-use-deferred-loading lib/pages/pantry_dialog_helper.dart lib/l10n/app_??.arb
         working-directory: ./packages/smooth_app
       - name: Commit files
         run: |
