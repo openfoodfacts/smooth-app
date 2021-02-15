@@ -1,4 +1,4 @@
-git_url(ENV["MATCH_GIT_URL"] || "git@github.com:openfoodfacts/ios-certificates.git")
+git_url("git@github.com:openfoodfacts/ios-certificates.git")
 app_identifier "org.openfoodfacts.app"
 username ENV["APPLE_ID"]
 team_id ENV["TEAM_ID"]
