@@ -16,7 +16,7 @@ platform :ios do
       use_automatic_signing: false,
       build_configurations: "Release",
       code_sign_identity: 'iPhone Distribution',
-      profile_name: 'match AppStore org.openfoodfacts.app',
+      profile_name: 'match AppStore org.openfoodfacts.app 1613500402',
       targets: ["Runner"]
   )
    
