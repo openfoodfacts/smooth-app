@@ -1,4 +1,10 @@
+setup_travis
 default_platform(:ios)
+
+before_all do
+  xcversion(version: "~> 11.7.0")
+end
+
 platform :ios do
 
   desc "Push a new beta build to TestFlight"
@@ -6,6 +12,8 @@ platform :ios do
 
     APP_IDENTIFIER = CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)
     
+    puts "Releasing beta version for identifier #{APP_IDENTIFIER}"
+
     sync_code_signing(type: "appstore", readonly: is_ci, clone_branch_directly: false)
     update_code_signing_settings(
       path: "Runner.xcodeproj",

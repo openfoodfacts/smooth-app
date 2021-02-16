@@ -33,9 +33,6 @@ jobs:
         env:
           AUTH_KEY_FILE_DECRYPTKEY: ${{ secrets.AUTH_KEY_FILE_DECRYPTKEY }}
 
-      - name: Select Xcode version
-        run: sudo xcode-select -s '/Applications/Xcode_11.7.app/Contents/Developer'
-
       #- name: Build app
       #  run: pwd && cd ./packages/smooth_app/ios && pwd && flutter pub get && flutter build ios --release --no-codesign
       #  env:
@@ -56,11 +53,8 @@ jobs:
       - name: Bundle install
         run: cd ./packages/smooth_app/ios && gem install bundler:1.17.3 && bundle install
 
-      - name: Run Fastlane
-        uses: maierj/fastlane-action@v2.0.0
-        with:
-          lane: beta
-          subdirectory: packages/smooth_app/ios
+      - name: Run Fastlane beta lane
+        run: cd ./packages/smooth_app/ios && bundle exec fastlane beta
         env:
           GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
