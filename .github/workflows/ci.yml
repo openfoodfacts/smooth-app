@@ -40,7 +40,7 @@ jobs:
       
       #Cleanup git
       - name: "Clean"
-      - run: git clean -xffd
+        run: git clean -xffd
 
       # Check for formatting issues
       # - run: flutter format --set-exit-if-changed .
