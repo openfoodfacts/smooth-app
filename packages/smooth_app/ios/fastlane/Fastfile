@@ -7,18 +7,18 @@ platform :ios do
     APP_IDENTIFIER = CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)
     TEAM_ID = CredentialsManager::AppfileConfig.try_fetch_value(:team_id)
   
-    puts("start sync_code_signing 1")
-    sync_code_signing(type: "appstore", clone_branch_directly: false) #readonly: is_ci,
-
-    puts("start update_code_signing_settings 1")
-    update_code_signing_settings(
-      path: "Runner.xcodeproj",
-      use_automatic_signing: false,
-      build_configurations: "Release",
-      code_sign_identity: 'iPhone Distribution',
-      profile_name: 'match AppStore org.openfoodfacts.app',
-      targets: ["Runner"]
-  )
+#    puts("start sync_code_signing 1")
+#    sync_code_signing(type: "appstore", clone_branch_directly: false) #readonly: is_ci,
+#
+#    puts("start update_code_signing_settings 1")
+#    update_code_signing_settings(
+#      path: "Runner.xcodeproj",
+#      use_automatic_signing: false,
+#      build_configurations: "Release",
+#      code_sign_identity: 'iPhone Distribution',
+#      profile_name: 'match AppStore org.openfoodfacts.app',
+#      targets: ["Runner"]
+#  )
    
 # if is_ci
 #   create_keychain(
