@@ -13,13 +13,13 @@ jobs:
       run:
         working-directory: ./packages/smooth_app
     steps:
-
-      - run: echo ${GITHUB_REF##*/}
     
       - name: "Checkout code"
         uses: actions/checkout@v1
         with:
           ref: ${GITHUB_REF##*/}
+
+      - run: echo ${GITHUB_REF##*/}
 
       # Setup Java
       - name: "Setup Java" 
