@@ -45,4 +45,12 @@ class KeywordsProductQuery implements ProductQuery {
         // TODO(monsieurtanuki): parameters should include languageCode, countryCode and pageSize
         parameters: keywords,
       );
+
+  @override
+  String toString() => 'KeywordsProductQuery('
+      '"$keywords"'
+      ', $languageCode'
+      ', $countryCode'
+      ', $size'
+      ')';
 }

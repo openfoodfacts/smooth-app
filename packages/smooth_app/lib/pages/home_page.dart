@@ -1,22 +1,25 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/utils/PnnsGroups.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/pages/scan_page.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
+import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/pages/choose_page.dart';
 import 'package:smooth_app/pages/profile_page.dart';
 import 'package:smooth_app/pages/list_page.dart';
-import 'package:smooth_app/pages/product_list_page.dart';
+import 'package:smooth_app/pages/product_list_button.dart';
+import 'package:smooth_app/pages/pantry_list_page.dart';
+import 'package:smooth_app/pages/pantry_button.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/data_models/pantry.dart';
 import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
-import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/cards/product_cards/product_list_preview.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -24,11 +27,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  static const int _NB_IN_PREVIEW = 5;
   static const String _TRANSLATE_ME_SEARCHING = 'Searching...';
+  static const String _TRANSLATE_ME_PANTRIES = 'My pantries';
+  static const String _TRANSLATE_ME_SHOPPINGS = 'My shopping lists';
+  static const String _TRANSLATE_ME_EMPTY = 'Empty!';
 
   DaoProductList _daoProductList;
-  ProductList _productListHistory;
+  DaoProduct _daoProduct;
 
   @override
   Widget build(BuildContext context) {
@@ -37,10 +42,7 @@ class _HomePageState extends State<HomePage> {
     final UserPreferencesModel userPreferencesModel =
         context.watch<UserPreferencesModel>();
     _daoProductList = DaoProductList(localDatabase);
-    _productListHistory = ProductList(
-      listType: ProductList.LIST_TYPE_HISTORY,
-      parameters: '',
-    );
+    _daoProduct = DaoProduct(localDatabase);
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
     final bool mlKitState = userPreferences.getMlKitState();
@@ -50,9 +52,15 @@ class _HomePageState extends State<HomePage> {
     );
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Smoothie',
-          style: TextStyle(color: colorScheme.onBackground),
+        title: Row(
+          children: <Widget>[
+            const Icon(Icons.pets),
+            const SizedBox(width: 8.0),
+            Text(
+              'Smoothie',
+              style: TextStyle(color: colorScheme.onBackground),
+            )
+          ],
         ),
         iconTheme: IconThemeData(color: colorScheme.onBackground),
         actions: <Widget>[
@@ -91,6 +99,28 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
+            ),
+            _getProductListCard(
+              <String>[ProductList.LIST_TYPE_USER_DEFINED],
+              'My lists',
+              Icon(
+                Icons.list,
+                color: SmoothTheme.getForegroundColor(
+                  colorScheme,
+                  Colors.purple,
+                ),
+              ),
+            ),
+            _getPantryCard(userPreferences, _daoProduct, PantryType.PANTRY),
+            _getPantryCard(userPreferences, _daoProduct, PantryType.SHOPPING),
+            _getRankingPreferences(userPreferencesModel, userPreferences),
+            ProductListPreview(
+              daoProductList: _daoProductList,
+              productList: ProductList(
+                listType: ProductList.LIST_TYPE_HISTORY,
+                parameters: '',
+              ),
+              nbInPreview: 5,
             ),
             Card(
               child: ListTile(
@@ -133,19 +163,6 @@ class _HomePageState extends State<HomePage> {
                 color: SmoothTheme.getForegroundColor(
                   colorScheme,
                   Colors.yellow,
-                ),
-              ),
-            ),
-            _getRankingPreferences(userPreferencesModel, userPreferences),
-            _getHistoryCard(),
-            _getProductListCard(
-              <String>[ProductList.LIST_TYPE_USER_DEFINED],
-              'Your food lists',
-              Icon(
-                Icons.list,
-                color: SmoothTheme.getForegroundColor(
-                  colorScheme,
-                  Colors.purple,
                 ),
               ),
             ),
@@ -194,75 +211,14 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _getHistoryCard() => FutureBuilder<List<Product>>(
-        future: _daoProductList.getFirstProducts(
-            _productListHistory, _NB_IN_PREVIEW, true),
-        builder: (
-          final BuildContext context,
-          final AsyncSnapshot<List<Product>> snapshot,
-        ) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            final List<Product> list = snapshot.data;
-            String title;
-            final bool empty = list == null || list.isEmpty;
-            if (empty) {
-              title = 'Empty list';
-            } else {
-              final List<String> names = <String>[];
-              for (final Product item in list) {
-                names.add(item.productName);
-              }
-              title = names.join(', ') + ', ...';
-            }
-            return Card(
-              child: ListTile(
-                onTap: () async {
-                  await _daoProductList.get(_productListHistory);
-                  await Navigator.push<dynamic>(
-                    context,
-                    MaterialPageRoute<dynamic>(
-                      builder: (BuildContext context) => ProductListPage(
-                        _productListHistory,
-                        reverse: true,
-                      ),
-                    ),
-                  );
-                  setState(() {});
-                },
-                leading: Icon(
-                  Icons.history,
-                  color: SmoothTheme.getForegroundColor(
-                    Theme.of(context).colorScheme,
-                    Colors.blue,
-                  ),
-                ),
-                subtitle: const Text('Food history'),
-                title:
-                    Text(title, style: Theme.of(context).textTheme.subtitle2),
-              ),
-            );
-          }
-          return Card(
-            child: ListTile(
-              leading: const CircularProgressIndicator(),
-              subtitle: const Text('Food history'),
-              title: Text(
-                _TRANSLATE_ME_SEARCHING,
-                style: Theme.of(context).textTheme.subtitle2,
-              ),
-            ),
-          );
-        },
-      );
-
   Widget _getProductListCard(
     final List<String> typeFilter,
-    final String subtitle,
+    final String title,
     final Icon leadingIcon,
   ) =>
       FutureBuilder<List<ProductList>>(
         future: _daoProductList.getAll(
-          limit: _NB_IN_PREVIEW,
+          limit: 5,
           withStats: false,
           reverse: true,
           typeFilter: typeFilter,
@@ -273,57 +229,52 @@ class _HomePageState extends State<HomePage> {
         ) {
           if (snapshot.connectionState == ConnectionState.done) {
             final List<ProductList> list = snapshot.data;
-            String title;
+            List<Widget> cards;
             final bool empty = list == null || list.isEmpty;
             if (empty) {
-              title = 'Empty list';
+              cards = null;
             } else {
-              final List<String> names = <String>[];
+              cards = <Widget>[];
               for (final ProductList item in list) {
-                switch (item.listType) {
-                  case ProductList.LIST_TYPE_HTTP_SEARCH_GROUP:
-                    // TODO(monsieurtanuki): faster and nicer algorithm, please
-                    for (final PnnsGroup2 pnnsGroup2 in PnnsGroup2.values) {
-                      if (item.parameters == pnnsGroup2.id) {
-                        names.add(pnnsGroup2.name);
-                      }
-                    }
-                    break;
-                  case ProductList.LIST_TYPE_HTTP_SEARCH_KEYWORDS:
-                    names.add('"${item.parameters}"');
-                    break;
-                  default:
-                    names.add(item.parameters);
-                }
+                cards.add(ProductListButton(item, _daoProductList));
               }
-              title = names.join(', ') + ', ...';
             }
             return Card(
-              child: ListTile(
-                onTap: () async {
-                  await Navigator.push<dynamic>(
-                    context,
-                    MaterialPageRoute<dynamic>(
-                      builder: (BuildContext context) => ListPage(
-                        typeFilter: typeFilter,
-                        title: subtitle,
-                      ),
+              child: Column(
+                children: <Widget>[
+                  ListTile(
+                    onTap: () async {
+                      await Navigator.push<dynamic>(
+                        context,
+                        MaterialPageRoute<dynamic>(
+                          builder: (BuildContext context) => ListPage(
+                            typeFilter: typeFilter,
+                            title: title,
+                          ),
+                        ),
+                      );
+                      setState(() {});
+                    },
+                    leading: leadingIcon,
+                    subtitle: empty ? const Text(_TRANSLATE_ME_EMPTY) : null,
+                    title: Text(title,
+                        style: Theme.of(context).textTheme.subtitle2),
+                  ),
+                  if (!empty)
+                    Wrap(
+                      direction: Axis.horizontal,
+                      children: cards,
+                      spacing: 8.0,
                     ),
-                  );
-                  setState(() {});
-                },
-                leading: leadingIcon,
-                subtitle: Text(subtitle),
-                title:
-                    Text(title, style: Theme.of(context).textTheme.subtitle2),
+                ],
               ),
             );
           }
           return Card(
             child: ListTile(
               leading: const CircularProgressIndicator(),
-              subtitle: Text(subtitle),
-              title: Text(
+              title: Text(title),
+              subtitle: Text(
                 _TRANSLATE_ME_SEARCHING,
                 style: Theme.of(context).textTheme.subtitle2,
               ),
@@ -338,7 +289,14 @@ class _HomePageState extends State<HomePage> {
   ) {
     final List<String> orderedVariables =
         userPreferencesModel.getOrderedVariables(userPreferences);
-    final List<String> attributes = <String>[];
+    final List<Widget> attributes = <Widget>[];
+    final Map<String, MaterialColor> colors = <String, MaterialColor>{
+      'important': Colors.green,
+      'very_important': Colors.orange,
+      'mandatory': Colors.red,
+    };
+
+    final Function onTap = () => UserPreferencesView.showModal(context);
     for (final String variable in orderedVariables) {
       final Attribute attribute =
           userPreferencesModel.getReferenceAttribute(variable);
@@ -347,26 +305,128 @@ class _HomePageState extends State<HomePage> {
         variable,
         userPreferences,
       );
-      attributes.add('${attribute.name} (${importance.name})');
-    }
-    return Card(
-      child: ListTile(
-        onTap: () => UserPreferencesView.showModal(context),
-        leading: Icon(
-          Icons.bar_chart,
-          color: SmoothTheme.getForegroundColor(
-            Theme.of(context).colorScheme,
-            Colors.green,
+      attributes.add(
+        ElevatedButton(
+          onPressed: () => onTap(),
+          child: Text('${attribute.name}'),
+          style: ElevatedButton.styleFrom(
+            primary: SmoothTheme.getBackgroundColor(
+              Theme.of(context).colorScheme,
+              colors[importance.id],
+            ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(32.0),
+            ),
           ),
         ),
-        title: Text(
-          attributes.isEmpty
-              ? 'Nothing set for the moment'
-              : attributes.join(', '),
-          style: Theme.of(context).textTheme.subtitle2,
+      );
+    }
+    return GestureDetector(
+      onTap: () => onTap(),
+      child: Card(
+        child: Column(
+          children: <Widget>[
+            ListTile(
+              leading: Icon(
+                Icons.bar_chart,
+                color: SmoothTheme.getForegroundColor(
+                  Theme.of(context).colorScheme,
+                  Colors.green,
+                ),
+              ),
+              subtitle: attributes.isEmpty
+                  ? const Text('Nothing set for the moment')
+                  : null,
+              title: Text(
+                'Food ranking parameters',
+                style: Theme.of(context).textTheme.subtitle2,
+              ),
+            ),
+            Wrap(
+              direction: Axis.horizontal,
+              children: attributes,
+              spacing: 8.0,
+            ),
+          ],
         ),
-        subtitle: const Text('Food ranking parameters'),
       ),
     );
   }
+
+  Widget _getPantryCard(
+    final UserPreferences userPreferences,
+    final DaoProduct daoProduct,
+    final PantryType pantryType,
+  ) =>
+      FutureBuilder<List<Pantry>>(
+        future: Pantry.getAll(userPreferences, daoProduct, pantryType),
+        builder: (
+          final BuildContext context,
+          final AsyncSnapshot<List<Pantry>> snapshot,
+        ) {
+          final String title = pantryType == PantryType.PANTRY
+              ? _TRANSLATE_ME_PANTRIES
+              : _TRANSLATE_ME_SHOPPINGS;
+          final IconData iconData = pantryType == PantryType.PANTRY
+              ? Icons.home
+              : Icons.shopping_cart;
+          final MaterialColor materialColor =
+              pantryType == PantryType.PANTRY ? Colors.orange : Colors.blueGrey;
+          if (snapshot.connectionState == ConnectionState.done) {
+            final List<Pantry> pantries = snapshot.data;
+            final List<Widget> cards = <Widget>[];
+            for (int index = 0; index < pantries.length; index++) {
+              cards.add(PantryButton(pantries, index));
+            }
+            return Card(
+              child: Column(
+                children: <Widget>[
+                  ListTile(
+                    onTap: () async {
+                      await Navigator.push<dynamic>(
+                        context,
+                        MaterialPageRoute<dynamic>(
+                          builder: (BuildContext context) => PantryListPage(
+                            title,
+                            pantries,
+                            pantryType,
+                          ),
+                        ),
+                      );
+                      setState(() {});
+                    },
+                    leading: Icon(
+                      iconData,
+                      color: SmoothTheme.getForegroundColor(
+                        Theme.of(context).colorScheme,
+                        materialColor,
+                      ),
+                    ),
+                    subtitle:
+                        cards.isEmpty ? const Text(_TRANSLATE_ME_EMPTY) : null,
+                    title: Text(title,
+                        style: Theme.of(context).textTheme.subtitle2),
+                  ),
+                  if (cards.isNotEmpty)
+                    Wrap(
+                      direction: Axis.horizontal,
+                      children: cards,
+                      spacing: 8.0,
+                    ),
+                ],
+              ),
+            );
+          }
+          return Card(
+            child: ListTile(
+              leading: const CircularProgressIndicator(),
+              title: Text(title),
+              subtitle: Text(
+                _TRANSLATE_ME_SEARCHING,
+                style: Theme.of(context).textTheme.subtitle2,
+              ),
+            ),
+          );
+        },
+      );
 }

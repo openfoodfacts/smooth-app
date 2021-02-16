@@ -6,6 +6,7 @@ import 'package:smooth_app/pages/alternative_continuous_scan_page.dart';
 import 'package:smooth_app/pages/continuous_scan_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_ui_library/widgets/smooth_toggle.dart';
+import 'package:smooth_app/database/product_query.dart';
 
 class ScanPage extends StatelessWidget {
   const ScanPage({
@@ -20,8 +21,11 @@ class ScanPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     return FutureBuilder<ContinuousScanModel>(
-        future: ContinuousScanModel(contributionMode: contributionMode)
-            .load(localDatabase),
+        future: ContinuousScanModel(
+          contributionMode: contributionMode,
+          languageCode: ProductQuery.getCurrentLanguageCode(context),
+          countryCode: ProductQuery.getCurrentCountryCode(),
+        ).load(localDatabase),
         builder: (BuildContext context,
             AsyncSnapshot<ContinuousScanModel> snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {

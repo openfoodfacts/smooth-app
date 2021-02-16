@@ -157,24 +157,32 @@ class DaoProductList {
     final ProductList productList,
     final int limit,
     final bool reverse,
+    final bool unique,
   ) async {
     final Map<String, dynamic> record = await _getRecord(productList);
     if (record == null) {
       return null;
     }
     final int id = record[_TABLE_PRODUCT_LIST_COLUMN_ID] as int;
-    return await _getBarcodes(id, limit: limit, reverse: reverse);
+    return await _getBarcodes(
+      id,
+      limit: limit,
+      reverse: reverse,
+      unique: unique,
+    );
   }
 
   Future<List<Product>> getFirstProducts(
     final ProductList productList,
     final int limit,
     final bool reverse,
+    final bool unique,
   ) async {
     final List<String> barcodes = await getFirstBarcodes(
       productList,
       limit,
       reverse,
+      unique,
     );
     final Map<String, Product> products =
         await DaoProduct(localDatabase).getAll(barcodes);
@@ -241,11 +249,10 @@ class DaoProductList {
     final ProductList destination,
     final String sourceLousyKey,
   ) async {
-    final int sourceId = await _getProductListIdFromLousyKey(sourceLousyKey);
-    if (sourceId == null) {
+    final List<String> barcodes = await getBarcodes(sourceLousyKey);
+    if (barcodes == null) {
       return null;
     }
-    final List<String> barcodes = await _getBarcodes(sourceId);
     _upsertProductList(destination);
     final Map<String, dynamic> record = await _getRecord(destination);
     if (record == null) {
@@ -256,6 +263,14 @@ class DaoProductList {
     final int result = await _insertListItems(destinationId, barcodes);
     await get(destination);
     return result;
+  }
+
+  Future<List<String>> getBarcodes(final String lousyKey) async {
+    final int sourceId = await _getProductListIdFromLousyKey(lousyKey);
+    if (sourceId == null) {
+      return null;
+    }
+    return await _getBarcodes(sourceId);
   }
 
   Future<int> _getProductListIdFromLousyKey(final String lousyKey) async {
@@ -393,6 +408,7 @@ class DaoProductList {
     final int id, {
     final int limit,
     final bool reverse = false,
+    final bool unique = false,
   }) async {
     const String BARCODE_COLUMN_NAME = _TABLE_PRODUCT_LIST_ITEM_COLUMN_BARCODE;
     final List<Map<String, dynamic>> query = await localDatabase.database.query(
@@ -402,11 +418,17 @@ class DaoProductList {
       columns: <String>[BARCODE_COLUMN_NAME],
       orderBy:
           '$_TABLE_PRODUCT_LIST_ITEM_COLUMN_ID ${reverse ? 'DESC' : 'ASC'}',
-      limit: limit,
+      limit: unique ? null : limit,
     );
     final List<String> result = <String>[];
     for (final Map<String, dynamic> row in query) {
-      result.add(row[BARCODE_COLUMN_NAME] as String);
+      final String barcode = row[BARCODE_COLUMN_NAME] as String;
+      if ((!unique) || !result.contains(barcode)) {
+        result.add(barcode);
+        if (limit != null && result.length >= limit) {
+          break;
+        }
+      }
     }
     return result;
   }

@@ -12,23 +12,31 @@ import 'package:smooth_app/database/keywords_product_query.dart';
 import 'package:smooth_app/database/group_product_query.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/product_page.dart';
-import 'package:smooth_app/database/barcode_product_query.dart';
-import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/pages/product_query_page_helper.dart';
+import 'package:smooth_app/pages/product_dialog_helper.dart';
+import 'package:smooth_app/database/product_query.dart';
 
 class ChoosePage extends StatefulWidget {
   @override
   _ChoosePageState createState() => _ChoosePageState();
 
-  static Future<void> _barcodeSearch(
-    String code,
-    BuildContext context,
+  static Future<void> onSubmitted(
+    final String value,
+    final BuildContext context,
     final LocalDatabase localDatabase,
   ) async {
-    final Product product = await BarcodeProductQuery(code).getProduct();
-    if (product != null) {
-      await DaoProduct(localDatabase).put(product);
-      Navigator.pop(context);
+    if (int.parse(value, onError: (String e) => null) != null) {
+      final ProductDialogHelper productDialogHelper = ProductDialogHelper(
+        barcode: value,
+        context: context,
+        localDatabase: localDatabase,
+        refresh: false,
+      );
+      final Product product = await productDialogHelper.openBestChoice();
+      if (product == null) {
+        productDialogHelper.openProductNotFoundDialog();
+        return;
+      }
       Navigator.push<dynamic>(
         context,
         MaterialPageRoute<dynamic>(
@@ -39,168 +47,19 @@ class ChoosePage extends StatefulWidget {
       );
       return;
     }
-    Navigator.pop(context);
-    showDialog<Widget>(
+    await ProductQueryPageHelper().openBestChoice(
+      color: Colors.deepPurple,
+      heroTag: 'search_bar',
+      name: value,
+      localDatabase: localDatabase,
+      productQuery: KeywordsProductQuery(
+        keywords: value,
+        languageCode: ProductQuery.getCurrentLanguageCode(context),
+        countryCode: ProductQuery.getCurrentCountryCode(),
+        size: 500,
+      ),
       context: context,
-      builder: (BuildContext context) {
-        return Dialog(
-          backgroundColor: Colors.transparent,
-          child: ClipRRect(
-            borderRadius: const BorderRadius.all(Radius.circular(20.0)),
-            child: BackdropFilter(
-              filter: ImageFilter.blur(
-                sigmaX: 4.0,
-                sigmaY: 4.0,
-              ),
-              child: Container(
-                padding: const EdgeInsets.all(12.0),
-                width: MediaQuery.of(context).size.width * 0.8,
-                height: 120.0,
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                  color: Colors.white70,
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Flexible(
-                          child: Text(
-                            'No product found with matching barcode : $code',
-                            textAlign: TextAlign.center,
-                          ),
-                        )
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 24.0,
-                    ),
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: <Widget>[
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                          child: Container(
-                            width: MediaQuery.of(context).size.width * 0.3,
-                            height: 40.0,
-                            decoration: BoxDecoration(
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(50.0)),
-                              color: Colors.redAccent.withAlpha(50),
-                            ),
-                            child: Center(
-                              child: Text(
-                                'Close',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headline4
-                                    .copyWith(color: Colors.redAccent),
-                              ),
-                            ),
-                          ),
-                        ),
-                        GestureDetector(
-                          child: Container(
-                            width: MediaQuery.of(context).size.width * 0.3,
-                            height: 40.0,
-                            decoration: BoxDecoration(
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(50.0)),
-                              color: Colors.lightBlue.withAlpha(50),
-                            ),
-                            child: Center(
-                              child: Text(
-                                'Contribute',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headline4
-                                    .copyWith(color: Colors.lightBlue),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        );
-      },
     );
-  }
-
-  static Future<void> onSubmitted(
-    final String value,
-    final BuildContext context,
-    final LocalDatabase localDatabase,
-  ) async {
-    if (int.parse(value, onError: (String e) => null) != null) {
-      showDialog<Widget>(
-        context: context,
-        builder: (BuildContext context) {
-          ChoosePage._barcodeSearch(
-            value,
-            context,
-            localDatabase,
-          );
-          return Dialog(
-            backgroundColor: Colors.transparent,
-            child: ClipRRect(
-              borderRadius: const BorderRadius.all(Radius.circular(20.0)),
-              child: BackdropFilter(
-                filter: ImageFilter.blur(
-                  sigmaX: 4.0,
-                  sigmaY: 4.0,
-                ),
-                child: Container(
-                  padding: const EdgeInsets.all(12.0),
-                  width: MediaQuery.of(context).size.width * 0.8,
-                  height: 120.0,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                    color: Colors.white70,
-                  ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text('Looking for : $value'),
-                      const SizedBox(
-                        height: 24.0,
-                      ),
-                      const CircularProgressIndicator(),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          );
-        },
-      );
-    } else {
-      await ProductQueryPageHelper().openBestChoice(
-        color: Colors.deepPurple,
-        heroTag: 'search_bar',
-        name: value,
-        localDatabase: localDatabase,
-        productQuery: KeywordsProductQuery(
-          keywords: value,
-          languageCode: Localizations.localeOf(context).languageCode,
-          countryCode: window.locale.countryCode,
-          size: 500,
-        ),
-        context: context,
-      );
-    }
   }
 }
 
@@ -363,7 +222,7 @@ class _ChoosePageState extends State<ChoosePage> {
                       await ProductQueryPageHelper().openBestChoice(
                         productQuery: GroupProductQuery(
                           group,
-                          Localizations.localeOf(context).languageCode,
+                          ProductQuery.getCurrentLanguageCode(context),
                         ),
                         heroTag: group.id,
                         color: color,
