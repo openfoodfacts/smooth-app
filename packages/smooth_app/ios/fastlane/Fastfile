@@ -1,4 +1,6 @@
+
 default_platform(:ios)
+
 platform :ios do
   desc "Push a new beta build to TestFlight"
   lane :beta do
@@ -17,18 +19,19 @@ platform :ios do
       profile_name: 'match AppStore org.openfoodfacts.app',
       targets: ["Runner"]
   )
-   # if is_ci
-      #create_keychain(
-       # name: ENV['MATCH_KEYCHAIN_NAME'],
-      #  password: ENV["MATCH_KEYCHAIN_PASSWORD"],
-      #  default_keychain: true,
-      #  unlock: true,
-      #  timeout: 3600,
-      #  lock_when_sleeps: false
-      #)
-  #  end
+   
+# if is_ci
+#   create_keychain(
+#     name: ENV['MATCH_KEYCHAIN_NAME'],
+#     password: ENV["MATCH_KEYCHAIN_PASSWORD"],
+#     default_keychain: true,
+#     unlock: true,
+#     timeout: 3600,
+#     lock_when_sleeps: false
+#   )
+# end
 
-    # ios approach
+  # ios approach
   puts("start sync_code_signing 2")
   sync_code_signing(type: "appstore", readonly: is_ci, clone_branch_directly: false)
 
@@ -42,14 +45,14 @@ platform :ios do
     targets: ["Runner"]
   )
 
-   # match(
-   #   app_identifier: "org.openfoodfacts.app",
-    #  type: "appstore",
-      #readonly: is_ci,
-      # disable to try to help the build
-      #keychain_name: ENV['MATCH_KEYCHAIN_NAME'],
-    #  keychain_password: ENV["MATCH_KEYCHAIN_PASSWORD"],
-    #)
+# match(
+#   app_identifier: "org.openfoodfacts.app",
+#   type: "appstore",
+#   readonly: is_ci,
+#   # disable to try to help the build
+#   keychain_name: ENV['MATCH_KEYCHAIN_NAME'],
+#   keychain_password: ENV["MATCH_KEYCHAIN_PASSWORD"],
+# )
 
     puts("start gym")
     gym(
