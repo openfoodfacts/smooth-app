@@ -23,6 +23,7 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:smooth_app/pages/product_query_page_helper.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:wc_flutter_share/wc_flutter_share.dart';
+import 'package:smooth_app/pages/product_dialog_helper.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage({@required this.product, this.newProduct = false});
@@ -145,6 +146,9 @@ class ProductPage extends StatefulWidget {
 }
 
 class _ProductPageState extends State<ProductPage> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  Product _product;
+
   @override
   void initState() {
     super.initState();
@@ -165,14 +169,17 @@ class _ProductPageState extends State<ProductPage> {
 
   @override
   Widget build(BuildContext context) {
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
+    _product ??= widget.product;
     return Scaffold(
+        key: _scaffoldKey,
         appBar: AppBar(
           title: ListTile(
             title: Text(
-              widget.product.productName ?? appLocalizations.unknownProductName,
+              _product.productName ?? appLocalizations.unknownProductName,
               style: themeData.textTheme.headline4
                   .copyWith(color: colorScheme.onBackground),
             ),
@@ -197,32 +204,59 @@ class _ProductPageState extends State<ProductPage> {
               icon: Icon(Icons.launch),
               label: 'web',
             ),
+            const BottomNavigationBarItem(
+              icon: Icon(Icons.refresh),
+              label: 'refresh',
+            ),
             BottomNavigationBarItem(
               icon: Icon(ConstantIcons.getShareIcon()),
               label: 'share',
             ),
           ],
-          onTap: (final int index) {
+          onTap: (final int index) async {
             switch (index) {
               case 0:
                 UserPreferencesView.showModal(context);
                 return;
               case 1:
-                ProductPage.showLists(widget.product, context);
+                ProductPage.showLists(_product, context);
                 return;
               case 2:
                 Launcher().launchURL(
                     context,
-                    'https://openfoodfacts.org/product/${widget.product.barcode}/',
+                    'https://openfoodfacts.org/product/${_product.barcode}/',
                     false);
                 return;
               case 3:
+                final ProductDialogHelper productDialogHelper =
+                    ProductDialogHelper(
+                  barcode: _product.barcode,
+                  context: context,
+                  localDatabase: localDatabase,
+                  refresh: true,
+                );
+                final Product product =
+                    await productDialogHelper.openUniqueProductSearch();
+                if (product == null) {
+                  productDialogHelper.openProductNotFoundDialog();
+                  return;
+                }
+                _scaffoldKey.currentState.showSnackBar(
+                  const SnackBar(
+                    content: Text('Product refreshed'),
+                    duration: Duration(seconds: 2),
+                  ),
+                );
+                setState(() {
+                  _product = product;
+                });
+                return;
+              case 4:
                 WcFlutterShare.share(
                     sharePopupTitle: 'Share',
-                    subject:
-                        '${widget.product.productName} (by openfoodfacts.org)',
+                    subject: '${_product.productName} (by openfoodfacts.org)',
                     text:
-                        'Try this food: https://openfoodfacts.org/product/${widget.product.barcode}/',
+                        'Try this food: https://openfoodfacts.org/product/${_product.barcode}/',
                     mimeType: 'text/plain');
                 return;
             }
@@ -240,7 +274,7 @@ class _ProductPageState extends State<ProductPage> {
     final ProductList productList =
         ProductList(listType: ProductList.LIST_TYPE_HISTORY, parameters: '');
     await daoProductList.get(productList);
-    productList.add(widget.product);
+    productList.add(_product);
     await daoProductList.put(productList);
     localDatabase.notifyListeners();
   }
@@ -256,20 +290,20 @@ class _ProductPageState extends State<ProductPage> {
         ),
       ),
       ImageUploadCard(
-          product: widget.product,
+          product: _product,
           imageField: ImageField.FRONT,
           buttonText: 'Front photo'),
       ImageUploadCard(
-          product: widget.product,
+          product: _product,
           imageField: ImageField.INGREDIENTS,
           buttonText: 'Ingredients photo'),
       ImageUploadCard(
-        product: widget.product,
+        product: _product,
         imageField: ImageField.NUTRITION,
         buttonText: 'Nutrition facts photo',
       ),
       ImageUploadCard(
-          product: widget.product,
+          product: _product,
           imageField: ImageField.OTHER,
           buttonText: 'More interesting photos'),
     ]);
@@ -302,15 +336,13 @@ class _ProductPageState extends State<ProductPage> {
           children: <Widget>[
             Flexible(
               child: Text(
-                widget.product.brands ?? appLocalizations.unknownBrand,
+                _product.brands ?? appLocalizations.unknownBrand,
                 style: themeData.textTheme.subtitle1,
               ),
             ),
             Flexible(
               child: Text(
-                widget.product.quantity != null
-                    ? '${widget.product.quantity}'
-                    : '',
+                _product.quantity != null ? '${_product.quantity}' : '',
                 style: themeData.textTheme.headline4
                     .copyWith(color: Colors.grey, fontSize: 18.0),
               ),
@@ -320,14 +352,14 @@ class _ProductPageState extends State<ProductPage> {
       ),
     );
     final Map<String, Attribute> matchingAttributes =
-        Match.getMatchingAttributes(widget.product, mainAttributes);
+        Match.getMatchingAttributes(_product, mainAttributes);
     final double opacity =
         themeData.brightness == Brightness.light ? 1 : _OPACITY_FOR_DARK;
     for (final String attributeId in mainAttributes) {
       if (matchingAttributes[attributeId] != null) {
         listItems.add(
           AttributeListExpandable(
-            product: widget.product,
+            product: _product,
             iconWidth: iconWidth,
             attributeTags: <String>[attributeId],
             collapsible: false,
@@ -344,9 +376,9 @@ class _ProductPageState extends State<ProductPage> {
 
     return Stack(
       children: <Widget>[
-        if (widget.product.imgSmallUrl != null)
+        if (_product.imgSmallUrl != null)
           Image.network(
-            widget.product.imgSmallUrl,
+            _product.imgSmallUrl,
             fit: BoxFit.cover,
             height: double.infinity,
             width: double.infinity,
@@ -392,7 +424,7 @@ class _ProductPageState extends State<ProductPage> {
       attributeTags.add(attribute.id);
     }
     return AttributeListExpandable(
-      product: widget.product,
+      product: _product,
       iconWidth: iconWidth,
       attributeTags: attributeTags,
       title: attributeGroup.name,
