@@ -47,7 +47,7 @@ jobs:
           PILOT_APPLE_ID: ${{ secrets.PILOT_APPLE_ID }}
           SPACESHIP_CONNECT_API_ISSUER_ID: ${{ secrets.SPACESHIP_CONNECT_API_ISSUER_ID }}
           SPACESHIP_CONNECT_API_KEY_ID: ${{ secrets.SPACESHIP_CONNECT_API_KEY_ID }}
-          SPACESHIP_CONNECT_API_KEY_FILEPATH: envfiles/AuthKey_KDAUTTM76R.p8
+          SPACESHIP_CONNECT_API_KEY_FILEPATH: ./fastlane/envfiles/AuthKey_KDAUTTM76R.p8
           CI_RELEASE: true
 
       - name: Bundle install
@@ -68,6 +68,6 @@ jobs:
           PILOT_APPLE_ID: ${{ secrets.PILOT_APPLE_ID }}
           SPACESHIP_CONNECT_API_ISSUER_ID: ${{ secrets.SPACESHIP_CONNECT_API_ISSUER_ID }}
           SPACESHIP_CONNECT_API_KEY_ID: ${{ secrets.SPACESHIP_CONNECT_API_KEY_ID }}
-          SPACESHIP_CONNECT_API_KEY_FILEPATH: envfiles/AuthKey_KDAUTTM76R.p8
+          SPACESHIP_CONNECT_API_KEY_FILEPATH: ./fastlane/envfiles/AuthKey_KDAUTTM76R.p8
           CI_RELEASE: true
 

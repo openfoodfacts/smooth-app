@@ -235,3 +235,5 @@ key.jks
 service_account_key.json
 android_keys.zip
 Gemfile.lock
+/packages/smooth_app/ios/fastlane/envfiles/AuthKey_KDAUTTM76R.p8
+/packages/smooth_app/ios/fastlane/.env

@@ -2,5 +2,3 @@ app_identifier "org.openfoodfacts.app"
 team_id "ZC9CYWD334"
 apple_id(ENV["FASTLANE_USER"])
 itc_team_id(ENV["APP_STORE_CONNECT_TEAM_ID"])
-key_id(ENV["SPACESHIP_CONNECT_API_KEY_ID"])
-issuer_id(ENV["SPACESHIP_CONNECT_API_ISSUER_ID"])
