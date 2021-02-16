@@ -4,16 +4,6 @@ platform :ios do
   lane :beta do
     APP_IDENTIFIER = CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)
     TEAM_ID = CredentialsManager::AppfileConfig.try_fetch_value(:team_id)
- if is_ci
-   create_keychain(
-     name: ENV['MATCH_KEYCHAIN_NAME'],
-     password: ENV["MATCH_KEYCHAIN_PASSWORD"],
-     default_keychain: true,
-     unlock: true,
-     timeout: 3600,
-     lock_when_sleeps: false
-   )
- end
   # ios approach
   puts("start sync_code_signing 2")
   sync_code_signing(type: "appstore", readonly: is_ci, clone_branch_directly: false)
