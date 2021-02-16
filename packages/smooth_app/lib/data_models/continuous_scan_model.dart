@@ -17,8 +17,11 @@ enum ScannedProductState {
 }
 
 class ContinuousScanModel with ChangeNotifier {
-  ContinuousScanModel({@required bool contributionMode})
-      : _contributionMode = contributionMode;
+  ContinuousScanModel({
+    @required bool contributionMode,
+    @required this.countryCode,
+    @required this.languageCode,
+  }) : _contributionMode = contributionMode;
 
   final Map<String, ScannedProductState> _states =
       <String, ScannedProductState>{};
@@ -31,6 +34,8 @@ class ContinuousScanModel with ChangeNotifier {
   String _barcodeTrustCheck;
   DaoProduct _daoProduct;
   DaoProductList _daoProductList;
+  final String languageCode;
+  final String countryCode;
 
   bool get isNotEmpty => getBarcodes().isNotEmpty;
   bool get contributionMode => _contributionMode;
@@ -129,7 +134,11 @@ class ContinuousScanModel with ChangeNotifier {
     final String barcode,
     final ScannedProductState notFound,
   ) async {
-    final Product product = await BarcodeProductQuery(barcode).getProduct();
+    final Product product = await BarcodeProductQuery(
+      barcode: barcode,
+      languageCode: languageCode,
+      countryCode: countryCode,
+    ).getProduct();
     if (product != null) {
       _addProduct(product, ScannedProductState.FOUND);
     } else {
