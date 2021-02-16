@@ -29,6 +29,8 @@ platform :ios do
     # ios approach
   puts("start sync_code_signing")
   sync_code_signing(type: "appstore", readonly: is_ci, clone_branch_directly: false)
+
+  puts("start update_code_signing_settings")
   update_code_signing_settings(
     path: "Runner.xcodeproj",
     use_automatic_signing: false,
