@@ -29,7 +29,7 @@ jobs:
           channel: 'stable'
 
       - name: Decrypt AuthKey file
-        run: pwd && ls && cd ./packages/smooth_app/ios/fastlane/envfiles && ./decrypt_secrets.sh
+        run: pwd && ls && cd ./packages/smooth_app/ios/fastlane/envfiles && ./decrypt_secrets.sh && ls
         env:
           AUTH_KEY_FILE_DECRYPTKEY: ${{ secrets.AUTH_KEY_FILE_DECRYPTKEY }}
 
