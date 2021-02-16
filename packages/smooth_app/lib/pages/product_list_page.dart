@@ -60,6 +60,7 @@ class _ProductListPageState extends State<ProductListPage> {
         renamable = true;
         break;
       case ProductList.LIST_TYPE_HTTP_SEARCH_KEYWORDS:
+      case ProductList.LIST_TYPE_HTTP_SEARCH_CATEGORY:
       case ProductList.LIST_TYPE_HTTP_SEARCH_GROUP:
         deletable = true;
         break;

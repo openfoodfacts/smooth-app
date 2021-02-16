@@ -18,7 +18,7 @@ class ProductListPreviewHelper extends StatelessWidget {
   Widget build(BuildContext context) {
     // Return an empty widget if the list is null
     if (list == null) {
-      return SizedBox.shrink();
+      return const SizedBox.shrink();
     }
 
     final List<Widget> previews = <Widget>[];
