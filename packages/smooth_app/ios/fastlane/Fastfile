@@ -5,8 +5,10 @@ platform :ios do
     APP_IDENTIFIER = CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)
     TEAM_ID = CredentialsManager::AppfileConfig.try_fetch_value(:team_id)
   
-    puts("start sync_code_signing")
+    puts("start sync_code_signing 1")
     sync_code_signing(type: "appstore", clone_branch_directly: false) #readonly: is_ci,
+
+    puts("start update_code_signing_settings 1")
     update_code_signing_settings(
       path: "Runner.xcodeproj",
       use_automatic_signing: false,
@@ -27,10 +29,10 @@ platform :ios do
   #  end
 
     # ios approach
-  puts("start sync_code_signing")
+  puts("start sync_code_signing 2")
   sync_code_signing(type: "appstore", readonly: is_ci, clone_branch_directly: false)
 
-  puts("start update_code_signing_settings")
+  puts("start update_code_signing_settings 2")
   update_code_signing_settings(
     path: "Runner.xcodeproj",
     use_automatic_signing: false,
