@@ -62,6 +62,7 @@ jobs:
           lane: beta
           subdirectory: packages/smooth_app/ios
         env:
+          MATCH_PASSWORD: ${{secrets.GITHUB_TOKEN }}
           GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
