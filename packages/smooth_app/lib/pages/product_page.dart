@@ -26,6 +26,8 @@ import 'package:wc_flutter_share/wc_flutter_share.dart';
 import 'package:smooth_app/pages/product_dialog_helper.dart';
 import 'package:smooth_app/database/category_product_query.dart';
 import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_ui_library/widgets/smooth_card.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage({@required this.product, this.newProduct = false});
@@ -377,28 +379,49 @@ class _ProductPageState extends State<ProductPage> {
       listItems.add(_getAttributeGroupWidget(attributeGroup, iconWidth));
     }
 
-    if (_product.categoriesTags != null) {
-      for (int i = 0; i < _product.categoriesTags.length; i++) {
+    if (_product.categoriesTags != null && _product.categoriesTags.isNotEmpty) {
+      for (int i = _product.categoriesTags.length - 1;
+          i < _product.categoriesTags.length;
+          i++) {
         final String categoryTag = _product.categoriesTags[i];
+        final MaterialColor materialColor = Colors.blue;
         listItems.add(
-          Card(
-            child: ListTile(
-              onTap: () async {
-                await ProductQueryPageHelper().openBestChoice(
-                  color: Colors.deepPurple,
-                  heroTag: 'search_bar',
-                  name: categoryTag,
-                  localDatabase: localDatabase,
-                  productQuery: CategoryProductQuery(
-                    category: categoryTag,
-                    languageCode: ProductQuery.getCurrentLanguageCode(context),
-                    countryCode: ProductQuery.getCurrentCountryCode(),
-                    size: 500,
-                  ),
-                  context: context,
-                );
-              },
-              title: Text(categoryTag),
+          SmoothCard(
+            background: SmoothTheme.getBackgroundColor(
+              themeData.colorScheme,
+              materialColor,
+            ),
+            collapsed: null,
+            content: ListTile(
+              leading: Icon(
+                Icons.search,
+                size: iconWidth,
+                color: SmoothTheme.getForegroundColor(
+                  themeData.colorScheme,
+                  materialColor,
+                ),
+              ),
+              onTap: () async => await ProductQueryPageHelper().openBestChoice(
+                color: materialColor,
+                heroTag: 'search_bar',
+                name: categoryTag,
+                localDatabase: localDatabase,
+                productQuery: CategoryProductQuery(
+                  category: categoryTag,
+                  languageCode: ProductQuery.getCurrentLanguageCode(context),
+                  countryCode: ProductQuery.getCurrentCountryCode(),
+                  size: 500,
+                ),
+                context: context,
+              ),
+              title: Text(
+                categoryTag,
+                style: themeData.textTheme.headline3,
+              ),
+              subtitle: Text(
+                'Similar foods',
+                style: themeData.textTheme.subtitle2,
+              ),
             ),
           ),
         );
