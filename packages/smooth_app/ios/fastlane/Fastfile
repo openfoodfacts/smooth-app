@@ -1,25 +1,9 @@
-
 default_platform(:ios)
-
 platform :ios do
   desc "Push a new beta build to TestFlight"
   lane :beta do
     APP_IDENTIFIER = CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)
     TEAM_ID = CredentialsManager::AppfileConfig.try_fetch_value(:team_id)
-  
-    puts("start sync_code_signing 1")
-    sync_code_signing(type: "appstore", clone_branch_directly: false) #readonly: is_ci,
-
-    puts("start update_code_signing_settings 1")
-    update_code_signing_settings(
-      path: "Runner.xcodeproj",
-      use_automatic_signing: false,
-      build_configurations: "Release",
-      code_sign_identity: 'iPhone Distribution',
-      profile_name: 'match AppStore org.openfoodfacts.app 1613500402',
-      targets: ["Runner"]
-  )
-   
  if is_ci
    create_keychain(
      name: ENV['MATCH_KEYCHAIN_NAME'],
@@ -30,11 +14,9 @@ platform :ios do
      lock_when_sleeps: false
    )
  end
-
   # ios approach
   puts("start sync_code_signing 2")
   sync_code_signing(type: "appstore", readonly: is_ci, clone_branch_directly: false)
-
   puts("start update_code_signing_settings 2")
   update_code_signing_settings(
     path: "Runner.xcodeproj",
@@ -44,16 +26,6 @@ platform :ios do
     profile_name: 'match AppStore org.openfoodfacts.app',
     targets: ["Runner"]
   )
-
-# match(
-#   app_identifier: "org.openfoodfacts.app",
-#   type: "appstore",
-#   readonly: is_ci,
-#   # disable to try to help the build
-#   keychain_name: ENV['MATCH_KEYCHAIN_NAME'],
-#   keychain_password: ENV["MATCH_KEYCHAIN_PASSWORD"],
-# )
-
     puts("start gym")
     gym(
       configuration: "Release",
@@ -66,7 +38,6 @@ platform :ios do
         }
       }
     )
-
     puts("start pilot")
     pilot(
       #apple_id: ENV['FASTLANE_USER'],
@@ -82,9 +53,6 @@ platform :ios do
       #version_code: flutter_version(pubspec_location: '../pubspec.yaml')["version_code"],
     #)
     #upload_to_testflight
-
-
-
     puts("Final End")
   end
 end
