@@ -24,6 +24,11 @@ platform :ios do
       targets: ["Runner"]
     )
   
+    update_project_team(
+      path: "Runner.xcodeproj",
+      teamid: "ZC9CYWD334"
+    )
+    
     # build your iOS app
     gym(
       configuration: "Release",
