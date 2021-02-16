@@ -56,7 +56,7 @@ class SmoothUploadPage extends StatelessWidget {
                       smoothUploadModel),
                   _generatePicturePicker(
                       context,
-                      'Nutrition-table',
+                      'Nutrition table',
                       PhotoType.NUTRITION_TABLE,
                       Colors.deepPurpleAccent,
                       smoothUploadModel),
