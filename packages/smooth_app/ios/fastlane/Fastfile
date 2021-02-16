@@ -10,7 +10,7 @@ platform :ios do
   desc "Push a new beta build to TestFlight"
   lane :beta do
 
-    APP_IDENTIFIER = CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)
+    APP_IDENTIFIER = "org.openfoodfacts.app"
     
     puts "Releasing beta version for identifier #{APP_IDENTIFIER}"
 
