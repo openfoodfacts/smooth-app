@@ -1,9 +1,9 @@
 name: Smoothie Testflight internal release
-on: [push]
-#on:
-#  push:
-#    branches:
-#      - 'release/*'
+#on: [push]
+on:
+  push:
+    branches:
+      - 'release/*'
 
 jobs:
   testflight-release:
