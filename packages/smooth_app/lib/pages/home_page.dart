@@ -156,6 +156,7 @@ class _HomePageState extends State<HomePage> {
               <String>[
                 ProductList.LIST_TYPE_HTTP_SEARCH_GROUP,
                 ProductList.LIST_TYPE_HTTP_SEARCH_KEYWORDS,
+                ProductList.LIST_TYPE_HTTP_SEARCH_CATEGORY,
               ],
               'Search history',
               Icon(
