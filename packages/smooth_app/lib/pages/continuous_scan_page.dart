@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_qr_bar_scanner/flutter_qr_bar_scanner.dart';
-import 'package:flutter_qr_bar_scanner/qr_bar_scanner_camera.dart';
+//import 'package:flutter_qr_bar_scanner/flutter_qr_bar_scanner.dart';
+//import 'package:flutter_qr_bar_scanner/qr_bar_scanner_camera.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
@@ -67,15 +67,16 @@ class ContinuousScanPage extends StatelessWidget {
                 delay: 400,
                 startOffset: const Offset(0.0, 0.0),
                 animationCurve: Curves.easeInOutBack,
-                child: QRBarScannerCamera(
-                  formats: const <BarcodeFormats>[
-                    BarcodeFormats.EAN_8,
-                    BarcodeFormats.EAN_13
-                  ],
-                  qrCodeCallback: (String code) =>
-                      _continuousScanModel.onScan(code),
-                  notStartedBuilder: (BuildContext context) => Container(),
-                ),
+                child: Container(),
+//                child: QRBarScannerCamera(
+//                  formats: const <BarcodeFormats>[
+//                    BarcodeFormats.EAN_8,
+//                    BarcodeFormats.EAN_13
+//                  ],
+//                  qrCodeCallback: (String code) =>
+//                      _continuousScanModel.onScan(code),
+//                  notStartedBuilder: (BuildContext context) => Container(),
+//                ),
               ),
               SmoothRevealAnimation(
                 delay: 400,
