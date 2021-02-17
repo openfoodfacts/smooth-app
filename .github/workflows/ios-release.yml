@@ -27,32 +27,11 @@ jobs:
         uses: subosito/flutter-action@v1
         with:
           channel: 'stable'
-      
-      - name: Bundle install
-        run: cd ./packages/smooth_app/ios && gem install bundler:1.17.3 && bundle install
 
       - name: Decrypt AuthKey file
         run: pwd && ls && cd ./packages/smooth_app/ios/fastlane/envfiles && ./decrypt_secrets.sh && ls
         env:
           AUTH_KEY_FILE_DECRYPTKEY: ${{ secrets.AUTH_KEY_FILE_DECRYPTKEY }}
-
-      - name: Fastlane bump version
-        run: cd ./packages/smooth_app/ios && bundle exec fastlane set_version
-#        env:
-#          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-#          FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
-#          FASTLANE_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-#          FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
-#          MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
-#          MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL }}
-#          MATCH_KEYCHAIN_PASSWORD: ${{ secrets.MATCH_KEYCHAIN_PASSWORD }}
-#          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-#          PILOT_APPLE_ID: ${{ secrets.PILOT_APPLE_ID }}
-#          SPACESHIP_CONNECT_API_ISSUER_ID: ${{ secrets.SPACESHIP_CONNECT_API_ISSUER_ID }}
-#          SPACESHIP_CONNECT_API_KEY_ID: ${{ secrets.SPACESHIP_CONNECT_API_KEY_ID }}
-#          SPACESHIP_CONNECT_API_KEY_FILEPATH: ./fastlane/envfiles/AuthKey_KDAUTTM76R.p8
-#          CI_RELEASE: true
 
       - name: Build app
         run: pwd && cd ./packages/smooth_app/ios && pwd && flutter pub get && flutter build ios --release --no-codesign
@@ -70,6 +49,9 @@ jobs:
           SPACESHIP_CONNECT_API_KEY_ID: ${{ secrets.SPACESHIP_CONNECT_API_KEY_ID }}
           SPACESHIP_CONNECT_API_KEY_FILEPATH: ./fastlane/envfiles/AuthKey_KDAUTTM76R.p8
           CI_RELEASE: true
+
+      - name: Bundle install
+        run: cd ./packages/smooth_app/ios && gem install bundler:1.17.3 && bundle install
 
       - name: Run Fastlane beta lane
         run: cd ./packages/smooth_app/ios && bundle exec fastlane beta

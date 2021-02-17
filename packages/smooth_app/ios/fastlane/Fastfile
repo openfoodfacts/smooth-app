@@ -50,17 +50,4 @@ platform :ios do
       ipa: "./Runner.ipa"
     )
   end
-
-  lane :set_version do
-    old_version_code = 
-    new_version_code = old_version_code.last().to_i + 1
-
-    new_version_name = get_version_number_from_git_branch(pattern: 'release/#')
-
-    flutter_set_version(
-      path_to_yaml: "../pubspec.yaml",
-      version_name: new_version_name.to_s,
-      version_code: new_version_code.to_s,
-    )
-  end
 end
