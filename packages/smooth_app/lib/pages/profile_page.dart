@@ -33,20 +33,6 @@ class ProfilePage extends StatelessWidget {
       ),
       body: Column(
         children: <Widget>[
-          //useMLKit
-          SmoothListTile(
-            text: AppLocalizations.of(context).useMLKitText,
-            onPressed: null,
-            leadingWidget: SmoothToggle(
-                value: userPreferences.getMlKitState(),
-                width: 80.0,
-                height: 38.0,
-                textLeft: AppLocalizations.of(context).yes,
-                textRight: AppLocalizations.of(context).no,
-                onChanged: (bool newValue) async =>
-                    userPreferences.setMlKitState(newValue)),
-          ),
-
           //Darkmode
           SmoothListTile(
             text: AppLocalizations.of(context).darkmode,
