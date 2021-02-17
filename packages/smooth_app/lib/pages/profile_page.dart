@@ -9,6 +9,7 @@ import 'package:smooth_app/bottom_sheet_views/user_contribution_view.dart';
 import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
 import 'package:smooth_app/functions/launchURL.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_ui_library/widgets/smooth_toggle.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
@@ -18,6 +19,7 @@ import 'package:smooth_ui_library/widgets/smooth_listTile.dart';
 class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
     final DarkThemeProvider themeChange = context.watch<DarkThemeProvider>();
     final ThemeData themeData = Theme.of(context);
     final Launcher launcher = Launcher();
