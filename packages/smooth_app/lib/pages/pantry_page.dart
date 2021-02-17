@@ -205,7 +205,7 @@ class PantryPage extends StatelessWidget {
     final DateTime referenceDateTime = DateTime.parse(reference);
     final DateTime valueDateTime = DateTime.parse(value);
     final Duration difference = valueDateTime.difference(referenceDateTime);
-    return (difference.inHours / 24).round();
+    return (difference.inHours / 24).ceil();
   }
 
   Future<void> _save(final UserPreferences userPreferences) async =>
@@ -293,23 +293,7 @@ class PantryPage extends StatelessWidget {
           initialDate: DateTime.now(),
           firstDate: DateTime.now(),
           lastDate: DateTime(2026),
-          builder: (BuildContext context, Widget child) {
-            final Color color = SmoothTheme.getColor(
-              colorScheme,
-              pantry.materialColor,
-              ColorDestination.BUTTON_FOREGROUND,
-            );
-            return Theme(
-              data: ThemeData.light().copyWith(
-                primaryColor: color,
-                accentColor: color,
-                colorScheme: ColorScheme.light(primary: color),
-                buttonTheme:
-                    const ButtonThemeData(textTheme: ButtonTextTheme.primary),
-              ),
-              child: child,
-            );
-          },
+          builder: (BuildContext context, Widget child) => child,
         );
         if (dateTime == null) {
           return;
