@@ -1,4 +1,4 @@
-name: Flutter CI
+name: Flutter Tests and test build
 
 
 #on: pull_request
