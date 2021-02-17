@@ -7,15 +7,16 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/model/SearchResult.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 
-class KeywordsProductQuery implements ProductQuery {
-  KeywordsProductQuery({
-    @required this.keywords,
+/// Product query dedicated to category (e.g. 'en:mueslis-with-fruits')
+class CategoryProductQuery implements ProductQuery {
+  CategoryProductQuery({
+    @required this.category,
     @required this.languageCode,
     @required this.countryCode,
     @required this.size,
   });
 
-  final String keywords;
+  final String category;
   final String languageCode;
   final String countryCode;
   final int size;
@@ -31,7 +32,7 @@ class KeywordsProductQuery implements ProductQuery {
             TagFilter(
               tagType: 'categories',
               contains: true,
-              tagName: keywords,
+              tagName: category,
             ),
           ],
           lc: languageCode,
@@ -41,14 +42,13 @@ class KeywordsProductQuery implements ProductQuery {
 
   @override
   ProductList getProductList() => ProductList(
-        listType: ProductList.LIST_TYPE_HTTP_SEARCH_KEYWORDS,
-        // TODO(monsieurtanuki): parameters should include languageCode, countryCode and pageSize
-        parameters: keywords,
+        listType: ProductList.LIST_TYPE_HTTP_SEARCH_CATEGORY,
+        parameters: category,
       );
 
   @override
-  String toString() => 'KeywordsProductQuery('
-      '"$keywords"'
+  String toString() => 'CategoryProductQuery('
+      '$category'
       ', $languageCode'
       ', $countryCode'
       ', $size'

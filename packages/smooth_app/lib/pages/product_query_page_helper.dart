@@ -102,6 +102,8 @@ class ProductQueryPageHelper {
         return '${_getGroupName(productList.parameters)}${verbose ? ' (category search)' : ''}';
       case ProductList.LIST_TYPE_HTTP_SEARCH_KEYWORDS:
         return '${productList.parameters}${verbose ? ' (keyword search)' : ''}';
+      case ProductList.LIST_TYPE_HTTP_SEARCH_CATEGORY:
+        return '${productList.parameters}${verbose ? ' (category search)' : ''}';
       case ProductList.LIST_TYPE_SCAN:
         return 'Scan';
       case ProductList.LIST_TYPE_HISTORY:

@@ -40,6 +40,7 @@ class ProductList {
   static const Map<String, String> _DEFAULT_COLOR_TAG_PER_TYPE =
       <String, String>{
     LIST_TYPE_HTTP_SEARCH_KEYWORDS: _COLOR_RED,
+    LIST_TYPE_HTTP_SEARCH_CATEGORY: _COLOR_BLUE,
     LIST_TYPE_HTTP_SEARCH_GROUP: _COLOR_ORANGE,
     LIST_TYPE_SCAN: _COLOR_GREEN,
     LIST_TYPE_HISTORY: _COLOR_BLUE,
@@ -49,6 +50,7 @@ class ProductList {
   static const String _ICON_TAG = 'tag';
   static const String _ICON_HEART = 'heart';
   static const String _ICON_SEARCH = 'search';
+  static const String _ICON_CATEGORY = 'category';
   static const String _ICON_GROUP = 'group';
   static const String _ICON_SCAN = 'scan';
   static const String _ICON_HISTORY = 'history';
@@ -56,6 +58,7 @@ class ProductList {
   static const Map<String, List<String>> _ORDERED_ICONS_PER_TYPE =
       <String, List<String>>{
     LIST_TYPE_HTTP_SEARCH_KEYWORDS: <String>[_ICON_SEARCH],
+    LIST_TYPE_HTTP_SEARCH_CATEGORY: <String>[_ICON_CATEGORY],
     LIST_TYPE_HTTP_SEARCH_GROUP: <String>[_ICON_GROUP],
     LIST_TYPE_SCAN: <String>[_ICON_SCAN],
     LIST_TYPE_HISTORY: <String>[_ICON_HISTORY],
@@ -66,6 +69,7 @@ class ProductList {
     _ICON_TAG: CupertinoIcons.tag_fill,
     _ICON_HEART: CupertinoIcons.heart_fill,
     _ICON_SEARCH: Icons.search,
+    _ICON_CATEGORY: Icons.description,
     _ICON_GROUP: Icons.fastfood,
     _ICON_SCAN: CupertinoIcons.barcode,
     _ICON_HISTORY: Icons.history,
@@ -74,6 +78,7 @@ class ProductList {
   static const Map<String, String> _DEFAULT_ICON_TAG_PER_TYPE =
       <String, String>{
     LIST_TYPE_HTTP_SEARCH_KEYWORDS: _ICON_SEARCH,
+    LIST_TYPE_HTTP_SEARCH_CATEGORY: _ICON_CATEGORY,
     LIST_TYPE_HTTP_SEARCH_GROUP: _ICON_GROUP,
     LIST_TYPE_SCAN: _ICON_SCAN,
     LIST_TYPE_HISTORY: _ICON_HISTORY,
@@ -92,6 +97,7 @@ class ProductList {
 
   static const String LIST_TYPE_HTTP_SEARCH_GROUP = 'http/search/group';
   static const String LIST_TYPE_HTTP_SEARCH_KEYWORDS = 'http/search/keywords';
+  static const String LIST_TYPE_HTTP_SEARCH_CATEGORY = 'http/search/category';
   static const String LIST_TYPE_SCAN = 'scan';
   static const String LIST_TYPE_HISTORY = 'history';
   static const String LIST_TYPE_USER_DEFINED = 'user';
@@ -124,19 +130,28 @@ class ProductList {
 
   Product getProduct(final String barcode) => _products[barcode];
 
-  String get lousyKey => '$listType/$parameters';
+  String get lousyKey =>
+      '$listType/$parameters'; // TODO(monsieurtanuki): does not work if you change the name
 
   static Widget getReferenceIcon({
     final ColorScheme colorScheme,
     final String colorTag,
     final String iconTag,
   }) =>
+      getTintedIcon(
+        colorScheme: colorScheme,
+        materialColor: _getReferenceMaterialColor(colorTag),
+        iconData: _ICON_DATA[iconTag] ?? _ICON_DATA[_ICON_TAG],
+      );
+
+  static Widget getTintedIcon({
+    final ColorScheme colorScheme,
+    final MaterialColor materialColor,
+    final IconData iconData,
+  }) =>
       Icon(
-        _ICON_DATA[iconTag] ?? _ICON_DATA[_ICON_TAG],
-        color: SmoothTheme.getForegroundColor(
-          colorScheme,
-          _getReferenceMaterialColor(colorTag),
-        ),
+        iconData,
+        color: SmoothTheme.getForegroundColor(colorScheme, materialColor),
       );
 
   static MaterialColor _getReferenceMaterialColor(final String colorTag) =>

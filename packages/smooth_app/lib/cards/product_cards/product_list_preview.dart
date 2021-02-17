@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
-import 'package:smooth_app/pages/product_page.dart';
-import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:smooth_app/pages/product_list_page.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/pages/product_query_page_helper.dart';
+import 'package:smooth_app/cards/product_cards/product_list_preview_helper.dart';
 
 class ProductListPreview extends StatelessWidget {
   const ProductListPreview({
@@ -72,7 +70,7 @@ class ProductListPreview extends StatelessWidget {
                     title: Text(title,
                         style: Theme.of(context).textTheme.subtitle2),
                   ),
-                  _ProductListPreviewHelper(
+                  ProductListPreviewHelper(
                     list: list,
                     iconSize: iconSize,
                   ),
@@ -92,49 +90,4 @@ class ProductListPreview extends StatelessWidget {
           );
         },
       );
-}
-
-class _ProductListPreviewHelper extends StatelessWidget {
-  const _ProductListPreviewHelper({
-    @required this.list,
-    @required this.iconSize,
-  });
-
-  final List<Product> list;
-  final double iconSize;
-
-  static const double _PREVIEW_SPACING = 8.0;
-
-  @override
-  Widget build(BuildContext context) {
-    final List<Widget> previews = <Widget>[];
-    for (final Product product in list) {
-      previews.add(GestureDetector(
-        onTap: () async {
-          await Navigator.push<dynamic>(
-            context,
-            MaterialPageRoute<dynamic>(
-              builder: (BuildContext context) => ProductPage(
-                product: product,
-              ),
-            ),
-          );
-        },
-        child: SmoothProductImage(
-          product: product,
-          width: iconSize,
-          height: iconSize,
-        ),
-      ));
-    }
-    return Container(
-      child: Wrap(
-        direction: Axis.horizontal,
-        children: previews,
-        spacing: _PREVIEW_SPACING,
-        runSpacing: _PREVIEW_SPACING,
-      ),
-      padding: const EdgeInsets.only(bottom: _PREVIEW_SPACING),
-    );
-  }
 }

@@ -3,14 +3,18 @@ import 'package:openfoodfacts/utils/PnnsGroups.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/pages/scan_page.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
+import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/pages/choose_page.dart';
 import 'package:smooth_app/pages/profile_page.dart';
 import 'package:smooth_app/pages/list_page.dart';
 import 'package:smooth_app/pages/product_list_button.dart';
+import 'package:smooth_app/pages/pantry_list_page.dart';
+import 'package:smooth_app/pages/pantry_button.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/data_models/pantry.dart';
 import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
@@ -24,8 +28,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   static const String _TRANSLATE_ME_SEARCHING = 'Searching...';
+  static const String _TRANSLATE_ME_PANTRIES = 'My pantries';
+  static const String _TRANSLATE_ME_SHOPPINGS = 'My shopping lists';
+  static const String _TRANSLATE_ME_EMPTY = 'Empty!';
 
   DaoProductList _daoProductList;
+  DaoProduct _daoProduct;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +42,7 @@ class _HomePageState extends State<HomePage> {
     final UserPreferencesModel userPreferencesModel =
         context.watch<UserPreferencesModel>();
     _daoProductList = DaoProductList(localDatabase);
+    _daoProduct = DaoProduct(localDatabase);
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
     final bool mlKitState = userPreferences.getMlKitState();
@@ -102,6 +111,8 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
+            _getPantryCard(userPreferences, _daoProduct, PantryType.PANTRY),
+            _getPantryCard(userPreferences, _daoProduct, PantryType.SHOPPING),
             _getRankingPreferences(userPreferencesModel, userPreferences),
             ProductListPreview(
               daoProductList: _daoProductList,
@@ -145,6 +156,7 @@ class _HomePageState extends State<HomePage> {
               <String>[
                 ProductList.LIST_TYPE_HTTP_SEARCH_GROUP,
                 ProductList.LIST_TYPE_HTTP_SEARCH_KEYWORDS,
+                ProductList.LIST_TYPE_HTTP_SEARCH_CATEGORY,
               ],
               'Search history',
               Icon(
@@ -245,15 +257,16 @@ class _HomePageState extends State<HomePage> {
                       setState(() {});
                     },
                     leading: leadingIcon,
-                    subtitle: cards == null ? const Text('Empty list') : null,
+                    subtitle: empty ? const Text(_TRANSLATE_ME_EMPTY) : null,
                     title: Text(title,
                         style: Theme.of(context).textTheme.subtitle2),
                   ),
-                  Wrap(
-                    direction: Axis.horizontal,
-                    children: cards,
-                    spacing: 8.0,
-                  ),
+                  if (!empty)
+                    Wrap(
+                      direction: Axis.horizontal,
+                      children: cards,
+                      spacing: 8.0,
+                    ),
                 ],
               ),
             );
@@ -340,4 +353,81 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
+  Widget _getPantryCard(
+    final UserPreferences userPreferences,
+    final DaoProduct daoProduct,
+    final PantryType pantryType,
+  ) =>
+      FutureBuilder<List<Pantry>>(
+        future: Pantry.getAll(userPreferences, daoProduct, pantryType),
+        builder: (
+          final BuildContext context,
+          final AsyncSnapshot<List<Pantry>> snapshot,
+        ) {
+          final String title = pantryType == PantryType.PANTRY
+              ? _TRANSLATE_ME_PANTRIES
+              : _TRANSLATE_ME_SHOPPINGS;
+          final IconData iconData = pantryType == PantryType.PANTRY
+              ? Icons.home
+              : Icons.shopping_cart;
+          final MaterialColor materialColor =
+              pantryType == PantryType.PANTRY ? Colors.orange : Colors.blueGrey;
+          if (snapshot.connectionState == ConnectionState.done) {
+            final List<Pantry> pantries = snapshot.data;
+            final List<Widget> cards = <Widget>[];
+            for (int index = 0; index < pantries.length; index++) {
+              cards.add(PantryButton(pantries, index));
+            }
+            return Card(
+              child: Column(
+                children: <Widget>[
+                  ListTile(
+                    onTap: () async {
+                      await Navigator.push<dynamic>(
+                        context,
+                        MaterialPageRoute<dynamic>(
+                          builder: (BuildContext context) => PantryListPage(
+                            title,
+                            pantries,
+                            pantryType,
+                          ),
+                        ),
+                      );
+                      setState(() {});
+                    },
+                    leading: Icon(
+                      iconData,
+                      color: SmoothTheme.getForegroundColor(
+                        Theme.of(context).colorScheme,
+                        materialColor,
+                      ),
+                    ),
+                    subtitle:
+                        cards.isEmpty ? const Text(_TRANSLATE_ME_EMPTY) : null,
+                    title: Text(title,
+                        style: Theme.of(context).textTheme.subtitle2),
+                  ),
+                  if (cards.isNotEmpty)
+                    Wrap(
+                      direction: Axis.horizontal,
+                      children: cards,
+                      spacing: 8.0,
+                    ),
+                ],
+              ),
+            );
+          }
+          return Card(
+            child: ListTile(
+              leading: const CircularProgressIndicator(),
+              title: Text(title),
+              subtitle: Text(
+                _TRANSLATE_ME_SEARCHING,
+                style: Theme.of(context).textTheme.subtitle2,
+              ),
+            ),
+          );
+        },
+      );
 }
