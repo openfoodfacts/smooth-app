@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 
@@ -194,33 +195,41 @@ class ProductListDialogHelper {
     final ProductList productList,
   ) async {
     final List<String> orderedIcons = productList.getPossibleIcons();
+    final double size = MediaQuery.of(context).size.width / 8;
     return await showDialog<bool>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
         close: false,
         title: _TRANSLATE_ME_CHANGE_ICON,
-        body: Wrap(
-          children: List<Widget>.generate(
-            ProductList.ORDERED_COLORS.length * orderedIcons.length,
-            (final int index) {
-              final String colorTag = ProductList
-                  .ORDERED_COLORS[index % ProductList.ORDERED_COLORS.length];
-              final String iconTag =
-                  orderedIcons[index ~/ ProductList.ORDERED_COLORS.length];
-              return IconButton(
-                icon: ProductList.getReferenceIcon(
-                  colorScheme: Theme.of(context).colorScheme,
-                  colorTag: colorTag,
-                  iconTag: iconTag,
-                ),
-                onPressed: () async {
-                  productList.colorTag = colorTag;
-                  productList.iconTag = iconTag;
-                  await daoProductList.put(productList);
-                  Navigator.pop(context, true);
-                },
-              );
-            },
+        body: Container(
+          width: ProductList.ORDERED_COLORS.length.toDouble() * size,
+          height: orderedIcons.length.toDouble() * size,
+          child: GridView.count(
+            crossAxisCount: 5,
+            childAspectRatio: 1,
+            children: List<Widget>.generate(
+              ProductList.ORDERED_COLORS.length * orderedIcons.length,
+              (final int index) {
+                final String colorTag = ProductList
+                    .ORDERED_COLORS[index % ProductList.ORDERED_COLORS.length];
+                final String iconTag =
+                    orderedIcons[index ~/ ProductList.ORDERED_COLORS.length];
+                return IconButton(
+                  icon: ProductList.getReferenceIcon(
+                    colorScheme: Theme.of(context).colorScheme,
+                    colorTag: colorTag,
+                    iconTag: iconTag,
+                    colorDestination: ColorDestination.SURFACE_FOREGROUND,
+                  ),
+                  onPressed: () async {
+                    productList.colorTag = colorTag;
+                    productList.iconTag = iconTag;
+                    await daoProductList.put(productList);
+                    Navigator.pop(context, true);
+                  },
+                );
+              },
+            ),
           ),
         ),
         actions: <SmoothSimpleButton>[

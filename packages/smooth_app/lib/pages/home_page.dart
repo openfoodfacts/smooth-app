@@ -32,6 +32,9 @@ class _HomePageState extends State<HomePage> {
   static const String _TRANSLATE_ME_SHOPPINGS = 'My shopping lists';
   static const String _TRANSLATE_ME_EMPTY = 'Empty!';
 
+  static const ColorDestination _COLOR_DESTINATION_FOR_ICON =
+      ColorDestination.SURFACE_FOREGROUND;
+
   DaoProductList _daoProductList;
   DaoProduct _daoProduct;
 
@@ -46,23 +49,20 @@ class _HomePageState extends State<HomePage> {
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
     final bool mlKitState = userPreferences.getMlKitState();
-    final Color notYetColor = SmoothTheme.getBackgroundColor(
+    final Color notYetColor = SmoothTheme.getColor(
       colorScheme,
       Colors.grey,
+      ColorDestination.SURFACE_BACKGROUND,
     );
     return Scaffold(
       appBar: AppBar(
         title: Row(
-          children: <Widget>[
-            const Icon(Icons.pets),
-            const SizedBox(width: 8.0),
-            Text(
-              'Smoothie',
-              style: TextStyle(color: colorScheme.onBackground),
-            )
+          children: const <Widget>[
+            Icon(Icons.pets),
+            SizedBox(width: 8.0),
+            Text('Smoothie'),
           ],
         ),
-        iconTheme: IconThemeData(color: colorScheme.onBackground),
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.settings),
@@ -86,9 +86,10 @@ class _HomePageState extends State<HomePage> {
               child: ListTile(
                 leading: Icon(
                   Icons.search,
-                  color: SmoothTheme.getForegroundColor(
+                  color: SmoothTheme.getColor(
                     colorScheme,
                     Colors.red,
+                    _COLOR_DESTINATION_FOR_ICON,
                   ),
                 ),
                 title: TextField(
@@ -105,9 +106,10 @@ class _HomePageState extends State<HomePage> {
               'My lists',
               Icon(
                 Icons.list,
-                color: SmoothTheme.getForegroundColor(
+                color: SmoothTheme.getColor(
                   colorScheme,
                   Colors.purple,
+                  _COLOR_DESTINATION_FOR_ICON,
                 ),
               ),
             ),
@@ -135,9 +137,10 @@ class _HomePageState extends State<HomePage> {
                 },
                 leading: Icon(
                   Icons.fastfood,
-                  color: SmoothTheme.getForegroundColor(
+                  color: SmoothTheme.getColor(
                     colorScheme,
                     Colors.orange,
+                    _COLOR_DESTINATION_FOR_ICON,
                   ),
                 ),
                 subtitle: const Text('Food category search'),
@@ -161,9 +164,10 @@ class _HomePageState extends State<HomePage> {
               'Search history',
               Icon(
                 Icons.youtube_searched_for,
-                color: SmoothTheme.getForegroundColor(
+                color: SmoothTheme.getColor(
                   colorScheme,
                   Colors.yellow,
+                  _COLOR_DESTINATION_FOR_ICON,
                 ),
               ),
             ),
@@ -309,11 +313,21 @@ class _HomePageState extends State<HomePage> {
       attributes.add(
         ElevatedButton(
           onPressed: () => onTap(),
-          child: Text('${attribute.name}'),
+          child: Text(
+            '${attribute.name}',
+            style: TextStyle(
+              color: SmoothTheme.getColor(
+                Theme.of(context).colorScheme,
+                colors[importance.id],
+                ColorDestination.BUTTON_FOREGROUND,
+              ),
+            ),
+          ),
           style: ElevatedButton.styleFrom(
-            primary: SmoothTheme.getBackgroundColor(
+            primary: SmoothTheme.getColor(
               Theme.of(context).colorScheme,
               colors[importance.id],
+              ColorDestination.BUTTON_BACKGROUND,
             ),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(32.0),
@@ -330,9 +344,10 @@ class _HomePageState extends State<HomePage> {
             ListTile(
               leading: Icon(
                 Icons.bar_chart,
-                color: SmoothTheme.getForegroundColor(
+                color: SmoothTheme.getColor(
                   Theme.of(context).colorScheme,
                   Colors.green,
+                  _COLOR_DESTINATION_FOR_ICON,
                 ),
               ),
               subtitle: attributes.isEmpty
@@ -398,9 +413,10 @@ class _HomePageState extends State<HomePage> {
                     },
                     leading: Icon(
                       iconData,
-                      color: SmoothTheme.getForegroundColor(
+                      color: SmoothTheme.getColor(
                         Theme.of(context).colorScheme,
                         materialColor,
+                        _COLOR_DESTINATION_FOR_ICON,
                       ),
                     ),
                     subtitle:

@@ -21,17 +21,12 @@ class _PantryListPageState extends State<PantryListPage> {
   @override
   Widget build(BuildContext context) {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          widget.title,
-          style: TextStyle(color: colorScheme.onBackground),
-        ),
-        iconTheme: IconThemeData(color: colorScheme.onBackground),
+        title: Text(widget.title),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.add, color: colorScheme.onBackground),
+            icon: const Icon(Icons.add),
             onPressed: () async {
               if (await PantryDialogHelper.openNew(
                 context,

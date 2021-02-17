@@ -28,8 +28,11 @@ class PantryPreview extends StatelessWidget {
       subtitle = 'Empty list';
     }
     return Card(
-      color: SmoothTheme.getBackgroundColor(
-          Theme.of(context).colorScheme, pantry.materialColor),
+      color: SmoothTheme.getColor(
+        Theme.of(context).colorScheme,
+        pantry.materialColor,
+        ColorDestination.SURFACE_BACKGROUND,
+      ),
       child: Column(
         children: <Widget>[
           ListTile(
@@ -39,7 +42,10 @@ class PantryPreview extends StatelessWidget {
                 builder: (BuildContext context) => PantryPage(pantries, index),
               ),
             ),
-            leading: pantry.getIcon(Theme.of(context).colorScheme),
+            leading: pantry.getIcon(
+              Theme.of(context).colorScheme,
+              ColorDestination.SURFACE_FOREGROUND,
+            ),
             trailing: const Icon(Icons.more_horiz),
             subtitle: subtitle == null ? null : Text(subtitle),
             title:
