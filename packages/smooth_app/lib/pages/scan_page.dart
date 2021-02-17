@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/pages/alternative_continuous_scan_page.dart';
 import 'package:smooth_app/pages/continuous_scan_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_ui_library/widgets/smooth_toggle.dart';
@@ -31,9 +30,7 @@ class ScanPage extends StatelessWidget {
           if (snapshot.connectionState == ConnectionState.done) {
             final ContinuousScanModel continuousScanModel = snapshot.data;
             if (continuousScanModel != null) {
-              return mlKit
-                  ? ContinuousScanPage(continuousScanModel)
-                  : AlternativeContinuousScanPage(continuousScanModel);
+              return ContinuousScanPage(continuousScanModel);
             }
           }
           return const Center(child: CircularProgressIndicator());
