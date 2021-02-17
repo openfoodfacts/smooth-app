@@ -35,8 +35,8 @@ jobs:
         run: flutter pub get
       
       #Cleanup git
-      - name: "Clean"
-        run: git clean -xffd
+      #- name: "Clean"
+      #  run: git clean -xffd
 
       # Check for formatting issues
       # - run: flutter format --set-exit-if-changed .
