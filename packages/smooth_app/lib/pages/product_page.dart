@@ -384,7 +384,7 @@ class _ProductPageState extends State<ProductPage> {
           i < _product.categoriesTags.length;
           i++) {
         final String categoryTag = _product.categoriesTags[i];
-        final MaterialColor materialColor = const Colors.blue;
+        final MaterialColor materialColor = Colors.blue;
         listItems.add(
           SmoothCard(
             background: SmoothTheme.getBackgroundColor(
