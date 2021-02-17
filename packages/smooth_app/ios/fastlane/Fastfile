@@ -52,7 +52,7 @@ platform :ios do
   end
 
   lane :set_version do
-    old_version_code = 
+    old_version_code = 2
     new_version_code = old_version_code.last().to_i + 1
 
     new_version_name = get_version_number_from_git_branch(pattern: 'release/#')
