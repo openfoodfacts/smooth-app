@@ -47,6 +47,9 @@
 	</array>
 	<key>UIStatusBarHidden</key>
 	<true/>
-
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app needs to access photo library for product photos uploads</string>
+	<key>NSCameraUsageDescription</key>
+	<string>This app needs Camera Usage for scanning barcodes and cropping photos</string>
 </dict>
 </plist>
