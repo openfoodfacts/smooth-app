@@ -13,6 +13,13 @@ enum ColorDestination {
 class SmoothTheme {
   static const double ADDITIONAL_OPACITY_FOR_DARK = .3;
 
+  /// Returns a shade of a [materialColor]
+  ///
+  /// For instance, if you want to display a red button,
+  /// you'll use Colors.red as root color,
+  /// the destination will be ColorDestination.BUTTON_BACKGROUND,
+  /// and you'll specify the current ColorScheme.
+  /// For the moment, the ColorScheme matters only for the light/dark switch.
   static Color getColor(
     final ColorScheme colorScheme,
     final MaterialColor materialColor,
