@@ -77,19 +77,18 @@ class PantryPage extends StatelessWidget {
         ),
       ),
       appBar: AppBar(
-        backgroundColor:
-            SmoothTheme.getBackgroundColor(colorScheme, pantry.materialColor),
+        backgroundColor: SmoothTheme.getColor(
+          colorScheme,
+          pantry.materialColor,
+          ColorDestination.APP_BAR_BACKGROUND,
+        ),
         title: Row(
           children: <Widget>[
-            pantry.getIcon(colorScheme),
+            pantry.getIcon(colorScheme, ColorDestination.APP_BAR_FOREGROUND),
             const SizedBox(width: 8.0),
-            Text(
-              pantry.name,
-              style: TextStyle(color: colorScheme.onBackground),
-            ),
+            Text(pantry.name),
           ],
         ),
-        iconTheme: IconThemeData(color: colorScheme.onBackground),
         actions: <Widget>[
           PopupMenuButton<String>(
             itemBuilder: (final BuildContext context) =>
@@ -152,9 +151,10 @@ class PantryPage extends StatelessWidget {
                   SmoothProductCardFound(
                     heroTag: barcode,
                     product: product,
-                    backgroundColor: SmoothTheme.getBackgroundColor(
+                    backgroundColor: SmoothTheme.getColor(
                       colorScheme,
                       Colors.grey,
+                      ColorDestination.SURFACE_BACKGROUND,
                     ),
                   ),
                   const Divider(
@@ -188,9 +188,10 @@ class PantryPage extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(
                       horizontal: 12.0, vertical: 8.0),
                   child: Card(
-                    color: SmoothTheme.getBackgroundColor(
+                    color: SmoothTheme.getColor(
                       colorScheme,
                       Colors.grey,
+                      ColorDestination.SURFACE_BACKGROUND,
                     ),
                     child: Column(children: children),
                   ),
@@ -204,7 +205,7 @@ class PantryPage extends StatelessWidget {
     final DateTime referenceDateTime = DateTime.parse(reference);
     final DateTime valueDateTime = DateTime.parse(value);
     final Duration difference = valueDateTime.difference(referenceDateTime);
-    return (difference.inHours / 24).round();
+    return (difference.inHours / 24).ceil();
   }
 
   Future<void> _save(final UserPreferences userPreferences) async =>
@@ -292,20 +293,7 @@ class PantryPage extends StatelessWidget {
           initialDate: DateTime.now(),
           firstDate: DateTime.now(),
           lastDate: DateTime(2026),
-          builder: (BuildContext context, Widget child) {
-            final Color color = SmoothTheme.getForegroundColor(
-                colorScheme, pantry.materialColor);
-            return Theme(
-              data: ThemeData.light().copyWith(
-                primaryColor: color,
-                accentColor: color,
-                colorScheme: ColorScheme.light(primary: color),
-                buttonTheme:
-                    const ButtonThemeData(textTheme: ButtonTextTheme.primary),
-              ),
-              child: child,
-            );
-          },
+          builder: (BuildContext context, Widget child) => child,
         );
         if (dateTime == null) {
           return;

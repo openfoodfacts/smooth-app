@@ -125,22 +125,24 @@ class _ProductListPageState extends State<ProductListPage> {
         ),
       ),
       appBar: AppBar(
-        backgroundColor: SmoothTheme.getBackgroundColor(
+        backgroundColor: SmoothTheme.getColor(
           colorScheme,
           productList.getMaterialColor(),
+          ColorDestination.APP_BAR_BACKGROUND,
         ),
         title: Row(
           children: <Widget>[
-            productList.getIcon(colorScheme),
+            productList.getIcon(
+              colorScheme,
+              ColorDestination.APP_BAR_FOREGROUND,
+            ),
             const SizedBox(width: 8.0),
             Text(
               ProductQueryPageHelper.getProductListLabel(productList,
                   verbose: false), // TODO(monsieurtanuki): handle the overflow
-              style: TextStyle(color: colorScheme.onBackground),
             ),
           ],
         ),
-        iconTheme: IconThemeData(color: colorScheme.onBackground),
         actions: (!renamable) && (!deletable)
             ? null
             : <Widget>[

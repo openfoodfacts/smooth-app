@@ -1,25 +1,63 @@
 import 'package:flutter/material.dart';
 
-class SmoothTheme {
-  static Color getForegroundColor(
-    final ColorScheme colorScheme,
-    final MaterialColor materialColor,
-  ) =>
-      colorScheme.brightness == Brightness.light
-          ? materialColor[800]
-          : materialColor[200];
+/// Color destination
+enum ColorDestination {
+  APP_BAR_FOREGROUND,
+  APP_BAR_BACKGROUND,
+  SURFACE_FOREGROUND,
+  SURFACE_BACKGROUND,
+  BUTTON_FOREGROUND,
+  BUTTON_BACKGROUND,
+}
 
-  static Color getBackgroundColor(
+class SmoothTheme {
+  static const double ADDITIONAL_OPACITY_FOR_DARK = .3;
+
+  /// Returns a shade of a [materialColor]
+  ///
+  /// For instance, if you want to display a red button,
+  /// you'll use Colors.red as root color,
+  /// the destination will be ColorDestination.BUTTON_BACKGROUND,
+  /// and you'll specify the current ColorScheme.
+  /// For the moment, the ColorScheme matters only for the light/dark switch.
+  static Color getColor(
     final ColorScheme colorScheme,
     final MaterialColor materialColor,
-  ) =>
-      colorScheme.brightness == Brightness.light
-          ? materialColor[200]
-          : materialColor[700].withOpacity(.3);
+    final ColorDestination colorDestination,
+  ) {
+    if (colorScheme.brightness == Brightness.light) {
+      switch (colorDestination) {
+        case ColorDestination.APP_BAR_BACKGROUND:
+        case ColorDestination.SURFACE_FOREGROUND:
+        case ColorDestination.BUTTON_BACKGROUND:
+          return materialColor[800];
+        case ColorDestination.APP_BAR_FOREGROUND:
+        case ColorDestination.SURFACE_BACKGROUND:
+        case ColorDestination.BUTTON_FOREGROUND:
+          return materialColor[100];
+      }
+    }
+    switch (colorDestination) {
+      case ColorDestination.APP_BAR_BACKGROUND:
+        return null;
+      case ColorDestination.SURFACE_BACKGROUND:
+      case ColorDestination.BUTTON_BACKGROUND:
+        return materialColor[900].withOpacity(ADDITIONAL_OPACITY_FOR_DARK);
+      case ColorDestination.APP_BAR_FOREGROUND:
+      case ColorDestination.SURFACE_FOREGROUND:
+      case ColorDestination.BUTTON_FOREGROUND:
+        return materialColor[100];
+    }
+    throw Exception(
+      'unknown brightness / destination:'
+      ' ${colorScheme.brightness} / $colorDestination',
+    );
+  }
 
   static ThemeData getThemeData(final Brightness brightness) {
-    final ColorScheme myColorScheme =
-        brightness == Brightness.dark ? _COLOR_DARK : _COLOR_LIGHT;
+    final ColorScheme myColorScheme = brightness == Brightness.dark
+        ? const ColorScheme.dark()
+        : const ColorScheme.light();
     return ThemeData(
       colorScheme: myColorScheme,
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
@@ -27,36 +65,12 @@ class SmoothTheme {
         unselectedItemColor: myColorScheme.onSurface,
       ),
       textTheme: _TEXT_THEME,
-      snackBarTheme: SnackBarThemeData(
-        backgroundColor: myColorScheme.onSurface,
-        actionTextColor: myColorScheme.surface,
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
+        backgroundColor: myColorScheme.secondary,
+        foregroundColor: myColorScheme.onSecondary,
       ),
-      appBarTheme: AppBarTheme(
-        color: myColorScheme.background,
-      ),
-      scaffoldBackgroundColor: myColorScheme.background,
     );
   }
-
-  static const ColorScheme _COLOR_LIGHT = ColorScheme.light(
-    primary: Colors.white,
-    primaryVariant: Colors.white60,
-    secondary: Colors.black,
-    secondaryVariant: Colors.black,
-    onPrimary: Colors.black,
-    onSecondary: Colors.white,
-    background: Colors.white,
-  );
-
-  static const ColorScheme _COLOR_DARK = ColorScheme.dark(
-    primary: Colors.black,
-    primaryVariant: Colors.black,
-    secondary: Colors.white,
-    secondaryVariant: Colors.white60,
-    onPrimary: Colors.white,
-    onSecondary: Colors.black,
-    background: Colors.black,
-  );
 
   static const TextTheme _TEXT_THEME = TextTheme(
     headline1: TextStyle(

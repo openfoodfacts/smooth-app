@@ -23,11 +23,7 @@ class ProfilePage extends StatelessWidget {
     final Launcher launcher = Launcher();
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          AppLocalizations.of(context).testerSettingTitle,
-          style: TextStyle(color: themeData.colorScheme.onBackground),
-        ),
-        iconTheme: IconThemeData(color: themeData.colorScheme.onBackground),
+        title: Text(AppLocalizations.of(context).testerSettingTitle),
       ),
       body: Column(
         children: <Widget>[

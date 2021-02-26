@@ -21,8 +21,18 @@ class PantryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ElevatedButton.icon(
-        icon: pantries[index].getIcon(Theme.of(context).colorScheme),
-        label: Text(pantries[index].name),
+        icon: pantries[index].getIcon(
+            Theme.of(context).colorScheme, ColorDestination.BUTTON_FOREGROUND),
+        label: Text(
+          pantries[index].name,
+          style: TextStyle(
+            color: SmoothTheme.getColor(
+              Theme.of(context).colorScheme,
+              pantries[index].materialColor,
+              ColorDestination.BUTTON_FOREGROUND,
+            ),
+          ),
+        ),
         onPressed: () async {
           await Navigator.push<dynamic>(
             context,
@@ -32,9 +42,10 @@ class PantryButton extends StatelessWidget {
           );
         },
         style: ElevatedButton.styleFrom(
-          primary: SmoothTheme.getBackgroundColor(
+          primary: SmoothTheme.getColor(
             Theme.of(context).colorScheme,
             pantries[index].materialColor,
+            ColorDestination.BUTTON_BACKGROUND,
           ),
           shape: pantries[index].pantryType == PantryType.PANTRY
               ? null

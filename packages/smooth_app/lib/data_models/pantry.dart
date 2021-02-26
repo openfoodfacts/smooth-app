@@ -5,6 +5,7 @@ import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
 
 enum PantryType {
   PANTRY,
@@ -110,17 +111,24 @@ class Pantry {
     final ColorScheme colorScheme,
     final String colorTag,
     final String iconTag,
+    final ColorDestination colorDestination,
   }) =>
       ProductList.getTintedIcon(
         colorScheme: colorScheme,
         materialColor: _COLORS[colorTag],
         iconData: _ICON_DATA[iconTag] ?? _ICON_DATA[_defaultIconTag],
+        colorDestination: colorDestination,
       );
 
-  Widget getIcon(final ColorScheme colorScheme) => ProductList.getTintedIcon(
+  Widget getIcon(
+    final ColorScheme colorScheme,
+    final ColorDestination colorDestination,
+  ) =>
+      ProductList.getTintedIcon(
         colorScheme: colorScheme,
         materialColor: materialColor,
         iconData: iconData,
+        colorDestination: colorDestination,
       );
 
   List<Product> getFirstProducts(final int nbInPreview) {

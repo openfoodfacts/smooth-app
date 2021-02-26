@@ -168,27 +168,19 @@ class _ProductPageState extends State<ProductPage> {
     UserPreferencesModel.ATTRIBUTE_GROUP_ALLERGENS,
   ];
 
-  static const double _OPACITY_FOR_DARK =
-      .3; // TODO(monsieurtanuki): make it more public?
-
   @override
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ThemeData themeData = Theme.of(context);
-    final ColorScheme colorScheme = themeData.colorScheme;
     _product ??= widget.product;
     return Scaffold(
         key: _scaffoldKey,
         appBar: AppBar(
-          title: ListTile(
-            title: Text(
-              _product.productName ?? appLocalizations.unknownProductName,
-              style: themeData.textTheme.headline4
-                  .copyWith(color: colorScheme.onBackground),
-            ),
+          title: Text(
+            _product.productName ?? appLocalizations.unknownProductName,
+            //style: themeData.textTheme.headline4,
           ),
-          iconTheme: IconThemeData(color: colorScheme.onBackground),
         ),
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
@@ -358,8 +350,9 @@ class _ProductPageState extends State<ProductPage> {
     );
     final Map<String, Attribute> matchingAttributes =
         Match.getMatchingAttributes(_product, mainAttributes);
-    final double opacity =
-        themeData.brightness == Brightness.light ? 1 : _OPACITY_FOR_DARK;
+    final double opacity = themeData.brightness == Brightness.light
+        ? 1
+        : SmoothTheme.ADDITIONAL_OPACITY_FOR_DARK;
     for (final String attributeId in mainAttributes) {
       if (matchingAttributes[attributeId] != null) {
         listItems.add(
@@ -387,18 +380,20 @@ class _ProductPageState extends State<ProductPage> {
         const MaterialColor materialColor = Colors.blue;
         listItems.add(
           SmoothCard(
-            background: SmoothTheme.getBackgroundColor(
+            background: SmoothTheme.getColor(
               themeData.colorScheme,
               materialColor,
+              ColorDestination.SURFACE_BACKGROUND,
             ),
             collapsed: null,
             content: ListTile(
               leading: Icon(
                 Icons.search,
                 size: iconWidth,
-                color: SmoothTheme.getForegroundColor(
+                color: SmoothTheme.getColor(
                   themeData.colorScheme,
                   materialColor,
+                  ColorDestination.SURFACE_FOREGROUND,
                 ),
               ),
               onTap: () async => await ProductQueryPageHelper().openBestChoice(

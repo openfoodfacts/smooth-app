@@ -106,18 +106,13 @@ class _ChoosePageState extends State<ChoosePage> {
   @override
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
     return WillPopScope(
       onWillPop: _onWillPop,
       child: Scaffold(
         appBar: AppBar(
-          title: Text(
-            _selectedCategory == null
-                ? 'Food Categories'
-                : _selectedCategory.name,
-            style: TextStyle(color: colorScheme.onBackground),
-          ),
-          iconTheme: IconThemeData(color: colorScheme.onBackground),
+          title: Text(_selectedCategory == null
+              ? 'Food Categories'
+              : _selectedCategory.name),
         ),
         body: Column(
           children: <Widget>[

@@ -200,7 +200,6 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 12.0, vertical: 8.0),
                     child: SmoothProductCardFound(
-                      backgroundColor: Colors.white,
                       heroTag: _model.displayProducts[index].barcode,
                       product: _model.displayProducts[index],
                       elevation:
