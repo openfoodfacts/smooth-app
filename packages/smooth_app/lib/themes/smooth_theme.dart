@@ -13,6 +13,19 @@ enum ColorDestination {
 class SmoothTheme {
   static const double ADDITIONAL_OPACITY_FOR_DARK = .3;
 
+  /// Theme color tags
+  static const String COLOR_TAG_BLUE = 'blue';
+  static const String COLOR_TAG_GREEN = 'green';
+  static const String COLOR_TAG_BROWN = 'brown';
+
+  /// Theme material colors
+  static const Map<String, MaterialColor> MATERIAL_COLORS =
+      <String, MaterialColor>{
+    COLOR_TAG_BLUE: Colors.blue,
+    COLOR_TAG_GREEN: Colors.green,
+    COLOR_TAG_BROWN: Colors.brown,
+  };
+
   /// Returns a shade of a [materialColor]
   ///
   /// For instance, if you want to display a red button,
@@ -54,10 +67,22 @@ class SmoothTheme {
     );
   }
 
-  static ThemeData getThemeData(final Brightness brightness) {
-    final ColorScheme myColorScheme = brightness == Brightness.dark
-        ? const ColorScheme.dark()
-        : const ColorScheme.light();
+  static ThemeData getThemeData(
+    final Brightness brightness,
+    final String colorTag,
+  ) {
+    ColorScheme myColorScheme;
+    if (brightness == Brightness.dark) {
+      myColorScheme = const ColorScheme.dark();
+    } else {
+      final MaterialColor materialColor =
+          MATERIAL_COLORS[colorTag] ?? MATERIAL_COLORS[COLOR_TAG_BLUE];
+      myColorScheme = ColorScheme.light(
+        primary: materialColor[600],
+        primaryVariant: materialColor[900],
+      );
+    }
+
     return ThemeData(
       colorScheme: myColorScheme,
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
@@ -68,6 +93,9 @@ class SmoothTheme {
       floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: myColorScheme.secondary,
         foregroundColor: myColorScheme.onSecondary,
+      ),
+      appBarTheme: AppBarTheme(
+        color: brightness == Brightness.dark ? null : myColorScheme.primary,
       ),
     );
   }

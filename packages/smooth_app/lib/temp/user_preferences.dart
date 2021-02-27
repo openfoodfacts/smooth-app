@@ -28,6 +28,8 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_USE_ML_KIT = 'useMlKit';
   static const String _TAG_INIT = 'init';
   static const String _TAG_PRODUCT_LIST_COPY = 'productListCopy';
+  static const String _TAG_THEME_DARK = 'themeDark';
+  static const String _TAG_THEME_COLOR_TAG = 'themeColorTag';
 
   static const Map<PantryType, String> _PANTRY_TYPE_TO_TAG =
       <PantryType, String>{
@@ -146,4 +148,15 @@ class UserPreferences extends ChangeNotifier {
   List<String> getPantryRepository(final PantryType pantryType) =>
       _sharedPreferences.getStringList(_PANTRY_TYPE_TO_TAG[pantryType]) ??
       <String>[];
+
+  Future<void> setThemeDark(final bool state) async =>
+      await _sharedPreferences.setBool(_TAG_THEME_DARK, state);
+
+  bool get isThemeDark => _sharedPreferences.getBool(_TAG_THEME_DARK) ?? false;
+
+  Future<void> setThemeColorTag(final String colorTag) async =>
+      await _sharedPreferences.setString(_TAG_THEME_COLOR_TAG, colorTag);
+
+  String get themeColorTag =>
+      _sharedPreferences.getString(_TAG_THEME_COLOR_TAG);
 }
