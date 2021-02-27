@@ -20,6 +20,7 @@ import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/cards/product_cards/product_list_preview.dart';
+import 'package:openfoodfacts/model/Product.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -93,6 +94,16 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 title: TextField(
+                  onChanged: (final String value) =>
+                      _daoProduct.getSuggestions(value, 3).then(
+                    (List<Product> list) {
+                      print(
+                          '${list.length} products locally found with $value:');
+                      for (final Product item in list) {
+                        print('${item.barcode}: ${item.productName}');
+                      }
+                    },
+                  ),
                   onSubmitted: (final String value) => ChoosePage.onSubmitted(
                     value,
                     context,

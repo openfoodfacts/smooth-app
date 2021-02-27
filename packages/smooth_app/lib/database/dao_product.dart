@@ -77,6 +77,37 @@ class DaoProduct {
     return result;
   }
 
+  /// Returns the products that match a string
+  ///
+  /// The search is actually ugly, but it's a start.
+  // TODO(monsieurtanuki): check only the fields that are deemed relevant
+  // TODO(monsieurtanuki): consider space-separated fields as distinct keywords
+  Future<List<Product>> getSuggestions(
+      final String pattern, final int minLength) async {
+    final List<Product> result = <Product>[];
+    if (pattern == null || pattern.trim().length < minLength) {
+      return result;
+    }
+    final List<Map<String, dynamic>> queryResults =
+        await localDatabase.database.query(
+      TABLE_PRODUCT,
+      columns: <String>[
+        TABLE_PRODUCT_COLUMN_BARCODE,
+        _TABLE_PRODUCT_COLUMN_JSON,
+      ],
+      where: '$TABLE_PRODUCT_COLUMN_BARCODE like ?'
+          ' or $_TABLE_PRODUCT_COLUMN_JSON like ?',
+      whereArgs: <String>['%$pattern%', '%$pattern%'],
+    );
+    if (queryResults.isEmpty) {
+      return result;
+    }
+    for (final Map<String, dynamic> row in queryResults) {
+      result.add(_getProductFromQueryResult(row));
+    }
+    return result;
+  }
+
   Future<void> put(final Product product) async =>
       await _upsert(product, localDatabase.database);
 
