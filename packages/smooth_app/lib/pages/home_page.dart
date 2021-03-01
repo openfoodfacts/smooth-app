@@ -21,6 +21,7 @@ import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/cards/product_cards/product_list_preview.dart';
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:flutter_typeahead/flutter_typeahead.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -38,6 +39,13 @@ class _HomePageState extends State<HomePage> {
 
   DaoProductList _daoProductList;
   DaoProduct _daoProduct;
+
+  Future<List<Product>> _search(String pattern) async {
+    final List<Product> _returnProducts =
+        await _daoProduct.getSuggestions(pattern, 3);
+    print('${_returnProducts.length} products locally found with $pattern:');
+    return _returnProducts;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -79,10 +87,12 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
+
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
+            //Search
             Card(
               child: ListTile(
                 leading: Icon(
@@ -93,22 +103,28 @@ class _HomePageState extends State<HomePage> {
                     _COLOR_DESTINATION_FOR_ICON,
                   ),
                 ),
-                title: TextField(
-                  onChanged: (final String value) =>
-                      _daoProduct.getSuggestions(value, 3).then(
-                    (List<Product> list) {
-                      print(
-                          '${list.length} products locally found with $value:');
-                      for (final Product item in list) {
-                        print('${item.barcode}: ${item.productName}');
-                      }
-                    },
+                title: TypeAheadField<Product>(
+                  textFieldConfiguration: const TextFieldConfiguration<
+                      TextFieldConfiguration<Product>>(
+                    autofocus: false,
+                    decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: 'What are you looking for?'),
                   ),
-                  onSubmitted: (final String value) => ChoosePage.onSubmitted(
-                    value,
-                    context,
-                    localDatabase,
-                  ),
+                  suggestionsCallback: (String value) async => _search(value),
+                  itemBuilder: (BuildContext context, Product suggestion) {
+                    return ListTile(
+                      leading: Image.network(suggestion.imgSmallUrl),
+                      title: Text(suggestion.productName),
+                      //subtitle: Text('\$${suggestion['price']}'),
+                    );
+                  },
+                  onSuggestionSelected: (Product suggestion) {
+                    //Navigator.of(context).push(MaterialPageRoute(
+                    //    builder: (context) => ProductPage(product: suggestion)
+                    //));
+                    print('Hallo');
+                  },
                 ),
               ),
             ),
@@ -205,6 +221,7 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
+
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           await Navigator.push<Widget>(
