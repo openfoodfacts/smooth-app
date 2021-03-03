@@ -52,10 +52,10 @@ class _HomePageState extends State<HomePage> {
     } else {
       _visibleCloseButton = false;
     }
+    setState(() {});
     final List<Product> _returnProducts =
         await _daoProduct.getSuggestions(pattern, 3);
     print('${_returnProducts.length} products locally found with $pattern:');
-    setState(() {});
     return _returnProducts;
   }
 
@@ -125,10 +125,11 @@ class _HomePageState extends State<HomePage> {
                         child: IconButton(
                           icon: const Icon(Icons.close),
                           onPressed: () {
-                            FocusScope.of(context).unfocus();
-                            _searchController.text = '';
-                            _visibleCloseButton = false;
-                            setState(() {});
+                            setState(() {
+                              FocusScope.of(context).unfocus();
+                              _searchController.text = '';
+                              _visibleCloseButton = false;
+                            });
                           },
                         ),
                       ),
