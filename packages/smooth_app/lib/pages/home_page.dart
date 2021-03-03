@@ -22,6 +22,8 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/cards/product_cards/product_list_preview.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
+import 'package:smooth_app/pages/product_page.dart';
+import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -103,6 +105,10 @@ class _HomePageState extends State<HomePage> {
                     _COLOR_DESTINATION_FOR_ICON,
                   ),
                 ),
+                trailing: IconButton(
+                  icon: const Icon(Icons.close),
+                  onPressed: () => FocusScope.of(context).unfocus(),
+                ),
                 title: TypeAheadField<Product>(
                   textFieldConfiguration: const TextFieldConfiguration<
                       TextFieldConfiguration<Product>>(
@@ -114,16 +120,21 @@ class _HomePageState extends State<HomePage> {
                   suggestionsCallback: (String value) async => _search(value),
                   itemBuilder: (BuildContext context, Product suggestion) {
                     return ListTile(
-                      leading: Image.network(suggestion.imgSmallUrl),
                       title: Text(suggestion.productName),
-                      //subtitle: Text('\$${suggestion['price']}'),
+                      leading: SmoothProductImage(
+                        product: suggestion,
+                      ),
                     );
                   },
                   onSuggestionSelected: (Product suggestion) {
-                    //Navigator.of(context).push(MaterialPageRoute(
-                    //    builder: (context) => ProductPage(product: suggestion)
-                    //));
-                    print('Hallo');
+                    Navigator.push<dynamic>(
+                      context,
+                      MaterialPageRoute<dynamic>(
+                        builder: (BuildContext context) => ProductPage(
+                          product: suggestion,
+                        ),
+                      ),
+                    );
                   },
                 ),
               ),
