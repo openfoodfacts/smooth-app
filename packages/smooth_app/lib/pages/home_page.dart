@@ -55,7 +55,6 @@ class _HomePageState extends State<HomePage> {
     setState(() {});
     final List<Product> _returnProducts =
         await _daoProduct.getSuggestions(pattern, 3);
-    print('${_returnProducts.length} products locally found with $pattern:');
     return _returnProducts;
   }
 
