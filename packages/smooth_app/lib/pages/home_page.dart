@@ -42,10 +42,20 @@ class _HomePageState extends State<HomePage> {
   DaoProductList _daoProductList;
   DaoProduct _daoProduct;
 
+  final TextEditingController _searchController = TextEditingController();
+
+  bool _visibleCloseButton = false;
+
   Future<List<Product>> _search(String pattern) async {
+    if (pattern.isNotEmpty) {
+      _visibleCloseButton = true;
+    } else {
+      _visibleCloseButton = false;
+    }
     final List<Product> _returnProducts =
         await _daoProduct.getSuggestions(pattern, 3);
     print('${_returnProducts.length} products locally found with $pattern:');
+    setState(() {});
     return _returnProducts;
   }
 
@@ -95,50 +105,72 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             //Search
-            Card(
-              child: ListTile(
-                leading: Icon(
-                  Icons.search,
-                  color: SmoothTheme.getColor(
-                    colorScheme,
-                    Colors.red,
-                    _COLOR_DESTINATION_FOR_ICON,
-                  ),
-                ),
-                trailing: IconButton(
-                  icon: const Icon(Icons.close),
-                  onPressed: () => FocusScope.of(context).unfocus(),
-                ),
-                title: TypeAheadField<Product>(
-                  textFieldConfiguration: const TextFieldConfiguration<
-                      TextFieldConfiguration<Product>>(
-                    autofocus: false,
-                    decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'What are you looking for?'),
-                  ),
-                  suggestionsCallback: (String value) async => _search(value),
-                  itemBuilder: (BuildContext context, Product suggestion) {
-                    return ListTile(
-                      title: Text(suggestion.productName),
-                      leading: SmoothProductImage(
-                        product: suggestion,
+            StatefulBuilder(
+              builder: (BuildContext context, StateSetter setState) {
+                return Card(
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.search,
+                      color: SmoothTheme.getColor(
+                        colorScheme,
+                        Colors.red,
+                        _COLOR_DESTINATION_FOR_ICON,
                       ),
-                    );
-                  },
-                  onSuggestionSelected: (Product suggestion) {
-                    Navigator.push<dynamic>(
-                      context,
-                      MaterialPageRoute<dynamic>(
-                        builder: (BuildContext context) => ProductPage(
-                          product: suggestion,
-                        ),
+                    ),
+                    trailing: AnimatedOpacity(
+                      opacity: _visibleCloseButton ? 1.0 : 0.0,
+                      duration: const Duration(milliseconds: 50),
+                      child: IconButton(
+                        icon: const Icon(Icons.close),
+                        onPressed: () {
+                          FocusScope.of(context).unfocus();
+                          _searchController.text = '';
+                        },
                       ),
-                    );
-                  },
-                ),
-              ),
+                    ),
+                    title: TypeAheadFormField<Product>(
+                      textFieldConfiguration: TextFieldConfiguration(
+                        controller: _searchController,
+                        autofocus: false,
+                        decoration: const InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'What are you looking for?'),
+                      ),
+                      hideOnEmpty: true,
+                      hideOnLoading: true,
+                      suggestionsCallback: (String value) async =>
+                          _search(value),
+                      transitionBuilder: (BuildContext context,
+                          Widget suggestionsBox,
+                          AnimationController controller) {
+                        return suggestionsBox;
+                      },
+                      itemBuilder: (BuildContext context, Product suggestion) {
+                        return ListTile(
+                          title: Text(suggestion.productName),
+                          leading: SmoothProductImage(
+                            product: suggestion,
+                          ),
+                        );
+                      },
+                      onSuggestionSelected: (Product suggestion) {
+                        Navigator.push<dynamic>(
+                          context,
+                          MaterialPageRoute<dynamic>(
+                            builder: (BuildContext context) => ProductPage(
+                              product: suggestion,
+                            ),
+                          ),
+                        );
+                      },
+                      // TODO(m123-dev): add fullscreen search page,
+                      //onSaved: (value) => ,
+                    ),
+                  ),
+                );
+              },
             ),
+
             _getProductListCard(
               <String>[ProductList.LIST_TYPE_USER_DEFINED],
               'My lists',
