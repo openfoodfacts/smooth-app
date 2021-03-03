@@ -1,12 +1,17 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:openfoodfacts/model/Product.dart';
-import 'package:smooth_app/data_models/user_preferences_model.dart';
+
+// Project imports:
 import 'package:smooth_app/data_models/match.dart';
-import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
-import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
+import 'package:smooth_app/data_models/user_preferences_model.dart';
+import 'package:smooth_app/database/dao_product_list.dart';
+import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/temp/user_preferences.dart';
 
 enum LoadingStatus {
   LOADING,

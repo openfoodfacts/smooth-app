@@ -1,5 +1,8 @@
-import 'package:flutter/widgets.dart';
+// Flutter imports:
 import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
+
+// Package imports:
 import 'package:openfoodfacts/model/RecommendedDailyIntake.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/UnitHelper.dart';

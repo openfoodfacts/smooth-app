@@ -1,26 +1,31 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:openfoodfacts/model/Attribute.dart';
+import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/utils/PnnsGroups.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/pages/scan_page.dart';
-import 'package:smooth_app/database/dao_product_list.dart';
-import 'package:smooth_app/database/dao_product.dart';
-import 'package:smooth_app/pages/choose_page.dart';
-import 'package:smooth_app/pages/profile_page.dart';
-import 'package:smooth_app/pages/list_page.dart';
-import 'package:smooth_app/pages/product_list_button.dart';
-import 'package:smooth_app/pages/pantry_list_page.dart';
-import 'package:smooth_app/pages/pantry_button.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
-import 'package:smooth_app/database/local_database.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:smooth_app/data_models/product_list.dart';
-import 'package:smooth_app/data_models/pantry.dart';
+
+// Project imports:
 import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
-import 'package:openfoodfacts/model/Attribute.dart';
-import 'package:smooth_app/data_models/user_preferences_model.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/cards/product_cards/product_list_preview.dart';
-import 'package:openfoodfacts/model/Product.dart';
+import 'package:smooth_app/data_models/pantry.dart';
+import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/data_models/user_preferences_model.dart';
+import 'package:smooth_app/database/dao_product.dart';
+import 'package:smooth_app/database/dao_product_list.dart';
+import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/pages/choose_page.dart';
+import 'package:smooth_app/pages/list_page.dart';
+import 'package:smooth_app/pages/pantry_button.dart';
+import 'package:smooth_app/pages/pantry_list_page.dart';
+import 'package:smooth_app/pages/product_list_button.dart';
+import 'package:smooth_app/pages/profile_page.dart';
+import 'package:smooth_app/pages/scan_page.dart';
+import 'package:smooth_app/temp/user_preferences.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
 
 class HomePage extends StatefulWidget {
   @override

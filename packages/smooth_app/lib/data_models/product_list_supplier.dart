@@ -1,3 +1,4 @@
+// Project imports:
 import 'package:smooth_app/data_models/product_list.dart';
 
 abstract class ProductListSupplier {

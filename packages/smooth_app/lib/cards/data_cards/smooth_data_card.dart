@@ -1,6 +1,10 @@
+// Dart imports:
 import 'dart:ui';
 
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
 
 enum SmoothDataCardFormat { SQUARE, WIDE }

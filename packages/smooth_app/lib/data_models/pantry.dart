@@ -1,10 +1,17 @@
+// Dart imports:
 import 'dart:convert';
-import 'package:flutter/material.dart';
+
+// Flutter imports:
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:openfoodfacts/model/Product.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
-import 'package:smooth_app/database/dao_product.dart';
+
+// Project imports:
 import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/database/dao_product.dart';
+import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 enum PantryType {

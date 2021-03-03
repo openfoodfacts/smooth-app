@@ -1,7 +1,10 @@
-import 'package:smooth_app/data_models/product_list_supplier.dart';
-import 'package:smooth_app/data_models/product_list.dart';
-import 'package:smooth_app/database/product_query.dart';
+// Package imports:
 import 'package:openfoodfacts/model/SearchResult.dart';
+
+// Project imports:
+import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/data_models/product_list_supplier.dart';
+import 'package:smooth_app/database/product_query.dart';
 
 class QueryProductListSupplier implements ProductListSupplier {
   QueryProductListSupplier(this.productQuery);

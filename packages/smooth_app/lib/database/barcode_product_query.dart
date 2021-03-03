@@ -1,7 +1,13 @@
+// Dart imports:
 import 'dart:async';
 
+// Flutter imports:
 import 'package:flutter/foundation.dart';
+
+// Package imports:
 import 'package:openfoodfacts/openfoodfacts.dart';
+
+// Project imports:
 import 'package:smooth_app/database/product_query.dart';
 
 class BarcodeProductQuery {

@@ -1,14 +1,20 @@
+// Dart imports:
 import 'dart:io';
 import 'dart:ui';
 
+// Flutter imports:
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+
+// Package imports:
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:image_cropper/image_cropper.dart';
-import 'package:smooth_app/data_models/smooth_upload_model.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_ui_library/buttons/smooth_main_button.dart';
+
+// Project imports:
+import 'package:smooth_app/data_models/smooth_upload_model.dart';
 
 enum PhotoType { FRONT, INGREDIENTS, NUTRITION_TABLE }
 

@@ -1,8 +1,13 @@
+// Dart imports:
 import 'dart:async';
 import 'dart:convert';
-import 'package:smooth_app/database/local_database.dart';
-import 'package:sqflite/sqflite.dart';
+
+// Package imports:
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:sqflite/sqflite.dart';
+
+// Project imports:
+import 'package:smooth_app/database/local_database.dart';
 
 class DaoProduct {
   DaoProduct(this.localDatabase);

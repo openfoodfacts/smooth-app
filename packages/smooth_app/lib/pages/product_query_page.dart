@@ -1,21 +1,27 @@
+// Dart imports:
 import 'dart:async';
 
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/bottom_sheet_views/group_query_filter_view.dart';
-import 'package:smooth_app/data_models/product_list_supplier.dart';
-import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
-import 'package:smooth_app/data_models/user_preferences_model.dart';
-import 'package:smooth_app/data_models/product_query_model.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
-import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
-import 'package:smooth_app/themes/constant_icons.dart';
+
+// Project imports:
+import 'package:smooth_app/bottom_sheet_views/group_query_filter_view.dart';
+import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
+import 'package:smooth_app/data_models/product_list_supplier.dart';
+import 'package:smooth_app/data_models/product_query_model.dart';
+import 'package:smooth_app/data_models/user_preferences_model.dart';
+import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product_query_page_helper.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:smooth_app/temp/user_preferences.dart';
+import 'package:smooth_app/themes/constant_icons.dart';
 
 class ProductQueryPage extends StatefulWidget {
   const ProductQueryPage({
@@ -223,13 +229,17 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                     getBackArrow(context, widget.mainColor),
                     Padding(
                       padding: const EdgeInsets.only(top: 24.0),
-                      child: FlatButton.icon(
+                      child: TextButton.icon(
                         icon: Icon(
                           Icons.filter_list,
                           color: widget.mainColor,
                         ),
                         label: const Text('Filter'),
-                        textColor: widget.mainColor,
+                        style: TextButton.styleFrom(
+                          textStyle: TextStyle(
+                            color: widget.mainColor,
+                          ),
+                        ),
                         onPressed: () {
                           showCupertinoModalBottomSheet<Widget>(
                             expand: false,
@@ -329,7 +339,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
 
     Future<void>.delayed(
       const Duration(seconds: 0),
-      () => scaffoldKey.currentState.showSnackBar(
+      () => ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(message),
           duration: const Duration(seconds: 5),

@@ -1,9 +1,14 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:provider/provider.dart';
+
+// Project imports:
 import 'package:smooth_app/cards/product_cards/product_list_preview.dart';
+import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:provider/provider.dart';
-import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/pages/product_list_dialog_helper.dart';
 
 class ListPage extends StatefulWidget {

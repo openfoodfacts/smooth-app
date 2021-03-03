@@ -1,5 +1,10 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:openfoodfacts/model/Attribute.dart';
+
+// Project imports:
 import 'package:smooth_app/cards/data_cards/attribute_chip.dart';
 
 class AttributeCard extends StatelessWidget {

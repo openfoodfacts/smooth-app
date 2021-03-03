@@ -51,13 +51,15 @@ dependencies:
   package_info: ^0.4.3+4
   wc_flutter_share: ^0.2.2
 
+
+
   smooth_ui_library:
     path: ../smooth_ui_library
 
 dev_dependencies:
+  flutter_native_splash: ^0.2.2
   flutter_test:
     sdk: flutter
-  flutter_native_splash: ^0.2.2
 
 # 'flutter pub run flutter_native_splash:create' to update
 # Error 65: Comment out all plugins provided by path
@@ -123,3 +125,5 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+publish_to: 'none'
