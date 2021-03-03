@@ -119,13 +119,18 @@ class _HomePageState extends State<HomePage> {
                     ),
                     trailing: AnimatedOpacity(
                       opacity: _visibleCloseButton ? 1.0 : 0.0,
-                      duration: const Duration(milliseconds: 50),
-                      child: IconButton(
-                        icon: const Icon(Icons.close),
-                        onPressed: () {
-                          FocusScope.of(context).unfocus();
-                          _searchController.text = '';
-                        },
+                      duration: const Duration(milliseconds: 80),
+                      child: IgnorePointer(
+                        ignoring: !_visibleCloseButton,
+                        child: IconButton(
+                          icon: const Icon(Icons.close),
+                          onPressed: () {
+                            FocusScope.of(context).unfocus();
+                            _searchController.text = '';
+                            _visibleCloseButton = false;
+                            setState(() {});
+                          },
+                        ),
                       ),
                     ),
                     title: TypeAheadFormField<Product>(
