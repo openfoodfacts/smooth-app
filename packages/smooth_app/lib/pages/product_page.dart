@@ -14,8 +14,8 @@ import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:share/share.dart';
 import 'package:smooth_ui_library/widgets/smooth_card.dart';
-import 'package:wc_flutter_share/wc_flutter_share.dart';
 
 // Project imports:
 import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
@@ -254,12 +254,10 @@ class _ProductPageState extends State<ProductPage> {
                 });
                 return;
               case 4:
-                WcFlutterShare.share(
-                    sharePopupTitle: 'Share',
-                    subject: '${_product.productName} (by openfoodfacts.org)',
-                    text:
-                        'Try this food: https://openfoodfacts.org/product/${_product.barcode}/',
-                    mimeType: 'text/plain');
+                Share.share(
+                  'Try this food: https://openfoodfacts.org/product/${_product.barcode}/',
+                  subject: '${_product.productName} (by openfoodfacts.org)',
+                );
                 return;
             }
             throw 'Unexpected index $index';
