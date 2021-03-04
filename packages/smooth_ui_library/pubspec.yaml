@@ -15,7 +15,7 @@ dependencies:
   flutter_svg: ^0.19.3
   openfoodfacts: ^0.3.15+3
   percent_indicator: ^2.1.9+1
-  provider: ^4.3.3
+  provider: ^5.0.0
   rubber: ^0.4.0
 
 dev_dependencies:
