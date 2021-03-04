@@ -1,4 +1,7 @@
+// Flutter imports:
 import 'package:flutter/cupertino.dart';
+
+// Project imports:
 import 'package:smooth_app/temp/user_preferences.dart';
 
 class ThemeProvider with ChangeNotifier {

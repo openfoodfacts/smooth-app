@@ -1,19 +1,24 @@
+// Dart imports:
 import 'dart:async';
 
+// Flutter imports:
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:sentry/sentry.dart';
-import 'package:provider/provider.dart';
 
+// Package imports:
+import 'package:provider/provider.dart';
+import 'package:sentry/sentry.dart';
+
+// Project imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
-import 'package:smooth_app/pages/home_page.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/pages/home_page.dart';
+import 'package:smooth_app/temp/user_preferences.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 Future<void> main() async {
   await Sentry.init(

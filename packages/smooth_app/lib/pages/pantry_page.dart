@@ -1,14 +1,17 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
 
+// Package imports:
+import 'package:openfoodfacts/model/Product.dart';
+import 'package:provider/provider.dart';
+
+// Project imports:
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/data_models/pantry.dart';
-import 'package:openfoodfacts/model/Product.dart';
-
-import 'package:smooth_app/pages/pantry_dialog_helper.dart';
-import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/dao_product.dart';
+import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:provider/provider.dart';
+import 'package:smooth_app/pages/pantry_dialog_helper.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 

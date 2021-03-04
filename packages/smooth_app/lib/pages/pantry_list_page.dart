@@ -1,9 +1,14 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:provider/provider.dart';
+
+// Project imports:
 import 'package:smooth_app/cards/product_cards/pantry_preview.dart';
 import 'package:smooth_app/data_models/pantry.dart';
 import 'package:smooth_app/pages/pantry_dialog_helper.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
-import 'package:provider/provider.dart';
 
 /// A page where all the pantries are displayed as previews
 class PantryListPage extends StatefulWidget {

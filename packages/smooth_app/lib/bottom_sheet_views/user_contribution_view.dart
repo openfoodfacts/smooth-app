@@ -1,12 +1,17 @@
+// Dart imports:
 import 'dart:ui';
 
+// Flutter imports:
 import 'package:flutter/material.dart';
 
+// Package imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:smooth_app/functions/launchURL.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_ui_library/widgets/smooth_listTile.dart';
+
+// Project imports:
+import 'package:smooth_app/functions/launchURL.dart';
 
 class UserContributionView extends StatelessWidget {
   UserContributionView(this._scrollController, {this.callback});
@@ -98,7 +103,7 @@ class UserContributionView extends StatelessWidget {
                 Text(
                   AppLocalizations.of(context).contribute_contribute_text,
                 ),
-                FlatButton(
+                TextButton(
                   onPressed: () => launcher.launchURL(
                       context,
                       'https://world.openfoodfacts.org/state/to-be-completed',
@@ -108,7 +113,7 @@ class UserContributionView extends StatelessWidget {
                         .contribute_contribute_toBeCompleted,
                   ),
                 ),
-                FlatButton(
+                TextButton(
                   onPressed: () => launcher.launchURL(
                       context,
                       'https://wiki.openfoodfacts.org/Contribution_missions',
@@ -119,7 +124,7 @@ class UserContributionView extends StatelessWidget {
                     style: const TextStyle(color: Colors.blue),
                   ),
                 ),
-                FlatButton(
+                TextButton(
                   onPressed: () => launcher.launchURL(
                       context, 'https://wiki.openfoodfacts.org/Quality', false),
                   child: Text(
@@ -160,7 +165,7 @@ class UserContributionView extends StatelessWidget {
               Text(
                 AppLocalizations.of(context).contribute_develop_text_2,
               ),
-              FlatButton(
+              TextButton(
                 onPressed: () => launcher.launchURL(
                     context,
                     'https://wiki.openfoodfacts.org/Software_Development',
