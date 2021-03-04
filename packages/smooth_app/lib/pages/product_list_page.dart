@@ -1,18 +1,21 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
 
+// Package imports:
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
-import 'package:smooth_app/pages/personalized_ranking_page.dart';
-import 'package:smooth_app/pages/product_query_page_helper.dart';
-import 'package:smooth_app/pages/product_list_dialog_helper.dart';
-import 'package:smooth_app/data_models/product_list.dart';
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:provider/provider.dart';
+import 'package:wc_flutter_share/wc_flutter_share.dart';
 
+// Project imports:
+import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
+import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:provider/provider.dart';
+import 'package:smooth_app/pages/personalized_ranking_page.dart';
+import 'package:smooth_app/pages/product_list_dialog_helper.dart';
+import 'package:smooth_app/pages/product_query_page_helper.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
-import 'package:wc_flutter_share/wc_flutter_share.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 class ProductListPage extends StatefulWidget {
@@ -94,7 +97,7 @@ class _ProductListPageState extends State<ProductListPage> {
               final int pasted = await daoProductList.paste(
                   productList, userPreferences.getProductListCopy());
               localDatabase.notifyListeners();
-              Scaffold.of(context).showSnackBar(
+              ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text('$pasted products pasted'),
                   duration: const Duration(seconds: 2),

@@ -1,12 +1,18 @@
+// Dart imports:
 import 'dart:convert';
 
+// Flutter imports:
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+// Package imports:
 import 'package:http/http.dart' as http;
-import 'package:smooth_app/temp/user_preferences.dart';
-import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
+import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:openfoodfacts/model/Product.dart';
+
+// Project imports:
+import 'package:smooth_app/temp/user_preferences.dart';
 
 class UserPreferencesModel extends ChangeNotifier {
   UserPreferencesModel._();

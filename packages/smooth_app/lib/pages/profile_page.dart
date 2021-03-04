@@ -1,20 +1,23 @@
-import 'package:flutter/material.dart';
+// Flutter imports:
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
-import 'package:provider/provider.dart';
-import 'package:package_info/package_info.dart';
-
-import 'package:smooth_app/bottom_sheet_views/user_contribution_view.dart';
-import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
-import 'package:smooth_app/functions/launchURL.dart';
+// Package imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
-import 'package:smooth_ui_library/widgets/smooth_toggle.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:package_info/package_info.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_ui_library/widgets/smooth_listTile.dart';
+import 'package:smooth_ui_library/widgets/smooth_toggle.dart';
+
+// Project imports:
+import 'package:smooth_app/bottom_sheet_views/user_contribution_view.dart';
+import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
+import 'package:smooth_app/functions/launchURL.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 class ProfilePage extends StatelessWidget {
   static const List<String> _ORDERED_COLOR_TAGS = <String>[
@@ -148,7 +151,7 @@ class ProfilePage extends StatelessWidget {
                                     height: 20,
                                   ),
                                   Text(appLocalizations.whatIsOff),
-                                  FlatButton(
+                                  TextButton(
                                     onPressed: () {
                                       launcher.launchURL(
                                           context,
@@ -162,7 +165,7 @@ class ProfilePage extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                                  FlatButton(
+                                  TextButton(
                                     onPressed: () => launcher.launchURL(
                                         context,
                                         'https://openfoodfacts.org/terms-of-use',
@@ -211,12 +214,14 @@ class ProfilePage extends StatelessWidget {
     final String colorTag,
     final ThemeProvider themeProvider,
   ) =>
-      FlatButton(
+      TextButton(
         onPressed: () async => await themeProvider.setColorTag(colorTag),
-        color: SmoothTheme.getColor(
-          colorScheme,
-          SmoothTheme.MATERIAL_COLORS[colorTag],
-          ColorDestination.BUTTON_BACKGROUND,
+        style: TextButton.styleFrom(
+          primary: SmoothTheme.getColor(
+            colorScheme,
+            SmoothTheme.MATERIAL_COLORS[colorTag],
+            ColorDestination.BUTTON_BACKGROUND,
+          ),
         ),
         child: Icon(
           Icons.palette,

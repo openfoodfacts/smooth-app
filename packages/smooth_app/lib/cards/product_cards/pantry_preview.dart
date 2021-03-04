@@ -1,9 +1,14 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:openfoodfacts/model/Product.dart';
-import 'package:smooth_app/pages/pantry_page.dart';
-import 'package:smooth_app/data_models/pantry.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
+
+// Project imports:
 import 'package:smooth_app/cards/product_cards/product_list_preview_helper.dart';
+import 'package:smooth_app/data_models/pantry.dart';
+import 'package:smooth_app/pages/pantry_page.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
 
 /// A preview button for a pantry, with its N first products
 class PantryPreview extends StatelessWidget {

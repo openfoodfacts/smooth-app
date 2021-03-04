@@ -1,6 +1,10 @@
 /*import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
+
+// Project imports:
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/data_models/smooth_it_model.dart';
 import 'package:smooth_app/temp/filter_ranking_helper.dart';

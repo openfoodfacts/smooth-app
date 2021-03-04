@@ -1,11 +1,16 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_ui_library/widgets/smooth_toggle.dart';
+
+// Project imports:
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/pages/continuous_scan_page.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:smooth_ui_library/widgets/smooth_toggle.dart';
 import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/pages/continuous_scan_page.dart';
 
 class ScanPage extends StatelessWidget {
   const ScanPage({

@@ -1,7 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:smooth_app/cards/category_cards/svg_cache.dart';
+// Flutter imports:
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:openfoodfacts/model/Attribute.dart';
+
+// Project imports:
+import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 
 class AttributeChip extends StatelessWidget {
   const AttributeChip(

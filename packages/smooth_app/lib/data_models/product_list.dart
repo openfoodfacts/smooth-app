@@ -1,6 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:openfoodfacts/model/Product.dart';
+// Flutter imports:
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:openfoodfacts/model/Product.dart';
+
+// Project imports:
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 class ProductList {

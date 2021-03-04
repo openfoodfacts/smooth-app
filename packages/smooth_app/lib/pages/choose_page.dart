@@ -1,20 +1,26 @@
+// Dart imports:
 import 'dart:ui';
 
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+
+// Package imports:
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/utils/PnnsGroups.dart';
+import 'package:provider/provider.dart';
+
+// Project imports:
 import 'package:smooth_app/cards/category_cards/category_card.dart';
 import 'package:smooth_app/cards/category_cards/category_chip.dart';
 import 'package:smooth_app/cards/category_cards/subcategory_card.dart';
-import 'package:smooth_app/database/keywords_product_query.dart';
 import 'package:smooth_app/database/group_product_query.dart';
+import 'package:smooth_app/database/keywords_product_query.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/pages/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product_page.dart';
 import 'package:smooth_app/pages/product_query_page_helper.dart';
-import 'package:smooth_app/pages/product_dialog_helper.dart';
-import 'package:smooth_app/database/product_query.dart';
 
 class ChoosePage extends StatefulWidget {
   @override
@@ -25,7 +31,7 @@ class ChoosePage extends StatefulWidget {
     final BuildContext context,
     final LocalDatabase localDatabase,
   ) async {
-    if (int.parse(value, onError: (String e) => null) != null) {
+    if (int.parse(value) != null) {
       final ProductDialogHelper productDialogHelper = ProductDialogHelper(
         barcode: value,
         context: context,
