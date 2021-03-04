@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
-import 'package:wc_flutter_share/wc_flutter_share.dart';
+import 'package:share/share.dart';
 
 // Project imports:
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
@@ -116,11 +116,10 @@ class _ProductListPageState extends State<ProductListPage> {
                   ', ${product.quantity}',
                 );
               }
-              WcFlutterShare.share(
-                  sharePopupTitle: 'Grocery list',
-                  subject: productList.parameters,
-                  text: names.join('\n'),
-                  mimeType: 'text/plain');
+              Share.share(
+                names.join('\n'),
+                subject: productList.parameters,
+              );
             } else {
               throw Exception('Unexpected index $index');
             }

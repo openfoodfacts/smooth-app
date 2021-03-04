@@ -45,9 +45,10 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
     }
     return CarouselSlider.builder(
       itemCount: _length,
-      itemBuilder: (BuildContext context, int index) => Padding(
+      itemBuilder: (BuildContext context, int itemIndex, int itemRealIndex) =>
+          Padding(
         padding: const EdgeInsets.symmetric(horizontal: 4.0),
-        child: _getWidget(barcodes[index]),
+        child: _getWidget(barcodes[itemIndex]),
       ),
       carouselController: _controller,
       options: CarouselOptions(
