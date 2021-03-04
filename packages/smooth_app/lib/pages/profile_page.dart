@@ -9,6 +9,7 @@ import 'package:smooth_app/bottom_sheet_views/user_contribution_view.dart';
 import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
 import 'package:smooth_app/functions/launchURL.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_ui_library/widgets/smooth_toggle.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
@@ -16,48 +17,62 @@ import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_ui_library/widgets/smooth_listTile.dart';
 
 class ProfilePage extends StatelessWidget {
+  static const List<String> _ORDERED_COLOR_TAGS = <String>[
+    SmoothTheme.COLOR_TAG_BLUE,
+    SmoothTheme.COLOR_TAG_GREEN,
+    SmoothTheme.COLOR_TAG_BROWN,
+  ];
+
   @override
   Widget build(BuildContext context) {
-    final DarkThemeProvider themeChange = context.watch<DarkThemeProvider>();
+    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final ThemeData themeData = Theme.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Launcher launcher = Launcher();
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          AppLocalizations.of(context).testerSettingTitle,
-          style: TextStyle(color: themeData.colorScheme.onBackground),
-        ),
-        iconTheme: IconThemeData(color: themeData.colorScheme.onBackground),
-      ),
+      appBar: AppBar(title: Text(appLocalizations.testerSettingTitle)),
       body: Column(
         children: <Widget>[
           //Darkmode
           SmoothListTile(
-            text: AppLocalizations.of(context).darkmode,
+            text: appLocalizations.darkmode,
             onPressed: null,
             leadingWidget: SmoothToggle(
-                value: themeChange.darkTheme,
-                width: 80.0,
-                height: 38.0,
-                textLeft: AppLocalizations.of(context).yes,
-                textRight: AppLocalizations.of(context).no,
-                onChanged: (bool newValue) async {
-                  //themeChange.darkTheme = newValue,
-                  if (themeChange.darkTheme != newValue) {
-                    themeChange.darkTheme = newValue;
-                  }
-                }),
+              value: themeProvider.darkTheme,
+              width: 80.0,
+              height: 38.0,
+              textLeft: appLocalizations.yes,
+              textRight: appLocalizations.no,
+              onChanged: (bool newValue) async =>
+                  await themeProvider.setDarkTheme(newValue),
+            ),
           ),
 
           //Configure Preferences
           SmoothListTile(
-            text: AppLocalizations.of(context).configurePreferences,
+            text: appLocalizations.configurePreferences,
             onPressed: () => UserPreferencesView.showModal(context),
+          ),
+
+          // Palettes
+          SmoothListTile(
+            leadingWidget: Container(),
+            title: Wrap(
+              spacing: 8.0,
+              children: List<Widget>.generate(
+                _ORDERED_COLOR_TAGS.length,
+                (final int index) => _getColorButton(
+                  themeData.colorScheme,
+                  _ORDERED_COLOR_TAGS[index],
+                  themeProvider,
+                ),
+              ),
+            ),
           ),
 
           //Contribute
           SmoothListTile(
-            text: AppLocalizations.of(context).contribute,
+            text: appLocalizations.contribute,
             onPressed: () => showCupertinoModalBottomSheet<Widget>(
               expand: false,
               context: context,
@@ -72,7 +87,7 @@ class ProfilePage extends StatelessWidget {
 
           //Support
           SmoothListTile(
-            text: AppLocalizations.of(context).support,
+            text: appLocalizations.support,
             leadingWidget: const Icon(Icons.launch),
             onPressed: () => launcher.launchURL(
                 context, 'https://openfoodfacts.uservoice.com/', false),
@@ -80,7 +95,7 @@ class ProfilePage extends StatelessWidget {
 
           //About
           SmoothListTile(
-            text: AppLocalizations.of(context).about,
+            text: appLocalizations.about,
             onPressed: () {
               showDialog<void>(
                 context: context,
@@ -97,8 +112,8 @@ class ProfilePage extends StatelessWidget {
                                 AsyncSnapshot<PackageInfo> snapshot) {
                               if (snapshot.hasError) {
                                 return Center(
-                                    child: Text(
-                                        '${AppLocalizations.of(context).error} #0'));
+                                    child:
+                                        Text('${appLocalizations.error} #0'));
                               }
 
                               if (snapshot.connectionState ==
@@ -110,7 +125,7 @@ class ProfilePage extends StatelessWidget {
                               if (!snapshot.hasData)
                                 return Center(
                                     child: Text(
-                                  '${AppLocalizations.of(context).error} #1',
+                                  '${appLocalizations.error} #1',
                                 ));
 
                               return Column(
@@ -132,7 +147,7 @@ class ProfilePage extends StatelessWidget {
                                   const SizedBox(
                                     height: 20,
                                   ),
-                                  Text(AppLocalizations.of(context).whatIsOff),
+                                  Text(appLocalizations.whatIsOff),
                                   FlatButton(
                                     onPressed: () {
                                       launcher.launchURL(
@@ -141,7 +156,7 @@ class ProfilePage extends StatelessWidget {
                                           true);
                                     },
                                     child: Text(
-                                      '${AppLocalizations.of(context).learnMore}',
+                                      appLocalizations.learnMore,
                                       style: const TextStyle(
                                         color: Colors.blue,
                                       ),
@@ -153,7 +168,7 @@ class ProfilePage extends StatelessWidget {
                                         'https://openfoodfacts.org/terms-of-use',
                                         true),
                                     child: Text(
-                                      '${AppLocalizations.of(context).termsOfUse}',
+                                      appLocalizations.termsOfUse,
                                       style: const TextStyle(
                                         color: Colors.blue,
                                       ),
@@ -169,7 +184,7 @@ class ProfilePage extends StatelessWidget {
                         onPressed: () {
                           showLicensePage(context: context);
                         },
-                        text: '${AppLocalizations.of(context).licenses}',
+                        text: appLocalizations.licenses,
                         width: 100,
                       ),
                       SmoothSimpleButton(
@@ -177,7 +192,7 @@ class ProfilePage extends StatelessWidget {
                           Navigator.of(context, rootNavigator: true)
                               .pop('dialog');
                         },
-                        text: '${AppLocalizations.of(context).okay}',
+                        text: appLocalizations.okay,
                         width: 100,
                       ),
                     ],
@@ -190,4 +205,26 @@ class ProfilePage extends StatelessWidget {
       ),
     );
   }
+
+  Widget _getColorButton(
+    final ColorScheme colorScheme,
+    final String colorTag,
+    final ThemeProvider themeProvider,
+  ) =>
+      FlatButton(
+        onPressed: () async => await themeProvider.setColorTag(colorTag),
+        color: SmoothTheme.getColor(
+          colorScheme,
+          SmoothTheme.MATERIAL_COLORS[colorTag],
+          ColorDestination.BUTTON_BACKGROUND,
+        ),
+        child: Icon(
+          Icons.palette,
+          color: SmoothTheme.getColor(
+            colorScheme,
+            SmoothTheme.MATERIAL_COLORS[colorTag],
+            ColorDestination.BUTTON_FOREGROUND,
+          ),
+        ),
+      );
 }

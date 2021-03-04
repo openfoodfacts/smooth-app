@@ -26,18 +26,13 @@ class _ListPageState extends State<ListPage> {
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          widget.title,
-          style: TextStyle(color: colorScheme.onBackground),
-        ),
-        iconTheme: IconThemeData(color: colorScheme.onBackground),
+        title: Text(widget.title),
         actions: <Widget>[
           if (widget.typeFilter.contains(ProductList.LIST_TYPE_USER_DEFINED))
             IconButton(
-              icon: Icon(Icons.add, color: colorScheme.onBackground),
+              icon: const Icon(Icons.add),
               onPressed: () async {
                 if (await ProductListDialogHelper.openNew(
                     context, daoProductList, _list)) {

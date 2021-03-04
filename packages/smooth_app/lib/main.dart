@@ -42,7 +42,7 @@ class _MyAppState extends State<MyApp> {
   UserPreferences _userPreferences;
   UserPreferencesModel _userPreferencesModel;
   LocalDatabase _localDatabase;
-  final DarkThemeProvider themeChangeProvider = DarkThemeProvider();
+  ThemeProvider _themeProvider;
   bool systemDarkmodeOn = false;
 
   Future<void> _init(BuildContext context) async {
@@ -51,8 +51,7 @@ class _MyAppState extends State<MyApp> {
         DefaultAssetBundle.of(context));
     await _userPreferences.init(_userPreferencesModel);
     _localDatabase = await LocalDatabase.getLocalDatabase();
-    themeChangeProvider.darkTheme =
-        await themeChangeProvider.userThemePreference.getTheme();
+    _themeProvider = ThemeProvider(_userPreferences);
   }
 
   @override
@@ -77,22 +76,28 @@ class _MyAppState extends State<MyApp> {
                   value: _userPreferencesModel),
               ChangeNotifierProvider<LocalDatabase>.value(
                   value: _localDatabase),
-              ChangeNotifierProvider<DarkThemeProvider>.value(
-                  value: themeChangeProvider),
+              ChangeNotifierProvider<ThemeProvider>.value(
+                  value: _themeProvider),
             ],
-            child: Consumer<DarkThemeProvider>(
+            child: Consumer<ThemeProvider>(
               builder: (
                 BuildContext context,
-                DarkThemeProvider value,
+                ThemeProvider value,
                 Widget child,
               ) {
                 return MaterialApp(
                   localizationsDelegates:
                       AppLocalizations.localizationsDelegates,
                   supportedLocales: AppLocalizations.supportedLocales,
-                  theme: SmoothTheme.getThemeData(Brightness.light),
-                  darkTheme: SmoothTheme.getThemeData(Brightness.dark),
-                  themeMode: themeChangeProvider.darkTheme
+                  theme: SmoothTheme.getThemeData(
+                    Brightness.light,
+                    _themeProvider.colorTag,
+                  ),
+                  darkTheme: SmoothTheme.getThemeData(
+                    Brightness.dark,
+                    _themeProvider.colorTag,
+                  ),
+                  themeMode: _themeProvider.darkTheme
                       ? ThemeMode.dark
                       : ThemeMode.light,
                   home: SmoothAppGetLanguage(),

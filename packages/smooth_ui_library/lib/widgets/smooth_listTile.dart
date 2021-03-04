@@ -2,20 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class SmoothListTile extends StatelessWidget {
-  const SmoothListTile(
-      {@required this.text, @required this.onPressed, this.leadingWidget});
+  const SmoothListTile({
+    this.text,
+    this.onPressed,
+    this.leadingWidget,
+    this.title,
+  });
 
   final String text;
   final Widget leadingWidget;
   final Function onPressed;
+  final Widget title;
 
   @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => onPressed(),
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(0, 5.0 , 0 , 5.0),
-        child: Card(
+  Widget build(BuildContext context) => GestureDetector(
+        onTap: () => onPressed != null ? onPressed() : null,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(0, 5.0, 0, 5.0),
+          child: Card(
             color: Theme.of(context).colorScheme.surface,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20.0),
@@ -23,22 +27,22 @@ class SmoothListTile extends StatelessWidget {
             elevation: 10,
             child: Container(
               height: 60,
-              padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+              padding: const EdgeInsets.symmetric(
+                vertical: 5.0,
+                horizontal: 10.0,
+              ),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text(
-                    text,
-                  ),
+                  if (text != null) Text(text) else title,
                   _buildIcon(context),
                 ],
               ),
-            )
+            ),
+          ),
         ),
-      )
-    );
-  }
+      );
 
   Widget _buildIcon(BuildContext context) {
     if (leadingWidget == null) {

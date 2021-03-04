@@ -43,9 +43,10 @@ class ProductListPreview extends StatelessWidget {
               subtitle = 'Empty list';
             }
             return Card(
-              color: SmoothTheme.getBackgroundColor(
+              color: SmoothTheme.getColor(
                 Theme.of(context).colorScheme,
                 productList.getMaterialColor(),
+                ColorDestination.SURFACE_BACKGROUND,
               ),
               child: Column(
                 children: <Widget>[
@@ -64,11 +65,16 @@ class ProductListPreview extends StatelessWidget {
                         ),
                       );
                     },
-                    leading: productList.getIcon(Theme.of(context).colorScheme),
+                    leading: productList.getIcon(
+                      Theme.of(context).colorScheme,
+                      ColorDestination.SURFACE_FOREGROUND,
+                    ),
                     trailing: const Icon(Icons.more_horiz),
                     subtitle: subtitle == null ? null : Text(subtitle),
-                    title: Text(title,
-                        style: Theme.of(context).textTheme.subtitle2),
+                    title: Text(
+                      title,
+                      style: Theme.of(context).textTheme.subtitle2,
+                    ),
                   ),
                   ProductListPreviewHelper(
                     list: list,

@@ -17,15 +17,13 @@ class SmoothProductCardFound extends StatelessWidget {
     @required this.heroTag,
     this.elevation = 0.0,
     this.useNewStyle = true,
-    this.translucentBackground = false,
-    this.backgroundColor = Colors.white,
+    this.backgroundColor,
   });
 
   final Product product;
   final String heroTag;
   final double elevation;
   final bool useNewStyle;
-  final bool translucentBackground;
   final Color backgroundColor;
 
   @override
@@ -70,9 +68,7 @@ class SmoothProductCardFound extends StatelessWidget {
           color: Colors.transparent,
           child: Container(
             decoration: BoxDecoration(
-              color: translucentBackground
-                  ? backgroundColor.withOpacity(0.25)
-                  : backgroundColor,
+              color: backgroundColor ?? themeData.colorScheme.surface,
               borderRadius: const BorderRadius.all(Radius.circular(15.0)),
             ),
             padding: const EdgeInsets.all(5.0),
@@ -104,8 +100,7 @@ class SmoothProductCardFound extends StatelessWidget {
                                   product.productName ?? 'Unknown product name',
                                   maxLines: 2,
                                   overflow: TextOverflow.fade,
-                                  style: themeData.textTheme.headline4
-                                      .copyWith(color: Colors.black),
+                                  style: themeData.textTheme.headline4,
                                 ),
                               ),
                             ],
@@ -167,7 +162,6 @@ class SmoothProductCardFound extends StatelessWidget {
             borderRadius: const BorderRadius.all(Radius.circular(15.0)),
             child: Container(
               decoration: const BoxDecoration(
-                color: Colors.white,
                 borderRadius: BorderRadius.all(Radius.circular(15.0)),
               ),
               padding: const EdgeInsets.all(10.0),
@@ -201,8 +195,8 @@ class SmoothProductCardFound extends StatelessWidget {
                                         maxLines: 3,
                                         overflow: TextOverflow.fade,
                                         style: const TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.bold),
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -218,7 +212,6 @@ class SmoothProductCardFound extends StatelessWidget {
                                         maxLines: 1,
                                         overflow: TextOverflow.fade,
                                         style: const TextStyle(
-                                            color: Colors.black,
                                             fontWeight: FontWeight.w300,
                                             fontStyle: FontStyle.italic),
                                       ),

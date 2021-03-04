@@ -134,33 +134,44 @@ class ProductList {
       '$listType/$parameters'; // TODO(monsieurtanuki): does not work if you change the name
 
   static Widget getReferenceIcon({
-    final ColorScheme colorScheme,
-    final String colorTag,
-    final String iconTag,
+    @required final ColorScheme colorScheme,
+    @required final String colorTag,
+    @required final String iconTag,
+    @required final ColorDestination colorDestination,
   }) =>
       getTintedIcon(
         colorScheme: colorScheme,
         materialColor: _getReferenceMaterialColor(colorTag),
         iconData: _ICON_DATA[iconTag] ?? _ICON_DATA[_ICON_TAG],
+        colorDestination: colorDestination,
       );
 
   static Widget getTintedIcon({
-    final ColorScheme colorScheme,
-    final MaterialColor materialColor,
-    final IconData iconData,
+    @required final ColorScheme colorScheme,
+    @required final MaterialColor materialColor,
+    @required final IconData iconData,
+    @required final ColorDestination colorDestination,
   }) =>
       Icon(
         iconData,
-        color: SmoothTheme.getForegroundColor(colorScheme, materialColor),
+        color: colorDestination == null
+            ? null
+            : SmoothTheme.getColor(
+                colorScheme, materialColor, colorDestination),
       );
 
   static MaterialColor _getReferenceMaterialColor(final String colorTag) =>
       _COLORS[colorTag] ?? _COLORS[_COLOR_RED];
 
-  Widget getIcon(final ColorScheme colorScheme) => getReferenceIcon(
+  Widget getIcon(
+    final ColorScheme colorScheme,
+    final ColorDestination colorDestination,
+  ) =>
+      getReferenceIcon(
         colorScheme: colorScheme,
         colorTag: _colorTag,
         iconTag: _iconTag,
+        colorDestination: colorDestination,
       );
 
   MaterialColor getMaterialColor() => _getReferenceMaterialColor(_colorTag);
