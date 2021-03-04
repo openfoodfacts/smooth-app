@@ -51,7 +51,6 @@ dependencies:
   sticky_headers: ^0.1.8+1
   url_launcher: ^5.7.10
 
-
 dev_dependencies:
   flutter_native_splash: ^0.2.2
   flutter_test:
