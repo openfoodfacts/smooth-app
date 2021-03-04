@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/utils/PnnsGroups.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
 
 // Project imports:
 import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
@@ -22,6 +24,7 @@ import 'package:smooth_app/pages/list_page.dart';
 import 'package:smooth_app/pages/pantry_button.dart';
 import 'package:smooth_app/pages/pantry_list_page.dart';
 import 'package:smooth_app/pages/product_list_button.dart';
+import 'package:smooth_app/pages/product_page.dart';
 import 'package:smooth_app/pages/profile_page.dart';
 import 'package:smooth_app/pages/scan_page.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
@@ -49,12 +52,15 @@ class _HomePageState extends State<HomePage> {
   bool _visibleCloseButton = false;
 
   Future<List<Product>> _search(String pattern) async {
+    bool _oldVisibleCloseButton = _visibleCloseButton;
     if (pattern.isNotEmpty) {
       _visibleCloseButton = true;
     } else {
       _visibleCloseButton = false;
     }
-    setState(() {});
+    if (_oldVisibleCloseButton != _visibleCloseButton) {
+      setState(() {});
+    }
     final List<Product> _returnProducts =
         await _daoProduct.getSuggestions(pattern, 3);
     return _returnProducts;
@@ -120,7 +126,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     trailing: AnimatedOpacity(
                       opacity: _visibleCloseButton ? 1.0 : 0.0,
-                      duration: const Duration(milliseconds: 80),
+                      duration: const Duration(milliseconds: 100),
                       child: IgnorePointer(
                         ignoring: !_visibleCloseButton,
                         child: IconButton(
