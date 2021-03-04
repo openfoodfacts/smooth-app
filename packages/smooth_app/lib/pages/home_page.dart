@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
   bool _visibleCloseButton = false;
 
   Future<List<Product>> _search(String pattern) async {
-    bool _oldVisibleCloseButton = _visibleCloseButton;
+    final bool _oldVisibleCloseButton = _visibleCloseButton;
     if (pattern.isNotEmpty) {
       _visibleCloseButton = true;
     } else {
