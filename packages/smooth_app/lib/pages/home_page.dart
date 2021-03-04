@@ -44,6 +44,22 @@ class _HomePageState extends State<HomePage> {
   DaoProductList _daoProductList;
   DaoProduct _daoProduct;
 
+  final TextEditingController _searchController = TextEditingController();
+
+  bool _visibleCloseButton = false;
+
+  Future<List<Product>> _search(String pattern) async {
+    if (pattern.isNotEmpty) {
+      _visibleCloseButton = true;
+    } else {
+      _visibleCloseButton = false;
+    }
+    setState(() {});
+    final List<Product> _returnProducts =
+        await _daoProduct.getSuggestions(pattern, 3);
+    return _returnProducts;
+  }
+
   @override
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
@@ -84,39 +100,84 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
+
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Card(
-              child: ListTile(
-                leading: Icon(
-                  Icons.search,
-                  color: SmoothTheme.getColor(
-                    colorScheme,
-                    Colors.red,
-                    _COLOR_DESTINATION_FOR_ICON,
+            //Search
+            StatefulBuilder(
+              builder: (BuildContext context, StateSetter setState) {
+                return Card(
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.search,
+                      color: SmoothTheme.getColor(
+                        colorScheme,
+                        Colors.red,
+                        _COLOR_DESTINATION_FOR_ICON,
+                      ),
+                    ),
+                    trailing: AnimatedOpacity(
+                      opacity: _visibleCloseButton ? 1.0 : 0.0,
+                      duration: const Duration(milliseconds: 80),
+                      child: IgnorePointer(
+                        ignoring: !_visibleCloseButton,
+                        child: IconButton(
+                          icon: const Icon(Icons.close),
+                          onPressed: () {
+                            setState(() {
+                              FocusScope.of(context).unfocus();
+                              _searchController.text = '';
+                              _visibleCloseButton = false;
+                            });
+                          },
+                        ),
+                      ),
+                    ),
+                    title: TypeAheadFormField<Product>(
+                      textFieldConfiguration: TextFieldConfiguration(
+                        controller: _searchController,
+                        autofocus: false,
+                        decoration: const InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'What are you looking for?'),
+                      ),
+                      hideOnEmpty: true,
+                      hideOnLoading: true,
+                      suggestionsCallback: (String value) async =>
+                          _search(value),
+                      transitionBuilder: (BuildContext context,
+                          Widget suggestionsBox,
+                          AnimationController controller) {
+                        return suggestionsBox;
+                      },
+                      itemBuilder: (BuildContext context, Product suggestion) {
+                        return ListTile(
+                          title: Text(suggestion.productName),
+                          leading: SmoothProductImage(
+                            product: suggestion,
+                          ),
+                        );
+                      },
+                      onSuggestionSelected: (Product suggestion) {
+                        Navigator.push<dynamic>(
+                          context,
+                          MaterialPageRoute<dynamic>(
+                            builder: (BuildContext context) => ProductPage(
+                              product: suggestion,
+                            ),
+                          ),
+                        );
+                      },
+                      // TODO(m123-dev): add fullscreen search page,
+                      //onSaved: (value) => ,
+                    ),
                   ),
-                ),
-                title: TextField(
-                  onChanged: (final String value) =>
-                      _daoProduct.getSuggestions(value, 3).then(
-                    (List<Product> list) {
-                      print(
-                          '${list.length} products locally found with $value:');
-                      for (final Product item in list) {
-                        print('${item.barcode}: ${item.productName}');
-                      }
-                    },
-                  ),
-                  onSubmitted: (final String value) => ChoosePage.onSubmitted(
-                    value,
-                    context,
-                    localDatabase,
-                  ),
-                ),
-              ),
+                );
+              },
             ),
+
             _getProductListCard(
               <String>[ProductList.LIST_TYPE_USER_DEFINED],
               'My lists',
@@ -210,6 +271,7 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
+
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           await Navigator.push<Widget>(
