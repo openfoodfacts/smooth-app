@@ -1,11 +1,16 @@
 // Note to myself : this needs to be transferred to the openfoodfacts-dart plugin when ready
 
-import 'package:shared_preferences/shared_preferences.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:smooth_app/data_models/user_preferences_model.dart';
-import 'package:smooth_app/data_models/pantry.dart';
-import 'package:openfoodfacts/model/AttributeGroup.dart';
+
+// Package imports:
 import 'package:openfoodfacts/model/Attribute.dart';
+import 'package:openfoodfacts/model/AttributeGroup.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+// Project imports:
+import 'package:smooth_app/data_models/pantry.dart';
+import 'package:smooth_app/data_models/user_preferences_model.dart';
 
 class UserPreferences extends ChangeNotifier {
   UserPreferences._shared(final SharedPreferences sharedPreferences) {

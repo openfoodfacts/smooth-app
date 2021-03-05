@@ -1,8 +1,11 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:smooth_app/database/dao_product_list.dart';
+
+// Project imports:
 import 'package:smooth_app/data_models/product_list.dart';
-import 'package:smooth_app/pages/product_query_page_helper.dart';
+import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/pages/product_list_page.dart';
+import 'package:smooth_app/pages/product_query_page_helper.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 class ProductListButton extends StatelessWidget {

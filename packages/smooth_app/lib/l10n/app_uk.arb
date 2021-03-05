@@ -23,7 +23,7 @@
     "@trackingPage": {},
     "preferencesText": "My Preferences",
     "@preferencesText": {},
-    "saveButtonText": "Save",
+    "saveButtonText": "Зберегти",
     "@saveButtonText": {},
     "applyButtonText": "Apply",
     "@applyButtonText": {},
@@ -93,7 +93,7 @@
     "@contribute_donate_header": {},
     "support": "Support",
     "@support": {},
-    "error": "Щось пішло не так",
+    "error": "Сталась помилка",
     "@error": {},
     "darkmode": "Darkmode",
     "@darkmode": {}

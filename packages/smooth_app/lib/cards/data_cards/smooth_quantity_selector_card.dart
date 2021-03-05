@@ -1,8 +1,13 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:smooth_ui_library/widgets/smooth_gauge.dart';
+
+// Project imports:
 import 'package:smooth_app/cards/data_cards/smooth_data_card.dart';
 import 'package:smooth_app/data_models/sneak_peek_model.dart';
-import 'package:smooth_ui_library/widgets/smooth_gauge.dart';
 
 class SmoothQuantitySelectorCard extends StatelessWidget {
   const SmoothQuantitySelectorCard({@required this.sneakPeakModel});

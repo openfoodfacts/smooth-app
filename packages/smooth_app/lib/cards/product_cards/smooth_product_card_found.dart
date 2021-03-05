@@ -1,15 +1,21 @@
+// Dart imports:
 import 'dart:ui';
 
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:provider/provider.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:openfoodfacts/model/Product.dart';
-import 'package:smooth_app/pages/product_page.dart';
-import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
-import 'package:smooth_app/cards/data_cards/attribute_chip.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
-import 'package:smooth_app/data_models/user_preferences_model.dart';
+
+// Package imports:
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
+import 'package:openfoodfacts/model/Product.dart';
+import 'package:provider/provider.dart';
+import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
+
+// Project imports:
+import 'package:smooth_app/cards/data_cards/attribute_chip.dart';
+import 'package:smooth_app/data_models/user_preferences_model.dart';
+import 'package:smooth_app/pages/product_page.dart';
+import 'package:smooth_app/temp/user_preferences.dart';
 
 class SmoothProductCardFound extends StatelessWidget {
   const SmoothProductCardFound({

@@ -1,12 +1,17 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:openfoodfacts/model/Attribute.dart';
+import 'package:openfoodfacts/model/Product.dart';
+import 'package:provider/provider.dart';
+import 'package:smooth_ui_library/widgets/smooth_card.dart';
+import 'package:smooth_ui_library/widgets/smooth_expandable_card.dart';
+
+// Project imports:
 import 'package:smooth_app/cards/data_cards/attribute_card.dart';
 import 'package:smooth_app/cards/data_cards/attribute_chip.dart';
-import 'package:smooth_ui_library/widgets/smooth_expandable_card.dart';
-import 'package:smooth_ui_library/widgets/smooth_card.dart';
-import 'package:openfoodfacts/model/Product.dart';
-import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
-import 'package:provider/provider.dart';
 
 class AttributeListExpandable extends StatelessWidget {
   const AttributeListExpandable({

@@ -18,46 +18,44 @@ version: 0.0.1+3
 
 
 environment:
-  sdk: ">=2.6.0 <3.0.0"
+  sdk: ">=2.10.4 <3.0.0"
 
 dependencies:
+  basic_utils: ^2.7.1
+  carousel_slider: ^3.0.0
+  cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-
-  cupertino_icons: ^1.0.0
-  flutter_svg: ^0.18.0
-  basic_utils: ^2.6.3
-  modal_bottom_sheet: ^1.0.0+1
-  provider: ^4.3.2+3
-  openfoodfacts: ^0.3.15+1
-  qr_code_scanner: ^0.3.0
-  sqflite: ^1.3.2+1
-  path_provider: ^1.6.24
-  carousel_slider: ^2.3.1
-  flutter_staggered_grid_view: ^0.3.3
-  rubber: ^0.4.0
-  shared_preferences: ^0.5.12+4
-  image_picker: ^0.6.7+17
+  flutter_staggered_animations: ^0.1.3
+  flutter_staggered_grid_view: ^0.3.4
+  flutter_svg: ^0.19.3
+  flutter_typeahead: ^2.0.0
   image_cropper: ^1.3.1
-  url_launcher: ^5.7.10
-  flutter_staggered_animations: ^0.1.2
+  image_picker: ^0.6.7+17
   intl: ^0.17.0
-  sentry: ^4.0.1
-  sticky_grouped_list: ^1.3.0
-  sticky_headers: ^0.1.8+1
-  #package_info_plus: ^0.6.3
-  package_info: ^0.4.3+4
-  wc_flutter_share: ^0.2.2
-
+  modal_bottom_sheet: ^1.0.0+1
+  openfoodfacts: ^0.3.15+3
+  package_info: ^2.0.0
+  path_provider: ^2.0.1
+  provider: ^5.0.0
+  qr_code_scanner: ^0.3.5
+  #rubber: ^0.4.0
+  sentry: ^4.0.6
+  share: ^2.0.0
+  shared_preferences: ^2.0.3
   smooth_ui_library:
     path: ../smooth_ui_library
+  sqflite: ^2.0.0+2
+  sticky_grouped_list: ^1.3.0
+  sticky_headers: ^0.1.8+1
+  url_launcher: ^5.7.10
 
 dev_dependencies:
+  flutter_native_splash: ^0.2.2
   flutter_test:
     sdk: flutter
-  flutter_native_splash: ^0.2.2
 
 # 'flutter pub run flutter_native_splash:create' to update
 # Error 65: Comment out all plugins provided by path
@@ -123,3 +121,5 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+publish_to: 'none'
