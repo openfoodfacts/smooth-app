@@ -94,7 +94,7 @@ class UserPreferences extends ChangeNotifier {
       await _setImportance(UserPreferencesModel.ATTRIBUTE_ECOSCORE, valueIndex,
           notify: false);
     }
-    await _sharedPreferences.setStringList(_TAG_VISIBLE_GROUPS, null);
+    await _sharedPreferences.remove(_TAG_VISIBLE_GROUPS);
     notifyListeners();
   }
 
@@ -106,10 +106,10 @@ class UserPreferences extends ChangeNotifier {
 
   Future<void> setAttributeGroupVisibility(
       final AttributeGroup group, final bool visible) async {
-    List<String> visibleList =
-        _sharedPreferences.getStringList(_TAG_VISIBLE_GROUPS);
+    final List<String> visibleList =
+        _sharedPreferences.getStringList(_TAG_VISIBLE_GROUPS) ?? <String>[];
     final String tag = group.id;
-    if (visibleList != null && visibleList.contains(tag)) {
+    if (visibleList.contains(tag)) {
       if (visible) {
         return;
       }
@@ -118,7 +118,6 @@ class UserPreferences extends ChangeNotifier {
       if (!visible) {
         return;
       }
-      visibleList ??= <String>[];
       visibleList.add(tag);
     }
     await _sharedPreferences.setStringList(_TAG_VISIBLE_GROUPS, visibleList);
