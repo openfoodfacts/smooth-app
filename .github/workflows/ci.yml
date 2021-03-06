@@ -39,7 +39,7 @@ jobs:
       #  run: git clean -xffd
 
       # Check for formatting issues
-      - name: Check for formatting issues (run flutter format .)
+      - name: Check for formatting issues (run "flutter format . ")
         run: flutter format --set-exit-if-changed .
       
       # analyze Dart for errors
