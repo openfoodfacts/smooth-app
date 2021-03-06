@@ -14,7 +14,7 @@ description: A new official Open Food Facts application build with great user ex
 
 #{major}.{minor}.{patch}+{version}
 # this version can be ignored as it is automatically increased during the release process
-version: 0.0.1+3
+version: 0.0.1+4
 
 
 environment:
