@@ -52,14 +52,14 @@ class ProductListDialogHelper {
         ),
       );
 
-  static Future<bool> openNew(
+  static Future<ProductList> openNew(
     final BuildContext context,
     final DaoProductList daoProductList,
     final List<ProductList> list,
   ) async {
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
     ProductList newProductList;
-    return await showDialog<bool>(
+    return await showDialog<ProductList>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
         close: false,
@@ -98,7 +98,7 @@ class ProductListDialogHelper {
         actions: <SmoothSimpleButton>[
           SmoothSimpleButton(
             text: _TRANSLATE_ME_CANCEL,
-            onPressed: () => Navigator.pop(context, false),
+            onPressed: () => Navigator.pop(context, null),
             important: false,
           ),
           SmoothSimpleButton(
@@ -112,7 +112,7 @@ class ProductListDialogHelper {
                 return;
               }
               await daoProductList.put(newProductList);
-              Navigator.pop(context, true);
+              Navigator.pop(context, newProductList);
             },
             important: true,
           ),
