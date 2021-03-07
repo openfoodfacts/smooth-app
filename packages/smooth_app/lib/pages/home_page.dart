@@ -22,8 +22,10 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/choose_page.dart';
 import 'package:smooth_app/pages/list_page.dart';
 import 'package:smooth_app/pages/pantry_button.dart';
+import 'package:smooth_app/pages/pantry_dialog_helper.dart';
 import 'package:smooth_app/pages/pantry_list_page.dart';
 import 'package:smooth_app/pages/product_list_button.dart';
+import 'package:smooth_app/pages/product_list_dialog_helper.dart';
 import 'package:smooth_app/pages/product_page.dart';
 import 'package:smooth_app/pages/profile_page.dart';
 import 'package:smooth_app/pages/scan_page.dart';
@@ -318,16 +320,30 @@ class _HomePageState extends State<HomePage> {
         ) {
           if (snapshot.connectionState == ConnectionState.done) {
             final List<ProductList> list = snapshot.data;
-            List<Widget> cards;
-            final bool empty = list == null || list.isEmpty;
-            if (empty) {
-              cards = null;
-            } else {
-              cards = <Widget>[];
+            final List<Widget> cards = <Widget>[];
+            if (list != null) {
               for (final ProductList item in list) {
                 cards.add(ProductListButton(item, _daoProductList));
               }
             }
+            cards.add(
+              ElevatedButton.icon(
+                icon: const Icon(Icons.add),
+                label: Text(ListPage.getCreateListLabel()),
+                onPressed: () async {
+                  final ProductList newProductList =
+                      await ProductListDialogHelper.openNew(
+                    context,
+                    _daoProductList,
+                    list,
+                  );
+                  if (newProductList == null) {
+                    return;
+                  }
+                  setState(() {});
+                },
+              ),
+            );
             return Card(
               child: Column(
                 children: <Widget>[
@@ -345,16 +361,14 @@ class _HomePageState extends State<HomePage> {
                       setState(() {});
                     },
                     leading: leadingIcon,
-                    subtitle: empty ? const Text(_TRANSLATE_ME_EMPTY) : null,
                     title: Text(title,
                         style: Theme.of(context).textTheme.subtitle2),
                   ),
-                  if (!empty)
-                    Wrap(
-                      direction: Axis.horizontal,
-                      children: cards,
-                      spacing: 8.0,
-                    ),
+                  Wrap(
+                    direction: Axis.horizontal,
+                    children: cards,
+                    spacing: 8.0,
+                  )
                 ],
               ),
             );
@@ -478,6 +492,24 @@ class _HomePageState extends State<HomePage> {
             for (int index = 0; index < pantries.length; index++) {
               cards.add(PantryButton(pantries, index));
             }
+            cards.add(
+              ElevatedButton.icon(
+                icon: const Icon(Icons.add),
+                label: Text(PantryListPage.getCreateListLabel(pantryType)),
+                onPressed: () async {
+                  final String newPantryName = await PantryDialogHelper.openNew(
+                    context,
+                    pantries,
+                    pantryType,
+                    userPreferences,
+                  );
+                  if (newPantryName == null) {
+                    return;
+                  }
+                  setState(() {});
+                },
+              ),
+            );
             return Card(
               child: Column(
                 children: <Widget>[

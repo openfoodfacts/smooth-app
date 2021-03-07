@@ -9,6 +9,8 @@ import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 // Project imports:
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
+import 'package:smooth_app/pages/product_list_page.dart';
+import 'package:smooth_app/pages/product_query_page_helper.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 class ProductListDialogHelper {
@@ -113,6 +115,17 @@ class ProductListDialogHelper {
               }
               await daoProductList.put(newProductList);
               Navigator.pop(context, newProductList);
+              await Navigator.push<dynamic>(
+                context,
+                MaterialPageRoute<dynamic>(
+                  builder: (BuildContext context) => ProductListPage(
+                    newProductList,
+                    reverse: ProductQueryPageHelper.isListReversed(
+                      newProductList,
+                    ),
+                  ),
+                ),
+              );
             },
             important: true,
           ),
