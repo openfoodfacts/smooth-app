@@ -12,6 +12,7 @@ import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/functions/launchURL.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product_list_dialog_helper.dart';
 import 'package:smooth_app/pages/product_query_page_helper.dart';
@@ -73,7 +74,8 @@ class _ProductListPageState extends State<ProductListPage> {
     const int INDEX_COPY = 0;
     final int indexPaste = pastable ? INDEX_COPY + 1 : -1;
     final int indexClear = pastable ? indexPaste + 1 : INDEX_COPY + 1;
-    final int indexGrocery = indexClear + 1;
+    final int indexShare = indexClear + 1;
+    final int indexGrocery = indexShare + 1;
     return Scaffold(
       bottomNavigationBar: Builder(
         builder: (BuildContext context) => BottomNavigationBar(
@@ -86,6 +88,8 @@ class _ProductListPageState extends State<ProductListPage> {
                   icon: Icon(Icons.paste), label: _TRANSLATE_ME_PASTE),
             const BottomNavigationBarItem(
                 icon: Icon(Icons.highlight_remove), label: _TRANSLATE_ME_CLEAR),
+            const BottomNavigationBarItem(
+                icon: Icon(Icons.launch), label: 'web'),
             const BottomNavigationBarItem(
                 icon: Icon(Icons.local_grocery_store),
                 label: _TRANSLATE_ME_GROCERY),
@@ -107,6 +111,16 @@ class _ProductListPageState extends State<ProductListPage> {
             } else if (index == indexClear) {
               await daoProductList.clear(productList);
               localDatabase.notifyListeners();
+            } else if (index == indexShare) {
+              final List<String> codes = <String>[];
+              for (final Product product in products) {
+                codes.add(product.barcode);
+              }
+              Launcher().launchURL(
+                  context,
+                  'https://openfoodfacts.org/products/${codes.join(',')}',
+                  true);
+              return;
             } else if (index == indexGrocery) {
               final List<String> names = <String>[];
               for (final Product product in products) {
