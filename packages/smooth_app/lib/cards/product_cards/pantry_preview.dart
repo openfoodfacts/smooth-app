@@ -51,7 +51,7 @@ class PantryPreview extends StatelessWidget {
               Theme.of(context).colorScheme,
               ColorDestination.SURFACE_FOREGROUND,
             ),
-            trailing: const Icon(Icons.more_horiz),
+            trailing: const Icon(Icons.arrow_forward),
             subtitle: subtitle == null ? null : Text(subtitle),
             title:
                 Text(pantry.name, style: Theme.of(context).textTheme.subtitle2),
