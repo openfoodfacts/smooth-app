@@ -75,19 +75,26 @@ class AttributeListExpandable extends StatelessWidget {
         background: background,
       );
     }
+    final Widget header =
+        Text(title, style: Theme.of(context).textTheme.headline3);
     return SmoothExpandableCard(
       collapsedHeader: Container(
         width: screenSize.width * 0.8,
-        child: Wrap(
-          direction: Axis.horizontal,
-          crossAxisAlignment: WrapCrossAlignment.center,
-          children: chips,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            header,
+            Wrap(
+              direction: Axis.horizontal,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              children: chips,
+            ),
+          ],
         ),
       ),
       content: content,
-      expandedHeader: title == null
-          ? null
-          : Text(title, style: Theme.of(context).textTheme.headline3),
+      expandedHeader: title == null ? null : header,
     );
   }
 }
