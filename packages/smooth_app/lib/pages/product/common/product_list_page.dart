@@ -14,8 +14,8 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/functions/launchURL.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
-import 'package:smooth_app/pages/product_list_dialog_helper.dart';
-import 'package:smooth_app/pages/product_query_page_helper.dart';
+import 'package:smooth_app/pages/product/common/product_list_dialog_helper.dart';
+import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 

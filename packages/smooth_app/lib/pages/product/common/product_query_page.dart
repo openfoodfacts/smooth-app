@@ -19,7 +19,7 @@ import 'package:smooth_app/data_models/product_query_model.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
-import 'package:smooth_app/pages/product_query_page_helper.dart';
+import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 

@@ -9,7 +9,7 @@ import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/model/ProductImage.dart';
 
 // Project imports:
-import 'package:smooth_app/pages/product_page.dart';
+import 'package:smooth_app/pages/product/product_page.dart';
 
 class SmoothProductCardEdit extends StatelessWidget {
   const SmoothProductCardEdit({

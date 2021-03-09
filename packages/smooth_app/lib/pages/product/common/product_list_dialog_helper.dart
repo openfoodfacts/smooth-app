@@ -3,51 +3,39 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 
 // Project imports:
-import 'package:smooth_app/data_models/pantry.dart';
-import 'package:smooth_app/pages/pantry_page.dart';
+import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/database/dao_product_list.dart';
+import 'package:smooth_app/pages/product/common/product_list_page.dart';
+import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
-/// A dialog helper for pantries
-class PantryDialogHelper {
-  static const String _TRANSLATE_ME_WANT_TO_DELETE_PANTRY =
-      'Do you want to delete this pantry?';
-  static const String _TRANSLATE_ME_WANT_TO_DELETE_SHOPPING =
-      'Do you want to delete this shopping list?';
-  static const String _TRANSLATE_ME_NEW_LIST_PANTRY = 'New pantry';
-  static const String _TRANSLATE_ME_NEW_LIST_SHOPPING = 'New shopping list';
-  static const String _TRANSLATE_ME_RENAME_LIST_PANTRY = 'Rename pantry';
-  static const String _TRANSLATE_ME_RENAME_LIST_SHOPPING =
-      'Rename shopping list';
+class ProductListDialogHelper {
+  static const String _TRANSLATE_ME_WANT_TO_DELETE =
+      'Do you want to delete this product list?';
+  static const String _TRANSLATE_ME_NEW_LIST = 'New list';
+  static const String _TRANSLATE_ME_RENAME_LIST = 'Rename list';
   static const String _TRANSLATE_ME_CHANGE_ICON = 'Change icon';
-  static const String _TRANSLATE_ME_HINT_PANTRY = 'My own pantry';
-  static const String _TRANSLATE_ME_HINT_SHOPPING = 'My shopping list';
+  static const String _TRANSLATE_ME_HINT = 'My custom list';
   static const String _TRANSLATE_ME_EMPTY = 'Please enter some text';
-  static const String _TRANSLATE_ME_ALREADY_OTHER_PANTRY =
-      'There\'s already a pantry with that name';
-  static const String _TRANSLATE_ME_ALREADY_OTHER_SHOPPING =
-      'There\'s already a shopping list with that name';
+  static const String _TRANSLATE_ME_ALREADY_OTHER =
+      'There\'s already a list with that name';
   static const String _TRANSLATE_ME_ALREADY_SAME = 'That\'s the same name!';
   static const String _TRANSLATE_ME_CANCEL = 'Cancel';
 
   static Future<bool> openDelete(
     final BuildContext context,
-    final List<Pantry> pantries,
-    final int index,
+    final DaoProductList daoProductList,
+    final ProductList productList,
   ) async =>
       await showDialog<bool>(
         context: context,
         builder: (BuildContext context) => SmoothAlertDialog(
           close: false,
-          body: Text(
-            pantries[index].pantryType == PantryType.PANTRY
-                ? _TRANSLATE_ME_WANT_TO_DELETE_PANTRY
-                : _TRANSLATE_ME_WANT_TO_DELETE_SHOPPING,
-          ),
+          body: const Text(_TRANSLATE_ME_WANT_TO_DELETE),
           actions: <SmoothSimpleButton>[
             SmoothSimpleButton(
               text: AppLocalizations.of(context).no,
@@ -58,7 +46,7 @@ class PantryDialogHelper {
               text: AppLocalizations.of(context).yes,
               important: true,
               onPressed: () async {
-                pantries.removeAt(index);
+                await daoProductList.delete(productList);
                 Navigator.pop(context, true);
               },
             ),
@@ -66,53 +54,43 @@ class PantryDialogHelper {
         ),
       );
 
-  static Future<String> openNew(
+  static Future<ProductList> openNew(
     final BuildContext context,
-    final List<Pantry> pantries,
-    final PantryType pantryType,
-    final UserPreferences userPreferences,
+    final DaoProductList daoProductList,
+    final List<ProductList> list,
   ) async {
-    String newPantryName;
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-    return await showDialog<String>(
+    ProductList newProductList;
+    return await showDialog<ProductList>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
         close: false,
-        title: pantryType == PantryType.PANTRY
-            ? _TRANSLATE_ME_NEW_LIST_PANTRY
-            : _TRANSLATE_ME_NEW_LIST_SHOPPING,
+        title: _TRANSLATE_ME_NEW_LIST,
         body: Form(
           key: formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               TextFormField(
-                decoration: InputDecoration(
-                  hintText: pantryType == PantryType.PANTRY
-                      ? _TRANSLATE_ME_HINT_PANTRY
-                      : _TRANSLATE_ME_HINT_SHOPPING,
+                decoration: const InputDecoration(
+                  hintText: _TRANSLATE_ME_HINT,
                 ),
                 validator: (final String value) {
                   if (value.isEmpty) {
                     return _TRANSLATE_ME_EMPTY;
                   }
-                  if (pantries == null) {
+                  if (list == null) {
                     return null;
                   }
-                  for (int i = 0; i < pantries.length; i++) {
-                    if (value == pantries[i].name) {
-                      return pantryType == PantryType.PANTRY
-                          ? _TRANSLATE_ME_ALREADY_OTHER_PANTRY
-                          : _TRANSLATE_ME_ALREADY_OTHER_SHOPPING;
+                  newProductList = ProductList(
+                    listType: ProductList.LIST_TYPE_USER_DEFINED,
+                    parameters: value,
+                  );
+                  for (final ProductList productList in list) {
+                    if (productList.lousyKey == newProductList.lousyKey) {
+                      return _TRANSLATE_ME_ALREADY_OTHER;
                     }
                   }
-                  pantries.add(Pantry(name: value, pantryType: pantryType));
-                  Pantry.putAll(
-                    userPreferences,
-                    pantries,
-                    pantryType,
-                  );
-                  newPantryName = value;
                   return null;
                 },
               ),
@@ -131,25 +109,23 @@ class PantryDialogHelper {
               if (!formKey.currentState.validate()) {
                 return;
               }
-              Navigator.pop(context, newPantryName);
-
-              int index = 0;
-              for (final Pantry pantry in pantries) {
-                if (pantry.name == newPantryName) {
-                  await Navigator.push<dynamic>(
-                    context,
-                    MaterialPageRoute<dynamic>(
-                      builder: (BuildContext context) => PantryPage(
-                        pantries,
-                        index,
-                        pantryType,
-                      ),
-                    ),
-                  );
-                  return;
-                }
-                index++;
+              if (await daoProductList.get(newProductList)) {
+                // TODO(monsieurtanuki): unexpected, but do something!
+                return;
               }
+              await daoProductList.put(newProductList);
+              Navigator.pop(context, newProductList);
+              await Navigator.push<dynamic>(
+                context,
+                MaterialPageRoute<dynamic>(
+                  builder: (BuildContext context) => ProductListPage(
+                    newProductList,
+                    reverse: ProductQueryPageHelper.isListReversed(
+                      newProductList,
+                    ),
+                  ),
+                ),
+              );
             },
             important: true,
           ),
@@ -158,49 +134,46 @@ class PantryDialogHelper {
     );
   }
 
-  static Future<bool> openRename(
+  static Future<ProductList> openRename(
     final BuildContext context,
-    final List<Pantry> pantries,
-    final int index,
+    final DaoProductList daoProductList,
+    final ProductList productList,
   ) async {
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-    return await showDialog<bool>(
+    final List<ProductList> list =
+        await daoProductList.getAll(withStats: false);
+    ProductList newProductList;
+    return await showDialog<ProductList>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
         close: false,
-        title: pantries[index].pantryType == PantryType.PANTRY
-            ? _TRANSLATE_ME_RENAME_LIST_PANTRY
-            : _TRANSLATE_ME_RENAME_LIST_SHOPPING,
+        title: _TRANSLATE_ME_RENAME_LIST,
         body: Form(
           key: formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               TextFormField(
-                initialValue: pantries[index].name,
-                decoration: InputDecoration(
-                  hintText: pantries[index].pantryType == PantryType.PANTRY
-                      ? _TRANSLATE_ME_HINT_PANTRY
-                      : _TRANSLATE_ME_HINT_SHOPPING,
+                initialValue: productList.parameters,
+                decoration: const InputDecoration(
+                  hintText: _TRANSLATE_ME_HINT,
                 ),
                 validator: (final String value) {
                   if (value.isEmpty) {
                     return _TRANSLATE_ME_EMPTY;
                   }
-                  if (pantries == null) {
-                    return null;
-                  }
-                  for (int i = 0; i < pantries.length; i++) {
-                    if (value == pantries[i].name) {
-                      if (i == index) {
+                  newProductList = ProductList(
+                    listType: ProductList.LIST_TYPE_USER_DEFINED,
+                    parameters: value,
+                  )..extraTags = productList.extraTags;
+                  for (final ProductList item in list) {
+                    if (item.lousyKey == newProductList.lousyKey) {
+                      if (item.lousyKey == productList.lousyKey) {
                         return _TRANSLATE_ME_ALREADY_SAME;
                       }
-                      return pantries[index].pantryType == PantryType.PANTRY
-                          ? _TRANSLATE_ME_ALREADY_OTHER_PANTRY
-                          : _TRANSLATE_ME_ALREADY_OTHER_SHOPPING;
+                      return _TRANSLATE_ME_ALREADY_OTHER;
                     }
                   }
-                  pantries[index].name = value;
                   return null;
                 },
               ),
@@ -210,7 +183,7 @@ class PantryDialogHelper {
         actions: <SmoothSimpleButton>[
           SmoothSimpleButton(
             text: _TRANSLATE_ME_CANCEL,
-            onPressed: () => Navigator.pop(context, false),
+            onPressed: () => Navigator.pop(context, null),
             important: false,
           ),
           SmoothSimpleButton(
@@ -219,7 +192,13 @@ class PantryDialogHelper {
               if (!formKey.currentState.validate()) {
                 return;
               }
-              Navigator.pop(context, true);
+              if (!await daoProductList.rename(
+                  productList, newProductList.parameters)) {
+                // TODO(monsieurtanuki): unexpected, but do something!
+                return;
+              }
+              await daoProductList.get(newProductList);
+              Navigator.pop(context, newProductList);
             },
             important: true,
           ),
@@ -230,12 +209,10 @@ class PantryDialogHelper {
 
   static Future<bool> openChangeIcon(
     final BuildContext context,
-    final List<Pantry> pantries,
-    final int index,
+    final DaoProductList daoProductList,
+    final ProductList productList,
   ) async {
-    final Pantry pantry = pantries[index];
-    final List<String> orderedIcons = pantries[index].getPossibleIcons();
-    const List<String> orderedColors = Pantry.ORDERED_COLORS;
+    final List<String> orderedIcons = productList.getPossibleIcons();
     final double size = MediaQuery.of(context).size.width / 8;
     return await showDialog<bool>(
       context: context,
@@ -243,28 +220,29 @@ class PantryDialogHelper {
         close: false,
         title: _TRANSLATE_ME_CHANGE_ICON,
         body: Container(
-          width: orderedColors.length.toDouble() * size,
+          width: ProductList.ORDERED_COLORS.length.toDouble() * size,
           height: orderedIcons.length.toDouble() * size,
           child: GridView.count(
             crossAxisCount: 5,
             childAspectRatio: 1,
             children: List<Widget>.generate(
-              orderedColors.length * orderedIcons.length,
+              ProductList.ORDERED_COLORS.length * orderedIcons.length,
               (final int index) {
-                final String colorTag =
-                    orderedColors[index % orderedColors.length];
+                final String colorTag = ProductList
+                    .ORDERED_COLORS[index % ProductList.ORDERED_COLORS.length];
                 final String iconTag =
-                    orderedIcons[index ~/ orderedColors.length];
+                    orderedIcons[index ~/ ProductList.ORDERED_COLORS.length];
                 return IconButton(
-                  icon: pantry.getReferenceIcon(
+                  icon: ProductList.getReferenceIcon(
                     colorScheme: Theme.of(context).colorScheme,
                     colorTag: colorTag,
                     iconTag: iconTag,
                     colorDestination: ColorDestination.SURFACE_FOREGROUND,
                   ),
                   onPressed: () async {
-                    pantry.colorTag = colorTag;
-                    pantry.iconTag = iconTag;
+                    productList.colorTag = colorTag;
+                    productList.iconTag = iconTag;
+                    await daoProductList.put(productList);
                     Navigator.pop(context, true);
                   },
                 );

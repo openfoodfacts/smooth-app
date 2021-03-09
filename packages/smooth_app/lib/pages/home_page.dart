@@ -1,5 +1,4 @@
 // Flutter imports:
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -22,14 +21,14 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/choose_page.dart';
 import 'package:smooth_app/pages/list_page.dart';
-import 'package:smooth_app/pages/pantry_button.dart';
-import 'package:smooth_app/pages/pantry_dialog_helper.dart';
-import 'package:smooth_app/pages/pantry_list_page.dart';
-import 'package:smooth_app/pages/product_list_button.dart';
-import 'package:smooth_app/pages/product_list_dialog_helper.dart';
-import 'package:smooth_app/pages/product_page.dart';
-import 'package:smooth_app/pages/profile_page.dart';
-import 'package:smooth_app/pages/scan_page.dart';
+import 'package:smooth_app/pages/pantry/common/pantry_button.dart';
+import 'package:smooth_app/pages/pantry/common/pantry_dialog_helper.dart';
+import 'package:smooth_app/pages/pantry/common/pantry_list_page.dart';
+import 'package:smooth_app/pages/product/common/product_list_button.dart';
+import 'package:smooth_app/pages/product/common/product_list_dialog_helper.dart';
+import 'package:smooth_app/pages/product/product_page.dart';
+import 'package:smooth_app/pages/settings_page.dart';
+import 'package:smooth_app/pages/scan/scan_page.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 

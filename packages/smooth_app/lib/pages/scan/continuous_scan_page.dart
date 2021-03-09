@@ -13,7 +13,7 @@ import 'package:smooth_ui_library/widgets/smooth_view_finder.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/lists/smooth_product_carousel.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
-import 'package:smooth_app/pages/scan_page.dart';
+import 'package:smooth_app/pages/scan/scan_page.dart';
 
 class ContinuousScanPage extends StatelessWidget {
   ContinuousScanPage(this._continuousScanModel);
