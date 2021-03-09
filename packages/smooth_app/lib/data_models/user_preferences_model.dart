@@ -149,10 +149,10 @@ class UserPreferencesModel extends ChangeNotifier {
       final String importanceUrl = _getImportanceUrl(languageCode);
       final String attributeUrl = _getAttributeUrl(languageCode);
       http.Response response;
-      response = await http.get(importanceUrl);
+      response = await http.get(Uri.parse(importanceUrl));
       // TODO(monsieurtanuki): check response.statusCode
       final String importanceString = response.body;
-      response = await http.get(attributeUrl);
+      response = await http.get(Uri.parse(attributeUrl));
       // TODO(monsieurtanuki): check response.statusCode
       final String attributeGroupString = response.body;
       final UserPreferencesModel userPreferencesModel =
