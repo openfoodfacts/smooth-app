@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -89,7 +90,7 @@ class _HomePageState extends State<HomePage> {
         title: Row(
           children: const <Widget>[
             Icon(Icons.pets),
-            SizedBox(width: 8.0),
+            SizedBox(width: 10.0),
             Text('Smoothie'),
           ],
         ),
@@ -109,175 +110,178 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
 
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            //Search
-            StatefulBuilder(
-              builder: (BuildContext context, StateSetter setState) {
-                return Card(
-                  child: ListTile(
-                    leading: Icon(
-                      Icons.search,
-                      color: SmoothTheme.getColor(
-                        colorScheme,
-                        Colors.red,
-                        _COLOR_DESTINATION_FOR_ICON,
+      body: ListView(
+        children: <Widget>[
+          //Search
+          StatefulBuilder(
+            builder: (BuildContext context, StateSetter setState) {
+              return Card(
+                child: ListTile(
+                  leading: Icon(
+                    Icons.search,
+                    color: SmoothTheme.getColor(
+                      colorScheme,
+                      Colors.red,
+                      _COLOR_DESTINATION_FOR_ICON,
+                    ),
+                  ),
+                  trailing: AnimatedOpacity(
+                    opacity: _visibleCloseButton ? 1.0 : 0.0,
+                    duration: const Duration(milliseconds: 100),
+                    child: IgnorePointer(
+                      ignoring: !_visibleCloseButton,
+                      child: IconButton(
+                        icon: const Icon(Icons.close),
+                        onPressed: () {
+                          setState(() {
+                            FocusScope.of(context).unfocus();
+                            _searchController.text = '';
+                            _visibleCloseButton = false;
+                          });
+                        },
                       ),
                     ),
-                    trailing: AnimatedOpacity(
-                      opacity: _visibleCloseButton ? 1.0 : 0.0,
-                      duration: const Duration(milliseconds: 100),
-                      child: IgnorePointer(
-                        ignoring: !_visibleCloseButton,
-                        child: IconButton(
-                          icon: const Icon(Icons.close),
-                          onPressed: () {
-                            setState(() {
-                              FocusScope.of(context).unfocus();
-                              _searchController.text = '';
-                              _visibleCloseButton = false;
-                            });
-                          },
+                  ),
+                  title: TypeAheadFormField<Product>(
+                    textFieldConfiguration: TextFieldConfiguration(
+                      controller: _searchController,
+                      autofocus: false,
+                      decoration: const InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'What are you looking for?'),
+                    ),
+                    hideOnEmpty: true,
+                    hideOnLoading: true,
+                    suggestionsCallback: (String value) async => _search(value),
+                    transitionBuilder: (BuildContext context,
+                        Widget suggestionsBox, AnimationController controller) {
+                      return suggestionsBox;
+                    },
+                    itemBuilder: (BuildContext context, Product suggestion) {
+                      return ListTile(
+                        title: Text(suggestion.productName),
+                        leading: SmoothProductImage(
+                          product: suggestion,
                         ),
-                      ),
-                    ),
-                    title: TypeAheadFormField<Product>(
-                      textFieldConfiguration: TextFieldConfiguration(
-                        controller: _searchController,
-                        autofocus: false,
-                        decoration: const InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'What are you looking for?'),
-                      ),
-                      hideOnEmpty: true,
-                      hideOnLoading: true,
-                      suggestionsCallback: (String value) async =>
-                          _search(value),
-                      transitionBuilder: (BuildContext context,
-                          Widget suggestionsBox,
-                          AnimationController controller) {
-                        return suggestionsBox;
-                      },
-                      itemBuilder: (BuildContext context, Product suggestion) {
-                        return ListTile(
-                          title: Text(suggestion.productName),
-                          leading: SmoothProductImage(
+                      );
+                    },
+                    onSuggestionSelected: (Product suggestion) {
+                      Navigator.push<dynamic>(
+                        context,
+                        MaterialPageRoute<dynamic>(
+                          builder: (BuildContext context) => ProductPage(
                             product: suggestion,
                           ),
-                        );
-                      },
-                      onSuggestionSelected: (Product suggestion) {
-                        Navigator.push<dynamic>(
-                          context,
-                          MaterialPageRoute<dynamic>(
-                            builder: (BuildContext context) => ProductPage(
-                              product: suggestion,
-                            ),
-                          ),
-                        );
-                      },
-                      // TODO(m123-dev): add fullscreen search page,
-                      //onSaved: (value) => ,
-                    ),
+                        ),
+                      );
+                    },
+                    // TODO(m123-dev): add fullscreen search page,
+                    //onSaved: (value) => ,
+                  ),
+                ),
+              );
+            },
+          ),
+          //My lists
+          _getProductListCard(
+            <String>[ProductList.LIST_TYPE_USER_DEFINED],
+            'My lists',
+            Icon(
+              Icons.list,
+              color: SmoothTheme.getColor(
+                colorScheme,
+                Colors.purple,
+                _COLOR_DESTINATION_FOR_ICON,
+              ),
+            ),
+          ),
+          //My pantries
+          _getPantryCard(userPreferences, _daoProduct, PantryType.PANTRY),
+          //My shopping lists
+          _getPantryCard(userPreferences, _daoProduct, PantryType.SHOPPING),
+          //Food ranking parameters
+          _getRankingPreferences(userPreferencesModel, userPreferences),
+          //Recently seen products
+          ProductListPreview(
+            daoProductList: _daoProductList,
+            productList: ProductList(
+              listType: ProductList.LIST_TYPE_HISTORY,
+              parameters: '',
+            ),
+            nbInPreview: 5,
+          ),
+          //Food category's
+          Card(
+            child: ListTile(
+              onTap: () async {
+                await Navigator.push<dynamic>(
+                  context,
+                  MaterialPageRoute<dynamic>(
+                    builder: (BuildContext context) => ChoosePage(),
                   ),
                 );
+                setState(() {});
               },
-            ),
-
-            _getProductListCard(
-              <String>[ProductList.LIST_TYPE_USER_DEFINED],
-              'My lists',
-              Icon(
-                Icons.list,
+              leading: Icon(
+                Icons.fastfood,
                 color: SmoothTheme.getColor(
                   colorScheme,
-                  Colors.purple,
+                  Colors.orange,
                   _COLOR_DESTINATION_FOR_ICON,
                 ),
               ),
-            ),
-            _getPantryCard(userPreferences, _daoProduct, PantryType.PANTRY),
-            _getPantryCard(userPreferences, _daoProduct, PantryType.SHOPPING),
-            _getRankingPreferences(userPreferencesModel, userPreferences),
-            ProductListPreview(
-              daoProductList: _daoProductList,
-              productList: ProductList(
-                listType: ProductList.LIST_TYPE_HISTORY,
-                parameters: '',
-              ),
-              nbInPreview: 5,
-            ),
-            Card(
-              child: ListTile(
-                onTap: () async {
-                  await Navigator.push<dynamic>(
-                    context,
-                    MaterialPageRoute<dynamic>(
-                      builder: (BuildContext context) => ChoosePage(),
-                    ),
-                  );
-                  setState(() {});
-                },
-                leading: Icon(
-                  Icons.fastfood,
-                  color: SmoothTheme.getColor(
-                    colorScheme,
-                    Colors.orange,
-                    _COLOR_DESTINATION_FOR_ICON,
-                  ),
-                ),
-                subtitle: const Text('Food category search'),
-                title: Text(
-                  '${PnnsGroup1.BEVERAGES.name}'
-                  ', ${PnnsGroup1.CEREALS_AND_POTATOES.name}'
-                  ', ${PnnsGroup1.COMPOSITE_FOODS.name}'
-                  ', ${PnnsGroup1.FAT_AND_SAUCES.name}'
-                  ', ${PnnsGroup1.FISH_MEAT_AND_EGGS.name}'
-                  ', ...',
-                  style: Theme.of(context).textTheme.subtitle2,
-                ),
+              title: Text('Food category search',
+                  style: Theme.of(context).textTheme.subtitle2),
+              subtitle: Text(
+                '${PnnsGroup1.BEVERAGES.name}'
+                ', ${PnnsGroup1.CEREALS_AND_POTATOES.name}'
+                ', ${PnnsGroup1.COMPOSITE_FOODS.name}'
+                ', ${PnnsGroup1.FAT_AND_SAUCES.name}'
+                ', ${PnnsGroup1.FISH_MEAT_AND_EGGS.name}'
+                ', ...',
               ),
             ),
-            _getProductListCard(
-              <String>[
-                ProductList.LIST_TYPE_HTTP_SEARCH_GROUP,
-                ProductList.LIST_TYPE_HTTP_SEARCH_KEYWORDS,
-                ProductList.LIST_TYPE_HTTP_SEARCH_CATEGORY,
-              ],
-              'Search history',
-              Icon(
-                Icons.youtube_searched_for,
-                color: SmoothTheme.getColor(
-                  colorScheme,
-                  Colors.yellow,
-                  _COLOR_DESTINATION_FOR_ICON,
-                ),
+          ),
+          //Search history
+          _getProductListCard(
+            <String>[
+              ProductList.LIST_TYPE_HTTP_SEARCH_GROUP,
+              ProductList.LIST_TYPE_HTTP_SEARCH_KEYWORDS,
+              ProductList.LIST_TYPE_HTTP_SEARCH_CATEGORY,
+            ],
+            'Search history',
+            Icon(
+              Icons.youtube_searched_for,
+              color: SmoothTheme.getColor(
+                colorScheme,
+                Colors.yellow,
+                _COLOR_DESTINATION_FOR_ICON,
               ),
             ),
-            Card(
-              color: notYetColor,
-              child: const ListTile(
-                leading: Icon(
-                  Icons.score,
-                ),
-                title: Text('Your current score: 14 points'),
-                subtitle: Text('The next level is at 20 points'),
+          ),
+          //Score
+          Card(
+            color: notYetColor,
+            child: const ListTile(
+              leading: Icon(
+                Icons.score,
               ),
+              title: Text('Your current score: 14 points'),
+              subtitle: Text('The next level is at 20 points'),
             ),
-            Card(
-              color: notYetColor,
-              child: const ListTile(
-                leading: Icon(
-                  Icons.build,
-                ),
-                title: Text('Contribute'),
-                subtitle: Text('Help us list more and more foods!'),
+          ),
+          //Contribute
+          Card(
+            color: notYetColor,
+            child: const ListTile(
+              leading: Icon(
+                Icons.build,
               ),
+              title: Text('Contribute'),
+              subtitle: Text('Help us list more and more foods!'),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
 
       floatingActionButton: FloatingActionButton(
