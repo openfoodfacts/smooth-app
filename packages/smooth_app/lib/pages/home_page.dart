@@ -280,6 +280,9 @@ class _HomePageState extends State<HomePage> {
               subtitle: Text('Help us list more and more foods!'),
             ),
           ),
+          const SizedBox(
+            height: 10,
+          ),
         ],
       ),
 
