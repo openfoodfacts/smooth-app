@@ -44,7 +44,11 @@ class PantryPreview extends StatelessWidget {
             onTap: () async => await Navigator.push<dynamic>(
               context,
               MaterialPageRoute<dynamic>(
-                builder: (BuildContext context) => PantryPage(pantries, index),
+                builder: (BuildContext context) => PantryPage(
+                  pantries,
+                  index,
+                  pantries[index].pantryType,
+                ),
               ),
             ),
             leading: pantry.getIcon(

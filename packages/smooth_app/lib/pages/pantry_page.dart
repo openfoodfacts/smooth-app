@@ -20,10 +20,12 @@ class PantryPage extends StatelessWidget {
   const PantryPage(
     this.pantries,
     this.index,
+    this.pantryType,
   );
 
   final List<Pantry> pantries;
   final int index;
+  final PantryType pantryType;
 
   static const String _EMPTY_DATE = '';
   static const String _TRANSLATE_ME_RENAME = 'Rename';
@@ -212,7 +214,7 @@ class PantryPage extends StatelessWidget {
   }
 
   Future<void> _save(final UserPreferences userPreferences) async =>
-      Pantry.putAll(userPreferences, pantries, pantries[index].pantryType);
+      Pantry.putAll(userPreferences, pantries, pantryType);
 
   Widget _getPantryDayLine({
     @required final Pantry pantry,
