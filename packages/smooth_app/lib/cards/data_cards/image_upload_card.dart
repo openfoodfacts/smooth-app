@@ -15,11 +15,13 @@ class ImageUploadCard extends StatefulWidget {
   const ImageUploadCard({
     this.product,
     this.imageField,
+    this.imageUrl,
     this.buttonText,
   });
 
   final Product product;
   final ImageField imageField;
+  final String imageUrl;
   final String buttonText;
 
   @override
@@ -76,10 +78,19 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton.icon(
-      onPressed: _getImage,
-      icon: const Icon(Icons.add_a_photo),
-      label: Text(widget.buttonText),
-    );
+    print(widget.imageUrl);
+    if (widget.imageUrl != null) {
+      return Container(
+        child: Center(
+            child: Image.network(widget.imageUrl,
+                fit: BoxFit.cover, height: 1000)),
+      );
+    } else {
+      return ElevatedButton.icon(
+        onPressed: _getImage,
+        icon: const Icon(Icons.add_a_photo),
+        label: Text(widget.buttonText),
+      );
+    }
   }
 }

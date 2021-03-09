@@ -16,6 +16,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:share/share.dart';
 import 'package:smooth_ui_library/widgets/smooth_card.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 // Project imports:
 import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
@@ -279,6 +280,56 @@ class _ProductPageState extends State<ProductPage> {
     localDatabase.notifyListeners();
   }
 
+  Widget _buildProductImagesCarousel(BuildContext context) {
+    final List<String> imgList = [
+      _product.imageFrontUrl,
+      _product.imageIngredientsUrl,
+      _product.imageNutritionUrl,
+      _product.imagePackagingUrl,
+    ];
+
+    List<Widget> carouselItems = [
+      ImageUploadCard(
+          product: _product,
+          imageField: ImageField.FRONT,
+          imageUrl: _product.imageFrontUrl,
+          buttonText: 'Front photo'),
+      ImageUploadCard(
+          product: _product,
+          imageField: ImageField.INGREDIENTS,
+          imageUrl: _product.imageIngredientsUrl,
+          buttonText: 'Ingredients photo'),
+      ImageUploadCard(
+        product: _product,
+        imageField: ImageField.NUTRITION,
+        imageUrl: _product.imageNutritionUrl,
+        buttonText: 'Nutrition facts photo',
+      ),
+      ImageUploadCard(
+        product: _product,
+        imageField: ImageField.PACKAGING,
+        imageUrl: _product.imagePackagingUrl,
+        buttonText: 'Packaging information photo',
+      ),
+      ImageUploadCard(
+        product: _product,
+        imageField: ImageField.OTHER,
+        imageUrl: null,
+        buttonText: 'More interesting photos',
+      ),
+    ];
+
+    return CarouselSlider(
+        options: CarouselOptions(
+          enableInfiniteScroll: false,
+          height: 200,
+          viewportFraction: 0.6,
+          pageSnapping: false,
+          enlargeStrategy: CenterPageEnlargeStrategy.height,
+        ),
+        items: carouselItems);
+  }
+
   Widget _buildNewProductBody(BuildContext context) {
     return ListView(children: <Widget>[
       Container(
@@ -327,6 +378,8 @@ class _ProductPageState extends State<ProductPage> {
     final List<String> mainAttributes =
         userPreferencesModel.getOrderedVariables(userPreferences);
     final List<Widget> listItems = <Widget>[];
+
+    listItems.add(_buildProductImagesCarousel(context));
 
     listItems.add(
       Padding(
@@ -427,44 +480,9 @@ class _ProductPageState extends State<ProductPage> {
       }
     }
 
-    return Stack(
-      children: <Widget>[
-        if (_product.imgSmallUrl != null)
-          Image.network(
-            _product.imgSmallUrl,
-            fit: BoxFit.cover,
-            height: double.infinity,
-            width: double.infinity,
-            alignment: Alignment.center,
-            loadingBuilder:
-                (BuildContext context, Widget child, ImageChunkEvent progress) {
-              if (progress == null) {
-                return child;
-              }
-              return Center(
-                child: CircularProgressIndicator(
-                  strokeWidth: 2.5,
-                  valueColor: const AlwaysStoppedAnimation<Color>(Colors.white),
-                  value: progress.cumulativeBytesLoaded /
-                      progress.expectedTotalBytes,
-                ),
-              );
-            },
-          )
-        else
-          Container(
-            width: screenSize.width,
-            height: screenSize.height,
-            color: Colors.black54,
-          ),
-        BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 18.0, sigmaY: 18.0),
-          child: Container(
-            color: themeData.colorScheme.surface.withAlpha(220),
-            child: ListView(children: listItems),
-          ),
-        ),
-      ],
+    return Container(
+      color: themeData.colorScheme.surface.withAlpha(220),
+      child: ListView(children: listItems),
     );
   }
 
