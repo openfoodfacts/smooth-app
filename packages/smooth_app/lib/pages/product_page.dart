@@ -16,6 +16,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:share/share.dart';
 import 'package:smooth_ui_library/widgets/smooth_card.dart';
+import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
 
 // Project imports:
 import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
@@ -328,6 +329,16 @@ class _ProductPageState extends State<ProductPage> {
         userPreferencesModel.getOrderedVariables(userPreferences);
     final List<Widget> listItems = <Widget>[];
 
+    if (_product.imgSmallUrl != null) {
+      listItems.add(
+        SmoothProductImage(
+          product: _product,
+          width: screenSize.width,
+          height: screenSize.height / 4,
+        ),
+      );
+    }
+
     listItems.add(
       Padding(
         padding: const EdgeInsets.all(16.0),
@@ -427,45 +438,7 @@ class _ProductPageState extends State<ProductPage> {
       }
     }
 
-    return Stack(
-      children: <Widget>[
-        if (_product.imgSmallUrl != null)
-          Image.network(
-            _product.imgSmallUrl,
-            fit: BoxFit.cover,
-            height: double.infinity,
-            width: double.infinity,
-            alignment: Alignment.center,
-            loadingBuilder:
-                (BuildContext context, Widget child, ImageChunkEvent progress) {
-              if (progress == null) {
-                return child;
-              }
-              return Center(
-                child: CircularProgressIndicator(
-                  strokeWidth: 2.5,
-                  valueColor: const AlwaysStoppedAnimation<Color>(Colors.white),
-                  value: progress.cumulativeBytesLoaded /
-                      progress.expectedTotalBytes,
-                ),
-              );
-            },
-          )
-        else
-          Container(
-            width: screenSize.width,
-            height: screenSize.height,
-            color: Colors.black54,
-          ),
-        BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 18.0, sigmaY: 18.0),
-          child: Container(
-            color: themeData.colorScheme.surface.withAlpha(220),
-            child: ListView(children: listItems),
-          ),
-        ),
-      ],
-    );
+    return ListView(children: listItems);
   }
 
   Widget _getAttributeGroupWidget(
