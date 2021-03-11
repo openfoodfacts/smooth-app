@@ -29,7 +29,7 @@ jobs:
       - name: Enable flutter web
         run: flutter config --enable-web
       - name: 'Build Web App (flutter create will need to be run once and committed)'
-        run: flutter build web
+        run: cd ../ && flutter build web
       - name: deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
