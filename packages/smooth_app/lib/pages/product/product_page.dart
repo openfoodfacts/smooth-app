@@ -1,28 +1,40 @@
+// Dart imports:
 import 'dart:ui';
 
+// Flutter imports:
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:openfoodfacts/model/Attribute.dart';
+import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:provider/provider.dart';
+import 'package:share/share.dart';
+import 'package:smooth_ui_library/widgets/smooth_card.dart';
+import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
+
+// Project imports:
+import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
 import 'package:smooth_app/cards/data_cards/image_upload_card.dart';
 import 'package:smooth_app/cards/expandables/attribute_list_expandable.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/data_models/match.dart';
-import 'package:smooth_app/data_models/user_preferences_model.dart';
-import 'package:provider/provider.dart';
-import 'package:openfoodfacts/model/AttributeGroup.dart';
-import 'package:openfoodfacts/model/Attribute.dart';
-import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
-import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/data_models/user_preferences_model.dart';
+import 'package:smooth_app/database/category_product_query.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
-import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
+import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/functions/launchURL.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
-import 'package:smooth_app/pages/product_query_page_helper.dart';
+import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
+import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
+import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
-import 'package:wc_flutter_share/wc_flutter_share.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage({@required this.product, this.newProduct = false});
@@ -145,6 +157,9 @@ class ProductPage extends StatefulWidget {
 }
 
 class _ProductPageState extends State<ProductPage> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  Product _product;
+
   @override
   void initState() {
     super.initState();
@@ -160,24 +175,19 @@ class _ProductPageState extends State<ProductPage> {
     UserPreferencesModel.ATTRIBUTE_GROUP_ALLERGENS,
   ];
 
-  static const double _OPACITY_FOR_DARK =
-      .3; // TODO(monsieurtanuki): make it more public?
-
   @override
   Widget build(BuildContext context) {
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ThemeData themeData = Theme.of(context);
-    final ColorScheme colorScheme = themeData.colorScheme;
+    _product ??= widget.product;
     return Scaffold(
+        key: _scaffoldKey,
         appBar: AppBar(
-          title: ListTile(
-            title: Text(
-              widget.product.productName ?? appLocalizations.unknownProductName,
-              style: themeData.textTheme.headline4
-                  .copyWith(color: colorScheme.onBackground),
-            ),
+          title: Text(
+            _product.productName ?? appLocalizations.unknownProductName,
+            //style: themeData.textTheme.headline4,
           ),
-          iconTheme: IconThemeData(color: colorScheme.onBackground),
         ),
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
@@ -197,33 +207,58 @@ class _ProductPageState extends State<ProductPage> {
               icon: Icon(Icons.launch),
               label: 'web',
             ),
+            const BottomNavigationBarItem(
+              icon: Icon(Icons.refresh),
+              label: 'refresh',
+            ),
             BottomNavigationBarItem(
               icon: Icon(ConstantIcons.getShareIcon()),
               label: 'share',
             ),
           ],
-          onTap: (final int index) {
+          onTap: (final int index) async {
             switch (index) {
               case 0:
                 UserPreferencesView.showModal(context);
                 return;
               case 1:
-                ProductPage.showLists(widget.product, context);
+                ProductPage.showLists(_product, context);
                 return;
               case 2:
                 Launcher().launchURL(
                     context,
-                    'https://openfoodfacts.org/product/${widget.product.barcode}/',
+                    'https://openfoodfacts.org/product/${_product.barcode}/',
                     false);
                 return;
               case 3:
-                WcFlutterShare.share(
-                    sharePopupTitle: 'Share',
-                    subject:
-                        '${widget.product.productName} (by openfoodfacts.org)',
-                    text:
-                        'Try this food: https://openfoodfacts.org/product/${widget.product.barcode}/',
-                    mimeType: 'text/plain');
+                final ProductDialogHelper productDialogHelper =
+                    ProductDialogHelper(
+                  barcode: _product.barcode,
+                  context: context,
+                  localDatabase: localDatabase,
+                  refresh: true,
+                );
+                final Product product =
+                    await productDialogHelper.openUniqueProductSearch();
+                if (product == null) {
+                  productDialogHelper.openProductNotFoundDialog();
+                  return;
+                }
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Product refreshed'),
+                    duration: Duration(seconds: 2),
+                  ),
+                );
+                setState(() {
+                  _product = product;
+                });
+                return;
+              case 4:
+                Share.share(
+                  'Try this food: https://openfoodfacts.org/product/${_product.barcode}/',
+                  subject: '${_product.productName} (by openfoodfacts.org)',
+                );
                 return;
             }
             throw 'Unexpected index $index';
@@ -240,7 +275,7 @@ class _ProductPageState extends State<ProductPage> {
     final ProductList productList =
         ProductList(listType: ProductList.LIST_TYPE_HISTORY, parameters: '');
     await daoProductList.get(productList);
-    productList.add(widget.product);
+    productList.add(_product);
     await daoProductList.put(productList);
     localDatabase.notifyListeners();
   }
@@ -256,26 +291,27 @@ class _ProductPageState extends State<ProductPage> {
         ),
       ),
       ImageUploadCard(
-          product: widget.product,
+          product: _product,
           imageField: ImageField.FRONT,
           buttonText: 'Front photo'),
       ImageUploadCard(
-          product: widget.product,
+          product: _product,
           imageField: ImageField.INGREDIENTS,
           buttonText: 'Ingredients photo'),
       ImageUploadCard(
-        product: widget.product,
+        product: _product,
         imageField: ImageField.NUTRITION,
         buttonText: 'Nutrition facts photo',
       ),
       ImageUploadCard(
-          product: widget.product,
+          product: _product,
           imageField: ImageField.OTHER,
           buttonText: 'More interesting photos'),
     ]);
   }
 
   Widget _buildProductBody(BuildContext context) {
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final UserPreferencesModel userPreferencesModel =
         context.watch<UserPreferencesModel>();
@@ -293,6 +329,16 @@ class _ProductPageState extends State<ProductPage> {
         userPreferencesModel.getOrderedVariables(userPreferences);
     final List<Widget> listItems = <Widget>[];
 
+    if (_product.imgSmallUrl != null) {
+      listItems.add(
+        SmoothProductImage(
+          product: _product,
+          width: screenSize.width,
+          height: screenSize.height / 4,
+        ),
+      );
+    }
+
     listItems.add(
       Padding(
         padding: const EdgeInsets.all(16.0),
@@ -302,15 +348,13 @@ class _ProductPageState extends State<ProductPage> {
           children: <Widget>[
             Flexible(
               child: Text(
-                widget.product.brands ?? appLocalizations.unknownBrand,
+                _product.brands ?? appLocalizations.unknownBrand,
                 style: themeData.textTheme.subtitle1,
               ),
             ),
             Flexible(
               child: Text(
-                widget.product.quantity != null
-                    ? '${widget.product.quantity}'
-                    : '',
+                _product.quantity != null ? '${_product.quantity}' : '',
                 style: themeData.textTheme.headline4
                     .copyWith(color: Colors.grey, fontSize: 18.0),
               ),
@@ -320,14 +364,15 @@ class _ProductPageState extends State<ProductPage> {
       ),
     );
     final Map<String, Attribute> matchingAttributes =
-        Match.getMatchingAttributes(widget.product, mainAttributes);
-    final double opacity =
-        themeData.brightness == Brightness.light ? 1 : _OPACITY_FOR_DARK;
+        Match.getMatchingAttributes(_product, mainAttributes);
+    final double opacity = themeData.brightness == Brightness.light
+        ? 1
+        : SmoothTheme.ADDITIONAL_OPACITY_FOR_DARK;
     for (final String attributeId in mainAttributes) {
       if (matchingAttributes[attributeId] != null) {
         listItems.add(
           AttributeListExpandable(
-            product: widget.product,
+            product: _product,
             iconWidth: iconWidth,
             attributeTags: <String>[attributeId],
             collapsible: false,
@@ -342,45 +387,58 @@ class _ProductPageState extends State<ProductPage> {
       listItems.add(_getAttributeGroupWidget(attributeGroup, iconWidth));
     }
 
-    return Stack(
-      children: <Widget>[
-        if (widget.product.imgSmallUrl != null)
-          Image.network(
-            widget.product.imgSmallUrl,
-            fit: BoxFit.cover,
-            height: double.infinity,
-            width: double.infinity,
-            alignment: Alignment.center,
-            loadingBuilder:
-                (BuildContext context, Widget child, ImageChunkEvent progress) {
-              if (progress == null) {
-                return child;
-              }
-              return Center(
-                child: CircularProgressIndicator(
-                  strokeWidth: 2.5,
-                  valueColor: const AlwaysStoppedAnimation<Color>(Colors.white),
-                  value: progress.cumulativeBytesLoaded /
-                      progress.expectedTotalBytes,
+    if (_product.categoriesTags != null && _product.categoriesTags.isNotEmpty) {
+      for (int i = _product.categoriesTags.length - 1;
+          i < _product.categoriesTags.length;
+          i++) {
+        final String categoryTag = _product.categoriesTags[i];
+        const MaterialColor materialColor = Colors.blue;
+        listItems.add(
+          SmoothCard(
+            background: SmoothTheme.getColor(
+              themeData.colorScheme,
+              materialColor,
+              ColorDestination.SURFACE_BACKGROUND,
+            ),
+            collapsed: null,
+            content: ListTile(
+              leading: Icon(
+                Icons.search,
+                size: iconWidth,
+                color: SmoothTheme.getColor(
+                  themeData.colorScheme,
+                  materialColor,
+                  ColorDestination.SURFACE_FOREGROUND,
                 ),
-              );
-            },
-          )
-        else
-          Container(
-            width: screenSize.width,
-            height: screenSize.height,
-            color: Colors.black54,
+              ),
+              onTap: () async => await ProductQueryPageHelper().openBestChoice(
+                color: materialColor,
+                heroTag: 'search_bar',
+                name: categoryTag,
+                localDatabase: localDatabase,
+                productQuery: CategoryProductQuery(
+                  category: categoryTag,
+                  languageCode: ProductQuery.getCurrentLanguageCode(context),
+                  countryCode: ProductQuery.getCurrentCountryCode(),
+                  size: 500,
+                ),
+                context: context,
+              ),
+              title: Text(
+                categoryTag,
+                style: themeData.textTheme.headline3,
+              ),
+              subtitle: Text(
+                'Similar foods',
+                style: themeData.textTheme.subtitle2,
+              ),
+            ),
           ),
-        BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 18.0, sigmaY: 18.0),
-          child: Container(
-            color: themeData.colorScheme.surface.withAlpha(220),
-            child: ListView(children: listItems),
-          ),
-        ),
-      ],
-    );
+        );
+      }
+    }
+
+    return ListView(children: listItems);
   }
 
   Widget _getAttributeGroupWidget(
@@ -392,7 +450,7 @@ class _ProductPageState extends State<ProductPage> {
       attributeTags.add(attribute.id);
     }
     return AttributeListExpandable(
-      product: widget.product,
+      product: _product,
       iconWidth: iconWidth,
       attributeTags: attributeTags,
       title: attributeGroup.name,

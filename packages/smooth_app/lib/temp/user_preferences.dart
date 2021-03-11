@@ -1,11 +1,16 @@
 // Note to myself : this needs to be transferred to the openfoodfacts-dart plugin when ready
 
-import 'package:shared_preferences/shared_preferences.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:smooth_app/data_models/user_preferences_model.dart';
-import 'package:smooth_app/data_models/pantry.dart';
-import 'package:openfoodfacts/model/AttributeGroup.dart';
+
+// Package imports:
 import 'package:openfoodfacts/model/Attribute.dart';
+import 'package:openfoodfacts/model/AttributeGroup.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+// Project imports:
+import 'package:smooth_app/data_models/pantry.dart';
+import 'package:smooth_app/data_models/user_preferences_model.dart';
 
 class UserPreferences extends ChangeNotifier {
   UserPreferences._shared(final SharedPreferences sharedPreferences) {
@@ -28,6 +33,8 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_USE_ML_KIT = 'useMlKit';
   static const String _TAG_INIT = 'init';
   static const String _TAG_PRODUCT_LIST_COPY = 'productListCopy';
+  static const String _TAG_THEME_DARK = 'themeDark';
+  static const String _TAG_THEME_COLOR_TAG = 'themeColorTag';
 
   static const Map<PantryType, String> _PANTRY_TYPE_TO_TAG =
       <PantryType, String>{
@@ -87,7 +94,7 @@ class UserPreferences extends ChangeNotifier {
       await _setImportance(UserPreferencesModel.ATTRIBUTE_ECOSCORE, valueIndex,
           notify: false);
     }
-    await _sharedPreferences.setStringList(_TAG_VISIBLE_GROUPS, null);
+    await _sharedPreferences.remove(_TAG_VISIBLE_GROUPS);
     notifyListeners();
   }
 
@@ -99,10 +106,10 @@ class UserPreferences extends ChangeNotifier {
 
   Future<void> setAttributeGroupVisibility(
       final AttributeGroup group, final bool visible) async {
-    List<String> visibleList =
-        _sharedPreferences.getStringList(_TAG_VISIBLE_GROUPS);
+    final List<String> visibleList =
+        _sharedPreferences.getStringList(_TAG_VISIBLE_GROUPS) ?? <String>[];
     final String tag = group.id;
-    if (visibleList != null && visibleList.contains(tag)) {
+    if (visibleList.contains(tag)) {
       if (visible) {
         return;
       }
@@ -111,7 +118,6 @@ class UserPreferences extends ChangeNotifier {
       if (!visible) {
         return;
       }
-      visibleList ??= <String>[];
       visibleList.add(tag);
     }
     await _sharedPreferences.setStringList(_TAG_VISIBLE_GROUPS, visibleList);
@@ -146,4 +152,15 @@ class UserPreferences extends ChangeNotifier {
   List<String> getPantryRepository(final PantryType pantryType) =>
       _sharedPreferences.getStringList(_PANTRY_TYPE_TO_TAG[pantryType]) ??
       <String>[];
+
+  Future<void> setThemeDark(final bool state) async =>
+      await _sharedPreferences.setBool(_TAG_THEME_DARK, state);
+
+  bool get isThemeDark => _sharedPreferences.getBool(_TAG_THEME_DARK) ?? false;
+
+  Future<void> setThemeColorTag(final String colorTag) async =>
+      await _sharedPreferences.setString(_TAG_THEME_COLOR_TAG, colorTag);
+
+  String get themeColorTag =>
+      _sharedPreferences.getString(_TAG_THEME_COLOR_TAG);
 }

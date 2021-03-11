@@ -1,11 +1,16 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:openfoodfacts/model/Product.dart';
-import 'package:smooth_app/database/dao_product_list.dart';
-import 'package:smooth_app/pages/product_list_page.dart';
-import 'package:smooth_app/data_models/product_list.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
-import 'package:smooth_app/pages/product_query_page_helper.dart';
+
+// Project imports:
 import 'package:smooth_app/cards/product_cards/product_list_preview_helper.dart';
+import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/database/dao_product_list.dart';
+import 'package:smooth_app/pages/product/common/product_list_page.dart';
+import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
 
 class ProductListPreview extends StatelessWidget {
   const ProductListPreview({
@@ -43,9 +48,10 @@ class ProductListPreview extends StatelessWidget {
               subtitle = 'Empty list';
             }
             return Card(
-              color: SmoothTheme.getBackgroundColor(
+              color: SmoothTheme.getColor(
                 Theme.of(context).colorScheme,
                 productList.getMaterialColor(),
+                ColorDestination.SURFACE_BACKGROUND,
               ),
               child: Column(
                 children: <Widget>[
@@ -64,11 +70,16 @@ class ProductListPreview extends StatelessWidget {
                         ),
                       );
                     },
-                    leading: productList.getIcon(Theme.of(context).colorScheme),
-                    trailing: const Icon(Icons.more_horiz),
+                    leading: productList.getIcon(
+                      Theme.of(context).colorScheme,
+                      ColorDestination.SURFACE_FOREGROUND,
+                    ),
+                    trailing: const Icon(Icons.arrow_forward),
                     subtitle: subtitle == null ? null : Text(subtitle),
-                    title: Text(title,
-                        style: Theme.of(context).textTheme.subtitle2),
+                    title: Text(
+                      title,
+                      style: Theme.of(context).textTheme.subtitle2,
+                    ),
                   ),
                   ProductListPreviewHelper(
                     list: list,

@@ -1,10 +1,17 @@
+// Dart imports:
 import 'dart:ui';
 
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
 import 'package:rubber/rubber.dart';
+import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
+
+// Project imports:
 import 'package:smooth_app/cards/data_cards/attribute_chip.dart';
 import 'package:smooth_app/cards/data_cards/smooth_data_card.dart';
 import 'package:smooth_app/cards/data_cards/smooth_energy_card.dart';
@@ -12,7 +19,6 @@ import 'package:smooth_app/cards/data_cards/smooth_intake_recommendation_card.da
 import 'package:smooth_app/cards/data_cards/smooth_quantity_selector_card.dart';
 import 'package:smooth_app/data_models/sneak_peek_model.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
-import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
 
 class SmoothProductSneakPeekView extends StatefulWidget {
   const SmoothProductSneakPeekView(

@@ -1,9 +1,15 @@
+// Dart imports:
 import 'dart:ui';
 
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/model/ProductImage.dart';
-import 'package:smooth_app/pages/product_page.dart';
+
+// Project imports:
+import 'package:smooth_app/pages/product/product_page.dart';
 
 class SmoothProductCardEdit extends StatelessWidget {
   const SmoothProductCardEdit({

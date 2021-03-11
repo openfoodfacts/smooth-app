@@ -1,12 +1,17 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:openfoodfacts/model/Attribute.dart';
+import 'package:openfoodfacts/model/Product.dart';
+import 'package:provider/provider.dart';
+import 'package:smooth_ui_library/widgets/smooth_card.dart';
+import 'package:smooth_ui_library/widgets/smooth_expandable_card.dart';
+
+// Project imports:
 import 'package:smooth_app/cards/data_cards/attribute_card.dart';
 import 'package:smooth_app/cards/data_cards/attribute_chip.dart';
-import 'package:smooth_ui_library/widgets/smooth_expandable_card.dart';
-import 'package:smooth_ui_library/widgets/smooth_card.dart';
-import 'package:openfoodfacts/model/Product.dart';
-import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
-import 'package:provider/provider.dart';
 
 class AttributeListExpandable extends StatelessWidget {
   const AttributeListExpandable({
@@ -70,19 +75,26 @@ class AttributeListExpandable extends StatelessWidget {
         background: background,
       );
     }
+    final Widget header =
+        Text(title, style: Theme.of(context).textTheme.headline3);
     return SmoothExpandableCard(
       collapsedHeader: Container(
         width: screenSize.width * 0.8,
-        child: Wrap(
-          direction: Axis.horizontal,
-          crossAxisAlignment: WrapCrossAlignment.center,
-          children: chips,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            header,
+            Wrap(
+              direction: Axis.horizontal,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              children: chips,
+            ),
+          ],
         ),
       ),
       content: content,
-      expandedHeader: title == null
-          ? null
-          : Text(title, style: Theme.of(context).textTheme.headline3),
+      expandedHeader: title == null ? null : header,
     );
   }
 }

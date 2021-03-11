@@ -1,15 +1,21 @@
+// Dart imports:
 import 'dart:ui';
 
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:openfoodfacts/utils/PnnsGroups.dart';
+
+// Project imports:
+import 'package:smooth_app/data_models/database_product_list_supplier.dart';
+import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
 import 'package:smooth_app/data_models/query_product_list_supplier.dart';
-import 'package:smooth_app/data_models/database_product_list_supplier.dart';
-import 'package:smooth_app/database/product_query.dart';
-import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/pages/product_query_page.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
-import 'package:openfoodfacts/utils/PnnsGroups.dart';
-import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/pages/product/common/product_query_page.dart';
 
 class ProductQueryPageHelper {
   Future<void> openBestChoice({
@@ -102,6 +108,8 @@ class ProductQueryPageHelper {
         return '${_getGroupName(productList.parameters)}${verbose ? ' (category search)' : ''}';
       case ProductList.LIST_TYPE_HTTP_SEARCH_KEYWORDS:
         return '${productList.parameters}${verbose ? ' (keyword search)' : ''}';
+      case ProductList.LIST_TYPE_HTTP_SEARCH_CATEGORY:
+        return '${productList.parameters}${verbose ? ' (category search)' : ''}';
       case ProductList.LIST_TYPE_SCAN:
         return 'Scan';
       case ProductList.LIST_TYPE_HISTORY:

@@ -1,12 +1,17 @@
-import 'package:carousel_slider/carousel_slider.dart';
+// Flutter imports:
 import 'package:flutter/widgets.dart';
-import 'package:smooth_app/data_models/continuous_scan_model.dart';
+
+// Package imports:
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:openfoodfacts/model/Product.dart';
+
+// Project imports:
 import 'package:smooth_app/cards/product_cards/smooth_product_card_edit.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
-import 'package:smooth_app/cards/product_cards/smooth_product_card_not_found.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_loading.dart';
+import 'package:smooth_app/cards/product_cards/smooth_product_card_not_found.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_thanks.dart';
+import 'package:smooth_app/data_models/continuous_scan_model.dart';
 
 class SmoothProductCarousel extends StatefulWidget {
   const SmoothProductCarousel({
@@ -40,9 +45,10 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
     }
     return CarouselSlider.builder(
       itemCount: _length,
-      itemBuilder: (BuildContext context, int index) => Padding(
+      itemBuilder: (BuildContext context, int itemIndex, int itemRealIndex) =>
+          Padding(
         padding: const EdgeInsets.symmetric(horizontal: 4.0),
-        child: _getWidget(barcodes[index]),
+        child: _getWidget(barcodes[itemIndex]),
       ),
       carouselController: _controller,
       options: CarouselOptions(

@@ -1,10 +1,18 @@
+// Dart imports:
 import 'dart:convert';
-import 'package:flutter/material.dart';
+
+// Flutter imports:
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:openfoodfacts/model/Product.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
-import 'package:smooth_app/database/dao_product.dart';
+
+// Project imports:
 import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/database/dao_product.dart';
+import 'package:smooth_app/temp/user_preferences.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
 
 enum PantryType {
   PANTRY,
@@ -110,17 +118,24 @@ class Pantry {
     final ColorScheme colorScheme,
     final String colorTag,
     final String iconTag,
+    final ColorDestination colorDestination,
   }) =>
       ProductList.getTintedIcon(
         colorScheme: colorScheme,
         materialColor: _COLORS[colorTag],
         iconData: _ICON_DATA[iconTag] ?? _ICON_DATA[_defaultIconTag],
+        colorDestination: colorDestination,
       );
 
-  Widget getIcon(final ColorScheme colorScheme) => ProductList.getTintedIcon(
+  Widget getIcon(
+    final ColorScheme colorScheme,
+    final ColorDestination colorDestination,
+  ) =>
+      ProductList.getTintedIcon(
         colorScheme: colorScheme,
         materialColor: materialColor,
         iconData: iconData,
+        colorDestination: colorDestination,
       );
 
   List<Product> getFirstProducts(final int nbInPreview) {

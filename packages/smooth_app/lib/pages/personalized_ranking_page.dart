@@ -1,14 +1,20 @@
+// Flutter imports:
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:smooth_app/data_models/product_list.dart';
+
+// Package imports:
 import 'package:provider/provider.dart';
+
+// Project imports:
 import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
+import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/smooth_it_model.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
+import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/structures/ranked_product.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
-import 'package:smooth_app/pages/product_query_page_helper.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
 
 class PersonalizedRankingPage extends StatefulWidget {
   const PersonalizedRankingPage(this.productList);
@@ -35,10 +41,10 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
     SmoothItModel.MATCH_INDEX_NO: Icons.cancel,
   };
 
-  static final Map<int, Color> _colors = <int, Color>{
-    SmoothItModel.MATCH_INDEX_YES: Colors.green[300],
-    SmoothItModel.MATCH_INDEX_MAYBE: Colors.grey[300],
-    SmoothItModel.MATCH_INDEX_NO: Colors.red[300],
+  static const Map<int, MaterialColor> _COLORS = <int, MaterialColor>{
+    SmoothItModel.MATCH_INDEX_YES: Colors.green,
+    SmoothItModel.MATCH_INDEX_MAYBE: Colors.grey,
+    SmoothItModel.MATCH_INDEX_NO: Colors.red,
   };
 
   final SmoothItModel _model = SmoothItModel();
@@ -51,38 +57,40 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final UserPreferencesModel userPreferencesModel =
         context.watch<UserPreferencesModel>();
+    final ColorScheme colorScheme = Theme.of(context).colorScheme;
     _model.refresh(widget.productList, userPreferences, userPreferencesModel);
     final List<BottomNavigationBarItem> bottomNavigationBarItems =
         <BottomNavigationBarItem>[];
     for (final int matchIndex in _ORDERED_MATCH_INDEXES) {
       bottomNavigationBarItems.add(
         BottomNavigationBarItem(
-          icon: Icon(_ICONS[matchIndex],
-              color: _colors[matchIndex] ??
-                  Theme.of(context).colorScheme.onSurface),
+          icon: Icon(
+            _ICONS[matchIndex],
+            color: _COLORS[matchIndex] == null
+                ? null
+                : SmoothTheme.getColor(
+                    colorScheme,
+                    _COLORS[matchIndex],
+                    ColorDestination.SURFACE_FOREGROUND,
+                  ),
+          ),
           label: _model.getRankedProducts(matchIndex).length.toString(),
         ),
       );
     }
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
         title: Text(
           ProductQueryPageHelper.getProductListLabel(widget.productList),
-          style: TextStyle(color: colorScheme.onBackground),
         ),
-        iconTheme: IconThemeData(color: colorScheme.onBackground),
         actions: <Widget>[
           IconButton(
-            icon: Icon(
-              Icons.settings,
-              color: colorScheme.onBackground,
-            ),
+            icon: const Icon(Icons.settings),
             onPressed: () => UserPreferencesView.showModal(
               context,
               callback: () {
-                _scaffoldKey.currentState.showSnackBar(
+                ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
                     content: Text('Reloaded with new preferences'),
                     duration: Duration(milliseconds: 1500),
@@ -103,21 +111,34 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
         }),
       ),
       body: _getStickyHeader(
-          _model.getRankedProducts(_ORDERED_MATCH_INDEXES[_currentTabIndex])),
+        _model.getRankedProducts(_ORDERED_MATCH_INDEXES[_currentTabIndex]),
+        colorScheme,
+      ),
     );
   }
 
-  Widget _buildSmoothProductCard(final RankedProduct rankedProduct) => Padding(
+  Widget _buildSmoothProductCard(
+    final RankedProduct rankedProduct,
+    final ColorScheme colorScheme,
+  ) =>
+      Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
         child: SmoothProductCardFound(
           heroTag: rankedProduct.product.barcode,
           product: rankedProduct.product,
           elevation: 4.0,
-          backgroundColor: _colors[SmoothItModel.getMatchIndex(rankedProduct)],
+          backgroundColor: SmoothTheme.getColor(
+            colorScheme,
+            _COLORS[SmoothItModel.getMatchIndex(rankedProduct)],
+            ColorDestination.SURFACE_BACKGROUND,
+          ),
         ),
       );
 
-  Widget _getStickyHeader(final List<RankedProduct> products) =>
+  Widget _getStickyHeader(
+    final List<RankedProduct> products,
+    final ColorScheme colorScheme,
+  ) =>
       products.isEmpty
           ? Center(
               child: Text('There is no product in this section',
@@ -126,6 +147,6 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
           : ListView.builder(
               itemCount: products.length,
               itemBuilder: (BuildContext context, int index) =>
-                  _buildSmoothProductCard(products[index]),
+                  _buildSmoothProductCard(products[index], colorScheme),
             );
 }

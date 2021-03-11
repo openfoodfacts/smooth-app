@@ -1,18 +1,22 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
 
+// Package imports:
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
-import 'package:smooth_app/pages/personalized_ranking_page.dart';
-import 'package:smooth_app/pages/product_query_page_helper.dart';
-import 'package:smooth_app/pages/product_list_dialog_helper.dart';
-import 'package:smooth_app/data_models/product_list.dart';
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:provider/provider.dart';
+import 'package:share/share.dart';
 
+// Project imports:
+import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
+import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:provider/provider.dart';
+import 'package:smooth_app/functions/launchURL.dart';
+import 'package:smooth_app/pages/personalized_ranking_page.dart';
+import 'package:smooth_app/pages/product/common/product_list_dialog_helper.dart';
+import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
-import 'package:wc_flutter_share/wc_flutter_share.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 class ProductListPage extends StatefulWidget {
@@ -60,6 +64,7 @@ class _ProductListPageState extends State<ProductListPage> {
         renamable = true;
         break;
       case ProductList.LIST_TYPE_HTTP_SEARCH_KEYWORDS:
+      case ProductList.LIST_TYPE_HTTP_SEARCH_CATEGORY:
       case ProductList.LIST_TYPE_HTTP_SEARCH_GROUP:
         deletable = true;
         break;
@@ -69,7 +74,8 @@ class _ProductListPageState extends State<ProductListPage> {
     const int INDEX_COPY = 0;
     final int indexPaste = pastable ? INDEX_COPY + 1 : -1;
     final int indexClear = pastable ? indexPaste + 1 : INDEX_COPY + 1;
-    final int indexGrocery = indexClear + 1;
+    final int indexShare = indexClear + 1;
+    final int indexGrocery = indexShare + 1;
     return Scaffold(
       bottomNavigationBar: Builder(
         builder: (BuildContext context) => BottomNavigationBar(
@@ -83,6 +89,8 @@ class _ProductListPageState extends State<ProductListPage> {
             const BottomNavigationBarItem(
                 icon: Icon(Icons.highlight_remove), label: _TRANSLATE_ME_CLEAR),
             const BottomNavigationBarItem(
+                icon: Icon(Icons.launch), label: 'web'),
+            const BottomNavigationBarItem(
                 icon: Icon(Icons.local_grocery_store),
                 label: _TRANSLATE_ME_GROCERY),
           ],
@@ -93,7 +101,7 @@ class _ProductListPageState extends State<ProductListPage> {
               final int pasted = await daoProductList.paste(
                   productList, userPreferences.getProductListCopy());
               localDatabase.notifyListeners();
-              Scaffold.of(context).showSnackBar(
+              ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text('$pasted products pasted'),
                   duration: const Duration(seconds: 2),
@@ -103,6 +111,16 @@ class _ProductListPageState extends State<ProductListPage> {
             } else if (index == indexClear) {
               await daoProductList.clear(productList);
               localDatabase.notifyListeners();
+            } else if (index == indexShare) {
+              final List<String> codes = <String>[];
+              for (final Product product in products) {
+                codes.add(product.barcode);
+              }
+              Launcher().launchURL(
+                  context,
+                  'https://openfoodfacts.org/products/${codes.join(',')}',
+                  true);
+              return;
             } else if (index == indexGrocery) {
               final List<String> names = <String>[];
               for (final Product product in products) {
@@ -112,11 +130,10 @@ class _ProductListPageState extends State<ProductListPage> {
                   ', ${product.quantity}',
                 );
               }
-              WcFlutterShare.share(
-                  sharePopupTitle: 'Grocery list',
-                  subject: productList.parameters,
-                  text: names.join('\n'),
-                  mimeType: 'text/plain');
+              Share.share(
+                names.join('\n'),
+                subject: productList.parameters,
+              );
             } else {
               throw Exception('Unexpected index $index');
             }
@@ -124,22 +141,24 @@ class _ProductListPageState extends State<ProductListPage> {
         ),
       ),
       appBar: AppBar(
-        backgroundColor: SmoothTheme.getBackgroundColor(
+        backgroundColor: SmoothTheme.getColor(
           colorScheme,
           productList.getMaterialColor(),
+          ColorDestination.APP_BAR_BACKGROUND,
         ),
         title: Row(
           children: <Widget>[
-            productList.getIcon(colorScheme),
+            productList.getIcon(
+              colorScheme,
+              ColorDestination.APP_BAR_FOREGROUND,
+            ),
             const SizedBox(width: 8.0),
             Text(
               ProductQueryPageHelper.getProductListLabel(productList,
                   verbose: false), // TODO(monsieurtanuki): handle the overflow
-              style: TextStyle(color: colorScheme.onBackground),
             ),
           ],
         ),
-        iconTheme: IconThemeData(color: colorScheme.onBackground),
         actions: (!renamable) && (!deletable)
             ? null
             : <Widget>[

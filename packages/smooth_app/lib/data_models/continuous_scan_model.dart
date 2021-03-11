@@ -1,12 +1,17 @@
+// Flutter imports:
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
+
+// Package imports:
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
+
+// Project imports:
+import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/barcode_product_query.dart';
 import 'package:smooth_app/database/dao_product.dart';
-import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
+import 'package:smooth_app/database/local_database.dart';
 
 enum ScannedProductState {
   FOUND,
@@ -17,8 +22,11 @@ enum ScannedProductState {
 }
 
 class ContinuousScanModel with ChangeNotifier {
-  ContinuousScanModel({@required bool contributionMode})
-      : _contributionMode = contributionMode;
+  ContinuousScanModel({
+    @required bool contributionMode,
+    @required this.countryCode,
+    @required this.languageCode,
+  }) : _contributionMode = contributionMode;
 
   final Map<String, ScannedProductState> _states =
       <String, ScannedProductState>{};
@@ -31,6 +39,8 @@ class ContinuousScanModel with ChangeNotifier {
   String _barcodeTrustCheck;
   DaoProduct _daoProduct;
   DaoProductList _daoProductList;
+  final String languageCode;
+  final String countryCode;
 
   bool get isNotEmpty => getBarcodes().isNotEmpty;
   bool get contributionMode => _contributionMode;
@@ -129,7 +139,11 @@ class ContinuousScanModel with ChangeNotifier {
     final String barcode,
     final ScannedProductState notFound,
   ) async {
-    final Product product = await BarcodeProductQuery(barcode).getProduct();
+    final Product product = await BarcodeProductQuery(
+      barcode: barcode,
+      languageCode: languageCode,
+      countryCode: countryCode,
+    ).getProduct();
     if (product != null) {
       _addProduct(product, ScannedProductState.FOUND);
     } else {

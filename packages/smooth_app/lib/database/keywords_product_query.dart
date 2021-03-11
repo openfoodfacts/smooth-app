@@ -1,11 +1,17 @@
+// Dart imports:
 import 'dart:async';
 
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:smooth_app/database/product_query.dart';
+
+// Package imports:
+import 'package:openfoodfacts/model/SearchResult.dart';
 import 'package:openfoodfacts/model/parameter/TagFilter.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/model/SearchResult.dart';
+
+// Project imports:
 import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/database/product_query.dart';
 
 class KeywordsProductQuery implements ProductQuery {
   KeywordsProductQuery({
@@ -45,4 +51,12 @@ class KeywordsProductQuery implements ProductQuery {
         // TODO(monsieurtanuki): parameters should include languageCode, countryCode and pageSize
         parameters: keywords,
       );
+
+  @override
+  String toString() => 'KeywordsProductQuery('
+      '"$keywords"'
+      ', $languageCode'
+      ', $countryCode'
+      ', $size'
+      ')';
 }

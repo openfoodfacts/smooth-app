@@ -1,15 +1,21 @@
+// Dart imports:
 import 'dart:ui';
 
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:provider/provider.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:openfoodfacts/model/Product.dart';
-import 'package:smooth_app/pages/product_page.dart';
-import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
-import 'package:smooth_app/cards/data_cards/attribute_chip.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
-import 'package:smooth_app/data_models/user_preferences_model.dart';
+
+// Package imports:
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
+import 'package:openfoodfacts/model/Product.dart';
+import 'package:provider/provider.dart';
+import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
+
+// Project imports:
+import 'package:smooth_app/cards/data_cards/attribute_chip.dart';
+import 'package:smooth_app/data_models/user_preferences_model.dart';
+import 'package:smooth_app/pages/product/product_page.dart';
+import 'package:smooth_app/temp/user_preferences.dart';
 
 class SmoothProductCardFound extends StatelessWidget {
   const SmoothProductCardFound({
@@ -17,15 +23,13 @@ class SmoothProductCardFound extends StatelessWidget {
     @required this.heroTag,
     this.elevation = 0.0,
     this.useNewStyle = true,
-    this.translucentBackground = false,
-    this.backgroundColor = Colors.white,
+    this.backgroundColor,
   });
 
   final Product product;
   final String heroTag;
   final double elevation;
   final bool useNewStyle;
-  final bool translucentBackground;
   final Color backgroundColor;
 
   @override
@@ -70,9 +74,7 @@ class SmoothProductCardFound extends StatelessWidget {
           color: Colors.transparent,
           child: Container(
             decoration: BoxDecoration(
-              color: translucentBackground
-                  ? backgroundColor.withOpacity(0.25)
-                  : backgroundColor,
+              color: backgroundColor ?? themeData.colorScheme.surface,
               borderRadius: const BorderRadius.all(Radius.circular(15.0)),
             ),
             padding: const EdgeInsets.all(5.0),
@@ -104,8 +106,7 @@ class SmoothProductCardFound extends StatelessWidget {
                                   product.productName ?? 'Unknown product name',
                                   maxLines: 2,
                                   overflow: TextOverflow.fade,
-                                  style: themeData.textTheme.headline4
-                                      .copyWith(color: Colors.black),
+                                  style: themeData.textTheme.headline4,
                                 ),
                               ),
                             ],
@@ -167,7 +168,6 @@ class SmoothProductCardFound extends StatelessWidget {
             borderRadius: const BorderRadius.all(Radius.circular(15.0)),
             child: Container(
               decoration: const BoxDecoration(
-                color: Colors.white,
                 borderRadius: BorderRadius.all(Radius.circular(15.0)),
               ),
               padding: const EdgeInsets.all(10.0),
@@ -201,8 +201,8 @@ class SmoothProductCardFound extends StatelessWidget {
                                         maxLines: 3,
                                         overflow: TextOverflow.fade,
                                         style: const TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.bold),
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -218,7 +218,6 @@ class SmoothProductCardFound extends StatelessWidget {
                                         maxLines: 1,
                                         overflow: TextOverflow.fade,
                                         style: const TextStyle(
-                                            color: Colors.black,
                                             fontWeight: FontWeight.w300,
                                             fontStyle: FontStyle.italic),
                                       ),

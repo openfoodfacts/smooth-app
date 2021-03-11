@@ -1,6 +1,9 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Project imports:
 import 'package:smooth_app/data_models/pantry.dart';
-import 'package:smooth_app/pages/pantry_page.dart';
+import 'package:smooth_app/pages/pantry/pantry_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 /// A button for a pantry, with the corresponding color, icon, name and shape
@@ -21,20 +24,35 @@ class PantryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ElevatedButton.icon(
-        icon: pantries[index].getIcon(Theme.of(context).colorScheme),
-        label: Text(pantries[index].name),
+        icon: pantries[index].getIcon(
+            Theme.of(context).colorScheme, ColorDestination.BUTTON_FOREGROUND),
+        label: Text(
+          pantries[index].name,
+          style: TextStyle(
+            color: SmoothTheme.getColor(
+              Theme.of(context).colorScheme,
+              pantries[index].materialColor,
+              ColorDestination.BUTTON_FOREGROUND,
+            ),
+          ),
+        ),
         onPressed: () async {
           await Navigator.push<dynamic>(
             context,
             MaterialPageRoute<dynamic>(
-              builder: (BuildContext context) => PantryPage(pantries, index),
+              builder: (BuildContext context) => PantryPage(
+                pantries,
+                index,
+                pantries[index].pantryType,
+              ),
             ),
           );
         },
         style: ElevatedButton.styleFrom(
-          primary: SmoothTheme.getBackgroundColor(
+          primary: SmoothTheme.getColor(
             Theme.of(context).colorScheme,
             pantries[index].materialColor,
+            ColorDestination.BUTTON_BACKGROUND,
           ),
           shape: pantries[index].pantryType == PantryType.PANTRY
               ? null

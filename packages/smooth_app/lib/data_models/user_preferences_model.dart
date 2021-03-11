@@ -1,12 +1,18 @@
+// Dart imports:
 import 'dart:convert';
 
+// Flutter imports:
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+// Package imports:
 import 'package:http/http.dart' as http;
-import 'package:smooth_app/temp/user_preferences.dart';
-import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
+import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:openfoodfacts/model/Product.dart';
+
+// Project imports:
+import 'package:smooth_app/temp/user_preferences.dart';
 
 class UserPreferencesModel extends ChangeNotifier {
   UserPreferencesModel._();
@@ -143,10 +149,10 @@ class UserPreferencesModel extends ChangeNotifier {
       final String importanceUrl = _getImportanceUrl(languageCode);
       final String attributeUrl = _getAttributeUrl(languageCode);
       http.Response response;
-      response = await http.get(importanceUrl);
+      response = await http.get(Uri.parse(importanceUrl));
       // TODO(monsieurtanuki): check response.statusCode
       final String importanceString = response.body;
-      response = await http.get(attributeUrl);
+      response = await http.get(Uri.parse(attributeUrl));
       // TODO(monsieurtanuki): check response.statusCode
       final String attributeGroupString = response.body;
       final UserPreferencesModel userPreferencesModel =

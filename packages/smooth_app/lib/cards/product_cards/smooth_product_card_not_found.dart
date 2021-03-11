@@ -1,7 +1,12 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
+
+// Package imports:
 import 'package:openfoodfacts/model/Product.dart';
-import 'package:smooth_app/pages/product_page.dart';
+import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
+
+// Project imports:
+import 'package:smooth_app/pages/product/product_page.dart';
 
 class SmoothProductCardNotFound extends StatelessWidget {
   const SmoothProductCardNotFound({

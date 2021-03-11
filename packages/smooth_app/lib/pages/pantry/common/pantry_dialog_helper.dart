@@ -1,8 +1,16 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:smooth_app/data_models/pantry.dart';
+import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
+
+// Project imports:
+import 'package:smooth_app/data_models/pantry.dart';
+import 'package:smooth_app/pages/pantry/pantry_page.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
 
 /// A dialog helper for pantries
 class PantryDialogHelper {
@@ -58,13 +66,15 @@ class PantryDialogHelper {
         ),
       );
 
-  static Future<bool> openNew(
+  static Future<String> openNew(
     final BuildContext context,
     final List<Pantry> pantries,
     final PantryType pantryType,
+    final UserPreferences userPreferences,
   ) async {
+    String newPantryName;
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-    return await showDialog<bool>(
+    return await showDialog<String>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
         close: false,
@@ -97,6 +107,12 @@ class PantryDialogHelper {
                     }
                   }
                   pantries.add(Pantry(name: value, pantryType: pantryType));
+                  Pantry.putAll(
+                    userPreferences,
+                    pantries,
+                    pantryType,
+                  );
+                  newPantryName = value;
                   return null;
                 },
               ),
@@ -106,7 +122,7 @@ class PantryDialogHelper {
         actions: <SmoothSimpleButton>[
           SmoothSimpleButton(
             text: _TRANSLATE_ME_CANCEL,
-            onPressed: () => Navigator.pop(context, false),
+            onPressed: () => Navigator.pop(context, null),
             important: false,
           ),
           SmoothSimpleButton(
@@ -115,7 +131,25 @@ class PantryDialogHelper {
               if (!formKey.currentState.validate()) {
                 return;
               }
-              Navigator.pop(context, true);
+              Navigator.pop(context, newPantryName);
+
+              int index = 0;
+              for (final Pantry pantry in pantries) {
+                if (pantry.name == newPantryName) {
+                  await Navigator.push<dynamic>(
+                    context,
+                    MaterialPageRoute<dynamic>(
+                      builder: (BuildContext context) => PantryPage(
+                        pantries,
+                        index,
+                        pantryType,
+                      ),
+                    ),
+                  );
+                  return;
+                }
+                index++;
+              }
             },
             important: true,
           ),
@@ -226,6 +260,7 @@ class PantryDialogHelper {
                     colorScheme: Theme.of(context).colorScheme,
                     colorTag: colorTag,
                     iconTag: iconTag,
+                    colorDestination: ColorDestination.SURFACE_FOREGROUND,
                   ),
                   onPressed: () async {
                     pantry.colorTag = colorTag;
