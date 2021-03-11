@@ -24,7 +24,7 @@ jobs:
           java-version: '12.x'
       - uses: subosito/flutter-action@v1
         with:
-          channel: 'dev'
+          channel: 'master'
 
       - name: 'Run flutter pub get'
         run: flutter pub get
@@ -38,12 +38,24 @@ jobs:
       - name: 'Build Web App (flutter create will need to be run once and committed)'
         run:  flutter build web
 
-      - name: deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build/web
-          
+
+
+      # Deploy to local repo
+      - name: Deploy
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: gh-pages
+          FOLDER: ./build/web
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
+      #- name: deploy
+      #  uses: peaceiris/actions-gh-pages@v3
+      #  with:
+      #    github_token: ${{ secrets.GITHUB_TOKEN }}
+      #    publish_dir: ./build/web
+
       #- name: Deploy to Firebase Hosting
         #uses: w9jds/firebase-action@master
         #with:
