@@ -38,7 +38,7 @@ jobs:
       #- name: Enable flutter web
       #  run: flutter config --enable-web
 
-      - name: 'Build Web App (flutter create will need to be run once and committed)'
+      - name: Build Web App
         run:  flutter build web
 
 
