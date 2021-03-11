@@ -93,10 +93,10 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
             child: Image.network(widget.imageUrl,
                 fit: BoxFit.cover, height: 1000)),
         onTap: () {
-          Navigator.push<Widget>(
+          Navigator.push<dynamic>(
             context,
-            MaterialPageRoute(
-              builder: (context) => ProductImagePage(
+            MaterialPageRoute<dynamic>(
+              builder: (BuildContext context) => ProductImagePage(
                   product: widget.product,
                   imageField: widget.imageField,
                   imageUrl: widget.imageUrl,
