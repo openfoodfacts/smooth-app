@@ -53,11 +53,11 @@ jobs:
       - name: "Build apk"
         run: flutter build apk --debug
       
-      # Build web.
-      - name: "Build ipa"
-        run: flutter build ipa --debug
-
       # Build ios.
+      #- name: "Build ipa"
+      #  run: flutter build ipa --debug
+
+      # Build web.
       - name: "Build web"
         run: flutter build web
       
