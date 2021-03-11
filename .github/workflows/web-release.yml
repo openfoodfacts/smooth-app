@@ -23,7 +23,7 @@ jobs:
         with:
           channel: 'dev'
       - name: 'Run flutter pub get'
-        run: flutter pub get
+        run: pwd && cd ./packages/smooth_app/ && pwd
       #    - name: 'Run Test(s)'
       #      run: flutter test
       - name: Enable flutter web
