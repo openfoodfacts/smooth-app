@@ -34,7 +34,7 @@ jobs:
         run: flutter analyze .
 
       - name: Set version/0.0.1
-        run:  pub global activate cider && export PATH="$PATH":"$HOME/.pub-cache/bin" && newVersion= echo version/0.0.1 | cut -d/ -f2 &&  cider version $newVersion && cider version 
+        run:  pub global activate cider && export PATH="$PATH":"$HOME/.pub-cache/bin" && newVersion=$(echo version/0.0.1 | cut -d/ -f2) &&  cider version $newVersion && cider version 
 
 
 
