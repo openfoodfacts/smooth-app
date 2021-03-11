@@ -34,7 +34,7 @@ jobs:
         run: flutter analyze .
 
       - name: Set version/0.0.1
-        run:  pub global activate cider && flutter pub get &&  cider version echo version/0.0.1 | cut -d/ -f2 &&  cider version
+        run:  pub global activate cider && export PATH="$PATH":"$HOME/.pub-cache/bin" &&  cider version echo version/0.0.1 | cut -d/ -f2 &&  cider version
 
 
 
@@ -55,13 +55,13 @@ jobs:
 
 
       # Deploy to local repo
-      - name: Deploy
-        uses: s0/git-publish-subdir-action@develop
-        env:
-          REPO: self
-          BRANCH: gh-pages
-          FOLDER: packages/smooth_app/build/web
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #- name: Deploy
+      #  uses: s0/git-publish-subdir-action@develop
+      #  env:
+      #    REPO: self
+      #    BRANCH: gh-pages
+      #    FOLDER: packages/smooth_app/build/web
+      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 
       #- name: deploy
