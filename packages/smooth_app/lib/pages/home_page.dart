@@ -332,24 +332,30 @@ class _HomePageState extends State<HomePage> {
                 cards.add(ProductListButton(item, _daoProductList));
               }
             }
-            cards.add(
-              ElevatedButton.icon(
-                icon: const Icon(Icons.add),
-                label: Text(ListPage.getCreateListLabel()),
-                onPressed: () async {
-                  final ProductList newProductList =
-                      await ProductListDialogHelper.openNew(
-                    context,
-                    _daoProductList,
-                    list,
-                  );
-                  if (newProductList == null) {
-                    return;
-                  }
-                  setState(() {});
-                },
-              ),
-            );
+            if (typeFilter.contains(ProductList.LIST_TYPE_USER_DEFINED)) {
+              cards.add(
+                ElevatedButton.icon(
+                  icon: const Icon(Icons.add),
+                  label: Text(ListPage.getCreateListLabel()),
+                  onPressed: () async {
+                    final ProductList newProductList =
+                        await ProductListDialogHelper.openNew(
+                      context,
+                      _daoProductList,
+                      list,
+                    );
+                    if (newProductList == null) {
+                      return;
+                    }
+                    setState(() {});
+                  },
+                ),
+              );
+            } else {
+              if (cards.isEmpty) {
+                cards.add(const Text(_TRANSLATE_ME_EMPTY));
+              }
+            }
             return Card(
               child: Column(
                 children: <Widget>[
