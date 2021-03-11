@@ -7,8 +7,8 @@ name: Build, Release app to Github Pages
 on:
   push:
     branches:
-      - '*'
-      #- 'release/*'
+      #- '*'
+      - 'release/*'
 
 
 jobs:
