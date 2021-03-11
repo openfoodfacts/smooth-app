@@ -43,6 +43,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build/web
+          
       #- name: Deploy to Firebase Hosting
         #uses: w9jds/firebase-action@master
         #with:
