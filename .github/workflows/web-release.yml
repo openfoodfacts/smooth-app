@@ -7,8 +7,8 @@ name: Build, Release app to Github Pages
 on:
   push:
     branches:
-      #- '*'
-      - 'release/*'
+      - '*'
+      #- 'release/*'
 
 
 jobs:
@@ -32,6 +32,16 @@ jobs:
 
       - name: Analyze code
         run: flutter analyze .
+
+      - name: Set version/0.0.1
+        run:  pub global activate cider && flutter pub get &&  cider version echo version/0.0.1 | cut -d/ -f2 &&  cider version
+
+
+
+
+
+
+    
 
       #    - name: 'Run Test(s)'
       #      run: flutter test
