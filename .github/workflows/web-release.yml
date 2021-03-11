@@ -46,7 +46,7 @@ jobs:
         env:
           REPO: self
           BRANCH: gh-pages
-          FOLDER: ./build/web
+          FOLDER: .packages/smooth_app/build/web
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 
