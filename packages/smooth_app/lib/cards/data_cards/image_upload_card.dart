@@ -11,17 +11,21 @@ import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/LanguageHelper.dart';
 
+import 'package:smooth_app/pages/product/product_image_page.dart';
+
 class ImageUploadCard extends StatefulWidget {
   const ImageUploadCard({
     this.product,
     this.imageField,
     this.imageUrl,
+    this.title,
     this.buttonText,
   });
 
   final Product product;
   final ImageField imageField;
   final String imageUrl;
+  final String title;
   final String buttonText;
 
   @override
@@ -58,6 +62,9 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
           imageUrl: _image.uri,
         );
 
+        print('barcode:' + widget.product.barcode);
+        print('imageField:' + widget.imageField.toString());
+
         // a registered user login for https://world.openfoodfacts.org/ is required
         const User myUser =
             User(userId: 'smoothie-app', password: 'strawberrybanana');
@@ -78,19 +85,39 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
 
   @override
   Widget build(BuildContext context) {
-    print(widget.imageUrl);
+    Widget content;
+
     if (widget.imageUrl != null) {
-      return Container(
+      content = GestureDetector(
         child: Center(
             child: Image.network(widget.imageUrl,
                 fit: BoxFit.cover, height: 1000)),
+        onTap: () {
+          Navigator.push<Widget>(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ProductImagePage(
+                  product: widget.product,
+                  imageField: widget.imageField,
+                  imageUrl: widget.imageUrl,
+                  title: widget.title,
+                  buttonText: widget.buttonText),
+            ),
+          );
+        },
       );
     } else {
-      return ElevatedButton.icon(
+      content = ElevatedButton.icon(
         onPressed: _getImage,
         icon: const Icon(Icons.add_a_photo),
         label: Text(widget.buttonText),
       );
     }
+
+    return Container(
+      margin: const EdgeInsets.fromLTRB(0, 0, 5, 0),
+      decoration: const BoxDecoration(color: Colors.black12),
+      child: content,
+    );
   }
 }

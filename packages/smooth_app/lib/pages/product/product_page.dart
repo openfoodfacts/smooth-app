@@ -286,37 +286,43 @@ class _ProductPageState extends State<ProductPage> {
           product: _product,
           imageField: ImageField.FRONT,
           imageUrl: _product.imageFrontUrl,
+          title: 'Product',
           buttonText: 'Front photo'),
       ImageUploadCard(
           product: _product,
           imageField: ImageField.INGREDIENTS,
           imageUrl: _product.imageIngredientsUrl,
+          title: 'Ingredients',
           buttonText: 'Ingredients photo'),
       ImageUploadCard(
         product: _product,
         imageField: ImageField.NUTRITION,
         imageUrl: _product.imageNutritionUrl,
+        title: 'Nutrition',
         buttonText: 'Nutrition facts photo',
       ),
       ImageUploadCard(
         product: _product,
         imageField: ImageField.PACKAGING,
         imageUrl: _product.imagePackagingUrl,
+        title: 'Packaging information',
         buttonText: 'Packaging information photo',
       ),
       ImageUploadCard(
         product: _product,
         imageField: ImageField.OTHER,
         imageUrl: null,
-        buttonText: 'More interesting photos',
+        title: 'More photos',
+        buttonText: 'More photos',
       ),
     ];
 
     return CarouselSlider(
         options: CarouselOptions(
+          disableCenter: true,
           enableInfiniteScroll: false,
-          height: 200,
-          viewportFraction: 0.6,
+          height: 200, // Small images are 200px high, normal images are 400px
+          viewportFraction: 0.75,
           pageSnapping: false,
           enlargeStrategy: CenterPageEnlargeStrategy.height,
         ),
