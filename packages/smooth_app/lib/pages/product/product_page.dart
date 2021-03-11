@@ -157,6 +157,7 @@ class ProductPage extends StatefulWidget {
 }
 
 class _ProductPageState extends State<ProductPage> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   Product _product;
 
   @override
@@ -181,9 +182,11 @@ class _ProductPageState extends State<ProductPage> {
     final ThemeData themeData = Theme.of(context);
     _product ??= widget.product;
     return Scaffold(
+        key: _scaffoldKey,
         appBar: AppBar(
           title: Text(
             _product.productName ?? appLocalizations.unknownProductName,
+            //style: themeData.textTheme.headline4,
           ),
         ),
         bottomNavigationBar: BottomNavigationBar(
@@ -266,36 +269,45 @@ class _ProductPageState extends State<ProductPage> {
             : _buildProductBody(context));
   }
 
+  Future<void> _updateHistory(final BuildContext context) async {
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final DaoProductList daoProductList = DaoProductList(localDatabase);
+    final ProductList productList =
+        ProductList(listType: ProductList.LIST_TYPE_HISTORY, parameters: '');
+    await daoProductList.get(productList);
+    productList.add(_product);
+    await daoProductList.put(productList);
+    localDatabase.notifyListeners();
+  }
+
   Widget _buildNewProductBody(BuildContext context) {
-    return ListView(
-      children: <Widget>[
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          margin: const EdgeInsets.only(top: 20.0),
-          child: Text(
-            'Add a new product',
-            style: Theme.of(context).textTheme.headline1,
-          ),
+    return ListView(children: <Widget>[
+      Container(
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        margin: const EdgeInsets.only(top: 20.0),
+        child: Text(
+          'Add a new product',
+          style: Theme.of(context).textTheme.headline1,
         ),
-        ImageUploadCard(
-            product: _product,
-            imageField: ImageField.FRONT,
-            buttonText: 'Front photo'),
-        ImageUploadCard(
-            product: _product,
-            imageField: ImageField.INGREDIENTS,
-            buttonText: 'Ingredients photo'),
-        ImageUploadCard(
+      ),
+      ImageUploadCard(
           product: _product,
-          imageField: ImageField.NUTRITION,
-          buttonText: 'Nutrition facts photo',
-        ),
-        ImageUploadCard(
-            product: _product,
-            imageField: ImageField.OTHER,
-            buttonText: 'More interesting photos'),
-      ],
-    );
+          imageField: ImageField.FRONT,
+          buttonText: 'Front photo'),
+      ImageUploadCard(
+          product: _product,
+          imageField: ImageField.INGREDIENTS,
+          buttonText: 'Ingredients photo'),
+      ImageUploadCard(
+        product: _product,
+        imageField: ImageField.NUTRITION,
+        buttonText: 'Nutrition facts photo',
+      ),
+      ImageUploadCard(
+          product: _product,
+          imageField: ImageField.OTHER,
+          buttonText: 'More interesting photos'),
+    ]);
   }
 
   Widget _buildProductBody(BuildContext context) {
@@ -351,11 +363,11 @@ class _ProductPageState extends State<ProductPage> {
         ),
       ),
     );
-
     final Map<String, Attribute> matchingAttributes =
         Match.getMatchingAttributes(_product, mainAttributes);
-
-    //Nutri + Nova
+    final double opacity = themeData.brightness == Brightness.light
+        ? 1
+        : SmoothTheme.ADDITIONAL_OPACITY_FOR_DARK;
     for (final String attributeId in mainAttributes) {
       if (matchingAttributes[attributeId] != null) {
         listItems.add(
@@ -365,23 +377,16 @@ class _ProductPageState extends State<ProductPage> {
             attributeTags: <String>[attributeId],
             collapsible: false,
             background: _getBackgroundColor(matchingAttributes[attributeId])
-                .withOpacity(
-              themeData.brightness == Brightness.light
-                  ? 1
-                  : SmoothTheme.ADDITIONAL_OPACITY_FOR_DARK,
-            ),
+                .withOpacity(opacity),
           ),
         );
       }
     }
-
-    // Ingredients + qualtiy + processing + environment + label + allergens
     for (final AttributeGroup attributeGroup
         in _getOrderedAttributeGroups(userPreferencesModel)) {
       listItems.add(_getAttributeGroupWidget(attributeGroup, iconWidth));
     }
 
-    // Similar foods
     if (_product.categoriesTags != null && _product.categoriesTags.isNotEmpty) {
       for (int i = _product.categoriesTags.length - 1;
           i < _product.categoriesTags.length;
@@ -450,17 +455,6 @@ class _ProductPageState extends State<ProductPage> {
       attributeTags: attributeTags,
       title: attributeGroup.name,
     );
-  }
-
-  Future<void> _updateHistory(final BuildContext context) async {
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final DaoProductList daoProductList = DaoProductList(localDatabase);
-    final ProductList productList =
-        ProductList(listType: ProductList.LIST_TYPE_HISTORY, parameters: '');
-    await daoProductList.get(productList);
-    productList.add(_product);
-    await daoProductList.put(productList);
-    localDatabase.notifyListeners();
   }
 
   List<AttributeGroup> _getOrderedAttributeGroups(
