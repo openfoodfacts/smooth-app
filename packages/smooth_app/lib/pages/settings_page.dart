@@ -33,7 +33,7 @@ class ProfilePage extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Launcher launcher = Launcher();
     return Scaffold(
-      appBar: AppBar(title: Text(appLocalizations.testerSettingTitle)),
+      appBar: AppBar(title: Text(appLocalizations.settingsTitle)),
       body: Column(
         children: <Widget>[
           //Darkmode

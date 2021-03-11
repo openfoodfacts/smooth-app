@@ -11,7 +11,7 @@ import 'package:smooth_app/data_models/pantry.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/pages/pantry_dialog_helper.dart';
+import 'package:smooth_app/pages/pantry/common/pantry_dialog_helper.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
@@ -20,10 +20,12 @@ class PantryPage extends StatelessWidget {
   const PantryPage(
     this.pantries,
     this.index,
+    this.pantryType,
   );
 
   final List<Pantry> pantries;
   final int index;
+  final PantryType pantryType;
 
   static const String _EMPTY_DATE = '';
   static const String _TRANSLATE_ME_RENAME = 'Rename';
@@ -212,7 +214,7 @@ class PantryPage extends StatelessWidget {
   }
 
   Future<void> _save(final UserPreferences userPreferences) async =>
-      Pantry.putAll(userPreferences, pantries, pantries[index].pantryType);
+      Pantry.putAll(userPreferences, pantries, pantryType);
 
   Widget _getPantryDayLine({
     @required final Pantry pantry,

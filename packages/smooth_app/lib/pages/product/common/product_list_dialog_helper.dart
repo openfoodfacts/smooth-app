@@ -9,6 +9,8 @@ import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 // Project imports:
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
+import 'package:smooth_app/pages/product/common/product_list_page.dart';
+import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 class ProductListDialogHelper {
@@ -52,14 +54,14 @@ class ProductListDialogHelper {
         ),
       );
 
-  static Future<bool> openNew(
+  static Future<ProductList> openNew(
     final BuildContext context,
     final DaoProductList daoProductList,
     final List<ProductList> list,
   ) async {
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
     ProductList newProductList;
-    return await showDialog<bool>(
+    return await showDialog<ProductList>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
         close: false,
@@ -98,7 +100,7 @@ class ProductListDialogHelper {
         actions: <SmoothSimpleButton>[
           SmoothSimpleButton(
             text: _TRANSLATE_ME_CANCEL,
-            onPressed: () => Navigator.pop(context, false),
+            onPressed: () => Navigator.pop(context, null),
             important: false,
           ),
           SmoothSimpleButton(
@@ -112,7 +114,18 @@ class ProductListDialogHelper {
                 return;
               }
               await daoProductList.put(newProductList);
-              Navigator.pop(context, true);
+              Navigator.pop(context, newProductList);
+              await Navigator.push<dynamic>(
+                context,
+                MaterialPageRoute<dynamic>(
+                  builder: (BuildContext context) => ProductListPage(
+                    newProductList,
+                    reverse: ProductQueryPageHelper.isListReversed(
+                      newProductList,
+                    ),
+                  ),
+                ),
+              );
             },
             important: true,
           ),

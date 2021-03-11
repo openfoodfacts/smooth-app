@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 // Project imports:
 import 'package:smooth_app/data_models/pantry.dart';
-import 'package:smooth_app/pages/pantry_page.dart';
+import 'package:smooth_app/pages/pantry/pantry_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 /// A button for a pantry, with the corresponding color, icon, name and shape
@@ -40,7 +40,11 @@ class PantryButton extends StatelessWidget {
           await Navigator.push<dynamic>(
             context,
             MaterialPageRoute<dynamic>(
-              builder: (BuildContext context) => PantryPage(pantries, index),
+              builder: (BuildContext context) => PantryPage(
+                pantries,
+                index,
+                pantries[index].pantryType,
+              ),
             ),
           );
         },
