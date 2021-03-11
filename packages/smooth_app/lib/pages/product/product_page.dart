@@ -281,14 +281,7 @@ class _ProductPageState extends State<ProductPage> {
   }
 
   Widget _buildProductImagesCarousel(BuildContext context) {
-    final List<String> imgList = [
-      _product.imageFrontUrl,
-      _product.imageIngredientsUrl,
-      _product.imageNutritionUrl,
-      _product.imagePackagingUrl,
-    ];
-
-    List<Widget> carouselItems = [
+    final List<ImageUploadCard> carouselItems = <ImageUploadCard>[
       ImageUploadCard(
           product: _product,
           imageField: ImageField.FRONT,
