@@ -189,8 +189,8 @@ const RESOURCES = {
 "assets/packages/smooth_ui_library/assets/icons/search.svg": "375983b1e0dad3c0f0d1a4f2f7d6128e",
 "assets/packages/smooth_ui_library/assets/product/missing_image.svg": "0a5281d9f72e4272e0453cc9b7cfc932",
 "assets/FontManifest.json": "dc3d03800ccca4601324923c0b1d6d57",
-"index.html": "414c159941e23db4e128fbd1dbaa02e3",
-"/": "414c159941e23db4e128fbd1dbaa02e3",
+"index.html": "9dd3f9017c1678b834b51fc5322791d4",
+"/": "9dd3f9017c1678b834b51fc5322791d4",
 "main.dart.js": "bcdc38460ece65c339a53d8449544ea5",
 "version.json": "e8a19df4cf7dc414b97a48cc551820cc",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796"
