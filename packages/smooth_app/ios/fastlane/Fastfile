@@ -75,7 +75,7 @@ platform :ios do
           initial_build_number: "0",
           version: new_version_name
         )
-        new_version_code = old_version_code.last().to_i + 1
+        new_version_code = old_version_code.to_i + 1
 
         puts "old_version_code: " + old_version_code.to_s
         puts "new_version_code: " + new_version_code.to_s
