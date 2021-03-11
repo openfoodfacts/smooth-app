@@ -36,7 +36,7 @@ dependencies:
   image_picker: ^0.7.2
   intl: ^0.17.0
   modal_bottom_sheet: ^2.0.0
-  openfoodfacts: ^1.0.1-beta
+  openfoodfacts: ^1.0.2-beta
   package_info: ^2.0.0
   path_provider: ^2.0.1
   provider: ^5.0.0
