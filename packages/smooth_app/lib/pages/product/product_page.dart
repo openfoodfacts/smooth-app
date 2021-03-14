@@ -329,7 +329,7 @@ class _ProductPageState extends State<ProductPage> {
         userPreferencesModel.getOrderedVariables(userPreferences);
     final List<Widget> listItems = <Widget>[];
 
-    if (_product.imgSmallUrl != null) {
+    if (_product.imageFrontSmallUrl != null) {
       listItems.add(
         SmoothProductImage(
           product: _product,
