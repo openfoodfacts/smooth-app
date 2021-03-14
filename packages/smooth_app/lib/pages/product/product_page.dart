@@ -318,15 +318,24 @@ class _ProductPageState extends State<ProductPage> {
     ];
 
     return CarouselSlider(
-        options: CarouselOptions(
-          disableCenter: true,
-          enableInfiniteScroll: false,
-          height: 200, // Small images are 200px high, normal images are 400px
-          viewportFraction: 0.75,
-          pageSnapping: false,
-          enlargeStrategy: CenterPageEnlargeStrategy.height,
-        ),
-        items: carouselItems);
+      options: CarouselOptions(
+        disableCenter: true,
+        enableInfiniteScroll: false,
+        height: 200, // Small images are 200px high, normal images are 400px
+        viewportFraction: 0.75,
+        pageSnapping: false,
+        enlargeStrategy: CenterPageEnlargeStrategy.height,
+      ),
+      items: carouselItems
+          .map(
+            (ImageUploadCard item) => Container(
+              margin: const EdgeInsets.fromLTRB(0, 0, 5, 0),
+              decoration: const BoxDecoration(color: Colors.black12),
+              child: item,
+            ),
+          )
+          .toList(),
+    );
   }
 
   Widget _buildNewProductBody(BuildContext context) {

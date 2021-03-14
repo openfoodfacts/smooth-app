@@ -33,15 +33,18 @@ class ImageUploadCard extends StatefulWidget {
 }
 
 class _ImageUploadCardState extends State<ImageUploadCard> {
-  File _image;
-  final ImagePicker picker = ImagePicker();
+  ImageProvider _imageProvider; // Normal size image to display in carousel
+  ImageProvider
+      _imageFullProvider; // Full resolution image to display in image page
 
   Future<void> _getImage() async {
+    final ImagePicker picker = ImagePicker();
+
     final PickedFile pickedFile =
         await picker.getImage(source: ImageSource.camera);
 
     if (pickedFile != null) {
-      final File croppedImage = await ImageCropper.cropImage(
+      final File croppedImageFile = await ImageCropper.cropImage(
         sourcePath: pickedFile.path,
         androidUiSettings: const AndroidUiSettings(
           lockAspectRatio: false,
@@ -49,9 +52,12 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
         ),
       );
 
-      if (croppedImage != null) {
+      if (croppedImageFile != null) {
         setState(() {
-          _image = croppedImage;
+          // Update the image to load the new image file
+          // The same full resolution image is used for both the carousel and the image page
+          _imageProvider = FileImage(croppedImageFile);
+          _imageFullProvider = _imageProvider;
         });
 
         final SendImage image = SendImage(
@@ -59,11 +65,8 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
               Localizations.localeOf(context).languageCode),
           barcode: widget.product.barcode,
           imageField: widget.imageField,
-          imageUrl: _image.uri,
+          imageUrl: croppedImageFile.uri,
         );
-
-        print('barcode:' + widget.product.barcode);
-        print('imageField:' + widget.imageField.toString());
 
         // a registered user login for https://world.openfoodfacts.org/ is required
         const User myUser =
@@ -85,21 +88,36 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
 
   @override
   Widget build(BuildContext context) {
-    Widget content;
+    // We can already have an _imageProvider for a file that is going to be uploaded
+    // or an imageUrl for a network image
+    // or no image yet
 
-    if (widget.imageUrl != null) {
-      content = GestureDetector(
+    if ((_imageProvider == null) && (widget.imageUrl != null)) {
+      _imageProvider = NetworkImage(widget.imageUrl);
+    }
+
+    if (_imageProvider != null) {
+      return GestureDetector(
         child: Center(
-            child: Image.network(widget.imageUrl,
-                fit: BoxFit.cover, height: 1000)),
+            child:
+                Image(image: _imageProvider, fit: BoxFit.cover, height: 1000)),
         onTap: () {
+          // if _imageFullProvider is null, we are displaying a small network image in the carousel
+          // we need to load the full resolution image
+
+          if (_imageFullProvider == null) {
+            final String _imageFullUrl =
+                widget.imageUrl.replaceAll('.400.', '.full.');
+            _imageFullProvider = NetworkImage(_imageFullUrl);
+          }
+
           Navigator.push<dynamic>(
             context,
             MaterialPageRoute<dynamic>(
               builder: (BuildContext context) => ProductImagePage(
                   product: widget.product,
                   imageField: widget.imageField,
-                  imageUrl: widget.imageUrl,
+                  imageProvider: _imageFullProvider,
                   title: widget.title,
                   buttonText: widget.buttonText),
             ),
@@ -107,17 +125,11 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
         },
       );
     } else {
-      content = ElevatedButton.icon(
+      return ElevatedButton.icon(
         onPressed: _getImage,
         icon: const Icon(Icons.add_a_photo),
         label: Text(widget.buttonText),
       );
     }
-
-    return Container(
-      margin: const EdgeInsets.fromLTRB(0, 0, 5, 0),
-      decoration: const BoxDecoration(color: Colors.black12),
-      child: content,
-    );
   }
 }
