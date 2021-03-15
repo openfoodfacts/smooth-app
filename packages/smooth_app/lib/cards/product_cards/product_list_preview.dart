@@ -8,8 +8,8 @@ import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/cards/product_cards/product_list_preview_helper.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
-import 'package:smooth_app/pages/product_list_page.dart';
-import 'package:smooth_app/pages/product_query_page_helper.dart';
+import 'package:smooth_app/pages/product/common/product_list_page.dart';
+import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 class ProductListPreview extends StatelessWidget {

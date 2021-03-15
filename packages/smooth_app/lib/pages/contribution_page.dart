@@ -9,7 +9,7 @@ import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 
 // Project imports:
-import 'package:smooth_app/pages/scan_page.dart';
+import 'package:smooth_app/pages/scan/scan_page.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 
 class CollaborationPage extends StatelessWidget {

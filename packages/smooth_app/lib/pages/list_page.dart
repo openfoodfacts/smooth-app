@@ -10,9 +10,7 @@ import 'package:smooth_app/cards/product_cards/product_list_preview.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/pages/product_list_dialog_helper.dart';
-import 'package:smooth_app/pages/product_list_page.dart';
-import 'package:smooth_app/pages/product_query_page_helper.dart';
+import 'package:smooth_app/pages/product/common/product_list_dialog_helper.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 class ListPage extends StatefulWidget {
@@ -26,6 +24,8 @@ class ListPage extends StatefulWidget {
 
   @override
   _ListPageState createState() => _ListPageState();
+
+  static String getCreateListLabel() => 'Create a food list';
 }
 
 class _ListPageState extends State<ListPage> {
@@ -99,17 +99,6 @@ class _ListPageState extends State<ListPage> {
     if (newProductList == null) {
       return;
     }
-    await Navigator.push<dynamic>(
-      context,
-      MaterialPageRoute<dynamic>(
-        builder: (BuildContext context) => ProductListPage(
-          newProductList,
-          reverse: ProductQueryPageHelper.isListReversed(
-            newProductList,
-          ),
-        ),
-      ),
-    );
     setState(() {});
   }
 
@@ -131,7 +120,7 @@ class _ListPageState extends State<ListPage> {
             leading: Icon(Icons.add, size: iconSize),
             onTap: () async => await _add(daoProductList),
             title: Text(
-              'Create a food list',
+              ListPage.getCreateListLabel(),
               style: themeData.textTheme.headline3,
             ),
           ),
