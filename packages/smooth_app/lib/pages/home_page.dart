@@ -29,6 +29,7 @@ import 'package:smooth_app/pages/product/common/product_list_dialog_helper.dart'
 import 'package:smooth_app/pages/product/product_page.dart';
 import 'package:smooth_app/pages/settings_page.dart';
 import 'package:smooth_app/pages/scan/scan_page.dart';
+import 'package:smooth_app/temp/preference_importance.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
@@ -406,17 +407,17 @@ class _HomePageState extends State<HomePage> {
         userPreferencesModel.getOrderedVariables(userPreferences);
     final List<Widget> attributes = <Widget>[];
     final Map<String, MaterialColor> colors = <String, MaterialColor>{
-      'important': Colors.green,
-      'very_important': Colors.orange,
-      'mandatory': Colors.red,
+      PreferenceImportance.ID_IMPORTANT: Colors.green,
+      PreferenceImportance.ID_VERY_IMPORTANT: Colors.orange,
+      PreferenceImportance.ID_MANDATORY: Colors.red,
     };
 
     final Function onTap = () => UserPreferencesView.showModal(context);
     for (final String variable in orderedVariables) {
       final Attribute attribute =
           userPreferencesModel.getReferenceAttribute(variable);
-      final PreferencesValue importance =
-          userPreferencesModel.getPreferencesValue(
+      final PreferenceImportance importance =
+          userPreferencesModel.getPreferenceImportance(
         variable,
         userPreferences,
       );

@@ -16,6 +16,7 @@ import 'package:smooth_ui_library/buttons/smooth_main_button.dart';
 // Project imports:
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
+import 'package:smooth_app/temp/preference_importance.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 
 class UserPreferencesView extends StatelessWidget {
@@ -159,8 +160,8 @@ class UserPreferencesView extends StatelessWidget {
         (screenWidth - _TYPICAL_PADDING_OR_MARGIN * 5) * _PCT_ICON;
     final double sliderWidth =
         (screenWidth - _TYPICAL_PADDING_OR_MARGIN * 5) * (1 - _PCT_ICON);
-    final PreferencesValue importance =
-        userPreferencesModel.getPreferencesValue(
+    final PreferenceImportance importance =
+        userPreferencesModel.getPreferenceImportance(
       variable.id,
       userPreferences,
     );
