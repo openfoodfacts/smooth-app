@@ -8,7 +8,7 @@ on: push    # Default will running for every branch.
     
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     defaults:
       run:
         working-directory: ./packages/smooth_app
@@ -53,9 +53,19 @@ jobs:
       - name: "Build apk"
         run: flutter build apk --debug
       
+      # Build ios.
+      #- name: "Build ipa"
+      #  run: flutter build ipa --debug
+
+      # Build web.
+      - name: "Build web"
+        run: flutter build web
+      
       # Upload generated apk to the artifacts.
       - name: "Upload APK"
         uses: actions/upload-artifact@v1
         with:
           name: release-apk
           path: packages/smooth_app/build/app/outputs/flutter-apk/app-debug.apk
+      
+
