@@ -11,6 +11,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 // Project imports:
 import 'package:smooth_app/data_models/pantry.dart';
 import 'package:smooth_app/data_models/user_preferences_model.dart';
+import 'package:smooth_app/temp/preference_importance.dart';
 
 class UserPreferences extends ChangeNotifier {
   UserPreferences._shared(final SharedPreferences sharedPreferences) {
@@ -23,8 +24,6 @@ class UserPreferences extends ChangeNotifier {
     final SharedPreferences preferences = await SharedPreferences.getInstance();
     return UserPreferences._shared(preferences);
   }
-
-  static const int INDEX_NOT_IMPORTANT = 0;
 
   static const String _TAG_PREFIX_IMPORTANCE = 'IMPORTANCE';
   static const String _TAG_PANTRY_REPOSITORY = 'pantry_repository';
@@ -70,24 +69,30 @@ class UserPreferences extends ChangeNotifier {
 
   int getImportance(String variable) =>
       _sharedPreferences.getInt(_getImportanceTag(variable)) ??
-      INDEX_NOT_IMPORTANT;
+      PreferenceImportance.INDEX_NOT_IMPORTANT;
 
   Future<void> resetImportances(
       final UserPreferencesModel userPreferencesModel) async {
     for (final AttributeGroup attributeGroup
         in userPreferencesModel.attributeGroups) {
       for (final Attribute attribute in attributeGroup.attributes) {
-        await _setImportance(attribute.id, INDEX_NOT_IMPORTANT, notify: false);
+        await _setImportance(
+          attribute.id,
+          PreferenceImportance.INDEX_NOT_IMPORTANT,
+          notify: false,
+        );
       }
     }
     int valueIndex;
-    valueIndex = userPreferencesModel.getValueIndex('very_important');
+    valueIndex = userPreferencesModel
+        .getValueIndex(PreferenceImportance.ID_VERY_IMPORTANT);
     if (valueIndex != null) {
       await _setImportance(
           UserPreferencesModel.ATTRIBUTE_NUTRISCORE, valueIndex,
           notify: false);
     }
-    valueIndex = userPreferencesModel.getValueIndex('important');
+    valueIndex =
+        userPreferencesModel.getValueIndex(PreferenceImportance.ID_IMPORTANT);
     if (valueIndex != null) {
       await _setImportance(UserPreferencesModel.ATTRIBUTE_NOVA, valueIndex,
           notify: false);

@@ -13,6 +13,7 @@ import 'package:openfoodfacts/model/Product.dart';
 
 // Project imports:
 import 'package:smooth_app/temp/user_preferences.dart';
+import 'package:smooth_app/temp/preference_importance.dart';
 
 class UserPreferencesModel extends ChangeNotifier {
   UserPreferencesModel._();
@@ -46,8 +47,6 @@ class UserPreferencesModel extends ChangeNotifier {
       'assets/metadata/init_preferences_$languageCode.json';
   static String _getAttributeAssetPath(final String languageCode) =>
       'assets/metadata/init_attribute_groups_$languageCode.json';
-  static String _getImportanceUrl(final String languageCode) =>
-      'https://world.openfoodfacts.org/api/v2/preferences?lc=$languageCode';
   static String _getAttributeUrl(final String languageCode) =>
       'https://world.openfoodfacts.org/api/v2/attribute_groups?lc=$languageCode';
 
@@ -55,8 +54,8 @@ class UserPreferencesModel extends ChangeNotifier {
           final AssetBundle assetBundle) async =>
       _getAssets(assetBundle, _DEFAULT_LANGUAGE);
 
-  List<PreferencesValue> _preferenceValues;
-  Map<String, int> _preferenceValuesReverse;
+  List<PreferenceImportance> _preferenceImportances;
+  Map<String, int> _preferenceImportancesReverse;
   List<AttributeGroup> _attributeGroups;
   String _languageCode;
   bool _isHttps;
@@ -88,8 +87,8 @@ class UserPreferencesModel extends ChangeNotifier {
   void _copyFrom(final UserPreferencesModel other) {
     _languageCode = other._languageCode;
     _isHttps = other._isHttps;
-    _preferenceValues = other._preferenceValues;
-    _preferenceValuesReverse = other._preferenceValuesReverse;
+    _preferenceImportances = other._preferenceImportances;
+    _preferenceImportancesReverse = other._preferenceImportancesReverse;
     _attributeGroups = other._attributeGroups;
     notifyListeners();
   }
@@ -99,7 +98,7 @@ class UserPreferencesModel extends ChangeNotifier {
     final String attributeGroupString,
   ) {
     try {
-      if (!_loadJsonString(importanceString, _loadValues)) {
+      if (!_loadJsonString(importanceString, _loadImportances)) {
         return false;
       }
       if (!_loadJsonString(attributeGroupString, _loadAttributeGroups)) {
@@ -146,7 +145,7 @@ class UserPreferencesModel extends ChangeNotifier {
     final String languageCode,
   ) async {
     try {
-      final String importanceUrl = _getImportanceUrl(languageCode);
+      final String importanceUrl = PreferenceImportance.getUrl(languageCode);
       final String attributeUrl = _getAttributeUrl(languageCode);
       http.Response response;
       response = await http.get(Uri.parse(importanceUrl));
@@ -188,7 +187,7 @@ class UserPreferencesModel extends ChangeNotifier {
         final int importance =
             getAttributeValueIndex(variable, userPreferences);
         if (importance == null ||
-            importance == UserPreferences.INDEX_NOT_IMPORTANT) {
+            importance == PreferenceImportance.INDEX_NOT_IMPORTANT) {
           continue;
         }
         List<String> list = map[importance];
@@ -255,25 +254,27 @@ class UserPreferencesModel extends ChangeNotifier {
     final String variable,
     final UserPreferences userPreferences,
   ) =>
-      getValueIndex(getPreferencesValue(variable, userPreferences).id);
+      getValueIndex(getPreferenceImportance(variable, userPreferences).id);
 
   int getValueIndex(final String value) =>
-      _preferenceValuesReverse[value] ?? UserPreferences.INDEX_NOT_IMPORTANT;
+      _preferenceImportancesReverse[value] ??
+      PreferenceImportance.INDEX_NOT_IMPORTANT;
 
-  PreferencesValue getPreferencesValue(
+  PreferenceImportance getPreferenceImportance(
     final String variable,
     final UserPreferences userPreferences,
   ) =>
-      _preferenceValues[userPreferences.getImportance(variable)];
+      _preferenceImportances[userPreferences.getImportance(variable)];
 
-  void _loadValues(dynamic json) {
-    _preferenceValues = (json as List<dynamic>)
-        .map((dynamic item) => PreferencesValue.fromJson(item))
+  void _loadImportances(dynamic json) {
+    _preferenceImportances = (json as List<dynamic>)
+        .map((dynamic item) => PreferenceImportance.fromJson(item))
         .toList();
-    _preferenceValuesReverse = <String, int>{};
+    _preferenceImportancesReverse = <String, int>{};
     int i = 0;
-    for (final PreferencesValue preferencesValue in _preferenceValues) {
-      _preferenceValuesReverse[preferencesValue.id] = i++;
+    for (final PreferenceImportance preferenceImportance
+        in _preferenceImportances) {
+      _preferenceImportancesReverse[preferenceImportance.id] = i++;
     }
   }
 
@@ -281,25 +282,4 @@ class UserPreferencesModel extends ChangeNotifier {
       _attributeGroups = (json as List<dynamic>)
           .map((dynamic item) => AttributeGroup.fromJson(item))
           .toList();
-}
-
-class PreferencesValue {
-  PreferencesValue({this.id, this.name, this.factor, this.minimalMatch});
-
-  factory PreferencesValue.fromJson(dynamic json) => PreferencesValue(
-        id: json['id'] as String,
-        name: json['name'] as String,
-        factor: json['factor'] as int,
-        minimalMatch: json['minimum_match'] as int,
-      );
-
-  final String id;
-  final String name;
-  final int factor;
-  final int minimalMatch;
-
-  @override
-  String toString() => 'PreferencesValue('
-      'id: $id, name: $name, factor: $factor, minimalWatch: $minimalMatch'
-      ')';
 }
