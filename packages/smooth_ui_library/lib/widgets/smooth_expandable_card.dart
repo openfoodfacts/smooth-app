@@ -76,9 +76,10 @@ class _SmoothExpandableCardState extends State<SmoothExpandableCard>
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Container(
-                        child: collapsed
-                            ? widget.collapsedHeader
-                            : widget.expandedHeader),
+                      child: collapsed
+                          ? widget.collapsedHeader
+                          : widget.expandedHeader ?? widget.collapsedHeader,
+                    ),
                     AnimatedBuilder(
                       animation: animation,
                       child: const Icon(Icons.keyboard_arrow_down),
