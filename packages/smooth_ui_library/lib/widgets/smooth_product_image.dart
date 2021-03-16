@@ -13,7 +13,8 @@ class SmoothProductImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (product.imgSmallUrl != null && product.imgSmallUrl != '') {
+    if (product.imageFrontSmallUrl != null &&
+        product.imageFrontSmallUrl != '') {
       return ClipRRect(
           borderRadius: const BorderRadius.all(Radius.circular(15.0)),
           child: Container(
@@ -24,7 +25,7 @@ class SmoothProductImage extends StatelessWidget {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: NetworkImage(
-                  product.imgSmallUrl,
+                  product.imageFrontSmallUrl,
                   scale: 1.0,
                 ),
               ),
@@ -32,7 +33,7 @@ class SmoothProductImage extends StatelessWidget {
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 12.0, sigmaY: 12.0),
               child: Image.network(
-                product.imgSmallUrl,
+                product.imageFrontSmallUrl,
                 fit: BoxFit.contain,
                 loadingBuilder: (BuildContext context, Widget child,
                     ImageChunkEvent progress) {

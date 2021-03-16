@@ -157,7 +157,6 @@ class ProductPage extends StatefulWidget {
 }
 
 class _ProductPageState extends State<ProductPage> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   Product _product;
 
   @override
@@ -182,7 +181,6 @@ class _ProductPageState extends State<ProductPage> {
     final ThemeData themeData = Theme.of(context);
     _product ??= widget.product;
     return Scaffold(
-        key: _scaffoldKey,
         appBar: AppBar(
           title: Text(
             _product.productName ?? appLocalizations.unknownProductName,
