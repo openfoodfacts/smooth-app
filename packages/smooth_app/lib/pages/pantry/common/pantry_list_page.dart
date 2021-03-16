@@ -97,7 +97,6 @@ class _PantryListPageState extends State<PantryListPage> {
             Colors.blue,
             ColorDestination.SURFACE_BACKGROUND,
           ),
-          collapsed: null,
           content: ListTile(
             leading: Icon(Icons.add, size: iconSize),
             onTap: () async => await _add(userPreferences),

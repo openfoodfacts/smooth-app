@@ -70,11 +70,11 @@ class AttributeListExpandable extends StatelessWidget {
     );
     if (!collapsible) {
       return SmoothCard(
-        collapsed: null,
         content: content,
         background: background,
       );
     }
+
     final Widget header =
         Text(title, style: Theme.of(context).textTheme.headline3);
     return SmoothExpandableCard(
