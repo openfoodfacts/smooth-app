@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 class SmoothExpandableCard extends StatefulWidget {
   const SmoothExpandableCard({
     @required this.collapsedHeader,
-    this.expandedHeader,
     @required this.content,
+    this.expandedHeader,
     this.background,
   });
 
@@ -24,12 +24,13 @@ class _SmoothExpandableCardState extends State<SmoothExpandableCard>
   bool collapsed = true;
   AnimationController _controller;
   Animation<double> animation;
+  static const Duration _ANIMATION_DURATION = Duration(milliseconds: 160);
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 160));
+    _controller =
+        AnimationController(vsync: this, duration: _ANIMATION_DURATION);
     animation = Tween<double>(begin: 0, end: pi).animate(_controller);
   }
 
@@ -42,7 +43,7 @@ class _SmoothExpandableCardState extends State<SmoothExpandableCard>
   @override
   Widget build(BuildContext context) {
     return AnimatedCrossFade(
-      duration: const Duration(milliseconds: 160),
+      duration: _ANIMATION_DURATION,
       crossFadeState: CrossFadeState.showFirst,
       firstChild: _buildCard(),
       secondChild: _buildCard(),

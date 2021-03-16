@@ -25,14 +25,7 @@ class SmoothCard extends StatelessWidget {
             padding: const EdgeInsets.all(12.0),
             child: Column(
               children: <Widget>[
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Container(child: header),
-                  ],
-                ),
+                header,
                 content,
               ],
             ),
