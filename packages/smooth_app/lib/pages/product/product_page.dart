@@ -389,6 +389,7 @@ class _ProductPageState extends State<ProductPage> {
 
     listItems.add(_buildProductImagesCarousel(context));
 
+    // Brands, quantity
     listItems.add(
       Padding(
         padding: const EdgeInsets.all(16.0),
@@ -413,11 +414,14 @@ class _ProductPageState extends State<ProductPage> {
         ),
       ),
     );
+
     final Map<String, Attribute> matchingAttributes =
         Match.getMatchingAttributes(_product, mainAttributes);
     final double opacity = themeData.brightness == Brightness.light
         ? 1
         : SmoothTheme.ADDITIONAL_OPACITY_FOR_DARK;
+
+    //Nutri, Nova
     for (final String attributeId in mainAttributes) {
       if (matchingAttributes[attributeId] != null) {
         listItems.add(
@@ -432,11 +436,13 @@ class _ProductPageState extends State<ProductPage> {
         );
       }
     }
+
     for (final AttributeGroup attributeGroup
         in _getOrderedAttributeGroups(userPreferencesModel)) {
       listItems.add(_getAttributeGroupWidget(attributeGroup, iconWidth));
     }
 
+    //Similar foods
     if (_product.categoriesTags != null && _product.categoriesTags.isNotEmpty) {
       for (int i = _product.categoriesTags.length - 1;
           i < _product.categoriesTags.length;
@@ -450,7 +456,6 @@ class _ProductPageState extends State<ProductPage> {
               materialColor,
               ColorDestination.SURFACE_BACKGROUND,
             ),
-            collapsed: null,
             content: ListTile(
               leading: Icon(
                 Icons.search,

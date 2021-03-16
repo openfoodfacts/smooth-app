@@ -1,10 +1,11 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_ui_library/widgets/models/single_boolean_model.dart';
-import 'package:smooth_ui_library/widgets/smooth_card.dart';
 
-class SmoothExpandableCard extends StatelessWidget {
+class SmoothExpandableCard extends StatefulWidget {
   const SmoothExpandableCard({
     @required this.collapsedHeader,
     this.expandedHeader,
@@ -16,44 +17,87 @@ class SmoothExpandableCard extends StatelessWidget {
   final Widget expandedHeader;
   final Color background;
   final Widget content;
+  @override
+  _SmoothExpandableCardState createState() => _SmoothExpandableCardState();
+}
+
+class _SmoothExpandableCardState extends State<SmoothExpandableCard>
+    with SingleTickerProviderStateMixin {
+  bool collapsed = true;
+  AnimationController _controller;
+  Animation<double> animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 160));
+    animation = Tween<double>(begin: 0, end: pi).animate(_controller);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<SingleBooleanModel>(
-      create: (BuildContext context) => SingleBooleanModel(),
-      child: Consumer<SingleBooleanModel>(
-        builder: (BuildContext context, SingleBooleanModel singleBooleanModel,
-            Widget child) {
-          return AnimatedCrossFade(
-            duration: const Duration(milliseconds: 160),
-            firstCurve: Curves.easeInOutBack,
-            secondCurve: Curves.easeInOutBack,
-            firstChild: _buildExpandedWidget(
-                singleBooleanModel, Theme.of(context), true),
-            secondChild: _buildExpandedWidget(
-                singleBooleanModel, Theme.of(context), false),
-            crossFadeState: singleBooleanModel.isActive
-                ? CrossFadeState.showSecond
-                : CrossFadeState.showFirst,
-          );
-        },
-      ),
+    return AnimatedCrossFade(
+      duration: const Duration(milliseconds: 160),
+      crossFadeState: CrossFadeState.showFirst,
+      firstChild: _buildCard(),
+      secondChild: _buildCard(),
     );
   }
 
-  Widget _buildExpandedWidget(
-    final SingleBooleanModel singleBooleanModel,
-    final ThemeData themeData,
-    final bool collapsed,
-  ) {
+  Widget _buildCard() {
     return GestureDetector(
-      onTap: () => collapsed
-          ? singleBooleanModel.setActive()
-          : singleBooleanModel.setInactive(),
-      child: SmoothCard(
-        collapsed: collapsed,
-        content: content,
-        header: collapsed == true ? collapsedHeader : expandedHeader,
+      onTap: () {
+        print('press1');
+        setState(() {
+          collapsed = !collapsed;
+          animation.value == 0 ? _controller.forward() : _controller.reverse();
+        });
+      },
+      child: Padding(
+        padding: const EdgeInsets.only(
+            right: 8.0, left: 8.0, top: 4.0, bottom: 20.0),
+        child: Material(
+          elevation: 8.0,
+          shadowColor: Colors.black45,
+          borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+          color: widget.background ?? Theme.of(context).colorScheme.surface,
+          child: Container(
+            padding: const EdgeInsets.all(12.0),
+            child: Column(
+              children: <Widget>[
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Container(
+                        child: collapsed
+                            ? widget.expandedHeader
+                            : widget.collapsedHeader),
+                    AnimatedBuilder(
+                      animation: animation,
+                      child: const Icon(Icons.keyboard_arrow_down),
+                      builder: (BuildContext context, Widget child) {
+                        return Transform.rotate(
+                          angle: animation.value,
+                          child: child,
+                        );
+                      },
+                    ),
+                  ],
+                ),
+                if (collapsed == true) widget.content,
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
