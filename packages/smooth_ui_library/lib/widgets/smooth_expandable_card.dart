@@ -2,8 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:smooth_ui_library/widgets/models/single_boolean_model.dart';
 
 class SmoothExpandableCard extends StatefulWidget {
   const SmoothExpandableCard({
@@ -54,7 +52,6 @@ class _SmoothExpandableCardState extends State<SmoothExpandableCard>
   Widget _buildCard() {
     return GestureDetector(
       onTap: () {
-        print('press1');
         setState(() {
           collapsed = !collapsed;
           animation.value == 0 ? _controller.forward() : _controller.reverse();
@@ -79,8 +76,8 @@ class _SmoothExpandableCardState extends State<SmoothExpandableCard>
                   children: <Widget>[
                     Container(
                         child: collapsed
-                            ? widget.expandedHeader
-                            : widget.collapsedHeader),
+                            ? widget.collapsedHeader
+                            : widget.expandedHeader),
                     AnimatedBuilder(
                       animation: animation,
                       child: const Icon(Icons.keyboard_arrow_down),
@@ -93,7 +90,7 @@ class _SmoothExpandableCardState extends State<SmoothExpandableCard>
                     ),
                   ],
                 ),
-                if (collapsed == true) widget.content,
+                if (collapsed != true) widget.content,
               ],
             ),
           ),
