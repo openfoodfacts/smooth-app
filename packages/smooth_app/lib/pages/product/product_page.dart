@@ -16,7 +16,6 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:share/share.dart';
 import 'package:smooth_ui_library/widgets/smooth_card.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 
 // Project imports:
 import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
@@ -315,24 +314,21 @@ class _ProductPageState extends State<ProductPage> {
       ),
     ];
 
-    return CarouselSlider(
-      options: CarouselOptions(
-        disableCenter: true,
-        enableInfiniteScroll: false,
-        height: 200, // Small images are 200px high, normal images are 400px
-        viewportFraction: 0.75,
-        pageSnapping: false,
-        enlargeStrategy: CenterPageEnlargeStrategy.height,
+    return Container(
+      height: 200,
+      child: ListView(
+        // This next line does the trick.
+        scrollDirection: Axis.horizontal,
+        children: carouselItems
+            .map(
+              (ImageUploadCard item) => Container(
+                margin: const EdgeInsets.fromLTRB(0, 0, 5, 0),
+                decoration: const BoxDecoration(color: Colors.black12),
+                child: item,
+              ),
+            )
+            .toList(),
       ),
-      items: carouselItems
-          .map(
-            (ImageUploadCard item) => Container(
-              margin: const EdgeInsets.fromLTRB(0, 0, 5, 0),
-              decoration: const BoxDecoration(color: Colors.black12),
-              child: item,
-            ),
-          )
-          .toList(),
     );
   }
 
