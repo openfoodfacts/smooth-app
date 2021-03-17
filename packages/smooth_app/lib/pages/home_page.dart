@@ -15,7 +15,6 @@ import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
 import 'package:smooth_app/cards/product_cards/product_list_preview.dart';
 import 'package:smooth_app/data_models/pantry.dart';
 import 'package:smooth_app/data_models/product_list.dart';
-import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -30,6 +29,7 @@ import 'package:smooth_app/pages/product/product_page.dart';
 import 'package:smooth_app/pages/settings_page.dart';
 import 'package:smooth_app/pages/scan/scan_page.dart';
 import 'package:smooth_app/temp/preference_importance.dart';
+import 'package:smooth_app/temp/product_preferences.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
@@ -73,8 +73,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final UserPreferences userPreferences = context.watch<UserPreferences>();
-    final UserPreferencesModel userPreferencesModel =
-        context.watch<UserPreferencesModel>();
+    final ProductPreferences productPreferences =
+        context.watch<ProductPreferences>();
     _daoProductList = DaoProductList(localDatabase);
     _daoProduct = DaoProduct(localDatabase);
     final ThemeData themeData = Theme.of(context);
@@ -200,7 +200,7 @@ class _HomePageState extends State<HomePage> {
           //My shopping lists
           _getPantryCard(userPreferences, _daoProduct, PantryType.SHOPPING),
           //Food ranking parameters
-          _getRankingPreferences(userPreferencesModel, userPreferences),
+          _getRankingPreferences(productPreferences),
           //Recently seen products
           ProductListPreview(
             daoProductList: _daoProductList,
@@ -399,12 +399,9 @@ class _HomePageState extends State<HomePage> {
         },
       );
 
-  Widget _getRankingPreferences(
-    final UserPreferencesModel userPreferencesModel,
-    final UserPreferences userPreferences,
-  ) {
-    final List<String> orderedVariables =
-        userPreferencesModel.getOrderedVariables(userPreferences);
+  Widget _getRankingPreferences(final ProductPreferences productPreferences) {
+    final List<String> orderedAttributeIds =
+        productPreferences.getOrderedImportantAttributeIds();
     final List<Widget> attributes = <Widget>[];
     final Map<String, MaterialColor> colors = <String, MaterialColor>{
       PreferenceImportance.ID_IMPORTANT: Colors.green,
@@ -413,19 +410,16 @@ class _HomePageState extends State<HomePage> {
     };
 
     final Function onTap = () => UserPreferencesView.showModal(context);
-    for (final String variable in orderedVariables) {
+    for (final String attributeId in orderedAttributeIds) {
       final Attribute attribute =
-          userPreferencesModel.getReferenceAttribute(variable);
+          productPreferences.getReferenceAttribute(attributeId);
       final PreferenceImportance importance =
-          userPreferencesModel.getPreferenceImportance(
-        variable,
-        userPreferences,
-      );
+          productPreferences.getPreferenceImportance(attributeId);
       attributes.add(
         ElevatedButton(
           onPressed: () => onTap(),
           child: Text(
-            '${attribute.name}',
+            attribute.name,
             style: TextStyle(
               color: SmoothTheme.getColor(
                 Theme.of(context).colorScheme,

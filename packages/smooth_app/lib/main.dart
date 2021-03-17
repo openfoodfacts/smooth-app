@@ -13,9 +13,9 @@ import 'package:sentry/sentry.dart';
 
 // Project imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/home_page.dart';
+import 'package:smooth_app/temp/product_preferences.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -38,6 +38,12 @@ Future<void> main() async {
 }
 
 class MyApp extends StatefulWidget {
+  static const String DEFAULT_LANGUAGE_CODE = 'en';
+  static String getImportanceAssetPath(final String languageCode) =>
+      'assets/metadata/init_preferences_$languageCode.json';
+  static String getAttributeAssetPath(final String languageCode) =>
+      'assets/metadata/init_attribute_groups_$languageCode.json';
+
   // This widget is the root of your application.
   @override
   _MyAppState createState() => _MyAppState();
@@ -45,16 +51,33 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   UserPreferences _userPreferences;
-  UserPreferencesModel _userPreferencesModel;
+  ProductPreferences _productPreferences;
   LocalDatabase _localDatabase;
   ThemeProvider _themeProvider;
   bool systemDarkmodeOn = false;
 
   Future<void> _init(BuildContext context) async {
     _userPreferences = await UserPreferences.getUserPreferences();
-    _userPreferencesModel = await UserPreferencesModel.getUserPreferencesModel(
-        DefaultAssetBundle.of(context));
-    await _userPreferences.init(_userPreferencesModel);
+    _productPreferences = ProductPreferences(
+      (
+        String attributeId,
+        int importanceIndex,
+      ) async {
+        await _userPreferences.setImportanceIndex(attributeId, importanceIndex);
+        _productPreferences.notifyListeners();
+      },
+      (String attributeId) => _userPreferences.getImportanceIndex(attributeId),
+    );
+    if (!await _productPreferences.loadReferenceFromAssets(
+      DefaultAssetBundle.of(context),
+      MyApp.DEFAULT_LANGUAGE_CODE,
+      MyApp.getImportanceAssetPath(MyApp.DEFAULT_LANGUAGE_CODE),
+      MyApp.getAttributeAssetPath(MyApp.DEFAULT_LANGUAGE_CODE),
+    )) {
+      // we're really in trouble!
+      return;
+    }
+    await _userPreferences.init(_productPreferences);
     _localDatabase = await LocalDatabase.getLocalDatabase();
     _themeProvider = ThemeProvider(_userPreferences);
   }
@@ -77,8 +100,8 @@ class _MyAppState extends State<MyApp> {
             providers: <ChangeNotifierProvider<dynamic>>[
               ChangeNotifierProvider<UserPreferences>.value(
                   value: _userPreferences),
-              ChangeNotifierProvider<UserPreferencesModel>.value(
-                  value: _userPreferencesModel),
+              ChangeNotifierProvider<ProductPreferences>.value(
+                  value: _productPreferences),
               ChangeNotifierProvider<LocalDatabase>.value(
                   value: _localDatabase),
               ChangeNotifierProvider<ThemeProvider>.value(
@@ -126,11 +149,33 @@ class _MyAppState extends State<MyApp> {
 class SmoothAppGetLanguage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final UserPreferencesModel userPreferencesModel =
-        context.watch<UserPreferencesModel>();
+    final ProductPreferences productPreferences =
+        context.watch<ProductPreferences>();
     final Locale myLocale = Localizations.localeOf(context);
     final String languageCode = myLocale.languageCode;
-    userPreferencesModel.refresh(DefaultAssetBundle.of(context), languageCode);
+    _refresh(
+      productPreferences,
+      DefaultAssetBundle.of(context),
+      languageCode,
+    );
     return HomePage();
+  }
+
+  Future<void> _refresh(
+    final ProductPreferences productPreferences,
+    final AssetBundle assetBundle,
+    final String languageCode,
+  ) async {
+    if (productPreferences.languageCode != languageCode) {
+      await productPreferences.loadReferenceFromAssets(
+        assetBundle,
+        languageCode,
+        MyApp.getImportanceAssetPath(languageCode),
+        MyApp.getAttributeAssetPath(languageCode),
+      );
+    }
+    if (!productPreferences.isHttps) {
+      await productPreferences.loadReferenceFromHttps(languageCode);
+    }
   }
 }

@@ -18,8 +18,10 @@ import 'package:smooth_app/cards/data_cards/smooth_energy_card.dart';
 import 'package:smooth_app/cards/data_cards/smooth_intake_recommendation_card.dart';
 import 'package:smooth_app/cards/data_cards/smooth_quantity_selector_card.dart';
 import 'package:smooth_app/data_models/sneak_peek_model.dart';
-import 'package:smooth_app/data_models/user_preferences_model.dart';
+import 'package:smooth_app/temp/product_preferences.dart';
 
+// TODO(stephanegigandet): remove if not useful anymore?
+@deprecated
 class SmoothProductSneakPeekView extends StatefulWidget {
   const SmoothProductSneakPeekView(
       {@required this.product, @required this.context, @required this.heroTag});
@@ -32,6 +34,8 @@ class SmoothProductSneakPeekView extends StatefulWidget {
   State<StatefulWidget> createState() => SmoothProductSneakPeekViewState();
 }
 
+// TODO(stephanegigandet): remove if not useful anymore?
+@deprecated
 class SmoothProductSneakPeekViewState extends State<SmoothProductSneakPeekView>
     with SingleTickerProviderStateMixin {
   @override
@@ -140,8 +144,8 @@ class SmoothProductSneakPeekViewState extends State<SmoothProductSneakPeekView>
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     AttributeChip(
-                      UserPreferencesModel.getAttribute(widget.product,
-                          UserPreferencesModel.ATTRIBUTE_NUTRISCORE),
+                      ProductPreferences.getAttribute(widget.product,
+                          ProductPreferences.ATTRIBUTE_NUTRISCORE),
                       width: 100.0,
                     ),
                     Container(

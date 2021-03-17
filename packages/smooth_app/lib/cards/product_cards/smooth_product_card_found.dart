@@ -13,9 +13,8 @@ import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
 
 // Project imports:
 import 'package:smooth_app/cards/data_cards/attribute_chip.dart';
-import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/pages/product/product_page.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
+import 'package:smooth_app/temp/product_preferences.dart';
 
 class SmoothProductCardFound extends StatelessWidget {
   const SmoothProductCardFound({
@@ -38,20 +37,19 @@ class SmoothProductCardFound extends StatelessWidget {
       return _getOldStyle(context);
     }
 
-    final UserPreferences userPreferences = context.watch<UserPreferences>();
-    final UserPreferencesModel userPreferencesModel =
-        context.watch<UserPreferencesModel>();
+    final ProductPreferences productPreferences =
+        context.watch<ProductPreferences>();
     final Size screenSize = MediaQuery.of(context).size;
     final ThemeData themeData = Theme.of(context);
 
     final List<String> orderedVariables =
-        userPreferencesModel.getOrderedVariables(userPreferences);
+        productPreferences.getOrderedImportantAttributeIds();
     final List<Widget> scores = <Widget>[];
     final double iconSize =
         screenSize.width / 10; // TODO(monsieurtanuki): target size?
     for (final String variable in orderedVariables) {
       final Attribute attribute =
-          UserPreferencesModel.getAttribute(product, variable);
+          ProductPreferences.getAttribute(product, variable);
       scores.add(AttributeChip(attribute, height: iconSize));
     }
     return GestureDetector(

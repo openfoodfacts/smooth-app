@@ -10,10 +10,9 @@ import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/smooth_it_model.dart';
-import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/structures/ranked_product.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
+import 'package:smooth_app/temp/product_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 class PersonalizedRankingPage extends StatefulWidget {
@@ -54,11 +53,10 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
 
   @override
   Widget build(BuildContext context) {
-    final UserPreferences userPreferences = context.watch<UserPreferences>();
-    final UserPreferencesModel userPreferencesModel =
-        context.watch<UserPreferencesModel>();
+    final ProductPreferences productPreferences =
+        context.watch<ProductPreferences>();
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
-    _model.refresh(widget.productList, userPreferences, userPreferencesModel);
+    _model.refresh(widget.productList, productPreferences);
     final List<BottomNavigationBarItem> bottomNavigationBarItems =
         <BottomNavigationBarItem>[];
     for (final int matchIndex in _ORDERED_MATCH_INDEXES) {

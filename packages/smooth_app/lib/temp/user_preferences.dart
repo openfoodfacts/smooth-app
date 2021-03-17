@@ -10,8 +10,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 // Project imports:
 import 'package:smooth_app/data_models/pantry.dart';
-import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/temp/preference_importance.dart';
+import 'package:smooth_app/temp/product_preferences.dart';
 
 class UserPreferences extends ChangeNotifier {
   UserPreferences._shared(final SharedPreferences sharedPreferences) {
@@ -41,66 +41,54 @@ class UserPreferences extends ChangeNotifier {
     PantryType.SHOPPING: _TAG_SHOPPING_REPOSITORY,
   };
 
-  Future<void> init(final UserPreferencesModel userPreferencesModel) async {
+  Future<void> init(final ProductPreferences productPreferences) async {
     final bool alreadyDone = _sharedPreferences.getBool(_TAG_INIT);
     if (alreadyDone != null) {
       return;
     }
-    await resetImportances(userPreferencesModel);
+    await resetImportances(productPreferences);
     await _sharedPreferences.setBool(_TAG_INIT, true);
   }
 
   String _getImportanceTag(final String variable) =>
       _TAG_PREFIX_IMPORTANCE + variable;
 
-  Future<void> setImportance(String variable, int value) async =>
-      _setImportance(variable, value, notify: true);
+  Future<void> setImportanceIndex(
+          final String attributeId, final int importanceIndex) async =>
+      await _sharedPreferences.setInt(
+          _getImportanceTag(attributeId), importanceIndex);
 
-  Future<void> _setImportance(
-    String variable,
-    int value, {
-    bool notify = true,
-  }) async {
-    await _sharedPreferences.setInt(_getImportanceTag(variable), value);
-    if (notify) {
-      notifyListeners();
-    }
-  }
-
-  int getImportance(String variable) =>
-      _sharedPreferences.getInt(_getImportanceTag(variable)) ??
+  int getImportanceIndex(final String attributeId) =>
+      _sharedPreferences.getInt(_getImportanceTag(attributeId)) ??
       PreferenceImportance.INDEX_NOT_IMPORTANT;
 
   Future<void> resetImportances(
-      final UserPreferencesModel userPreferencesModel) async {
+    final ProductPreferences productPreferences,
+  ) async {
     for (final AttributeGroup attributeGroup
-        in userPreferencesModel.attributeGroups) {
+        in productPreferences.attributeGroups) {
       for (final Attribute attribute in attributeGroup.attributes) {
-        await _setImportance(
-          attribute.id,
-          PreferenceImportance.INDEX_NOT_IMPORTANT,
-          notify: false,
-        );
+        await setImportanceIndex(
+            attribute.id, PreferenceImportance.INDEX_NOT_IMPORTANT);
       }
     }
-    int valueIndex;
-    valueIndex = userPreferencesModel
-        .getValueIndex(PreferenceImportance.ID_VERY_IMPORTANT);
-    if (valueIndex != null) {
-      await _setImportance(
-          UserPreferencesModel.ATTRIBUTE_NUTRISCORE, valueIndex,
-          notify: false);
+    int importanceIndex;
+    importanceIndex = productPreferences
+        .getImportanceIndex(PreferenceImportance.ID_VERY_IMPORTANT);
+    if (importanceIndex != null) {
+      await setImportanceIndex(
+          ProductPreferences.ATTRIBUTE_NUTRISCORE, importanceIndex);
     }
-    valueIndex =
-        userPreferencesModel.getValueIndex(PreferenceImportance.ID_IMPORTANT);
-    if (valueIndex != null) {
-      await _setImportance(UserPreferencesModel.ATTRIBUTE_NOVA, valueIndex,
-          notify: false);
-      await _setImportance(UserPreferencesModel.ATTRIBUTE_ECOSCORE, valueIndex,
-          notify: false);
+    importanceIndex = productPreferences
+        .getImportanceIndex(PreferenceImportance.ID_IMPORTANT);
+    if (importanceIndex != null) {
+      await setImportanceIndex(
+          ProductPreferences.ATTRIBUTE_NOVA, importanceIndex);
+      await setImportanceIndex(
+          ProductPreferences.ATTRIBUTE_ECOSCORE, importanceIndex);
     }
     await _sharedPreferences.remove(_TAG_VISIBLE_GROUPS);
-    notifyListeners();
+    productPreferences.notifyListeners();
   }
 
   bool isAttributeGroupVisible(final AttributeGroup group) {

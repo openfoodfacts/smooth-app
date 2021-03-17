@@ -15,8 +15,8 @@ import 'package:smooth_ui_library/buttons/smooth_main_button.dart';
 
 // Project imports:
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
-import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/temp/preference_importance.dart';
+import 'package:smooth_app/temp/product_preferences.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 
 class UserPreferencesView extends StatelessWidget {
@@ -58,8 +58,8 @@ class UserPreferencesView extends StatelessWidget {
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
     final UserPreferences userPreferences = context.watch<UserPreferences>();
-    final UserPreferencesModel userPreferencesModel =
-        context.watch<UserPreferencesModel>();
+    final ProductPreferences productPreferences =
+        context.watch<ProductPreferences>();
     final double buttonWidth =
         (screenSize.width - _TYPICAL_PADDING_OR_MARGIN * 3) / 2;
     return Material(
@@ -90,7 +90,7 @@ class UserPreferencesView extends StatelessWidget {
                         context,
                         screenSize.width,
                         userPreferences,
-                        userPreferencesModel,
+                        productPreferences,
                       ),
                       SizedBox(
                         height: screenSize.height * 0.15,
@@ -122,8 +122,9 @@ class UserPreferencesView extends StatelessWidget {
                             text: 'Reset',
                             minWidth: buttonWidth,
                             important: false,
-                            onPressed: () => userPreferences
-                                .resetImportances(userPreferencesModel),
+                            onPressed: () => userPreferences.resetImportances(
+                              productPreferences,
+                            ),
                           ),
                           SmoothMainButton(
                             text: 'OK',
@@ -151,20 +152,16 @@ class UserPreferencesView extends StatelessWidget {
 
   Widget _generatePreferenceRow(
     final BuildContext context,
-    final Attribute variable,
+    final Attribute attribute,
     final double screenWidth,
-    final UserPreferences userPreferences,
-    final UserPreferencesModel userPreferencesModel,
+    final ProductPreferences productPreferences,
   ) {
     final double iconWidth =
         (screenWidth - _TYPICAL_PADDING_OR_MARGIN * 5) * _PCT_ICON;
     final double sliderWidth =
         (screenWidth - _TYPICAL_PADDING_OR_MARGIN * 5) * (1 - _PCT_ICON);
     final PreferenceImportance importance =
-        userPreferencesModel.getPreferenceImportance(
-      variable.id,
-      userPreferences,
-    );
+        productPreferences.getPreferenceImportance(attribute.id);
     return Container(
       padding: const EdgeInsets.all(_TYPICAL_PADDING_OR_MARGIN),
       margin: const EdgeInsets.all(_TYPICAL_PADDING_OR_MARGIN),
@@ -178,7 +175,7 @@ class UserPreferencesView extends StatelessWidget {
         children: <Widget>[
           Container(
             width: iconWidth,
-            child: SvgCache(variable.iconUrl, width: iconWidth),
+            child: SvgCache(attribute.iconUrl, width: iconWidth),
           ),
           Container(width: _TYPICAL_PADDING_OR_MARGIN),
           Container(
@@ -188,14 +185,14 @@ class UserPreferencesView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  variable.settingName,
+                  attribute.settingName,
                 ),
                 SliderTheme(
                   data: SliderThemeData(
                     //thumbColor: Colors.red,
                     activeTrackColor: Colors.black54,
-                    valueIndicatorColor: getColor(userPreferencesModel
-                        .getAttributeValueIndex(variable.id, userPreferences)),
+                    valueIndicatorColor: getColor(productPreferences
+                        .getAttributeImportanceIndex(attribute.id)),
                     trackHeight: 5.0,
                     inactiveTrackColor: Colors.black12,
                     showValueIndicator: ShowValueIndicator.always,
@@ -204,11 +201,14 @@ class UserPreferencesView extends StatelessWidget {
                     min: 0.0,
                     max: 3.0,
                     divisions: 3,
-                    value: userPreferencesModel
-                        .getAttributeValueIndex(variable.id, userPreferences)
+                    value: productPreferences
+                        .getAttributeImportanceIndex(attribute.id)
                         .toDouble(),
-                    onChanged: (double value) => userPreferences.setImportance(
-                        variable.id, value.toInt()),
+                    onChanged: (double value) =>
+                        productPreferences.saveImportance(
+                      attribute.id,
+                      value.toInt(),
+                    ),
                     activeColor: Theme.of(context).colorScheme.onSurface,
                     label: importance.name,
                   ),
@@ -225,9 +225,9 @@ class UserPreferencesView extends StatelessWidget {
     final BuildContext context,
     final double screenWidth,
     final UserPreferences userPreferences,
-    final UserPreferencesModel userPreferencesModel,
+    final ProductPreferences productPreferences,
   ) {
-    final List<AttributeGroup> groups = userPreferencesModel.attributeGroups;
+    final List<AttributeGroup> groups = productPreferences.attributeGroups;
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: List<Widget>.generate(
@@ -237,7 +237,7 @@ class UserPreferencesView extends StatelessWidget {
                 groups[index],
                 screenWidth,
                 userPreferences,
-                userPreferencesModel,
+                productPreferences,
               )),
     );
   }
@@ -247,7 +247,7 @@ class UserPreferencesView extends StatelessWidget {
     final AttributeGroup group,
     final double screenWidth,
     final UserPreferences userPreferences,
-    final UserPreferencesModel userPreferencesModel,
+    final ProductPreferences productPreferences,
   ) =>
       !userPreferences.isAttributeGroupVisible(group)
           ? _generateGroupTitle(context, group, userPreferences)
@@ -263,8 +263,7 @@ class UserPreferencesView extends StatelessWidget {
                             context,
                             group.attributes[index - 2],
                             screenWidth,
-                            userPreferences,
-                            userPreferencesModel,
+                            productPreferences,
                           ),
               ),
             );

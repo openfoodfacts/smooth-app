@@ -4,9 +4,8 @@ import 'package:openfoodfacts/model/Product.dart';
 // Project imports:
 import 'package:smooth_app/data_models/match.dart';
 import 'package:smooth_app/data_models/product_list.dart';
-import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/structures/ranked_product.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
+import 'package:smooth_app/temp/product_preferences.dart';
 
 class SmoothItModel {
   static const int MATCH_INDEX_YES = 0;
@@ -21,16 +20,14 @@ class SmoothItModel {
 
   void refresh(
     final ProductList productList,
-    final UserPreferences userPreferences,
-    final UserPreferencesModel userPreferencesModel,
+    final ProductPreferences productPreferences,
   ) {
     if (_nextRefreshIsJustChangingTabs) {
       _nextRefreshIsJustChangingTabs = false;
       return;
     }
     final List<Product> unprocessedProducts = productList.getUniqueList();
-    _allProducts =
-        Match.sort(unprocessedProducts, userPreferences, userPreferencesModel);
+    _allProducts = Match.sort(unprocessedProducts, productPreferences);
     _categorizedProducts.clear();
     for (final RankedProduct rankedProduct in _allProducts) {
       final int index = getMatchIndex(rankedProduct);

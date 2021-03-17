@@ -9,6 +9,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/temp/product_preferences.dart';
 import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
 
 // Project imports:
@@ -16,11 +17,9 @@ import 'package:smooth_app/bottom_sheet_views/group_query_filter_view.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
 import 'package:smooth_app/data_models/product_query_model.dart';
-import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 
 class ProductQueryPage extends StatefulWidget {
@@ -81,12 +80,10 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
           final Size screenSize = MediaQuery.of(context).size;
           final ThemeData themeData = Theme.of(context);
           if (_model.loadingStatus == LoadingStatus.LOADED) {
-            final UserPreferences userPreferences =
-                context.watch<UserPreferences>();
-            final UserPreferencesModel userPreferencesModel =
-                context.watch<UserPreferencesModel>();
+            final ProductPreferences productPreferences =
+                context.watch<ProductPreferences>();
             final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-            _model.sort(userPreferences, userPreferencesModel, localDatabase);
+            _model.sort(productPreferences, localDatabase);
           }
           switch (_model.loadingStatus) {
             case LoadingStatus.POST_LOAD_STARTED:

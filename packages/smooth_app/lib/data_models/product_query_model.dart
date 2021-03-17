@@ -8,10 +8,9 @@ import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/data_models/match.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
-import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
+import 'package:smooth_app/temp/product_preferences.dart';
 
 enum LoadingStatus {
   LOADING,
@@ -55,8 +54,7 @@ class ProductQueryModel with ChangeNotifier {
   }
 
   void sort(
-    final UserPreferences userPreferences,
-    final UserPreferencesModel userPreferencesModel,
+    final ProductPreferences productPreferences,
     final LocalDatabase localDatabase,
   ) {
     if (_loadingStatus != LoadingStatus.LOADED) {
@@ -69,7 +67,7 @@ class ProductQueryModel with ChangeNotifier {
     if (supplier.needsToBeSavedIntoDb()) {
       DaoProductList(localDatabase).put(productList);
     }
-    Match.sort(_products, userPreferences, userPreferencesModel);
+    Match.sort(_products, productPreferences);
 
     displayProducts = _products;
 
