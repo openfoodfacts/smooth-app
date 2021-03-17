@@ -1,11 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-  <path d="M14 20c-4 1-7-1-7-3 3-1 6 0 7 3z" fill="#fff"/>
-  <path d="M10 6c-3 0-6 1-8 6 2 5 5 6 8 6 4 0 7-3 7-6s-3-6-7-6zM5 9a1 1 0 011 1 1 1 0 01-1 1 1 1 0 01-1-1 1 1 0 011-1zM22 7c-3 0-5 2-5 5s2 5 5 5c0-3-1-5-3-5 2 0 3-2 3-5z" fill="#fff"/>
-  <path d="M14 4c-4-1-7 1-7 3 3 1 6 0 7-3z" fill="#fff"/>
-  <rect width="24" height="24" ry="0" fill="#b3b3b3"/>
-  <circle cx="12" cy="12" r="10" fill="#fff"/>
-  <circle cx="12" cy="12" r="8" fill="#ccc"/>
-  <path d="M5 15a8 8 0 007 5 8 8 0 007-5z" fill="#b3b3b3"/>
-  <path d="M18 8c-4 0-7 1-7 6 4 0 7-1 7-6z" fill="gray"/>
-  <path fill="#999" d="M11 14h1v5h-1zM6 9c3 0 6 1 6 5-4 0-6-2-6-5z"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M14 20c-3.864 1.035-6.876-1.464-7-3 2.898-.776 6.224.102 7 3z" fill="#fff"/><path d="M9.5 6C7 6 4 7 2 12c2 5 5 6 7.5 6 4.142 0 7.5-2.686 7.5-6s-3.358-6-7.5-6zM5.398 8.967a1 1 0 011 1 1 1 0 01-1 1 1 1 0 01-1-1 1 1 0 011-1zM22 7c-3 0-5 2-5 5s2 5 5 5c-.271-2.503-1-5-2.984-5.021C21 12 22 10.46 22 7z" fill="#fff"/><path d="M14 4c-3.864-1.035-6.876 1.464-7 3 2.898.776 6.224-.102 7-3z" fill="#fff"/><rect width="24" height="24" ry="0" fill="#b3b3b3"/><circle cx="12" cy="12" r="10" fill="#fff"/><circle cx="12" cy="12" r="8" fill="#ccc"/><path d="M4.586 15A8 8 0 0012 20a8 8 0 007.416-5z" fill="#b3b3b3"/><path d="M18 8c-4 0-7 1-7 6 4 0 7-1 7-6z" fill="gray"/><path fill="#999" d="M11 14h1v5h-1zM6 9c3 0 6 1 6 5-4 0-6-2-6-5z"/></svg>
