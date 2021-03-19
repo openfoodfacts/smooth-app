@@ -57,12 +57,11 @@ dependencies:
   url_launcher: ^5.7.10
 
 dev_dependencies:
-  flutter_native_splash: ^1.0.3
+  flutter_native_splash: ^1.1.1+1
   flutter_test:
     sdk: flutter
 
 # 'flutter pub run flutter_native_splash:create' to update
-# Error 65: Comment out all plugins provided by path
 flutter_native_splash:
   image: assets/temp/Logo.png
   color: "ffffff"
