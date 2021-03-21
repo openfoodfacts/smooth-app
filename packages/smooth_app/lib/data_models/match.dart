@@ -22,8 +22,10 @@ class Match {
     for (final AttributeGroup group in attributeGroups) {
       for (final Attribute attribute in group.attributes) {
         final PreferenceImportance preferenceImportance =
-            productPreferences.getPreferenceImportance(
-          productPreferences.getImportance(attribute.id),
+            productPreferences.getPreferenceImportanceFromImportanceId(
+          productPreferences.getImportanceIdForAttributeId(
+            attribute.id,
+          ),
         );
         final String value = preferenceImportance.id;
         final int factor = preferenceImportance.factor ?? 0;

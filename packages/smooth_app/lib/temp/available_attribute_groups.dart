@@ -2,19 +2,19 @@ import 'dart:convert';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
 
 /// Referential of attribute groups, with loader.
-class AttributeGroupReferential {
+class AvailableAttributeGroups {
   /// Load constructor; may throw an exception.
-  AttributeGroupReferential.loadFromJSONString(
-    final String attributeGroupString,
+  AvailableAttributeGroups.loadFromJSONString(
+    final String attributeGroupsString,
   ) {
-    final dynamic inputJson = json.decode(attributeGroupString);
+    final dynamic inputJson = json.decode(attributeGroupsString);
     final List<AttributeGroup> attributeGroups = <AttributeGroup>[];
     for (final dynamic item in inputJson as List<dynamic>) {
       attributeGroups.add(AttributeGroup.fromJson(item));
     }
     if (attributeGroups.isEmpty) {
       throw Exception(
-          'Unexpected error: empty attribute groups from json string $attributeGroupString');
+          'Unexpected error: empty attribute groups from json string $attributeGroupsString');
     }
     _attributeGroups = attributeGroups;
   }

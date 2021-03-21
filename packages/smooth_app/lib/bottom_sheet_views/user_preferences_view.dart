@@ -160,9 +160,10 @@ class UserPreferencesView extends StatelessWidget {
         (screenWidth - _TYPICAL_PADDING_OR_MARGIN * 5) * _PCT_ICON;
     final double sliderWidth =
         (screenWidth - _TYPICAL_PADDING_OR_MARGIN * 5) * (1 - _PCT_ICON);
-    final String importanceId = productPreferences.getImportance(attribute.id);
-    final PreferenceImportance importance =
-        productPreferences.getPreferenceImportance(importanceId);
+    final String importanceId =
+        productPreferences.getImportanceIdForAttributeId(attribute.id);
+    final PreferenceImportance importance = productPreferences
+        .getPreferenceImportanceFromImportanceId(importanceId);
     final int importanceIndex =
         productPreferences.getImportanceIndex(importance.id);
     final List<String> importanceIds = productPreferences.importanceIds;

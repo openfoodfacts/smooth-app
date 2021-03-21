@@ -413,9 +413,10 @@ class _HomePageState extends State<HomePage> {
     for (final String attributeId in orderedAttributeIds) {
       final Attribute attribute =
           productPreferences.getReferenceAttribute(attributeId);
-      final String importanceId = productPreferences.getImportance(attributeId);
-      final PreferenceImportance importance =
-          productPreferences.getPreferenceImportance(importanceId);
+      final String importanceId =
+          productPreferences.getImportanceIdForAttributeId(attributeId);
+      final PreferenceImportance importance = productPreferences
+          .getPreferenceImportanceFromImportanceId(importanceId);
       attributes.add(
         ElevatedButton(
           onPressed: () => onTap(),

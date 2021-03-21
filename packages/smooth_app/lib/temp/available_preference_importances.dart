@@ -2,16 +2,16 @@ import 'dart:convert';
 import 'package:smooth_app/temp/preference_importance.dart';
 
 /// Referential of preference importance, with loader.
-class PreferenceImportanceReferential {
+class AvailablePreferenceImportances {
   /// Load constructor; may throw an exception.
-  PreferenceImportanceReferential.loadFromJSONString(
-    final String importanceString,
+  AvailablePreferenceImportances.loadFromJSONString(
+    final String preferenceImportancesString,
   ) {
     final List<String> importanceIds = <String>[];
     final Map<String, PreferenceImportance> preferenceImportances =
         <String, PreferenceImportance>{};
     final Map<String, int> importancesReverseIds = <String, int>{};
-    final dynamic inputJson = json.decode(importanceString);
+    final dynamic inputJson = json.decode(preferenceImportancesString);
     for (final dynamic item in inputJson as List<dynamic>) {
       final PreferenceImportance preferenceImportance =
           PreferenceImportance.fromJson(item);
@@ -22,7 +22,7 @@ class PreferenceImportanceReferential {
     }
     if (importanceIds.isEmpty) {
       throw Exception(
-          'Unexpected error: empty preference importance list from json string $importanceString');
+          'Unexpected error: empty preference importance list from json string $preferenceImportancesString');
     }
     int i = 0;
     for (final String preferenceImportanceId in importanceIds) {

@@ -16,7 +16,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:share/share.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/temp/attribute_group_referential.dart';
+import 'package:smooth_app/temp/available_attribute_groups.dart';
 import 'package:smooth_ui_library/widgets/smooth_card.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -167,12 +167,12 @@ class _ProductPageState extends State<ProductPage> {
   }
 
   static const List<String> _ORDERED_ATTRIBUTE_GROUP_IDS = <String>[
-    AttributeGroupReferential.ATTRIBUTE_GROUP_INGREDIENT_ANALYSIS,
-    AttributeGroupReferential.ATTRIBUTE_GROUP_NUTRITIONAL_QUALITY,
-    AttributeGroupReferential.ATTRIBUTE_GROUP_PROCESSING,
-    AttributeGroupReferential.ATTRIBUTE_GROUP_ENVIRONMENT,
-    AttributeGroupReferential.ATTRIBUTE_GROUP_LABELS,
-    AttributeGroupReferential.ATTRIBUTE_GROUP_ALLERGENS,
+    AvailableAttributeGroups.ATTRIBUTE_GROUP_INGREDIENT_ANALYSIS,
+    AvailableAttributeGroups.ATTRIBUTE_GROUP_NUTRITIONAL_QUALITY,
+    AvailableAttributeGroups.ATTRIBUTE_GROUP_PROCESSING,
+    AvailableAttributeGroups.ATTRIBUTE_GROUP_ENVIRONMENT,
+    AvailableAttributeGroups.ATTRIBUTE_GROUP_LABELS,
+    AvailableAttributeGroups.ATTRIBUTE_GROUP_ALLERGENS,
   ];
 
   @override
@@ -423,7 +423,7 @@ class _ProductPageState extends State<ProductPage> {
           AttributeListExpandable(
             product: _product,
             iconWidth: iconWidth,
-            attributeTags: <String>[attributeId],
+            attributeIds: <String>[attributeId],
             collapsible: false,
             background: _getBackgroundColor(matchingAttributes[attributeId])
                 .withOpacity(opacity),
@@ -494,14 +494,14 @@ class _ProductPageState extends State<ProductPage> {
     final AttributeGroup attributeGroup,
     final double iconWidth,
   ) {
-    final List<String> attributeTags = <String>[];
+    final List<String> attributeIds = <String>[];
     for (final Attribute attribute in attributeGroup.attributes) {
-      attributeTags.add(attribute.id);
+      attributeIds.add(attribute.id);
     }
     return AttributeListExpandable(
       product: _product,
       iconWidth: iconWidth,
-      attributeTags: attributeTags,
+      attributeIds: attributeIds,
       title: attributeGroup.name,
     );
   }

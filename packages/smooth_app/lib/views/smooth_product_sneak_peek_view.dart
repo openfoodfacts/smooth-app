@@ -19,7 +19,7 @@ import 'package:smooth_app/cards/data_cards/smooth_intake_recommendation_card.da
 import 'package:smooth_app/cards/data_cards/smooth_quantity_selector_card.dart';
 import 'package:smooth_app/data_models/sneak_peek_model.dart';
 import 'package:smooth_app/temp/product_extra.dart';
-import 'package:smooth_app/temp/attribute_group_referential.dart';
+import 'package:smooth_app/temp/available_attribute_groups.dart';
 
 // TODO(stephanegigandet): remove if not useful anymore?
 @deprecated
@@ -146,7 +146,7 @@ class SmoothProductSneakPeekViewState extends State<SmoothProductSneakPeekView>
                   children: <Widget>[
                     AttributeChip(
                       ProductExtra.getAttribute(widget.product,
-                          AttributeGroupReferential.ATTRIBUTE_NUTRISCORE),
+                          AvailableAttributeGroups.ATTRIBUTE_NUTRISCORE),
                       width: 100.0,
                     ),
                     Container(

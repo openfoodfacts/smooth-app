@@ -44,7 +44,7 @@ class ProductPreferencesSelection {
   /// For pre-determined fix settings, that can be more simple:
   /// ```dart
   /// (String attributeId) =>
-  ///     attributeId == AttributeGroupReferential.ATTRIBUTE_VEGAN
+  ///     attributeId == AvailableAttributeGroups.ATTRIBUTE_VEGAN
   ///     ? PreferenceImportance.ID_MANDATORY
   ///     : PreferenceImportance.ID_NOT_IMPORTANT
   /// ```

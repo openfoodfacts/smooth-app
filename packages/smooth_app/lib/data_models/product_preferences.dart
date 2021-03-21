@@ -6,9 +6,9 @@ import 'package:smooth_app/temp/product_preferences_manager.dart';
 
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
-import 'package:smooth_app/temp/attribute_group_referential.dart';
-import 'package:smooth_app/temp/preference_importance_referential.dart';
-import 'package:smooth_app/temp/product_preferences_referential.dart';
+import 'package:smooth_app/temp/available_attribute_groups.dart';
+import 'package:smooth_app/temp/available_preference_importances.dart';
+import 'package:smooth_app/temp/available_product_preferences.dart';
 
 class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
   ProductPreferences(
@@ -42,14 +42,16 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
   }) async {
     final String importanceAssetPath = _getImportanceAssetPath(languageCode);
     final String attributeGroupAssetPath = _getAttributeAssetPath(languageCode);
-    final String importanceString =
+    final String preferenceImportancesString =
         await assetBundle.loadString(importanceAssetPath);
     final String attributeGroupString =
         await assetBundle.loadString(attributeGroupAssetPath);
-    final ProductPreferencesReferential myProductPreferencesRepository =
-        ProductPreferencesReferential.loadFromJSONStrings(
-            importanceString, attributeGroupString);
-    productPreferencesRepository = myProductPreferencesRepository;
+    final AvailableProductPreferences myAvailableProductPreferences =
+        AvailableProductPreferences.loadFromJSONStrings(
+      preferenceImportancesString,
+      attributeGroupString,
+    );
+    availableProductPreferences = myAvailableProductPreferences;
     _isNetwork = false;
     _languageCode = languageCode;
   }
@@ -59,24 +61,26 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
   /// May throw an exception.
   Future<void> loadReferenceFromNetwork(String languageCode) async {
     final String importanceUrl =
-        PreferenceImportanceReferential.getUrl(languageCode);
+        AvailablePreferenceImportances.getUrl(languageCode);
     final String attributeGroupUrl =
-        AttributeGroupReferential.getUrl(languageCode);
+        AvailableAttributeGroups.getUrl(languageCode);
     http.Response response;
     response = await http.get(Uri.parse(importanceUrl));
     if (response.statusCode != 200) {
       return false;
     }
-    final String importanceString = response.body;
+    final String preferenceImportancesString = response.body;
     response = await http.get(Uri.parse(attributeGroupUrl));
     if (response.statusCode != 200) {
       return false;
     }
-    final String attributeGroupString = response.body;
-    final ProductPreferencesReferential myProductPreferencesRepository =
-        ProductPreferencesReferential.loadFromJSONStrings(
-            importanceString, attributeGroupString);
-    productPreferencesRepository = myProductPreferencesRepository;
+    final String attributeGroupsString = response.body;
+    final AvailableProductPreferences myAvailableProductPreferences =
+        AvailableProductPreferences.loadFromJSONStrings(
+      preferenceImportancesString,
+      attributeGroupsString,
+    );
+    availableProductPreferences = myAvailableProductPreferences;
     _isNetwork = true;
     _languageCode = languageCode;
   }
