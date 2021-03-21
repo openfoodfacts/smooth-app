@@ -3,13 +3,11 @@ import 'package:flutter/material.dart';
 
 class SmoothCard extends StatelessWidget {
   const SmoothCard({
-    @required this.collapsed,
     @required this.content,
     this.background,
     this.header,
   });
 
-  final bool collapsed;
   final Widget content;
   final Color background;
   final Widget header;
@@ -27,20 +25,8 @@ class SmoothCard extends StatelessWidget {
             padding: const EdgeInsets.all(12.0),
             child: Column(
               children: <Widget>[
-                if (collapsed != null)
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Container(child: header),
-                      if (collapsed != null)
-                        Icon(collapsed
-                            ? Icons.keyboard_arrow_down
-                            : Icons.keyboard_arrow_up),
-                    ],
-                  ),
-                if (collapsed != true) content,
+                header ?? Container(),
+                content,
               ],
             ),
           ),

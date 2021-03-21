@@ -16,7 +16,6 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:share/share.dart';
 import 'package:smooth_ui_library/widgets/smooth_card.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 
 // Project imports:
 import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
@@ -157,7 +156,6 @@ class ProductPage extends StatefulWidget {
 }
 
 class _ProductPageState extends State<ProductPage> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   Product _product;
 
   @override
@@ -182,7 +180,6 @@ class _ProductPageState extends State<ProductPage> {
     final ThemeData themeData = Theme.of(context);
     _product ??= widget.product;
     return Scaffold(
-        key: _scaffoldKey,
         appBar: AppBar(
           title: Text(
             _product.productName ?? appLocalizations.unknownProductName,
@@ -317,24 +314,21 @@ class _ProductPageState extends State<ProductPage> {
       ),
     ];
 
-    return CarouselSlider(
-      options: CarouselOptions(
-        disableCenter: true,
-        enableInfiniteScroll: false,
-        height: 200, // Small images are 200px high, normal images are 400px
-        viewportFraction: 0.75,
-        pageSnapping: false,
-        enlargeStrategy: CenterPageEnlargeStrategy.height,
+    return Container(
+      height: 200,
+      child: ListView(
+        // This next line does the trick.
+        scrollDirection: Axis.horizontal,
+        children: carouselItems
+            .map(
+              (ImageUploadCard item) => Container(
+                margin: const EdgeInsets.fromLTRB(0, 0, 5, 0),
+                decoration: const BoxDecoration(color: Colors.black12),
+                child: item,
+              ),
+            )
+            .toList(),
       ),
-      items: carouselItems
-          .map(
-            (ImageUploadCard item) => Container(
-              margin: const EdgeInsets.fromLTRB(0, 0, 5, 0),
-              decoration: const BoxDecoration(color: Colors.black12),
-              child: item,
-            ),
-          )
-          .toList(),
     );
   }
 
@@ -389,6 +383,7 @@ class _ProductPageState extends State<ProductPage> {
 
     listItems.add(_buildProductImagesCarousel(context));
 
+    // Brands, quantity
     listItems.add(
       Padding(
         padding: const EdgeInsets.all(16.0),
@@ -413,11 +408,14 @@ class _ProductPageState extends State<ProductPage> {
         ),
       ),
     );
+
     final Map<String, Attribute> matchingAttributes =
         Match.getMatchingAttributes(_product, mainAttributes);
     final double opacity = themeData.brightness == Brightness.light
         ? 1
         : SmoothTheme.ADDITIONAL_OPACITY_FOR_DARK;
+
+    //Nutri, Nova
     for (final String attributeId in mainAttributes) {
       if (matchingAttributes[attributeId] != null) {
         listItems.add(
@@ -432,11 +430,13 @@ class _ProductPageState extends State<ProductPage> {
         );
       }
     }
+
     for (final AttributeGroup attributeGroup
         in _getOrderedAttributeGroups(userPreferencesModel)) {
       listItems.add(_getAttributeGroupWidget(attributeGroup, iconWidth));
     }
 
+    //Similar foods
     if (_product.categoriesTags != null && _product.categoriesTags.isNotEmpty) {
       for (int i = _product.categoriesTags.length - 1;
           i < _product.categoriesTags.length;
@@ -450,7 +450,6 @@ class _ProductPageState extends State<ProductPage> {
               materialColor,
               ColorDestination.SURFACE_BACKGROUND,
             ),
-            collapsed: null,
             content: ListTile(
               leading: Icon(
                 Icons.search,

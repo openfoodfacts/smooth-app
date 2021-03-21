@@ -1,24 +1,29 @@
-#
-#
-#name: Build, Release app to Github Pages
-#
-#
-#
-#on:
-#  push:
-#    branches:
-#      #- '*'
-#      - 'release/*'
-#
-#
-#jobs:
-#
-#  build:
-#    runs-on: ubuntu-latest
-#    defaults:
-#      run:
-#        working-directory: ./packages/smooth_app
-#    steps:
+
+
+name: Build, Release app to Github Pages
+
+
+
+on:
+  push:
+    branches:
+      #- '*'
+      - 'release/*'
+
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./packages/smooth_app
+    steps:
+
+      - name: Web isn't supportet at the time
+        run: echo Hallo Welt
+
+
 #      - uses: actions/checkout@v1
 #      - uses: actions/setup-java@v1
 #        with:

@@ -1,7 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-  <rect width="24" height="24" ry="5" fill="#f60"/>
-  <path d="M15 2l-1 1v5l5 11v2l-1 1H6l-1-1v-2l5-11V3L9 2z" fill="#fff"/>
-  <g style="line-height:1.25">
-    <path d="M13 16h1l1 2-1 2h-4-1v-1h4l1-1-1-1-1-1h-1v-1h2v-1-1h-3v-1h4v3l-1 1z" style="-inkscape-font-specification:sans-serif" aria-label="3" font-weight="400" font-size="11" font-family="sans-serif" stroke-width=".3"/>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><rect width="24" height="24" ry="5" fill="#f60"/><path d="M15 2l-1 1v5l5 11v2l-1 1H6l-1-1v-2l5-11V3L9 2z" fill="#fff"/><g style="line-height:1.25"><path d="M12.983 15.687q.777.166 1.211.69.44.526.44 1.297 0 1.185-.815 1.833-.814.648-2.315.648-.503 0-1.04-.101-.53-.097-1.098-.295v-1.045q.45.263.986.397.536.133 1.12.133 1.018 0 1.549-.401.536-.402.536-1.169 0-.707-.499-1.103-.493-.402-1.377-.402h-.932v-.89h.975q.798 0 1.222-.316.423-.321.423-.921 0-.617-.44-.944-.433-.332-1.248-.332-.445 0-.954.097-.509.096-1.12.3v-.965q.617-.171 1.153-.257.54-.086 1.018-.086 1.232 0 1.95.563.718.557.718 1.511 0 .664-.38 1.125-.38.456-1.083.633z" style="-inkscape-font-specification:sans-serif" aria-label="3" font-weight="400" font-size="10.974" font-family="sans-serif" stroke-width=".274"/></g></svg>

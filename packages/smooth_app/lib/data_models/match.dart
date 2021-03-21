@@ -6,6 +6,7 @@ import 'package:openfoodfacts/model/Product.dart';
 // Project imports:
 import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/structures/ranked_product.dart';
+import 'package:smooth_app/temp/preference_importance.dart';
 import 'package:smooth_app/temp/user_preferences.dart';
 
 /// cf. https://github.com/openfoodfacts/smooth-app/issues/39
@@ -22,11 +23,11 @@ class Match {
     }
     for (final AttributeGroup group in attributeGroups) {
       for (final Attribute attribute in group.attributes) {
-        final PreferencesValue preferencesValue = userPreferencesModel
-            .getPreferencesValue(attribute.id, userPreferences);
-        final String value = preferencesValue.id;
-        final int factor = preferencesValue.factor ?? 0;
-        final int minimalMatch = preferencesValue.minimalMatch;
+        final PreferenceImportance preferenceImportance = userPreferencesModel
+            .getPreferenceImportance(attribute.id, userPreferences);
+        final String value = preferenceImportance.id;
+        final int factor = preferenceImportance.factor ?? 0;
+        final int minimalMatch = preferenceImportance.minimalMatch;
         if (value == null || factor == 0) {
           _debug += '${attribute.id} $value\n';
         } else {
