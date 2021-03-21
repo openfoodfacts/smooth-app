@@ -12,7 +12,7 @@ import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/pantry/common/pantry_dialog_helper.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 /// A page for one pantry where we can change all the data

@@ -30,11 +30,6 @@ class PreferenceImportance {
     ID_MANDATORY,
   ];
 
-  /// Where a localized JSON file can be found.
-  /// [languageCode] is a 2-letter language code.
-  static String getUrl(final String languageCode) =>
-      'https://world.openfoodfacts.org/api/v2/preferences?lc=$languageCode';
-
   @override
   String toString() => 'PreferenceImportance('
       'id: $id, name: $name, factor: $factor, minimalWatch: $minimalMatch'

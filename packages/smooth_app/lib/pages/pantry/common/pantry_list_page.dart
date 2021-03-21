@@ -9,7 +9,7 @@ import 'package:smooth_ui_library/widgets/smooth_card.dart';
 import 'package:smooth_app/cards/product_cards/pantry_preview.dart';
 import 'package:smooth_app/data_models/pantry.dart';
 import 'package:smooth_app/pages/pantry/common/pantry_dialog_helper.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 /// A page where all the pantries are displayed as previews

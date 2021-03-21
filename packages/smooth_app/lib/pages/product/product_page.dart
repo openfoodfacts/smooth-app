@@ -15,6 +15,8 @@ import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:share/share.dart';
+import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/temp/available_attribute_groups.dart';
 import 'package:smooth_ui_library/widgets/smooth_card.dart';
 
 // Project imports:
@@ -23,7 +25,6 @@ import 'package:smooth_app/cards/data_cards/image_upload_card.dart';
 import 'package:smooth_app/cards/expandables/attribute_list_expandable.dart';
 import 'package:smooth_app/data_models/match.dart';
 import 'package:smooth_app/data_models/product_list.dart';
-import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/database/category_product_query.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -31,7 +32,6 @@ import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/functions/launchURL.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
@@ -165,12 +165,12 @@ class _ProductPageState extends State<ProductPage> {
   }
 
   static const List<String> _ORDERED_ATTRIBUTE_GROUP_IDS = <String>[
-    UserPreferencesModel.ATTRIBUTE_GROUP_INGREDIENT_ANALYSIS,
-    UserPreferencesModel.ATTRIBUTE_GROUP_NUTRITIONAL_QUALITY,
-    UserPreferencesModel.ATTRIBUTE_GROUP_PROCESSING,
-    UserPreferencesModel.ATTRIBUTE_GROUP_ENVIRONMENT,
-    UserPreferencesModel.ATTRIBUTE_GROUP_LABELS,
-    UserPreferencesModel.ATTRIBUTE_GROUP_ALLERGENS,
+    AvailableAttributeGroups.ATTRIBUTE_GROUP_INGREDIENT_ANALYSIS,
+    AvailableAttributeGroups.ATTRIBUTE_GROUP_NUTRITIONAL_QUALITY,
+    AvailableAttributeGroups.ATTRIBUTE_GROUP_PROCESSING,
+    AvailableAttributeGroups.ATTRIBUTE_GROUP_ENVIRONMENT,
+    AvailableAttributeGroups.ATTRIBUTE_GROUP_LABELS,
+    AvailableAttributeGroups.ATTRIBUTE_GROUP_ALLERGENS,
   ];
 
   @override
@@ -364,9 +364,8 @@ class _ProductPageState extends State<ProductPage> {
 
   Widget _buildProductBody(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    final UserPreferences userPreferences = context.watch<UserPreferences>();
-    final UserPreferencesModel userPreferencesModel =
-        context.watch<UserPreferencesModel>();
+    final ProductPreferences productPreferences =
+        context.watch<ProductPreferences>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Size screenSize = MediaQuery.of(context).size;
     final ThemeData themeData = Theme.of(context);
@@ -374,11 +373,11 @@ class _ProductPageState extends State<ProductPage> {
         screenSize.width / 10; // TODO(monsieurtanuki): target size?
     final Map<String, String> attributeGroupLabels = <String, String>{};
     for (final AttributeGroup attributeGroup
-        in userPreferencesModel.attributeGroups) {
+        in productPreferences.attributeGroups) {
       attributeGroupLabels[attributeGroup.id] = attributeGroup.name;
     }
     final List<String> mainAttributes =
-        userPreferencesModel.getOrderedVariables(userPreferences);
+        productPreferences.getOrderedImportantAttributeIds();
     final List<Widget> listItems = <Widget>[];
 
     listItems.add(_buildProductImagesCarousel(context));
@@ -422,7 +421,7 @@ class _ProductPageState extends State<ProductPage> {
           AttributeListExpandable(
             product: _product,
             iconWidth: iconWidth,
-            attributeTags: <String>[attributeId],
+            attributeIds: <String>[attributeId],
             collapsible: false,
             background: _getBackgroundColor(matchingAttributes[attributeId])
                 .withOpacity(opacity),
@@ -432,7 +431,7 @@ class _ProductPageState extends State<ProductPage> {
     }
 
     for (final AttributeGroup attributeGroup
-        in _getOrderedAttributeGroups(userPreferencesModel)) {
+        in _getOrderedAttributeGroups(productPreferences)) {
       listItems.add(_getAttributeGroupWidget(attributeGroup, iconWidth));
     }
 
@@ -494,24 +493,24 @@ class _ProductPageState extends State<ProductPage> {
     final AttributeGroup attributeGroup,
     final double iconWidth,
   ) {
-    final List<String> attributeTags = <String>[];
+    final List<String> attributeIds = <String>[];
     for (final Attribute attribute in attributeGroup.attributes) {
-      attributeTags.add(attribute.id);
+      attributeIds.add(attribute.id);
     }
     return AttributeListExpandable(
       product: _product,
       iconWidth: iconWidth,
-      attributeTags: attributeTags,
+      attributeIds: attributeIds,
       title: attributeGroup.name,
     );
   }
 
   List<AttributeGroup> _getOrderedAttributeGroups(
-      final UserPreferencesModel userPreferencesModel) {
+      final ProductPreferences productPreferences) {
     final List<AttributeGroup> attributeGroups = <AttributeGroup>[];
     for (final String attributeGroupId in _ORDERED_ATTRIBUTE_GROUP_IDS) {
       for (final AttributeGroup attributeGroup
-          in userPreferencesModel.attributeGroups) {
+          in productPreferences.attributeGroups) {
         if (attributeGroupId == attributeGroup.id) {
           attributeGroups.add(attributeGroup);
         }
@@ -520,7 +519,7 @@ class _ProductPageState extends State<ProductPage> {
 
     /// in case we get new attribute groups but we haven't included them yet
     for (final AttributeGroup attributeGroup
-        in userPreferencesModel.attributeGroups) {
+        in productPreferences.attributeGroups) {
       if (!_ORDERED_ATTRIBUTE_GROUP_IDS.contains(attributeGroup.id)) {
         attributeGroups.add(attributeGroup);
       }

@@ -1,24 +1,18 @@
-// Dart imports:
 import 'dart:async';
-
-// Flutter imports:
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-
-// Package imports:
 import 'package:provider/provider.dart';
 import 'package:sentry/sentry.dart';
-
-// Project imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/home_page.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
+import 'package:smooth_app/temp/product_preferences_selection.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/data_models/product_preferences.dart';
 
 Future<void> main() async {
   await Sentry.init(
@@ -45,16 +39,34 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   UserPreferences _userPreferences;
-  UserPreferencesModel _userPreferencesModel;
+  ProductPreferences _productPreferences;
   LocalDatabase _localDatabase;
   ThemeProvider _themeProvider;
   bool systemDarkmodeOn = false;
 
   Future<void> _init(BuildContext context) async {
     _userPreferences = await UserPreferences.getUserPreferences();
-    _userPreferencesModel = await UserPreferencesModel.getUserPreferencesModel(
-        DefaultAssetBundle.of(context));
-    await _userPreferences.init(_userPreferencesModel);
+    _productPreferences = ProductPreferences(
+      ProductPreferencesSelection(
+        (
+          String attributeId,
+          String importanceId,
+        ) async =>
+            await _userPreferences.setImportance(attributeId, importanceId),
+        (String attributeId) => _userPreferences.getImportance(attributeId),
+        () => _productPreferences.notifyListeners(),
+      ),
+    );
+    try {
+      await _productPreferences.loadReferenceFromAssets(
+        DefaultAssetBundle.of(context),
+      );
+    } catch (e) {
+      // this is problematic - we should always be able to load the default
+      print('Could not load reference files: $e');
+      rethrow;
+    }
+    await _userPreferences.init(_productPreferences);
     _localDatabase = await LocalDatabase.getLocalDatabase();
     _themeProvider = ThemeProvider(_userPreferences);
   }
@@ -77,8 +89,8 @@ class _MyAppState extends State<MyApp> {
             providers: <ChangeNotifierProvider<dynamic>>[
               ChangeNotifierProvider<UserPreferences>.value(
                   value: _userPreferences),
-              ChangeNotifierProvider<UserPreferencesModel>.value(
-                  value: _userPreferencesModel),
+              ChangeNotifierProvider<ProductPreferences>.value(
+                  value: _productPreferences),
               ChangeNotifierProvider<LocalDatabase>.value(
                   value: _localDatabase),
               ChangeNotifierProvider<ThemeProvider>.value(
@@ -126,11 +138,39 @@ class _MyAppState extends State<MyApp> {
 class SmoothAppGetLanguage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final UserPreferencesModel userPreferencesModel =
-        context.watch<UserPreferencesModel>();
+    final ProductPreferences productPreferences =
+        context.watch<ProductPreferences>();
     final Locale myLocale = Localizations.localeOf(context);
     final String languageCode = myLocale.languageCode;
-    userPreferencesModel.refresh(DefaultAssetBundle.of(context), languageCode);
+    _refresh(
+      productPreferences,
+      DefaultAssetBundle.of(context),
+      languageCode,
+    );
     return HomePage();
+  }
+
+  Future<void> _refresh(
+    final ProductPreferences productPreferences,
+    final AssetBundle assetBundle,
+    final String languageCode,
+  ) async {
+    if (productPreferences.languageCode != languageCode) {
+      try {
+        await productPreferences.loadReferenceFromAssets(
+          assetBundle,
+          languageCode: languageCode,
+        );
+      } catch (e) {
+        // no problem, we were just trying
+      }
+    }
+    if (!productPreferences.isNetwork) {
+      try {
+        await productPreferences.loadReferenceFromNetwork(languageCode);
+      } catch (e) {
+        // no problem, we were just trying
+      }
+    }
   }
 }

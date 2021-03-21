@@ -4,17 +4,15 @@ import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:openfoodfacts/model/Product.dart';
 
 // Project imports:
-import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/structures/ranked_product.dart';
 import 'package:smooth_app/temp/preference_importance.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
+import 'package:smooth_app/data_models/product_preferences.dart';
 
 /// cf. https://github.com/openfoodfacts/smooth-app/issues/39
 class Match {
   Match(
     final Product product,
-    final UserPreferences userPreferences,
-    final UserPreferencesModel userPreferencesModel,
+    final ProductPreferences productPreferences,
   ) {
     final List<AttributeGroup> attributeGroups = product.attributeGroups;
     if (attributeGroups == null) {
@@ -23,8 +21,12 @@ class Match {
     }
     for (final AttributeGroup group in attributeGroups) {
       for (final Attribute attribute in group.attributes) {
-        final PreferenceImportance preferenceImportance = userPreferencesModel
-            .getPreferenceImportance(attribute.id, userPreferences);
+        final PreferenceImportance preferenceImportance =
+            productPreferences.getPreferenceImportanceFromImportanceId(
+          productPreferences.getImportanceIdForAttributeId(
+            attribute.id,
+          ),
+        );
         final String value = preferenceImportance.id;
         final int factor = preferenceImportance.factor ?? 0;
         final int minimalMatch = preferenceImportance.minimalMatch;
@@ -60,12 +62,11 @@ class Match {
 
   static List<RankedProduct> sort(
     final List<Product> products,
-    final UserPreferences userPreferences,
-    final UserPreferencesModel userPreferencesModel,
+    final ProductPreferences productPreferences,
   ) {
     final List<RankedProduct> result = <RankedProduct>[];
     for (final Product product in products) {
-      final Match match = Match(product, userPreferences, userPreferencesModel);
+      final Match match = Match(product, productPreferences);
       result.add(RankedProduct(product: product, match: match));
     }
     result.sort((RankedProduct a, RankedProduct b) =>
