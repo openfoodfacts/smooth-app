@@ -16,8 +16,8 @@ import 'package:smooth_ui_library/buttons/smooth_main_button.dart';
 // Project imports:
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/temp/preference_importance.dart';
-import 'package:smooth_app/temp/product_preferences.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
+import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 
 class UserPreferencesView extends StatelessWidget {
   const UserPreferencesView(this._scrollController, {this.callback});
@@ -160,8 +160,13 @@ class UserPreferencesView extends StatelessWidget {
         (screenWidth - _TYPICAL_PADDING_OR_MARGIN * 5) * _PCT_ICON;
     final double sliderWidth =
         (screenWidth - _TYPICAL_PADDING_OR_MARGIN * 5) * (1 - _PCT_ICON);
+    final String importanceId = productPreferences.getImportance(attribute.id);
     final PreferenceImportance importance =
-        productPreferences.getPreferenceImportance(attribute.id);
+        productPreferences.getPreferenceImportance(importanceId);
+    final int importanceIndex =
+        productPreferences.getImportanceIndex(importance.id);
+    final List<String> importanceIds = productPreferences.importanceIds;
+    final int importanceLength = importanceIds.length - 1;
     return Container(
       padding: const EdgeInsets.all(_TYPICAL_PADDING_OR_MARGIN),
       margin: const EdgeInsets.all(_TYPICAL_PADDING_OR_MARGIN),
@@ -191,23 +196,20 @@ class UserPreferencesView extends StatelessWidget {
                   data: SliderThemeData(
                     //thumbColor: Colors.red,
                     activeTrackColor: Colors.black54,
-                    valueIndicatorColor: getColor(productPreferences
-                        .getAttributeImportanceIndex(attribute.id)),
+                    valueIndicatorColor: getColor(importanceIndex),
                     trackHeight: 5.0,
                     inactiveTrackColor: Colors.black12,
                     showValueIndicator: ShowValueIndicator.always,
                   ),
                   child: Slider(
                     min: 0.0,
-                    max: 3.0,
-                    divisions: 3,
-                    value: productPreferences
-                        .getAttributeImportanceIndex(attribute.id)
-                        .toDouble(),
+                    max: importanceLength.toDouble(),
+                    divisions: importanceLength,
+                    value: importanceIndex.toDouble(),
                     onChanged: (double value) =>
-                        productPreferences.saveImportance(
+                        productPreferences.setImportance(
                       attribute.id,
-                      value.toInt(),
+                      importanceIds[value.toInt()],
                     ),
                     activeColor: Theme.of(context).colorScheme.onSurface,
                     label: importance.name,

@@ -5,7 +5,7 @@ import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/data_models/match.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/structures/ranked_product.dart';
-import 'package:smooth_app/temp/product_preferences.dart';
+import 'package:smooth_app/data_models/product_preferences.dart';
 
 class SmoothItModel {
   static const int MATCH_INDEX_YES = 0;

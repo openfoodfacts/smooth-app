@@ -6,7 +6,7 @@ import 'package:openfoodfacts/model/Product.dart';
 // Project imports:
 import 'package:smooth_app/structures/ranked_product.dart';
 import 'package:smooth_app/temp/preference_importance.dart';
-import 'package:smooth_app/temp/product_preferences.dart';
+import 'package:smooth_app/data_models/product_preferences.dart';
 
 /// cf. https://github.com/openfoodfacts/smooth-app/issues/39
 class Match {
@@ -22,7 +22,9 @@ class Match {
     for (final AttributeGroup group in attributeGroups) {
       for (final Attribute attribute in group.attributes) {
         final PreferenceImportance preferenceImportance =
-            productPreferences.getPreferenceImportance(attribute.id);
+            productPreferences.getPreferenceImportance(
+          productPreferences.getImportance(attribute.id),
+        );
         final String value = preferenceImportance.id;
         final int factor = preferenceImportance.factor ?? 0;
         final int minimalMatch = preferenceImportance.minimalMatch;

@@ -29,8 +29,8 @@ import 'package:smooth_app/pages/product/product_page.dart';
 import 'package:smooth_app/pages/settings_page.dart';
 import 'package:smooth_app/pages/scan/scan_page.dart';
 import 'package:smooth_app/temp/preference_importance.dart';
-import 'package:smooth_app/temp/product_preferences.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
+import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 class HomePage extends StatefulWidget {
@@ -413,8 +413,9 @@ class _HomePageState extends State<HomePage> {
     for (final String attributeId in orderedAttributeIds) {
       final Attribute attribute =
           productPreferences.getReferenceAttribute(attributeId);
+      final String importanceId = productPreferences.getImportance(attributeId);
       final PreferenceImportance importance =
-          productPreferences.getPreferenceImportance(attributeId);
+          productPreferences.getPreferenceImportance(importanceId);
       attributes.add(
         ElevatedButton(
           onPressed: () => onTap(),

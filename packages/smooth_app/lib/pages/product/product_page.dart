@@ -15,7 +15,8 @@ import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:share/share.dart';
-import 'package:smooth_app/temp/product_preferences.dart';
+import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/temp/attribute_group_referential.dart';
 import 'package:smooth_ui_library/widgets/smooth_card.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -166,12 +167,12 @@ class _ProductPageState extends State<ProductPage> {
   }
 
   static const List<String> _ORDERED_ATTRIBUTE_GROUP_IDS = <String>[
-    ProductPreferences.ATTRIBUTE_GROUP_INGREDIENT_ANALYSIS,
-    ProductPreferences.ATTRIBUTE_GROUP_NUTRITIONAL_QUALITY,
-    ProductPreferences.ATTRIBUTE_GROUP_PROCESSING,
-    ProductPreferences.ATTRIBUTE_GROUP_ENVIRONMENT,
-    ProductPreferences.ATTRIBUTE_GROUP_LABELS,
-    ProductPreferences.ATTRIBUTE_GROUP_ALLERGENS,
+    AttributeGroupReferential.ATTRIBUTE_GROUP_INGREDIENT_ANALYSIS,
+    AttributeGroupReferential.ATTRIBUTE_GROUP_NUTRITIONAL_QUALITY,
+    AttributeGroupReferential.ATTRIBUTE_GROUP_PROCESSING,
+    AttributeGroupReferential.ATTRIBUTE_GROUP_ENVIRONMENT,
+    AttributeGroupReferential.ATTRIBUTE_GROUP_LABELS,
+    AttributeGroupReferential.ATTRIBUTE_GROUP_ALLERGENS,
   ];
 
   @override

@@ -10,7 +10,7 @@ import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/temp/product_preferences.dart';
+import 'package:smooth_app/data_models/product_preferences.dart';
 
 enum LoadingStatus {
   LOADING,

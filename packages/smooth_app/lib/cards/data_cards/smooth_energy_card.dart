@@ -9,6 +9,7 @@ import 'package:smooth_ui_library/widgets/smooth_gauge.dart';
 import 'package:smooth_app/cards/data_cards/smooth_data_card.dart';
 import 'package:smooth_app/data_models/sneak_peek_model.dart';
 
+// TODO(stephanegigandet): remove if not useful anymore?
 class SmoothEnergyCard extends StatelessWidget {
   const SmoothEnergyCard({@required this.sneakPeakModel});
 

@@ -8,6 +8,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/UnitHelper.dart';
 import 'package:rubber/rubber.dart';
 
+// TODO(stephanegigandet): remove if not useful anymore?
 class SneakPeakModel extends ChangeNotifier {
   SneakPeakModel(this.product, this.rubberAnimationController) {
     try {

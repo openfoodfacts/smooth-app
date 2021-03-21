@@ -11,7 +11,9 @@ import 'package:smooth_ui_library/widgets/smooth_expandable_card.dart';
 // Project imports:
 import 'package:smooth_app/cards/data_cards/attribute_card.dart';
 import 'package:smooth_app/cards/data_cards/attribute_chip.dart';
-import 'package:smooth_app/temp/product_preferences.dart';
+import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/temp/attribute_group_referential.dart';
+import 'package:smooth_app/temp/product_extra.dart';
 
 class AttributeListExpandable extends StatelessWidget {
   const AttributeListExpandable({
@@ -38,8 +40,7 @@ class AttributeListExpandable extends StatelessWidget {
     final List<Widget> chips = <Widget>[];
     final List<Widget> cards = <Widget>[];
     for (final String attributeTag in attributeTags) {
-      Attribute attribute =
-          ProductPreferences.getAttribute(product, attributeTag);
+      Attribute attribute = ProductExtra.getAttribute(product, attributeTag);
       // Some attributes selected in the user preferences might be unavailable for some products
       if (attribute == null) {
         attribute = productPreferences.getReferenceAttribute(attributeTag);
@@ -49,7 +50,8 @@ class AttributeListExpandable extends StatelessWidget {
           iconUrl: '',
           descriptionShort: 'no data',
         );
-      } else if (attribute.id == ProductPreferences.ATTRIBUTE_ADDITIVES) {
+      } else if (attribute.id ==
+          AttributeGroupReferential.ATTRIBUTE_ADDITIVES) {
         // TODO(stephanegigandet): remove that cheat when additives are more standard
         final List<String> additiveNames = product.additives?.names;
         attribute = Attribute(

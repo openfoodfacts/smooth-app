@@ -1,24 +1,18 @@
-// Dart imports:
 import 'dart:async';
-
-// Flutter imports:
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-
-// Package imports:
 import 'package:provider/provider.dart';
 import 'package:sentry/sentry.dart';
-
-// Project imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/home_page.dart';
-import 'package:smooth_app/temp/product_preferences.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
+import 'package:smooth_app/temp/product_preferences_selection.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/data_models/product_preferences.dart';
 
 Future<void> main() async {
   await Sentry.init(
@@ -38,12 +32,6 @@ Future<void> main() async {
 }
 
 class MyApp extends StatefulWidget {
-  static const String DEFAULT_LANGUAGE_CODE = 'en';
-  static String getImportanceAssetPath(final String languageCode) =>
-      'assets/metadata/init_preferences_$languageCode.json';
-  static String getAttributeAssetPath(final String languageCode) =>
-      'assets/metadata/init_attribute_groups_$languageCode.json';
-
   // This widget is the root of your application.
   @override
   _MyAppState createState() => _MyAppState();
@@ -59,23 +47,24 @@ class _MyAppState extends State<MyApp> {
   Future<void> _init(BuildContext context) async {
     _userPreferences = await UserPreferences.getUserPreferences();
     _productPreferences = ProductPreferences(
-      (
-        String attributeId,
-        int importanceIndex,
-      ) async {
-        await _userPreferences.setImportanceIndex(attributeId, importanceIndex);
-        _productPreferences.notifyListeners();
-      },
-      (String attributeId) => _userPreferences.getImportanceIndex(attributeId),
+      ProductPreferencesSelection(
+        (
+          String attributeId,
+          String importanceId,
+        ) async =>
+            await _userPreferences.setImportance(attributeId, importanceId),
+        (String attributeId) => _userPreferences.getImportance(attributeId),
+        () => _productPreferences.notifyListeners(),
+      ),
     );
-    if (!await _productPreferences.loadReferenceFromAssets(
-      DefaultAssetBundle.of(context),
-      MyApp.DEFAULT_LANGUAGE_CODE,
-      MyApp.getImportanceAssetPath(MyApp.DEFAULT_LANGUAGE_CODE),
-      MyApp.getAttributeAssetPath(MyApp.DEFAULT_LANGUAGE_CODE),
-    )) {
-      // we're really in trouble!
-      return;
+    try {
+      await _productPreferences.loadReferenceFromAssets(
+        DefaultAssetBundle.of(context),
+      );
+    } catch (e) {
+      // this is problematic - we should always be able to load the default
+      print('Could not load reference files: $e');
+      rethrow;
     }
     await _userPreferences.init(_productPreferences);
     _localDatabase = await LocalDatabase.getLocalDatabase();
@@ -167,15 +156,21 @@ class SmoothAppGetLanguage extends StatelessWidget {
     final String languageCode,
   ) async {
     if (productPreferences.languageCode != languageCode) {
-      await productPreferences.loadReferenceFromAssets(
-        assetBundle,
-        languageCode,
-        MyApp.getImportanceAssetPath(languageCode),
-        MyApp.getAttributeAssetPath(languageCode),
-      );
+      try {
+        await productPreferences.loadReferenceFromAssets(
+          assetBundle,
+          languageCode: languageCode,
+        );
+      } catch (e) {
+        // no problem, we were just trying
+      }
     }
-    if (!productPreferences.isHttps) {
-      await productPreferences.loadReferenceFromHttps(languageCode);
+    if (!productPreferences.isNetwork) {
+      try {
+        await productPreferences.loadReferenceFromNetwork(languageCode);
+      } catch (e) {
+        // no problem, we were just trying
+      }
     }
   }
 }

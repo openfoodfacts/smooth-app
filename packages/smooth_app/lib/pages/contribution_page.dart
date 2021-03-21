@@ -10,8 +10,9 @@ import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 
 // Project imports:
 import 'package:smooth_app/pages/scan/scan_page.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 
+// TODO(stephanegigandet): not used, to be deleted?
 class CollaborationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
