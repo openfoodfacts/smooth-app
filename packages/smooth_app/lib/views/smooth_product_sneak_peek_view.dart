@@ -145,8 +145,10 @@ class SmoothProductSneakPeekViewState extends State<SmoothProductSneakPeekView>
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     AttributeChip(
-                      ProductExtra.getAttribute(widget.product,
-                          AvailableAttributeGroups.ATTRIBUTE_NUTRISCORE),
+                      ProductExtra.getAttributes(
+                        widget.product,
+                        <String>[AvailableAttributeGroups.ATTRIBUTE_NUTRISCORE],
+                      )[AvailableAttributeGroups.ATTRIBUTE_NUTRISCORE],
                       width: 100.0,
                     ),
                     Container(

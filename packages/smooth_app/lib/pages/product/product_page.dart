@@ -18,12 +18,13 @@ import 'package:share/share.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/temp/available_attribute_groups.dart';
 import 'package:smooth_ui_library/widgets/smooth_card.dart';
+import 'package:smooth_app/temp/product_extra.dart';
 
 // Project imports:
 import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
 import 'package:smooth_app/cards/data_cards/image_upload_card.dart';
 import 'package:smooth_app/cards/expandables/attribute_list_expandable.dart';
-import 'package:smooth_app/data_models/match.dart';
+import 'package:smooth_app/temp/matched_product.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/category_product_query.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
@@ -376,7 +377,7 @@ class _ProductPageState extends State<ProductPage> {
         in productPreferences.attributeGroups) {
       attributeGroupLabels[attributeGroup.id] = attributeGroup.name;
     }
-    final List<String> mainAttributes =
+    final List<String> attributeIds =
         productPreferences.getOrderedImportantAttributeIds();
     final List<Widget> listItems = <Widget>[];
 
@@ -408,22 +409,21 @@ class _ProductPageState extends State<ProductPage> {
       ),
     );
 
-    final Map<String, Attribute> matchingAttributes =
-        Match.getMatchingAttributes(_product, mainAttributes);
+    final Map<String, Attribute> attributes =
+        ProductExtra.getAttributes(_product, attributeIds);
     final double opacity = themeData.brightness == Brightness.light
         ? 1
         : SmoothTheme.ADDITIONAL_OPACITY_FOR_DARK;
 
-    //Nutri, Nova
-    for (final String attributeId in mainAttributes) {
-      if (matchingAttributes[attributeId] != null) {
+    for (final String attributeId in attributeIds) {
+      if (attributes[attributeId] != null) {
         listItems.add(
           AttributeListExpandable(
             product: _product,
             iconWidth: iconWidth,
             attributeIds: <String>[attributeId],
             collapsible: false,
-            background: _getBackgroundColor(matchingAttributes[attributeId])
+            background: _getBackgroundColor(attributes[attributeId])
                 .withOpacity(opacity),
           ),
         );
@@ -528,7 +528,7 @@ class _ProductPageState extends State<ProductPage> {
   }
 
   Color _getBackgroundColor(final Attribute attribute) {
-    if (attribute.status == Match.KNOWN_STATUS) {
+    if (attribute.status == MatchedProduct.KNOWN_STATUS) {
       if (attribute.match <= 20) {
         return const HSLColor.fromAHSL(1, 0, 1, .9).toColor();
       }
