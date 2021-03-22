@@ -24,7 +24,7 @@ import 'package:smooth_app/temp/product_extra.dart';
 import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
 import 'package:smooth_app/cards/data_cards/image_upload_card.dart';
 import 'package:smooth_app/cards/expandables/attribute_list_expandable.dart';
-import 'package:smooth_app/temp/matched_product.dart';
+import 'package:smooth_app/temp/attribute_extra.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/category_product_query.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
@@ -528,7 +528,7 @@ class _ProductPageState extends State<ProductPage> {
   }
 
   Color _getBackgroundColor(final Attribute attribute) {
-    if (attribute.status == MatchedProduct.KNOWN_STATUS) {
+    if (attribute.status == AttributeExtra.STATUS_KNOWN) {
       if (attribute.match <= 20) {
         return const HSLColor.fromAHSL(1, 0, 1, .9).toColor();
       }

@@ -2,6 +2,7 @@
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:smooth_app/temp/attribute_extra.dart';
 
 // Project imports:
 import 'package:smooth_app/temp/preference_importance.dart';
@@ -34,7 +35,7 @@ class MatchedProduct {
         if (importanceId == null || factor == 0) {
           _debug += '${attribute.id} $importanceId\n';
         } else {
-          if (attribute.status == _UNKNOWN_STATUS) {
+          if (attribute.status == AttributeExtra.STATUS_UNKNOWN) {
             if (_status ?? false) {
               _status = null;
             }
@@ -59,9 +60,6 @@ class MatchedProduct {
   double get score => _score;
   bool get status => _status;
   String get debug => _debug;
-
-  static const String _UNKNOWN_STATUS = 'unknown';
-  static const String KNOWN_STATUS = 'known';
 
   static List<MatchedProduct> sort(
     final List<Product> products,
