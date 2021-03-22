@@ -43,13 +43,17 @@ class SmoothProductCardFound extends StatelessWidget {
     final Size screenSize = MediaQuery.of(context).size;
     final ThemeData themeData = Theme.of(context);
 
-    final List<String> orderedVariables =
+    final List<String> attributeIds =
         productPreferences.getOrderedImportantAttributeIds();
     final List<Widget> scores = <Widget>[];
     final double iconSize =
         screenSize.width / 10; // TODO(monsieurtanuki): target size?
-    for (final String variable in orderedVariables) {
-      final Attribute attribute = ProductExtra.getAttribute(product, variable);
+    final Map<String, Attribute> attributes = ProductExtra.getAttributes(
+      product,
+      attributeIds,
+    );
+    for (final String attributeId in attributeIds) {
+      final Attribute attribute = attributes[attributeId];
       scores.add(AttributeChip(attribute, height: iconSize));
     }
     return GestureDetector(

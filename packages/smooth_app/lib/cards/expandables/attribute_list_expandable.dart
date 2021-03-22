@@ -39,8 +39,12 @@ class AttributeListExpandable extends StatelessWidget {
     final Size screenSize = MediaQuery.of(context).size;
     final List<Widget> chips = <Widget>[];
     final List<Widget> cards = <Widget>[];
+    final Map<String, Attribute> attributes = ProductExtra.getAttributes(
+      product,
+      attributeIds,
+    );
     for (final String attributeId in attributeIds) {
-      Attribute attribute = ProductExtra.getAttribute(product, attributeId);
+      Attribute attribute = attributes[attributeId];
       // Some attributes selected in the user preferences might be unavailable for some products
       if (attribute == null) {
         attribute = productPreferences.getReferenceAttribute(attributeId);
