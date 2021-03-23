@@ -11,8 +11,6 @@
     "@showAll": {},
     "scanProductTitle": "Scan products",
     "@scanProductTitle": {},
-    "testerSettingTitle": "Testers settings",
-    "@testerSettingTitle": {},
     "useMLKitText": "Use ML Kit powered scanner",
     "@useMLKitText": {},
     "organizationPage": "Organization Page",
@@ -96,5 +94,7 @@
     "error": "Something went wrong",
     "@error": {},
     "darkmode": "Darkmode",
-    "@darkmode": {}
+    "@darkmode": {},
+    "settingsTitle": "Баптаулар",
+    "@settingsTitle": {}
 }

@@ -11,8 +11,6 @@
     "@showAll": {},
     "scanProductTitle": "Escanear produtos",
     "@scanProductTitle": {},
-    "testerSettingTitle": "Configurações dos testadores",
-    "@testerSettingTitle": {},
     "useMLKitText": "Use o scanner com kit ML",
     "@useMLKitText": {},
     "organizationPage": "Página da Organização",
@@ -96,5 +94,7 @@
     "error": "Algo correu mal",
     "@error": {},
     "darkmode": "Modo escuro",
-    "@darkmode": {}
+    "@darkmode": {},
+    "settingsTitle": "Definições",
+    "@settingsTitle": {}
 }

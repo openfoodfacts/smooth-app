@@ -11,8 +11,6 @@
     "@showAll": {},
     "scanProductTitle": "Termékek beolvasása",
     "@scanProductTitle": {},
-    "testerSettingTitle": "Testers settings",
-    "@testerSettingTitle": {},
     "useMLKitText": "Use ML Kit powered scanner",
     "@useMLKitText": {},
     "organizationPage": "Organization Page",
@@ -96,5 +94,7 @@
     "error": "Valami hiba történt",
     "@error": {},
     "darkmode": "Darkmode",
-    "@darkmode": {}
+    "@darkmode": {},
+    "settingsTitle": "Beállítások",
+    "@settingsTitle": {}
 }

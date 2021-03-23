@@ -11,8 +11,6 @@
     "@showAll": {},
     "scanProductTitle": "Scan products",
     "@scanProductTitle": {},
-    "testerSettingTitle": "Testers settings",
-    "@testerSettingTitle": {},
     "useMLKitText": "Use ML Kit powered scanner",
     "@useMLKitText": {},
     "organizationPage": "Organization Page",
@@ -96,5 +94,7 @@
     "error": "問題が発生しました",
     "@error": {},
     "darkmode": "Darkmode",
-    "@darkmode": {}
+    "@darkmode": {},
+    "settingsTitle": "設定",
+    "@settingsTitle": {}
 }
