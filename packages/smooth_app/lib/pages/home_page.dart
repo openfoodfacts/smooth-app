@@ -79,7 +79,6 @@ class _HomePageState extends State<HomePage> {
     _daoProduct = DaoProduct(localDatabase);
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
-    final bool mlKitState = userPreferences.getMlKitState();
     final Color notYetColor = SmoothTheme.getColor(
       colorScheme,
       Colors.grey,
@@ -98,13 +97,12 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             icon: const Icon(Icons.settings),
             onPressed: () async {
-              await Navigator.push<dynamic>(
+              await Navigator.push<Widget>(
                 context,
-                MaterialPageRoute<dynamic>(
+                MaterialPageRoute<Widget>(
                   builder: (BuildContext context) => ProfilePage(),
                 ),
               );
-              setState(() {});
             },
           ),
         ],
@@ -166,9 +164,9 @@ class _HomePageState extends State<HomePage> {
                       );
                     },
                     onSuggestionSelected: (Product suggestion) {
-                      Navigator.push<dynamic>(
+                      Navigator.push<Widget>(
                         context,
-                        MaterialPageRoute<dynamic>(
+                        MaterialPageRoute<Widget>(
                           builder: (BuildContext context) => ProductPage(
                             product: suggestion,
                           ),
@@ -214,13 +212,12 @@ class _HomePageState extends State<HomePage> {
           Card(
             child: ListTile(
               onTap: () async {
-                await Navigator.push<dynamic>(
+                await Navigator.push<Widget>(
                   context,
-                  MaterialPageRoute<dynamic>(
+                  MaterialPageRoute<Widget>(
                     builder: (BuildContext context) => ChoosePage(),
                   ),
                 );
-                setState(() {});
               },
               leading: Icon(
                 Icons.fastfood,
@@ -292,13 +289,11 @@ class _HomePageState extends State<HomePage> {
           await Navigator.push<Widget>(
             context,
             MaterialPageRoute<Widget>(
-              builder: (BuildContext context) => ScanPage(
+              builder: (BuildContext context) => const ScanPage(
                 contributionMode: false,
-                mlKit: mlKitState,
               ),
             ),
           );
-          setState(() {});
         },
         child: SvgPicture.asset(
           'assets/actions/scanner_alt_2.svg',
@@ -362,16 +357,15 @@ class _HomePageState extends State<HomePage> {
                 children: <Widget>[
                   ListTile(
                     onTap: () async {
-                      await Navigator.push<dynamic>(
+                      await Navigator.push<Widget>(
                         context,
-                        MaterialPageRoute<dynamic>(
+                        MaterialPageRoute<Widget>(
                           builder: (BuildContext context) => ListPage(
                             typeFilter: typeFilter,
                             title: title,
                           ),
                         ),
                       );
-                      setState(() {});
                     },
                     leading: leadingIcon,
                     title: Text(title,
@@ -524,9 +518,9 @@ class _HomePageState extends State<HomePage> {
                 children: <Widget>[
                   ListTile(
                     onTap: () async {
-                      await Navigator.push<dynamic>(
+                      await Navigator.push<Widget>(
                         context,
-                        MaterialPageRoute<dynamic>(
+                        MaterialPageRoute<Widget>(
                           builder: (BuildContext context) => PantryListPage(
                             title,
                             pantries,
@@ -534,7 +528,6 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       );
-                      setState(() {});
                     },
                     leading: Icon(
                       iconData,

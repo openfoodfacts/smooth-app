@@ -57,9 +57,9 @@ class ContinuousScanPage extends StatelessWidget {
                 style: const TextStyle(color: Colors.black),
               ),
               backgroundColor: Colors.white,
-              onPressed: () => Navigator.push<dynamic>(
+              onPressed: () => Navigator.push<Widget>(
                 context,
-                MaterialPageRoute<dynamic>(
+                MaterialPageRoute<Widget>(
                   builder: (BuildContext context) =>
                       PersonalizedRankingPage(_continuousScanModel.productList),
                 ),

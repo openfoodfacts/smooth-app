@@ -59,9 +59,9 @@ class SmoothProductCardFound extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         //_openSneakPeek(context);
-        Navigator.push<dynamic>(
+        Navigator.push<Widget>(
           context,
-          MaterialPageRoute<dynamic>(
+          MaterialPageRoute<Widget>(
               builder: (BuildContext context) => ProductPage(
                     product: product,
                   )),
@@ -155,9 +155,9 @@ class SmoothProductCardFound extends StatelessWidget {
   Widget _getOldStyle(final BuildContext context) => GestureDetector(
         onTap: () {
           //_openSneakPeek(context);
-          Navigator.push<dynamic>(
+          Navigator.push<Widget>(
             context,
-            MaterialPageRoute<dynamic>(
+            MaterialPageRoute<Widget>(
                 builder: (BuildContext context) => ProductPage(
                       product: product,
                     )),

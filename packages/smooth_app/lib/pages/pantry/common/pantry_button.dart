@@ -37,9 +37,9 @@ class PantryButton extends StatelessWidget {
           ),
         ),
         onPressed: () async {
-          await Navigator.push<dynamic>(
+          await Navigator.push<Widget>(
             context,
-            MaterialPageRoute<dynamic>(
+            MaterialPageRoute<Widget>(
               builder: (BuildContext context) => PantryPage(
                 pantries,
                 index,
