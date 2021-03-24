@@ -11,8 +11,6 @@
     "@showAll": {},
     "scanProductTitle": "Scan products",
     "@scanProductTitle": {},
-    "testerSettingTitle": "Testers settings",
-    "@testerSettingTitle": {},
     "useMLKitText": "Use ML Kit powered scanner",
     "@useMLKitText": {},
     "organizationPage": "Organization Page",
@@ -96,5 +94,7 @@
     "error": "တစ်စုံတစ်ခုမှားယွင်းသွားသည်",
     "@error": {},
     "darkmode": "Darkmode",
-    "@darkmode": {}
+    "@darkmode": {},
+    "settingsTitle": "အပြင်​အဆင်​များ",
+    "@settingsTitle": {}
 }

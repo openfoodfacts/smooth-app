@@ -11,8 +11,6 @@
     "@showAll": {},
     "scanProductTitle": "فحص المنتجات",
     "@scanProductTitle": {},
-    "testerSettingTitle": "إعدادات المجربين",
-    "@testerSettingTitle": {},
     "useMLKitText": "إستخدم جهاز مسح الضوئي قيد تشغيل ML Kit",
     "@useMLKitText": {},
     "organizationPage": "صفحة المنظمة",
@@ -96,5 +94,7 @@
     "error": "حدث خطأ ما",
     "@error": {},
     "darkmode": "الوضع الداكن",
-    "@darkmode": {}
+    "@darkmode": {},
+    "settingsTitle": "الإعدادات",
+    "@settingsTitle": {}
 }

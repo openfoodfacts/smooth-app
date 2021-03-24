@@ -11,8 +11,6 @@
     "@showAll": {},
     "scanProductTitle": "Scannez des produits",
     "@scanProductTitle": {},
-    "testerSettingTitle": "Paramètres des testeurs",
-    "@testerSettingTitle": {},
     "useMLKitText": "Utiliser le scanner alimenté par ML Kit",
     "@useMLKitText": {},
     "organizationPage": "Page d'établissement",
@@ -53,7 +51,7 @@
     "@ingredients": {},
     "ecology": "Écologie",
     "@ecology": {},
-    "about": "A propos de cette appli",
+    "about": "À propos de cette appli",
     "@about": {},
     "licenses": "Licences",
     "@licenses": {},
@@ -96,5 +94,7 @@
     "error": "Quelque chose ne va pas",
     "@error": {},
     "darkmode": "Mode sombre",
-    "@darkmode": {}
+    "@darkmode": {},
+    "settingsTitle": "Paramètres",
+    "@settingsTitle": {}
 }

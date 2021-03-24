@@ -11,8 +11,6 @@
     "@showAll": {},
     "scanProductTitle": "Lue tuotteita",
     "@scanProductTitle": {},
-    "testerSettingTitle": "Testaajien asetukset",
-    "@testerSettingTitle": {},
     "useMLKitText": "Käytä ML Kit -pohjaista lukijaa",
     "@useMLKitText": {},
     "organizationPage": "Organisaatiosivu",
@@ -96,5 +94,7 @@
     "error": "Jokin meni vikaan",
     "@error": {},
     "darkmode": "Tumma tila",
-    "@darkmode": {}
+    "@darkmode": {},
+    "settingsTitle": "Asetukset",
+    "@settingsTitle": {}
 }

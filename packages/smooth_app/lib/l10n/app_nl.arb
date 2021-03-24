@@ -11,8 +11,6 @@
     "@showAll": {},
     "scanProductTitle": "Scan producten",
     "@scanProductTitle": {},
-    "testerSettingTitle": "Instellingen voor testers",
-    "@testerSettingTitle": {},
     "useMLKitText": "Gebruik ML Kit powered scanner",
     "@useMLKitText": {},
     "organizationPage": "Organisatiepagina",
@@ -96,5 +94,7 @@
     "error": "Er ging iets mis",
     "@error": {},
     "darkmode": "Darkmode",
-    "@darkmode": {}
+    "@darkmode": {},
+    "settingsTitle": "Instellingen",
+    "@settingsTitle": {}
 }

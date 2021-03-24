@@ -11,8 +11,6 @@
     "@showAll": {},
     "scanProductTitle": "Skeniraj izdelke",
     "@scanProductTitle": {},
-    "testerSettingTitle": "Testers settings",
-    "@testerSettingTitle": {},
     "useMLKitText": "Use ML Kit powered scanner",
     "@useMLKitText": {},
     "organizationPage": "Organization Page",
@@ -96,5 +94,7 @@
     "error": "Nekaj je šlo narobe",
     "@error": {},
     "darkmode": "Darkmode",
-    "@darkmode": {}
+    "@darkmode": {},
+    "settingsTitle": "Nastavitve",
+    "@settingsTitle": {}
 }

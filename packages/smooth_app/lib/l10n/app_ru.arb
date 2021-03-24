@@ -11,8 +11,6 @@
     "@showAll": {},
     "scanProductTitle": "Сканируйте продукты",
     "@scanProductTitle": {},
-    "testerSettingTitle": "Настройки тестеров",
-    "@testerSettingTitle": {},
     "useMLKitText": "Use ML Kit powered scanner",
     "@useMLKitText": {},
     "organizationPage": "Страница организации",
@@ -96,5 +94,7 @@
     "error": "Упс... что-то пошло не так",
     "@error": {},
     "darkmode": "Темная тема",
-    "@darkmode": {}
+    "@darkmode": {},
+    "settingsTitle": "Настройки",
+    "@settingsTitle": {}
 }

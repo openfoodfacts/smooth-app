@@ -11,8 +11,6 @@
     "@showAll": {},
     "scanProductTitle": "Scanați produsul",
     "@scanProductTitle": {},
-    "testerSettingTitle": "Testers settings",
-    "@testerSettingTitle": {},
     "useMLKitText": "Use ML Kit powered scanner",
     "@useMLKitText": {},
     "organizationPage": "Organization Page",
@@ -96,5 +94,7 @@
     "error": "Ceva nu a funcţionat corect",
     "@error": {},
     "darkmode": "Darkmode",
-    "@darkmode": {}
+    "@darkmode": {},
+    "settingsTitle": "Configurări",
+    "@settingsTitle": {}
 }

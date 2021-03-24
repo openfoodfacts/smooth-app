@@ -11,8 +11,6 @@
     "@showAll": {},
     "scanProductTitle": "Skan produkter",
     "@scanProductTitle": {},
-    "testerSettingTitle": "Testerindstillinger",
-    "@testerSettingTitle": {},
     "useMLKitText": "Brug ML Kit-drevet skanner",
     "@useMLKitText": {},
     "organizationPage": "Virksomhedsside",
@@ -96,5 +94,7 @@
     "error": "Noget gik galt",
     "@error": {},
     "darkmode": "Mørk tilstand",
-    "@darkmode": {}
+    "@darkmode": {},
+    "settingsTitle": "Indstillinger",
+    "@settingsTitle": {}
 }
