@@ -217,7 +217,7 @@ class ProfilePage extends StatelessWidget {
       TextButton(
         onPressed: () async => await themeProvider.setColorTag(colorTag),
         style: TextButton.styleFrom(
-          primary: SmoothTheme.getColor(
+          backgroundColor: SmoothTheme.getColor(
             colorScheme,
             SmoothTheme.MATERIAL_COLORS[colorTag],
             ColorDestination.BUTTON_BACKGROUND,
