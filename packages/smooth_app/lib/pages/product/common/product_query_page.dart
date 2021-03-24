@@ -176,9 +176,9 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                   ),
                   backgroundColor: Colors.white,
                   onPressed: () {
-                    Navigator.push<dynamic>(
+                    Navigator.push<Widget>(
                       context,
-                      MaterialPageRoute<dynamic>(
+                      MaterialPageRoute<Widget>(
                         builder: (BuildContext context) =>
                             PersonalizedRankingPage(
                           _model.supplier.getProductList(),

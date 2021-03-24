@@ -136,9 +136,9 @@ class PantryDialogHelper {
               int index = 0;
               for (final Pantry pantry in pantries) {
                 if (pantry.name == newPantryName) {
-                  await Navigator.push<dynamic>(
+                  await Navigator.push<Widget>(
                     context,
-                    MaterialPageRoute<dynamic>(
+                    MaterialPageRoute<Widget>(
                       builder: (BuildContext context) => PantryPage(
                         pantries,
                         index,

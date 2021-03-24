@@ -37,9 +37,9 @@ class ProductListButton extends StatelessWidget {
       ),
       onPressed: () async {
         await daoProductList.get(productList);
-        await Navigator.push<dynamic>(
+        await Navigator.push<Widget>(
           context,
-          MaterialPageRoute<dynamic>(
+          MaterialPageRoute<Widget>(
             builder: (BuildContext context) => ProductListPage(productList),
           ),
         );

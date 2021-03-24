@@ -29,9 +29,9 @@ class ProductListPreviewHelper extends StatelessWidget {
     final List<Widget> previews = <Widget>[];
     for (final Product product in list) {
       previews.add(GestureDetector(
-        onTap: () async => await Navigator.push<dynamic>(
+        onTap: () async => await Navigator.push<Widget>(
           context,
-          MaterialPageRoute<dynamic>(
+          MaterialPageRoute<Widget>(
             builder: (BuildContext context) => ProductPage(
               product: product,
             ),
