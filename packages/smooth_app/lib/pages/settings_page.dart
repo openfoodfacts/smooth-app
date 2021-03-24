@@ -42,10 +42,17 @@ class ProfilePage extends StatelessWidget {
             onPressed: null,
             leadingWidget: SmoothToggle(
               value: themeProvider.darkTheme,
-              width: 80.0,
+              width: 85.0,
               height: 38.0,
-              textLeft: appLocalizations.yes,
-              textRight: appLocalizations.no,
+              textRight: 'Light',
+              textLeft: 'Dark',
+              colorRight: Colors.blue,
+              colorLeft: Colors.blueGrey.shade700,
+              iconRight: const Icon(Icons.wb_sunny_rounded),
+              iconLeft: const Icon(
+                Icons.nightlight_round,
+                color: Colors.black,
+              ),
               onChanged: (bool newValue) async =>
                   await themeProvider.setDarkTheme(newValue),
             ),
