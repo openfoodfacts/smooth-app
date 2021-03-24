@@ -115,9 +115,9 @@ class ProductListDialogHelper {
               }
               await daoProductList.put(newProductList);
               Navigator.pop(context, newProductList);
-              await Navigator.push<dynamic>(
+              await Navigator.push<Widget>(
                 context,
-                MaterialPageRoute<dynamic>(
+                MaterialPageRoute<Widget>(
                   builder: (BuildContext context) => ProductListPage(
                     newProductList,
                     reverse: ProductQueryPageHelper.isListReversed(

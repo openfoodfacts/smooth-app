@@ -31,9 +31,9 @@ class ProductQueryPageHelper {
     final ProductListSupplier supplier = timestamp == null
         ? QueryProductListSupplier(productQuery)
         : DatabaseProductListSupplier(productQuery, localDatabase);
-    Navigator.push<dynamic>(
+    Navigator.push<Widget>(
       context,
-      MaterialPageRoute<dynamic>(
+      MaterialPageRoute<Widget>(
         builder: (BuildContext context) => ProductQueryPage(
           productListSupplier: supplier,
           heroTag: heroTag,

@@ -111,9 +111,9 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
             _imageFullProvider = NetworkImage(_imageFullUrl);
           }
 
-          Navigator.push<dynamic>(
+          Navigator.push<Widget>(
             context,
-            MaterialPageRoute<dynamic>(
+            MaterialPageRoute<Widget>(
               builder: (BuildContext context) => ProductImagePage(
                   product: widget.product,
                   imageField: widget.imageField,

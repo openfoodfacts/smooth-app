@@ -41,9 +41,9 @@ class PantryPreview extends StatelessWidget {
       child: Column(
         children: <Widget>[
           ListTile(
-            onTap: () async => await Navigator.push<dynamic>(
+            onTap: () async => await Navigator.push<Widget>(
               context,
-              MaterialPageRoute<dynamic>(
+              MaterialPageRoute<Widget>(
                 builder: (BuildContext context) => PantryPage(
                   pantries,
                   index,

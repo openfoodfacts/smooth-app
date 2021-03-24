@@ -226,9 +226,9 @@ class _ProductListPageState extends State<ProductListPage> {
                 height: 24.0,
                 color: colorScheme.onSecondary,
               ),
-              onPressed: () => Navigator.push<dynamic>(
+              onPressed: () => Navigator.push<Widget>(
                 context,
-                MaterialPageRoute<dynamic>(
+                MaterialPageRoute<Widget>(
                   builder: (BuildContext context) =>
                       PersonalizedRankingPage(productList),
                 ),
