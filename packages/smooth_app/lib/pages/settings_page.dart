@@ -42,7 +42,7 @@ class ProfilePage extends StatelessWidget {
             onPressed: null,
             leadingWidget: SmoothToggle(
               value: themeProvider.darkTheme,
-              width: 90.0,
+              width: 85.0,
               height: 38.0,
               textRight: 'Light',
               textLeft: 'Dark',
