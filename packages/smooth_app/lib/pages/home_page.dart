@@ -276,6 +276,8 @@ class _HomePageState extends State<HomePage> {
           ),
           //Contribute
           SmoothCard(
+            padding: const EdgeInsets.only(
+                right: 8.0, left: 8.0, top: 4.0, bottom: 20.0),
             color: notYetColor,
             child: const ListTile(
               leading: Icon(
