@@ -366,6 +366,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       );
+                      setState(() {});
                     },
                     leading: leadingIcon,
                     title: Text(title,
@@ -528,6 +529,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       );
+                      setState(() {});
                     },
                     leading: Icon(
                       iconData,
