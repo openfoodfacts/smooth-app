@@ -159,6 +159,10 @@ class ProductPage extends StatefulWidget {
 class _ProductPageState extends State<ProductPage> {
   Product _product;
 
+  final EdgeInsets padding =
+      const EdgeInsets.only(right: 8.0, left: 8.0, top: 4.0, bottom: 20.0);
+  final EdgeInsets insets = const EdgeInsets.all(12.0);
+
   @override
   void initState() {
     super.initState();
@@ -419,6 +423,8 @@ class _ProductPageState extends State<ProductPage> {
       if (attributes[attributeId] != null) {
         listItems.add(
           AttributeListExpandable(
+            padding: padding,
+            insets: insets,
             product: _product,
             iconWidth: iconWidth,
             attributeIds: <String>[attributeId],
@@ -444,12 +450,14 @@ class _ProductPageState extends State<ProductPage> {
         const MaterialColor materialColor = Colors.blue;
         listItems.add(
           SmoothCard(
-            background: SmoothTheme.getColor(
+            padding: padding,
+            insets: insets,
+            color: SmoothTheme.getColor(
               themeData.colorScheme,
               materialColor,
               ColorDestination.SURFACE_BACKGROUND,
             ),
-            content: ListTile(
+            child: ListTile(
               leading: Icon(
                 Icons.search,
                 size: iconWidth,
@@ -498,6 +506,8 @@ class _ProductPageState extends State<ProductPage> {
       attributeIds.add(attribute.id);
     }
     return AttributeListExpandable(
+      padding: padding,
+      insets: insets,
       product: _product,
       iconWidth: iconWidth,
       attributeIds: attributeIds,

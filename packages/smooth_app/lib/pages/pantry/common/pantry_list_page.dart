@@ -92,12 +92,12 @@ class _PantryListPageState extends State<PantryListPage> {
       SizedBox(
         height: iconSize * 3,
         child: SmoothCard(
-          background: SmoothTheme.getColor(
+          color: SmoothTheme.getColor(
             themeData.colorScheme,
             Colors.blue,
             ColorDestination.SURFACE_BACKGROUND,
           ),
-          content: ListTile(
+          child: ListTile(
             leading: Icon(Icons.add, size: iconSize),
             onTap: () async => await _add(userPreferences),
             title: Text(

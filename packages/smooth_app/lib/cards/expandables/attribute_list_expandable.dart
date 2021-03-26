@@ -23,6 +23,8 @@ class AttributeListExpandable extends StatelessWidget {
     this.title,
     this.collapsible = true,
     this.background,
+    this.padding,
+    this.insets,
   });
 
   final Product product;
@@ -31,6 +33,8 @@ class AttributeListExpandable extends StatelessWidget {
   final String title;
   final bool collapsible;
   final Color background;
+  final EdgeInsets padding;
+  final EdgeInsets insets;
 
   @override
   Widget build(BuildContext context) {
@@ -75,14 +79,18 @@ class AttributeListExpandable extends StatelessWidget {
     );
     if (!collapsible) {
       return SmoothCard(
-        content: content,
-        background: background,
+        padding: padding,
+        insets: insets,
+        child: content,
+        color: background,
       );
     }
 
     final Widget header =
         Text(title, style: Theme.of(context).textTheme.headline3);
     return SmoothExpandableCard(
+      padding: padding,
+      insets: insets,
       collapsedHeader: Container(
         width: screenSize.width * 0.8,
         child: Column(
@@ -98,7 +106,7 @@ class AttributeListExpandable extends StatelessWidget {
           ],
         ),
       ),
-      content: content,
+      child: content,
       expandedHeader: title == null ? null : header,
     );
   }

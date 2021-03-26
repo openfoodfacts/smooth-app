@@ -8,6 +8,7 @@ import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/utils/PnnsGroups.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_ui_library/widgets/smooth_card.dart';
 import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
 
 // Project imports:
@@ -113,7 +114,9 @@ class _HomePageState extends State<HomePage> {
           //Search
           StatefulBuilder(
             builder: (BuildContext context, StateSetter setState) {
-              return Card(
+              return SmoothCard(
+                padding: const EdgeInsets.only(
+                    right: 8.0, left: 8.0, top: 4.0, bottom: 4.0),
                 child: ListTile(
                   leading: Icon(
                     Icons.search,
@@ -209,35 +212,37 @@ class _HomePageState extends State<HomePage> {
             nbInPreview: 5,
           ),
           //Food category's
-          Card(
-            child: ListTile(
-              onTap: () async {
-                await Navigator.push<Widget>(
-                  context,
-                  MaterialPageRoute<Widget>(
-                    builder: (BuildContext context) => ChoosePage(),
+          GestureDetector(
+            child: SmoothCard(
+              child: ListTile(
+                leading: Icon(
+                  Icons.fastfood,
+                  color: SmoothTheme.getColor(
+                    colorScheme,
+                    Colors.orange,
+                    _COLOR_DESTINATION_FOR_ICON,
                   ),
-                );
-              },
-              leading: Icon(
-                Icons.fastfood,
-                color: SmoothTheme.getColor(
-                  colorScheme,
-                  Colors.orange,
-                  _COLOR_DESTINATION_FOR_ICON,
+                ),
+                title: Text('Food category search',
+                    style: Theme.of(context).textTheme.subtitle2),
+                subtitle: Text(
+                  '${PnnsGroup1.BEVERAGES.name}'
+                  ', ${PnnsGroup1.CEREALS_AND_POTATOES.name}'
+                  ', ${PnnsGroup1.COMPOSITE_FOODS.name}'
+                  ', ${PnnsGroup1.FAT_AND_SAUCES.name}'
+                  ', ${PnnsGroup1.FISH_MEAT_AND_EGGS.name}'
+                  ', ...',
                 ),
               ),
-              title: Text('Food category search',
-                  style: Theme.of(context).textTheme.subtitle2),
-              subtitle: Text(
-                '${PnnsGroup1.BEVERAGES.name}'
-                ', ${PnnsGroup1.CEREALS_AND_POTATOES.name}'
-                ', ${PnnsGroup1.COMPOSITE_FOODS.name}'
-                ', ${PnnsGroup1.FAT_AND_SAUCES.name}'
-                ', ${PnnsGroup1.FISH_MEAT_AND_EGGS.name}'
-                ', ...',
-              ),
             ),
+            onTap: () async {
+              await Navigator.push<Widget>(
+                context,
+                MaterialPageRoute<Widget>(
+                  builder: (BuildContext context) => ChoosePage(),
+                ),
+              );
+            },
           ),
           //Search history
           _getProductListCard(
@@ -257,7 +262,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           //Score
-          Card(
+          SmoothCard(
             color: notYetColor,
             child: const ListTile(
               leading: Icon(
@@ -268,7 +273,9 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           //Contribute
-          Card(
+          SmoothCard(
+            padding: const EdgeInsets.only(
+                right: 8.0, left: 8.0, top: 4.0, bottom: 20.0),
             color: notYetColor,
             child: const ListTile(
               leading: Icon(
@@ -277,9 +284,6 @@ class _HomePageState extends State<HomePage> {
               title: Text('Contribute'),
               subtitle: Text('Help us list more and more foods!'),
             ),
-          ),
-          const SizedBox(
-            height: 10,
           ),
         ],
       ),
@@ -352,7 +356,7 @@ class _HomePageState extends State<HomePage> {
                 cards.add(const Text(_TRANSLATE_ME_EMPTY));
               }
             }
-            return Card(
+            return SmoothCard(
               child: Column(
                 children: <Widget>[
                   ListTile(
@@ -381,7 +385,7 @@ class _HomePageState extends State<HomePage> {
               ),
             );
           }
-          return Card(
+          return SmoothCard(
             child: ListTile(
               leading: const CircularProgressIndicator(),
               title: Text(title),
@@ -440,7 +444,7 @@ class _HomePageState extends State<HomePage> {
     }
     return GestureDetector(
       onTap: () => onTap(),
-      child: Card(
+      child: SmoothCard(
         child: Column(
           children: <Widget>[
             ListTile(
@@ -514,7 +518,7 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
             );
-            return Card(
+            return SmoothCard(
               child: Column(
                 children: <Widget>[
                   ListTile(
@@ -554,7 +558,7 @@ class _HomePageState extends State<HomePage> {
               ),
             );
           }
-          return Card(
+          return SmoothCard(
             child: ListTile(
               leading: const CircularProgressIndicator(),
               title: Text(title),

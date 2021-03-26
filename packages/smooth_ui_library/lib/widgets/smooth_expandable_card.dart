@@ -6,15 +6,20 @@ import 'package:flutter/material.dart';
 class SmoothExpandableCard extends StatefulWidget {
   const SmoothExpandableCard({
     @required this.collapsedHeader,
-    @required this.content,
+    @required this.child,
     this.expandedHeader,
-    this.background,
+    this.color,
+    this.padding = const EdgeInsets.only(
+        right: 8.0, left: 8.0, top: 4.0, bottom: 20.0),
+    this.insets = const  EdgeInsets.all(12.0),
   });
 
   final Widget collapsedHeader;
   final Widget expandedHeader;
-  final Color background;
-  final Widget content;
+  final Color color;
+  final Widget child;
+  final EdgeInsets padding;
+  final EdgeInsets insets;
   @override
   _SmoothExpandableCardState createState() => _SmoothExpandableCardState();
 }
@@ -59,15 +64,14 @@ class _SmoothExpandableCardState extends State<SmoothExpandableCard>
         });
       },
       child: Padding(
-        padding: const EdgeInsets.only(
-            right: 8.0, left: 8.0, top: 4.0, bottom: 20.0),
+        padding: widget.padding,
         child: Material(
           elevation: 8.0,
           shadowColor: Colors.black45,
           borderRadius: const BorderRadius.all(Radius.circular(10.0)),
-          color: widget.background ?? Theme.of(context).colorScheme.surface,
+          color: widget.color ?? Theme.of(context).colorScheme.surface,
           child: Container(
-            padding: const EdgeInsets.all(12.0),
+            padding: widget.insets,
             child: Column(
               children: <Widget>[
                 Row(
@@ -92,7 +96,7 @@ class _SmoothExpandableCardState extends State<SmoothExpandableCard>
                     ),
                   ],
                 ),
-                if (collapsed != true) widget.content,
+                if (collapsed != true) widget.child,
               ],
             ),
           ),

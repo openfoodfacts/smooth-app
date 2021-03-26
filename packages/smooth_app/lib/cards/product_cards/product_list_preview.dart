@@ -11,6 +11,7 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/pages/product/common/product_list_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_ui_library/widgets/smooth_card.dart';
 
 class ProductListPreview extends StatelessWidget {
   const ProductListPreview({
@@ -47,7 +48,8 @@ class ProductListPreview extends StatelessWidget {
             if (list == null || list.isEmpty) {
               subtitle = 'Empty list';
             }
-            return Card(
+            return SmoothCard(
+              insets: const EdgeInsets.all(1.0),
               color: SmoothTheme.getColor(
                 Theme.of(context).colorScheme,
                 productList.getMaterialColor(),
@@ -89,7 +91,7 @@ class ProductListPreview extends StatelessWidget {
               ),
             );
           }
-          return Card(
+          return SmoothCard(
             child: ListTile(
               leading: const CircularProgressIndicator(),
               subtitle: Text(title),
