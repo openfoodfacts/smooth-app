@@ -234,7 +234,7 @@ class UserPreferencesView extends StatelessWidget {
     final ProductPreferences productPreferences,
   ) {
     return Column(
-      children: [
+      children: <Widget>[
         _generateGroupTitle(context, group, userPreferences),
         AnimatedCrossFade(
           duration: const Duration(milliseconds: 260),
