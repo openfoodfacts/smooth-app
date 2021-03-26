@@ -28,7 +28,7 @@ You can join the Open Food Facts's Slack here : [Get an invite](https://slack.op
 
 ## Roadmap
 ### Release automation
-- [ ] Add multilingual screenshot generation using Fastlane (Scan screen, settings screen, personalized ranking screen, home screen)
+- [ ] Add multilingual screenshot generation using Fastlane (Scan screen, settings screen, personalized ranking screen, home screen) - https://github.com/openfoodfacts/smooth-app/issues/217
 
 ### Navigation
 - [ ] Fix navigation for the iOS build (iOS does not have a back button, and gestures are not intuitive for most people) - https://github.com/openfoodfacts/smooth-app/issues/17
