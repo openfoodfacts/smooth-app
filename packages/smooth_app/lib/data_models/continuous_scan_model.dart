@@ -103,9 +103,9 @@ class ContinuousScanModel with ChangeNotifier {
 
   Future<bool> _addBarcode(final String barcode) async {
     final ScannedProductState state = getBarcodeState(barcode);
-    print("_addBarcode " + barcode);
+    print('_addBarcode ' + barcode);
     if (state == null) {
-      print("_addBarcode state is null " + barcode);
+      print('_addBarcode state is null ' + barcode);
       _barcodes.add(barcode);
       setBarcodeState(barcode, ScannedProductState.LOADING);
       _cacheOrLoadBarcode(barcode);
@@ -113,13 +113,13 @@ class ContinuousScanModel with ChangeNotifier {
     }
     if (state == ScannedProductState.FOUND ||
         state == ScannedProductState.CACHED) {
-      print("_addBarcode state is found or cached " + barcode);
+      print('_addBarcode state is found or cached ' + barcode);
       final Product product = getProduct(barcode);
       _barcodes.add(barcode);
       _addProduct(product, state);
 
       if (state == ScannedProductState.CACHED) {
-        print("_addBarcode state is cached " + barcode);
+        print('_addBarcode state is cached ' + barcode);
         _updateBarcode(barcode);
       }
       return true;
@@ -128,7 +128,7 @@ class ContinuousScanModel with ChangeNotifier {
   }
 
   Future<void> _cacheOrLoadBarcode(final String barcode) async {
-    print("_cacheOrLoadBarcode " + barcode);
+    print('_cacheOrLoadBarcode ' + barcode);
     final bool cached = await _cachedBarcode(barcode);
     if (!cached) {
       _loadBarcode(barcode, ScannedProductState.NOT_FOUND);
@@ -148,13 +148,13 @@ class ContinuousScanModel with ChangeNotifier {
     final String barcode,
     final ScannedProductState notFound,
   ) async {
-    print("_loadBarcode " + barcode);
+    print('_loadBarcode ' + barcode);
     final Product product = await BarcodeProductQuery(
       barcode: barcode,
       languageCode: languageCode,
       countryCode: countryCode,
     ).getProduct();
-    print("_loadBarcode - done " + barcode);
+    print('_loadBarcode - done ' + barcode);
     if (product != null) {
       _addProduct(product, ScannedProductState.FOUND);
     } else {
@@ -165,7 +165,7 @@ class ContinuousScanModel with ChangeNotifier {
   Future<void> _updateBarcode(
     final String barcode,
   ) async {
-    print("_updateBarcode " + barcode);
+    print('_updateBarcode ' + barcode);
     final Product product = await BarcodeProductQuery(
       barcode: barcode,
       languageCode: languageCode,
@@ -175,14 +175,14 @@ class ContinuousScanModel with ChangeNotifier {
       await _daoProduct.put(product);
       setBarcodeState(barcode, ScannedProductState.FOUND);
     }
-    print("_updateBarcode - done " + barcode);
+    print('_updateBarcode - done ' + barcode);
   }
 
   Future<void> _addProduct(
     final Product product,
     final ScannedProductState state,
   ) async {
-    print("_addProduct " + product.barcode);
+    print('_addProduct ' + product.barcode);
     _productList.add(product);
     _daoProductList.put(_productList);
     setBarcodeState(product.barcode, state);
