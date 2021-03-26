@@ -11,8 +11,6 @@
     "@showAll": {},
     "scanProductTitle": "Lue tuotteita",
     "@scanProductTitle": {},
-    "useMLKitText": "Käytä ML Kit -pohjaista lukijaa",
-    "@useMLKitText": {},
     "organizationPage": "Organisaatiosivu",
     "@organizationPage": {},
     "contributionPage": "Osallistumissivu",

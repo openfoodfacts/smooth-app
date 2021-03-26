@@ -11,8 +11,6 @@
     "@showAll": {},
     "scanProductTitle": "Escanear productos",
     "@scanProductTitle": {},
-    "useMLKitText": "Use ML Kit powered scanner",
-    "@useMLKitText": {},
     "organizationPage": "Organization Page",
     "@organizationPage": {},
     "contributionPage": "Contribution Page",
