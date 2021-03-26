@@ -11,8 +11,6 @@
     "@showAll": {},
     "scanProductTitle": "Сканируйте продукты",
     "@scanProductTitle": {},
-    "useMLKitText": "Use ML Kit powered scanner",
-    "@useMLKitText": {},
     "organizationPage": "Страница организации",
     "@organizationPage": {},
     "contributionPage": "Contribution Page",

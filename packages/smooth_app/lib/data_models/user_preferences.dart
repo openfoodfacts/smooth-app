@@ -28,7 +28,6 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_PANTRY_REPOSITORY = 'pantry_repository';
   static const String _TAG_SHOPPING_REPOSITORY = 'shopping_repository';
   static const String _TAG_VISIBLE_GROUPS = 'visible_groups';
-  static const String _TAG_USE_ML_KIT = 'useMlKit';
   static const String _TAG_INIT = 'init';
   static const String _TAG_PRODUCT_LIST_COPY = 'productListCopy';
   static const String _TAG_THEME_DARK = 'themeDark';
@@ -95,13 +94,6 @@ class UserPreferences extends ChangeNotifier {
     await _sharedPreferences.setStringList(_TAG_VISIBLE_GROUPS, visibleList);
     notifyListeners();
   }
-
-  Future<void> setMlKitState(final bool state) async {
-    await _sharedPreferences.setBool(_TAG_USE_ML_KIT, state);
-    notifyListeners();
-  }
-
-  bool getMlKitState() => _sharedPreferences.getBool(_TAG_USE_ML_KIT) ?? false;
 
   String getProductListCopy() =>
       _sharedPreferences.getString(_TAG_PRODUCT_LIST_COPY);

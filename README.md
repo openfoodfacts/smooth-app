@@ -62,7 +62,7 @@ In order to build the application, make sure you are in the packages/smooth_app 
 ### Android
 
 ### iOS
-We need to change the supported architectures for iOS when we open the project in Xcode. There, in the settings, you can specify which ones you want to build for, and only specify the ones that are 64 bit. After that it should build fine for the MLKit component.
+We need to change the supported architectures for iOS when we open the project in Xcode. There, in the settings, you can specify which ones you want to build for, and only specify the ones that are 64 bit.
 
 ## Internationalization
 

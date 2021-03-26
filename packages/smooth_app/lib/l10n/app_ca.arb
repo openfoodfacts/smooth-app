@@ -11,8 +11,6 @@
     "@showAll": {},
     "scanProductTitle": "Escanejar productes",
     "@scanProductTitle": {},
-    "useMLKitText": "Utilitzeu un escàner amb tecnologia ML Kit",
-    "@useMLKitText": {},
     "organizationPage": "Pàgina d’organització",
     "@organizationPage": {},
     "contributionPage": "Pàgina de contribució",
