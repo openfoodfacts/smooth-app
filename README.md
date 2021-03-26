@@ -28,7 +28,6 @@ You can join the Open Food Facts's Slack here : [Get an invite](https://slack.op
 
 ## Roadmap
 ### Release automation
-- [ ] Add Fastlane publishing to the AppStore <s>and the Play Store</s> and GitHub Actions
 - [ ] Add multilingual screenshot generation using Fastlane (Scan screen, settings screen, personalized ranking screen, home screen)
 
 ### Navigation
