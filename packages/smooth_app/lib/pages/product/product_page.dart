@@ -184,13 +184,10 @@ class _ProductPageState extends State<ProductPage> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ThemeData themeData = Theme.of(context);
     _product ??= widget.product;
+    final List<Widget> children = widget.newProduct
+        ? _buildNewProductBody(context)
+        : _buildProductBody(context);
     return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            _product.productName ?? appLocalizations.unknownProductName,
-            //style: themeData.textTheme.headline4,
-          ),
-        ),
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           items: <BottomNavigationBarItem>[
@@ -266,9 +263,17 @@ class _ProductPageState extends State<ProductPage> {
             throw 'Unexpected index $index';
           },
         ),
-        body: widget.newProduct
-            ? _buildNewProductBody(context)
-            : _buildProductBody(context));
+        body: CustomScrollView(
+          slivers: <Widget>[
+            SliverAppBar(
+              title: Text(
+                _product.productName ?? appLocalizations.unknownProductName,
+              ),
+              floating: true,
+            ),
+            SliverList(delegate: SliverChildListDelegate(children)),
+          ],
+        ));
   }
 
   Future<void> _updateHistory(final BuildContext context) async {
@@ -337,8 +342,8 @@ class _ProductPageState extends State<ProductPage> {
     );
   }
 
-  Widget _buildNewProductBody(BuildContext context) {
-    return ListView(children: <Widget>[
+  List<Widget> _buildNewProductBody(BuildContext context) {
+    return <Widget>[
       Container(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         margin: const EdgeInsets.only(top: 20.0),
@@ -364,10 +369,10 @@ class _ProductPageState extends State<ProductPage> {
           product: _product,
           imageField: ImageField.OTHER,
           buttonText: 'More interesting photos'),
-    ]);
+    ];
   }
 
-  Widget _buildProductBody(BuildContext context) {
+  List<Widget> _buildProductBody(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
@@ -494,7 +499,7 @@ class _ProductPageState extends State<ProductPage> {
       }
     }
 
-    return ListView(children: listItems);
+    return listItems;
   }
 
   Widget _getAttributeGroupWidget(
