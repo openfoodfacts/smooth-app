@@ -25,16 +25,6 @@ class UserPreferencesView extends StatelessWidget {
   final ScrollController _scrollController;
   final Function callback;
 
-  static final List<Color> _colors = <Color>[
-    Colors.black87,
-    Colors.green.withOpacity(0.87),
-    Colors.deepOrangeAccent.withOpacity(0.87),
-    Colors.redAccent.withOpacity(0.87),
-  ];
-  static const Color _COLOR_DEFAULT = Colors.black26;
-
-  static Color getColor(final int index) => _colors[index] ?? _COLOR_DEFAULT;
-
   static const double _TYPICAL_PADDING_OR_MARGIN = 12;
   static const double _PCT_ICON = .20;
 
@@ -193,28 +183,18 @@ class UserPreferencesView extends StatelessWidget {
                 Text(
                   attribute.settingName,
                 ),
-                SliderTheme(
-                  data: SliderThemeData(
-                    //thumbColor: Colors.red,
-                    activeTrackColor: Colors.black54,
-                    valueIndicatorColor: getColor(importanceIndex),
-                    trackHeight: 5.0,
-                    inactiveTrackColor: Colors.black12,
-                    showValueIndicator: ShowValueIndicator.always,
+                Slider(
+                  min: 0.0,
+                  max: importanceLength.toDouble(),
+                  divisions: importanceLength,
+                  value: importanceIndex.toDouble(),
+                  onChanged: (double value) => productPreferences.setImportance(
+                    attribute.id,
+                    importanceIds[value.toInt()],
                   ),
-                  child: Slider(
-                    min: 0.0,
-                    max: importanceLength.toDouble(),
-                    divisions: importanceLength,
-                    value: importanceIndex.toDouble(),
-                    onChanged: (double value) =>
-                        productPreferences.setImportance(
-                      attribute.id,
-                      importanceIds[value.toInt()],
-                    ),
-                    activeColor: Theme.of(context).colorScheme.onSurface,
-                    label: importance.name,
-                  ),
+                  activeColor: Theme.of(context).colorScheme.onSurface,
+                  inactiveColor: Theme.of(context).colorScheme.onSurface,
+                  label: importance.name,
                 ),
               ],
             ),
