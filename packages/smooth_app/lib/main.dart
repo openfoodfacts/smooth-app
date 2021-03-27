@@ -108,6 +108,7 @@ class _MyAppState extends State<MyApp> {
                 Widget child,
               ) {
                 return MaterialApp(
+                  builder: DevicePreview.appBuilder,
                   localizationsDelegates:
                       AppLocalizations.localizationsDelegates,
                   supportedLocales: AppLocalizations.supportedLocales,
