@@ -158,31 +158,36 @@ class ProfilePage extends StatelessWidget {
                                     height: 20,
                                   ),
                                   Text(appLocalizations.whatIsOff),
-                                  TextButton(
-                                    onPressed: () {
-                                      launcher.launchURL(
-                                          context,
-                                          'https://openfoodfacts.org/who-we-are',
-                                          true);
-                                    },
-                                    child: Text(
-                                      appLocalizations.learnMore,
-                                      style: const TextStyle(
-                                        color: Colors.blue,
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      TextButton(
+                                        onPressed: () {
+                                          launcher.launchURL(
+                                              context,
+                                              'https://openfoodfacts.org/who-we-are',
+                                              true);
+                                        },
+                                        child: Text(
+                                          appLocalizations.learnMore,
+                                          style: const TextStyle(
+                                            color: Colors.blue,
+                                          ),
+                                        ),
                                       ),
-                                    ),
-                                  ),
-                                  TextButton(
-                                    onPressed: () => launcher.launchURL(
-                                        context,
-                                        'https://openfoodfacts.org/terms-of-use',
-                                        true),
-                                    child: Text(
-                                      appLocalizations.termsOfUse,
-                                      style: const TextStyle(
-                                        color: Colors.blue,
-                                      ),
-                                    ),
+                                      TextButton(
+                                        onPressed: () => launcher.launchURL(
+                                            context,
+                                            'https://openfoodfacts.org/terms-of-use',
+                                            true),
+                                        child: Text(
+                                          appLocalizations.termsOfUse,
+                                          style: const TextStyle(
+                                            color: Colors.blue,
+                                          ),
+                                        ),
+                                      )
+                                    ],
                                   )
                                 ],
                               );

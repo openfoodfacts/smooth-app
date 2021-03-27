@@ -52,7 +52,7 @@ class UserContributionView extends StatelessWidget {
                           //Contribute
                           SmoothListTile(
                               text: AppLocalizations.of(context)
-                                  .contribute_contribute_header,
+                                  .contribute_improve_header,
                               onPressed: () => _contribute(context)),
 
                           //Develop
@@ -93,59 +93,43 @@ class UserContributionView extends StatelessWidget {
 
   Future<void> _contribute(BuildContext context) {
     return showDialog<void>(
-        context: context,
-        builder: (BuildContext context) {
-          return SmoothAlertDialog(
-            close: false,
-            title: AppLocalizations.of(context).contribute_contribute_header,
-            body: Column(
-              children: <Widget>[
-                Text(
-                  AppLocalizations.of(context).contribute_contribute_text,
+      context: context,
+      builder: (BuildContext context) {
+        return SmoothAlertDialog(
+          close: false,
+          title: AppLocalizations.of(context).contribute_improve_header,
+          body: Column(
+            children: <Widget>[
+              Text(
+                AppLocalizations.of(context).contribute_improve_text,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              TextButton(
+                onPressed: () => launcher.launchURL(
+                    context,
+                    'https://world.openfoodfacts.org/state/to-be-completed',
+                    false),
+                child: Text(
+                  AppLocalizations.of(context)
+                      .contribute_improve_ProductsToBeCompleted,
                 ),
-                TextButton(
-                  onPressed: () => launcher.launchURL(
-                      context,
-                      'https://world.openfoodfacts.org/state/to-be-completed',
-                      false),
-                  child: Text(
-                    AppLocalizations.of(context)
-                        .contribute_contribute_toBeCompleted,
-                  ),
-                ),
-                TextButton(
-                  onPressed: () => launcher.launchURL(
-                      context,
-                      'https://wiki.openfoodfacts.org/Contribution_missions',
-                      false),
-                  child: Text(
-                    AppLocalizations.of(context)
-                        .contribute_contribute_contributionMissions,
-                    style: const TextStyle(color: Colors.blue),
-                  ),
-                ),
-                TextButton(
-                  onPressed: () => launcher.launchURL(
-                      context, 'https://wiki.openfoodfacts.org/Quality', false),
-                  child: Text(
-                    AppLocalizations.of(context)
-                        .contribute_contribute_qualityIssues,
-                    style: const TextStyle(color: Colors.blue),
-                  ),
-                ),
-              ],
-            ),
-            actions: <SmoothSimpleButton>[
-              SmoothSimpleButton(
-                onPressed: () {
-                  Navigator.of(context, rootNavigator: true).pop('dialog');
-                },
-                text: '${AppLocalizations.of(context).okay}',
-                width: 100,
               ),
             ],
-          );
-        });
+          ),
+          actions: <SmoothSimpleButton>[
+            SmoothSimpleButton(
+              onPressed: () {
+                Navigator.of(context, rootNavigator: true).pop('dialog');
+              },
+              text: '${AppLocalizations.of(context).okay}',
+              width: 100,
+            ),
+          ],
+        );
+      },
+    );
   }
 
   Future<void> _develop(BuildContext context) {
@@ -165,31 +149,40 @@ class UserContributionView extends StatelessWidget {
               Text(
                 AppLocalizations.of(context).contribute_develop_text_2,
               ),
-              TextButton(
-                onPressed: () => launcher.launchURL(
-                    context,
-                    'https://wiki.openfoodfacts.org/Software_Development',
-                    false),
-                child: Text(
-                  '${AppLocalizations.of(context).learnMore}',
-                  style: const TextStyle(
-                    color: Colors.blue,
-                  ),
-                ),
+              const SizedBox(
+                height: 10,
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  TextButton(
+                    onPressed: () => launcher.launchURL(
+                        context, 'https://slack.openfoodfacts.org/', false),
+                    child: const Text(
+                      'Slack',
+                      style: TextStyle(
+                        color: Colors.blue,
+                      ),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () => launcher.launchURL(
+                        context, 'https://github.com/openfoodfacts', false),
+                    child: const Text(
+                      'Github',
+                      style: TextStyle(
+                        color: Colors.blue,
+                      ),
+                    ),
+                  ),
+                ],
+              )
             ],
           ),
           actions: <SmoothSimpleButton>[
             SmoothSimpleButton(
-              onPressed: () => launcher.launchURL(
-                  context, 'https://github.com/openfoodfacts', false),
-              text: 'GitHub',
-              width: 100,
-            ),
-            SmoothSimpleButton(
-              onPressed: () => launcher.launchURL(
-                  context, 'https://slack.openfoodfacts.org/', false),
-              text: 'Slack',
+              onPressed: () => Navigator.pop(context),
+              text: AppLocalizations.of(context).okay,
               width: 100,
             ),
           ],
