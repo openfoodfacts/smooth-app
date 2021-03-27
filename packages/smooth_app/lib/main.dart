@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -13,6 +14,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:device_preview/device_preview.dart';
 
 Future<void> main() async {
   await Sentry.init(
@@ -22,7 +24,10 @@ Future<void> main() async {
     },
   );
   try {
-    runApp(MyApp());
+    runApp(DevicePreview(
+      builder: (BuildContext context) => MyApp(),
+      enabled: !kReleaseMode,
+    ));
   } catch (exception, stackTrace) {
     await Sentry.captureException(
       exception,
