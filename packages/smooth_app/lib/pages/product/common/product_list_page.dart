@@ -153,9 +153,12 @@ class _ProductListPageState extends State<ProductListPage> {
               ColorDestination.APP_BAR_FOREGROUND,
             ),
             const SizedBox(width: 8.0),
-            Text(
-              ProductQueryPageHelper.getProductListLabel(productList,
-                  verbose: false), // TODO(monsieurtanuki): handle the overflow
+            Flexible(
+              child: Text(
+                ProductQueryPageHelper.getProductListLabel(productList,
+                    verbose: false),
+                overflow: TextOverflow.fade,
+              ),
             ),
           ],
         ),
