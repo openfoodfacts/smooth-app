@@ -103,9 +103,7 @@ class ContinuousScanModel with ChangeNotifier {
 
   Future<bool> _addBarcode(final String barcode) async {
     final ScannedProductState state = getBarcodeState(barcode);
-    print('_addBarcode ' + barcode);
     if (state == null) {
-      print('_addBarcode state is null ' + barcode);
       _barcodes.add(barcode);
       setBarcodeState(barcode, ScannedProductState.LOADING);
       _cacheOrLoadBarcode(barcode);
@@ -113,13 +111,11 @@ class ContinuousScanModel with ChangeNotifier {
     }
     if (state == ScannedProductState.FOUND ||
         state == ScannedProductState.CACHED) {
-      print('_addBarcode state is found or cached ' + barcode);
       final Product product = getProduct(barcode);
       _barcodes.add(barcode);
       _addProduct(product, state);
 
       if (state == ScannedProductState.CACHED) {
-        print('_addBarcode state is cached ' + barcode);
         _updateBarcode(barcode);
       }
       return true;
@@ -128,10 +124,9 @@ class ContinuousScanModel with ChangeNotifier {
   }
 
   Future<void> _cacheOrLoadBarcode(final String barcode) async {
-    print('_cacheOrLoadBarcode ' + barcode);
     final bool cached = await _cachedBarcode(barcode);
     if (!cached) {
-      _loadBarcode(barcode, ScannedProductState.NOT_FOUND);
+      _loadBarcode(barcode);
     }
   }
 
@@ -144,45 +139,48 @@ class ContinuousScanModel with ChangeNotifier {
     return false;
   }
 
+  Future<Product> _queryBarcode(
+    final String barcode,
+  ) async =>
+      await BarcodeProductQuery(
+        barcode: barcode,
+        languageCode: languageCode,
+        countryCode: countryCode,
+      ).getProduct();
+
   Future<void> _loadBarcode(
     final String barcode,
-    final ScannedProductState notFound,
   ) async {
-    print('_loadBarcode ' + barcode);
-    final Product product = await BarcodeProductQuery(
-      barcode: barcode,
-      languageCode: languageCode,
-      countryCode: countryCode,
-    ).getProduct();
-    print('_loadBarcode - done ' + barcode);
+    final Product product = await _queryBarcode(barcode);
     if (product != null) {
       _addProduct(product, ScannedProductState.FOUND);
     } else {
-      setBarcodeState(barcode, notFound);
+      setBarcodeState(barcode, ScannedProductState.NOT_FOUND);
     }
   }
 
   Future<void> _updateBarcode(
     final String barcode,
   ) async {
-    print('_updateBarcode ' + barcode);
-    final Product product = await BarcodeProductQuery(
-      barcode: barcode,
-      languageCode: languageCode,
-      countryCode: countryCode,
-    ).getProduct();
+    final Product product = await _queryBarcode(barcode);
     if (product != null) {
-      await _daoProduct.put(product);
-      setBarcodeState(barcode, ScannedProductState.FOUND);
+      _refreshProduct(product, ScannedProductState.FOUND);
     }
-    print('_updateBarcode - done ' + barcode);
+  }
+
+  Future<void> _refreshProduct(
+    final Product product,
+    final ScannedProductState state,
+  ) async {
+    _productList.refresh(product);
+    _daoProductList.put(_productList);
+    setBarcodeState(product.barcode, state);
   }
 
   Future<void> _addProduct(
     final Product product,
     final ScannedProductState state,
   ) async {
-    print('_addProduct ' + product.barcode);
     _productList.add(product);
     _daoProductList.put(_productList);
     setBarcodeState(product.barcode, state);
