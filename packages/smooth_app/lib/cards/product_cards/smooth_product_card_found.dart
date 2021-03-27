@@ -90,57 +90,60 @@ class SmoothProductCardFound extends StatelessWidget {
                 const SizedBox(
                   width: 8.0,
                 ),
-                Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Container(
-                      width: screenSize.width * 0.65,
-                      child: Column(
-                        children: <Widget>[
-                          Row(
-                            children: <Widget>[
-                              Flexible(
-                                child: Text(
-                                  product.productName ?? 'Unknown product name',
-                                  maxLines: 2,
-                                  overflow: TextOverflow.fade,
-                                  style: themeData.textTheme.headline4,
+                Flexible(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Container(
+                        width: screenSize.width * 0.65,
+                        child: Column(
+                          children: <Widget>[
+                            Row(
+                              children: <Widget>[
+                                Flexible(
+                                  child: Text(
+                                    product.productName ??
+                                        'Unknown product name',
+                                    maxLines: 2,
+                                    overflow: TextOverflow.fade,
+                                    style: themeData.textTheme.headline4,
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 2.0,
-                          ),
-                          Row(
-                            children: <Widget>[
-                              Flexible(
-                                child: Text(
-                                  product.brands ?? 'Unknown brand',
-                                  maxLines: 1,
-                                  overflow: TextOverflow.fade,
-                                  style: themeData.textTheme.subtitle1,
-                                ),
-                              )
-                            ],
-                          ),
-                        ],
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 2.0,
+                            ),
+                            Row(
+                              children: <Widget>[
+                                Flexible(
+                                  child: Text(
+                                    product.brands ?? 'Unknown brand',
+                                    maxLines: 1,
+                                    overflow: TextOverflow.fade,
+                                    style: themeData.textTheme.subtitle1,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    Container(
-                      decoration: const BoxDecoration(
-                        border: Border(
-                            top: BorderSide(color: Colors.grey, width: 1.0)),
+                      Container(
+                        decoration: const BoxDecoration(
+                          border: Border(
+                              top: BorderSide(color: Colors.grey, width: 1.0)),
+                        ),
+                        width: screenSize.width * 0.65,
+                        child: Wrap(
+                          direction: Axis.horizontal,
+                          children: scores,
+                        ),
                       ),
-                      width: screenSize.width * 0.65,
-                      child: Wrap(
-                        direction: Axis.horizontal,
-                        children: scores,
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 )
               ],
             ),
