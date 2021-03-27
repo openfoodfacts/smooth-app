@@ -3,7 +3,7 @@ import 'package:openfoodfacts/model/Product.dart';
 
 // Project imports:
 import 'package:smooth_app/data_models/product_list.dart';
-import 'package:smooth_app/temp/matched_product.dart';
+import 'package:openfoodfacts/personalized_search/matched_product.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 
 class SmoothItModel {

@@ -18,8 +18,7 @@ import 'package:smooth_app/cards/data_cards/smooth_energy_card.dart';
 import 'package:smooth_app/cards/data_cards/smooth_intake_recommendation_card.dart';
 import 'package:smooth_app/cards/data_cards/smooth_quantity_selector_card.dart';
 import 'package:smooth_app/data_models/sneak_peek_model.dart';
-import 'package:smooth_app/temp/product_extra.dart';
-import 'package:smooth_app/temp/available_attribute_groups.dart';
+import 'package:openfoodfacts/personalized_search/available_attribute_groups.dart';
 
 // TODO(stephanegigandet): remove if not useful anymore?
 @deprecated
@@ -145,8 +144,7 @@ class SmoothProductSneakPeekViewState extends State<SmoothProductSneakPeekView>
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     AttributeChip(
-                      ProductExtra.getAttributes(
-                        widget.product,
+                      widget.product.getAttributes(
                         <String>[AvailableAttributeGroups.ATTRIBUTE_NUTRISCORE],
                       )[AvailableAttributeGroups.ATTRIBUTE_NUTRISCORE],
                       width: 100.0,

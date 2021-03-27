@@ -9,7 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 // Project imports:
 import 'package:smooth_app/data_models/pantry.dart';
-import 'package:smooth_app/temp/preference_importance.dart';
+import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 
 class UserPreferences extends ChangeNotifier {

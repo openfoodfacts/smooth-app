@@ -1,12 +1,12 @@
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:smooth_app/temp/available_attribute_groups.dart';
-import 'package:smooth_app/temp/available_preference_importances.dart';
-import 'package:smooth_app/temp/available_product_preferences.dart';
-import 'package:smooth_app/temp/preference_importance.dart';
-import 'package:smooth_app/temp/product_preferences_manager.dart';
-import 'package:smooth_app/temp/product_preferences_selection.dart';
+import 'package:openfoodfacts/personalized_search/available_attribute_groups.dart';
+import 'package:openfoodfacts/personalized_search/available_preference_importances.dart';
+import 'package:openfoodfacts/personalized_search/available_product_preferences.dart';
+import 'package:openfoodfacts/personalized_search/preference_importance.dart';
+import 'package:openfoodfacts/personalized_search/product_preferences_manager.dart';
+import 'package:openfoodfacts/personalized_search/product_preferences_selection.dart';
 
 class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
   ProductPreferences(
