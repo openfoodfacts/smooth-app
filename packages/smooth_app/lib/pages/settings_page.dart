@@ -34,7 +34,7 @@ class ProfilePage extends StatelessWidget {
     final Launcher launcher = Launcher();
     return Scaffold(
       appBar: AppBar(title: Text(appLocalizations.settingsTitle)),
-      body: Column(
+      body: ListView(
         children: <Widget>[
           //Darkmode
           SmoothListTile(
