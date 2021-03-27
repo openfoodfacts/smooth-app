@@ -173,7 +173,7 @@ class ContinuousScanModel with ChangeNotifier {
     final ScannedProductState state,
   ) async {
     _productList.refresh(product);
-    _daoProductList.put(_productList);
+    await _daoProductList.put(_productList);
     setBarcodeState(product.barcode, state);
   }
 
@@ -182,7 +182,7 @@ class ContinuousScanModel with ChangeNotifier {
     final ScannedProductState state,
   ) async {
     _productList.add(product);
-    _daoProductList.put(_productList);
+    await _daoProductList.put(_productList);
     setBarcodeState(product.barcode, state);
   }
 }
