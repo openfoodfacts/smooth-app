@@ -5,21 +5,18 @@ import 'package:flutter_svg/svg.dart';
 import 'package:openfoodfacts/model/Product.dart';
 
 class SmoothProductImage extends StatelessWidget {
-  const SmoothProductImage({@required this.product, this.width, this.height});
+  const SmoothProductImage({@required this.product});
 
   final Product product;
-  final double width;
-  final double height;
 
   @override
   Widget build(BuildContext context) {
     if (product.imageFrontSmallUrl != null &&
         product.imageFrontSmallUrl != '') {
       return ClipRRect(
-          borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+        borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+        child: FittedBox(
           child: Container(
-            width: width,
-            height: height,
             decoration: BoxDecoration(
               borderRadius: const BorderRadius.all(Radius.circular(15.0)),
               image: DecorationImage(
@@ -52,22 +49,24 @@ class SmoothProductImage extends StatelessWidget {
                 },
               ),
             ),
-          ));
+          ),
+        ),
+      );
     } else {
       return ClipRRect(
         borderRadius: const BorderRadius.all(Radius.circular(15.0)),
-        child: Container(
-          width: width,
-          height: height,
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(15.0)),
-          ),
-          child: Center(
+        child: FittedBox(
+          child: Container(
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(15.0)),
+            ),
+            child: Center(
               child: SvgPicture.asset(
-            'assets/product/product_not_found.svg',
-            fit: BoxFit.cover,
-            height: height,
-          )),
+                'assets/product/product_not_found.svg',
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
         ),
       );
     }
