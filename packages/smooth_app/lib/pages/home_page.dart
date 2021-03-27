@@ -91,7 +91,9 @@ class _HomePageState extends State<HomePage> {
           children: const <Widget>[
             Icon(Icons.pets),
             SizedBox(width: 10.0),
-            Text('Smoothie'),
+            Text(
+              'Smoothie',
+            ),
           ],
         ),
         actions: <Widget>[
@@ -336,7 +338,12 @@ class _HomePageState extends State<HomePage> {
               cards.add(
                 ElevatedButton.icon(
                   icon: const Icon(Icons.add),
-                  label: Text(ListPage.getCreateListLabel()),
+                  label: Flexible(
+                    child: Text(
+                      ListPage.getCreateListLabel(),
+                      overflow: TextOverflow.fade,
+                    ),
+                  ),
                   onPressed: () async {
                     final ProductList newProductList =
                         await ProductListDialogHelper.openNew(
