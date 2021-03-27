@@ -503,7 +503,12 @@ class _HomePageState extends State<HomePage> {
             cards.add(
               ElevatedButton.icon(
                 icon: const Icon(Icons.add),
-                label: Text(PantryListPage.getCreateListLabel(pantryType)),
+                label: Flexible(
+                  child: Text(
+                    PantryListPage.getCreateListLabel(pantryType),
+                    overflow: TextOverflow.fade,
+                  ),
+                ),
                 onPressed: () async {
                   final String newPantryName = await PantryDialogHelper.openNew(
                     context,
