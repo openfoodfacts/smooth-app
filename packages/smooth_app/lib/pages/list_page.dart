@@ -107,21 +107,18 @@ class _ListPageState extends State<ListPage> {
     final ThemeData themeData,
     final DaoProductList daoProductList,
   ) =>
-      SizedBox(
-        height: iconSize * 3,
-        child: SmoothCard(
-          color: SmoothTheme.getColor(
-            themeData.colorScheme,
-            Colors.blue,
-            ColorDestination.SURFACE_BACKGROUND,
-          ),
-          child: ListTile(
-            leading: Icon(Icons.add, size: iconSize),
-            onTap: () async => await _add(daoProductList),
-            title: Text(
-              ListPage.getCreateListLabel(),
-              style: themeData.textTheme.headline3,
-            ),
+      SmoothCard(
+        color: SmoothTheme.getColor(
+          themeData.colorScheme,
+          Colors.blue,
+          ColorDestination.SURFACE_BACKGROUND,
+        ),
+        child: ListTile(
+          leading: Icon(Icons.add, size: iconSize),
+          onTap: () async => await _add(daoProductList),
+          title: Text(
+            ListPage.getCreateListLabel(),
+            style: themeData.textTheme.headline3,
           ),
         ),
       );
