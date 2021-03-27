@@ -84,8 +84,10 @@ class SmoothProductCardFound extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                SmoothProductImage(
-                  product: product,
+                Flexible(
+                  child: SmoothProductImage(
+                    product: product,
+                  ),
                 ),
                 const SizedBox(
                   width: 8.0,
@@ -194,36 +196,28 @@ class SmoothProductCardFound extends StatelessWidget {
                           children: <Widget>[
                             Column(
                               children: <Widget>[
-                                Row(
-                                  children: <Widget>[
-                                    Flexible(
-                                      child: Text(
-                                        product.productName,
-                                        maxLines: 3,
-                                        overflow: TextOverflow.fade,
-                                        style: const TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
+                                Flexible(
+                                  child: Text(
+                                    product.productName,
+                                    maxLines: 3,
+                                    overflow: TextOverflow.fade,
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
                                     ),
-                                  ],
+                                  ),
                                 ),
                                 const SizedBox(
                                   height: 4.0,
                                 ),
-                                Row(
-                                  children: <Widget>[
-                                    Flexible(
-                                      child: Text(
-                                        product.brands ?? 'Unknown brand',
-                                        maxLines: 1,
-                                        overflow: TextOverflow.fade,
-                                        style: const TextStyle(
-                                            fontWeight: FontWeight.w300,
-                                            fontStyle: FontStyle.italic),
-                                      ),
-                                    )
-                                  ],
+                                Flexible(
+                                  child: Text(
+                                    product.brands ?? 'Unknown brand',
+                                    maxLines: 1,
+                                    overflow: TextOverflow.fade,
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.w300,
+                                        fontStyle: FontStyle.italic),
+                                  ),
                                 ),
                               ],
                             ),
