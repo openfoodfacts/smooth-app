@@ -43,9 +43,9 @@ class ChoosePage extends StatefulWidget {
         productDialogHelper.openProductNotFoundDialog();
         return;
       }
-      Navigator.push<dynamic>(
+      Navigator.push<Widget>(
         context,
-        MaterialPageRoute<dynamic>(
+        MaterialPageRoute<Widget>(
           builder: (BuildContext context) => ProductPage(
             product: product,
           ),

@@ -11,10 +11,6 @@
     "@showAll": {},
     "scanProductTitle": "Scan products",
     "@scanProductTitle": {},
-    "testerSettingTitle": "Nastavenia testerov",
-    "@testerSettingTitle": {},
-    "useMLKitText": "Použite skener napájaný z ML Kit",
-    "@useMLKitText": {},
     "organizationPage": "Organizácie",
     "@organizationPage": {},
     "contributionPage": "Contribution Page",
@@ -96,5 +92,7 @@
     "error": "Niečo sa pokazilo",
     "@error": {},
     "darkmode": "Darkmode",
-    "@darkmode": {}
+    "@darkmode": {},
+    "settingsTitle": "Nastavenia",
+    "@settingsTitle": {}
 }

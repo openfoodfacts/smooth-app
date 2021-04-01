@@ -28,8 +28,7 @@ You can join the Open Food Facts's Slack here : [Get an invite](https://slack.op
 
 ## Roadmap
 ### Release automation
-- [ ] Add Fastlane publishing to the AppStore <s>and the Play Store</s> and GitHub Actions
-- [ ] Add multilingual screenshot generation using Fastlane (Scan screen, settings screen, personalized ranking screen, home screen)
+- [ ] Add multilingual screenshot generation using Fastlane (Scan screen, settings screen, personalized ranking screen, home screen) - https://github.com/openfoodfacts/smooth-app/issues/217
 
 ### Navigation
 - [ ] Fix navigation for the iOS build (iOS does not have a back button, and gestures are not intuitive for most people) - https://github.com/openfoodfacts/smooth-app/issues/17
@@ -62,7 +61,7 @@ In order to build the application, make sure you are in the packages/smooth_app 
 ### Android
 
 ### iOS
-We need to change the supported architectures for iOS when we open the project in Xcode. There, in the settings, you can specify which ones you want to build for, and only specify the ones that are 64 bit. After that it should build fine for the MLKit component.
+We need to change the supported architectures for iOS when we open the project in Xcode. There, in the settings, you can specify which ones you want to build for, and only specify the ones that are 64 bit.
 
 ## Internationalization
 

@@ -11,10 +11,6 @@
     "@showAll": {},
     "scanProductTitle": "Escanejar productes",
     "@scanProductTitle": {},
-    "testerSettingTitle": "Paràmetres dels provadors",
-    "@testerSettingTitle": {},
-    "useMLKitText": "Utilitzeu un escàner amb tecnologia ML Kit",
-    "@useMLKitText": {},
     "organizationPage": "Pàgina d’organització",
     "@organizationPage": {},
     "contributionPage": "Pàgina de contribució",
@@ -96,5 +92,7 @@
     "error": "Alguna cosa ha anat malament",
     "@error": {},
     "darkmode": "Mode fosc",
-    "@darkmode": {}
+    "@darkmode": {},
+    "settingsTitle": "Preferències",
+    "@settingsTitle": {}
 }

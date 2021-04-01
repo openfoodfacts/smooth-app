@@ -10,10 +10,9 @@ import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/smooth_it_model.dart';
-import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
-import 'package:smooth_app/structures/ranked_product.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
+import 'package:smooth_app/temp/matched_product.dart';
+import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 class PersonalizedRankingPage extends StatefulWidget {
@@ -54,11 +53,10 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
 
   @override
   Widget build(BuildContext context) {
-    final UserPreferences userPreferences = context.watch<UserPreferences>();
-    final UserPreferencesModel userPreferencesModel =
-        context.watch<UserPreferencesModel>();
+    final ProductPreferences productPreferences =
+        context.watch<ProductPreferences>();
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
-    _model.refresh(widget.productList, userPreferences, userPreferencesModel);
+    _model.refresh(widget.productList, productPreferences);
     final List<BottomNavigationBarItem> bottomNavigationBarItems =
         <BottomNavigationBarItem>[];
     for (final int matchIndex in _ORDERED_MATCH_INDEXES) {
@@ -74,7 +72,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
                     ColorDestination.SURFACE_FOREGROUND,
                   ),
           ),
-          label: _model.getRankedProducts(matchIndex).length.toString(),
+          label: _model.getMatchedProducts(matchIndex).length.toString(),
         ),
       );
     }
@@ -111,42 +109,42 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
         }),
       ),
       body: _getStickyHeader(
-        _model.getRankedProducts(_ORDERED_MATCH_INDEXES[_currentTabIndex]),
+        _model.getMatchedProducts(_ORDERED_MATCH_INDEXES[_currentTabIndex]),
         colorScheme,
       ),
     );
   }
 
   Widget _buildSmoothProductCard(
-    final RankedProduct rankedProduct,
+    final MatchedProduct matchedProduct,
     final ColorScheme colorScheme,
   ) =>
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
         child: SmoothProductCardFound(
-          heroTag: rankedProduct.product.barcode,
-          product: rankedProduct.product,
+          heroTag: matchedProduct.product.barcode,
+          product: matchedProduct.product,
           elevation: 4.0,
           backgroundColor: SmoothTheme.getColor(
             colorScheme,
-            _COLORS[SmoothItModel.getMatchIndex(rankedProduct)],
+            _COLORS[SmoothItModel.getMatchIndex(matchedProduct)],
             ColorDestination.SURFACE_BACKGROUND,
           ),
         ),
       );
 
   Widget _getStickyHeader(
-    final List<RankedProduct> products,
+    final List<MatchedProduct> matchedProducts,
     final ColorScheme colorScheme,
   ) =>
-      products.isEmpty
+      matchedProducts.isEmpty
           ? Center(
               child: Text('There is no product in this section',
                   style: Theme.of(context).textTheme.subtitle1),
             )
           : ListView.builder(
-              itemCount: products.length,
+              itemCount: matchedProducts.length,
               itemBuilder: (BuildContext context, int index) =>
-                  _buildSmoothProductCard(products[index], colorScheme),
+                  _buildSmoothProductCard(matchedProducts[index], colorScheme),
             );
 }

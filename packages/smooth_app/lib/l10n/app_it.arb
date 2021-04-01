@@ -11,10 +11,6 @@
     "@showAll": {},
     "scanProductTitle": "Scansiona prodotti",
     "@scanProductTitle": {},
-    "testerSettingTitle": "Impostazioni di prova",
-    "@testerSettingTitle": {},
-    "useMLKitText": "Usa lo scanner alimentato da ML Kit",
-    "@useMLKitText": {},
     "organizationPage": "Pagina dell'Organizzazione",
     "@organizationPage": {},
     "contributionPage": "Pagina del Contributo",
@@ -96,5 +92,7 @@
     "error": "Qualcosa è andato storto",
     "@error": {},
     "darkmode": "Tema scuro",
-    "@darkmode": {}
+    "@darkmode": {},
+    "settingsTitle": "Impostazioni",
+    "@settingsTitle": {}
 }

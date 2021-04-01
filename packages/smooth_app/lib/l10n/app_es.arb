@@ -11,10 +11,6 @@
     "@showAll": {},
     "scanProductTitle": "Escanear productos",
     "@scanProductTitle": {},
-    "testerSettingTitle": "Ajustes de los evaluadores",
-    "@testerSettingTitle": {},
-    "useMLKitText": "Usar un escáner con tecnología ML Kit",
-    "@useMLKitText": {},
     "organizationPage": "Página de la organización",
     "@organizationPage": {},
     "contributionPage": "Página de contribución",
@@ -96,5 +92,7 @@
     "error": "Algo ha fallado",
     "@error": {},
     "darkmode": "Modo oscuro",
-    "@darkmode": {}
+    "@darkmode": {},
+    "settingsTitle": "Configuración",
+    "@settingsTitle": {}
 }

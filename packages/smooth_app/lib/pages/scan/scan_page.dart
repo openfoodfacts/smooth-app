@@ -15,11 +15,9 @@ import 'package:smooth_app/pages/scan/continuous_scan_page.dart';
 class ScanPage extends StatelessWidget {
   const ScanPage({
     @required this.contributionMode,
-    @required this.mlKit,
   });
 
   final bool contributionMode;
-  final bool mlKit;
 
   @override
   Widget build(BuildContext context) {

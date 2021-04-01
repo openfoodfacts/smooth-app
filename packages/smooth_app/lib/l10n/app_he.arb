@@ -11,10 +11,6 @@
     "@showAll": {},
     "scanProductTitle": "לסרוק מוצרים",
     "@scanProductTitle": {},
-    "testerSettingTitle": "הגדרות בודקים",
-    "@testerSettingTitle": {},
-    "useMLKitText": "להשתמש בסורק שמופעל על ערכת למידת מכונה",
-    "@useMLKitText": {},
     "organizationPage": "עמוד הארגון",
     "@organizationPage": {},
     "contributionPage": "עמוד התרומה",
@@ -96,5 +92,7 @@
     "error": "משהו השתבש",
     "@error": {},
     "darkmode": "מצב כהה",
-    "@darkmode": {}
+    "@darkmode": {},
+    "settingsTitle": "הגדרות",
+    "@settingsTitle": {}
 }

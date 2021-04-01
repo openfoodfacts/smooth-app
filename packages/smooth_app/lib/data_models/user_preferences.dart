@@ -4,14 +4,13 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // Project imports:
 import 'package:smooth_app/data_models/pantry.dart';
-import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/temp/preference_importance.dart';
+import 'package:smooth_app/data_models/product_preferences.dart';
 
 class UserPreferences extends ChangeNotifier {
   UserPreferences._shared(final SharedPreferences sharedPreferences) {
@@ -25,11 +24,10 @@ class UserPreferences extends ChangeNotifier {
     return UserPreferences._shared(preferences);
   }
 
-  static const String _TAG_PREFIX_IMPORTANCE = 'IMPORTANCE';
+  static const String _TAG_PREFIX_IMPORTANCE = 'IMPORTANCE_AS_STRING';
   static const String _TAG_PANTRY_REPOSITORY = 'pantry_repository';
   static const String _TAG_SHOPPING_REPOSITORY = 'shopping_repository';
   static const String _TAG_VISIBLE_GROUPS = 'visible_groups';
-  static const String _TAG_USE_ML_KIT = 'useMlKit';
   static const String _TAG_INIT = 'init';
   static const String _TAG_PRODUCT_LIST_COPY = 'productListCopy';
   static const String _TAG_THEME_DARK = 'themeDark';
@@ -41,66 +39,34 @@ class UserPreferences extends ChangeNotifier {
     PantryType.SHOPPING: _TAG_SHOPPING_REPOSITORY,
   };
 
-  Future<void> init(final UserPreferencesModel userPreferencesModel) async {
+  Future<void> init(final ProductPreferences productPreferences) async {
     final bool alreadyDone = _sharedPreferences.getBool(_TAG_INIT);
     if (alreadyDone != null) {
       return;
     }
-    await resetImportances(userPreferencesModel);
+    await productPreferences.resetImportances();
     await _sharedPreferences.setBool(_TAG_INIT, true);
   }
 
   String _getImportanceTag(final String variable) =>
       _TAG_PREFIX_IMPORTANCE + variable;
 
-  Future<void> setImportance(String variable, int value) async =>
-      _setImportance(variable, value, notify: true);
+  Future<void> setImportance(
+    final String attributeId,
+    final String importanceId,
+  ) async =>
+      await _sharedPreferences.setString(
+          _getImportanceTag(attributeId), importanceId);
 
-  Future<void> _setImportance(
-    String variable,
-    int value, {
-    bool notify = true,
-  }) async {
-    await _sharedPreferences.setInt(_getImportanceTag(variable), value);
-    if (notify) {
-      notifyListeners();
-    }
-  }
-
-  int getImportance(String variable) =>
-      _sharedPreferences.getInt(_getImportanceTag(variable)) ??
-      PreferenceImportance.INDEX_NOT_IMPORTANT;
+  String getImportance(final String attributeId) =>
+      _sharedPreferences.getString(_getImportanceTag(attributeId)) ??
+      PreferenceImportance.ID_NOT_IMPORTANT;
 
   Future<void> resetImportances(
-      final UserPreferencesModel userPreferencesModel) async {
-    for (final AttributeGroup attributeGroup
-        in userPreferencesModel.attributeGroups) {
-      for (final Attribute attribute in attributeGroup.attributes) {
-        await _setImportance(
-          attribute.id,
-          PreferenceImportance.INDEX_NOT_IMPORTANT,
-          notify: false,
-        );
-      }
-    }
-    int valueIndex;
-    valueIndex = userPreferencesModel
-        .getValueIndex(PreferenceImportance.ID_VERY_IMPORTANT);
-    if (valueIndex != null) {
-      await _setImportance(
-          UserPreferencesModel.ATTRIBUTE_NUTRISCORE, valueIndex,
-          notify: false);
-    }
-    valueIndex =
-        userPreferencesModel.getValueIndex(PreferenceImportance.ID_IMPORTANT);
-    if (valueIndex != null) {
-      await _setImportance(UserPreferencesModel.ATTRIBUTE_NOVA, valueIndex,
-          notify: false);
-      await _setImportance(UserPreferencesModel.ATTRIBUTE_ECOSCORE, valueIndex,
-          notify: false);
-    }
+    final ProductPreferences productPreferences,
+  ) async {
     await _sharedPreferences.remove(_TAG_VISIBLE_GROUPS);
-    notifyListeners();
+    await productPreferences.resetImportances();
   }
 
   bool isAttributeGroupVisible(final AttributeGroup group) {
@@ -128,13 +94,6 @@ class UserPreferences extends ChangeNotifier {
     await _sharedPreferences.setStringList(_TAG_VISIBLE_GROUPS, visibleList);
     notifyListeners();
   }
-
-  Future<void> setMlKitState(final bool state) async {
-    await _sharedPreferences.setBool(_TAG_USE_ML_KIT, state);
-    notifyListeners();
-  }
-
-  bool getMlKitState() => _sharedPreferences.getBool(_TAG_USE_ML_KIT) ?? false;
 
   String getProductListCopy() =>
       _sharedPreferences.getString(_TAG_PRODUCT_LIST_COPY);

@@ -1,20 +1,16 @@
 {
-    "searchTitle": "Search.\nFind the perfect product",
+    "searchTitle": "Pretraživanje.\nPronađite savršeni proizvod",
     "@searchTitle": {
         "description": "Temporary title for the app main page"
     },
-    "searchHintText": "Enter a barcode or keywords",
+    "searchHintText": "Unesite crtični kôd ili ključne riječi",
     "@searchHintText": {},
     "categories": "Kategorije",
     "@categories": {},
-    "showAll": "Show all",
+    "showAll": "Prikaži sve",
     "@showAll": {},
-    "scanProductTitle": "Scan products",
+    "scanProductTitle": "Skeniranje proizvoda",
     "@scanProductTitle": {},
-    "testerSettingTitle": "Testers settings",
-    "@testerSettingTitle": {},
-    "useMLKitText": "Use ML Kit powered scanner",
-    "@useMLKitText": {},
     "organizationPage": "Organization Page",
     "@organizationPage": {},
     "contributionPage": "Contribution Page",
@@ -96,5 +92,7 @@
     "error": "Dogodila se greška.",
     "@error": {},
     "darkmode": "Darkmode",
-    "@darkmode": {}
+    "@darkmode": {},
+    "settingsTitle": "Settings",
+    "@settingsTitle": {}
 }

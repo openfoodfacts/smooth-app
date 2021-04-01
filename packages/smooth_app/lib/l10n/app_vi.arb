@@ -11,10 +11,6 @@
     "@showAll": {},
     "scanProductTitle": "Scan products",
     "@scanProductTitle": {},
-    "testerSettingTitle": "Testers settings",
-    "@testerSettingTitle": {},
-    "useMLKitText": "Use ML Kit powered scanner",
-    "@useMLKitText": {},
     "organizationPage": "Organization Page",
     "@organizationPage": {},
     "contributionPage": "Contribution Page",
@@ -96,5 +92,7 @@
     "error": "Đã xảy ra lỗi",
     "@error": {},
     "darkmode": "Darkmode",
-    "@darkmode": {}
+    "@darkmode": {},
+    "settingsTitle": "Cài đặt",
+    "@settingsTitle": {}
 }

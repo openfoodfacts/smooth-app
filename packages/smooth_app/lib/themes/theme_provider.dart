@@ -2,7 +2,7 @@
 import 'package:flutter/cupertino.dart';
 
 // Project imports:
-import 'package:smooth_app/temp/user_preferences.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 
 class ThemeProvider with ChangeNotifier {
   ThemeProvider(this._userPreferences);

@@ -11,10 +11,6 @@
     "@showAll": {},
     "scanProductTitle": "Snímání zboží",
     "@scanProductTitle": {},
-    "testerSettingTitle": "Testers settings",
-    "@testerSettingTitle": {},
-    "useMLKitText": "Use ML Kit powered scanner",
-    "@useMLKitText": {},
     "organizationPage": "Organization Page",
     "@organizationPage": {},
     "contributionPage": "Contribution Page",
@@ -96,5 +92,7 @@
     "error": "Něco se nepovedlo",
     "@error": {},
     "darkmode": "Tmavý režim",
-    "@darkmode": {}
+    "@darkmode": {},
+    "settingsTitle": "Nastavení",
+    "@settingsTitle": {}
 }

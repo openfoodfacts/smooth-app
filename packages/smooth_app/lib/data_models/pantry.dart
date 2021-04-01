@@ -11,7 +11,7 @@ import 'package:openfoodfacts/model/Product.dart';
 // Project imports:
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 enum PantryType {

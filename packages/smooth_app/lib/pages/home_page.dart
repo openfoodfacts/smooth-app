@@ -8,6 +8,7 @@ import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/utils/PnnsGroups.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_ui_library/widgets/smooth_card.dart';
 import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
 
 // Project imports:
@@ -15,7 +16,6 @@ import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
 import 'package:smooth_app/cards/product_cards/product_list_preview.dart';
 import 'package:smooth_app/data_models/pantry.dart';
 import 'package:smooth_app/data_models/product_list.dart';
-import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -30,7 +30,8 @@ import 'package:smooth_app/pages/product/product_page.dart';
 import 'package:smooth_app/pages/settings_page.dart';
 import 'package:smooth_app/pages/scan/scan_page.dart';
 import 'package:smooth_app/temp/preference_importance.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
+import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 class HomePage extends StatefulWidget {
@@ -73,13 +74,12 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final UserPreferences userPreferences = context.watch<UserPreferences>();
-    final UserPreferencesModel userPreferencesModel =
-        context.watch<UserPreferencesModel>();
+    final ProductPreferences productPreferences =
+        context.watch<ProductPreferences>();
     _daoProductList = DaoProductList(localDatabase);
     _daoProduct = DaoProduct(localDatabase);
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
-    final bool mlKitState = userPreferences.getMlKitState();
     final Color notYetColor = SmoothTheme.getColor(
       colorScheme,
       Colors.grey,
@@ -98,13 +98,12 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             icon: const Icon(Icons.settings),
             onPressed: () async {
-              await Navigator.push<dynamic>(
+              await Navigator.push<Widget>(
                 context,
-                MaterialPageRoute<dynamic>(
+                MaterialPageRoute<Widget>(
                   builder: (BuildContext context) => ProfilePage(),
                 ),
               );
-              setState(() {});
             },
           ),
         ],
@@ -115,7 +114,9 @@ class _HomePageState extends State<HomePage> {
           //Search
           StatefulBuilder(
             builder: (BuildContext context, StateSetter setState) {
-              return Card(
+              return SmoothCard(
+                padding: const EdgeInsets.only(
+                    right: 8.0, left: 8.0, top: 4.0, bottom: 4.0),
                 child: ListTile(
                   leading: Icon(
                     Icons.search,
@@ -166,9 +167,9 @@ class _HomePageState extends State<HomePage> {
                       );
                     },
                     onSuggestionSelected: (Product suggestion) {
-                      Navigator.push<dynamic>(
+                      Navigator.push<Widget>(
                         context,
-                        MaterialPageRoute<dynamic>(
+                        MaterialPageRoute<Widget>(
                           builder: (BuildContext context) => ProductPage(
                             product: suggestion,
                           ),
@@ -200,7 +201,7 @@ class _HomePageState extends State<HomePage> {
           //My shopping lists
           _getPantryCard(userPreferences, _daoProduct, PantryType.SHOPPING),
           //Food ranking parameters
-          _getRankingPreferences(userPreferencesModel, userPreferences),
+          _getRankingPreferences(productPreferences),
           //Recently seen products
           ProductListPreview(
             daoProductList: _daoProductList,
@@ -211,36 +212,37 @@ class _HomePageState extends State<HomePage> {
             nbInPreview: 5,
           ),
           //Food category's
-          Card(
-            child: ListTile(
-              onTap: () async {
-                await Navigator.push<dynamic>(
-                  context,
-                  MaterialPageRoute<dynamic>(
-                    builder: (BuildContext context) => ChoosePage(),
+          GestureDetector(
+            child: SmoothCard(
+              child: ListTile(
+                leading: Icon(
+                  Icons.fastfood,
+                  color: SmoothTheme.getColor(
+                    colorScheme,
+                    Colors.orange,
+                    _COLOR_DESTINATION_FOR_ICON,
                   ),
-                );
-                setState(() {});
-              },
-              leading: Icon(
-                Icons.fastfood,
-                color: SmoothTheme.getColor(
-                  colorScheme,
-                  Colors.orange,
-                  _COLOR_DESTINATION_FOR_ICON,
+                ),
+                title: Text('Food category search',
+                    style: Theme.of(context).textTheme.subtitle2),
+                subtitle: Text(
+                  '${PnnsGroup1.BEVERAGES.name}'
+                  ', ${PnnsGroup1.CEREALS_AND_POTATOES.name}'
+                  ', ${PnnsGroup1.COMPOSITE_FOODS.name}'
+                  ', ${PnnsGroup1.FAT_AND_SAUCES.name}'
+                  ', ${PnnsGroup1.FISH_MEAT_AND_EGGS.name}'
+                  ', ...',
                 ),
               ),
-              title: Text('Food category search',
-                  style: Theme.of(context).textTheme.subtitle2),
-              subtitle: Text(
-                '${PnnsGroup1.BEVERAGES.name}'
-                ', ${PnnsGroup1.CEREALS_AND_POTATOES.name}'
-                ', ${PnnsGroup1.COMPOSITE_FOODS.name}'
-                ', ${PnnsGroup1.FAT_AND_SAUCES.name}'
-                ', ${PnnsGroup1.FISH_MEAT_AND_EGGS.name}'
-                ', ...',
-              ),
             ),
+            onTap: () async {
+              await Navigator.push<Widget>(
+                context,
+                MaterialPageRoute<Widget>(
+                  builder: (BuildContext context) => ChoosePage(),
+                ),
+              );
+            },
           ),
           //Search history
           _getProductListCard(
@@ -260,7 +262,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           //Score
-          Card(
+          SmoothCard(
             color: notYetColor,
             child: const ListTile(
               leading: Icon(
@@ -271,7 +273,9 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           //Contribute
-          Card(
+          SmoothCard(
+            padding: const EdgeInsets.only(
+                right: 8.0, left: 8.0, top: 4.0, bottom: 20.0),
             color: notYetColor,
             child: const ListTile(
               leading: Icon(
@@ -281,9 +285,6 @@ class _HomePageState extends State<HomePage> {
               subtitle: Text('Help us list more and more foods!'),
             ),
           ),
-          const SizedBox(
-            height: 10,
-          ),
         ],
       ),
 
@@ -292,13 +293,11 @@ class _HomePageState extends State<HomePage> {
           await Navigator.push<Widget>(
             context,
             MaterialPageRoute<Widget>(
-              builder: (BuildContext context) => ScanPage(
+              builder: (BuildContext context) => const ScanPage(
                 contributionMode: false,
-                mlKit: mlKitState,
               ),
             ),
           );
-          setState(() {});
         },
         child: SvgPicture.asset(
           'assets/actions/scanner_alt_2.svg',
@@ -357,14 +356,14 @@ class _HomePageState extends State<HomePage> {
                 cards.add(const Text(_TRANSLATE_ME_EMPTY));
               }
             }
-            return Card(
+            return SmoothCard(
               child: Column(
                 children: <Widget>[
                   ListTile(
                     onTap: () async {
-                      await Navigator.push<dynamic>(
+                      await Navigator.push<Widget>(
                         context,
-                        MaterialPageRoute<dynamic>(
+                        MaterialPageRoute<Widget>(
                           builder: (BuildContext context) => ListPage(
                             typeFilter: typeFilter,
                             title: title,
@@ -386,7 +385,7 @@ class _HomePageState extends State<HomePage> {
               ),
             );
           }
-          return Card(
+          return SmoothCard(
             child: ListTile(
               leading: const CircularProgressIndicator(),
               title: Text(title),
@@ -399,12 +398,9 @@ class _HomePageState extends State<HomePage> {
         },
       );
 
-  Widget _getRankingPreferences(
-    final UserPreferencesModel userPreferencesModel,
-    final UserPreferences userPreferences,
-  ) {
-    final List<String> orderedVariables =
-        userPreferencesModel.getOrderedVariables(userPreferences);
+  Widget _getRankingPreferences(final ProductPreferences productPreferences) {
+    final List<String> orderedAttributeIds =
+        productPreferences.getOrderedImportantAttributeIds();
     final List<Widget> attributes = <Widget>[];
     final Map<String, MaterialColor> colors = <String, MaterialColor>{
       PreferenceImportance.ID_IMPORTANT: Colors.green,
@@ -413,19 +409,18 @@ class _HomePageState extends State<HomePage> {
     };
 
     final Function onTap = () => UserPreferencesView.showModal(context);
-    for (final String variable in orderedVariables) {
+    for (final String attributeId in orderedAttributeIds) {
       final Attribute attribute =
-          userPreferencesModel.getReferenceAttribute(variable);
-      final PreferenceImportance importance =
-          userPreferencesModel.getPreferenceImportance(
-        variable,
-        userPreferences,
-      );
+          productPreferences.getReferenceAttribute(attributeId);
+      final String importanceId =
+          productPreferences.getImportanceIdForAttributeId(attributeId);
+      final PreferenceImportance importance = productPreferences
+          .getPreferenceImportanceFromImportanceId(importanceId);
       attributes.add(
         ElevatedButton(
           onPressed: () => onTap(),
           child: Text(
-            '${attribute.name}',
+            attribute.name,
             style: TextStyle(
               color: SmoothTheme.getColor(
                 Theme.of(context).colorScheme,
@@ -449,7 +444,7 @@ class _HomePageState extends State<HomePage> {
     }
     return GestureDetector(
       onTap: () => onTap(),
-      child: Card(
+      child: SmoothCard(
         child: Column(
           children: <Widget>[
             ListTile(
@@ -523,14 +518,14 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
             );
-            return Card(
+            return SmoothCard(
               child: Column(
                 children: <Widget>[
                   ListTile(
                     onTap: () async {
-                      await Navigator.push<dynamic>(
+                      await Navigator.push<Widget>(
                         context,
-                        MaterialPageRoute<dynamic>(
+                        MaterialPageRoute<Widget>(
                           builder: (BuildContext context) => PantryListPage(
                             title,
                             pantries,
@@ -563,7 +558,7 @@ class _HomePageState extends State<HomePage> {
               ),
             );
           }
-          return Card(
+          return SmoothCard(
             child: ListTile(
               leading: const CircularProgressIndicator(),
               title: Text(title),

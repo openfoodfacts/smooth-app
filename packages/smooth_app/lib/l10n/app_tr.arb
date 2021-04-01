@@ -11,10 +11,6 @@
     "@showAll": {},
     "scanProductTitle": "Ürünleri tara",
     "@scanProductTitle": {},
-    "testerSettingTitle": "Tester ayarları",
-    "@testerSettingTitle": {},
-    "useMLKitText": "ML Kit ile çalışan tarayıcıyı kullan",
-    "@useMLKitText": {},
     "organizationPage": "Firma Sayfası",
     "@organizationPage": {},
     "contributionPage": "Katkılar Sayfası",
@@ -96,5 +92,7 @@
     "error": "Bir şeyler ters gitti",
     "@error": {},
     "darkmode": "Karanlık Mod",
-    "@darkmode": {}
+    "@darkmode": {},
+    "settingsTitle": "Ayarlar",
+    "@settingsTitle": {}
 }

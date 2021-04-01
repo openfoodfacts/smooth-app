@@ -16,11 +16,9 @@ import 'package:smooth_app/bottom_sheet_views/group_query_filter_view.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
 import 'package:smooth_app/data_models/product_query_model.dart';
-import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 
 class ProductQueryPage extends StatefulWidget {
@@ -81,12 +79,8 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
           final Size screenSize = MediaQuery.of(context).size;
           final ThemeData themeData = Theme.of(context);
           if (_model.loadingStatus == LoadingStatus.LOADED) {
-            final UserPreferences userPreferences =
-                context.watch<UserPreferences>();
-            final UserPreferencesModel userPreferencesModel =
-                context.watch<UserPreferencesModel>();
             final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-            _model.sort(userPreferences, userPreferencesModel, localDatabase);
+            _model.process(localDatabase);
           }
           switch (_model.loadingStatus) {
             case LoadingStatus.POST_LOAD_STARTED:
@@ -182,9 +176,9 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                   ),
                   backgroundColor: Colors.white,
                   onPressed: () {
-                    Navigator.push<dynamic>(
+                    Navigator.push<Widget>(
                       context,
-                      MaterialPageRoute<dynamic>(
+                      MaterialPageRoute<Widget>(
                         builder: (BuildContext context) =>
                             PersonalizedRankingPage(
                           _model.supplier.getProductList(),

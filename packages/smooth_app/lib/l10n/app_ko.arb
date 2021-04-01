@@ -11,10 +11,6 @@
     "@showAll": {},
     "scanProductTitle": "제품 스캔",
     "@scanProductTitle": {},
-    "testerSettingTitle": "Testers settings",
-    "@testerSettingTitle": {},
-    "useMLKitText": "Use ML Kit powered scanner",
-    "@useMLKitText": {},
     "organizationPage": "Organization Page",
     "@organizationPage": {},
     "contributionPage": "Contribution Page",
@@ -96,5 +92,7 @@
     "error": "문제가 발생했습니다",
     "@error": {},
     "darkmode": "Darkmode",
-    "@darkmode": {}
+    "@darkmode": {},
+    "settingsTitle": "설정",
+    "@settingsTitle": {}
 }
