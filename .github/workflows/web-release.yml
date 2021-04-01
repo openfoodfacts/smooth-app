@@ -20,7 +20,7 @@ jobs:
         working-directory: ./packages/smooth_app
     steps:
 
-      - name: Web isn't supportet at the time
+      - name: Web isn't supported at the time
         run: echo Hallo Welt
 
 
