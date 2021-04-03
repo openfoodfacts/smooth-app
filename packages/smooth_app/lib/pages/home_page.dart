@@ -1,17 +1,9 @@
-// Flutter imports:
 import 'package:flutter/material.dart';
-
-// Package imports:
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
-import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/utils/PnnsGroups.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_ui_library/widgets/smooth_card.dart';
-import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
-
-// Project imports:
 import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
 import 'package:smooth_app/cards/product_cards/product_list_preview.dart';
 import 'package:smooth_app/data_models/pantry.dart';
@@ -26,13 +18,13 @@ import 'package:smooth_app/pages/pantry/common/pantry_dialog_helper.dart';
 import 'package:smooth_app/pages/pantry/common/pantry_list_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_button.dart';
 import 'package:smooth_app/pages/product/common/product_list_dialog_helper.dart';
-import 'package:smooth_app/pages/product/product_page.dart';
 import 'package:smooth_app/pages/settings_page.dart';
 import 'package:smooth_app/pages/scan/scan_page.dart';
 import 'package:smooth_app/temp/preference_importance.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/pages/text_search_widget.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -50,25 +42,6 @@ class _HomePageState extends State<HomePage> {
 
   DaoProductList _daoProductList;
   DaoProduct _daoProduct;
-
-  final TextEditingController _searchController = TextEditingController();
-
-  bool _visibleCloseButton = false;
-
-  Future<List<Product>> _search(String pattern) async {
-    final bool _oldVisibleCloseButton = _visibleCloseButton;
-    if (pattern.isNotEmpty) {
-      _visibleCloseButton = true;
-    } else {
-      _visibleCloseButton = false;
-    }
-    if (_oldVisibleCloseButton != _visibleCloseButton) {
-      setState(() {});
-    }
-    final List<Product> _returnProducts =
-        await _daoProduct.getSuggestions(pattern, 3);
-    return _returnProducts;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -111,79 +84,14 @@ class _HomePageState extends State<HomePage> {
 
       body: ListView(
         children: <Widget>[
-          //Search
-          StatefulBuilder(
-            builder: (BuildContext context, StateSetter setState) {
-              return SmoothCard(
-                padding: const EdgeInsets.only(
-                    right: 8.0, left: 8.0, top: 4.0, bottom: 4.0),
-                child: ListTile(
-                  leading: Icon(
-                    Icons.search,
-                    color: SmoothTheme.getColor(
-                      colorScheme,
-                      Colors.red,
-                      _COLOR_DESTINATION_FOR_ICON,
-                    ),
-                  ),
-                  trailing: AnimatedOpacity(
-                    opacity: _visibleCloseButton ? 1.0 : 0.0,
-                    duration: const Duration(milliseconds: 100),
-                    child: IgnorePointer(
-                      ignoring: !_visibleCloseButton,
-                      child: IconButton(
-                        icon: const Icon(Icons.close),
-                        onPressed: () {
-                          setState(() {
-                            FocusScope.of(context).unfocus();
-                            _searchController.text = '';
-                            _visibleCloseButton = false;
-                          });
-                        },
-                      ),
-                    ),
-                  ),
-                  title: TypeAheadFormField<Product>(
-                    textFieldConfiguration: TextFieldConfiguration(
-                      controller: _searchController,
-                      autofocus: false,
-                      decoration: const InputDecoration(
-                          border: InputBorder.none,
-                          hintText: 'What are you looking for?'),
-                    ),
-                    hideOnEmpty: true,
-                    hideOnLoading: true,
-                    suggestionsCallback: (String value) async => _search(value),
-                    transitionBuilder: (BuildContext context,
-                        Widget suggestionsBox, AnimationController controller) {
-                      return suggestionsBox;
-                    },
-                    itemBuilder: (BuildContext context, Product suggestion) {
-                      return ListTile(
-                        title: Text(suggestion.productName),
-                        leading: SmoothProductImage(
-                          product: suggestion,
-                        ),
-                      );
-                    },
-                    onSuggestionSelected: (Product suggestion) {
-                      Navigator.push<Widget>(
-                        context,
-                        MaterialPageRoute<Widget>(
-                          builder: (BuildContext context) => ProductPage(
-                            product: suggestion,
-                          ),
-                        ),
-                      );
-                    },
-                    // TODO(m123-dev): add fullscreen search page,
-                    //onSaved: (value) => ,
-                  ),
-                ),
-              );
-            },
+          TextSearchWidget(
+            color: SmoothTheme.getColor(
+              colorScheme,
+              Colors.red,
+              _COLOR_DESTINATION_FOR_ICON,
+            ),
+            daoProduct: _daoProduct,
           ),
-          //My lists
           _getProductListCard(
             <String>[ProductList.LIST_TYPE_USER_DEFINED],
             'My lists',
