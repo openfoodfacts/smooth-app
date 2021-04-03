@@ -65,7 +65,7 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
               Localizations.localeOf(context).languageCode),
           barcode: widget.product.barcode,
           imageField: widget.imageField,
-          imageUri: croppedImageFile.uri,
+          imageUrl: croppedImageFile.uri,
         );
 
         // a registered user login for https://world.openfoodfacts.org/ is required
