@@ -114,6 +114,10 @@ class ContinuousScanModel with ChangeNotifier {
       final Product product = getProduct(barcode);
       _barcodes.add(barcode);
       _addProduct(product, state);
+
+      if (state == ScannedProductState.CACHED) {
+        _updateBarcode(barcode);
+      }
       return true;
     }
     return false;
@@ -122,7 +126,7 @@ class ContinuousScanModel with ChangeNotifier {
   Future<void> _cacheOrLoadBarcode(final String barcode) async {
     final bool cached = await _cachedBarcode(barcode);
     if (!cached) {
-      _loadBarcode(barcode, ScannedProductState.NOT_FOUND);
+      _loadBarcode(barcode);
     }
   }
 
@@ -135,20 +139,42 @@ class ContinuousScanModel with ChangeNotifier {
     return false;
   }
 
+  Future<Product> _queryBarcode(
+    final String barcode,
+  ) async =>
+      await BarcodeProductQuery(
+        barcode: barcode,
+        languageCode: languageCode,
+        countryCode: countryCode,
+      ).getProduct();
+
   Future<void> _loadBarcode(
     final String barcode,
-    final ScannedProductState notFound,
   ) async {
-    final Product product = await BarcodeProductQuery(
-      barcode: barcode,
-      languageCode: languageCode,
-      countryCode: countryCode,
-    ).getProduct();
+    final Product product = await _queryBarcode(barcode);
     if (product != null) {
       _addProduct(product, ScannedProductState.FOUND);
     } else {
-      setBarcodeState(barcode, notFound);
+      setBarcodeState(barcode, ScannedProductState.NOT_FOUND);
     }
+  }
+
+  Future<void> _updateBarcode(
+    final String barcode,
+  ) async {
+    final Product product = await _queryBarcode(barcode);
+    if (product != null) {
+      _refreshProduct(product, ScannedProductState.FOUND);
+    }
+  }
+
+  Future<void> _refreshProduct(
+    final Product product,
+    final ScannedProductState state,
+  ) async {
+    _productList.refresh(product);
+    await _daoProductList.put(_productList);
+    setBarcodeState(product.barcode, state);
   }
 
   Future<void> _addProduct(
@@ -156,7 +182,7 @@ class ContinuousScanModel with ChangeNotifier {
     final ScannedProductState state,
   ) async {
     _productList.add(product);
-    _daoProductList.put(_productList);
+    await _daoProductList.put(_productList);
     setBarcodeState(product.barcode, state);
   }
 }

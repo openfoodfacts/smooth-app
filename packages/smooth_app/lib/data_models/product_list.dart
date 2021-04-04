@@ -181,7 +181,7 @@ class ProductList {
 
   MaterialColor getMaterialColor() => _getReferenceMaterialColor(_colorTag);
 
-  void add(final Product product) {
+  void refresh(final Product product) {
     if (product == null) {
       throw Exception('null product');
     }
@@ -189,8 +189,12 @@ class ProductList {
     if (barcode == null) {
       throw Exception('null barcode');
     }
-    _barcodes.add(barcode);
     _products[barcode] = product;
+  }
+
+  void add(final Product product) {
+    refresh(product);
+    _barcodes.add(product.barcode);
   }
 
   void addAll(final List<Product> products) => products.forEach(add);

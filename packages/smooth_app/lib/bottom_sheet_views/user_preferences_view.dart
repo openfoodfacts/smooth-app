@@ -18,6 +18,7 @@ import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/temp/preference_importance.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_ui_library/animations/smooth_animated_collapse_arrow.dart';
 
 class UserPreferencesView extends StatelessWidget {
   const UserPreferencesView(this._scrollController, {this.callback});
@@ -239,46 +240,63 @@ class UserPreferencesView extends StatelessWidget {
     final double screenWidth,
     final UserPreferences userPreferences,
     final ProductPreferences productPreferences,
-  ) =>
-      !userPreferences.isAttributeGroupVisible(group)
-          ? _generateGroupTitle(context, group, userPreferences)
-          : Column(
-              mainAxisSize: MainAxisSize.min,
-              children: List<Widget>.generate(
-                group.attributes.length + 2,
-                (int index) => index == 0
-                    ? _generateGroupTitle(context, group, userPreferences)
-                    : index == 1
-                        ? _generateGroupWarning(group.warning)
-                        : _generatePreferenceRow(
-                            context,
-                            group.attributes[index - 2],
-                            screenWidth,
-                            productPreferences,
-                          ),
-              ),
-            );
+  ) {
+    return Column(
+      children: <Widget>[
+        _generateGroupTitle(context, group, userPreferences),
+        AnimatedCrossFade(
+          duration: const Duration(milliseconds: 260),
+          crossFadeState: !userPreferences.isAttributeGroupVisible(group)
+              ? CrossFadeState.showFirst
+              : CrossFadeState.showSecond,
+          firstChild: Container(),
+          secondChild: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: List<Widget>.generate(
+              group.attributes.length + 1,
+              (int index) => index == 0
+                  ? _generateGroupWarning(group.warning)
+                  : _generatePreferenceRow(
+                      context,
+                      group.attributes[index - 1],
+                      screenWidth,
+                      productPreferences,
+                    ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
 
   Widget _generateGroupTitle(
     final BuildContext context,
     final AttributeGroup group,
     final UserPreferences userPreferences,
-  ) =>
-      GestureDetector(
+  ) {
+    return StatefulBuilder(
+      builder: (BuildContext context, StateSetter setState) {
+        return GestureDetector(
           child: Container(
             width: double.infinity,
             padding: const EdgeInsets.all(_TYPICAL_PADDING_OR_MARGIN),
             child: ListTile(
               title: Text(group.name),
-              trailing: Icon(
-                userPreferences.isAttributeGroupVisible(group)
-                    ? Icons.keyboard_arrow_up
-                    : Icons.keyboard_arrow_down,
+              trailing: SmoothAnimatedCollapseArrow(
+                collapsed: !userPreferences.isAttributeGroupVisible(group),
               ),
             ),
           ),
-          onTap: () => userPreferences.setAttributeGroupVisibility(
-              group, !userPreferences.isAttributeGroupVisible(group)));
+          onTap: () {
+            setState(() {
+              userPreferences.setAttributeGroupVisibility(
+                  group, !userPreferences.isAttributeGroupVisible(group));
+            });
+          },
+        );
+      },
+    );
+  }
 
   Widget _generateGroupWarning(final String warning) => warning == null
       ? Container()

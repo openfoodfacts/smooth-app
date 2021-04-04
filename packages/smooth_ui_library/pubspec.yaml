@@ -11,7 +11,7 @@ dependencies:
     sdk: flutter
   flutter_staggered_grid_view: ^0.3.4
   flutter_svg: ^0.21.0-nullsafety.0
-  openfoodfacts: ^1.0.2-beta
+  openfoodfacts: ^1.1.0-beta
 # Uncomment those lines if you want to use a local version of the openfoodfacts package
 #  openfoodfacts:
 #    path: ../../../openfoodfacts-dart
