@@ -51,14 +51,29 @@ class Pantry {
   String get _defaultIconTag => pantryType == PantryType.PANTRY
       ? _ICON_DEFAULT_PANTRY
       : _ICON_DEFAULT_SHOPPING;
-  void add(final List<String> barcodes, final Map<String, Product> products) {
+
+  /// Returns the number of actually added barcodes (new barcodes, then)
+  int addAll(final List<String> barcodes, final Map<String, Product> products) {
+    int result = 0;
     for (final String barcode in barcodes) {
       if (!data.containsKey(barcode)) {
         data[barcode] = <String, int>{};
+        result++;
       }
     }
     this.products.addAll(products);
+    return result;
   }
+
+  /// Returns true if the product was actually added (= was not there before)
+  bool add(final Product product) =>
+      addAll(
+        <String>[product.barcode],
+        <String, Product>{
+          product.barcode: product,
+        },
+      ) ==
+      1;
 
   static const String _ICON_PAW = 'paw';
   static const String _ICON_FREEZER = 'heart';

@@ -5,7 +5,11 @@ import 'package:flutter_svg/svg.dart';
 import 'package:openfoodfacts/model/Product.dart';
 
 class SmoothProductImage extends StatelessWidget {
-  const SmoothProductImage({@required this.product, this.width, this.height});
+  const SmoothProductImage({
+    @required this.product,
+    @required this.width,
+    @required this.height,
+  });
 
   final Product product;
   final double width;
@@ -13,9 +17,37 @@ class SmoothProductImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (product.imageFrontSmallUrl != null &&
-        product.imageFrontSmallUrl != '') {
-      return ClipRRect(
+    Widget result;
+    result = _buildFromUrl(product.imageFrontSmallUrl);
+    if (result != null) {
+      return result;
+    }
+    result = _buildFromUrl(product.imageFrontUrl);
+    if (result != null) {
+      return result;
+    }
+    return ClipRRect(
+      borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+      child: Container(
+        width: width,
+        height: height,
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(15.0)),
+        ),
+        child: Center(
+          child: SvgPicture.asset(
+            'assets/product/product_not_found.svg',
+            fit: BoxFit.cover,
+            height: height,
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildFromUrl(final String url) => url == null || url.isEmpty
+      ? null
+      : ClipRRect(
           borderRadius: const BorderRadius.all(Radius.circular(15.0)),
           child: Container(
             width: width,
@@ -24,52 +56,29 @@ class SmoothProductImage extends StatelessWidget {
               borderRadius: const BorderRadius.all(Radius.circular(15.0)),
               image: DecorationImage(
                 fit: BoxFit.cover,
-                image: NetworkImage(
-                  product.imageFrontSmallUrl,
-                  scale: 1.0,
-                ),
+                image: NetworkImage(url, scale: 1.0),
               ),
             ),
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 12.0, sigmaY: 12.0),
               child: Image.network(
-                product.imageFrontSmallUrl,
+                url,
                 fit: BoxFit.contain,
                 loadingBuilder: (BuildContext context, Widget child,
-                    ImageChunkEvent progress) {
-                  if (progress == null) {
-                    return child;
-                  }
-                  return Center(
-                    child: CircularProgressIndicator(
-                      strokeWidth: 2.5,
-                      valueColor:
-                          const AlwaysStoppedAnimation<Color>(Colors.white),
-                      value: progress.cumulativeBytesLoaded /
-                          progress.expectedTotalBytes,
-                    ),
-                  );
-                },
+                        ImageChunkEvent progress) =>
+                    progress == null
+                        ? child
+                        : Center(
+                            child: CircularProgressIndicator(
+                              strokeWidth: 2.5,
+                              valueColor: const AlwaysStoppedAnimation<Color>(
+                                  Colors.white),
+                              value: progress.cumulativeBytesLoaded /
+                                  progress.expectedTotalBytes,
+                            ),
+                          ),
               ),
             ),
-          ));
-    } else {
-      return ClipRRect(
-        borderRadius: const BorderRadius.all(Radius.circular(15.0)),
-        child: Container(
-          width: width,
-          height: height,
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(15.0)),
           ),
-          child: Center(
-              child: SvgPicture.asset(
-            'assets/product/product_not_found.svg',
-            fit: BoxFit.cover,
-            height: height,
-          )),
-        ),
-      );
-    }
-  }
+        );
 }
