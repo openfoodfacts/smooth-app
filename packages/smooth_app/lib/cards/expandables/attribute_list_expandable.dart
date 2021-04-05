@@ -12,7 +12,6 @@ import 'package:smooth_ui_library/widgets/smooth_expandable_card.dart';
 import 'package:smooth_app/cards/data_cards/attribute_card.dart';
 import 'package:smooth_app/cards/data_cards/attribute_chip.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:openfoodfacts/personalized_search/available_attribute_groups.dart';
 
 class AttributeListExpandable extends StatelessWidget {
   const AttributeListExpandable({
@@ -56,7 +55,7 @@ class AttributeListExpandable extends StatelessWidget {
           iconUrl: '',
           descriptionShort: 'no data',
         );
-      } else if (attribute.id == AvailableAttributeGroups.ATTRIBUTE_ADDITIVES) {
+      } else if (attribute.id == Attribute.ATTRIBUTE_ADDITIVES) {
         // TODO(stephanegigandet): remove that cheat when additives are more standard
         final List<String> additiveNames = product.additives?.names;
         attribute = Attribute(

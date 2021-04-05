@@ -36,10 +36,10 @@ dependencies:
   image_picker: ^0.7.3
   intl: ^0.17.0
   modal_bottom_sheet: ^2.0.0
-  #openfoodfacts: ^1.0.2-beta
+  openfoodfacts: ^1.1.0-beta
   # Uncomment those lines if you want to use a local version of the openfoodfacts package
-  openfoodfacts:
-    path: ../../../openfoodfacts-dart
+  #openfoodfacts:
+  #  path: ../../../openfoodfacts-dart
   package_info: ^2.0.0
   path_provider: ^2.0.1
   photo_view: ^0.11.1

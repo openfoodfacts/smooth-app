@@ -7,6 +7,7 @@ import 'package:openfoodfacts/personalized_search/available_product_preferences.
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:openfoodfacts/personalized_search/product_preferences_manager.dart';
 import 'package:openfoodfacts/personalized_search/product_preferences_selection.dart';
+import 'package:openfoodfacts/model/Attribute.dart';
 
 class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
   ProductPreferences(
@@ -46,8 +47,8 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
         await assetBundle.loadString(attributeGroupAssetPath);
     final AvailableProductPreferences myAvailableProductPreferences =
         AvailableProductPreferences.loadFromJSONStrings(
-      preferenceImportancesString,
-      attributeGroupString,
+      preferenceImportancesString: preferenceImportancesString,
+      attributeGroupsString: attributeGroupString,
     );
     availableProductPreferences = myAvailableProductPreferences;
     _isNetwork = false;
@@ -75,8 +76,8 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
     final String attributeGroupsString = response.body;
     final AvailableProductPreferences myAvailableProductPreferences =
         AvailableProductPreferences.loadFromJSONStrings(
-      preferenceImportancesString,
-      attributeGroupsString,
+      preferenceImportancesString: preferenceImportancesString,
+      attributeGroupsString: attributeGroupsString,
     );
     availableProductPreferences = myAvailableProductPreferences;
     _isNetwork = true;
@@ -86,17 +87,17 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
   Future<void> resetImportances() async {
     await clearImportances(notifyListeners: false);
     await setImportance(
-      AvailableAttributeGroups.ATTRIBUTE_NUTRISCORE,
+      Attribute.ATTRIBUTE_NUTRISCORE,
       PreferenceImportance.ID_VERY_IMPORTANT,
       notifyListeners: false,
     );
     await setImportance(
-      AvailableAttributeGroups.ATTRIBUTE_NOVA,
+      Attribute.ATTRIBUTE_NOVA,
       PreferenceImportance.ID_IMPORTANT,
       notifyListeners: false,
     );
     await setImportance(
-      AvailableAttributeGroups.ATTRIBUTE_ECOSCORE,
+      Attribute.ATTRIBUTE_ECOSCORE,
       PreferenceImportance.ID_IMPORTANT,
       notifyListeners: false,
     );

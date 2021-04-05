@@ -48,13 +48,14 @@ class _MyAppState extends State<MyApp> {
     _userPreferences = await UserPreferences.getUserPreferences();
     _productPreferences = ProductPreferences(
       ProductPreferencesSelection(
-        (
+        setImportance: (
           String attributeId,
           String importanceId,
         ) async =>
             await _userPreferences.setImportance(attributeId, importanceId),
-        (String attributeId) => _userPreferences.getImportance(attributeId),
-        () => _productPreferences.notifyListeners(),
+        getImportance: (String attributeId) =>
+            _userPreferences.getImportance(attributeId),
+        notify: () => _productPreferences.notifyListeners(),
       ),
     );
     try {

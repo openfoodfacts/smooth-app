@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:provider/provider.dart';
 import 'package:rubber/rubber.dart';
 import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
@@ -18,7 +19,6 @@ import 'package:smooth_app/cards/data_cards/smooth_energy_card.dart';
 import 'package:smooth_app/cards/data_cards/smooth_intake_recommendation_card.dart';
 import 'package:smooth_app/cards/data_cards/smooth_quantity_selector_card.dart';
 import 'package:smooth_app/data_models/sneak_peek_model.dart';
-import 'package:openfoodfacts/personalized_search/available_attribute_groups.dart';
 
 // TODO(stephanegigandet): remove if not useful anymore?
 @deprecated
@@ -145,8 +145,8 @@ class SmoothProductSneakPeekViewState extends State<SmoothProductSneakPeekView>
                   children: <Widget>[
                     AttributeChip(
                       widget.product.getAttributes(
-                        <String>[AvailableAttributeGroups.ATTRIBUTE_NUTRISCORE],
-                      )[AvailableAttributeGroups.ATTRIBUTE_NUTRISCORE],
+                        <String>[Attribute.ATTRIBUTE_NUTRISCORE],
+                      )[Attribute.ATTRIBUTE_NUTRISCORE],
                       width: 100.0,
                     ),
                     Container(
