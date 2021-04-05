@@ -31,9 +31,9 @@ dependencies:
   flutter_staggered_animations: ^1.0.0
   flutter_staggered_grid_view: ^0.3.4
   flutter_svg: ^0.21.0-nullsafety.0
-  flutter_typeahead: ^3.1.0
+  flutter_typeahead: ^3.1.1
   image_cropper: ^1.4.0
-  image_picker: ^0.7.3
+  image_picker: ^0.7.4
   intl: ^0.17.0
   modal_bottom_sheet: ^2.0.0
   openfoodfacts: ^1.1.0-beta
@@ -46,7 +46,7 @@ dependencies:
   provider: ^5.0.0
   qr_code_scanner: ^0.4.0
   #rubber: ^0.4.0
-  sentry: ^4.0.6
+  sentry: ^5.0.0
   share: ^2.0.1
   shared_preferences: ^2.0.5
   smooth_ui_library:
@@ -57,7 +57,7 @@ dependencies:
   url_launcher: ^6.0.3
 
 dev_dependencies:
-  flutter_native_splash: ^1.1.5+1
+  flutter_native_splash: ^1.1.7+1
   flutter_test:
     sdk: flutter
 

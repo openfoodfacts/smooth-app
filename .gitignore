@@ -237,3 +237,16 @@ android_keys.zip
 Gemfile.lock
 /packages/smooth_app/ios/fastlane/envfiles/AuthKey_KDAUTTM76R.p8
 /packages/smooth_app/ios/fastlane/.env
+
+
+# Unsupported locals
+app_crs.arb 
+app_lol.arb 
+app_sat.arb 
+app_sco.arb 
+app_sma.arb 
+app_son.arb 
+app_tzl.arb 
+app_val.arb 
+app_vec.arb
+app_vls.arb  

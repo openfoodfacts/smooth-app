@@ -29,6 +29,7 @@ abstract class ProductQuery {
         ProductField.BARCODE,
         ProductField.NUTRISCORE,
         ProductField.FRONT_IMAGE,
+        ProductField.IMAGE_FRONT_SMALL_URL,
         ProductField.IMAGE_FRONT_URL,
         ProductField.IMAGE_INGREDIENTS_URL,
         ProductField.IMAGE_NUTRITION_URL,

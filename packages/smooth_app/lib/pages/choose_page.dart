@@ -31,7 +31,7 @@ class ChoosePage extends StatefulWidget {
     final BuildContext context,
     final LocalDatabase localDatabase,
   ) async {
-    if (int.parse(value) != null) {
+    if (int.tryParse(value) != null) {
       final ProductDialogHelper productDialogHelper = ProductDialogHelper(
         barcode: value,
         context: context,
