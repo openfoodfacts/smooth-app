@@ -89,8 +89,6 @@ class _TextSearchWidgetState extends State<TextSearchWidget> {
           ),
           leading: SmoothProductImage(
             product: suggestion,
-            width: 40,
-            height: 40,
           ),
         ),
         onSuggestionSelected: (Product suggestion) async {

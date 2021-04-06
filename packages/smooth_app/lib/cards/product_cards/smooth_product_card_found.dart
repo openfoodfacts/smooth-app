@@ -84,68 +84,90 @@ class SmoothProductCardFound extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                SmoothProductImage(
-                  product: product,
-                  width: screenSize.width * 0.20,
-                  height: screenSize.width * 0.20,
+                Expanded(
+                  flex: 1,
+                  child: SmoothProductImage(
+                    maxWidth: screenSize.width / 3,
+                    maxHeight: 2.0,
+                    product: product,
+                  ),
                 ),
                 const SizedBox(
                   width: 8.0,
                 ),
-                Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Container(
-                      width: screenSize.width * 0.65,
-                      child: Column(
-                        children: <Widget>[
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              Flexible(
-                                child: Text(
-                                  product.productName ?? 'Unknown product name',
-                                  maxLines: 2,
-                                  overflow: TextOverflow.fade,
-                                  style: themeData.textTheme.headline4,
+                Expanded(
+                  flex: 2,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Container(
+                        width: screenSize.width * 0.65,
+                        child: Column(
+                          children: <Widget>[
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Flexible(
+                                  child: Text(
+                                    product.productName ??
+                                        'Unknown product name',
+                                    maxLines: 2,
+                                    overflow: TextOverflow.fade,
+                                    style: themeData.textTheme.headline4,
+                                  ),
                                 ),
-                              ),
-                              if (handle != null) handle,
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 2.0,
-                          ),
-                          Row(
-                            children: <Widget>[
-                              Flexible(
-                                child: Text(
-                                  product.brands ?? 'Unknown brand',
-                                  maxLines: 1,
-                                  overflow: TextOverflow.fade,
-                                  style: themeData.textTheme.subtitle1,
+                                if (handle != null) handle,
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 2.0,
+                            ),
+                            Row(
+                              children: <Widget>[
+                                Flexible(
+                                  child: Text(
+                                    product.brands ?? 'Unknown brand',
+                                    maxLines: 1,
+                                    overflow: TextOverflow.fade,
+                                    style: themeData.textTheme.subtitle1,
+                                  ),
                                 ),
-                              )
-                            ],
-                          ),
-                        ],
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 2.0,
+                            ),
+                            Row(
+                              children: <Widget>[
+                                Flexible(
+                                  child: Text(
+                                    product.brands ?? 'Unknown brand',
+                                    maxLines: 1,
+                                    overflow: TextOverflow.fade,
+                                    style: themeData.textTheme.subtitle1,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    Container(
-                      decoration: const BoxDecoration(
-                        border: Border(
-                            top: BorderSide(color: Colors.grey, width: 1.0)),
+                      Container(
+                        decoration: const BoxDecoration(
+                          border: Border(
+                              top: BorderSide(color: Colors.grey, width: 1.0)),
+                        ),
+                        width: screenSize.width * 0.65,
+                        child: Wrap(
+                          direction: Axis.horizontal,
+                          children: scores,
+                        ),
                       ),
-                      width: screenSize.width * 0.65,
-                      child: Wrap(
-                        direction: Axis.horizontal,
-                        children: scores,
-                      ),
-                    ),
-                  ],
-                )
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
@@ -183,8 +205,6 @@ class SmoothProductCardFound extends StatelessWidget {
                     children: <Widget>[
                       SmoothProductImage(
                         product: product,
-                        width: MediaQuery.of(context).size.width * 0.25,
-                        height: 140.0,
                       ),
                       Container(
                         margin: const EdgeInsets.only(left: 10.0),
@@ -197,36 +217,28 @@ class SmoothProductCardFound extends StatelessWidget {
                           children: <Widget>[
                             Column(
                               children: <Widget>[
-                                Row(
-                                  children: <Widget>[
-                                    Flexible(
-                                      child: Text(
-                                        product.productName,
-                                        maxLines: 3,
-                                        overflow: TextOverflow.fade,
-                                        style: const TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
+                                Flexible(
+                                  child: Text(
+                                    product.productName,
+                                    maxLines: 3,
+                                    overflow: TextOverflow.fade,
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
                                     ),
-                                  ],
+                                  ),
                                 ),
                                 const SizedBox(
                                   height: 4.0,
                                 ),
-                                Row(
-                                  children: <Widget>[
-                                    Flexible(
-                                      child: Text(
-                                        product.brands ?? 'Unknown brand',
-                                        maxLines: 1,
-                                        overflow: TextOverflow.fade,
-                                        style: const TextStyle(
-                                            fontWeight: FontWeight.w300,
-                                            fontStyle: FontStyle.italic),
-                                      ),
-                                    )
-                                  ],
+                                Flexible(
+                                  child: Text(
+                                    product.brands ?? 'Unknown brand',
+                                    maxLines: 1,
+                                    overflow: TextOverflow.fade,
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.w300,
+                                        fontStyle: FontStyle.italic),
+                                  ),
                                 ),
                               ],
                             ),

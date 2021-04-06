@@ -9,7 +9,7 @@ class SmoothToggle extends StatefulWidget {
       this.textRight = 'Off',
       this.textLeft = 'On',
       this.textSize = 14.0,
-        this.colorRight = Colors.red,
+      this.colorRight = Colors.red,
       this.colorLeft = Colors.green,
       this.iconRight,
       this.iconLeft,
@@ -61,12 +61,13 @@ class _SmoothToggleState extends State<SmoothToggle>
   void initState() {
     super.initState();
     animationController = AnimationController(
-        vsync: this,
-        lowerBound: 0.0,
-        upperBound: 1.0,
-        duration: widget.animationDuration);
-    animation =
-        CurvedAnimation(parent: animationController, curve: Curves.easeInOutBack);
+      vsync: this,
+      lowerBound: 0.0,
+      upperBound: 1.0,
+      duration: widget.animationDuration,
+    );
+    animation = CurvedAnimation(
+        parent: animationController, curve: Curves.easeInOutBack);
     animationController.addListener(() {
       setState(() {
         value = animation.value;
@@ -108,43 +109,60 @@ class _SmoothToggleState extends State<SmoothToggle>
             color: transitionColor, borderRadius: BorderRadius.circular(50)),
         child: Stack(
           children: <Widget>[
+            //Text right
             Transform.translate(
               offset: Offset(10 * value, 0), //original
               child: Opacity(
                 opacity: (1 - value).clamp(0.0, 1.0).toDouble(),
-                child: Container(
-                  padding: const EdgeInsets.only(right: 10),
+                child: Align(
                   alignment: Alignment.centerRight,
-                  height: widget.height - 10,
-                  child: Text(
-                    widget.textRight,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: widget.textSize,
+                  child: Container(
+                    padding: const EdgeInsets.only(right: 10),
+                    height: widget.height - 10,
+                    width: widget.width - 40,
+                    child: FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: Text(
+                        //widget.textRight,
+                        'Text right',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: widget.textSize,
+                        ),
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
+            //Text left
             Transform.translate(
-              offset: Offset(10 * (1 - value), 0),
+              offset: Offset(10 * (1 - value), 0), // not original
               child: Opacity(
                 opacity: value.clamp(0.0, 1.0).toDouble(),
-                child: Container(
-                  padding: const EdgeInsets.only(left: 10),
+                child: Align(
                   alignment: Alignment.centerLeft,
-                  height: widget.height - 10,
-                  child: Text(
-                    widget.textLeft,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: widget.textSize),
+                  child: Container(
+                    padding: const EdgeInsets.only(left: 10),
+                    height: widget.height - 10,
+                    width: widget.width - 40,
+                    child: FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: Text(
+                        widget.textLeft,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: widget.textSize,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
             ),
+            //Pointer
             Transform.translate(
               offset: Offset((widget.width - widget.height) * value, 0),
               child: Transform.rotate(
@@ -163,15 +181,16 @@ class _SmoothToggleState extends State<SmoothToggle>
                             child: widget.iconRight),
                       ),
                       Center(
-                          child: Opacity(
-                        opacity: value.clamp(0.0, 1.0).toDouble(),
-                        child: widget.iconLeft,
-                      ))
+                        child: Opacity(
+                          opacity: value.clamp(0.0, 1.0).toDouble(),
+                          child: widget.iconLeft,
+                        ),
+                      )
                     ],
                   ),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

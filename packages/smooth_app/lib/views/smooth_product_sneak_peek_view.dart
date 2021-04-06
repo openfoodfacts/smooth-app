@@ -86,8 +86,6 @@ class SmoothProductSneakPeekViewState extends State<SmoothProductSneakPeekView>
                   children: <Widget>[
                     SmoothProductImage(
                       product: widget.product,
-                      width: 100.0,
-                      height: 120.0,
                     ),
                     Container(
                       margin: const EdgeInsets.only(left: 10.0),

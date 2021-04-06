@@ -6,8 +6,6 @@ environment:
   sdk: ">=2.10.4 <3.0.0"
 
 dependencies:
-
-
   carousel_slider: ^3.0.0
   flutter:
     sdk: flutter
@@ -19,7 +17,6 @@ dependencies:
 #    path: ../../../openfoodfacts-dart
   percent_indicator: ^3.0.1
   provider: ^5.0.0
-  rubber: ^0.5.0
 
 dev_dependencies:
   flutter_test:

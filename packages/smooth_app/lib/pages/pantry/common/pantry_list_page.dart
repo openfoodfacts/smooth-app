@@ -52,11 +52,13 @@ class _PantryListPageState extends State<PantryListPage> {
         ],
       ),
       body: (widget.pantries.isEmpty)
-          ? Center(
-              child: _addButtonWhenEmpty(
-                iconSize,
-                themeData,
-                userPreferences,
+          ? Container(
+              child: Center(
+                child: _addButtonWhenEmpty(
+                  iconSize,
+                  themeData,
+                  userPreferences,
+                ),
               ),
             )
           : ListView.builder(
@@ -89,21 +91,18 @@ class _PantryListPageState extends State<PantryListPage> {
     final ThemeData themeData,
     final UserPreferences userPreferences,
   ) =>
-      SizedBox(
-        height: iconSize * 3,
-        child: SmoothCard(
-          color: SmoothTheme.getColor(
-            themeData.colorScheme,
-            Colors.blue,
-            ColorDestination.SURFACE_BACKGROUND,
-          ),
-          child: ListTile(
-            leading: Icon(Icons.add, size: iconSize),
-            onTap: () async => await _add(userPreferences),
-            title: Text(
-              PantryListPage.getCreateListLabel(widget.pantryType),
-              style: themeData.textTheme.headline3,
-            ),
+      SmoothCard(
+        color: SmoothTheme.getColor(
+          themeData.colorScheme,
+          Colors.blue,
+          ColorDestination.SURFACE_BACKGROUND,
+        ),
+        child: ListTile(
+          leading: Icon(Icons.add, size: iconSize),
+          onTap: () async => await _add(userPreferences),
+          title: Text(
+            PantryListPage.getCreateListLabel(widget.pantryType),
+            style: themeData.textTheme.headline3,
           ),
         ),
       );

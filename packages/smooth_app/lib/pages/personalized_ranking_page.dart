@@ -79,8 +79,16 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        title: Text(
-          ProductQueryPageHelper.getProductListLabel(widget.productList),
+        title: Row(
+          mainAxisSize: MainAxisSize.max,
+          children: <Widget>[
+            Flexible(
+              child: Text(
+                ProductQueryPageHelper.getProductListLabel(widget.productList),
+                overflow: TextOverflow.fade,
+              ),
+            ),
+          ],
         ),
         actions: <Widget>[
           IconButton(

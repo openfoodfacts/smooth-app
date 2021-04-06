@@ -48,11 +48,15 @@ class UserPreferencesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
+    print('Screensize: ' + screenSize.toString());
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
+
     final double buttonWidth =
         (screenSize.width - _TYPICAL_PADDING_OR_MARGIN * 3) / 2;
+
+    final double buttonHeight = screenSize.height * 0.08;
     return Material(
       child: Container(
         height: screenSize.height * 0.9,
@@ -91,6 +95,7 @@ class UserPreferencesView extends StatelessWidget {
                 ),
               ],
             ),
+            //Buttons
             Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.end,
@@ -103,15 +108,17 @@ class UserPreferencesView extends StatelessWidget {
                     ),
                     child: Container(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: _TYPICAL_PADDING_OR_MARGIN,
-                          vertical: 20.0),
+                        horizontal: _TYPICAL_PADDING_OR_MARGIN,
+                        vertical: 20.0,
+                      ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           SmoothMainButton(
                             text: 'Reset',
-                            minWidth: buttonWidth,
+                            width: buttonWidth,
+                            height: buttonHeight,
                             important: false,
                             onPressed: () => userPreferences.resetImportances(
                               productPreferences,
@@ -119,7 +126,8 @@ class UserPreferencesView extends StatelessWidget {
                           ),
                           SmoothMainButton(
                             text: 'OK',
-                            minWidth: buttonWidth,
+                            width: buttonWidth,
+                            height: buttonHeight,
                             important: true,
                             onPressed: () {
                               Navigator.pop(context);

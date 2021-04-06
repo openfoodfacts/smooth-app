@@ -2,13 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SmoothCard extends StatelessWidget {
-  const SmoothCard(
-      {@required this.child,
-      this.color,
-      this.header,
-      this.padding =
-          const EdgeInsets.only(right: 8.0, left: 8.0, top: 4.0, bottom: 4.0),
-      this.insets = const EdgeInsets.all(5.0)});
+  const SmoothCard({
+    @required this.child,
+    this.color,
+    this.header,
+    this.padding =
+        const EdgeInsets.only(right: 8.0, left: 8.0, top: 4.0, bottom: 4.0),
+    this.insets = const EdgeInsets.all(5.0),
+  });
 
   final Widget child;
   final Color color;
@@ -27,6 +28,7 @@ class SmoothCard extends StatelessWidget {
           child: Container(
             padding: insets,
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 header ?? Container(),
                 child,
