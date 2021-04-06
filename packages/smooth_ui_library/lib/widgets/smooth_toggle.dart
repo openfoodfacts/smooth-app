@@ -61,10 +61,11 @@ class _SmoothToggleState extends State<SmoothToggle>
   void initState() {
     super.initState();
     animationController = AnimationController(
-        vsync: this,
-        lowerBound: 0.0,
-        upperBound: 1.0,
-        duration: widget.animationDuration);
+      vsync: this,
+      lowerBound: 0.0,
+      upperBound: 1.0,
+      duration: widget.animationDuration,
+    );
     animation = CurvedAnimation(
         parent: animationController, curve: Curves.easeInOutBack);
     animationController.addListener(() {
@@ -108,6 +109,7 @@ class _SmoothToggleState extends State<SmoothToggle>
             color: transitionColor, borderRadius: BorderRadius.circular(50)),
         child: Stack(
           children: <Widget>[
+            //Text right
             Transform.translate(
               offset: Offset(10 * value, 0), //original
               child: Opacity(
@@ -121,7 +123,8 @@ class _SmoothToggleState extends State<SmoothToggle>
                     child: FittedBox(
                       fit: BoxFit.fitWidth,
                       child: Text(
-                        widget.textRight,
+                        //widget.textRight,
+                        'Text right',
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -133,8 +136,9 @@ class _SmoothToggleState extends State<SmoothToggle>
                 ),
               ),
             ),
+            //Text left
             Transform.translate(
-              offset: Offset(10 * (1 - value), 0),
+              offset: Offset(10 * (1 - value), 0), // not original
               child: Opacity(
                 opacity: value.clamp(0.0, 1.0).toDouble(),
                 child: Align(
@@ -148,15 +152,17 @@ class _SmoothToggleState extends State<SmoothToggle>
                       child: Text(
                         widget.textLeft,
                         style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: widget.textSize),
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: widget.textSize,
+                        ),
                       ),
                     ),
                   ),
                 ),
               ),
             ),
+            //Pointer
             Transform.translate(
               offset: Offset((widget.width - widget.height) * value, 0),
               child: Transform.rotate(
@@ -184,7 +190,7 @@ class _SmoothToggleState extends State<SmoothToggle>
                   ),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
