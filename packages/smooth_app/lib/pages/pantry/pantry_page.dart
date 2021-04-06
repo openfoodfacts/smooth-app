@@ -50,7 +50,7 @@ class PantryPage extends StatelessWidget {
       return const CircularProgressIndicator();
     }
     final Pantry pantry = pantries[index];
-    final List<Product> products = pantry.products.values.toList();
+    final List<String> orderedBarcodes = pantry.getOrderedBarcodes();
     return Scaffold(
       bottomNavigationBar: Builder(
         builder: (BuildContext context) => BottomNavigationBar(
@@ -143,43 +143,45 @@ class PantryPage extends StatelessWidget {
           ),
         ],
       ),
-      body: ListView.builder(
-        itemCount: products.length + 1,
-        itemBuilder: (BuildContext context, int index) {
-          if (index == 0) {
-            return TextSearchWidget(
-              color: Colors.blue,
-              daoProduct: daoProduct,
-              addProductCallback: (final Product product) async {
-                final bool itemAdded = pantry.add(product);
-                if (!itemAdded) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Already in the pantry!'),
-                      duration: Duration(seconds: 3),
-                    ),
-                  );
-                  return;
-                }
-                await _save(userPreferences);
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: const Text('Added to the pantry!'),
-                    duration: const Duration(seconds: 3),
-                    action: SnackBarAction(
-                      label: 'UNDO',
-                      onPressed: () async {
-                        pantry.removeBarcode(product.barcode);
-                        await _save(userPreferences);
-                      },
-                    ),
-                  ),
-                );
-              },
+      body: ReorderableListView.builder(
+        onReorder: (final int oldIndex, final int newIndex) async {
+          pantry.reorder(oldIndex, newIndex);
+          await _save(userPreferences);
+        },
+        buildDefaultDragHandles: false,
+        header: TextSearchWidget(
+          color: Colors.blue,
+          daoProduct: daoProduct,
+          addProductCallback: (final Product product) async {
+            final bool itemAdded = pantry.add(product);
+            if (!itemAdded) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Already in the pantry!'),
+                  duration: Duration(seconds: 3),
+                ),
+              );
+              return;
+            }
+            await _save(userPreferences);
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: const Text('Added to the pantry!'),
+                duration: const Duration(seconds: 3),
+                action: SnackBarAction(
+                  label: 'UNDO',
+                  onPressed: () async {
+                    pantry.removeBarcode(product.barcode);
+                    await _save(userPreferences);
+                  },
+                ),
+              ),
             );
-          }
-          index--;
-          final Product product = products[index];
+          },
+        ),
+        itemCount: orderedBarcodes.length,
+        itemBuilder: (BuildContext context, int index) {
+          final Product product = pantry.products[orderedBarcodes[index]];
           final String barcode = product.barcode;
           final List<Widget> children = <Widget>[
             SmoothProductCardFound(
@@ -189,6 +191,10 @@ class PantryPage extends StatelessWidget {
                 colorScheme,
                 Colors.grey,
                 ColorDestination.SURFACE_BACKGROUND,
+              ),
+              handle: ReorderableDragStartListener(
+                index: index,
+                child: const Icon(Icons.drag_handle),
               ),
             ),
             const Divider(
@@ -219,6 +225,7 @@ class PantryPage extends StatelessWidget {
             );
           }
           return Padding(
+            key: ValueKey<String>(product.barcode),
             padding:
                 const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
             child: Card(
