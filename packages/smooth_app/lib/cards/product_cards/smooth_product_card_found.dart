@@ -15,7 +15,6 @@ import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
 import 'package:smooth_app/cards/data_cards/attribute_chip.dart';
 import 'package:smooth_app/pages/product/product_page.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/temp/product_extra.dart';
 
 class SmoothProductCardFound extends StatelessWidget {
   const SmoothProductCardFound({
@@ -48,8 +47,7 @@ class SmoothProductCardFound extends StatelessWidget {
     final List<Widget> scores = <Widget>[];
     final double iconSize =
         screenSize.width / 10; // TODO(monsieurtanuki): target size?
-    final Map<String, Attribute> attributes = ProductExtra.getAttributes(
-      product,
+    final Map<String, Attribute> attributes = product.getAttributes(
       attributeIds,
     );
     for (final String attributeId in attributeIds) {
