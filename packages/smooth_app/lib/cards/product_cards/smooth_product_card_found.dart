@@ -23,6 +23,7 @@ class SmoothProductCardFound extends StatelessWidget {
     this.elevation = 0.0,
     this.useNewStyle = true,
     this.backgroundColor,
+    this.handle,
   });
 
   final Product product;
@@ -30,6 +31,7 @@ class SmoothProductCardFound extends StatelessWidget {
   final double elevation;
   final bool useNewStyle;
   final Color backgroundColor;
+  final Widget handle;
 
   @override
   Widget build(BuildContext context) {
@@ -100,6 +102,7 @@ class SmoothProductCardFound extends StatelessWidget {
                       child: Column(
                         children: <Widget>[
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
                               Flexible(
                                 child: Text(
@@ -109,6 +112,7 @@ class SmoothProductCardFound extends StatelessWidget {
                                   style: themeData.textTheme.headline4,
                                 ),
                               ),
+                              if (handle != null) handle,
                             ],
                           ),
                           const SizedBox(
