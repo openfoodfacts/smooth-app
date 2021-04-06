@@ -8,7 +8,7 @@ import 'package:sentry/sentry.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/home_page.dart';
-import 'package:smooth_app/temp/product_preferences_selection.dart';
+import 'package:openfoodfacts/personalized_search/product_preferences_selection.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -48,13 +48,14 @@ class _MyAppState extends State<MyApp> {
     _userPreferences = await UserPreferences.getUserPreferences();
     _productPreferences = ProductPreferences(
       ProductPreferencesSelection(
-        (
+        setImportance: (
           String attributeId,
           String importanceId,
         ) async =>
             await _userPreferences.setImportance(attributeId, importanceId),
-        (String attributeId) => _userPreferences.getImportance(attributeId),
-        () => _productPreferences.notifyListeners(),
+        getImportance: (String attributeId) =>
+            _userPreferences.getImportance(attributeId),
+        notify: () => _productPreferences.notifyListeners(),
       ),
     );
     try {

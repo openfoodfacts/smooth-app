@@ -16,15 +16,12 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:share/share.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/temp/available_attribute_groups.dart';
 import 'package:smooth_ui_library/widgets/smooth_card.dart';
-import 'package:smooth_app/temp/product_extra.dart';
 
 // Project imports:
 import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
 import 'package:smooth_app/cards/data_cards/image_upload_card.dart';
 import 'package:smooth_app/cards/expandables/attribute_list_expandable.dart';
-import 'package:smooth_app/temp/attribute_extra.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/category_product_query.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
@@ -170,12 +167,12 @@ class _ProductPageState extends State<ProductPage> {
   }
 
   static const List<String> _ORDERED_ATTRIBUTE_GROUP_IDS = <String>[
-    AvailableAttributeGroups.ATTRIBUTE_GROUP_INGREDIENT_ANALYSIS,
-    AvailableAttributeGroups.ATTRIBUTE_GROUP_NUTRITIONAL_QUALITY,
-    AvailableAttributeGroups.ATTRIBUTE_GROUP_PROCESSING,
-    AvailableAttributeGroups.ATTRIBUTE_GROUP_ENVIRONMENT,
-    AvailableAttributeGroups.ATTRIBUTE_GROUP_LABELS,
-    AvailableAttributeGroups.ATTRIBUTE_GROUP_ALLERGENS,
+    AttributeGroup.ATTRIBUTE_GROUP_INGREDIENT_ANALYSIS,
+    AttributeGroup.ATTRIBUTE_GROUP_NUTRITIONAL_QUALITY,
+    AttributeGroup.ATTRIBUTE_GROUP_PROCESSING,
+    AttributeGroup.ATTRIBUTE_GROUP_ENVIRONMENT,
+    AttributeGroup.ATTRIBUTE_GROUP_LABELS,
+    AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS,
   ];
 
   @override
@@ -414,7 +411,7 @@ class _ProductPageState extends State<ProductPage> {
     );
 
     final Map<String, Attribute> attributes =
-        ProductExtra.getAttributes(_product, attributeIds);
+        _product.getAttributes(attributeIds);
     final double opacity = themeData.brightness == Brightness.light
         ? 1
         : SmoothTheme.ADDITIONAL_OPACITY_FOR_DARK;
@@ -538,7 +535,7 @@ class _ProductPageState extends State<ProductPage> {
   }
 
   Color _getBackgroundColor(final Attribute attribute) {
-    if (attribute.status == AttributeExtra.STATUS_KNOWN) {
+    if (attribute.status == Attribute.STATUS_KNOWN) {
       if (attribute.match <= 20) {
         return const HSLColor.fromAHSL(1, 0, 1, .9).toColor();
       }
