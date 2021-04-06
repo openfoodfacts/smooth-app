@@ -3,7 +3,7 @@ import 'package:openfoodfacts/model/Product.dart';
 
 // Project imports:
 import 'package:smooth_app/data_models/product_list.dart';
-import 'package:smooth_app/temp/matched_product.dart';
+import 'package:openfoodfacts/personalized_search/matched_product.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 
 class SmoothItModel {
@@ -45,10 +45,14 @@ class SmoothItModel {
           ? _allProducts
           : _categorizedProducts[matchIndex] ?? <MatchedProduct>[];
 
-  static int getMatchIndex(final MatchedProduct matchedProduct) =>
-      matchedProduct.status == null
-          ? MATCH_INDEX_MAYBE
-          : matchedProduct.status
-              ? MATCH_INDEX_YES
-              : MATCH_INDEX_NO;
+  static int getMatchIndex(final MatchedProduct matchedProduct) {
+    if ((matchedProduct.status == null) ||
+        (matchedProduct.status == MatchedProductStatus.UNKNOWN)) {
+      return MATCH_INDEX_MAYBE;
+    } else if (matchedProduct.status == MatchedProductStatus.YES) {
+      return MATCH_INDEX_YES;
+    } else {
+      return MATCH_INDEX_NO;
+    }
+  }
 }

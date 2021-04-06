@@ -12,8 +12,6 @@ import 'package:smooth_ui_library/widgets/smooth_expandable_card.dart';
 import 'package:smooth_app/cards/data_cards/attribute_card.dart';
 import 'package:smooth_app/cards/data_cards/attribute_chip.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/temp/available_attribute_groups.dart';
-import 'package:smooth_app/temp/product_extra.dart';
 
 class AttributeListExpandable extends StatelessWidget {
   const AttributeListExpandable({
@@ -43,8 +41,7 @@ class AttributeListExpandable extends StatelessWidget {
     final Size screenSize = MediaQuery.of(context).size;
     final List<Widget> chips = <Widget>[];
     final List<Widget> cards = <Widget>[];
-    final Map<String, Attribute> attributes = ProductExtra.getAttributes(
-      product,
+    final Map<String, Attribute> attributes = product.getAttributes(
       attributeIds,
     );
     for (final String attributeId in attributeIds) {
@@ -58,7 +55,7 @@ class AttributeListExpandable extends StatelessWidget {
           iconUrl: '',
           descriptionShort: 'no data',
         );
-      } else if (attribute.id == AvailableAttributeGroups.ATTRIBUTE_ADDITIVES) {
+      } else if (attribute.id == Attribute.ATTRIBUTE_ADDITIVES) {
         // TODO(stephanegigandet): remove that cheat when additives are more standard
         final List<String> additiveNames = product.additives?.names;
         attribute = Attribute(

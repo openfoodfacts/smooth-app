@@ -13,6 +13,7 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/pantry/common/pantry_dialog_helper.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/pages/text_search_widget.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 /// A page for one pantry where we can change all the data
@@ -69,7 +70,7 @@ class PantryPage extends StatelessWidget {
                   .getBarcodes(userPreferences.getProductListCopy());
               final Map<String, Product> products =
                   await daoProduct.getAll(barcodes);
-              pantry.add(barcodes, products);
+              pantry.addAll(barcodes, products);
               await _save(userPreferences);
               return;
             }
@@ -142,67 +143,95 @@ class PantryPage extends StatelessWidget {
           ),
         ],
       ),
-      body: products.isEmpty
-          ? Center(
-              child: Text('There is no product in this list',
-                  style: Theme.of(context).textTheme.subtitle1),
-            )
-          : ListView.builder(
-              itemCount: products.length,
-              itemBuilder: (BuildContext context, int index) {
-                final Product product = products[index];
-                final String barcode = product.barcode;
-                final List<Widget> children = <Widget>[
-                  SmoothProductCardFound(
-                    heroTag: barcode,
-                    product: product,
-                    backgroundColor: SmoothTheme.getColor(
-                      colorScheme,
-                      Colors.grey,
-                      ColorDestination.SURFACE_BACKGROUND,
+      body: ListView.builder(
+        itemCount: products.length + 1,
+        itemBuilder: (BuildContext context, int index) {
+          if (index == 0) {
+            return TextSearchWidget(
+              color: Colors.blue,
+              daoProduct: daoProduct,
+              addProductCallback: (final Product product) async {
+                final bool itemAdded = pantry.add(product);
+                if (!itemAdded) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Already in the pantry!'),
+                      duration: Duration(seconds: 3),
                     ),
-                  ),
-                  const Divider(
-                    color: Colors.grey,
-                  ),
-                ];
-                final Map<String, int> dates = pantry.data[barcode];
-                if (pantry.pantryType == PantryType.SHOPPING) {
-                  _addShoppingLines(
-                    children: children,
-                    barcode: barcode,
-                    count: dates[''] ?? 0,
-                    pantry: pantry,
-                    textStyle: textStyle,
-                    userPreferences: userPreferences,
-                    colorScheme: colorScheme,
                   );
-                } else {
-                  _addPantryLines(
-                    pantry: pantry,
-                    userPreferences: userPreferences,
-                    barcode: barcode,
-                    textStyle: textStyle,
-                    dates: dates,
-                    colorScheme: colorScheme,
-                    children: children,
-                    context: context,
-                  );
+                  return;
                 }
-                return Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 12.0, vertical: 8.0),
-                  child: Card(
-                    color: SmoothTheme.getColor(
-                      colorScheme,
-                      Colors.grey,
-                      ColorDestination.SURFACE_BACKGROUND,
+                await _save(userPreferences);
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: const Text('Added to the pantry!'),
+                    duration: const Duration(seconds: 3),
+                    action: SnackBarAction(
+                      label: 'UNDO',
+                      onPressed: () async {
+                        pantry.removeBarcode(product.barcode);
+                        await _save(userPreferences);
+                      },
                     ),
-                    child: Column(children: children),
                   ),
                 );
               },
+            );
+          }
+          index--;
+          final Product product = products[index];
+          final String barcode = product.barcode;
+          final List<Widget> children = <Widget>[
+            SmoothProductCardFound(
+              heroTag: barcode,
+              product: product,
+              backgroundColor: SmoothTheme.getColor(
+                colorScheme,
+                Colors.grey,
+                ColorDestination.SURFACE_BACKGROUND,
+              ),
             ),
+            const Divider(
+              color: Colors.grey,
+            ),
+          ];
+          final Map<String, int> dates = pantry.data[barcode];
+          if (pantry.pantryType == PantryType.SHOPPING) {
+            _addShoppingLines(
+              children: children,
+              barcode: barcode,
+              count: dates[''] ?? 0,
+              pantry: pantry,
+              textStyle: textStyle,
+              userPreferences: userPreferences,
+              colorScheme: colorScheme,
+            );
+          } else {
+            _addPantryLines(
+              pantry: pantry,
+              userPreferences: userPreferences,
+              barcode: barcode,
+              textStyle: textStyle,
+              dates: dates,
+              colorScheme: colorScheme,
+              children: children,
+              context: context,
+            );
+          }
+          return Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+            child: Card(
+              color: SmoothTheme.getColor(
+                colorScheme,
+                Colors.grey,
+                ColorDestination.SURFACE_BACKGROUND,
+              ),
+              child: Column(children: children),
+            ),
+          );
+        },
+      ),
     );
   }
 

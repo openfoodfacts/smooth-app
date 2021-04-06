@@ -15,7 +15,7 @@ import 'package:smooth_ui_library/buttons/smooth_main_button.dart';
 
 // Project imports:
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
-import 'package:smooth_app/temp/preference_importance.dart';
+import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_ui_library/animations/smooth_animated_collapse_arrow.dart';
