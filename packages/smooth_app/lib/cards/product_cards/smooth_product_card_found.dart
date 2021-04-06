@@ -82,15 +82,19 @@ class SmoothProductCardFound extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Flexible(
+                Expanded(
+                  flex: 1,
                   child: SmoothProductImage(
+                    maxWidth: screenSize.width / 3,
+                    maxHeight: 2.0,
                     product: product,
                   ),
                 ),
                 const SizedBox(
                   width: 8.0,
                 ),
-                Flexible(
+                Expanded(
+                  flex: 2,
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
