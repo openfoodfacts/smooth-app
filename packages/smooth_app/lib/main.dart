@@ -26,7 +26,8 @@ Future<void> main() async {
   try {
     runApp(DevicePreview(
       builder: (BuildContext context) => MyApp(),
-      enabled: !kReleaseMode,
+      //enabled: !kReleaseMode,
+      enabled: false,
     ));
   } catch (exception, stackTrace) {
     await Sentry.captureException(
