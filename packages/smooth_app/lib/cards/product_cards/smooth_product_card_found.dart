@@ -23,6 +23,7 @@ class SmoothProductCardFound extends StatelessWidget {
     this.elevation = 0.0,
     this.useNewStyle = true,
     this.backgroundColor,
+    this.handle,
   });
 
   final Product product;
@@ -30,6 +31,7 @@ class SmoothProductCardFound extends StatelessWidget {
   final double elevation;
   final bool useNewStyle;
   final Color backgroundColor;
+  final Widget handle;
 
   @override
   Widget build(BuildContext context) {
@@ -93,27 +95,41 @@ class SmoothProductCardFound extends StatelessWidget {
                 const SizedBox(
                   width: 8.0,
                 ),
-                Expanded(
-                  flex: 2,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Container(
-                        width: screenSize.width * 0.65,
-                        child: Column(
-                          children: <Widget>[
-                            Row(
-                              children: <Widget>[
-                                Flexible(
-                                  child: Text(
-                                    product.productName ??
-                                        'Unknown product name',
-                                    maxLines: 2,
-                                    overflow: TextOverflow.fade,
-                                    style: themeData.textTheme.headline4,
-                                  ),
+                Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Container(
+                      width: screenSize.width * 0.65,
+                      child: Column(
+                        children: <Widget>[
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Flexible(
+                                child: Text(
+                                  product.productName ?? 'Unknown product name',
+                                  maxLines: 2,
+                                  overflow: TextOverflow.fade,
+                                  style: themeData.textTheme.headline4,
+                                ),
+                              ),
+                              if (handle != null) handle,
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 2.0,
+                          ),
+                          Row(
+                            children: <Widget>[
+                              Flexible(
+                                child: Text(
+                                  product.brands ?? 'Unknown brand',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.fade,
+                                  style: themeData.textTheme.subtitle1,
+
                                 ),
                               ],
                             ),
