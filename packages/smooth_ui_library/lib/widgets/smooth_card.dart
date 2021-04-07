@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class SmoothCard extends StatelessWidget {
   const SmoothCard({
-    @required this.child,
+    required this.child,
     this.color,
     this.header,
     this.padding =
@@ -12,8 +12,8 @@ class SmoothCard extends StatelessWidget {
   });
 
   final Widget child;
-  final Color color;
-  final Widget header;
+  final Color? color;
+  final Widget? header;
   final EdgeInsets padding;
   final EdgeInsets insets;
 

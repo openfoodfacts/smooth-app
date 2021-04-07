@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class SmoothSneakPeekRoute<T> extends PageRoute<T> {
 
-  SmoothSneakPeekRoute({@required this.builder, this.duration = 200});
+  SmoothSneakPeekRoute({required this.builder, this.duration = 200});
 
   final WidgetBuilder builder;
   final int duration;

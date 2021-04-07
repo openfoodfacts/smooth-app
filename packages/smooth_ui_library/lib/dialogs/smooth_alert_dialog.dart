@@ -14,13 +14,13 @@ import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 
 class SmoothAlertDialog extends StatelessWidget {
   const SmoothAlertDialog(
-      {this.title, this.close = true, this.height, this.body, this.actions});
+      {this.title, this.close = true, this.height, required this.body, this.actions});
 
-  final String title;
+  final String? title;
   final bool close;
-  final double height;
+  final double? height;
   final Widget body;
-  final List<SmoothSimpleButton> actions;
+  final List<SmoothSimpleButton>? actions;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,7 @@ class SmoothAlertDialog extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: actions,
+            children: actions!,
           ),
         ),
       ],
@@ -67,7 +67,7 @@ class SmoothAlertDialog extends StatelessWidget {
               Container(
                 height: height,
                 child: Text(
-                  title,
+                  title!,
                   style: Theme.of(context).textTheme.headline2,
                 ),
               ),

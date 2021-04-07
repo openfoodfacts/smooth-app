@@ -11,8 +11,8 @@ class SmoothToggle extends StatefulWidget {
       this.textSize = 14.0,
       this.colorRight = Colors.red,
       this.colorLeft = Colors.green,
-      this.iconRight,
-      this.iconLeft,
+      required this.iconRight,
+      required this.iconLeft,
       this.animationDuration = const Duration(milliseconds: 320),
       this.onTap,
       this.onDoubleTap,
@@ -24,7 +24,7 @@ class SmoothToggle extends StatefulWidget {
   @required
   final bool value;
   @required
-  final Function(bool) onChanged;
+  final Function(bool?)? onChanged;
   final String textRight;
   final String textLeft;
   final Color colorRight;
@@ -33,9 +33,9 @@ class SmoothToggle extends StatefulWidget {
   final Duration animationDuration;
   final Widget iconRight;
   final Widget iconLeft;
-  final Function onTap;
-  final Function onDoubleTap;
-  final Function onSwipe;
+  final Function? onTap;
+  final Function? onDoubleTap;
+  final Function? onSwipe;
   final double width;
   final double height;
 
@@ -45,11 +45,11 @@ class SmoothToggle extends StatefulWidget {
 
 class _SmoothToggleState extends State<SmoothToggle>
     with SingleTickerProviderStateMixin {
-  AnimationController animationController;
-  Animation<double> animation;
+  late AnimationController animationController;
+  late Animation<double> animation;
   double value = 0.0;
 
-  bool turnState;
+  bool? turnState;
 
   @override
   void dispose() {
@@ -80,25 +80,25 @@ class _SmoothToggleState extends State<SmoothToggle>
   @override
   Widget build(BuildContext context) {
     final Color transitionColor =
-        Color.lerp(widget.colorRight, widget.colorLeft, value);
+        Color.lerp(widget.colorRight, widget.colorLeft, value)!;
 
     return GestureDetector(
       onDoubleTap: () {
         _action();
         if (widget.onDoubleTap != null) {
-          widget.onDoubleTap();
+          widget.onDoubleTap!();
         }
       },
       onTap: () {
         _action();
         if (widget.onTap != null) {
-          widget.onTap();
+          widget.onTap!();
         }
       },
       onPanEnd: (DragEndDetails details) {
         _action();
         if (widget.onSwipe != null) {
-          widget.onSwipe();
+          widget.onSwipe!();
         }
         //widget.onSwipe();
       },
@@ -166,7 +166,7 @@ class _SmoothToggleState extends State<SmoothToggle>
             Transform.translate(
               offset: Offset((widget.width - widget.height) * value, 0),
               child: Transform.rotate(
-                angle: lerpDouble(0, 2 * pi, value),
+                angle: lerpDouble(0, 2 * pi, value)!,
                 child: Container(
                   height: widget.height - 10,
                   width: widget.height - 10,
@@ -204,10 +204,10 @@ class _SmoothToggleState extends State<SmoothToggle>
   void _determine({bool changeState = false}) {
     setState(() {
       if (changeState) {
-        turnState = !turnState;
+        turnState = !turnState!;
       }
-      turnState ? animationController.forward() : animationController.reverse();
-      widget.onChanged(turnState);
+      turnState! ? animationController.forward() : animationController.reverse();
+      widget.onChanged!(turnState);
     });
   }
 }

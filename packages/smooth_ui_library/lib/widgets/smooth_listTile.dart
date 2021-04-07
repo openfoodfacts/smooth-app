@@ -9,14 +9,14 @@ class SmoothListTile extends StatelessWidget {
     this.title,
   });
 
-  final String text;
-  final Widget leadingWidget;
-  final Function onPressed;
-  final Widget title;
+  final String? text;
+  final Widget? leadingWidget;
+  final Function? onPressed;
+  final Widget? title;
 
   @override
   Widget build(BuildContext context) => GestureDetector(
-        onTap: () => onPressed != null ? onPressed() : null,
+        onTap: () => onPressed != null ? onPressed!() : null,
         child: Padding(
           padding: const EdgeInsets.fromLTRB(0, 5.0, 0, 5.0),
           child: Card(
@@ -37,18 +37,18 @@ class SmoothListTile extends StatelessWidget {
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
+                  (children: <Widget?>[
                     if (text != null)
                       Flexible(
                         child: Text(
-                          text,
+                          text!,
                           overflow: TextOverflow.fade,
                         ),
                       )
                     else
                       title,
                     _buildIcon(context),
-                  ],
+                  ]) as List<Widget>,
                 ),
               ),
             ),
@@ -56,7 +56,7 @@ class SmoothListTile extends StatelessWidget {
         ),
       );
 
-  Widget _buildIcon(BuildContext context) {
+  Widget? _buildIcon(BuildContext context) {
     if (leadingWidget == null) {
       return SvgPicture.asset(
         'assets/misc/right_arrow.svg',

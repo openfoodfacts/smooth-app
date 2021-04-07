@@ -5,21 +5,21 @@ typedef HasSameHeader = bool Function(int a, int b);
 
 class SmoothStickyListView extends StatefulWidget {
   const SmoothStickyListView({
-    Key key,
+    Key? key,
     this.itemCount,
-    @required this.itemExtend,
-    @required this.headerBuilder,
-    @required this.itemBuilder,
-    @required this.hasSameHeader,
+    required this.itemExtend,
+    required this.headerBuilder,
+    required this.itemBuilder,
+    required this.hasSameHeader,
     this.padding,
     this.headerPadding
   }) : super(key: key);
 
-  final int itemCount;
+  final int? itemCount;
   final IndexedWidgetBuilder headerBuilder;
   final IndexedWidgetBuilder itemBuilder;
-  final EdgeInsets padding;
-  final EdgeInsets headerPadding;
+  final EdgeInsets? padding;
+  final EdgeInsets? headerPadding;
   final HasSameHeader hasSameHeader;
   final double itemExtend;
 
@@ -79,7 +79,7 @@ class _SmoothStickyListViewState extends State<SmoothStickyListView> {
       return true;
     }
 
-    if (position != widget.itemCount - 1 &&
+    if (position != widget.itemCount! - 1 &&
         !widget.hasSameHeader(position, position + 1) &&
         position == currentPosition) {
       return true;
