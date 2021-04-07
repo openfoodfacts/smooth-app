@@ -322,8 +322,9 @@ class _HomePageState extends State<HomePage> {
       PreferenceImportance.ID_VERY_IMPORTANT: Colors.orange,
       PreferenceImportance.ID_MANDATORY: Colors.red,
     };
-
     final Function onTap = () => UserPreferencesView.showModal(context);
+    const int maxEntrys = 6;
+
     for (final String attributeId in orderedAttributeIds) {
       final Attribute attribute =
           productPreferences.getReferenceAttribute(attributeId);
@@ -357,6 +358,36 @@ class _HomePageState extends State<HomePage> {
         ),
       );
     }
+
+    Widget _getCards(List<Widget> attributes) {
+      final List<Widget> list = <Widget>[];
+
+      List<void>.generate(
+          maxEntrys, (int index) => list.add(attributes[index]));
+
+      if (attributes.length > list.length) {
+        list.add(
+          ElevatedButton(
+            onPressed: () => onTap(),
+            child: Text(
+              '+${attributes.length - maxEntrys}',
+            ),
+            style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(32.0),
+              ),
+            ),
+          ),
+        );
+      }
+
+      return Wrap(
+        direction: Axis.horizontal,
+        children: list,
+        spacing: 8.0,
+      );
+    }
+
     return GestureDetector(
       onTap: () => onTap(),
       child: SmoothCard(
@@ -379,11 +410,7 @@ class _HomePageState extends State<HomePage> {
                 style: Theme.of(context).textTheme.subtitle2,
               ),
             ),
-            Wrap(
-              direction: Axis.horizontal,
-              children: attributes,
-              spacing: 8.0,
-            ),
+            _getCards(attributes),
           ],
         ),
       ),
