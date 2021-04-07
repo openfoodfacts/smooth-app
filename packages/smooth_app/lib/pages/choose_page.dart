@@ -117,9 +117,11 @@ class _ChoosePageState extends State<ChoosePage> {
       onWillPop: _onWillPop,
       child: Scaffold(
         appBar: AppBar(
-          title: Text(_selectedCategory == null
-              ? AppLocalizations.of(context).categories
-              : _selectedCategory.name),
+          title: Text(
+            _selectedCategory == null
+                ? AppLocalizations.of(context).categories
+                : _selectedCategory.name,
+          ),
         ),
         body: Column(
           children: <Widget>[
