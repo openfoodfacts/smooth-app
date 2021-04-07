@@ -69,8 +69,8 @@ class PantryDialogHelper {
               TextFormField(
                 decoration: InputDecoration(
                   hintText: pantryType == PantryType.PANTRY
-                      ? AppLocalizations.of(context).my_pantry
-                      : AppLocalizations.of(context).my_shopping,
+                      ? AppLocalizations.of(context).my_pantry_hint
+                      : AppLocalizations.of(context).my_shopping_hint,
                 ),
                 validator: (final String value) {
                   if (value.isEmpty) {
@@ -160,8 +160,8 @@ class PantryDialogHelper {
                 initialValue: pantries[index].name,
                 decoration: InputDecoration(
                   hintText: pantries[index].pantryType == PantryType.PANTRY
-                      ? AppLocalizations.of(context).my_pantry
-                      : AppLocalizations.of(context).my_shopping,
+                      ? AppLocalizations.of(context).my_pantry_hint
+                      : AppLocalizations.of(context).my_shopping_hint,
                 ),
                 validator: (final String value) {
                   if (value.isEmpty) {

@@ -62,7 +62,7 @@ class ProductListDialogHelper {
             children: <Widget>[
               TextFormField(
                 decoration: InputDecoration(
-                  hintText: appLocalizations.my_list,
+                  hintText: appLocalizations.my_list_hint,
                 ),
                 validator: (final String value) {
                   if (value.isEmpty) {
@@ -146,7 +146,7 @@ class ProductListDialogHelper {
               TextFormField(
                 initialValue: productList.parameters,
                 decoration: InputDecoration(
-                  hintText: appLocalizations.my_list,
+                  hintText: appLocalizations.my_list_hint,
                 ),
                 validator: (final String value) {
                   if (value.isEmpty) {

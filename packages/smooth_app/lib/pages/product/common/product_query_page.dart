@@ -328,7 +328,8 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
       return;
     }
     final String lastTime =
-        ProductQueryPageHelper.getDurationStringFromTimestamp(_lastUpdate);
+        ProductQueryPageHelper.getDurationStringFromTimestamp(
+            _lastUpdate, context);
     _lastUpdate = null;
     final String message =
         '${AppLocalizations.of(context).cached_results_from}: $lastTime.';

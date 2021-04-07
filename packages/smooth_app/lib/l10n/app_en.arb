@@ -160,12 +160,12 @@
     "@rename_shopping": {},
     "rename_list": "Rename list",
     "@rename_list": {},
-    "my_pantry" : "My own pantry",
-    "@my_pantry": {},
-    "my_shopping" : "My shopping list",
-    "@my_shopping" : {},
-    "my_list": "My custom list",
-    "@my_list": {},
+    "my_pantry_hint" : "My own pantry",
+    "@my_pantry_hint": {},
+    "my_shopping_hint" : "My shopping list",
+    "@my_shopping_hint" : {},
+    "my_list_hint": "My custom list",
+    "@my_list_hint": {},
     "enter_text": "Please enter some text",
     "@enter_text": {},
     "pantry_name_taken" : "There's already a pantry with that name",
@@ -243,7 +243,36 @@
     "cached_results_from": "Cached results from",
     "@chached_results_from": {
         "description": "Chached results from: 4 Month Ago (no need for ':')"
-    }
+    },
+
+    "ago_less_1_minute": "less than 1 minute ago",
+    "ago_1_minute": "1 minute ago",
+    "ago_x_minutes": "minutes ago",
+    "ago_1_hour": "1 hour ago",
+    "ago_x_hours": "hours ago",
+    "ago_1_day": "one day ago",
+    "ago_x_days": "days ago",
+    "ago_1_week": "1 week ago",
+    "ago_x_weeks": "weeks ago",
+    "ago_1_month": "1 month ago",
+    "ago_x_months": "months ago",
+
+    "keyword_search": "(keyword search)",
+    "category_search": "(category search)",
+    "my_list": "(my list)",
+    "scan": "Scan",
+    "recently_seen_products": "My recently seen products",
+    "unknown_product_list" : "Unknown product list:",
+    "not_found": "not found:",
+    "no_product": "no product",
+    "one_product": "1 product",
+    "x_products": "products"
+
+
+
+
+
+
 
 
 
