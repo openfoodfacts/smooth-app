@@ -124,7 +124,7 @@ class UserContributionView extends StatelessWidget {
                 Navigator.of(context, rootNavigator: true).pop('dialog');
               },
               text: '${AppLocalizations.of(context).okay}',
-              width: 100,
+              minWidth: 100,
             ),
           ],
         );
@@ -183,7 +183,7 @@ class UserContributionView extends StatelessWidget {
             SmoothSimpleButton(
               onPressed: () => Navigator.pop(context),
               text: AppLocalizations.of(context).okay,
-              width: 100,
+              minWidth: 100,
             ),
           ],
         );
@@ -212,7 +212,7 @@ class UserContributionView extends StatelessWidget {
               onPressed: () => launcher.launchURL(
                   context, 'https://translate.openfoodfacts.org/', false),
               text: AppLocalizations.of(context).contribute_translate_link_text,
-              width: 200,
+              minWidth: 200,
             ),
           ],
         );
@@ -237,7 +237,7 @@ class UserContributionView extends StatelessWidget {
               text: AppLocalizations.of(context).okay,
               onPressed: () =>
                   Navigator.of(context, rootNavigator: true).pop('dialog'),
-              width: 150,
+              minWidth: 150,
             )
           ],
         );

@@ -200,7 +200,7 @@ class ProfilePage extends StatelessWidget {
                           showLicensePage(context: context);
                         },
                         text: appLocalizations.licenses,
-                        width: 100,
+                        minWidth: 100,
                       ),
                       SmoothSimpleButton(
                         onPressed: () {
@@ -208,7 +208,7 @@ class ProfilePage extends StatelessWidget {
                               .pop('dialog');
                         },
                         text: appLocalizations.okay,
-                        width: 100,
+                        minWidth: 100,
                       ),
                     ],
                   );
