@@ -284,19 +284,10 @@
     "scan_choose": "CHOOSE",
     "@scan_choose": {
         "description": "Switch on top of the Scanner to choose between to scan or add products"
-    }
+    },
 
-
-
-
-
-
-
-
-
-
-
-
-  
+    "reloaded_with_new_preferences": "Reloaded with new preferences",
+    "no_product_in_section": "There is no product in this section",
+    "what_are_you_looking_for": "What are you looking for?"
 
 }
