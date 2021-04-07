@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
 
 typedef HasSameHeader = bool Function(int a, int b);
 
 class SmoothStickyListView extends StatefulWidget {
-  const SmoothStickyListView({
-    Key? key,
-    this.itemCount,
-    required this.itemExtend,
-    required this.headerBuilder,
-    required this.itemBuilder,
-    required this.hasSameHeader,
-    this.padding,
-    this.headerPadding
-  }) : super(key: key);
+  const SmoothStickyListView(
+      {Key? key,
+      this.itemCount,
+      required this.itemExtend,
+      required this.headerBuilder,
+      required this.itemBuilder,
+      required this.hasSameHeader,
+      this.padding,
+      this.headerPadding})
+      : super(key: key);
 
   final int? itemCount;
   final IndexedWidgetBuilder headerBuilder;

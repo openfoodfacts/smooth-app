@@ -37,7 +37,7 @@ class SmoothListTile extends StatelessWidget {
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  (children: <Widget?>[
+                  children: <Widget>[
                     if (text != null)
                       Flexible(
                         child: Text(
@@ -46,9 +46,9 @@ class SmoothListTile extends StatelessWidget {
                         ),
                       )
                     else
-                      title,
+                      title ?? Container(),
                     _buildIcon(context),
-                  ]) as List<Widget>,
+                  ],
                 ),
               ),
             ),
@@ -56,14 +56,11 @@ class SmoothListTile extends StatelessWidget {
         ),
       );
 
-  Widget? _buildIcon(BuildContext context) {
-    if (leadingWidget == null) {
-      return SvgPicture.asset(
-        'assets/misc/right_arrow.svg',
-        color: Theme.of(context).colorScheme.onSurface,
-      );
-    } else {
-      return leadingWidget;
-    }
+  Widget _buildIcon(BuildContext context) {
+    return leadingWidget ??
+        SvgPicture.asset(
+          'assets/misc/right_arrow.svg',
+          color: Theme.of(context).colorScheme.onSurface,
+        );
   }
 }
