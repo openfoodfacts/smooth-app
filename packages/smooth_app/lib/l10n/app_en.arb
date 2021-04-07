@@ -7,6 +7,8 @@
     "@searchHintText": {},
     "categories": "Categories",
     "@categories": {},
+    "category": "Category",
+    "@category": {},
     "showAll": "Show all",
     "@showAll": {},
     "scanProductTitle": "Scan products",
@@ -90,5 +92,9 @@
     "darkmode": "Darkmode",
     "@darkmode": {},
     "settingsTitle": "Settings",
-    "@settingsTitle": {}
+    "@settingsTitle": {},
+    "reset": "Reset",
+    "@reset": {}
+
+
 }
