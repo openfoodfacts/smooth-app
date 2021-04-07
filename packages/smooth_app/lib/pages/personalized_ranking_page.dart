@@ -84,7 +84,10 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
           children: <Widget>[
             Flexible(
               child: Text(
-                ProductQueryPageHelper.getProductListLabel(widget.productList),
+                ProductQueryPageHelper.getProductListLabel(
+                  widget.productList,
+                  context,
+                ),
                 overflow: TextOverflow.fade,
               ),
             ),

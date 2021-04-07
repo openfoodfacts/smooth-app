@@ -25,6 +25,7 @@ class ProductListButton extends StatelessWidget {
       label: Text(
         ProductQueryPageHelper.getProductListLabel(
           productList,
+          context,
           verbose: false,
         ),
         style: TextStyle(

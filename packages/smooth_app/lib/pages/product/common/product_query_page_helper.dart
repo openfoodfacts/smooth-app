@@ -103,10 +103,9 @@ class ProductQueryPageHelper {
       productList.listType == ProductList.LIST_TYPE_SCAN;
 
   static String getProductListLabel(
-    final ProductList productList, {
-    final bool verbose = true,
-    final AppLocalizations appLocalizations,
-  }) {
+      final ProductList productList, final BuildContext context,
+      {final bool verbose = true}) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     switch (productList.listType) {
       case ProductList.LIST_TYPE_HTTP_SEARCH_GROUP:
         return '${_getGroupName(productList.parameters, appLocalizations)}${verbose ? ' ${appLocalizations.category_search}' : ''}';

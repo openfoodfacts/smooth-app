@@ -151,8 +151,11 @@ class _ProductListPageState extends State<ProductListPage> {
             const SizedBox(width: 8.0),
             Flexible(
               child: Text(
-                ProductQueryPageHelper.getProductListLabel(productList,
-                    verbose: false),
+                ProductQueryPageHelper.getProductListLabel(
+                  productList,
+                  context,
+                  verbose: false,
+                ),
                 overflow: TextOverflow.fade,
               ),
             ),

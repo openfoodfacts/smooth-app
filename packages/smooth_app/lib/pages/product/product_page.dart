@@ -132,7 +132,10 @@ class ProductPage extends StatefulWidget {
                 return Card(
                   child: ListTile(
                     title: Text(
-                      ProductQueryPageHelper.getProductListLabel(productList),
+                      ProductQueryPageHelper.getProductListLabel(
+                        productList,
+                        context,
+                      ),
                     ),
                     trailing: iconData == null
                         ? null

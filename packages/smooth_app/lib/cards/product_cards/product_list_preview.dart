@@ -38,7 +38,7 @@ class ProductListPreview extends StatelessWidget {
           final AsyncSnapshot<List<Product>> snapshot,
         ) {
           final String title =
-              ProductQueryPageHelper.getProductListLabel(productList);
+              ProductQueryPageHelper.getProductListLabel(productList, context);
           if (snapshot.connectionState == ConnectionState.done) {
             final List<Product> list = snapshot.data;
 
