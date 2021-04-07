@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
 
@@ -29,14 +30,6 @@ class PantryPage extends StatelessWidget {
   final PantryType pantryType;
 
   static const String _EMPTY_DATE = '';
-  static const String _TRANSLATE_ME_RENAME = 'Rename';
-  static const String _TRANSLATE_ME_DELETE = 'Delete';
-  static const String _TRANSLATE_ME_CHANGE = 'Change icon';
-  static const String _TRANSLATE_ME_PASTE = 'paste';
-  static const String _TRANSLATE_ME_CLEAR = 'clear';
-  static const String _TRANSLATE_ME_GROCERY = 'grocery';
-  static const String _TRANSLATE_ME_ANOTHER_DATE = 'Add another date';
-  static const String _TRANSLATE_ME_NO_DATE = 'No date';
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +39,7 @@ class PantryPage extends StatelessWidget {
     final DaoProductList daoProductList = DaoProductList(localDatabase);
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
     const TextStyle textStyle = TextStyle(fontSize: 16);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     if (index >= pantries.length) {
       return const CircularProgressIndicator();
     }
@@ -55,14 +49,15 @@ class PantryPage extends StatelessWidget {
       bottomNavigationBar: Builder(
         builder: (BuildContext context) => BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          items: const <BottomNavigationBarItem>[
+          items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-                icon: Icon(Icons.paste), label: _TRANSLATE_ME_PASTE),
+                icon: const Icon(Icons.paste), label: appLocalizations.paste),
             BottomNavigationBarItem(
-                icon: Icon(Icons.highlight_remove), label: _TRANSLATE_ME_CLEAR),
+                icon: const Icon(Icons.highlight_remove),
+                label: appLocalizations.clear),
             BottomNavigationBarItem(
-                icon: Icon(Icons.local_grocery_store),
-                label: _TRANSLATE_ME_GROCERY),
+                icon: const Icon(Icons.local_grocery_store),
+                label: appLocalizations.grocery),
           ],
           onTap: (final int index) async {
             if (index == 0) {
@@ -99,19 +94,19 @@ class PantryPage extends StatelessWidget {
           PopupMenuButton<String>(
             itemBuilder: (final BuildContext context) =>
                 <PopupMenuEntry<String>>[
-              const PopupMenuItem<String>(
+              PopupMenuItem<String>(
                 value: 'rename',
-                child: Text(_TRANSLATE_ME_RENAME),
+                child: Text(appLocalizations.rename),
                 enabled: true,
               ),
-              const PopupMenuItem<String>(
+              PopupMenuItem<String>(
                 value: 'change',
-                child: Text(_TRANSLATE_ME_CHANGE),
+                child: Text(appLocalizations.change_icon),
                 enabled: true,
               ),
-              const PopupMenuItem<String>(
+              PopupMenuItem<String>(
                 value: 'delete',
-                child: Text(_TRANSLATE_ME_DELETE),
+                child: Text(appLocalizations.delete),
                 enabled: true,
               ),
             ],
@@ -260,6 +255,7 @@ class PantryPage extends StatelessWidget {
     @required final String now,
     @required final TextStyle textStyle,
     @required final Map<String, int> dates,
+    @required final BuildContext context,
   }) =>
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -285,7 +281,7 @@ class PantryPage extends StatelessWidget {
             ],
           ),
           Text(
-            day != _EMPTY_DATE ? day : _TRANSLATE_ME_NO_DATE,
+            day != _EMPTY_DATE ? day : AppLocalizations.of(context).no_date,
             style: textStyle,
           ),
           Container(
@@ -324,6 +320,7 @@ class PantryPage extends StatelessWidget {
           pantry: pantry,
           textStyle: textStyle,
           userPreferences: userPreferences,
+          context: context,
         ),
       );
     }
@@ -343,14 +340,14 @@ class PantryPage extends StatelessWidget {
         pantry.increaseItem(barcode, date, 1);
         await _save(userPreferences);
       },
-      child: Text(_TRANSLATE_ME_ANOTHER_DATE, style: textStyle),
+      child: Text(AppLocalizations.of(context).add_date, style: textStyle),
     );
     final Widget noDateButton = ElevatedButton(
       onPressed: () async {
         pantry.increaseItem(barcode, _EMPTY_DATE, 1);
         await _save(userPreferences);
       },
-      child: Text(_TRANSLATE_ME_NO_DATE, style: textStyle),
+      child: Text(AppLocalizations.of(context).no_date, style: textStyle),
     );
     children.add(
       ListTile(

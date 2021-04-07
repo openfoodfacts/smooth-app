@@ -108,5 +108,22 @@
     "searching" : "Searching...",
     "@searching" : {},
     "empty_list" : "Empty list",
-    "@empty_list" : {}
+    "@empty_list" : {},
+    
+    "rename" : "Rename",
+    "@rename": {},
+    "delete" : "Delete",
+    "@delete" : {},
+    "change_icon" : "Change icon",
+    "@change_icon" : {},
+    "paste" : "paste",
+    "@paste" : {},
+    "clear" : "glear",
+    "@clear" : {},
+    "grocery" : "grocery",
+    "@grocery" : {},
+    "add_date" : "Add another date",
+    "@add_date" : {},
+    "no_date" : "No date",
+    "@no_date": {}
 }
