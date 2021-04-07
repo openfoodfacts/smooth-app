@@ -111,7 +111,7 @@
     "@add" : {},
     "nutri_score_unavailable" : "Nutri-score unavailable",
     "@nutri_score_unavailable" : {},
-    "missing_picture" : "Missing ${field.value} picture",
+    "missing_picture" : "Missing picture",
     "@missing_picture" : {},
     "searching" : "Searching...",
     "@searching" : {},
@@ -221,14 +221,14 @@
     "refreshing_product": "Refreshing product",
     "@refreshing_product": {},
 
-    "looking_for" : "Looking for $barcode",
+    "looking_for" : "Looking for",
     "@looking_for" : {},
     "could_not_refresh": "Could not refresh product",
     "@could_not_refresh": {},
-    "no_product_found": "No product found with matching barcode : $barcode",
+    "no_product_found": "No product found with matching barcode",
     "@no_product_found": {},
 
-    "products_pasted": "$pasted products pasted",
+    "products_pasted": "products pasted",
     "@products_pasted": {},
     "no_prodcut_in_list": "There is no product in this list",
     "@no_product_in_list": {}

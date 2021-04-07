@@ -129,7 +129,7 @@ class SmoothProductCardEdit extends StatelessWidget {
             ),
             child: Center(
               child: Text(
-                AppLocalizations.of(context).missing_picture,
+                '${AppLocalizations.of(context).missing_picture}: ${field.value}',
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.subtitle1,
               ),

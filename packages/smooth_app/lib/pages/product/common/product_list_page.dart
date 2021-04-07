@@ -99,7 +99,7 @@ class _ProductListPageState extends State<ProductListPage> {
               localDatabase.notifyListeners();
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  content: Text(appLocalizations.products_pasted),
+                  content: Text('$pasted ${appLocalizations.products_pasted}'),
                   duration: const Duration(seconds: 2),
                 ),
               );

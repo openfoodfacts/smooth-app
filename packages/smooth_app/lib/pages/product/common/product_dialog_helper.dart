@@ -75,7 +75,7 @@ class ProductDialogHelper {
           title: Text(
             refresh
                 ? AppLocalizations.of(context).refreshing_product
-                : AppLocalizations.of(context).looking_for,
+                : '${AppLocalizations.of(context).looking_for}: $barcode',
           ),
         ),
         actions: <SmoothSimpleButton>[
@@ -95,7 +95,7 @@ class ProductDialogHelper {
             body: Text(
               refresh
                   ? AppLocalizations.of(context).could_not_refresh
-                  : AppLocalizations.of(context).no_product_found,
+                  : '${AppLocalizations.of(context).no_product_found}: $barcode',
             ),
             actions: <SmoothSimpleButton>[
               SmoothSimpleButton(
