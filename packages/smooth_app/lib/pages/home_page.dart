@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
@@ -322,8 +323,39 @@ class _HomePageState extends State<HomePage> {
       PreferenceImportance.ID_VERY_IMPORTANT: Colors.orange,
       PreferenceImportance.ID_MANDATORY: Colors.red,
     };
-
     final Function onTap = () => UserPreferencesView.showModal(context);
+    const int MAX_DISPLAYED_ATTRIBUTE_ENTRIES = 6;
+
+    Widget buildChip(String text, String importance) {
+      return ElevatedButton(
+        onPressed: () => onTap(),
+        child: Text(
+          text,
+          style: importance == null
+              ? null
+              : TextStyle(
+                  color: SmoothTheme.getColor(
+                    Theme.of(context).colorScheme,
+                    colors[importance],
+                    ColorDestination.BUTTON_FOREGROUND,
+                  ),
+                ),
+        ),
+        style: ElevatedButton.styleFrom(
+          primary: importance == null
+              ? null
+              : SmoothTheme.getColor(
+                  Theme.of(context).colorScheme,
+                  colors[importance],
+                  ColorDestination.BUTTON_BACKGROUND,
+                ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(32.0),
+          ),
+        ),
+      );
+    }
+
     for (final String attributeId in orderedAttributeIds) {
       final Attribute attribute =
           productPreferences.getReferenceAttribute(attributeId);
@@ -332,31 +364,31 @@ class _HomePageState extends State<HomePage> {
       final PreferenceImportance importance = productPreferences
           .getPreferenceImportanceFromImportanceId(importanceId);
       attributes.add(
-        ElevatedButton(
-          onPressed: () => onTap(),
-          child: Text(
-            attribute.name,
-            style: TextStyle(
-              color: SmoothTheme.getColor(
-                Theme.of(context).colorScheme,
-                colors[importance.id],
-                ColorDestination.BUTTON_FOREGROUND,
-              ),
-            ),
-          ),
-          style: ElevatedButton.styleFrom(
-            primary: SmoothTheme.getColor(
-              Theme.of(context).colorScheme,
-              colors[importance.id],
-              ColorDestination.BUTTON_BACKGROUND,
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(32.0),
-            ),
-          ),
-        ),
+        buildChip(attribute.name, importance.id),
       );
     }
+
+    Widget _getCards(List<Widget> attributes) {
+      final List<Widget> list = <Widget>[];
+
+      List<void>.generate(
+          MAX_DISPLAYED_ATTRIBUTE_ENTRIES < attributes.length
+              ? MAX_DISPLAYED_ATTRIBUTE_ENTRIES
+              : attributes.length,
+          (int index) => list.add(attributes[index]));
+
+      if (attributes.length > list.length) {
+        list.add(buildChip(
+            '+${attributes.length - MAX_DISPLAYED_ATTRIBUTE_ENTRIES}', null));
+      }
+
+      return Wrap(
+        direction: Axis.horizontal,
+        children: list,
+        spacing: 8.0,
+      );
+    }
+
     return GestureDetector(
       onTap: () => onTap(),
       child: SmoothCard(
@@ -379,11 +411,7 @@ class _HomePageState extends State<HomePage> {
                 style: Theme.of(context).textTheme.subtitle2,
               ),
             ),
-            Wrap(
-              direction: Axis.horizontal,
-              children: attributes,
-              spacing: 8.0,
-            ),
+            _getCards(attributes),
           ],
         ),
       ),
