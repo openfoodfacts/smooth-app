@@ -33,7 +33,7 @@ class SmoothProductCardNotFound extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text('This product is missing'),
+            Text(AppLocalizations.of(context).missing_product),
             const SizedBox(
               height: 12.0,
             ),
@@ -46,16 +46,17 @@ class SmoothProductCardNotFound extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 SmoothSimpleButton(
-                  text: 'Add',
+                  text: AppLocalizations.of(context).add,
                   width: 100.0,
                   onPressed: () {
                     Navigator.push<Widget>(
                       context,
                       MaterialPageRoute<Widget>(
-                          builder: (BuildContext context) => ProductPage(
-                                product: product,
-                                newProduct: true,
-                              )),
+                        builder: (BuildContext context) => ProductPage(
+                          product: product,
+                          newProduct: true,
+                        ),
+                      ),
                     );
                     callback();
                   },

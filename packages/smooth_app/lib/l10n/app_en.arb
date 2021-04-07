@@ -94,7 +94,19 @@
     "settingsTitle": "Settings",
     "@settingsTitle": {},
     "reset": "Reset",
-    "@reset": {}
-
-
+    "@reset": {},
+    "added_product_thanks" : "Thank you for adding this product !",
+    "@added_product_thanks" : {},    
+    "missing_product" : "This product is missing",
+    "@missing_product" : {},
+    "add" : "Add",
+    "@add" : {},
+    "nutri_score_unavailable" : "Nutri-score unavailable",
+    "@nutri_score_unavailable" : {},
+    "missing_picture" : "Missing ${field.value} picture",
+    "@missing_picture" : {},
+    "searching" : "Searching...",
+    "@searching" : {},
+    "empty_list" : "Empty list",
+    "@empty_list" : {}
 }

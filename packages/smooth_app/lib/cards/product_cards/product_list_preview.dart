@@ -24,8 +24,6 @@ class ProductListPreview extends StatelessWidget {
   final ProductList productList;
   final int nbInPreview;
 
-  static const String _TRANSLATE_ME_SEARCHING = 'Searching...';
-
   @override
   Widget build(BuildContext context) => FutureBuilder<List<Product>>(
         future: daoProductList.getFirstProducts(
@@ -46,7 +44,7 @@ class ProductListPreview extends StatelessWidget {
             String subtitle;
             final double iconSize = MediaQuery.of(context).size.width / 6;
             if (list == null || list.isEmpty) {
-              subtitle = 'Empty list';
+              subtitle = AppLocalization.of(context).empty_list;
             }
             return SmoothCard(
               insets: const EdgeInsets.all(1.0),
@@ -96,7 +94,7 @@ class ProductListPreview extends StatelessWidget {
               leading: const CircularProgressIndicator(),
               subtitle: Text(title),
               title: Text(
-                _TRANSLATE_ME_SEARCHING,
+                AppLocalizations.of(context).searching,
                 style: Theme.of(context).textTheme.subtitle2,
               ),
             ),

@@ -30,7 +30,7 @@ class PantryPreview extends StatelessWidget {
     String subtitle;
     final double iconSize = MediaQuery.of(context).size.width / 6;
     if (list == null || list.isEmpty) {
-      subtitle = 'Empty list';
+      subtitle = AppLocalizations.of(context).empty_list;
     }
     return Card(
       color: SmoothTheme.getColor(
