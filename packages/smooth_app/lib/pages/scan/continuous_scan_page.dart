@@ -92,7 +92,9 @@ class ContinuousScanPage extends StatelessWidget {
                       child: Column(
                         children: <Widget>[
                           ScanPage.getContributeChooseToggle(
-                              _continuousScanModel),
+                            _continuousScanModel,
+                            context,
+                          ),
                         ],
                       ),
                     ),

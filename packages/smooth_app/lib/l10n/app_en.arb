@@ -266,7 +266,16 @@
     "not_found": "not found:",
     "no_product": "no product",
     "one_product": "1 product",
-    "x_products": "products"
+    "x_products": "products",
+
+    "scan_contribute": "CONTRIBUTE",
+    "@scan_contribute" : {
+        "description": "Switch on top of the Scanner to choose between to scan or add products"
+    },
+    "scan_choose": "CHOOSE",
+    "@scan_choose": {
+        "description": "Switch on top of the Scanner to choose between to scan or add products"
+    }
 
 
 

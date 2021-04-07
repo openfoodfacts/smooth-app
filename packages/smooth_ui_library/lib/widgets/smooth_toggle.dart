@@ -123,8 +123,7 @@ class _SmoothToggleState extends State<SmoothToggle>
                     child: FittedBox(
                       fit: BoxFit.fitWidth,
                       child: Text(
-                        //widget.textRight,
-                        'Text right',
+                        widget.textRight,
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
