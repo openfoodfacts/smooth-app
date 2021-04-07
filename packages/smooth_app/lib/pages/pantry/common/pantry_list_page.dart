@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_ui_library/widgets/smooth_card.dart';
 
@@ -23,12 +24,13 @@ class PantryListPage extends StatefulWidget {
   @override
   _PantryListPageState createState() => _PantryListPageState();
 
-  static String getCreateListLabel(final PantryType pantryType) {
+  static String getCreateListLabel(
+      final PantryType pantryType, BuildContext context) {
     switch (pantryType) {
       case PantryType.PANTRY:
-        return 'Create a pantry';
+        return AppLocalizations.of(context).new_pantry;
       case PantryType.SHOPPING:
-        return 'Create a shopping list';
+        return AppLocalizations.of(context).new_shopping;
     }
     throw Exception('unknow pantry type $pantryType');
   }
@@ -101,7 +103,7 @@ class _PantryListPageState extends State<PantryListPage> {
           leading: Icon(Icons.add, size: iconSize),
           onTap: () async => await _add(userPreferences),
           title: Text(
-            PantryListPage.getCreateListLabel(widget.pantryType),
+            PantryListPage.getCreateListLabel(widget.pantryType, context),
             style: themeData.textTheme.headline3,
           ),
         ),

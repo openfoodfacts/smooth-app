@@ -420,7 +420,7 @@ class _HomePageState extends State<HomePage> {
                 icon: const Icon(Icons.add),
                 label: Flexible(
                   child: Text(
-                    PantryListPage.getCreateListLabel(pantryType),
+                    PantryListPage.getCreateListLabel(pantryType, context),
                     overflow: TextOverflow.fade,
                   ),
                 ),
