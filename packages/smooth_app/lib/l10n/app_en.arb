@@ -157,7 +157,51 @@
     "shopping_name_taken": "There's already a shopping list with that name",
     "@shopping_name_taken": {},
     "already_same": "That's the same name!",
-    "@already_same": {}
+    "@already_same": {},
+    
+    "label_preferences": "preferences",
+    "@label_preferences": {},
+    "label_lists" : "lists",
+    "@label_lists": {},
+    "label_web": "Web",
+    "@label_web": {},
+    "label_refresh": "refresh",
+    "@label_refresh": {
+        "description": "Refresh the cached product"
+    },
+    "label_share": "share",
+    "@label_share": {},
+    
+    "product_refreshed": "Product refreshed",
+    "@product_refreshed" : {},
+
+    "product": "Product",
+    "@product": {},
+    "ingredients": "Ingredients",
+    "@ingredients":{},
+    "nutrition": "Nutrition",
+    "@nutrition": {},
+    "packaging_information" : "Packaging information",
+    "@packaging_information": {},
+    "more_photos": "More photos",
+    "@more_photos": {},
+
+    "front_photo": "Front photo",
+    "@front_photo": {},
+    "ingredients_photo": "Ingredients photo",
+    "@ingredients_photo": {},
+    "nutrition_facts_photo" : "Nutrition facts photo",
+    "@nutrition_facts_photo": {},
+    "packaging_information_photo": "Packaging information photo",
+    "@packaging_information_photo": {},
+    "more_photos": "More interesting photos",
+    "@more_photos": {},
+
+    "add_product" : "Add a new product",
+    "@add_product": {},
+    "similar_food": "Similar foods",
+    "@similar_foods": {}
+
 
 
 
