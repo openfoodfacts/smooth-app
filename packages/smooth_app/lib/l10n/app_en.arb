@@ -103,6 +103,8 @@
     "@settingsTitle": {},
     "reset": "Reset",
     "@reset": {},
+    "filter": "Filter",
+    "@filter": {},
     "added_product_thanks" : "Thank you for adding this product !",
     "@added_product_thanks" : {},    
     "missing_product" : "This product is missing",
@@ -225,19 +227,29 @@
     "@looking_for" : {},
     "could_not_refresh": "Could not refresh product",
     "@could_not_refresh": {},
-    "no_product_found": "No product found with matching barcode",
+    "no_product_found": "No product with matching barcode found ",
     "@no_product_found": {},
 
     "products_pasted": "products pasted",
     "@products_pasted": {},
     "no_prodcut_in_list": "There is no product in this list",
-    "@no_product_in_list": {}
+    "@no_product_in_list": {},
+    "no_product_found": "No product found",
+    "@no_product_found": {},
+
+    "error_occurred": "An error occurred",
+    "@error_occurred": {},
+
+    "cached_results_from": "Cached results from",
+    "@chached_results_from": {
+        "description": "Chached results from: 4 Month Ago (no need for ':')"
+    }
 
 
 
-     
 
 
 
+  
 
 }
