@@ -45,6 +45,10 @@
     "@undo" : {},
     "cancel": "Cancel",
     "@cancel" : {},
+    "stop": "Stop",
+    "@stop": {},
+    "close": "Close",
+    "@close": {},
     "unknownBrand": "Unknown brand",
     "@unknownBrand": {},
     "unknownProductName": "Unknown product name",
@@ -200,7 +204,20 @@
     "add_product" : "Add a new product",
     "@add_product": {},
     "similar_food": "Similar foods",
-    "@similar_foods": {}
+    "@similar_foods": {},
+
+    "refreshing_product": "Refreshing product",
+    "@refreshing_product": {},
+
+    "looking_for" : "Looking for $barcode",
+    "@looking_for" : {},
+    "could_not_refresh": "Could not refresh product",
+    "@could_not_refresh": {},
+    "no_product_found": "No product found with matching barcode : $barcode",
+    "@no_product_found": {}
+
+
+     
 
 
 
