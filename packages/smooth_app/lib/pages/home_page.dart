@@ -20,6 +20,7 @@ import 'package:smooth_app/pages/product/common/product_list_button.dart';
 import 'package:smooth_app/pages/product/common/product_list_dialog_helper.dart';
 import 'package:smooth_app/pages/settings_page.dart';
 import 'package:smooth_app/pages/scan/scan_page.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
@@ -32,11 +33,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  static const String _TRANSLATE_ME_SEARCHING = 'Searching...';
-  static const String _TRANSLATE_ME_PANTRIES = 'My pantries';
-  static const String _TRANSLATE_ME_SHOPPINGS = 'My shopping lists';
-  static const String _TRANSLATE_ME_EMPTY = 'Empty!';
-
   static const ColorDestination _COLOR_DESTINATION_FOR_ICON =
       ColorDestination.SURFACE_FOREGROUND;
 
@@ -53,6 +49,7 @@ class _HomePageState extends State<HomePage> {
     _daoProduct = DaoProduct(localDatabase);
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Color notYetColor = SmoothTheme.getColor(
       colorScheme,
       Colors.grey,
@@ -96,7 +93,7 @@ class _HomePageState extends State<HomePage> {
           ),
           _getProductListCard(
             <String>[ProductList.LIST_TYPE_USER_DEFINED],
-            'My lists',
+            appLocalizations.my_lists,
             Icon(
               Icons.list,
               color: SmoothTheme.getColor(
@@ -105,13 +102,27 @@ class _HomePageState extends State<HomePage> {
                 _COLOR_DESTINATION_FOR_ICON,
               ),
             ),
+            AppLocalizations.of(context),
           ),
           //My pantries
-          _getPantryCard(userPreferences, _daoProduct, PantryType.PANTRY),
+          _getPantryCard(
+            userPreferences,
+            _daoProduct,
+            PantryType.PANTRY,
+            AppLocalizations.of(context),
+          ),
           //My shopping lists
-          _getPantryCard(userPreferences, _daoProduct, PantryType.SHOPPING),
+          _getPantryCard(
+            userPreferences,
+            _daoProduct,
+            PantryType.SHOPPING,
+            AppLocalizations.of(context),
+          ),
           //Food ranking parameters
-          _getRankingPreferences(productPreferences),
+          _getRankingPreferences(
+            productPreferences,
+            AppLocalizations.of(context),
+          ),
           //Recently seen products
           ProductListPreview(
             daoProductList: _daoProductList,
@@ -133,7 +144,7 @@ class _HomePageState extends State<HomePage> {
                     _COLOR_DESTINATION_FOR_ICON,
                   ),
                 ),
-                title: Text('Food category search',
+                title: Text(appLocalizations.food_categorys,
                     style: Theme.of(context).textTheme.subtitle2),
                 subtitle: Text(
                   '${PnnsGroup1.BEVERAGES.name}'
@@ -161,7 +172,7 @@ class _HomePageState extends State<HomePage> {
               ProductList.LIST_TYPE_HTTP_SEARCH_KEYWORDS,
               ProductList.LIST_TYPE_HTTP_SEARCH_CATEGORY,
             ],
-            'Search history',
+            appLocalizations.search_history,
             Icon(
               Icons.youtube_searched_for,
               color: SmoothTheme.getColor(
@@ -170,6 +181,7 @@ class _HomePageState extends State<HomePage> {
                 _COLOR_DESTINATION_FOR_ICON,
               ),
             ),
+            AppLocalizations.of(context),
           ),
           //Score
           SmoothCard(
@@ -218,11 +230,8 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _getProductListCard(
-    final List<String> typeFilter,
-    final String title,
-    final Icon leadingIcon,
-  ) =>
+  Widget _getProductListCard(final List<String> typeFilter, final String title,
+          final Icon leadingIcon, final AppLocalizations appLocalizations) =>
       FutureBuilder<List<ProductList>>(
         future: _daoProductList.getAll(
           limit: 5,
@@ -268,7 +277,7 @@ class _HomePageState extends State<HomePage> {
               );
             } else {
               if (cards.isEmpty) {
-                cards.add(const Text(_TRANSLATE_ME_EMPTY));
+                cards.add(Text(appLocalizations.empty));
               }
             }
             return SmoothCard(
@@ -305,7 +314,7 @@ class _HomePageState extends State<HomePage> {
               leading: const CircularProgressIndicator(),
               title: Text(title),
               subtitle: Text(
-                _TRANSLATE_ME_SEARCHING,
+                appLocalizations.searching,
                 style: Theme.of(context).textTheme.subtitle2,
               ),
             ),
@@ -313,7 +322,8 @@ class _HomePageState extends State<HomePage> {
         },
       );
 
-  Widget _getRankingPreferences(final ProductPreferences productPreferences) {
+  Widget _getRankingPreferences(final ProductPreferences productPreferences,
+      final AppLocalizations appLocalizations) {
     final List<String> orderedAttributeIds =
         productPreferences.getOrderedImportantAttributeIds();
     final List<Widget> attributes = <Widget>[];
@@ -371,9 +381,7 @@ class _HomePageState extends State<HomePage> {
                   _COLOR_DESTINATION_FOR_ICON,
                 ),
               ),
-              subtitle: attributes.isEmpty
-                  ? const Text('Nothing set for the moment')
-                  : null,
+              subtitle: attributes.isEmpty ? Text(appLocalizations.no) : null,
               title: Text(
                 'Food ranking parameters',
                 style: Theme.of(context).textTheme.subtitle2,
@@ -394,6 +402,7 @@ class _HomePageState extends State<HomePage> {
     final UserPreferences userPreferences,
     final DaoProduct daoProduct,
     final PantryType pantryType,
+    final AppLocalizations appLocalizations,
   ) =>
       FutureBuilder<List<Pantry>>(
         future: Pantry.getAll(userPreferences, daoProduct, pantryType),
@@ -402,8 +411,8 @@ class _HomePageState extends State<HomePage> {
           final AsyncSnapshot<List<Pantry>> snapshot,
         ) {
           final String title = pantryType == PantryType.PANTRY
-              ? _TRANSLATE_ME_PANTRIES
-              : _TRANSLATE_ME_SHOPPINGS;
+              ? appLocalizations.my_pantrie_lists
+              : appLocalizations.my_shopping_lists;
           final IconData iconData = pantryType == PantryType.PANTRY
               ? Icons.home
               : Icons.shopping_cart;
@@ -464,7 +473,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     subtitle:
-                        cards.isEmpty ? const Text(_TRANSLATE_ME_EMPTY) : null,
+                        cards.isEmpty ? Text(appLocalizations.empty) : null,
                     title: Text(title,
                         style: Theme.of(context).textTheme.subtitle2),
                   ),
@@ -483,7 +492,7 @@ class _HomePageState extends State<HomePage> {
               leading: const CircularProgressIndicator(),
               title: Text(title),
               subtitle: Text(
-                _TRANSLATE_ME_SEARCHING,
+                appLocalizations.searching,
                 style: Theme.of(context).textTheme.subtitle2,
               ),
             ),

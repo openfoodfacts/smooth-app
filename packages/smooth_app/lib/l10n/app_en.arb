@@ -49,6 +49,8 @@
     "@stop": {},
     "close": "Close",
     "@close": {},
+    "empty": "Empty!",
+    "@empty": {},
     "unknownBrand": "Unknown brand",
     "@unknownBrand": {},
     "unknownProductName": "Unknown product name",
@@ -119,6 +121,7 @@
     "@searching" : {},
     "empty_list" : "Empty list",
     "@empty_list" : {},
+    "nothing_set": "Nothing set for the moment",
     
     "rename" : "Rename",
     "@rename": {},
@@ -176,6 +179,11 @@
     "@list_name_taken": {},
     "already_same": "That's the same name!",
     "@already_same": {},
+    "my_pantrie_lists" : "My pantries",
+    "my_shopping_lists": "My shopping lists",
+    "my_lists": "My lists",
+    "food_categorys": "Food categorys",
+    "search_history": "Search history",
     
     "label_preferences": "preferences",
     "@label_preferences": {},
@@ -192,6 +200,7 @@
     
     "product_refreshed": "Product refreshed",
     "@product_refreshed" : {},
+    "food_ranking_parameters": "Food ranking parameters",
 
     "product": "Product",
     "@product": {},
