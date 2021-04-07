@@ -1,7 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-class SingleBooleanModel extends ChangeNotifier{
-
+class SingleBooleanModel extends ChangeNotifier {
   bool isActive = false;
 
   void setActive() {

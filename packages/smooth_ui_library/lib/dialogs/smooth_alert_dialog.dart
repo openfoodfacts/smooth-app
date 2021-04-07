@@ -14,7 +14,11 @@ import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 
 class SmoothAlertDialog extends StatelessWidget {
   const SmoothAlertDialog(
-      {this.title, this.close = true, this.height, required this.body, this.actions});
+      {this.title,
+      this.close = true,
+      this.height,
+      required this.body,
+      this.actions});
 
   final String? title;
   final bool close;
@@ -37,17 +41,19 @@ class SmoothAlertDialog extends StatelessWidget {
         ],
       ),
 
-      actions: <Widget>[
-        SizedBox(
-          height: 58,
-          width: MediaQuery.of(context).size.width,
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: actions!,
-          ),
-        ),
-      ],
+      actions: actions == null
+          ? <Widget>[]
+          : <Widget>[
+              SizedBox(
+                height: 58,
+                width: MediaQuery.of(context).size.width,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: actions!,
+                ),
+              ),
+            ],
     );
   }
 
@@ -64,13 +70,14 @@ class SmoothAlertDialog extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               _buildCross(true, context),
-              Container(
-                height: height,
-                child: Text(
-                  title!,
-                  style: Theme.of(context).textTheme.headline2,
+              if (title != null)
+                Container(
+                  height: height,
+                  child: Text(
+                    title!,
+                    style: Theme.of(context).textTheme.headline2,
+                  ),
                 ),
-              ),
               _buildCross(false, context),
             ],
           ),

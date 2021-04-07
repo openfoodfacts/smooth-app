@@ -3,7 +3,7 @@ description: The official UI library for smooth_app.
 version: 0.0.1
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: '>=2.12.2 <3.0.0'
 
 dependencies:
   carousel_slider: ^4.0.0-nullsafety.0

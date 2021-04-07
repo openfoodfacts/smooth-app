@@ -30,7 +30,7 @@ class SmoothCard extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                header ?? Container(),
+                if (header != null) header!,
                 child,
               ],
             ),

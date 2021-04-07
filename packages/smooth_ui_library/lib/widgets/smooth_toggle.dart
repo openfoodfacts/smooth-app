@@ -4,27 +4,26 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class SmoothToggle extends StatefulWidget {
-  const SmoothToggle(
-      {this.value = false,
-      this.textRight = 'Off',
-      this.textLeft = 'On',
-      this.textSize = 14.0,
-      this.colorRight = Colors.red,
-      this.colorLeft = Colors.green,
-      required this.iconRight,
-      required this.iconLeft,
-      this.animationDuration = const Duration(milliseconds: 320),
-      this.onTap,
-      this.onDoubleTap,
-      this.onSwipe,
-      this.onChanged,
-      this.width = 150.0,
-      this.height = 50.0});
+  const SmoothToggle({
+    this.value = false,
+    this.textRight = 'Off',
+    this.textLeft = 'On',
+    this.textSize = 14.0,
+    this.colorRight = Colors.red,
+    this.colorLeft = Colors.green,
+    required this.iconRight,
+    required this.iconLeft,
+    this.animationDuration = const Duration(milliseconds: 320),
+    this.onTap,
+    this.onDoubleTap,
+    this.onSwipe,
+    this.onChanged,
+    this.width = 150.0,
+    this.height = 50.0,
+  });
 
-  @required
   final bool value;
-  @required
-  final Function(bool?)? onChanged;
+  final Function(bool)? onChanged;
   final String textRight;
   final String textLeft;
   final Color colorRight;
@@ -49,7 +48,7 @@ class _SmoothToggleState extends State<SmoothToggle>
   late Animation<double> animation;
   double value = 0.0;
 
-  bool? turnState;
+  late bool turnState;
 
   @override
   void dispose() {
@@ -204,10 +203,12 @@ class _SmoothToggleState extends State<SmoothToggle>
   void _determine({bool changeState = false}) {
     setState(() {
       if (changeState) {
-        turnState = !turnState!;
+        turnState = !turnState;
       }
-      turnState! ? animationController.forward() : animationController.reverse();
-      widget.onChanged!(turnState);
+      turnState ? animationController.forward() : animationController.reverse();
+      if (widget.onChanged != null) {
+        widget.onChanged!(turnState);
+      }
     });
   }
 }
