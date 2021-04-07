@@ -126,6 +126,8 @@
     "@change_icon" : {},
     "paste" : "paste",
     "@paste" : {},
+    "copy": "copy",
+    "@copy": {},
     "clear" : "glear",
     "@clear" : {},
     "grocery" : "grocery",
@@ -224,7 +226,12 @@
     "could_not_refresh": "Could not refresh product",
     "@could_not_refresh": {},
     "no_product_found": "No product found with matching barcode : $barcode",
-    "@no_product_found": {}
+    "@no_product_found": {},
+
+    "products_pasted": "$pasted products pasted",
+    "@products_pasted": {},
+    "no_prodcut_in_list": "There is no product in this list",
+    "@no_product_in_list": {}
 
 
 
