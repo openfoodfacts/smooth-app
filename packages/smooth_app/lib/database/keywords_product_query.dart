@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:openfoodfacts/model/SearchResult.dart';
-import 'package:openfoodfacts/model/parameter/TagFilter.dart';
+import 'package:openfoodfacts/model/parameter/SearchTerms.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 
 // Project imports:
@@ -34,11 +34,7 @@ class KeywordsProductQuery implements ProductQuery {
           fields: ProductQuery.fields,
           parametersList: <Parameter>[
             PageSize(size: size),
-            TagFilter(
-              tagType: 'categories',
-              contains: true,
-              tagName: keywords,
-            ),
+            SearchTerms(terms: <String>[keywords]),
           ],
           lc: languageCode,
           cc: countryCode,

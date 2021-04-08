@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class SmoothAnimatedCollapseArrow extends StatefulWidget {
   const SmoothAnimatedCollapseArrow({
-    @required this.collapsed,
+    required this.collapsed,
     this.duration = const Duration(milliseconds: 160),
     this.curve = Curves.ease,
   });
@@ -21,8 +21,8 @@ class SmoothAnimatedCollapseArrow extends StatefulWidget {
 class _SmoothAnimatedCollapseArrowState
     extends State<SmoothAnimatedCollapseArrow>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-  Animation<double> animation;
+  late AnimationController _controller;
+  late Animation<double> animation;
 
   @override
   void initState() {
@@ -53,7 +53,7 @@ class _SmoothAnimatedCollapseArrowState
     return AnimatedBuilder(
       animation: animation,
       child: const Icon(Icons.keyboard_arrow_down),
-      builder: (BuildContext context, Widget child) {
+      builder: (BuildContext context, Widget? child) {
         return Transform.rotate(
           angle: animation.value,
           child: child,

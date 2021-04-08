@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class SmoothMainButton extends StatelessWidget {
   const SmoothMainButton({
-    @required this.text,
-    @required this.onPressed,
+    required this.text,
+    required this.onPressed,
     this.width = double.infinity,
     this.important = true,
     this.height = 56.0,

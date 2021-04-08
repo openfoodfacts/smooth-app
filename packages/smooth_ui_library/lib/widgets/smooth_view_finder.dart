@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 
 class SmoothViewFinder extends StatefulWidget {
   const SmoothViewFinder(
-      {@required this.width,
-      @required this.height,
-      @required this.animationDuration});
+      {required this.width,
+      required this.height,
+      required this.animationDuration});
 
   final double width;
   final double height;
@@ -19,7 +19,7 @@ class SmoothViewFinder extends StatefulWidget {
 class SmoothViewFinderState extends State<SmoothViewFinder>
     with SingleTickerProviderStateMixin {
   bool goRight = false;
-  Timer animationTimer;
+  Timer? animationTimer;
 
   @override
   void initState() {
