@@ -13,12 +13,13 @@ import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 ///
 
 class SmoothAlertDialog extends StatelessWidget {
-  const SmoothAlertDialog(
-      {this.title,
-      this.close = true,
-      this.height,
-      required this.body,
-      this.actions});
+  const SmoothAlertDialog({
+    this.title,
+    this.close = true,
+    this.height,
+    required this.body,
+    this.actions,
+  });
 
   final String? title;
   final bool close;
@@ -42,7 +43,7 @@ class SmoothAlertDialog extends StatelessWidget {
       ),
 
       actions: actions == null
-          ? <Widget>[]
+          ? null
           : <Widget>[
               SizedBox(
                 height: 58,

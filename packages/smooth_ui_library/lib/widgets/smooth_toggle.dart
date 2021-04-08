@@ -17,7 +17,7 @@ class SmoothToggle extends StatefulWidget {
     this.onTap,
     this.onDoubleTap,
     this.onSwipe,
-    this.onChanged,
+    required this.onChanged,
     this.width = 150.0,
     this.height = 50.0,
   });
@@ -206,9 +206,7 @@ class _SmoothToggleState extends State<SmoothToggle>
         turnState = !turnState;
       }
       turnState ? animationController.forward() : animationController.reverse();
-      if (widget.onChanged != null) {
-        widget.onChanged!(turnState);
-      }
+      widget.onChanged!(turnState);
     });
   }
 }
