@@ -42,7 +42,7 @@ class CollaborationPage extends StatelessWidget {
               ),
               SmoothSimpleButton(
                 text: 'Try the contribution scanner',
-                width: 240.0,
+                minWidth: 240.0,
                 onPressed: () => Navigator.push<Widget>(
                   context,
                   MaterialPageRoute<Widget>(

@@ -4,26 +4,25 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class SmoothToggle extends StatefulWidget {
-  const SmoothToggle(
-      {this.value = false,
-      this.textRight = 'Off',
-      this.textLeft = 'On',
-      this.textSize = 14.0,
-      this.colorRight = Colors.red,
-      this.colorLeft = Colors.green,
-      this.iconRight,
-      this.iconLeft,
-      this.animationDuration = const Duration(milliseconds: 320),
-      this.onTap,
-      this.onDoubleTap,
-      this.onSwipe,
-      this.onChanged,
-      this.width = 150.0,
-      this.height = 50.0});
+  const SmoothToggle({
+    this.value = false,
+    this.textRight = 'Off',
+    this.textLeft = 'On',
+    this.textSize = 14.0,
+    this.colorRight = Colors.red,
+    this.colorLeft = Colors.green,
+    required this.iconRight,
+    required this.iconLeft,
+    this.animationDuration = const Duration(milliseconds: 320),
+    this.onTap,
+    this.onDoubleTap,
+    this.onSwipe,
+    required this.onChanged,
+    this.width = 150.0,
+    this.height = 50.0,
+  });
 
-  @required
   final bool value;
-  @required
   final Function(bool) onChanged;
   final String textRight;
   final String textLeft;
@@ -33,9 +32,9 @@ class SmoothToggle extends StatefulWidget {
   final Duration animationDuration;
   final Widget iconRight;
   final Widget iconLeft;
-  final Function onTap;
-  final Function onDoubleTap;
-  final Function onSwipe;
+  final Function? onTap;
+  final Function? onDoubleTap;
+  final Function? onSwipe;
   final double width;
   final double height;
 
@@ -45,11 +44,11 @@ class SmoothToggle extends StatefulWidget {
 
 class _SmoothToggleState extends State<SmoothToggle>
     with SingleTickerProviderStateMixin {
-  AnimationController animationController;
-  Animation<double> animation;
+  late AnimationController animationController;
+  late Animation<double> animation;
   double value = 0.0;
 
-  bool turnState;
+  late bool turnState;
 
   @override
   void dispose() {
@@ -80,27 +79,26 @@ class _SmoothToggleState extends State<SmoothToggle>
   @override
   Widget build(BuildContext context) {
     final Color transitionColor =
-        Color.lerp(widget.colorRight, widget.colorLeft, value);
+        Color.lerp(widget.colorRight, widget.colorLeft, value)!;
 
     return GestureDetector(
       onDoubleTap: () {
         _action();
         if (widget.onDoubleTap != null) {
-          widget.onDoubleTap();
+          widget.onDoubleTap!();
         }
       },
       onTap: () {
         _action();
         if (widget.onTap != null) {
-          widget.onTap();
+          widget.onTap!();
         }
       },
       onPanEnd: (DragEndDetails details) {
         _action();
         if (widget.onSwipe != null) {
-          widget.onSwipe();
+          widget.onSwipe!();
         }
-        //widget.onSwipe();
       },
       child: Container(
         padding: const EdgeInsets.all(5),
@@ -166,7 +164,7 @@ class _SmoothToggleState extends State<SmoothToggle>
             Transform.translate(
               offset: Offset((widget.width - widget.height) * value, 0),
               child: Transform.rotate(
-                angle: lerpDouble(0, 2 * pi, value),
+                angle: lerpDouble(0, 2 * pi, value)!,
                 child: Container(
                   height: widget.height - 10,
                   width: widget.height - 10,

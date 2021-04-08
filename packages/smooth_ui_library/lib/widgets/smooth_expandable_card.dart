@@ -4,8 +4,8 @@ import 'package:smooth_ui_library/animations/smooth_animated_collapse_arrow.dart
 
 class SmoothExpandableCard extends StatefulWidget {
   const SmoothExpandableCard({
-    @required this.collapsedHeader,
-    @required this.child,
+    required this.collapsedHeader,
+    required this.child,
     this.expandedHeader,
     this.color,
     this.padding =
@@ -14,8 +14,8 @@ class SmoothExpandableCard extends StatefulWidget {
   });
 
   final Widget collapsedHeader;
-  final Widget expandedHeader;
-  final Color color;
+  final Widget? expandedHeader;
+  final Color? color;
   final Widget child;
   final EdgeInsets padding;
   final EdgeInsets insets;

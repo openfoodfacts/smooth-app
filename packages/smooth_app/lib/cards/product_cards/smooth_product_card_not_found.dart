@@ -47,7 +47,7 @@ class SmoothProductCardNotFound extends StatelessWidget {
               children: <Widget>[
                 SmoothSimpleButton(
                   text: 'Add',
-                  width: 100.0,
+                  minWidth: 100.0,
                   onPressed: () {
                     Navigator.push<Widget>(
                       context,

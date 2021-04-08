@@ -6,7 +6,7 @@ import 'package:openfoodfacts/model/Product.dart';
 
 class SmoothProductImage extends StatelessWidget {
   const SmoothProductImage({
-    @required this.product,
+    required this.product,
     this.maxHeight = 80.0,
     this.maxWidth = 80.0,
   });
@@ -17,7 +17,7 @@ class SmoothProductImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget result;
+    Widget? result;
     result = _buildFromUrl(product.imageFrontSmallUrl);
     if (result != null) {
       return result;
@@ -52,7 +52,7 @@ class SmoothProductImage extends StatelessWidget {
     );
   }
 
-  Widget _buildFromUrl(final String url) => url == null || url.isEmpty
+  Widget? _buildFromUrl(final String? url) => url == null || url.isEmpty
       ? null
       : ClipRRect(
           borderRadius: const BorderRadius.all(Radius.circular(15.0)),
@@ -78,7 +78,7 @@ class SmoothProductImage extends StatelessWidget {
                     url,
                     fit: BoxFit.contain,
                     loadingBuilder: (BuildContext context, Widget child,
-                            ImageChunkEvent progress) =>
+                            ImageChunkEvent? progress) =>
                         progress == null
                             ? child
                             : Center(
@@ -88,7 +88,7 @@ class SmoothProductImage extends StatelessWidget {
                                       const AlwaysStoppedAnimation<Color>(
                                           Colors.white),
                                   value: progress.cumulativeBytesLoaded /
-                                      progress.expectedTotalBytes,
+                                      progress.expectedTotalBytes!,
                                 ),
                               ),
                   ),
