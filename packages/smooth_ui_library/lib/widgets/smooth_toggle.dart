@@ -23,7 +23,7 @@ class SmoothToggle extends StatefulWidget {
   });
 
   final bool value;
-  final Function(bool)? onChanged;
+  final Function(bool) onChanged;
   final String textRight;
   final String textLeft;
   final Color colorRight;
@@ -206,7 +206,7 @@ class _SmoothToggleState extends State<SmoothToggle>
         turnState = !turnState;
       }
       turnState ? animationController.forward() : animationController.reverse();
-      widget.onChanged!(turnState);
+      widget.onChanged(turnState);
     });
   }
 }
