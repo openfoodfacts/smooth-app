@@ -99,7 +99,6 @@ class _SmoothToggleState extends State<SmoothToggle>
         if (widget.onSwipe != null) {
           widget.onSwipe!();
         }
-        //widget.onSwipe();
       },
       child: Container(
         padding: const EdgeInsets.all(5),
