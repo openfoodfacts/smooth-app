@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Product.dart';
 
 // Project imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/cards/product_cards/product_list_preview_helper.dart';
 import 'package:smooth_app/data_models/pantry.dart';
 import 'package:smooth_app/pages/pantry/pantry_page.dart';
@@ -30,7 +31,7 @@ class PantryPreview extends StatelessWidget {
     String subtitle;
     final double iconSize = MediaQuery.of(context).size.width / 6;
     if (list == null || list.isEmpty) {
-      subtitle = 'Empty list';
+      subtitle = AppLocalizations.of(context).empty_list;
     }
     return Card(
       color: SmoothTheme.getColor(

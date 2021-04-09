@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
@@ -37,20 +38,13 @@ class ProductListPage extends StatefulWidget {
 class _ProductListPageState extends State<ProductListPage> {
   ProductList productList;
 
-  static const String _TRANSLATE_ME_RENAME = 'Rename';
-  static const String _TRANSLATE_ME_DELETE = 'Delete';
-  static const String _TRANSLATE_ME_CHANGE = 'Change icon';
-  static const String _TRANSLATE_ME_COPY = 'copy';
-  static const String _TRANSLATE_ME_PASTE = 'paste';
-  static const String _TRANSLATE_ME_CLEAR = 'clear';
-  static const String _TRANSLATE_ME_GROCERY = 'grocery';
-
   @override
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     productList ??= widget.productList;
     final List<Product> products = _compact(productList.getList());
     bool pastable = false;
@@ -81,18 +75,20 @@ class _ProductListPageState extends State<ProductListPage> {
         builder: (BuildContext context) => BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           items: <BottomNavigationBarItem>[
-            const BottomNavigationBarItem(
-                icon: Icon(Icons.copy), label: _TRANSLATE_ME_COPY),
+            BottomNavigationBarItem(
+                icon: const Icon(Icons.copy), label: appLocalizations.copy),
             if (pastable)
-              const BottomNavigationBarItem(
-                  icon: Icon(Icons.paste), label: _TRANSLATE_ME_PASTE),
-            const BottomNavigationBarItem(
-                icon: Icon(Icons.highlight_remove), label: _TRANSLATE_ME_CLEAR),
-            const BottomNavigationBarItem(
-                icon: Icon(Icons.launch), label: 'web'),
-            const BottomNavigationBarItem(
-                icon: Icon(Icons.local_grocery_store),
-                label: _TRANSLATE_ME_GROCERY),
+              BottomNavigationBarItem(
+                  icon: const Icon(Icons.paste), label: appLocalizations.paste),
+            BottomNavigationBarItem(
+                icon: const Icon(Icons.highlight_remove),
+                label: appLocalizations.clear),
+            BottomNavigationBarItem(
+                icon: const Icon(Icons.launch),
+                label: appLocalizations.label_web),
+            BottomNavigationBarItem(
+                icon: const Icon(Icons.local_grocery_store),
+                label: appLocalizations.grocery),
           ],
           onTap: (final int index) async {
             if (index == INDEX_COPY) {
@@ -103,7 +99,7 @@ class _ProductListPageState extends State<ProductListPage> {
               localDatabase.notifyListeners();
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  content: Text('$pasted products pasted'),
+                  content: Text('$pasted ${appLocalizations.products_pasted}'),
                   duration: const Duration(seconds: 2),
                 ),
               );
@@ -155,8 +151,11 @@ class _ProductListPageState extends State<ProductListPage> {
             const SizedBox(width: 8.0),
             Flexible(
               child: Text(
-                ProductQueryPageHelper.getProductListLabel(productList,
-                    verbose: false),
+                ProductQueryPageHelper.getProductListLabel(
+                  productList,
+                  context,
+                  verbose: false,
+                ),
                 overflow: TextOverflow.fade,
               ),
             ),
@@ -169,20 +168,20 @@ class _ProductListPageState extends State<ProductListPage> {
                   itemBuilder: (final BuildContext context) =>
                       <PopupMenuEntry<String>>[
                     if (renamable)
-                      const PopupMenuItem<String>(
+                      PopupMenuItem<String>(
                         value: 'rename',
-                        child: Text(_TRANSLATE_ME_RENAME),
+                        child: Text(appLocalizations.rename),
                         enabled: true,
                       ),
-                    const PopupMenuItem<String>(
+                    PopupMenuItem<String>(
                       value: 'change',
-                      child: Text(_TRANSLATE_ME_CHANGE),
+                      child: Text(appLocalizations.change_icon),
                       enabled: true,
                     ),
                     if (deletable)
-                      const PopupMenuItem<String>(
+                      PopupMenuItem<String>(
                         value: 'delete',
-                        child: Text(_TRANSLATE_ME_DELETE),
+                        child: Text(appLocalizations.delete),
                         enabled: true,
                       ),
                   ],
@@ -239,7 +238,7 @@ class _ProductListPageState extends State<ProductListPage> {
             ),
       body: products.isEmpty
           ? Center(
-              child: Text('There is no product in this list',
+              child: Text(appLocalizations.no_prodcut_in_list,
                   style: Theme.of(context).textTheme.subtitle1),
             )
           : ListView.builder(

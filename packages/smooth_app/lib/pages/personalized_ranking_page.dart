@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 // Project imports:
@@ -59,6 +60,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
     _model.refresh(widget.productList, productPreferences);
     final List<BottomNavigationBarItem> bottomNavigationBarItems =
         <BottomNavigationBarItem>[];
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     for (final int matchIndex in _ORDERED_MATCH_INDEXES) {
       bottomNavigationBarItems.add(
         BottomNavigationBarItem(
@@ -84,7 +86,10 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
           children: <Widget>[
             Flexible(
               child: Text(
-                ProductQueryPageHelper.getProductListLabel(widget.productList),
+                ProductQueryPageHelper.getProductListLabel(
+                  widget.productList,
+                  context,
+                ),
                 overflow: TextOverflow.fade,
               ),
             ),
@@ -97,9 +102,10 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
               context,
               callback: () {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text('Reloaded with new preferences'),
-                    duration: Duration(milliseconds: 1500),
+                  SnackBar(
+                    content:
+                        Text(appLocalizations.reloaded_with_new_preferences),
+                    duration: const Duration(milliseconds: 1500),
                   ),
                 );
               },
@@ -119,6 +125,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
       body: _getStickyHeader(
         _model.getMatchedProducts(_ORDERED_MATCH_INDEXES[_currentTabIndex]),
         colorScheme,
+        appLocalizations,
       ),
     );
   }
@@ -142,12 +149,12 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
       );
 
   Widget _getStickyHeader(
-    final List<MatchedProduct> matchedProducts,
-    final ColorScheme colorScheme,
-  ) =>
+          final List<MatchedProduct> matchedProducts,
+          final ColorScheme colorScheme,
+          final AppLocalizations appLocalizations) =>
       matchedProducts.isEmpty
           ? Center(
-              child: Text('There is no product in this section',
+              child: Text(appLocalizations.no_product_in_section,
                   style: Theme.of(context).textTheme.subtitle1),
             )
           : ListView.builder(

@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
@@ -72,12 +73,14 @@ class ProductDialogHelper {
         body: ListTile(
           leading: const CircularProgressIndicator(),
           title: Text(
-            refresh ? 'Refreshing product' : 'Looking for : $barcode',
+            refresh
+                ? AppLocalizations.of(context).refreshing_product
+                : '${AppLocalizations.of(context).looking_for}: $barcode',
           ),
         ),
         actions: <SmoothSimpleButton>[
           SmoothSimpleButton(
-            text: 'Stop',
+            text: AppLocalizations.of(context).stop,
             important: false,
             onPressed: () => _popSearchingDialog(null),
           ),
@@ -91,17 +94,17 @@ class ProductDialogHelper {
             close: false,
             body: Text(
               refresh
-                  ? 'Could not refresh product'
-                  : 'No product found with matching barcode : $barcode',
+                  ? AppLocalizations.of(context).could_not_refresh
+                  : '${AppLocalizations.of(context).no_product_found}: $barcode',
             ),
             actions: <SmoothSimpleButton>[
               SmoothSimpleButton(
-                text: 'Close',
+                text: AppLocalizations.of(context).close,
                 important: false,
                 onPressed: () => Navigator.pop(context),
               ),
               SmoothSimpleButton(
-                text: 'Contribute',
+                text: AppLocalizations.of(context).contribute,
                 important: true,
                 onPressed: () => Navigator.pop(
                     context), // TODO(monsieurtanuki): to be implemented
