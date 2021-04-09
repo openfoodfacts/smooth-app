@@ -63,7 +63,7 @@
     "@ecology": {},
     "about": "About this app",
     "@about": {},
-    "licenses": "Licenses",
+    "licenses": "Licences",
     "@licenses": {},
     "whatIsOff": "Open Food Facts is a database of food products, made by everyone, for everyone. You can use it to make better food choices, and as it is open data, anyone can re-use it for any purpose.",
     "@whatIsOff": {},
@@ -133,7 +133,7 @@
     "@paste" : {},
     "copy": "copy",
     "@copy": {},
-    "clear" : "glear",
+    "clear" : "clear",
     "@clear" : {},
     "grocery" : "grocery",
     "@grocery" : {},
@@ -182,7 +182,7 @@
     "my_pantrie_lists" : "My pantries",
     "my_shopping_lists": "My shopping lists",
     "my_lists": "My lists",
-    "food_categorys": "Food categorys",
+    "food_categories": "Food categories",
     "search_history": "Search history",
     
     "label_preferences": "preferences",
@@ -250,8 +250,8 @@
     "@error_occurred": {},
 
     "cached_results_from": "Cached results from",
-    "@chached_results_from": {
-        "description": "Chached results from: 4 Month Ago (no need for ':')"
+    "@cached_results_from": {
+        "description": "Cached results from: 4 Month Ago (no need for ':')"
     },
 
     "ago_less_1_minute": "less than 1 minute ago",

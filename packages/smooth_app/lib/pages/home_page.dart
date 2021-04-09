@@ -145,7 +145,7 @@ class _HomePageState extends State<HomePage> {
                     _COLOR_DESTINATION_FOR_ICON,
                   ),
                 ),
-                title: Text(appLocalizations.food_categorys,
+                title: Text(appLocalizations.food_categories,
                     style: Theme.of(context).textTheme.subtitle2),
                 subtitle: Text(
                   '${PnnsGroup1.BEVERAGES.name}'
