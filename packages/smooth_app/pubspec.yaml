@@ -25,6 +25,7 @@ dependencies:
   carousel_slider: ^4.0.0-nullsafety.0
   cupertino_icons: ^1.0.2
   device_preview: 0.7.1
+  diacritic: ^0.1.3
   flutter:
     sdk: flutter
   flutter_localizations:

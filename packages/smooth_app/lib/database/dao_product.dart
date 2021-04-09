@@ -8,6 +8,7 @@ import 'package:sqflite/sqflite.dart';
 
 // Project imports:
 import 'package:smooth_app/database/local_database.dart';
+import 'package:diacritic/diacritic.dart';
 
 class DaoProduct {
   DaoProduct(this.localDatabase);
@@ -17,6 +18,10 @@ class DaoProduct {
   static const String TABLE_PRODUCT = 'product';
   static const String TABLE_PRODUCT_COLUMN_BARCODE = 'barcode';
   static const String _TABLE_PRODUCT_COLUMN_JSON = 'encoded_json';
+
+  static const String _TABLE_PRODUCT_EXTRA = 'product_extra';
+  static const String _TABLE_PRODUCT_EXTRA_COLUMN_KEY = 'extra_key';
+  static const String _TABLE_PRODUCT_EXTRA_COLUMN_VALUE = 'extra_value';
 
   static const String _WHERE_PK = '$TABLE_PRODUCT_COLUMN_BARCODE = ?';
 
@@ -30,6 +35,21 @@ class DaoProduct {
           '$TABLE_PRODUCT_COLUMN_BARCODE TEXT PRIMARY KEY,'
           '$_TABLE_PRODUCT_COLUMN_JSON TEXT NOT NULL,'
           '${LocalDatabase.COLUMN_TIMESTAMP} INT NOT NULL'
+          ')');
+    }
+    if (oldVersion < 4) {
+      await db.execute('create table $_TABLE_PRODUCT_EXTRA('
+          '$TABLE_PRODUCT_COLUMN_BARCODE TEXT NOT NULL,'
+          '$_TABLE_PRODUCT_EXTRA_COLUMN_KEY TEXT NOT NULL,'
+          '$_TABLE_PRODUCT_EXTRA_COLUMN_VALUE TEXT NOT NULL,'
+          '${LocalDatabase.COLUMN_TIMESTAMP} INT NOT NULL,'
+          'PRIMARY KEY ('
+          '$TABLE_PRODUCT_COLUMN_BARCODE,'
+          '$_TABLE_PRODUCT_EXTRA_COLUMN_KEY),'
+          'FOREIGN KEY ($TABLE_PRODUCT_COLUMN_BARCODE)'
+          ' REFERENCES $TABLE_PRODUCT'
+          '  ($TABLE_PRODUCT_COLUMN_BARCODE)'
+          '   ON DELETE CASCADE'
           ')');
     }
   }
@@ -93,20 +113,26 @@ class DaoProduct {
     if (pattern == null || pattern.trim().length < minLength) {
       return result;
     }
+    await _initSimplifiedText();
     final List<Map<String, dynamic>> queryResults =
-        await localDatabase.database.query(
-      TABLE_PRODUCT,
-      columns: <String>[
-        TABLE_PRODUCT_COLUMN_BARCODE,
-        _TABLE_PRODUCT_COLUMN_JSON,
+        await localDatabase.database.rawQuery(
+      'select'
+      '  a.$TABLE_PRODUCT_COLUMN_BARCODE '
+      ', a.$_TABLE_PRODUCT_COLUMN_JSON '
+      'from '
+      '  $TABLE_PRODUCT a '
+      ', $_TABLE_PRODUCT_EXTRA b '
+      'where '
+      '  a.$TABLE_PRODUCT_COLUMN_BARCODE = b.$TABLE_PRODUCT_COLUMN_BARCODE '
+      '  and b.$_TABLE_PRODUCT_EXTRA_COLUMN_KEY = ? '
+      '  and b.$_TABLE_PRODUCT_EXTRA_COLUMN_VALUE like ? '
+      'order by '
+      '  a.${LocalDatabase.COLUMN_TIMESTAMP} desc',
+      <String>[
+        _EXTRA_ID_SIMPLIFIED_TEXT,
+        '%${_getSimplifiedText(pattern)}%',
       ],
-      where: '$TABLE_PRODUCT_COLUMN_BARCODE like ?'
-          ' or $_TABLE_PRODUCT_COLUMN_JSON like ?',
-      whereArgs: <String>['%$pattern%', '%$pattern%'],
     );
-    if (queryResults.isEmpty) {
-      return result;
-    }
     for (final Map<String, dynamic> row in queryResults) {
       result.add(_getProductFromQueryResult(row));
     }
@@ -138,10 +164,15 @@ class DaoProduct {
         final int nbRows = await _update(product, databaseExecutor);
         if (nbRows == 1) {
           // very expected result
+          await _upsertAllExtras(product, databaseExecutor);
           return true;
         }
       }
-      return await _insert(product, databaseExecutor);
+      final bool result = await _insert(product, databaseExecutor);
+      if (result) {
+        await _upsertAllExtras(product, databaseExecutor);
+      }
+      return result;
     } catch (e) {
       print('exception: $e');
     }
@@ -215,4 +246,92 @@ class DaoProduct {
         json.decode(encodedJson) as Map<String, dynamic>;
     return Product.fromJson(decodedJson);
   }
+
+  /// Returns a lowercase not accented version of the text, for comparisons
+  static String _getSimplifiedText(final String text) {
+    if (text == null) {
+      return '';
+    }
+    return removeDiacritics(text).toLowerCase();
+  }
+
+  static const String _EXTRA_ID_SIMPLIFIED_TEXT = 'simplified_text';
+
+  /// Init, to be performed only during a transitional development phase
+  Future<void> _initSimplifiedText() async {
+    final List<Map<String, dynamic>> counting =
+        await localDatabase.database.query(
+      _TABLE_PRODUCT_EXTRA,
+      columns: <String>['count(*) as mycount'],
+      where: '$_TABLE_PRODUCT_EXTRA_COLUMN_KEY = ?',
+      whereArgs: <String>[_EXTRA_ID_SIMPLIFIED_TEXT],
+    );
+    final int count = counting[0]['mycount'] as int;
+    if (count > 0) {
+      return; // already done, nothing more to do
+    }
+    final List<Map<String, dynamic>> queryResults =
+        await localDatabase.database.query(
+      TABLE_PRODUCT,
+      columns: <String>[
+        TABLE_PRODUCT_COLUMN_BARCODE,
+        _TABLE_PRODUCT_COLUMN_JSON,
+      ],
+    );
+    if (queryResults.isEmpty) {
+      return; // empty database, nothing to do at all
+    }
+    for (final Map<String, dynamic> row in queryResults) {
+      final Product product = _getProductFromQueryResult(row);
+      await _upsertAllExtras(product, localDatabase.database);
+    }
+  }
+
+  /// Upserts all the extras related to a product
+  ///
+  /// Just one extra for the moment: the simplified text
+  static Future<void> _upsertAllExtras(
+    final Product product,
+    final DatabaseExecutor databaseExecutor,
+  ) async =>
+      await _upsertExtra(
+        product.barcode,
+        _EXTRA_ID_SIMPLIFIED_TEXT,
+        _getSimplifiedTextForProduct(product),
+        databaseExecutor,
+      );
+
+  static String _getSimplifiedTextForProduct(final Product product) {
+    final List<String> labels = <String>[];
+    if (product.productName != null) {
+      labels.add(_getSimplifiedText(product.productName));
+    }
+    if (product.productNameFR != null) {
+      labels.add(_getSimplifiedText(product.productNameFR));
+    }
+    if (product.productNameDE != null) {
+      labels.add(_getSimplifiedText(product.productNameDE));
+    }
+    if (product.productNameEN != null) {
+      labels.add(_getSimplifiedText(product.productNameEN));
+    }
+    return labels.isEmpty ? '' : labels.join(', ');
+  }
+
+  static Future<void> _upsertExtra(
+    final String barcode,
+    final String extraId,
+    final String extraValue,
+    final DatabaseExecutor databaseExecutor,
+  ) async =>
+      await databaseExecutor.insert(
+        _TABLE_PRODUCT_EXTRA,
+        <String, dynamic>{
+          TABLE_PRODUCT_COLUMN_BARCODE: barcode,
+          _TABLE_PRODUCT_EXTRA_COLUMN_KEY: extraId,
+          _TABLE_PRODUCT_EXTRA_COLUMN_VALUE: extraValue,
+          LocalDatabase.COLUMN_TIMESTAMP: LocalDatabase.nowInMillis(),
+        },
+        conflictAlgorithm: ConflictAlgorithm.replace,
+      );
 }
