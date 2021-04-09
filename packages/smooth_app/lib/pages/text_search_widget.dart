@@ -34,76 +34,88 @@ class _TextSearchWidgetState extends State<TextSearchWidget> {
 
   @override
   Widget build(BuildContext context) => SmoothCard(
-        child: ListTile(
-          leading: _getIcon(Icons.search),
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Expanded(child: _getTextField()),
-              _getInvisibleIconButton(
-                CupertinoIcons.arrow_up_right,
-                () => ChoosePage.onSubmitted(
-                  _searchController.text,
-                  context,
-                  widget.daoProduct.localDatabase,
-                ),
+        child: TypeAheadField<Product>(
+          textFieldConfiguration: TextFieldConfiguration(
+            controller: _searchController,
+            autofocus: false,
+            decoration: InputDecoration(
+              contentPadding: const EdgeInsets.all(20.0),
+              prefixIcon: _getIcon(Icons.search),
+              suffixIcon: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  _getInvisibleIconButton(
+                    CupertinoIcons.arrow_up_right,
+                    () => ChoosePage.onSubmitted(
+                      _searchController.text,
+                      context,
+                      widget.daoProduct.localDatabase,
+                    ),
+                  ),
+                  _getInvisibleIconButton(
+                    Icons.close,
+                    () => setState(
+                      () {
+                        FocusScope.of(context).unfocus();
+                        _searchController.text = '';
+                        _visibleCloseButton = false;
+                      },
+                    ),
+                  ),
+                ],
               ),
-              _getInvisibleIconButton(
-                Icons.close,
-                () => setState(
-                  () {
-                    FocusScope.of(context).unfocus();
-                    _searchController.text = '';
-                    _visibleCloseButton = false;
-                  },
-                ),
-              ),
-            ],
-          ),
-        ),
-      );
-
-  Widget _getTextField() => TypeAheadFormField<Product>(
-        textFieldConfiguration: TextFieldConfiguration(
-          controller: _searchController,
-          autofocus: false,
-          decoration: const InputDecoration(
-            border: InputBorder.none,
-            hintText: 'What are you looking for?',
-          ),
-        ),
-        hideOnEmpty: true,
-        hideOnLoading: true,
-        suggestionsCallback: (String value) async => _search(value),
-        transitionBuilder: (BuildContext context, Widget suggestionsBox,
-                AnimationController controller) =>
-            suggestionsBox,
-        itemBuilder: (BuildContext context, Product suggestion) => ListTile(
-          title: Text(
-            suggestion.productName ??
-                suggestion.productNameEN ??
-                suggestion.productNameFR ??
-                suggestion.productNameDE ??
-                suggestion.barcode,
-          ),
-          leading: SmoothProductImage(
-            product: suggestion,
-          ),
-        ),
-        onSuggestionSelected: (Product suggestion) async {
-          await Navigator.push<Widget>(
-            context,
-            MaterialPageRoute<Widget>(
-              builder: (BuildContext context) => ProductPage(
-                product: suggestion,
-              ),
+              border: InputBorder.none,
+              hintText: 'What are you looking for?',
             ),
-          );
-          if (widget.addProductCallback != null) {
-            widget.addProductCallback(suggestion);
-          }
-        },
+          ),
+          hideOnEmpty: true,
+          hideOnLoading: true,
+          suggestionsCallback: (String value) async => _search(value),
+          transitionBuilder: (BuildContext context, Widget suggestionsBox,
+                  AnimationController controller) =>
+              suggestionsBox,
+          itemBuilder: (BuildContext context, Product suggestion) => Container(
+            height: MediaQuery.of(context).size.height / 10,
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  flex: 1,
+                  child: SmoothProductImage(
+                    product: suggestion,
+                  ),
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width / 40,
+                ),
+                Expanded(
+                  flex: 2,
+                  child: Text(
+                    suggestion.productName ??
+                        suggestion.productNameEN ??
+                        suggestion.productNameFR ??
+                        suggestion.productNameDE ??
+                        suggestion.barcode,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          onSuggestionSelected: (Product suggestion) async {
+            await Navigator.push<Widget>(
+              context,
+              MaterialPageRoute<Widget>(
+                builder: (BuildContext context) => ProductPage(
+                  product: suggestion,
+                ),
+              ),
+            );
+            if (widget.addProductCallback != null) {
+              widget.addProductCallback(suggestion);
+            }
+          },
+        ),
       );
 
   Widget _getInvisibleIconButton(
