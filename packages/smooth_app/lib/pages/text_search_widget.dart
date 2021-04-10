@@ -90,9 +90,6 @@ class _TextSearchWidgetState extends State<TextSearchWidget> {
                   height: screenSize.height / 10,
                 ),
               ),
-              SizedBox(
-                width: screenSize.width / 40,
-              ),
               Expanded(
                 child: Text(
                   suggestion.productName ??
