@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
@@ -32,6 +31,7 @@ import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_ui_library/widgets/smooth_floating_action_bubble.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage({@required this.product, this.newProduct = false});
@@ -153,15 +153,23 @@ class ProductPage extends StatefulWidget {
   }
 }
 
-class _ProductPageState extends State<ProductPage> {
+class _ProductPageState extends State<ProductPage>
+    with SingleTickerProviderStateMixin {
   Product _product;
 
   final EdgeInsets padding =
       const EdgeInsets.only(right: 8.0, left: 8.0, top: 4.0, bottom: 20.0);
   final EdgeInsets insets = const EdgeInsets.all(12.0);
 
+  AnimationController _animationController;
+
   @override
   void initState() {
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 260),
+    );
+
     super.initState();
     _updateHistory(context);
   }
@@ -179,7 +187,7 @@ class _ProductPageState extends State<ProductPage> {
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final ThemeData themeData = Theme.of(context);
+    //final ThemeData themeData = Theme.of(context);
     _product ??= widget.product;
     return Scaffold(
         appBar: AppBar(
@@ -187,81 +195,105 @@ class _ProductPageState extends State<ProductPage> {
             _product.productName ?? appLocalizations.unknownProductName,
             //style: themeData.textTheme.headline4,
           ),
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/actions/food-cog.svg',
-                color: themeData.bottomNavigationBarTheme.selectedItemColor,
-              ),
-              label: 'preferences',
-            ),
-            const BottomNavigationBarItem(
-              icon: Icon(Icons.playlist_add),
-              label: 'lists',
-            ),
-            const BottomNavigationBarItem(
-              icon: Icon(Icons.launch),
-              label: 'web',
-            ),
-            const BottomNavigationBarItem(
-              icon: Icon(Icons.refresh),
-              label: 'refresh',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(ConstantIcons.getShareIcon()),
-              label: 'share',
+          actions: <PopupMenuButton<String>>[
+            PopupMenuButton<String>(
+              itemBuilder: (final BuildContext context) =>
+                  <PopupMenuEntry<String>>[
+                const PopupMenuItem<String>(
+                  value: 'refresh',
+                  child: Text('Refresh'),
+                  enabled: true,
+                ),
+                const PopupMenuItem<String>(
+                  value: 'web',
+                  child: Text('open in Web'),
+                  enabled: true,
+                ),
+                const PopupMenuItem<String>(
+                  value: 'preferences',
+                  child: Text('My preferences'),
+                  enabled: true,
+                ),
+              ],
+              onSelected: (final String value) async {
+                switch (value) {
+                  case 'refresh':
+                    final ProductDialogHelper productDialogHelper =
+                        ProductDialogHelper(
+                      barcode: _product.barcode,
+                      context: context,
+                      localDatabase: localDatabase,
+                      refresh: true,
+                    );
+                    final Product product =
+                        await productDialogHelper.openUniqueProductSearch();
+                    if (product == null) {
+                      productDialogHelper.openProductNotFoundDialog();
+                      return;
+                    }
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Product refreshed'),
+                        duration: Duration(seconds: 2),
+                      ),
+                    );
+                    setState(() {
+                      _product = product;
+                    });
+                    break;
+                  case 'web':
+                    Launcher().launchURL(
+                        context,
+                        'https://openfoodfacts.org/product/${_product.barcode}/',
+                        false);
+                    break;
+                  case 'preferences':
+                    UserPreferencesView.showModal(context);
+                    break;
+                  default:
+                    throw Exception('Unknown value: $value');
+                }
+              },
             ),
           ],
-          onTap: (final int index) async {
-            switch (index) {
-              case 0:
-                UserPreferencesView.showModal(context);
-                return;
-              case 1:
-                ProductPage.showLists(_product, context);
-                return;
-              case 2:
-                Launcher().launchURL(
-                    context,
-                    'https://openfoodfacts.org/product/${_product.barcode}/',
-                    false);
-                return;
-              case 3:
-                final ProductDialogHelper productDialogHelper =
-                    ProductDialogHelper(
-                  barcode: _product.barcode,
-                  context: context,
-                  localDatabase: localDatabase,
-                  refresh: true,
-                );
-                final Product product =
-                    await productDialogHelper.openUniqueProductSearch();
-                if (product == null) {
-                  productDialogHelper.openProductNotFoundDialog();
-                  return;
-                }
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text('Product refreshed'),
-                    duration: Duration(seconds: 2),
-                  ),
-                );
-                setState(() {
-                  _product = product;
-                });
-                return;
-              case 4:
+        ),
+        floatingActionButton: SmoothFloatingActionBubble(
+          controller: _animationController,
+          onPress: () => _animationController.isCompleted
+              ? _animationController.reverse()
+              : _animationController.forward(),
+          iconData: Icons.more_horiz,
+          items: <Bubble>[
+            Bubble(
+              title: 'Share',
+              iconColor: Colors.white,
+              icon: ConstantIcons.getShareIcon(),
+              titleStyle: Theme.of(context)
+                  .textTheme
+                  .bodyText2
+                  .copyWith(color: Colors.white),
+              onPress: () {
                 Share.share(
                   'Try this food: https://openfoodfacts.org/product/${_product.barcode}/',
                   subject: '${_product.productName} (by openfoodfacts.org)',
                 );
-                return;
-            }
-            throw 'Unexpected index $index';
-          },
+                _animationController.reverse();
+              },
+            ),
+            Bubble(
+              title: 'Add to List',
+              iconColor: Colors.white,
+              icon: Icons.playlist_add,
+              titleStyle: Theme.of(context)
+                  .textTheme
+                  .bodyText2
+                  .copyWith(color: Colors.white),
+              onPress: () {
+                ProductPage.showLists(_product, context);
+                _animationController.reverse();
+              },
+            ),
+          ],
         ),
         body: widget.newProduct
             ? _buildNewProductBody(context)
