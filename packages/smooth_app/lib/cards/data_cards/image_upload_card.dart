@@ -69,6 +69,7 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
         );
 
         // a registered user login for https://world.openfoodfacts.org/ is required
+        //ToDo: Add user
         const User myUser =
             User(userId: 'smoothie-app', password: 'strawberrybanana');
 

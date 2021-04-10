@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_ui_library/widgets/smooth_toggle.dart';
@@ -40,11 +41,12 @@ class ScanPage extends StatelessWidget {
         });
   }
 
-  static Widget getContributeChooseToggle(final ContinuousScanModel model) =>
+  static Widget getContributeChooseToggle(
+          final ContinuousScanModel model, BuildContext context) =>
       SmoothToggle(
         value: model.contributionMode,
-        textLeft: '  CONTRIBUTE',
-        textRight: 'CHOOSE      ',
+        textLeft: '${AppLocalizations.of(context).scan_contribute}   ',
+        textRight: '     ${AppLocalizations.of(context).scan_choose}',
         colorLeft: Colors.black.withAlpha(160),
         colorRight: Colors.black.withAlpha(160),
         iconLeft: SvgPicture.asset('assets/ikonate_bold/add.svg'),

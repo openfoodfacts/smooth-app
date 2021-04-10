@@ -5,6 +5,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/Product.dart';
@@ -112,7 +113,8 @@ class SmoothProductCardFound extends StatelessWidget {
                                 Flexible(
                                   child: Text(
                                     product.productName ??
-                                        'Unknown product name',
+                                        AppLocalizations.of(context)
+                                            .unknownProductName,
                                     maxLines: 2,
                                     overflow: TextOverflow.fade,
                                     style: themeData.textTheme.headline4,
@@ -128,7 +130,9 @@ class SmoothProductCardFound extends StatelessWidget {
                               children: <Widget>[
                                 Flexible(
                                   child: Text(
-                                    product.brands ?? 'Unknown brand',
+                                    product.brands ??
+                                        AppLocalizations.of(context)
+                                            .unknownBrand,
                                     maxLines: 1,
                                     overflow: TextOverflow.fade,
                                     style: themeData.textTheme.subtitle1,
@@ -143,7 +147,9 @@ class SmoothProductCardFound extends StatelessWidget {
                               children: <Widget>[
                                 Flexible(
                                   child: Text(
-                                    product.brands ?? 'Unknown brand',
+                                    product.brands ??
+                                        AppLocalizations.of(context)
+                                            .unknownBrand,
                                     maxLines: 1,
                                     overflow: TextOverflow.fade,
                                     style: themeData.textTheme.subtitle1,
@@ -182,9 +188,10 @@ class SmoothProductCardFound extends StatelessWidget {
           Navigator.push<Widget>(
             context,
             MaterialPageRoute<Widget>(
-                builder: (BuildContext context) => ProductPage(
-                      product: product,
-                    )),
+              builder: (BuildContext context) => ProductPage(
+                product: product,
+              ),
+            ),
           );
         },
         child: Hero(
@@ -232,7 +239,9 @@ class SmoothProductCardFound extends StatelessWidget {
                                 ),
                                 Flexible(
                                   child: Text(
-                                    product.brands ?? 'Unknown brand',
+                                    product.brands ??
+                                        AppLocalizations.of(context)
+                                            .unknownBrand,
                                     maxLines: 1,
                                     overflow: TextOverflow.fade,
                                     style: const TextStyle(
@@ -255,7 +264,8 @@ class SmoothProductCardFound extends StatelessWidget {
                                         )
                                       : Center(
                                           child: Text(
-                                            'Nutri-score unavailable',
+                                            AppLocalizations.of(context)
+                                                .nutri_score_unavailable,
                                             style: Theme.of(context)
                                                 .textTheme
                                                 .subtitle1,

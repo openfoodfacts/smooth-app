@@ -7,6 +7,7 @@ import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/pages/product/product_page.dart';
 import 'package:smooth_app/pages/choose_page.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 /// Local product search by text
 class TextSearchWidget extends StatefulWidget {
@@ -40,7 +41,7 @@ class _TextSearchWidgetState extends State<TextSearchWidget> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Expanded(child: _getTextField()),
+              Expanded(child: _getTextField(AppLocalizations.of(context))),
               _getInvisibleIconButton(
                 CupertinoIcons.arrow_up_right,
                 () => ChoosePage.onSubmitted(
@@ -64,13 +65,14 @@ class _TextSearchWidgetState extends State<TextSearchWidget> {
         ),
       );
 
-  Widget _getTextField() => TypeAheadFormField<Product>(
+  Widget _getTextField(AppLocalizations appLocalizations) =>
+      TypeAheadFormField<Product>(
         textFieldConfiguration: TextFieldConfiguration(
           controller: _searchController,
           autofocus: false,
-          decoration: const InputDecoration(
+          decoration: InputDecoration(
             border: InputBorder.none,
-            hintText: 'What are you looking for?',
+            hintText: appLocalizations.what_are_you_looking_for,
           ),
         ),
         hideOnEmpty: true,
