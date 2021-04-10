@@ -33,90 +33,94 @@ class _TextSearchWidgetState extends State<TextSearchWidget> {
   bool _visibleCloseButton = false;
 
   @override
-  Widget build(BuildContext context) => SmoothCard(
-        child: TypeAheadField<Product>(
-          textFieldConfiguration: TextFieldConfiguration(
-            controller: _searchController,
-            autofocus: false,
-            decoration: InputDecoration(
-              contentPadding: const EdgeInsets.all(20.0),
-              prefixIcon: _getIcon(Icons.search),
-              suffixIcon: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  _getInvisibleIconButton(
-                    CupertinoIcons.arrow_up_right,
-                    () => ChoosePage.onSubmitted(
-                      _searchController.text,
-                      context,
-                      widget.daoProduct.localDatabase,
-                    ),
-                  ),
-                  _getInvisibleIconButton(
-                    Icons.close,
-                    () => setState(
-                      () {
-                        FocusScope.of(context).unfocus();
-                        _searchController.text = '';
-                        _visibleCloseButton = false;
-                      },
-                    ),
-                  ),
-                ],
-              ),
-              border: InputBorder.none,
-              hintText: 'What are you looking for?',
-            ),
-          ),
-          hideOnEmpty: true,
-          hideOnLoading: true,
-          suggestionsCallback: (String value) async => _search(value),
-          transitionBuilder: (BuildContext context, Widget suggestionsBox,
-                  AnimationController controller) =>
-              suggestionsBox,
-          itemBuilder: (BuildContext context, Product suggestion) => Container(
-            height: MediaQuery.of(context).size.height / 10,
-            child: Row(
+  Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
+    return SmoothCard(
+      child: TypeAheadField<Product>(
+        textFieldConfiguration: TextFieldConfiguration(
+          controller: _searchController,
+          autofocus: false,
+          decoration: InputDecoration(
+            contentPadding: const EdgeInsets.all(20.0),
+            prefixIcon: _getIcon(Icons.search),
+            suffixIcon: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                Expanded(
-                  flex: 1,
-                  child: SmoothProductImage(
-                    product: suggestion,
+                _getInvisibleIconButton(
+                  CupertinoIcons.arrow_up_right,
+                  () => ChoosePage.onSubmitted(
+                    _searchController.text,
+                    context,
+                    widget.daoProduct.localDatabase,
                   ),
                 ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width / 40,
-                ),
-                Expanded(
-                  flex: 2,
-                  child: Text(
-                    suggestion.productName ??
-                        suggestion.productNameEN ??
-                        suggestion.productNameFR ??
-                        suggestion.productNameDE ??
-                        suggestion.barcode,
+                _getInvisibleIconButton(
+                  Icons.close,
+                  () => setState(
+                    () {
+                      FocusScope.of(context).unfocus();
+                      _searchController.text = '';
+                      _visibleCloseButton = false;
+                    },
                   ),
                 ),
               ],
             ),
+            border: InputBorder.none,
+            hintText: 'What are you looking for?',
           ),
-          onSuggestionSelected: (Product suggestion) async {
-            await Navigator.push<Widget>(
-              context,
-              MaterialPageRoute<Widget>(
-                builder: (BuildContext context) => ProductPage(
+        ),
+        hideOnEmpty: true,
+        hideOnLoading: true,
+        suggestionsCallback: (String value) async => _search(value),
+        transitionBuilder: (BuildContext context, Widget suggestionsBox,
+                AnimationController controller) =>
+            suggestionsBox,
+        itemBuilder: (BuildContext context, Product suggestion) => Container(
+          height: screenSize.height / 10,
+          child: Row(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(4),
+                child: SmoothProductImage(
                   product: suggestion,
+                  width: screenSize.height / 10,
+                  height: screenSize.height / 10,
                 ),
               ),
-            );
-            if (widget.addProductCallback != null) {
-              widget.addProductCallback(suggestion);
-            }
-          },
+              SizedBox(
+                width: screenSize.width / 40,
+              ),
+              Expanded(
+                child: Text(
+                  suggestion.productName ??
+                      suggestion.productNameEN ??
+                      suggestion.productNameFR ??
+                      suggestion.productNameDE ??
+                      suggestion.barcode,
+                ),
+              ),
+            ],
+          ),
         ),
-      );
+        onSuggestionSelected: (Product suggestion) async {
+          await Navigator.push<Widget>(
+            context,
+            MaterialPageRoute<Widget>(
+              builder: (BuildContext context) => ProductPage(
+                product: suggestion,
+              ),
+            ),
+          );
+          if (widget.addProductCallback != null) {
+            widget.addProductCallback(suggestion);
+          }
+        },
+      ),
+    );
+  }
 
   Widget _getInvisibleIconButton(
     final IconData iconData,

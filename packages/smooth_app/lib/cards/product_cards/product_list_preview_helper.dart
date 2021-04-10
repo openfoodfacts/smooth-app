@@ -39,6 +39,8 @@ class ProductListPreviewHelper extends StatelessWidget {
         ),
         child: SmoothProductImage(
           product: product,
+          width: iconSize,
+          height: iconSize,
         ),
       ));
     }
