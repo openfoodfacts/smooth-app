@@ -204,17 +204,17 @@ class _ProductPageState extends State<ProductPage>
                   <PopupMenuEntry<String>>[
                 PopupMenuItem<String>(
                   value: 'refresh',
-                  child: Text('Refresh'),
+                  child: Text(appLocalizations.label_refresh),
                   enabled: true,
                 ),
                 PopupMenuItem<String>(
                   value: 'web',
-                  child: Text('open in Web'),
+                  child: Text(appLocalizations.open_in_web),
                   enabled: true,
                 ),
                 PopupMenuItem<String>(
                   value: 'preferences',
-                  child: Text('My preferences'),
+                  child: Text(appLocalizations.myPreferences),
                   enabled: true,
                 ),
               ],
@@ -415,6 +415,7 @@ class _ProductPageState extends State<ProductPage>
     final ThemeData themeData = Theme.of(context);
     final double iconWidth =
         screenSize.width / 10; // TODO(monsieurtanuki): target size?
+
     final Map<String, String> attributeGroupLabels = <String, String>{};
     for (final AttributeGroup attributeGroup
         in productPreferences.attributeGroups) {
@@ -422,6 +423,7 @@ class _ProductPageState extends State<ProductPage>
     }
     final List<String> attributeIds =
         productPreferences.getOrderedImportantAttributeIds();
+
     final List<Widget> listItems = <Widget>[];
 
     listItems.add(_buildProductImagesCarousel(context));
