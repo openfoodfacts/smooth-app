@@ -34,9 +34,9 @@ class _TextSearchWidgetState extends State<TextSearchWidget> {
   bool _visibleCloseButton = false;
 
   @override
-
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return SmoothCard(
       child: TypeAheadField<Product>(
         textFieldConfiguration: TextFieldConfiguration(
