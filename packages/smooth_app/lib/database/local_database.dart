@@ -28,7 +28,7 @@ class LocalDatabase extends ChangeNotifier {
 
     final Database database = await openDatabase(
       databasePath,
-      version: 3,
+      version: 4,
       singleInstance: true,
       onUpgrade: _onUpgrade,
     );

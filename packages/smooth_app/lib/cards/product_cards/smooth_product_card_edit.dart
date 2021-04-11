@@ -5,6 +5,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/model/ProductImage.dart';
 
@@ -128,7 +129,7 @@ class SmoothProductCardEdit extends StatelessWidget {
             ),
             child: Center(
               child: Text(
-                'Missing ${field.value} picture',
+                '${AppLocalizations.of(context).missing_picture}: ${field.value}',
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.subtitle1,
               ),

@@ -7,6 +7,7 @@ import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/pages/product/product_page.dart';
 import 'package:smooth_app/pages/choose_page.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 /// Local product search by text
 class TextSearchWidget extends StatefulWidget {
@@ -33,6 +34,7 @@ class _TextSearchWidgetState extends State<TextSearchWidget> {
   bool _visibleCloseButton = false;
 
   @override
+
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
     return SmoothCard(
@@ -69,7 +71,7 @@ class _TextSearchWidgetState extends State<TextSearchWidget> {
               ],
             ),
             border: InputBorder.none,
-            hintText: 'What are you looking for?',
+            hintText: appLocalizations.what_are_you_looking_for,
           ),
         ),
         hideOnEmpty: true,

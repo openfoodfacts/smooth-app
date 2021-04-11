@@ -132,7 +132,10 @@ class ProductPage extends StatefulWidget {
                 return Card(
                   child: ListTile(
                     title: Text(
-                      ProductQueryPageHelper.getProductListLabel(productList),
+                      ProductQueryPageHelper.getProductListLabel(
+                        productList,
+                        context,
+                      ),
                     ),
                     trailing: iconData == null
                         ? null
@@ -196,23 +199,23 @@ class _ProductPageState extends State<ProductPage> {
                 'assets/actions/food-cog.svg',
                 color: themeData.bottomNavigationBarTheme.selectedItemColor,
               ),
-              label: 'preferences',
+              label: appLocalizations.label_preferences,
             ),
-            const BottomNavigationBarItem(
-              icon: Icon(Icons.playlist_add),
-              label: 'lists',
+            BottomNavigationBarItem(
+              icon: const Icon(Icons.playlist_add),
+              label: appLocalizations.label_lists,
             ),
-            const BottomNavigationBarItem(
-              icon: Icon(Icons.launch),
-              label: 'web',
+            BottomNavigationBarItem(
+              icon: const Icon(Icons.launch),
+              label: appLocalizations.label_web,
             ),
-            const BottomNavigationBarItem(
-              icon: Icon(Icons.refresh),
-              label: 'refresh',
+            BottomNavigationBarItem(
+              icon: const Icon(Icons.refresh),
+              label: appLocalizations.label_refresh,
             ),
             BottomNavigationBarItem(
               icon: Icon(ConstantIcons.getShareIcon()),
-              label: 'share',
+              label: appLocalizations.label_share,
             ),
           ],
           onTap: (final int index) async {
@@ -244,9 +247,9 @@ class _ProductPageState extends State<ProductPage> {
                   return;
                 }
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text('Product refreshed'),
-                    duration: Duration(seconds: 2),
+                  SnackBar(
+                    content: Text(appLocalizations.product_refreshed),
+                    duration: const Duration(seconds: 2),
                   ),
                 );
                 setState(() {
@@ -280,39 +283,42 @@ class _ProductPageState extends State<ProductPage> {
   }
 
   Widget _buildProductImagesCarousel(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<ImageUploadCard> carouselItems = <ImageUploadCard>[
       ImageUploadCard(
-          product: _product,
-          imageField: ImageField.FRONT,
-          imageUrl: _product.imageFrontUrl,
-          title: 'Product',
-          buttonText: 'Front photo'),
+        product: _product,
+        imageField: ImageField.FRONT,
+        imageUrl: _product.imageFrontUrl,
+        title: appLocalizations.product,
+        buttonText: appLocalizations.front_photo,
+      ),
       ImageUploadCard(
-          product: _product,
-          imageField: ImageField.INGREDIENTS,
-          imageUrl: _product.imageIngredientsUrl,
-          title: 'Ingredients',
-          buttonText: 'Ingredients photo'),
+        product: _product,
+        imageField: ImageField.INGREDIENTS,
+        imageUrl: _product.imageIngredientsUrl,
+        title: appLocalizations.ingredients,
+        buttonText: appLocalizations.ingredients_photo,
+      ),
       ImageUploadCard(
         product: _product,
         imageField: ImageField.NUTRITION,
         imageUrl: _product.imageNutritionUrl,
-        title: 'Nutrition',
-        buttonText: 'Nutrition facts photo',
+        title: appLocalizations.nutrition,
+        buttonText: appLocalizations.nutrition_facts_photo,
       ),
       ImageUploadCard(
         product: _product,
         imageField: ImageField.PACKAGING,
         imageUrl: _product.imagePackagingUrl,
-        title: 'Packaging information',
-        buttonText: 'Packaging information photo',
+        title: appLocalizations.packaging_information,
+        buttonText: appLocalizations.packaging_information_photo,
       ),
       ImageUploadCard(
         product: _product,
         imageField: ImageField.OTHER,
         imageUrl: null,
-        title: 'More photos',
-        buttonText: 'More photos',
+        title: appLocalizations.more_photos,
+        buttonText: appLocalizations.more_photos,
       ),
     ];
 
@@ -335,32 +341,36 @@ class _ProductPageState extends State<ProductPage> {
   }
 
   Widget _buildNewProductBody(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return ListView(children: <Widget>[
       Container(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         margin: const EdgeInsets.only(top: 20.0),
         child: Text(
-          'Add a new product',
+          appLocalizations.add_product,
           style: Theme.of(context).textTheme.headline1,
         ),
       ),
       ImageUploadCard(
-          product: _product,
-          imageField: ImageField.FRONT,
-          buttonText: 'Front photo'),
+        product: _product,
+        imageField: ImageField.FRONT,
+        buttonText: appLocalizations.front_photo,
+      ),
       ImageUploadCard(
-          product: _product,
-          imageField: ImageField.INGREDIENTS,
-          buttonText: 'Ingredients photo'),
+        product: _product,
+        imageField: ImageField.INGREDIENTS,
+        buttonText: appLocalizations.ingredients_photo,
+      ),
       ImageUploadCard(
         product: _product,
         imageField: ImageField.NUTRITION,
-        buttonText: 'Nutrition facts photo',
+        buttonText: appLocalizations.nutrition_facts_photo,
       ),
       ImageUploadCard(
-          product: _product,
-          imageField: ImageField.OTHER,
-          buttonText: 'More interesting photos'),
+        product: _product,
+        imageField: ImageField.OTHER,
+        buttonText: appLocalizations.more_photos,
+      ),
     ]);
   }
 
@@ -482,7 +492,7 @@ class _ProductPageState extends State<ProductPage> {
                 style: themeData.textTheme.headline3,
               ),
               subtitle: Text(
-                'Similar foods',
+                appLocalizations.similar_food,
                 style: themeData.textTheme.subtitle2,
               ),
             ),

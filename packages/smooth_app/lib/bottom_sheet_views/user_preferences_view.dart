@@ -48,7 +48,6 @@ class UserPreferencesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
-    print('Screensize: ' + screenSize.toString());
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
@@ -57,6 +56,9 @@ class UserPreferencesView extends StatelessWidget {
         (screenSize.width - _TYPICAL_PADDING_OR_MARGIN * 3) / 2;
 
     final double buttonHeight = screenSize.height * 0.08;
+
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
     return Material(
       child: Container(
         height: screenSize.height * 0.9,
@@ -116,7 +118,7 @@ class UserPreferencesView extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           SmoothMainButton(
-                            text: 'Reset',
+                            text: appLocalizations.reset,
                             width: buttonWidth,
                             height: buttonHeight,
                             important: false,
@@ -125,7 +127,7 @@ class UserPreferencesView extends StatelessWidget {
                             ),
                           ),
                           SmoothMainButton(
-                            text: 'OK',
+                            text: appLocalizations.okay,
                             width: buttonWidth,
                             height: buttonHeight,
                             important: true,
