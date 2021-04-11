@@ -205,7 +205,7 @@ class SmoothProductCardFound extends StatelessWidget {
                       SmoothProductImage(
                         product: product,
                         width: MediaQuery.of(context).size.width * 0.25,
-                        height: 140.0,
+                        height: MediaQuery.of(context).size.width * 0.25,
                       ),
                       Container(
                         margin: const EdgeInsets.only(left: 10.0),
