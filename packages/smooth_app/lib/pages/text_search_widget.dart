@@ -34,43 +34,42 @@ class _TextSearchWidgetState extends State<TextSearchWidget> {
   bool _visibleCloseButton = false;
 
   @override
-  Widget build(BuildContext context) => SmoothCard(
-        child: ListTile(
-          leading: _getIcon(Icons.search),
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Expanded(child: _getTextField(AppLocalizations.of(context))),
-              _getInvisibleIconButton(
-                CupertinoIcons.arrow_up_right,
-                () => ChoosePage.onSubmitted(
-                  _searchController.text,
-                  context,
-                  widget.daoProduct.localDatabase,
-                ),
-              ),
-              _getInvisibleIconButton(
-                Icons.close,
-                () => setState(
-                  () {
-                    FocusScope.of(context).unfocus();
-                    _searchController.text = '';
-                    _visibleCloseButton = false;
-                  },
-                ),
-              ),
-            ],
-          ),
-        ),
-      );
-
-  Widget _getTextField(AppLocalizations appLocalizations) =>
-      TypeAheadFormField<Product>(
+  Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    return SmoothCard(
+      child: TypeAheadField<Product>(
         textFieldConfiguration: TextFieldConfiguration(
           controller: _searchController,
           autofocus: false,
           decoration: InputDecoration(
+            contentPadding: const EdgeInsets.all(20.0),
+            prefixIcon: _getIcon(Icons.search),
+            suffixIcon: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                _getInvisibleIconButton(
+                  CupertinoIcons.arrow_up_right,
+                  () => ChoosePage.onSubmitted(
+                    _searchController.text,
+                    context,
+                    widget.daoProduct.localDatabase,
+                  ),
+                ),
+                _getInvisibleIconButton(
+                  Icons.close,
+                  () => setState(
+                    () {
+                      FocusScope.of(context).unfocus();
+                      _searchController.text = '';
+                      _visibleCloseButton = false;
+                    },
+                  ),
+                ),
+              ],
+            ),
             border: InputBorder.none,
             hintText: appLocalizations.what_are_you_looking_for,
           ),
@@ -81,16 +80,28 @@ class _TextSearchWidgetState extends State<TextSearchWidget> {
         transitionBuilder: (BuildContext context, Widget suggestionsBox,
                 AnimationController controller) =>
             suggestionsBox,
-        itemBuilder: (BuildContext context, Product suggestion) => ListTile(
-          title: Text(
-            suggestion.productName ??
-                suggestion.productNameEN ??
-                suggestion.productNameFR ??
-                suggestion.productNameDE ??
-                suggestion.barcode,
-          ),
-          leading: SmoothProductImage(
-            product: suggestion,
+        itemBuilder: (BuildContext context, Product suggestion) => Container(
+          height: screenSize.height / 10,
+          child: Row(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(4),
+                child: SmoothProductImage(
+                  product: suggestion,
+                  width: screenSize.height / 10,
+                  height: screenSize.height / 10,
+                ),
+              ),
+              Expanded(
+                child: Text(
+                  suggestion.productName ??
+                      suggestion.productNameEN ??
+                      suggestion.productNameFR ??
+                      suggestion.productNameDE ??
+                      suggestion.barcode,
+                ),
+              ),
+            ],
           ),
         ),
         onSuggestionSelected: (Product suggestion) async {
@@ -106,7 +117,9 @@ class _TextSearchWidgetState extends State<TextSearchWidget> {
             widget.addProductCallback(suggestion);
           }
         },
-      );
+      ),
+    );
+  }
 
   Widget _getInvisibleIconButton(
     final IconData iconData,

@@ -88,10 +88,9 @@ class SmoothProductCardFound extends StatelessWidget {
                 Expanded(
                   flex: 1,
                   child: SmoothProductImage(
-                    maxWidth: screenSize.width / 3,
-                    maxHeight: 2.0,
-                    product: product,
-                  ),
+                      product: product,
+                      width: screenSize.width * 0.20,
+                      height: screenSize.width * 0.20),
                 ),
                 const SizedBox(
                   width: 8.0,
@@ -212,6 +211,8 @@ class SmoothProductCardFound extends StatelessWidget {
                     children: <Widget>[
                       SmoothProductImage(
                         product: product,
+                        width: MediaQuery.of(context).size.width * 0.25,
+                        height: MediaQuery.of(context).size.width * 0.25,
                       ),
                       Container(
                         margin: const EdgeInsets.only(left: 10.0),

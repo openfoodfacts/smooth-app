@@ -10,7 +10,6 @@ import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:provider/provider.dart';
 import 'package:rubber/rubber.dart';
-import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
 
 // Project imports:
 import 'package:smooth_app/cards/data_cards/attribute_chip.dart';
@@ -84,9 +83,9 @@ class SmoothProductSneakPeekViewState extends State<SmoothProductSneakPeekView>
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
-                    SmoothProductImage(
-                      product: widget.product,
-                    ),
+                    //SmoothProductImage(
+                    //  product: widget.product,
+                    //),
                     Container(
                       margin: const EdgeInsets.only(left: 10.0),
                       padding: const EdgeInsets.only(top: 7.5),
