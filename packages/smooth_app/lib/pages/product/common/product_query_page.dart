@@ -330,9 +330,9 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
     final String lastTime =
         ProductQueryPageHelper.getDurationStringFromTimestamp(
             _lastUpdate, context);
-    _lastUpdate = null;
     final String message =
-        '${AppLocalizations.of(context).cached_results_from}: $lastTime.';
+        '${AppLocalizations.of(context).chached_results_from} $lastTime';
+    _lastUpdate = null;
 
     Future<void>.delayed(
       const Duration(seconds: 0),
