@@ -230,21 +230,6 @@
     "@no_product_in_list": {},
     "error_occurred": "Ein Fehler ist aufgetreten",
     "@error_occurred": {},
-    "cached_results_from": "Zwischengespeicherte Ergebnisse von",
-    "@cached_results_from": {
-        "description": "Cached results from: 4 Month Ago (no need for ':')"
-    },
-    "ago_less_1_minute": "vor weniger als einer Minute",
-    "ago_1_minute": "Vor 1 Minute",
-    "ago_x_minutes": "vor Minuten",
-    "ago_1_hour": "vor 1 Stunde",
-    "ago_x_hours": "vor Stunden",
-    "ago_1_day": "vor 1 Tag",
-    "ago_x_days": "Tage her",
-    "ago_1_week": "vor 1 Woche",
-    "ago_x_weeks": "Wochen her",
-    "ago_1_month": "Vor 1 Monat",
-    "ago_x_months": "Monate her",
     "keyword_search": "(Stichwortsuche)",
     "category_search": "(Kategoriesuche)",
     "my_list": "(meine Liste)",
@@ -265,5 +250,41 @@
     },
     "reloaded_with_new_preferences": "Mit neuen Einstellungen neu geladen",
     "no_product_in_section": "Bereich enthält noch kein Produkt",
-    "what_are_you_looking_for": "Was suchen Sie?"
+    "what_are_you_looking_for": "Was suchen Sie?",
+    "chached_results_from": "Cached results from:",
+    "plural_ago_minutes": "{count,plural, =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
+    "@plural_ago_minutes": {
+        "description": "Cached results from: x minutes ago",
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "plural_ago_hours": "{count,plural, =1{one hour ago} other{{count} hours ago}}",
+    "@plural_ago_hours": {
+        "description": "Cached results from: x hours ago",
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "plural_ago_days": "{count,plural, =1{one day ago} other{{count} days ago}}",
+    "@plural_ago_days": {
+        "description": "Cached results from: x days ago",
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "plural_ago_weeks": "{count,plural, =1{one week ago} other{{count} weeks ago}}",
+    "@plural_ago_weeks": {
+        "description": "Cached results from: x weeks ago",
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "plural_ago_months": "{count,plural, =1{one month ago} other{{count} months ago}}",
+    "@plural_ago_months": {
+        "description": "Cached results from: x months ago",
+        "placeholders": {
+            "count": {}
+        }
+    }
 }
