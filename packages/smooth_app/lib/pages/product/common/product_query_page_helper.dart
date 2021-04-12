@@ -50,45 +50,30 @@ class ProductQueryPageHelper {
       final int seconds, AppLocalizations appLocalizations) {
     final double minutes = seconds / 60;
     final int roundMinutes = minutes.round();
-    if (roundMinutes == 0) {
-      return appLocalizations.ago_less_1_minute;
-    }
-    if (roundMinutes == 1) {
-      return appLocalizations.ago_1_minute;
-    }
     if (roundMinutes < 60) {
-      return '$roundMinutes ${appLocalizations.ago_x_minutes}';
+      return appLocalizations.plural_ago_minutes(roundMinutes);
     }
+
     final double hours = minutes / 60;
     final int roundHours = hours.round();
-    if (roundHours == 1) {
-      return appLocalizations.ago_1_hour;
-    }
     if (roundHours < 24) {
-      return '$roundHours ${appLocalizations.ago_x_hours}';
+      return appLocalizations.plural_ago_hours(roundHours);
     }
+
     final double days = hours / 24;
     final int roundDays = days.round();
-    if (roundDays == 1) {
-      return appLocalizations.ago_1_day;
-    }
     if (roundDays < 7) {
-      return '$roundDays ${appLocalizations.ago_x_days}';
+      return appLocalizations.plural_ago_days(roundDays);
     }
     final double weeks = days / 7;
     final int roundWeeks = weeks.round();
-    if (roundWeeks == 1) {
-      return appLocalizations.ago_1_week;
-    }
     if (roundWeeks <= 4) {
-      return '$roundWeeks ${appLocalizations.ago_x_weeks}';
+      return appLocalizations.plural_ago_weeks(roundWeeks);
     }
+
     final double months = days / (365 / 12);
     final int roundMonths = months.round();
-    if (roundMonths == 1) {
-      return appLocalizations.ago_1_month;
-    }
-    return '$roundMonths ${appLocalizations.ago_x_months}';
+    return appLocalizations.plural_ago_months(roundMonths);
   }
 
   static String getDurationStringFromTimestamp(

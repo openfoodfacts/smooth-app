@@ -230,21 +230,6 @@
     "@no_product_in_list": {},
     "error_occurred": "An error occurred",
     "@error_occurred": {},
-    "cached_results_from": "Cached results from",
-    "@cached_results_from": {
-        "description": "Cached results from: 4 Month Ago (no need for ':')"
-    },
-    "ago_less_1_minute": "less than 1 minute ago",
-    "ago_1_minute": "1 minute ago",
-    "ago_x_minutes": "minutes ago",
-    "ago_1_hour": "1 hour ago",
-    "ago_x_hours": "hours ago",
-    "ago_1_day": "one day ago",
-    "ago_x_days": "days ago",
-    "ago_1_week": "1 week ago",
-    "ago_x_weeks": "weeks ago",
-    "ago_1_month": "1 month ago",
-    "ago_x_months": "months ago",
     "keyword_search": "(keyword search)",
     "category_search": "(category search)",
     "my_list": "(my list)",
@@ -265,5 +250,67 @@
     },
     "reloaded_with_new_preferences": "Reloaded with new preferences",
     "no_product_in_section": "There is no product in this section",
-    "what_are_you_looking_for": "What are you looking for?"
+    "what_are_you_looking_for": "What are you looking for?",
+
+    "plural_example": "{count,plural, =0{no wombats} =1{one wombat} =2(two wombats} few{few {count} wombats} many{many {count} wombats} other{other {count} wombats}}",
+    "@plural_example": {
+      "description": "A plural message",
+      "placeholders": {
+        "count": {
+          
+        }
+      }
+    },
+
+    "plural_ago_minutes": "{count,plural, =0{Cached results from: less then a minute ago} =1{Cached results from: one minute ago} =2(Cached results from: two minutes ago} other{Cached results from: {count} minutes ago}}",
+    "@plural_ago_minutes": {
+      "description": "Cached results from: x minutes ago",
+      "placeholders": {
+        "count": {
+          
+        }
+      }
+    },
+
+    "plural_ago_hours": "{count,plural, =1{Cached results from: one hour ago} =2(Cached results from: two hours ago} other{Cached results from: {count} hours ago}}",
+    "@plural_ago_hours": {
+      "description": "Cached results from: x hours ago",
+      "placeholders": {
+        "count": {
+          
+        }
+      }
+    },
+
+    "plural_ago_days": "{count,plural, =1{Cached results from: one day ago} =2(Cached results from: two days ago} other{Cached results from: {count} days ago}}",
+    "@plural_ago_days": {
+      "description": "Cached results from: x days ago",
+      "placeholders": {
+        "count": {
+          
+        }
+      }
+    },
+
+    "plural_ago_weeks": "{count,plural, =1{Cached results from: one week ago} =2(Cached results from: two weeks ago} other{Cached results from: {count} weeks ago}}",
+    "@plural_ago_weeks": {
+      "description": "Cached results from: x weeks ago",
+      "placeholders": {
+        "count": {
+          
+        }
+      }
+    },
+
+    "plural_ago_months": "{count,plural, =1{Cached results from: one month ago} =2(Cached results from: two months ago} other{Cached results from: {count} months ago}}",
+    "@plural_ago_months": {
+      "description": "Cached results from: x months ago",
+      "placeholders": {
+        "count": {
+          
+        }
+      }
+    }
+    
+
 }

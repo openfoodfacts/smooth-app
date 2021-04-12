@@ -327,18 +327,16 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
     if (refreshSupplier == null) {
       return;
     }
-    final String lastTime =
+    final String lastTimeMessage =
         ProductQueryPageHelper.getDurationStringFromTimestamp(
             _lastUpdate, context);
     _lastUpdate = null;
-    final String message =
-        '${AppLocalizations.of(context).cached_results_from}: $lastTime.';
 
     Future<void>.delayed(
       const Duration(seconds: 0),
       () => ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(message),
+          content: Text(lastTimeMessage),
           duration: const Duration(seconds: 5),
           action: SnackBarAction(
             label: AppLocalizations.of(context).label_refresh,
