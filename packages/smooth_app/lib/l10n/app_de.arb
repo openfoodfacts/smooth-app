@@ -26,7 +26,9 @@
     "applyButtonText": "Übernehmen",
     "@applyButtonText": {},
     "myPersonalizedRanking": "Meine persönliche Rangliste",
-    "@myPersonalizedRanking": {},
+    "@myPersonalizedRanking": {
+        "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
+    },
     "scannerProductsEmpty": "Produkte, die Sie scannen, werden hier gezeigt",
     "@scannerProductsEmpty": {},
     "myPreferences": "Meine Einstellungen",
@@ -50,7 +52,9 @@
     "close": "Schließen",
     "@close": {},
     "empty": "Leer!",
-    "@empty": {},
+    "@empty": {
+        "description": "Example: A preview of your search history, if you haven't searched for anything yet, it will show 'Empty!"
+    },
     "unknownBrand": "Unbekannte Marke",
     "@unknownBrand": {},
     "unknownProductName": "Unbekannter Produktname",
@@ -87,7 +91,7 @@
     "@contribute_develop_text_2": {},
     "contribute_translate_header": "Übersetzen",
     "@contribute_translate_header": {},
-    "contribute_translate_text": "Open Food Facts ist ein globales Projekt, das Produkte für über 160 Länder enthält. Open Food Facts wird in Dutzende von Sprachen übersetzt, mit ständig wachsenden Inhalten.",
+    "contribute_translate_text": "Open Food Facts ist ein globales Projekt, das Produkte für über 160 Länder enthält. Open Food Facts wird in Dutzende von Sprachen, mit ständig wachsende, Inhalt übersetzt.",
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Übersetzungen sind eine der Hauptaufgaben des Projekts",
     "@contribute_translate_text_2": {},
@@ -106,7 +110,9 @@
     "reset": "Zurücksetzten",
     "@reset": {},
     "filter": "Filter",
-    "@filter": {},
+    "@filter": {
+        "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
+    },
     "added_product_thanks": "Danke, dass Sie dieses Produkt hinzugefügt haben!",
     "@added_product_thanks": {},
     "missing_product": "Dieses Produkt fehlt",
@@ -144,11 +150,11 @@
     "@already_in_pantry": {},
     "added_to_pantry": "Zur Speisekammer hinzugefügt!",
     "@added_to_pantry": {},
-    "want_to_delete_pantry": "Möchten Sie diese Speisekammer löschen?",
+    "want_to_delete_pantry": "Möchtest du diese Speisekammer löschen?",
     "@want_to_delete_pantry": {},
-    "want_to_delete_shopping": "Möchten Sie diese Einkaufsliste löschen?",
+    "want_to_delete_shopping": "Möchtest du diese Einkaufsliste löschen?",
     "@want_to_delete_shopping": {},
-    "want_to_delete_list": "Möchten Sie diese Produktliste löschen ?",
+    "want_to_delete_list": "Möchten du diese Liste löschen?",
     "@want_to_delete_list": {},
     "new_pantry": "Neue Speisekammer",
     "@new_pantry": {},
@@ -251,36 +257,36 @@
     "reloaded_with_new_preferences": "Mit neuen Einstellungen neu geladen",
     "no_product_in_section": "Bereich enthält noch kein Produkt",
     "what_are_you_looking_for": "Was suchen Sie?",
-    "chached_results_from": "Cached results from:",
-    "plural_ago_minutes": "{count,plural, =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
+    "chached_results_from": "Gespeicherte Ergebnisse von vor:",
+    "plural_ago_minutes": "{count,plural, =0{weniger als 1 Minute} =1{einer Minute} other{{count} Minuten}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural, =1{one hour ago} other{{count} hours ago}}",
+    "plural_ago_hours": "{count,plural, =1{einer Stunde} other{{count} Stunden }}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_days": "{count,plural, =1{one day ago} other{{count} days ago}}",
+    "plural_ago_days": "{count,plural, =1{einem Tag} other{{count} Tagen}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, =1{one week ago} other{{count} weeks ago}}",
+    "plural_ago_weeks": "{count,plural, =1{einer Woche} other{{count} Wochen}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, =1{one month ago} other{{count} months ago}}",
+    "plural_ago_months": "{count,plural, =1{einem Monat} other{{count} Monaten}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {

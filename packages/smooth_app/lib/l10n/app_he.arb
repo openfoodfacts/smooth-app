@@ -26,7 +26,9 @@
     "applyButtonText": "החלה",
     "@applyButtonText": {},
     "myPersonalizedRanking": "הדירוג המותאם שלי",
-    "@myPersonalizedRanking": {},
+    "@myPersonalizedRanking": {
+        "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
+    },
     "scannerProductsEmpty": "מוצרים שסרקת יופיעו כאן",
     "@scannerProductsEmpty": {},
     "myPreferences": "ההעדפות שלי",
@@ -50,7 +52,9 @@
     "close": "סגירה",
     "@close": {},
     "empty": "ריק!",
-    "@empty": {},
+    "@empty": {
+        "description": "Example: A preview of your search history, if you haven't searched for anything yet, it will show 'Empty!"
+    },
     "unknownBrand": "מותג לא ידוע",
     "@unknownBrand": {},
     "unknownProductName": "שם המוצר אינו ידוע",
@@ -87,7 +91,7 @@
     "@contribute_develop_text_2": {},
     "contribute_translate_header": "תרגום",
     "@contribute_translate_header": {},
-    "contribute_translate_text": "‏Open Food Facts הוא מיזם גלובלי שמכיל מוצרים מלמעלה מ־160 מדינות. Open Food Facts מתורגם לעשרות שפות עם תכנים שהולכים ומצטברים.",
+    "contribute_translate_text": "‏Open Food Facts הוא מיזם גלובלי שמכיל מוצרים מלמעלה מ־160 מדינות. Open Food Facts מתורגם לעשרות שפות עם תוכן שהולך ומצטבר.",
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "תרגומים הם אחת ממשימות המפתח של המיזם",
     "@contribute_translate_text_2": {},
@@ -106,7 +110,9 @@
     "reset": "איפוס",
     "@reset": {},
     "filter": "סינון",
-    "@filter": {},
+    "@filter": {
+        "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
+    },
     "added_product_thanks": "תודה שהוספת את המוצר הזה!",
     "@added_product_thanks": {},
     "missing_product": "המוצר חסר",
@@ -251,36 +257,36 @@
     "reloaded_with_new_preferences": "נטען מחדש עם העדפות חדשות",
     "no_product_in_section": "אין מוצרים בסעיף זה",
     "what_are_you_looking_for": "במה אפשר לעניין אותך?",
-    "chached_results_from": "Cached results from:",
-    "plural_ago_minutes": "{count,plural, =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
+    "chached_results_from": "תוצאות שמורות מלפני:",
+    "plural_ago_minutes": "{count,plural, one {} two {לפני שתי דקות} many {לפני {count} דקות} =0{לפני פחות מדקה} =1{לפני דקה} other{לפני {count} דקות}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural, =1{one hour ago} other{{count} hours ago}}",
+    "plural_ago_hours": "{count,plural, one {לפני שעה} two {לפני שעתיים} many {לפני {count} שעות} =1{לפני שעה} other{לפני {count} שעות}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_days": "{count,plural, =1{one day ago} other{{count} days ago}}",
+    "plural_ago_days": "{count,plural, one {אתמול} two {שלשום} many {לפני {count} ימים} =1{אתמול} other{לפני {count} ימים}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, =1{one week ago} other{{count} weeks ago}}",
+    "plural_ago_weeks": "{count,plural, one {לפני שבוע} two {לפני שבועיים} many {לפני {count} שבועות} =1{לפני שבוע} other{לפני {count} שבועות}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, =1{one month ago} other{{count} months ago}}",
+    "plural_ago_months": "{count,plural, one {לפני חודש} two {לפני חודשיים} many {לפני {count} חודשים} =1{לפני חודש} other{לפני {count} חודשים}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
