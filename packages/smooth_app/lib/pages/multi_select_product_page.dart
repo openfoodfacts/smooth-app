@@ -59,9 +59,14 @@ class _MultiSelectProductPageState extends State<MultiSelectProductPage> {
     }
   }
 
-  void _removeBarcode(final String barcode) => widget.productList != null
-      ? widget.productList.barcodes.remove(barcode)
-      : widget.pantry.removeBarcode(barcode);
+  void _removeBarcode(final String barcode) {
+    _orderedBarcodes.remove(barcode);
+    if (widget.productList != null) {
+      widget.productList.barcodes.remove(barcode);
+    } else {
+      widget.pantry.removeBarcode(barcode);
+    }
+  }
 
   Product _getProduct(final String barcode) => widget.productList != null
       ? widget.productList.getProduct(barcode)

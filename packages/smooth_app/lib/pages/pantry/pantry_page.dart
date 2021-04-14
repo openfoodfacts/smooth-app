@@ -11,6 +11,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/pages/text_search_widget.dart';
 import 'package:smooth_app/pages/multi_select_product_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_ui_library/widgets/smooth_card.dart';
 
 /// A page for one pantry where we can change all the data
 class PantryPage extends StatelessWidget {
@@ -205,7 +206,7 @@ class PantryPage extends StatelessWidget {
               key: ValueKey<String>(product.barcode),
               padding:
                   const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
-              child: Card(
+              child: SmoothCard(
                 color: SmoothTheme.getColor(
                   colorScheme,
                   Colors.grey,
