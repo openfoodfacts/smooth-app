@@ -9,10 +9,15 @@ import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 class ProductListButton extends StatelessWidget {
-  const ProductListButton(this.productList, this.daoProductList);
+  const ProductListButton(
+    this.productList,
+    this.daoProductList, {
+    this.onPressed,
+  });
 
   final ProductList productList;
   final DaoProductList daoProductList;
+  final Function onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +42,10 @@ class ProductListButton extends StatelessWidget {
         ),
       ),
       onPressed: () async {
+        if (onPressed != null) {
+          await onPressed();
+          return;
+        }
         await daoProductList.get(productList);
         await Navigator.push<Widget>(
           context,
@@ -52,10 +61,12 @@ class ProductListButton extends StatelessWidget {
           productList.getMaterialColor(),
           ColorDestination.BUTTON_BACKGROUND,
         ),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(32.0),
-        ),
+        shape: getShape(),
       ),
     );
   }
+
+  static OutlinedBorder getShape() => RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(32.0),
+      );
 }

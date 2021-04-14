@@ -262,6 +262,9 @@ class _HomePageState extends State<HomePage> {
                       overflow: TextOverflow.fade,
                     ),
                   ),
+                  style: ElevatedButton.styleFrom(
+                    shape: ProductListButton.getShape(),
+                  ),
                   onPressed: () async {
                     final ProductList newProductList =
                         await ProductListDialogHelper.openNew(
@@ -460,6 +463,9 @@ class _HomePageState extends State<HomePage> {
                     PantryListPage.getCreateListLabel(pantryType, context),
                     overflow: TextOverflow.fade,
                   ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  shape: PantryButton.getShape(pantryType),
                 ),
                 onPressed: () async {
                   final String newPantryName = await PantryDialogHelper.openNew(

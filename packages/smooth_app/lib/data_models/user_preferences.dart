@@ -29,7 +29,6 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_SHOPPING_REPOSITORY = 'shopping_repository';
   static const String _TAG_VISIBLE_GROUPS = 'visible_groups';
   static const String _TAG_INIT = 'init';
-  static const String _TAG_PRODUCT_LIST_COPY = 'productListCopy';
   static const String _TAG_THEME_DARK = 'themeDark';
   static const String _TAG_THEME_COLOR_TAG = 'themeColorTag';
 
@@ -94,13 +93,6 @@ class UserPreferences extends ChangeNotifier {
     await _sharedPreferences.setStringList(_TAG_VISIBLE_GROUPS, visibleList);
     notifyListeners();
   }
-
-  String getProductListCopy() =>
-      _sharedPreferences.getString(_TAG_PRODUCT_LIST_COPY);
-
-  Future<void> setProductListCopy(final String productListLousyKey) async =>
-      await _sharedPreferences.setString(
-          _TAG_PRODUCT_LIST_COPY, productListLousyKey);
 
   Future<void> setPantryRepository(
     final List<String> encodedJsons,

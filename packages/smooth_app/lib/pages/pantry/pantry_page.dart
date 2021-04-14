@@ -1,21 +1,17 @@
-// Flutter imports:
 import 'package:flutter/material.dart';
-
-// Package imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
-
-// Project imports:
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/data_models/pantry.dart';
 import 'package:smooth_app/database/dao_product.dart';
-import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/pantry/common/pantry_dialog_helper.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/pages/text_search_widget.dart';
+import 'package:smooth_app/pages/multi_select_product_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_ui_library/widgets/smooth_card.dart';
 
 /// A page for one pantry where we can change all the data
 class PantryPage extends StatelessWidget {
@@ -36,7 +32,6 @@ class PantryPage extends StatelessWidget {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final DaoProduct daoProduct = DaoProduct(localDatabase);
-    final DaoProductList daoProductList = DaoProductList(localDatabase);
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
     const TextStyle textStyle = TextStyle(fontSize: 16);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -46,37 +41,6 @@ class PantryPage extends StatelessWidget {
     final Pantry pantry = pantries[index];
     final List<String> orderedBarcodes = pantry.getOrderedBarcodes();
     return Scaffold(
-      bottomNavigationBar: Builder(
-        builder: (BuildContext context) => BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-                icon: const Icon(Icons.paste), label: appLocalizations.paste),
-            BottomNavigationBarItem(
-                icon: const Icon(Icons.highlight_remove),
-                label: appLocalizations.clear),
-            BottomNavigationBarItem(
-                icon: const Icon(Icons.local_grocery_store),
-                label: appLocalizations.grocery),
-          ],
-          onTap: (final int index) async {
-            if (index == 0) {
-              final List<String> barcodes = await daoProductList
-                  .getBarcodes(userPreferences.getProductListCopy());
-              final Map<String, Product> products =
-                  await daoProduct.getAll(barcodes);
-              pantry.addAll(barcodes, products);
-              await _save(userPreferences);
-              return;
-            }
-            if (index == 1) {
-              pantry.clear();
-              await _save(userPreferences);
-              return;
-            }
-          },
-        ),
-      ),
       appBar: AppBar(
         backgroundColor: SmoothTheme.getColor(
           colorScheme,
@@ -191,6 +155,18 @@ class PantryPage extends StatelessWidget {
                 index: index,
                 child: const Icon(Icons.drag_handle),
               ),
+              onLongPress: () => Navigator.push<Widget>(
+                context,
+                MaterialPageRoute<Widget>(
+                  builder: (BuildContext context) =>
+                      MultiSelectProductPage.pantry(
+                    barcode: product.barcode,
+                    pantries: pantries,
+                    index: this.index,
+                    pantryType: pantryType,
+                  ),
+                ),
+              ),
             ),
             const Divider(
               color: Colors.grey,
@@ -219,17 +195,25 @@ class PantryPage extends StatelessWidget {
               context: context,
             );
           }
-          return Padding(
-            key: ValueKey<String>(product.barcode),
-            padding:
-                const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
-            child: Card(
-              color: SmoothTheme.getColor(
-                colorScheme,
-                Colors.grey,
-                ColorDestination.SURFACE_BACKGROUND,
+          return Dismissible(
+            background: Container(color: colorScheme.background),
+            key: Key(barcode),
+            onDismissed: (final DismissDirection direction) async {
+              pantry.removeBarcode(barcode);
+              await _save(userPreferences);
+            },
+            child: Padding(
+              key: ValueKey<String>(product.barcode),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+              child: SmoothCard(
+                color: SmoothTheme.getColor(
+                  colorScheme,
+                  Colors.grey,
+                  ColorDestination.SURFACE_BACKGROUND,
+                ),
+                child: Column(children: children),
               ),
-              child: Column(children: children),
             ),
           );
         },
@@ -360,17 +344,6 @@ class PantryPage extends StatelessWidget {
                   noDateButton,
                 ],
               ),
-        trailing: Container(
-          width: 60,
-          child: sortedDays.isNotEmpty
-              ? null
-              : _getDeleteButton(
-                  pantry,
-                  barcode,
-                  userPreferences,
-                  colorScheme,
-                ),
-        ),
       ),
     );
   }
@@ -408,28 +381,7 @@ class PantryPage extends StatelessWidget {
                 ),
               ],
             ),
-            if (count == 0)
-              _getDeleteButton(
-                pantry,
-                barcode,
-                userPreferences,
-                colorScheme,
-              ),
           ],
         ),
-      );
-
-  Widget _getDeleteButton(
-    final Pantry pantry,
-    final String barcode,
-    final UserPreferences userPreferences,
-    final ColorScheme colorScheme,
-  ) =>
-      IconButton(
-        onPressed: () async {
-          pantry.removeBarcode(barcode);
-          await _save(userPreferences);
-        },
-        icon: Icon(Icons.delete, color: colorScheme.error),
       );
 }
