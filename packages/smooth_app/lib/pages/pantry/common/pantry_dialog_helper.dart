@@ -86,7 +86,11 @@ class PantryDialogHelper {
                           : AppLocalizations.of(context).shopping_name_taken;
                     }
                   }
-                  pantries.add(Pantry(name: value, pantryType: pantryType));
+                  pantries.add(Pantry(
+                    name: value,
+                    pantryType: pantryType,
+                    order: <String>[],
+                  ));
                   Pantry.putAll(
                     userPreferences,
                     pantries,

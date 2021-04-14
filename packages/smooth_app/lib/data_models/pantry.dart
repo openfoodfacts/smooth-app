@@ -27,9 +27,9 @@ class Pantry {
   Pantry({
     @required this.name,
     @required this.pantryType,
+    @required this.order,
     this.data = const <String, Map<String, int>>{},
     this.products = const <String, Product>{},
-    this.order = const <String>[],
     this.iconTag = '',
     this.colorTag = _COLOR_DEFAULT,
   });
