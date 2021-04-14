@@ -31,8 +31,8 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_staggered_animations: ^1.0.0
-  flutter_staggered_grid_view: ^0.4.0-nullsafety.3
-  flutter_svg: ^0.21.0-nullsafety.0
+  flutter_staggered_grid_view: ^0.4.0
+  flutter_svg: ^0.21.0+1
   flutter_typeahead: ^3.1.1
   image_cropper: ^1.4.0
   image_picker: ^0.7.4
@@ -45,7 +45,7 @@ dependencies:
   photo_view: ^0.11.1
   provider: ^5.0.0
   qr_code_scanner: ^0.4.0
-  rubber: ^1.0.0-nullsafety.1
+  rubber: ^1.0.0
   sentry: ^5.0.0
   share: ^2.0.1
   smooth_ui_library:
