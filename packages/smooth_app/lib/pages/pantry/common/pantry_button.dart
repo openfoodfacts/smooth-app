@@ -1,26 +1,19 @@
-// Flutter imports:
 import 'package:flutter/material.dart';
-
-// Project imports:
 import 'package:smooth_app/data_models/pantry.dart';
 import 'package:smooth_app/pages/pantry/pantry_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 /// A button for a pantry, with the corresponding color, icon, name and shape
 class PantryButton extends StatelessWidget {
-  const PantryButton(this.pantries, this.index, {this.shape});
+  const PantryButton(
+    this.pantries,
+    this.index, {
+    this.onPressed,
+  });
 
   final List<Pantry> pantries;
   final int index;
-  final OutlinedBorder shape;
-
-  static OutlinedBorder getShapeBeveled() => const BeveledRectangleBorder(
-        borderRadius: BorderRadius.horizontal(
-            left: Radius.circular(16.0), right: Radius.circular(16.0)),
-      );
-  static OutlinedBorder getShapeRounded() => RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(32.0),
-      );
+  final Function onPressed;
 
   @override
   Widget build(BuildContext context) => ElevatedButton.icon(
@@ -37,6 +30,10 @@ class PantryButton extends StatelessWidget {
           ),
         ),
         onPressed: () async {
+          if (onPressed != null) {
+            await onPressed();
+            return;
+          }
           await Navigator.push<Widget>(
             context,
             MaterialPageRoute<Widget>(
@@ -54,9 +51,17 @@ class PantryButton extends StatelessWidget {
             pantries[index].materialColor,
             ColorDestination.BUTTON_BACKGROUND,
           ),
-          shape: pantries[index].pantryType == PantryType.PANTRY
-              ? null
-              : getShapeBeveled(),
+          shape: getShape(pantries[index].pantryType),
         ),
       );
+
+  static OutlinedBorder getShape(final PantryType pantryType) =>
+      pantryType == PantryType.PANTRY
+          ? null
+          : const BeveledRectangleBorder(
+              borderRadius: BorderRadius.horizontal(
+                left: Radius.circular(16.0),
+                right: Radius.circular(16.0),
+              ),
+            );
 }

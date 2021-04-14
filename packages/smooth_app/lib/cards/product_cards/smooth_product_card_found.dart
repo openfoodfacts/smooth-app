@@ -1,18 +1,11 @@
-// Dart imports:
 import 'dart:ui';
-
-// Flutter imports:
 import 'package:flutter/material.dart';
-
-// Package imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
-
-// Project imports:
 import 'package:smooth_app/cards/data_cards/attribute_chip.dart';
 import 'package:smooth_app/pages/product/product_page.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
@@ -25,6 +18,7 @@ class SmoothProductCardFound extends StatelessWidget {
     this.useNewStyle = true,
     this.backgroundColor,
     this.handle,
+    this.onLongPress,
   });
 
   final Product product;
@@ -33,6 +27,7 @@ class SmoothProductCardFound extends StatelessWidget {
   final bool useNewStyle;
   final Color backgroundColor;
   final Widget handle;
+  final Function onLongPress;
 
   @override
   Widget build(BuildContext context) {
@@ -58,17 +53,13 @@ class SmoothProductCardFound extends StatelessWidget {
       scores.add(AttributeChip(attribute, height: iconSize));
     }
     return GestureDetector(
-      onTap: () {
-        //_openSneakPeek(context);
-        Navigator.push<Widget>(
-          context,
-          MaterialPageRoute<Widget>(
-              builder: (BuildContext context) => ProductPage(
-                    product: product,
-                  )),
-        );
-      },
-      onLongPress: () => ProductPage.showLists(product, context),
+      onTap: () => Navigator.push<Widget>(
+        context,
+        MaterialPageRoute<Widget>(
+          builder: (BuildContext context) => ProductPage(product: product),
+        ),
+      ),
+      onLongPress: () => onLongPress == null ? null : onLongPress(),
       child: Hero(
         tag: heroTag,
         child: Material(

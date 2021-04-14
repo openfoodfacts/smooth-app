@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:openfoodfacts/model/Product.dart';
@@ -32,6 +31,10 @@ import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/pages/product_copy_helper.dart';
+import 'package:smooth_app/data_models/pantry.dart';
+import 'package:smooth_app/database/dao_product.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage({@required this.product, this.newProduct = false});
@@ -41,119 +44,6 @@ class ProductPage extends StatefulWidget {
 
   @override
   _ProductPageState createState() => _ProductPageState();
-
-  static Future<void> showLists(
-    final Product product,
-    final BuildContext context,
-  ) async {
-    final String barcode = product.barcode;
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final DaoProductList daoProductList = DaoProductList(localDatabase);
-    final List<ProductList> list =
-        await daoProductList.getAll(withStats: false);
-    final List<ProductList> listWithBarcode =
-        await daoProductList.getAllWithBarcode(barcode);
-    int index = 0;
-    final Set<int> already = <int>{};
-    final Set<int> editable = <int>{};
-    final Set<int> addable = <int>{};
-    for (final ProductList productList in list) {
-      switch (productList.listType) {
-        case ProductList.LIST_TYPE_HISTORY:
-        case ProductList.LIST_TYPE_USER_DEFINED:
-        case ProductList.LIST_TYPE_SCAN:
-          editable.add(index);
-      }
-      switch (productList.listType) {
-        case ProductList.LIST_TYPE_USER_DEFINED:
-          addable.add(index);
-      }
-      for (final ProductList withBarcode in listWithBarcode) {
-        if (productList.lousyKey == withBarcode.lousyKey) {
-          already.add(index);
-          break;
-        }
-      }
-      index++;
-    }
-    showCupertinoModalBottomSheet<Widget>(
-      expand: false,
-      context: context,
-      backgroundColor: Colors.transparent,
-      bounce: true,
-      barrierColor: Colors.black45,
-      builder: (BuildContext context) => Material(
-        child: ListView.builder(
-          itemCount: list.length + 1,
-          itemBuilder: (final BuildContext context, int index) {
-            if (index == 0) {
-              return ListTile(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                title: Text(product.productName),
-                leading: const Icon(Icons.close),
-              );
-            }
-            index--;
-            final ProductList productList = list[index];
-            return StatefulBuilder(
-              builder:
-                  (final BuildContext context, final StateSetter setState) {
-                Function onPressed;
-                IconData iconData;
-                if (already.contains(index)) {
-                  if (!editable.contains(index)) {
-                    iconData = Icons.check;
-                  } else {
-                    iconData = Icons.check_box_outlined;
-                    onPressed = () async {
-                      already.remove(index);
-                      daoProductList.removeBarcode(productList, barcode);
-                      localDatabase.notifyListeners();
-                      setState(() {});
-                    };
-                  }
-                } else {
-                  if (!addable.contains(index)) {
-                    iconData = null;
-                  } else if (!editable.contains(index)) {
-                    iconData = null;
-                  } else {
-                    iconData = Icons.check_box_outline_blank_outlined;
-                    onPressed = () async {
-                      already.add(index);
-                      daoProductList.addBarcode(productList, barcode);
-                      localDatabase.notifyListeners();
-                      setState(() {});
-                    };
-                  }
-                }
-                return Card(
-                  child: ListTile(
-                    title: Text(
-                      ProductQueryPageHelper.getProductListLabel(
-                        productList,
-                        context,
-                      ),
-                    ),
-                    trailing: iconData == null
-                        ? null
-                        : IconButton(
-                            icon: Icon(iconData),
-                            onPressed: () {
-                              onPressed();
-                            },
-                          ),
-                  ),
-                );
-              },
-            );
-          },
-        ),
-      ),
-    );
-  }
 }
 
 class _ProductPageState extends State<ProductPage> {
@@ -183,6 +73,9 @@ class _ProductPageState extends State<ProductPage> {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ThemeData themeData = Theme.of(context);
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
+    final DaoProductList daoProductList = DaoProductList(localDatabase);
+    final DaoProduct daoProduct = DaoProduct(localDatabase);
     _product ??= widget.product;
     return Scaffold(
         appBar: AppBar(
@@ -201,9 +94,9 @@ class _ProductPageState extends State<ProductPage> {
               ),
               label: appLocalizations.label_preferences,
             ),
-            BottomNavigationBarItem(
-              icon: const Icon(Icons.playlist_add),
-              label: appLocalizations.label_lists,
+            const BottomNavigationBarItem(
+              icon: Icon(Icons.copy),
+              label: 'Copy',
             ),
             BottomNavigationBarItem(
               icon: const Icon(Icons.launch),
@@ -224,7 +117,11 @@ class _ProductPageState extends State<ProductPage> {
                 UserPreferencesView.showModal(context);
                 return;
               case 1:
-                ProductPage.showLists(_product, context);
+                await _copy(
+                  userPreferences: userPreferences,
+                  daoProductList: daoProductList,
+                  daoProduct: daoProduct,
+                );
                 return;
               case 2:
                 Launcher().launchURL(
@@ -562,5 +459,63 @@ class _ProductPageState extends State<ProductPage> {
     } else {
       return const Color.fromARGB(0xff, 0xEE, 0xEE, 0xEE);
     }
+  }
+
+  Future<void> _copy({
+    @required final UserPreferences userPreferences,
+    @required final DaoProductList daoProductList,
+    @required final DaoProduct daoProduct,
+  }) async {
+    final List<PantryType> pantryTypes = <PantryType>[
+      PantryType.PANTRY,
+      PantryType.SHOPPING,
+    ];
+    final Map<PantryType, List<Pantry>> allPantries =
+        <PantryType, List<Pantry>>{};
+    for (final PantryType pantryType in pantryTypes) {
+      final List<Pantry> pantries = await Pantry.getAll(
+        userPreferences,
+        daoProduct,
+        pantryType,
+      );
+      allPantries[pantryType] = pantries;
+    }
+    final ProductCopyHelper productCopyHelper = ProductCopyHelper();
+    final List<Widget> children = await productCopyHelper.getButtons(
+      context: context,
+      daoProductList: daoProductList,
+      daoProduct: daoProduct,
+      allPantries: allPantries,
+    );
+    if (children.isEmpty) {
+      // no list to add to
+      return;
+    }
+    final dynamic target = await showModalBottomSheet<dynamic>(
+      context: context,
+      builder: (final BuildContext context) => Column(
+        children: <Widget>[
+          const Text('Select the destination:'),
+          Wrap(
+            direction: Axis.horizontal,
+            children: children,
+            spacing: 8.0,
+          ),
+        ],
+      ),
+    );
+    if (target == null) {
+      // nothing selected
+      return;
+    }
+    final List<Product> products = <Product>[widget.product];
+    productCopyHelper.copy(
+      context: context,
+      target: target,
+      allPantries: allPantries,
+      daoProductList: daoProductList,
+      products: products,
+      userPreferences: userPreferences,
+    );
   }
 }

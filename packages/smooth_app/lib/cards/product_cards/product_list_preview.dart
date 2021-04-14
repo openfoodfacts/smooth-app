@@ -62,12 +62,8 @@ class ProductListPreview extends StatelessWidget {
                       await Navigator.push<Widget>(
                         context,
                         MaterialPageRoute<Widget>(
-                          builder: (BuildContext context) => ProductListPage(
-                            productList,
-                            reverse: ProductQueryPageHelper.isListReversed(
-                              productList,
-                            ),
-                          ),
+                          builder: (BuildContext context) =>
+                              ProductListPage(productList),
                         ),
                       );
                     },
