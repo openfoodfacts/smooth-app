@@ -25,8 +25,10 @@
     "@saveButtonText": {},
     "applyButtonText": "Anvend",
     "@applyButtonText": {},
-    "myPersonalizedRanking": "Min personlige indplacering",
-    "@myPersonalizedRanking": {},
+    "myPersonalizedRanking": "Min personlige rangering",
+    "@myPersonalizedRanking": {
+        "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
+    },
     "scannerProductsEmpty": "Produkter, du skanner, vises her",
     "@scannerProductsEmpty": {},
     "myPreferences": "Mine præferencer",
@@ -49,8 +51,10 @@
     "@stop": {},
     "close": "Luk",
     "@close": {},
-    "empty": "Empty!",
-    "@empty": {},
+    "empty": "Tom",
+    "@empty": {
+        "description": "Example: A preview of your search history, if you haven't searched for anything yet, it will show 'Empty!"
+    },
     "unknownBrand": "Ukendt brand",
     "@unknownBrand": {},
     "unknownProductName": "Ukendt produktnavn",
@@ -87,7 +91,7 @@
     "@contribute_develop_text_2": {},
     "contribute_translate_header": "Oversæt",
     "@contribute_translate_header": {},
-    "contribute_translate_text": "Open Food Facts er et globalt projekt indeholdende produkter fra flere end 160 lande. Open Food Facts er oversat på snesevis af sprog med indhold i konstant udvikling.",
+    "contribute_translate_text": "Open Food Facts er et globalt projekt indeholdende produkter fra flere end 160 lande. OFF er oversat til snesevis af sprog med indhold i konstant udvikling.",
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Oversættelser er en af projektets nøgleopgaver",
     "@contribute_translate_text_2": {},
@@ -105,9 +109,11 @@
     "@settingsTitle": {},
     "reset": "Nulstil",
     "@reset": {},
-    "filter": "Filter",
-    "@filter": {},
-    "added_product_thanks": "Tak for at tilføje dette produkt!",
+    "filter": "Filtrere",
+    "@filter": {
+        "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
+    },
+    "added_product_thanks": "Tak for at du tilføjede dette produkt!",
     "@added_product_thanks": {},
     "missing_product": "Dette produkt mangler",
     "@missing_product": {},
@@ -144,11 +150,11 @@
     "@already_in_pantry": {},
     "added_to_pantry": "Føjet til spisekammeret!",
     "@added_to_pantry": {},
-    "want_to_delete_pantry": "Slet dette spisekammer?",
+    "want_to_delete_pantry": "Slette dette spisekammer?",
     "@want_to_delete_pantry": {},
-    "want_to_delete_shopping": "Slet denne indkøbsliste?",
+    "want_to_delete_shopping": "Slette denne indkøbsliste?",
     "@want_to_delete_shopping": {},
-    "want_to_delete_list": "Slet denne produktliste?",
+    "want_to_delete_list": "Slette denne produktliste?",
     "@want_to_delete_list": {},
     "new_pantry": "Nyt spisekammer",
     "@new_pantry": {},
@@ -251,36 +257,36 @@
     "reloaded_with_new_preferences": "Genindlæst med nye præferencer",
     "no_product_in_section": "Der er intet produkt i dette afsnit",
     "what_are_you_looking_for": "Hvad leder du efter?",
-    "chached_results_from": "Cached results from:",
-    "plural_ago_minutes": "{count,plural, =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
+    "chached_results_from": "Cachelagrede resultater fra:",
+    "plural_ago_minutes": "{count,plural, one {} =0{mindre end et minut siden} =1{ét minut siden} other{{count} minutter siden}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural, =1{one hour ago} other{{count} hours ago}}",
+    "plural_ago_hours": "{count,plural, one {} =1{en time siden} other{{count} timer siden}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_days": "{count,plural, =1{one day ago} other{{count} days ago}}",
+    "plural_ago_days": "{count,plural, one {} =1{en dag siden} other{{count} dage siden}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, =1{one week ago} other{{count} weeks ago}}",
+    "plural_ago_weeks": "{count,plural, one {} =1{en uge siden} other{{count} uger siden}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, =1{one month ago} other{{count} months ago}}",
+    "plural_ago_months": "{count,plural, one {} =1{en måned siden} other{{count} måneder siden}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
