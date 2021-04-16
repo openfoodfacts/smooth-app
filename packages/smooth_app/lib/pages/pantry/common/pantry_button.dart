@@ -1,67 +1,101 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/data_models/pantry.dart';
-import 'package:smooth_app/pages/pantry/pantry_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 /// A button for a pantry, with the corresponding color, icon, name and shape
 class PantryButton extends StatelessWidget {
-  const PantryButton(
-    this.pantries,
-    this.index, {
-    this.onPressed,
-  });
+  PantryButton({
+    @required this.pantries,
+    @required this.index,
+    @required this.onPressed,
+  }) : pantryType = pantries[index].pantryType;
+
+  const PantryButton.add({
+    @required this.pantries,
+    @required this.pantryType,
+    @required this.onPressed,
+  }) : index = null;
 
   final List<Pantry> pantries;
   final int index;
   final Function onPressed;
+  final PantryType pantryType;
 
   @override
-  Widget build(BuildContext context) => ElevatedButton.icon(
-        icon: pantries[index].getIcon(
-            Theme.of(context).colorScheme, ColorDestination.BUTTON_FOREGROUND),
-        label: Text(
-          pantries[index].name,
-          style: TextStyle(
-            color: SmoothTheme.getColor(
-              Theme.of(context).colorScheme,
-              pantries[index].materialColor,
-              ColorDestination.BUTTON_FOREGROUND,
-            ),
+  Widget build(BuildContext context) {
+    if (index == null) {
+      return _build(
+        const Icon(Icons.add),
+        Flexible(
+          child: Text(
+            _getCreateListLabel(AppLocalizations.of(context)),
+            overflow: TextOverflow.fade,
           ),
         ),
-        onPressed: () async {
-          if (onPressed != null) {
-            await onPressed();
-            return;
-          }
-          await Navigator.push<Widget>(
-            context,
-            MaterialPageRoute<Widget>(
-              builder: (BuildContext context) => PantryPage(
-                pantries,
-                index,
-                pantries[index].pantryType,
-              ),
-            ),
-          );
-        },
-        style: ElevatedButton.styleFrom(
-          primary: SmoothTheme.getColor(
-            Theme.of(context).colorScheme,
-            pantries[index].materialColor,
-            ColorDestination.BUTTON_BACKGROUND,
+        null,
+      );
+    }
+    final ColorScheme colorScheme = Theme.of(context).colorScheme;
+    final Pantry pantry = pantries[index];
+    final MaterialColor materialColor = pantry.materialColor;
+    return _build(
+      pantry.getIcon(colorScheme, ColorDestination.BUTTON_FOREGROUND),
+      Text(
+        pantry.name,
+        style: TextStyle(
+          color: SmoothTheme.getColor(
+            colorScheme,
+            materialColor,
+            ColorDestination.BUTTON_FOREGROUND,
           ),
-          shape: getShape(pantries[index].pantryType),
+        ),
+      ),
+      SmoothTheme.getColor(
+        colorScheme,
+        materialColor,
+        ColorDestination.BUTTON_BACKGROUND,
+      ),
+    );
+  }
+
+  Widget _build(
+    final Widget icon,
+    final Widget label,
+    final Color primary,
+  ) =>
+      ElevatedButton.icon(
+        icon: icon,
+        label: label,
+        onPressed: () async => await onPressed(),
+        style: ElevatedButton.styleFrom(
+          primary: primary,
+          shape: _getShape(),
         ),
       );
 
-  static OutlinedBorder getShape(final PantryType pantryType) =>
-      pantryType == PantryType.PANTRY
-          ? null
-          : const BeveledRectangleBorder(
-              borderRadius: BorderRadius.horizontal(
-                left: Radius.circular(16.0),
-                right: Radius.circular(16.0),
-              ),
-            );
+  String _getCreateListLabel(final AppLocalizations appLocalizations) {
+    switch (pantryType) {
+      case PantryType.PANTRY:
+        return appLocalizations.new_pantry;
+      case PantryType.SHOPPING:
+        return appLocalizations.new_shopping;
+    }
+    throw Exception('unknow pantry type $pantryType');
+  }
+
+  OutlinedBorder _getShape() {
+    switch (pantryType) {
+      case PantryType.PANTRY:
+        return null;
+      case PantryType.SHOPPING:
+        return const BeveledRectangleBorder(
+          borderRadius: BorderRadius.horizontal(
+            left: Radius.circular(16.0),
+            right: Radius.circular(16.0),
+          ),
+        );
+    }
+    throw Exception('unknow pantry type $pantryType');
+  }
 }

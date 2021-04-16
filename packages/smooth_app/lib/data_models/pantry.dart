@@ -28,11 +28,20 @@ class Pantry {
     @required this.name,
     @required this.pantryType,
     @required this.order,
-    this.data = const <String, Map<String, int>>{},
-    this.products = const <String, Product>{},
-    this.iconTag = '',
-    this.colorTag = _COLOR_DEFAULT,
+    @required this.data,
+    @required this.products,
+    @required this.iconTag,
+    @required this.colorTag,
   });
+
+  Pantry.empty({
+    @required this.name,
+    @required this.pantryType,
+  })  : order = <String>[],
+        data = <String, Map<String, int>>{},
+        products = <String, Product>{},
+        iconTag = '',
+        colorTag = _COLOR_DEFAULT;
 
   String name;
   String colorTag;

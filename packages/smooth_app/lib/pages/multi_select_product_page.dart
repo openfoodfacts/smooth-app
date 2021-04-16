@@ -133,6 +133,7 @@ class _MultiSelectProductPageState extends State<MultiSelectProductPage> {
                 daoProductList: daoProductList,
                 daoProduct: daoProduct,
                 allPantries: allPantries,
+                userPreferences: userPreferences,
                 ignoredProductList: widget.productList,
                 ignoredPantry: widget.pantry,
               );

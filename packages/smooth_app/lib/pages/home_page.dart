@@ -21,6 +21,8 @@ import 'package:smooth_app/pages/product/common/product_list_button.dart';
 import 'package:smooth_app/pages/product/common/product_list_dialog_helper.dart';
 import 'package:smooth_app/pages/settings_page.dart';
 import 'package:smooth_app/pages/scan/scan_page.dart';
+import 'package:smooth_app/pages/pantry/pantry_page.dart';
+import 'package:smooth_app/pages/product/common/product_list_page.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
@@ -81,7 +83,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-
       body: ListView(
         children: <Widget>[
           TextSearchWidget(
@@ -210,7 +211,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           await Navigator.push<Widget>(
@@ -227,7 +227,7 @@ class _HomePageState extends State<HomePage> {
           height: 25,
           color: colorScheme.onSecondary,
         ),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 
@@ -235,7 +235,6 @@ class _HomePageState extends State<HomePage> {
           final Icon leadingIcon, final AppLocalizations appLocalizations) =>
       FutureBuilder<List<ProductList>>(
         future: _daoProductList.getAll(
-          limit: 5,
           withStats: false,
           reverse: true,
           typeFilter: typeFilter,
@@ -249,22 +248,17 @@ class _HomePageState extends State<HomePage> {
             final List<Widget> cards = <Widget>[];
             if (list != null) {
               for (final ProductList item in list) {
-                cards.add(ProductListButton(item, _daoProductList));
+                cards.add(
+                  ProductListButton(
+                    productList: item,
+                    onPressed: () async => await _goToProductListPage(item),
+                  ),
+                );
               }
             }
             if (typeFilter.contains(ProductList.LIST_TYPE_USER_DEFINED)) {
               cards.add(
-                ElevatedButton.icon(
-                  icon: const Icon(Icons.add),
-                  label: Flexible(
-                    child: Text(
-                      ListPage.getCreateListLabel(),
-                      overflow: TextOverflow.fade,
-                    ),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    shape: ProductListButton.getShape(),
-                  ),
+                ProductListButton.add(
                   onPressed: () async {
                     final ProductList newProductList =
                         await ProductListDialogHelper.openNew(
@@ -275,7 +269,7 @@ class _HomePageState extends State<HomePage> {
                     if (newProductList == null) {
                       return;
                     }
-                    setState(() {});
+                    await _goToProductListPage(newProductList);
                   },
                 ),
               );
@@ -453,31 +447,32 @@ class _HomePageState extends State<HomePage> {
             final List<Pantry> pantries = snapshot.data;
             final List<Widget> cards = <Widget>[];
             for (int index = 0; index < pantries.length; index++) {
-              cards.add(PantryButton(pantries, index));
-            }
-            cards.add(
-              ElevatedButton.icon(
-                icon: const Icon(Icons.add),
-                label: Flexible(
-                  child: Text(
-                    PantryListPage.getCreateListLabel(pantryType, context),
-                    overflow: TextOverflow.fade,
+              cards.add(
+                PantryButton(
+                  pantries: pantries,
+                  index: index,
+                  onPressed: () async => await _goToPantryPage(
+                    pantries[index],
+                    pantries,
                   ),
                 ),
-                style: ElevatedButton.styleFrom(
-                  shape: PantryButton.getShape(pantryType),
-                ),
+              );
+            }
+            cards.add(
+              PantryButton.add(
+                pantries: pantries,
+                pantryType: pantryType,
                 onPressed: () async {
-                  final String newPantryName = await PantryDialogHelper.openNew(
+                  final Pantry newPantry = await PantryDialogHelper.openNew(
                     context,
                     pantries,
                     pantryType,
                     userPreferences,
                   );
-                  if (newPantryName == null) {
+                  if (newPantry == null) {
                     return;
                   }
-                  setState(() {});
+                  await _goToPantryPage(newPantry, pantries);
                 },
               ),
             );
@@ -533,4 +528,31 @@ class _HomePageState extends State<HomePage> {
           );
         },
       );
+
+  Future<void> _goToProductListPage(final ProductList productList) async {
+    await _daoProductList.get(productList);
+    await Navigator.push<Widget>(
+      context,
+      MaterialPageRoute<Widget>(
+        builder: (BuildContext context) => ProductListPage(productList),
+      ),
+    );
+    setState(() {});
+  }
+
+  Future<void> _goToPantryPage(
+    final Pantry pantry,
+    final List<Pantry> pantries,
+  ) async {
+    await Navigator.push<Widget>(
+      context,
+      MaterialPageRoute<Widget>(
+        builder: (BuildContext context) => PantryPage(
+          pantries: pantries,
+          pantry: pantry,
+        ),
+      ),
+    );
+    setState(() {});
+  }
 }

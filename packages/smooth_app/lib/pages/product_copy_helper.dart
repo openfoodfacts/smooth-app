@@ -9,6 +9,8 @@ import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/pages/product/common/product_list_dialog_helper.dart';
+import 'package:smooth_app/pages/pantry/common/pantry_dialog_helper.dart';
 
 /// Helper for product copy as multi selected
 class ProductCopyHelper {
@@ -17,6 +19,7 @@ class ProductCopyHelper {
     @required final DaoProductList daoProductList,
     @required final DaoProduct daoProduct,
     @required final Map<PantryType, List<Pantry>> allPantries,
+    @required final UserPreferences userPreferences,
     final ProductList ignoredProductList,
     final Pantry ignoredPantry,
   }) async {
@@ -31,14 +34,28 @@ class ProductCopyHelper {
       } else {
         children.add(
           ProductListButton(
-            productList,
-            daoProductList,
+            productList: productList,
             onPressed: () => Navigator.pop<ProductList>(context, productList),
           ),
         );
       }
     }
-    // TODO(monsieurtanuki): add "add product list / pantry / shopping list" buttons
+    children.add(
+      ProductListButton.add(
+        onPressed: () async {
+          final ProductList newProductList =
+              await ProductListDialogHelper.openNew(
+            context,
+            daoProductList,
+            productLists,
+          );
+          if (newProductList == null) {
+            return;
+          }
+          Navigator.pop<ProductList>(context, newProductList);
+        },
+      ),
+    );
     final List<PantryType> pantryTypes = <PantryType>[
       PantryType.PANTRY,
       PantryType.SHOPPING,
@@ -54,14 +71,32 @@ class ProductCopyHelper {
         } else {
           children.add(
             PantryButton(
-              pantries,
-              index,
+              pantries: pantries,
+              index: index,
               onPressed: () => Navigator.pop<Pantry>(context, pantry),
             ),
           );
         }
         index++;
       }
+      children.add(
+        PantryButton.add(
+          pantries: pantries,
+          pantryType: pantryType,
+          onPressed: () async {
+            final Pantry newPantry = await PantryDialogHelper.openNew(
+              context,
+              pantries,
+              pantryType,
+              userPreferences,
+            );
+            if (newPantry == null) {
+              return;
+            }
+            Navigator.pop<Pantry>(context, newPantry);
+          },
+        ),
+      );
     }
     return children;
   }
@@ -97,9 +132,8 @@ class ProductCopyHelper {
             userPreferences,
           );
           go = (BuildContext context) => PantryPage(
-                pantries,
-                value,
-                target.pantryType,
+                pantries: pantries,
+                pantry: target,
               );
         }
         index++;
@@ -107,6 +141,7 @@ class ProductCopyHelper {
     } else {
       throw Exception('unknown type $target');
     }
+    daoProductList.localDatabase.notifyListeners();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text('$count products actually added'),
