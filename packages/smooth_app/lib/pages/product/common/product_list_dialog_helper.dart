@@ -4,7 +4,6 @@ import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
-import 'package:smooth_app/pages/product/common/product_list_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 class ProductListDialogHelper {
@@ -87,7 +86,7 @@ class ProductListDialogHelper {
             important: false,
           ),
           SmoothSimpleButton(
-            text: AppLocalizations.of(context).okay,
+            text: appLocalizations.okay,
             onPressed: () async {
               if (!formKey.currentState.validate()) {
                 return;
@@ -98,13 +97,6 @@ class ProductListDialogHelper {
               }
               await daoProductList.put(newProductList);
               Navigator.pop(context, newProductList);
-              await Navigator.push<Widget>(
-                context,
-                MaterialPageRoute<Widget>(
-                  builder: (BuildContext context) =>
-                      ProductListPage(newProductList),
-                ),
-              );
             },
             important: true,
           ),

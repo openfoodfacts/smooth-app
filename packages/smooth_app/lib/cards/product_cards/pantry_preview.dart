@@ -46,9 +46,8 @@ class PantryPreview extends StatelessWidget {
               context,
               MaterialPageRoute<Widget>(
                 builder: (BuildContext context) => PantryPage(
-                  pantries,
-                  index,
-                  pantries[index].pantryType,
+                  pantries: pantries,
+                  pantry: pantries[index],
                 ),
               ),
             ),

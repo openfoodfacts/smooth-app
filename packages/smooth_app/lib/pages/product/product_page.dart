@@ -486,6 +486,7 @@ class _ProductPageState extends State<ProductPage> {
       daoProductList: daoProductList,
       daoProduct: daoProduct,
       allPantries: allPantries,
+      userPreferences: userPreferences,
     );
     if (children.isEmpty) {
       // no list to add to
