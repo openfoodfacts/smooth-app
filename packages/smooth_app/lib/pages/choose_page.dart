@@ -11,6 +11,7 @@ import 'package:openfoodfacts/utils/PnnsGroups.dart';
 import 'package:provider/provider.dart';
 
 // Project imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/cards/category_cards/category_card.dart';
 import 'package:smooth_app/cards/category_cards/category_chip.dart';
 import 'package:smooth_app/cards/category_cards/subcategory_card.dart';
@@ -116,9 +117,11 @@ class _ChoosePageState extends State<ChoosePage> {
       onWillPop: _onWillPop,
       child: Scaffold(
         appBar: AppBar(
-          title: Text(_selectedCategory == null
-              ? 'Food Categories'
-              : _selectedCategory.name),
+          title: Text(
+            _selectedCategory == null
+                ? AppLocalizations.of(context).categories
+                : _selectedCategory.name,
+          ),
         ),
         body: Column(
           children: <Widget>[

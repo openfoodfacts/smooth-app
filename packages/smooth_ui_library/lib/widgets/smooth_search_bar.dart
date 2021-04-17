@@ -10,12 +10,12 @@ class SmoothSearchBar extends StatelessWidget {
       this.borderRadius = 20.0,
       this.onSubmitted});
 
-  final TextEditingController controller;
-  final String hintText;
+  final TextEditingController? controller;
+  final String? hintText;
   final Color shadowColor;
   final Color textColor;
   final double borderRadius;
-  final Function(String) onSubmitted;
+  final Function(String)? onSubmitted;
 
   @override
   Widget build(BuildContext context) {

@@ -34,7 +34,7 @@ class ProfilePage extends StatelessWidget {
     final Launcher launcher = Launcher();
     return Scaffold(
       appBar: AppBar(title: Text(appLocalizations.settingsTitle)),
-      body: Column(
+      body: ListView(
         children: <Widget>[
           //Darkmode
           SmoothListTile(
@@ -158,31 +158,36 @@ class ProfilePage extends StatelessWidget {
                                     height: 20,
                                   ),
                                   Text(appLocalizations.whatIsOff),
-                                  TextButton(
-                                    onPressed: () {
-                                      launcher.launchURL(
-                                          context,
-                                          'https://openfoodfacts.org/who-we-are',
-                                          true);
-                                    },
-                                    child: Text(
-                                      appLocalizations.learnMore,
-                                      style: const TextStyle(
-                                        color: Colors.blue,
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      TextButton(
+                                        onPressed: () {
+                                          launcher.launchURL(
+                                              context,
+                                              'https://openfoodfacts.org/who-we-are',
+                                              true);
+                                        },
+                                        child: Text(
+                                          appLocalizations.learnMore,
+                                          style: const TextStyle(
+                                            color: Colors.blue,
+                                          ),
+                                        ),
                                       ),
-                                    ),
-                                  ),
-                                  TextButton(
-                                    onPressed: () => launcher.launchURL(
-                                        context,
-                                        'https://openfoodfacts.org/terms-of-use',
-                                        true),
-                                    child: Text(
-                                      appLocalizations.termsOfUse,
-                                      style: const TextStyle(
-                                        color: Colors.blue,
-                                      ),
-                                    ),
+                                      TextButton(
+                                        onPressed: () => launcher.launchURL(
+                                            context,
+                                            'https://openfoodfacts.org/terms-of-use',
+                                            true),
+                                        child: Text(
+                                          appLocalizations.termsOfUse,
+                                          style: const TextStyle(
+                                            color: Colors.blue,
+                                          ),
+                                        ),
+                                      )
+                                    ],
                                   )
                                 ],
                               );
@@ -195,7 +200,7 @@ class ProfilePage extends StatelessWidget {
                           showLicensePage(context: context);
                         },
                         text: appLocalizations.licenses,
-                        width: 100,
+                        minWidth: 100,
                       ),
                       SmoothSimpleButton(
                         onPressed: () {
@@ -203,7 +208,7 @@ class ProfilePage extends StatelessWidget {
                               .pop('dialog');
                         },
                         text: appLocalizations.okay,
-                        width: 100,
+                        minWidth: 100,
                       ),
                     ],
                   );

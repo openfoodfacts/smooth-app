@@ -27,18 +27,35 @@ class Pantry {
   Pantry({
     @required this.name,
     @required this.pantryType,
-    this.data = const <String, Map<String, int>>{},
-    this.products = const <String, Product>{},
-    this.iconTag = '',
-    this.colorTag = _COLOR_DEFAULT,
+    @required this.order,
+    @required this.data,
+    @required this.products,
+    @required this.iconTag,
+    @required this.colorTag,
   });
+
+  Pantry.empty({
+    @required this.name,
+    @required this.pantryType,
+  })  : order = <String>[],
+        data = <String, Map<String, int>>{},
+        products = <String, Product>{},
+        iconTag = '',
+        colorTag = _COLOR_DEFAULT;
 
   String name;
   String colorTag;
   String iconTag;
   final PantryType pantryType;
+
+  /// Pantry data for each barcode
   final Map<String, Map<String, int>> data;
+
+  /// Product for each barcode
   final Map<String, Product> products;
+
+  /// Order of the barcodes
+  final List<String> order;
 
   static const String _ICON_DEFAULT_PANTRY = _ICON_PAW;
   static const String _ICON_DEFAULT_SHOPPING = _ICON_CART;
@@ -58,6 +75,7 @@ class Pantry {
     for (final String barcode in barcodes) {
       if (!data.containsKey(barcode)) {
         data[barcode] = <String, int>{};
+        order.add(barcode);
         result++;
       }
     }
@@ -155,8 +173,10 @@ class Pantry {
 
   List<Product> getFirstProducts(final int nbInPreview) {
     final List<Product> result = <Product>[];
-    for (final Product product in products.values) {
-      result.add(product);
+    final List<String> order =
+        getOrderedBarcodes(); // in the old version case only
+    for (final String barcode in order) {
+      result.add(products[barcode]);
       if (result.length >= nbInPreview) {
         break;
       }
@@ -187,11 +207,13 @@ class Pantry {
 
   void removeBarcode(final String barcode) {
     data.remove(barcode);
+    order.remove(barcode);
     products.remove(barcode);
   }
 
   void clear() {
     data.clear();
+    order.clear();
     products.clear();
   }
 
@@ -225,6 +247,7 @@ class Pantry {
   static const String _JSON_TAG_COLOR = 'color';
   static const String _JSON_TAG_ICON = 'icon';
   static const String _JSON_TAG_PRODUCTS = 'products';
+  static const String _JSON_TAG_ORDER = 'order';
 
   static Future<Pantry> _get(
     final String encodedJson,
@@ -236,6 +259,14 @@ class Pantry {
     final String name = decodedJsonAll[_JSON_TAG_NAME] as String;
     final String colorTag = decodedJsonAll[_JSON_TAG_COLOR] as String;
     final String iconTag = decodedJsonAll[_JSON_TAG_ICON] as String;
+    final List<String> order = <String>[];
+    final List<dynamic> tmpOrder =
+        decodedJsonAll[_JSON_TAG_ORDER] as List<dynamic>;
+    if (tmpOrder != null) {
+      for (final dynamic item in tmpOrder) {
+        order.add(item as String);
+      }
+    }
     final Map<String, dynamic> decodedJson =
         decodedJsonAll[_JSON_TAG_PRODUCTS] as Map<String, dynamic>;
     final List<String> barcodes = decodedJson.keys.toList();
@@ -260,6 +291,7 @@ class Pantry {
       data: data,
       products: products,
       name: name,
+      order: order,
       colorTag: colorTag,
       iconTag: iconTag,
     );
@@ -271,8 +303,26 @@ class Pantry {
     result[_JSON_TAG_COLOR] = pantry.colorTag;
     result[_JSON_TAG_ICON] = pantry.iconTag;
     result[_JSON_TAG_PRODUCTS] = pantry.data;
+    result[_JSON_TAG_ORDER] = pantry.order;
     final String encodedJson = json.encode(result);
     return encodedJson;
+  }
+
+  List<String> getOrderedBarcodes() {
+    if (order.isEmpty) {
+      // fix for old versions
+      order.addAll(products.keys);
+    }
+    return order;
+  }
+
+  void reorder(final int oldIndex, int newIndex) {
+    final List<String> order = getOrderedBarcodes();
+    if (oldIndex < newIndex) {
+      newIndex -= 1;
+    }
+    final String item = order.removeAt(oldIndex);
+    order.insert(newIndex, item);
   }
 
   @override

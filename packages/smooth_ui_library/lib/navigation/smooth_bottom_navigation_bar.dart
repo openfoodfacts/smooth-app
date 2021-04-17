@@ -5,7 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_ui_library/navigation/models/smooth_bottom_navigation_bar_item.dart';
 
 class SmoothBottomNavigationBar extends StatefulWidget {
-  const SmoothBottomNavigationBar(this.items, {this.fabAction});
+  const SmoothBottomNavigationBar(this.items, {required this.fabAction});
   final List<SmoothBottomNavigationBarItem> items;
   final Function fabAction;
 
@@ -15,8 +15,8 @@ class SmoothBottomNavigationBar extends StatefulWidget {
 
 class SmoothBottomNavigationBarState extends State<SmoothBottomNavigationBar>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-  Animation<Offset> _offsetAnimation;
+  late AnimationController _controller;
+  late Animation<Offset> _offsetAnimation;
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
@@ -136,7 +136,7 @@ class SmoothBottomNavigationBarState extends State<SmoothBottomNavigationBar>
                 position: _offsetAnimation,
                 child: Text(
                   widget.items[i].name,
-                  style: Theme.of(context).textTheme.bodyText2.copyWith(
+                  style: Theme.of(context).textTheme.bodyText2!.copyWith(
                         fontWeight: FontWeight.w500,
                         fontSize: 15,
                       ),

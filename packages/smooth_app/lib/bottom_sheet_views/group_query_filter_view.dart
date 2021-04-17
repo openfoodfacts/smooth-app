@@ -21,10 +21,12 @@ class GroupQueryFilterView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return ChangeNotifierProvider<SelectedCategoryModel>(
-        create: (BuildContext context) =>
-            SelectedCategoryModel(categories, categoriesList),
-        child: Consumer<SelectedCategoryModel>(builder: (BuildContext context,
+      create: (BuildContext context) =>
+          SelectedCategoryModel(categories, categoriesList),
+      child: Consumer<SelectedCategoryModel>(
+        builder: (BuildContext context,
             SelectedCategoryModel selectedCategoryModel, Widget child) {
           return Material(
             child: Container(
@@ -43,7 +45,7 @@ class GroupQueryFilterView extends StatelessWidget {
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Text('Category',
+                            Text(appLocalizations.category,
                                 style: Theme.of(context).textTheme.headline4),
                           ],
                         ),
@@ -63,7 +65,8 @@ class GroupQueryFilterView extends StatelessWidget {
                               value: key,
                               child: Container(
                                 width: MediaQuery.of(context).size.width * 0.8,
-                                child: Text(categories[key] ?? 'error',
+                                child: Text(
+                                    categories[key] ?? appLocalizations.error,
                                     style: Theme.of(context)
                                         .textTheme
                                         .bodyText2
@@ -161,7 +164,9 @@ class GroupQueryFilterView extends StatelessWidget {
               ),
             ),
           );
-        }));
+        },
+      ),
+    );
   }
 }
 

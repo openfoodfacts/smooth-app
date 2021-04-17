@@ -1,30 +1,46 @@
-// Flutter imports:
 import 'package:flutter/material.dart';
-
-// Project imports:
 import 'package:smooth_app/data_models/product_list.dart';
-import 'package:smooth_app/database/dao_product_list.dart';
-import 'package:smooth_app/pages/product/common/product_list_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 class ProductListButton extends StatelessWidget {
-  const ProductListButton(this.productList, this.daoProductList);
+  const ProductListButton({
+    @required this.productList,
+    @required this.onPressed,
+  });
+
+  const ProductListButton.add({
+    @required this.onPressed,
+  }) : productList = null;
 
   final ProductList productList;
-  final DaoProductList daoProductList;
+  final Function onPressed;
 
   @override
   Widget build(BuildContext context) {
+    if (productList == null) {
+      return _build(
+        const Icon(Icons.add),
+        Flexible(
+          child: Text(
+            AppLocalizations.of(context).new_list,
+            overflow: TextOverflow.fade,
+          ),
+        ),
+        null,
+      );
+    }
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
-    return ElevatedButton.icon(
-      icon: productList.getIcon(
+    return _build(
+      productList.getIcon(
         colorScheme,
         ColorDestination.BUTTON_FOREGROUND,
       ),
-      label: Text(
+      Text(
         ProductQueryPageHelper.getProductListLabel(
           productList,
+          context,
           verbose: false,
         ),
         style: TextStyle(
@@ -35,26 +51,28 @@ class ProductListButton extends StatelessWidget {
           ),
         ),
       ),
-      onPressed: () async {
-        await daoProductList.get(productList);
-        await Navigator.push<Widget>(
-          context,
-          MaterialPageRoute<Widget>(
-            builder: (BuildContext context) => ProductListPage(productList),
-          ),
-        );
-        daoProductList.localDatabase.notifyListeners();
-      },
-      style: ElevatedButton.styleFrom(
-        primary: SmoothTheme.getColor(
-          colorScheme,
-          productList.getMaterialColor(),
-          ColorDestination.BUTTON_BACKGROUND,
-        ),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(32.0),
-        ),
+      SmoothTheme.getColor(
+        colorScheme,
+        productList.getMaterialColor(),
+        ColorDestination.BUTTON_BACKGROUND,
       ),
     );
   }
+
+  Widget _build(
+    final Widget icon,
+    final Widget label,
+    final Color primary,
+  ) =>
+      ElevatedButton.icon(
+        icon: icon,
+        label: label,
+        onPressed: () async => await onPressed(),
+        style: ElevatedButton.styleFrom(
+          primary: primary,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(32.0),
+          ),
+        ),
+      );
 }

@@ -88,12 +88,13 @@ class ContinuousScanPage extends StatelessWidget {
                   mainAxisSize: MainAxisSize.max,
                   children: <Widget>[
                     Container(
-                      height: screenSize.height * 0.3,
                       padding: const EdgeInsets.only(top: 32.0),
                       child: Column(
                         children: <Widget>[
                           ScanPage.getContributeChooseToggle(
-                              _continuousScanModel),
+                            _continuousScanModel,
+                            context,
+                          ),
                         ],
                       ),
                     ),

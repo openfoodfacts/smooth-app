@@ -1,9 +1,7 @@
-
 import 'package:flutter/material.dart';
 
 class SmoothSneakPeekRoute<T> extends PageRoute<T> {
-
-  SmoothSneakPeekRoute({@required this.builder, this.duration = 200});
+  SmoothSneakPeekRoute({required this.builder, this.duration = 200});
 
   final WidgetBuilder builder;
   final int duration;
@@ -21,7 +19,8 @@ class SmoothSneakPeekRoute<T> extends PageRoute<T> {
   bool get barrierDismissible => true;
 
   @override
-  Widget buildPage(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
+  Widget buildPage(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation) {
     return builder(context);
   }
 
@@ -30,5 +29,4 @@ class SmoothSneakPeekRoute<T> extends PageRoute<T> {
 
   @override
   Duration get transitionDuration => Duration(milliseconds: duration);
-
 }

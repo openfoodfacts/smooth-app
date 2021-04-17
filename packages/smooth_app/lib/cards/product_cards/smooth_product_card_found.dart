@@ -1,17 +1,11 @@
-// Dart imports:
 import 'dart:ui';
-
-// Flutter imports:
 import 'package:flutter/material.dart';
-
-// Package imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
-
-// Project imports:
 import 'package:smooth_app/cards/data_cards/attribute_chip.dart';
 import 'package:smooth_app/pages/product/product_page.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
@@ -23,6 +17,8 @@ class SmoothProductCardFound extends StatelessWidget {
     this.elevation = 0.0,
     this.useNewStyle = true,
     this.backgroundColor,
+    this.handle,
+    this.onLongPress,
   });
 
   final Product product;
@@ -30,6 +26,8 @@ class SmoothProductCardFound extends StatelessWidget {
   final double elevation;
   final bool useNewStyle;
   final Color backgroundColor;
+  final Widget handle;
+  final Function onLongPress;
 
   @override
   Widget build(BuildContext context) {
@@ -55,17 +53,13 @@ class SmoothProductCardFound extends StatelessWidget {
       scores.add(AttributeChip(attribute, height: iconSize));
     }
     return GestureDetector(
-      onTap: () {
-        //_openSneakPeek(context);
-        Navigator.push<Widget>(
-          context,
-          MaterialPageRoute<Widget>(
-              builder: (BuildContext context) => ProductPage(
-                    product: product,
-                  )),
-        );
-      },
-      onLongPress: () => ProductPage.showLists(product, context),
+      onTap: () => Navigator.push<Widget>(
+        context,
+        MaterialPageRoute<Widget>(
+          builder: (BuildContext context) => ProductPage(product: product),
+        ),
+      ),
+      onLongPress: () => onLongPress == null ? null : onLongPress(),
       child: Hero(
         tag: heroTag,
         child: Material(
@@ -82,66 +76,94 @@ class SmoothProductCardFound extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                SmoothProductImage(
-                  product: product,
-                  width: screenSize.width * 0.20,
-                  height: screenSize.width * 0.20,
+                Expanded(
+                  flex: 1,
+                  child: SmoothProductImage(
+                      product: product,
+                      width: screenSize.width * 0.20,
+                      height: screenSize.width * 0.20),
                 ),
                 const SizedBox(
                   width: 8.0,
                 ),
-                Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Container(
-                      width: screenSize.width * 0.65,
-                      child: Column(
-                        children: <Widget>[
-                          Row(
-                            children: <Widget>[
-                              Flexible(
-                                child: Text(
-                                  product.productName ?? 'Unknown product name',
-                                  maxLines: 2,
-                                  overflow: TextOverflow.fade,
-                                  style: themeData.textTheme.headline4,
+                Expanded(
+                  flex: 2,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Container(
+                        width: screenSize.width * 0.65,
+                        child: Column(
+                          children: <Widget>[
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Flexible(
+                                  child: Text(
+                                    product.productName ??
+                                        AppLocalizations.of(context)
+                                            .unknownProductName,
+                                    maxLines: 2,
+                                    overflow: TextOverflow.fade,
+                                    style: themeData.textTheme.headline4,
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 2.0,
-                          ),
-                          Row(
-                            children: <Widget>[
-                              Flexible(
-                                child: Text(
-                                  product.brands ?? 'Unknown brand',
-                                  maxLines: 1,
-                                  overflow: TextOverflow.fade,
-                                  style: themeData.textTheme.subtitle1,
+                                if (handle != null) handle,
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 2.0,
+                            ),
+                            Row(
+                              children: <Widget>[
+                                Flexible(
+                                  child: Text(
+                                    product.brands ??
+                                        AppLocalizations.of(context)
+                                            .unknownBrand,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.fade,
+                                    style: themeData.textTheme.subtitle1,
+                                  ),
                                 ),
-                              )
-                            ],
-                          ),
-                        ],
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 2.0,
+                            ),
+                            Row(
+                              children: <Widget>[
+                                Flexible(
+                                  child: Text(
+                                    product.brands ??
+                                        AppLocalizations.of(context)
+                                            .unknownBrand,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.fade,
+                                    style: themeData.textTheme.subtitle1,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    Container(
-                      decoration: const BoxDecoration(
-                        border: Border(
-                            top: BorderSide(color: Colors.grey, width: 1.0)),
+                      Container(
+                        decoration: const BoxDecoration(
+                          border: Border(
+                              top: BorderSide(color: Colors.grey, width: 1.0)),
+                        ),
+                        width: screenSize.width * 0.65,
+                        child: Wrap(
+                          direction: Axis.horizontal,
+                          children: scores,
+                        ),
                       ),
-                      width: screenSize.width * 0.65,
-                      child: Wrap(
-                        direction: Axis.horizontal,
-                        children: scores,
-                      ),
-                    ),
-                  ],
-                )
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
@@ -156,9 +178,10 @@ class SmoothProductCardFound extends StatelessWidget {
           Navigator.push<Widget>(
             context,
             MaterialPageRoute<Widget>(
-                builder: (BuildContext context) => ProductPage(
-                      product: product,
-                    )),
+              builder: (BuildContext context) => ProductPage(
+                product: product,
+              ),
+            ),
           );
         },
         child: Hero(
@@ -180,7 +203,7 @@ class SmoothProductCardFound extends StatelessWidget {
                       SmoothProductImage(
                         product: product,
                         width: MediaQuery.of(context).size.width * 0.25,
-                        height: 140.0,
+                        height: MediaQuery.of(context).size.width * 0.25,
                       ),
                       Container(
                         margin: const EdgeInsets.only(left: 10.0),
@@ -193,36 +216,30 @@ class SmoothProductCardFound extends StatelessWidget {
                           children: <Widget>[
                             Column(
                               children: <Widget>[
-                                Row(
-                                  children: <Widget>[
-                                    Flexible(
-                                      child: Text(
-                                        product.productName,
-                                        maxLines: 3,
-                                        overflow: TextOverflow.fade,
-                                        style: const TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
+                                Flexible(
+                                  child: Text(
+                                    product.productName,
+                                    maxLines: 3,
+                                    overflow: TextOverflow.fade,
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
                                     ),
-                                  ],
+                                  ),
                                 ),
                                 const SizedBox(
                                   height: 4.0,
                                 ),
-                                Row(
-                                  children: <Widget>[
-                                    Flexible(
-                                      child: Text(
-                                        product.brands ?? 'Unknown brand',
-                                        maxLines: 1,
-                                        overflow: TextOverflow.fade,
-                                        style: const TextStyle(
-                                            fontWeight: FontWeight.w300,
-                                            fontStyle: FontStyle.italic),
-                                      ),
-                                    )
-                                  ],
+                                Flexible(
+                                  child: Text(
+                                    product.brands ??
+                                        AppLocalizations.of(context)
+                                            .unknownBrand,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.fade,
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.w300,
+                                        fontStyle: FontStyle.italic),
+                                  ),
                                 ),
                               ],
                             ),
@@ -239,7 +256,8 @@ class SmoothProductCardFound extends StatelessWidget {
                                         )
                                       : Center(
                                           child: Text(
-                                            'Nutri-score unavailable',
+                                            AppLocalizations.of(context)
+                                                .nutri_score_unavailable,
                                             style: Theme.of(context)
                                                 .textTheme
                                                 .subtitle1,

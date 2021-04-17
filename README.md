@@ -35,7 +35,6 @@ You can join the Open Food Facts's Slack here : [Get an invite](https://slack.op
 
 ### Debt removal
 - [ ] Remove the hack on the category explorer - https://github.com/openfoodfacts/smooth-app/issues/19
-- [ ] Add Sentry to Smoothie for easier debugging - https://github.com/openfoodfacts/smooth-app/issues/9
 
 ### Personalized results
 - [ ] Allow to filter results by country and by store https://github.com/openfoodfacts/smooth-app/issues/99

@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SmoothProductCardThanks extends StatelessWidget {
@@ -16,7 +17,7 @@ class SmoothProductCardThanks extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          const Text('Thank you for adding this product !'),
+          Text(AppLocalizations.of(context).added_product_thanks),
           const SizedBox(
             height: 12.0,
           ),

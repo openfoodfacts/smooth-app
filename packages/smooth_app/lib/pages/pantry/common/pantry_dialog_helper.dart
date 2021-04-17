@@ -1,39 +1,13 @@
-// Flutter imports:
 import 'package:flutter/material.dart';
-
-// Package imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
-
-// Project imports:
 import 'package:smooth_app/data_models/pantry.dart';
-import 'package:smooth_app/pages/pantry/pantry_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 /// A dialog helper for pantries
 class PantryDialogHelper {
-  static const String _TRANSLATE_ME_WANT_TO_DELETE_PANTRY =
-      'Do you want to delete this pantry?';
-  static const String _TRANSLATE_ME_WANT_TO_DELETE_SHOPPING =
-      'Do you want to delete this shopping list?';
-  static const String _TRANSLATE_ME_NEW_LIST_PANTRY = 'New pantry';
-  static const String _TRANSLATE_ME_NEW_LIST_SHOPPING = 'New shopping list';
-  static const String _TRANSLATE_ME_RENAME_LIST_PANTRY = 'Rename pantry';
-  static const String _TRANSLATE_ME_RENAME_LIST_SHOPPING =
-      'Rename shopping list';
-  static const String _TRANSLATE_ME_CHANGE_ICON = 'Change icon';
-  static const String _TRANSLATE_ME_HINT_PANTRY = 'My own pantry';
-  static const String _TRANSLATE_ME_HINT_SHOPPING = 'My shopping list';
-  static const String _TRANSLATE_ME_EMPTY = 'Please enter some text';
-  static const String _TRANSLATE_ME_ALREADY_OTHER_PANTRY =
-      'There\'s already a pantry with that name';
-  static const String _TRANSLATE_ME_ALREADY_OTHER_SHOPPING =
-      'There\'s already a shopping list with that name';
-  static const String _TRANSLATE_ME_ALREADY_SAME = 'That\'s the same name!';
-  static const String _TRANSLATE_ME_CANCEL = 'Cancel';
-
   static Future<bool> openDelete(
     final BuildContext context,
     final List<Pantry> pantries,
@@ -45,8 +19,8 @@ class PantryDialogHelper {
           close: false,
           body: Text(
             pantries[index].pantryType == PantryType.PANTRY
-                ? _TRANSLATE_ME_WANT_TO_DELETE_PANTRY
-                : _TRANSLATE_ME_WANT_TO_DELETE_SHOPPING,
+                ? AppLocalizations.of(context).want_to_delete_pantry
+                : AppLocalizations.of(context).want_to_delete_shopping,
           ),
           actions: <SmoothSimpleButton>[
             SmoothSimpleButton(
@@ -66,21 +40,22 @@ class PantryDialogHelper {
         ),
       );
 
-  static Future<String> openNew(
+  static Future<Pantry> openNew(
     final BuildContext context,
     final List<Pantry> pantries,
     final PantryType pantryType,
     final UserPreferences userPreferences,
   ) async {
-    String newPantryName;
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-    return await showDialog<String>(
+    Pantry newPantry;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    return await showDialog<Pantry>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
         close: false,
         title: pantryType == PantryType.PANTRY
-            ? _TRANSLATE_ME_NEW_LIST_PANTRY
-            : _TRANSLATE_ME_NEW_LIST_SHOPPING,
+            ? appLocalizations.new_pantry
+            : appLocalizations.new_shopping,
         body: Form(
           key: formKey,
           child: Column(
@@ -89,12 +64,12 @@ class PantryDialogHelper {
               TextFormField(
                 decoration: InputDecoration(
                   hintText: pantryType == PantryType.PANTRY
-                      ? _TRANSLATE_ME_HINT_PANTRY
-                      : _TRANSLATE_ME_HINT_SHOPPING,
+                      ? appLocalizations.my_pantry_hint
+                      : appLocalizations.my_shopping_hint,
                 ),
                 validator: (final String value) {
                   if (value.isEmpty) {
-                    return _TRANSLATE_ME_EMPTY;
+                    return appLocalizations.empty_list;
                   }
                   if (pantries == null) {
                     return null;
@@ -102,17 +77,14 @@ class PantryDialogHelper {
                   for (int i = 0; i < pantries.length; i++) {
                     if (value == pantries[i].name) {
                       return pantryType == PantryType.PANTRY
-                          ? _TRANSLATE_ME_ALREADY_OTHER_PANTRY
-                          : _TRANSLATE_ME_ALREADY_OTHER_SHOPPING;
+                          ? appLocalizations.pantry_name_taken
+                          : appLocalizations.shopping_name_taken;
                     }
                   }
-                  pantries.add(Pantry(name: value, pantryType: pantryType));
-                  Pantry.putAll(
-                    userPreferences,
-                    pantries,
-                    pantryType,
+                  newPantry = Pantry.empty(
+                    name: value,
+                    pantryType: pantryType,
                   );
-                  newPantryName = value;
                   return null;
                 },
               ),
@@ -121,35 +93,23 @@ class PantryDialogHelper {
         ),
         actions: <SmoothSimpleButton>[
           SmoothSimpleButton(
-            text: _TRANSLATE_ME_CANCEL,
+            text: appLocalizations.cancel,
             onPressed: () => Navigator.pop(context, null),
             important: false,
           ),
           SmoothSimpleButton(
-            text: AppLocalizations.of(context).okay,
+            text: appLocalizations.okay,
             onPressed: () async {
               if (!formKey.currentState.validate()) {
                 return;
               }
-              Navigator.pop(context, newPantryName);
-
-              int index = 0;
-              for (final Pantry pantry in pantries) {
-                if (pantry.name == newPantryName) {
-                  await Navigator.push<Widget>(
-                    context,
-                    MaterialPageRoute<Widget>(
-                      builder: (BuildContext context) => PantryPage(
-                        pantries,
-                        index,
-                        pantryType,
-                      ),
-                    ),
-                  );
-                  return;
-                }
-                index++;
-              }
+              pantries.add(newPantry);
+              Pantry.putAll(
+                userPreferences,
+                pantries,
+                pantryType,
+              );
+              Navigator.pop<Pantry>(context, newPantry);
             },
             important: true,
           ),
@@ -164,13 +124,14 @@ class PantryDialogHelper {
     final int index,
   ) async {
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return await showDialog<bool>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
         close: false,
         title: pantries[index].pantryType == PantryType.PANTRY
-            ? _TRANSLATE_ME_RENAME_LIST_PANTRY
-            : _TRANSLATE_ME_RENAME_LIST_SHOPPING,
+            ? appLocalizations.rename_pantry
+            : appLocalizations.rename_shopping,
         body: Form(
           key: formKey,
           child: Column(
@@ -180,12 +141,12 @@ class PantryDialogHelper {
                 initialValue: pantries[index].name,
                 decoration: InputDecoration(
                   hintText: pantries[index].pantryType == PantryType.PANTRY
-                      ? _TRANSLATE_ME_HINT_PANTRY
-                      : _TRANSLATE_ME_HINT_SHOPPING,
+                      ? appLocalizations.my_pantry_hint
+                      : appLocalizations.my_shopping_hint,
                 ),
                 validator: (final String value) {
                   if (value.isEmpty) {
-                    return _TRANSLATE_ME_EMPTY;
+                    return appLocalizations.empty_list;
                   }
                   if (pantries == null) {
                     return null;
@@ -193,11 +154,11 @@ class PantryDialogHelper {
                   for (int i = 0; i < pantries.length; i++) {
                     if (value == pantries[i].name) {
                       if (i == index) {
-                        return _TRANSLATE_ME_ALREADY_SAME;
+                        return appLocalizations.already_same;
                       }
                       return pantries[index].pantryType == PantryType.PANTRY
-                          ? _TRANSLATE_ME_ALREADY_OTHER_PANTRY
-                          : _TRANSLATE_ME_ALREADY_OTHER_SHOPPING;
+                          ? appLocalizations.pantry_name_taken
+                          : appLocalizations.shopping_name_taken;
                     }
                   }
                   pantries[index].name = value;
@@ -209,12 +170,12 @@ class PantryDialogHelper {
         ),
         actions: <SmoothSimpleButton>[
           SmoothSimpleButton(
-            text: _TRANSLATE_ME_CANCEL,
+            text: appLocalizations.cancel,
             onPressed: () => Navigator.pop(context, false),
             important: false,
           ),
           SmoothSimpleButton(
-            text: AppLocalizations.of(context).okay,
+            text: appLocalizations.okay,
             onPressed: () async {
               if (!formKey.currentState.validate()) {
                 return;
@@ -241,7 +202,7 @@ class PantryDialogHelper {
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
         close: false,
-        title: _TRANSLATE_ME_CHANGE_ICON,
+        title: AppLocalizations.of(context).change_icon,
         body: Container(
           width: orderedColors.length.toDouble() * size,
           height: orderedIcons.length.toDouble() * size,
@@ -274,7 +235,7 @@ class PantryDialogHelper {
         ),
         actions: <SmoothSimpleButton>[
           SmoothSimpleButton(
-            text: _TRANSLATE_ME_CANCEL,
+            text: AppLocalizations.of(context).cancel,
             onPressed: () => Navigator.pop(context, false),
             important: false,
           ),

@@ -1,117 +1,90 @@
-// Flutter imports:
 import 'package:flutter/material.dart';
-
-// Package imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
-
-// Project imports:
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/data_models/pantry.dart';
 import 'package:smooth_app/database/dao_product.dart';
-import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/pantry/common/pantry_dialog_helper.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/pages/text_search_widget.dart';
+import 'package:smooth_app/pages/multi_select_product_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_ui_library/widgets/smooth_card.dart';
 
 /// A page for one pantry where we can change all the data
-class PantryPage extends StatelessWidget {
-  const PantryPage(
+class PantryPage extends StatefulWidget {
+  PantryPage({
     this.pantries,
-    this.index,
-    this.pantryType,
-  );
+    this.pantry,
+  }) : pantryType = pantry.pantryType;
 
   final List<Pantry> pantries;
-  final int index;
+  final Pantry pantry;
   final PantryType pantryType;
 
+  @override
+  _PantryPageState createState() => _PantryPageState();
+}
+
+class _PantryPageState extends State<PantryPage> {
   static const String _EMPTY_DATE = '';
-  static const String _TRANSLATE_ME_RENAME = 'Rename';
-  static const String _TRANSLATE_ME_DELETE = 'Delete';
-  static const String _TRANSLATE_ME_CHANGE = 'Change icon';
-  static const String _TRANSLATE_ME_PASTE = 'paste';
-  static const String _TRANSLATE_ME_CLEAR = 'clear';
-  static const String _TRANSLATE_ME_GROCERY = 'grocery';
-  static const String _TRANSLATE_ME_ANOTHER_DATE = 'Add another date';
-  static const String _TRANSLATE_ME_NO_DATE = 'No date';
+  int _index; // late final
+
+  @override
+  void initState() {
+    super.initState();
+    _index = 0;
+    for (final Pantry item in widget.pantries) {
+      if (item.name == widget.pantry.name) {
+        return;
+      }
+      _index++;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final DaoProduct daoProduct = DaoProduct(localDatabase);
-    final DaoProductList daoProductList = DaoProductList(localDatabase);
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
     const TextStyle textStyle = TextStyle(fontSize: 16);
-    if (index >= pantries.length) {
-      return const CircularProgressIndicator();
-    }
-    final Pantry pantry = pantries[index];
-    final List<Product> products = pantry.products.values.toList();
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final List<String> orderedBarcodes = widget.pantry.getOrderedBarcodes();
     return Scaffold(
-      bottomNavigationBar: Builder(
-        builder: (BuildContext context) => BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-                icon: Icon(Icons.paste), label: _TRANSLATE_ME_PASTE),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.highlight_remove), label: _TRANSLATE_ME_CLEAR),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.local_grocery_store),
-                label: _TRANSLATE_ME_GROCERY),
-          ],
-          onTap: (final int index) async {
-            if (index == 0) {
-              final List<String> barcodes = await daoProductList
-                  .getBarcodes(userPreferences.getProductListCopy());
-              final Map<String, Product> products =
-                  await daoProduct.getAll(barcodes);
-              pantry.addAll(barcodes, products);
-              await _save(userPreferences);
-              return;
-            }
-            if (index == 1) {
-              pantry.clear();
-              await _save(userPreferences);
-              return;
-            }
-          },
-        ),
-      ),
       appBar: AppBar(
         backgroundColor: SmoothTheme.getColor(
           colorScheme,
-          pantry.materialColor,
+          widget.pantry.materialColor,
           ColorDestination.APP_BAR_BACKGROUND,
         ),
         title: Row(
           children: <Widget>[
-            pantry.getIcon(colorScheme, ColorDestination.APP_BAR_FOREGROUND),
+            widget.pantry
+                .getIcon(colorScheme, ColorDestination.APP_BAR_FOREGROUND),
             const SizedBox(width: 8.0),
-            Text(pantry.name),
+            Text(widget.pantry.name),
           ],
         ),
         actions: <Widget>[
           PopupMenuButton<String>(
             itemBuilder: (final BuildContext context) =>
                 <PopupMenuEntry<String>>[
-              const PopupMenuItem<String>(
+              PopupMenuItem<String>(
                 value: 'rename',
-                child: Text(_TRANSLATE_ME_RENAME),
+                child: Text(appLocalizations.rename),
                 enabled: true,
               ),
-              const PopupMenuItem<String>(
+              PopupMenuItem<String>(
                 value: 'change',
-                child: Text(_TRANSLATE_ME_CHANGE),
+                child: Text(appLocalizations.change_icon),
                 enabled: true,
               ),
-              const PopupMenuItem<String>(
+              PopupMenuItem<String>(
                 value: 'delete',
-                child: Text(_TRANSLATE_ME_DELETE),
+                child: Text(appLocalizations.delete),
                 enabled: true,
               ),
             ],
@@ -119,20 +92,20 @@ class PantryPage extends StatelessWidget {
               switch (value) {
                 case 'rename':
                   if (await PantryDialogHelper.openRename(
-                      context, pantries, index)) {
+                      context, widget.pantries, _index)) {
                     await _save(userPreferences);
                   }
                   break;
                 case 'delete':
                   if (await PantryDialogHelper.openDelete(
-                      context, pantries, index)) {
+                      context, widget.pantries, _index)) {
                     await _save(userPreferences);
                     Navigator.pop(context);
                   }
                   break;
                 case 'change':
                   if (await PantryDialogHelper.openChangeIcon(
-                      context, pantries, index)) {
+                      context, widget.pantries, _index)) {
                     await _save(userPreferences);
                   }
                   break;
@@ -143,43 +116,46 @@ class PantryPage extends StatelessWidget {
           ),
         ],
       ),
-      body: ListView.builder(
-        itemCount: products.length + 1,
-        itemBuilder: (BuildContext context, int index) {
-          if (index == 0) {
-            return TextSearchWidget(
-              color: Colors.blue,
-              daoProduct: daoProduct,
-              addProductCallback: (final Product product) async {
-                final bool itemAdded = pantry.add(product);
-                if (!itemAdded) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Already in the pantry!'),
-                      duration: Duration(seconds: 3),
-                    ),
-                  );
-                  return;
-                }
-                await _save(userPreferences);
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: const Text('Added to the pantry!'),
-                    duration: const Duration(seconds: 3),
-                    action: SnackBarAction(
-                      label: 'UNDO',
-                      onPressed: () async {
-                        pantry.removeBarcode(product.barcode);
-                        await _save(userPreferences);
-                      },
-                    ),
-                  ),
-                );
-              },
+      body: ReorderableListView.builder(
+        onReorder: (final int oldIndex, final int newIndex) async {
+          widget.pantry.reorder(oldIndex, newIndex);
+          await _save(userPreferences);
+        },
+        buildDefaultDragHandles: false,
+        header: TextSearchWidget(
+          color: Colors.blue,
+          daoProduct: daoProduct,
+          addProductCallback: (final Product product) async {
+            final bool itemAdded = widget.pantry.add(product);
+            if (!itemAdded) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Already in the pantry!'),
+                  duration: Duration(seconds: 3),
+                ),
+              );
+              return;
+            }
+            await _save(userPreferences);
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: const Text('Added to the pantry!'),
+                duration: const Duration(seconds: 3),
+                action: SnackBarAction(
+                  label: 'UNDO',
+                  onPressed: () async {
+                    widget.pantry.removeBarcode(product.barcode);
+                    await _save(userPreferences);
+                  },
+                ),
+              ),
             );
-          }
-          index--;
-          final Product product = products[index];
+          },
+        ),
+        itemCount: orderedBarcodes.length,
+        itemBuilder: (BuildContext context, int index) {
+          final Product product =
+              widget.pantry.products[orderedBarcodes[index]];
           final String barcode = product.barcode;
           final List<Widget> children = <Widget>[
             SmoothProductCardFound(
@@ -190,25 +166,41 @@ class PantryPage extends StatelessWidget {
                 Colors.grey,
                 ColorDestination.SURFACE_BACKGROUND,
               ),
+              handle: ReorderableDragStartListener(
+                index: index,
+                child: const Icon(Icons.drag_handle),
+              ),
+              onLongPress: () => Navigator.push<Widget>(
+                context,
+                MaterialPageRoute<Widget>(
+                  builder: (BuildContext context) =>
+                      MultiSelectProductPage.pantry(
+                    barcode: product.barcode,
+                    pantries: widget.pantries,
+                    index: _index,
+                    pantryType: widget.pantryType,
+                  ),
+                ),
+              ),
             ),
             const Divider(
               color: Colors.grey,
             ),
           ];
-          final Map<String, int> dates = pantry.data[barcode];
-          if (pantry.pantryType == PantryType.SHOPPING) {
+          final Map<String, int> dates = widget.pantry.data[barcode];
+          if (widget.pantry.pantryType == PantryType.SHOPPING) {
             _addShoppingLines(
               children: children,
               barcode: barcode,
               count: dates[''] ?? 0,
-              pantry: pantry,
+              pantry: widget.pantry,
               textStyle: textStyle,
               userPreferences: userPreferences,
               colorScheme: colorScheme,
             );
           } else {
             _addPantryLines(
-              pantry: pantry,
+              pantry: widget.pantry,
               userPreferences: userPreferences,
               barcode: barcode,
               textStyle: textStyle,
@@ -218,16 +210,25 @@ class PantryPage extends StatelessWidget {
               context: context,
             );
           }
-          return Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
-            child: Card(
-              color: SmoothTheme.getColor(
-                colorScheme,
-                Colors.grey,
-                ColorDestination.SURFACE_BACKGROUND,
+          return Dismissible(
+            background: Container(color: colorScheme.background),
+            key: Key(barcode),
+            onDismissed: (final DismissDirection direction) async {
+              widget.pantry.removeBarcode(barcode);
+              await _save(userPreferences);
+            },
+            child: Padding(
+              key: ValueKey<String>(product.barcode),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+              child: SmoothCard(
+                color: SmoothTheme.getColor(
+                  colorScheme,
+                  Colors.grey,
+                  ColorDestination.SURFACE_BACKGROUND,
+                ),
+                child: Column(children: children),
               ),
-              child: Column(children: children),
             ),
           );
         },
@@ -243,7 +244,7 @@ class PantryPage extends StatelessWidget {
   }
 
   Future<void> _save(final UserPreferences userPreferences) async =>
-      Pantry.putAll(userPreferences, pantries, pantryType);
+      Pantry.putAll(userPreferences, widget.pantries, widget.pantryType);
 
   Widget _getPantryDayLine({
     @required final Pantry pantry,
@@ -253,6 +254,7 @@ class PantryPage extends StatelessWidget {
     @required final String now,
     @required final TextStyle textStyle,
     @required final Map<String, int> dates,
+    @required final BuildContext context,
   }) =>
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -278,7 +280,7 @@ class PantryPage extends StatelessWidget {
             ],
           ),
           Text(
-            day != _EMPTY_DATE ? day : _TRANSLATE_ME_NO_DATE,
+            day != _EMPTY_DATE ? day : AppLocalizations.of(context).no_date,
             style: textStyle,
           ),
           Container(
@@ -317,6 +319,7 @@ class PantryPage extends StatelessWidget {
           pantry: pantry,
           textStyle: textStyle,
           userPreferences: userPreferences,
+          context: context,
         ),
       );
     }
@@ -336,14 +339,14 @@ class PantryPage extends StatelessWidget {
         pantry.increaseItem(barcode, date, 1);
         await _save(userPreferences);
       },
-      child: Text(_TRANSLATE_ME_ANOTHER_DATE, style: textStyle),
+      child: Text(AppLocalizations.of(context).add_date, style: textStyle),
     );
     final Widget noDateButton = ElevatedButton(
       onPressed: () async {
         pantry.increaseItem(barcode, _EMPTY_DATE, 1);
         await _save(userPreferences);
       },
-      child: Text(_TRANSLATE_ME_NO_DATE, style: textStyle),
+      child: Text(AppLocalizations.of(context).no_date, style: textStyle),
     );
     children.add(
       ListTile(
@@ -356,17 +359,6 @@ class PantryPage extends StatelessWidget {
                   noDateButton,
                 ],
               ),
-        trailing: Container(
-          width: 60,
-          child: sortedDays.isNotEmpty
-              ? null
-              : _getDeleteButton(
-                  pantry,
-                  barcode,
-                  userPreferences,
-                  colorScheme,
-                ),
-        ),
       ),
     );
   }
@@ -404,28 +396,7 @@ class PantryPage extends StatelessWidget {
                 ),
               ],
             ),
-            if (count == 0)
-              _getDeleteButton(
-                pantry,
-                barcode,
-                userPreferences,
-                colorScheme,
-              ),
           ],
         ),
-      );
-
-  Widget _getDeleteButton(
-    final Pantry pantry,
-    final String barcode,
-    final UserPreferences userPreferences,
-    final ColorScheme colorScheme,
-  ) =>
-      IconButton(
-        onPressed: () async {
-          pantry.removeBarcode(barcode);
-          await _save(userPreferences);
-        },
-        icon: Icon(Icons.delete, color: colorScheme.error),
       );
 }

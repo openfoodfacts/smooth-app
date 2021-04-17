@@ -70,13 +70,15 @@ class ProductQueryModel with ChangeNotifier {
         'All'; // TODO(monsieurtanuki): find a translation
 
     for (final Product product in _products) {
-      for (final String category in product.categoriesTags) {
-        categories.putIfAbsent(category, () {
-          String title = category.substring(3).replaceAll('-', ' ');
-          title = '${title[0].toUpperCase()}${title.substring(1)}';
-          return title;
-        });
-        categoriesCounter[category] = (categoriesCounter[category] ?? 0) + 1;
+      if (product.categoriesTags != null) {
+        for (final String category in product.categoriesTags) {
+          categories.putIfAbsent(category, () {
+            String title = category.substring(3).replaceAll('-', ' ');
+            title = '${title[0].toUpperCase()}${title.substring(1)}';
+            return title;
+          });
+          categoriesCounter[category] = (categoriesCounter[category] ?? 0) + 1;
+        }
       }
     }
 

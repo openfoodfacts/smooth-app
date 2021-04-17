@@ -220,16 +220,10 @@ class ProductList {
     return result;
   }
 
-  List<Product> getUniqueList({final bool ascending = true}) {
+  List<Product> getUniqueList() {
     final List<Product> result = <Product>[];
-    final Set<String> done = <String>{};
-    final Iterable<String> orderedBarcodes =
-        ascending ? _barcodes : _barcodes.reversed;
+    final List<String> orderedBarcodes = getOrderedBarcodes();
     for (final String barcode in orderedBarcodes) {
-      if (done.contains(barcode)) {
-        continue;
-      }
-      done.add(barcode);
       final Product product = _products[barcode];
       if (product == null) {
         throw Exception('no product for barcode $barcode');
@@ -238,4 +232,21 @@ class ProductList {
     }
     return result;
   }
+
+  List<String> getOrderedBarcodes() {
+    final List<String> result = <String>[];
+    final Iterable<String> iterable =
+        _isReversed ? barcodes.reversed : barcodes;
+    for (final String barcode in iterable) {
+      if (result.contains(barcode)) {
+        continue;
+      }
+      result.add(barcode);
+    }
+    return result;
+  }
+
+  bool get _isReversed =>
+      listType == ProductList.LIST_TYPE_HISTORY ||
+      listType == ProductList.LIST_TYPE_SCAN;
 }

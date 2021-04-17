@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
@@ -20,6 +21,9 @@ import 'package:smooth_app/pages/product/common/product_list_button.dart';
 import 'package:smooth_app/pages/product/common/product_list_dialog_helper.dart';
 import 'package:smooth_app/pages/settings_page.dart';
 import 'package:smooth_app/pages/scan/scan_page.dart';
+import 'package:smooth_app/pages/pantry/pantry_page.dart';
+import 'package:smooth_app/pages/product/common/product_list_page.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
@@ -32,11 +36,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  static const String _TRANSLATE_ME_SEARCHING = 'Searching...';
-  static const String _TRANSLATE_ME_PANTRIES = 'My pantries';
-  static const String _TRANSLATE_ME_SHOPPINGS = 'My shopping lists';
-  static const String _TRANSLATE_ME_EMPTY = 'Empty!';
-
   static const ColorDestination _COLOR_DESTINATION_FOR_ICON =
       ColorDestination.SURFACE_FOREGROUND;
 
@@ -53,6 +52,7 @@ class _HomePageState extends State<HomePage> {
     _daoProduct = DaoProduct(localDatabase);
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Color notYetColor = SmoothTheme.getColor(
       colorScheme,
       Colors.grey,
@@ -64,7 +64,9 @@ class _HomePageState extends State<HomePage> {
           children: const <Widget>[
             Icon(Icons.pets),
             SizedBox(width: 10.0),
-            Text('Smoothie'),
+            Text(
+              'Smoothie',
+            ),
           ],
         ),
         actions: <Widget>[
@@ -81,7 +83,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-
       body: ListView(
         children: <Widget>[
           TextSearchWidget(
@@ -94,7 +95,7 @@ class _HomePageState extends State<HomePage> {
           ),
           _getProductListCard(
             <String>[ProductList.LIST_TYPE_USER_DEFINED],
-            'My lists',
+            appLocalizations.my_lists,
             Icon(
               Icons.list,
               color: SmoothTheme.getColor(
@@ -103,13 +104,27 @@ class _HomePageState extends State<HomePage> {
                 _COLOR_DESTINATION_FOR_ICON,
               ),
             ),
+            AppLocalizations.of(context),
           ),
           //My pantries
-          _getPantryCard(userPreferences, _daoProduct, PantryType.PANTRY),
+          _getPantryCard(
+            userPreferences,
+            _daoProduct,
+            PantryType.PANTRY,
+            AppLocalizations.of(context),
+          ),
           //My shopping lists
-          _getPantryCard(userPreferences, _daoProduct, PantryType.SHOPPING),
+          _getPantryCard(
+            userPreferences,
+            _daoProduct,
+            PantryType.SHOPPING,
+            AppLocalizations.of(context),
+          ),
           //Food ranking parameters
-          _getRankingPreferences(productPreferences),
+          _getRankingPreferences(
+            productPreferences,
+            AppLocalizations.of(context),
+          ),
           //Recently seen products
           ProductListPreview(
             daoProductList: _daoProductList,
@@ -131,7 +146,7 @@ class _HomePageState extends State<HomePage> {
                     _COLOR_DESTINATION_FOR_ICON,
                   ),
                 ),
-                title: Text('Food category search',
+                title: Text(appLocalizations.food_categories,
                     style: Theme.of(context).textTheme.subtitle2),
                 subtitle: Text(
                   '${PnnsGroup1.BEVERAGES.name}'
@@ -159,7 +174,7 @@ class _HomePageState extends State<HomePage> {
               ProductList.LIST_TYPE_HTTP_SEARCH_KEYWORDS,
               ProductList.LIST_TYPE_HTTP_SEARCH_CATEGORY,
             ],
-            'Search history',
+            appLocalizations.search_history,
             Icon(
               Icons.youtube_searched_for,
               color: SmoothTheme.getColor(
@@ -168,6 +183,7 @@ class _HomePageState extends State<HomePage> {
                 _COLOR_DESTINATION_FOR_ICON,
               ),
             ),
+            AppLocalizations.of(context),
           ),
           //Score
           SmoothCard(
@@ -195,7 +211,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           await Navigator.push<Widget>(
@@ -212,18 +227,14 @@ class _HomePageState extends State<HomePage> {
           height: 25,
           color: colorScheme.onSecondary,
         ),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 
-  Widget _getProductListCard(
-    final List<String> typeFilter,
-    final String title,
-    final Icon leadingIcon,
-  ) =>
+  Widget _getProductListCard(final List<String> typeFilter, final String title,
+          final Icon leadingIcon, final AppLocalizations appLocalizations) =>
       FutureBuilder<List<ProductList>>(
         future: _daoProductList.getAll(
-          limit: 5,
           withStats: false,
           reverse: true,
           typeFilter: typeFilter,
@@ -237,14 +248,17 @@ class _HomePageState extends State<HomePage> {
             final List<Widget> cards = <Widget>[];
             if (list != null) {
               for (final ProductList item in list) {
-                cards.add(ProductListButton(item, _daoProductList));
+                cards.add(
+                  ProductListButton(
+                    productList: item,
+                    onPressed: () async => await _goToProductListPage(item),
+                  ),
+                );
               }
             }
             if (typeFilter.contains(ProductList.LIST_TYPE_USER_DEFINED)) {
               cards.add(
-                ElevatedButton.icon(
-                  icon: const Icon(Icons.add),
-                  label: Text(ListPage.getCreateListLabel()),
+                ProductListButton.add(
                   onPressed: () async {
                     final ProductList newProductList =
                         await ProductListDialogHelper.openNew(
@@ -255,13 +269,13 @@ class _HomePageState extends State<HomePage> {
                     if (newProductList == null) {
                       return;
                     }
-                    setState(() {});
+                    await _goToProductListPage(newProductList);
                   },
                 ),
               );
             } else {
               if (cards.isEmpty) {
-                cards.add(const Text(_TRANSLATE_ME_EMPTY));
+                cards.add(Text(appLocalizations.empty));
               }
             }
             return SmoothCard(
@@ -298,7 +312,7 @@ class _HomePageState extends State<HomePage> {
               leading: const CircularProgressIndicator(),
               title: Text(title),
               subtitle: Text(
-                _TRANSLATE_ME_SEARCHING,
+                appLocalizations.searching,
                 style: Theme.of(context).textTheme.subtitle2,
               ),
             ),
@@ -306,7 +320,8 @@ class _HomePageState extends State<HomePage> {
         },
       );
 
-  Widget _getRankingPreferences(final ProductPreferences productPreferences) {
+  Widget _getRankingPreferences(final ProductPreferences productPreferences,
+      final AppLocalizations appLocalizations) {
     final List<String> orderedAttributeIds =
         productPreferences.getOrderedImportantAttributeIds();
     final List<Widget> attributes = <Widget>[];
@@ -315,8 +330,39 @@ class _HomePageState extends State<HomePage> {
       PreferenceImportance.ID_VERY_IMPORTANT: Colors.orange,
       PreferenceImportance.ID_MANDATORY: Colors.red,
     };
-
     final Function onTap = () => UserPreferencesView.showModal(context);
+    const int MAX_DISPLAYED_ATTRIBUTE_ENTRIES = 6;
+
+    Widget buildChip(String text, String importance) {
+      return ElevatedButton(
+        onPressed: () => onTap(),
+        child: Text(
+          text,
+          style: importance == null
+              ? null
+              : TextStyle(
+                  color: SmoothTheme.getColor(
+                    Theme.of(context).colorScheme,
+                    colors[importance],
+                    ColorDestination.BUTTON_FOREGROUND,
+                  ),
+                ),
+        ),
+        style: ElevatedButton.styleFrom(
+          primary: importance == null
+              ? null
+              : SmoothTheme.getColor(
+                  Theme.of(context).colorScheme,
+                  colors[importance],
+                  ColorDestination.BUTTON_BACKGROUND,
+                ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(32.0),
+          ),
+        ),
+      );
+    }
+
     for (final String attributeId in orderedAttributeIds) {
       final Attribute attribute =
           productPreferences.getReferenceAttribute(attributeId);
@@ -325,31 +371,31 @@ class _HomePageState extends State<HomePage> {
       final PreferenceImportance importance = productPreferences
           .getPreferenceImportanceFromImportanceId(importanceId);
       attributes.add(
-        ElevatedButton(
-          onPressed: () => onTap(),
-          child: Text(
-            attribute.name,
-            style: TextStyle(
-              color: SmoothTheme.getColor(
-                Theme.of(context).colorScheme,
-                colors[importance.id],
-                ColorDestination.BUTTON_FOREGROUND,
-              ),
-            ),
-          ),
-          style: ElevatedButton.styleFrom(
-            primary: SmoothTheme.getColor(
-              Theme.of(context).colorScheme,
-              colors[importance.id],
-              ColorDestination.BUTTON_BACKGROUND,
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(32.0),
-            ),
-          ),
-        ),
+        buildChip(attribute.name, importance.id),
       );
     }
+
+    Widget _getCards(List<Widget> attributes) {
+      final List<Widget> list = <Widget>[];
+
+      List<void>.generate(
+          MAX_DISPLAYED_ATTRIBUTE_ENTRIES < attributes.length
+              ? MAX_DISPLAYED_ATTRIBUTE_ENTRIES
+              : attributes.length,
+          (int index) => list.add(attributes[index]));
+
+      if (attributes.length > list.length) {
+        list.add(buildChip(
+            '+${attributes.length - MAX_DISPLAYED_ATTRIBUTE_ENTRIES}', null));
+      }
+
+      return Wrap(
+        direction: Axis.horizontal,
+        children: list,
+        spacing: 8.0,
+      );
+    }
+
     return GestureDetector(
       onTap: () => onTap(),
       child: SmoothCard(
@@ -364,19 +410,13 @@ class _HomePageState extends State<HomePage> {
                   _COLOR_DESTINATION_FOR_ICON,
                 ),
               ),
-              subtitle: attributes.isEmpty
-                  ? const Text('Nothing set for the moment')
-                  : null,
+              subtitle: attributes.isEmpty ? Text(appLocalizations.no) : null,
               title: Text(
                 'Food ranking parameters',
                 style: Theme.of(context).textTheme.subtitle2,
               ),
             ),
-            Wrap(
-              direction: Axis.horizontal,
-              children: attributes,
-              spacing: 8.0,
-            ),
+            _getCards(attributes),
           ],
         ),
       ),
@@ -387,6 +427,7 @@ class _HomePageState extends State<HomePage> {
     final UserPreferences userPreferences,
     final DaoProduct daoProduct,
     final PantryType pantryType,
+    final AppLocalizations appLocalizations,
   ) =>
       FutureBuilder<List<Pantry>>(
         future: Pantry.getAll(userPreferences, daoProduct, pantryType),
@@ -395,8 +436,8 @@ class _HomePageState extends State<HomePage> {
           final AsyncSnapshot<List<Pantry>> snapshot,
         ) {
           final String title = pantryType == PantryType.PANTRY
-              ? _TRANSLATE_ME_PANTRIES
-              : _TRANSLATE_ME_SHOPPINGS;
+              ? appLocalizations.my_pantrie_lists
+              : appLocalizations.my_shopping_lists;
           final IconData iconData = pantryType == PantryType.PANTRY
               ? Icons.home
               : Icons.shopping_cart;
@@ -406,23 +447,32 @@ class _HomePageState extends State<HomePage> {
             final List<Pantry> pantries = snapshot.data;
             final List<Widget> cards = <Widget>[];
             for (int index = 0; index < pantries.length; index++) {
-              cards.add(PantryButton(pantries, index));
+              cards.add(
+                PantryButton(
+                  pantries: pantries,
+                  index: index,
+                  onPressed: () async => await _goToPantryPage(
+                    pantries[index],
+                    pantries,
+                  ),
+                ),
+              );
             }
             cards.add(
-              ElevatedButton.icon(
-                icon: const Icon(Icons.add),
-                label: Text(PantryListPage.getCreateListLabel(pantryType)),
+              PantryButton.add(
+                pantries: pantries,
+                pantryType: pantryType,
                 onPressed: () async {
-                  final String newPantryName = await PantryDialogHelper.openNew(
+                  final Pantry newPantry = await PantryDialogHelper.openNew(
                     context,
                     pantries,
                     pantryType,
                     userPreferences,
                   );
-                  if (newPantryName == null) {
+                  if (newPantry == null) {
                     return;
                   }
-                  setState(() {});
+                  await _goToPantryPage(newPantry, pantries);
                 },
               ),
             );
@@ -452,7 +502,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     subtitle:
-                        cards.isEmpty ? const Text(_TRANSLATE_ME_EMPTY) : null,
+                        cards.isEmpty ? Text(appLocalizations.empty) : null,
                     title: Text(title,
                         style: Theme.of(context).textTheme.subtitle2),
                   ),
@@ -471,11 +521,38 @@ class _HomePageState extends State<HomePage> {
               leading: const CircularProgressIndicator(),
               title: Text(title),
               subtitle: Text(
-                _TRANSLATE_ME_SEARCHING,
+                appLocalizations.searching,
                 style: Theme.of(context).textTheme.subtitle2,
               ),
             ),
           );
         },
       );
+
+  Future<void> _goToProductListPage(final ProductList productList) async {
+    await _daoProductList.get(productList);
+    await Navigator.push<Widget>(
+      context,
+      MaterialPageRoute<Widget>(
+        builder: (BuildContext context) => ProductListPage(productList),
+      ),
+    );
+    setState(() {});
+  }
+
+  Future<void> _goToPantryPage(
+    final Pantry pantry,
+    final List<Pantry> pantries,
+  ) async {
+    await Navigator.push<Widget>(
+      context,
+      MaterialPageRoute<Widget>(
+        builder: (BuildContext context) => PantryPage(
+          pantries: pantries,
+          pantry: pantry,
+        ),
+      ),
+    );
+    setState(() {});
+  }
 }

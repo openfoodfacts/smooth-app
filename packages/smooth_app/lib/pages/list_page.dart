@@ -1,22 +1,17 @@
-// Flutter imports:
 import 'package:flutter/material.dart';
-
-// Package imports:
 import 'package:provider/provider.dart';
-import 'package:smooth_ui_library/widgets/smooth_card.dart';
-
-// Project imports:
 import 'package:smooth_app/cards/product_cards/product_list_preview.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/pages/product/common/product_list_page.dart';
+import 'package:smooth_app/pages/product/common/product_list_button.dart';
 import 'package:smooth_app/pages/product/common/product_list_dialog_helper.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 
 class ListPage extends StatefulWidget {
   const ListPage({
-    this.title,
-    this.typeFilter,
+    @required this.title,
+    @required this.typeFilter,
   });
 
   final String title;
@@ -24,8 +19,6 @@ class ListPage extends StatefulWidget {
 
   @override
   _ListPageState createState() => _ListPageState();
-
-  static String getCreateListLabel() => 'Create a food list';
 }
 
 class _ListPageState extends State<ListPage> {
@@ -35,9 +28,6 @@ class _ListPageState extends State<ListPage> {
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
-    final Size screenSize = MediaQuery.of(context).size;
-    final ThemeData themeData = Theme.of(context);
-    final double iconSize = screenSize.width / 10;
     final bool mayAddList =
         widget.typeFilter.contains(ProductList.LIST_TYPE_USER_DEFINED);
     return Scaffold(
@@ -63,10 +53,8 @@ class _ListPageState extends State<ListPage> {
                 if (_list.isEmpty) {
                   if (mayAddList) {
                     return Center(
-                      child: _addButtonWhenEmpty(
-                        iconSize,
-                        themeData,
-                        daoProductList,
+                      child: ProductListButton.add(
+                        onPressed: () async => await _add(daoProductList),
                       ),
                     );
                   }
@@ -99,30 +87,12 @@ class _ListPageState extends State<ListPage> {
     if (newProductList == null) {
       return;
     }
+    await Navigator.push<Widget>(
+      context,
+      MaterialPageRoute<Widget>(
+        builder: (BuildContext context) => ProductListPage(newProductList),
+      ),
+    );
     setState(() {});
   }
-
-  Widget _addButtonWhenEmpty(
-    final double iconSize,
-    final ThemeData themeData,
-    final DaoProductList daoProductList,
-  ) =>
-      SizedBox(
-        height: iconSize * 3,
-        child: SmoothCard(
-          color: SmoothTheme.getColor(
-            themeData.colorScheme,
-            Colors.blue,
-            ColorDestination.SURFACE_BACKGROUND,
-          ),
-          child: ListTile(
-            leading: Icon(Icons.add, size: iconSize),
-            onTap: () async => await _add(daoProductList),
-            title: Text(
-              ListPage.getCreateListLabel(),
-              style: themeData.textTheme.headline3,
-            ),
-          ),
-        ),
-      );
 }
