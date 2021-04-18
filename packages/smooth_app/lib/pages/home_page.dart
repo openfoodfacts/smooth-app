@@ -29,6 +29,7 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/pages/text_search_widget.dart';
+import 'package:smooth_app/pages/product/common/smooth_chip.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -38,6 +39,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   static const ColorDestination _COLOR_DESTINATION_FOR_ICON =
       ColorDestination.SURFACE_FOREGROUND;
+  static const Icon _ICON_ARROW_FORWARD = Icon(Icons.arrow_forward);
 
   DaoProductList _daoProductList;
   DaoProduct _daoProduct;
@@ -53,20 +55,13 @@ class _HomePageState extends State<HomePage> {
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final Color notYetColor = SmoothTheme.getColor(
-      colorScheme,
-      Colors.grey,
-      ColorDestination.SURFACE_BACKGROUND,
-    );
     return Scaffold(
       appBar: AppBar(
         title: Row(
           children: const <Widget>[
             Icon(Icons.pets),
             SizedBox(width: 10.0),
-            Text(
-              'Smoothie',
-            ),
+            Text('Smoothie'),
           ],
         ),
         actions: <Widget>[
@@ -104,28 +99,24 @@ class _HomePageState extends State<HomePage> {
                 _COLOR_DESTINATION_FOR_ICON,
               ),
             ),
-            AppLocalizations.of(context),
+            appLocalizations,
           ),
-          //My pantries
           _getPantryCard(
             userPreferences,
             _daoProduct,
             PantryType.PANTRY,
-            AppLocalizations.of(context),
+            appLocalizations,
           ),
-          //My shopping lists
           _getPantryCard(
             userPreferences,
             _daoProduct,
             PantryType.SHOPPING,
-            AppLocalizations.of(context),
+            appLocalizations,
           ),
-          //Food ranking parameters
           _getRankingPreferences(
             productPreferences,
-            AppLocalizations.of(context),
+            appLocalizations,
           ),
-          //Recently seen products
           ProductListPreview(
             daoProductList: _daoProductList,
             productList: ProductList(
@@ -134,7 +125,6 @@ class _HomePageState extends State<HomePage> {
             ),
             nbInPreview: 5,
           ),
-          //Food category's
           GestureDetector(
             child: SmoothCard(
               child: ListTile(
@@ -167,7 +157,6 @@ class _HomePageState extends State<HomePage> {
               );
             },
           ),
-          //Search history
           _getProductListCard(
             <String>[
               ProductList.LIST_TYPE_HTTP_SEARCH_GROUP,
@@ -183,31 +172,7 @@ class _HomePageState extends State<HomePage> {
                 _COLOR_DESTINATION_FOR_ICON,
               ),
             ),
-            AppLocalizations.of(context),
-          ),
-          //Score
-          SmoothCard(
-            color: notYetColor,
-            child: const ListTile(
-              leading: Icon(
-                Icons.score,
-              ),
-              title: Text('Your current score: 14 points'),
-              subtitle: Text('The next level is at 20 points'),
-            ),
-          ),
-          //Contribute
-          SmoothCard(
-            padding: const EdgeInsets.only(
-                right: 8.0, left: 8.0, top: 4.0, bottom: 20.0),
-            color: notYetColor,
-            child: const ListTile(
-              leading: Icon(
-                Icons.build,
-              ),
-              title: Text('Contribute'),
-              subtitle: Text('Help us list more and more foods!'),
-            ),
+            appLocalizations,
           ),
         ],
       ),
@@ -256,30 +221,37 @@ class _HomePageState extends State<HomePage> {
                 );
               }
             }
+            final Widget addButton = ProductListButton.add(
+              onlyIcon: cards.isNotEmpty,
+              onPressed: () async {
+                final ProductList newProductList =
+                    await ProductListDialogHelper.openNew(
+                  context,
+                  _daoProductList,
+                  list,
+                );
+                if (newProductList == null) {
+                  return;
+                }
+                await _goToProductListPage(newProductList);
+              },
+            );
+            Widget ifEmpty;
             if (typeFilter.contains(ProductList.LIST_TYPE_USER_DEFINED)) {
-              cards.add(
-                ProductListButton.add(
-                  onPressed: () async {
-                    final ProductList newProductList =
-                        await ProductListDialogHelper.openNew(
-                      context,
-                      _daoProductList,
-                      list,
-                    );
-                    if (newProductList == null) {
-                      return;
-                    }
-                    await _goToProductListPage(newProductList);
-                  },
-                ),
-              );
+              if (cards.isEmpty) {
+                ifEmpty = addButton;
+              } else {
+                cards.add(addButton);
+              }
             } else {
               if (cards.isEmpty) {
-                cards.add(Text(appLocalizations.empty));
+                ifEmpty = Text(appLocalizations.empty);
               }
             }
             return SmoothCard(
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   ListTile(
                     onTap: () async {
@@ -295,14 +267,11 @@ class _HomePageState extends State<HomePage> {
                       setState(() {});
                     },
                     leading: leadingIcon,
+                    trailing: _ICON_ARROW_FORWARD,
                     title: Text(title,
                         style: Theme.of(context).textTheme.subtitle2),
                   ),
-                  Wrap(
-                    direction: Axis.horizontal,
-                    children: cards,
-                    spacing: 8.0,
-                  )
+                  _getHorizontalList(cards, ifEmpty),
                 ],
               ),
             );
@@ -331,94 +300,50 @@ class _HomePageState extends State<HomePage> {
       PreferenceImportance.ID_MANDATORY: Colors.red,
     };
     final Function onTap = () => UserPreferencesView.showModal(context);
-    const int MAX_DISPLAYED_ATTRIBUTE_ENTRIES = 6;
-
-    Widget buildChip(String text, String importance) {
-      return ElevatedButton(
-        onPressed: () => onTap(),
-        child: Text(
-          text,
-          style: importance == null
-              ? null
-              : TextStyle(
-                  color: SmoothTheme.getColor(
-                    Theme.of(context).colorScheme,
-                    colors[importance],
-                    ColorDestination.BUTTON_FOREGROUND,
-                  ),
-                ),
-        ),
-        style: ElevatedButton.styleFrom(
-          primary: importance == null
-              ? null
-              : SmoothTheme.getColor(
-                  Theme.of(context).colorScheme,
-                  colors[importance],
-                  ColorDestination.BUTTON_BACKGROUND,
-                ),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(32.0),
-          ),
-        ),
-      );
-    }
 
     for (final String attributeId in orderedAttributeIds) {
       final Attribute attribute =
           productPreferences.getReferenceAttribute(attributeId);
       final String importanceId =
           productPreferences.getImportanceIdForAttributeId(attributeId);
-      final PreferenceImportance importance = productPreferences
-          .getPreferenceImportanceFromImportanceId(importanceId);
       attributes.add(
-        buildChip(attribute.name, importance.id),
+        SmoothChip(
+          onPressed: () => onTap(),
+          label: attribute.name,
+          materialColor: colors[importanceId],
+        ),
       );
     }
 
-    Widget _getCards(List<Widget> attributes) {
-      final List<Widget> list = <Widget>[];
-
-      List<void>.generate(
-          MAX_DISPLAYED_ATTRIBUTE_ENTRIES < attributes.length
-              ? MAX_DISPLAYED_ATTRIBUTE_ENTRIES
-              : attributes.length,
-          (int index) => list.add(attributes[index]));
-
-      if (attributes.length > list.length) {
-        list.add(buildChip(
-            '+${attributes.length - MAX_DISPLAYED_ATTRIBUTE_ENTRIES}', null));
-      }
-
-      return Wrap(
-        direction: Axis.horizontal,
-        children: list,
-        spacing: 8.0,
-      );
-    }
-
-    return GestureDetector(
-      onTap: () => onTap(),
-      child: SmoothCard(
-        child: Column(
-          children: <Widget>[
-            ListTile(
-              leading: Icon(
-                Icons.bar_chart,
-                color: SmoothTheme.getColor(
-                  Theme.of(context).colorScheme,
-                  Colors.green,
-                  _COLOR_DESTINATION_FOR_ICON,
-                ),
-              ),
-              subtitle: attributes.isEmpty ? Text(appLocalizations.no) : null,
-              title: Text(
-                'Food ranking parameters',
-                style: Theme.of(context).textTheme.subtitle2,
+    return SmoothCard(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          ListTile(
+            onTap: () => onTap(),
+            leading: Icon(
+              Icons.bar_chart,
+              color: SmoothTheme.getColor(
+                Theme.of(context).colorScheme,
+                Colors.green,
+                _COLOR_DESTINATION_FOR_ICON,
               ),
             ),
-            _getCards(attributes),
-          ],
-        ),
+            trailing: _ICON_ARROW_FORWARD,
+            title: Text(
+              'Food ranking parameters',
+              style: Theme.of(context).textTheme.subtitle2,
+            ),
+          ),
+          _getHorizontalList(
+              attributes,
+              SmoothChip(
+                onPressed: () => onTap(),
+                iconData: Icons.settings,
+                label: appLocalizations.configurePreferences,
+              )),
+        ],
       ),
     );
   }
@@ -458,26 +383,30 @@ class _HomePageState extends State<HomePage> {
                 ),
               );
             }
-            cards.add(
-              PantryButton.add(
-                pantries: pantries,
-                pantryType: pantryType,
-                onPressed: () async {
-                  final Pantry newPantry = await PantryDialogHelper.openNew(
-                    context,
-                    pantries,
-                    pantryType,
-                    userPreferences,
-                  );
-                  if (newPantry == null) {
-                    return;
-                  }
-                  await _goToPantryPage(newPantry, pantries);
-                },
-              ),
+            final Widget addButton = PantryButton.add(
+              pantries: pantries,
+              pantryType: pantryType,
+              onlyIcon: cards.isNotEmpty,
+              onPressed: () async {
+                final Pantry newPantry = await PantryDialogHelper.openNew(
+                  context,
+                  pantries,
+                  pantryType,
+                  userPreferences,
+                );
+                if (newPantry == null) {
+                  return;
+                }
+                await _goToPantryPage(newPantry, pantries);
+              },
             );
+            if (cards.isNotEmpty) {
+              cards.add(addButton);
+            }
             return SmoothCard(
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   ListTile(
                     onTap: () async {
@@ -501,17 +430,11 @@ class _HomePageState extends State<HomePage> {
                         _COLOR_DESTINATION_FOR_ICON,
                       ),
                     ),
-                    subtitle:
-                        cards.isEmpty ? Text(appLocalizations.empty) : null,
+                    trailing: _ICON_ARROW_FORWARD,
                     title: Text(title,
                         style: Theme.of(context).textTheme.subtitle2),
                   ),
-                  if (cards.isNotEmpty)
-                    Wrap(
-                      direction: Axis.horizontal,
-                      children: cards,
-                      spacing: 8.0,
-                    ),
+                  _getHorizontalList(cards, addButton),
                 ],
               ),
             );
@@ -555,4 +478,27 @@ class _HomePageState extends State<HomePage> {
     );
     setState(() {});
   }
+
+  Widget _getHorizontalList(
+    final List<Widget> children,
+    final Widget ifEmpty,
+  ) =>
+      Padding(
+        padding: const EdgeInsets.only(left: 4.0),
+        child: children.isEmpty
+            ? ifEmpty
+            : SizedBox(
+                height: 40,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: children.length,
+                  itemBuilder: (final BuildContext context, final int index) =>
+                      children[index],
+                  separatorBuilder:
+                      (final BuildContext context, final int index) =>
+                          const SizedBox(width: 8.0),
+                  //children: cards,
+                ),
+              ),
+      );
 }

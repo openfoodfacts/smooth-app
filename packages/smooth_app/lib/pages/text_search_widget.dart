@@ -44,7 +44,10 @@ class _TextSearchWidgetState extends State<TextSearchWidget> {
           autofocus: false,
           decoration: InputDecoration(
             contentPadding: const EdgeInsets.all(20.0),
-            prefixIcon: _getIcon(Icons.search),
+            prefixIcon: Padding(
+              padding: const EdgeInsets.only(left: 8.0),
+              child: _getIcon(Icons.search),
+            ),
             suffixIcon: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,

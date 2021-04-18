@@ -38,6 +38,7 @@ class _PantryListPageState extends State<PantryListPage> {
               child: PantryButton.add(
                 pantries: widget.pantries,
                 pantryType: widget.pantryType,
+                onlyIcon: false,
                 onPressed: () async => await _add(userPreferences),
               ),
             )
