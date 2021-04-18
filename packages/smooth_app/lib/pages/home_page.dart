@@ -4,6 +4,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/utils/PnnsGroups.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
+import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
+import 'package:openfoodfacts/model/AttributeGroup.dart';
+import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_ui_library/widgets/smooth_card.dart';
 import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
 import 'package:smooth_app/cards/product_cards/product_list_preview.dart';
@@ -299,6 +303,8 @@ class _HomePageState extends State<HomePage> {
       PreferenceImportance.ID_VERY_IMPORTANT: Colors.orange,
       PreferenceImportance.ID_MANDATORY: Colors.red,
     };
+    final ColorScheme colorScheme = Theme.of(context).colorScheme;
+    final List<String> importanceIds = productPreferences.importanceIds;
     final Function onTap = () => UserPreferencesView.showModal(context);
 
     for (final String attributeId in orderedAttributeIds) {
@@ -306,9 +312,84 @@ class _HomePageState extends State<HomePage> {
           productPreferences.getReferenceAttribute(attributeId);
       final String importanceId =
           productPreferences.getImportanceIdForAttributeId(attributeId);
+      final List<Widget> children = <Widget>[
+        ListTile(
+          leading: SvgCache(attribute.iconUrl, width: 40),
+          title: Text(attribute.name),
+          subtitle: Text(attribute.settingName),
+          isThreeLine: true,
+        ),
+      ];
+      final AttributeGroup attributeGroup =
+          productPreferences.getAttributeGroup(attributeId);
+      if (attributeGroup.warning != null) {
+        children.add(
+          Container(
+            padding: const EdgeInsets.all(8.0),
+            color: SmoothTheme.getColor(
+              colorScheme,
+              Colors.deepOrange,
+              ColorDestination.BUTTON_BACKGROUND,
+            ),
+            width: double.infinity,
+            child: Text(
+              attributeGroup.warning,
+              style: TextStyle(
+                color: SmoothTheme.getColor(
+                  colorScheme,
+                  Colors.deepOrange,
+                  ColorDestination.BUTTON_FOREGROUND,
+                ),
+              ),
+            ),
+          ),
+        );
+      }
+      for (final String item in importanceIds) {
+        final Color tileColor = colors[item] == null
+            ? null
+            : SmoothTheme.getColor(
+                colorScheme,
+                colors[item],
+                ColorDestination.SURFACE_BACKGROUND,
+              );
+        children.add(
+          RadioListTile<String>(
+            tileColor: tileColor,
+            value: item,
+            groupValue: importanceId,
+            title: Text(productPreferences
+                .getPreferenceImportanceFromImportanceId(item)
+                .name),
+            onChanged: (final String value) =>
+                Navigator.pop<String>(context, value),
+          ),
+        );
+      }
       attributes.add(
         SmoothChip(
-          onPressed: () => onTap(),
+          onPressed: () async {
+            final String result = await showDialog<String>(
+              context: context,
+              builder: (final BuildContext context) => SmoothAlertDialog(
+                body: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: children,
+                ),
+                actions: <SmoothSimpleButton>[
+                  SmoothSimpleButton(
+                    text: appLocalizations.cancel,
+                    onPressed: () => Navigator.pop(context),
+                  ),
+                ],
+              ),
+            );
+            if (result == null) {
+              return;
+            }
+            productPreferences.setImportance(attributeId, result);
+          },
           label: attribute.name,
           materialColor: colors[importanceId],
         ),

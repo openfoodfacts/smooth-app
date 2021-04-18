@@ -8,6 +8,7 @@ import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:openfoodfacts/personalized_search/product_preferences_manager.dart';
 import 'package:openfoodfacts/personalized_search/product_preferences_selection.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
+import 'package:openfoodfacts/model/AttributeGroup.dart';
 
 class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
   ProductPreferences(
@@ -102,5 +103,16 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
       notifyListeners: false,
     );
     notify();
+  }
+
+  AttributeGroup getAttributeGroup(final String attributeId) {
+    for (final AttributeGroup attributeGroup in attributeGroups) {
+      for (final Attribute item in attributeGroup.attributes) {
+        if (item.id == attributeId) {
+          return attributeGroup;
+        }
+      }
+    }
+    throw Exception('unknown attribute group for $attributeId');
   }
 }
