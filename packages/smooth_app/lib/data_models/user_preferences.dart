@@ -1,13 +1,5 @@
-// Note to myself : this needs to be transferred to the openfoodfacts-dart plugin when ready
-
-// Flutter imports:
 import 'package:flutter/material.dart';
-
-// Package imports:
-import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-// Project imports:
 import 'package:smooth_app/data_models/pantry.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
@@ -27,7 +19,6 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_PREFIX_IMPORTANCE = 'IMPORTANCE_AS_STRING';
   static const String _TAG_PANTRY_REPOSITORY = 'pantry_repository';
   static const String _TAG_SHOPPING_REPOSITORY = 'shopping_repository';
-  static const String _TAG_VISIBLE_GROUPS = 'visible_groups';
   static const String _TAG_INIT = 'init';
   static const String _TAG_THEME_DARK = 'themeDark';
   static const String _TAG_THEME_COLOR_TAG = 'themeColorTag';
@@ -63,36 +54,8 @@ class UserPreferences extends ChangeNotifier {
 
   Future<void> resetImportances(
     final ProductPreferences productPreferences,
-  ) async {
-    await _sharedPreferences.remove(_TAG_VISIBLE_GROUPS);
-    await productPreferences.resetImportances();
-  }
-
-  bool isAttributeGroupVisible(final AttributeGroup group) {
-    final List<String> visibleList =
-        _sharedPreferences.getStringList(_TAG_VISIBLE_GROUPS);
-    return visibleList != null && visibleList.contains(group.id);
-  }
-
-  Future<void> setAttributeGroupVisibility(
-      final AttributeGroup group, final bool visible) async {
-    final List<String> visibleList =
-        _sharedPreferences.getStringList(_TAG_VISIBLE_GROUPS) ?? <String>[];
-    final String tag = group.id;
-    if (visibleList.contains(tag)) {
-      if (visible) {
-        return;
-      }
-      visibleList.remove(tag);
-    } else {
-      if (!visible) {
-        return;
-      }
-      visibleList.add(tag);
-    }
-    await _sharedPreferences.setStringList(_TAG_VISIBLE_GROUPS, visibleList);
-    notifyListeners();
-  }
+  ) async =>
+      await productPreferences.resetImportances();
 
   Future<void> setPantryRepository(
     final List<String> encodedJsons,
