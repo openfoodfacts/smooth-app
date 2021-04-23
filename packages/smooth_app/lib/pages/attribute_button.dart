@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
@@ -21,26 +21,24 @@ class AttributeButton extends StatelessWidget {
   final Attribute attribute;
   final ProductPreferences productPreferences;
 
-  static const Map<String, MaterialColor> _ATTRIBUTE_IMPORTANCE_COLORS =
-      <String, MaterialColor>{
-    PreferenceImportance.ID_NOT_IMPORTANT: Colors.grey,
-    PreferenceImportance.ID_IMPORTANT: Colors.green,
-    PreferenceImportance.ID_VERY_IMPORTANT: Colors.orange,
-    PreferenceImportance.ID_MANDATORY: Colors.red,
-  };
   static const MaterialColor WARNING_COLOR = Colors.deepOrange;
+  static const Map<String, IconData> _IMPORTANCE_ICONS = <String, IconData>{
+    PreferenceImportance.ID_NOT_IMPORTANT: null,
+    PreferenceImportance.ID_IMPORTANT: CupertinoIcons.star,
+    PreferenceImportance.ID_VERY_IMPORTANT: CupertinoIcons.star_lefthalf_fill,
+    PreferenceImportance.ID_MANDATORY: CupertinoIcons.star_fill,
+  };
 
   @override
   Widget build(BuildContext context) {
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final String importanceId =
+        productPreferences.getImportanceIdForAttributeId(attribute.id);
     return SmoothChip(
-      materialColor: _ATTRIBUTE_IMPORTANCE_COLORS[
-          productPreferences.getImportanceIdForAttributeId(attribute.id)],
       label: attribute.name,
+      iconData: _IMPORTANCE_ICONS[importanceId],
       onPressed: () async {
-        final String importanceId =
-            productPreferences.getImportanceIdForAttributeId(attribute.id);
         final List<Widget> children = <Widget>[
           ListTile(
             leading: SvgCache(attribute.iconUrl, width: 40),
@@ -73,23 +71,16 @@ class AttributeButton extends StatelessWidget {
           );
         }
         for (final String item in productPreferences.importanceIds) {
-          final Color tileColor = _ATTRIBUTE_IMPORTANCE_COLORS[item] == null
-              ? null
-              : SmoothTheme.getColor(
-                  colorScheme,
-                  _ATTRIBUTE_IMPORTANCE_COLORS[item],
-                  ColorDestination.SURFACE_BACKGROUND,
-                );
           children.add(
-            RadioListTile<String>(
-              tileColor: tileColor,
-              value: item,
-              groupValue: importanceId,
+            ListTile(
+              leading: importanceId == item
+                  ? const Icon(Icons.radio_button_checked)
+                  : const Icon(Icons.radio_button_unchecked),
               title: Text(productPreferences
                   .getPreferenceImportanceFromImportanceId(item)
                   .name),
-              onChanged: (final String value) =>
-                  Navigator.pop<String>(context, value),
+              onTap: () => Navigator.pop<String>(context, item),
+              trailing: Icon(_IMPORTANCE_ICONS[item]),
             ),
           );
         }

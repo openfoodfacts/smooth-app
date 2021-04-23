@@ -311,6 +311,7 @@ class _HomePageState extends State<HomePage> {
         ),
       );
     }
+    attributes.add(SmoothChip(iconData: Icons.add, onPressed: onTap));
 
     return SmoothCard(
       child: Column(
@@ -329,7 +330,7 @@ class _HomePageState extends State<HomePage> {
             ),
             trailing: _ICON_ARROW_FORWARD,
             title: Text(
-              'Food ranking parameters',
+              appLocalizations.myPreferences,
               style: Theme.of(context).textTheme.subtitle2,
             ),
           ),
