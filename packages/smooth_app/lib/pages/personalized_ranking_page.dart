@@ -7,7 +7,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 // Project imports:
-import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
+import 'package:smooth_app/pages/user_preferences_page.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/smooth_it_model.dart';
@@ -98,18 +98,21 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.settings),
-            onPressed: () => UserPreferencesView.showModal(
-              context,
-              callback: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content:
-                        Text(appLocalizations.reloaded_with_new_preferences),
-                    duration: const Duration(milliseconds: 1500),
-                  ),
-                );
-              },
-            ),
+            onPressed: () async {
+              await Navigator.push<Widget>(
+                context,
+                MaterialPageRoute<Widget>(
+                  builder: (BuildContext context) =>
+                      const UserPreferencesPage(),
+                ),
+              );
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(appLocalizations.reloaded_with_new_preferences),
+                  duration: const Duration(milliseconds: 1500),
+                ),
+              );
+            },
           )
         ],
       ),

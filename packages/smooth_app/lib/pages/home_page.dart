@@ -4,12 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/utils/PnnsGroups.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
-import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
-import 'package:openfoodfacts/model/AttributeGroup.dart';
-import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_ui_library/widgets/smooth_card.dart';
-import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
+import 'package:smooth_app/pages/user_preferences_page.dart';
 import 'package:smooth_app/cards/product_cards/product_list_preview.dart';
 import 'package:smooth_app/data_models/pantry.dart';
 import 'package:smooth_app/data_models/product_list.dart';
@@ -28,12 +24,12 @@ import 'package:smooth_app/pages/scan/scan_page.dart';
 import 'package:smooth_app/pages/pantry/pantry_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_page.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/pages/text_search_widget.dart';
 import 'package:smooth_app/pages/product/common/smooth_chip.dart';
+import 'package:smooth_app/pages/attribute_button.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -298,103 +294,24 @@ class _HomePageState extends State<HomePage> {
     final List<String> orderedAttributeIds =
         productPreferences.getOrderedImportantAttributeIds();
     final List<Widget> attributes = <Widget>[];
-    final Map<String, MaterialColor> colors = <String, MaterialColor>{
-      PreferenceImportance.ID_IMPORTANT: Colors.green,
-      PreferenceImportance.ID_VERY_IMPORTANT: Colors.orange,
-      PreferenceImportance.ID_MANDATORY: Colors.red,
-    };
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
-    final List<String> importanceIds = productPreferences.importanceIds;
-    final Function onTap = () => UserPreferencesView.showModal(context);
+    final Function onTap = () async => await Navigator.push<Widget>(
+          context,
+          MaterialPageRoute<Widget>(
+            builder: (BuildContext context) => const UserPreferencesPage(),
+          ),
+        );
 
     for (final String attributeId in orderedAttributeIds) {
       final Attribute attribute =
           productPreferences.getReferenceAttribute(attributeId);
-      final String importanceId =
-          productPreferences.getImportanceIdForAttributeId(attributeId);
-      final List<Widget> children = <Widget>[
-        ListTile(
-          leading: SvgCache(attribute.iconUrl, width: 40),
-          title: Text(attribute.name),
-          subtitle: Text(attribute.settingName),
-          isThreeLine: true,
-        ),
-      ];
-      final AttributeGroup attributeGroup =
-          productPreferences.getAttributeGroup(attributeId);
-      if (attributeGroup.warning != null) {
-        children.add(
-          Container(
-            padding: const EdgeInsets.all(8.0),
-            color: SmoothTheme.getColor(
-              colorScheme,
-              Colors.deepOrange,
-              ColorDestination.BUTTON_BACKGROUND,
-            ),
-            width: double.infinity,
-            child: Text(
-              attributeGroup.warning,
-              style: TextStyle(
-                color: SmoothTheme.getColor(
-                  colorScheme,
-                  Colors.deepOrange,
-                  ColorDestination.BUTTON_FOREGROUND,
-                ),
-              ),
-            ),
-          ),
-        );
-      }
-      for (final String item in importanceIds) {
-        final Color tileColor = colors[item] == null
-            ? null
-            : SmoothTheme.getColor(
-                colorScheme,
-                colors[item],
-                ColorDestination.SURFACE_BACKGROUND,
-              );
-        children.add(
-          RadioListTile<String>(
-            tileColor: tileColor,
-            value: item,
-            groupValue: importanceId,
-            title: Text(productPreferences
-                .getPreferenceImportanceFromImportanceId(item)
-                .name),
-            onChanged: (final String value) =>
-                Navigator.pop<String>(context, value),
-          ),
-        );
-      }
       attributes.add(
-        SmoothChip(
-          onPressed: () async {
-            final String result = await showDialog<String>(
-              context: context,
-              builder: (final BuildContext context) => SmoothAlertDialog(
-                body: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: children,
-                ),
-                actions: <SmoothSimpleButton>[
-                  SmoothSimpleButton(
-                    text: appLocalizations.cancel,
-                    onPressed: () => Navigator.pop(context),
-                  ),
-                ],
-              ),
-            );
-            if (result == null) {
-              return;
-            }
-            productPreferences.setImportance(attributeId, result);
-          },
-          label: attribute.name,
-          materialColor: colors[importanceId],
+        AttributeButton(
+          attribute,
+          productPreferences,
         ),
       );
     }
+    attributes.add(SmoothChip(iconData: Icons.add, onPressed: onTap));
 
     return SmoothCard(
       child: Column(
@@ -413,7 +330,7 @@ class _HomePageState extends State<HomePage> {
             ),
             trailing: _ICON_ARROW_FORWARD,
             title: Text(
-              'Food ranking parameters',
+              appLocalizations.myPreferences,
               style: Theme.of(context).textTheme.subtitle2,
             ),
           ),

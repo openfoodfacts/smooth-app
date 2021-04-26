@@ -14,7 +14,7 @@ import 'package:smooth_ui_library/widgets/smooth_toggle.dart';
 
 // Project imports:
 import 'package:smooth_app/bottom_sheet_views/user_contribution_view.dart';
-import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
+import 'package:smooth_app/pages/user_preferences_page.dart';
 import 'package:smooth_app/functions/launchURL.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -61,7 +61,12 @@ class ProfilePage extends StatelessWidget {
           //Configure Preferences
           SmoothListTile(
             text: appLocalizations.configurePreferences,
-            onPressed: () => UserPreferencesView.showModal(context),
+            onPressed: () async => await Navigator.push<Widget>(
+              context,
+              MaterialPageRoute<Widget>(
+                builder: (BuildContext context) => const UserPreferencesPage(),
+              ),
+            ),
           ),
 
           // Palettes
