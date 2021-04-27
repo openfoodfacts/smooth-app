@@ -54,6 +54,7 @@ class _ListPageState extends State<ListPage> {
                   if (mayAddList) {
                     return Center(
                       child: ProductListButton.add(
+                        onlyIcon: false,
                         onPressed: () async => await _add(daoProductList),
                       ),
                     );

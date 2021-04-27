@@ -48,7 +48,6 @@ class ProductListPreview extends StatelessWidget {
               subtitle = AppLocalizations.of(context).empty_list;
             }
             return SmoothCard(
-              insets: const EdgeInsets.all(1.0),
               color: SmoothTheme.getColor(
                 Theme.of(context).colorScheme,
                 productList.getMaterialColor(),

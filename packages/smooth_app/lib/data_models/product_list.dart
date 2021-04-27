@@ -138,6 +138,8 @@ class ProductList {
   String get lousyKey =>
       '$listType/$parameters'; // TODO(monsieurtanuki): does not work if you change the name
 
+  IconData get iconData => _ICON_DATA[_iconTag] ?? _ICON_DATA[_ICON_TAG];
+
   static Widget getReferenceIcon({
     @required final ColorScheme colorScheme,
     @required final String colorTag,

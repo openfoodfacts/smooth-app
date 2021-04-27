@@ -42,6 +42,7 @@ class ProductCopyHelper {
     }
     children.add(
       ProductListButton.add(
+        onlyIcon: children.isNotEmpty,
         onPressed: () async {
           final ProductList newProductList =
               await ProductListDialogHelper.openNew(
@@ -83,6 +84,7 @@ class ProductCopyHelper {
         PantryButton.add(
           pantries: pantries,
           pantryType: pantryType,
+          onlyIcon: children.isNotEmpty,
           onPressed: () async {
             final Pantry newPantry = await PantryDialogHelper.openNew(
               context,
