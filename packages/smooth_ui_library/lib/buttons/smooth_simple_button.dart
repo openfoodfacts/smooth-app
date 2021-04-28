@@ -20,13 +20,16 @@ class SmoothSimpleButton extends StatelessWidget {
         color: important
             ? Theme.of(context).colorScheme.secondary
             : Theme.of(context).colorScheme.onSecondary,
-        child: Text(
-          text,
-          style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                color: important
-                    ? Theme.of(context).colorScheme.onSecondary
-                    : Theme.of(context).colorScheme.secondary,
-              ),
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Text(
+            text,
+            style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                  color: important
+                      ? Theme.of(context).colorScheme.onSecondary
+                      : Theme.of(context).colorScheme.secondary,
+                ),
+          ),
         ),
         height: height,
         minWidth: minWidth,
