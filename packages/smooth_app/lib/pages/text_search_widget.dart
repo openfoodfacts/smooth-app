@@ -75,6 +75,10 @@ class _TextSearchWidgetState extends State<TextSearchWidget> {
             ),
             border: InputBorder.none,
             hintText: appLocalizations.what_are_you_looking_for,
+            hintStyle: Theme.of(context)
+                .textTheme
+                .subtitle1
+                .copyWith(fontWeight: FontWeight.w300),
           ),
         ),
         hideOnEmpty: true,
