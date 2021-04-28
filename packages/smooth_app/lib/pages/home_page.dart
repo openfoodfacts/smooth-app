@@ -30,6 +30,8 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/pages/text_search_widget.dart';
 import 'package:smooth_app/pages/product/common/smooth_chip.dart';
 import 'package:smooth_app/pages/attribute_button.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/cards/category_cards/svg_async_asset.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -47,15 +49,21 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    final UserPreferences userPreferences = context.watch<UserPreferences>();
-    final ProductPreferences productPreferences =
-        context.watch<ProductPreferences>();
     _daoProductList = DaoProductList(localDatabase);
     _daoProduct = DaoProduct(localDatabase);
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final Size screenSize = MediaQuery.of(context).size;
+    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
+    final MaterialColor materialColor =
+        SmoothTheme.getMaterialColor(themeProvider);
     return Scaffold(
+      backgroundColor: SmoothTheme.getColor(
+        colorScheme,
+        materialColor,
+        ColorDestination.SURFACE_BACKGROUND,
+      ),
       appBar: AppBar(
         title: Row(
           children: const <Widget>[
@@ -80,6 +88,14 @@ class _HomePageState extends State<HomePage> {
       ),
       body: ListView(
         children: <Widget>[
+          _getHeader(
+            themeData,
+            screenSize.width,
+            materialColor,
+            themeData.brightness == Brightness.light
+                ? 'assets/home/white.svg'
+                : 'assets/home/brown.svg',
+          ),
           TextSearchWidget(
             color: SmoothTheme.getColor(
               colorScheme,
@@ -88,6 +104,7 @@ class _HomePageState extends State<HomePage> {
             ),
             daoProduct: _daoProduct,
           ),
+          _getScanLargeButton(themeData, materialColor),
           _getProductListCard(
             <String>[ProductList.LIST_TYPE_USER_DEFINED],
             appLocalizations.my_lists,
@@ -101,6 +118,8 @@ class _HomePageState extends State<HomePage> {
             ),
             appLocalizations,
           ),
+          /*
+          // temporarily: no pantries and no shopping lists ("Choose" mode)
           _getPantryCard(
             userPreferences,
             _daoProduct,
@@ -113,10 +132,12 @@ class _HomePageState extends State<HomePage> {
             PantryType.SHOPPING,
             appLocalizations,
           ),
+          // temporarily: no attribute display on home page (UI/UX test)
           _getRankingPreferences(
             productPreferences,
             appLocalizations,
           ),
+           */
           ProductListPreview(
             daoProductList: _daoProductList,
             productList: ProductList(
@@ -175,23 +196,6 @@ class _HomePageState extends State<HomePage> {
             appLocalizations,
           ),
         ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          await Navigator.push<Widget>(
-            context,
-            MaterialPageRoute<Widget>(
-              builder: (BuildContext context) => const ScanPage(
-                contributionMode: false,
-              ),
-            ),
-          );
-        },
-        child: SvgPicture.asset(
-          'assets/actions/scanner_alt_2.svg',
-          height: 25,
-          color: colorScheme.onSecondary,
-        ),
       ),
     );
   }
@@ -498,5 +502,111 @@ class _HomePageState extends State<HomePage> {
                   //children: cards,
                 ),
               ),
+      );
+
+  Widget _getScanLargeButton(
+    final ThemeData themeData,
+    final MaterialColor materialColor,
+  ) =>
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ElevatedButton.icon(
+          style: ElevatedButton.styleFrom(
+            primary: SmoothTheme.getColor(
+              themeData.colorScheme,
+              materialColor,
+              ColorDestination.BUTTON_BACKGROUND,
+            ),
+          ),
+          onPressed: () async => await Navigator.push<Widget>(
+            context,
+            MaterialPageRoute<Widget>(
+              builder: (BuildContext context) => const ScanPage(
+                contributionMode: false,
+              ),
+            ),
+          ),
+          icon: SvgPicture.asset(
+            'assets/actions/scanner_alt_2.svg',
+            height: 32,
+            color: SmoothTheme.getColor(
+              themeData.colorScheme,
+              materialColor,
+              ColorDestination.BUTTON_FOREGROUND,
+            ),
+          ),
+          label: Text(
+            'Scan and compare products',
+            style: themeData.textTheme.headline3.copyWith(
+              color: SmoothTheme.getColor(
+                themeData.colorScheme,
+                materialColor,
+                ColorDestination.BUTTON_FOREGROUND,
+              ),
+            ),
+          ),
+        ),
+      );
+
+  Widget _getHeader(
+    final ThemeData themeData,
+    final double screenWidth,
+    final MaterialColor materialColor,
+    final String assetFilename,
+  ) =>
+      Row(
+        children: <Widget>[
+          SizedBox(
+            width: screenWidth / 2,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'Find the best food for you!',
+                  style: themeData.textTheme.headline1,
+                ),
+                ElevatedButton.icon(
+                  style: ElevatedButton.styleFrom(
+                    primary: SmoothTheme.getColor(
+                      themeData.colorScheme,
+                      materialColor,
+                      ColorDestination.BUTTON_BACKGROUND,
+                    ),
+                  ),
+                  onPressed: () async => await Navigator.push<Widget>(
+                    context,
+                    MaterialPageRoute<Widget>(
+                      builder: (BuildContext context) =>
+                          const UserPreferencesPage(),
+                    ),
+                  ),
+                  icon: SvgPicture.asset(
+                    'assets/actions/food-cog.svg',
+                    color: SmoothTheme.getColor(
+                      themeData.colorScheme,
+                      materialColor,
+                      ColorDestination.BUTTON_FOREGROUND,
+                    ),
+                  ),
+                  label: Text(
+                    AppLocalizations.of(context).myPreferences,
+                    style: TextStyle(
+                      color: SmoothTheme.getColor(
+                        themeData.colorScheme,
+                        materialColor,
+                        ColorDestination.BUTTON_FOREGROUND,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SvgAsyncAsset(
+            assetFilename,
+            width: screenWidth / 2,
+          ),
+        ],
       );
 }

@@ -82,6 +82,7 @@ flutter:
     - assets/cache/
     - assets/categories/
     - assets/data/
+    - assets/home/
     - assets/labels/
     - assets/metadata/
     - assets/misc/
