@@ -124,7 +124,6 @@ class SmoothTheme {
     ),
     subtitle1: TextStyle(
       fontSize: 14.0,
-      fontWeight: FontWeight.w500,
     ),
     subtitle2: TextStyle(
       fontSize: 12.0,
