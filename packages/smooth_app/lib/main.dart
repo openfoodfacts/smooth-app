@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
+import 'package:matomo/matomo.dart';
 import 'package:provider/provider.dart';
 import 'package:sentry/sentry.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -16,11 +17,16 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:device_preview/device_preview.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Sentry.init(
     (dynamic options) {
       options.dsn =
           'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745';
     },
+  );
+  await MatomoTracker().initialize(
+    siteId: 2,
+    url: 'https://analytics.openfoodfacts.org/',
   );
   try {
     runApp(DevicePreview(
