@@ -1,5 +1,5 @@
-// Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Color destination
 enum ColorDestination {
@@ -66,6 +66,14 @@ class SmoothTheme {
       'unknown brightness / destination:'
       ' ${colorScheme.brightness} / $colorDestination',
     );
+  }
+
+  static MaterialColor getMaterialColor(final ThemeProvider themeProvider) {
+    if (themeProvider.darkTheme) {
+      return Colors.grey;
+    }
+    return MATERIAL_COLORS[themeProvider.colorTag] ??
+        MATERIAL_COLORS[COLOR_TAG_BLUE];
   }
 
   static ThemeData getThemeData(
