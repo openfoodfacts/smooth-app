@@ -1,8 +1,6 @@
-// Flutter imports:
-import 'package:flutter/cupertino.dart';
-
-// Project imports:
+import 'package:flutter/material.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
 
 class ThemeProvider with ChangeNotifier {
   ThemeProvider(this._userPreferences);
@@ -28,4 +26,9 @@ class ThemeProvider with ChangeNotifier {
     await _userPreferences.setThemeColorTag(value);
     notifyListeners();
   }
+
+  MaterialColor get materialColor => darkTheme
+      ? Colors.grey
+      : SmoothTheme.MATERIAL_COLORS[colorTag] ??
+          SmoothTheme.MATERIAL_COLORS[SmoothTheme.COLOR_TAG_BLUE];
 }
