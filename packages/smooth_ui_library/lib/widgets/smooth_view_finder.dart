@@ -74,7 +74,10 @@ class SmoothViewFinderState extends State<SmoothViewFinder>
             child: Container(
               child: Text(
                 'Powered by Open Food Facts',
-                style: Theme.of(context).textTheme.subtitle1,
+                style: Theme.of(context)
+                    .textTheme
+                    .subtitle1!
+                    .copyWith(color: Colors.white),
                 textAlign: TextAlign.start,
               ),
             )),
