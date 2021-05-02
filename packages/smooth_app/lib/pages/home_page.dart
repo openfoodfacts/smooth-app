@@ -1,35 +1,35 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:openfoodfacts/model/Attribute.dart';
+//import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/utils/PnnsGroups.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_ui_library/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/user_preferences_page.dart';
 import 'package:smooth_app/cards/product_cards/product_list_preview.dart';
-import 'package:smooth_app/data_models/pantry.dart';
+//import 'package:smooth_app/data_models/pantry.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/choose_page.dart';
 import 'package:smooth_app/pages/list_page.dart';
-import 'package:smooth_app/pages/pantry/common/pantry_button.dart';
-import 'package:smooth_app/pages/pantry/common/pantry_dialog_helper.dart';
-import 'package:smooth_app/pages/pantry/common/pantry_list_page.dart';
+//import 'package:smooth_app/pages/pantry/common/pantry_button.dart';
+//import 'package:smooth_app/pages/pantry/common/pantry_dialog_helper.dart';
+//import 'package:smooth_app/pages/pantry/common/pantry_list_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_button.dart';
 import 'package:smooth_app/pages/product/common/product_list_dialog_helper.dart';
 import 'package:smooth_app/pages/settings_page.dart';
 import 'package:smooth_app/pages/scan/scan_page.dart';
-import 'package:smooth_app/pages/pantry/pantry_page.dart';
+//import 'package:smooth_app/pages/pantry/pantry_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_page.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/data_models/user_preferences.dart';
+//import 'package:smooth_app/data_models/product_preferences.dart';
+//import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/pages/text_search_widget.dart';
-import 'package:smooth_app/pages/product/common/smooth_chip.dart';
-import 'package:smooth_app/pages/attribute_button.dart';
+//import 'package:smooth_app/pages/product/common/smooth_chip.dart';
+//import 'package:smooth_app/pages/attribute_button.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/cards/category_cards/svg_async_asset.dart';
 
@@ -293,6 +293,7 @@ class _HomePageState extends State<HomePage> {
         },
       );
 
+  /*
   Widget _getRankingPreferences(final ProductPreferences productPreferences,
       final AppLocalizations appLocalizations) {
     final List<String> orderedAttributeIds =
@@ -349,7 +350,9 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+   */
 
+  /*
   Widget _getPantryCard(
     final UserPreferences userPreferences,
     final DaoProduct daoProduct,
@@ -453,6 +456,7 @@ class _HomePageState extends State<HomePage> {
           );
         },
       );
+   */
 
   Future<void> _goToProductListPage(final ProductList productList) async {
     await _daoProductList.get(productList);
@@ -465,6 +469,7 @@ class _HomePageState extends State<HomePage> {
     setState(() {});
   }
 
+  /*
   Future<void> _goToPantryPage(
     final Pantry pantry,
     final List<Pantry> pantries,
@@ -480,6 +485,7 @@ class _HomePageState extends State<HomePage> {
     );
     setState(() {});
   }
+   */
 
   Widget _getHorizontalList(
     final List<Widget> children,
