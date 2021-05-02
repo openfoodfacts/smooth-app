@@ -43,7 +43,7 @@
     "@no": {},
     "okay": "Oké",
     "@okay": {},
-    "undo": "UNDO",
+    "undo": "ONGED. MKN",
     "@undo": {},
     "cancel": "Annuleer",
     "@cancel": {},
@@ -51,7 +51,7 @@
     "@stop": {},
     "close": "Sluit",
     "@close": {},
-    "empty": "Empty!",
+    "empty": "Leeg!",
     "@empty": {
         "description": "Example: A preview of your search history, if you haven't searched for anything yet, it will show 'Empty!"
     },
