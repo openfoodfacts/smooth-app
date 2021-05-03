@@ -52,10 +52,6 @@ jobs:
       # Build apk.
       - name: "Build apk"
         run: flutter build apk --debug
-      
-      # Build ios.
-      #- name: "Build ipa"
-      #  run: flutter build ipa --debug
 
       # Build web.
       # - name: "Build web"
