@@ -79,14 +79,70 @@ class _ProductPageState extends State<ProductPage> {
     _product ??= widget.product;
     return Scaffold(
         appBar: AppBar(
-          title: Text(
-            _product.productName ?? appLocalizations.unknownProductName,
-            //style: themeData.textTheme.headline4,
-          ),
+          title: Text(_getProductName(appLocalizations)),
+          actions: <Widget>[
+            PopupMenuButton<String>(
+              itemBuilder: (final BuildContext context) =>
+                  <PopupMenuEntry<String>>[
+                PopupMenuItem<String>(
+                  value: 'web',
+                  child: Text(appLocalizations.label_web),
+                ),
+                PopupMenuItem<String>(
+                  value: 'refresh',
+                  child: Text(appLocalizations.label_refresh),
+                ),
+              ],
+              onSelected: (final String value) async {
+                switch (value) {
+                  case 'web':
+                    Launcher().launchURL(
+                        context,
+                        'https://openfoodfacts.org/product/${_product.barcode}/',
+                        false);
+                    break;
+                  case 'refresh':
+                    final ProductDialogHelper productDialogHelper =
+                        ProductDialogHelper(
+                      barcode: _product.barcode,
+                      context: context,
+                      localDatabase: localDatabase,
+                      refresh: true,
+                    );
+                    final Product product =
+                        await productDialogHelper.openUniqueProductSearch();
+                    if (product == null) {
+                      productDialogHelper.openProductNotFoundDialog();
+                      return;
+                    }
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(appLocalizations.product_refreshed),
+                        duration: const Duration(seconds: 2),
+                      ),
+                    );
+                    setState(() {
+                      _product = product;
+                    });
+                    break;
+                  default:
+                    throw Exception('Unknown value: $value');
+                }
+              },
+            ),
+          ],
         ),
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           items: <BottomNavigationBarItem>[
+            const BottomNavigationBarItem(
+              icon: Icon(Icons.copy),
+              label: 'Copy',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(ConstantIcons.getShareIcon()),
+              label: appLocalizations.label_share,
+            ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 'assets/actions/food-cog.svg',
@@ -94,75 +150,29 @@ class _ProductPageState extends State<ProductPage> {
               ),
               label: appLocalizations.label_preferences,
             ),
-            const BottomNavigationBarItem(
-              icon: Icon(Icons.copy),
-              label: 'Copy',
-            ),
-            BottomNavigationBarItem(
-              icon: const Icon(Icons.launch),
-              label: appLocalizations.label_web,
-            ),
-            BottomNavigationBarItem(
-              icon: const Icon(Icons.refresh),
-              label: appLocalizations.label_refresh,
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(ConstantIcons.getShareIcon()),
-              label: appLocalizations.label_share,
-            ),
           ],
           onTap: (final int index) async {
             switch (index) {
               case 0:
-                await Navigator.push<Widget>(
-                  context,
-                  MaterialPageRoute<Widget>(
-                    builder: (BuildContext context) =>
-                        const UserPreferencesPage(),
-                  ),
-                );
-                return;
-              case 1:
                 await _copy(
                   userPreferences: userPreferences,
                   daoProductList: daoProductList,
                   daoProduct: daoProduct,
                 );
                 return;
-              case 2:
-                Launcher().launchURL(
-                    context,
-                    'https://openfoodfacts.org/product/${_product.barcode}/',
-                    false);
-                return;
-              case 3:
-                final ProductDialogHelper productDialogHelper =
-                    ProductDialogHelper(
-                  barcode: _product.barcode,
-                  context: context,
-                  localDatabase: localDatabase,
-                  refresh: true,
-                );
-                final Product product =
-                    await productDialogHelper.openUniqueProductSearch();
-                if (product == null) {
-                  productDialogHelper.openProductNotFoundDialog();
-                  return;
-                }
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(appLocalizations.product_refreshed),
-                    duration: const Duration(seconds: 2),
-                  ),
-                );
-                setState(() {
-                  _product = product;
-                });
-                return;
-              case 4:
+              case 1:
                 Share.share(
                   'Try this food: https://openfoodfacts.org/product/${_product.barcode}/',
                   subject: '${_product.productName} (by openfoodfacts.org)',
+                );
+                return;
+              case 2:
+                await Navigator.push<Widget>(
+                  context,
+                  MaterialPageRoute<Widget>(
+                    builder: (BuildContext context) =>
+                        const UserPreferencesPage(),
+                  ),
                 );
                 return;
             }
@@ -301,24 +311,16 @@ class _ProductPageState extends State<ProductPage> {
     listItems.add(
       Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Flexible(
-              child: Text(
-                _product.brands ?? appLocalizations.unknownBrand,
-                style: themeData.textTheme.subtitle1,
-              ),
-            ),
-            Flexible(
-              child: Text(
-                _product.quantity != null ? '${_product.quantity}' : '',
-                style: themeData.textTheme.headline4
-                    .copyWith(color: Colors.grey, fontSize: 18.0),
-              ),
-            ),
-          ],
+        child: ListTile(
+          title: Text(
+            _getProductName(appLocalizations),
+            style: themeData.textTheme.headline4,
+          ),
+          subtitle: Text(_product.brands ?? appLocalizations.unknownBrand),
+          trailing: Text(
+            _product.quantity != null ? '${_product.quantity}' : '',
+            style: themeData.textTheme.headline3,
+          ),
         ),
       ),
     );
@@ -525,4 +527,7 @@ class _ProductPageState extends State<ProductPage> {
       userPreferences: userPreferences,
     );
   }
+
+  String _getProductName(final AppLocalizations appLocalizations) =>
+      _product.productName ?? appLocalizations.unknownProductName;
 }
