@@ -29,7 +29,7 @@
     "@myPersonalizedRanking": {
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
-    "scannerProductsEmpty": "Products you scan will appear here",
+    "scannerProductsEmpty": "Produsele scanate vor apărea aici",
     "@scannerProductsEmpty": {},
     "myPreferences": "My preferences",
     "@myPreferences": {},

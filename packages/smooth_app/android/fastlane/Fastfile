@@ -31,7 +31,8 @@ platform :android do
         skip_upload_metadata: true,
         skip_upload_images: true,
         skip_upload_screenshots: true,
-        release_status: "draft",
+        skip_upload_changelogs: true,
+        #release_status: "draft",
         version_code: flutter_version(pubspec_location: '../pubspec.yaml')["version_code"],
       )
     end
