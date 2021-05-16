@@ -568,9 +568,13 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Text(
-                  'Find the best food for you!',
-                  style: themeData.textTheme.headline1,
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Text(
+                    'Find the best food for you!',
+                    style: themeData.textTheme.headline1,
+                    textAlign: TextAlign.center,
+                  ),
                 ),
                 ElevatedButton.icon(
                   style: ElevatedButton.styleFrom(
