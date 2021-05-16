@@ -1,6 +1,6 @@
 <img height='175' src="https://static.openfoodfacts.org/images/svg/openfoodfacts-logo-en.svg" align="left" hspace="1" vspace="1">
 
-# Open Food Facts - smooth_app
+# Open Food Facts - Codename: "Smooth App"
 
 A new Flutter application by Open Food Facts
 
@@ -26,8 +26,14 @@ You can join the Open Food Facts's Slack here : [Get an invite](https://slack.op
 - https://github.com/openfoodfacts/smooth-app/wiki
 - https://wiki.openfoodfacts.org/Project_Smoothie
 
-## Roadmap
-### Release automation
+## V1 Roadmap
+### Design
+- [ ] Add icon
+- [ ] Fix layout issue on the home screen (#372)
+- [ ] …
+
+## V2 - Later Roadmap
+### Screenshot automation
 - [ ] Add multilingual screenshot generation using Fastlane (Scan screen, settings screen, personalized ranking screen, home screen) - https://github.com/openfoodfacts/smooth-app/issues/217
 
 ### Navigation
@@ -48,8 +54,7 @@ You can join the Open Food Facts's Slack here : [Get an invite](https://slack.op
 ### Scanning
 - [ ] Allow the user to find alternatives products on a scan even if (s)he has scanned only 1 product https://github.com/openfoodfacts/smooth-app/issues/23
 - [ ] Add offline scanning to ensure results in all conditions https://github.com/openfoodfacts/smooth-app/issues/18
-### Design
-- [ ] Add icon
+
 
 ## Building
 

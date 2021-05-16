@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
@@ -8,8 +9,9 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
-import 'package:smooth_app/pages/product/common/smooth_chip.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 /// Colored button for attribute importance, with corresponding action
 class AttributeButton extends StatelessWidget {
@@ -22,11 +24,17 @@ class AttributeButton extends StatelessWidget {
   final ProductPreferences productPreferences;
 
   static const MaterialColor WARNING_COLOR = Colors.deepOrange;
-  static const Map<String, IconData> _IMPORTANCE_ICONS = <String, IconData>{
-    PreferenceImportance.ID_NOT_IMPORTANT: null,
-    PreferenceImportance.ID_IMPORTANT: CupertinoIcons.star,
-    PreferenceImportance.ID_VERY_IMPORTANT: CupertinoIcons.star_lefthalf_fill,
-    PreferenceImportance.ID_MANDATORY: CupertinoIcons.star_fill,
+
+  static const Map<String, String> _IMPORTANCE_SVG_ASSETS = <String, String>{
+    PreferenceImportance.ID_IMPORTANT: 'assets/data/important.svg',
+    PreferenceImportance.ID_VERY_IMPORTANT: 'assets/data/very_important.svg',
+    PreferenceImportance.ID_MANDATORY: 'assets/data/mandatory.svg',
+  };
+
+  static const Map<String, double> _IMPORTANCE_OPACITIES = <String, double>{
+    PreferenceImportance.ID_IMPORTANT: .33,
+    PreferenceImportance.ID_VERY_IMPORTANT: .66,
+    PreferenceImportance.ID_MANDATORY: 1,
   };
 
   @override
@@ -35,10 +43,27 @@ class AttributeButton extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final String importanceId =
         productPreferences.getImportanceIdForAttributeId(attribute.id);
-    return SmoothChip(
-      label: attribute.name,
-      iconData: _IMPORTANCE_ICONS[importanceId],
-      onPressed: () async {
+    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
+    final MaterialColor materialColor =
+        SmoothTheme.getMaterialColor(themeProvider);
+    final Color strongBackgroundColor = SmoothTheme.getColor(
+      colorScheme,
+      materialColor,
+      ColorDestination.SURFACE_BACKGROUND,
+    );
+    final Color strongForegroundColor = SmoothTheme.getColor(
+      colorScheme,
+      materialColor,
+      ColorDestination.SURFACE_FOREGROUND,
+    );
+    final Color foregroundColor =
+        _getForegroundColor(strongForegroundColor, importanceId);
+    return ListTile(
+      tileColor: _getBackgroundColor(strongBackgroundColor, importanceId),
+      title: Text(attribute.name, style: TextStyle(color: foregroundColor)),
+      leading: SvgCache(attribute.iconUrl, width: 40),
+      trailing: _getIcon(importanceId, foregroundColor),
+      onTap: () async {
         final List<Widget> children = <Widget>[
           ListTile(
             leading: SvgCache(attribute.iconUrl, width: 40),
@@ -71,16 +96,22 @@ class AttributeButton extends StatelessWidget {
           );
         }
         for (final String item in productPreferences.importanceIds) {
+          final Color foregroundColor =
+              _getForegroundColor(strongForegroundColor, item);
           children.add(
             ListTile(
+              tileColor: _getBackgroundColor(strongBackgroundColor, item),
               leading: importanceId == item
-                  ? const Icon(Icons.radio_button_checked)
-                  : const Icon(Icons.radio_button_unchecked),
-              title: Text(productPreferences
-                  .getPreferenceImportanceFromImportanceId(item)
-                  .name),
+                  ? Icon(Icons.radio_button_checked, color: foregroundColor)
+                  : Icon(Icons.radio_button_unchecked, color: foregroundColor),
+              title: Text(
+                productPreferences
+                    .getPreferenceImportanceFromImportanceId(item)
+                    .name,
+                style: TextStyle(color: foregroundColor),
+              ),
               onTap: () => Navigator.pop<String>(context, item),
-              trailing: Icon(_IMPORTANCE_ICONS[item]),
+              trailing: _getIcon(item, foregroundColor),
             ),
           );
         }
@@ -107,4 +138,31 @@ class AttributeButton extends StatelessWidget {
       },
     );
   }
+
+  Widget _getIcon(final String importanceId, final Color color) {
+    final String svgAsset = _IMPORTANCE_SVG_ASSETS[importanceId];
+    if (svgAsset == null) {
+      return null;
+    }
+    return SvgPicture.asset(svgAsset, color: color, height: 32);
+  }
+
+  Color _getBackgroundColor(
+    final Color strongBackgroundColor,
+    final String importanceId,
+  ) {
+    final double opacity = _IMPORTANCE_OPACITIES[importanceId];
+    if (opacity == null) {
+      return null;
+    }
+    return strongBackgroundColor.withOpacity(opacity);
+  }
+
+  Color _getForegroundColor(
+    final Color strongForegroundColor,
+    final String importanceId,
+  ) =>
+      importanceId == PreferenceImportance.ID_NOT_IMPORTANT
+          ? null
+          : strongForegroundColor;
 }

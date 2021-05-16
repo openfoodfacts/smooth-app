@@ -62,7 +62,12 @@ class UserPreferencesPage extends StatelessWidget {
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.all(_TYPICAL_PADDING_OR_MARGIN),
-            child: ListTile(title: Text(group.name)),
+            child: ListTile(
+              title: Text(
+                group.name,
+                style: Theme.of(context).textTheme.headline3,
+              ),
+            ),
           ),
           if (group.warning != null)
             Container(
