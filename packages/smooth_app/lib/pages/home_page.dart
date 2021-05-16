@@ -564,53 +564,53 @@ class _HomePageState extends State<HomePage> {
         children: <Widget>[
           SizedBox(
             width: screenWidth / 2,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
-                  child: Text(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Text(
                     'Find the best food for you!',
                     style: themeData.textTheme.headline1,
                     textAlign: TextAlign.center,
                   ),
-                ),
-                ElevatedButton.icon(
-                  style: ElevatedButton.styleFrom(
-                    primary: SmoothTheme.getColor(
-                      themeData.colorScheme,
-                      materialColor,
-                      ColorDestination.BUTTON_BACKGROUND,
+                  ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                      primary: SmoothTheme.getColor(
+                        themeData.colorScheme,
+                        materialColor,
+                        ColorDestination.BUTTON_BACKGROUND,
+                      ),
                     ),
-                  ),
-                  onPressed: () async => await Navigator.push<Widget>(
-                    context,
-                    MaterialPageRoute<Widget>(
-                      builder: (BuildContext context) =>
-                          const UserPreferencesPage(),
+                    onPressed: () async => await Navigator.push<Widget>(
+                      context,
+                      MaterialPageRoute<Widget>(
+                        builder: (BuildContext context) =>
+                            const UserPreferencesPage(),
+                      ),
                     ),
-                  ),
-                  icon: SvgPicture.asset(
-                    'assets/actions/food-cog.svg',
-                    color: SmoothTheme.getColor(
-                      themeData.colorScheme,
-                      materialColor,
-                      ColorDestination.BUTTON_FOREGROUND,
-                    ),
-                  ),
-                  label: Text(
-                    AppLocalizations.of(context).myPreferences,
-                    style: TextStyle(
+                    icon: SvgPicture.asset(
+                      'assets/actions/food-cog.svg',
                       color: SmoothTheme.getColor(
                         themeData.colorScheme,
                         materialColor,
                         ColorDestination.BUTTON_FOREGROUND,
                       ),
                     ),
+                    label: Text(
+                      AppLocalizations.of(context).myPreferences,
+                      style: TextStyle(
+                        color: SmoothTheme.getColor(
+                          themeData.colorScheme,
+                          materialColor,
+                          ColorDestination.BUTTON_FOREGROUND,
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           SvgAsyncAsset(
