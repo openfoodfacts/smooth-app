@@ -246,7 +246,7 @@ class _ProductPageState extends State<ProductPage> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Size screenSize = MediaQuery.of(context).size;
     final ThemeData themeData = Theme.of(context);
-    final double iconWidth =
+    final double iconHeight =
         screenSize.width / 10; // TODO(monsieurtanuki): target size?
     final Map<String, String> attributeGroupLabels = <String, String>{};
     for (final AttributeGroup attributeGroup
@@ -326,32 +326,21 @@ class _ProductPageState extends State<ProductPage> {
       ),
     );
 
-    final Map<String, Attribute> attributes =
-        _product.getAttributes(attributeIds);
-    final double opacity = themeData.brightness == Brightness.light
-        ? 1
-        : SmoothTheme.ADDITIONAL_OPACITY_FOR_DARK;
-
-    for (final String attributeId in attributeIds) {
-      if (attributes[attributeId] != null) {
-        listItems.add(
-          AttributeListExpandable(
-            padding: padding,
-            insets: insets,
-            product: _product,
-            iconWidth: iconWidth,
-            attributeIds: <String>[attributeId],
-            collapsible: false,
-            background: _getBackgroundColor(attributes[attributeId])
-                .withOpacity(opacity),
-          ),
-        );
-      }
-    }
+    listItems.add(
+      AttributeListExpandable(
+        padding: padding,
+        insets: insets,
+        product: _product,
+        iconHeight: iconHeight,
+        attributeIds: attributeIds,
+        title: 'Scores',
+        initiallyCollapsed: false,
+      ),
+    );
 
     for (final AttributeGroup attributeGroup
         in _getOrderedAttributeGroups(productPreferences)) {
-      listItems.add(_getAttributeGroupWidget(attributeGroup, iconWidth));
+      listItems.add(_getAttributeGroupWidget(attributeGroup, iconHeight));
     }
 
     //Similar foods
@@ -373,7 +362,7 @@ class _ProductPageState extends State<ProductPage> {
             child: ListTile(
               leading: Icon(
                 Icons.search,
-                size: iconWidth,
+                size: iconHeight,
                 color: SmoothTheme.getColor(
                   themeData.colorScheme,
                   materialColor,
@@ -412,7 +401,7 @@ class _ProductPageState extends State<ProductPage> {
 
   Widget _getAttributeGroupWidget(
     final AttributeGroup attributeGroup,
-    final double iconWidth,
+    final double iconHeight,
   ) {
     final List<String> attributeIds = <String>[];
     for (final Attribute attribute in attributeGroup.attributes) {
@@ -422,7 +411,7 @@ class _ProductPageState extends State<ProductPage> {
       padding: padding,
       insets: insets,
       product: _product,
-      iconWidth: iconWidth,
+      iconHeight: iconHeight,
       attributeIds: attributeIds,
       title: attributeGroup.name,
     );
@@ -448,26 +437,6 @@ class _ProductPageState extends State<ProductPage> {
       }
     }
     return attributeGroups;
-  }
-
-  Color _getBackgroundColor(final Attribute attribute) {
-    if (attribute.status == Attribute.STATUS_KNOWN) {
-      if (attribute.match <= 20) {
-        return const HSLColor.fromAHSL(1, 0, 1, .9).toColor();
-      }
-      if (attribute.match <= 40) {
-        return const HSLColor.fromAHSL(1, 30, 1, .9).toColor();
-      }
-      if (attribute.match <= 60) {
-        return const HSLColor.fromAHSL(1, 60, 1, .9).toColor();
-      }
-      if (attribute.match <= 80) {
-        return const HSLColor.fromAHSL(1, 90, 1, .9).toColor();
-      }
-      return const HSLColor.fromAHSL(1, 120, 1, .9).toColor();
-    } else {
-      return const Color.fromARGB(0xff, 0xEE, 0xEE, 0xEE);
-    }
   }
 
   Future<void> _copy({
