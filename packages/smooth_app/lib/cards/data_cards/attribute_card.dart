@@ -1,44 +1,39 @@
-// Flutter imports:
 import 'package:flutter/material.dart';
-
-// Package imports:
 import 'package:openfoodfacts/model/Attribute.dart';
 
-// Project imports:
-import 'package:smooth_app/cards/data_cards/attribute_chip.dart';
-
 class AttributeCard extends StatelessWidget {
-  const AttributeCard(this.attribute, this.iconWidth);
+  const AttributeCard(this.attribute, this.attributeChip);
 
   final Attribute attribute;
-  final double iconWidth;
+  final Widget attributeChip;
 
   @override
-  Widget build(BuildContext context) => Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          AttributeChip(attribute, width: iconWidth),
-          Flexible(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
+  Widget build(BuildContext context) {
+    final String description =
+        attribute.descriptionShort ?? attribute.description ?? '';
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+        Flexible(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                attribute.title,
+                style: Theme.of(context).textTheme.headline3,
+              ),
+              if (description != null && description != '')
                 Text(
-                  attribute.title,
-                  style: Theme.of(context).textTheme.headline3,
-                ),
-                Text(
-                  _getDescription(),
+                  description,
                   style: Theme.of(context).textTheme.subtitle2,
                 ),
-              ],
-            ),
+            ],
           ),
-        ],
-      );
-
-  String _getDescription() {
-    return attribute.descriptionShort ?? attribute.description ?? '';
+        ),
+        attributeChip,
+      ],
+    );
   }
 }
