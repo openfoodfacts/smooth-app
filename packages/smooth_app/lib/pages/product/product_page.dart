@@ -277,9 +277,12 @@ class _ProductPageState extends State<ProductPage> {
       ),
     );
 
+    const int ITEM_COUNT = 3;
+    final double itemWidth = screenSize.width / ITEM_COUNT;
     listItems.add(
       Container(
         color: themeData.colorScheme.surface,
+        padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -292,6 +295,7 @@ class _ProductPageState extends State<ProductPage> {
                 daoProductList: daoProductList,
                 daoProduct: daoProduct,
               ),
+              width: itemWidth,
             ),
             _getClickableIcon(
               label: appLocalizations.label_share,
@@ -300,6 +304,7 @@ class _ProductPageState extends State<ProductPage> {
                 'Try this food: https://openfoodfacts.org/product/${_product.barcode}/',
                 subject: '${_product.productName} (by openfoodfacts.org)',
               ),
+              width: itemWidth,
             ),
             _getClickableIcon(
               label: appLocalizations.label_preferences,
@@ -314,6 +319,7 @@ class _ProductPageState extends State<ProductPage> {
                       const UserPreferencesPage(),
                 ),
               ),
+              width: itemWidth,
             ),
           ],
         ),
@@ -527,20 +533,24 @@ class _ProductPageState extends State<ProductPage> {
       _product.productName ?? appLocalizations.unknownProductName;
 
   Widget _getClickableIcon({
-    final String label,
-    final Widget icon,
-    final Future<void> Function() onTap,
+    @required final String label,
+    @required final Widget icon,
+    @required final Future<void> Function() onTap,
+    @required final double width,
   }) =>
       InkWell(
         onTap: onTap,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
+        child: SizedBox(
+          width: width,
           child: Column(
             children: <Widget>[
               icon,
-              Text(label),
+              Text(_capitalize(label)),
             ],
           ),
         ),
       );
+
+  static String _capitalize(final String input) =>
+      '${input.substring(0, 1).toUpperCase()}${input.substring(1)}';
 }
