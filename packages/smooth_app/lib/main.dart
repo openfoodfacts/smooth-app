@@ -14,7 +14,6 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:device_preview/device_preview.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -111,8 +110,6 @@ class _MyAppState extends State<MyApp> {
                 Widget child,
               ) {
                 return MaterialApp(
-                  locale: DevicePreview.locale(context),
-                  builder: DevicePreview.appBuilder,
                   localizationsDelegates:
                       AppLocalizations.localizationsDelegates,
                   supportedLocales: AppLocalizations.supportedLocales,
