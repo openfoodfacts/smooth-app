@@ -144,7 +144,7 @@ class SmoothProductSneakPeekViewState extends State<SmoothProductSneakPeekView>
                       widget.product.getAttributes(
                         <String>[Attribute.ATTRIBUTE_NUTRISCORE],
                       )[Attribute.ATTRIBUTE_NUTRISCORE],
-                      width: 100.0,
+                      height: 100.0,
                     ),
                     Container(
                       width: 50.0,

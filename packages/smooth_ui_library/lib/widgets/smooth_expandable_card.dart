@@ -11,6 +11,7 @@ class SmoothExpandableCard extends StatefulWidget {
     this.padding =
         const EdgeInsets.only(right: 8.0, left: 8.0, top: 4.0, bottom: 20.0),
     this.insets = const EdgeInsets.all(12.0),
+    this.initiallyCollapsed = true,
   });
 
   final Widget collapsedHeader;
@@ -19,13 +20,21 @@ class SmoothExpandableCard extends StatefulWidget {
   final Widget child;
   final EdgeInsets padding;
   final EdgeInsets insets;
+  final bool initiallyCollapsed;
+
   @override
   _SmoothExpandableCardState createState() => _SmoothExpandableCardState();
 }
 
 class _SmoothExpandableCardState extends State<SmoothExpandableCard> {
-  bool collapsed = true;
+  bool collapsed = true; // to be overridden in initState
   static const Duration _ANIMATION_DURATION = Duration(milliseconds: 160);
+
+  @override
+  void initState() {
+    collapsed = widget.initiallyCollapsed;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
