@@ -72,10 +72,6 @@ class _ProductPageState extends State<ProductPage> {
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final ThemeData themeData = Theme.of(context);
-    final UserPreferences userPreferences = context.watch<UserPreferences>();
-    final DaoProductList daoProductList = DaoProductList(localDatabase);
-    final DaoProduct daoProduct = DaoProduct(localDatabase);
     _product ??= widget.product;
     return Scaffold(
         appBar: AppBar(
@@ -131,53 +127,6 @@ class _ProductPageState extends State<ProductPage> {
               },
             ),
           ],
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          items: <BottomNavigationBarItem>[
-            const BottomNavigationBarItem(
-              icon: Icon(Icons.copy),
-              label: 'Copy',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(ConstantIcons.getShareIcon()),
-              label: appLocalizations.label_share,
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/actions/food-cog.svg',
-                color: themeData.bottomNavigationBarTheme.selectedItemColor,
-              ),
-              label: appLocalizations.label_preferences,
-            ),
-          ],
-          onTap: (final int index) async {
-            switch (index) {
-              case 0:
-                await _copy(
-                  userPreferences: userPreferences,
-                  daoProductList: daoProductList,
-                  daoProduct: daoProduct,
-                );
-                return;
-              case 1:
-                Share.share(
-                  'Try this food: https://openfoodfacts.org/product/${_product.barcode}/',
-                  subject: '${_product.productName} (by openfoodfacts.org)',
-                );
-                return;
-              case 2:
-                await Navigator.push<Widget>(
-                  context,
-                  MaterialPageRoute<Widget>(
-                    builder: (BuildContext context) =>
-                        const UserPreferencesPage(),
-                  ),
-                );
-                return;
-            }
-            throw 'Unexpected index $index';
-          },
         ),
         body: widget.newProduct
             ? _buildNewProductBody(context)
@@ -289,6 +238,9 @@ class _ProductPageState extends State<ProductPage> {
 
   Widget _buildProductBody(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
+    final DaoProductList daoProductList = DaoProductList(localDatabase);
+    final DaoProduct daoProduct = DaoProduct(localDatabase);
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -321,6 +273,55 @@ class _ProductPageState extends State<ProductPage> {
             _product.quantity != null ? '${_product.quantity}' : '',
             style: themeData.textTheme.headline3,
           ),
+        ),
+      ),
+    );
+
+    const int ITEM_COUNT = 3;
+    final double itemWidth = screenSize.width / ITEM_COUNT;
+    listItems.add(
+      Container(
+        color: themeData.colorScheme.surface,
+        padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            _getClickableIcon(
+              label: 'lists',
+              icon: const Icon(Icons.playlist_add),
+              onTap: () async => await _copy(
+                userPreferences: userPreferences,
+                daoProductList: daoProductList,
+                daoProduct: daoProduct,
+              ),
+              width: itemWidth,
+            ),
+            _getClickableIcon(
+              label: appLocalizations.label_share,
+              icon: Icon(ConstantIcons.getShareIcon()),
+              onTap: () async => await Share.share(
+                'Try this food: https://openfoodfacts.org/product/${_product.barcode}/',
+                subject: '${_product.productName} (by openfoodfacts.org)',
+              ),
+              width: itemWidth,
+            ),
+            _getClickableIcon(
+              label: appLocalizations.label_preferences,
+              icon: SvgPicture.asset(
+                'assets/actions/food-cog.svg',
+                color: themeData.colorScheme.onSurface,
+              ),
+              onTap: () async => await Navigator.push<Widget>(
+                context,
+                MaterialPageRoute<Widget>(
+                  builder: (BuildContext context) =>
+                      const UserPreferencesPage(),
+                ),
+              ),
+              width: itemWidth,
+            ),
+          ],
         ),
       ),
     );
@@ -530,4 +531,26 @@ class _ProductPageState extends State<ProductPage> {
 
   String _getProductName(final AppLocalizations appLocalizations) =>
       _product.productName ?? appLocalizations.unknownProductName;
+
+  Widget _getClickableIcon({
+    @required final String label,
+    @required final Widget icon,
+    @required final Future<void> Function() onTap,
+    @required final double width,
+  }) =>
+      InkWell(
+        onTap: onTap,
+        child: SizedBox(
+          width: width,
+          child: Column(
+            children: <Widget>[
+              icon,
+              Text(_capitalize(label)),
+            ],
+          ),
+        ),
+      );
+
+  static String _capitalize(final String input) =>
+      '${input.substring(0, 1).toUpperCase()}${input.substring(1)}';
 }
