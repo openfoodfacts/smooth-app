@@ -1,16 +1,8 @@
-// Dart imports:
-import 'dart:ui';
-
-// Flutter imports:
 import 'package:flutter/material.dart';
-
-// Package imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_ui_library/widgets/smooth_listTile.dart';
-
-// Project imports:
 import 'package:smooth_app/functions/launchURL.dart';
 
 class UserContributionView extends StatelessWidget {
