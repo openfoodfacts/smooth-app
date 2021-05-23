@@ -29,11 +29,7 @@ Future<void> main() async {
     url: 'https://analytics.openfoodfacts.org/',
   );
   try {
-    runApp(DevicePreview(
-      builder: (BuildContext context) => MyApp(),
-      //enabled: !kReleaseMode,
-      enabled: false,
-    ));
+    runApp(MyApp());
   } catch (exception, stackTrace) {
     await Sentry.captureException(
       exception,
