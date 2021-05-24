@@ -480,7 +480,6 @@ class _ProductPageState extends State<ProductPage> {
       context: context,
       backgroundColor: Colors.transparent,
       bounce: true,
-      barrierColor: Colors.black45,
       builder: (BuildContext context) => ProductCopyView(
         children: children,
       ),
