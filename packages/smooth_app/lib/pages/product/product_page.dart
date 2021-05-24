@@ -481,8 +481,7 @@ class _ProductPageState extends State<ProductPage> {
       backgroundColor: Colors.transparent,
       bounce: true,
       barrierColor: Colors.black45,
-      builder: (BuildContext context) => CopyToListView(
-        ModalScrollController.of(context),
+      builder: (BuildContext context) => ProductCopyView(
         children: children,
       ),
     );
