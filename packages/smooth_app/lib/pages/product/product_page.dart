@@ -8,12 +8,14 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:share/share.dart';
+import 'package:smooth_app/bottom_sheet_views/product_copy_view.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_ui_library/widgets/smooth_card.dart';
 
@@ -448,8 +450,10 @@ class _ProductPageState extends State<ProductPage> {
       PantryType.PANTRY,
       PantryType.SHOPPING,
     ];
+
     final Map<PantryType, List<Pantry>> allPantries =
         <PantryType, List<Pantry>>{};
+
     for (final PantryType pantryType in pantryTypes) {
       final List<Pantry> pantries = await Pantry.getAll(
         userPreferences,
@@ -458,6 +462,7 @@ class _ProductPageState extends State<ProductPage> {
       );
       allPantries[pantryType] = pantries;
     }
+
     final ProductCopyHelper productCopyHelper = ProductCopyHelper();
     final List<Widget> children = await productCopyHelper.getButtons(
       context: context,
@@ -470,17 +475,15 @@ class _ProductPageState extends State<ProductPage> {
       // no list to add to
       return;
     }
-    final dynamic target = await showModalBottomSheet<dynamic>(
+    final dynamic target = await showCupertinoModalBottomSheet<dynamic>(
+      expand: false,
       context: context,
-      builder: (final BuildContext context) => Column(
-        children: <Widget>[
-          const Text('Select the destination:'),
-          Wrap(
-            direction: Axis.horizontal,
-            children: children,
-            spacing: 8.0,
-          ),
-        ],
+      backgroundColor: Colors.transparent,
+      bounce: true,
+      barrierColor: Colors.black45,
+      builder: (BuildContext context) => CopyToListView(
+        ModalScrollController.of(context),
+        children: children,
       ),
     );
     if (target == null) {
