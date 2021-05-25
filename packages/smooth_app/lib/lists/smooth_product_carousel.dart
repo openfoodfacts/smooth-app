@@ -1,17 +1,20 @@
-// Flutter imports:
 import 'package:flutter/widgets.dart';
-
-// Package imports:
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:openfoodfacts/model/Product.dart';
-
-// Project imports:
 import 'package:smooth_app/cards/product_cards/smooth_product_card_edit.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_loading.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_not_found.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_thanks.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
+import 'package:openfoodfacts/personalized_search/matched_product.dart';
+import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:smooth_app/pages/personalized_ranking_page.dart';
+import 'package:smooth_app/data_models/smooth_it_model.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
 
 class SmoothProductCarousel extends StatefulWidget {
   const SmoothProductCarousel({
@@ -32,6 +35,8 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
 
   @override
   Widget build(BuildContext context) {
+    final ProductPreferences productPreferences =
+        context.watch<ProductPreferences>();
     final List<String> barcodes = widget.continuousScanModel.getBarcodes();
     final int barcodesLength = barcodes.length;
     if (_length != barcodesLength) {
@@ -48,7 +53,7 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
       itemBuilder: (BuildContext context, int itemIndex, int itemRealIndex) =>
           Padding(
         padding: const EdgeInsets.symmetric(horizontal: 4.0),
-        child: _getWidget(barcodes[itemIndex]),
+        child: _getWidget(barcodes[itemIndex], productPreferences),
       ),
       carouselController: _controller,
       options: CarouselOptions(
@@ -60,7 +65,10 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
     );
   }
 
-  Widget _getWidget(final String barcode) {
+  Widget _getWidget(
+    final String barcode,
+    final ProductPreferences productPreferences,
+  ) {
     final Product product = widget.continuousScanModel.getProduct(barcode);
     switch (widget.continuousScanModel.getBarcodeState(barcode)) {
       case ScannedProductState.FOUND:
@@ -68,9 +76,17 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
         if (widget.continuousScanModel.contributionMode) {
           return SmoothProductCardEdit(heroTag: barcode, product: product);
         }
+        final MatchedProduct matchedProduct =
+            MatchedProduct(product, productPreferences);
         return SmoothProductCardFound(
           heroTag: barcode,
           product: product,
+          displayAttributes: false,
+          backgroundColor: PersonalizedRankingPage.getColor(
+            colorScheme: Theme.of(context).colorScheme,
+            matchIndex: SmoothItModel.getMatchIndex(matchedProduct),
+            colorDestination: ColorDestination.SURFACE_BACKGROUND,
+          ),
         );
       case ScannedProductState.LOADING:
         return SmoothProductCardLoading(barcode: barcode);

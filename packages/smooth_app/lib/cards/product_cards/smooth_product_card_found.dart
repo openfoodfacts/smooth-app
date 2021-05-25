@@ -19,6 +19,7 @@ class SmoothProductCardFound extends StatelessWidget {
     this.backgroundColor,
     this.handle,
     this.onLongPress,
+    this.displayAttributes = true,
   });
 
   final Product product;
@@ -28,6 +29,7 @@ class SmoothProductCardFound extends StatelessWidget {
   final Color backgroundColor;
   final Widget handle;
   final Function onLongPress;
+  final bool displayAttributes;
 
   @override
   Widget build(BuildContext context) {
@@ -150,17 +152,19 @@ class SmoothProductCardFound extends StatelessWidget {
                           ],
                         ),
                       ),
-                      Container(
-                        decoration: const BoxDecoration(
-                          border: Border(
-                              top: BorderSide(color: Colors.grey, width: 1.0)),
+                      if (displayAttributes)
+                        Container(
+                          decoration: const BoxDecoration(
+                            border: Border(
+                              top: BorderSide(color: Colors.grey, width: 1.0),
+                            ),
+                          ),
+                          width: screenSize.width * 0.65,
+                          child: Wrap(
+                            direction: Axis.horizontal,
+                            children: scores,
+                          ),
                         ),
-                        width: screenSize.width * 0.65,
-                        child: Wrap(
-                          direction: Axis.horizontal,
-                          children: scores,
-                        ),
-                      ),
                     ],
                   ),
                 ),
