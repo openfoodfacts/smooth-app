@@ -39,7 +39,6 @@ class SmoothProductCardFound extends StatelessWidget {
         context.watch<ProductPreferences>();
     final Size screenSize = MediaQuery.of(context).size;
     final ThemeData themeData = Theme.of(context);
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     final List<String> attributeIds =
         productPreferences.getOrderedImportantAttributeIds();
@@ -52,6 +51,17 @@ class SmoothProductCardFound extends StatelessWidget {
     for (final String attributeId in attributeIds) {
       final Attribute attribute = attributes[attributeId];
       scores.add(AttributeChip(attribute, height: iconSize));
+    }
+    String productTitle;
+    if (product.productName != null) {
+      productTitle = product.productName;
+      if (product.brands != null) {
+        productTitle += ' - ' + product.brands;
+      }
+    } else if (product.brands != null) {
+      productTitle = product.brands;
+    } else {
+      productTitle = product.barcode;
     }
     return GestureDetector(
       onTap: () => Navigator.push<Widget>(
@@ -103,12 +113,7 @@ class SmoothProductCardFound extends StatelessWidget {
                               children: <Widget>[
                                 Flexible(
                                   child: Text(
-                                    (product.productName ??
-                                            appLocalizations
-                                                .unknownProductName) +
-                                        ' - ' +
-                                        (product.brands ??
-                                            appLocalizations.unknownBrand),
+                                    productTitle,
                                     maxLines: 2,
                                     overflow: TextOverflow.fade,
                                   ),
