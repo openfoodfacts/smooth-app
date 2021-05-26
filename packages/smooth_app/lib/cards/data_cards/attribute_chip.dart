@@ -13,11 +13,8 @@ class AttributeChip extends StatelessWidget {
   final double height;
 
   @override
-  Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Container(
-          constraints: BoxConstraints(minWidth: height),
-          child: SvgCache(attribute?.iconUrl, height: height),
-        ),
+  Widget build(BuildContext context) => Container(
+        constraints: BoxConstraints(minWidth: height),
+        child: SvgCache(attribute?.iconUrl, height: height),
       );
 }

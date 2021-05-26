@@ -81,7 +81,6 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
         return SmoothProductCardFound(
           heroTag: barcode,
           product: product,
-          displayAttributes: false,
           backgroundColor: PersonalizedRankingPage.getColor(
             colorScheme: Theme.of(context).colorScheme,
             matchIndex: SmoothItModel.getMatchIndex(matchedProduct),

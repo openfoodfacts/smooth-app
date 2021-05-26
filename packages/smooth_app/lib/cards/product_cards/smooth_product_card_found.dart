@@ -19,7 +19,6 @@ class SmoothProductCardFound extends StatelessWidget {
     this.backgroundColor,
     this.handle,
     this.onLongPress,
-    this.displayAttributes = true,
   });
 
   final Product product;
@@ -29,7 +28,6 @@ class SmoothProductCardFound extends StatelessWidget {
   final Color backgroundColor;
   final Widget handle;
   final Function onLongPress;
-  final bool displayAttributes;
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +39,7 @@ class SmoothProductCardFound extends StatelessWidget {
         context.watch<ProductPreferences>();
     final Size screenSize = MediaQuery.of(context).size;
     final ThemeData themeData = Theme.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     final List<String> attributeIds =
         productPreferences.getOrderedImportantAttributeIds();
@@ -104,67 +103,31 @@ class SmoothProductCardFound extends StatelessWidget {
                               children: <Widget>[
                                 Flexible(
                                   child: Text(
-                                    product.productName ??
-                                        AppLocalizations.of(context)
-                                            .unknownProductName,
+                                    (product.productName ??
+                                            appLocalizations
+                                                .unknownProductName) +
+                                        ' - ' +
+                                        (product.brands ??
+                                            appLocalizations.unknownBrand),
                                     maxLines: 2,
                                     overflow: TextOverflow.fade,
-                                    style: themeData.textTheme.headline4,
                                   ),
                                 ),
                                 if (handle != null) handle,
                               ],
                             ),
-                            const SizedBox(
-                              height: 2.0,
-                            ),
-                            Row(
-                              children: <Widget>[
-                                Flexible(
-                                  child: Text(
-                                    product.brands ??
-                                        AppLocalizations.of(context)
-                                            .unknownBrand,
-                                    maxLines: 1,
-                                    overflow: TextOverflow.fade,
-                                    style: themeData.textTheme.subtitle1,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(
-                              height: 2.0,
-                            ),
-                            Row(
-                              children: <Widget>[
-                                Flexible(
-                                  child: Text(
-                                    product.brands ??
-                                        AppLocalizations.of(context)
-                                            .unknownBrand,
-                                    maxLines: 1,
-                                    overflow: TextOverflow.fade,
-                                    style: themeData.textTheme.subtitle1,
-                                  ),
-                                )
-                              ],
+                            Container(
+                              width: screenSize.width * 0.65,
+                              child: Wrap(
+                                direction: Axis.horizontal,
+                                children: scores,
+                                spacing: 2.0,
+                                runSpacing: 2.0,
+                              ),
                             ),
                           ],
                         ),
                       ),
-                      if (displayAttributes)
-                        Container(
-                          decoration: const BoxDecoration(
-                            border: Border(
-                              top: BorderSide(color: Colors.grey, width: 1.0),
-                            ),
-                          ),
-                          width: screenSize.width * 0.65,
-                          child: Wrap(
-                            direction: Axis.horizontal,
-                            children: scores,
-                          ),
-                        ),
                     ],
                   ),
                 ),
