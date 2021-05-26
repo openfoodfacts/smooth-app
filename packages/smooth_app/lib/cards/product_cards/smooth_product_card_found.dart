@@ -52,6 +52,17 @@ class SmoothProductCardFound extends StatelessWidget {
       final Attribute attribute = attributes[attributeId];
       scores.add(AttributeChip(attribute, height: iconSize));
     }
+    String productTitle;
+    if (product.productName != null) {
+      productTitle = product.productName;
+      if (product.brands != null) {
+        productTitle += ' - ' + product.brands;
+      }
+    } else if (product.brands != null) {
+      productTitle = product.brands;
+    } else {
+      productTitle = product.barcode;
+    }
     return GestureDetector(
       onTap: () => Navigator.push<Widget>(
         context,
@@ -102,63 +113,24 @@ class SmoothProductCardFound extends StatelessWidget {
                               children: <Widget>[
                                 Flexible(
                                   child: Text(
-                                    product.productName ??
-                                        AppLocalizations.of(context)
-                                            .unknownProductName,
+                                    productTitle,
                                     maxLines: 2,
                                     overflow: TextOverflow.fade,
-                                    style: themeData.textTheme.headline4,
                                   ),
                                 ),
                                 if (handle != null) handle,
                               ],
                             ),
-                            const SizedBox(
-                              height: 2.0,
-                            ),
-                            Row(
-                              children: <Widget>[
-                                Flexible(
-                                  child: Text(
-                                    product.brands ??
-                                        AppLocalizations.of(context)
-                                            .unknownBrand,
-                                    maxLines: 1,
-                                    overflow: TextOverflow.fade,
-                                    style: themeData.textTheme.subtitle1,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(
-                              height: 2.0,
-                            ),
-                            Row(
-                              children: <Widget>[
-                                Flexible(
-                                  child: Text(
-                                    product.brands ??
-                                        AppLocalizations.of(context)
-                                            .unknownBrand,
-                                    maxLines: 1,
-                                    overflow: TextOverflow.fade,
-                                    style: themeData.textTheme.subtitle1,
-                                  ),
-                                )
-                              ],
+                            Container(
+                              width: screenSize.width * 0.65,
+                              child: Wrap(
+                                direction: Axis.horizontal,
+                                children: scores,
+                                spacing: 2.0,
+                                runSpacing: 2.0,
+                              ),
                             ),
                           ],
-                        ),
-                      ),
-                      Container(
-                        decoration: const BoxDecoration(
-                          border: Border(
-                              top: BorderSide(color: Colors.grey, width: 1.0)),
-                        ),
-                        width: screenSize.width * 0.65,
-                        child: Wrap(
-                          direction: Axis.horizontal,
-                          children: scores,
                         ),
                       ),
                     ],

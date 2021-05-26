@@ -72,7 +72,10 @@ class AttributeListExpandable extends StatelessWidget {
       final Widget chip = AttributeChip(attribute, height: iconHeight);
       chips.add(
         Container(
-          child: chip,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: chip,
+          ),
           decoration: BoxDecoration(
             color: color,
             borderRadius: const BorderRadius.all(Radius.circular(16)),
