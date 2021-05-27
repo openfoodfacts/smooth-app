@@ -598,13 +598,15 @@ class _HomePageState extends State<HomePage> {
                         ColorDestination.BUTTON_FOREGROUND,
                       ),
                     ),
-                    label: Text(
-                      AppLocalizations.of(context).myPreferences,
-                      style: TextStyle(
-                        color: SmoothTheme.getColor(
-                          themeData.colorScheme,
-                          materialColor,
-                          ColorDestination.BUTTON_FOREGROUND,
+                    label: Flexible(
+                      child: Text(
+                        AppLocalizations.of(context).myPreferences,
+                        style: TextStyle(
+                          color: SmoothTheme.getColor(
+                            themeData.colorScheme,
+                            materialColor,
+                            ColorDestination.BUTTON_FOREGROUND,
+                          ),
                         ),
                       ),
                     ),
