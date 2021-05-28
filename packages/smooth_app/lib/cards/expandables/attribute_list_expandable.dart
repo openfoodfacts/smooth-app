@@ -8,6 +8,8 @@ import 'package:smooth_app/cards/data_cards/attribute_card.dart';
 import 'package:smooth_app/cards/data_cards/attribute_chip.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/pages/attribute_button.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 class AttributeListExpandable extends StatelessWidget {
   const AttributeListExpandable({
@@ -38,6 +40,7 @@ class AttributeListExpandable extends StatelessWidget {
         context.watch<ProductPreferences>();
     final Size screenSize = MediaQuery.of(context).size;
     final ThemeData themeData = Theme.of(context);
+    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final double opacity = themeData.brightness == Brightness.light
         ? 1
         : SmoothTheme.ADDITIONAL_OPACITY_FOR_DARK;
@@ -71,27 +74,43 @@ class AttributeListExpandable extends StatelessWidget {
       final Color color = _getBackgroundColor(attribute).withOpacity(opacity);
       final Widget chip = AttributeChip(attribute, height: iconHeight);
       chips.add(
-        Container(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: chip,
+        InkWell(
+          onTap: () async => AttributeButton.onTap(
+            context: context,
+            attributeId: attribute.id,
+            productPreferences: productPreferences,
+            themeProvider: themeProvider,
           ),
-          decoration: BoxDecoration(
-            color: color,
-            borderRadius: const BorderRadius.all(Radius.circular(16)),
-          ),
-        ),
-      );
-      cards.add(
-        Padding(
-          padding: const EdgeInsets.only(top: 8.0),
           child: Container(
-            padding: const EdgeInsets.all(8.0),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: chip,
+            ),
             decoration: BoxDecoration(
               color: color,
               borderRadius: const BorderRadius.all(Radius.circular(16)),
             ),
-            child: AttributeCard(attribute, chip),
+          ),
+        ),
+      );
+      cards.add(
+        InkWell(
+          onTap: () async => AttributeButton.onTap(
+            context: context,
+            attributeId: attribute.id,
+            productPreferences: productPreferences,
+            themeProvider: themeProvider,
+          ),
+          child: Padding(
+            padding: const EdgeInsets.only(top: 8.0),
+            child: Container(
+              padding: const EdgeInsets.all(8.0),
+              decoration: BoxDecoration(
+                color: color,
+                borderRadius: const BorderRadius.all(Radius.circular(16)),
+              ),
+              child: AttributeCard(attribute, chip),
+            ),
           ),
         ),
       );
