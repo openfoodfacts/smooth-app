@@ -33,8 +33,8 @@ import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/pages/product_copy_helper.dart';
 import 'package:smooth_app/data_models/pantry.dart';
-import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/database/dao_product.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage({@required this.product, this.newProduct = false});

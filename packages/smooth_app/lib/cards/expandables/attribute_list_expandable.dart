@@ -8,8 +8,8 @@ import 'package:smooth_app/cards/data_cards/attribute_card.dart';
 import 'package:smooth_app/cards/data_cards/attribute_chip.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
-import 'package:smooth_app/pages/attribute_button.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/pages/attribute_button.dart';
 
 class AttributeListExpandable extends StatelessWidget {
   const AttributeListExpandable({
