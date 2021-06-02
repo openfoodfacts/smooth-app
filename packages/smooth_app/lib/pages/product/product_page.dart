@@ -33,8 +33,8 @@ import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/pages/product_copy_helper.dart';
 import 'package:smooth_app/data_models/pantry.dart';
-import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/database/dao_product.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage({@required this.product, this.newProduct = false});
@@ -326,21 +326,29 @@ class _ProductPageState extends State<ProductPage> {
       ),
     );
 
-    listItems.add(
-      AttributeListExpandable(
-        padding: padding,
-        insets: insets,
-        product: _product,
-        iconHeight: iconHeight,
-        attributeIds: attributeIds,
-        title: 'Scores',
-        initiallyCollapsed: false,
-      ),
-    );
+    final List<Attribute> attributes =
+        AttributeListExpandable.getPopulatedAttributes(_product, attributeIds);
+    if (attributes.isNotEmpty) {
+      listItems.add(
+        AttributeListExpandable(
+          padding: padding,
+          insets: insets,
+          product: _product,
+          iconHeight: iconHeight,
+          attributes: attributes,
+          title: 'Scores',
+          initiallyCollapsed: false,
+        ),
+      );
+    }
 
     for (final AttributeGroup attributeGroup
         in _getOrderedAttributeGroups(productPreferences)) {
-      listItems.add(_getAttributeGroupWidget(attributeGroup, iconHeight));
+      final Widget grouped =
+          _getAttributeGroupWidget(attributeGroup, iconHeight);
+      if (grouped != null) {
+        listItems.add(grouped);
+      }
     }
 
     //Similar foods
@@ -407,12 +415,17 @@ class _ProductPageState extends State<ProductPage> {
     for (final Attribute attribute in attributeGroup.attributes) {
       attributeIds.add(attribute.id);
     }
+    final List<Attribute> attributes =
+        AttributeListExpandable.getPopulatedAttributes(_product, attributeIds);
+    if (attributes.isEmpty) {
+      return null;
+    }
     return AttributeListExpandable(
       padding: padding,
       insets: insets,
       product: _product,
       iconHeight: iconHeight,
-      attributeIds: attributeIds,
+      attributes: attributes,
       title: attributeGroup.name,
     );
   }
