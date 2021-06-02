@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/cards/expandables/attribute_list_expandable.dart';
 import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
 import 'package:smooth_app/cards/data_cards/attribute_chip.dart';
 import 'package:smooth_app/pages/product/product_page.dart';
@@ -45,11 +46,9 @@ class SmoothProductCardFound extends StatelessWidget {
     final List<Widget> scores = <Widget>[];
     final double iconSize =
         screenSize.width / 10; // TODO(monsieurtanuki): target size?
-    final Map<String, Attribute> attributes = product.getAttributes(
-      attributeIds,
-    );
-    for (final String attributeId in attributeIds) {
-      final Attribute attribute = attributes[attributeId];
+    final List<Attribute> attributes =
+        AttributeListExpandable.getPopulatedAttributes(product, attributeIds);
+    for (final Attribute attribute in attributes) {
       scores.add(AttributeChip(attribute, height: iconSize));
     }
     String productTitle;

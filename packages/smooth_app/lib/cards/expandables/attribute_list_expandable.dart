@@ -15,7 +15,7 @@ class AttributeListExpandable extends StatelessWidget {
   const AttributeListExpandable({
     @required this.product,
     @required this.iconHeight,
-    @required this.attributeIds,
+    @required this.attributes,
     this.title,
     this.collapsible = true,
     this.background,
@@ -26,13 +26,41 @@ class AttributeListExpandable extends StatelessWidget {
 
   final Product product;
   final double iconHeight;
-  final List<String> attributeIds;
+  final List<Attribute> attributes;
   final String title;
   final bool collapsible;
   final Color background;
   final EdgeInsets padding;
   final EdgeInsets insets;
   final bool initiallyCollapsed;
+
+  static List<Attribute> getPopulatedAttributes(
+    final Product product,
+    final List<String> attributeIds,
+  ) {
+    final List<Attribute> result = <Attribute>[];
+    final Map<String, Attribute> attributes =
+        product.getAttributes(attributeIds);
+    for (final String attributeId in attributeIds) {
+      Attribute attribute = attributes[attributeId];
+      // Some attributes selected in the user preferences might be unavailable for some products
+      if (attribute == null) {
+        continue;
+      } else if (attribute.id == Attribute.ATTRIBUTE_ADDITIVES) {
+        // TODO(stephanegigandet): remove that cheat when additives are more standard
+        final List<String> additiveNames = product.additives?.names;
+        attribute = Attribute(
+          id: attribute.id,
+          title: attribute.title,
+          iconUrl: attribute.iconUrl,
+          descriptionShort:
+              additiveNames == null ? '' : additiveNames.join(', '),
+        );
+      }
+      result.add(attribute);
+    }
+    return result;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,31 +74,7 @@ class AttributeListExpandable extends StatelessWidget {
         : SmoothTheme.ADDITIONAL_OPACITY_FOR_DARK;
     final List<Widget> chips = <Widget>[];
     final List<Widget> cards = <Widget>[];
-    final Map<String, Attribute> attributes = product.getAttributes(
-      attributeIds,
-    );
-    for (final String attributeId in attributeIds) {
-      Attribute attribute = attributes[attributeId];
-      // Some attributes selected in the user preferences might be unavailable for some products
-      if (attribute == null) {
-        attribute = productPreferences.getReferenceAttribute(attributeId);
-        attribute = Attribute(
-          id: attribute.id,
-          title: attribute.name,
-          iconUrl: '',
-          descriptionShort: 'no data',
-        );
-      } else if (attribute.id == Attribute.ATTRIBUTE_ADDITIVES) {
-        // TODO(stephanegigandet): remove that cheat when additives are more standard
-        final List<String> additiveNames = product.additives?.names;
-        attribute = Attribute(
-          id: attribute.id,
-          title: attribute.title,
-          iconUrl: attribute.iconUrl,
-          descriptionShort:
-              additiveNames == null ? '' : additiveNames.join(', '),
-        );
-      }
+    for (final Attribute attribute in attributes) {
       final Color color = _getBackgroundColor(attribute).withOpacity(opacity);
       final Widget chip = AttributeChip(attribute, height: iconHeight);
       chips.add(
