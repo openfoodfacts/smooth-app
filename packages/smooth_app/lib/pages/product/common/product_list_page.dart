@@ -33,6 +33,29 @@ class _ProductListPageState extends State<ProductListPage> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     productList ??= widget.productList;
     final List<Product> products = productList.getUniqueList();
+    final List<int> timestamps = productList.getTimestamps();
+    final List<_Meta> metas = <_Meta>[];
+    if (productList.listType == ProductList.LIST_TYPE_HISTORY ||
+        productList.listType == ProductList.LIST_TYPE_SCAN) {
+      final int nowInMillis = LocalDatabase.nowInMillis();
+      const int DAY_IN_MILLIS = 24 * 3600 * 1000;
+      String daysAgoLabel;
+      int index = 0;
+      for (final Product product in products) {
+        final int timestamp = timestamps[index++];
+        final int daysAgo = ((nowInMillis - timestamp) / DAY_IN_MILLIS).round();
+        final String tmpDaysAgoLabel = _getDaysAgoLabel(daysAgo);
+        if (daysAgoLabel != tmpDaysAgoLabel) {
+          daysAgoLabel = tmpDaysAgoLabel;
+          metas.add(_Meta.daysAgoLabel(daysAgoLabel));
+        }
+        metas.add(_Meta.product(product));
+      }
+    } else {
+      for (final Product product in products) {
+        metas.add(_Meta.product(product));
+      }
+    }
     bool renamable = false;
     bool deletable = false;
     switch (productList.listType) {
@@ -133,7 +156,7 @@ class _ProductListPageState extends State<ProductListPage> {
                 ),
               ],
       ),
-      floatingActionButton: products.isEmpty
+      floatingActionButton: metas.isEmpty
           ? null
           : FloatingActionButton(
               child: SvgPicture.asset(
@@ -150,15 +173,22 @@ class _ProductListPageState extends State<ProductListPage> {
                 ),
               ),
             ),
-      body: products.isEmpty
+      body: metas.isEmpty
           ? Center(
               child: Text(appLocalizations.no_prodcut_in_list,
                   style: Theme.of(context).textTheme.subtitle1),
             )
           : ListView.builder(
-              itemCount: products.length,
+              itemCount: metas.length,
               itemBuilder: (BuildContext context, int index) {
-                final Product product = products[index];
+                final _Meta meta = metas[index];
+                if (!meta.isProduct()) {
+                  return ListTile(
+                    leading: const Icon(Icons.history),
+                    title: Text(meta.daysAgoLabel),
+                  );
+                }
+                final Product product = meta.product;
                 final String barcode = product.barcode;
                 final Widget child = Padding(
                   padding: const EdgeInsets.symmetric(
@@ -166,6 +196,10 @@ class _ProductListPageState extends State<ProductListPage> {
                   child: SmoothProductCardFound(
                     heroTag: barcode,
                     product: product,
+                    refresh: () async {
+                      await daoProductList.get(productList);
+                      setState(() {});
+                    },
                     onLongPress: () async {
                       await Navigator.push<Widget>(
                         context,
@@ -186,9 +220,7 @@ class _ProductListPageState extends State<ProductListPage> {
                   key: Key(barcode),
                   onDismissed: (final DismissDirection direction) async {
                     await daoProductList.removeBarcode(productList, barcode);
-                    setState(() {
-                      products.removeAt(index);
-                    });
+                    setState(() => metas.removeAt(index));
                     // TODO(monsieurtanuki): add a snackbar ("put back the food")
                   },
                   child: child,
@@ -197,4 +229,38 @@ class _ProductListPageState extends State<ProductListPage> {
             ),
     );
   }
+
+  static String _getDaysAgoLabel(final int daysAgo) {
+    final int weeksAgo = (daysAgo.toDouble() / 7).round();
+    final int monthsAgo = (daysAgo.toDouble() / (365.25 / 12)).round();
+    if (daysAgo == 0) {
+      return 'Today';
+    }
+    if (daysAgo == 1) {
+      return 'Yesterday';
+    }
+    if (daysAgo < 7) {
+      return '$daysAgo days ago';
+    }
+    if (weeksAgo == 1) {
+      return 'One week ago';
+    }
+    if (monthsAgo == 0) {
+      return '$weeksAgo weeks ago';
+    }
+    if (monthsAgo == 1) {
+      return 'One month ago';
+    }
+    return '$monthsAgo months ago';
+  }
+}
+
+class _Meta {
+  _Meta.product(this.product) : daysAgoLabel = null;
+  _Meta.daysAgoLabel(this.daysAgoLabel) : product = null;
+
+  final Product product;
+  final String daysAgoLabel;
+
+  bool isProduct() => product != null;
 }

@@ -98,6 +98,11 @@ class DaoProductList {
       <String>[productList.listType, productList.parameters];
 
   Future<Map<String, dynamic>> _getRecord(final ProductList productList) async {
+    if (productList.listType == ProductList.LIST_TYPE_HISTORY ||
+        productList.listType == ProductList.LIST_TYPE_SCAN) {
+      throw Exception(
+          'Some lists are "different", and you should use this method!');
+    }
     final List<Map<String, dynamic>> queryResult =
         await localDatabase.database.query(
       _TABLE_PRODUCT_LIST,
@@ -146,6 +151,9 @@ class DaoProductList {
   }
 
   Future<bool> get(final ProductList productList) async {
+    if (await _getExtraList(productList)) {
+      return true;
+    }
     final Map<String, dynamic> record = await _getRecord(productList);
     if (record == null) {
       return false;
@@ -158,12 +166,36 @@ class DaoProductList {
     return true;
   }
 
+  Future<bool> _getExtraList(final ProductList productList) async {
+    final String extraKey = _getExtraKey(productList);
+    final int comparisonFactor = _getExtraComparisonFactor(productList);
+    if (extraKey == null || comparisonFactor == null) {
+      return null;
+    }
+    final DaoProduct daoProduct = DaoProduct(localDatabase);
+    final Map<String, int> timestamps =
+        await daoProduct.getProductExtrasAsInt(extraKey);
+    final List<String> barcodes = List<String>.from(timestamps.keys);
+    barcodes.sort((final String barcode1, final String barcode2) =>
+        comparisonFactor *
+        timestamps[barcode1].compareTo(timestamps[barcode2]));
+    final Map<String, Product> products =
+        await daoProduct.getAllWithExtras(extraKey);
+    productList.set(barcodes, products, productInts: timestamps);
+    return true;
+  }
+
   Future<List<String>> getFirstBarcodes(
     final ProductList productList,
     final int limit,
     final bool reverse,
     final bool unique,
   ) async {
+    final List<String> result =
+        await _getFirstBarcodesExtra(productList, limit);
+    if (result != null) {
+      return result;
+    }
     final Map<String, dynamic> record = await _getRecord(productList);
     if (record == null) {
       return null;
@@ -175,6 +207,48 @@ class DaoProductList {
       reverse: reverse,
       unique: unique,
     );
+  }
+
+  Future<List<String>> _getFirstBarcodesExtra(
+    final ProductList productList,
+    final int limit,
+  ) async {
+    final String extraKey = _getExtraKey(productList);
+    final int comparisonFactor = _getExtraComparisonFactor(productList);
+    if (extraKey == null || comparisonFactor == null) {
+      return null;
+    }
+    final DaoProduct daoProduct = DaoProduct(localDatabase);
+    final Map<String, int> timestamps =
+        await daoProduct.getProductExtrasAsInt(extraKey);
+    final List<String> barcodes = List<String>.from(timestamps.keys);
+    barcodes.sort((final String barcode1, final String barcode2) =>
+        comparisonFactor *
+        timestamps[barcode1].compareTo(timestamps[barcode2]));
+    if (limit <= barcodes.length) {
+      barcodes.removeRange(limit, barcodes.length);
+    }
+    return barcodes;
+  }
+
+  String _getExtraKey(final ProductList productList) {
+    switch (productList.listType) {
+      case ProductList.LIST_TYPE_HISTORY:
+        return DaoProduct.EXTRA_ID_LAST_SEEN;
+      case ProductList.LIST_TYPE_SCAN:
+        return DaoProduct.EXTRA_ID_LAST_SCAN;
+    }
+    return null;
+  }
+
+  int _getExtraComparisonFactor(final ProductList productList) {
+    switch (productList.listType) {
+      case ProductList.LIST_TYPE_HISTORY:
+        return -1;
+      case ProductList.LIST_TYPE_SCAN:
+        return 1;
+    }
+    return null;
   }
 
   Future<List<Product>> getFirstProducts(
@@ -241,6 +315,7 @@ class DaoProductList {
       );
 
   Future<int> clear(final ProductList productList) async {
+    // TODO(monsieurtanuki): create a version for history and scan, if needed
     final Map<String, dynamic> record = await _getRecord(productList);
     if (record == null) {
       return null;
@@ -248,50 +323,6 @@ class DaoProductList {
     productList.barcodes.clear();
     final int id = record[_TABLE_PRODUCT_LIST_COLUMN_ID] as int;
     return _clearListItems(id);
-  }
-
-  Future<int> paste(
-    final ProductList destination,
-    final String sourceLousyKey,
-  ) async {
-    final List<String> barcodes = await getBarcodes(sourceLousyKey);
-    if (barcodes == null) {
-      return null;
-    }
-    _upsertProductList(destination);
-    final Map<String, dynamic> record = await _getRecord(destination);
-    if (record == null) {
-      // not very likely
-      return null;
-    }
-    final int destinationId = record[_TABLE_PRODUCT_LIST_COLUMN_ID] as int;
-    final int result = await _insertListItems(destinationId, barcodes);
-    await get(destination);
-    return result;
-  }
-
-  Future<List<String>> getBarcodes(final String lousyKey) async {
-    final int sourceId = await _getProductListIdFromLousyKey(lousyKey);
-    if (sourceId == null) {
-      return null;
-    }
-    return await _getBarcodes(sourceId);
-  }
-
-  Future<int> _getProductListIdFromLousyKey(final String lousyKey) async {
-    // TODO(monsieurtanuki): optim
-    final List<ProductList> all = await getAll(withStats: false);
-    for (final ProductList productList in all) {
-      if (productList.lousyKey == lousyKey) {
-        final Map<String, dynamic> record = await _getRecord(productList);
-        if (record == null) {
-          // very unlikely
-          return null;
-        }
-        return record[_TABLE_PRODUCT_LIST_COLUMN_ID] as int;
-      }
-    }
-    return null;
   }
 
   Future<Map<int, Map<String, String>>> _getExtras({final int listId}) async {

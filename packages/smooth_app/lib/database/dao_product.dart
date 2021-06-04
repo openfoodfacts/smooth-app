@@ -92,6 +92,34 @@ class DaoProduct {
           '$TABLE_PRODUCT_COLUMN_BARCODE in(? ${',?' * (barcodes.length - 1)})',
       whereArgs: barcodes,
     );
+    return _getAll(queryResults);
+  }
+
+  Future<Map<String, Product>> getAllWithExtras(final String extraKey) async {
+    final List<
+        Map<String,
+            dynamic>> queryResults = await localDatabase.database.rawQuery(
+        'select '
+        '  a.$TABLE_PRODUCT_COLUMN_BARCODE '
+        ', a.$_TABLE_PRODUCT_COLUMN_JSON '
+        'from '
+        '  $TABLE_PRODUCT a '
+        'where '
+        '  exists( '
+        '    select '
+        '      null '
+        '    from '
+        '      $_TABLE_PRODUCT_EXTRA b '
+        '    where '
+        '      a.$TABLE_PRODUCT_COLUMN_BARCODE = b.$TABLE_PRODUCT_COLUMN_BARCODE '
+        '      and b.$_TABLE_PRODUCT_EXTRA_COLUMN_KEY = ? '
+        '  ) ',
+        <String>[extraKey]);
+    return _getAll(queryResults);
+  }
+
+  Map<String, Product> _getAll(final List<Map<String, dynamic>> queryResults) {
+    final Map<String, Product> result = <String, Product>{};
     if (queryResults.isEmpty) {
       return result;
     }
@@ -141,6 +169,20 @@ class DaoProduct {
 
   Future<void> put(final Product product) async =>
       await _upsert(product, localDatabase.database);
+
+  Future<void> putLastSeen(final Product product) async =>
+      await _putLast(product, EXTRA_ID_LAST_SEEN);
+
+  Future<void> putLastScan(final Product product) async =>
+      await _putLast(product, EXTRA_ID_LAST_SCAN);
+
+  Future<void> _putLast(final Product product, final String extraKey) async =>
+      await _upsertExtra(
+        product.barcode,
+        extraKey,
+        LocalDatabase.nowInMillis().toString(),
+        localDatabase.database,
+      );
 
   Future<void> putProducts(final List<Product> products) async {
     await localDatabase.database
@@ -256,6 +298,8 @@ class DaoProduct {
   }
 
   static const String _EXTRA_ID_SIMPLIFIED_TEXT = 'simplified_text';
+  static const String EXTRA_ID_LAST_SEEN = 'last_seen';
+  static const String EXTRA_ID_LAST_SCAN = 'last_scan';
 
   /// Init, to be performed only during a transitional development phase
   Future<void> _initSimplifiedText() async {
@@ -320,7 +364,7 @@ class DaoProduct {
 
   static Future<void> _upsertExtra(
     final String barcode,
-    final String extraId,
+    final String extraKey,
     final String extraValue,
     final DatabaseExecutor databaseExecutor,
   ) async =>
@@ -328,10 +372,40 @@ class DaoProduct {
         _TABLE_PRODUCT_EXTRA,
         <String, dynamic>{
           TABLE_PRODUCT_COLUMN_BARCODE: barcode,
-          _TABLE_PRODUCT_EXTRA_COLUMN_KEY: extraId,
+          _TABLE_PRODUCT_EXTRA_COLUMN_KEY: extraKey,
           _TABLE_PRODUCT_EXTRA_COLUMN_VALUE: extraValue,
           LocalDatabase.COLUMN_TIMESTAMP: LocalDatabase.nowInMillis(),
         },
         conflictAlgorithm: ConflictAlgorithm.replace,
       );
+
+  Future<Map<String, String>> getProductExtras(final String extraKey) async {
+    final Map<String, String> result = <String, String>{};
+    final List<Map<String, dynamic>> queryResults =
+        await localDatabase.database.query(
+      DaoProduct._TABLE_PRODUCT_EXTRA,
+      columns: <String>[
+        DaoProduct.TABLE_PRODUCT_COLUMN_BARCODE,
+        DaoProduct._TABLE_PRODUCT_EXTRA_COLUMN_VALUE,
+      ],
+      where: '${DaoProduct._TABLE_PRODUCT_EXTRA_COLUMN_KEY} = ?',
+      whereArgs: <String>[extraKey],
+    );
+    for (final Map<String, dynamic> row in queryResults) {
+      final String barcode =
+          row[DaoProduct.TABLE_PRODUCT_COLUMN_BARCODE] as String;
+      final String extraValue =
+          row[DaoProduct._TABLE_PRODUCT_EXTRA_COLUMN_VALUE] as String;
+      result[barcode] = extraValue;
+    }
+    return result;
+  }
+
+  Future<Map<String, int>> getProductExtrasAsInt(final String extraKey) async {
+    final Map<String, int> result = <String, int>{};
+    final Map<String, String> temporary = await getProductExtras(extraKey);
+    temporary.forEach((final String key, final String value) =>
+        result[key] = int.parse(value));
+    return result;
+  }
 }

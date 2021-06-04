@@ -65,6 +65,9 @@ class ContinuousScanModel with ChangeNotifier {
     return null;
   }
 
+  Future<void> refreshProductList() async =>
+      await _daoProductList.get(_productList);
+
   void setBarcodeState(
     final String barcode,
     final ScannedProductState state,
@@ -79,8 +82,6 @@ class ContinuousScanModel with ChangeNotifier {
 
   void setupScanner(QRViewController controller) => controller.scannedDataStream
       .listen((Barcode barcode) => onScan(barcode.code));
-
-  List<Product> getProducts() => _productList.getList();
 
   Future<void> onScan(final String code) async {
     if (_barcodeTrustCheck != code) {
@@ -112,6 +113,7 @@ class ContinuousScanModel with ChangeNotifier {
     if (state == ScannedProductState.FOUND ||
         state == ScannedProductState.CACHED) {
       final Product product = getProduct(barcode);
+      _barcodes.remove(barcode);
       _barcodes.add(barcode);
       _addProduct(product, state);
 
@@ -164,25 +166,19 @@ class ContinuousScanModel with ChangeNotifier {
   ) async {
     final Product product = await _queryBarcode(barcode);
     if (product != null) {
-      _refreshProduct(product, ScannedProductState.FOUND);
+      _addProduct(product, ScannedProductState.FOUND);
     }
-  }
-
-  Future<void> _refreshProduct(
-    final Product product,
-    final ScannedProductState state,
-  ) async {
-    _productList.refresh(product);
-    await _daoProductList.put(_productList);
-    setBarcodeState(product.barcode, state);
   }
 
   Future<void> _addProduct(
     final Product product,
     final ScannedProductState state,
   ) async {
-    _productList.add(product);
-    await _daoProductList.put(_productList);
+    _productList.refresh(product);
+    if (state != ScannedProductState.CACHED) {
+      await _daoProduct.put(product);
+    }
+    await _daoProduct.putLastScan(product);
     setBarcodeState(product.barcode, state);
   }
 }

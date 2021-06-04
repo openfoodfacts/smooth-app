@@ -69,7 +69,7 @@ class ProductListDialogHelper {
                     parameters: value,
                   );
                   for (final ProductList productList in list) {
-                    if (productList.lousyKey == newProductList.lousyKey) {
+                    if (productList.isSameAs(newProductList)) {
                       return appLocalizations.list_name_taken;
                     }
                   }
@@ -139,8 +139,8 @@ class ProductListDialogHelper {
                     parameters: value,
                   )..extraTags = productList.extraTags;
                   for (final ProductList item in list) {
-                    if (item.lousyKey == newProductList.lousyKey) {
-                      if (item.lousyKey == productList.lousyKey) {
+                    if (item.isSameAs(newProductList)) {
+                      if (item.isSameAs(productList)) {
                         return appLocalizations.already_same;
                       }
                       return appLocalizations.list_name_taken;

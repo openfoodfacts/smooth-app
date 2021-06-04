@@ -21,7 +21,6 @@ import 'package:smooth_ui_library/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/user_preferences_page.dart';
 import 'package:smooth_app/cards/data_cards/image_upload_card.dart';
 import 'package:smooth_app/cards/expandables/attribute_list_expandable.dart';
-import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/category_product_query.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -135,12 +134,7 @@ class _ProductPageState extends State<ProductPage> {
 
   Future<void> _updateHistory(final BuildContext context) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final DaoProductList daoProductList = DaoProductList(localDatabase);
-    final ProductList productList =
-        ProductList(listType: ProductList.LIST_TYPE_HISTORY, parameters: '');
-    await daoProductList.get(productList);
-    productList.add(_product);
-    await daoProductList.put(productList);
+    await DaoProduct(localDatabase).putLastSeen(widget.product);
     localDatabase.notifyListeners();
   }
 
