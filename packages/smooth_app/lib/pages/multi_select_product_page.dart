@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/pages/product_copy_helper.dart';
@@ -141,7 +142,8 @@ class _MultiSelectProductPageState extends State<MultiSelectProductPage> {
                 // no list to add to
                 return;
               }
-              final dynamic target = await showModalBottomSheet<dynamic>(
+              final dynamic target =
+                  await showCupertinoModalBottomSheet<dynamic>(
                 context: context,
                 builder: (final BuildContext context) => Column(
                   children: <Widget>[
