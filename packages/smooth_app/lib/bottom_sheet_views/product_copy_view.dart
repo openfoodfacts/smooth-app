@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_app/data_models/pantry.dart';
 import 'package:smooth_app/pages/pantry/common/pantry_button.dart';
 import 'package:smooth_app/pages/product/common/product_list_button.dart';
 
@@ -54,7 +55,31 @@ class ProductCopyView extends StatelessWidget {
               margin: const EdgeInsets.symmetric(horizontal: 5),
               child: Wrap(
                 direction: Axis.horizontal,
-                children: children.whereType<PantryButton>().toList(),
+                children: children
+                    .whereType<PantryButton>()
+                    .where((PantryButton pantryButton) =>
+                        pantryButton.pantryType == PantryType.PANTRY)
+                    .toList(),
+                spacing: 8.0,
+              ),
+            ),
+            Container(
+              alignment: Alignment.center,
+              child: Text(
+                'Shopping Lists:',
+                style: Theme.of(context).textTheme.headline2,
+              ),
+              width: MediaQuery.of(context).size.width,
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 5),
+              child: Wrap(
+                direction: Axis.horizontal,
+                children: children
+                    .whereType<PantryButton>()
+                    .where((PantryButton pantryButton) =>
+                        pantryButton.pantryType == PantryType.SHOPPING)
+                    .toList(),
                 spacing: 8.0,
               ),
             ),
