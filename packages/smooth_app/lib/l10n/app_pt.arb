@@ -238,15 +238,15 @@
     "@error_occurred": {},
     "keyword_search": "(pesquisa por palavra-chave)",
     "category_search": "(pesquisa de categoria)",
-    "my_list": "(my list)",
+    "my_list": "(minha lista)",
     "scan": "Escanear",
     "recently_seen_products": "Meus produtos recentemente vistos",
-    "unknown_product_list": "Unknown product list:",
+    "unknown_product_list": "Lista de produto desconhecido:",
     "not_found": "não encontrado:",
     "no_product": "nenhum produto",
     "one_product": "1 produto",
     "x_products": "produtos",
-    "scan_contribute": "CONTRIBUTE",
+    "scan_contribute": "Contribuir",
     "@scan_contribute": {
         "description": "Switch on top of the Scanner to choose between to scan or add products"
     },
@@ -257,7 +257,7 @@
     "reloaded_with_new_preferences": "Recarregado com novas preferências",
     "no_product_in_section": "Não há produto nessa seção",
     "what_are_you_looking_for": "O que você está procurando?",
-    "chached_results_from": "Cached results from:",
+    "chached_results_from": "Resultados armazenados de:",
     "plural_ago_minutes": "{count,plural, =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",

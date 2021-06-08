@@ -19,7 +19,7 @@
     "@contributionPage": {},
     "trackingPage": "Tracking Page",
     "@trackingPage": {},
-    "preferencesText": "My Preferences",
+    "preferencesText": "Mina preferenser",
     "@preferencesText": {},
     "saveButtonText": "Spara",
     "@saveButtonText": {},
@@ -31,7 +31,7 @@
     },
     "scannerProductsEmpty": "Products you scan will appear here",
     "@scannerProductsEmpty": {},
-    "myPreferences": "My preferences",
+    "myPreferences": "Mina preferenser",
     "@myPreferences": {},
     "featureInProgress": "We're still working on this feature, stay tuned",
     "@featureInProgress": {},
@@ -258,7 +258,7 @@
     "no_product_in_section": "Det finns ingen produkt i detta avsnitt",
     "what_are_you_looking_for": "Vad söker du efter?",
     "chached_results_from": "Cachade resultat från:",
-    "plural_ago_minutes": "{count,plural, =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
+    "plural_ago_minutes": "{count,plural, =0{mindre än en minut sedan} =1{en minut sedan} other{{count} minuter sedan}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {

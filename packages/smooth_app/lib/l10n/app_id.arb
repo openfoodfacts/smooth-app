@@ -3,7 +3,7 @@
     "@searchTitle": {
         "description": "Temporary title for the app main page"
     },
-    "searchHintText": "Masukkan barcode atau kata kunci",
+    "searchHintText": "Masukkan kode batang atau kata kunci",
     "@searchHintText": {},
     "categories": "Kategori",
     "@categories": {},
@@ -43,15 +43,15 @@
     "@no": {},
     "okay": "Oke",
     "@okay": {},
-    "undo": "UNDO",
+    "undo": "Urungkan",
     "@undo": {},
     "cancel": "Cancel",
     "@cancel": {},
-    "stop": "Stop",
+    "stop": "Berhenti",
     "@stop": {},
     "close": "Tutup",
     "@close": {},
-    "empty": "Empty!",
+    "empty": "Kosong!",
     "@empty": {
         "description": "Example: A preview of your search history, if you haven't searched for anything yet, it will show 'Empty!"
     },
@@ -77,7 +77,7 @@
     "@termsOfUse": {},
     "contribute": "Berkontribusi",
     "@contribute": {},
-    "contribute_improve_header": "Improving",
+    "contribute_improve_header": "Peningkatan",
     "@contribute_improve_header": {},
     "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ",
     "@contribute_improve_text": {},
@@ -134,11 +134,11 @@
     "@delete": {},
     "change_icon": "Change icon",
     "@change_icon": {},
-    "paste": "paste",
+    "paste": "tempel",
     "@paste": {},
-    "copy": "copy",
+    "copy": "salin",
     "@copy": {},
-    "clear": "clear",
+    "clear": "bersihkan",
     "@clear": {},
     "grocery": "grocery",
     "@grocery": {},
@@ -195,7 +195,7 @@
     "@label_lists": {},
     "label_web": "Web",
     "@label_web": {},
-    "label_refresh": "refresh",
+    "label_refresh": "muat ulang",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
@@ -216,77 +216,77 @@
     "@ingredients_photo": {},
     "nutrition_facts_photo": "Nutrition facts photo",
     "@nutrition_facts_photo": {},
-    "packaging_information_photo": "Packaging information photo",
+    "packaging_information_photo": "Foto informasi kemasan",
     "@packaging_information_photo": {},
     "add_product": "Add a new product",
     "@add_product": {},
-    "similar_food": "Similar foods",
+    "similar_food": "Makanan serupa",
     "@similar_foods": {},
-    "refreshing_product": "Refreshing product",
+    "refreshing_product": "Muat ulang produk",
     "@refreshing_product": {},
-    "looking_for": "Looking for",
+    "looking_for": "Mencari",
     "@looking_for": {},
-    "could_not_refresh": "Could not refresh product",
+    "could_not_refresh": "Tidak dapat memuat ulang produk",
     "@could_not_refresh": {},
-    "no_product_found": "No product found",
+    "no_product_found": "Produk tidak ditemukan",
     "@no_product_found": {},
-    "products_pasted": "products pasted",
+    "products_pasted": "produk ditempel",
     "@products_pasted": {},
-    "no_prodcut_in_list": "There is no product in this list",
+    "no_prodcut_in_list": "Tidak ada produk di daftar ini",
     "@no_product_in_list": {},
-    "error_occurred": "An error occurred",
+    "error_occurred": "Terjadi kesalahan",
     "@error_occurred": {},
-    "keyword_search": "(keyword search)",
-    "category_search": "(category search)",
-    "my_list": "(my list)",
+    "keyword_search": "(pencarian kata kunci)",
+    "category_search": "(pencarian kategori)",
+    "my_list": "(daftar saya)",
     "scan": "Pindai",
-    "recently_seen_products": "My recently seen products",
-    "unknown_product_list": "Unknown product list:",
-    "not_found": "not found:",
-    "no_product": "no product",
+    "recently_seen_products": "Produk yang baru saya lihat",
+    "unknown_product_list": "Daftar produk tidak dikenal:",
+    "not_found": "tidak ditemukan:",
+    "no_product": "tidak ada produk",
     "one_product": "1 produk",
     "x_products": "produk",
-    "scan_contribute": "CONTRIBUTE",
+    "scan_contribute": "KONTRIBUSI",
     "@scan_contribute": {
         "description": "Switch on top of the Scanner to choose between to scan or add products"
     },
-    "scan_choose": "CHOOSE",
+    "scan_choose": "PILIH",
     "@scan_choose": {
         "description": "Switch on top of the Scanner to choose between to scan or add products"
     },
-    "reloaded_with_new_preferences": "Reloaded with new preferences",
-    "no_product_in_section": "There is no product in this section",
-    "what_are_you_looking_for": "What are you looking for?",
-    "chached_results_from": "Cached results from:",
-    "plural_ago_minutes": "{count,plural, =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
+    "reloaded_with_new_preferences": "Muat ulang dengan preferensi baru",
+    "no_product_in_section": "Tidak ada produk di bagian ini",
+    "what_are_you_looking_for": "Apa yang sedang Anda cari?",
+    "chached_results_from": "Hasil cache dari:",
+    "plural_ago_minutes": "{count,plural, =0{kurang dari semenit yang lalu} =1{1 menit yang lalu} other{{count} menit yang lalu}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural, =1{one hour ago} other{{count} hours ago}}",
+    "plural_ago_hours": "{count,plural, =1{sejam yang lalu} other{{count} jam yang lalu}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_days": "{count,plural, =1{one day ago} other{{count} days ago}}",
+    "plural_ago_days": "{count,plural, =1{sehari yang lalu} other{{count} hari yang lalu}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, =1{one week ago} other{{count} weeks ago}}",
+    "plural_ago_weeks": "{count,plural, =1{satu minggu yang lalu} other{{count} minggu yang lalu}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, =1{one month ago} other{{count} months ago}}",
+    "plural_ago_months": "{count,plural, =1{sebulan yang lalu} other{{count} bulan yang lalu}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
