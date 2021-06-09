@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:openfoodfacts/model/Product.dart';
@@ -26,6 +27,7 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/functions/launchURL.dart';
+import 'package:smooth_app/data_models/product_extra.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
@@ -397,6 +399,61 @@ class _ProductPageState extends State<ProductPage> {
         );
       }
     }
+
+    // TODO(monsieurtanuki): improve the display according to the feedbacks
+    listItems.add(
+      ElevatedButton(
+        onPressed: () async {
+          final List<Widget> children = <Widget>[];
+          ProductExtra productExtra;
+          productExtra = await daoProduct.getProductExtra(
+            key: DaoProduct.EXTRA_ID_LAST_SEEN,
+            barcode: _product.barcode,
+          );
+          if (productExtra != null) {
+            final List<int> timestamps = productExtra.decodeStringAsIntList();
+            if (timestamps.isNotEmpty) {
+              children.add(
+                const Material(
+                  child: Text('History of your access to that product:'),
+                ),
+              );
+              for (final int timestamp in timestamps.reversed) {
+                final DateTime dateTime =
+                    LocalDatabase.timestampToDateTime(timestamp);
+                children.add(Material(child: Text('* $dateTime')));
+              }
+            }
+          }
+          productExtra = await daoProduct.getProductExtra(
+            key: DaoProduct.EXTRA_ID_LAST_SCAN,
+            barcode: _product.barcode,
+          );
+          if (productExtra != null) {
+            final List<int> timestamps = productExtra.decodeStringAsIntList();
+            if (timestamps.isNotEmpty) {
+              children.add(
+                const Material(
+                  child: Text('History of your barcode scan of that product:'),
+                ),
+              );
+              for (final int timestamp in timestamps.reversed) {
+                final DateTime dateTime =
+                    LocalDatabase.timestampToDateTime(timestamp);
+                children.add(Material(child: Text('* $dateTime')));
+              }
+            }
+          }
+          await showCupertinoModalBottomSheet<void>(
+            context: context,
+            builder: (final BuildContext context) => ListView(
+              children: children,
+            ),
+          );
+        },
+        child: const Text('History (temporary button)'),
+      ),
+    );
 
     return ListView(children: listItems);
   }

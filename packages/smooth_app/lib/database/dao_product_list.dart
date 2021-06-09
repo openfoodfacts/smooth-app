@@ -1,13 +1,10 @@
-// Dart imports:
 import 'dart:async';
-
-// Package imports:
+import 'dart:collection';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:sqflite/sqflite.dart';
-
-// Project imports:
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product.dart';
+import 'package:smooth_app/data_models/product_extra.dart';
 import 'package:smooth_app/database/local_database.dart';
 
 class DaoProductList {
@@ -89,6 +86,14 @@ class DaoProductList {
     return record[LocalDatabase.COLUMN_TIMESTAMP] as int;
   }
 
+  Future<int> _getId(final ProductList productList) async {
+    final Map<String, dynamic> record = await _getRecord(productList);
+    if (record == null) {
+      return null;
+    }
+    return record[_TABLE_PRODUCT_LIST_COLUMN_ID] as int;
+  }
+
   static String _getProductListUKWhere() =>
       '$_TABLE_PRODUCT_LIST_COLUMN_TYPE = ?'
       ' AND $_TABLE_PRODUCT_LIST_COLUMN_PARAMETERS = ?';
@@ -154,11 +159,10 @@ class DaoProductList {
     if (await _getExtraList(productList)) {
       return true;
     }
-    final Map<String, dynamic> record = await _getRecord(productList);
-    if (record == null) {
+    final int id = await _getId(productList);
+    if (id == null) {
       return false;
     }
-    final int id = record[_TABLE_PRODUCT_LIST_COLUMN_ID] as int;
     final List<String> barcodes = await _getBarcodes(id);
     final Map<String, Product> products =
         await DaoProduct(localDatabase).getAll(barcodes);
@@ -168,20 +172,17 @@ class DaoProductList {
 
   Future<bool> _getExtraList(final ProductList productList) async {
     final String extraKey = _getExtraKey(productList);
-    final int comparisonFactor = _getExtraComparisonFactor(productList);
-    if (extraKey == null || comparisonFactor == null) {
+    final bool extraReverse = _getExtraReverse(productList);
+    if (extraKey == null || extraReverse == null) {
       return null;
     }
     final DaoProduct daoProduct = DaoProduct(localDatabase);
-    final Map<String, int> timestamps =
-        await daoProduct.getProductExtrasAsInt(extraKey);
-    final List<String> barcodes = List<String>.from(timestamps.keys);
-    barcodes.sort((final String barcode1, final String barcode2) =>
-        comparisonFactor *
-        timestamps[barcode1].compareTo(timestamps[barcode2]));
+    final LinkedHashMap<String, ProductExtra> extras =
+        await daoProduct.getProductExtras(key: extraKey, reverse: extraReverse);
+    final List<String> barcodes = List<String>.from(extras.keys);
     final Map<String, Product> products =
         await daoProduct.getAllWithExtras(extraKey);
-    productList.set(barcodes, products, productInts: timestamps);
+    productList.set(barcodes, products, productExtras: extras);
     return true;
   }
 
@@ -214,20 +215,18 @@ class DaoProductList {
     final int limit,
   ) async {
     final String extraKey = _getExtraKey(productList);
-    final int comparisonFactor = _getExtraComparisonFactor(productList);
-    if (extraKey == null || comparisonFactor == null) {
+    final bool extraReverse = _getExtraReverse(productList);
+    if (extraKey == null || extraReverse == null) {
       return null;
     }
     final DaoProduct daoProduct = DaoProduct(localDatabase);
-    final Map<String, int> timestamps =
-        await daoProduct.getProductExtrasAsInt(extraKey);
-    final List<String> barcodes = List<String>.from(timestamps.keys);
-    barcodes.sort((final String barcode1, final String barcode2) =>
-        comparisonFactor *
-        timestamps[barcode1].compareTo(timestamps[barcode2]));
-    if (limit <= barcodes.length) {
-      barcodes.removeRange(limit, barcodes.length);
-    }
+    final LinkedHashMap<String, ProductExtra> extras =
+        await daoProduct.getProductExtras(
+      key: extraKey,
+      reverse: extraReverse,
+      limit: limit,
+    );
+    final List<String> barcodes = List<String>.from(extras.keys);
     return barcodes;
   }
 
@@ -241,12 +240,12 @@ class DaoProductList {
     return null;
   }
 
-  int _getExtraComparisonFactor(final ProductList productList) {
+  bool _getExtraReverse(final ProductList productList) {
     switch (productList.listType) {
       case ProductList.LIST_TYPE_HISTORY:
-        return -1;
+        return true;
       case ProductList.LIST_TYPE_SCAN:
-        return 1;
+        return false;
     }
     return null;
   }
@@ -316,12 +315,11 @@ class DaoProductList {
 
   Future<int> clear(final ProductList productList) async {
     // TODO(monsieurtanuki): create a version for history and scan, if needed
-    final Map<String, dynamic> record = await _getRecord(productList);
-    if (record == null) {
+    final int id = await _getId(productList);
+    if (id == null) {
       return null;
     }
     productList.barcodes.clear();
-    final int id = record[_TABLE_PRODUCT_LIST_COLUMN_ID] as int;
     return _clearListItems(id);
   }
 
@@ -470,9 +468,8 @@ class DaoProductList {
   }
 
   Future<int> _upsertProductList(final ProductList productList) async {
-    final Map<String, dynamic> record = await _getRecord(productList);
-    int id;
-    if (record == null) {
+    int id = await _getId(productList);
+    if (id == null) {
       id = await localDatabase.database.insert(
         _TABLE_PRODUCT_LIST,
         <String, dynamic>{
@@ -483,7 +480,6 @@ class DaoProductList {
         conflictAlgorithm: ConflictAlgorithm.fail,
       );
     } else {
-      id = record[_TABLE_PRODUCT_LIST_COLUMN_ID] as int;
       await localDatabase.database.update(
         _TABLE_PRODUCT_LIST,
         <String, dynamic>{

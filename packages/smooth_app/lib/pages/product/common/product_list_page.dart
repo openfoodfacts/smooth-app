@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
+import 'package:smooth_app/data_models/product_extra.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -33,16 +34,15 @@ class _ProductListPageState extends State<ProductListPage> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     productList ??= widget.productList;
     final List<Product> products = productList.getUniqueList();
-    final List<int> timestamps = productList.getTimestamps();
+    final Map<String, ProductExtra> productExtras = productList.productExtras;
     final List<_Meta> metas = <_Meta>[];
     if (productList.listType == ProductList.LIST_TYPE_HISTORY ||
         productList.listType == ProductList.LIST_TYPE_SCAN) {
       final int nowInMillis = LocalDatabase.nowInMillis();
       const int DAY_IN_MILLIS = 24 * 3600 * 1000;
       String daysAgoLabel;
-      int index = 0;
       for (final Product product in products) {
-        final int timestamp = timestamps[index++];
+        final int timestamp = productExtras[product.barcode].intValue;
         final int daysAgo = ((nowInMillis - timestamp) / DAY_IN_MILLIS).round();
         final String tmpDaysAgoLabel = _getDaysAgoLabel(daysAgo);
         if (daysAgoLabel != tmpDaysAgoLabel) {

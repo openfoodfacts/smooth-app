@@ -28,7 +28,7 @@ class LocalDatabase extends ChangeNotifier {
 
     final Database database = await openDatabase(
       databasePath,
-      version: 4,
+      version: 6,
       singleInstance: true,
       onUpgrade: _onUpgrade,
     );
@@ -50,6 +50,9 @@ class LocalDatabase extends ChangeNotifier {
   }
 
   static int nowInMillis() => DateTime.now().millisecondsSinceEpoch;
+
+  static DateTime timestampToDateTime(final int timestampInMillis) =>
+      DateTime.fromMillisecondsSinceEpoch(timestampInMillis);
 }
 
 class TableStats {

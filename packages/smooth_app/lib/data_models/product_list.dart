@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/data_models/product_extra.dart';
 
 class ProductList {
   ProductList({
@@ -94,7 +95,7 @@ class ProductList {
 
   final List<String> _barcodes = <String>[];
   final Map<String, Product> _products = <String, Product>{};
-  final Map<String, int> _productInts = <String, int>{};
+  final Map<String, ProductExtra> _productExtras = <String, ProductExtra>{};
 
   static const String LIST_TYPE_HTTP_SEARCH_GROUP = 'http/search/group';
   static const String LIST_TYPE_HTTP_SEARCH_KEYWORDS = 'http/search/keywords';
@@ -104,6 +105,7 @@ class ProductList {
   static const String LIST_TYPE_USER_DEFINED = 'user';
 
   List<String> get barcodes => _barcodes;
+  Map<String, ProductExtra> get productExtras => _productExtras;
 
   set colorTag(final String tag) => _setExtra(_EXTRA_COLOR, tag);
   set iconTag(final String tag) => _setExtra(_EXTRA_ICON, tag);
@@ -200,13 +202,13 @@ class ProductList {
   void set(
     final List<String> barcodes,
     final Map<String, Product> products, {
-    final Map<String, int> productInts,
+    final Map<String, ProductExtra> productExtras,
   }) {
     clear();
     _barcodes.addAll(barcodes);
     _products.addAll(products);
-    if (productInts != null) {
-      _productInts.addAll(productInts);
+    if (productExtras != null) {
+      _productExtras.addAll(productExtras);
     }
   }
 
@@ -231,18 +233,6 @@ class ProductList {
         throw Exception('no product for barcode $barcode');
       }
       result.add(product);
-    }
-    return result;
-  }
-
-  List<int> getTimestamps() {
-    final List<int> result = <int>[];
-    if (listType != LIST_TYPE_HISTORY && listType != LIST_TYPE_SCAN) {
-      return result;
-    }
-    final List<String> orderedBarcodes = getOrderedBarcodes();
-    for (final String barcode in orderedBarcodes) {
-      result.add(_productInts[barcode]);
     }
     return result;
   }

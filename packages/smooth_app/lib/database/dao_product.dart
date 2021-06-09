@@ -1,13 +1,11 @@
-// Dart imports:
 import 'dart:async';
+import 'dart:collection';
 import 'dart:convert';
-
-// Package imports:
+import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:sqflite/sqflite.dart';
-
-// Project imports:
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/data_models/product_extra.dart';
 import 'package:diacritic/diacritic.dart';
 
 class DaoProduct {
@@ -22,6 +20,7 @@ class DaoProduct {
   static const String _TABLE_PRODUCT_EXTRA = 'product_extra';
   static const String _TABLE_PRODUCT_EXTRA_COLUMN_KEY = 'extra_key';
   static const String _TABLE_PRODUCT_EXTRA_COLUMN_VALUE = 'extra_value';
+  static const String _TABLE_PRODUCT_EXTRA_COLUMN_INT_VALUE = 'extra_int_value';
 
   static const String _WHERE_PK = '$TABLE_PRODUCT_COLUMN_BARCODE = ?';
 
@@ -51,6 +50,10 @@ class DaoProduct {
           '  ($TABLE_PRODUCT_COLUMN_BARCODE)'
           '   ON DELETE CASCADE'
           ')');
+    }
+    if (oldVersion < 6) {
+      await db.execute('alter table $_TABLE_PRODUCT_EXTRA '
+          'ADD COLUMN $_TABLE_PRODUCT_EXTRA_COLUMN_INT_VALUE INT DEFAULT 0 NOT NULL');
     }
   }
 
@@ -176,13 +179,27 @@ class DaoProduct {
   Future<void> putLastScan(final Product product) async =>
       await _putLast(product, EXTRA_ID_LAST_SCAN);
 
-  Future<void> _putLast(final Product product, final String extraKey) async =>
-      await _upsertExtra(
-        product.barcode,
-        extraKey,
-        LocalDatabase.nowInMillis().toString(),
-        localDatabase.database,
-      );
+  Future<void> _putLast(final Product product, final String extraKey) async {
+    final int timestamp = LocalDatabase.nowInMillis();
+    final ProductExtra productExtra = await getProductExtra(
+      key: extraKey,
+      barcode: product.barcode,
+    );
+    List<int> timestamps;
+    if (productExtra == null) {
+      timestamps = <int>[];
+    } else {
+      timestamps = productExtra.decodeStringAsIntList();
+    }
+    timestamps.add(timestamp);
+    await _upsertExtra(
+      product.barcode,
+      extraKey,
+      jsonEncode(timestamps),
+      timestamp,
+      localDatabase.database,
+    );
+  }
 
   Future<void> putProducts(final List<Product> products) async {
     await localDatabase.database
@@ -206,13 +223,13 @@ class DaoProduct {
         final int nbRows = await _update(product, databaseExecutor);
         if (nbRows == 1) {
           // very expected result
-          await _upsertAllExtras(product, databaseExecutor);
+          await _upsertSimplifiedText(product, databaseExecutor);
           return true;
         }
       }
       final bool result = await _insert(product, databaseExecutor);
       if (result) {
-        await _upsertAllExtras(product, databaseExecutor);
+        await _upsertSimplifiedText(product, databaseExecutor);
       }
       return result;
     } catch (e) {
@@ -327,14 +344,12 @@ class DaoProduct {
     }
     for (final Map<String, dynamic> row in queryResults) {
       final Product product = _getProductFromQueryResult(row);
-      await _upsertAllExtras(product, localDatabase.database);
+      await _upsertSimplifiedText(product, localDatabase.database);
     }
   }
 
-  /// Upserts all the extras related to a product
-  ///
-  /// Just one extra for the moment: the simplified text
-  static Future<void> _upsertAllExtras(
+  /// Upserts the simplified text extra related to a product
+  static Future<void> _upsertSimplifiedText(
     final Product product,
     final DatabaseExecutor databaseExecutor,
   ) async =>
@@ -342,6 +357,7 @@ class DaoProduct {
         product.barcode,
         _EXTRA_ID_SIMPLIFIED_TEXT,
         _getSimplifiedTextForProduct(product),
+        0,
         databaseExecutor,
       );
 
@@ -362,10 +378,12 @@ class DaoProduct {
     return labels.isEmpty ? '' : labels.join(', ');
   }
 
+  /// Upserts the [ProductExtra] value for an extra [key] and a single [barcode]
   static Future<void> _upsertExtra(
     final String barcode,
     final String extraKey,
     final String extraValue,
+    final int extraIntValue,
     final DatabaseExecutor databaseExecutor,
   ) async =>
       await databaseExecutor.insert(
@@ -374,38 +392,70 @@ class DaoProduct {
           TABLE_PRODUCT_COLUMN_BARCODE: barcode,
           _TABLE_PRODUCT_EXTRA_COLUMN_KEY: extraKey,
           _TABLE_PRODUCT_EXTRA_COLUMN_VALUE: extraValue,
+          _TABLE_PRODUCT_EXTRA_COLUMN_INT_VALUE: extraIntValue,
           LocalDatabase.COLUMN_TIMESTAMP: LocalDatabase.nowInMillis(),
         },
         conflictAlgorithm: ConflictAlgorithm.replace,
       );
 
-  Future<Map<String, String>> getProductExtras(final String extraKey) async {
-    final Map<String, String> result = <String, String>{};
+  /// Returns the [ProductExtra] values for all products with an extra [key]
+  Future<LinkedHashMap<String, ProductExtra>> getProductExtras({
+    @required final String key,
+    @required final bool reverse,
+    final int limit,
+  }) async {
+    final LinkedHashMap<String, ProductExtra> result =
+        LinkedHashMap<String, ProductExtra>();
     final List<Map<String, dynamic>> queryResults =
         await localDatabase.database.query(
       DaoProduct._TABLE_PRODUCT_EXTRA,
       columns: <String>[
-        DaoProduct.TABLE_PRODUCT_COLUMN_BARCODE,
-        DaoProduct._TABLE_PRODUCT_EXTRA_COLUMN_VALUE,
+        TABLE_PRODUCT_COLUMN_BARCODE,
+        _TABLE_PRODUCT_EXTRA_COLUMN_VALUE,
+        _TABLE_PRODUCT_EXTRA_COLUMN_INT_VALUE,
       ],
-      where: '${DaoProduct._TABLE_PRODUCT_EXTRA_COLUMN_KEY} = ?',
-      whereArgs: <String>[extraKey],
+      where: '$_TABLE_PRODUCT_EXTRA_COLUMN_KEY = ?',
+      whereArgs: <String>[key],
+      orderBy:
+          '$_TABLE_PRODUCT_EXTRA_COLUMN_INT_VALUE ${reverse ? 'DESC' : 'ASC'}',
+      limit: limit,
     );
     for (final Map<String, dynamic> row in queryResults) {
       final String barcode =
           row[DaoProduct.TABLE_PRODUCT_COLUMN_BARCODE] as String;
-      final String extraValue =
+      final String stringValue =
           row[DaoProduct._TABLE_PRODUCT_EXTRA_COLUMN_VALUE] as String;
-      result[barcode] = extraValue;
+      final int intValue =
+          row[DaoProduct._TABLE_PRODUCT_EXTRA_COLUMN_INT_VALUE] as int;
+      result[barcode] = ProductExtra(intValue, stringValue);
     }
     return result;
   }
 
-  Future<Map<String, int>> getProductExtrasAsInt(final String extraKey) async {
-    final Map<String, int> result = <String, int>{};
-    final Map<String, String> temporary = await getProductExtras(extraKey);
-    temporary.forEach((final String key, final String value) =>
-        result[key] = int.parse(value));
-    return result;
+  /// Returns the [ProductExtra] value for an extra [key] and a single [barcode]
+  Future<ProductExtra> getProductExtra({
+    @required final String key,
+    @required final String barcode,
+  }) async {
+    final List<Map<String, dynamic>> queryResults =
+        await localDatabase.database.query(
+      DaoProduct._TABLE_PRODUCT_EXTRA,
+      columns: <String>[
+        _TABLE_PRODUCT_EXTRA_COLUMN_VALUE,
+        _TABLE_PRODUCT_EXTRA_COLUMN_INT_VALUE,
+      ],
+      where: '$_TABLE_PRODUCT_EXTRA_COLUMN_KEY = ? '
+          'AND $TABLE_PRODUCT_COLUMN_BARCODE = ?',
+      whereArgs: <String>[key, barcode],
+    );
+    if (queryResults.isEmpty) {
+      return null;
+    }
+    final Map<String, dynamic> row = queryResults.first;
+    final String stringValue =
+        row[DaoProduct._TABLE_PRODUCT_EXTRA_COLUMN_VALUE] as String;
+    final int intValue =
+        row[DaoProduct._TABLE_PRODUCT_EXTRA_COLUMN_INT_VALUE] as int;
+    return ProductExtra(intValue, stringValue);
   }
 }
