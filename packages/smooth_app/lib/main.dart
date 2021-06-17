@@ -74,7 +74,13 @@ class _MyAppState extends State<MyApp> {
       rethrow;
     }
     await _userPreferences.init(_productPreferences);
-    _localDatabase = await LocalDatabase.getLocalDatabase();
+    try {
+      _localDatabase = await LocalDatabase.getLocalDatabase();
+    } catch (e) {
+      // this is problematic - we should always be able to init the database
+      print('Cannot init database: $e');
+      rethrow;
+    }
     _themeProvider = ThemeProvider(_userPreferences);
   }
 

@@ -1,12 +1,8 @@
-// Flutter imports:
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-// Package imports:
 import 'package:openfoodfacts/model/Product.dart';
-
-// Project imports:
 import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/data_models/product_extra.dart';
 
 class ProductList {
   ProductList({
@@ -99,6 +95,7 @@ class ProductList {
 
   final List<String> _barcodes = <String>[];
   final Map<String, Product> _products = <String, Product>{};
+  final Map<String, ProductExtra> _productExtras = <String, ProductExtra>{};
 
   static const String LIST_TYPE_HTTP_SEARCH_GROUP = 'http/search/group';
   static const String LIST_TYPE_HTTP_SEARCH_KEYWORDS = 'http/search/keywords';
@@ -108,6 +105,7 @@ class ProductList {
   static const String LIST_TYPE_USER_DEFINED = 'user';
 
   List<String> get barcodes => _barcodes;
+  Map<String, ProductExtra> get productExtras => _productExtras;
 
   set colorTag(final String tag) => _setExtra(_EXTRA_COLOR, tag);
   set iconTag(final String tag) => _setExtra(_EXTRA_ICON, tag);
@@ -135,8 +133,8 @@ class ProductList {
 
   Product getProduct(final String barcode) => _products[barcode];
 
-  String get lousyKey =>
-      '$listType/$parameters'; // TODO(monsieurtanuki): does not work if you change the name
+  bool isSameAs(final ProductList other) =>
+      listType == other.listType && parameters == other.parameters;
 
   IconData get iconData => _ICON_DATA[_iconTag] ?? _ICON_DATA[_ICON_TAG];
 
@@ -203,11 +201,15 @@ class ProductList {
 
   void set(
     final List<String> barcodes,
-    final Map<String, Product> products,
-  ) {
+    final Map<String, Product> products, {
+    final Map<String, ProductExtra> productExtras,
+  }) {
     clear();
     _barcodes.addAll(barcodes);
     _products.addAll(products);
+    if (productExtras != null) {
+      _productExtras.addAll(productExtras);
+    }
   }
 
   List<Product> getList() {
@@ -237,9 +239,7 @@ class ProductList {
 
   List<String> getOrderedBarcodes() {
     final List<String> result = <String>[];
-    final Iterable<String> iterable =
-        _isReversed ? barcodes.reversed : barcodes;
-    for (final String barcode in iterable) {
+    for (final String barcode in barcodes) {
       if (result.contains(barcode)) {
         continue;
       }
@@ -247,8 +247,4 @@ class ProductList {
     }
     return result;
   }
-
-  bool get _isReversed =>
-      listType == ProductList.LIST_TYPE_HISTORY ||
-      listType == ProductList.LIST_TYPE_SCAN;
 }

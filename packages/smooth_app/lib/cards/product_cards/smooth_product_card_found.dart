@@ -20,6 +20,7 @@ class SmoothProductCardFound extends StatelessWidget {
     this.backgroundColor,
     this.handle,
     this.onLongPress,
+    this.refresh,
   });
 
   final Product product;
@@ -29,6 +30,7 @@ class SmoothProductCardFound extends StatelessWidget {
   final Color backgroundColor;
   final Widget handle;
   final Function onLongPress;
+  final Function refresh;
 
   @override
   Widget build(BuildContext context) {
@@ -63,12 +65,17 @@ class SmoothProductCardFound extends StatelessWidget {
       productTitle = product.barcode;
     }
     return GestureDetector(
-      onTap: () => Navigator.push<Widget>(
-        context,
-        MaterialPageRoute<Widget>(
-          builder: (BuildContext context) => ProductPage(product: product),
-        ),
-      ),
+      onTap: () async {
+        await Navigator.push<Widget>(
+          context,
+          MaterialPageRoute<Widget>(
+            builder: (BuildContext context) => ProductPage(product: product),
+          ),
+        );
+        if (refresh != null) {
+          await refresh();
+        }
+      },
       onLongPress: () => onLongPress == null ? null : onLongPress(),
       child: Hero(
         tag: heroTag,

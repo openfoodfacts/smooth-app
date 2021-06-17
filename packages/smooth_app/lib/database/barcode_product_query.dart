@@ -1,25 +1,21 @@
-// Dart imports:
 import 'dart:async';
-
-// Flutter imports:
 import 'package:flutter/foundation.dart';
-
-// Package imports:
 import 'package:openfoodfacts/openfoodfacts.dart';
-
-// Project imports:
 import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/database/dao_product.dart';
 
 class BarcodeProductQuery {
   BarcodeProductQuery({
     @required this.barcode,
     @required this.languageCode,
     @required this.countryCode,
+    @required this.daoProduct,
   });
 
   final String barcode;
   final String languageCode;
   final String countryCode;
+  final DaoProduct daoProduct;
 
   Future<Product> getProduct() async {
     final ProductQueryConfiguration configuration = ProductQueryConfiguration(
@@ -33,7 +29,11 @@ class BarcodeProductQuery {
         await OpenFoodAPIClient.getProduct(configuration);
 
     if (result.status == 1) {
-      return result.product;
+      final Product product = result.product;
+      if (product != null) {
+        await daoProduct.put(<Product>[product]);
+      }
+      return product;
     }
     return null;
   }

@@ -7,8 +7,6 @@ import 'package:openfoodfacts/model/Product.dart';
 // Project imports:
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
-import 'package:smooth_app/database/dao_product_list.dart';
-import 'package:smooth_app/database/local_database.dart';
 
 enum LoadingStatus {
   LOADING,
@@ -51,8 +49,7 @@ class ProductQueryModel with ChangeNotifier {
     notifyListeners();
   }
 
-  /// Processes the data: stores it in database if needed, and lists categories
-  void process(final LocalDatabase localDatabase) {
+  void process() {
     if (_loadingStatus != LoadingStatus.LOADED) {
       return;
     }
@@ -60,9 +57,6 @@ class ProductQueryModel with ChangeNotifier {
 
     final ProductList productList = supplier.getProductList();
     _products = productList.getList();
-    if (supplier.needsToBeSavedIntoDb()) {
-      DaoProductList(localDatabase).put(productList);
-    }
 
     displayProducts = _products;
 

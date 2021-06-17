@@ -1,29 +1,17 @@
-// Dart imports:
 import 'dart:async';
 import 'dart:convert';
-
-// Package imports:
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:smooth_app/database/abstract_dao.dart';
+import 'package:smooth_app/database/dao_product_extra.dart';
 import 'package:sqflite/sqflite.dart';
-
-// Project imports:
 import 'package:smooth_app/database/local_database.dart';
-import 'package:diacritic/diacritic.dart';
 
-class DaoProduct {
-  DaoProduct(this.localDatabase);
-
-  final LocalDatabase localDatabase;
+class DaoProduct extends AbstractDao {
+  DaoProduct(final LocalDatabase localDatabase) : super(localDatabase);
 
   static const String TABLE_PRODUCT = 'product';
   static const String TABLE_PRODUCT_COLUMN_BARCODE = 'barcode';
   static const String _TABLE_PRODUCT_COLUMN_JSON = 'encoded_json';
-
-  static const String _TABLE_PRODUCT_EXTRA = 'product_extra';
-  static const String _TABLE_PRODUCT_EXTRA_COLUMN_KEY = 'extra_key';
-  static const String _TABLE_PRODUCT_EXTRA_COLUMN_VALUE = 'extra_value';
-
-  static const String _WHERE_PK = '$TABLE_PRODUCT_COLUMN_BARCODE = ?';
 
   static FutureOr<void> onUpgrade(
     final Database db,
@@ -37,45 +25,31 @@ class DaoProduct {
           '${LocalDatabase.COLUMN_TIMESTAMP} INT NOT NULL'
           ')');
     }
-    if (oldVersion < 4) {
-      await db.execute('create table $_TABLE_PRODUCT_EXTRA('
-          '$TABLE_PRODUCT_COLUMN_BARCODE TEXT NOT NULL,'
-          '$_TABLE_PRODUCT_EXTRA_COLUMN_KEY TEXT NOT NULL,'
-          '$_TABLE_PRODUCT_EXTRA_COLUMN_VALUE TEXT NOT NULL,'
-          '${LocalDatabase.COLUMN_TIMESTAMP} INT NOT NULL,'
-          'PRIMARY KEY ('
-          '$TABLE_PRODUCT_COLUMN_BARCODE,'
-          '$_TABLE_PRODUCT_EXTRA_COLUMN_KEY),'
-          'FOREIGN KEY ($TABLE_PRODUCT_COLUMN_BARCODE)'
-          ' REFERENCES $TABLE_PRODUCT'
-          '  ($TABLE_PRODUCT_COLUMN_BARCODE)'
-          '   ON DELETE CASCADE'
-          ')');
-    }
   }
 
-  Future<int> getLastUpdate(final String barcode) =>
-      _getLastUpdate(barcode, localDatabase.database);
-
-  Future<Product> get(final String barcode) async {
+  // TODO(monsieurtanuki): probably not relevant anymore; use product extra instead?
+  Future<int> getLastUpdate(final String barcode) async {
     final List<Map<String, dynamic>> queryResult =
         await localDatabase.database.query(
       TABLE_PRODUCT,
-      columns: <String>[_TABLE_PRODUCT_COLUMN_JSON],
-      where: _WHERE_PK,
+      columns: <String>[LocalDatabase.COLUMN_TIMESTAMP],
+      where: '$TABLE_PRODUCT_COLUMN_BARCODE = ?',
       whereArgs: <dynamic>[barcode],
     );
     if (queryResult.isEmpty) {
       // not found
       return null;
     }
-    if (queryResult.length > 1) {
-      // very very unlikely to happen
-      throw Exception('Several products with the same barcode $barcode');
-    }
-    return _getProductFromQueryResult(queryResult[0]);
+    // there's only one record expected, as barcode is the PK
+    return queryResult.first[LocalDatabase.COLUMN_TIMESTAMP] as int;
   }
 
+  Future<Product> get(final String barcode) async {
+    final Map<String, Product> map = await getAll(<String>[barcode]);
+    return map[barcode];
+  }
+
+  // TODO(monsieurtanuki): use the max variable threshold AbstractDao.SQLITE_MAX_VARIABLE_NUMBER
   Future<Map<String, Product>> getAll(final List<String> barcodes) async {
     final Map<String, Product> result = <String, Product>{};
     if (barcodes == null || barcodes.isEmpty) {
@@ -92,6 +66,26 @@ class DaoProduct {
           '$TABLE_PRODUCT_COLUMN_BARCODE in(? ${',?' * (barcodes.length - 1)})',
       whereArgs: barcodes,
     );
+    return _getAll(queryResults);
+  }
+
+  Future<Map<String, Product>> getAllWithExtras(final String extraKey) async {
+    final List<Map<String, dynamic>> queryResults =
+        await localDatabase.database.rawQuery(
+      'select '
+      '  a.$TABLE_PRODUCT_COLUMN_BARCODE '
+      ', a.$_TABLE_PRODUCT_COLUMN_JSON '
+      'from '
+      '  $TABLE_PRODUCT a '
+      'where '
+      '  exists(${DaoProductExtra.getExistsSubQuery()})',
+      DaoProductExtra.getExistsSubQueryArgs(extraKey),
+    );
+    return _getAll(queryResults);
+  }
+
+  Map<String, Product> _getAll(final List<Map<String, dynamic>> queryResults) {
+    final Map<String, Product> result = <String, Product>{};
     if (queryResults.isEmpty) {
       return result;
     }
@@ -113,7 +107,6 @@ class DaoProduct {
     if (pattern == null || pattern.trim().length < minLength) {
       return result;
     }
-    await _initSimplifiedText();
     final List<Map<String, dynamic>> queryResults =
         await localDatabase.database.rawQuery(
       'select'
@@ -121,17 +114,11 @@ class DaoProduct {
       ', a.$_TABLE_PRODUCT_COLUMN_JSON '
       'from '
       '  $TABLE_PRODUCT a '
-      ', $_TABLE_PRODUCT_EXTRA b '
       'where '
-      '  a.$TABLE_PRODUCT_COLUMN_BARCODE = b.$TABLE_PRODUCT_COLUMN_BARCODE '
-      '  and b.$_TABLE_PRODUCT_EXTRA_COLUMN_KEY = ? '
-      '  and b.$_TABLE_PRODUCT_EXTRA_COLUMN_VALUE like ? '
+      '  exists(${DaoProductExtra.getExistsLikeSubQuery()}) '
       'order by '
       '  a.${LocalDatabase.COLUMN_TIMESTAMP} desc',
-      <String>[
-        _EXTRA_ID_SIMPLIFIED_TEXT,
-        '%${_getSimplifiedText(pattern)}%',
-      ],
+      DaoProductExtra.getExistsLikeSubQueryArgs(pattern),
     );
     for (final Map<String, dynamic> row in queryResults) {
       result.add(_getProductFromQueryResult(row));
@@ -139,106 +126,81 @@ class DaoProduct {
     return result;
   }
 
-  Future<void> put(final Product product) async =>
-      await _upsert(product, localDatabase.database);
+  Future<void> put(final List<Product> products) async =>
+      await localDatabase.database
+          .transaction((final Transaction transaction) async {
+        final int timestamp = LocalDatabase.nowInMillis();
+        final DaoProductExtra daoProductExtra = DaoProductExtra(localDatabase);
+        await bulkUpsertLoop(transaction, products, timestamp);
+        await daoProductExtra.bulkUpsertLoopSimplifiedText(
+          transaction,
+          products,
+          timestamp,
+        );
+        await daoProductExtra.bulkUpsertLoopLast(
+          transaction,
+          products,
+          timestamp,
+          DaoProductExtra.EXTRA_ID_LAST_REFRESH,
+        );
+      });
 
-  Future<void> putProducts(final List<Product> products) async {
-    await localDatabase.database
-        .transaction((final Transaction transaction) async {
-      for (final Product product in products) {
-        await _upsert(product, transaction);
+  Future<void> bulkUpsertLoop(
+    final DatabaseExecutor databaseExecutor,
+    final List<Product> products,
+    final int timestamp,
+  ) async {
+    final int maxRecordNumber = getBulkMaxRecordNumber();
+    final List<dynamic> insertParameters = <dynamic>[];
+    final List<String> deleteParameters = <String>[];
+    int counter = 0;
+    for (final Product product in products) {
+      deleteParameters.add(product.barcode);
+      insertParameters.add(product.barcode);
+      insertParameters.add(json.encode(product.toJson()));
+      insertParameters.add(timestamp);
+      counter++;
+      if (counter == maxRecordNumber) {
+        await _bulkUpsert(
+          insertParameters,
+          deleteParameters,
+          databaseExecutor,
+        );
+        counter = 0;
+        deleteParameters.clear();
+        insertParameters.clear();
       }
-    });
-  }
-
-  /// Upsert clumsy implementation due to poor SQLite support by sqlflite
-  /// (ConflictAlgorithm.replace is not an option because of FK cascade delete)
-  static Future<bool> _upsert(
-    final Product product,
-    final DatabaseExecutor databaseExecutor,
-  ) async {
-    try {
-      final int lastUpdate =
-          await _getLastUpdate(product.barcode, databaseExecutor);
-      if (lastUpdate != null) {
-        final int nbRows = await _update(product, databaseExecutor);
-        if (nbRows == 1) {
-          // very expected result
-          await _upsertAllExtras(product, databaseExecutor);
-          return true;
-        }
-      }
-      final bool result = await _insert(product, databaseExecutor);
-      if (result) {
-        await _upsertAllExtras(product, databaseExecutor);
-      }
-      return result;
-    } catch (e) {
-      print('exception: $e');
     }
-    return false;
-  }
-
-  static Future<bool> _insert(
-    final Product product,
-    final DatabaseExecutor databaseExecutor,
-  ) async {
-    try {
-      await databaseExecutor.insert(
-        TABLE_PRODUCT,
-        <String, dynamic>{
-          TABLE_PRODUCT_COLUMN_BARCODE: product.barcode,
-          _TABLE_PRODUCT_COLUMN_JSON: json.encode(product.toJson()),
-          LocalDatabase.COLUMN_TIMESTAMP: LocalDatabase.nowInMillis(),
-        },
-      );
-      return true;
-    } catch (e) {
-      print('exception: $e');
-    }
-    return false;
-  }
-
-  static Future<int> _update(
-    final Product product,
-    final DatabaseExecutor databaseExecutor,
-  ) async {
-    try {
-      return await databaseExecutor.update(
-        TABLE_PRODUCT,
-        <String, dynamic>{
-          _TABLE_PRODUCT_COLUMN_JSON: json.encode(product.toJson()),
-          LocalDatabase.COLUMN_TIMESTAMP: LocalDatabase.nowInMillis(),
-        },
-        where: _WHERE_PK,
-        whereArgs: <dynamic>[product.barcode],
-      );
-    } catch (e) {
-      print('exception: $e');
-    }
-    return 0;
-  }
-
-  static Future<int> _getLastUpdate(
-    final String barcode,
-    final DatabaseExecutor databaseExecutor,
-  ) async {
-    final List<Map<String, dynamic>> queryResult = await databaseExecutor.query(
-      TABLE_PRODUCT,
-      columns: <String>[LocalDatabase.COLUMN_TIMESTAMP],
-      where: _WHERE_PK,
-      whereArgs: <dynamic>[barcode],
+    await _bulkUpsert(
+      insertParameters,
+      deleteParameters,
+      databaseExecutor,
     );
-    if (queryResult.isEmpty) {
-      // not found
-      return null;
-    }
-    if (queryResult.length > 1) {
-      // very very unlikely to happen
-      throw Exception('Several products with the same barcode $barcode');
-    }
-    return queryResult.first[LocalDatabase.COLUMN_TIMESTAMP] as int;
   }
+
+  @override
+  List<String> getBulkInsertColumns() => <String>[
+        TABLE_PRODUCT_COLUMN_BARCODE,
+        _TABLE_PRODUCT_COLUMN_JSON,
+        LocalDatabase.COLUMN_TIMESTAMP,
+      ];
+
+  @override
+  String getTableName() => TABLE_PRODUCT;
+
+  /// Bulk upsert of products
+  Future<void> _bulkUpsert(
+    final List<dynamic> insertParameters,
+    final List<String> deleteParameters,
+    final DatabaseExecutor databaseExecutor,
+  ) async =>
+      await bulkUpsert(
+        insertParameters: insertParameters,
+        deleteParameters: deleteParameters,
+        deleteWhere:
+            '$TABLE_PRODUCT_COLUMN_BARCODE in (?${',?' * (deleteParameters.length - 1)})',
+        databaseExecutor: databaseExecutor,
+      );
 
   Product _getProductFromQueryResult(final Map<String, dynamic> row) {
     final String encodedJson = row[_TABLE_PRODUCT_COLUMN_JSON] as String;
@@ -246,92 +208,4 @@ class DaoProduct {
         json.decode(encodedJson) as Map<String, dynamic>;
     return Product.fromJson(decodedJson);
   }
-
-  /// Returns a lowercase not accented version of the text, for comparisons
-  static String _getSimplifiedText(final String text) {
-    if (text == null) {
-      return '';
-    }
-    return removeDiacritics(text).toLowerCase();
-  }
-
-  static const String _EXTRA_ID_SIMPLIFIED_TEXT = 'simplified_text';
-
-  /// Init, to be performed only during a transitional development phase
-  Future<void> _initSimplifiedText() async {
-    final List<Map<String, dynamic>> counting =
-        await localDatabase.database.query(
-      _TABLE_PRODUCT_EXTRA,
-      columns: <String>['count(*) as mycount'],
-      where: '$_TABLE_PRODUCT_EXTRA_COLUMN_KEY = ?',
-      whereArgs: <String>[_EXTRA_ID_SIMPLIFIED_TEXT],
-    );
-    final int count = counting[0]['mycount'] as int;
-    if (count > 0) {
-      return; // already done, nothing more to do
-    }
-    final List<Map<String, dynamic>> queryResults =
-        await localDatabase.database.query(
-      TABLE_PRODUCT,
-      columns: <String>[
-        TABLE_PRODUCT_COLUMN_BARCODE,
-        _TABLE_PRODUCT_COLUMN_JSON,
-      ],
-    );
-    if (queryResults.isEmpty) {
-      return; // empty database, nothing to do at all
-    }
-    for (final Map<String, dynamic> row in queryResults) {
-      final Product product = _getProductFromQueryResult(row);
-      await _upsertAllExtras(product, localDatabase.database);
-    }
-  }
-
-  /// Upserts all the extras related to a product
-  ///
-  /// Just one extra for the moment: the simplified text
-  static Future<void> _upsertAllExtras(
-    final Product product,
-    final DatabaseExecutor databaseExecutor,
-  ) async =>
-      await _upsertExtra(
-        product.barcode,
-        _EXTRA_ID_SIMPLIFIED_TEXT,
-        _getSimplifiedTextForProduct(product),
-        databaseExecutor,
-      );
-
-  static String _getSimplifiedTextForProduct(final Product product) {
-    final List<String> labels = <String>[];
-    if (product.productName != null) {
-      labels.add(_getSimplifiedText(product.productName));
-    }
-    if (product.productNameFR != null) {
-      labels.add(_getSimplifiedText(product.productNameFR));
-    }
-    if (product.productNameDE != null) {
-      labels.add(_getSimplifiedText(product.productNameDE));
-    }
-    if (product.productNameEN != null) {
-      labels.add(_getSimplifiedText(product.productNameEN));
-    }
-    return labels.isEmpty ? '' : labels.join(', ');
-  }
-
-  static Future<void> _upsertExtra(
-    final String barcode,
-    final String extraId,
-    final String extraValue,
-    final DatabaseExecutor databaseExecutor,
-  ) async =>
-      await databaseExecutor.insert(
-        _TABLE_PRODUCT_EXTRA,
-        <String, dynamic>{
-          TABLE_PRODUCT_COLUMN_BARCODE: barcode,
-          _TABLE_PRODUCT_EXTRA_COLUMN_KEY: extraId,
-          _TABLE_PRODUCT_EXTRA_COLUMN_VALUE: extraValue,
-          LocalDatabase.COLUMN_TIMESTAMP: LocalDatabase.nowInMillis(),
-        },
-        conflictAlgorithm: ConflictAlgorithm.replace,
-      );
 }

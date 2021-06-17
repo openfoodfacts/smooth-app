@@ -43,19 +43,17 @@ class ProductDialogHelper {
             barcode: barcode,
             languageCode: ProductQuery.getCurrentLanguageCode(context),
             countryCode: ProductQuery.getCurrentCountryCode(),
-          ).getProduct().then((Product value) async {
-            if (value != null) {
-              await DaoProduct(localDatabase).put(value);
-            }
-            _popSearchingDialog(value);
-            /* TODO(monsieurtanuki): better granularity - being able to say
+            daoProduct: DaoProduct(localDatabase),
+          ).getProduct().then(
+              (final Product value) => _popSearchingDialog(value)
+              /* TODO(monsieurtanuki): better granularity - being able to say...
              1. you clicked on 'stop'
              2. no internet connection
              3. no result at all
              4. time out
              5. of course, the product (when everything is fine)
              */
-          });
+              );
           return _getSearchingDialog();
         },
       );

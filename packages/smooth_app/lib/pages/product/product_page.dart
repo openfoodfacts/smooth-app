@@ -17,18 +17,19 @@ import 'package:provider/provider.dart';
 import 'package:share/share.dart';
 import 'package:smooth_app/bottom_sheet_views/product_copy_view.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/database/dao_product_extra.dart';
 import 'package:smooth_ui_library/widgets/smooth_card.dart';
 
 // Project imports:
 import 'package:smooth_app/pages/user_preferences_page.dart';
 import 'package:smooth_app/cards/data_cards/image_upload_card.dart';
 import 'package:smooth_app/cards/expandables/attribute_list_expandable.dart';
-import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/category_product_query.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/functions/launchURL.dart';
+import 'package:smooth_app/data_models/product_extra.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
@@ -119,9 +120,8 @@ class _ProductPageState extends State<ProductPage> {
                         duration: const Duration(seconds: 2),
                       ),
                     );
-                    setState(() {
-                      _product = product;
-                    });
+                    _product = product;
+                    await _updateHistory(context);
                     break;
                   default:
                     throw Exception('Unknown value: $value');
@@ -137,12 +137,7 @@ class _ProductPageState extends State<ProductPage> {
 
   Future<void> _updateHistory(final BuildContext context) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final DaoProductList daoProductList = DaoProductList(localDatabase);
-    final ProductList productList =
-        ProductList(listType: ProductList.LIST_TYPE_HISTORY, parameters: '');
-    await daoProductList.get(productList);
-    productList.add(_product);
-    await daoProductList.put(productList);
+    await DaoProductExtra(localDatabase).putLastSeen(widget.product);
     localDatabase.notifyListeners();
   }
 
@@ -243,6 +238,7 @@ class _ProductPageState extends State<ProductPage> {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
     final DaoProduct daoProduct = DaoProduct(localDatabase);
+    final DaoProductExtra daoProductExtra = DaoProductExtra(localDatabase);
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -406,7 +402,66 @@ class _ProductPageState extends State<ProductPage> {
       }
     }
 
+    listItems.add(_getTemporaryButton(daoProductExtra));
+
     return ListView(children: listItems);
+  }
+
+  // TODO(monsieurtanuki): remove / improve the display according to the feedbacks
+  Widget _getTemporaryButton(final DaoProductExtra daoProductExtra) =>
+      ElevatedButton(
+        onPressed: () async {
+          final List<Widget> children = <Widget>[];
+          _temporary(
+            await daoProductExtra.getProductExtra(
+              key: DaoProductExtra.EXTRA_ID_LAST_SEEN,
+              barcode: _product.barcode,
+            ),
+            children,
+            'History of your access:',
+          );
+          _temporary(
+            await daoProductExtra.getProductExtra(
+              key: DaoProductExtra.EXTRA_ID_LAST_SCAN,
+              barcode: _product.barcode,
+            ),
+            children,
+            'History of your barcode scan:',
+          );
+          _temporary(
+            await daoProductExtra.getProductExtra(
+              key: DaoProductExtra.EXTRA_ID_LAST_REFRESH,
+              barcode: _product.barcode,
+            ),
+            children,
+            'History of your server refresh:',
+          );
+          await showCupertinoModalBottomSheet<void>(
+            context: context,
+            builder: (final BuildContext context) => ListView(
+              children: children,
+            ),
+          );
+        },
+        child: const Text('History (temporary button)'),
+      );
+
+  void _temporary(
+    final ProductExtra productExtra,
+    final List<Widget> children,
+    final String title,
+  ) {
+    if (productExtra == null) {
+      return;
+    }
+    final List<int> timestamps = productExtra.decodeStringAsIntList();
+    if (timestamps.isNotEmpty) {
+      children.add(Material(child: Text(title)));
+      for (final int timestamp in timestamps.reversed) {
+        final DateTime dateTime = LocalDatabase.timestampToDateTime(timestamp);
+        children.add(Material(child: Text('* $dateTime')));
+      }
+    }
   }
 
   Widget _getAttributeGroupWidget(

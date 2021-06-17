@@ -57,13 +57,16 @@ class ContinuousScanPage extends StatelessWidget {
                 style: const TextStyle(color: Colors.black),
               ),
               backgroundColor: Colors.white,
-              onPressed: () => Navigator.push<Widget>(
-                context,
-                MaterialPageRoute<Widget>(
-                  builder: (BuildContext context) =>
-                      PersonalizedRankingPage(_continuousScanModel.productList),
-                ),
-              ),
+              onPressed: () async {
+                await _continuousScanModel.refreshProductList();
+                await Navigator.push<Widget>(
+                  context,
+                  MaterialPageRoute<Widget>(
+                    builder: (BuildContext context) => PersonalizedRankingPage(
+                        _continuousScanModel.productList),
+                  ),
+                );
+              },
             ),
           ),
           body: Stack(
@@ -123,7 +126,8 @@ class ContinuousScanPage extends StatelessWidget {
                         padding: EdgeInsets.only(top: screenSize.height * 0.08),
                         child: Text(
                           appLocalizations.scannerProductsEmpty,
-                          style: themeData.textTheme.subtitle1,
+                          style: themeData.textTheme.subtitle1
+                              .copyWith(color: Colors.white),
                           textAlign: TextAlign.center,
                         ),
                       ),
