@@ -36,9 +36,9 @@ class ContinuousScanModel with ChangeNotifier {
       ProductList(listType: ProductList.LIST_TYPE_SCAN, parameters: '');
 
   bool _contributionMode;
-  String _barcodeLatestScan;
-  String _barcodeLatestSuccessfulScan;
-  String _barcodeTrustCheck;
+  String _latestScannedBarcode;
+  String _latestFoundBarcode;
+  String _barcodeTrustCheck; // TODO(monsieurtanuki): could probably be removed
   DaoProduct _daoProduct;
   DaoProductList _daoProductList;
   DaoProductExtra _daoProductExtra;
@@ -60,7 +60,7 @@ class ContinuousScanModel with ChangeNotifier {
       for (final String barcode in _productList.barcodes) {
         _barcodes.add(barcode);
         _states[barcode] = ScannedProductState.CACHED;
-        _barcodeLatestScan = barcode;
+        _latestScannedBarcode = barcode;
       }
       return this;
     } catch (e) {
@@ -92,10 +92,10 @@ class ContinuousScanModel with ChangeNotifier {
       _barcodeTrustCheck = code;
       return;
     }
-    if (_barcodeLatestScan == code) {
+    if (_latestScannedBarcode == code) {
       return;
     }
-    _barcodeLatestScan = code;
+    _latestScannedBarcode = code;
     _addBarcode(code);
   }
 
@@ -180,8 +180,8 @@ class ContinuousScanModel with ChangeNotifier {
     final ScannedProductState state,
   ) async {
     _productList.refresh(product);
-    if (_barcodeLatestSuccessfulScan != product.barcode) {
-      _barcodeLatestSuccessfulScan = product.barcode;
+    if (_latestFoundBarcode != product.barcode) {
+      _latestFoundBarcode = product.barcode;
       await _daoProductExtra.putLastScan(product);
     }
     setBarcodeState(product.barcode, state);
