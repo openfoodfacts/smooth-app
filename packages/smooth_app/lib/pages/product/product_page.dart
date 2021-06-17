@@ -16,6 +16,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:share/share.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/database/dao_product_extra.dart';
 import 'package:smooth_ui_library/widgets/smooth_card.dart';
 
 // Project imports:
@@ -118,9 +119,8 @@ class _ProductPageState extends State<ProductPage> {
                         duration: const Duration(seconds: 2),
                       ),
                     );
-                    setState(() {
-                      _product = product;
-                    });
+                    _product = product;
+                    await _updateHistory(context);
                     break;
                   default:
                     throw Exception('Unknown value: $value');
@@ -136,7 +136,7 @@ class _ProductPageState extends State<ProductPage> {
 
   Future<void> _updateHistory(final BuildContext context) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    await DaoProduct(localDatabase).putLastSeen(widget.product);
+    await DaoProductExtra(localDatabase).putLastSeen(widget.product);
     localDatabase.notifyListeners();
   }
 
@@ -237,6 +237,7 @@ class _ProductPageState extends State<ProductPage> {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
     final DaoProduct daoProduct = DaoProduct(localDatabase);
+    final DaoProductExtra daoProductExtra = DaoProductExtra(localDatabase);
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -400,50 +401,40 @@ class _ProductPageState extends State<ProductPage> {
       }
     }
 
-    // TODO(monsieurtanuki): improve the display according to the feedbacks
-    listItems.add(
+    listItems.add(_getTemporaryButton(daoProductExtra));
+
+    return ListView(children: listItems);
+  }
+
+  // TODO(monsieurtanuki): remove / improve the display according to the feedbacks
+  Widget _getTemporaryButton(final DaoProductExtra daoProductExtra) =>
       ElevatedButton(
         onPressed: () async {
           final List<Widget> children = <Widget>[];
-          ProductExtra productExtra;
-          productExtra = await daoProduct.getProductExtra(
-            key: DaoProduct.EXTRA_ID_LAST_SEEN,
-            barcode: _product.barcode,
+          _temporary(
+            await daoProductExtra.getProductExtra(
+              key: DaoProductExtra.EXTRA_ID_LAST_SEEN,
+              barcode: _product.barcode,
+            ),
+            children,
+            'History of your access:',
           );
-          if (productExtra != null) {
-            final List<int> timestamps = productExtra.decodeStringAsIntList();
-            if (timestamps.isNotEmpty) {
-              children.add(
-                const Material(
-                  child: Text('History of your access to that product:'),
-                ),
-              );
-              for (final int timestamp in timestamps.reversed) {
-                final DateTime dateTime =
-                    LocalDatabase.timestampToDateTime(timestamp);
-                children.add(Material(child: Text('* $dateTime')));
-              }
-            }
-          }
-          productExtra = await daoProduct.getProductExtra(
-            key: DaoProduct.EXTRA_ID_LAST_SCAN,
-            barcode: _product.barcode,
+          _temporary(
+            await daoProductExtra.getProductExtra(
+              key: DaoProductExtra.EXTRA_ID_LAST_SCAN,
+              barcode: _product.barcode,
+            ),
+            children,
+            'History of your barcode scan:',
           );
-          if (productExtra != null) {
-            final List<int> timestamps = productExtra.decodeStringAsIntList();
-            if (timestamps.isNotEmpty) {
-              children.add(
-                const Material(
-                  child: Text('History of your barcode scan of that product:'),
-                ),
-              );
-              for (final int timestamp in timestamps.reversed) {
-                final DateTime dateTime =
-                    LocalDatabase.timestampToDateTime(timestamp);
-                children.add(Material(child: Text('* $dateTime')));
-              }
-            }
-          }
+          _temporary(
+            await daoProductExtra.getProductExtra(
+              key: DaoProductExtra.EXTRA_ID_LAST_REFRESH,
+              barcode: _product.barcode,
+            ),
+            children,
+            'History of your server refresh:',
+          );
           await showCupertinoModalBottomSheet<void>(
             context: context,
             builder: (final BuildContext context) => ListView(
@@ -452,10 +443,24 @@ class _ProductPageState extends State<ProductPage> {
           );
         },
         child: const Text('History (temporary button)'),
-      ),
-    );
+      );
 
-    return ListView(children: listItems);
+  void _temporary(
+    final ProductExtra productExtra,
+    final List<Widget> children,
+    final String title,
+  ) {
+    if (productExtra == null) {
+      return;
+    }
+    final List<int> timestamps = productExtra.decodeStringAsIntList();
+    if (timestamps.isNotEmpty) {
+      children.add(Material(child: Text(title)));
+      for (final int timestamp in timestamps.reversed) {
+        final DateTime dateTime = LocalDatabase.timestampToDateTime(timestamp);
+        children.add(Material(child: Text('* $dateTime')));
+      }
+    }
   }
 
   Widget _getAttributeGroupWidget(

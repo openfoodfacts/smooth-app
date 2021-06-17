@@ -9,11 +9,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/utils/PnnsGroups.dart';
 
 // Project imports:
-import 'package:smooth_app/data_models/database_product_list_supplier.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
-import 'package:smooth_app/data_models/query_product_list_supplier.dart';
-import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/pages/product/common/product_query_page.dart';
@@ -27,11 +24,11 @@ class ProductQueryPageHelper {
     @required final String name,
     @required final BuildContext context,
   }) async {
-    final int timestamp = await DaoProductList(localDatabase)
-        .getTimestamp(productQuery.getProductList());
-    final ProductListSupplier supplier = timestamp == null
-        ? QueryProductListSupplier(productQuery)
-        : DatabaseProductListSupplier(productQuery, localDatabase);
+    final ProductListSupplier supplier =
+        await ProductListSupplier.getBestSupplier(
+      productQuery,
+      localDatabase,
+    );
     Navigator.push<Widget>(
       context,
       MaterialPageRoute<Widget>(
@@ -40,7 +37,7 @@ class ProductQueryPageHelper {
           heroTag: heroTag,
           mainColor: color,
           name: name,
-          lastUpdate: timestamp,
+          lastUpdate: supplier.timestamp,
         ),
       ),
     );

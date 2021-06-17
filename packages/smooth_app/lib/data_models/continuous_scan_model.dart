@@ -11,6 +11,7 @@ import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/barcode_product_query.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
+import 'package:smooth_app/database/dao_product_extra.dart';
 import 'package:smooth_app/database/local_database.dart';
 
 enum ScannedProductState {
@@ -35,10 +36,12 @@ class ContinuousScanModel with ChangeNotifier {
       ProductList(listType: ProductList.LIST_TYPE_SCAN, parameters: '');
 
   bool _contributionMode;
-  String _barcodeLatest;
+  String _barcodeLatestScan;
+  String _barcodeLatestSuccessfulScan;
   String _barcodeTrustCheck;
   DaoProduct _daoProduct;
   DaoProductList _daoProductList;
+  DaoProductExtra _daoProductExtra;
   final String languageCode;
   final String countryCode;
 
@@ -52,11 +55,12 @@ class ContinuousScanModel with ChangeNotifier {
     try {
       _daoProduct = DaoProduct(localDatabase);
       _daoProductList = DaoProductList(localDatabase);
+      _daoProductExtra = DaoProductExtra(localDatabase);
       await _daoProductList.get(_productList);
       for (final String barcode in _productList.barcodes) {
         _barcodes.add(barcode);
         _states[barcode] = ScannedProductState.CACHED;
-        _barcodeLatest = barcode;
+        _barcodeLatestScan = barcode;
       }
       return this;
     } catch (e) {
@@ -88,10 +92,10 @@ class ContinuousScanModel with ChangeNotifier {
       _barcodeTrustCheck = code;
       return;
     }
-    if (_barcodeLatest == code) {
+    if (_barcodeLatestScan == code) {
       return;
     }
-    _barcodeLatest = code;
+    _barcodeLatestScan = code;
     _addBarcode(code);
   }
 
@@ -148,6 +152,7 @@ class ContinuousScanModel with ChangeNotifier {
         barcode: barcode,
         languageCode: languageCode,
         countryCode: countryCode,
+        daoProduct: _daoProduct,
       ).getProduct();
 
   Future<void> _loadBarcode(
@@ -175,10 +180,10 @@ class ContinuousScanModel with ChangeNotifier {
     final ScannedProductState state,
   ) async {
     _productList.refresh(product);
-    if (state != ScannedProductState.CACHED) {
-      await _daoProduct.put(product);
+    if (_barcodeLatestSuccessfulScan != product.barcode) {
+      _barcodeLatestSuccessfulScan = product.barcode;
+      await _daoProductExtra.putLastScan(product);
     }
-    await _daoProduct.putLastScan(product);
     setBarcodeState(product.barcode, state);
   }
 }
