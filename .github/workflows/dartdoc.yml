@@ -1,0 +1,22 @@
+    name: GitHub Pages Deploy Action
+    on:
+        push:
+            branches:
+               - "develop"
+    jobs:
+        deploy-pages:
+            name: Deploy to GitHub Pages
+            runs-on: ubuntu-latest
+            steps:
+            - name: Chekout code
+              uses: actions/checkout@v2
+            - name: Setup Dart
+              uses: dart-lang/setup-dart@v1
+            - name: Run Dartdoc
+              run: dartdoc
+            - name: Deploy API documentation to Github Pages
+              uses: JamesIves/github-pages-deploy-action@4.1.4
+              with:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                BRANCH: gh-pages
+                FOLDER: doc/api/
