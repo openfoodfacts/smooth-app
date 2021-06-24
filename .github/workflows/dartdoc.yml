@@ -13,6 +13,8 @@
               uses: actions/checkout@v2
             - name: Setup Dart
               uses: dart-lang/setup-dart@v1
+            - name: Get in the right place
+              run: cd ./packages/smooth_app/
             - name: Run Dartdoc
               run: dartdoc
             - name: Deploy API documentation to Github Pages
