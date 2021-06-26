@@ -249,7 +249,12 @@ class _HomePageState extends State<HomePage> {
               }
             } else {
               if (cards.isEmpty) {
-                ifEmpty = Text(appLocalizations.empty);
+                ifEmpty = Center(
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 5.0),
+                    child: Text(appLocalizations.empty),
+                  ),
+                );
               }
             }
             return SmoothCard(
@@ -272,8 +277,10 @@ class _HomePageState extends State<HomePage> {
                     },
                     leading: leadingIcon,
                     trailing: _ICON_ARROW_FORWARD,
-                    title: Text(title,
-                        style: Theme.of(context).textTheme.subtitle2),
+                    title: Text(
+                      title,
+                      style: Theme.of(context).textTheme.subtitle2,
+                    ),
                   ),
                   _getHorizontalList(cards, ifEmpty),
                 ],
