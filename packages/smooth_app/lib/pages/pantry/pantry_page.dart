@@ -183,9 +183,7 @@ class _PantryPageState extends State<PantryPage> {
                 ),
               ),
             ),
-            const Divider(
-              color: Colors.grey,
-            ),
+            const Divider(color: Colors.grey),
           ];
           final Map<String, int> dates = widget.pantry.data[barcode];
           if (widget.pantry.pantryType == PantryType.SHOPPING) {

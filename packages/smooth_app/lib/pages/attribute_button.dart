@@ -43,9 +43,9 @@ class AttributeButton extends StatelessWidget {
     final String importanceId =
         productPreferences.getImportanceIdForAttributeId(attribute.id);
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
-    final MaterialColor materialColor =
+    final MaterialColor/*!*/ materialColor =
         SmoothTheme.getMaterialColor(themeProvider);
-    final Color strongBackgroundColor = SmoothTheme.getColor(
+    final Color/*!*/ strongBackgroundColor = SmoothTheme.getColor(
       colorScheme,
       materialColor,
       ColorDestination.SURFACE_BACKGROUND,
@@ -127,7 +127,7 @@ class AttributeButton extends StatelessWidget {
       );
     }
     for (final String item in productPreferences.importanceIds) {
-      final Color foregroundColor =
+      final Color/*!*/ foregroundColor =
           _getForegroundColor(strongForegroundColor, item);
       children.add(
         ListTile(
@@ -168,26 +168,26 @@ class AttributeButton extends StatelessWidget {
     productPreferences.setImportance(attributeId, result);
   }
 
-  static Widget _getIcon(final String importanceId, final Color color) {
-    final String svgAsset = _IMPORTANCE_SVG_ASSETS[importanceId];
+  static Widget/*!*/ _getIcon(final String importanceId, final Color color) {
+    final String/*!*/ svgAsset = _IMPORTANCE_SVG_ASSETS[importanceId];
     if (svgAsset == null) {
       return null;
     }
     return SvgPicture.asset(svgAsset, color: color, height: 32);
   }
 
-  static Color _getBackgroundColor(
+  static Color/*!*/ _getBackgroundColor(
     final Color strongBackgroundColor,
     final String importanceId,
   ) {
-    final double opacity = _IMPORTANCE_OPACITIES[importanceId];
+    final double/*!*/ opacity = _IMPORTANCE_OPACITIES[importanceId];
     if (opacity == null) {
       return null;
     }
     return strongBackgroundColor.withOpacity(opacity);
   }
 
-  static Color _getForegroundColor(
+  static Color/*!*/ _getForegroundColor(
     final Color strongForegroundColor,
     final String importanceId,
   ) =>
