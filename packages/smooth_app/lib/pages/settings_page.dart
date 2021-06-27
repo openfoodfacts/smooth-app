@@ -104,7 +104,7 @@ class ProfilePage extends StatelessWidget {
             text: appLocalizations.support,
             leadingWidget: const Icon(Icons.launch),
             onPressed: () => launcher.launchURL(
-                context, 'https://openfoodfacts.uservoice.com/', false),
+                context, 'https://slack.openfoodfacts.org/', false),
           ),
 
           //About
