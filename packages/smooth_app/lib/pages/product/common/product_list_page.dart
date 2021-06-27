@@ -33,7 +33,7 @@ class _ProductListPageState extends State<ProductListPage> {
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     productList ??= widget.productList;
-    final List<Product> products = productList.getUniqueList();
+    final List<Product> products = productList.getList();
     final Map<String, ProductExtra> productExtras = productList.productExtras;
     final List<_Meta> metas = <_Meta>[];
     if (productList.listType == ProductList.LIST_TYPE_HISTORY ||
@@ -58,11 +58,15 @@ class _ProductListPageState extends State<ProductListPage> {
     }
     bool renamable = false;
     bool deletable = false;
+    bool dismissible = false;
+    bool reorderable = false;
     switch (productList.listType) {
       case ProductList.LIST_TYPE_USER_DEFINED:
         // TODO(monsieurtanuki): clear the preference when the product list is deleted
         deletable = true;
         renamable = true;
+        reorderable = true;
+        dismissible = true;
         break;
       case ProductList.LIST_TYPE_HTTP_SEARCH_KEYWORDS:
       case ProductList.LIST_TYPE_HTTP_SEARCH_CATEGORY:
@@ -71,6 +75,10 @@ class _ProductListPageState extends State<ProductListPage> {
         break;
       case ProductList.LIST_TYPE_SCAN:
       case ProductList.LIST_TYPE_HISTORY:
+        dismissible = true;
+        break;
+      default:
+        throw Exception('unknown list type ${productList.listType}');
     }
     return Scaffold(
       appBar: AppBar(
@@ -178,12 +186,20 @@ class _ProductListPageState extends State<ProductListPage> {
               child: Text(appLocalizations.no_prodcut_in_list,
                   style: Theme.of(context).textTheme.subtitle1),
             )
-          : ListView.builder(
+          : ReorderableListView.builder(
+              onReorder: (final int oldIndex, final int newIndex) async {
+                productList.reorder(oldIndex, newIndex);
+                daoProductList
+                    .put(productList); // careful: if "await", flickering
+                setState(() {});
+              },
+              buildDefaultDragHandles: false,
               itemCount: metas.length,
               itemBuilder: (BuildContext context, int index) {
                 final _Meta meta = metas[index];
                 if (!meta.isProduct()) {
                   return ListTile(
+                    key: Key(meta.daysAgoLabel),
                     leading: const Icon(Icons.history),
                     title: Text(meta.daysAgoLabel),
                   );
@@ -200,6 +216,12 @@ class _ProductListPageState extends State<ProductListPage> {
                       await daoProductList.get(productList);
                       setState(() {});
                     },
+                    handle: !reorderable
+                        ? null
+                        : ReorderableDragStartListener(
+                            index: index,
+                            child: const Icon(Icons.drag_handle),
+                          ),
                     onLongPress: () async {
                       await Navigator.push<Widget>(
                         context,
@@ -215,14 +237,32 @@ class _ProductListPageState extends State<ProductListPage> {
                     },
                   ),
                 );
-                return Dismissible(
-                  background: Container(color: colorScheme.background),
-                  key: Key(barcode),
-                  onDismissed: (final DismissDirection direction) async {
-                    await daoProductList.removeBarcode(productList, barcode);
-                    setState(() => metas.removeAt(index));
-                    // TODO(monsieurtanuki): add a snackbar ("put back the food")
-                  },
+                if (dismissible) {
+                  return Dismissible(
+                    background: Container(color: colorScheme.background),
+                    key: Key(meta.product.barcode),
+                    onDismissed: (final DismissDirection direction) async {
+                      final bool removed =
+                          productList.remove(meta.product.barcode);
+                      if (removed) {
+                        await daoProductList.put(productList);
+                        setState(() => metas.removeAt(index));
+                      }
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(removed
+                              ? 'Product removed'
+                              : 'Could not remove product'),
+                          duration: const Duration(seconds: 3),
+                        ),
+                      );
+                      // TODO(monsieurtanuki): add a snackbar ("put back the food")
+                    },
+                    child: child,
+                  );
+                }
+                return Container(
+                  key: Key(meta.product.barcode),
                   child: child,
                 );
               },

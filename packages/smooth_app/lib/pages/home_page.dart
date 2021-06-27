@@ -145,6 +145,7 @@ class _HomePageState extends State<HomePage> {
               parameters: '',
             ),
             nbInPreview: 5,
+            andThen: () => setState(() {}),
           ),
           GestureDetector(
             child: SmoothCard(

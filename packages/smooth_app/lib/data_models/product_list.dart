@@ -9,7 +9,6 @@ class ProductList {
     @required this.listType,
     @required this.parameters,
     this.databaseTimestamp,
-    this.databaseCount,
     this.databaseCountDistinct,
   });
 
@@ -89,7 +88,6 @@ class ProductList {
   final String listType;
   final String parameters;
   final int databaseTimestamp;
-  final int databaseCount;
   final int databaseCountDistinct;
   Map<String, String> extraTags;
 
@@ -125,11 +123,6 @@ class ProductList {
   List<String> getPossibleIcons() => _ORDERED_ICONS_PER_TYPE[listType];
 
   bool isEmpty() => _barcodes.isEmpty;
-
-  void clear() {
-    _barcodes.clear();
-    _products.clear();
-  }
 
   Product getProduct(final String barcode) => _products[barcode];
 
@@ -192,24 +185,88 @@ class ProductList {
     _products[barcode] = product;
   }
 
-  void add(final Product product) {
+  /// Adds a product to the end of a list if not there already, or does nothing
+  ///
+  /// Returns false if already in the list
+  /// Don't forget to update the database afterwards
+  bool add(final Product product) {
     refresh(product);
+    if (_barcodes.contains(product.barcode)) {
+      return false;
+    }
     _barcodes.add(product.barcode);
+    int index = 1; // default value
+    // looking for the highest index so far
+    for (final String barcode in _barcodes.reversed) {
+      if (barcode == product.barcode) {
+        continue;
+      }
+      final ProductExtra last = _productExtras[barcode];
+      index = last.intValue;
+      break;
+    }
+    _productExtras[product.barcode] = _computeProductExtra(index);
+    return true;
   }
 
-  void addAll(final List<Product> products) => products.forEach(add);
+  /// Removes a barcode from the list
+  ///
+  /// Returns false if not already in the list
+  /// Don't forget to update the database afterwards
+  bool remove(final String barcode) {
+    if (!_barcodes.contains(barcode)) {
+      return false;
+    }
+    _barcodes.remove(barcode);
+    _products[barcode] = null;
+    _productExtras[barcode] = null;
+    return true;
+  }
+
+  /// Sets all products with the same order as the input list
+  void setAll(final List<Product> products) {
+    int i = 0;
+    final List<String> barcodes = <String>[];
+    final Map<String, Product> productMap = <String, Product>{};
+    final Map<String, ProductExtra> productExtras = <String, ProductExtra>{};
+    for (final Product product in products) {
+      final String barcode = product.barcode;
+      barcodes.add(barcode);
+      productMap[barcode] = product;
+      productExtras[barcode] = _computeProductExtra(i++);
+    }
+    set(barcodes, productMap, productExtras);
+  }
 
   void set(
     final List<String> barcodes,
-    final Map<String, Product> products, {
+    final Map<String, Product> products,
     final Map<String, ProductExtra> productExtras,
-  }) {
-    clear();
+  ) {
+    _barcodes.clear();
+    _products.clear();
     _barcodes.addAll(barcodes);
     _products.addAll(products);
-    if (productExtras != null) {
-      _productExtras.addAll(productExtras);
+    _productExtras.clear();
+    _productExtras.addAll(productExtras);
+  }
+
+  ProductExtra _computeProductExtra(final int index) => ProductExtra(index, '');
+
+  void reorder(final int oldIndex, int newIndex) {
+    final List<String> order = _barcodes;
+    if (oldIndex < newIndex) {
+      newIndex -= 1;
     }
+    final String item = order.removeAt(oldIndex);
+    order.insert(newIndex, item);
+
+    int i = 0;
+    final Map<String, ProductExtra> productExtras = <String, ProductExtra>{};
+    for (final String barcode in order) {
+      productExtras[barcode] = _computeProductExtra(i++);
+    }
+    _productExtras.addAll(productExtras);
   }
 
   List<Product> getList() {
@@ -220,30 +277,6 @@ class ProductList {
         throw Exception('no product for barcode $barcode');
       }
       result.add(product);
-    }
-    return result;
-  }
-
-  List<Product> getUniqueList() {
-    final List<Product> result = <Product>[];
-    final List<String> orderedBarcodes = getOrderedBarcodes();
-    for (final String barcode in orderedBarcodes) {
-      final Product product = _products[barcode];
-      if (product == null) {
-        throw Exception('no product for barcode $barcode');
-      }
-      result.add(product);
-    }
-    return result;
-  }
-
-  List<String> getOrderedBarcodes() {
-    final List<String> result = <String>[];
-    for (final String barcode in barcodes) {
-      if (result.contains(barcode)) {
-        continue;
-      }
-      result.add(barcode);
     }
     return result;
   }

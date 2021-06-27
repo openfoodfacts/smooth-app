@@ -91,10 +91,7 @@ class ProductListDialogHelper {
               if (!formKey.currentState.validate()) {
                 return;
               }
-              if (await daoProductList.get(newProductList)) {
-                // TODO(monsieurtanuki): unexpected, but do something!
-                return;
-              }
+              await daoProductList.create(newProductList);
               await daoProductList.put(newProductList);
               Navigator.pop(context, newProductList);
             },

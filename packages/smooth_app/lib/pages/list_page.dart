@@ -69,6 +69,7 @@ class _ListPageState extends State<ListPage> {
                       daoProductList: daoProductList,
                       productList: item,
                       nbInPreview: 5,
+                      andThen: () => setState(() {}),
                     );
                   },
                 );
