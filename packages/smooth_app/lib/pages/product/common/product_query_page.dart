@@ -31,7 +31,7 @@ class ProductQueryPage extends StatefulWidget {
 
   final ProductListSupplier productListSupplier;
   final String heroTag;
-  final Color mainColor;
+  final Color/*!*/ mainColor;
   final String name;
   final int lastUpdate;
 

@@ -18,8 +18,8 @@ import 'package:smooth_app/pages/product/common/product_query_page.dart';
 class ProductQueryPageHelper {
   Future<void> openBestChoice({
     @required final ProductQuery productQuery,
-    @required final LocalDatabase localDatabase,
-    @required final Color color,
+    @required final LocalDatabase/*!*/ localDatabase,
+    @required final Color/*!*/ color,
     @required final String heroTag,
     @required final String name,
     @required final BuildContext context,
@@ -102,7 +102,7 @@ class ProductQueryPageHelper {
   }
 
   static String _getGroupName(
-      final String groupId, final AppLocalizations appLocalizations) {
+      final String/*!*/ groupId, final AppLocalizations appLocalizations) {
     for (final PnnsGroup2 group2 in PnnsGroup2.values) {
       if (group2.id == groupId) {
         return group2.name;
