@@ -66,7 +66,7 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
   }
 
   Widget _getWidget(
-    final String barcode,
+    final String/*!*/ barcode,
     final ProductPreferences productPreferences,
   ) {
     final Product product = widget.continuousScanModel.getProduct(barcode);

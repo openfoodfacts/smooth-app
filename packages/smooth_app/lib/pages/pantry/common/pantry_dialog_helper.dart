@@ -8,7 +8,7 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 
 /// A dialog helper for pantries
 class PantryDialogHelper {
-  static Future<bool> openDelete(
+  static Future<bool/*!*/> openDelete(
     final BuildContext context,
     final List<Pantry> pantries,
     final int index,
@@ -120,7 +120,7 @@ class PantryDialogHelper {
 
   static Future<bool> openRename(
     final BuildContext context,
-    final List<Pantry> pantries,
+    final List<Pantry/*!*/> pantries,
     final int index,
   ) async {
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -191,7 +191,7 @@ class PantryDialogHelper {
 
   static Future<bool> openChangeIcon(
     final BuildContext context,
-    final List<Pantry> pantries,
+    final List<Pantry/*!*/> pantries,
     final int index,
   ) async {
     final Pantry pantry = pantries[index];

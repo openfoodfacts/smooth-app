@@ -23,8 +23,8 @@ class SmoothProductCardFound extends StatelessWidget {
     this.refresh,
   });
 
-  final Product product;
-  final String heroTag;
+  final Product/*!*/ product;
+  final String/*!*/ heroTag;
   final double elevation;
   final bool useNewStyle;
   final Color backgroundColor;

@@ -21,7 +21,7 @@ class ProductListPreview extends StatelessWidget {
     @required this.nbInPreview,
   });
 
-  final DaoProductList daoProductList;
+  final DaoProductList/*!*/ daoProductList;
   final ProductList productList;
   final int nbInPreview;
 

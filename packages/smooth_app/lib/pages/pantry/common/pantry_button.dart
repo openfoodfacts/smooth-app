@@ -19,8 +19,8 @@ class PantryButton extends StatelessWidget {
     @required this.onlyIcon,
   }) : index = null;
 
-  final List<Pantry> pantries;
-  final int index;
+  final List<Pantry/*!*/> pantries;
+  final int/*!*/ index;
   final Function onPressed;
   final PantryType pantryType;
   final bool onlyIcon;

@@ -20,7 +20,7 @@ class PantryPage extends StatefulWidget {
     this.pantry,
   }) : pantryType = pantry.pantryType;
 
-  final List<Pantry> pantries;
+  final List<Pantry /*!*/ > pantries;
   final Pantry pantry;
   final PantryType pantryType;
 
