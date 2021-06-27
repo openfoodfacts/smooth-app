@@ -34,7 +34,7 @@ class _ProductListPageState extends State<ProductListPage> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     productList ??= widget.productList;
     final List<Product> products = productList.getUniqueList();
-    final Map<String, ProductExtra> productExtras = productList.productExtras;
+    final Map<String/*!*/, ProductExtra> productExtras = productList.productExtras;
     final List<_Meta> metas = <_Meta>[];
     if (productList.listType == ProductList.LIST_TYPE_HISTORY ||
         productList.listType == ProductList.LIST_TYPE_SCAN) {

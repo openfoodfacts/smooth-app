@@ -15,7 +15,7 @@ class ProductListButton extends StatelessWidget {
     @required this.onlyIcon,
   }) : productList = null;
 
-  final ProductList productList;
+  final ProductList/*!*/ productList;
   final Function onPressed;
   final bool onlyIcon;
 

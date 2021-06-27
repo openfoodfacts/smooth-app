@@ -9,8 +9,8 @@ class AttributeChip extends StatelessWidget {
     this.height,
   });
 
-  final Attribute attribute;
-  final double height;
+  final Attribute/*!*/ attribute;
+  final double/*!*/ height;
 
   @override
   Widget build(BuildContext context) => Container(

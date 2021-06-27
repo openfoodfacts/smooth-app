@@ -14,7 +14,7 @@ class ProductListPreviewHelper extends StatelessWidget {
     @required this.iconSize,
   });
 
-  final List<Product> list;
+  final List<Product>/*!*/ list;
   final double iconSize;
 
   static const double _PREVIEW_SPACING = 8.0;

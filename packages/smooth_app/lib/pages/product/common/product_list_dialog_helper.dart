@@ -7,7 +7,7 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 class ProductListDialogHelper {
-  static Future<bool> openDelete(
+  static Future<bool/*!*/> openDelete(
     final BuildContext context,
     final DaoProductList daoProductList,
     final ProductList productList,
@@ -35,7 +35,7 @@ class ProductListDialogHelper {
         ),
       );
 
-  static Future<ProductList> openNew(
+  static Future<ProductList/*!*/> openNew(
     final BuildContext context,
     final DaoProductList daoProductList,
     final List<ProductList> list,

@@ -12,7 +12,7 @@ class SubcategoryCard extends StatelessWidget {
       @required this.heroTag});
 
   final String title;
-  final Color color;
+  final Color/*!*/ color;
   final Function onTap;
   final String heroTag;
 

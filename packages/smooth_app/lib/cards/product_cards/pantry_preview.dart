@@ -19,14 +19,14 @@ class PantryPreview extends StatelessWidget {
     @required this.nbInPreview,
   });
 
-  final List<Pantry> pantries;
+  final List<Pantry/*!*/> pantries;
   final int index;
   final int nbInPreview;
 
   @override
   Widget build(BuildContext context) {
     final Pantry pantry = pantries[index];
-    final List<Product> list = pantry.getFirstProducts(nbInPreview);
+    final List<Product/*!*/> list = pantry.getFirstProducts(nbInPreview);
 
     String subtitle;
     final double iconSize = MediaQuery.of(context).size.width / 6;

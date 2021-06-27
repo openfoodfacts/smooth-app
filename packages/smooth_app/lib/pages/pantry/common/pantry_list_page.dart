@@ -12,7 +12,7 @@ class PantryListPage extends StatefulWidget {
   const PantryListPage(this.title, this.pantries, this.pantryType);
 
   final String title;
-  final List<Pantry> pantries;
+  final List<Pantry/*!*/> pantries;
   final PantryType pantryType;
 
   @override

@@ -26,7 +26,7 @@ class AttributeListExpandable extends StatelessWidget {
 
   final Product product;
   final double iconHeight;
-  final List<Attribute> attributes;
+  final List<Attribute/*!*/> attributes;
   final String title;
   final bool collapsible;
   final Color background;
@@ -38,7 +38,7 @@ class AttributeListExpandable extends StatelessWidget {
     final Product product,
     final List<String> attributeIds,
   ) {
-    final List<Attribute> result = <Attribute>[];
+    final List<Attribute/*!*/> result = <Attribute/*!*/>[];
     final Map<String, Attribute> attributes =
         product.getAttributes(attributeIds);
     for (final String attributeId in attributeIds) {

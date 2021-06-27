@@ -30,7 +30,7 @@ class ChoosePage extends StatefulWidget {
   static Future<void> onSubmitted(
     final String value,
     final BuildContext context,
-    final LocalDatabase localDatabase,
+    final LocalDatabase/*!*/ localDatabase,
   ) async {
     if (int.tryParse(value) != null) {
       final ProductDialogHelper productDialogHelper = ProductDialogHelper(
@@ -39,7 +39,7 @@ class ChoosePage extends StatefulWidget {
         localDatabase: localDatabase,
         refresh: false,
       );
-      final Product product = await productDialogHelper.openBestChoice();
+      final Product/*!*/ product = await productDialogHelper.openBestChoice();
       if (product == null) {
         productDialogHelper.openProductNotFoundDialog();
         return;

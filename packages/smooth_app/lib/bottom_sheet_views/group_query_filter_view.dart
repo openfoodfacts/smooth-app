@@ -16,12 +16,12 @@ class GroupQueryFilterView extends StatelessWidget {
       @required this.callback});
 
   final Map<String, String> categories;
-  final List<String> categoriesList;
-  final Function(String) callback;
+  final List<String>/*!*/ categoriesList;
+  final Function(String/*!*/) callback;
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations/*!*/ appLocalizations = AppLocalizations.of(context);
     return ChangeNotifierProvider<SelectedCategoryModel>(
       create: (BuildContext context) =>
           SelectedCategoryModel(categories, categoriesList),
@@ -177,7 +177,7 @@ class SelectedCategoryModel extends ChangeNotifier {
 
   Map<String, String> categories;
   List<String> categoriesList;
-  String selectedCategory;
+  String/*!*/ selectedCategory;
 
   void selectCategory(String category) {
     selectedCategory = category;

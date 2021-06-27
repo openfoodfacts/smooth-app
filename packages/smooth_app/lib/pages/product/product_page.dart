@@ -50,7 +50,7 @@ class ProductPage extends StatefulWidget {
 }
 
 class _ProductPageState extends State<ProductPage> {
-  Product _product;
+  Product/*!*/ _product;
 
   final EdgeInsets padding = const EdgeInsets.only(
     right: 8.0,

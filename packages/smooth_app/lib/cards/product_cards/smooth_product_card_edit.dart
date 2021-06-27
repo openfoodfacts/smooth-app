@@ -18,8 +18,8 @@ class SmoothProductCardEdit extends StatelessWidget {
     @required this.heroTag,
   });
 
-  final Product product;
-  final String heroTag;
+  final Product/*!*/ product;
+  final String/*!*/ heroTag;
 
   @override
   Widget build(BuildContext context) {

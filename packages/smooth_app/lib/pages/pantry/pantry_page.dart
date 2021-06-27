@@ -20,7 +20,7 @@ class PantryPage extends StatefulWidget {
     this.pantry,
   }) : pantryType = pantry.pantryType;
 
-  final List<Pantry> pantries;
+  final List<Pantry /*!*/ > pantries;
   final Pantry pantry;
   final PantryType pantryType;
 
@@ -183,9 +183,7 @@ class _PantryPageState extends State<PantryPage> {
                 ),
               ),
             ),
-            const Divider(
-              color: Colors.grey,
-            ),
+            const Divider(color: Colors.grey),
           ];
           final Map<String, int> dates = widget.pantry.data[barcode];
           if (widget.pantry.pantryType == PantryType.SHOPPING) {
