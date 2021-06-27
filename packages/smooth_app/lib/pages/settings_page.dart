@@ -93,9 +93,7 @@ class ProfilePage extends StatelessWidget {
               context: context,
               backgroundColor: Colors.transparent,
               bounce: true,
-              builder: (BuildContext context) => UserContributionView(
-                ModalScrollController.of(context),
-              ),
+              builder: (BuildContext context) => UserContributionView(),
             ),
           ),
 

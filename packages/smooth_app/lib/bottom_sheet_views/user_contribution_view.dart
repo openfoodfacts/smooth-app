@@ -6,10 +6,6 @@ import 'package:smooth_ui_library/widgets/smooth_listTile.dart';
 import 'package:smooth_app/functions/launchURL.dart';
 
 class UserContributionView extends StatelessWidget {
-  UserContributionView(this._scrollController, {this.callback});
-
-  final ScrollController _scrollController;
-  final Function callback;
   final Launcher launcher = Launcher();
 
   @override
@@ -26,7 +22,6 @@ class UserContributionView extends StatelessWidget {
                 Container(
                   height: MediaQuery.of(context).size.height * 0.9,
                   child: ListView(
-                    controller: _scrollController,
                     shrinkWrap: true,
                     scrollDirection: Axis.vertical,
                     children: <Widget>[

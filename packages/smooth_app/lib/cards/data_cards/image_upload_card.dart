@@ -15,14 +15,14 @@ import 'package:smooth_app/pages/product/product_image_page.dart';
 
 class ImageUploadCard extends StatefulWidget {
   const ImageUploadCard({
-    this.product,
-    this.imageField,
+    @required this.product,
+    @required this.imageField,
     this.imageUrl,
     this.title,
-    this.buttonText,
+    @required this.buttonText,
   });
 
-  final Product product;
+  final Product/*!*/ product;
   final ImageField imageField;
   final String imageUrl;
   final String title;

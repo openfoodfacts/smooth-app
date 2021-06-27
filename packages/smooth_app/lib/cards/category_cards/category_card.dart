@@ -13,8 +13,8 @@ class CategoryCard extends StatelessWidget {
 
   final String title;
   final Color color;
-  final String iconName;
-  final Function onTap;
+  final String/*!*/ iconName;
+  final Function/*?*/ onTap;
 
   @override
   Widget build(BuildContext context) {
