@@ -52,15 +52,14 @@ class ProductPage extends StatefulWidget {
 class _ProductPageState extends State<ProductPage> {
   Product _product;
 
-  final EdgeInsets padding =
-      const EdgeInsets.only(right: 8.0, left: 8.0, top: 4.0, bottom: 20.0);
-  final EdgeInsets insets = const EdgeInsets.all(12.0);
+  final EdgeInsets padding = const EdgeInsets.only(
+    right: 8.0,
+    left: 8.0,
+    top: 4.0,
+    bottom: 20.0,
+  );
 
-  @override
-  void initState() {
-    super.initState();
-    _updateHistory(context);
-  }
+  final EdgeInsets insets = const EdgeInsets.all(12.0);
 
   static const List<String> _ORDERED_ATTRIBUTE_GROUP_IDS = <String>[
     AttributeGroup.ATTRIBUTE_GROUP_INGREDIENT_ANALYSIS,
@@ -72,67 +71,74 @@ class _ProductPageState extends State<ProductPage> {
   ];
 
   @override
+  void initState() {
+    super.initState();
+    _updateHistory(context);
+  }
+
+  @override
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     _product ??= widget.product;
     return Scaffold(
-        appBar: AppBar(
-          title: Text(_getProductName(appLocalizations)),
-          actions: <Widget>[
-            PopupMenuButton<String>(
-              itemBuilder: (final BuildContext context) =>
-                  <PopupMenuEntry<String>>[
-                PopupMenuItem<String>(
-                  value: 'web',
-                  child: Text(appLocalizations.label_web),
-                ),
-                PopupMenuItem<String>(
-                  value: 'refresh',
-                  child: Text(appLocalizations.label_refresh),
-                ),
-              ],
-              onSelected: (final String value) async {
-                switch (value) {
-                  case 'web':
-                    Launcher().launchURL(
-                        context,
-                        'https://openfoodfacts.org/product/${_product.barcode}/',
-                        false);
-                    break;
-                  case 'refresh':
-                    final ProductDialogHelper productDialogHelper =
-                        ProductDialogHelper(
-                      barcode: _product.barcode,
-                      context: context,
-                      localDatabase: localDatabase,
-                      refresh: true,
-                    );
-                    final Product product =
-                        await productDialogHelper.openUniqueProductSearch();
-                    if (product == null) {
-                      productDialogHelper.openProductNotFoundDialog();
-                      return;
-                    }
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(appLocalizations.product_refreshed),
-                        duration: const Duration(seconds: 2),
-                      ),
-                    );
-                    _product = product;
-                    await _updateHistory(context);
-                    break;
-                  default:
-                    throw Exception('Unknown value: $value');
-                }
-              },
-            ),
-          ],
-        ),
-        body: widget.newProduct
-            ? _buildNewProductBody(context)
-            : _buildProductBody(context));
+      appBar: AppBar(
+        title: Text(_getProductName(appLocalizations)),
+        actions: <Widget>[
+          PopupMenuButton<String>(
+            itemBuilder: (final BuildContext context) =>
+                <PopupMenuEntry<String>>[
+              PopupMenuItem<String>(
+                value: 'web',
+                child: Text(appLocalizations.label_web),
+              ),
+              PopupMenuItem<String>(
+                value: 'refresh',
+                child: Text(appLocalizations.label_refresh),
+              ),
+            ],
+            onSelected: (final String value) async {
+              switch (value) {
+                case 'web':
+                  Launcher().launchURL(
+                      context,
+                      'https://openfoodfacts.org/product/${_product.barcode}/',
+                      false);
+                  break;
+                case 'refresh':
+                  final ProductDialogHelper productDialogHelper =
+                      ProductDialogHelper(
+                    barcode: _product.barcode,
+                    context: context,
+                    localDatabase: localDatabase,
+                    refresh: true,
+                  );
+                  final Product product =
+                      await productDialogHelper.openUniqueProductSearch();
+                  if (product == null) {
+                    productDialogHelper.openProductNotFoundDialog();
+                    return;
+                  }
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(appLocalizations.product_refreshed),
+                      duration: const Duration(seconds: 2),
+                    ),
+                  );
+                  _product = product;
+                  await _updateHistory(context);
+                  break;
+                default:
+                  throw Exception('Unknown value: $value');
+              }
+            },
+          ),
+        ],
+      ),
+      body: widget.newProduct
+          ? _buildNewProductBody(context)
+          : _buildProductBody(context),
+    );
   }
 
   Future<void> _updateHistory(final BuildContext context) async {
@@ -201,36 +207,38 @@ class _ProductPageState extends State<ProductPage> {
 
   Widget _buildNewProductBody(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return ListView(children: <Widget>[
-      Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-        margin: const EdgeInsets.only(top: 20.0),
-        child: Text(
-          appLocalizations.add_product,
-          style: Theme.of(context).textTheme.headline1,
+    return ListView(
+      children: <Widget>[
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          margin: const EdgeInsets.only(top: 20.0),
+          child: Text(
+            appLocalizations.add_product,
+            style: Theme.of(context).textTheme.headline1,
+          ),
         ),
-      ),
-      ImageUploadCard(
-        product: _product,
-        imageField: ImageField.FRONT,
-        buttonText: appLocalizations.front_photo,
-      ),
-      ImageUploadCard(
-        product: _product,
-        imageField: ImageField.INGREDIENTS,
-        buttonText: appLocalizations.ingredients_photo,
-      ),
-      ImageUploadCard(
-        product: _product,
-        imageField: ImageField.NUTRITION,
-        buttonText: appLocalizations.nutrition_facts_photo,
-      ),
-      ImageUploadCard(
-        product: _product,
-        imageField: ImageField.OTHER,
-        buttonText: appLocalizations.more_photos,
-      ),
-    ]);
+        ImageUploadCard(
+          product: _product,
+          imageField: ImageField.FRONT,
+          buttonText: appLocalizations.front_photo,
+        ),
+        ImageUploadCard(
+          product: _product,
+          imageField: ImageField.INGREDIENTS,
+          buttonText: appLocalizations.ingredients_photo,
+        ),
+        ImageUploadCard(
+          product: _product,
+          imageField: ImageField.NUTRITION,
+          buttonText: appLocalizations.nutrition_facts_photo,
+        ),
+        ImageUploadCard(
+          product: _product,
+          imageField: ImageField.OTHER,
+          buttonText: appLocalizations.more_photos,
+        ),
+      ],
+    );
   }
 
   Widget _buildProductBody(BuildContext context) {
@@ -247,15 +255,17 @@ class _ProductPageState extends State<ProductPage> {
     final double iconHeight =
         screenSize.width / 10; // TODO(monsieurtanuki): target size?
     final Map<String, String> attributeGroupLabels = <String, String>{};
+    final List<String> attributeIds =
+        productPreferences.getOrderedImportantAttributeIds();
+
     for (final AttributeGroup attributeGroup
         in productPreferences.attributeGroups) {
       attributeGroupLabels[attributeGroup.id] = attributeGroup.name;
     }
-    final List<String> attributeIds =
-        productPreferences.getOrderedImportantAttributeIds();
-    final List<Widget> listItems = <Widget>[];
 
-    listItems.add(_buildProductImagesCarousel(context));
+    final List<Widget> listItems = <Widget>[
+      _buildProductImagesCarousel(context),
+    ];
 
     // Brands, quantity
     listItems.add(
