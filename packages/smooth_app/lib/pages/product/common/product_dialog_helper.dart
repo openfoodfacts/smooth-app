@@ -72,13 +72,13 @@ class ProductDialogHelper {
           leading: const CircularProgressIndicator(),
           title: Text(
             refresh
-                ? AppLocalizations.of(context).refreshing_product
-                : '${AppLocalizations.of(context).looking_for}: $barcode',
+                ? AppLocalizations.of(context)!.refreshing_product
+                : '${AppLocalizations.of(context)!.looking_for}: $barcode',
           ),
         ),
         actions: <SmoothSimpleButton>[
           SmoothSimpleButton(
-            text: AppLocalizations.of(context).stop,
+            text: AppLocalizations.of(context)!.stop,
             important: false,
             onPressed: () => _popSearchingDialog(null),
           ),
@@ -92,17 +92,17 @@ class ProductDialogHelper {
             close: false,
             body: Text(
               refresh
-                  ? AppLocalizations.of(context).could_not_refresh
-                  : '${AppLocalizations.of(context).no_product_found}: $barcode',
+                  ? AppLocalizations.of(context)!.could_not_refresh
+                  : '${AppLocalizations.of(context)!.no_product_found}: $barcode',
             ),
             actions: <SmoothSimpleButton>[
               SmoothSimpleButton(
-                text: AppLocalizations.of(context).close,
+                text: AppLocalizations.of(context)!.close,
                 important: false,
                 onPressed: () => Navigator.pop(context),
               ),
               SmoothSimpleButton(
-                text: AppLocalizations.of(context).contribute,
+                text: AppLocalizations.of(context)!.contribute,
                 important: true,
                 onPressed: () => Navigator.pop(
                     context), // TODO(monsieurtanuki): to be implemented

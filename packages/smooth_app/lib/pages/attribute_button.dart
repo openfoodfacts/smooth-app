@@ -41,11 +41,11 @@ class AttributeButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
     final String importanceId =
-        productPreferences.getImportanceIdForAttributeId(attribute.id);
+        productPreferences.getImportanceIdForAttributeId(attribute.id!);
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
-    final MaterialColor/*!*/ materialColor =
+    final MaterialColor materialColor =
         SmoothTheme.getMaterialColor(themeProvider);
-    final Color/*!*/ strongBackgroundColor = SmoothTheme.getColor(
+    final Color strongBackgroundColor = SmoothTheme.getColor(
       colorScheme,
       materialColor,
       ColorDestination.SURFACE_BACKGROUND,
@@ -55,16 +55,16 @@ class AttributeButton extends StatelessWidget {
       materialColor,
       ColorDestination.SURFACE_FOREGROUND,
     );
-    final Color foregroundColor =
+    final Color? foregroundColor =
         _getForegroundColor(strongForegroundColor, importanceId);
     return ListTile(
       tileColor: _getBackgroundColor(strongBackgroundColor, importanceId),
-      title: Text(attribute.name, style: TextStyle(color: foregroundColor)),
+      title: Text(attribute.name!, style: TextStyle(color: foregroundColor)),
       leading: SvgCache(attribute.iconUrl, width: 40),
-      trailing: _getIcon(importanceId, foregroundColor),
+      trailing: _getIcon(importanceId, foregroundColor!),
       onTap: () async => onTap(
         context: context,
-        attributeId: attribute.id,
+        attributeId: attribute.id!,
         productPreferences: productPreferences,
         themeProvider: themeProvider,
       ),
@@ -72,15 +72,15 @@ class AttributeButton extends StatelessWidget {
   }
 
   static Future<void> onTap({
-    @required final BuildContext context,
-    @required final String attributeId,
-    @required final ProductPreferences productPreferences,
-    @required final ThemeProvider themeProvider,
+    required final BuildContext context,
+    required final String attributeId,
+    required final ProductPreferences productPreferences,
+    required final ThemeProvider themeProvider,
   }) async {
-    final Attribute attribute =
+    final Attribute? attribute =
         productPreferences.getReferenceAttribute(attributeId);
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final String importanceId =
         productPreferences.getImportanceIdForAttributeId(attributeId);
     final MaterialColor materialColor =
@@ -97,8 +97,8 @@ class AttributeButton extends StatelessWidget {
     );
     final List<Widget> children = <Widget>[
       ListTile(
-        leading: SvgCache(attribute.iconUrl, width: 40),
-        title: Text(attribute.settingName),
+        leading: SvgCache(attribute!.iconUrl, width: 40),
+        title: Text(attribute.settingName!),
       ),
     ];
     final AttributeGroup attributeGroup =
@@ -114,7 +114,7 @@ class AttributeButton extends StatelessWidget {
           ),
           width: double.infinity,
           child: Text(
-            attributeGroup.warning,
+            attributeGroup.warning!,
             style: TextStyle(
               color: SmoothTheme.getColor(
                 colorScheme,
@@ -126,8 +126,8 @@ class AttributeButton extends StatelessWidget {
         ),
       );
     }
-    for (final String item in productPreferences.importanceIds) {
-      final Color/*!*/ foregroundColor =
+    for (final String item in productPreferences.importanceIds!) {
+      final Color? foregroundColor =
           _getForegroundColor(strongForegroundColor, item);
       children.add(
         ListTile(
@@ -137,8 +137,8 @@ class AttributeButton extends StatelessWidget {
               : Icon(Icons.radio_button_unchecked, color: foregroundColor),
           title: Text(
             productPreferences
-                .getPreferenceImportanceFromImportanceId(item)
-                .name,
+                .getPreferenceImportanceFromImportanceId(item)!
+                .name!,
             style: TextStyle(color: foregroundColor),
           ),
           onTap: () => Navigator.pop<String>(context, item),
@@ -146,7 +146,7 @@ class AttributeButton extends StatelessWidget {
         ),
       );
     }
-    final String result = await showDialog<String>(
+    final String? result = await showDialog<String>(
       context: context,
       builder: (final BuildContext context) => SmoothAlertDialog(
         body: Column(
@@ -168,26 +168,26 @@ class AttributeButton extends StatelessWidget {
     productPreferences.setImportance(attributeId, result);
   }
 
-  static Widget/*!*/ _getIcon(final String importanceId, final Color color) {
-    final String/*!*/ svgAsset = _IMPORTANCE_SVG_ASSETS[importanceId];
+  static Widget? _getIcon(final String importanceId, final Color? color) {
+    final String? svgAsset = _IMPORTANCE_SVG_ASSETS[importanceId];
     if (svgAsset == null) {
       return null;
     }
     return SvgPicture.asset(svgAsset, color: color, height: 32);
   }
 
-  static Color/*!*/ _getBackgroundColor(
+  static Color? _getBackgroundColor(
     final Color strongBackgroundColor,
     final String importanceId,
   ) {
-    final double/*!*/ opacity = _IMPORTANCE_OPACITIES[importanceId];
+    final double? opacity = _IMPORTANCE_OPACITIES[importanceId]!;
     if (opacity == null) {
       return null;
     }
     return strongBackgroundColor.withOpacity(opacity);
   }
 
-  static Color/*!*/ _getForegroundColor(
+  static Color? _getForegroundColor(
     final Color strongForegroundColor,
     final String importanceId,
   ) =>

@@ -25,7 +25,7 @@ class ContinuousScanPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final ThemeData themeData = Theme.of(context);
     return ChangeNotifierProvider<ContinuousScanModel>.value(
       value: _continuousScanModel,
@@ -128,7 +128,7 @@ class ContinuousScanPage extends StatelessWidget {
                               EdgeInsets.only(top: screenSize.height * 0.08),
                           child: Text(
                             appLocalizations.scannerProductsEmpty,
-                            style: themeData.textTheme.subtitle1
+                            style: themeData.textTheme.subtitle1!
                                 .copyWith(color: Colors.white),
                             textAlign: TextAlign.center,
                           ),

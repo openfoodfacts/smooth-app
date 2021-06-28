@@ -79,6 +79,6 @@ class UserPreferences extends ChangeNotifier {
   Future<void> setThemeColorTag(final String colorTag) async =>
       await _sharedPreferences.setString(_TAG_THEME_COLOR_TAG, colorTag);
 
-  String? get themeColorTag =>
-      _sharedPreferences.getString(_TAG_THEME_COLOR_TAG);
+  String get themeColorTag =>
+      _sharedPreferences.getString(_TAG_THEME_COLOR_TAG) ?? 'COLOR_TAG_BLUE';
 }

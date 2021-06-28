@@ -22,16 +22,16 @@ import 'package:smooth_app/themes/constant_icons.dart';
 
 class ProductQueryPage extends StatefulWidget {
   const ProductQueryPage({
-    @required this.productListSupplier,
-    @required this.heroTag,
-    @required this.mainColor,
-    @required this.name,
+    required this.productListSupplier,
+    required this.heroTag,
+    required this.mainColor,
+    required this.name,
     this.lastUpdate,
   });
 
   final ProductListSupplier productListSupplier;
   final String heroTag;
-  final Color/*!*/ mainColor;
+  final Color mainColor;
   final String name;
   final int lastUpdate;
 
@@ -103,7 +103,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
               _getEmptyText(
                 themeData,
                 widget.mainColor,
-                AppLocalizations.of(context).no_product_found,
+                AppLocalizations.of(context)!.no_product_found,
               ),
             );
           case LoadingStatus.ERROR:
@@ -113,7 +113,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
               _getEmptyText(
                 themeData,
                 widget.mainColor,
-                '${AppLocalizations.of(context).error_occurred}: ${_model.loadingError}',
+                '${AppLocalizations.of(context)!.error_occurred}: ${_model.loadingError}',
               ),
             );
         }
@@ -170,7 +170,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                     color: widget.mainColor,
                   ),
                   label: Text(
-                    AppLocalizations.of(context).myPersonalizedRanking,
+                    AppLocalizations.of(context)!.myPersonalizedRanking,
                     style: TextStyle(color: widget.mainColor),
                   ),
                   backgroundColor: Colors.white,
@@ -227,7 +227,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                           Icons.filter_list,
                           color: widget.mainColor,
                         ),
-                        label: Text(AppLocalizations.of(context).filter),
+                        label: Text(AppLocalizations.of(context)!.filter),
                         style: TextButton.styleFrom(
                           textStyle: TextStyle(
                             color: widget.mainColor,
@@ -286,7 +286,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                             child: Text(
                               widget.name,
                               textAlign: TextAlign.center,
-                              style: themeData.textTheme.headline1
+                              style: themeData.textTheme.headline1!
                                   .copyWith(color: widget.mainColor),
                             )),
                       ),
@@ -309,7 +309,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
           Flexible(
             child: Text(message,
                 textAlign: TextAlign.center,
-                style: themeData.textTheme.subtitle1
+                style: themeData.textTheme.subtitle1!
                     .copyWith(color: color, fontSize: 18.0)),
           ),
         ],
@@ -328,7 +328,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
         ProductQueryPageHelper.getDurationStringFromTimestamp(
             _lastUpdate, context);
     final String message =
-        '${AppLocalizations.of(context).chached_results_from} $lastTime';
+        '${AppLocalizations.of(context)!.chached_results_from} $lastTime';
     _lastUpdate = null;
 
     Future<void>.delayed(
@@ -338,7 +338,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
           content: Text(message),
           duration: const Duration(seconds: 5),
           action: SnackBarAction(
-            label: AppLocalizations.of(context).label_refresh,
+            label: AppLocalizations.of(context)!.label_refresh,
             onPressed: () => setState(
               () => _model = ProductQueryModel(refreshSupplier),
             ),

@@ -5,9 +5,9 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class SmoothProductCardLoading extends StatelessWidget {
-  const SmoothProductCardLoading({@required this.barcode});
+  const SmoothProductCardLoading({required this.barcode});
 
-  final String/*!*/ barcode;
+  final String barcode;
 
   @override
   Widget build(BuildContext context) {

@@ -44,11 +44,11 @@ class SmoothTheme {
         case ColorDestination.APP_BAR_BACKGROUND:
         case ColorDestination.SURFACE_FOREGROUND:
         case ColorDestination.BUTTON_BACKGROUND:
-          return materialColor[800];
+          return materialColor[800]!;
         case ColorDestination.APP_BAR_FOREGROUND:
         case ColorDestination.SURFACE_BACKGROUND:
         case ColorDestination.BUTTON_FOREGROUND:
-          return materialColor[100];
+          return materialColor[100]!;
       }
     }
     switch (colorDestination) {
@@ -56,11 +56,11 @@ class SmoothTheme {
         return null;
       case ColorDestination.SURFACE_BACKGROUND:
       case ColorDestination.BUTTON_BACKGROUND:
-        return materialColor[900].withOpacity(ADDITIONAL_OPACITY_FOR_DARK);
+        return materialColor[900]!.withOpacity(ADDITIONAL_OPACITY_FOR_DARK);
       case ColorDestination.APP_BAR_FOREGROUND:
       case ColorDestination.SURFACE_FOREGROUND:
       case ColorDestination.BUTTON_FOREGROUND:
-        return materialColor[100];
+        return materialColor[100]!;
     }
     throw Exception(
       'unknown brightness / destination:'

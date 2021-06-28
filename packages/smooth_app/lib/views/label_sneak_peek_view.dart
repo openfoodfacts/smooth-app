@@ -137,7 +137,7 @@ class LabelSneakPeekView extends StatelessWidget {
                                   'Close',
                                   style: Theme.of(context)
                                       .textTheme
-                                      .headline4
+                                      .headline4!
                                       .copyWith(color: Colors.redAccent),
                                 ),
                               ),
@@ -157,7 +157,7 @@ class LabelSneakPeekView extends StatelessWidget {
                                   'Learn more',
                                   style: Theme.of(context)
                                       .textTheme
-                                      .headline4
+                                      .headline4!
                                       .copyWith(color: Colors.lightBlue),
                                 ),
                               ),

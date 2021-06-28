@@ -73,7 +73,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
     _model.refresh(widget.productList, productPreferences);
     final List<BottomNavigationBarItem> bottomNavigationBarItems =
         <BottomNavigationBarItem>[];
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     for (final int matchIndex in _ORDERED_MATCH_INDEXES) {
       bottomNavigationBarItems.add(
         BottomNavigationBarItem(

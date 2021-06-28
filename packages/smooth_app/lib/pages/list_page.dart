@@ -10,8 +10,8 @@ import 'package:smooth_app/pages/product/common/product_list_dialog_helper.dart'
 
 class ListPage extends StatefulWidget {
   const ListPage({
-    @required this.title,
-    @required this.typeFilter,
+    required this.title,
+    required this.typeFilter,
   });
 
   final String title;

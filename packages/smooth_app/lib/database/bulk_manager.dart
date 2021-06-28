@@ -20,9 +20,9 @@ class BulkManager {
 
   /// Optimized bulk insert
   Future<void> insert({
-    @required final BulkInsertable bulkInsertable,
-    @required final List<dynamic> parameters,
-    @required final DatabaseExecutor databaseExecutor,
+    required final BulkInsertable bulkInsertable,
+    required final List<dynamic> parameters,
+    required final DatabaseExecutor databaseExecutor,
   }) async {
     final String tableName = bulkInsertable.getTableName();
     final List<String> columnNames = bulkInsertable.getInsertColumns();
@@ -52,9 +52,9 @@ class BulkManager {
 
   /// Optimized bulk delete
   Future<void> delete({
-    @required final BulkDeletable bulkDeletable,
-    @required final List<dynamic> parameters,
-    @required final DatabaseExecutor databaseExecutor,
+    required final BulkDeletable bulkDeletable,
+    required final List<dynamic> parameters,
+    required final DatabaseExecutor databaseExecutor,
     final List<dynamic> additionalParameters,
   }) async {
     final String tableName = bulkDeletable.getTableName();
@@ -62,11 +62,11 @@ class BulkManager {
       return;
     }
     final int maxSlice =
-        _SQLITE_MAX_VARIABLE_NUMBER - (additionalParameters?.length ?? 0);
+        _SQLITE_MAX_VARIABLE_NUMBER - (additionalParameters.length);
     for (int start = 0; start < parameters.length; start += maxSlice) {
       final int size = min(parameters.length - start, maxSlice);
       final List<dynamic> currentParameters = <dynamic>[];
-      if (additionalParameters != null && additionalParameters.isNotEmpty) {
+      if (additionalParameters.isNotEmpty) {
         currentParameters.addAll(additionalParameters);
       }
       currentParameters.addAll(parameters.sublist(start, start + size));

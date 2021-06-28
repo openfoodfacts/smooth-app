@@ -8,7 +8,7 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 
 /// A dialog helper for pantries
 class PantryDialogHelper {
-  static Future<bool/*!*/> openDelete(
+  static Future<bool> openDelete(
     final BuildContext context,
     final List<Pantry> pantries,
     final int index,
@@ -19,17 +19,17 @@ class PantryDialogHelper {
           close: false,
           body: Text(
             pantries[index].pantryType == PantryType.PANTRY
-                ? AppLocalizations.of(context).want_to_delete_pantry
-                : AppLocalizations.of(context).want_to_delete_shopping,
+                ? AppLocalizations.of(context)!.want_to_delete_pantry
+                : AppLocalizations.of(context)!.want_to_delete_shopping,
           ),
           actions: <SmoothSimpleButton>[
             SmoothSimpleButton(
-              text: AppLocalizations.of(context).no,
+              text: AppLocalizations.of(context)!.no,
               important: false,
               onPressed: () => Navigator.pop(context, false),
             ),
             SmoothSimpleButton(
-              text: AppLocalizations.of(context).yes,
+              text: AppLocalizations.of(context)!.yes,
               important: true,
               onPressed: () async {
                 pantries.removeAt(index);
@@ -48,7 +48,7 @@ class PantryDialogHelper {
   ) async {
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
     Pantry newPantry;
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     return await showDialog<Pantry>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
@@ -120,11 +120,11 @@ class PantryDialogHelper {
 
   static Future<bool> openRename(
     final BuildContext context,
-    final List<Pantry/*!*/> pantries,
+    final List<Pantry> pantries,
     final int index,
   ) async {
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     return await showDialog<bool>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
@@ -191,7 +191,7 @@ class PantryDialogHelper {
 
   static Future<bool> openChangeIcon(
     final BuildContext context,
-    final List<Pantry/*!*/> pantries,
+    final List<Pantry> pantries,
     final int index,
   ) async {
     final Pantry pantry = pantries[index];
@@ -202,7 +202,7 @@ class PantryDialogHelper {
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
         close: false,
-        title: AppLocalizations.of(context).change_icon,
+        title: AppLocalizations.of(context)!.change_icon,
         body: Container(
           width: orderedColors.length.toDouble() * size,
           height: orderedIcons.length.toDouble() * size,
@@ -235,7 +235,7 @@ class PantryDialogHelper {
         ),
         actions: <SmoothSimpleButton>[
           SmoothSimpleButton(
-            text: AppLocalizations.of(context).cancel,
+            text: AppLocalizations.of(context)!.cancel,
             onPressed: () => Navigator.pop(context, false),
             important: false,
           ),

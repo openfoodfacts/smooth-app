@@ -9,8 +9,8 @@ class AttributeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String description =
-        attribute.descriptionShort ?? attribute.description ?? '';
+    final String? description =
+        attribute.descriptionShort ?? attribute.description;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -21,10 +21,10 @@ class AttributeCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                attribute.title,
+                attribute.title ?? '',
                 style: Theme.of(context).textTheme.headline3,
               ),
-              if (description != null && description != '')
+              if (description != null)
                 Text(
                   description,
                   style: Theme.of(context).textTheme.subtitle2,

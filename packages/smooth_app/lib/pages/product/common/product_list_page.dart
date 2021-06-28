@@ -24,14 +24,14 @@ class ProductListPage extends StatefulWidget {
 }
 
 class _ProductListPageState extends State<ProductListPage> {
-  ProductList productList;
+  late ProductList productList;
 
   @override
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     productList ??= widget.productList;
     final List<Product> products = productList.getList();
     final Map<String, ProductExtra> productExtras = productList.productExtras;

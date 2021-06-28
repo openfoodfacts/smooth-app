@@ -13,10 +13,10 @@ import 'package:smooth_app/pages/attribute_button.dart';
 
 class AttributeListExpandable extends StatelessWidget {
   const AttributeListExpandable({
-    @required this.product,
-    @required this.iconHeight,
-    @required this.attributes,
-    this.title,
+    required this.product,
+    required this.iconHeight,
+    required this.attributes,
+    required this.title,
     this.collapsible = true,
     this.background,
     this.padding,
@@ -26,29 +26,29 @@ class AttributeListExpandable extends StatelessWidget {
 
   final Product product;
   final double iconHeight;
-  final List<Attribute/*!*/> attributes;
+  final List<Attribute> attributes;
   final String title;
   final bool collapsible;
-  final Color background;
-  final EdgeInsets padding;
-  final EdgeInsets insets;
+  final Color? background;
+  final EdgeInsets? padding;
+  final EdgeInsets? insets;
   final bool initiallyCollapsed;
 
   static List<Attribute> getPopulatedAttributes(
     final Product product,
     final List<String> attributeIds,
   ) {
-    final List<Attribute/*!*/> result = <Attribute/*!*/>[];
+    final List<Attribute> result = <Attribute>[];
     final Map<String, Attribute> attributes =
         product.getAttributes(attributeIds);
     for (final String attributeId in attributeIds) {
-      Attribute attribute = attributes[attributeId];
+      Attribute? attribute = attributes[attributeId];
       // Some attributes selected in the user preferences might be unavailable for some products
       if (attribute == null) {
         continue;
       } else if (attribute.id == Attribute.ATTRIBUTE_ADDITIVES) {
         // TODO(stephanegigandet): remove that cheat when additives are more standard
-        final List<String> additiveNames = product.additives?.names;
+        final List<String>? additiveNames = product.additives?.names;
         attribute = Attribute(
           id: attribute.id,
           title: attribute.title,
@@ -81,7 +81,7 @@ class AttributeListExpandable extends StatelessWidget {
         InkWell(
           onTap: () async => AttributeButton.onTap(
             context: context,
-            attributeId: attribute.id,
+            attributeId: attribute.id!, //Can cause errors
             productPreferences: productPreferences,
             themeProvider: themeProvider,
           ),
@@ -101,7 +101,7 @@ class AttributeListExpandable extends StatelessWidget {
         InkWell(
           onTap: () async => AttributeButton.onTap(
             context: context,
-            attributeId: attribute.id,
+            attributeId: attribute.id!, //Can cause errors
             productPreferences: productPreferences,
             themeProvider: themeProvider,
           ),
@@ -165,17 +165,17 @@ class AttributeListExpandable extends StatelessWidget {
   }
 
   static Color _getBackgroundColor(final Attribute attribute) {
-    if (attribute.status == Attribute.STATUS_KNOWN) {
-      if (attribute.match <= 20) {
+    if (attribute.status == Attribute.STATUS_KNOWN && attribute.match != null) {
+      if (attribute.match! <= 20) {
         return const HSLColor.fromAHSL(1, 0, 1, .9).toColor();
       }
-      if (attribute.match <= 40) {
+      if (attribute.match! <= 40) {
         return const HSLColor.fromAHSL(1, 30, 1, .9).toColor();
       }
-      if (attribute.match <= 60) {
+      if (attribute.match! <= 60) {
         return const HSLColor.fromAHSL(1, 60, 1, .9).toColor();
       }
-      if (attribute.match <= 80) {
+      if (attribute.match! <= 80) {
         return const HSLColor.fromAHSL(1, 90, 1, .9).toColor();
       }
       return const HSLColor.fromAHSL(1, 120, 1, .9).toColor();

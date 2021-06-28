@@ -15,7 +15,7 @@ import 'package:smooth_app/pages/scan/continuous_scan_page.dart';
 
 class ScanPage extends StatelessWidget {
   const ScanPage({
-    @required this.contributionMode,
+    required this.contributionMode,
   });
 
   final bool contributionMode;
@@ -45,8 +45,8 @@ class ScanPage extends StatelessWidget {
           final ContinuousScanModel model, BuildContext context) =>
       SmoothToggle(
         value: model.contributionMode,
-        textLeft: '${AppLocalizations.of(context).scan_contribute}   ',
-        textRight: '     ${AppLocalizations.of(context).scan_choose}',
+        textLeft: '${AppLocalizations.of(context)!.scan_contribute}   ',
+        textRight: '     ${AppLocalizations.of(context)!.scan_choose}',
         colorLeft: Colors.black.withAlpha(160),
         colorRight: Colors.black.withAlpha(160),
         iconLeft: SvgPicture.asset('assets/ikonate_bold/add.svg'),

@@ -18,7 +18,7 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 
 class SmoothProductCarousel extends StatefulWidget {
   const SmoothProductCarousel({
-    @required this.continuousScanModel,
+    required this.continuousScanModel,
     this.height = 120.0,
   });
 
@@ -66,7 +66,7 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
   }
 
   Widget _getWidget(
-    final String/*!*/ barcode,
+    final String barcode,
     final ProductPreferences productPreferences,
   ) {
     final Product product = widget.continuousScanModel.getProduct(barcode);

@@ -12,8 +12,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 /// Local product search by text
 class TextSearchWidget extends StatefulWidget {
   const TextSearchWidget({
-    @required this.color,
-    @required this.daoProduct,
+    required this.color,
+    required this.daoProduct,
     this.addProductCallback,
   });
 
@@ -36,7 +36,7 @@ class _TextSearchWidgetState extends State<TextSearchWidget> {
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     return SmoothCard(
       child: TypeAheadField<Product>(
         textFieldConfiguration: TextFieldConfiguration(
@@ -77,7 +77,7 @@ class _TextSearchWidgetState extends State<TextSearchWidget> {
             hintText: appLocalizations.what_are_you_looking_for,
             hintStyle: Theme.of(context)
                 .textTheme
-                .subtitle1
+                .subtitle1!
                 .copyWith(fontWeight: FontWeight.w300),
           ),
         ),
@@ -85,7 +85,7 @@ class _TextSearchWidgetState extends State<TextSearchWidget> {
         hideOnLoading: true,
         suggestionsCallback: (String value) async => _search(value),
         transitionBuilder: (BuildContext context, Widget suggestionsBox,
-                AnimationController controller) =>
+                AnimationController? controller) =>
             suggestionsBox,
         itemBuilder: (BuildContext context, Product suggestion) => Container(
           height: screenSize.height / 10,

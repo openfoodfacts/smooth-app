@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
     _daoProduct = DaoProduct(localDatabase);
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final Size screenSize = MediaQuery.of(context).size;
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final MaterialColor materialColor =
@@ -551,7 +551,7 @@ class _HomePageState extends State<HomePage> {
           ),
           label: Text(
             'Scan and compare products',
-            style: themeData.textTheme.headline3.copyWith(
+            style: themeData.textTheme.headline3!.copyWith(
               color: SmoothTheme.getColor(
                 themeData.colorScheme,
                 materialColor,
@@ -608,7 +608,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     label: Flexible(
                       child: Text(
-                        AppLocalizations.of(context).myPreferences,
+                        AppLocalizations.of(context)!.myPreferences,
                         style: TextStyle(
                           color: SmoothTheme.getColor(
                             themeData.colorScheme,

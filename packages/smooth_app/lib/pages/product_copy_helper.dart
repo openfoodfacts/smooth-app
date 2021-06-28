@@ -15,11 +15,11 @@ import 'package:smooth_app/pages/pantry/common/pantry_dialog_helper.dart';
 /// Helper for product copy as multi selected
 class ProductCopyHelper {
   Future<List<Widget>> getButtons({
-    @required final BuildContext context,
-    @required final DaoProductList daoProductList,
-    @required final DaoProduct daoProduct,
-    @required final Map<PantryType, List<Pantry>> allPantries,
-    @required final UserPreferences userPreferences,
+    required final BuildContext context,
+    required final DaoProductList daoProductList,
+    required final DaoProduct daoProduct,
+    required final Map<PantryType, List<Pantry>> allPantries,
+    required final UserPreferences userPreferences,
     final ProductList ignoredProductList,
     final Pantry ignoredPantry,
   }) async {
@@ -104,12 +104,12 @@ class ProductCopyHelper {
   }
 
   Future<void> copy({
-    @required final BuildContext context,
-    @required dynamic target,
-    @required final Map<PantryType, List<Pantry>> allPantries,
-    @required final DaoProductList daoProductList,
-    @required final List<Product> products,
-    @required final UserPreferences userPreferences,
+    required final BuildContext context,
+    required dynamic target,
+    required final Map<PantryType, List<Pantry>> allPantries,
+    required final DaoProductList daoProductList,
+    required final List<Product> products,
+    required final UserPreferences userPreferences,
   }) async {
     int count; // late
     Widget Function(BuildContext) go; // late

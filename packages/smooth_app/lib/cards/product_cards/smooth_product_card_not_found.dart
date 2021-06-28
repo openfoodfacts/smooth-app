@@ -11,12 +11,12 @@ import 'package:smooth_app/pages/product/product_page.dart';
 
 class SmoothProductCardNotFound extends StatelessWidget {
   const SmoothProductCardNotFound({
-    @required this.product,
+    required this.product,
     this.callback,
     this.elevation = 0.0,
   });
 
-  final Function callback;
+  final Function? callback;
   final double elevation;
   final Product product;
 
@@ -34,11 +34,14 @@ class SmoothProductCardNotFound extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(AppLocalizations.of(context).missing_product),
+            Text(AppLocalizations.of(context)!.missing_product),
             const SizedBox(
               height: 12.0,
             ),
-            Text(product.barcode, style: Theme.of(context).textTheme.subtitle1),
+            Text(
+              product.barcode ?? 'Unknown',
+              style: Theme.of(context).textTheme.subtitle1,
+            ),
             const SizedBox(
               height: 12.0,
             ),
@@ -47,7 +50,7 @@ class SmoothProductCardNotFound extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 SmoothSimpleButton(
-                  text: AppLocalizations.of(context).add,
+                  text: AppLocalizations.of(context)!.add,
                   minWidth: 100.0,
                   onPressed: () {
                     Navigator.push<Widget>(
@@ -59,9 +62,10 @@ class SmoothProductCardNotFound extends StatelessWidget {
                         ),
                       ),
                     );
-                    callback();
+                    if (callback != null) {
+                      callback!();
+                    }
                   },
-                  //onLongPress: () => ProductPage.showLists(product, context),
                 ),
               ],
             ),

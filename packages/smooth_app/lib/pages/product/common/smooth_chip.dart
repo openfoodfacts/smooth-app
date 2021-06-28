@@ -4,7 +4,7 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 /// Typical action button for Smoothie
 class SmoothChip extends StatelessWidget {
   const SmoothChip({
-    @required this.onPressed,
+    required this.onPressed,
     this.iconData,
     this.label,
     this.materialColor,

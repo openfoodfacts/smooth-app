@@ -24,7 +24,7 @@ class UserPreferencesPage extends StatelessWidget {
         productPreferences.getOrderedImportantAttributeIds();
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context).myPreferences),
+        title: Text(AppLocalizations.of(context)!.myPreferences),
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.refresh),

@@ -10,11 +10,11 @@ import 'package:smooth_app/pages/product/product_page.dart';
 
 class ProductListPreviewHelper extends StatelessWidget {
   const ProductListPreviewHelper({
-    @required this.list,
-    @required this.iconSize,
+    required this.list,
+    required this.iconSize,
   });
 
-  final List<Product>/*!*/ list;
+  final List<Product> list;
   final double iconSize;
 
   static const double _PREVIEW_SPACING = 8.0;

@@ -20,7 +20,7 @@ class PantryPage extends StatefulWidget {
     this.pantry,
   }) : pantryType = pantry.pantryType;
 
-  final List<Pantry /*!*/ > pantries;
+  final List<Pantry> pantries;
   final Pantry pantry;
   final PantryType pantryType;
 
@@ -51,7 +51,7 @@ class _PantryPageState extends State<PantryPage> {
     final DaoProduct daoProduct = DaoProduct(localDatabase);
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
     const TextStyle textStyle = TextStyle(fontSize: 16);
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final List<String> orderedBarcodes = widget.pantry.getOrderedBarcodes();
     return Scaffold(
       appBar: AppBar(
@@ -245,14 +245,14 @@ class _PantryPageState extends State<PantryPage> {
       Pantry.putAll(userPreferences, widget.pantries, widget.pantryType);
 
   Widget _getPantryDayLine({
-    @required final Pantry pantry,
-    @required final UserPreferences userPreferences,
-    @required final String barcode,
-    @required final String day,
-    @required final String now,
-    @required final TextStyle textStyle,
-    @required final Map<String, int> dates,
-    @required final BuildContext context,
+    required final Pantry pantry,
+    required final UserPreferences userPreferences,
+    required final String barcode,
+    required final String day,
+    required final String now,
+    required final TextStyle textStyle,
+    required final Map<String, int> dates,
+    required final BuildContext context,
   }) =>
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -278,7 +278,7 @@ class _PantryPageState extends State<PantryPage> {
             ],
           ),
           Text(
-            day != _EMPTY_DATE ? day : AppLocalizations.of(context).no_date,
+            day != _EMPTY_DATE ? day : AppLocalizations.of(context)!.no_date,
             style: textStyle,
           ),
           Container(
@@ -294,14 +294,14 @@ class _PantryPageState extends State<PantryPage> {
       );
 
   void _addPantryLines({
-    @required final List<Widget> children,
-    @required final Pantry pantry,
-    @required final UserPreferences userPreferences,
-    @required final String barcode,
-    @required final TextStyle textStyle,
-    @required final Map<String, int> dates,
-    @required final ColorScheme colorScheme,
-    @required final BuildContext context,
+    required final List<Widget> children,
+    required final Pantry pantry,
+    required final UserPreferences userPreferences,
+    required final String barcode,
+    required final TextStyle textStyle,
+    required final Map<String, int> dates,
+    required final ColorScheme colorScheme,
+    required final BuildContext context,
   }) {
     final String now = DateTime.now().toIso8601String();
     final List<String> sortedDays = <String>[...dates.keys];
@@ -323,7 +323,7 @@ class _PantryPageState extends State<PantryPage> {
     }
     final Widget dateButton = ElevatedButton(
       onPressed: () async {
-        final DateTime dateTime = await showDatePicker(
+        final DateTime? dateTime = await showDatePicker(
           context: context,
           initialDate: DateTime.now(),
           firstDate: DateTime.now(),
@@ -337,14 +337,14 @@ class _PantryPageState extends State<PantryPage> {
         pantry.increaseItem(barcode, date, 1);
         await _save(userPreferences);
       },
-      child: Text(AppLocalizations.of(context).add_date, style: textStyle),
+      child: Text(AppLocalizations.of(context)!.add_date, style: textStyle),
     );
     final Widget noDateButton = ElevatedButton(
       onPressed: () async {
         pantry.increaseItem(barcode, _EMPTY_DATE, 1);
         await _save(userPreferences);
       },
-      child: Text(AppLocalizations.of(context).no_date, style: textStyle),
+      child: Text(AppLocalizations.of(context)!.no_date, style: textStyle),
     );
     children.add(
       ListTile(
@@ -362,13 +362,13 @@ class _PantryPageState extends State<PantryPage> {
   }
 
   void _addShoppingLines({
-    @required final List<Widget> children,
-    @required final Pantry pantry,
-    @required final UserPreferences userPreferences,
-    @required final String barcode,
-    @required final int count,
-    @required final TextStyle textStyle,
-    @required final ColorScheme colorScheme,
+    required final List<Widget> children,
+    required final Pantry pantry,
+    required final UserPreferences userPreferences,
+    required final String barcode,
+    required final int count,
+    required final TextStyle textStyle,
+    required final ColorScheme colorScheme,
   }) =>
       children.add(
         Row(

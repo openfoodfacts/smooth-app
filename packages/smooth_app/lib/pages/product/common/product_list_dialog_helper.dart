@@ -7,7 +7,7 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 class ProductListDialogHelper {
-  static Future<bool/*!*/> openDelete(
+  static Future<bool> openDelete(
     final BuildContext context,
     final DaoProductList daoProductList,
     final ProductList productList,
@@ -16,15 +16,15 @@ class ProductListDialogHelper {
         context: context,
         builder: (BuildContext context) => SmoothAlertDialog(
           close: false,
-          body: Text(AppLocalizations.of(context).want_to_delete_list),
+          body: Text(AppLocalizations.of(context)!.want_to_delete_list),
           actions: <SmoothSimpleButton>[
             SmoothSimpleButton(
-              text: AppLocalizations.of(context).no,
+              text: AppLocalizations.of(context)!.no,
               important: false,
               onPressed: () => Navigator.pop(context, false),
             ),
             SmoothSimpleButton(
-              text: AppLocalizations.of(context).yes,
+              text: AppLocalizations.of(context)!.yes,
               important: true,
               onPressed: () async {
                 await daoProductList.delete(productList);
@@ -35,14 +35,14 @@ class ProductListDialogHelper {
         ),
       );
 
-  static Future<ProductList/*!*/> openNew(
+  static Future<ProductList> openNew(
     final BuildContext context,
     final DaoProductList daoProductList,
     final List<ProductList> list,
   ) async {
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
     ProductList newProductList;
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     return await showDialog<ProductList>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
@@ -110,7 +110,7 @@ class ProductListDialogHelper {
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
     final List<ProductList> list =
         await daoProductList.getAll(withStats: false);
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     ProductList newProductList;
     return await showDialog<ProductList>(
       context: context,
@@ -156,7 +156,7 @@ class ProductListDialogHelper {
             important: false,
           ),
           SmoothSimpleButton(
-            text: AppLocalizations.of(context).okay,
+            text: AppLocalizations.of(context)!.okay,
             onPressed: () async {
               if (!formKey.currentState.validate()) {
                 return;
@@ -183,7 +183,7 @@ class ProductListDialogHelper {
   ) async {
     final List<String> orderedIcons = productList.getPossibleIcons();
     final double size = MediaQuery.of(context).size.width / 8;
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     return await showDialog<bool>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(

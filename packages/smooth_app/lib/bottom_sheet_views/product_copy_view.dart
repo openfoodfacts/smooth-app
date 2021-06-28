@@ -6,7 +6,7 @@ import 'package:smooth_app/pages/product/common/product_list_button.dart';
 ///The ModalBottomSheet to choose where to copy/add products to
 class ProductCopyView extends StatelessWidget {
   const ProductCopyView({
-    @required this.children,
+    required this.children,
   });
 
   final List<Widget> children;

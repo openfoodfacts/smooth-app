@@ -2,7 +2,8 @@
 import 'package:flutter/material.dart';
 
 class CategoryChip extends StatelessWidget {
-  const CategoryChip({@required this.title, @required this.color, this.onTap});
+  const CategoryChip(
+      {required this.title, required this.color, required this.onTap});
 
   final String title;
   final Color color;
@@ -28,7 +29,7 @@ class CategoryChip extends StatelessWidget {
               child: Text(title,
                   style: Theme.of(context)
                       .textTheme
-                      .headline4
+                      .headline4!
                       .copyWith(color: Colors.white)),
             ),
           ),

@@ -13,8 +13,8 @@ import 'package:smooth_app/pages/product/product_page.dart';
 
 class SmoothProductCardFound extends StatelessWidget {
   const SmoothProductCardFound({
-    @required this.product,
-    @required this.heroTag,
+    required this.product,
+    required this.heroTag,
     this.elevation = 0.0,
     this.useNewStyle = true,
     this.backgroundColor,
@@ -23,14 +23,14 @@ class SmoothProductCardFound extends StatelessWidget {
     this.refresh,
   });
 
-  final Product/*!*/ product;
-  final String/*!*/ heroTag;
+  final Product product;
+  final String heroTag;
   final double elevation;
   final bool useNewStyle;
-  final Color backgroundColor;
-  final Widget handle;
-  final Function onLongPress;
-  final Function refresh;
+  final Color? backgroundColor;
+  final Widget? handle;
+  final Function? onLongPress;
+  final Function? refresh;
 
   @override
   Widget build(BuildContext context) {
@@ -55,14 +55,14 @@ class SmoothProductCardFound extends StatelessWidget {
     }
     String productTitle;
     if (product.productName != null) {
-      productTitle = product.productName;
+      productTitle = product.productName!;
       if (product.brands != null) {
-        productTitle += ' - ' + product.brands;
+        productTitle += ' - ' + product.brands!;
       }
     } else if (product.brands != null) {
-      productTitle = product.brands;
+      productTitle = product.brands!;
     } else {
-      productTitle = product.barcode;
+      productTitle = product.barcode!;
     }
     return GestureDetector(
       onTap: () async {
@@ -73,10 +73,10 @@ class SmoothProductCardFound extends StatelessWidget {
           ),
         );
         if (refresh != null) {
-          await refresh();
+          await refresh!();
         }
       },
-      onLongPress: () => onLongPress == null ? null : onLongPress(),
+      onLongPress: () => onLongPress,
       child: Hero(
         tag: heroTag,
         child: Material(
@@ -124,7 +124,7 @@ class SmoothProductCardFound extends StatelessWidget {
                                     overflow: TextOverflow.fade,
                                   ),
                                 ),
-                                if (handle != null) handle,
+                                if (handle != null) handle!,
                               ],
                             ),
                             Container(
@@ -196,7 +196,7 @@ class SmoothProductCardFound extends StatelessWidget {
                               children: <Widget>[
                                 Flexible(
                                   child: Text(
-                                    product.productName,
+                                    product.productName ?? 'Unknown',
                                     maxLines: 3,
                                     overflow: TextOverflow.fade,
                                     style: const TextStyle(
@@ -210,7 +210,7 @@ class SmoothProductCardFound extends StatelessWidget {
                                 Flexible(
                                   child: Text(
                                     product.brands ??
-                                        AppLocalizations.of(context)
+                                        AppLocalizations.of(context)!
                                             .unknownBrand,
                                     maxLines: 1,
                                     overflow: TextOverflow.fade,
@@ -234,7 +234,7 @@ class SmoothProductCardFound extends StatelessWidget {
                                         )
                                       : Center(
                                           child: Text(
-                                            AppLocalizations.of(context)
+                                            AppLocalizations.of(context)!
                                                 .nutri_score_unavailable,
                                             style: Theme.of(context)
                                                 .textTheme

@@ -40,7 +40,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product.dart';
 
 class ProductPage extends StatefulWidget {
-  const ProductPage({@required this.product, this.newProduct = false});
+  const ProductPage({required this.product, this.newProduct = false});
 
   final bool newProduct;
   final Product product;
@@ -50,7 +50,7 @@ class ProductPage extends StatefulWidget {
 }
 
 class _ProductPageState extends State<ProductPage> {
-  Product/*!*/ _product;
+  Product _product;
 
   final EdgeInsets padding = const EdgeInsets.only(
     right: 8.0,
@@ -79,7 +79,7 @@ class _ProductPageState extends State<ProductPage> {
   @override
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     _product ??= widget.product;
     return Scaffold(
       appBar: AppBar(
@@ -148,7 +148,7 @@ class _ProductPageState extends State<ProductPage> {
   }
 
   Widget _buildProductImagesCarousel(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final List<ImageUploadCard> carouselItems = <ImageUploadCard>[
       ImageUploadCard(
         product: _product,
@@ -206,7 +206,7 @@ class _ProductPageState extends State<ProductPage> {
   }
 
   Widget _buildNewProductBody(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     return ListView(
       children: <Widget>[
         Container(
@@ -249,7 +249,7 @@ class _ProductPageState extends State<ProductPage> {
     final DaoProductExtra daoProductExtra = DaoProductExtra(localDatabase);
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final Size screenSize = MediaQuery.of(context).size;
     final ThemeData themeData = Theme.of(context);
     final double iconHeight =
@@ -520,9 +520,9 @@ class _ProductPageState extends State<ProductPage> {
   }
 
   Future<void> _copy({
-    @required final UserPreferences userPreferences,
-    @required final DaoProductList daoProductList,
-    @required final DaoProduct daoProduct,
+    required final UserPreferences userPreferences,
+    required final DaoProductList daoProductList,
+    required final DaoProduct daoProduct,
   }) async {
     final List<PantryType> pantryTypes = <PantryType>[
       PantryType.PANTRY,
@@ -581,10 +581,10 @@ class _ProductPageState extends State<ProductPage> {
       _product.productName ?? appLocalizations.unknownProductName;
 
   Widget _getClickableIcon({
-    @required final String label,
-    @required final Widget icon,
-    @required final Future<void> Function() onTap,
-    @required final double width,
+    required final String label,
+    required final Widget icon,
+    required final Future<void> Function() onTap,
+    required final double width,
   }) =>
       InkWell(
         onTap: onTap,

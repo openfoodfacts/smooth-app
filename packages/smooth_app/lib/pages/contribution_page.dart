@@ -31,10 +31,10 @@ class CollaborationPage extends StatelessWidget {
                 height: 28.0,
               ),
               Text(
-                AppLocalizations.of(context).featureInProgress,
+                AppLocalizations.of(context)!.featureInProgress,
                 style: Theme.of(context)
                     .textTheme
-                    .subtitle1
+                    .subtitle1!
                     .copyWith(fontSize: 12, fontWeight: FontWeight.bold),
               ),
               const SizedBox(

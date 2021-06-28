@@ -17,12 +17,12 @@ import 'package:smooth_app/pages/product/common/product_query_page.dart';
 
 class ProductQueryPageHelper {
   Future<void> openBestChoice({
-    @required final ProductQuery productQuery,
-    @required final LocalDatabase/*!*/ localDatabase,
-    @required final Color/*!*/ color,
-    @required final String heroTag,
-    @required final String name,
-    @required final BuildContext context,
+    required final ProductQuery productQuery,
+    required final LocalDatabase localDatabase,
+    required final Color color,
+    required final String heroTag,
+    required final String name,
+    required final BuildContext context,
   }) async {
     final ProductListSupplier supplier =
         await ProductListSupplier.getBestSupplier(
@@ -77,13 +77,13 @@ class ProductQueryPageHelper {
       final int timestamp, BuildContext context) {
     final int now = LocalDatabase.nowInMillis();
     final int seconds = ((now - timestamp) / 1000).floor();
-    return getDurationStringFromSeconds(seconds, AppLocalizations.of(context));
+    return getDurationStringFromSeconds(seconds, AppLocalizations.of(context)!);
   }
 
   static String getProductListLabel(
       final ProductList productList, final BuildContext context,
       {final bool verbose = true}) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     switch (productList.listType) {
       case ProductList.LIST_TYPE_HTTP_SEARCH_GROUP:
         return '${_getGroupName(productList.parameters, appLocalizations)}${verbose ? ' ${appLocalizations.category_search}' : ''}';
@@ -102,7 +102,7 @@ class ProductQueryPageHelper {
   }
 
   static String _getGroupName(
-      final String/*!*/ groupId, final AppLocalizations appLocalizations) {
+      final String groupId, final AppLocalizations appLocalizations) {
     for (final PnnsGroup2 group2 in PnnsGroup2.values) {
       if (group2.id == groupId) {
         return group2.name;

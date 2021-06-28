@@ -6,21 +6,21 @@ import 'package:smooth_app/pages/product/common/smooth_chip.dart';
 /// A button for a pantry, with the corresponding color, icon, name and shape
 class PantryButton extends StatelessWidget {
   PantryButton({
-    @required this.pantries,
-    @required this.index,
-    @required this.onPressed,
+    required this.pantries,
+    required this.index,
+    required this.onPressed,
   })  : pantryType = pantries[index].pantryType,
         onlyIcon = false;
 
   const PantryButton.add({
-    @required this.pantries,
-    @required this.pantryType,
-    @required this.onPressed,
-    @required this.onlyIcon,
+    required this.pantries,
+    required this.pantryType,
+    required this.onPressed,
+    required this.onlyIcon,
   }) : index = null;
 
-  final List<Pantry/*!*/> pantries;
-  final int/*!*/ index;
+  final List<Pantry> pantries;
+  final int index;
   final Function onPressed;
   final PantryType pantryType;
   final bool onlyIcon;
@@ -31,8 +31,9 @@ class PantryButton extends StatelessWidget {
       return SmoothChip(
         onPressed: onPressed,
         iconData: Icons.add,
-        label:
-            onlyIcon ? null : _getCreateListLabel(AppLocalizations.of(context)),
+        label: onlyIcon
+            ? null
+            : _getCreateListLabel(AppLocalizations.of(context)!),
         shape: _getShape(),
       );
     }

@@ -30,7 +30,7 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final ThemeData themeData = Theme.of(context);
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final Launcher launcher = Launcher();
     return Scaffold(
       appBar: AppBar(title: Text(appLocalizations.settingsTitle)),
@@ -124,8 +124,8 @@ class ProfilePage extends StatelessWidget {
                                 AsyncSnapshot<PackageInfo> snapshot) {
                               if (snapshot.hasError) {
                                 return Center(
-                                    child:
-                                        Text('${appLocalizations.error} #0'));
+                                  child: Text('${appLocalizations.error} #0'),
+                                );
                               }
 
                               if (snapshot.connectionState ==
@@ -134,7 +134,7 @@ class ProfilePage extends StatelessWidget {
                                     child: CircularProgressIndicator());
                               }
 
-                              if (!snapshot.hasData)
+                              if (!snapshot.hasData || snapshot.data == null)
                                 return Center(
                                     child: Text(
                                   '${appLocalizations.error} #1',
@@ -145,11 +145,11 @@ class ProfilePage extends StatelessWidget {
                                   ListTile(
                                     leading: const Icon(Icons.no_sim_outlined),
                                     title: Text(
-                                      snapshot.data.appName.toString(),
+                                      snapshot.data!.appName.toString(),
                                       style: themeData.textTheme.headline1,
                                     ),
                                     subtitle: Text(
-                                      snapshot.data.version.toString(),
+                                      snapshot.data!.version.toString(),
                                       style: themeData.textTheme.subtitle2,
                                     ),
                                   ),

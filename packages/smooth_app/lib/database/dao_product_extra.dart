@@ -210,9 +210,9 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
 
   /// Deletes all then inserts a simple product list in bulk mode
   Future<void> bulkInsertExtra({
-    @required final DatabaseExecutor databaseExecutor,
-    @required final ProductList productList,
-    @required final int productListId,
+    required final DatabaseExecutor databaseExecutor,
+    required final ProductList productList,
+    required final int productListId,
   }) async {
     final BulkManager bulkManager = BulkManager();
     final int timestamp = LocalDatabase.nowInMillis();

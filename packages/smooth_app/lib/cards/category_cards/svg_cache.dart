@@ -11,9 +11,9 @@ class SvgCache extends StatelessWidget {
     this.displayAssetWhileWaiting = true,
   });
 
-  final String iconUrl;
-  final double width;
-  final double height;
+  final String? iconUrl;
+  final double? width;
+  final double? height;
   final bool displayAssetWhileWaiting;
 
   @override
@@ -21,14 +21,14 @@ class SvgCache extends StatelessWidget {
     if (iconUrl == null) {
       return _getDefaultUnknown();
     }
-    final int position = iconUrl.lastIndexOf('/');
+    final int position = iconUrl!.lastIndexOf('/');
     if (position == -1) {
       return _getDefaultUnknown();
     }
-    final String filename = iconUrl.substring(position + 1);
+    final String filename = iconUrl!.substring(position + 1);
     final String fullFilename = 'assets/cache/$filename';
     return SvgPicture.network(
-      iconUrl,
+      iconUrl!,
       width: width,
       height: height,
       fit: BoxFit.contain,

@@ -19,7 +19,7 @@ import 'package:smooth_app/data_models/smooth_upload_model.dart';
 enum PhotoType { FRONT, INGREDIENTS, NUTRITION_TABLE }
 
 class SmoothUploadPage extends StatelessWidget {
-  SmoothUploadPage({@required this.barcode});
+  SmoothUploadPage({required this.barcode});
 
   final String barcode;
 
@@ -196,20 +196,16 @@ class SmoothUploadPage extends StatelessWidget {
         return model.frontPath == null
             ? 'assets/actions/camera.svg'
             : 'assets/misc/checkmark.svg';
-        break;
       case PhotoType.INGREDIENTS:
         return model.ingredientsPath == null
             ? 'assets/actions/camera.svg'
             : 'assets/misc/checkmark.svg';
-        break;
       case PhotoType.NUTRITION_TABLE:
         return model.nutritionPath == null
             ? 'assets/actions/camera.svg'
             : 'assets/misc/checkmark.svg';
-        break;
       default:
         return null;
-        break;
     }
   }
 }

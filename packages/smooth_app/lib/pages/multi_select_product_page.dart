@@ -18,14 +18,14 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 /// a pantry, a shopping list or a product list.
 class MultiSelectProductPage extends StatefulWidget {
   const MultiSelectProductPage.pantry({
-    @required this.barcode,
-    @required this.pantries,
+    required this.barcode,
+    required this.pantries,
     this.index,
     this.pantryType,
   }) : productList = null;
 
   const MultiSelectProductPage.productList({
-    @required this.barcode,
+    required this.barcode,
     this.productList,
   })  : pantries = null,
         pantryType = null,
