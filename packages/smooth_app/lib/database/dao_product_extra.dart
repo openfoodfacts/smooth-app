@@ -3,6 +3,8 @@ import 'dart:collection';
 import 'dart:convert';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
+import 'package:smooth_app/database/bulk_manager.dart';
+import 'package:smooth_app/database/bulk_deletable.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -19,7 +21,7 @@ import 'package:smooth_app/data_models/product_list.dart';
 /// A typical use case is for timestamps history (e.g. scan, view or refresh).
 /// In that case the integer value contains the latest timestamp,
 /// and the string value contains a list of timestamps encoded as json.
-class DaoProductExtra extends AbstractDao {
+class DaoProductExtra extends AbstractDao implements BulkDeletable {
   DaoProductExtra(final LocalDatabase localDatabase) : super(localDatabase);
 
   static const String _TABLE_PRODUCT_EXTRA = 'product_extra';
@@ -130,11 +132,10 @@ class DaoProductExtra extends AbstractDao {
     final int timestamp,
   ) async {
     const String KEY = _EXTRA_ID_SIMPLIFIED_TEXT;
-    final int maxRecordNumber = getBulkMaxRecordNumber();
+    final BulkManager bulkManager = BulkManager();
     final List<dynamic> insertParameters = <dynamic>[];
-    final List<String> deleteParameters = <String>[KEY];
+    final List<dynamic> deleteParameters = <dynamic>[];
 
-    int counter = 0;
     for (final Product product in products) {
       deleteParameters.add(product.barcode!);
       insertParameters.add(product.barcode!);
@@ -142,28 +143,30 @@ class DaoProductExtra extends AbstractDao {
       insertParameters.add(_getSimplifiedTextForProduct(product));
       insertParameters.add(0);
       insertParameters.add(timestamp);
-      counter++;
-      if (counter == maxRecordNumber) {
-        await _bulkUpsert(insertParameters, deleteParameters, databaseExecutor);
-        counter = 0;
-        deleteParameters.clear();
-        deleteParameters.add(KEY);
-        insertParameters.clear();
-      }
     }
-    await _bulkUpsert(insertParameters, deleteParameters, databaseExecutor);
+    await bulkManager.delete(
+      bulkDeletable: this,
+      parameters: deleteParameters,
+      databaseExecutor: databaseExecutor,
+      additionalParameters: <dynamic>[KEY],
+    );
+    await bulkManager.insert(
+      bulkInsertable: this,
+      parameters: insertParameters,
+      databaseExecutor: databaseExecutor,
+    );
   }
 
-  /// Upserts the "last time I did whatever with this product" in bulk mode
+  /// Upserts the "last time I did whatever with those products" in bulk mode
   Future<void> bulkUpsertLoopLast(
     final DatabaseExecutor databaseExecutor,
     final List<Product> products,
     final int timestamp,
     final String extraKey,
   ) async {
-    final int maxRecordNumber = getBulkMaxRecordNumber();
+    final BulkManager bulkManager = BulkManager();
     final List<dynamic> insertParameters = <dynamic>[];
-    final List<String> deleteParameters = <String>[extraKey];
+    final List<dynamic> deleteParameters = <dynamic>[];
 
     final List<String> barcodes = <String>[];
     for (final Product product in products) {
@@ -175,7 +178,6 @@ class DaoProductExtra extends AbstractDao {
       databaseExecutor: databaseExecutor,
     );
 
-    int counter = 0;
     for (final Product product in products) {
       final ProductExtra? productExtra = map[product.barcode];
       List<int> timestamps;
@@ -192,20 +194,49 @@ class DaoProductExtra extends AbstractDao {
       insertParameters.add(jsonEncode(timestamps)); // string value
       insertParameters.add(timestamp); // int value
       insertParameters.add(timestamp);
-      counter++;
-      if (counter == maxRecordNumber) {
-        await _bulkUpsert(insertParameters, deleteParameters, databaseExecutor);
-        counter = 0;
-        deleteParameters.clear();
-        deleteParameters.add(extraKey);
-        insertParameters.clear();
-      }
     }
-    await _bulkUpsert(insertParameters, deleteParameters, databaseExecutor);
+    await bulkManager.delete(
+      bulkDeletable: this,
+      parameters: deleteParameters,
+      databaseExecutor: databaseExecutor,
+      additionalParameters: <dynamic>[extraKey],
+    );
+    await bulkManager.insert(
+      bulkInsertable: this,
+      parameters: insertParameters,
+      databaseExecutor: databaseExecutor,
+    );
+  }
+
+  /// Deletes all then inserts a simple product list in bulk mode
+  Future<void> bulkInsertExtra({
+    @required final DatabaseExecutor databaseExecutor,
+    @required final ProductList productList,
+    @required final int productListId,
+  }) async {
+    final BulkManager bulkManager = BulkManager();
+    final int timestamp = LocalDatabase.nowInMillis();
+    final List<dynamic> insertParameters = <dynamic>[];
+    final String extraKey = _getExtraKey(productList, productListId);
+
+    for (final String barcode in productList.barcodes) {
+      final ProductExtra productExtra = productList.productExtras[barcode];
+      insertParameters.add(barcode);
+      insertParameters.add(extraKey);
+      insertParameters.add(productExtra.stringValue);
+      insertParameters.add(productExtra.intValue);
+      insertParameters.add(timestamp);
+    }
+    await clearList(productList, productListId, databaseExecutor);
+    await bulkManager.insert(
+      bulkInsertable: this,
+      parameters: insertParameters,
+      databaseExecutor: databaseExecutor,
+    );
   }
 
   @override
-  List<String> getBulkInsertColumns() => <String>[
+  List<String> getInsertColumns() => <String>[
         DaoProduct.TABLE_PRODUCT_COLUMN_BARCODE,
         _TABLE_PRODUCT_EXTRA_COLUMN_KEY,
         _TABLE_PRODUCT_EXTRA_COLUMN_VALUE,
@@ -214,21 +245,13 @@ class DaoProductExtra extends AbstractDao {
       ];
 
   @override
-  String getTableName() => _TABLE_PRODUCT_EXTRA;
+  String getDeleteWhere(final List<dynamic> deleteWhereArgs) =>
+      '$_TABLE_PRODUCT_EXTRA_COLUMN_KEY = ? '
+      'and ${DaoProduct.TABLE_PRODUCT_COLUMN_BARCODE} '
+      '  in (?${',?' * (deleteWhereArgs.length - 2)})';
 
-  /// Bulk upsert of product extra
-  Future<void> _bulkUpsert(
-    final List<dynamic> insertParameters,
-    final List<String> deleteParameters,
-    final DatabaseExecutor databaseExecutor,
-  ) async =>
-      await bulkUpsert(
-        insertParameters: insertParameters,
-        deleteParameters: deleteParameters,
-        deleteWhere: '$_TABLE_PRODUCT_EXTRA_COLUMN_KEY = ? '
-            'and ${DaoProduct.TABLE_PRODUCT_COLUMN_BARCODE} in (?${',?' * (deleteParameters.length - 2)})',
-        databaseExecutor: databaseExecutor,
-      );
+  @override
+  String getTableName() => _TABLE_PRODUCT_EXTRA;
 
   /// Returns a lowercase not accented version of the text, for comparisons
   static String _getSimplifiedText(final String? text) {
@@ -348,50 +371,54 @@ class DaoProductExtra extends AbstractDao {
     return map[barcode];
   }
 
-  String? _getExtraKey(final ProductList productList) {
+  String _getExtraKey(final ProductList productList, final int id) {
     switch (productList.listType) {
       case ProductList.LIST_TYPE_HISTORY:
         return EXTRA_ID_LAST_SEEN;
       case ProductList.LIST_TYPE_SCAN:
         return EXTRA_ID_LAST_SCAN;
     }
-    return null;
+    if (id == null) {
+      throw Exception('Unknown product list of type ${productList.listType}');
+    }
+    return 'list/$id';
   }
 
-  bool? _getExtraReverse(final ProductList productList) {
+  bool _getExtraReverse(final ProductList productList, final int id) {
     switch (productList.listType) {
       case ProductList.LIST_TYPE_HISTORY:
         return true;
       case ProductList.LIST_TYPE_SCAN:
         return false;
     }
-    return null;
+    if (id == null) {
+      throw Exception('Unknown product list of type ${productList.listType}');
+    }
+    return false;
   }
 
-  Future<bool> getList(final ProductList productList) async {
-    final String? extraKey = _getExtraKey(productList);
-    final bool? extraReverse = _getExtraReverse(productList);
-    if (extraKey == null || extraReverse == null) {
-      return false;
-    }
+  Future<bool> getList(final ProductList productList, final int id) async {
+    final String extraKey = _getExtraKey(productList, id);
+    final bool extraReverse = _getExtraReverse(productList, id);
     final LinkedHashMap<String, ProductExtra> extras =
-        await getOrderedProductExtras(key: extraKey, reverse: extraReverse);
+        await getOrderedProductExtras(
+      key: extraKey,
+      reverse: extraReverse,
+    );
     final List<String> barcodes = List<String>.from(extras.keys);
     final Map<String, Product> products =
         await DaoProduct(localDatabase).getAllWithExtras(extraKey);
-    productList.set(barcodes, products, productExtras: extras);
+    productList.set(barcodes, products, extras);
     return true;
   }
 
   Future<List<String>?> getFirstBarcodes(
     final ProductList productList,
+    final int id,
     final int limit,
   ) async {
-    final String? extraKey = _getExtraKey(productList);
-    final bool? extraReverse = _getExtraReverse(productList);
-    if (extraKey == null || extraReverse == null) {
-      return null;
-    }
+    final String extraKey = _getExtraKey(productList, id);
+    final bool extraReverse = _getExtraReverse(productList, id);
     final LinkedHashMap<String, ProductExtra> extras =
         await getOrderedProductExtras(
       key: extraKey,
@@ -400,5 +427,38 @@ class DaoProductExtra extends AbstractDao {
     );
     final List<String> barcodes = List<String>.from(extras.keys);
     return barcodes;
+  }
+
+  Future<void> clearList(
+    final ProductList productList,
+    final int id,
+    final DatabaseExecutor databaseExecutor,
+  ) async =>
+      await databaseExecutor.delete(
+        _TABLE_PRODUCT_EXTRA,
+        where: '$_TABLE_PRODUCT_EXTRA_COLUMN_KEY = ?',
+        whereArgs: <String>[_getExtraKey(productList, id)],
+      );
+
+  /// Returns the number of products of each product list
+  Future<Map<String, int>> getStats() async {
+    final Map<String, int> result = <String, int>{};
+    const String COLUMN_NAME_COUNT = 'my_count';
+    final List<Map<String, dynamic>> countResult =
+        await localDatabase.database.rawQuery(
+      'select '
+      '  $_TABLE_PRODUCT_EXTRA_COLUMN_KEY '
+      ', count(1) as $COLUMN_NAME_COUNT '
+      'from'
+      '  $_TABLE_PRODUCT_EXTRA '
+      'group by '
+      '  $_TABLE_PRODUCT_EXTRA_COLUMN_KEY',
+    );
+    for (final Map<String, dynamic> row in countResult) {
+      final String extraKey = row[_TABLE_PRODUCT_EXTRA_COLUMN_KEY] as String;
+      final int count = row[COLUMN_NAME_COUNT] as int;
+      result[extraKey] = count;
+    }
+    return result;
   }
 }

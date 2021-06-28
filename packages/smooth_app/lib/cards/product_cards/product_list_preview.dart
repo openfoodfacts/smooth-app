@@ -19,20 +19,17 @@ class ProductListPreview extends StatelessWidget {
     @required this.daoProductList,
     @required this.productList,
     @required this.nbInPreview,
+    this.andThen,
   });
 
   final DaoProductList/*!*/ daoProductList;
   final ProductList productList;
   final int nbInPreview;
+  final Function andThen;
 
   @override
   Widget build(BuildContext context) => FutureBuilder<List<Product>>(
-        future: daoProductList.getFirstProducts(
-          productList,
-          nbInPreview,
-          true,
-          true,
-        ),
+        future: daoProductList.getFirstProducts(productList, nbInPreview),
         builder: (
           final BuildContext context,
           final AsyncSnapshot<List<Product>> snapshot,
@@ -60,6 +57,9 @@ class ProductListPreview extends StatelessWidget {
                               ProductListPage(productList),
                         ),
                       );
+                      if (andThen != null) {
+                        andThen();
+                      }
                     },
                     leading: productList.getIcon(
                       Theme.of(context).colorScheme,
