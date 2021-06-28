@@ -170,10 +170,7 @@ class ProductCopyHelper {
     await daoProductList.get(target);
     int count = 0;
     for (final Product product in products) {
-      if (target.barcodes.contains(product.barcode)) {
-        // do nothing?
-      } else {
-        target.add(product);
+      if (target.add(product)) {
         count++;
       }
     }

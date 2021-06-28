@@ -54,7 +54,7 @@ class _MultiSelectProductPageState extends State<MultiSelectProductPage> {
     super.initState();
     _selectedBarcodes.add(widget.barcode);
     if (widget.productList != null) {
-      _orderedBarcodes = widget.productList.getOrderedBarcodes();
+      _orderedBarcodes = widget.productList.barcodes;
     } else {
       _orderedBarcodes = widget.pantry.getOrderedBarcodes();
     }
@@ -63,7 +63,7 @@ class _MultiSelectProductPageState extends State<MultiSelectProductPage> {
   void _removeBarcode(final String barcode) {
     _orderedBarcodes.remove(barcode);
     if (widget.productList != null) {
-      widget.productList.barcodes.remove(barcode);
+      widget.productList.remove(barcode);
     } else {
       widget.pantry.removeBarcode(barcode);
     }

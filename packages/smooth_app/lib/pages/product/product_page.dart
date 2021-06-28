@@ -567,7 +567,7 @@ class _ProductPageState extends State<ProductPage> {
       return;
     }
     final List<Product> products = <Product>[widget.product];
-    productCopyHelper.copy(
+    await productCopyHelper.copy(
       context: context,
       target: target,
       allPantries: allPantries,

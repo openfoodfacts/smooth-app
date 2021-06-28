@@ -25,7 +25,7 @@ class SmoothItModel {
       _nextRefreshIsJustChangingTabs = false;
       return;
     }
-    final List<Product> unprocessedProducts = productList.getUniqueList();
+    final List<Product> unprocessedProducts = productList.getList();
     _allProducts = MatchedProduct.sort(unprocessedProducts, productPreferences);
     _categorizedProducts.clear();
     for (final MatchedProduct matchededProduct in _allProducts) {

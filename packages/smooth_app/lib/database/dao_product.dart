@@ -2,11 +2,13 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
+import 'package:smooth_app/database/bulk_manager.dart';
+import 'package:smooth_app/database/bulk_deletable.dart';
 import 'package:smooth_app/database/dao_product_extra.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:smooth_app/database/local_database.dart';
 
-class DaoProduct extends AbstractDao {
+class DaoProduct extends AbstractDao implements BulkDeletable {
   DaoProduct(final LocalDatabase localDatabase) : super(localDatabase);
 
   static const String TABLE_PRODUCT = 'product';
@@ -150,57 +152,40 @@ class DaoProduct extends AbstractDao {
     final List<Product> products,
     final int timestamp,
   ) async {
-    final int maxRecordNumber = getBulkMaxRecordNumber();
+    final BulkManager bulkManager = BulkManager();
     final List<dynamic> insertParameters = <dynamic>[];
-    final List<String> deleteParameters = <String>[];
-    int counter = 0;
+    final List<dynamic> deleteParameters = <dynamic>[];
     for (final Product product in products) {
       deleteParameters.add(product.barcode);
       insertParameters.add(product.barcode);
       insertParameters.add(json.encode(product.toJson()));
       insertParameters.add(timestamp);
-      counter++;
-      if (counter == maxRecordNumber) {
-        await _bulkUpsert(
-          insertParameters,
-          deleteParameters,
-          databaseExecutor,
-        );
-        counter = 0;
-        deleteParameters.clear();
-        insertParameters.clear();
-      }
     }
-    await _bulkUpsert(
-      insertParameters,
-      deleteParameters,
-      databaseExecutor,
+    await bulkManager.delete(
+      bulkDeletable: this,
+      parameters: deleteParameters,
+      databaseExecutor: databaseExecutor,
+    );
+    await bulkManager.insert(
+      bulkInsertable: this,
+      parameters: insertParameters,
+      databaseExecutor: databaseExecutor,
     );
   }
 
   @override
-  List<String> getBulkInsertColumns() => <String>[
+  List<String> getInsertColumns() => <String>[
         TABLE_PRODUCT_COLUMN_BARCODE,
         _TABLE_PRODUCT_COLUMN_JSON,
         LocalDatabase.COLUMN_TIMESTAMP,
       ];
 
   @override
-  String getTableName() => TABLE_PRODUCT;
+  String getDeleteWhere(final List<dynamic> deleteWhereArgs) =>
+      '$TABLE_PRODUCT_COLUMN_BARCODE in (?${',?' * (deleteWhereArgs.length - 1)})';
 
-  /// Bulk upsert of products
-  Future<void> _bulkUpsert(
-    final List<dynamic> insertParameters,
-    final List<String> deleteParameters,
-    final DatabaseExecutor databaseExecutor,
-  ) async =>
-      await bulkUpsert(
-        insertParameters: insertParameters,
-        deleteParameters: deleteParameters,
-        deleteWhere:
-            '$TABLE_PRODUCT_COLUMN_BARCODE in (?${',?' * (deleteParameters.length - 1)})',
-        databaseExecutor: databaseExecutor,
-      );
+  @override
+  String getTableName() => TABLE_PRODUCT;
 
   Product _getProductFromQueryResult(final Map<String, dynamic> row) {
     final String encodedJson = row[_TABLE_PRODUCT_COLUMN_JSON] as String;
