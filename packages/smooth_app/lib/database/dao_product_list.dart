@@ -99,16 +99,16 @@ class DaoProductList extends AbstractDao {
     }
   }
 
-  Future<int> getTimestamp(final ProductList productList) async {
-    final Map<String, dynamic> record = await _getRecord(productList);
+  Future<int?> getTimestamp(final ProductList productList) async {
+    final Map<String, dynamic>? record = await _getRecord(productList);
     if (record == null) {
       return null;
     }
     return record[LocalDatabase.COLUMN_TIMESTAMP] as int;
   }
 
-  Future<int> _getId(final ProductList productList) async {
-    final Map<String, dynamic> record = await _getRecord(productList);
+  Future<int?> _getId(final ProductList productList) async {
+    final Map<String, dynamic>? record = await _getRecord(productList);
     if (record == null) {
       return null;
     }
@@ -123,7 +123,8 @@ class DaoProductList extends AbstractDao {
           final ProductList productList) =>
       <String>[productList.listType, productList.parameters];
 
-  Future<Map<String, dynamic>> _getRecord(final ProductList productList) async {
+  Future<Map<String, dynamic>?> _getRecord(
+      final ProductList productList) async {
     if (productList.listType == ProductList.LIST_TYPE_HISTORY ||
         productList.listType == ProductList.LIST_TYPE_SCAN) {
       throw Exception(
@@ -180,7 +181,7 @@ class DaoProductList extends AbstractDao {
     if (await DaoProductExtra(localDatabase).getList(productList)) {
       return true;
     }
-    final int id = await _getId(productList);
+    final int? id = await _getId(productList);
     if (id == null) {
       return false;
     }
@@ -191,13 +192,13 @@ class DaoProductList extends AbstractDao {
     return true;
   }
 
-  Future<List<String>> getFirstBarcodes(
+  Future<List<String>?> getFirstBarcodes(
     final ProductList productList,
     final int limit,
     final bool reverse,
     final bool unique,
   ) async {
-    final List<String> result =
+    final List<String>? result =
         await DaoProductExtra(localDatabase).getFirstBarcodes(
       productList,
       limit,
@@ -205,7 +206,7 @@ class DaoProductList extends AbstractDao {
     if (result != null) {
       return result;
     }
-    final Map<String, dynamic> record = await _getRecord(productList);
+    final Map<String, dynamic>? record = await _getRecord(productList);
     if (record == null) {
       return null;
     }
@@ -224,17 +225,20 @@ class DaoProductList extends AbstractDao {
     final bool reverse,
     final bool unique,
   ) async {
-    final List<String> barcodes = await getFirstBarcodes(
+    final List<String>? barcodes = await getFirstBarcodes(
       productList,
       limit,
       reverse,
       unique,
     );
+    final List<Product> result = <Product>[];
+    if (barcodes == null) {
+      return result;
+    }
     final Map<String, Product> products =
         await DaoProduct(localDatabase).getAll(barcodes);
-    final List<Product> result = <Product>[];
     for (final String barcode in barcodes) {
-      final Product product = products[barcode];
+      final Product? product = products[barcode];
       if (product != null) {
         result.add(product);
       }
@@ -281,9 +285,9 @@ class DaoProductList extends AbstractDao {
         whereArgs: _getProductListUKWhereArgs(productList),
       );
 
-  Future<int> clear(final ProductList productList) async {
+  Future<int?> clear(final ProductList productList) async {
     // TODO(monsieurtanuki): create a version for history and scan, if needed
-    final int id = await _getId(productList);
+    final int? id = await _getId(productList);
     if (id == null) {
       return null;
     }
@@ -291,7 +295,7 @@ class DaoProductList extends AbstractDao {
     return _clearListItems(id);
   }
 
-  Future<Map<int, Map<String, String>>> _getExtras({final int listId}) async {
+  Future<Map<int, Map<String, String>>> _getExtras({final int? listId}) async {
     final Map<int, Map<String, String>> result = <int, Map<String, String>>{};
     final List<Map<String, dynamic>> queryResult =
         await localDatabase.database.query(
@@ -315,16 +319,16 @@ class DaoProductList extends AbstractDao {
       if (result[productListId] == null) {
         result[productListId] = <String, String>{};
       }
-      result[productListId][key] = value;
+      result[productListId]![key] = value;
     }
     return result;
   }
 
   Future<List<ProductList>> getAll({
     final bool withStats = true,
-    final List<String> typeFilter,
+    final List<String>? typeFilter,
     final bool reverse = true,
-    final int limit,
+    final int? limit,
   }) async {
     final Map<int, int> counts = <int, int>{};
     final Map<int, int> countDistincts = <int, int>{};
@@ -373,8 +377,8 @@ class DaoProductList extends AbstractDao {
         listType: row[_TABLE_PRODUCT_LIST_COLUMN_TYPE] as String,
         parameters: row[_TABLE_PRODUCT_LIST_COLUMN_PARAMETERS] as String,
         databaseTimestamp: row[LocalDatabase.COLUMN_TIMESTAMP] as int,
-        databaseCount: counts[productListId],
-        databaseCountDistinct: countDistincts[productListId],
+        databaseCount: counts[productListId] ?? 0,
+        databaseCountDistinct: countDistincts[productListId] ?? 0,
       )..extraTags = extras[productListId];
       result.add(item);
     }
@@ -408,7 +412,7 @@ class DaoProductList extends AbstractDao {
 
   Future<List<String>> _getBarcodes(
     final int id, {
-    final int limit,
+    final int? limit,
     final bool reverse = false,
     final bool unique = false,
   }) async {
@@ -436,7 +440,7 @@ class DaoProductList extends AbstractDao {
   }
 
   Future<int> _upsertProductList(final ProductList productList) async {
-    int id = await _getId(productList);
+    int? id = await _getId(productList);
     if (id == null) {
       id = await localDatabase.database.insert(
         _TABLE_PRODUCT_LIST,
@@ -463,7 +467,7 @@ class DaoProductList extends AbstractDao {
   }
 
   Future<void> _upsertProductListExtra(
-    final Map<String, String> extraTags,
+    final Map<String, String>? extraTags,
     final int productListId,
   ) async {
     await localDatabase.database.delete(

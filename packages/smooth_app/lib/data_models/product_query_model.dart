@@ -26,16 +26,16 @@ class ProductQueryModel with ChangeNotifier {
   static const String _CATEGORY_ALL = 'all';
 
   LoadingStatus _loadingStatus = LoadingStatus.LOADING;
-  String _loadingError;
-  List<Product> _products;
-  List<Product> displayProducts;
-  bool isNotEmpty() => _products != null && _products.isNotEmpty;
+  String? _loadingError;
+  List<Product>? _products;
+  List<Product>? displayProducts;
+  bool isNotEmpty() => _products != null && _products!.isNotEmpty;
 
   Map<String, String> categories = <String, String>{};
   Map<String, int> categoriesCounter = <String, int>{};
-  List<String> sortedCategories;
+  List<String>? sortedCategories;
 
-  String get loadingError => _loadingError;
+  String? get loadingError => _loadingError;
   LoadingStatus get loadingStatus => _loadingStatus;
 
   Future<void> _asyncLoad() async {
@@ -63,9 +63,9 @@ class ProductQueryModel with ChangeNotifier {
     categories[_CATEGORY_ALL] =
         'All'; // TODO(monsieurtanuki): find a translation
 
-    for (final Product product in _products) {
+    for (final Product product in _products!) {
       if (product.categoriesTags != null) {
-        for (final String category in product.categoriesTags) {
+        for (final String category in product.categoriesTags!) {
           categories.putIfAbsent(category, () {
             String title = category.substring(3).replaceAll('-', ' ');
             title = '${title[0].toUpperCase()}${title.substring(1)}';
@@ -80,7 +80,7 @@ class ProductQueryModel with ChangeNotifier {
 
     for (final String category in tempCategories) {
       if (category != _CATEGORY_ALL) {
-        if (categoriesCounter[category] <= 1) {
+        if (categoriesCounter[category]! <= 1) {
           categories.remove(category);
         } else {
           categories[category] =
@@ -90,13 +90,13 @@ class ProductQueryModel with ChangeNotifier {
     }
 
     sortedCategories = categories.keys.toList();
-    sortedCategories.sort((String a, String b) {
+    sortedCategories!.sort((String a, String b) {
       if (a == _CATEGORY_ALL) {
         return -1;
       } else if (b == _CATEGORY_ALL) {
         return 1;
       }
-      return categoriesCounter[b].compareTo(categoriesCounter[a]);
+      return categoriesCounter[b]!.compareTo(categoriesCounter[a]!);
     });
 
     _loadingStatus = LoadingStatus.COMPLETE;
@@ -106,8 +106,9 @@ class ProductQueryModel with ChangeNotifier {
     if (category == _CATEGORY_ALL) {
       displayProducts = _products;
     } else {
-      displayProducts = _products
-          .where((Product product) => product.categoriesTags.contains(category))
+      displayProducts = _products!
+          .where((Product product) =>
+              product.categoriesTags?.contains(category) ?? false)
           .toList();
     }
   }

@@ -24,9 +24,9 @@ enum ScannedProductState {
 
 class ContinuousScanModel with ChangeNotifier {
   ContinuousScanModel({
-    @required bool contributionMode,
-    @required this.countryCode,
-    @required this.languageCode,
+    required bool contributionMode,
+    required this.countryCode,
+    required this.languageCode,
   }) : _contributionMode = contributionMode;
 
   final Map<String, ScannedProductState> _states =
@@ -35,13 +35,13 @@ class ContinuousScanModel with ChangeNotifier {
   final ProductList _productList =
       ProductList(listType: ProductList.LIST_TYPE_SCAN, parameters: '');
 
-  bool _contributionMode;
-  String _latestScannedBarcode;
-  String _latestFoundBarcode;
-  String _barcodeTrustCheck; // TODO(monsieurtanuki): could probably be removed
-  DaoProduct _daoProduct;
-  DaoProductList _daoProductList;
-  DaoProductExtra _daoProductExtra;
+  late bool _contributionMode;
+  String? _latestScannedBarcode;
+  String? _latestFoundBarcode;
+  String? _barcodeTrustCheck; // TODO(monsieurtanuki): could probably be removed
+  late DaoProduct _daoProduct;
+  late DaoProductList _daoProductList;
+  late DaoProductExtra _daoProductExtra;
   final String languageCode;
   final String countryCode;
 
@@ -51,7 +51,7 @@ class ContinuousScanModel with ChangeNotifier {
 
   List<String> getBarcodes() => _barcodes;
 
-  Future<ContinuousScanModel> load(final LocalDatabase localDatabase) async {
+  Future<ContinuousScanModel?> load(final LocalDatabase localDatabase) async {
     try {
       _daoProduct = DaoProduct(localDatabase);
       _daoProductList = DaoProductList(localDatabase);
@@ -80,7 +80,8 @@ class ContinuousScanModel with ChangeNotifier {
     notifyListeners();
   }
 
-  ScannedProductState getBarcodeState(final String barcode) => _states[barcode];
+  ScannedProductState? getBarcodeState(final String barcode) =>
+      _states[barcode];
 
   Product getProduct(final String barcode) => _productList.getProduct(barcode);
 
@@ -107,7 +108,7 @@ class ContinuousScanModel with ChangeNotifier {
   }
 
   Future<bool> _addBarcode(final String barcode) async {
-    final ScannedProductState state = getBarcodeState(barcode);
+    final ScannedProductState? state = getBarcodeState(barcode);
     if (state == null) {
       _barcodes.add(barcode);
       setBarcodeState(barcode, ScannedProductState.LOADING);
@@ -137,15 +138,16 @@ class ContinuousScanModel with ChangeNotifier {
   }
 
   Future<bool> _cachedBarcode(final String barcode) async {
-    final int latestUpdate = await _daoProduct.getLastUpdate(barcode);
+    final int? latestUpdate = await _daoProduct.getLastUpdate(barcode);
     if (latestUpdate != null) {
-      _addProduct(await _daoProduct.get(barcode), ScannedProductState.CACHED);
+      _addProduct(
+          (await _daoProduct.get(barcode))!, ScannedProductState.CACHED);
       return true;
     }
     return false;
   }
 
-  Future<Product> _queryBarcode(
+  Future<Product?> _queryBarcode(
     final String barcode,
   ) async =>
       await BarcodeProductQuery(
@@ -158,7 +160,7 @@ class ContinuousScanModel with ChangeNotifier {
   Future<void> _loadBarcode(
     final String barcode,
   ) async {
-    final Product product = await _queryBarcode(barcode);
+    final Product? product = await _queryBarcode(barcode);
     if (product != null) {
       _addProduct(product, ScannedProductState.FOUND);
     } else {
@@ -169,7 +171,7 @@ class ContinuousScanModel with ChangeNotifier {
   Future<void> _updateBarcode(
     final String barcode,
   ) async {
-    final Product product = await _queryBarcode(barcode);
+    final Product? product = await _queryBarcode(barcode);
     if (product != null) {
       _addProduct(product, ScannedProductState.FOUND);
     }
@@ -180,10 +182,10 @@ class ContinuousScanModel with ChangeNotifier {
     final ScannedProductState state,
   ) async {
     _productList.refresh(product);
-    if (_latestFoundBarcode != product.barcode) {
-      _latestFoundBarcode = product.barcode;
+    if (_latestFoundBarcode != product.barcode!) {
+      _latestFoundBarcode = product.barcode!;
       await _daoProductExtra.putLastScan(product);
     }
-    setBarcodeState(product.barcode, state);
+    setBarcodeState(product.barcode!, state);
   }
 }

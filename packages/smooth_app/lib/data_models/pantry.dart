@@ -25,18 +25,18 @@ enum PantryType {
 /// The barcodes' Products are loaded from the local database
 class Pantry {
   Pantry({
-    @required this.name,
-    @required this.pantryType,
-    @required this.order,
-    @required this.data,
-    @required this.products,
-    @required this.iconTag,
-    @required this.colorTag,
+    required this.name,
+    required this.pantryType,
+    required this.order,
+    required this.data,
+    required this.products,
+    required this.iconTag,
+    required this.colorTag,
   });
 
   Pantry.empty({
-    @required this.name,
-    @required this.pantryType,
+    required this.name,
+    required this.pantryType,
   })  : order = <String>[],
         data = <String, Map<String, int>>{},
         products = <String, Product>{},
@@ -62,8 +62,8 @@ class Pantry {
   static const String _COLOR_DEFAULT = _COLOR_BLUE;
 
   MaterialColor get materialColor =>
-      _COLORS[colorTag] ?? _COLORS[_COLOR_DEFAULT];
-  IconData get iconData => _ICON_DATA[iconTag] ?? _ICON_DATA[_defaultIconTag];
+      _COLORS[colorTag] ?? _COLORS[_COLOR_DEFAULT]!;
+  IconData get iconData => _ICON_DATA[iconTag] ?? _ICON_DATA[_defaultIconTag]!;
 
   String get _defaultIconTag => pantryType == PantryType.PANTRY
       ? _ICON_DEFAULT_PANTRY
@@ -86,9 +86,9 @@ class Pantry {
   /// Returns true if the product was actually added (= was not there before)
   bool add(final Product product) =>
       addAll(
-        <String>[product.barcode],
+        <String>[product.barcode!],
         <String, Product>{
-          product.barcode: product,
+          product.barcode!: product,
         },
       ) ==
       1;
@@ -148,15 +148,15 @@ class Pantry {
       : _ORDERED_ICONS_SHOPPING;
 
   Widget getReferenceIcon({
-    final ColorScheme colorScheme,
-    final String colorTag,
-    final String iconTag,
-    final ColorDestination colorDestination,
+    required final ColorScheme colorScheme,
+    required final String colorTag,
+    required final String iconTag,
+    required final ColorDestination colorDestination,
   }) =>
       ProductList.getTintedIcon(
         colorScheme: colorScheme,
-        materialColor: _COLORS[colorTag],
-        iconData: _ICON_DATA[iconTag] ?? _ICON_DATA[_defaultIconTag],
+        materialColor: _COLORS[colorTag]!,
+        iconData: _ICON_DATA[iconTag] ?? _ICON_DATA[_defaultIconTag]!,
         colorDestination: colorDestination,
       );
 
@@ -176,7 +176,7 @@ class Pantry {
     final List<String> order =
         getOrderedBarcodes(); // in the old version case only
     for (final String barcode in order) {
-      result.add(products[barcode]);
+      result.add(products[barcode]!);
       if (result.length >= nbInPreview) {
         break;
       }
@@ -189,20 +189,20 @@ class Pantry {
     final String date,
     final int increment,
   ) {
-    final int previous = data[barcode][date];
+    final int? previous = data[barcode]![date];
     if (previous == null) {
-      data[barcode][date] = increment;
+      data[barcode]![date] = increment;
     } else {
-      data[barcode][date] = previous + increment;
+      data[barcode]![date] = previous + increment;
     }
-    if (data[barcode][date] <= 0) {
+    if (data[barcode]![date]! <= 0) {
       if (pantryType == PantryType.PANTRY) {
-        data[barcode].remove(date);
+        data[barcode]!.remove(date);
       } else {
-        data[barcode][date] = 0;
+        data[barcode]![date] = 0;
       }
     }
-    return data[barcode][date];
+    return data[barcode]![date]!;
   }
 
   void removeBarcode(final String barcode) {
@@ -260,7 +260,7 @@ class Pantry {
     final String colorTag = decodedJsonAll[_JSON_TAG_COLOR] as String;
     final String iconTag = decodedJsonAll[_JSON_TAG_ICON] as String;
     final List<String> order = <String>[];
-    final List<dynamic> tmpOrder =
+    final List<dynamic>? tmpOrder =
         decodedJsonAll[_JSON_TAG_ORDER] as List<dynamic>;
     if (tmpOrder != null) {
       for (final dynamic item in tmpOrder) {

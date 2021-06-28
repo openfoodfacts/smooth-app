@@ -47,10 +47,10 @@ abstract class AbstractDao {
   /// In tests it looked 33% faster to use delete/insert rather than upsert
   @protected
   Future<void> bulkUpsert({
-    @required final List<dynamic> insertParameters,
-    @required final String deleteWhere,
-    @required final List<String> deleteParameters,
-    @required final DatabaseExecutor databaseExecutor,
+    required final List<dynamic> insertParameters,
+    required final String deleteWhere,
+    required final List<String> deleteParameters,
+    required final DatabaseExecutor databaseExecutor,
   }) async {
     final String tableName = getTableName();
     final List<String> insertColumns = getBulkInsertColumns();

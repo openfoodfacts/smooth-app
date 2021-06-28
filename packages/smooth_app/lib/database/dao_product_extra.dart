@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:collection';
 import 'dart:convert';
-import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
 import 'package:smooth_app/database/dao_product.dart';
@@ -114,8 +113,8 @@ class DaoProductExtra extends AbstractDao {
   Future<void> _putLast(
     final Product product,
     final String extraKey, {
-    int timestamp,
-    DatabaseExecutor databaseExecutor,
+    int? timestamp,
+    DatabaseExecutor? databaseExecutor,
   }) async =>
       await bulkUpsertLoopLast(
         databaseExecutor ?? localDatabase.database,
@@ -137,8 +136,8 @@ class DaoProductExtra extends AbstractDao {
 
     int counter = 0;
     for (final Product product in products) {
-      deleteParameters.add(product.barcode);
-      insertParameters.add(product.barcode);
+      deleteParameters.add(product.barcode!);
+      insertParameters.add(product.barcode!);
       insertParameters.add(KEY);
       insertParameters.add(_getSimplifiedTextForProduct(product));
       insertParameters.add(0);
@@ -168,7 +167,7 @@ class DaoProductExtra extends AbstractDao {
 
     final List<String> barcodes = <String>[];
     for (final Product product in products) {
-      barcodes.add(product.barcode);
+      barcodes.add(product.barcode!);
     }
     final Map<String, ProductExtra> map = await getProductExtras(
       key: extraKey,
@@ -178,7 +177,7 @@ class DaoProductExtra extends AbstractDao {
 
     int counter = 0;
     for (final Product product in products) {
-      final ProductExtra productExtra = map[product.barcode];
+      final ProductExtra? productExtra = map[product.barcode];
       List<int> timestamps;
       if (productExtra == null) {
         timestamps = <int>[];
@@ -187,8 +186,8 @@ class DaoProductExtra extends AbstractDao {
       }
       timestamps.add(timestamp);
 
-      deleteParameters.add(product.barcode);
-      insertParameters.add(product.barcode);
+      deleteParameters.add(product.barcode!);
+      insertParameters.add(product.barcode!);
       insertParameters.add(extraKey);
       insertParameters.add(jsonEncode(timestamps)); // string value
       insertParameters.add(timestamp); // int value
@@ -232,7 +231,7 @@ class DaoProductExtra extends AbstractDao {
       );
 
   /// Returns a lowercase not accented version of the text, for comparisons
-  static String _getSimplifiedText(final String text) {
+  static String _getSimplifiedText(final String? text) {
     if (text == null) {
       return '';
     }
@@ -270,9 +269,9 @@ class DaoProductExtra extends AbstractDao {
 
   /// Returns the ordered [ProductExtra]s for all products with an extra [key]
   Future<LinkedHashMap<String, ProductExtra>> getOrderedProductExtras({
-    @required final String key,
-    @required final bool reverse,
-    final int limit,
+    required final String key,
+    required final bool reverse,
+    final int? limit,
   }) async {
     final LinkedHashMap<String, ProductExtra> result =
         LinkedHashMap<String, ProductExtra>();
@@ -303,9 +302,9 @@ class DaoProductExtra extends AbstractDao {
 
   /// Returns the [ProductExtra] values for an extra [key] and several [barcode]s
   Future<Map<String, ProductExtra>> getProductExtras({
-    @required final String key,
-    @required final Iterable<String> barcodes,
-    DatabaseExecutor databaseExecutor,
+    required final String key,
+    required final Iterable<String> barcodes,
+    DatabaseExecutor? databaseExecutor,
   }) async {
     final Map<String, ProductExtra> result = <String, ProductExtra>{};
     if (barcodes.isEmpty) {
@@ -338,9 +337,9 @@ class DaoProductExtra extends AbstractDao {
   }
 
   /// Returns the [ProductExtra] for an extra [key] and a [barcode]
-  Future<ProductExtra> getProductExtra({
-    @required final String key,
-    @required final String barcode,
+  Future<ProductExtra?> getProductExtra({
+    required final String key,
+    required final String barcode,
   }) async {
     final Map<String, ProductExtra> map = await getProductExtras(
       key: key,
@@ -349,7 +348,7 @@ class DaoProductExtra extends AbstractDao {
     return map[barcode];
   }
 
-  String _getExtraKey(final ProductList productList) {
+  String? _getExtraKey(final ProductList productList) {
     switch (productList.listType) {
       case ProductList.LIST_TYPE_HISTORY:
         return EXTRA_ID_LAST_SEEN;
@@ -359,7 +358,7 @@ class DaoProductExtra extends AbstractDao {
     return null;
   }
 
-  bool _getExtraReverse(final ProductList productList) {
+  bool? _getExtraReverse(final ProductList productList) {
     switch (productList.listType) {
       case ProductList.LIST_TYPE_HISTORY:
         return true;
@@ -370,8 +369,8 @@ class DaoProductExtra extends AbstractDao {
   }
 
   Future<bool> getList(final ProductList productList) async {
-    final String extraKey = _getExtraKey(productList);
-    final bool extraReverse = _getExtraReverse(productList);
+    final String? extraKey = _getExtraKey(productList);
+    final bool? extraReverse = _getExtraReverse(productList);
     if (extraKey == null || extraReverse == null) {
       return false;
     }
@@ -384,12 +383,12 @@ class DaoProductExtra extends AbstractDao {
     return true;
   }
 
-  Future<List<String>> getFirstBarcodes(
+  Future<List<String>?> getFirstBarcodes(
     final ProductList productList,
     final int limit,
   ) async {
-    final String extraKey = _getExtraKey(productList);
-    final bool extraReverse = _getExtraReverse(productList);
+    final String? extraKey = _getExtraKey(productList);
+    final bool? extraReverse = _getExtraReverse(productList);
     if (extraKey == null || extraReverse == null) {
       return null;
     }

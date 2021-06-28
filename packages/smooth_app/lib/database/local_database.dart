@@ -20,6 +20,10 @@ class LocalDatabase extends ChangeNotifier {
 
   Database get database => _database;
 
+  /// Notify listeners
+  /// Comments added only in order to avoid a "warning"
+  /// For the record, we need to override the method
+  /// because the parent's is protected
   @override
   void notifyListeners() => super.notifyListeners();
 
@@ -59,10 +63,10 @@ class LocalDatabase extends ChangeNotifier {
 
 class TableStats {
   TableStats({
-    @required this.tableName,
-    @required this.count,
-    @required this.minTimestamp,
-    @required this.maxTimestamp,
+    required this.tableName,
+    required this.count,
+    required this.minTimestamp,
+    required this.maxTimestamp,
   });
 
   final String tableName;

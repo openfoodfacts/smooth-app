@@ -5,11 +5,10 @@ import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 
 class UserPreferences extends ChangeNotifier {
-  UserPreferences._shared(final SharedPreferences sharedPreferences) {
-    _sharedPreferences = sharedPreferences;
-  }
+  UserPreferences._shared(final SharedPreferences sharedPreferences)
+      : _sharedPreferences = sharedPreferences;
 
-  SharedPreferences _sharedPreferences;
+  final SharedPreferences _sharedPreferences;
 
   static Future<UserPreferences> getUserPreferences() async {
     final SharedPreferences preferences = await SharedPreferences.getInstance();
@@ -30,7 +29,7 @@ class UserPreferences extends ChangeNotifier {
   };
 
   Future<void> init(final ProductPreferences productPreferences) async {
-    final bool alreadyDone = _sharedPreferences.getBool(_TAG_INIT);
+    final bool? alreadyDone = _sharedPreferences.getBool(_TAG_INIT);
     if (alreadyDone != null) {
       return;
     }
@@ -62,14 +61,14 @@ class UserPreferences extends ChangeNotifier {
     final PantryType pantryType,
   ) async {
     await _sharedPreferences.setStringList(
-      _PANTRY_TYPE_TO_TAG[pantryType],
+      _PANTRY_TYPE_TO_TAG[pantryType]!,
       encodedJsons,
     );
     notifyListeners();
   }
 
   List<String> getPantryRepository(final PantryType pantryType) =>
-      _sharedPreferences.getStringList(_PANTRY_TYPE_TO_TAG[pantryType]) ??
+      _sharedPreferences.getStringList(_PANTRY_TYPE_TO_TAG[pantryType]!) ??
       <String>[];
 
   Future<void> setThemeDark(final bool state) async =>
@@ -80,6 +79,6 @@ class UserPreferences extends ChangeNotifier {
   Future<void> setThemeColorTag(final String colorTag) async =>
       await _sharedPreferences.setString(_TAG_THEME_COLOR_TAG, colorTag);
 
-  String get themeColorTag =>
+  String? get themeColorTag =>
       _sharedPreferences.getString(_TAG_THEME_COLOR_TAG);
 }

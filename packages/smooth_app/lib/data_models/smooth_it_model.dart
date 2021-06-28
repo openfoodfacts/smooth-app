@@ -14,7 +14,7 @@ class SmoothItModel {
 
   final Map<int, List<MatchedProduct>> _categorizedProducts =
       <int, List<MatchedProduct>>{};
-  List<MatchedProduct> _allProducts;
+  late List<MatchedProduct> _allProducts;
   bool _nextRefreshIsJustChangingTabs = false;
 
   void refresh(
@@ -33,7 +33,7 @@ class SmoothItModel {
       if (_categorizedProducts[index] == null) {
         _categorizedProducts[index] = <MatchedProduct>[];
       }
-      _categorizedProducts[index].add(matchededProduct);
+      _categorizedProducts[index]!.add(matchededProduct);
     }
   }
 

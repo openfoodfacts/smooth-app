@@ -13,11 +13,13 @@ class QueryProductListSupplier extends ProductListSupplier {
   ) : super(productQuery, localDatabase);
 
   @override
-  Future<String> asyncLoad() async {
+  Future<String?> asyncLoad() async {
     try {
       final SearchResult searchResult = await productQuery.getSearchResult();
       productList = productQuery.getProductList();
-      productList.addAll(searchResult.products);
+      if (searchResult.products != null) {
+        productList.addAll(searchResult.products!);
+      }
       await DaoProduct(localDatabase).put(productList.getList());
       await DaoProductList(localDatabase).put(productList);
       return null;
@@ -27,5 +29,5 @@ class QueryProductListSupplier extends ProductListSupplier {
   }
 
   @override
-  ProductListSupplier getRefreshSupplier() => null;
+  ProductListSupplier? getRefreshSupplier() => null;
 }

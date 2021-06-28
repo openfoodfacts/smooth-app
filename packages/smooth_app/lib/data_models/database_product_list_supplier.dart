@@ -13,7 +13,7 @@ class DatabaseProductListSupplier extends ProductListSupplier {
   ) : super(productQuery, localDatabase, timestamp: timestamp);
 
   @override
-  Future<String> asyncLoad() async {
+  Future<String?> asyncLoad() async {
     try {
       final ProductList loadedProductList = productQuery.getProductList();
       final bool result =
