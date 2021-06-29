@@ -34,7 +34,7 @@ class SmoothTheme {
   /// the destination will be ColorDestination.BUTTON_BACKGROUND,
   /// and you'll specify the current ColorScheme.
   /// For the moment, the ColorScheme matters only for the light/dark switch.
-  static Color getColor(
+  static Color? getColor(
     final ColorScheme colorScheme,
     final MaterialColor materialColor,
     final ColorDestination colorDestination,
@@ -73,7 +73,7 @@ class SmoothTheme {
       return Colors.grey;
     }
     return MATERIAL_COLORS[themeProvider.colorTag] ??
-        MATERIAL_COLORS[COLOR_TAG_BLUE];
+        MATERIAL_COLORS[COLOR_TAG_BLUE]!;
   }
 
   static ThemeData getThemeData(
@@ -85,10 +85,10 @@ class SmoothTheme {
       myColorScheme = const ColorScheme.dark();
     } else {
       final MaterialColor materialColor =
-          MATERIAL_COLORS[colorTag] ?? MATERIAL_COLORS[COLOR_TAG_BLUE];
+          MATERIAL_COLORS[colorTag] ?? MATERIAL_COLORS[COLOR_TAG_BLUE]!;
       myColorScheme = ColorScheme.light(
-        primary: materialColor[600],
-        primaryVariant: materialColor[900],
+        primary: materialColor[600]!,
+        primaryVariant: materialColor[900]!,
       );
     }
 

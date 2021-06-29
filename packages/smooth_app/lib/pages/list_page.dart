@@ -22,7 +22,7 @@ class ListPage extends StatefulWidget {
 }
 
 class _ListPageState extends State<ListPage> {
-  List<ProductList> _list;
+  late List<ProductList>? _list;
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +50,7 @@ class _ListPageState extends State<ListPage> {
             if (snapshot.connectionState == ConnectionState.done) {
               _list = snapshot.data;
               if (_list != null) {
-                if (_list.isEmpty) {
+                if (_list!.isEmpty) {
                   if (mayAddList) {
                     return Center(
                       child: ProductListButton.add(
@@ -62,9 +62,9 @@ class _ListPageState extends State<ListPage> {
                   return const Center(child: Text('No list so far'));
                 }
                 return ListView.builder(
-                  itemCount: _list.length,
+                  itemCount: _list!.length,
                   itemBuilder: (final BuildContext context, final int index) {
-                    final ProductList item = _list[index];
+                    final ProductList item = _list![index];
                     return ProductListPreview(
                       daoProductList: daoProductList,
                       productList: item,
@@ -81,10 +81,10 @@ class _ListPageState extends State<ListPage> {
   }
 
   Future<void> _add(final DaoProductList daoProductList) async {
-    final ProductList newProductList = await ProductListDialogHelper.openNew(
+    final ProductList? newProductList = await ProductListDialogHelper.openNew(
       context,
       daoProductList,
-      _list,
+      _list!,
     );
     if (newProductList == null) {
       return;

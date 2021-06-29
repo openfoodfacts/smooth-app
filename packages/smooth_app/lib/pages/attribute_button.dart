@@ -45,20 +45,20 @@ class AttributeButton extends StatelessWidget {
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final MaterialColor materialColor =
         SmoothTheme.getMaterialColor(themeProvider);
-    final Color strongBackgroundColor = SmoothTheme.getColor(
+    final Color? strongBackgroundColor = SmoothTheme.getColor(
       colorScheme,
       materialColor,
       ColorDestination.SURFACE_BACKGROUND,
     );
-    final Color strongForegroundColor = SmoothTheme.getColor(
+    final Color? strongForegroundColor = SmoothTheme.getColor(
       colorScheme,
       materialColor,
       ColorDestination.SURFACE_FOREGROUND,
     );
     final Color? foregroundColor =
-        _getForegroundColor(strongForegroundColor, importanceId);
+        _getForegroundColor(strongForegroundColor!, importanceId);
     return ListTile(
-      tileColor: _getBackgroundColor(strongBackgroundColor, importanceId),
+      tileColor: _getBackgroundColor(strongBackgroundColor!, importanceId),
       title: Text(attribute.name!, style: TextStyle(color: foregroundColor)),
       leading: SvgCache(attribute.iconUrl, width: 40),
       trailing: _getIcon(importanceId, foregroundColor!),
@@ -85,12 +85,12 @@ class AttributeButton extends StatelessWidget {
         productPreferences.getImportanceIdForAttributeId(attributeId);
     final MaterialColor materialColor =
         SmoothTheme.getMaterialColor(themeProvider);
-    final Color strongBackgroundColor = SmoothTheme.getColor(
+    final Color? strongBackgroundColor = SmoothTheme.getColor(
       colorScheme,
       materialColor,
       ColorDestination.SURFACE_BACKGROUND,
     );
-    final Color strongForegroundColor = SmoothTheme.getColor(
+    final Color? strongForegroundColor = SmoothTheme.getColor(
       colorScheme,
       materialColor,
       ColorDestination.SURFACE_FOREGROUND,
@@ -128,10 +128,10 @@ class AttributeButton extends StatelessWidget {
     }
     for (final String item in productPreferences.importanceIds!) {
       final Color? foregroundColor =
-          _getForegroundColor(strongForegroundColor, item);
+          _getForegroundColor(strongForegroundColor!, item);
       children.add(
         ListTile(
-          tileColor: _getBackgroundColor(strongBackgroundColor, item),
+          tileColor: _getBackgroundColor(strongBackgroundColor!, item),
           leading: importanceId == item
               ? Icon(Icons.radio_button_checked, color: foregroundColor)
               : Icon(Icons.radio_button_unchecked, color: foregroundColor),

@@ -20,7 +20,7 @@ class MultiSelectProductPage extends StatefulWidget {
   const MultiSelectProductPage.pantry({
     required this.barcode,
     required this.pantries,
-    this.index,
+    required this.index,
     this.pantryType,
   }) : productList = null;
 
@@ -36,10 +36,10 @@ class MultiSelectProductPage extends StatefulWidget {
 
   final List<Pantry> pantries;
   final int index;
-  final PantryType pantryType;
-  Pantry get pantry => pantries == null ? null : pantries[index];
+  final PantryType? pantryType;
+  Pantry get pantry => pantries[index];
 
-  final ProductList productList;
+  final ProductList? productList;
 
   @override
   _MultiSelectProductPageState createState() => _MultiSelectProductPageState();
@@ -47,7 +47,7 @@ class MultiSelectProductPage extends StatefulWidget {
 
 class _MultiSelectProductPageState extends State<MultiSelectProductPage> {
   final Set<String> _selectedBarcodes = <String>{};
-  List<String> _orderedBarcodes; // late final
+  late List<String> _orderedBarcodes; // late final
 
   @override
   void initState() {
@@ -223,7 +223,8 @@ class _MultiSelectProductPageState extends State<MultiSelectProductPage> {
                       product.productNameEN ??
                       product.productNameFR ??
                       product.productNameDE ??
-                      product.barcode,
+                      product.barcode ??
+                      'unknown',
                   style: themeData.textTheme.headline4,
                 ),
                 trailing: Icon(

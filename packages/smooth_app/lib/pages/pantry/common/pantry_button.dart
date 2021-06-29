@@ -9,7 +9,7 @@ class PantryButton extends StatelessWidget {
     required this.pantries,
     required this.index,
     required this.onPressed,
-  })  : pantryType = pantries[index].pantryType,
+  })  : pantryType = pantries[index!].pantryType,
         onlyIcon = false;
 
   const PantryButton.add({
@@ -20,7 +20,7 @@ class PantryButton extends StatelessWidget {
   }) : index = null;
 
   final List<Pantry> pantries;
-  final int index;
+  final int? index;
   final Function onPressed;
   final PantryType pantryType;
   final bool onlyIcon;
@@ -37,7 +37,7 @@ class PantryButton extends StatelessWidget {
         shape: _getShape(),
       );
     }
-    final Pantry pantry = pantries[index];
+    final Pantry pantry = pantries[index!];
     return SmoothChip(
       onPressed: onPressed,
       iconData: pantry.iconData,
@@ -57,7 +57,7 @@ class PantryButton extends StatelessWidget {
     throw Exception('unknow pantry type $pantryType');
   }
 
-  OutlinedBorder _getShape() {
+  OutlinedBorder? _getShape() {
     switch (pantryType) {
       case PantryType.PANTRY:
         return null;

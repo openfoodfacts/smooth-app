@@ -16,8 +16,8 @@ import 'package:smooth_ui_library/widgets/smooth_card.dart';
 /// A page for one pantry where we can change all the data
 class PantryPage extends StatefulWidget {
   PantryPage({
-    this.pantries,
-    this.pantry,
+    required this.pantries,
+    required this.pantry,
   }) : pantryType = pantry.pantryType;
 
   final List<Pantry> pantries;
@@ -30,7 +30,7 @@ class PantryPage extends StatefulWidget {
 
 class _PantryPageState extends State<PantryPage> {
   static const String _EMPTY_DATE = '';
-  int _index; // late final
+  late final int _index;
 
   @override
   void initState() {
@@ -144,7 +144,7 @@ class _PantryPageState extends State<PantryPage> {
                 action: SnackBarAction(
                   label: 'UNDO',
                   onPressed: () async {
-                    widget.pantry.removeBarcode(product.barcode);
+                    widget.pantry.removeBarcode(product.barcode!);
                     await _save(userPreferences);
                   },
                 ),

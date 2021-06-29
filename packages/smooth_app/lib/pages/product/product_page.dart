@@ -360,11 +360,12 @@ class _ProductPageState extends State<ProductPage> {
     }
 
     //Similar foods
-    if (_product.categoriesTags != null && _product.categoriesTags.isNotEmpty) {
-      for (int i = _product.categoriesTags.length - 1;
-          i < _product.categoriesTags.length;
+    if (_product.categoriesTags != null &&
+        _product.categoriesTags!.isNotEmpty) {
+      for (int i = _product.categoriesTags!.length - 1;
+          i < _product.categoriesTags!.length;
           i++) {
-        final String categoryTag = _product.categoriesTags[i];
+        final String categoryTag = _product.categoriesTags![i];
         const MaterialColor materialColor = Colors.blue;
         listItems.add(
           SmoothCard(

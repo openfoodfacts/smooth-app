@@ -23,16 +23,16 @@ class ScanPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    return FutureBuilder<ContinuousScanModel>(
+    return FutureBuilder<ContinuousScanModel?>(
         future: ContinuousScanModel(
           contributionMode: contributionMode,
           languageCode: ProductQuery.getCurrentLanguageCode(context),
           countryCode: ProductQuery.getCurrentCountryCode(),
         ).load(localDatabase),
         builder: (BuildContext context,
-            AsyncSnapshot<ContinuousScanModel> snapshot) {
+            AsyncSnapshot<ContinuousScanModel?> snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
-            final ContinuousScanModel continuousScanModel = snapshot.data;
+            final ContinuousScanModel? continuousScanModel = snapshot.data;
             if (continuousScanModel != null) {
               return ContinuousScanPage(continuousScanModel);
             }

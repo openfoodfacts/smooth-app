@@ -22,7 +22,7 @@ class TextSearchWidget extends StatefulWidget {
   final DaoProduct daoProduct;
 
   /// Callback after a product page is reached from the search, then pop'ed
-  final Future<void> Function(Product product) addProductCallback;
+  final Future<void> Function(Product product)? addProductCallback;
 
   @override
   _TextSearchWidgetState createState() => _TextSearchWidgetState();
@@ -105,7 +105,8 @@ class _TextSearchWidgetState extends State<TextSearchWidget> {
                       suggestion.productNameEN ??
                       suggestion.productNameFR ??
                       suggestion.productNameDE ??
-                      suggestion.barcode,
+                      suggestion.barcode ??
+                      'Unknown',
                 ),
               ),
             ],
@@ -121,7 +122,7 @@ class _TextSearchWidgetState extends State<TextSearchWidget> {
             ),
           );
           if (widget.addProductCallback != null) {
-            widget.addProductCallback(suggestion);
+            widget.addProductCallback!(suggestion);
           }
         },
       ),

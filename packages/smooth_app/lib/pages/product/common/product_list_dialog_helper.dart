@@ -7,7 +7,7 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 class ProductListDialogHelper {
-  static Future<bool> openDelete(
+  static Future<bool?> openDelete(
     final BuildContext context,
     final DaoProductList daoProductList,
     final ProductList productList,
@@ -35,7 +35,7 @@ class ProductListDialogHelper {
         ),
       );
 
-  static Future<ProductList> openNew(
+  static Future<ProductList?> openNew(
     final BuildContext context,
     final DaoProductList daoProductList,
     final List<ProductList> list,
@@ -57,23 +57,25 @@ class ProductListDialogHelper {
                 decoration: InputDecoration(
                   hintText: appLocalizations.my_list_hint,
                 ),
-                validator: (final String value) {
-                  if (value.isEmpty) {
-                    return appLocalizations.empty_list;
-                  }
-                  if (list == null) {
+                validator: (final String? value) {
+                  if (value != null) {
+                    if (value.isEmpty) {
+                      return appLocalizations.empty_list;
+                    }
+                    if (list == null) {
+                      return null;
+                    }
+                    newProductList = ProductList(
+                      listType: ProductList.LIST_TYPE_USER_DEFINED,
+                      parameters: value,
+                    );
+                    for (final ProductList productList in list) {
+                      if (productList.isSameAs(newProductList)) {
+                        return appLocalizations.list_name_taken;
+                      }
+                    }
                     return null;
                   }
-                  newProductList = ProductList(
-                    listType: ProductList.LIST_TYPE_USER_DEFINED,
-                    parameters: value,
-                  );
-                  for (final ProductList productList in list) {
-                    if (productList.isSameAs(newProductList)) {
-                      return appLocalizations.list_name_taken;
-                    }
-                  }
-                  return null;
                 },
               ),
             ],
@@ -88,7 +90,7 @@ class ProductListDialogHelper {
           SmoothSimpleButton(
             text: appLocalizations.okay,
             onPressed: () async {
-              if (!formKey.currentState.validate()) {
+              if (formKey.currentState!.validate()) {
                 return;
               }
               await daoProductList.create(newProductList);
@@ -102,7 +104,7 @@ class ProductListDialogHelper {
     );
   }
 
-  static Future<ProductList> openRename(
+  static Future<ProductList?> openRename(
     final BuildContext context,
     final DaoProductList daoProductList,
     final ProductList productList,
@@ -127,23 +129,25 @@ class ProductListDialogHelper {
                 decoration: InputDecoration(
                   hintText: appLocalizations.my_list_hint,
                 ),
-                validator: (final String value) {
-                  if (value.isEmpty) {
-                    return appLocalizations.empty_list;
-                  }
-                  newProductList = ProductList(
-                    listType: ProductList.LIST_TYPE_USER_DEFINED,
-                    parameters: value,
-                  )..extraTags = productList.extraTags;
-                  for (final ProductList item in list) {
-                    if (item.isSameAs(newProductList)) {
-                      if (item.isSameAs(productList)) {
-                        return appLocalizations.already_same;
-                      }
-                      return appLocalizations.list_name_taken;
+                validator: (final String? value) {
+                  if (value != null) {
+                    if (value.isEmpty) {
+                      return appLocalizations.empty_list;
                     }
+                    newProductList = ProductList(
+                      listType: ProductList.LIST_TYPE_USER_DEFINED,
+                      parameters: value,
+                    )..extraTags = productList.extraTags;
+                    for (final ProductList item in list) {
+                      if (item.isSameAs(newProductList)) {
+                        if (item.isSameAs(productList)) {
+                          return appLocalizations.already_same;
+                        }
+                        return appLocalizations.list_name_taken;
+                      }
+                    }
+                    return null;
                   }
-                  return null;
                 },
               ),
             ],
@@ -158,7 +162,7 @@ class ProductListDialogHelper {
           SmoothSimpleButton(
             text: AppLocalizations.of(context)!.okay,
             onPressed: () async {
-              if (!formKey.currentState.validate()) {
+              if (!formKey.currentState!.validate()) {
                 return;
               }
               if (!await daoProductList.rename(

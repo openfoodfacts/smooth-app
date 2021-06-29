@@ -31,7 +31,7 @@ class ContinuousScanPage extends StatelessWidget {
       value: _continuousScanModel,
       child: Consumer<ContinuousScanModel>(
         builder:
-            (BuildContext context, ContinuousScanModel dummy, Widget child) {
+            (BuildContext context, ContinuousScanModel dummy, Widget? child) {
           return Scaffold(
             extendBodyBehindAppBar: true,
             appBar: AppBar(
@@ -64,7 +64,8 @@ class ContinuousScanPage extends StatelessWidget {
                     MaterialPageRoute<Widget>(
                       builder: (BuildContext context) =>
                           PersonalizedRankingPage(
-                              _continuousScanModel.productList),
+                        _continuousScanModel.productList,
+                      ),
                     ),
                   );
                 },

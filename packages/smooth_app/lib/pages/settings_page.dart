@@ -233,7 +233,7 @@ class ProfilePage extends StatelessWidget {
         style: TextButton.styleFrom(
           backgroundColor: SmoothTheme.getColor(
             colorScheme,
-            SmoothTheme.MATERIAL_COLORS[colorTag],
+            SmoothTheme.MATERIAL_COLORS[colorTag]!,
             ColorDestination.BUTTON_BACKGROUND,
           ),
         ),
@@ -241,7 +241,7 @@ class ProfilePage extends StatelessWidget {
           Icons.palette,
           color: SmoothTheme.getColor(
             colorScheme,
-            SmoothTheme.MATERIAL_COLORS[colorTag],
+            SmoothTheme.MATERIAL_COLORS[colorTag]!,
             ColorDestination.BUTTON_FOREGROUND,
           ),
         ),

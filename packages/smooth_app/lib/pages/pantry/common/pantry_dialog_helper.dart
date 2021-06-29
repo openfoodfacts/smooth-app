@@ -8,7 +8,7 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 
 /// A dialog helper for pantries
 class PantryDialogHelper {
-  static Future<bool> openDelete(
+  static Future<bool?> openDelete(
     final BuildContext context,
     final List<Pantry> pantries,
     final int index,
@@ -40,14 +40,14 @@ class PantryDialogHelper {
         ),
       );
 
-  static Future<Pantry> openNew(
+  static Future<Pantry?> openNew(
     final BuildContext context,
     final List<Pantry> pantries,
     final PantryType pantryType,
     final UserPreferences userPreferences,
   ) async {
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-    Pantry newPantry;
+    late Pantry newPantry;
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     return await showDialog<Pantry>(
       context: context,
@@ -67,25 +67,24 @@ class PantryDialogHelper {
                       ? appLocalizations.my_pantry_hint
                       : appLocalizations.my_shopping_hint,
                 ),
-                validator: (final String value) {
-                  if (value.isEmpty) {
-                    return appLocalizations.empty_list;
-                  }
-                  if (pantries == null) {
+                validator: (final String? value) {
+                  if (value != null) {
+                    if (value.isEmpty) {
+                      return appLocalizations.empty_list;
+                    }
+                    for (int i = 0; i < pantries.length; i++) {
+                      if (value == pantries[i].name) {
+                        return pantryType == PantryType.PANTRY
+                            ? appLocalizations.pantry_name_taken
+                            : appLocalizations.shopping_name_taken;
+                      }
+                    }
+                    newPantry = Pantry.empty(
+                      name: value,
+                      pantryType: pantryType,
+                    );
                     return null;
                   }
-                  for (int i = 0; i < pantries.length; i++) {
-                    if (value == pantries[i].name) {
-                      return pantryType == PantryType.PANTRY
-                          ? appLocalizations.pantry_name_taken
-                          : appLocalizations.shopping_name_taken;
-                    }
-                  }
-                  newPantry = Pantry.empty(
-                    name: value,
-                    pantryType: pantryType,
-                  );
-                  return null;
                 },
               ),
             ],
@@ -100,7 +99,7 @@ class PantryDialogHelper {
           SmoothSimpleButton(
             text: appLocalizations.okay,
             onPressed: () async {
-              if (!formKey.currentState.validate()) {
+              if (!formKey.currentState!.validate()) {
                 return;
               }
               pantries.add(newPantry);
@@ -118,7 +117,7 @@ class PantryDialogHelper {
     );
   }
 
-  static Future<bool> openRename(
+  static Future<bool?> openRename(
     final BuildContext context,
     final List<Pantry> pantries,
     final int index,
@@ -144,25 +143,27 @@ class PantryDialogHelper {
                       ? appLocalizations.my_pantry_hint
                       : appLocalizations.my_shopping_hint,
                 ),
-                validator: (final String value) {
-                  if (value.isEmpty) {
-                    return appLocalizations.empty_list;
-                  }
-                  if (pantries == null) {
+                validator: (final String? value) {
+                  if (value != null) {
+                    if (value.isEmpty) {
+                      return appLocalizations.empty_list;
+                    }
+                    if (pantries == null) {
+                      return null;
+                    }
+                    for (int i = 0; i < pantries.length; i++) {
+                      if (value == pantries[i].name) {
+                        if (i == index) {
+                          return appLocalizations.already_same;
+                        }
+                        return pantries[index].pantryType == PantryType.PANTRY
+                            ? appLocalizations.pantry_name_taken
+                            : appLocalizations.shopping_name_taken;
+                      }
+                    }
+                    pantries[index].name = value;
                     return null;
                   }
-                  for (int i = 0; i < pantries.length; i++) {
-                    if (value == pantries[i].name) {
-                      if (i == index) {
-                        return appLocalizations.already_same;
-                      }
-                      return pantries[index].pantryType == PantryType.PANTRY
-                          ? appLocalizations.pantry_name_taken
-                          : appLocalizations.shopping_name_taken;
-                    }
-                  }
-                  pantries[index].name = value;
-                  return null;
                 },
               ),
             ],
@@ -177,7 +178,7 @@ class PantryDialogHelper {
           SmoothSimpleButton(
             text: appLocalizations.okay,
             onPressed: () async {
-              if (!formKey.currentState.validate()) {
+              if (!formKey.currentState!.validate()) {
                 return;
               }
               Navigator.pop(context, true);
@@ -189,7 +190,7 @@ class PantryDialogHelper {
     );
   }
 
-  static Future<bool> openChangeIcon(
+  static Future<bool?> openChangeIcon(
     final BuildContext context,
     final List<Pantry> pantries,
     final int index,

@@ -32,7 +32,7 @@ class SmoothUploadPage extends StatelessWidget {
       create: (BuildContext context) => SmoothUploadModel(),
       child: Consumer<SmoothUploadModel>(
         builder: (BuildContext context, SmoothUploadModel smoothUploadModel,
-            Widget child) {
+            Widget? child) {
           return Stack(
             children: <Widget>[
               ListView(
@@ -164,10 +164,10 @@ class SmoothUploadPage extends StatelessWidget {
         ),
       ),
       onTap: () async {
-        final PickedFile pickedFile =
+        final PickedFile? pickedFile =
             await imagePicker.getImage(source: ImageSource.camera);
-        final File croppedFile = await ImageCropper.cropImage(
-          sourcePath: pickedFile.path,
+        final File? croppedFile = await ImageCropper.cropImage(
+          sourcePath: pickedFile!.path,
           androidUiSettings: const AndroidUiSettings(
               toolbarTitle: 'Smooth crop',
               toolbarColor: Colors.black,
@@ -175,16 +175,18 @@ class SmoothUploadPage extends StatelessWidget {
               initAspectRatio: CropAspectRatioPreset.original,
               lockAspectRatio: false),
         );
-        switch (type) {
-          case PhotoType.FRONT:
-            model.setFrontPath(croppedFile.path);
-            break;
-          case PhotoType.INGREDIENTS:
-            model.setIngredientsPath(croppedFile.path);
-            break;
-          case PhotoType.NUTRITION_TABLE:
-            model.setNutritionPath(croppedFile.path);
-            break;
+        if (croppedFile != null) {
+          switch (type) {
+            case PhotoType.FRONT:
+              model.setFrontPath(croppedFile.path);
+              break;
+            case PhotoType.INGREDIENTS:
+              model.setIngredientsPath(croppedFile.path);
+              break;
+            case PhotoType.NUTRITION_TABLE:
+              model.setNutritionPath(croppedFile.path);
+              break;
+          }
         }
       },
     );
@@ -204,8 +206,6 @@ class SmoothUploadPage extends StatelessWidget {
         return model.nutritionPath == null
             ? 'assets/actions/camera.svg'
             : 'assets/misc/checkmark.svg';
-      default:
-        return null;
     }
   }
 }
