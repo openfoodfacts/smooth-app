@@ -2,8 +2,11 @@
 import 'package:flutter/material.dart';
 
 class CategoryChip extends StatelessWidget {
-  const CategoryChip(
-      {required this.title, required this.color, required this.onTap});
+  const CategoryChip({
+    required this.title,
+    required this.color,
+    required this.onTap,
+  });
 
   final String title;
   final Color color;

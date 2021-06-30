@@ -40,7 +40,10 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product.dart';
 
 class ProductPage extends StatefulWidget {
-  const ProductPage({required this.product, this.newProduct = false});
+  const ProductPage({
+    required this.product,
+    this.newProduct = false,
+  });
 
   final bool newProduct;
   final Product product;

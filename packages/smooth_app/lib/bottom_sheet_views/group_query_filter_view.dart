@@ -10,10 +10,11 @@ import 'package:provider/provider.dart';
 import 'package:smooth_ui_library/buttons/smooth_main_button.dart';
 
 class GroupQueryFilterView extends StatelessWidget {
-  const GroupQueryFilterView(
-      {required this.categories,
-      required this.categoriesList,
-      required this.callback});
+  const GroupQueryFilterView({
+    required this.categories,
+    required this.categoriesList,
+    required this.callback,
+  });
 
   final Map<String, String> categories;
   final List<String> categoriesList;
