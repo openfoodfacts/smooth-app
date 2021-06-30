@@ -124,7 +124,7 @@ class ProductList {
 
   bool isEmpty() => _barcodes.isEmpty;
 
-  Product getProduct(final String barcode) => _products[barcode]!;
+  Product getProduct(final String barcode) => _products[barcode];
 
   bool isSameAs(final ProductList other) =>
       listType == other.listType && parameters == other.parameters;

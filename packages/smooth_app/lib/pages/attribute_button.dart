@@ -61,7 +61,7 @@ class AttributeButton extends StatelessWidget {
       tileColor: _getBackgroundColor(strongBackgroundColor!, importanceId),
       title: Text(attribute.name!, style: TextStyle(color: foregroundColor)),
       leading: SvgCache(attribute.iconUrl, width: 40),
-      trailing: _getIcon(importanceId, foregroundColor!),
+      trailing: _getIcon(importanceId, foregroundColor),
       onTap: () async => onTap(
         context: context,
         attributeId: attribute.id!,
@@ -180,7 +180,7 @@ class AttributeButton extends StatelessWidget {
     final Color strongBackgroundColor,
     final String importanceId,
   ) {
-    final double? opacity = _IMPORTANCE_OPACITIES[importanceId]!;
+    final double? opacity = _IMPORTANCE_OPACITIES[importanceId];
     if (opacity == null) {
       return null;
     }
