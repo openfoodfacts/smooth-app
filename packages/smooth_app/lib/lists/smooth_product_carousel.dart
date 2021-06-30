@@ -69,10 +69,10 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
     final String barcode,
     final ProductPreferences productPreferences,
   ) {
-    final Product product = widget.continuousScanModel.getProduct(barcode);
     switch (widget.continuousScanModel.getBarcodeState(barcode)!) {
       case ScannedProductState.FOUND:
       case ScannedProductState.CACHED:
+        final Product product = widget.continuousScanModel.getProduct(barcode);
         if (widget.continuousScanModel.contributionMode) {
           return SmoothProductCardEdit(heroTag: barcode, product: product);
         }

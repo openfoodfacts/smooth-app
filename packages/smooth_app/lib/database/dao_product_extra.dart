@@ -371,7 +371,7 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
     return map[barcode];
   }
 
-  String _getExtraKey(final ProductList productList, final int id) {
+  String _getExtraKey(final ProductList productList, final int? id) {
     switch (productList.listType) {
       case ProductList.LIST_TYPE_HISTORY:
         return EXTRA_ID_LAST_SEEN;
@@ -384,7 +384,7 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
     return 'list/$id';
   }
 
-  bool _getExtraReverse(final ProductList productList, final int id) {
+  bool _getExtraReverse(final ProductList productList, final int? id) {
     switch (productList.listType) {
       case ProductList.LIST_TYPE_HISTORY:
         return true;
