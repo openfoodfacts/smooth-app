@@ -110,8 +110,8 @@ class DaoProductList extends AbstractDao {
     }
   }
 
-  Future<int> getTimestamp(final ProductList productList) async {
-    final Map<String, dynamic> record = await _getRecord(
+  Future<int?> getTimestamp(final ProductList productList) async {
+    final Map<String, dynamic>? record = await _getRecord(
       productList,
       localDatabase.database,
     );
@@ -121,11 +121,11 @@ class DaoProductList extends AbstractDao {
     return record[LocalDatabase.COLUMN_TIMESTAMP] as int;
   }
 
-  Future<int> _getId(
+  Future<int?> _getId(
     final ProductList productList,
     final DatabaseExecutor databaseExecutor,
   ) async {
-    final Map<String, dynamic> record = await _getRecord(
+    final Map<String, dynamic>? record = await _getRecord(
       productList,
       databaseExecutor,
     );
@@ -143,7 +143,7 @@ class DaoProductList extends AbstractDao {
           final ProductList productList) =>
       <String>[productList.listType, productList.parameters];
 
-  Future<Map<String, dynamic>> _getRecord(
+  Future<Map<String, dynamic>?> _getRecord(
     final ProductList productList,
     final DatabaseExecutor databaseExecutor,
   ) async {
@@ -216,7 +216,7 @@ class DaoProductList extends AbstractDao {
       final String barcode =
           row[_TABLE_PRODUCT_LIST_ITEM_COLUMN_BARCODE] as String;
       final int timestamp = row[LocalDatabase.COLUMN_TIMESTAMP] as int;
-      List<dynamic> item = map[listId];
+      List<dynamic>? item = map[listId];
       if (item == null) {
         map[listId] = item = <dynamic>[];
       }
@@ -243,14 +243,14 @@ class DaoProductList extends AbstractDao {
       );
 
       final List<dynamic> insertParameters = <dynamic>[];
-      final List<dynamic> parameters = map[listId];
+      final List<dynamic> parameters = map[listId]!;
       final int max = parameters.length ~/ 2;
       final Map<String, int> timestamps = <String, int>{};
       for (int i = 0; i < parameters.length; i += 2) {
         final int index = max - (i ~/ 2);
         final String barcode = parameters[i] as String;
         final int timestamp = parameters[i + 1] as int;
-        final int previous = timestamps[barcode];
+        final int? previous = timestamps[barcode];
         if (previous != null) {
           continue;
         }
@@ -328,17 +328,20 @@ class DaoProductList extends AbstractDao {
     final ProductList productList,
     final int limit,
   ) async {
-    final List<String> barcodes =
+    final List<String>? barcodes =
         await DaoProductExtra(localDatabase).getFirstBarcodes(
       productList,
       await _getId(productList, localDatabase.database),
       limit,
     );
+    final List<Product> result = <Product>[];
+    if (barcodes == null) {
+      return result;
+    }
     final Map<String, Product> products =
         await DaoProduct(localDatabase).getAll(barcodes);
-    final List<Product> result = <Product>[];
     for (final String barcode in barcodes) {
-      final Product product = products[barcode];
+      final Product? product = products[barcode];
       if (product != null) {
         result.add(product);
       }
@@ -349,7 +352,7 @@ class DaoProductList extends AbstractDao {
   Future<void> delete(final ProductList productList) async {
     await localDatabase.database.transaction(
       (final Transaction transaction) async {
-        final int id = await _getId(productList, transaction);
+        final int? id = await _getId(productList, transaction);
         if (id != null) {
           await transaction.delete(
             _TABLE_PRODUCT_LIST,
@@ -366,7 +369,7 @@ class DaoProductList extends AbstractDao {
     );
   }
 
-  Future<Map<int, Map<String, String>>> _getExtras({final int listId}) async {
+  Future<Map<int, Map<String, String>>> _getExtras({final int? listId}) async {
     final Map<int, Map<String, String>> result = <int, Map<String, String>>{};
     final List<Map<String, dynamic>> queryResult =
         await localDatabase.database.query(
@@ -390,16 +393,16 @@ class DaoProductList extends AbstractDao {
       if (result[productListId] == null) {
         result[productListId] = <String, String>{};
       }
-      result[productListId][key] = value;
+      result[productListId]![key] = value;
     }
     return result;
   }
 
   Future<List<ProductList>> getAll({
     final bool withStats = true,
-    final List<String> typeFilter,
+    final List<String>? typeFilter,
     final bool reverse = true,
-    final int limit,
+    final int? limit,
   }) async {
     final Map<String, int> counts = withStats
         ? await DaoProductExtra(localDatabase).getStats()
@@ -429,7 +432,7 @@ class DaoProductList extends AbstractDao {
         listType: row[_TABLE_PRODUCT_LIST_COLUMN_TYPE] as String,
         parameters: row[_TABLE_PRODUCT_LIST_COLUMN_PARAMETERS] as String,
         databaseTimestamp: row[LocalDatabase.COLUMN_TIMESTAMP] as int,
-        databaseCountDistinct: counts[productListId],
+        databaseCountDistinct: counts[productListId] ?? 0,
       )..extraTags = extras[productListId];
       result.add(item);
     }
@@ -442,7 +445,7 @@ class DaoProductList extends AbstractDao {
     final ProductList productList,
     final DatabaseExecutor databaseExecutor,
   ) async {
-    int id = await _getId(productList, databaseExecutor);
+    int? id = await _getId(productList, databaseExecutor);
     if (id == null) {
       id = await databaseExecutor.insert(
         _TABLE_PRODUCT_LIST,
@@ -469,7 +472,7 @@ class DaoProductList extends AbstractDao {
   }
 
   static Future<void> _upsertProductListExtra(
-    final Map<String, String> extraTags,
+    final Map<String, String>? extraTags,
     final int productListId,
     final DatabaseExecutor databaseExecutor,
   ) async {

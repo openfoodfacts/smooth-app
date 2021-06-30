@@ -18,14 +18,14 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 /// a pantry, a shopping list or a product list.
 class MultiSelectProductPage extends StatefulWidget {
   const MultiSelectProductPage.pantry({
-    @required this.barcode,
-    @required this.pantries,
-    this.index,
+    required this.barcode,
+    required this.pantries,
+    required this.index,
     this.pantryType,
   }) : productList = null;
 
   const MultiSelectProductPage.productList({
-    @required this.barcode,
+    required this.barcode,
     this.productList,
   })  : pantries = null,
         pantryType = null,
@@ -34,12 +34,12 @@ class MultiSelectProductPage extends StatefulWidget {
   /// Initial selected barcode
   final String barcode;
 
-  final List<Pantry> pantries;
-  final int index;
-  final PantryType pantryType;
-  Pantry get pantry => pantries == null ? null : pantries[index];
+  final List<Pantry>? pantries;
+  final int? index;
+  final PantryType? pantryType;
+  Pantry get pantry => pantries![index!];
 
-  final ProductList productList;
+  final ProductList? productList;
 
   @override
   _MultiSelectProductPageState createState() => _MultiSelectProductPageState();
@@ -47,14 +47,14 @@ class MultiSelectProductPage extends StatefulWidget {
 
 class _MultiSelectProductPageState extends State<MultiSelectProductPage> {
   final Set<String> _selectedBarcodes = <String>{};
-  List<String> _orderedBarcodes; // late final
+  late List<String> _orderedBarcodes; // late final
 
   @override
   void initState() {
     super.initState();
     _selectedBarcodes.add(widget.barcode);
     if (widget.productList != null) {
-      _orderedBarcodes = widget.productList.barcodes;
+      _orderedBarcodes = widget.productList!.barcodes;
     } else {
       _orderedBarcodes = widget.pantry.getOrderedBarcodes();
     }
@@ -63,26 +63,26 @@ class _MultiSelectProductPageState extends State<MultiSelectProductPage> {
   void _removeBarcode(final String barcode) {
     _orderedBarcodes.remove(barcode);
     if (widget.productList != null) {
-      widget.productList.remove(barcode);
+      widget.productList!.remove(barcode);
     } else {
       widget.pantry.removeBarcode(barcode);
     }
   }
 
   Product _getProduct(final String barcode) => widget.productList != null
-      ? widget.productList.getProduct(barcode)
-      : widget.pantry.products[barcode];
+      ? widget.productList!.getProduct(barcode)
+      : widget.pantry.products[barcode]!;
 
   Future<void> _commit(
     final UserPreferences userPreferences,
     final DaoProductList daoProductList,
   ) async =>
       widget.productList != null
-          ? await daoProductList.put(widget.productList)
+          ? await daoProductList.put(widget.productList!)
           : await Pantry.putAll(
               userPreferences,
-              widget.pantries,
-              widget.pantryType,
+              widget.pantries!,
+              widget.pantryType!,
             );
 
   @override
@@ -135,7 +135,7 @@ class _MultiSelectProductPageState extends State<MultiSelectProductPage> {
                 daoProduct: daoProduct,
                 allPantries: allPantries,
                 userPreferences: userPreferences,
-                ignoredProductList: widget.productList,
+                ignoredProductList: widget.productList!,
                 ignoredPantry: widget.pantry,
               );
               if (children.isEmpty) {
@@ -197,7 +197,7 @@ class _MultiSelectProductPageState extends State<MultiSelectProductPage> {
         itemCount: _orderedBarcodes.length,
         itemBuilder: (BuildContext context, int index) {
           final Product product = _getProduct(_orderedBarcodes[index]);
-          final String barcode = product.barcode;
+          final String barcode = product.barcode!;
           final bool selected = _selectedBarcodes.contains(barcode);
           return Card(
             color: SmoothTheme.getColor(
@@ -223,7 +223,8 @@ class _MultiSelectProductPageState extends State<MultiSelectProductPage> {
                       product.productNameEN ??
                       product.productNameFR ??
                       product.productNameDE ??
-                      product.barcode,
+                      product.barcode ??
+                      'unknown',
                   style: themeData.textTheme.headline4,
                 ),
                 trailing: Icon(

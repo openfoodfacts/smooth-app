@@ -19,12 +19,12 @@ class UserPreferencesPage extends StatelessWidget {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
-    final List<AttributeGroup> groups = productPreferences.attributeGroups;
+    final List<AttributeGroup>? groups = productPreferences.attributeGroups;
     final List<String> orderedImportantAttributeIds =
         productPreferences.getOrderedImportantAttributeIds();
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context).myPreferences),
+        title: Text(AppLocalizations.of(context)!.myPreferences),
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.refresh),
@@ -36,7 +36,7 @@ class UserPreferencesPage extends StatelessWidget {
       ),
       body: ListView(
         children: List<Widget>.generate(
-          groups.length,
+          groups!.length,
           (int index) => _generateGroup(
             context,
             groups[index],
@@ -64,7 +64,7 @@ class UserPreferencesPage extends StatelessWidget {
             padding: const EdgeInsets.all(_TYPICAL_PADDING_OR_MARGIN),
             child: ListTile(
               title: Text(
-                group.name,
+                group.name ?? 'Unknown',
                 style: Theme.of(context).textTheme.headline3,
               ),
             ),
@@ -80,7 +80,7 @@ class UserPreferencesPage extends StatelessWidget {
               padding: const EdgeInsets.all(_TYPICAL_PADDING_OR_MARGIN),
               margin: const EdgeInsets.all(_TYPICAL_PADDING_OR_MARGIN),
               child: Text(
-                group.warning,
+                group.warning ?? 'Unknown',
                 style: TextStyle(
                   color: SmoothTheme.getColor(
                     Theme.of(context).colorScheme,
@@ -115,11 +115,11 @@ class UserPreferencesPage extends StatelessWidget {
     final List<String> orderedAttributeIds,
   ) {
     if (orderedAttributeIds.isEmpty) {
-      return group.attributes;
+      return group.attributes!;
     }
     final List<Attribute> importantAttributes = <Attribute>[];
     final List<Attribute> otherAttributes = <Attribute>[];
-    for (final Attribute attribute in group.attributes) {
+    for (final Attribute attribute in group.attributes!) {
       if (orderedAttributeIds.contains(attribute.id)) {
         importantAttributes.add(attribute);
       } else {
@@ -131,8 +131,8 @@ class UserPreferencesPage extends StatelessWidget {
     }
     importantAttributes.sort(
       (Attribute a, Attribute b) => orderedAttributeIds
-          .indexOf(a.id)
-          .compareTo(orderedAttributeIds.indexOf(b.id)),
+          .indexOf(a.id!)
+          .compareTo(orderedAttributeIds.indexOf(b.id!)),
     );
     importantAttributes.addAll(otherAttributes);
     return importantAttributes;

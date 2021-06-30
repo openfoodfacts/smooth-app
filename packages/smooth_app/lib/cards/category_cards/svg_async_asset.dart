@@ -11,8 +11,8 @@ class SvgAsyncAsset extends StatelessWidget {
   });
 
   final String fullFilename;
-  final double width;
-  final double height;
+  final double? width;
+  final double? height;
 
   @override
   Widget build(BuildContext context) => FutureBuilder<String>(
@@ -20,14 +20,16 @@ class SvgAsyncAsset extends StatelessWidget {
         builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             if (snapshot.data != null) {
-              return SvgPicture.string(snapshot.data,
-                  width: width,
-                  height: height,
-                  fit: BoxFit.contain,
-                  placeholderBuilder: (BuildContext context) => Container(
-                        width: width ?? height,
-                        height: height ?? width,
-                      ));
+              return SvgPicture.string(
+                snapshot.data!,
+                width: width,
+                height: height,
+                fit: BoxFit.contain,
+                placeholderBuilder: (BuildContext context) => Container(
+                  width: width ?? height,
+                  height: height ?? width,
+                ),
+              );
             } else {
               print('unexpected case: svg asset not found $fullFilename');
             }

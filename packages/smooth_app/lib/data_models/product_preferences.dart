@@ -16,14 +16,18 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
   ) : super(productPreferencesSelection);
 
   /// 2-letter language code of the latest reference load.
-  String _languageCode;
+  late String _languageCode;
 
   /// "was it a network load" bool of the latest reference load.
-  bool _isNetwork;
+  late bool _isNetwork;
 
   String get languageCode => _languageCode;
   bool get isNetwork => _isNetwork;
 
+  /// Notify listeners
+  /// Comments added only in order to avoid a "warning"
+  /// For the record, we need to override the method
+  /// because the parent's is protected
   @override
   void notifyListeners() => super.notifyListeners();
 
@@ -67,12 +71,12 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
     http.Response response;
     response = await http.get(Uri.parse(importanceUrl));
     if (response.statusCode != 200) {
-      return false;
+      return;
     }
     final String preferenceImportancesString = response.body;
     response = await http.get(Uri.parse(attributeGroupUrl));
     if (response.statusCode != 200) {
-      return false;
+      return;
     }
     final String attributeGroupsString = response.body;
     final AvailableProductPreferences myAvailableProductPreferences =
@@ -106,8 +110,8 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
   }
 
   AttributeGroup getAttributeGroup(final String attributeId) {
-    for (final AttributeGroup attributeGroup in attributeGroups) {
-      for (final Attribute item in attributeGroup.attributes) {
+    for (final AttributeGroup attributeGroup in attributeGroups!) {
+      for (final Attribute item in attributeGroup.attributes!) {
         if (item.id == attributeId) {
           return attributeGroup;
         }

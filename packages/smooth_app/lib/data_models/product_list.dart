@@ -6,8 +6,8 @@ import 'package:smooth_app/data_models/product_extra.dart';
 
 class ProductList {
   ProductList({
-    @required this.listType,
-    @required this.parameters,
+    required this.listType,
+    required this.parameters,
     this.databaseTimestamp,
     this.databaseCountDistinct,
   });
@@ -87,9 +87,9 @@ class ProductList {
 
   final String listType;
   final String parameters;
-  final int databaseTimestamp;
-  final int databaseCountDistinct;
-  Map<String, String> extraTags;
+  final int? databaseTimestamp;
+  final int? databaseCountDistinct;
+  Map<String, String>? extraTags;
 
   final List<String> _barcodes = <String>[];
   final Map<String, Product> _products = <String, Product>{};
@@ -110,45 +110,45 @@ class ProductList {
 
   void _setExtra(final String key, final String value) {
     extraTags ??= <String, String>{};
-    extraTags[key] = value;
+    extraTags![key] = value;
   }
 
   String get _colorTag =>
-      (extraTags == null ? null : extraTags[_EXTRA_COLOR]) ??
-      _DEFAULT_COLOR_TAG_PER_TYPE[listType];
+      (extraTags == null ? null : extraTags![_EXTRA_COLOR]) ??
+      _DEFAULT_COLOR_TAG_PER_TYPE[listType]!;
   String get _iconTag =>
-      (extraTags == null ? null : extraTags[_EXTRA_ICON]) ??
-      _DEFAULT_ICON_TAG_PER_TYPE[listType];
+      (extraTags == null ? null : extraTags![_EXTRA_ICON]) ??
+      _DEFAULT_ICON_TAG_PER_TYPE[listType]!;
 
-  List<String> getPossibleIcons() => _ORDERED_ICONS_PER_TYPE[listType];
+  List<String> getPossibleIcons() => _ORDERED_ICONS_PER_TYPE[listType]!;
 
   bool isEmpty() => _barcodes.isEmpty;
 
-  Product getProduct(final String barcode) => _products[barcode];
+  Product getProduct(final String barcode) => _products[barcode]!;
 
   bool isSameAs(final ProductList other) =>
       listType == other.listType && parameters == other.parameters;
 
-  IconData get iconData => _ICON_DATA[_iconTag] ?? _ICON_DATA[_ICON_TAG];
+  IconData get iconData => _ICON_DATA[_iconTag] ?? _ICON_DATA[_ICON_TAG]!;
 
   static Widget getReferenceIcon({
-    @required final ColorScheme colorScheme,
-    @required final String colorTag,
-    @required final String iconTag,
-    @required final ColorDestination colorDestination,
+    required final ColorScheme colorScheme,
+    required final String colorTag,
+    required final String iconTag,
+    required final ColorDestination colorDestination,
   }) =>
       getTintedIcon(
         colorScheme: colorScheme,
         materialColor: _getReferenceMaterialColor(colorTag),
-        iconData: _ICON_DATA[iconTag] ?? _ICON_DATA[_ICON_TAG],
+        iconData: _ICON_DATA[iconTag] ?? _ICON_DATA[_ICON_TAG]!,
         colorDestination: colorDestination,
       );
 
   static Widget getTintedIcon({
-    @required final ColorScheme colorScheme,
-    @required final MaterialColor materialColor,
-    @required final IconData iconData,
-    @required final ColorDestination colorDestination,
+    required final ColorScheme colorScheme,
+    required final MaterialColor materialColor,
+    required final IconData iconData,
+    final ColorDestination? colorDestination,
   }) =>
       Icon(
         iconData,
@@ -159,7 +159,7 @@ class ProductList {
       );
 
   static MaterialColor _getReferenceMaterialColor(final String colorTag) =>
-      _COLORS[colorTag] ?? _COLORS[_COLOR_RED];
+      _COLORS[colorTag] ?? _COLORS[_COLOR_RED]!;
 
   Widget getIcon(
     final ColorScheme colorScheme,
@@ -174,11 +174,11 @@ class ProductList {
 
   MaterialColor getMaterialColor() => _getReferenceMaterialColor(_colorTag);
 
-  void refresh(final Product product) {
+  void refresh(final Product? product) {
     if (product == null) {
       throw Exception('null product');
     }
-    final String barcode = product.barcode;
+    final String? barcode = product.barcode;
     if (barcode == null) {
       throw Exception('null barcode');
     }
@@ -191,21 +191,21 @@ class ProductList {
   /// Don't forget to update the database afterwards
   bool add(final Product product) {
     refresh(product);
-    if (_barcodes.contains(product.barcode)) {
+    if (_barcodes.contains(product.barcode!)) {
       return false;
     }
-    _barcodes.add(product.barcode);
+    _barcodes.add(product.barcode!);
     int index = 1; // default value
     // looking for the highest index so far
     for (final String barcode in _barcodes.reversed) {
       if (barcode == product.barcode) {
         continue;
       }
-      final ProductExtra last = _productExtras[barcode];
+      final ProductExtra last = _productExtras[barcode]!;
       index = last.intValue;
       break;
     }
-    _productExtras[product.barcode] = _computeProductExtra(index);
+    _productExtras[product.barcode!] = _computeProductExtra(index);
     return true;
   }
 
@@ -218,8 +218,8 @@ class ProductList {
       return false;
     }
     _barcodes.remove(barcode);
-    _products[barcode] = null;
-    _productExtras[barcode] = null;
+    _products.remove(barcode);
+    _productExtras.remove(barcode);
     return true;
   }
 
@@ -230,7 +230,7 @@ class ProductList {
     final Map<String, Product> productMap = <String, Product>{};
     final Map<String, ProductExtra> productExtras = <String, ProductExtra>{};
     for (final Product product in products) {
-      final String barcode = product.barcode;
+      final String barcode = product.barcode!;
       barcodes.add(barcode);
       productMap[barcode] = product;
       productExtras[barcode] = _computeProductExtra(i++);
@@ -241,14 +241,16 @@ class ProductList {
   void set(
     final List<String> barcodes,
     final Map<String, Product> products,
-    final Map<String, ProductExtra> productExtras,
+    final Map<String, ProductExtra>? productExtras,
   ) {
     _barcodes.clear();
     _products.clear();
     _barcodes.addAll(barcodes);
     _products.addAll(products);
     _productExtras.clear();
-    _productExtras.addAll(productExtras);
+    if (productExtras != null) {
+      _productExtras.addAll(productExtras);
+    }
   }
 
   ProductExtra _computeProductExtra(final int index) => ProductExtra(index, '');
@@ -272,7 +274,7 @@ class ProductList {
   List<Product> getList() {
     final List<Product> result = <Product>[];
     for (final String barcode in _barcodes) {
-      final Product product = _products[barcode];
+      final Product? product = _products[barcode];
       if (product == null) {
         throw Exception('no product for barcode $barcode');
       }

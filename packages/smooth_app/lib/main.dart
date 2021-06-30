@@ -44,10 +44,10 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  UserPreferences _userPreferences;
-  ProductPreferences _productPreferences;
-  LocalDatabase _localDatabase;
-  ThemeProvider _themeProvider;
+  late UserPreferences _userPreferences;
+  late ProductPreferences _productPreferences;
+  late LocalDatabase _localDatabase;
+  late ThemeProvider _themeProvider;
   bool systemDarkmodeOn = false;
 
   Future<void> _init(BuildContext context) async {
@@ -87,7 +87,8 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     final Brightness brightness =
-        SchedulerBinding.instance.window.platformBrightness;
+        SchedulerBinding.instance?.window.platformBrightness ??
+            Brightness.light;
     systemDarkmodeOn = brightness == Brightness.dark;
     super.initState();
   }
@@ -113,7 +114,7 @@ class _MyAppState extends State<MyApp> {
               builder: (
                 BuildContext context,
                 ThemeProvider value,
-                Widget child,
+                Widget? child,
               ) {
                 return MaterialApp(
                   localizationsDelegates:

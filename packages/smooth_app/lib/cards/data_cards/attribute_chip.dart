@@ -6,7 +6,7 @@ import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 class AttributeChip extends StatelessWidget {
   const AttributeChip(
     this.attribute, {
-    this.height,
+    required this.height,
   });
 
   final Attribute attribute;
@@ -15,6 +15,6 @@ class AttributeChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Container(
         constraints: BoxConstraints(minWidth: height),
-        child: SvgCache(attribute?.iconUrl, height: height),
+        child: SvgCache(attribute.iconUrl, height: height),
       );
 }

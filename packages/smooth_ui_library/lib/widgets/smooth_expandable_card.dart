@@ -18,8 +18,8 @@ class SmoothExpandableCard extends StatefulWidget {
   final Widget? expandedHeader;
   final Color? color;
   final Widget child;
-  final EdgeInsets padding;
-  final EdgeInsets insets;
+  final EdgeInsets? padding;
+  final EdgeInsets? insets;
   final bool initiallyCollapsed;
 
   @override
@@ -47,45 +47,49 @@ class _SmoothExpandableCardState extends State<SmoothExpandableCard> {
   }
 
   Widget _buildCard() {
+    final Widget notPadded = Material(
+      elevation: 8.0,
+      shadowColor: Colors.black45,
+      borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+      color: widget.color ?? Theme.of(context).colorScheme.surface,
+      child: Container(
+        padding: widget.insets,
+        child: Column(
+          children: <Widget>[
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  child: collapsed
+                      ? widget.collapsedHeader
+                      : widget.expandedHeader ?? widget.collapsedHeader,
+                ),
+                SmoothAnimatedCollapseArrow(
+                  duration: _ANIMATION_DURATION,
+                  collapsed: collapsed,
+                ),
+              ],
+            ),
+            if (collapsed != true) widget.child,
+          ],
+        ),
+      ),
+    );
+    final Widget padded = widget.padding == null
+        ? notPadded
+        : Padding(
+            padding: widget.padding!,
+            child: notPadded,
+          );
     return GestureDetector(
       onTap: () {
         setState(() {
           collapsed = !collapsed;
         });
       },
-      child: Padding(
-        padding: widget.padding,
-        child: Material(
-          elevation: 8.0,
-          shadowColor: Colors.black45,
-          borderRadius: const BorderRadius.all(Radius.circular(10.0)),
-          color: widget.color ?? Theme.of(context).colorScheme.surface,
-          child: Container(
-            padding: widget.insets,
-            child: Column(
-              children: <Widget>[
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Container(
-                      child: collapsed
-                          ? widget.collapsedHeader
-                          : widget.expandedHeader ?? widget.collapsedHeader,
-                    ),
-                    SmoothAnimatedCollapseArrow(
-                      duration: _ANIMATION_DURATION,
-                      collapsed: collapsed,
-                    ),
-                  ],
-                ),
-                if (collapsed != true) widget.child,
-              ],
-            ),
-          ),
-        ),
-      ),
+      child: padded,
     );
   }
 }

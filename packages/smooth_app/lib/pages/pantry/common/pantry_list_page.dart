@@ -55,7 +55,7 @@ class _PantryListPageState extends State<PantryListPage> {
   }
 
   Future<void> _add(final UserPreferences userPreferences) async {
-    final Pantry newPantry = await PantryDialogHelper.openNew(
+    final Pantry? newPantry = await PantryDialogHelper.openNew(
       context,
       widget.pantries,
       widget.pantryType,

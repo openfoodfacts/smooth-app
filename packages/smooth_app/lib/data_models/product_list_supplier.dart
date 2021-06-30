@@ -16,24 +16,24 @@ abstract class ProductListSupplier {
 
   final ProductQuery productQuery;
   final LocalDatabase localDatabase;
-  final int timestamp;
+  final int? timestamp;
   @protected
-  ProductList productList;
+  late ProductList productList;
 
   /// Returns null if OK, or the message error
-  Future<String> asyncLoad();
+  Future<String?> asyncLoad();
 
   ProductList getProductList() => productList;
 
   /// Returns a helper supplier in order to refresh the data
-  ProductListSupplier getRefreshSupplier();
+  ProductListSupplier? getRefreshSupplier();
 
   /// Returns the fastest data supplier: database if possible, or server query
   static Future<ProductListSupplier> getBestSupplier(
     final ProductQuery productQuery,
     final LocalDatabase localDatabase,
   ) async {
-    final int timestamp = await DaoProductList(localDatabase).getTimestamp(
+    final int? timestamp = await DaoProductList(localDatabase).getTimestamp(
       productQuery.getProductList(),
     );
     return timestamp == null

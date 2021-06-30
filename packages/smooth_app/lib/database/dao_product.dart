@@ -30,7 +30,7 @@ class DaoProduct extends AbstractDao implements BulkDeletable {
   }
 
   // TODO(monsieurtanuki): probably not relevant anymore; use product extra instead?
-  Future<int> getLastUpdate(final String barcode) async {
+  Future<int?> getLastUpdate(final String barcode) async {
     final List<Map<String, dynamic>> queryResult =
         await localDatabase.database.query(
       TABLE_PRODUCT,
@@ -46,7 +46,7 @@ class DaoProduct extends AbstractDao implements BulkDeletable {
     return queryResult.first[LocalDatabase.COLUMN_TIMESTAMP] as int;
   }
 
-  Future<Product> get(final String barcode) async {
+  Future<Product?> get(final String barcode) async {
     final Map<String, Product> map = await getAll(<String>[barcode]);
     return map[barcode];
   }
@@ -54,7 +54,7 @@ class DaoProduct extends AbstractDao implements BulkDeletable {
   // TODO(monsieurtanuki): use the max variable threshold AbstractDao.SQLITE_MAX_VARIABLE_NUMBER
   Future<Map<String, Product>> getAll(final List<String> barcodes) async {
     final Map<String, Product> result = <String, Product>{};
-    if (barcodes == null || barcodes.isEmpty) {
+    if (barcodes.isEmpty) {
       return result;
     }
     final List<Map<String, dynamic>> queryResults =
@@ -106,7 +106,7 @@ class DaoProduct extends AbstractDao implements BulkDeletable {
   Future<List<Product>> getSuggestions(
       final String pattern, final int minLength) async {
     final List<Product> result = <Product>[];
-    if (pattern == null || pattern.trim().length < minLength) {
+    if (pattern.trim().length < minLength) {
       return result;
     }
     final List<Map<String, dynamic>> queryResults =
@@ -156,8 +156,8 @@ class DaoProduct extends AbstractDao implements BulkDeletable {
     final List<dynamic> insertParameters = <dynamic>[];
     final List<dynamic> deleteParameters = <dynamic>[];
     for (final Product product in products) {
-      deleteParameters.add(product.barcode);
-      insertParameters.add(product.barcode);
+      deleteParameters.add(product.barcode!);
+      insertParameters.add(product.barcode!);
       insertParameters.add(json.encode(product.toJson()));
       insertParameters.add(timestamp);
     }

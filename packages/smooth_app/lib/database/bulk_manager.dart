@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:math';
-import 'package:flutter/material.dart';
 import 'package:smooth_app/database/bulk_insertable.dart';
 import 'package:smooth_app/database/bulk_deletable.dart';
 import 'package:sqflite/sqflite.dart';
@@ -20,9 +19,9 @@ class BulkManager {
 
   /// Optimized bulk insert
   Future<void> insert({
-    @required final BulkInsertable bulkInsertable,
-    @required final List<dynamic> parameters,
-    @required final DatabaseExecutor databaseExecutor,
+    required final BulkInsertable bulkInsertable,
+    required final List<dynamic> parameters,
+    required final DatabaseExecutor databaseExecutor,
   }) async {
     final String tableName = bulkInsertable.getTableName();
     final List<String> columnNames = bulkInsertable.getInsertColumns();
@@ -52,10 +51,10 @@ class BulkManager {
 
   /// Optimized bulk delete
   Future<void> delete({
-    @required final BulkDeletable bulkDeletable,
-    @required final List<dynamic> parameters,
-    @required final DatabaseExecutor databaseExecutor,
-    final List<dynamic> additionalParameters,
+    required final BulkDeletable bulkDeletable,
+    required final List<dynamic> parameters,
+    required final DatabaseExecutor databaseExecutor,
+    final List<dynamic>? additionalParameters,
   }) async {
     final String tableName = bulkDeletable.getTableName();
     if (parameters.isEmpty) {

@@ -22,10 +22,10 @@ import 'package:smooth_app/themes/constant_icons.dart';
 
 class ProductQueryPage extends StatefulWidget {
   const ProductQueryPage({
-    @required this.productListSupplier,
-    @required this.heroTag,
-    @required this.mainColor,
-    @required this.name,
+    required this.productListSupplier,
+    required this.heroTag,
+    required this.mainColor,
+    required this.name,
     this.lastUpdate,
   });
 
@@ -33,7 +33,7 @@ class ProductQueryPage extends StatefulWidget {
   final String heroTag;
   final Color mainColor;
   final String name;
-  final int lastUpdate;
+  final int? lastUpdate;
 
   @override
   _ProductQueryPageState createState() => _ProductQueryPageState();
@@ -44,8 +44,8 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
   final GlobalKey<ScaffoldState> _scaffoldKeyNotEmpty =
       GlobalKey<ScaffoldState>();
 
-  ProductQueryModel _model;
-  int _lastUpdate;
+  late ProductQueryModel _model;
+  int? _lastUpdate;
   final ScrollController _scrollController = ScrollController();
   bool _showTitle = true;
 
@@ -73,7 +73,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<ProductQueryModel>.value(
       value: _model,
-      builder: (BuildContext context, Widget wtf) {
+      builder: (BuildContext context, Widget? wtf) {
         context.watch<ProductQueryModel>();
         final Size screenSize = MediaQuery.of(context).size;
         final ThemeData themeData = Theme.of(context);
@@ -103,7 +103,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
               _getEmptyText(
                 themeData,
                 widget.mainColor,
-                AppLocalizations.of(context).no_product_found,
+                AppLocalizations.of(context)!.no_product_found,
               ),
             );
           case LoadingStatus.ERROR:
@@ -113,11 +113,10 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
               _getEmptyText(
                 themeData,
                 widget.mainColor,
-                '${AppLocalizations.of(context).error_occurred}: ${_model.loadingError}',
+                '${AppLocalizations.of(context)!.error_occurred}: ${_model.loadingError}',
               ),
             );
         }
-        throw Exception('unknown LoadingStatus: ${_model.loadingStatus}');
       },
     );
   }
@@ -170,7 +169,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                     color: widget.mainColor,
                   ),
                   label: Text(
-                    AppLocalizations.of(context).myPersonalizedRanking,
+                    AppLocalizations.of(context)!.myPersonalizedRanking,
                     style: TextStyle(color: widget.mainColor),
                   ),
                   backgroundColor: Colors.white,
@@ -193,14 +192,14 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
             children: <Widget>[
               _getHero(screenSize, themeData),
               ListView.builder(
-                itemCount: _model.displayProducts.length,
+                itemCount: _model.displayProducts!.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 12.0, vertical: 8.0),
                     child: SmoothProductCardFound(
-                      heroTag: _model.displayProducts[index].barcode,
-                      product: _model.displayProducts[index],
+                      heroTag: _model.displayProducts![index].barcode!,
+                      product: _model.displayProducts![index],
                       elevation:
                           Theme.of(context).brightness == Brightness.light
                               ? 0.0
@@ -227,7 +226,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                           Icons.filter_list,
                           color: widget.mainColor,
                         ),
-                        label: Text(AppLocalizations.of(context).filter),
+                        label: Text(AppLocalizations.of(context)!.filter),
                         style: TextButton.styleFrom(
                           textStyle: TextStyle(
                             color: widget.mainColor,
@@ -242,7 +241,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                             builder: (BuildContext context) =>
                                 GroupQueryFilterView(
                               categories: _model.categories,
-                              categoriesList: _model.sortedCategories,
+                              categoriesList: _model.sortedCategories!,
                               callback: (String category) {
                                 _model.selectCategory(category);
                                 setState(() {});
@@ -286,7 +285,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                             child: Text(
                               widget.name,
                               textAlign: TextAlign.center,
-                              style: themeData.textTheme.headline1
+                              style: themeData.textTheme.headline1!
                                   .copyWith(color: widget.mainColor),
                             )),
                       ),
@@ -309,7 +308,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
           Flexible(
             child: Text(message,
                 textAlign: TextAlign.center,
-                style: themeData.textTheme.subtitle1
+                style: themeData.textTheme.subtitle1!
                     .copyWith(color: color, fontSize: 18.0)),
           ),
         ],
@@ -319,16 +318,16 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
     if (_lastUpdate == null) {
       return;
     }
-    final ProductListSupplier refreshSupplier =
+    final ProductListSupplier? refreshSupplier =
         widget.productListSupplier.getRefreshSupplier();
     if (refreshSupplier == null) {
       return;
     }
     final String lastTime =
         ProductQueryPageHelper.getDurationStringFromTimestamp(
-            _lastUpdate, context);
+            _lastUpdate!, context);
     final String message =
-        '${AppLocalizations.of(context).chached_results_from} $lastTime';
+        '${AppLocalizations.of(context)!.chached_results_from} $lastTime';
     _lastUpdate = null;
 
     Future<void>.delayed(
@@ -338,7 +337,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
           content: Text(message),
           duration: const Duration(seconds: 5),
           action: SnackBarAction(
-            label: AppLocalizations.of(context).label_refresh,
+            label: AppLocalizations.of(context)!.label_refresh,
             onPressed: () => setState(
               () => _model = ProductQueryModel(refreshSupplier),
             ),

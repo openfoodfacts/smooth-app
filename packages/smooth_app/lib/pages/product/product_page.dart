@@ -40,7 +40,10 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product.dart';
 
 class ProductPage extends StatefulWidget {
-  const ProductPage({@required this.product, this.newProduct = false});
+  const ProductPage({
+    required this.product,
+    this.newProduct = false,
+  });
 
   final bool newProduct;
   final Product product;
@@ -50,7 +53,8 @@ class ProductPage extends StatefulWidget {
 }
 
 class _ProductPageState extends State<ProductPage> {
-  Product _product;
+  late Product _product;
+  bool _first = true;
 
   final EdgeInsets padding = const EdgeInsets.only(
     right: 8.0,
@@ -79,8 +83,11 @@ class _ProductPageState extends State<ProductPage> {
   @override
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    _product ??= widget.product;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    if (_first) {
+      _first = false;
+      _product = widget.product;
+    }
     return Scaffold(
       appBar: AppBar(
         title: Text(_getProductName(appLocalizations)),
@@ -108,12 +115,12 @@ class _ProductPageState extends State<ProductPage> {
                 case 'refresh':
                   final ProductDialogHelper productDialogHelper =
                       ProductDialogHelper(
-                    barcode: _product.barcode,
+                    barcode: _product.barcode!,
                     context: context,
                     localDatabase: localDatabase,
                     refresh: true,
                   );
-                  final Product product =
+                  final Product? product =
                       await productDialogHelper.openUniqueProductSearch();
                   if (product == null) {
                     productDialogHelper.openProductNotFoundDialog();
@@ -148,7 +155,7 @@ class _ProductPageState extends State<ProductPage> {
   }
 
   Widget _buildProductImagesCarousel(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final List<ImageUploadCard> carouselItems = <ImageUploadCard>[
       ImageUploadCard(
         product: _product,
@@ -206,7 +213,7 @@ class _ProductPageState extends State<ProductPage> {
   }
 
   Widget _buildNewProductBody(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     return ListView(
       children: <Widget>[
         Container(
@@ -249,7 +256,7 @@ class _ProductPageState extends State<ProductPage> {
     final DaoProductExtra daoProductExtra = DaoProductExtra(localDatabase);
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final Size screenSize = MediaQuery.of(context).size;
     final ThemeData themeData = Theme.of(context);
     final double iconHeight =
@@ -259,8 +266,8 @@ class _ProductPageState extends State<ProductPage> {
         productPreferences.getOrderedImportantAttributeIds();
 
     for (final AttributeGroup attributeGroup
-        in productPreferences.attributeGroups) {
-      attributeGroupLabels[attributeGroup.id] = attributeGroup.name;
+        in productPreferences.attributeGroups!) {
+      attributeGroupLabels[attributeGroup.id!] = attributeGroup.name!;
     }
 
     final List<Widget> listItems = <Widget>[
@@ -352,7 +359,7 @@ class _ProductPageState extends State<ProductPage> {
 
     for (final AttributeGroup attributeGroup
         in _getOrderedAttributeGroups(productPreferences)) {
-      final Widget grouped =
+      final Widget? grouped =
           _getAttributeGroupWidget(attributeGroup, iconHeight);
       if (grouped != null) {
         listItems.add(grouped);
@@ -360,11 +367,12 @@ class _ProductPageState extends State<ProductPage> {
     }
 
     //Similar foods
-    if (_product.categoriesTags != null && _product.categoriesTags.isNotEmpty) {
-      for (int i = _product.categoriesTags.length - 1;
-          i < _product.categoriesTags.length;
+    if (_product.categoriesTags != null &&
+        _product.categoriesTags!.isNotEmpty) {
+      for (int i = _product.categoriesTags!.length - 1;
+          i < _product.categoriesTags!.length;
           i++) {
-        final String categoryTag = _product.categoriesTags[i];
+        final String categoryTag = _product.categoriesTags![i];
         const MaterialColor materialColor = Colors.blue;
         listItems.add(
           SmoothCard(
@@ -425,7 +433,7 @@ class _ProductPageState extends State<ProductPage> {
           _temporary(
             await daoProductExtra.getProductExtra(
               key: DaoProductExtra.EXTRA_ID_LAST_SEEN,
-              barcode: _product.barcode,
+              barcode: _product.barcode!,
             ),
             children,
             'History of your access:',
@@ -433,7 +441,7 @@ class _ProductPageState extends State<ProductPage> {
           _temporary(
             await daoProductExtra.getProductExtra(
               key: DaoProductExtra.EXTRA_ID_LAST_SCAN,
-              barcode: _product.barcode,
+              barcode: _product.barcode!,
             ),
             children,
             'History of your barcode scan:',
@@ -441,7 +449,7 @@ class _ProductPageState extends State<ProductPage> {
           _temporary(
             await daoProductExtra.getProductExtra(
               key: DaoProductExtra.EXTRA_ID_LAST_REFRESH,
-              barcode: _product.barcode,
+              barcode: _product.barcode!,
             ),
             children,
             'History of your server refresh:',
@@ -457,7 +465,7 @@ class _ProductPageState extends State<ProductPage> {
       );
 
   void _temporary(
-    final ProductExtra productExtra,
+    final ProductExtra? productExtra,
     final List<Widget> children,
     final String title,
   ) {
@@ -474,13 +482,13 @@ class _ProductPageState extends State<ProductPage> {
     }
   }
 
-  Widget _getAttributeGroupWidget(
+  Widget? _getAttributeGroupWidget(
     final AttributeGroup attributeGroup,
     final double iconHeight,
   ) {
     final List<String> attributeIds = <String>[];
-    for (final Attribute attribute in attributeGroup.attributes) {
-      attributeIds.add(attribute.id);
+    for (final Attribute attribute in attributeGroup.attributes!) {
+      attributeIds.add(attribute.id!);
     }
     final List<Attribute> attributes =
         AttributeListExpandable.getPopulatedAttributes(_product, attributeIds);
@@ -493,7 +501,7 @@ class _ProductPageState extends State<ProductPage> {
       product: _product,
       iconHeight: iconHeight,
       attributes: attributes,
-      title: attributeGroup.name,
+      title: attributeGroup.name!,
     );
   }
 
@@ -502,7 +510,7 @@ class _ProductPageState extends State<ProductPage> {
     final List<AttributeGroup> attributeGroups = <AttributeGroup>[];
     for (final String attributeGroupId in _ORDERED_ATTRIBUTE_GROUP_IDS) {
       for (final AttributeGroup attributeGroup
-          in productPreferences.attributeGroups) {
+          in productPreferences.attributeGroups!) {
         if (attributeGroupId == attributeGroup.id) {
           attributeGroups.add(attributeGroup);
         }
@@ -511,7 +519,7 @@ class _ProductPageState extends State<ProductPage> {
 
     /// in case we get new attribute groups but we haven't included them yet
     for (final AttributeGroup attributeGroup
-        in productPreferences.attributeGroups) {
+        in productPreferences.attributeGroups!) {
       if (!_ORDERED_ATTRIBUTE_GROUP_IDS.contains(attributeGroup.id)) {
         attributeGroups.add(attributeGroup);
       }
@@ -520,9 +528,9 @@ class _ProductPageState extends State<ProductPage> {
   }
 
   Future<void> _copy({
-    @required final UserPreferences userPreferences,
-    @required final DaoProductList daoProductList,
-    @required final DaoProduct daoProduct,
+    required final UserPreferences userPreferences,
+    required final DaoProductList daoProductList,
+    required final DaoProduct daoProduct,
   }) async {
     final List<PantryType> pantryTypes = <PantryType>[
       PantryType.PANTRY,
@@ -581,10 +589,10 @@ class _ProductPageState extends State<ProductPage> {
       _product.productName ?? appLocalizations.unknownProductName;
 
   Widget _getClickableIcon({
-    @required final String label,
-    @required final Widget icon,
-    @required final Future<void> Function() onTap,
-    @required final double width,
+    required final String label,
+    required final Widget icon,
+    required final Future<void> Function() onTap,
+    required final double width,
   }) =>
       InkWell(
         onTap: onTap,

@@ -1,10 +1,9 @@
-// Flutter imports:
 import 'package:flutter/foundation.dart';
 
 class SmoothUploadModel extends ChangeNotifier {
-  String frontPath;
-  String ingredientsPath;
-  String nutritionPath;
+  String? frontPath;
+  String? ingredientsPath;
+  String? nutritionPath;
 
   void setFrontPath(String path) {
     frontPath = path;

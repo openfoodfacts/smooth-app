@@ -24,21 +24,18 @@ class Launcher {
 
     if (isOFF) {
       //Get countrycode
-
       final Locale locale = Localizations.localeOf(context);
-      if (locale.countryCode.toString() == null) {
+      if (locale.countryCode == null) {
         localeString = 'world.';
       } else {
         localeString = '${locale.countryCode.toString()}.';
       }
-      print('locale = $localeString');
 
       //Check + Add to url
       if (!url.contains('https://openfoodfacts')) {
         throw 'Error do not use local identifier';
       }
-      print('url1 $url');
-      //url.replaceAll(from, replace)
+
       openURL = url.replaceAll('https://openfoodfacts.org/',
           'https://${localeString}openfoodfacts.org/');
     } else {
@@ -46,6 +43,7 @@ class Launcher {
     }
 
     if (await canLaunch(openURL)) {
+      print('Open url: $url');
       await launch(openURL);
     } else {
       throw 'Could not launch $url';

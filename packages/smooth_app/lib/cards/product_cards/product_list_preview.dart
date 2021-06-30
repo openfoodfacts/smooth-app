@@ -16,16 +16,16 @@ import 'package:smooth_ui_library/widgets/smooth_card.dart';
 
 class ProductListPreview extends StatelessWidget {
   const ProductListPreview({
-    @required this.daoProductList,
-    @required this.productList,
-    @required this.nbInPreview,
+    required this.daoProductList,
+    required this.productList,
+    required this.nbInPreview,
     this.andThen,
   });
 
   final DaoProductList daoProductList;
   final ProductList productList;
   final int nbInPreview;
-  final Function andThen;
+  final Function? andThen;
 
   @override
   Widget build(BuildContext context) => FutureBuilder<List<Product>>(
@@ -36,14 +36,13 @@ class ProductListPreview extends StatelessWidget {
         ) {
           final String title =
               ProductQueryPageHelper.getProductListLabel(productList, context);
-          if (snapshot.connectionState == ConnectionState.done) {
-            final List<Product> list = snapshot.data;
+          if (snapshot.connectionState == ConnectionState.done &&
+              snapshot.data != null) {
+            final List<Product> list = snapshot.data!;
 
             String subtitle;
             final double iconSize = MediaQuery.of(context).size.width / 6;
-            if (list == null || list.isEmpty) {
-              subtitle = AppLocalizations.of(context).empty_list;
-            }
+            subtitle = AppLocalizations.of(context)!.empty_list;
             return SmoothCard(
               child: Column(
                 children: <Widget>[
@@ -58,7 +57,7 @@ class ProductListPreview extends StatelessWidget {
                         ),
                       );
                       if (andThen != null) {
-                        andThen();
+                        andThen!();
                       }
                     },
                     leading: productList.getIcon(
@@ -66,7 +65,7 @@ class ProductListPreview extends StatelessWidget {
                       ColorDestination.SURFACE_FOREGROUND,
                     ),
                     trailing: const Icon(Icons.arrow_forward),
-                    subtitle: subtitle == null ? null : Text(subtitle),
+                    subtitle: Text(subtitle),
                     title: Text(
                       title,
                       style: Theme.of(context).textTheme.subtitle2,
@@ -85,7 +84,7 @@ class ProductListPreview extends StatelessWidget {
               leading: const CircularProgressIndicator(),
               subtitle: Text(title),
               title: Text(
-                AppLocalizations.of(context).searching,
+                AppLocalizations.of(context)!.searching,
                 style: Theme.of(context).textTheme.subtitle2,
               ),
             ),

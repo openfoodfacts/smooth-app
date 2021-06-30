@@ -30,5 +30,5 @@ class ThemeProvider with ChangeNotifier {
   MaterialColor get materialColor => darkTheme
       ? Colors.grey
       : SmoothTheme.MATERIAL_COLORS[colorTag] ??
-          SmoothTheme.MATERIAL_COLORS[SmoothTheme.COLOR_TAG_BLUE];
+          SmoothTheme.MATERIAL_COLORS[SmoothTheme.COLOR_TAG_BLUE]!;
 }

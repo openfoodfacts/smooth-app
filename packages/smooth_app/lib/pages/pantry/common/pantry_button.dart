@@ -6,21 +6,21 @@ import 'package:smooth_app/pages/product/common/smooth_chip.dart';
 /// A button for a pantry, with the corresponding color, icon, name and shape
 class PantryButton extends StatelessWidget {
   PantryButton({
-    @required this.pantries,
-    @required this.index,
-    @required this.onPressed,
-  })  : pantryType = pantries[index].pantryType,
+    required this.pantries,
+    required this.index,
+    required this.onPressed,
+  })  : pantryType = pantries[index!].pantryType,
         onlyIcon = false;
 
   const PantryButton.add({
-    @required this.pantries,
-    @required this.pantryType,
-    @required this.onPressed,
-    @required this.onlyIcon,
+    required this.pantries,
+    required this.pantryType,
+    required this.onPressed,
+    required this.onlyIcon,
   }) : index = null;
 
   final List<Pantry> pantries;
-  final int index;
+  final int? index;
   final Function onPressed;
   final PantryType pantryType;
   final bool onlyIcon;
@@ -31,12 +31,13 @@ class PantryButton extends StatelessWidget {
       return SmoothChip(
         onPressed: onPressed,
         iconData: Icons.add,
-        label:
-            onlyIcon ? null : _getCreateListLabel(AppLocalizations.of(context)),
+        label: onlyIcon
+            ? null
+            : _getCreateListLabel(AppLocalizations.of(context)!),
         shape: _getShape(),
       );
     }
-    final Pantry pantry = pantries[index];
+    final Pantry pantry = pantries[index!];
     return SmoothChip(
       onPressed: onPressed,
       iconData: pantry.iconData,
@@ -53,10 +54,9 @@ class PantryButton extends StatelessWidget {
       case PantryType.SHOPPING:
         return appLocalizations.new_shopping;
     }
-    throw Exception('unknow pantry type $pantryType');
   }
 
-  OutlinedBorder _getShape() {
+  OutlinedBorder? _getShape() {
     switch (pantryType) {
       case PantryType.PANTRY:
         return null;
@@ -68,6 +68,5 @@ class PantryButton extends StatelessWidget {
           ),
         );
     }
-    throw Exception('unknow pantry type $pantryType');
   }
 }

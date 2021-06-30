@@ -43,8 +43,8 @@ class _HomePageState extends State<HomePage> {
       ColorDestination.SURFACE_FOREGROUND;
   static const Icon _ICON_ARROW_FORWARD = Icon(Icons.arrow_forward);
 
-  DaoProductList _daoProductList;
-  DaoProduct _daoProduct;
+  late DaoProductList _daoProductList;
+  late DaoProduct _daoProduct;
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
     _daoProduct = DaoProduct(localDatabase);
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final Size screenSize = MediaQuery.of(context).size;
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final MaterialColor materialColor =
@@ -213,35 +213,32 @@ class _HomePageState extends State<HomePage> {
           final BuildContext context,
           final AsyncSnapshot<List<ProductList>> snapshot,
         ) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            final List<ProductList> list = snapshot.data;
+          if (snapshot.connectionState == ConnectionState.done &&
+              snapshot.data != null) {
+            final List<ProductList> list = snapshot.data!;
             final List<Widget> cards = <Widget>[];
-            if (list != null) {
-              for (final ProductList item in list) {
-                cards.add(
-                  ProductListButton(
-                    productList: item,
-                    onPressed: () async => await _goToProductListPage(item),
-                  ),
-                );
-              }
+            for (final ProductList item in list) {
+              cards.add(
+                ProductListButton(
+                  productList: item,
+                  onPressed: () async => await _goToProductListPage(item),
+                ),
+              );
             }
+
             final Widget addButton = ProductListButton.add(
               onlyIcon: cards.isNotEmpty,
               onPressed: () async {
-                final ProductList newProductList =
+                final ProductList? newProductList =
                     await ProductListDialogHelper.openNew(
                   context,
                   _daoProductList,
                   list,
                 );
-                if (newProductList == null) {
-                  return;
-                }
-                await _goToProductListPage(newProductList);
+                await _goToProductListPage(newProductList!);
               },
             );
-            Widget ifEmpty;
+            Widget? ifEmpty;
             if (typeFilter.contains(ProductList.LIST_TYPE_USER_DEFINED)) {
               if (cards.isEmpty) {
                 ifEmpty = addButton;
@@ -497,7 +494,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget _getHorizontalList(
     final List<Widget> children,
-    final Widget ifEmpty,
+    final Widget? ifEmpty,
   ) =>
       Padding(
         padding: const EdgeInsets.only(left: 4.0),
@@ -551,7 +548,7 @@ class _HomePageState extends State<HomePage> {
           ),
           label: Text(
             'Scan and compare products',
-            style: themeData.textTheme.headline3.copyWith(
+            style: themeData.textTheme.headline3!.copyWith(
               color: SmoothTheme.getColor(
                 themeData.colorScheme,
                 materialColor,
@@ -608,7 +605,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     label: Flexible(
                       child: Text(
-                        AppLocalizations.of(context).myPreferences,
+                        AppLocalizations.of(context)!.myPreferences,
                         style: TextStyle(
                           color: SmoothTheme.getColor(
                             themeData.colorScheme,

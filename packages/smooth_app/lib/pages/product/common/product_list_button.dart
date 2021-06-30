@@ -6,16 +6,16 @@ import 'package:smooth_app/pages/product/common/smooth_chip.dart';
 
 class ProductListButton extends StatelessWidget {
   const ProductListButton({
-    @required this.productList,
-    @required this.onPressed,
+    required this.productList,
+    required this.onPressed,
   }) : onlyIcon = false;
 
   const ProductListButton.add({
-    @required this.onPressed,
-    @required this.onlyIcon,
+    required this.onPressed,
+    required this.onlyIcon,
   }) : productList = null;
 
-  final ProductList productList;
+  final ProductList? productList;
   final Function onPressed;
   final bool onlyIcon;
 
@@ -25,19 +25,19 @@ class ProductListButton extends StatelessWidget {
       return SmoothChip(
         onPressed: onPressed,
         iconData: Icons.add,
-        label: onlyIcon ? null : AppLocalizations.of(context).new_list,
+        label: onlyIcon ? null : AppLocalizations.of(context)!.new_list,
         shape: _shape,
       );
     }
     return SmoothChip(
       onPressed: onPressed,
-      iconData: productList.iconData,
+      iconData: productList!.iconData,
       label: ProductQueryPageHelper.getProductListLabel(
-        productList,
+        productList!,
         context,
         verbose: false,
       ),
-      materialColor: productList.getMaterialColor(),
+      materialColor: productList!.getMaterialColor(),
       shape: _shape,
     );
   }

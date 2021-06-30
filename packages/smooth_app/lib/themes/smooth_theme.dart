@@ -34,7 +34,7 @@ class SmoothTheme {
   /// the destination will be ColorDestination.BUTTON_BACKGROUND,
   /// and you'll specify the current ColorScheme.
   /// For the moment, the ColorScheme matters only for the light/dark switch.
-  static Color getColor(
+  static Color? getColor(
     final ColorScheme colorScheme,
     final MaterialColor materialColor,
     final ColorDestination colorDestination,
@@ -44,11 +44,11 @@ class SmoothTheme {
         case ColorDestination.APP_BAR_BACKGROUND:
         case ColorDestination.SURFACE_FOREGROUND:
         case ColorDestination.BUTTON_BACKGROUND:
-          return materialColor[800];
+          return materialColor[800]!;
         case ColorDestination.APP_BAR_FOREGROUND:
         case ColorDestination.SURFACE_BACKGROUND:
         case ColorDestination.BUTTON_FOREGROUND:
-          return materialColor[100];
+          return materialColor[100]!;
       }
     }
     switch (colorDestination) {
@@ -56,16 +56,12 @@ class SmoothTheme {
         return null;
       case ColorDestination.SURFACE_BACKGROUND:
       case ColorDestination.BUTTON_BACKGROUND:
-        return materialColor[900].withOpacity(ADDITIONAL_OPACITY_FOR_DARK);
+        return materialColor[900]!.withOpacity(ADDITIONAL_OPACITY_FOR_DARK);
       case ColorDestination.APP_BAR_FOREGROUND:
       case ColorDestination.SURFACE_FOREGROUND:
       case ColorDestination.BUTTON_FOREGROUND:
-        return materialColor[100];
+        return materialColor[100]!;
     }
-    throw Exception(
-      'unknown brightness / destination:'
-      ' ${colorScheme.brightness} / $colorDestination',
-    );
   }
 
   static MaterialColor getMaterialColor(final ThemeProvider themeProvider) {
@@ -73,7 +69,7 @@ class SmoothTheme {
       return Colors.grey;
     }
     return MATERIAL_COLORS[themeProvider.colorTag] ??
-        MATERIAL_COLORS[COLOR_TAG_BLUE];
+        MATERIAL_COLORS[COLOR_TAG_BLUE]!;
   }
 
   static ThemeData getThemeData(
@@ -85,10 +81,10 @@ class SmoothTheme {
       myColorScheme = const ColorScheme.dark();
     } else {
       final MaterialColor materialColor =
-          MATERIAL_COLORS[colorTag] ?? MATERIAL_COLORS[COLOR_TAG_BLUE];
+          MATERIAL_COLORS[colorTag] ?? MATERIAL_COLORS[COLOR_TAG_BLUE]!;
       myColorScheme = ColorScheme.light(
-        primary: materialColor[600],
-        primaryVariant: materialColor[900],
+        primary: materialColor[600]!,
+        primaryVariant: materialColor[900]!,
       );
     }
 

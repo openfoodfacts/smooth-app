@@ -31,16 +31,16 @@ class PersonalizedRankingPage extends StatefulWidget {
     SmoothItModel.MATCH_INDEX_NO: Colors.red,
   };
 
-  static Color getColor({
-    final ColorScheme colorScheme,
-    final int matchIndex,
-    final ColorDestination colorDestination,
+  static Color? getColor({
+    required final ColorScheme colorScheme,
+    final int? matchIndex,
+    required final ColorDestination colorDestination,
   }) =>
       _COLORS[matchIndex] == null
           ? null
           : SmoothTheme.getColor(
               colorScheme,
-              _COLORS[matchIndex],
+              _COLORS[matchIndex]!,
               colorDestination,
             );
 }
@@ -73,7 +73,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
     _model.refresh(widget.productList, productPreferences);
     final List<BottomNavigationBarItem> bottomNavigationBarItems =
         <BottomNavigationBarItem>[];
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     for (final int matchIndex in _ORDERED_MATCH_INDEXES) {
       bottomNavigationBarItems.add(
         BottomNavigationBarItem(
@@ -151,7 +151,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
         child: SmoothProductCardFound(
-          heroTag: matchedProduct.product.barcode,
+          heroTag: matchedProduct.product.barcode!,
           product: matchedProduct.product,
           elevation: 4.0,
           backgroundColor: PersonalizedRankingPage.getColor(

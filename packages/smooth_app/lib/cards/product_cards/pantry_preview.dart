@@ -14,9 +14,9 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 /// A preview button for a pantry, with its N first products
 class PantryPreview extends StatelessWidget {
   const PantryPreview({
-    @required this.pantries,
-    @required this.index,
-    @required this.nbInPreview,
+    required this.pantries,
+    required this.index,
+    required this.nbInPreview,
   });
 
   final List<Pantry> pantries;
@@ -28,10 +28,10 @@ class PantryPreview extends StatelessWidget {
     final Pantry pantry = pantries[index];
     final List<Product> list = pantry.getFirstProducts(nbInPreview);
 
-    String subtitle;
+    String? subtitle;
     final double iconSize = MediaQuery.of(context).size.width / 6;
-    if (list == null || list.isEmpty) {
-      subtitle = AppLocalizations.of(context).empty_list;
+    if (list.isEmpty) {
+      subtitle = AppLocalizations.of(context)!.empty_list;
     }
     return Card(
       color: SmoothTheme.getColor(

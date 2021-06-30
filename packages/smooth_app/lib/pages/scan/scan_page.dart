@@ -15,7 +15,7 @@ import 'package:smooth_app/pages/scan/continuous_scan_page.dart';
 
 class ScanPage extends StatelessWidget {
   const ScanPage({
-    @required this.contributionMode,
+    required this.contributionMode,
   });
 
   final bool contributionMode;
@@ -23,16 +23,16 @@ class ScanPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    return FutureBuilder<ContinuousScanModel>(
+    return FutureBuilder<ContinuousScanModel?>(
         future: ContinuousScanModel(
           contributionMode: contributionMode,
           languageCode: ProductQuery.getCurrentLanguageCode(context),
           countryCode: ProductQuery.getCurrentCountryCode(),
         ).load(localDatabase),
         builder: (BuildContext context,
-            AsyncSnapshot<ContinuousScanModel> snapshot) {
+            AsyncSnapshot<ContinuousScanModel?> snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
-            final ContinuousScanModel continuousScanModel = snapshot.data;
+            final ContinuousScanModel? continuousScanModel = snapshot.data;
             if (continuousScanModel != null) {
               return ContinuousScanPage(continuousScanModel);
             }
@@ -45,8 +45,8 @@ class ScanPage extends StatelessWidget {
           final ContinuousScanModel model, BuildContext context) =>
       SmoothToggle(
         value: model.contributionMode,
-        textLeft: '${AppLocalizations.of(context).scan_contribute}   ',
-        textRight: '     ${AppLocalizations.of(context).scan_choose}',
+        textLeft: '${AppLocalizations.of(context)!.scan_contribute}   ',
+        textRight: '     ${AppLocalizations.of(context)!.scan_choose}',
         colorLeft: Colors.black.withAlpha(160),
         colorRight: Colors.black.withAlpha(160),
         iconLeft: SvgPicture.asset('assets/ikonate_bold/add.svg'),

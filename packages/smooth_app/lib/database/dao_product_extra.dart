@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:collection';
 import 'dart:convert';
-import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
 import 'package:smooth_app/database/bulk_manager.dart';
@@ -116,8 +115,8 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
   Future<void> _putLast(
     final Product product,
     final String extraKey, {
-    int timestamp,
-    DatabaseExecutor databaseExecutor,
+    int? timestamp,
+    DatabaseExecutor? databaseExecutor,
   }) async =>
       await bulkUpsertLoopLast(
         databaseExecutor ?? localDatabase.database,
@@ -138,8 +137,8 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
     final List<dynamic> deleteParameters = <dynamic>[];
 
     for (final Product product in products) {
-      deleteParameters.add(product.barcode);
-      insertParameters.add(product.barcode);
+      deleteParameters.add(product.barcode!);
+      insertParameters.add(product.barcode!);
       insertParameters.add(KEY);
       insertParameters.add(_getSimplifiedTextForProduct(product));
       insertParameters.add(0);
@@ -171,7 +170,7 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
 
     final List<String> barcodes = <String>[];
     for (final Product product in products) {
-      barcodes.add(product.barcode);
+      barcodes.add(product.barcode!);
     }
     final Map<String, ProductExtra> map = await getProductExtras(
       key: extraKey,
@@ -180,7 +179,7 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
     );
 
     for (final Product product in products) {
-      final ProductExtra productExtra = map[product.barcode];
+      final ProductExtra? productExtra = map[product.barcode];
       List<int> timestamps;
       if (productExtra == null) {
         timestamps = <int>[];
@@ -189,8 +188,8 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
       }
       timestamps.add(timestamp);
 
-      deleteParameters.add(product.barcode);
-      insertParameters.add(product.barcode);
+      deleteParameters.add(product.barcode!);
+      insertParameters.add(product.barcode!);
       insertParameters.add(extraKey);
       insertParameters.add(jsonEncode(timestamps)); // string value
       insertParameters.add(timestamp); // int value
@@ -211,9 +210,9 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
 
   /// Deletes all then inserts a simple product list in bulk mode
   Future<void> bulkInsertExtra({
-    @required final DatabaseExecutor databaseExecutor,
-    @required final ProductList productList,
-    @required final int productListId,
+    required final DatabaseExecutor databaseExecutor,
+    required final ProductList productList,
+    required final int? productListId,
   }) async {
     final BulkManager bulkManager = BulkManager();
     final int timestamp = LocalDatabase.nowInMillis();
@@ -221,7 +220,7 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
     final String extraKey = _getExtraKey(productList, productListId);
 
     for (final String barcode in productList.barcodes) {
-      final ProductExtra productExtra = productList.productExtras[barcode];
+      final ProductExtra productExtra = productList.productExtras[barcode]!;
       insertParameters.add(barcode);
       insertParameters.add(extraKey);
       insertParameters.add(productExtra.stringValue);
@@ -255,7 +254,7 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
   String getTableName() => _TABLE_PRODUCT_EXTRA;
 
   /// Returns a lowercase not accented version of the text, for comparisons
-  static String _getSimplifiedText(final String text) {
+  static String _getSimplifiedText(final String? text) {
     if (text == null) {
       return '';
     }
@@ -293,9 +292,9 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
 
   /// Returns the ordered [ProductExtra]s for all products with an extra [key]
   Future<LinkedHashMap<String, ProductExtra>> getOrderedProductExtras({
-    @required final String key,
-    @required final bool reverse,
-    final int limit,
+    required final String key,
+    required final bool reverse,
+    final int? limit,
   }) async {
     final LinkedHashMap<String, ProductExtra> result =
         LinkedHashMap<String, ProductExtra>();
@@ -326,9 +325,9 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
 
   /// Returns the [ProductExtra] values for an extra [key] and several [barcode]s
   Future<Map<String, ProductExtra>> getProductExtras({
-    @required final String key,
-    @required final Iterable<String> barcodes,
-    DatabaseExecutor databaseExecutor,
+    required final String key,
+    required final Iterable<String> barcodes,
+    DatabaseExecutor? databaseExecutor,
   }) async {
     final Map<String, ProductExtra> result = <String, ProductExtra>{};
     if (barcodes.isEmpty) {
@@ -361,9 +360,9 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
   }
 
   /// Returns the [ProductExtra] for an extra [key] and a [barcode]
-  Future<ProductExtra> getProductExtra({
-    @required final String key,
-    @required final String barcode,
+  Future<ProductExtra?> getProductExtra({
+    required final String key,
+    required final String barcode,
   }) async {
     final Map<String, ProductExtra> map = await getProductExtras(
       key: key,
@@ -372,7 +371,7 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
     return map[barcode];
   }
 
-  String _getExtraKey(final ProductList productList, final int id) {
+  String _getExtraKey(final ProductList productList, final int? id) {
     switch (productList.listType) {
       case ProductList.LIST_TYPE_HISTORY:
         return EXTRA_ID_LAST_SEEN;
@@ -385,7 +384,7 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
     return 'list/$id';
   }
 
-  bool _getExtraReverse(final ProductList productList, final int id) {
+  bool _getExtraReverse(final ProductList productList, final int? id) {
     switch (productList.listType) {
       case ProductList.LIST_TYPE_HISTORY:
         return true;
@@ -398,7 +397,7 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
     return false;
   }
 
-  Future<bool> getList(final ProductList productList, final int id) async {
+  Future<bool> getList(final ProductList productList, final int? id) async {
     final String extraKey = _getExtraKey(productList, id);
     final bool extraReverse = _getExtraReverse(productList, id);
     final LinkedHashMap<String, ProductExtra> extras =
@@ -413,9 +412,9 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
     return true;
   }
 
-  Future<List<String>> getFirstBarcodes(
+  Future<List<String>?> getFirstBarcodes(
     final ProductList productList,
-    final int id,
+    final int? id,
     final int limit,
   ) async {
     final String extraKey = _getExtraKey(productList, id);
@@ -432,7 +431,7 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
 
   Future<void> clearList(
     final ProductList productList,
-    final int id,
+    final int? id,
     final DatabaseExecutor databaseExecutor,
   ) async =>
       await databaseExecutor.delete(

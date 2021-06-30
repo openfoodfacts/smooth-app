@@ -15,13 +15,13 @@ import 'package:smooth_app/pages/pantry/common/pantry_dialog_helper.dart';
 /// Helper for product copy as multi selected
 class ProductCopyHelper {
   Future<List<Widget>> getButtons({
-    @required final BuildContext context,
-    @required final DaoProductList daoProductList,
-    @required final DaoProduct daoProduct,
-    @required final Map<PantryType, List<Pantry>> allPantries,
-    @required final UserPreferences userPreferences,
-    final ProductList ignoredProductList,
-    final Pantry ignoredPantry,
+    required final BuildContext context,
+    required final DaoProductList daoProductList,
+    required final DaoProduct daoProduct,
+    required final Map<PantryType, List<Pantry>> allPantries,
+    required final UserPreferences userPreferences,
+    final ProductList? ignoredProductList,
+    final Pantry? ignoredPantry,
   }) async {
     final List<Widget> children = <Widget>[];
     final List<ProductList> productLists = await daoProductList.getAll(
@@ -44,7 +44,7 @@ class ProductCopyHelper {
       ProductListButton.add(
         onlyIcon: children.isNotEmpty,
         onPressed: () async {
-          final ProductList newProductList =
+          final ProductList? newProductList =
               await ProductListDialogHelper.openNew(
             context,
             daoProductList,
@@ -62,7 +62,7 @@ class ProductCopyHelper {
       PantryType.SHOPPING,
     ];
     for (final PantryType pantryType in pantryTypes) {
-      final List<Pantry> pantries = allPantries[pantryType];
+      final List<Pantry> pantries = allPantries[pantryType]!;
       int index = 0;
       for (final Pantry pantry in pantries) {
         if (ignoredPantry != null &&
@@ -86,7 +86,7 @@ class ProductCopyHelper {
           pantryType: pantryType,
           onlyIcon: children.isNotEmpty,
           onPressed: () async {
-            final Pantry newPantry = await PantryDialogHelper.openNew(
+            final Pantry? newPantry = await PantryDialogHelper.openNew(
               context,
               pantries,
               pantryType,
@@ -104,15 +104,15 @@ class ProductCopyHelper {
   }
 
   Future<void> copy({
-    @required final BuildContext context,
-    @required dynamic target,
-    @required final Map<PantryType, List<Pantry>> allPantries,
-    @required final DaoProductList daoProductList,
-    @required final List<Product> products,
-    @required final UserPreferences userPreferences,
+    required final BuildContext context,
+    required dynamic target,
+    required final Map<PantryType, List<Pantry>> allPantries,
+    required final DaoProductList daoProductList,
+    required final List<Product> products,
+    required final UserPreferences userPreferences,
   }) async {
-    int count; // late
-    Widget Function(BuildContext) go; // late
+    late int count;
+    late Widget Function(BuildContext) go;
     if (target is ProductList) {
       count = await _addToProductList(
         daoProductList,
@@ -121,7 +121,7 @@ class ProductCopyHelper {
       );
       go = (BuildContext context) => ProductListPage(target);
     } else if (target is Pantry) {
-      final List<Pantry> pantries = allPantries[target.pantryType];
+      final List<Pantry> pantries = allPantries[target.pantryType]!;
       int index = 0;
       for (final Pantry pantry in pantries) {
         if (pantry.name == target.name) {

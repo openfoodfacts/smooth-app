@@ -15,17 +15,17 @@ import 'package:smooth_app/pages/product/product_image_page.dart';
 
 class ImageUploadCard extends StatefulWidget {
   const ImageUploadCard({
-    this.product,
-    this.imageField,
+    required this.product,
+    required this.imageField,
     this.imageUrl,
     this.title,
-    this.buttonText,
+    required this.buttonText,
   });
 
   final Product product;
   final ImageField imageField;
-  final String imageUrl;
-  final String title;
+  final String? imageUrl;
+  final String? title;
   final String buttonText;
 
   @override
@@ -33,18 +33,18 @@ class ImageUploadCard extends StatefulWidget {
 }
 
 class _ImageUploadCardState extends State<ImageUploadCard> {
-  ImageProvider _imageProvider; // Normal size image to display in carousel
-  ImageProvider
+  ImageProvider? _imageProvider; // Normal size image to display in carousel
+  ImageProvider?
       _imageFullProvider; // Full resolution image to display in image page
 
   Future<void> _getImage() async {
     final ImagePicker picker = ImagePicker();
 
-    final PickedFile pickedFile =
+    final PickedFile? pickedFile =
         await picker.getImage(source: ImageSource.camera);
 
     if (pickedFile != null) {
-      final File croppedImageFile = await ImageCropper.cropImage(
+      final File? croppedImageFile = await ImageCropper.cropImage(
         sourcePath: pickedFile.path,
         androidUiSettings: const AndroidUiSettings(
           lockAspectRatio: false,
@@ -63,7 +63,8 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
         final SendImage image = SendImage(
           lang: LanguageHelper.fromJson(
               Localizations.localeOf(context).languageCode),
-          barcode: widget.product.barcode,
+          barcode: widget.product
+              .barcode!, //Probably throws an error, but this is not a big problem when we got a product without a barcode
           imageField: widget.imageField,
           imageUri: croppedImageFile.uri,
         );
@@ -78,10 +79,8 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
             await OpenFoodAPIClient.addProductImage(myUser, image);
 
         if (result.status != 'status ok') {
-          throw Exception('image could not be uploaded: ' +
-              result.error +
-              ' ' +
-              result.imageId.toString());
+          throw Exception(
+              'image could not be uploaded: ${result.error} ${result.imageId.toString()}');
         }
       }
     }
@@ -94,21 +93,21 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
     // or no image yet
 
     if ((_imageProvider == null) && (widget.imageUrl != null)) {
-      _imageProvider = NetworkImage(widget.imageUrl);
+      _imageProvider = NetworkImage(widget.imageUrl!);
     }
 
     if (_imageProvider != null) {
       return GestureDetector(
         child: Center(
             child:
-                Image(image: _imageProvider, fit: BoxFit.cover, height: 1000)),
+                Image(image: _imageProvider!, fit: BoxFit.cover, height: 1000)),
         onTap: () {
           // if _imageFullProvider is null, we are displaying a small network image in the carousel
           // we need to load the full resolution image
 
           if (_imageFullProvider == null) {
             final String _imageFullUrl =
-                widget.imageUrl.replaceAll('.400.', '.full.');
+                widget.imageUrl!.replaceAll('.400.', '.full.');
             _imageFullProvider = NetworkImage(_imageFullUrl);
           }
 
@@ -118,8 +117,8 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
               builder: (BuildContext context) => ProductImagePage(
                   product: widget.product,
                   imageField: widget.imageField,
-                  imageProvider: _imageFullProvider,
-                  title: widget.title,
+                  imageProvider: _imageFullProvider!,
+                  title: widget.title ?? 'Image',
                   buttonText: widget.buttonText),
             ),
           );

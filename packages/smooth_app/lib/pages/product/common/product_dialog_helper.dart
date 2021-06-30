@@ -16,10 +16,10 @@ import 'package:smooth_app/database/product_query.dart';
 /// Dialog helper for product barcode search
 class ProductDialogHelper {
   ProductDialogHelper({
-    this.barcode,
-    this.context,
-    this.localDatabase,
-    this.refresh,
+    required this.barcode,
+    required this.context,
+    required this.localDatabase,
+    required this.refresh,
   });
 
   final String barcode;
@@ -28,15 +28,15 @@ class ProductDialogHelper {
   final bool refresh;
   bool _popEd = false;
 
-  Future<Product> openBestChoice() async {
-    final Product product = await DaoProduct(localDatabase).get(barcode);
+  Future<Product?> openBestChoice() async {
+    final Product? product = await DaoProduct(localDatabase).get(barcode);
     if (product != null) {
       return product;
     }
     return openUniqueProductSearch();
   }
 
-  Future<Product> openUniqueProductSearch() => showDialog<Product>(
+  Future<Product?> openUniqueProductSearch() => showDialog<Product>(
         context: context,
         builder: (BuildContext context) {
           BarcodeProductQuery(
@@ -44,8 +44,8 @@ class ProductDialogHelper {
             languageCode: ProductQuery.getCurrentLanguageCode(context),
             countryCode: ProductQuery.getCurrentCountryCode(),
             daoProduct: DaoProduct(localDatabase),
-          ).getProduct().then(
-              (final Product value) => _popSearchingDialog(value)
+          ).getProduct().then<void>(
+              (final Product? value) => _popSearchingDialog(value)
               /* TODO(monsieurtanuki): better granularity - being able to say...
              1. you clicked on 'stop'
              2. no internet connection
@@ -58,7 +58,7 @@ class ProductDialogHelper {
         },
       );
 
-  void _popSearchingDialog(final Product product) {
+  void _popSearchingDialog(final Product? product) {
     if (_popEd) {
       return;
     }
@@ -72,13 +72,13 @@ class ProductDialogHelper {
           leading: const CircularProgressIndicator(),
           title: Text(
             refresh
-                ? AppLocalizations.of(context).refreshing_product
-                : '${AppLocalizations.of(context).looking_for}: $barcode',
+                ? AppLocalizations.of(context)!.refreshing_product
+                : '${AppLocalizations.of(context)!.looking_for}: $barcode',
           ),
         ),
         actions: <SmoothSimpleButton>[
           SmoothSimpleButton(
-            text: AppLocalizations.of(context).stop,
+            text: AppLocalizations.of(context)!.stop,
             important: false,
             onPressed: () => _popSearchingDialog(null),
           ),
@@ -92,17 +92,17 @@ class ProductDialogHelper {
             close: false,
             body: Text(
               refresh
-                  ? AppLocalizations.of(context).could_not_refresh
-                  : '${AppLocalizations.of(context).no_product_found}: $barcode',
+                  ? AppLocalizations.of(context)!.could_not_refresh
+                  : '${AppLocalizations.of(context)!.no_product_found}: $barcode',
             ),
             actions: <SmoothSimpleButton>[
               SmoothSimpleButton(
-                text: AppLocalizations.of(context).close,
+                text: AppLocalizations.of(context)!.close,
                 important: false,
                 onPressed: () => Navigator.pop(context),
               ),
               SmoothSimpleButton(
-                text: AppLocalizations.of(context).contribute,
+                text: AppLocalizations.of(context)!.contribute,
                 important: true,
                 onPressed: () => Navigator.pop(
                     context), // TODO(monsieurtanuki): to be implemented

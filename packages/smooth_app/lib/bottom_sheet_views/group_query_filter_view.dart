@@ -10,10 +10,11 @@ import 'package:provider/provider.dart';
 import 'package:smooth_ui_library/buttons/smooth_main_button.dart';
 
 class GroupQueryFilterView extends StatelessWidget {
-  const GroupQueryFilterView(
-      {@required this.categories,
-      @required this.categoriesList,
-      @required this.callback});
+  const GroupQueryFilterView({
+    required this.categories,
+    required this.categoriesList,
+    required this.callback,
+  });
 
   final Map<String, String> categories;
   final List<String> categoriesList;
@@ -21,13 +22,13 @@ class GroupQueryFilterView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     return ChangeNotifierProvider<SelectedCategoryModel>(
       create: (BuildContext context) =>
           SelectedCategoryModel(categories, categoriesList),
       child: Consumer<SelectedCategoryModel>(
         builder: (BuildContext context,
-            SelectedCategoryModel selectedCategoryModel, Widget child) {
+            SelectedCategoryModel selectedCategoryModel, Widget? child) {
           return Material(
             child: Container(
               height: MediaQuery.of(context).size.height * 0.5,
@@ -59,24 +60,29 @@ class GroupQueryFilterView extends StatelessWidget {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(12.0))),
                         child: DropdownButton<String>(
-                          items: selectedCategoryModel.categoriesList
-                              .map((String key) {
-                            return DropdownMenuItem<String>(
-                              value: key,
-                              child: Container(
-                                width: MediaQuery.of(context).size.width * 0.8,
-                                child: Text(
-                                    categories[key] ?? appLocalizations.error,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyText2
-                                        .copyWith(fontSize: 12.0)),
-                              ),
-                            );
-                          }).toList(),
+                          items: selectedCategoryModel.categoriesList.map(
+                            (String key) {
+                              return DropdownMenuItem<String>(
+                                value: key,
+                                child: Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.8,
+                                  child: Text(
+                                      categories[key] ?? appLocalizations.error,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyText2!
+                                          .copyWith(fontSize: 12.0)),
+                                ),
+                              );
+                            },
+                          ).toList(),
                           value: selectedCategoryModel.selectedCategory,
-                          onChanged: (String value) =>
-                              selectedCategoryModel.selectCategory(value),
+                          onChanged: (String? value) {
+                            if (value != null) {
+                              selectedCategoryModel.selectCategory(value);
+                            }
+                          },
                           icon: const Icon(
                             Icons.arrow_drop_down,
                           ),
@@ -92,7 +98,7 @@ class GroupQueryFilterView extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             Text('Store',
-                                style: Theme.of(context).textTheme.headline4.copyWith(color: Colors.black)),
+                                style: Theme.of(context).textTheme.headline4!.copyWith(color: Colors.black)),
                           ],
                         ),
                       ),
@@ -115,7 +121,7 @@ class GroupQueryFilterView extends StatelessWidget {
                                     style: Theme.of(context)
                                         .textTheme
                                         .bodyText2
-                                        .copyWith(
+                                        !.copyWith(
                                         color: Colors.black,
                                         fontSize: 12.0)),
                               ),
@@ -148,7 +154,7 @@ class GroupQueryFilterView extends StatelessWidget {
                                 horizontal: 12.0, vertical: 20.0),
                             child: SmoothMainButton(
                               text:
-                                  AppLocalizations.of(context).applyButtonText,
+                                  AppLocalizations.of(context)!.applyButtonText,
                               onPressed: () {
                                 Navigator.pop(context);
                                 callback(
@@ -177,7 +183,7 @@ class SelectedCategoryModel extends ChangeNotifier {
 
   Map<String, String> categories;
   List<String> categoriesList;
-  String selectedCategory;
+  late String selectedCategory;
 
   void selectCategory(String category) {
     selectedCategory = category;

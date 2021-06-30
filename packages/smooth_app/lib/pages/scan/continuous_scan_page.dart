@@ -25,13 +25,13 @@ class ContinuousScanPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final ThemeData themeData = Theme.of(context);
     return ChangeNotifierProvider<ContinuousScanModel>.value(
       value: _continuousScanModel,
       child: Consumer<ContinuousScanModel>(
         builder:
-            (BuildContext context, ContinuousScanModel dummy, Widget child) {
+            (BuildContext context, ContinuousScanModel dummy, Widget? child) {
           return Scaffold(
             extendBodyBehindAppBar: true,
             appBar: AppBar(
@@ -64,7 +64,8 @@ class ContinuousScanPage extends StatelessWidget {
                     MaterialPageRoute<Widget>(
                       builder: (BuildContext context) =>
                           PersonalizedRankingPage(
-                              _continuousScanModel.productList),
+                        _continuousScanModel.productList,
+                      ),
                     ),
                   );
                 },
@@ -128,7 +129,7 @@ class ContinuousScanPage extends StatelessWidget {
                               EdgeInsets.only(top: screenSize.height * 0.08),
                           child: Text(
                             appLocalizations.scannerProductsEmpty,
-                            style: themeData.textTheme.subtitle1
+                            style: themeData.textTheme.subtitle1!
                                 .copyWith(color: Colors.white),
                             textAlign: TextAlign.center,
                           ),

@@ -18,7 +18,7 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 
 class SmoothProductCarousel extends StatefulWidget {
   const SmoothProductCarousel({
-    @required this.continuousScanModel,
+    required this.continuousScanModel,
     this.height = 120.0,
   });
 
@@ -69,10 +69,10 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
     final String barcode,
     final ProductPreferences productPreferences,
   ) {
-    final Product product = widget.continuousScanModel.getProduct(barcode);
-    switch (widget.continuousScanModel.getBarcodeState(barcode)) {
+    switch (widget.continuousScanModel.getBarcodeState(barcode)!) {
       case ScannedProductState.FOUND:
       case ScannedProductState.CACHED:
+        final Product product = widget.continuousScanModel.getProduct(barcode);
         if (widget.continuousScanModel.contributionMode) {
           return SmoothProductCardEdit(heroTag: barcode, product: product);
         }
@@ -100,6 +100,5 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
       case ScannedProductState.THANKS:
         return SmoothProductCardThanks();
     }
-    throw Exception('scanned barcode without state');
   }
 }

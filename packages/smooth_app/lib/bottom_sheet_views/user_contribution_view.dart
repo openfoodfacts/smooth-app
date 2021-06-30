@@ -6,10 +6,6 @@ import 'package:smooth_ui_library/widgets/smooth_listTile.dart';
 import 'package:smooth_app/functions/launchURL.dart';
 
 class UserContributionView extends StatelessWidget {
-  UserContributionView(this._scrollController, {this.callback});
-
-  final ScrollController _scrollController;
-  final Function callback;
   final Launcher launcher = Launcher();
 
   @override
@@ -26,7 +22,6 @@ class UserContributionView extends StatelessWidget {
                 Container(
                   height: MediaQuery.of(context).size.height * 0.9,
                   child: ListView(
-                    controller: _scrollController,
                     shrinkWrap: true,
                     scrollDirection: Axis.vertical,
                     children: <Widget>[
@@ -34,7 +29,7 @@ class UserContributionView extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 20.0),
                         margin: const EdgeInsets.only(top: 20.0, bottom: 24.0),
                         child: Text(
-                          AppLocalizations.of(context).contribute,
+                          AppLocalizations.of(context)!.contribute,
                           style: Theme.of(context).textTheme.headline1,
                         ),
                       ),
@@ -43,27 +38,27 @@ class UserContributionView extends StatelessWidget {
                         children: <SmoothListTile>[
                           //Contribute
                           SmoothListTile(
-                              text: AppLocalizations.of(context)
+                              text: AppLocalizations.of(context)!
                                   .contribute_improve_header,
                               onPressed: () => _contribute(context)),
 
                           //Develop
                           SmoothListTile(
-                            text:
-                                AppLocalizations.of(context).contribute_develop,
+                            text: AppLocalizations.of(context)!
+                                .contribute_develop,
                             onPressed: () => _develop(context),
                           ),
 
                           //Translate
                           SmoothListTile(
-                            text: AppLocalizations.of(context)
+                            text: AppLocalizations.of(context)!
                                 .contribute_translate_header,
                             onPressed: () => _translate(context),
                           ),
 
                           //Donate
                           SmoothListTile(
-                            text: AppLocalizations.of(context)
+                            text: AppLocalizations.of(context)!
                                 .contribute_donate_header,
                             onPressed: () => _donate(context),
                           ),
@@ -89,11 +84,11 @@ class UserContributionView extends StatelessWidget {
       builder: (BuildContext context) {
         return SmoothAlertDialog(
           close: false,
-          title: AppLocalizations.of(context).contribute_improve_header,
+          title: AppLocalizations.of(context)!.contribute_improve_header,
           body: Column(
             children: <Widget>[
               Text(
-                AppLocalizations.of(context).contribute_improve_text,
+                AppLocalizations.of(context)!.contribute_improve_text,
               ),
               const SizedBox(
                 height: 10,
@@ -104,7 +99,7 @@ class UserContributionView extends StatelessWidget {
                     'https://world.openfoodfacts.org/state/to-be-completed',
                     false),
                 child: Text(
-                  AppLocalizations.of(context)
+                  AppLocalizations.of(context)!
                       .contribute_improve_ProductsToBeCompleted,
                 ),
               ),
@@ -115,7 +110,7 @@ class UserContributionView extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context, rootNavigator: true).pop('dialog');
               },
-              text: '${AppLocalizations.of(context).okay}',
+              text: '${AppLocalizations.of(context)!.okay}',
               minWidth: 100,
             ),
           ],
@@ -129,17 +124,17 @@ class UserContributionView extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return SmoothAlertDialog(
-          title: AppLocalizations.of(context).contribute_develop,
+          title: AppLocalizations.of(context)!.contribute_develop,
           body: Column(
             children: <Widget>[
               Text(
-                AppLocalizations.of(context).contribute_develop_text,
+                AppLocalizations.of(context)!.contribute_develop_text,
               ),
               const SizedBox(
                 height: 20,
               ),
               Text(
-                AppLocalizations.of(context).contribute_develop_text_2,
+                AppLocalizations.of(context)!.contribute_develop_text_2,
               ),
               const SizedBox(
                 height: 10,
@@ -174,7 +169,7 @@ class UserContributionView extends StatelessWidget {
           actions: <SmoothSimpleButton>[
             SmoothSimpleButton(
               onPressed: () => Navigator.pop(context),
-              text: AppLocalizations.of(context).okay,
+              text: AppLocalizations.of(context)!.okay,
               minWidth: 100,
             ),
           ],
@@ -188,14 +183,14 @@ class UserContributionView extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return SmoothAlertDialog(
-          title: AppLocalizations.of(context).contribute_translate_header,
+          title: AppLocalizations.of(context)!.contribute_translate_header,
           body: Column(
             children: <Widget>[
               Text(
-                AppLocalizations.of(context).contribute_translate_text,
+                AppLocalizations.of(context)!.contribute_translate_text,
               ),
               Text(
-                AppLocalizations.of(context).contribute_translate_text_2,
+                AppLocalizations.of(context)!.contribute_translate_text_2,
               ),
             ],
           ),
@@ -203,7 +198,8 @@ class UserContributionView extends StatelessWidget {
             SmoothSimpleButton(
               onPressed: () => launcher.launchURL(
                   context, 'https://translate.openfoodfacts.org/', false),
-              text: AppLocalizations.of(context).contribute_translate_link_text,
+              text:
+                  AppLocalizations.of(context)!.contribute_translate_link_text,
               minWidth: 200,
             ),
           ],
@@ -220,13 +216,13 @@ class UserContributionView extends StatelessWidget {
           body: Column(
             children: <Widget>[
               Text(
-                AppLocalizations.of(context).featureInProgress,
+                AppLocalizations.of(context)!.featureInProgress,
               ),
             ],
           ),
           actions: <SmoothSimpleButton>[
             SmoothSimpleButton(
-              text: AppLocalizations.of(context).okay,
+              text: AppLocalizations.of(context)!.okay,
               onPressed: () =>
                   Navigator.of(context, rootNavigator: true).pop('dialog'),
               minWidth: 150,

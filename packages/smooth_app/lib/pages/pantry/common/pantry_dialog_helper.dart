@@ -7,6 +7,7 @@ import 'package:smooth_app/data_models/pantry.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 /// A dialog helper for pantries
+// TODO(monsieurtanuki): replace pantries and shopping lists with enhanced product lists
 class PantryDialogHelper {
   static Future<bool> openDelete(
     final BuildContext context,
@@ -19,17 +20,17 @@ class PantryDialogHelper {
           close: false,
           body: Text(
             pantries[index].pantryType == PantryType.PANTRY
-                ? AppLocalizations.of(context).want_to_delete_pantry
-                : AppLocalizations.of(context).want_to_delete_shopping,
+                ? AppLocalizations.of(context)!.want_to_delete_pantry
+                : AppLocalizations.of(context)!.want_to_delete_shopping,
           ),
           actions: <SmoothSimpleButton>[
             SmoothSimpleButton(
-              text: AppLocalizations.of(context).no,
+              text: AppLocalizations.of(context)!.no,
               important: false,
               onPressed: () => Navigator.pop(context, false),
             ),
             SmoothSimpleButton(
-              text: AppLocalizations.of(context).yes,
+              text: AppLocalizations.of(context)!.yes,
               important: true,
               onPressed: () async {
                 pantries.removeAt(index);
@@ -38,17 +39,18 @@ class PantryDialogHelper {
             ),
           ],
         ),
-      );
+      ) ??
+      false;
 
-  static Future<Pantry> openNew(
+  static Future<Pantry?> openNew(
     final BuildContext context,
     final List<Pantry> pantries,
     final PantryType pantryType,
     final UserPreferences userPreferences,
   ) async {
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-    Pantry newPantry;
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    late Pantry newPantry;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     return await showDialog<Pantry>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
@@ -67,25 +69,24 @@ class PantryDialogHelper {
                       ? appLocalizations.my_pantry_hint
                       : appLocalizations.my_shopping_hint,
                 ),
-                validator: (final String value) {
-                  if (value.isEmpty) {
-                    return appLocalizations.empty_list;
-                  }
-                  if (pantries == null) {
+                validator: (final String? value) {
+                  if (value != null) {
+                    if (value.isEmpty) {
+                      return appLocalizations.empty_list;
+                    }
+                    for (int i = 0; i < pantries.length; i++) {
+                      if (value == pantries[i].name) {
+                        return pantryType == PantryType.PANTRY
+                            ? appLocalizations.pantry_name_taken
+                            : appLocalizations.shopping_name_taken;
+                      }
+                    }
+                    newPantry = Pantry.empty(
+                      name: value,
+                      pantryType: pantryType,
+                    );
                     return null;
                   }
-                  for (int i = 0; i < pantries.length; i++) {
-                    if (value == pantries[i].name) {
-                      return pantryType == PantryType.PANTRY
-                          ? appLocalizations.pantry_name_taken
-                          : appLocalizations.shopping_name_taken;
-                    }
-                  }
-                  newPantry = Pantry.empty(
-                    name: value,
-                    pantryType: pantryType,
-                  );
-                  return null;
                 },
               ),
             ],
@@ -100,7 +101,7 @@ class PantryDialogHelper {
           SmoothSimpleButton(
             text: appLocalizations.okay,
             onPressed: () async {
-              if (!formKey.currentState.validate()) {
+              if (!formKey.currentState!.validate()) {
                 return;
               }
               pantries.add(newPantry);
@@ -124,69 +125,70 @@ class PantryDialogHelper {
     final int index,
   ) async {
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     return await showDialog<bool>(
-      context: context,
-      builder: (BuildContext context) => SmoothAlertDialog(
-        close: false,
-        title: pantries[index].pantryType == PantryType.PANTRY
-            ? appLocalizations.rename_pantry
-            : appLocalizations.rename_shopping,
-        body: Form(
-          key: formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              TextFormField(
-                initialValue: pantries[index].name,
-                decoration: InputDecoration(
-                  hintText: pantries[index].pantryType == PantryType.PANTRY
-                      ? appLocalizations.my_pantry_hint
-                      : appLocalizations.my_shopping_hint,
-                ),
-                validator: (final String value) {
-                  if (value.isEmpty) {
-                    return appLocalizations.empty_list;
-                  }
-                  if (pantries == null) {
-                    return null;
-                  }
-                  for (int i = 0; i < pantries.length; i++) {
-                    if (value == pantries[i].name) {
-                      if (i == index) {
-                        return appLocalizations.already_same;
+          context: context,
+          builder: (BuildContext context) => SmoothAlertDialog(
+            close: false,
+            title: pantries[index].pantryType == PantryType.PANTRY
+                ? appLocalizations.rename_pantry
+                : appLocalizations.rename_shopping,
+            body: Form(
+              key: formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  TextFormField(
+                    initialValue: pantries[index].name,
+                    decoration: InputDecoration(
+                      hintText: pantries[index].pantryType == PantryType.PANTRY
+                          ? appLocalizations.my_pantry_hint
+                          : appLocalizations.my_shopping_hint,
+                    ),
+                    validator: (final String? value) {
+                      if (value != null) {
+                        if (value.isEmpty) {
+                          return appLocalizations.empty_list;
+                        }
+                        for (int i = 0; i < pantries.length; i++) {
+                          if (value == pantries[i].name) {
+                            if (i == index) {
+                              return appLocalizations.already_same;
+                            }
+                            return pantries[index].pantryType ==
+                                    PantryType.PANTRY
+                                ? appLocalizations.pantry_name_taken
+                                : appLocalizations.shopping_name_taken;
+                          }
+                        }
+                        pantries[index].name = value;
+                        return null;
                       }
-                      return pantries[index].pantryType == PantryType.PANTRY
-                          ? appLocalizations.pantry_name_taken
-                          : appLocalizations.shopping_name_taken;
-                    }
+                    },
+                  ),
+                ],
+              ),
+            ),
+            actions: <SmoothSimpleButton>[
+              SmoothSimpleButton(
+                text: appLocalizations.cancel,
+                onPressed: () => Navigator.pop(context, false),
+                important: false,
+              ),
+              SmoothSimpleButton(
+                text: appLocalizations.okay,
+                onPressed: () async {
+                  if (!formKey.currentState!.validate()) {
+                    return;
                   }
-                  pantries[index].name = value;
-                  return null;
+                  Navigator.pop(context, true);
                 },
+                important: true,
               ),
             ],
           ),
-        ),
-        actions: <SmoothSimpleButton>[
-          SmoothSimpleButton(
-            text: appLocalizations.cancel,
-            onPressed: () => Navigator.pop(context, false),
-            important: false,
-          ),
-          SmoothSimpleButton(
-            text: appLocalizations.okay,
-            onPressed: () async {
-              if (!formKey.currentState.validate()) {
-                return;
-              }
-              Navigator.pop(context, true);
-            },
-            important: true,
-          ),
-        ],
-      ),
-    );
+        ) ??
+        false;
   }
 
   static Future<bool> openChangeIcon(
@@ -199,48 +201,49 @@ class PantryDialogHelper {
     const List<String> orderedColors = Pantry.ORDERED_COLORS;
     final double size = MediaQuery.of(context).size.width / 8;
     return await showDialog<bool>(
-      context: context,
-      builder: (BuildContext context) => SmoothAlertDialog(
-        close: false,
-        title: AppLocalizations.of(context).change_icon,
-        body: Container(
-          width: orderedColors.length.toDouble() * size,
-          height: orderedIcons.length.toDouble() * size,
-          child: GridView.count(
-            crossAxisCount: 5,
-            childAspectRatio: 1,
-            children: List<Widget>.generate(
-              orderedColors.length * orderedIcons.length,
-              (final int index) {
-                final String colorTag =
-                    orderedColors[index % orderedColors.length];
-                final String iconTag =
-                    orderedIcons[index ~/ orderedColors.length];
-                return IconButton(
-                  icon: pantry.getReferenceIcon(
-                    colorScheme: Theme.of(context).colorScheme,
-                    colorTag: colorTag,
-                    iconTag: iconTag,
-                    colorDestination: ColorDestination.SURFACE_FOREGROUND,
-                  ),
-                  onPressed: () async {
-                    pantry.colorTag = colorTag;
-                    pantry.iconTag = iconTag;
-                    Navigator.pop(context, true);
+          context: context,
+          builder: (BuildContext context) => SmoothAlertDialog(
+            close: false,
+            title: AppLocalizations.of(context)!.change_icon,
+            body: Container(
+              width: orderedColors.length.toDouble() * size,
+              height: orderedIcons.length.toDouble() * size,
+              child: GridView.count(
+                crossAxisCount: 5,
+                childAspectRatio: 1,
+                children: List<Widget>.generate(
+                  orderedColors.length * orderedIcons.length,
+                  (final int index) {
+                    final String colorTag =
+                        orderedColors[index % orderedColors.length];
+                    final String iconTag =
+                        orderedIcons[index ~/ orderedColors.length];
+                    return IconButton(
+                      icon: pantry.getReferenceIcon(
+                        colorScheme: Theme.of(context).colorScheme,
+                        colorTag: colorTag,
+                        iconTag: iconTag,
+                        colorDestination: ColorDestination.SURFACE_FOREGROUND,
+                      ),
+                      onPressed: () async {
+                        pantry.colorTag = colorTag;
+                        pantry.iconTag = iconTag;
+                        Navigator.pop(context, true);
+                      },
+                    );
                   },
-                );
-              },
+                ),
+              ),
             ),
+            actions: <SmoothSimpleButton>[
+              SmoothSimpleButton(
+                text: AppLocalizations.of(context)!.cancel,
+                onPressed: () => Navigator.pop(context, false),
+                important: false,
+              ),
+            ],
           ),
-        ),
-        actions: <SmoothSimpleButton>[
-          SmoothSimpleButton(
-            text: AppLocalizations.of(context).cancel,
-            onPressed: () => Navigator.pop(context, false),
-            important: false,
-          ),
-        ],
-      ),
-    );
+        ) ??
+        false;
   }
 }
