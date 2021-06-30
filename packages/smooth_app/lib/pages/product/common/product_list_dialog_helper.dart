@@ -7,7 +7,7 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 class ProductListDialogHelper {
-  static Future<bool?> openDelete(
+  static Future<bool> openDelete(
     final BuildContext context,
     final DaoProductList daoProductList,
     final ProductList productList,
@@ -33,7 +33,8 @@ class ProductListDialogHelper {
             ),
           ],
         ),
-      );
+      ) ??
+      false;
 
   static Future<ProductList?> openNew(
     final BuildContext context,
@@ -41,7 +42,7 @@ class ProductListDialogHelper {
     final List<ProductList> list,
   ) async {
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-    ProductList newProductList;
+    ProductList? newProductList;
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     return await showDialog<ProductList>(
       context: context,
@@ -62,15 +63,12 @@ class ProductListDialogHelper {
                     if (value.isEmpty) {
                       return appLocalizations.empty_list;
                     }
-                    if (list == null) {
-                      return null;
-                    }
                     newProductList = ProductList(
                       listType: ProductList.LIST_TYPE_USER_DEFINED,
                       parameters: value,
                     );
                     for (final ProductList productList in list) {
-                      if (productList.isSameAs(newProductList)) {
+                      if (productList.isSameAs(newProductList!)) {
                         return appLocalizations.list_name_taken;
                       }
                     }
@@ -90,12 +88,12 @@ class ProductListDialogHelper {
           SmoothSimpleButton(
             text: appLocalizations.okay,
             onPressed: () async {
-              if (formKey.currentState!.validate()) {
+              if (!formKey.currentState!.validate()) {
                 return;
               }
-              await daoProductList.create(newProductList);
-              await daoProductList.put(newProductList);
-              Navigator.pop(context, newProductList);
+              await daoProductList.create(newProductList!);
+              await daoProductList.put(newProductList!);
+              Navigator.pop(context, newProductList!);
             },
             important: true,
           ),
@@ -113,7 +111,7 @@ class ProductListDialogHelper {
     final List<ProductList> list =
         await daoProductList.getAll(withStats: false);
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-    ProductList newProductList;
+    ProductList? newProductList;
     return await showDialog<ProductList>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
@@ -139,7 +137,7 @@ class ProductListDialogHelper {
                       parameters: value,
                     )..extraTags = productList.extraTags;
                     for (final ProductList item in list) {
-                      if (item.isSameAs(newProductList)) {
+                      if (item.isSameAs(newProductList!)) {
                         if (item.isSameAs(productList)) {
                           return appLocalizations.already_same;
                         }
@@ -166,12 +164,12 @@ class ProductListDialogHelper {
                 return;
               }
               if (!await daoProductList.rename(
-                  productList, newProductList.parameters)) {
+                  productList, newProductList!.parameters)) {
                 // TODO(monsieurtanuki): unexpected, but do something!
                 return;
               }
-              await daoProductList.get(newProductList);
-              Navigator.pop(context, newProductList);
+              await daoProductList.get(newProductList!);
+              Navigator.pop(context, newProductList!);
             },
             important: true,
           ),
@@ -189,49 +187,50 @@ class ProductListDialogHelper {
     final double size = MediaQuery.of(context).size.width / 8;
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     return await showDialog<bool>(
-      context: context,
-      builder: (BuildContext context) => SmoothAlertDialog(
-        close: false,
-        title: appLocalizations.change_icon,
-        body: Container(
-          width: ProductList.ORDERED_COLORS.length.toDouble() * size,
-          height: orderedIcons.length.toDouble() * size,
-          child: GridView.count(
-            crossAxisCount: 5,
-            childAspectRatio: 1,
-            children: List<Widget>.generate(
-              ProductList.ORDERED_COLORS.length * orderedIcons.length,
-              (final int index) {
-                final String colorTag = ProductList
-                    .ORDERED_COLORS[index % ProductList.ORDERED_COLORS.length];
-                final String iconTag =
-                    orderedIcons[index ~/ ProductList.ORDERED_COLORS.length];
-                return IconButton(
-                  icon: ProductList.getReferenceIcon(
-                    colorScheme: Theme.of(context).colorScheme,
-                    colorTag: colorTag,
-                    iconTag: iconTag,
-                    colorDestination: ColorDestination.SURFACE_FOREGROUND,
-                  ),
-                  onPressed: () async {
-                    productList.colorTag = colorTag;
-                    productList.iconTag = iconTag;
-                    await daoProductList.put(productList);
-                    Navigator.pop(context, true);
+          context: context,
+          builder: (BuildContext context) => SmoothAlertDialog(
+            close: false,
+            title: appLocalizations.change_icon,
+            body: Container(
+              width: ProductList.ORDERED_COLORS.length.toDouble() * size,
+              height: orderedIcons.length.toDouble() * size,
+              child: GridView.count(
+                crossAxisCount: 5,
+                childAspectRatio: 1,
+                children: List<Widget>.generate(
+                  ProductList.ORDERED_COLORS.length * orderedIcons.length,
+                  (final int index) {
+                    final String colorTag = ProductList.ORDERED_COLORS[
+                        index % ProductList.ORDERED_COLORS.length];
+                    final String iconTag = orderedIcons[
+                        index ~/ ProductList.ORDERED_COLORS.length];
+                    return IconButton(
+                      icon: ProductList.getReferenceIcon(
+                        colorScheme: Theme.of(context).colorScheme,
+                        colorTag: colorTag,
+                        iconTag: iconTag,
+                        colorDestination: ColorDestination.SURFACE_FOREGROUND,
+                      ),
+                      onPressed: () async {
+                        productList.colorTag = colorTag;
+                        productList.iconTag = iconTag;
+                        await daoProductList.put(productList);
+                        Navigator.pop(context, true);
+                      },
+                    );
                   },
-                );
-              },
+                ),
+              ),
             ),
+            actions: <SmoothSimpleButton>[
+              SmoothSimpleButton(
+                text: appLocalizations.cancel,
+                onPressed: () => Navigator.pop(context, false),
+                important: false,
+              ),
+            ],
           ),
-        ),
-        actions: <SmoothSimpleButton>[
-          SmoothSimpleButton(
-            text: appLocalizations.cancel,
-            onPressed: () => Navigator.pop(context, false),
-            important: false,
-          ),
-        ],
-      ),
-    );
+        ) ??
+        false;
   }
 }

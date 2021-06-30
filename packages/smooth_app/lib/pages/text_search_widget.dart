@@ -12,13 +12,13 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 /// Local product search by text
 class TextSearchWidget extends StatefulWidget {
   const TextSearchWidget({
-    required this.color,
+    this.color,
     required this.daoProduct,
     this.addProductCallback,
   });
 
   /// Icon color
-  final Color color;
+  final Color? color;
   final DaoProduct daoProduct;
 
   /// Callback after a product page is reached from the search, then pop'ed

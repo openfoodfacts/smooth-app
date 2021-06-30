@@ -100,6 +100,5 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
       case ScannedProductState.THANKS:
         return SmoothProductCardThanks();
     }
-    throw Exception('scanned barcode without state');
   }
 }

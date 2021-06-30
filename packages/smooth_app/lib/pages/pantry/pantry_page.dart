@@ -155,8 +155,8 @@ class _PantryPageState extends State<PantryPage> {
         itemCount: orderedBarcodes.length,
         itemBuilder: (BuildContext context, int index) {
           final Product product =
-              widget.pantry.products[orderedBarcodes[index]];
-          final String barcode = product.barcode;
+              widget.pantry.products[orderedBarcodes[index]]!;
+          final String barcode = product.barcode!;
           final List<Widget> children = <Widget>[
             SmoothProductCardFound(
               heroTag: barcode,
@@ -175,7 +175,7 @@ class _PantryPageState extends State<PantryPage> {
                 MaterialPageRoute<Widget>(
                   builder: (BuildContext context) =>
                       MultiSelectProductPage.pantry(
-                    barcode: product.barcode,
+                    barcode: product.barcode!,
                     pantries: widget.pantries,
                     index: _index,
                     pantryType: widget.pantryType,
@@ -185,7 +185,7 @@ class _PantryPageState extends State<PantryPage> {
             ),
             const Divider(color: Colors.grey),
           ];
-          final Map<String, int> dates = widget.pantry.data[barcode];
+          final Map<String, int> dates = widget.pantry.data[barcode]!;
           if (widget.pantry.pantryType == PantryType.SHOPPING) {
             _addShoppingLines(
               children: children,
@@ -216,7 +216,7 @@ class _PantryPageState extends State<PantryPage> {
               await _save(userPreferences);
             },
             child: Padding(
-              key: ValueKey<String>(product.barcode),
+              key: ValueKey<String>(product.barcode!),
               padding:
                   const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
               child: SmoothCard(
@@ -328,7 +328,7 @@ class _PantryPageState extends State<PantryPage> {
           initialDate: DateTime.now(),
           firstDate: DateTime.now(),
           lastDate: DateTime(2026),
-          builder: (BuildContext context, Widget child) => child,
+          builder: (BuildContext context, Widget? child) => child!,
         );
         if (dateTime == null) {
           return;

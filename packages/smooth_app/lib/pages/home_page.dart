@@ -238,7 +238,7 @@ class _HomePageState extends State<HomePage> {
                 await _goToProductListPage(newProductList!);
               },
             );
-            late Widget ifEmpty;
+            Widget? ifEmpty;
             if (typeFilter.contains(ProductList.LIST_TYPE_USER_DEFINED)) {
               if (cards.isEmpty) {
                 ifEmpty = addButton;
@@ -494,7 +494,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget _getHorizontalList(
     final List<Widget> children,
-    final Widget ifEmpty,
+    final Widget? ifEmpty,
   ) =>
       Padding(
         padding: const EdgeInsets.only(left: 4.0),

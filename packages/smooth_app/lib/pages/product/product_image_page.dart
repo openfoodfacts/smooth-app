@@ -6,11 +6,11 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 
 class ProductImagePage extends StatelessWidget {
   const ProductImagePage({
-    this.product,
-    this.imageField,
-    this.imageProvider,
-    this.title,
-    this.buttonText,
+    required this.product,
+    required this.imageField,
+    required this.imageProvider,
+    required this.title,
+    required this.buttonText,
   });
 
   final Product product;

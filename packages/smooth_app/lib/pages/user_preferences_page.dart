@@ -110,12 +110,12 @@ class UserPreferencesPage extends StatelessWidget {
   /// First, the attributes ordered by id designated by [orderedAttributeIds],
   /// if they belong to the [group].
   /// Then, the remaining attributes of the group in the initial group order.
-  List<Attribute>? _reorderAttributes(
+  List<Attribute> _reorderAttributes(
     final AttributeGroup group,
     final List<String> orderedAttributeIds,
   ) {
     if (orderedAttributeIds.isEmpty) {
-      return group.attributes;
+      return group.attributes!;
     }
     final List<Attribute> importantAttributes = <Attribute>[];
     final List<Attribute> otherAttributes = <Attribute>[];
@@ -131,8 +131,8 @@ class UserPreferencesPage extends StatelessWidget {
     }
     importantAttributes.sort(
       (Attribute a, Attribute b) => orderedAttributeIds
-          .indexOf(a.id)
-          .compareTo(orderedAttributeIds.indexOf(b.id)),
+          .indexOf(a.id!)
+          .compareTo(orderedAttributeIds.indexOf(b.id!)),
     );
     importantAttributes.addAll(otherAttributes);
     return importantAttributes;

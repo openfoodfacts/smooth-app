@@ -14,27 +14,33 @@ class SmoothCard extends StatelessWidget {
   final Widget child;
   final Color? color;
   final Widget? header;
-  final EdgeInsets padding;
-  final EdgeInsets insets;
+  final EdgeInsets? padding;
+  final EdgeInsets? insets;
 
   @override
-  Widget build(BuildContext context) => Padding(
-        padding: padding,
-        child: Material(
-          elevation: 8.0,
-          shadowColor: Colors.black45,
-          borderRadius: const BorderRadius.all(Radius.circular(10.0)),
-          color: color ?? Theme.of(context).colorScheme.surface,
-          child: Container(
-            padding: insets,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                if (header != null) header!,
-                child,
-              ],
-            ),
-          ),
+  Widget build(BuildContext context) {
+    final Widget result = Material(
+      elevation: 8.0,
+      shadowColor: Colors.black45,
+      borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+      color: color ?? Theme.of(context).colorScheme.surface,
+      child: Container(
+        padding: insets,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            if (header != null) header!,
+            child,
+          ],
         ),
-      );
+      ),
+    );
+    if (padding == null) {
+      return result;
+    }
+    return Padding(
+      padding: padding!,
+      child: result,
+    );
+  }
 }

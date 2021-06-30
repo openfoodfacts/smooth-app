@@ -39,7 +39,7 @@ class ChoosePage extends StatefulWidget {
         localDatabase: localDatabase,
         refresh: false,
       );
-      final Product product = await productDialogHelper.openBestChoice();
+      final Product? product = await productDialogHelper.openBestChoice();
       if (product == null) {
         productDialogHelper.openProductNotFoundDialog();
         return;

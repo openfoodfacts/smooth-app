@@ -26,7 +26,7 @@ class Launcher {
       //Get countrycode
 
       final Locale locale = Localizations.localeOf(context);
-      if (locale.countryCode.toString() == null) {
+      if (locale.countryCode == null) {
         localeString = 'world.';
       } else {
         localeString = '${locale.countryCode.toString()}.';

@@ -160,7 +160,7 @@ class AttributeListExpandable extends StatelessWidget {
         ),
       ),
       child: content,
-      expandedHeader: title == null ? null : header,
+      expandedHeader: header,
     );
   }
 

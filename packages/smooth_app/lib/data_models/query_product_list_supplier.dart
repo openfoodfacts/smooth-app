@@ -18,7 +18,7 @@ class QueryProductListSupplier extends ProductListSupplier {
       final SearchResult searchResult = await productQuery.getSearchResult();
       productList = productQuery.getProductList();
       if (searchResult.products != null) {
-        productList.addAll(searchResult.products!);
+        productList.setAll(searchResult.products!);
       }
       await DaoProduct(localDatabase).put(productList.getList());
       await DaoProductList(localDatabase).put(productList);

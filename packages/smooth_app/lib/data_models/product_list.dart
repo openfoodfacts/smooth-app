@@ -194,18 +194,18 @@ class ProductList {
     if (_barcodes.contains(product.barcode!)) {
       return false;
     }
-    _barcodes.add(product.barcode);
+    _barcodes.add(product.barcode!);
     int index = 1; // default value
     // looking for the highest index so far
     for (final String barcode in _barcodes.reversed) {
       if (barcode == product.barcode) {
         continue;
       }
-      final ProductExtra last = _productExtras[barcode];
+      final ProductExtra last = _productExtras[barcode]!;
       index = last.intValue;
       break;
     }
-    _productExtras[product.barcode] = _computeProductExtra(index);
+    _productExtras[product.barcode!] = _computeProductExtra(index);
     return true;
   }
 
@@ -218,8 +218,8 @@ class ProductList {
       return false;
     }
     _barcodes.remove(barcode);
-    _products[barcode] = null;
-    _productExtras[barcode] = null;
+    _products.remove(barcode);
+    _productExtras.remove(barcode);
     return true;
   }
 
@@ -230,7 +230,7 @@ class ProductList {
     final Map<String, Product> productMap = <String, Product>{};
     final Map<String, ProductExtra> productExtras = <String, ProductExtra>{};
     for (final Product product in products) {
-      final String barcode = product.barcode;
+      final String barcode = product.barcode!;
       barcodes.add(barcode);
       productMap[barcode] = product;
       productExtras[barcode] = _computeProductExtra(i++);
@@ -248,7 +248,9 @@ class ProductList {
     _barcodes.addAll(barcodes);
     _products.addAll(products);
     _productExtras.clear();
-    _productExtras.addAll(productExtras);
+    if (productExtras != null) {
+      _productExtras.addAll(productExtras);
+    }
   }
 
   ProductExtra _computeProductExtra(final int index) => ProductExtra(index, '');

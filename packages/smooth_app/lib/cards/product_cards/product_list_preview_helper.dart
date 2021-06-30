@@ -21,11 +21,6 @@ class ProductListPreviewHelper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Return an empty widget if the list is null
-    if (list == null) {
-      return const SizedBox.shrink();
-    }
-
     final List<Widget> previews = <Widget>[];
     for (final Product product in list) {
       previews.add(GestureDetector(

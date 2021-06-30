@@ -33,9 +33,8 @@ class ImageUploadCard extends StatefulWidget {
 }
 
 class _ImageUploadCardState extends State<ImageUploadCard> {
-  late ImageProvider?
-      _imageProvider; // Normal size image to display in carousel
-  late ImageProvider?
+  ImageProvider? _imageProvider; // Normal size image to display in carousel
+  ImageProvider?
       _imageFullProvider; // Full resolution image to display in image page
 
   Future<void> _getImage() async {

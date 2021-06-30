@@ -15,7 +15,7 @@ class ProductListButton extends StatelessWidget {
     required this.onlyIcon,
   }) : productList = null;
 
-  final ProductList productList;
+  final ProductList? productList;
   final Function onPressed;
   final bool onlyIcon;
 
@@ -31,13 +31,13 @@ class ProductListButton extends StatelessWidget {
     }
     return SmoothChip(
       onPressed: onPressed,
-      iconData: productList.iconData,
+      iconData: productList!.iconData,
       label: ProductQueryPageHelper.getProductListLabel(
-        productList,
+        productList!,
         context,
         verbose: false,
       ),
-      materialColor: productList.getMaterialColor(),
+      materialColor: productList!.getMaterialColor(),
       shape: _shape,
     );
   }

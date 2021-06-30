@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:math';
-import 'package:flutter/material.dart';
 import 'package:smooth_app/database/bulk_insertable.dart';
 import 'package:smooth_app/database/bulk_deletable.dart';
 import 'package:sqflite/sqflite.dart';
@@ -55,18 +54,18 @@ class BulkManager {
     required final BulkDeletable bulkDeletable,
     required final List<dynamic> parameters,
     required final DatabaseExecutor databaseExecutor,
-    final List<dynamic> additionalParameters,
+    final List<dynamic>? additionalParameters,
   }) async {
     final String tableName = bulkDeletable.getTableName();
     if (parameters.isEmpty) {
       return;
     }
     final int maxSlice =
-        _SQLITE_MAX_VARIABLE_NUMBER - (additionalParameters.length);
+        _SQLITE_MAX_VARIABLE_NUMBER - (additionalParameters?.length ?? 0);
     for (int start = 0; start < parameters.length; start += maxSlice) {
       final int size = min(parameters.length - start, maxSlice);
       final List<dynamic> currentParameters = <dynamic>[];
-      if (additionalParameters.isNotEmpty) {
+      if (additionalParameters != null && additionalParameters.isNotEmpty) {
         currentParameters.addAll(additionalParameters);
       }
       currentParameters.addAll(parameters.sublist(start, start + size));

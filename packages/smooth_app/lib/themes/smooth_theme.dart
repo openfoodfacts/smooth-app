@@ -62,10 +62,6 @@ class SmoothTheme {
       case ColorDestination.BUTTON_FOREGROUND:
         return materialColor[100]!;
     }
-    throw Exception(
-      'unknown brightness / destination:'
-      ' ${colorScheme.brightness} / $colorDestination',
-    );
   }
 
   static MaterialColor getMaterialColor(final ThemeProvider themeProvider) {

@@ -25,6 +25,7 @@ class ProductListPage extends StatefulWidget {
 
 class _ProductListPageState extends State<ProductListPage> {
   late ProductList productList;
+  bool first = true;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,10 @@ class _ProductListPageState extends State<ProductListPage> {
     final DaoProductList daoProductList = DaoProductList(localDatabase);
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-    productList ??= widget.productList;
+    if (first) {
+      first = false;
+      productList = widget.productList;
+    }
     final List<Product> products = productList.getList();
     final Map<String, ProductExtra> productExtras = productList.productExtras;
     final List<_Meta> metas = <_Meta>[];
@@ -40,9 +44,9 @@ class _ProductListPageState extends State<ProductListPage> {
         productList.listType == ProductList.LIST_TYPE_SCAN) {
       final int nowInMillis = LocalDatabase.nowInMillis();
       const int DAY_IN_MILLIS = 24 * 3600 * 1000;
-      String daysAgoLabel;
+      String? daysAgoLabel;
       for (final Product product in products) {
-        final int timestamp = productExtras[product.barcode].intValue;
+        final int timestamp = productExtras[product.barcode]!.intValue;
         final int daysAgo = ((nowInMillis - timestamp) / DAY_IN_MILLIS).round();
         final String tmpDaysAgoLabel = _getDaysAgoLabel(daysAgo);
         if (daysAgoLabel != tmpDaysAgoLabel) {
@@ -133,7 +137,7 @@ class _ProductListPageState extends State<ProductListPage> {
                   onSelected: (final String value) async {
                     switch (value) {
                       case 'rename':
-                        final ProductList renamedProductList =
+                        final ProductList? renamedProductList =
                             await ProductListDialogHelper.openRename(
                                 context, daoProductList, productList);
                         if (renamedProductList == null) {
@@ -199,13 +203,13 @@ class _ProductListPageState extends State<ProductListPage> {
                 final _Meta meta = metas[index];
                 if (!meta.isProduct()) {
                   return ListTile(
-                    key: Key(meta.daysAgoLabel),
+                    key: Key(meta.daysAgoLabel!),
                     leading: const Icon(Icons.history),
-                    title: Text(meta.daysAgoLabel),
+                    title: Text(meta.daysAgoLabel!),
                   );
                 }
-                final Product product = meta.product;
-                final String barcode = product.barcode;
+                final Product product = meta.product!;
+                final String barcode = product.barcode!;
                 final Widget child = Padding(
                   padding: const EdgeInsets.symmetric(
                       horizontal: 12.0, vertical: 8.0),
@@ -228,7 +232,7 @@ class _ProductListPageState extends State<ProductListPage> {
                         MaterialPageRoute<Widget>(
                           builder: (BuildContext context) =>
                               MultiSelectProductPage.productList(
-                            barcode: product.barcode,
+                            barcode: barcode,
                             productList: productList,
                           ),
                         ),
@@ -240,10 +244,9 @@ class _ProductListPageState extends State<ProductListPage> {
                 if (dismissible) {
                   return Dismissible(
                     background: Container(color: colorScheme.background),
-                    key: Key(meta.product.barcode),
+                    key: Key(barcode),
                     onDismissed: (final DismissDirection direction) async {
-                      final bool removed =
-                          productList.remove(meta.product.barcode);
+                      final bool removed = productList.remove(barcode);
                       if (removed) {
                         await daoProductList.put(productList);
                         setState(() => metas.removeAt(index));
@@ -262,7 +265,7 @@ class _ProductListPageState extends State<ProductListPage> {
                   );
                 }
                 return Container(
-                  key: Key(meta.product.barcode),
+                  key: Key(barcode),
                   child: child,
                 );
               },
@@ -299,8 +302,8 @@ class _Meta {
   _Meta.product(this.product) : daysAgoLabel = null;
   _Meta.daysAgoLabel(this.daysAgoLabel) : product = null;
 
-  final Product product;
-  final String daysAgoLabel;
+  final Product? product;
+  final String? daysAgoLabel;
 
   bool isProduct() => product != null;
 }

@@ -212,7 +212,7 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
   Future<void> bulkInsertExtra({
     required final DatabaseExecutor databaseExecutor,
     required final ProductList productList,
-    required final int productListId,
+    required final int? productListId,
   }) async {
     final BulkManager bulkManager = BulkManager();
     final int timestamp = LocalDatabase.nowInMillis();
@@ -220,7 +220,7 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
     final String extraKey = _getExtraKey(productList, productListId);
 
     for (final String barcode in productList.barcodes) {
-      final ProductExtra productExtra = productList.productExtras[barcode];
+      final ProductExtra productExtra = productList.productExtras[barcode]!;
       insertParameters.add(barcode);
       insertParameters.add(extraKey);
       insertParameters.add(productExtra.stringValue);
@@ -371,7 +371,7 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
     return map[barcode];
   }
 
-  String _getExtraKey(final ProductList productList, final int id) {
+  String _getExtraKey(final ProductList productList, final int? id) {
     switch (productList.listType) {
       case ProductList.LIST_TYPE_HISTORY:
         return EXTRA_ID_LAST_SEEN;
@@ -384,7 +384,7 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
     return 'list/$id';
   }
 
-  bool _getExtraReverse(final ProductList productList, final int id) {
+  bool _getExtraReverse(final ProductList productList, final int? id) {
     switch (productList.listType) {
       case ProductList.LIST_TYPE_HISTORY:
         return true;
@@ -397,7 +397,7 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
     return false;
   }
 
-  Future<bool> getList(final ProductList productList, final int id) async {
+  Future<bool> getList(final ProductList productList, final int? id) async {
     final String extraKey = _getExtraKey(productList, id);
     final bool extraReverse = _getExtraReverse(productList, id);
     final LinkedHashMap<String, ProductExtra> extras =
@@ -414,7 +414,7 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
 
   Future<List<String>?> getFirstBarcodes(
     final ProductList productList,
-    final int id,
+    final int? id,
     final int limit,
   ) async {
     final String extraKey = _getExtraKey(productList, id);
@@ -431,7 +431,7 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
 
   Future<void> clearList(
     final ProductList productList,
-    final int id,
+    final int? id,
     final DatabaseExecutor databaseExecutor,
   ) async =>
       await databaseExecutor.delete(

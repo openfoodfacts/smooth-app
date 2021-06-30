@@ -216,7 +216,7 @@ class DaoProductList extends AbstractDao {
       final String barcode =
           row[_TABLE_PRODUCT_LIST_ITEM_COLUMN_BARCODE] as String;
       final int timestamp = row[LocalDatabase.COLUMN_TIMESTAMP] as int;
-      List<dynamic> item = map[listId];
+      List<dynamic>? item = map[listId];
       if (item == null) {
         map[listId] = item = <dynamic>[];
       }
@@ -243,14 +243,14 @@ class DaoProductList extends AbstractDao {
       );
 
       final List<dynamic> insertParameters = <dynamic>[];
-      final List<dynamic> parameters = map[listId];
+      final List<dynamic> parameters = map[listId]!;
       final int max = parameters.length ~/ 2;
       final Map<String, int> timestamps = <String, int>{};
       for (int i = 0; i < parameters.length; i += 2) {
         final int index = max - (i ~/ 2);
         final String barcode = parameters[i] as String;
         final int timestamp = parameters[i + 1] as int;
-        final int previous = timestamps[barcode];
+        final int? previous = timestamps[barcode];
         if (previous != null) {
           continue;
         }
@@ -352,7 +352,7 @@ class DaoProductList extends AbstractDao {
   Future<void> delete(final ProductList productList) async {
     await localDatabase.database.transaction(
       (final Transaction transaction) async {
-        final int id = await _getId(productList, transaction);
+        final int? id = await _getId(productList, transaction);
         if (id != null) {
           await transaction.delete(
             _TABLE_PRODUCT_LIST,
@@ -432,7 +432,7 @@ class DaoProductList extends AbstractDao {
         listType: row[_TABLE_PRODUCT_LIST_COLUMN_TYPE] as String,
         parameters: row[_TABLE_PRODUCT_LIST_COLUMN_PARAMETERS] as String,
         databaseTimestamp: row[LocalDatabase.COLUMN_TIMESTAMP] as int,
-        databaseCountDistinct: countDistincts[productListId] ?? 0,
+        databaseCountDistinct: counts[productListId] ?? 0,
       )..extraTags = extras[productListId];
       result.add(item);
     }
@@ -445,7 +445,7 @@ class DaoProductList extends AbstractDao {
     final ProductList productList,
     final DatabaseExecutor databaseExecutor,
   ) async {
-    int id = await _getId(productList, databaseExecutor);
+    int? id = await _getId(productList, databaseExecutor);
     if (id == null) {
       id = await databaseExecutor.insert(
         _TABLE_PRODUCT_LIST,

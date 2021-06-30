@@ -33,7 +33,7 @@ class ProductQueryPage extends StatefulWidget {
   final String heroTag;
   final Color mainColor;
   final String name;
-  final int lastUpdate;
+  final int? lastUpdate;
 
   @override
   _ProductQueryPageState createState() => _ProductQueryPageState();
@@ -44,8 +44,8 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
   final GlobalKey<ScaffoldState> _scaffoldKeyNotEmpty =
       GlobalKey<ScaffoldState>();
 
-  ProductQueryModel _model;
-  int _lastUpdate;
+  late ProductQueryModel _model;
+  int? _lastUpdate;
   final ScrollController _scrollController = ScrollController();
   bool _showTitle = true;
 
@@ -73,7 +73,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<ProductQueryModel>.value(
       value: _model,
-      builder: (BuildContext context, Widget wtf) {
+      builder: (BuildContext context, Widget? wtf) {
         context.watch<ProductQueryModel>();
         final Size screenSize = MediaQuery.of(context).size;
         final ThemeData themeData = Theme.of(context);
@@ -117,7 +117,6 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
               ),
             );
         }
-        throw Exception('unknown LoadingStatus: ${_model.loadingStatus}');
       },
     );
   }
@@ -193,14 +192,14 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
             children: <Widget>[
               _getHero(screenSize, themeData),
               ListView.builder(
-                itemCount: _model.displayProducts.length,
+                itemCount: _model.displayProducts!.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 12.0, vertical: 8.0),
                     child: SmoothProductCardFound(
-                      heroTag: _model.displayProducts[index].barcode,
-                      product: _model.displayProducts[index],
+                      heroTag: _model.displayProducts![index].barcode!,
+                      product: _model.displayProducts![index],
                       elevation:
                           Theme.of(context).brightness == Brightness.light
                               ? 0.0
@@ -242,7 +241,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                             builder: (BuildContext context) =>
                                 GroupQueryFilterView(
                               categories: _model.categories,
-                              categoriesList: _model.sortedCategories,
+                              categoriesList: _model.sortedCategories!,
                               callback: (String category) {
                                 _model.selectCategory(category);
                                 setState(() {});
@@ -319,14 +318,14 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
     if (_lastUpdate == null) {
       return;
     }
-    final ProductListSupplier refreshSupplier =
+    final ProductListSupplier? refreshSupplier =
         widget.productListSupplier.getRefreshSupplier();
     if (refreshSupplier == null) {
       return;
     }
     final String lastTime =
         ProductQueryPageHelper.getDurationStringFromTimestamp(
-            _lastUpdate, context);
+            _lastUpdate!, context);
     final String message =
         '${AppLocalizations.of(context)!.chached_results_from} $lastTime';
     _lastUpdate = null;

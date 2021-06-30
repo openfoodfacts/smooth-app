@@ -16,10 +16,10 @@ import 'package:smooth_app/database/product_query.dart';
 /// Dialog helper for product barcode search
 class ProductDialogHelper {
   ProductDialogHelper({
-    this.barcode,
-    this.context,
-    this.localDatabase,
-    this.refresh,
+    required this.barcode,
+    required this.context,
+    required this.localDatabase,
+    required this.refresh,
   });
 
   final String barcode;
@@ -28,15 +28,15 @@ class ProductDialogHelper {
   final bool refresh;
   bool _popEd = false;
 
-  Future<Product> openBestChoice() async {
-    final Product product = await DaoProduct(localDatabase).get(barcode);
+  Future<Product?> openBestChoice() async {
+    final Product? product = await DaoProduct(localDatabase).get(barcode);
     if (product != null) {
       return product;
     }
     return openUniqueProductSearch();
   }
 
-  Future<Product> openUniqueProductSearch() => showDialog<Product>(
+  Future<Product?> openUniqueProductSearch() => showDialog<Product>(
         context: context,
         builder: (BuildContext context) {
           BarcodeProductQuery(
@@ -44,8 +44,8 @@ class ProductDialogHelper {
             languageCode: ProductQuery.getCurrentLanguageCode(context),
             countryCode: ProductQuery.getCurrentCountryCode(),
             daoProduct: DaoProduct(localDatabase),
-          ).getProduct().then(
-              (final Product value) => _popSearchingDialog(value)
+          ).getProduct().then<void>(
+              (final Product? value) => _popSearchingDialog(value)
               /* TODO(monsieurtanuki): better granularity - being able to say...
              1. you clicked on 'stop'
              2. no internet connection
@@ -58,7 +58,7 @@ class ProductDialogHelper {
         },
       );
 
-  void _popSearchingDialog(final Product product) {
+  void _popSearchingDialog(final Product? product) {
     if (_popEd) {
       return;
     }

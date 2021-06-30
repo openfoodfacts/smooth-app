@@ -54,7 +54,6 @@ class PantryButton extends StatelessWidget {
       case PantryType.SHOPPING:
         return appLocalizations.new_shopping;
     }
-    throw Exception('unknow pantry type $pantryType');
   }
 
   OutlinedBorder? _getShape() {
@@ -69,6 +68,5 @@ class PantryButton extends StatelessWidget {
           ),
         );
     }
-    throw Exception('unknow pantry type $pantryType');
   }
 }
