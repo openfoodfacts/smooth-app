@@ -1,35 +1,26 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-//import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/utils/PnnsGroups.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/pages/product/common/product_list_add_button.dart';
 import 'package:smooth_ui_library/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/user_preferences_page.dart';
 import 'package:smooth_app/cards/product_cards/product_list_preview.dart';
-//import 'package:smooth_app/data_models/pantry.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/choose_page.dart';
 import 'package:smooth_app/pages/list_page.dart';
-//import 'package:smooth_app/pages/pantry/common/pantry_button.dart';
-//import 'package:smooth_app/pages/pantry/common/pantry_dialog_helper.dart';
-//import 'package:smooth_app/pages/pantry/common/pantry_list_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_button.dart';
 import 'package:smooth_app/pages/product/common/product_list_dialog_helper.dart';
 import 'package:smooth_app/pages/settings_page.dart';
 import 'package:smooth_app/pages/scan/scan_page.dart';
-//import 'package:smooth_app/pages/pantry/pantry_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_page.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-//import 'package:smooth_app/data_models/product_preferences.dart';
-//import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/pages/text_search_widget.dart';
-//import 'package:smooth_app/pages/product/common/smooth_chip.dart';
-//import 'package:smooth_app/pages/attribute_button.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/cards/category_cards/svg_async_asset.dart';
 
@@ -118,26 +109,32 @@ class _HomePageState extends State<HomePage> {
             ),
             appLocalizations,
           ),
-          /*
-          // temporarily: no pantries and no shopping lists ("Choose" mode)
-          _getPantryCard(
-            userPreferences,
-            _daoProduct,
-            PantryType.PANTRY,
+          _getProductListCard(
+            <String>[ProductList.LIST_TYPE_USER_PANTRY],
+            appLocalizations.my_pantrie_lists,
+            Icon(
+              Icons.home,
+              color: SmoothTheme.getColor(
+                colorScheme,
+                Colors.orange,
+                _COLOR_DESTINATION_FOR_ICON,
+              ),
+            ),
             appLocalizations,
           ),
-          _getPantryCard(
-            userPreferences,
-            _daoProduct,
-            PantryType.SHOPPING,
+          _getProductListCard(
+            <String>[ProductList.LIST_TYPE_USER_SHOPPING],
+            appLocalizations.my_shopping_lists,
+            Icon(
+              Icons.shopping_cart,
+              color: SmoothTheme.getColor(
+                colorScheme,
+                Colors.blueGrey,
+                _COLOR_DESTINATION_FOR_ICON,
+              ),
+            ),
             appLocalizations,
           ),
-          // temporarily: no attribute display on home page (UI/UX test)
-          _getRankingPreferences(
-            productPreferences,
-            appLocalizations,
-          ),
-           */
           ProductListPreview(
             daoProductList: _daoProductList,
             productList: ProductList(
@@ -201,8 +198,12 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _getProductListCard(final List<String> typeFilter, final String title,
-          final Icon leadingIcon, final AppLocalizations appLocalizations) =>
+  Widget _getProductListCard(
+    final List<String> typeFilter,
+    final String title,
+    final Icon leadingIcon,
+    final AppLocalizations appLocalizations,
+  ) =>
       FutureBuilder<List<ProductList>>(
         future: _daoProductList.getAll(
           withStats: false,
@@ -226,20 +227,27 @@ class _HomePageState extends State<HomePage> {
               );
             }
 
-            final Widget addButton = ProductListButton.add(
-              onlyIcon: cards.isNotEmpty,
-              onPressed: () async {
-                final ProductList? newProductList =
-                    await ProductListDialogHelper.openNew(
-                  context,
-                  _daoProductList,
-                  list,
-                );
-                await _goToProductListPage(newProductList!);
-              },
-            );
             Widget? ifEmpty;
-            if (typeFilter.contains(ProductList.LIST_TYPE_USER_DEFINED)) {
+            final String? userProductListType =
+                ProductList.getUniqueUserProductListType(typeFilter);
+            if (userProductListType != null) {
+              final Widget addButton = ProductListAddButton(
+                onlyIcon: cards.isNotEmpty,
+                productListType: userProductListType,
+                onPressed: () async {
+                  final ProductList? newProductList =
+                      await ProductListDialogHelper.openNew(
+                    context,
+                    _daoProductList,
+                    list,
+                    userProductListType,
+                  );
+                  if (newProductList == null) {
+                    return;
+                  }
+                  await _goToProductListPage(newProductList);
+                },
+              );
               if (cards.isEmpty) {
                 ifEmpty = addButton;
               } else {
@@ -298,171 +306,6 @@ class _HomePageState extends State<HomePage> {
         },
       );
 
-  /*
-  Widget _getRankingPreferences(final ProductPreferences productPreferences,
-      final AppLocalizations appLocalizations) {
-    final List<String> orderedAttributeIds =
-        productPreferences.getOrderedImportantAttributeIds();
-    final List<Widget> attributes = <Widget>[];
-    final Function onTap = () async => await Navigator.push<Widget>(
-          context,
-          MaterialPageRoute<Widget>(
-            builder: (BuildContext context) => const UserPreferencesPage(),
-          ),
-        );
-
-    for (final String attributeId in orderedAttributeIds) {
-      final Attribute attribute =
-          productPreferences.getReferenceAttribute(attributeId);
-      attributes.add(
-        AttributeButton(
-          attribute,
-          productPreferences,
-        ),
-      );
-    }
-    attributes.add(SmoothChip(iconData: Icons.add, onPressed: onTap));
-
-    return SmoothCard(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          ListTile(
-            onTap: () => onTap(),
-            leading: Icon(
-              Icons.bar_chart,
-              color: SmoothTheme.getColor(
-                Theme.of(context).colorScheme,
-                Colors.green,
-                _COLOR_DESTINATION_FOR_ICON,
-              ),
-            ),
-            trailing: _ICON_ARROW_FORWARD,
-            title: Text(
-              appLocalizations.myPreferences,
-              style: Theme.of(context).textTheme.subtitle2,
-            ),
-          ),
-          _getHorizontalList(
-              attributes,
-              SmoothChip(
-                onPressed: () => onTap(),
-                iconData: Icons.settings,
-                label: appLocalizations.configurePreferences,
-              )),
-        ],
-      ),
-    );
-  }
-   */
-
-  /*
-  Widget _getPantryCard(
-    final UserPreferences userPreferences,
-    final DaoProduct daoProduct,
-    final PantryType pantryType,
-    final AppLocalizations appLocalizations,
-  ) =>
-      FutureBuilder<List<Pantry>>(
-        future: Pantry.getAll(userPreferences, daoProduct, pantryType),
-        builder: (
-          final BuildContext context,
-          final AsyncSnapshot<List<Pantry>> snapshot,
-        ) {
-          final String title = pantryType == PantryType.PANTRY
-              ? appLocalizations.my_pantrie_lists
-              : appLocalizations.my_shopping_lists;
-          final IconData iconData = pantryType == PantryType.PANTRY
-              ? Icons.home
-              : Icons.shopping_cart;
-          final MaterialColor materialColor =
-              pantryType == PantryType.PANTRY ? Colors.orange : Colors.blueGrey;
-          if (snapshot.connectionState == ConnectionState.done) {
-            final List<Pantry> pantries = snapshot.data;
-            final List<Widget> cards = <Widget>[];
-            for (int index = 0; index < pantries.length; index++) {
-              cards.add(
-                PantryButton(
-                  pantries: pantries,
-                  index: index,
-                  onPressed: () async => await _goToPantryPage(
-                    pantries[index],
-                    pantries,
-                  ),
-                ),
-              );
-            }
-            final Widget addButton = PantryButton.add(
-              pantries: pantries,
-              pantryType: pantryType,
-              onlyIcon: cards.isNotEmpty,
-              onPressed: () async {
-                final Pantry newPantry = await PantryDialogHelper.openNew(
-                  context,
-                  pantries,
-                  pantryType,
-                  userPreferences,
-                );
-                if (newPantry == null) {
-                  return;
-                }
-                await _goToPantryPage(newPantry, pantries);
-              },
-            );
-            if (cards.isNotEmpty) {
-              cards.add(addButton);
-            }
-            return SmoothCard(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  ListTile(
-                    onTap: () async {
-                      await Navigator.push<Widget>(
-                        context,
-                        MaterialPageRoute<Widget>(
-                          builder: (BuildContext context) => PantryListPage(
-                            title,
-                            pantries,
-                            pantryType,
-                          ),
-                        ),
-                      );
-                      setState(() {});
-                    },
-                    leading: Icon(
-                      iconData,
-                      color: SmoothTheme.getColor(
-                        Theme.of(context).colorScheme,
-                        materialColor,
-                        _COLOR_DESTINATION_FOR_ICON,
-                      ),
-                    ),
-                    trailing: _ICON_ARROW_FORWARD,
-                    title: Text(title,
-                        style: Theme.of(context).textTheme.subtitle2),
-                  ),
-                  _getHorizontalList(cards, addButton),
-                ],
-              ),
-            );
-          }
-          return SmoothCard(
-            child: ListTile(
-              leading: const CircularProgressIndicator(),
-              title: Text(title),
-              subtitle: Text(
-                appLocalizations.searching,
-                style: Theme.of(context).textTheme.subtitle2,
-              ),
-            ),
-          );
-        },
-      );
-   */
-
   Future<void> _goToProductListPage(final ProductList productList) async {
     await _daoProductList.get(productList);
     await Navigator.push<Widget>(
@@ -473,24 +316,6 @@ class _HomePageState extends State<HomePage> {
     );
     setState(() {});
   }
-
-  /*
-  Future<void> _goToPantryPage(
-    final Pantry pantry,
-    final List<Pantry> pantries,
-  ) async {
-    await Navigator.push<Widget>(
-      context,
-      MaterialPageRoute<Widget>(
-        builder: (BuildContext context) => PantryPage(
-          pantries: pantries,
-          pantry: pantry,
-        ),
-      ),
-    );
-    setState(() {});
-  }
-   */
 
   Widget _getHorizontalList(
     final List<Widget> children,

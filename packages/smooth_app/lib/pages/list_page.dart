@@ -4,8 +4,8 @@ import 'package:smooth_app/cards/product_cards/product_list_preview.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/pages/product/common/product_list_add_button.dart';
 import 'package:smooth_app/pages/product/common/product_list_page.dart';
-import 'package:smooth_app/pages/product/common/product_list_button.dart';
 import 'package:smooth_app/pages/product/common/product_list_dialog_helper.dart';
 
 class ListPage extends StatefulWidget {
@@ -28,16 +28,19 @@ class _ListPageState extends State<ListPage> {
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
-    final bool mayAddList =
-        widget.typeFilter.contains(ProductList.LIST_TYPE_USER_DEFINED);
+    final String? userProductListType =
+        ProductList.getUniqueUserProductListType(widget.typeFilter);
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
         actions: <Widget>[
-          if (mayAddList)
+          if (userProductListType != null)
             IconButton(
               icon: const Icon(Icons.add),
-              onPressed: () async => await _add(daoProductList),
+              onPressed: () async => await _add(
+                daoProductList,
+                userProductListType,
+              ),
             )
         ],
       ),
@@ -51,11 +54,15 @@ class _ListPageState extends State<ListPage> {
               _list = snapshot.data;
               if (_list != null) {
                 if (_list!.isEmpty) {
-                  if (mayAddList) {
+                  if (userProductListType != null) {
                     return Center(
-                      child: ProductListButton.add(
+                      child: ProductListAddButton(
                         onlyIcon: false,
-                        onPressed: () async => await _add(daoProductList),
+                        onPressed: () async => await _add(
+                          daoProductList,
+                          userProductListType,
+                        ),
+                        productListType: userProductListType,
                       ),
                     );
                   }
@@ -80,11 +87,15 @@ class _ListPageState extends State<ListPage> {
     );
   }
 
-  Future<void> _add(final DaoProductList daoProductList) async {
+  Future<void> _add(
+    final DaoProductList daoProductList,
+    final String userProductListType,
+  ) async {
     final ProductList? newProductList = await ProductListDialogHelper.openNew(
       context,
       daoProductList,
       _list!,
+      userProductListType,
     );
     if (newProductList == null) {
       return;
