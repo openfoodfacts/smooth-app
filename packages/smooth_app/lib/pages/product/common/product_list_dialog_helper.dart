@@ -40,6 +40,7 @@ class ProductListDialogHelper {
     final BuildContext context,
     final DaoProductList daoProductList,
     final List<ProductList> list,
+    final String productListType,
   ) async {
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
     ProductList? newProductList;
@@ -64,7 +65,7 @@ class ProductListDialogHelper {
                       return appLocalizations.empty_list;
                     }
                     newProductList = ProductList(
-                      listType: ProductList.LIST_TYPE_USER_DEFINED,
+                      listType: productListType,
                       parameters: value,
                     );
                     for (final ProductList productList in list) {
@@ -133,7 +134,7 @@ class ProductListDialogHelper {
                       return appLocalizations.empty_list;
                     }
                     newProductList = ProductList(
-                      listType: ProductList.LIST_TYPE_USER_DEFINED,
+                      listType: productList.listType,
                       parameters: value,
                     )..extraTags = productList.extraTags;
                     for (final ProductList item in list) {

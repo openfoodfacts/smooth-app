@@ -76,7 +76,11 @@ class SmoothProductCardFound extends StatelessWidget {
           await refresh!();
         }
       },
-      onLongPress: () => onLongPress,
+      onLongPress: () {
+        if (onLongPress != null) {
+          onLongPress!();
+        }
+      },
       child: Hero(
         tag: heroTag,
         child: Material(

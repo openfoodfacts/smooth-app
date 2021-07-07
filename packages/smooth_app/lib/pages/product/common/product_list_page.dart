@@ -3,16 +3,15 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/data_models/product_extra.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_dialog_helper.dart';
+import 'package:smooth_app/pages/product/common/product_list_item.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
-import 'package:smooth_app/pages/multi_select_product_page.dart';
 
 class ProductListPage extends StatefulWidget {
   const ProductListPage(this.productList);
@@ -66,6 +65,8 @@ class _ProductListPageState extends State<ProductListPage> {
     bool reorderable = false;
     switch (productList.listType) {
       case ProductList.LIST_TYPE_USER_DEFINED:
+      case ProductList.LIST_TYPE_USER_PANTRY:
+      case ProductList.LIST_TYPE_USER_SHOPPING:
         // TODO(monsieurtanuki): clear the preference when the product list is deleted
         deletable = true;
         renamable = true;
@@ -209,44 +210,23 @@ class _ProductListPageState extends State<ProductListPage> {
                   );
                 }
                 final Product product = meta.product!;
-                final String barcode = product.barcode!;
                 final Widget child = Padding(
                   padding: const EdgeInsets.symmetric(
                       horizontal: 12.0, vertical: 8.0),
-                  child: SmoothProductCardFound(
-                    heroTag: barcode,
+                  child: ProductListItem(
                     product: product,
-                    refresh: () async {
-                      await daoProductList.get(productList);
-                      setState(() {});
-                    },
-                    handle: !reorderable
-                        ? null
-                        : ReorderableDragStartListener(
-                            index: index,
-                            child: const Icon(Icons.drag_handle),
-                          ),
-                    onLongPress: () async {
-                      await Navigator.push<Widget>(
-                        context,
-                        MaterialPageRoute<Widget>(
-                          builder: (BuildContext context) =>
-                              MultiSelectProductPage.productList(
-                            barcode: barcode,
-                            productList: productList,
-                          ),
-                        ),
-                      );
-                      setState(() {});
-                    },
+                    productList: productList,
+                    listRefresher: () => setState(() {}),
+                    daoProductList: daoProductList,
+                    reorderIndex: reorderable ? index : null,
                   ),
                 );
                 if (dismissible) {
                   return Dismissible(
                     background: Container(color: colorScheme.background),
-                    key: Key(barcode),
+                    key: Key(product.barcode!),
                     onDismissed: (final DismissDirection direction) async {
-                      final bool removed = productList.remove(barcode);
+                      final bool removed = productList.remove(product.barcode!);
                       if (removed) {
                         await daoProductList.put(productList);
                         setState(() => metas.removeAt(index));
@@ -265,7 +245,7 @@ class _ProductListPageState extends State<ProductListPage> {
                   );
                 }
                 return Container(
-                  key: Key(barcode),
+                  key: Key(product.barcode!),
                   child: child,
                 );
               },

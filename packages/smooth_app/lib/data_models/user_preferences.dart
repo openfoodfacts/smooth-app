@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:smooth_app/data_models/pantry.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 
@@ -16,17 +15,9 @@ class UserPreferences extends ChangeNotifier {
   }
 
   static const String _TAG_PREFIX_IMPORTANCE = 'IMPORTANCE_AS_STRING';
-  static const String _TAG_PANTRY_REPOSITORY = 'pantry_repository';
-  static const String _TAG_SHOPPING_REPOSITORY = 'shopping_repository';
   static const String _TAG_INIT = 'init';
   static const String _TAG_THEME_DARK = 'themeDark';
   static const String _TAG_THEME_COLOR_TAG = 'themeColorTag';
-
-  static const Map<PantryType, String> _PANTRY_TYPE_TO_TAG =
-      <PantryType, String>{
-    PantryType.PANTRY: _TAG_PANTRY_REPOSITORY,
-    PantryType.SHOPPING: _TAG_SHOPPING_REPOSITORY,
-  };
 
   Future<void> init(final ProductPreferences productPreferences) async {
     final bool? alreadyDone = _sharedPreferences.getBool(_TAG_INIT);
@@ -55,21 +46,6 @@ class UserPreferences extends ChangeNotifier {
     final ProductPreferences productPreferences,
   ) async =>
       await productPreferences.resetImportances();
-
-  Future<void> setPantryRepository(
-    final List<String> encodedJsons,
-    final PantryType pantryType,
-  ) async {
-    await _sharedPreferences.setStringList(
-      _PANTRY_TYPE_TO_TAG[pantryType]!,
-      encodedJsons,
-    );
-    notifyListeners();
-  }
-
-  List<String> getPantryRepository(final PantryType pantryType) =>
-      _sharedPreferences.getStringList(_PANTRY_TYPE_TO_TAG[pantryType]!) ??
-      <String>[];
 
   Future<void> setThemeDark(final bool state) async =>
       await _sharedPreferences.setBool(_TAG_THEME_DARK, state);

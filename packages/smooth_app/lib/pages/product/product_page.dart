@@ -15,7 +15,7 @@ import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:share/share.dart';
-import 'package:smooth_app/bottom_sheet_views/product_copy_view.dart';
+import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/database/dao_product_extra.dart';
 import 'package:smooth_ui_library/widgets/smooth_card.dart';
@@ -35,7 +35,6 @@ import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/pages/product_copy_helper.dart';
-import 'package:smooth_app/data_models/pantry.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product.dart';
 
@@ -532,56 +531,23 @@ class _ProductPageState extends State<ProductPage> {
     required final DaoProductList daoProductList,
     required final DaoProduct daoProduct,
   }) async {
-    final List<PantryType> pantryTypes = <PantryType>[
-      PantryType.PANTRY,
-      PantryType.SHOPPING,
-    ];
-
-    final Map<PantryType, List<Pantry>> allPantries =
-        <PantryType, List<Pantry>>{};
-
-    for (final PantryType pantryType in pantryTypes) {
-      final List<Pantry> pantries = await Pantry.getAll(
-        userPreferences,
-        daoProduct,
-        pantryType,
-      );
-      allPantries[pantryType] = pantries;
-    }
-
     final ProductCopyHelper productCopyHelper = ProductCopyHelper();
-    final List<Widget> children = await productCopyHelper.getButtons(
+    final ProductList? productList =
+        await productCopyHelper.showProductListDialog(
       context: context,
       daoProductList: daoProductList,
       daoProduct: daoProduct,
-      allPantries: allPantries,
-      userPreferences: userPreferences,
     );
-    if (children.isEmpty) {
-      // no list to add to
-      return;
-    }
-    final dynamic target = await showCupertinoModalBottomSheet<dynamic>(
-      expand: false,
-      context: context,
-      backgroundColor: Colors.transparent,
-      bounce: true,
-      builder: (BuildContext context) => ProductCopyView(
-        children: children,
-      ),
-    );
-    if (target == null) {
+    if (productList == null) {
       // nothing selected
       return;
     }
     final List<Product> products = <Product>[widget.product];
     await productCopyHelper.copy(
       context: context,
-      target: target,
-      allPantries: allPantries,
+      productList: productList,
       daoProductList: daoProductList,
       products: products,
-      userPreferences: userPreferences,
     );
   }
 
