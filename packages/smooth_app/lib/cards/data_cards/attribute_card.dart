@@ -75,6 +75,6 @@ class AttributeCard extends StatelessWidget {
             ),
           );
         },
-        child: Text('Details...'),
+        child: const Text('Details...'),
       );
 }
