@@ -34,21 +34,16 @@ class ProductListItemShopping extends StatelessWidget {
       ),
       const Divider(color: Colors.grey),
       Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              IconButton(
-                onPressed: () async => await _add(-1),
-                icon: const Icon(Icons.remove_circle_outline),
-              ),
-              Text('${_getCount()}', style: const TextStyle(fontSize: 16)),
-              IconButton(
-                onPressed: () async => await _add(1),
-                icon: const Icon(Icons.add_circle_outline),
-              ),
-            ],
+          IconButton(
+            onPressed: () async => await _add(-1),
+            icon: const Icon(Icons.remove_circle_outline),
+          ),
+          Text('${_getCount()}', style: const TextStyle(fontSize: 16)),
+          IconButton(
+            onPressed: () async => await _add(1),
+            icon: const Icon(Icons.add_circle_outline),
           ),
         ],
       ),
