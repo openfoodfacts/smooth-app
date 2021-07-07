@@ -113,7 +113,11 @@ class AttributeListExpandable extends StatelessWidget {
                 color: color,
                 borderRadius: const BorderRadius.all(Radius.circular(16)),
               ),
-              child: AttributeCard(attribute, chip),
+              child: AttributeCard(
+                attribute,
+                chip,
+                barcode: product.barcode,
+              ),
             ),
           ),
         ),
