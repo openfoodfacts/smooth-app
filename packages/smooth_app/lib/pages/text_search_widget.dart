@@ -38,7 +38,7 @@ class _TextSearchWidgetState extends State<TextSearchWidget> {
     final Size screenSize = MediaQuery.of(context).size;
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     return SmoothCard(
-      child: TypeAheadField<Product>(
+      child: TypeAheadField<Product?>(
         textFieldConfiguration: TextFieldConfiguration(
           controller: _searchController,
           autofocus: false,
@@ -48,30 +48,15 @@ class _TextSearchWidgetState extends State<TextSearchWidget> {
               padding: const EdgeInsets.only(left: 8.0),
               child: _getIcon(Icons.search),
             ),
-            suffixIcon: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                _getInvisibleIconButton(
-                  CupertinoIcons.arrow_up_right,
-                  () => ChoosePage.onSubmitted(
-                    _searchController.text,
-                    context,
-                    widget.daoProduct.localDatabase,
-                  ),
-                ),
-                _getInvisibleIconButton(
-                  Icons.close,
-                  () => setState(
-                    () {
-                      FocusScope.of(context).unfocus();
-                      _searchController.text = '';
-                      _visibleCloseButton = false;
-                    },
-                  ),
-                ),
-              ],
+            suffixIcon: _getInvisibleIconButton(
+              Icons.close,
+              () => setState(
+                () {
+                  FocusScope.of(context).unfocus();
+                  _searchController.text = '';
+                  _visibleCloseButton = false;
+                },
+              ),
             ),
             border: InputBorder.none,
             hintText: appLocalizations.what_are_you_looking_for,
@@ -87,42 +72,50 @@ class _TextSearchWidgetState extends State<TextSearchWidget> {
         transitionBuilder: (BuildContext context, Widget suggestionsBox,
                 AnimationController? controller) =>
             suggestionsBox,
-        itemBuilder: (BuildContext context, Product suggestion) => Container(
-          height: screenSize.height / 10,
-          child: Row(
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(4),
-                child: SmoothProductImage(
-                  product: suggestion,
-                  width: screenSize.height / 10,
-                  height: screenSize.height / 10,
+        itemBuilder: (BuildContext context, Product? suggestion) {
+          if (suggestion == null) {
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton.icon(
+                icon: const Icon(Icons.search),
+                label: const Text('Click here for server search'),
+                onPressed: () => ChoosePage.onSubmitted(
+                  _searchController.text,
+                  context,
+                  widget.daoProduct.localDatabase,
                 ),
               ),
-              Expanded(
-                child: Text(
-                  suggestion.productName ??
-                      suggestion.productNameEN ??
-                      suggestion.productNameFR ??
-                      suggestion.productNameDE ??
-                      suggestion.barcode ??
-                      'Unknown',
-                ),
-              ),
-            ],
-          ),
-        ),
-        onSuggestionSelected: (Product suggestion) async {
+            );
+          }
+          return ListTile(
+            leading: SmoothProductImage(
+              product: suggestion,
+              width: screenSize.height / 10,
+              height: screenSize.height / 10,
+            ),
+            title: Text(
+              suggestion.productName ??
+                  suggestion.productNameEN ??
+                  suggestion.productNameFR ??
+                  suggestion.productNameDE ??
+                  suggestion.barcode ??
+                  'Unknown',
+            ),
+            subtitle: const Text('(local result)'),
+            //trailing: Icon(Icons.local),
+          );
+        },
+        onSuggestionSelected: (Product? suggestion) async {
           await Navigator.push<Widget>(
             context,
             MaterialPageRoute<Widget>(
               builder: (BuildContext context) => ProductPage(
-                product: suggestion,
+                product: suggestion!,
               ),
             ),
           );
           if (widget.addProductCallback != null) {
-            widget.addProductCallback!(suggestion);
+            widget.addProductCallback!(suggestion!);
           }
         },
       ),
@@ -144,12 +137,21 @@ class _TextSearchWidgetState extends State<TextSearchWidget> {
 
   Icon _getIcon(final IconData iconData) => Icon(iconData, color: widget.color);
 
-  Future<List<Product>> _search(String pattern) async {
+  Future<List<Product?>> _search(String pattern) async {
+    const int _MINIMUM_TEXT_SIZE = 3;
     final bool _oldVisibleCloseButton = _visibleCloseButton;
     _visibleCloseButton = pattern.isNotEmpty;
     if (_oldVisibleCloseButton != _visibleCloseButton) {
       setState(() {});
     }
-    return await widget.daoProduct.getSuggestions(pattern, 3);
+    final List<Product?> result = <Product?>[];
+    if (pattern.length < _MINIMUM_TEXT_SIZE) {
+      return result;
+    }
+    result.add(null);
+    result.addAll(
+      await widget.daoProduct.getSuggestions(pattern, _MINIMUM_TEXT_SIZE),
+    );
+    return result;
   }
 }
