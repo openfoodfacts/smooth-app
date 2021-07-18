@@ -81,7 +81,7 @@ class _TextSearchWidgetState extends State<TextSearchWidget> {
                 label: const Text('Click here for server search'),
                 onPressed: () => ChoosePage.onSubmitted(
                   _searchController.text,
-                  context,
+                  this.context, // careful, here use the "main" context and not the transient item context
                   widget.daoProduct.localDatabase,
                 ),
               ),
