@@ -3,15 +3,15 @@
     "@searchTitle": {
         "description": "Temporary title for the app main page"
     },
-    "searchHintText": "Enter a barcode or keywords",
+    "searchHintText": "Įveskite barkodą arba raktažodžius",
     "@searchHintText": {},
     "categories": "Kategorijos",
     "@categories": {},
     "category": "Category",
     "@category": {},
-    "showAll": "Show all",
+    "showAll": "Rodyti viską",
     "@showAll": {},
-    "scanProductTitle": "Scan products",
+    "scanProductTitle": "Skenuoti produktus",
     "@scanProductTitle": {},
     "organizationPage": "Organization Page",
     "@organizationPage": {},
@@ -23,7 +23,7 @@
     "@preferencesText": {},
     "saveButtonText": "Išsaugoti",
     "@saveButtonText": {},
-    "applyButtonText": "Apply",
+    "applyButtonText": "Taikyti",
     "@applyButtonText": {},
     "myPersonalizedRanking": "My personalized ranking",
     "@myPersonalizedRanking": {
