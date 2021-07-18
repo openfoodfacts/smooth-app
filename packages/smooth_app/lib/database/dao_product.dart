@@ -109,6 +109,18 @@ class DaoProduct extends AbstractDao implements BulkDeletable {
     if (pattern.trim().length < minLength) {
       return result;
     }
+    late String whereClause;
+    late List<String> whereArgs;
+    late String orderBy;
+    if (int.tryParse(pattern) != null) {
+      whereClause = 'a.$TABLE_PRODUCT_COLUMN_BARCODE like ?';
+      whereArgs = <String>['%$pattern%'];
+      orderBy = 'a.$TABLE_PRODUCT_COLUMN_BARCODE asc';
+    } else {
+      whereClause = 'exists(${DaoProductExtra.getExistsLikeSubQuery()})';
+      whereArgs = DaoProductExtra.getExistsLikeSubQueryArgs(pattern);
+      orderBy = 'a.${LocalDatabase.COLUMN_TIMESTAMP} desc';
+    }
     final List<Map<String, dynamic>> queryResults =
         await localDatabase.database.rawQuery(
       'select'
@@ -117,10 +129,10 @@ class DaoProduct extends AbstractDao implements BulkDeletable {
       'from '
       '  $TABLE_PRODUCT a '
       'where '
-      '  exists(${DaoProductExtra.getExistsLikeSubQuery()}) '
+      '  $whereClause '
       'order by '
-      '  a.${LocalDatabase.COLUMN_TIMESTAMP} desc',
-      DaoProductExtra.getExistsLikeSubQueryArgs(pattern),
+      '  $orderBy',
+      whereArgs,
     );
     for (final Map<String, dynamic> row in queryResults) {
       result.add(_getProductFromQueryResult(row));
@@ -128,12 +140,13 @@ class DaoProduct extends AbstractDao implements BulkDeletable {
     return result;
   }
 
+  /// Upserts products in database
   Future<void> put(final List<Product> products) async =>
       await localDatabase.database
           .transaction((final Transaction transaction) async {
         final int timestamp = LocalDatabase.nowInMillis();
         final DaoProductExtra daoProductExtra = DaoProductExtra(localDatabase);
-        await bulkUpsertLoop(transaction, products, timestamp);
+        await _bulkUpsertLoop(transaction, products, timestamp);
         await daoProductExtra.bulkUpsertLoopSimplifiedText(
           transaction,
           products,
@@ -147,7 +160,8 @@ class DaoProduct extends AbstractDao implements BulkDeletable {
         );
       });
 
-  Future<void> bulkUpsertLoop(
+  /// Upserts product data in bulk mode
+  Future<void> _bulkUpsertLoop(
     final DatabaseExecutor databaseExecutor,
     final List<Product> products,
     final int timestamp,
