@@ -17,17 +17,18 @@ class BulkManager {
   // TODO(monsieurtanuki): find a way to retrieve this number from SQFlite system tables, cf. https://github.com/tekartik/sqflite/issues/663
   static const int _SQLITE_MAX_VARIABLE_NUMBER = 999;
 
-  /// Optimized bulk insert
-  Future<void> insert({
+  /// Returns the number of inserted rows by optimized bulk insert
+  Future<int> insert({
     required final BulkInsertable bulkInsertable,
     required final List<dynamic> parameters,
     required final DatabaseExecutor databaseExecutor,
   }) async {
+    int result = 0;
     final String tableName = bulkInsertable.getTableName();
     final List<String> columnNames = bulkInsertable.getInsertColumns();
     final int numCols = columnNames.length;
     if (parameters.isEmpty) {
-      return;
+      return result;
     }
     if (columnNames.isEmpty) {
       throw Exception('There must be at least one column!');
@@ -37,28 +38,32 @@ class BulkManager {
           'Parameter list size (${parameters.length}) cannot be divided by $numCols');
     }
     final String variables = '?${',?' * (columnNames.length - 1)}';
-    final int maxSlice = _SQLITE_MAX_VARIABLE_NUMBER ~/ numCols;
+    final int maxSlice = (_SQLITE_MAX_VARIABLE_NUMBER ~/ numCols) * numCols;
     for (int start = 0; start < parameters.length; start += maxSlice) {
       final int size = min(parameters.length - start, maxSlice);
-      final int additionalRecordsNumber = -1 + size ~/ numCols;
+      final int insertedRows = size ~/ numCols;
+      final int additionalRecordsNumber = -1 + insertedRows;
       await databaseExecutor.rawInsert(
         'insert into $tableName(${columnNames.join(',')}) '
         'values($variables)${',($variables)' * additionalRecordsNumber}',
         parameters.sublist(start, start + size),
       );
+      result += insertedRows;
     }
+    return result;
   }
 
-  /// Optimized bulk delete
-  Future<void> delete({
+  /// Returns the number of deleted rows by optimized bulk delete
+  Future<int> delete({
     required final BulkDeletable bulkDeletable,
     required final List<dynamic> parameters,
     required final DatabaseExecutor databaseExecutor,
     final List<dynamic>? additionalParameters,
   }) async {
+    int result = 0;
     final String tableName = bulkDeletable.getTableName();
     if (parameters.isEmpty) {
-      return;
+      return result;
     }
     final int maxSlice =
         _SQLITE_MAX_VARIABLE_NUMBER - (additionalParameters?.length ?? 0);
@@ -69,11 +74,13 @@ class BulkManager {
         currentParameters.addAll(additionalParameters);
       }
       currentParameters.addAll(parameters.sublist(start, start + size));
-      await databaseExecutor.delete(
+      final int deleted = await databaseExecutor.delete(
         tableName,
         where: bulkDeletable.getDeleteWhere(currentParameters),
         whereArgs: currentParameters,
       );
+      result += deleted;
     }
+    return result;
   }
 }

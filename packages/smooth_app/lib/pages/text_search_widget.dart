@@ -101,8 +101,7 @@ class _TextSearchWidgetState extends State<TextSearchWidget> {
                   suggestion.barcode ??
                   'Unknown',
             ),
-            subtitle: const Text('(local result)'),
-            //trailing: Icon(Icons.local),
+            subtitle: Text('(local result) (${suggestion.barcode})'),
           );
         },
         onSuggestionSelected: (Product? suggestion) async {
