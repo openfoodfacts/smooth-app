@@ -278,15 +278,6 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
     if (product.productName != null) {
       labels.add(_getSimplifiedText(product.productName));
     }
-    if (product.productNameFR != null) {
-      labels.add(_getSimplifiedText(product.productNameFR));
-    }
-    if (product.productNameDE != null) {
-      labels.add(_getSimplifiedText(product.productNameDE));
-    }
-    if (product.productNameEN != null) {
-      labels.add(_getSimplifiedText(product.productNameEN));
-    }
     return labels.isEmpty ? '' : labels.join(', ');
   }
 

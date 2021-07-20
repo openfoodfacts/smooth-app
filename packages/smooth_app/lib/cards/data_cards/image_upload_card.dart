@@ -40,8 +40,8 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
   Future<void> _getImage() async {
     final ImagePicker picker = ImagePicker();
 
-    final PickedFile? pickedFile =
-        await picker.getImage(source: ImageSource.camera);
+    final XFile? pickedFile =
+        await picker.pickImage(source: ImageSource.camera);
 
     if (pickedFile != null) {
       final File? croppedImageFile = await ImageCropper.cropImage(

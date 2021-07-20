@@ -94,12 +94,7 @@ class _TextSearchWidgetState extends State<TextSearchWidget> {
               height: screenSize.height / 10,
             ),
             title: Text(
-              suggestion.productName ??
-                  suggestion.productNameEN ??
-                  suggestion.productNameFR ??
-                  suggestion.productNameDE ??
-                  suggestion.barcode ??
-                  'Unknown',
+              suggestion.productName ?? suggestion.barcode ?? 'Unknown',
             ),
             subtitle: Text('(local result) (${suggestion.barcode})'),
           );
