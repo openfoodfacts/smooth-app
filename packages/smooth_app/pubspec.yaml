@@ -1,4 +1,4 @@
-name: smooth_app
+name: Smoothie
 description: A new official Open Food Facts application build with great user experience in mind.
 
 # The following defines the version and build number for your application.
@@ -54,19 +54,29 @@ dependencies:
   sqflite: ^2.0.0+3
   url_launcher: ^6.0.3
 
-
+# 2 lines below needed to make flutter_launcher_icons + flutter_native_splash work
+# see https://github.com/fluttercommunity/flutter_launcher_icons/issues/262
+dependency_overrides:
+  args: ^2.1.1
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.9.0
   flutter_native_splash: ^1.2.0
   flutter_test:
     sdk: flutter
 
+# 'flutter pub run flutter_launcher_icons:main' to update
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/app/smoothie-icon.1200x1200.png"
+
 # 'flutter pub run flutter_native_splash:create' to update
 flutter_native_splash:
-  image: assets/temp/Logo.png
-  color: "ffffff"
-  image_dark: assets/temp/Logo.png
-  color_dark: "#181818"
+  image: assets/app/smoothie-icon-transparent.1200x1200.png
+  color: "00ccff"
+  image_dark: assets/app/smoothie-icon-transparent.1200x1200.png
+  color_dark: "004455"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
