@@ -51,8 +51,8 @@ class LocalDatabase extends ChangeNotifier {
     final int newVersion,
   ) async {
     await DaoProduct.onUpgrade(db, oldVersion, newVersion);
-    await DaoProductList.onUpgrade(db, oldVersion, newVersion);
     await DaoProductExtra.onUpgrade(db, oldVersion, newVersion);
+    await DaoProductList.onUpgrade(db, oldVersion, newVersion);
   }
 
   static int nowInMillis() => DateTime.now().millisecondsSinceEpoch;
