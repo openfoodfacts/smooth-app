@@ -143,12 +143,7 @@ class _MultiSelectProductPageState extends State<MultiSelectProductPage> {
                   height: screenSize.height / 10,
                 ),
                 title: Text(
-                  product.productName ??
-                      product.productNameEN ??
-                      product.productNameFR ??
-                      product.productNameDE ??
-                      product.barcode ??
-                      'unknown',
+                  product.productName ?? product.barcode ?? 'unknown',
                   style: themeData.textTheme.headline4,
                 ),
                 trailing: Icon(
