@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 
@@ -10,12 +11,12 @@ import 'package:smooth_app/pages/product/product_page.dart';
 
 class SmoothProductCardNotFound extends StatelessWidget {
   const SmoothProductCardNotFound({
-    @required this.product,
+    required this.product,
     this.callback,
     this.elevation = 0.0,
   });
 
-  final Function callback;
+  final Function? callback;
   final double elevation;
   final Product product;
 
@@ -33,11 +34,14 @@ class SmoothProductCardNotFound extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text('This product is missing'),
+            Text(AppLocalizations.of(context)!.missing_product),
             const SizedBox(
               height: 12.0,
             ),
-            Text(product.barcode, style: Theme.of(context).textTheme.subtitle1),
+            Text(
+              product.barcode ?? 'Unknown',
+              style: Theme.of(context).textTheme.subtitle1,
+            ),
             const SizedBox(
               height: 12.0,
             ),
@@ -46,20 +50,22 @@ class SmoothProductCardNotFound extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 SmoothSimpleButton(
-                  text: 'Add',
-                  width: 100.0,
+                  text: AppLocalizations.of(context)!.add,
+                  minWidth: 100.0,
                   onPressed: () {
-                    Navigator.push<dynamic>(
+                    Navigator.push<Widget>(
                       context,
-                      MaterialPageRoute<dynamic>(
-                          builder: (BuildContext context) => ProductPage(
-                                product: product,
-                                newProduct: true,
-                              )),
+                      MaterialPageRoute<Widget>(
+                        builder: (BuildContext context) => ProductPage(
+                          product: product,
+                          newProduct: true,
+                        ),
+                      ),
                     );
-                    callback();
+                    if (callback != null) {
+                      callback!();
+                    }
                   },
-                  //onLongPress: () => ProductPage.showLists(product, context),
                 ),
               ],
             ),

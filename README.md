@@ -1,6 +1,6 @@
 <img height='175' src="https://static.openfoodfacts.org/images/svg/openfoodfacts-logo-en.svg" align="left" hspace="1" vspace="1">
 
-# Open Food Facts - smooth_app
+# Open Food Facts - Codename: "Smooth App"
 
 A new Flutter application by Open Food Facts
 
@@ -26,17 +26,21 @@ You can join the Open Food Facts's Slack here : [Get an invite](https://slack.op
 - https://github.com/openfoodfacts/smooth-app/wiki
 - https://wiki.openfoodfacts.org/Project_Smoothie
 
-## Roadmap
-### Release automation
-- [ ] Add Fastlane publishing to the AppStore <s>and the Play Store</s> and GitHub Actions
-- [ ] Add multilingual screenshot generation using Fastlane (Scan screen, settings screen, personalized ranking screen, home screen)
+## V1 Roadmap
+### Design
+- [ ] Add icon
+- [ ] Fix layout issue on the home screen (#372)
+- [ ] …
+
+## V2 - Later Roadmap
+### Screenshot automation
+- [ ] Add multilingual screenshot generation using Fastlane (Scan screen, settings screen, personalized ranking screen, home screen) - https://github.com/openfoodfacts/smooth-app/issues/217
 
 ### Navigation
 - [ ] Fix navigation for the iOS build (iOS does not have a back button, and gestures are not intuitive for most people) - https://github.com/openfoodfacts/smooth-app/issues/17
 
 ### Debt removal
 - [ ] Remove the hack on the category explorer - https://github.com/openfoodfacts/smooth-app/issues/19
-- [ ] Add Sentry to Smoothie for easier debugging - https://github.com/openfoodfacts/smooth-app/issues/9
 
 ### Personalized results
 - [ ] Allow to filter results by country and by store https://github.com/openfoodfacts/smooth-app/issues/99
@@ -50,8 +54,7 @@ You can join the Open Food Facts's Slack here : [Get an invite](https://slack.op
 ### Scanning
 - [ ] Allow the user to find alternatives products on a scan even if (s)he has scanned only 1 product https://github.com/openfoodfacts/smooth-app/issues/23
 - [ ] Add offline scanning to ensure results in all conditions https://github.com/openfoodfacts/smooth-app/issues/18
-### Design
-- [ ] Add icon
+
 
 ## Building
 
@@ -62,7 +65,7 @@ In order to build the application, make sure you are in the packages/smooth_app 
 ### Android
 
 ### iOS
-We need to change the supported architectures for iOS when we open the project in Xcode. There, in the settings, you can specify which ones you want to build for, and only specify the ones that are 64 bit. After that it should build fine for the MLKit component.
+We need to change the supported architectures for iOS when we open the project in Xcode. There, in the settings, you can specify which ones you want to build for, and only specify the ones that are 64 bit.
 
 ## Internationalization
 

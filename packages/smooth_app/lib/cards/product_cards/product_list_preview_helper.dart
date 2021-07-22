@@ -10,8 +10,8 @@ import 'package:smooth_app/pages/product/product_page.dart';
 
 class ProductListPreviewHelper extends StatelessWidget {
   const ProductListPreviewHelper({
-    @required this.list,
-    @required this.iconSize,
+    required this.list,
+    required this.iconSize,
   });
 
   final List<Product> list;
@@ -21,17 +21,12 @@ class ProductListPreviewHelper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Return an empty widget if the list is null
-    if (list == null) {
-      return const SizedBox.shrink();
-    }
-
     final List<Widget> previews = <Widget>[];
     for (final Product product in list) {
       previews.add(GestureDetector(
-        onTap: () async => await Navigator.push<dynamic>(
+        onTap: () async => await Navigator.push<Widget>(
           context,
-          MaterialPageRoute<dynamic>(
+          MaterialPageRoute<Widget>(
             builder: (BuildContext context) => ProductPage(
               product: product,
             ),

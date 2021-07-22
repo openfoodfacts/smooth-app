@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_ui_library/widgets/smooth_toggle.dart';
@@ -14,26 +15,24 @@ import 'package:smooth_app/pages/scan/continuous_scan_page.dart';
 
 class ScanPage extends StatelessWidget {
   const ScanPage({
-    @required this.contributionMode,
-    @required this.mlKit,
+    required this.contributionMode,
   });
 
   final bool contributionMode;
-  final bool mlKit;
 
   @override
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    return FutureBuilder<ContinuousScanModel>(
+    return FutureBuilder<ContinuousScanModel?>(
         future: ContinuousScanModel(
           contributionMode: contributionMode,
           languageCode: ProductQuery.getCurrentLanguageCode(context),
           countryCode: ProductQuery.getCurrentCountryCode(),
         ).load(localDatabase),
         builder: (BuildContext context,
-            AsyncSnapshot<ContinuousScanModel> snapshot) {
+            AsyncSnapshot<ContinuousScanModel?> snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
-            final ContinuousScanModel continuousScanModel = snapshot.data;
+            final ContinuousScanModel? continuousScanModel = snapshot.data;
             if (continuousScanModel != null) {
               return ContinuousScanPage(continuousScanModel);
             }
@@ -42,11 +41,12 @@ class ScanPage extends StatelessWidget {
         });
   }
 
-  static Widget getContributeChooseToggle(final ContinuousScanModel model) =>
+  static Widget getContributeChooseToggle(
+          final ContinuousScanModel model, BuildContext context) =>
       SmoothToggle(
         value: model.contributionMode,
-        textLeft: '  CONTRIBUTE',
-        textRight: 'CHOOSE      ',
+        textLeft: '${AppLocalizations.of(context)!.scan_contribute}   ',
+        textRight: '     ${AppLocalizations.of(context)!.scan_choose}',
         colorLeft: Colors.black.withAlpha(160),
         colorRight: Colors.black.withAlpha(160),
         iconLeft: SvgPicture.asset('assets/ikonate_bold/add.svg'),

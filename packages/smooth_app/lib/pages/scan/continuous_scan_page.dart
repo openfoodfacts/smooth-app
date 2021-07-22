@@ -25,113 +25,122 @@ class ContinuousScanPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final ThemeData themeData = Theme.of(context);
     return ChangeNotifierProvider<ContinuousScanModel>.value(
       value: _continuousScanModel,
       child: Consumer<ContinuousScanModel>(
         builder:
-            (BuildContext context, ContinuousScanModel dummy, Widget child) =>
-                Scaffold(
-          extendBodyBehindAppBar: true,
-          appBar: AppBar(
-            elevation: 0,
-            backgroundColor: Colors.transparent,
-            leading: IconButton(
-              icon: const Icon(Icons.arrow_back),
-              onPressed: () => Navigator.pop(context),
-            ),
-          ),
-          floatingActionButton: SmoothRevealAnimation(
-            delay: 400,
-            animationCurve: Curves.easeInOutBack,
-            child: FloatingActionButton.extended(
-              icon: SvgPicture.asset(
-                'assets/actions/smoothie.svg',
-                width: 24.0,
-                height: 24.0,
-                color: Colors.black,
-              ),
-              label: Text(
-                appLocalizations.myPersonalizedRanking,
-                style: const TextStyle(color: Colors.black),
-              ),
-              backgroundColor: Colors.white,
-              onPressed: () => Navigator.push<dynamic>(
-                context,
-                MaterialPageRoute<dynamic>(
-                  builder: (BuildContext context) =>
-                      PersonalizedRankingPage(_continuousScanModel.productList),
-                ),
+            (BuildContext context, ContinuousScanModel dummy, Widget? child) {
+          return Scaffold(
+            extendBodyBehindAppBar: true,
+            appBar: AppBar(
+              elevation: 0,
+              backgroundColor: Colors.transparent,
+              leading: IconButton(
+                icon: const Icon(Icons.arrow_back),
+                onPressed: () => Navigator.pop(context),
               ),
             ),
-          ),
-          body: Stack(
-            children: <Widget>[
-              ScanPage.getHero(screenSize),
-              SmoothRevealAnimation(
-                delay: 400,
-                startOffset: const Offset(0.0, 0.0),
-                animationCurve: Curves.easeInOutBack,
-                child: QRView(
-                  key: _scannerViewKey,
-                  onQRViewCreated: (QRViewController controller) =>
-                      _continuousScanModel.setupScanner(controller),
+            floatingActionButton: SmoothRevealAnimation(
+              delay: 400,
+              animationCurve: Curves.easeInOutBack,
+              child: FloatingActionButton.extended(
+                icon: SvgPicture.asset(
+                  'assets/actions/smoothie.svg',
+                  width: 24.0,
+                  height: 24.0,
+                  color: Colors.black,
                 ),
-              ),
-              SmoothRevealAnimation(
-                delay: 400,
-                startOffset: const Offset(0.0, 0.1),
-                animationCurve: Curves.easeInOutBack,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  mainAxisSize: MainAxisSize.max,
-                  children: <Widget>[
-                    Container(
-                      height: screenSize.height * 0.3,
-                      padding: const EdgeInsets.only(top: 32.0),
-                      child: Column(
-                        children: <Widget>[
-                          ScanPage.getContributeChooseToggle(
-                              _continuousScanModel),
-                        ],
+                label: Text(
+                  appLocalizations.myPersonalizedRanking,
+                  style: const TextStyle(color: Colors.black),
+                ),
+                backgroundColor: Colors.white,
+                onPressed: () async {
+                  await _continuousScanModel.refreshProductList();
+                  await Navigator.push<Widget>(
+                    context,
+                    MaterialPageRoute<Widget>(
+                      builder: (BuildContext context) =>
+                          PersonalizedRankingPage(
+                        _continuousScanModel.productList,
                       ),
                     ),
-                    Center(
-                      child: Container(
-                        child: SmoothViewFinder(
-                          width: screenSize.width * 0.8,
-                          height: screenSize.width * 0.4,
-                          animationDuration: 1500,
-                        ),
-                      ),
-                    ),
-                    if (_continuousScanModel.isNotEmpty)
-                      Container(
-                        height: screenSize.height * 0.35,
-                        padding:
-                            EdgeInsets.only(bottom: screenSize.height * 0.08),
-                        child: SmoothProductCarousel(
-                          continuousScanModel: _continuousScanModel,
-                        ),
-                      )
-                    else
-                      Container(
-                        width: screenSize.width,
-                        height: screenSize.height * 0.35,
-                        padding: EdgeInsets.only(top: screenSize.height * 0.08),
-                        child: Text(
-                          appLocalizations.scannerProductsEmpty,
-                          style: themeData.textTheme.subtitle1,
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                  ],
-                ),
+                  );
+                },
               ),
-            ],
-          ),
-        ),
+            ),
+            body: Stack(
+              children: <Widget>[
+                ScanPage.getHero(screenSize),
+                SmoothRevealAnimation(
+                  delay: 400,
+                  startOffset: const Offset(0.0, 0.0),
+                  animationCurve: Curves.easeInOutBack,
+                  child: QRView(
+                    key: _scannerViewKey,
+                    onQRViewCreated: (QRViewController controller) =>
+                        _continuousScanModel.setupScanner(controller),
+                  ),
+                ),
+                SmoothRevealAnimation(
+                  delay: 400,
+                  startOffset: const Offset(0.0, 0.1),
+                  animationCurve: Curves.easeInOutBack,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisSize: MainAxisSize.max,
+                    children: <Widget>[
+                      Container(
+                        padding: const EdgeInsets.only(top: 32.0),
+                        child: Column(
+                          children: <Widget>[
+                            ScanPage.getContributeChooseToggle(
+                              _continuousScanModel,
+                              context,
+                            ),
+                          ],
+                        ),
+                      ),
+                      Center(
+                        child: Container(
+                          child: SmoothViewFinder(
+                            width: screenSize.width * 0.8,
+                            height: screenSize.width * 0.4,
+                            animationDuration: 1500,
+                          ),
+                        ),
+                      ),
+                      if (_continuousScanModel.isNotEmpty)
+                        Container(
+                          height: screenSize.height * 0.35,
+                          padding:
+                              EdgeInsets.only(bottom: screenSize.height * 0.08),
+                          child: SmoothProductCarousel(
+                            continuousScanModel: _continuousScanModel,
+                          ),
+                        )
+                      else
+                        Container(
+                          width: screenSize.width,
+                          height: screenSize.height * 0.35,
+                          padding:
+                              EdgeInsets.only(top: screenSize.height * 0.08),
+                          child: Text(
+                            appLocalizations.scannerProductsEmpty,
+                            style: themeData.textTheme.subtitle1!
+                                .copyWith(color: Colors.white),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
       ),
     );
   }

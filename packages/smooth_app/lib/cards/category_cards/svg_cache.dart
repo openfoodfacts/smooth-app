@@ -1,10 +1,7 @@
-// Flutter imports:
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-
-// Package imports:
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:smooth_app/cards/category_cards/svg_async_asset.dart';
 
 class SvgCache extends StatelessWidget {
   const SvgCache(
@@ -14,9 +11,9 @@ class SvgCache extends StatelessWidget {
     this.displayAssetWhileWaiting = true,
   });
 
-  final String iconUrl;
-  final double width;
-  final double height;
+  final String? iconUrl;
+  final double? width;
+  final double? height;
   final bool displayAssetWhileWaiting;
 
   @override
@@ -24,56 +21,30 @@ class SvgCache extends StatelessWidget {
     if (iconUrl == null) {
       return _getDefaultUnknown();
     }
-    final int position = iconUrl.lastIndexOf('/');
+    final int position = iconUrl!.lastIndexOf('/');
     if (position == -1) {
       return _getDefaultUnknown();
     }
-    final String filename = iconUrl.substring(position + 1);
+    final String filename = iconUrl!.substring(position + 1);
     final String fullFilename = 'assets/cache/$filename';
     return SvgPicture.network(
-      iconUrl,
+      iconUrl!,
       width: width,
       height: height,
       fit: BoxFit.contain,
       placeholderBuilder: (BuildContext context) => displayAssetWhileWaiting
-          ? _getCachedAsset(fullFilename)
-          : _getCircularProgressIndicator(),
+          ? SvgAsyncAsset(fullFilename, width: width, height: height)
+          : Container(
+              width: width ?? height,
+              height: height ?? width,
+              child: const CircularProgressIndicator(),
+            ),
     );
   }
-
-  Widget _getCachedAsset(final String fullFilename) => FutureBuilder<String>(
-        future: rootBundle.loadString(fullFilename),
-        builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            if (snapshot.data != null) {
-              return SvgPicture.string(snapshot.data,
-                  width: width,
-                  height: height,
-                  fit: BoxFit.contain,
-                  placeholderBuilder: (BuildContext context) => Container(
-                        width: width ?? height,
-                        height: height ?? width,
-                      ));
-            } else {
-              print('rare case: not cached svg $iconUrl');
-            }
-          }
-          return Container(
-            width: width ?? height,
-            height: height ?? width,
-          );
-        },
-      );
 
   Widget _getDefaultUnknown() => Icon(
         CupertinoIcons.question,
         size: width ?? height,
         color: Colors.red,
-      );
-
-  Widget _getCircularProgressIndicator() => Container(
-        width: width ?? height,
-        height: height ?? width,
-        child: const CircularProgressIndicator(),
       );
 }

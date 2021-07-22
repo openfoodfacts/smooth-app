@@ -1,31 +1,31 @@
-// Dart imports:
 import 'dart:async';
-
-// Flutter imports:
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-
-// Package imports:
+import 'package:matomo/matomo.dart';
 import 'package:provider/provider.dart';
 import 'package:sentry/sentry.dart';
-
-// Project imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:smooth_app/data_models/user_preferences_model.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/home_page.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
+import 'package:openfoodfacts/personalized_search/product_preferences_selection.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/data_models/product_preferences.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Sentry.init(
     (dynamic options) {
       options.dsn =
           'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745';
     },
+  );
+  await MatomoTracker().initialize(
+    siteId: 2,
+    url: 'https://analytics.openfoodfacts.org/',
   );
   try {
     runApp(MyApp());
@@ -44,25 +44,51 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  UserPreferences _userPreferences;
-  UserPreferencesModel _userPreferencesModel;
-  LocalDatabase _localDatabase;
-  ThemeProvider _themeProvider;
+  late UserPreferences _userPreferences;
+  late ProductPreferences _productPreferences;
+  late LocalDatabase _localDatabase;
+  late ThemeProvider _themeProvider;
   bool systemDarkmodeOn = false;
 
   Future<void> _init(BuildContext context) async {
     _userPreferences = await UserPreferences.getUserPreferences();
-    _userPreferencesModel = await UserPreferencesModel.getUserPreferencesModel(
-        DefaultAssetBundle.of(context));
-    await _userPreferences.init(_userPreferencesModel);
-    _localDatabase = await LocalDatabase.getLocalDatabase();
+    _productPreferences = ProductPreferences(
+      ProductPreferencesSelection(
+        setImportance: (
+          String attributeId,
+          String importanceId,
+        ) async =>
+            await _userPreferences.setImportance(attributeId, importanceId),
+        getImportance: (String attributeId) =>
+            _userPreferences.getImportance(attributeId),
+        notify: () => _productPreferences.notifyListeners(),
+      ),
+    );
+    try {
+      await _productPreferences.loadReferenceFromAssets(
+        DefaultAssetBundle.of(context),
+      );
+    } catch (e) {
+      // this is problematic - we should always be able to load the default
+      print('Could not load reference files: $e');
+      rethrow;
+    }
+    await _userPreferences.init(_productPreferences);
+    try {
+      _localDatabase = await LocalDatabase.getLocalDatabase();
+    } catch (e) {
+      // this is problematic - we should always be able to init the database
+      print('Cannot init database: $e');
+      rethrow;
+    }
     _themeProvider = ThemeProvider(_userPreferences);
   }
 
   @override
   void initState() {
     final Brightness brightness =
-        SchedulerBinding.instance.window.platformBrightness;
+        SchedulerBinding.instance?.window.platformBrightness ??
+            Brightness.light;
     systemDarkmodeOn = brightness == Brightness.dark;
     super.initState();
   }
@@ -77,8 +103,8 @@ class _MyAppState extends State<MyApp> {
             providers: <ChangeNotifierProvider<dynamic>>[
               ChangeNotifierProvider<UserPreferences>.value(
                   value: _userPreferences),
-              ChangeNotifierProvider<UserPreferencesModel>.value(
-                  value: _userPreferencesModel),
+              ChangeNotifierProvider<ProductPreferences>.value(
+                  value: _productPreferences),
               ChangeNotifierProvider<LocalDatabase>.value(
                   value: _localDatabase),
               ChangeNotifierProvider<ThemeProvider>.value(
@@ -88,7 +114,7 @@ class _MyAppState extends State<MyApp> {
               builder: (
                 BuildContext context,
                 ThemeProvider value,
-                Widget child,
+                Widget? child,
               ) {
                 return MaterialApp(
                   localizationsDelegates:
@@ -126,11 +152,39 @@ class _MyAppState extends State<MyApp> {
 class SmoothAppGetLanguage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final UserPreferencesModel userPreferencesModel =
-        context.watch<UserPreferencesModel>();
+    final ProductPreferences productPreferences =
+        context.watch<ProductPreferences>();
     final Locale myLocale = Localizations.localeOf(context);
     final String languageCode = myLocale.languageCode;
-    userPreferencesModel.refresh(DefaultAssetBundle.of(context), languageCode);
+    _refresh(
+      productPreferences,
+      DefaultAssetBundle.of(context),
+      languageCode,
+    );
     return HomePage();
+  }
+
+  Future<void> _refresh(
+    final ProductPreferences productPreferences,
+    final AssetBundle assetBundle,
+    final String languageCode,
+  ) async {
+    if (productPreferences.languageCode != languageCode) {
+      try {
+        await productPreferences.loadReferenceFromAssets(
+          assetBundle,
+          languageCode: languageCode,
+        );
+      } catch (e) {
+        // no problem, we were just trying
+      }
+    }
+    if (!productPreferences.isNetwork) {
+      try {
+        await productPreferences.loadReferenceFromNetwork(languageCode);
+      } catch (e) {
+        // no problem, we were just trying
+      }
+    }
   }
 }

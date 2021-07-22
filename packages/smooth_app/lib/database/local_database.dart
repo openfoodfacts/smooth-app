@@ -11,6 +11,7 @@ import 'package:sqflite/sqflite.dart';
 // Project imports:
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
+import 'package:smooth_app/database/dao_product_extra.dart';
 
 class LocalDatabase extends ChangeNotifier {
   LocalDatabase._(final Database database) : _database = database;
@@ -19,6 +20,10 @@ class LocalDatabase extends ChangeNotifier {
 
   Database get database => _database;
 
+  /// Notify listeners
+  /// Comments added only in order to avoid a "warning"
+  /// For the record, we need to override the method
+  /// because the parent's is protected
   @override
   void notifyListeners() => super.notifyListeners();
 
@@ -28,7 +33,7 @@ class LocalDatabase extends ChangeNotifier {
 
     final Database database = await openDatabase(
       databasePath,
-      version: 3,
+      version: 8,
       singleInstance: true,
       onUpgrade: _onUpgrade,
     );
@@ -46,18 +51,22 @@ class LocalDatabase extends ChangeNotifier {
     final int newVersion,
   ) async {
     await DaoProduct.onUpgrade(db, oldVersion, newVersion);
+    await DaoProductExtra.onUpgrade(db, oldVersion, newVersion);
     await DaoProductList.onUpgrade(db, oldVersion, newVersion);
   }
 
   static int nowInMillis() => DateTime.now().millisecondsSinceEpoch;
+
+  static DateTime timestampToDateTime(final int timestampInMillis) =>
+      DateTime.fromMillisecondsSinceEpoch(timestampInMillis);
 }
 
 class TableStats {
   TableStats({
-    @required this.tableName,
-    @required this.count,
-    @required this.minTimestamp,
-    @required this.maxTimestamp,
+    required this.tableName,
+    required this.count,
+    required this.minTimestamp,
+    required this.maxTimestamp,
   });
 
   final String tableName;

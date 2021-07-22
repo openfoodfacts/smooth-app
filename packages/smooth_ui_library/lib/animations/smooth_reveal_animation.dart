@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 
 class SmoothRevealAnimation extends StatefulWidget {
   const SmoothRevealAnimation(
-      {@required this.child,
+      {required this.child,
       this.delay = 0,
       this.animationCurve = Curves.ease,
       this.animationDuration = 400,
@@ -22,8 +22,8 @@ class SmoothRevealAnimation extends StatefulWidget {
 
 class _SmoothRevealAnimationState extends State<SmoothRevealAnimation>
     with SingleTickerProviderStateMixin {
-  AnimationController _animationController;
-  Animation<Offset> _animationOffset;
+  late AnimationController _animationController;
+  late Animation<Offset> _animationOffset;
 
   @override
   void initState() {

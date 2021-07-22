@@ -10,7 +10,7 @@ import 'package:smooth_app/data_models/smooth_it_model.dart';
 import 'package:smooth_app/temp/filter_ranking_helper.dart';
 
 class SmoothItPage extends StatelessWidget {
-  const SmoothItPage({@required this.input});
+  const SmoothItPage({required this.input});
 
   final List<Product> input;
 

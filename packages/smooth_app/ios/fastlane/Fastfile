@@ -2,7 +2,7 @@ setup_travis
 default_platform(:ios)
 
 before_all do
-  xcversion(version: "~> 11.7.0")
+  xcversion(version: "~> 12.0.0")
 end
 
 platform :ios do
@@ -50,4 +50,47 @@ platform :ios do
       ipa: "./Runner.ipa"
     )
   end
+
+
+  lane :setVersion do
+    begin
+
+      new_version_name = '0.0.1'
+#        new_version_name = get_version_number_from_git_branch(pattern: 'release/#')
+        puts new_version_name.to_s
+
+
+        api_key = app_store_connect_api_key(
+          key_id: ENV["SPACESHIP_CONNECT_API_KEY_ID"],
+          issuer_id: ENV["SPACESHIP_CONNECT_API_ISSUER_ID"],
+          key_filepath: ENV["SPACESHIP_CONNECT_API_KEY_FILEPATH"]
+        )
+
+
+
+        old_version_code = app_store_build_number(
+          live: false,
+          api_key: api_key,
+          app_identifier: "org.openfoodfacts.app",
+          initial_build_number: "0",
+          version: new_version_name
+        )
+        new_version_code = old_version_code.to_i + 1
+
+        puts "old_version_code: " + old_version_code.to_s
+        puts "new_version_code: " + new_version_code.to_s
+
+
+
+
+        flutter_set_version(
+          path_to_yaml: "../pubspec.yaml",
+          version_name: new_version_name.to_s,
+          version_code:  new_version_code.to_s,
+        )
+    end
+end
+
+
+
 end

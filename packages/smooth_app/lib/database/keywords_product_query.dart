@@ -1,24 +1,16 @@
-// Dart imports:
 import 'dart:async';
-
-// Flutter imports:
-import 'package:flutter/material.dart';
-
-// Package imports:
 import 'package:openfoodfacts/model/SearchResult.dart';
-import 'package:openfoodfacts/model/parameter/TagFilter.dart';
+import 'package:openfoodfacts/model/parameter/SearchTerms.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-
-// Project imports:
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/product_query.dart';
 
 class KeywordsProductQuery implements ProductQuery {
   KeywordsProductQuery({
-    @required this.keywords,
-    @required this.languageCode,
-    @required this.countryCode,
-    @required this.size,
+    required this.keywords,
+    required this.languageCode,
+    required this.countryCode,
+    required this.size,
   });
 
   final String keywords;
@@ -34,11 +26,7 @@ class KeywordsProductQuery implements ProductQuery {
           fields: ProductQuery.fields,
           parametersList: <Parameter>[
             PageSize(size: size),
-            TagFilter(
-              tagType: 'categories',
-              contains: true,
-              tagName: keywords,
-            ),
+            SearchTerms(terms: <String>[keywords]),
           ],
           lc: languageCode,
           cc: countryCode,

@@ -5,6 +5,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/model/ProductImage.dart';
 
@@ -13,8 +14,8 @@ import 'package:smooth_app/pages/product/product_page.dart';
 
 class SmoothProductCardEdit extends StatelessWidget {
   const SmoothProductCardEdit({
-    @required this.product,
-    @required this.heroTag,
+    required this.product,
+    required this.heroTag,
   });
 
   final Product product;
@@ -25,12 +26,13 @@ class SmoothProductCardEdit extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         //_openSneakPeek(context);
-        Navigator.push<dynamic>(
+        Navigator.push<Widget>(
           context,
-          MaterialPageRoute<dynamic>(
-              builder: (BuildContext context) => ProductPage(
-                    product: product,
-                  )),
+          MaterialPageRoute<Widget>(
+            builder: (BuildContext context) => ProductPage(
+              product: product,
+            ),
+          ),
         );
       },
       child: Hero(
@@ -50,7 +52,7 @@ class SmoothProductCardEdit extends StatelessWidget {
                 children: <Widget>[
                   Flexible(
                     child: Text(
-                      product.productName,
+                      product.productName ?? 'Unknown',
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.headline4,
@@ -75,10 +77,14 @@ class SmoothProductCardEdit extends StatelessWidget {
   }
 
   Widget _generateImageView(ImageField field, BuildContext context) {
-    final Iterable<ProductImage> candidates = product.selectedImages
-        .where((ProductImage image) => image.field == field)
-        .where((ProductImage image) => image.size == ImageSize.SMALL);
-    final String url = candidates.isNotEmpty ? candidates.first.url : null;
+    late final Iterable<ProductImage> candidates;
+    if (product.selectedImages != null) {
+      candidates = product.selectedImages!
+          .where((ProductImage image) => image.field == field)
+          .where((ProductImage image) => image.size == ImageSize.SMALL);
+    }
+
+    final String? url = candidates.isNotEmpty ? candidates.first.url : null;
     return url != null
         ? ClipRRect(
             borderRadius: const BorderRadius.all(Radius.circular(15.0)),
@@ -100,24 +106,27 @@ class SmoothProductCardEdit extends StatelessWidget {
                 child: Image.network(
                   url,
                   fit: BoxFit.contain,
-                  loadingBuilder: (BuildContext context, Widget child,
-                      ImageChunkEvent progress) {
+                  loadingBuilder: (BuildContext context, Widget? child,
+                      ImageChunkEvent? progress) {
                     if (progress == null) {
-                      return child;
+                      return child!;
                     }
                     return Center(
                       child: CircularProgressIndicator(
                         strokeWidth: 2.5,
                         valueColor:
                             const AlwaysStoppedAnimation<Color>(Colors.white),
-                        value: progress.cumulativeBytesLoaded /
-                            progress.expectedTotalBytes,
+                        value: progress.expectedTotalBytes == null
+                            ? null
+                            : progress.cumulativeBytesLoaded /
+                                progress.expectedTotalBytes!,
                       ),
                     );
                   },
                 ),
               ),
-            ))
+            ),
+          )
         : Container(
             width: MediaQuery.of(context).size.width * 0.25,
             height: 105.0,
@@ -128,7 +137,7 @@ class SmoothProductCardEdit extends StatelessWidget {
             ),
             child: Center(
               child: Text(
-                'Missing ${field.value} picture',
+                '${AppLocalizations.of(context)!.missing_picture}: ${field.value}',
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.subtitle1,
               ),
@@ -137,7 +146,7 @@ class SmoothProductCardEdit extends StatelessWidget {
   }
 
   /*void _openSneakPeek(BuildContext context) {
-    Navigator.push<dynamic>(
+    Navigator.push<Widget>(
         context,
         SmoothSneakPeekRoute<dynamic>(
             builder: (BuildContext context) {

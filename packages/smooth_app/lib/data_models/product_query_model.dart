@@ -5,13 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Product.dart';
 
 // Project imports:
-import 'package:smooth_app/data_models/match.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
-import 'package:smooth_app/data_models/user_preferences_model.dart';
-import 'package:smooth_app/database/dao_product_list.dart';
-import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/temp/user_preferences.dart';
 
 enum LoadingStatus {
   LOADING,
@@ -31,16 +26,16 @@ class ProductQueryModel with ChangeNotifier {
   static const String _CATEGORY_ALL = 'all';
 
   LoadingStatus _loadingStatus = LoadingStatus.LOADING;
-  String _loadingError;
-  List<Product> _products;
-  List<Product> displayProducts;
-  bool isNotEmpty() => _products != null && _products.isNotEmpty;
+  String? _loadingError;
+  List<Product>? _products;
+  List<Product>? displayProducts;
+  bool isNotEmpty() => _products != null && _products!.isNotEmpty;
 
   Map<String, String> categories = <String, String>{};
   Map<String, int> categoriesCounter = <String, int>{};
-  List<String> sortedCategories;
+  List<String>? sortedCategories;
 
-  String get loadingError => _loadingError;
+  String? get loadingError => _loadingError;
   LoadingStatus get loadingStatus => _loadingStatus;
 
   Future<void> _asyncLoad() async {
@@ -54,11 +49,7 @@ class ProductQueryModel with ChangeNotifier {
     notifyListeners();
   }
 
-  void sort(
-    final UserPreferences userPreferences,
-    final UserPreferencesModel userPreferencesModel,
-    final LocalDatabase localDatabase,
-  ) {
+  void process() {
     if (_loadingStatus != LoadingStatus.LOADED) {
       return;
     }
@@ -66,24 +57,22 @@ class ProductQueryModel with ChangeNotifier {
 
     final ProductList productList = supplier.getProductList();
     _products = productList.getList();
-    if (supplier.needsToBeSavedIntoDb()) {
-      DaoProductList(localDatabase).put(productList);
-    }
-    Match.sort(_products, userPreferences, userPreferencesModel);
 
     displayProducts = _products;
 
     categories[_CATEGORY_ALL] =
         'All'; // TODO(monsieurtanuki): find a translation
 
-    for (final Product product in _products) {
-      for (final String category in product.categoriesTags) {
-        categories.putIfAbsent(category, () {
-          String title = category.substring(3).replaceAll('-', ' ');
-          title = '${title[0].toUpperCase()}${title.substring(1)}';
-          return title;
-        });
-        categoriesCounter[category] = (categoriesCounter[category] ?? 0) + 1;
+    for (final Product product in _products!) {
+      if (product.categoriesTags != null) {
+        for (final String category in product.categoriesTags!) {
+          categories.putIfAbsent(category, () {
+            String title = category.substring(3).replaceAll('-', ' ');
+            title = '${title[0].toUpperCase()}${title.substring(1)}';
+            return title;
+          });
+          categoriesCounter[category] = (categoriesCounter[category] ?? 0) + 1;
+        }
       }
     }
 
@@ -91,7 +80,7 @@ class ProductQueryModel with ChangeNotifier {
 
     for (final String category in tempCategories) {
       if (category != _CATEGORY_ALL) {
-        if (categoriesCounter[category] <= 1) {
+        if (categoriesCounter[category]! <= 1) {
           categories.remove(category);
         } else {
           categories[category] =
@@ -101,13 +90,13 @@ class ProductQueryModel with ChangeNotifier {
     }
 
     sortedCategories = categories.keys.toList();
-    sortedCategories.sort((String a, String b) {
+    sortedCategories!.sort((String a, String b) {
       if (a == _CATEGORY_ALL) {
         return -1;
       } else if (b == _CATEGORY_ALL) {
         return 1;
       }
-      return categoriesCounter[b].compareTo(categoriesCounter[a]);
+      return categoriesCounter[b]!.compareTo(categoriesCounter[a]!);
     });
 
     _loadingStatus = LoadingStatus.COMPLETE;
@@ -117,8 +106,9 @@ class ProductQueryModel with ChangeNotifier {
     if (category == _CATEGORY_ALL) {
       displayProducts = _products;
     } else {
-      displayProducts = _products
-          .where((Product product) => product.categoriesTags.contains(category))
+      displayProducts = _products!
+          .where((Product product) =>
+              product.categoriesTags?.contains(category) ?? false)
           .toList();
     }
   }

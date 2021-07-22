@@ -1,25 +1,17 @@
-// Dart imports:
 import 'dart:async';
-
-// Flutter imports:
-import 'package:flutter/material.dart';
-
-// Package imports:
 import 'package:openfoodfacts/model/SearchResult.dart';
 import 'package:openfoodfacts/model/parameter/TagFilter.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-
-// Project imports:
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/product_query.dart';
 
 /// Product query dedicated to category (e.g. 'en:mueslis-with-fruits')
 class CategoryProductQuery implements ProductQuery {
   CategoryProductQuery({
-    @required this.category,
-    @required this.languageCode,
-    @required this.countryCode,
-    @required this.size,
+    required this.category,
+    required this.languageCode,
+    required this.countryCode,
+    required this.size,
   });
 
   final String category;

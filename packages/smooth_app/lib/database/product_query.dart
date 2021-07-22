@@ -15,7 +15,7 @@ abstract class ProductQuery {
   static String getCurrentLanguageCode(final BuildContext context) =>
       Localizations.localeOf(context).languageCode;
 
-  static String getCurrentCountryCode() => window.locale.countryCode;
+  static String getCurrentCountryCode() => window.locale.countryCode ?? '';
 
   static const User SMOOTH_USER = User(
     userId: 'project-smoothie',
@@ -29,6 +29,11 @@ abstract class ProductQuery {
         ProductField.BARCODE,
         ProductField.NUTRISCORE,
         ProductField.FRONT_IMAGE,
+        ProductField.IMAGE_FRONT_SMALL_URL,
+        ProductField.IMAGE_FRONT_URL,
+        ProductField.IMAGE_INGREDIENTS_URL,
+        ProductField.IMAGE_NUTRITION_URL,
+        ProductField.IMAGE_PACKAGING_URL,
         ProductField.SELECTED_IMAGE,
         ProductField.QUANTITY,
         ProductField.SERVING_SIZE,

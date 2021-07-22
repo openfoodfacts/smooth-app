@@ -11,6 +11,7 @@ import 'package:openfoodfacts/utils/PnnsGroups.dart';
 import 'package:provider/provider.dart';
 
 // Project imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/cards/category_cards/category_card.dart';
 import 'package:smooth_app/cards/category_cards/category_chip.dart';
 import 'package:smooth_app/cards/category_cards/subcategory_card.dart';
@@ -31,21 +32,21 @@ class ChoosePage extends StatefulWidget {
     final BuildContext context,
     final LocalDatabase localDatabase,
   ) async {
-    if (int.parse(value) != null) {
+    if (int.tryParse(value) != null) {
       final ProductDialogHelper productDialogHelper = ProductDialogHelper(
         barcode: value,
         context: context,
         localDatabase: localDatabase,
         refresh: false,
       );
-      final Product product = await productDialogHelper.openBestChoice();
+      final Product? product = await productDialogHelper.openBestChoice();
       if (product == null) {
         productDialogHelper.openProductNotFoundDialog();
         return;
       }
-      Navigator.push<dynamic>(
+      Navigator.push<Widget>(
         context,
-        MaterialPageRoute<dynamic>(
+        MaterialPageRoute<Widget>(
           builder: (BuildContext context) => ProductPage(
             product: product,
           ),
@@ -94,8 +95,8 @@ class _ChoosePageState extends State<ChoosePage> {
     Colors.pink,
   ];
 
-  PnnsGroup1 _selectedCategory;
-  Color _selectedColor;
+  PnnsGroup1? _selectedCategory;
+  Color? _selectedColor;
 
   void _selectCategory(final PnnsGroup1 group, final Color color) {
     _selectedCategory = group;
@@ -116,9 +117,11 @@ class _ChoosePageState extends State<ChoosePage> {
       onWillPop: _onWillPop,
       child: Scaffold(
         appBar: AppBar(
-          title: Text(_selectedCategory == null
-              ? 'Food Categories'
-              : _selectedCategory.name),
+          title: Text(
+            _selectedCategory == null
+                ? AppLocalizations.of(context)!.categories
+                : _selectedCategory!.name,
+          ),
         ),
         body: Column(
           children: <Widget>[
@@ -156,13 +159,14 @@ class _ChoosePageState extends State<ChoosePage> {
                 ),
               ),
             Expanded(
-                child: _selectedCategory == null
-                    ? _showAllPnnsGroup1()
-                    : _showPnnsGroup2(
-                        _selectedCategory,
-                        _selectedColor,
-                        localDatabase,
-                      ))
+              child: _selectedCategory == null
+                  ? _showAllPnnsGroup1()
+                  : _showPnnsGroup2(
+                      _selectedCategory!,
+                      _selectedColor!,
+                      localDatabase,
+                    ),
+            )
           ],
         ),
       ),
@@ -190,7 +194,7 @@ class _ChoosePageState extends State<ChoosePage> {
                   child: CategoryCard(
                     title: group.name,
                     color: color,
-                    iconName: _CATEGORY_ICONS[group],
+                    iconName: _CATEGORY_ICONS[group]!,
                     onTap: () => setState(() => _selectCategory(group, color)),
                   ),
                 ),
@@ -207,19 +211,21 @@ class _ChoosePageState extends State<ChoosePage> {
   ) =>
       ListView(
         padding: const EdgeInsets.only(top: 8.0, bottom: 80.0),
-        children: List<Widget>.generate(category.subGroups.length, (int index) {
-          return AnimationConfiguration.staggeredList(
-            position: index,
-            duration: const Duration(milliseconds: 250),
-            child: SlideAnimation(
-              horizontalOffset: 50.0,
-              child: FadeInAnimation(
-                child: SubcategoryCard(
-                    heroTag: category.subGroups[index].name,
-                    title: category.subGroups[index].name,
+        children: List<Widget>.generate(
+          category.subGroups!.length,
+          (int index) {
+            return AnimationConfiguration.staggeredList(
+              position: index,
+              duration: const Duration(milliseconds: 250),
+              child: SlideAnimation(
+                horizontalOffset: 50.0,
+                child: FadeInAnimation(
+                  child: SubcategoryCard(
+                    heroTag: category.subGroups![index].name,
+                    title: category.subGroups![index].name,
                     color: color,
                     onTap: () async {
-                      final PnnsGroup2 group = category.subGroups[index];
+                      final PnnsGroup2 group = category.subGroups![index];
                       await ProductQueryPageHelper().openBestChoice(
                         productQuery: GroupProductQuery(
                           group,
@@ -231,11 +237,13 @@ class _ChoosePageState extends State<ChoosePage> {
                         localDatabase: localDatabase,
                         context: context,
                       );
-                    }),
+                    },
+                  ),
+                ),
               ),
-            ),
-          );
-        }),
+            );
+          },
+        ),
       );
 
   Color _getColor(final int index) => _COLORS[index % _COLORS.length];

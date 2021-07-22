@@ -14,7 +14,7 @@ import 'package:smooth_ui_library/widgets/smooth_toggle.dart';
 
 // Project imports:
 import 'package:smooth_app/bottom_sheet_views/user_contribution_view.dart';
-import 'package:smooth_app/bottom_sheet_views/user_preferences_view.dart';
+import 'package:smooth_app/pages/user_preferences_page.dart';
 import 'package:smooth_app/functions/launchURL.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -30,11 +30,11 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final ThemeData themeData = Theme.of(context);
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final Launcher launcher = Launcher();
     return Scaffold(
       appBar: AppBar(title: Text(appLocalizations.settingsTitle)),
-      body: Column(
+      body: ListView(
         children: <Widget>[
           //Darkmode
           SmoothListTile(
@@ -42,10 +42,17 @@ class ProfilePage extends StatelessWidget {
             onPressed: null,
             leadingWidget: SmoothToggle(
               value: themeProvider.darkTheme,
-              width: 80.0,
+              width: 85.0,
               height: 38.0,
-              textLeft: appLocalizations.yes,
-              textRight: appLocalizations.no,
+              textRight: 'Light',
+              textLeft: 'Dark',
+              colorRight: Colors.blue,
+              colorLeft: Colors.blueGrey.shade700,
+              iconRight: const Icon(Icons.wb_sunny_rounded),
+              iconLeft: const Icon(
+                Icons.nightlight_round,
+                color: Colors.black,
+              ),
               onChanged: (bool newValue) async =>
                   await themeProvider.setDarkTheme(newValue),
             ),
@@ -54,7 +61,12 @@ class ProfilePage extends StatelessWidget {
           //Configure Preferences
           SmoothListTile(
             text: appLocalizations.configurePreferences,
-            onPressed: () => UserPreferencesView.showModal(context),
+            onPressed: () async => await Navigator.push<Widget>(
+              context,
+              MaterialPageRoute<Widget>(
+                builder: (BuildContext context) => const UserPreferencesPage(),
+              ),
+            ),
           ),
 
           // Palettes
@@ -81,10 +93,7 @@ class ProfilePage extends StatelessWidget {
               context: context,
               backgroundColor: Colors.transparent,
               bounce: true,
-              barrierColor: Colors.black45,
-              builder: (BuildContext context) => UserContributionView(
-                ModalScrollController.of(context),
-              ),
+              builder: (BuildContext context) => UserContributionView(),
             ),
           ),
 
@@ -93,7 +102,7 @@ class ProfilePage extends StatelessWidget {
             text: appLocalizations.support,
             leadingWidget: const Icon(Icons.launch),
             onPressed: () => launcher.launchURL(
-                context, 'https://openfoodfacts.uservoice.com/', false),
+                context, 'https://slack.openfoodfacts.org/', false),
           ),
 
           //About
@@ -115,8 +124,8 @@ class ProfilePage extends StatelessWidget {
                                 AsyncSnapshot<PackageInfo> snapshot) {
                               if (snapshot.hasError) {
                                 return Center(
-                                    child:
-                                        Text('${appLocalizations.error} #0'));
+                                  child: Text('${appLocalizations.error} #0'),
+                                );
                               }
 
                               if (snapshot.connectionState ==
@@ -125,7 +134,7 @@ class ProfilePage extends StatelessWidget {
                                     child: CircularProgressIndicator());
                               }
 
-                              if (!snapshot.hasData)
+                              if (!snapshot.hasData || snapshot.data == null)
                                 return Center(
                                     child: Text(
                                   '${appLocalizations.error} #1',
@@ -136,11 +145,11 @@ class ProfilePage extends StatelessWidget {
                                   ListTile(
                                     leading: const Icon(Icons.no_sim_outlined),
                                     title: Text(
-                                      snapshot.data.appName.toString(),
+                                      snapshot.data!.appName.toString(),
                                       style: themeData.textTheme.headline1,
                                     ),
                                     subtitle: Text(
-                                      snapshot.data.version.toString(),
+                                      snapshot.data!.version.toString(),
                                       style: themeData.textTheme.subtitle2,
                                     ),
                                   ),
@@ -151,31 +160,36 @@ class ProfilePage extends StatelessWidget {
                                     height: 20,
                                   ),
                                   Text(appLocalizations.whatIsOff),
-                                  TextButton(
-                                    onPressed: () {
-                                      launcher.launchURL(
-                                          context,
-                                          'https://openfoodfacts.org/who-we-are',
-                                          true);
-                                    },
-                                    child: Text(
-                                      appLocalizations.learnMore,
-                                      style: const TextStyle(
-                                        color: Colors.blue,
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      TextButton(
+                                        onPressed: () {
+                                          launcher.launchURL(
+                                              context,
+                                              'https://openfoodfacts.org/who-we-are',
+                                              true);
+                                        },
+                                        child: Text(
+                                          appLocalizations.learnMore,
+                                          style: const TextStyle(
+                                            color: Colors.blue,
+                                          ),
+                                        ),
                                       ),
-                                    ),
-                                  ),
-                                  TextButton(
-                                    onPressed: () => launcher.launchURL(
-                                        context,
-                                        'https://openfoodfacts.org/terms-of-use',
-                                        true),
-                                    child: Text(
-                                      appLocalizations.termsOfUse,
-                                      style: const TextStyle(
-                                        color: Colors.blue,
-                                      ),
-                                    ),
+                                      TextButton(
+                                        onPressed: () => launcher.launchURL(
+                                            context,
+                                            'https://openfoodfacts.org/terms-of-use',
+                                            true),
+                                        child: Text(
+                                          appLocalizations.termsOfUse,
+                                          style: const TextStyle(
+                                            color: Colors.blue,
+                                          ),
+                                        ),
+                                      )
+                                    ],
                                   )
                                 ],
                               );
@@ -188,7 +202,7 @@ class ProfilePage extends StatelessWidget {
                           showLicensePage(context: context);
                         },
                         text: appLocalizations.licenses,
-                        width: 100,
+                        minWidth: 100,
                       ),
                       SmoothSimpleButton(
                         onPressed: () {
@@ -196,7 +210,7 @@ class ProfilePage extends StatelessWidget {
                               .pop('dialog');
                         },
                         text: appLocalizations.okay,
-                        width: 100,
+                        minWidth: 100,
                       ),
                     ],
                   );
@@ -217,9 +231,9 @@ class ProfilePage extends StatelessWidget {
       TextButton(
         onPressed: () async => await themeProvider.setColorTag(colorTag),
         style: TextButton.styleFrom(
-          primary: SmoothTheme.getColor(
+          backgroundColor: SmoothTheme.getColor(
             colorScheme,
-            SmoothTheme.MATERIAL_COLORS[colorTag],
+            SmoothTheme.MATERIAL_COLORS[colorTag]!,
             ColorDestination.BUTTON_BACKGROUND,
           ),
         ),
@@ -227,7 +241,7 @@ class ProfilePage extends StatelessWidget {
           Icons.palette,
           color: SmoothTheme.getColor(
             colorScheme,
-            SmoothTheme.MATERIAL_COLORS[colorTag],
+            SmoothTheme.MATERIAL_COLORS[colorTag]!,
             ColorDestination.BUTTON_FOREGROUND,
           ),
         ),

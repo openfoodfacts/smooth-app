@@ -1,24 +1,19 @@
-// Dart imports:
 import 'dart:async';
 import 'dart:convert';
-
-// Package imports:
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:smooth_app/database/abstract_dao.dart';
+import 'package:smooth_app/database/bulk_manager.dart';
+import 'package:smooth_app/database/bulk_deletable.dart';
+import 'package:smooth_app/database/dao_product_extra.dart';
 import 'package:sqflite/sqflite.dart';
-
-// Project imports:
 import 'package:smooth_app/database/local_database.dart';
 
-class DaoProduct {
-  DaoProduct(this.localDatabase);
-
-  final LocalDatabase localDatabase;
+class DaoProduct extends AbstractDao implements BulkDeletable {
+  DaoProduct(final LocalDatabase localDatabase) : super(localDatabase);
 
   static const String TABLE_PRODUCT = 'product';
   static const String TABLE_PRODUCT_COLUMN_BARCODE = 'barcode';
   static const String _TABLE_PRODUCT_COLUMN_JSON = 'encoded_json';
-
-  static const String _WHERE_PK = '$TABLE_PRODUCT_COLUMN_BARCODE = ?';
 
   static FutureOr<void> onUpgrade(
     final Database db,
@@ -34,31 +29,32 @@ class DaoProduct {
     }
   }
 
-  Future<int> getLastUpdate(final String barcode) =>
-      _getLastUpdate(barcode, localDatabase.database);
-
-  Future<Product> get(final String barcode) async {
+  // TODO(monsieurtanuki): probably not relevant anymore; use product extra instead?
+  Future<int?> getLastUpdate(final String barcode) async {
     final List<Map<String, dynamic>> queryResult =
         await localDatabase.database.query(
       TABLE_PRODUCT,
-      columns: <String>[_TABLE_PRODUCT_COLUMN_JSON],
-      where: _WHERE_PK,
+      columns: <String>[LocalDatabase.COLUMN_TIMESTAMP],
+      where: '$TABLE_PRODUCT_COLUMN_BARCODE = ?',
       whereArgs: <dynamic>[barcode],
     );
     if (queryResult.isEmpty) {
       // not found
       return null;
     }
-    if (queryResult.length > 1) {
-      // very very unlikely to happen
-      throw Exception('Several products with the same barcode $barcode');
-    }
-    return _getProductFromQueryResult(queryResult[0]);
+    // there's only one record expected, as barcode is the PK
+    return queryResult.first[LocalDatabase.COLUMN_TIMESTAMP] as int;
   }
 
+  Future<Product?> get(final String barcode) async {
+    final Map<String, Product> map = await getAll(<String>[barcode]);
+    return map[barcode];
+  }
+
+  // TODO(monsieurtanuki): use the max variable threshold AbstractDao.SQLITE_MAX_VARIABLE_NUMBER
   Future<Map<String, Product>> getAll(final List<String> barcodes) async {
     final Map<String, Product> result = <String, Product>{};
-    if (barcodes == null || barcodes.isEmpty) {
+    if (barcodes.isEmpty) {
       return result;
     }
     final List<Map<String, dynamic>> queryResults =
@@ -72,6 +68,26 @@ class DaoProduct {
           '$TABLE_PRODUCT_COLUMN_BARCODE in(? ${',?' * (barcodes.length - 1)})',
       whereArgs: barcodes,
     );
+    return _getAll(queryResults);
+  }
+
+  Future<Map<String, Product>> getAllWithExtras(final String extraKey) async {
+    final List<Map<String, dynamic>> queryResults =
+        await localDatabase.database.rawQuery(
+      'select '
+      '  a.$TABLE_PRODUCT_COLUMN_BARCODE '
+      ', a.$_TABLE_PRODUCT_COLUMN_JSON '
+      'from '
+      '  $TABLE_PRODUCT a '
+      'where '
+      '  exists(${DaoProductExtra.getExistsSubQuery()})',
+      DaoProductExtra.getExistsSubQueryArgs(extraKey),
+    );
+    return _getAll(queryResults);
+  }
+
+  Map<String, Product> _getAll(final List<Map<String, dynamic>> queryResults) {
+    final Map<String, Product> result = <String, Product>{};
     if (queryResults.isEmpty) {
       return result;
     }
@@ -90,124 +106,100 @@ class DaoProduct {
   Future<List<Product>> getSuggestions(
       final String pattern, final int minLength) async {
     final List<Product> result = <Product>[];
-    if (pattern == null || pattern.trim().length < minLength) {
+    if (pattern.trim().length < minLength) {
       return result;
+    }
+    late String whereClause;
+    late List<String> whereArgs;
+    late String orderBy;
+    if (int.tryParse(pattern) != null) {
+      whereClause = 'a.$TABLE_PRODUCT_COLUMN_BARCODE like ?';
+      whereArgs = <String>['%$pattern%'];
+      orderBy = 'a.$TABLE_PRODUCT_COLUMN_BARCODE asc';
+    } else {
+      whereClause = 'exists(${DaoProductExtra.getExistsLikeSubQuery()})';
+      whereArgs = DaoProductExtra.getExistsLikeSubQueryArgs(pattern);
+      orderBy = 'a.${LocalDatabase.COLUMN_TIMESTAMP} desc';
     }
     final List<Map<String, dynamic>> queryResults =
-        await localDatabase.database.query(
-      TABLE_PRODUCT,
-      columns: <String>[
-        TABLE_PRODUCT_COLUMN_BARCODE,
-        _TABLE_PRODUCT_COLUMN_JSON,
-      ],
-      where: '$TABLE_PRODUCT_COLUMN_BARCODE like ?'
-          ' or $_TABLE_PRODUCT_COLUMN_JSON like ?',
-      whereArgs: <String>['%$pattern%', '%$pattern%'],
+        await localDatabase.database.rawQuery(
+      'select'
+      '  a.$TABLE_PRODUCT_COLUMN_BARCODE '
+      ', a.$_TABLE_PRODUCT_COLUMN_JSON '
+      'from '
+      '  $TABLE_PRODUCT a '
+      'where '
+      '  $whereClause '
+      'order by '
+      '  $orderBy',
+      whereArgs,
     );
-    if (queryResults.isEmpty) {
-      return result;
-    }
     for (final Map<String, dynamic> row in queryResults) {
       result.add(_getProductFromQueryResult(row));
     }
     return result;
   }
 
-  Future<void> put(final Product product) async =>
-      await _upsert(product, localDatabase.database);
+  /// Upserts products in database
+  Future<void> put(final List<Product> products) async =>
+      await localDatabase.database
+          .transaction((final Transaction transaction) async {
+        final int timestamp = LocalDatabase.nowInMillis();
+        final DaoProductExtra daoProductExtra = DaoProductExtra(localDatabase);
+        await _bulkUpsertLoop(transaction, products, timestamp);
+        await daoProductExtra.bulkUpsertLoopSimplifiedText(
+          transaction,
+          products,
+          timestamp,
+        );
+        await daoProductExtra.bulkUpsertLoopLast(
+          transaction,
+          products,
+          timestamp,
+          DaoProductExtra.EXTRA_ID_LAST_REFRESH,
+        );
+      });
 
-  Future<void> putProducts(final List<Product> products) async {
-    await localDatabase.database
-        .transaction((final Transaction transaction) async {
-      for (final Product product in products) {
-        await _upsert(product, transaction);
-      }
-    });
-  }
-
-  /// Upsert clumsy implementation due to poor SQLite support by sqlflite
-  /// (ConflictAlgorithm.replace is not an option because of FK cascade delete)
-  static Future<bool> _upsert(
-    final Product product,
+  /// Upserts product data in bulk mode
+  Future<void> _bulkUpsertLoop(
     final DatabaseExecutor databaseExecutor,
+    final List<Product> products,
+    final int timestamp,
   ) async {
-    try {
-      final int lastUpdate =
-          await _getLastUpdate(product.barcode, databaseExecutor);
-      if (lastUpdate != null) {
-        final int nbRows = await _update(product, databaseExecutor);
-        if (nbRows == 1) {
-          // very expected result
-          return true;
-        }
-      }
-      return await _insert(product, databaseExecutor);
-    } catch (e) {
-      print('exception: $e');
+    final BulkManager bulkManager = BulkManager();
+    final List<dynamic> insertParameters = <dynamic>[];
+    final List<dynamic> deleteParameters = <dynamic>[];
+    for (final Product product in products) {
+      deleteParameters.add(product.barcode!);
+      insertParameters.add(product.barcode!);
+      insertParameters.add(json.encode(product.toJson()));
+      insertParameters.add(timestamp);
     }
-    return false;
-  }
-
-  static Future<bool> _insert(
-    final Product product,
-    final DatabaseExecutor databaseExecutor,
-  ) async {
-    try {
-      await databaseExecutor.insert(
-        TABLE_PRODUCT,
-        <String, dynamic>{
-          TABLE_PRODUCT_COLUMN_BARCODE: product.barcode,
-          _TABLE_PRODUCT_COLUMN_JSON: json.encode(product.toJson()),
-          LocalDatabase.COLUMN_TIMESTAMP: LocalDatabase.nowInMillis(),
-        },
-      );
-      return true;
-    } catch (e) {
-      print('exception: $e');
-    }
-    return false;
-  }
-
-  static Future<int> _update(
-    final Product product,
-    final DatabaseExecutor databaseExecutor,
-  ) async {
-    try {
-      return await databaseExecutor.update(
-        TABLE_PRODUCT,
-        <String, dynamic>{
-          _TABLE_PRODUCT_COLUMN_JSON: json.encode(product.toJson()),
-          LocalDatabase.COLUMN_TIMESTAMP: LocalDatabase.nowInMillis(),
-        },
-        where: _WHERE_PK,
-        whereArgs: <dynamic>[product.barcode],
-      );
-    } catch (e) {
-      print('exception: $e');
-    }
-    return 0;
-  }
-
-  static Future<int> _getLastUpdate(
-    final String barcode,
-    final DatabaseExecutor databaseExecutor,
-  ) async {
-    final List<Map<String, dynamic>> queryResult = await databaseExecutor.query(
-      TABLE_PRODUCT,
-      columns: <String>[LocalDatabase.COLUMN_TIMESTAMP],
-      where: _WHERE_PK,
-      whereArgs: <dynamic>[barcode],
+    await bulkManager.delete(
+      bulkDeletable: this,
+      parameters: deleteParameters,
+      databaseExecutor: databaseExecutor,
     );
-    if (queryResult.isEmpty) {
-      // not found
-      return null;
-    }
-    if (queryResult.length > 1) {
-      // very very unlikely to happen
-      throw Exception('Several products with the same barcode $barcode');
-    }
-    return queryResult.first[LocalDatabase.COLUMN_TIMESTAMP] as int;
+    await bulkManager.insert(
+      bulkInsertable: this,
+      parameters: insertParameters,
+      databaseExecutor: databaseExecutor,
+    );
   }
+
+  @override
+  List<String> getInsertColumns() => <String>[
+        TABLE_PRODUCT_COLUMN_BARCODE,
+        _TABLE_PRODUCT_COLUMN_JSON,
+        LocalDatabase.COLUMN_TIMESTAMP,
+      ];
+
+  @override
+  String getDeleteWhere(final List<dynamic> deleteWhereArgs) =>
+      '$TABLE_PRODUCT_COLUMN_BARCODE in (?${',?' * (deleteWhereArgs.length - 1)})';
+
+  @override
+  String getTableName() => TABLE_PRODUCT;
 
   Product _getProductFromQueryResult(final Map<String, dynamic> row) {
     final String encodedJson = row[_TABLE_PRODUCT_COLUMN_JSON] as String;

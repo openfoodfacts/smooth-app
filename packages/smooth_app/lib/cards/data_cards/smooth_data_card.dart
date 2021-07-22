@@ -11,15 +11,15 @@ enum SmoothDataCardFormat { SQUARE, WIDE }
 
 class SmoothDataCard extends StatelessWidget {
   const SmoothDataCard({
-    @required this.content,
+    required this.content,
     this.width,
     this.height,
     this.color = Colors.white,
   });
 
   final Widget content;
-  final double width;
-  final double height;
+  final double? width;
+  final double? height;
   final Color color;
 
   @override

@@ -5,77 +5,67 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Product.dart';
 
 // Project imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/cards/product_cards/product_list_preview_helper.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/pages/product/common/product_list_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_ui_library/widgets/smooth_card.dart';
 
 class ProductListPreview extends StatelessWidget {
   const ProductListPreview({
-    @required this.daoProductList,
-    @required this.productList,
-    @required this.nbInPreview,
+    required this.daoProductList,
+    required this.productList,
+    required this.nbInPreview,
+    this.andThen,
   });
 
   final DaoProductList daoProductList;
   final ProductList productList;
   final int nbInPreview;
-
-  static const String _TRANSLATE_ME_SEARCHING = 'Searching...';
+  final Function? andThen;
 
   @override
   Widget build(BuildContext context) => FutureBuilder<List<Product>>(
-        future: daoProductList.getFirstProducts(
-          productList,
-          nbInPreview,
-          true,
-          true,
-        ),
+        future: daoProductList.getFirstProducts(productList, nbInPreview),
         builder: (
           final BuildContext context,
           final AsyncSnapshot<List<Product>> snapshot,
         ) {
           final String title =
-              ProductQueryPageHelper.getProductListLabel(productList);
-          if (snapshot.connectionState == ConnectionState.done) {
-            final List<Product> list = snapshot.data;
+              ProductQueryPageHelper.getProductListLabel(productList, context);
+          if (snapshot.connectionState == ConnectionState.done &&
+              snapshot.data != null) {
+            final List<Product> list = snapshot.data!;
 
             String subtitle;
             final double iconSize = MediaQuery.of(context).size.width / 6;
-            if (list == null || list.isEmpty) {
-              subtitle = 'Empty list';
-            }
-            return Card(
-              color: SmoothTheme.getColor(
-                Theme.of(context).colorScheme,
-                productList.getMaterialColor(),
-                ColorDestination.SURFACE_BACKGROUND,
-              ),
+            subtitle = AppLocalizations.of(context)!.empty_list;
+            return SmoothCard(
               child: Column(
                 children: <Widget>[
                   ListTile(
                     onTap: () async {
                       await daoProductList.get(productList);
-                      await Navigator.push<dynamic>(
+                      await Navigator.push<Widget>(
                         context,
-                        MaterialPageRoute<dynamic>(
-                          builder: (BuildContext context) => ProductListPage(
-                            productList,
-                            reverse: ProductQueryPageHelper.isListReversed(
-                              productList,
-                            ),
-                          ),
+                        MaterialPageRoute<Widget>(
+                          builder: (BuildContext context) =>
+                              ProductListPage(productList),
                         ),
                       );
+                      if (andThen != null) {
+                        andThen!();
+                      }
                     },
                     leading: productList.getIcon(
                       Theme.of(context).colorScheme,
                       ColorDestination.SURFACE_FOREGROUND,
                     ),
                     trailing: const Icon(Icons.arrow_forward),
-                    subtitle: subtitle == null ? null : Text(subtitle),
+                    subtitle: Text(subtitle),
                     title: Text(
                       title,
                       style: Theme.of(context).textTheme.subtitle2,
@@ -89,12 +79,12 @@ class ProductListPreview extends StatelessWidget {
               ),
             );
           }
-          return Card(
+          return SmoothCard(
             child: ListTile(
               leading: const CircularProgressIndicator(),
               subtitle: Text(title),
               title: Text(
-                _TRANSLATE_ME_SEARCHING,
+                AppLocalizations.of(context)!.searching,
                 style: Theme.of(context).textTheme.subtitle2,
               ),
             ),
