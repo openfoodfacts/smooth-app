@@ -54,8 +54,8 @@ jobs:
         run: flutter build apk --debug
 
       # Build web.
-      # - name: "Build web"
-      #   run: flutter build web
+      - name: "Build web"
+        run: flutter build web
       
       # Upload generated apk to the artifacts.
       - name: "Upload APK"
