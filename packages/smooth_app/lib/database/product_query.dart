@@ -44,10 +44,10 @@ abstract class ProductQuery {
         ProductField.ADDITIVES,
         ProductField.INGREDIENTS_ANALYSIS_TAGS,
         ProductField.LABELS_TAGS,
-        ProductField.LABELS_TAGS_TRANSLATED,
+        ProductField.LABELS_TAGS_IN_LANGUAGES,
         ProductField.ENVIRONMENT_IMPACT_LEVELS,
         ProductField.CATEGORIES_TAGS,
-        ProductField.CATEGORIES_TAGS_TRANSLATED,
+        ProductField.CATEGORIES_TAGS_IN_LANGUAGES,
         ProductField.LANGUAGE,
         ProductField.ATTRIBUTE_GROUPS,
       ];

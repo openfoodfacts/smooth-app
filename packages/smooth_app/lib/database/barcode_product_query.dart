@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/utils/LanguageHelper.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/database/dao_product.dart';
 
@@ -20,7 +21,7 @@ class BarcodeProductQuery {
     final ProductQueryConfiguration configuration = ProductQueryConfiguration(
       barcode,
       fields: ProductQuery.fields,
-      lc: languageCode,
+      language: LanguageHelper.fromJson(languageCode),
       cc: countryCode,
     );
 
