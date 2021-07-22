@@ -92,6 +92,7 @@ flutter:
 
   assets:
     - assets/actions/
+    - assets/app/
     - assets/cache/
     - assets/categories/
     - assets/data/
@@ -103,7 +104,6 @@ flutter:
     - assets/product/
     - assets/ikonate_thin/
     - assets/ikonate_bold/
-    - assets/temp/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
