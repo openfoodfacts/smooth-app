@@ -18,7 +18,7 @@ version: 0.0.1+5
 
 
 environment:
-  sdk: ">=2.13.3 <3.0.0"
+  sdk: ">=2.0.0 <3.0.0"
 
 
 dependencies:
