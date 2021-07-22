@@ -1,0 +1,37 @@
+container:
+  image: cirrusci/flutter:base
+
+task:
+  env:
+    BUILD_DIR: "/tmp/build"
+    CIRRUS_WORKING_DIR: "$BUILD_DIR/smooth-app"
+    FLUTTER_DIR: "$BUILD_DIR/flutter"
+    OS_NAME: "linux"
+
+  git_fetch_script: git fetch origin
+  setup_script: |
+    # Clone Flutter repo, pinned to the dev branch.
+    git clone --branch dev https://github.com/flutter/flutter.git "$FLUTTER_DIR"
+
+    echo "Synced to revision: $(cd "$FLUTTER_DIR" && git rev-parse HEAD)"
+
+    # disable analytics on the bots and download Flutter dependencies
+    "$FLUTTER_DIR/bin/flutter" config --no-analytics
+
+    # upgrade packages
+    ./ci/pub_upgrade.sh
+
+  matrix:
+    - name: analyze
+      env:
+        SHARD: analyze
+      test_script:
+        - ./ci/analyze.sh
+    - name: tests-linux
+      env:
+        SHARD: test
+      test_script:
+        - ./ci/testing.sh
+      container:
+        cpu: 4
+        memory: 8G
