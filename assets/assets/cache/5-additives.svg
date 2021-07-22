@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-  <rect width="24" height="24" ry="5" fill="red"/>
-  <path d="M15 2l-1 1v5l5 11v2l-1 1H6l-1-1v-2l5-11V3L9 2z" fill="#fff"/>
-  <g style="line-height:1.25">
-    <path d="M10 12h4v1h-3v2h3l1 2-1 2-2 1H9v-1h4v-2-1h-3z" style="-inkscape-font-specification:sans-serif" aria-label="5" font-weight="400" font-size="10.8" font-family="sans-serif" stroke-width=".3"/>
-  </g>
-</svg>
