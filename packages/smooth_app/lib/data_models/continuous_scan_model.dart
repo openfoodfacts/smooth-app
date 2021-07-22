@@ -59,7 +59,7 @@ class ContinuousScanModel with ChangeNotifier {
       }
       return this;
     } catch (e) {
-      print('exception: $e');
+      debugPrint('exception: $e');
     }
     return null;
   }

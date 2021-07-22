@@ -132,11 +132,12 @@ class ProfilePage extends StatelessWidget {
                                     child: CircularProgressIndicator());
                               }
 
-                              if (!snapshot.hasData || snapshot.data == null)
+                              if (!snapshot.hasData || snapshot.data == null) {
                                 return Center(
                                     child: Text(
                                   '${appLocalizations.error} #1',
                                 ));
+                              }
 
                               return Column(
                                 children: <Widget>[

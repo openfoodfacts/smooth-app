@@ -73,7 +73,7 @@ class _SmoothAppState extends State<SmoothApp> {
       );
     } catch (e) {
       // this is problematic - we should always be able to load the default
-      print('Could not load reference files: $e');
+      debugPrint('Could not load reference files: $e');
       rethrow;
     }
     await _userPreferences.init(_productPreferences);
@@ -81,7 +81,7 @@ class _SmoothAppState extends State<SmoothApp> {
       _localDatabase = await LocalDatabase.getLocalDatabase();
     } catch (e) {
       // this is problematic - we should always be able to init the database
-      print('Cannot init database: $e');
+      debugPrint('Cannot init database: $e');
       rethrow;
     }
     _themeProvider = ThemeProvider(_userPreferences);

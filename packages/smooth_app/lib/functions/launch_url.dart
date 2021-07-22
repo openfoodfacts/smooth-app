@@ -39,7 +39,7 @@ class Launcher {
     }
 
     if (await canLaunch(openURL)) {
-      print('Open url: $url');
+      debugPrint('Open url: $url');
       await launch(openURL);
     } else {
       throw 'Could not launch $url';

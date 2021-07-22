@@ -32,7 +32,7 @@ class SvgAsyncAsset extends StatelessWidget {
                 ),
               );
             } else {
-              print('unexpected case: svg asset not found $fullFilename');
+              debugPrint('unexpected case: svg asset not found $fullFilename');
             }
           }
           return SizedBox(

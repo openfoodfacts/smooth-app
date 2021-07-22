@@ -1,5 +1,3 @@
-// ignore_for_file: missing_whitespace_between_adjacent_strings
-
 import 'dart:async';
 
 import 'package:openfoodfacts/model/Product.dart';
