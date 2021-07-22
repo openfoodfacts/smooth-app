@@ -53,9 +53,12 @@ dependencies:
     path: ../smooth_ui_library
   #sticky_grouped_list: ^1.3.0
   #sticky_headers: ^0.1.8+1
-  intl_translation: ^0.17.10+1
+  intl_translation: ^0.17.7
   sqflite: ^2.0.0+3
   url_launcher: ^6.0.3
+
+
+
 
 dev_dependencies:
   flutter_native_splash: ^1.2.0
