@@ -28,7 +28,7 @@ class KeywordsProductQuery implements ProductQuery {
             PageSize(size: size),
             SearchTerms(terms: <String>[keywords]),
           ],
-          lc: languageCode,
+          language: LanguageHelper.fromJson(languageCode),
           cc: countryCode,
         ),
       );
