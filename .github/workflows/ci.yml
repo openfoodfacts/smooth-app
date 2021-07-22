@@ -47,11 +47,11 @@ jobs:
         run: flutter analyze .
       
       # Run widget tests
-      # - run: flutter test
+      - run: flutter test
       
       # Build apk.
-      - name: "Build apk"
-        run: flutter build apk --debug
+      #- name: "Build apk"
+      #  run: flutter build apk --debug
 
       # Build web.
       - name: "Build web"
