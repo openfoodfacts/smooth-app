@@ -5,7 +5,7 @@ import 'dart:async';
 import 'package:openfoodfacts/model/SearchResult.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/LanguageHelper.dart';
-import 'package:openfoodfacts/utils/PnnsGroupQueryConfiguration.dart';
+import 'package:openfoodfacts/model/parameter/PnnsGroup2Filter.dart';
 import 'package:openfoodfacts/utils/PnnsGroups.dart';
 
 // Project imports:
@@ -21,13 +21,15 @@ class GroupProductQuery implements ProductQuery {
 
   @override
   Future<SearchResult> getSearchResult() async =>
-      await OpenFoodAPIClient.queryPnnsGroup(
+      await OpenFoodAPIClient.searchProducts(
         ProductQuery.SMOOTH_USER,
-        PnnsGroupQueryConfiguration(
-          group,
+        ProductSearchQueryConfiguration(
           fields: ProductQuery.fields,
-          page: page,
           language: LanguageHelper.fromJson(languageCode),
+          parametersList: <Parameter>[
+            PnnsGroup2Filter(pnnsGroup2: group),
+            Page(page: page),
+          ],
         ),
       );
 
