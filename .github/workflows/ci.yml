@@ -50,12 +50,12 @@ jobs:
       - run: flutter test
       
       # Build apk.
-      #- name: "Build apk"
-      #  run: flutter build apk --debug
+      - name: "Build apk"
+        run: flutter build apk --debug
 
       # Build web.
-      - name: "Build web"
-        run: flutter build web
+      #- name: "Build web"
+      #  run: flutter build web
       
       # Upload generated apk to the artifacts.
       - name: "Upload APK"
