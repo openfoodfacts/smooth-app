@@ -29,4 +29,4 @@
               with:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                 BRANCH: gh-pages
-                FOLDER: doc/api/
+                FOLDER: packages/smooth_app/doc/api/
