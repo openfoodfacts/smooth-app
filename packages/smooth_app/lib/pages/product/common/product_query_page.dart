@@ -1,17 +1,10 @@
-// Dart imports:
 import 'dart:async';
 
-// Flutter imports:
 import 'package:flutter/material.dart';
-
-// Package imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
-
-// Project imports:
 import 'package:smooth_app/bottom_sheet_views/group_query_filter_view.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
@@ -19,6 +12,7 @@ import 'package:smooth_app/data_models/product_query_model.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
+import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
 
 class ProductQueryPage extends StatefulWidget {
   const ProductQueryPage({
@@ -27,7 +21,8 @@ class ProductQueryPage extends StatefulWidget {
     required this.mainColor,
     required this.name,
     this.lastUpdate,
-  });
+    Key? key,
+  }) : super(key: key);
 
   final ProductListSupplier productListSupplier;
   final String heroTag;
@@ -36,7 +31,7 @@ class ProductQueryPage extends StatefulWidget {
   final int? lastUpdate;
 
   @override
-  _ProductQueryPageState createState() => _ProductQueryPageState();
+  State<ProductQueryPage> createState() => _ProductQueryPageState();
 }
 
 class _ProductQueryPageState extends State<ProductQueryPage> {
@@ -271,7 +266,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
             padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 96.0),
             child: Column(
               children: <Widget>[
-                Container(
+                SizedBox(
                   height: 80.0,
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
@@ -331,7 +326,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
     _lastUpdate = null;
 
     Future<void>.delayed(
-      const Duration(seconds: 0),
+      Duration.zero,
       () => ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(message),

@@ -1,14 +1,8 @@
-// Dart imports:
 import 'dart:ui';
 
-// Flutter imports:
 import 'package:flutter/material.dart';
-
-// Package imports:
 import 'package:openfoodfacts/model/SearchResult.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-
-// Project imports:
 import 'package:smooth_app/data_models/product_list.dart';
 
 abstract class ProductQuery {

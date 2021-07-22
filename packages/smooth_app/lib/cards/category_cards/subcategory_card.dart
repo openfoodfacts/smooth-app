@@ -1,7 +1,4 @@
-// Flutter imports:
 import 'package:flutter/material.dart';
-
-// Package imports:
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SubcategoryCard extends StatelessWidget {
@@ -10,11 +7,12 @@ class SubcategoryCard extends StatelessWidget {
     required this.color,
     required this.onTap,
     required this.heroTag,
-  });
+    Key? key,
+  }) : super(key: key);
 
   final String title;
   final Color color;
-  final Function onTap;
+  final VoidCallback onTap;
   final String heroTag;
 
   @override

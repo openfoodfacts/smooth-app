@@ -3,12 +3,14 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 
 class SmoothRevealAnimation extends StatefulWidget {
-  const SmoothRevealAnimation(
-      {required this.child,
-      this.delay = 0,
-      this.animationCurve = Curves.ease,
-      this.animationDuration = 400,
-      this.startOffset = const Offset(1.0, 0.0)});
+  const SmoothRevealAnimation({
+    required this.child,
+    this.delay = 0,
+    this.animationCurve = Curves.ease,
+    this.animationDuration = 400,
+    this.startOffset = const Offset(1.0, 0.0),
+    Key? key,
+  }) : super(key: key);
 
   final Widget child;
   final int delay;

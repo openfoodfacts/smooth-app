@@ -14,7 +14,8 @@ class GroupQueryFilterView extends StatelessWidget {
     required this.categories,
     required this.categoriesList,
     required this.callback,
-  });
+    Key? key,
+  }) : super(key: key);
 
   final Map<String, String> categories;
   final List<String> categoriesList;
@@ -30,7 +31,7 @@ class GroupQueryFilterView extends StatelessWidget {
         builder: (BuildContext context,
             SelectedCategoryModel selectedCategoryModel, Widget? child) {
           return Material(
-            child: Container(
+            child: SizedBox(
               height: MediaQuery.of(context).size.height * 0.5,
               child: Stack(
                 children: <Widget>[
@@ -64,7 +65,7 @@ class GroupQueryFilterView extends StatelessWidget {
                             (String key) {
                               return DropdownMenuItem<String>(
                                 value: key,
-                                child: Container(
+                                child: SizedBox(
                                   width:
                                       MediaQuery.of(context).size.width * 0.8,
                                   child: Text(

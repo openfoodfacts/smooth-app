@@ -1,28 +1,27 @@
 // Flutter imports:
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-// Package imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:openfoodfacts/personalized_search/matched_product.dart';
 import 'package:provider/provider.dart';
-
-// Project imports:
-import 'package:smooth_app/pages/user_preferences_page.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/smooth_it_model.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
-import 'package:openfoodfacts/personalized_search/matched_product.dart';
-import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/pages/user_preferences_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 class PersonalizedRankingPage extends StatefulWidget {
-  const PersonalizedRankingPage(this.productList);
+  const PersonalizedRankingPage(
+    this.productList, {
+    Key? key,
+  }) : super(key: key);
 
   final ProductList productList;
 
   @override
-  _PersonalizedRankingPageState createState() =>
+  State<PersonalizedRankingPage> createState() =>
       _PersonalizedRankingPageState();
 
   static const Map<int, MaterialColor> _COLORS = <int, MaterialColor>{

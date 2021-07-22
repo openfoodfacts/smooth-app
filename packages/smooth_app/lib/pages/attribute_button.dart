@@ -1,24 +1,25 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
+import 'package:openfoodfacts/personalized_search/preference_importance.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
-import 'package:openfoodfacts/personalized_search/preference_importance.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
-import 'package:provider/provider.dart';
 
 /// Colored button for attribute importance, with corresponding action
 class AttributeButton extends StatelessWidget {
   const AttributeButton(
     this.attribute,
-    this.productPreferences,
-  );
+    this.productPreferences, {
+    Key? key,
+  }) : super(key: key);
 
   final Attribute attribute;
   final ProductPreferences productPreferences;

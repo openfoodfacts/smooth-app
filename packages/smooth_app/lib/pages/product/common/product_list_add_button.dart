@@ -9,9 +9,10 @@ class ProductListAddButton extends StatelessWidget {
     required this.onPressed,
     required this.onlyIcon,
     required this.productListType,
-  });
+    Key? key,
+  }) : super(key: key);
 
-  final Function onPressed;
+  final VoidCallback onPressed;
   final bool onlyIcon;
   final String productListType;
 

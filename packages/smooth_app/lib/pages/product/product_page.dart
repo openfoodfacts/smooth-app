@@ -1,11 +1,7 @@
-// Dart imports:
 import 'dart:ui';
 
-// Flutter imports:
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-// Package imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
@@ -15,40 +11,39 @@ import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:share/share.dart';
-import 'package:smooth_app/data_models/product_list.dart';
-import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/database/dao_product_extra.dart';
-import 'package:smooth_ui_library/widgets/smooth_card.dart';
-
-// Project imports:
-import 'package:smooth_app/pages/user_preferences_page.dart';
 import 'package:smooth_app/cards/data_cards/image_upload_card.dart';
 import 'package:smooth_app/cards/expandables/attribute_list_expandable.dart';
+import 'package:smooth_app/data_models/product_extra.dart';
+import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/category_product_query.dart';
+import 'package:smooth_app/database/dao_product.dart';
+import 'package:smooth_app/database/dao_product_extra.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
-import 'package:smooth_app/functions/launchURL.dart';
-import 'package:smooth_app/data_models/product_extra.dart';
+import 'package:smooth_app/functions/launch_url.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
+import 'package:smooth_app/pages/product_copy_helper.dart';
+import 'package:smooth_app/pages/user_preferences_page.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
-import 'package:smooth_app/pages/product_copy_helper.dart';
-import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/database/dao_product.dart';
+import 'package:smooth_ui_library/widgets/smooth_card.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage({
     required this.product,
     this.newProduct = false,
-  });
+    Key? key,
+  }) : super(key: key);
 
   final bool newProduct;
   final Product product;
 
   @override
-  _ProductPageState createState() => _ProductPageState();
+  State<ProductPage> createState() => _ProductPageState();
 }
 
 class _ProductPageState extends State<ProductPage> {
@@ -193,7 +188,7 @@ class _ProductPageState extends State<ProductPage> {
       ),
     ];
 
-    return Container(
+    return SizedBox(
       height: 200,
       child: ListView(
         // This next line does the trick.
@@ -284,7 +279,7 @@ class _ProductPageState extends State<ProductPage> {
           ),
           subtitle: Text(_product.brands ?? appLocalizations.unknownBrand),
           trailing: Text(
-            _product.quantity != null ? '${_product.quantity}' : '',
+            _product.quantity != null ? _product.quantity! : '',
             style: themeData.textTheme.headline3,
           ),
         ),
@@ -304,7 +299,7 @@ class _ProductPageState extends State<ProductPage> {
             _getClickableIcon(
               label: 'lists',
               icon: const Icon(Icons.playlist_add),
-              onTap: () async => await _copy(
+              onTap: () async => _copy(
                 userPreferences: userPreferences,
                 daoProductList: daoProductList,
                 daoProduct: daoProduct,
@@ -314,7 +309,7 @@ class _ProductPageState extends State<ProductPage> {
             _getClickableIcon(
               label: appLocalizations.label_share,
               icon: Icon(ConstantIcons.getShareIcon()),
-              onTap: () async => await Share.share(
+              onTap: () async => Share.share(
                 'Try this food: https://openfoodfacts.org/product/${_product.barcode}/',
                 subject: '${_product.productName} (by openfoodfacts.org)',
               ),
@@ -326,7 +321,7 @@ class _ProductPageState extends State<ProductPage> {
                 'assets/actions/food-cog.svg',
                 color: themeData.colorScheme.onSurface,
               ),
-              onTap: () async => await Navigator.push<Widget>(
+              onTap: () async => Navigator.push<Widget>(
                 context,
                 MaterialPageRoute<Widget>(
                   builder: (BuildContext context) =>
@@ -392,7 +387,7 @@ class _ProductPageState extends State<ProductPage> {
                   ColorDestination.SURFACE_FOREGROUND,
                 ),
               ),
-              onTap: () async => await ProductQueryPageHelper().openBestChoice(
+              onTap: () async => ProductQueryPageHelper().openBestChoice(
                 color: materialColor,
                 heroTag: 'search_bar',
                 name: categoryTag,

@@ -9,9 +9,10 @@ class SmoothChip extends StatelessWidget {
     this.label,
     this.materialColor,
     this.shape,
-  });
+    Key? key,
+  }) : super(key: key);
 
-  final Function onPressed;
+  final VoidCallback onPressed;
   final IconData? iconData;
   final String? label;
   final MaterialColor? materialColor;
@@ -44,21 +45,21 @@ class SmoothChip extends StatelessWidget {
     if (text == null) {
       return ElevatedButton(
         child: icon,
-        onPressed: () async => await onPressed(),
+        onPressed: onPressed,
         style: buttonStyle,
       );
     }
     if (icon == null) {
       return ElevatedButton(
         child: text,
-        onPressed: () async => await onPressed(),
+        onPressed: onPressed,
         style: buttonStyle,
       );
     }
     return ElevatedButton.icon(
       icon: icon,
       label: text,
-      onPressed: () async => await onPressed(),
+      onPressed: onPressed,
       style: buttonStyle,
     );
   }

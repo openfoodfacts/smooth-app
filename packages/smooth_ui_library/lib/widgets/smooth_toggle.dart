@@ -20,7 +20,8 @@ class SmoothToggle extends StatefulWidget {
     required this.onChanged,
     this.width = 150.0,
     this.height = 50.0,
-  });
+    Key? key,
+  }) : super(key: key);
 
   final bool value;
   final Function(bool) onChanged;
@@ -32,14 +33,14 @@ class SmoothToggle extends StatefulWidget {
   final Duration animationDuration;
   final Widget iconRight;
   final Widget iconLeft;
-  final Function? onTap;
-  final Function? onDoubleTap;
-  final Function? onSwipe;
+  final VoidCallback? onTap;
+  final VoidCallback? onDoubleTap;
+  final VoidCallback? onSwipe;
   final double width;
   final double height;
 
   @override
-  _SmoothToggleState createState() => _SmoothToggleState();
+  State<SmoothToggle> createState() => _SmoothToggleState();
 }
 
 class _SmoothToggleState extends State<SmoothToggle>
@@ -111,7 +112,7 @@ class _SmoothToggleState extends State<SmoothToggle>
             Transform.translate(
               offset: Offset(10 * value, 0), //original
               child: Opacity(
-                opacity: (1 - value).clamp(0.0, 1.0).toDouble(),
+                opacity: (1 - value).clamp(0.0, 1.0),
                 child: Align(
                   alignment: Alignment.centerRight,
                   child: Container(
@@ -137,7 +138,7 @@ class _SmoothToggleState extends State<SmoothToggle>
             Transform.translate(
               offset: Offset(10 * (1 - value), 0), // not original
               child: Opacity(
-                opacity: value.clamp(0.0, 1.0).toDouble(),
+                opacity: value.clamp(0.0, 1.0),
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Container(
@@ -174,12 +175,12 @@ class _SmoothToggleState extends State<SmoothToggle>
                     children: <Widget>[
                       Center(
                         child: Opacity(
-                            opacity: (1 - value).clamp(0.0, 1.0).toDouble(),
+                            opacity: (1 - value).clamp(0.0, 1.0),
                             child: widget.iconRight),
                       ),
                       Center(
                         child: Opacity(
-                          opacity: value.clamp(0.0, 1.0).toDouble(),
+                          opacity: value.clamp(0.0, 1.0),
                           child: widget.iconLeft,
                         ),
                       )

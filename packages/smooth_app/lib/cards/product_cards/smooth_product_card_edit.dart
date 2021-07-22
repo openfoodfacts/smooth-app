@@ -1,22 +1,17 @@
-// Dart imports:
 import 'dart:ui';
 
-// Flutter imports:
 import 'package:flutter/material.dart';
-
-// Package imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/model/ProductImage.dart';
-
-// Project imports:
 import 'package:smooth_app/pages/product/product_page.dart';
 
 class SmoothProductCardEdit extends StatelessWidget {
   const SmoothProductCardEdit({
     required this.product,
     required this.heroTag,
-  });
+    Key? key,
+  }) : super(key: key);
 
   final Product product;
   final String heroTag;

@@ -1,7 +1,4 @@
-// Flutter imports:
 import 'package:flutter/material.dart';
-
-// Package imports:
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CategoryCard extends StatelessWidget {
@@ -10,12 +7,13 @@ class CategoryCard extends StatelessWidget {
     required this.color,
     required this.onTap,
     this.iconName = 'smoothie.svg',
-  });
+    Key? key,
+  }) : super(key: key);
 
   final String title;
   final Color color;
   final String iconName;
-  final Function onTap;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
-import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
+import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 
 class ProductListDialogHelper {
   static Future<bool> openDelete(
@@ -45,7 +45,7 @@ class ProductListDialogHelper {
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
     ProductList? newProductList;
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-    return await showDialog<ProductList>(
+    return showDialog<ProductList>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
         close: false,
@@ -94,7 +94,7 @@ class ProductListDialogHelper {
               }
               await daoProductList.create(newProductList!);
               await daoProductList.put(newProductList!);
-              Navigator.pop(context, newProductList!);
+              Navigator.pop(context, newProductList);
             },
             important: true,
           ),
@@ -113,7 +113,7 @@ class ProductListDialogHelper {
         await daoProductList.getAll(withStats: false);
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     ProductList? newProductList;
-    return await showDialog<ProductList>(
+    return showDialog<ProductList>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
         close: false,
@@ -170,7 +170,7 @@ class ProductListDialogHelper {
                 return;
               }
               await daoProductList.get(newProductList!);
-              Navigator.pop(context, newProductList!);
+              Navigator.pop(context, newProductList);
             },
             important: true,
           ),
@@ -192,7 +192,7 @@ class ProductListDialogHelper {
           builder: (BuildContext context) => SmoothAlertDialog(
             close: false,
             title: appLocalizations.change_icon,
-            body: Container(
+            body: SizedBox(
               width: ProductList.ORDERED_COLORS.length.toDouble() * size,
               height: orderedIcons.length.toDouble() * size,
               child: GridView.count(

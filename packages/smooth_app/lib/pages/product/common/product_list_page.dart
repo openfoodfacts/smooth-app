@@ -14,12 +14,15 @@ import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 class ProductListPage extends StatefulWidget {
-  const ProductListPage(this.productList);
+  const ProductListPage(
+    this.productList, {
+    Key? key,
+  }) : super(key: key);
 
   final ProductList productList;
 
   @override
-  _ProductListPageState createState() => _ProductListPageState();
+  State<ProductListPage> createState() => _ProductListPageState();
 }
 
 class _ProductListPageState extends State<ProductListPage> {

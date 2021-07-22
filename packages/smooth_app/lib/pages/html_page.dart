@@ -6,7 +6,8 @@ class HtmlPage extends StatelessWidget {
   const HtmlPage({
     required this.pageTitle,
     required this.htmlString,
-  });
+    Key? key,
+  }) : super(key: key);
 
   final String pageTitle;
   final String htmlString;

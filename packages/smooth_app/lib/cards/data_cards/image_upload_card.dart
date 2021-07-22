@@ -1,16 +1,11 @@
-// Dart imports:
 import 'dart:io';
 
-// Flutter imports:
 import 'package:flutter/material.dart';
-
-// Package imports:
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/LanguageHelper.dart';
-
 import 'package:smooth_app/pages/product/product_image_page.dart';
 
 class ImageUploadCard extends StatefulWidget {
@@ -20,7 +15,8 @@ class ImageUploadCard extends StatefulWidget {
     this.imageUrl,
     this.title,
     required this.buttonText,
-  });
+    Key? key,
+  }) : super(key: key);
 
   final Product product;
   final ImageField imageField;
@@ -29,7 +25,7 @@ class ImageUploadCard extends StatefulWidget {
   final String buttonText;
 
   @override
-  _ImageUploadCardState createState() => _ImageUploadCardState();
+  State<ImageUploadCard> createState() => _ImageUploadCardState();
 }
 
 class _ImageUploadCardState extends State<ImageUploadCard> {

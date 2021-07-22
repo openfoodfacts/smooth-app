@@ -21,7 +21,7 @@ class CategoryProductQuery implements ProductQuery {
 
   @override
   Future<SearchResult> getSearchResult() async =>
-      await OpenFoodAPIClient.searchProducts(
+      OpenFoodAPIClient.searchProducts(
         ProductQuery.SMOOTH_USER,
         ProductSearchQueryConfiguration(
           fields: ProductQuery.fields,

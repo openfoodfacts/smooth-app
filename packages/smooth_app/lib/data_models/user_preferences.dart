@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 
 class UserPreferences extends ChangeNotifier {
@@ -35,7 +35,7 @@ class UserPreferences extends ChangeNotifier {
     final String attributeId,
     final String importanceId,
   ) async =>
-      await _sharedPreferences.setString(
+      _sharedPreferences.setString(
           _getImportanceTag(attributeId), importanceId);
 
   String getImportance(final String attributeId) =>
@@ -45,15 +45,15 @@ class UserPreferences extends ChangeNotifier {
   Future<void> resetImportances(
     final ProductPreferences productPreferences,
   ) async =>
-      await productPreferences.resetImportances();
+      productPreferences.resetImportances();
 
   Future<void> setThemeDark(final bool state) async =>
-      await _sharedPreferences.setBool(_TAG_THEME_DARK, state);
+      _sharedPreferences.setBool(_TAG_THEME_DARK, state);
 
   bool get isThemeDark => _sharedPreferences.getBool(_TAG_THEME_DARK) ?? false;
 
   Future<void> setThemeColorTag(final String colorTag) async =>
-      await _sharedPreferences.setString(_TAG_THEME_COLOR_TAG, colorTag);
+      _sharedPreferences.setString(_TAG_THEME_COLOR_TAG, colorTag);
 
   String get themeColorTag =>
       _sharedPreferences.getString(_TAG_THEME_COLOR_TAG) ?? 'COLOR_TAG_BLUE';
