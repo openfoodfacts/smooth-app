@@ -77,7 +77,7 @@
       await daoProductList.getAll(withStats: false);
   final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
   ProductList? newProductList;
-  return await showDialog&lt;ProductList&gt;(
+  return showDialog&lt;ProductList&gt;(
     context: context,
     builder: (BuildContext context) =&gt; SmoothAlertDialog(
       close: false,
@@ -134,7 +134,7 @@
               return;
             }
             await daoProductList.get(newProductList!);
-            Navigator.pop(context, newProductList!);
+            Navigator.pop(context, newProductList);
           },
           important: true,
         ),

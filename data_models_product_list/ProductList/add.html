@@ -72,7 +72,7 @@ Don't forget to update the database afterwards</p>
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">bool add(final Product product) {
   refresh(product);
-  if (_barcodes.contains(product.barcode!)) {
+  if (_barcodes.contains(product.barcode)) {
     return false;
   }
   _barcodes.add(product.barcode!);

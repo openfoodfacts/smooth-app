@@ -68,8 +68,7 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static String getExistsLikeSubQuery() =&gt;
-    getExistsSubQuery() +
-    &#39;  and b.$_TABLE_PRODUCT_EXTRA_COLUMN_VALUE like ? &#39;;</code></pre>
+    &#39;${getExistsSubQuery()}  and b.$_TABLE_PRODUCT_EXTRA_COLUMN_VALUE like ? &#39;;</code></pre>
 </section>
 
 

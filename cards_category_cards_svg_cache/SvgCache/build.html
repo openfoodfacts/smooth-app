@@ -123,7 +123,7 @@ Widget build(BuildContext context) {
     fit: BoxFit.contain,
     placeholderBuilder: (BuildContext context) =&gt; displayAssetWhileWaiting
         ? SvgAsyncAsset(fullFilename, width: width, height: height)
-        : Container(
+        : SizedBox(
             width: width ?? height,
             height: height ?? width,
             child: const CircularProgressIndicator(),

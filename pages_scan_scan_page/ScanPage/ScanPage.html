@@ -50,7 +50,8 @@
 </h1></div>
 
     <section class="multi-line-signature">const
-      <span class="name ">ScanPage</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-contributionMode">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">contributionMode</span>}</span></li>
+      <span class="name ">ScanPage</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-contributionMode">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">contributionMode</span>, </span></li>
+<li><span class="parameter" id="-param-key"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>}</span></li>
 </ol>)
     </section>
 
@@ -62,7 +63,8 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">const ScanPage({
   required this.contributionMode,
-});</code></pre>
+  Key? key,
+}) : super(key: key);</code></pre>
 </section>
 
 

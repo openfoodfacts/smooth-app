@@ -80,7 +80,7 @@
         builder: (BuildContext context) =&gt; SmoothAlertDialog(
           close: false,
           title: appLocalizations.change_icon,
-          body: Container(
+          body: SizedBox(
             width: ProductList.ORDERED_COLORS.length.toDouble() * size,
             height: orderedIcons.length.toDouble() * size,
             child: GridView.count(

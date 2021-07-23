@@ -120,12 +120,12 @@ Widget build(BuildContext context) {
       mainAxisAlignment: MainAxisAlignment.start,
       children: &lt;Widget&gt;[
         IconButton(
-          onPressed: () async =&gt; await _add(-1),
+          onPressed: () async =&gt; _add(-1),
           icon: const Icon(Icons.remove_circle_outline),
         ),
         Text(&#39;${_getCount()}&#39;, style: const TextStyle(fontSize: 16)),
         IconButton(
-          onPressed: () async =&gt; await _add(1),
+          onPressed: () async =&gt; _add(1),
           icon: const Icon(Icons.add_circle_outline),
         ),
       ],

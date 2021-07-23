@@ -65,7 +65,7 @@
   <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Sentry.init(
-    (dynamic options) {
+    (SentryOptions options) {
       options.dsn =
           &#39;https:&#47;&#47;22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io&#47;5376745&#39;;
     },
@@ -75,7 +75,7 @@
     url: &#39;https:&#47;&#47;analytics.openfoodfacts.org&#47;&#39;,
   );
   try {
-    runApp(MyApp());
+    runApp(const SmoothApp());
   } catch (exception, stackTrace) {
     await Sentry.captureException(
       exception,
@@ -105,7 +105,7 @@
     <h5>main library</h5>
     <ol>
   <li class="section-title"><a href="../main/main-library.html#classes">Classes</a></li>
-  <li><a href="../main/MyApp-class.html">MyApp</a></li>
+  <li><a href="../main/SmoothApp-class.html">SmoothApp</a></li>
   <li><a href="../main/SmoothAppGetLanguage-class.html">SmoothAppGetLanguage</a></li>
 
 

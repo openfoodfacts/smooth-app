@@ -66,9 +66,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; put(final ProductList productList) async =&gt;
-    await localDatabase.database.transaction(
+    localDatabase.database.transaction(
       (final Transaction transaction) async =&gt;
-          await DaoProductExtra(localDatabase).bulkInsertExtra(
+          DaoProductExtra(localDatabase).bulkInsertExtra(
         databaseExecutor: transaction,
         productList: productList,
         productListId: await _getId(productList, transaction),

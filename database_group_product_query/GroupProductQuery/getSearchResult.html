@@ -71,7 +71,7 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Future&lt;SearchResult&gt; getSearchResult() async =&gt;
-    await OpenFoodAPIClient.searchProducts(
+    OpenFoodAPIClient.searchProducts(
       ProductQuery.SMOOTH_USER,
       ProductSearchQueryConfiguration(
         fields: ProductQuery.fields,

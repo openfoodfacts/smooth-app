@@ -130,7 +130,7 @@ Widget build(BuildContext context) {
   if (product.productName != null) {
     productTitle = product.productName!;
     if (product.brands != null) {
-      productTitle += &#39; - &#39; + product.brands!;
+      productTitle += &#39; - ${product.brands!}&#39;;
     }
   } else if (product.brands != null) {
     productTitle = product.brands!;
@@ -145,14 +145,10 @@ Widget build(BuildContext context) {
           builder: (BuildContext context) =&gt; ProductPage(product: product),
         ),
       );
-      if (refresh != null) {
-        await refresh!();
-      }
+      refresh?.call();
     },
     onLongPress: () {
-      if (onLongPress != null) {
-        onLongPress!();
-      }
+      onLongPress?.call();
     },
     child: Hero(
       tag: heroTag,
@@ -187,7 +183,7 @@ Widget build(BuildContext context) {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: &lt;Widget&gt;[
-                    Container(
+                    SizedBox(
                       width: screenSize.width * 0.65,
                       child: Column(
                         children: &lt;Widget&gt;[
@@ -204,7 +200,7 @@ Widget build(BuildContext context) {
                               if (handle != null) handle!,
                             ],
                           ),
-                          Container(
+                          SizedBox(
                             width: screenSize.width * 0.65,
                             child: Wrap(
                               direction: Axis.horizontal,

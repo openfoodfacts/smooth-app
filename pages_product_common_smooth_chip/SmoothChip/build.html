@@ -132,21 +132,21 @@ Widget build(BuildContext context) {
   if (text == null) {
     return ElevatedButton(
       child: icon,
-      onPressed: () async =&gt; await onPressed(),
+      onPressed: onPressed,
       style: buttonStyle,
     );
   }
   if (icon == null) {
     return ElevatedButton(
       child: text,
-      onPressed: () async =&gt; await onPressed(),
+      onPressed: onPressed,
       style: buttonStyle,
     );
   }
   return ElevatedButton.icon(
     icon: icon,
     label: text,
-    onPressed: () async =&gt; await onPressed(),
+    onPressed: onPressed,
     style: buttonStyle,
   );
 }</code></pre>

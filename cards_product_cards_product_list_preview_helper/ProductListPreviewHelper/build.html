@@ -110,7 +110,7 @@ Widget build(BuildContext context) {
   final List&lt;Widget&gt; previews = &lt;Widget&gt;[];
   for (final Product product in list) {
     previews.add(GestureDetector(
-      onTap: () async =&gt; await Navigator.push&lt;Widget&gt;(
+      onTap: () async =&gt; Navigator.push&lt;Widget&gt;(
         context,
         MaterialPageRoute&lt;Widget&gt;(
           builder: (BuildContext context) =&gt; ProductPage(

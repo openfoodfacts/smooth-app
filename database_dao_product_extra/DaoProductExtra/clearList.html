@@ -72,7 +72,7 @@
   final int? id,
   final DatabaseExecutor databaseExecutor,
 ) async =&gt;
-    await databaseExecutor.delete(
+    databaseExecutor.delete(
       _TABLE_PRODUCT_EXTRA,
       where: &#39;$_TABLE_PRODUCT_EXTRA_COLUMN_KEY = ?&#39;,
       whereArgs: &lt;String&gt;[_getExtraKey(productList, id)],

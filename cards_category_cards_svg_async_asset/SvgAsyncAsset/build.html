@@ -116,16 +116,16 @@ Widget build(BuildContext context) =&gt; FutureBuilder&lt;String&gt;(
               width: width,
               height: height,
               fit: BoxFit.contain,
-              placeholderBuilder: (BuildContext context) =&gt; Container(
+              placeholderBuilder: (BuildContext context) =&gt; SizedBox(
                 width: width ?? height,
                 height: height ?? width,
               ),
             );
           } else {
-            print(&#39;unexpected case: svg asset not found $fullFilename&#39;);
+            debugPrint(&#39;unexpected case: svg asset not found $fullFilename&#39;);
           }
         }
-        return Container(
+        return SizedBox(
           width: width ?? height,
           height: height ?? width,
         );

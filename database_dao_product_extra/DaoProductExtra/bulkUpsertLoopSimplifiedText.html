@@ -81,8 +81,8 @@
   final List&lt;dynamic&gt; deleteParameters = &lt;dynamic&gt;[];
 
   for (final Product product in products) {
-    deleteParameters.add(product.barcode!);
-    insertParameters.add(product.barcode!);
+    deleteParameters.add(product.barcode);
+    insertParameters.add(product.barcode);
     insertParameters.add(KEY);
     insertParameters.add(_getSimplifiedTextForProduct(product));
     insertParameters.add(0);

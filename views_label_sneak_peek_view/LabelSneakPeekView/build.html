@@ -134,12 +134,10 @@ Widget build(BuildContext context) {
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: &lt;Widget&gt;[
-                        Container(
-                          child: SvgPicture.asset(
-                            &#39;assets&#47;labels&#47;ab_label.svg&#39;,
-                            height: 60.0,
-                            fit: BoxFit.contain,
-                          ),
+                        SvgPicture.asset(
+                          &#39;assets&#47;labels&#47;ab_label.svg&#39;,
+                          height: 60.0,
+                          fit: BoxFit.contain,
                         ),
                         const SizedBox(
                           width: 12.0,
@@ -151,65 +149,55 @@ Widget build(BuildContext context) {
                       ],
                     ),
                   ),
-                  Container(
-                    child: CarouselSlider(
-                      items: &lt;Widget&gt;[
-                        Container(
-                          child: Column(
-                            children: &lt;Widget&gt;[
-                              Text(
-                                &#39;At least 95% organic ingredients&#39;,
-                                style: Theme.of(context).textTheme.headline3,
-                              ),
-                              const Text(
-                                  &#39;Composé d\&#39;au moins 95 % d\&#39;ingrédients issus d\&#39;un mode de production biologique&#39;)
-                            ],
+                  CarouselSlider(
+                    items: &lt;Widget&gt;[
+                      Column(
+                        children: &lt;Widget&gt;[
+                          Text(
+                            &#39;At least 95% organic ingredients&#39;,
+                            style: Theme.of(context).textTheme.headline3,
                           ),
-                        ),
-                        Container(
-                          child: Column(
-                            children: &lt;Widget&gt;[
-                              Text(
-                                &#39;Absence d\&#39;OGM (traces &lt;0,9% éventuellement possibles)&#39;,
-                                style: Theme.of(context).textTheme.headline3,
-                              ),
-                              const Text(
-                                &#39;Absence d\&#39;OGM (possibilité de traces fortuites, accidentelles ou inévitables, dans la limite de 0,9 %)&#39;,
-                              )
-                            ],
-                          ),
-                        ),
-                        Container(
-                          child: Column(
-                            children: &lt;Widget&gt;[
-                              Text(
-                                &#39;Certifié par un organisme indépendant&#39;,
-                                style: Theme.of(context).textTheme.headline3,
-                              ),
-                              const Text(
-                                &#39;Certifié par un organisme agréé par les pouvoirs publics français et répondant aux critères d\&#39;indépendance, d\&#39;impartialité, de compétence et d\&#39;efficacité définis par la norme européenne EN 45011&#39;,
-                              )
-                            ],
-                          ),
-                        ),
-                        Container(
-                          child: Column(
-                            children: &lt;Widget&gt;[
-                              Text(
-                                &#39;Respect de la réglementation française&#39;,
-                                style: Theme.of(context).textTheme.headline3,
-                              ),
-                              const Text(
-                                  &#39;Respect de la réglementation en vigueur en France&#39;)
-                            ],
-                          ),
-                        )
-                      ],
-                      options: CarouselOptions(
-                        enlargeCenterPage: true,
-                        height: MediaQuery.of(context).size.height * 0.2,
-                        enableInfiniteScroll: false,
+                          const Text(
+                              &quot;Composé d&#39;au moins 95 % d&#39;ingrédients issus d&#39;un mode de production biologique&quot;)
+                        ],
                       ),
+                      Column(
+                        children: &lt;Widget&gt;[
+                          Text(
+                            &quot;Absence d&#39;OGM (traces &lt;0,9% éventuellement possibles)&quot;,
+                            style: Theme.of(context).textTheme.headline3,
+                          ),
+                          const Text(
+                            &quot;Absence d&#39;OGM (possibilité de traces fortuites, accidentelles ou inévitables, dans la limite de 0,9 %)&quot;,
+                          )
+                        ],
+                      ),
+                      Column(
+                        children: &lt;Widget&gt;[
+                          Text(
+                            &#39;Certifié par un organisme indépendant&#39;,
+                            style: Theme.of(context).textTheme.headline3,
+                          ),
+                          const Text(
+                            &quot;Certifié par un organisme agréé par les pouvoirs publics français et répondant aux critères d&#39;indépendance, d&#39;impartialité, de compétence et d&#39;efficacité définis par la norme européenne EN 45011&quot;,
+                          )
+                        ],
+                      ),
+                      Column(
+                        children: &lt;Widget&gt;[
+                          Text(
+                            &#39;Respect de la réglementation française&#39;,
+                            style: Theme.of(context).textTheme.headline3,
+                          ),
+                          const Text(
+                              &#39;Respect de la réglementation en vigueur en France&#39;)
+                        ],
+                      )
+                    ],
+                    options: CarouselOptions(
+                      enlargeCenterPage: true,
+                      height: MediaQuery.of(context).size.height * 0.2,
+                      enableInfiniteScroll: false,
                     ),
                   ),
                   Padding(

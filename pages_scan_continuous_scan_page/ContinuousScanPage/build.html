@@ -159,7 +159,7 @@ Widget build(BuildContext context) {
               ScanPage.getHero(screenSize),
               SmoothRevealAnimation(
                 delay: 400,
-                startOffset: const Offset(0.0, 0.0),
+                startOffset: Offset.zero,
                 animationCurve: Curves.easeInOutBack,
                 child: QRView(
                   key: _scannerViewKey,
@@ -187,12 +187,10 @@ Widget build(BuildContext context) {
                       ),
                     ),
                     Center(
-                      child: Container(
-                        child: SmoothViewFinder(
-                          width: screenSize.width * 0.8,
-                          height: screenSize.width * 0.4,
-                          animationDuration: 1500,
-                        ),
+                      child: SmoothViewFinder(
+                        width: screenSize.width * 0.8,
+                        height: screenSize.width * 0.4,
+                        animationDuration: 1500,
                       ),
                     ),
                     if (_continuousScanModel.isNotEmpty)

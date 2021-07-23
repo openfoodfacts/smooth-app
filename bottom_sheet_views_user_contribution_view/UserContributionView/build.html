@@ -108,7 +108,7 @@ and</li>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   return Material(
-    child: Container(
+    child: SizedBox(
       height: MediaQuery.of(context).size.height * 0.9,
       child: Stack(
         children: &lt;Widget&gt;[
@@ -116,7 +116,7 @@ Widget build(BuildContext context) {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.end,
             children: &lt;Widget&gt;[
-              Container(
+              SizedBox(
                 height: MediaQuery.of(context).size.height * 0.9,
                 child: ListView(
                   shrinkWrap: true,

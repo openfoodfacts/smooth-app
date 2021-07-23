@@ -56,8 +56,9 @@
 <li><span class="parameter" id="-param-useNewStyle"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">useNewStyle</span> = <span class="default-value">true</span>, </span></li>
 <li><span class="parameter" id="-param-backgroundColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">backgroundColor</span>, </span></li>
 <li><span class="parameter" id="-param-handle"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">handle</span>, </span></li>
-<li><span class="parameter" id="-param-onLongPress"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Function-class.html">Function</a>?</span> <span class="parameter-name">onLongPress</span>, </span></li>
-<li><span class="parameter" id="-param-refresh"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Function-class.html">Function</a>?</span> <span class="parameter-name">refresh</span>}</span></li>
+<li><span class="parameter" id="-param-onLongPress"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">onLongPress</span>, </span></li>
+<li><span class="parameter" id="-param-refresh"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">refresh</span>, </span></li>
+<li><span class="parameter" id="-param-key"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>}</span></li>
 </ol>)
     </section>
 
@@ -76,7 +77,8 @@
   this.handle,
   this.onLongPress,
   this.refresh,
-});</code></pre>
+  Key? key,
+}) : super(key: key);</code></pre>
 </section>
 
 

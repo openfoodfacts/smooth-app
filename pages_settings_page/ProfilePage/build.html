@@ -133,14 +133,14 @@ Widget build(BuildContext context) {
               color: Colors.black,
             ),
             onChanged: (bool newValue) async =&gt;
-                await themeProvider.setDarkTheme(newValue),
+                themeProvider.setDarkTheme(newValue),
           ),
         ),
 
         &#47;&#47;Configure Preferences
         SmoothListTile(
           text: appLocalizations.configurePreferences,
-          onPressed: () async =&gt; await Navigator.push&lt;Widget&gt;(
+          onPressed: () async =&gt; Navigator.push&lt;Widget&gt;(
             context,
             MaterialPageRoute&lt;Widget&gt;(
               builder: (BuildContext context) =&gt; const UserPreferencesPage(),
@@ -213,22 +213,23 @@ Widget build(BuildContext context) {
                                   child: CircularProgressIndicator());
                             }
 
-                            if (!snapshot.hasData || snapshot.data == null)
+                            if (!snapshot.hasData || snapshot.data == null) {
                               return Center(
                                   child: Text(
                                 &#39;${appLocalizations.error} #1&#39;,
                               ));
+                            }
 
                             return Column(
                               children: &lt;Widget&gt;[
                                 ListTile(
                                   leading: const Icon(Icons.no_sim_outlined),
                                   title: Text(
-                                    snapshot.data!.appName.toString(),
+                                    snapshot.data!.appName,
                                     style: themeData.textTheme.headline1,
                                   ),
                                   subtitle: Text(
-                                    snapshot.data!.version.toString(),
+                                    snapshot.data!.version,
                                     style: themeData.textTheme.subtitle2,
                                   ),
                                 ),

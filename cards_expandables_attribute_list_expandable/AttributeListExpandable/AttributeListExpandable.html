@@ -58,7 +58,8 @@
 <li><span class="parameter" id="-param-background"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">background</span>, </span></li>
 <li><span class="parameter" id="-param-padding"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/EdgeInsets-class.html">EdgeInsets</a>?</span> <span class="parameter-name">padding</span>, </span></li>
 <li><span class="parameter" id="-param-insets"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/EdgeInsets-class.html">EdgeInsets</a>?</span> <span class="parameter-name">insets</span>, </span></li>
-<li><span class="parameter" id="-param-initiallyCollapsed"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">initiallyCollapsed</span> = <span class="default-value">true</span>}</span></li>
+<li><span class="parameter" id="-param-initiallyCollapsed"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">initiallyCollapsed</span> = <span class="default-value">true</span>, </span></li>
+<li><span class="parameter" id="-param-key"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>}</span></li>
 </ol>)
     </section>
 
@@ -78,7 +79,8 @@
   this.padding,
   this.insets,
   this.initiallyCollapsed = true,
-});</code></pre>
+  Key? key,
+}) : super(key: key);</code></pre>
 </section>
 
 
