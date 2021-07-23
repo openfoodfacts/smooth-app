@@ -1,0 +1,35 @@
+name: SmoothApp Presubmit Tests
+
+on: pull_request
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: "Checkout code"
+        uses: actions/checkout@v1
+
+      # Setup flutter 
+      - name: "Setup Flutter"
+        uses: subosito/flutter-action@v1
+        with:
+          channel: 'stable' 
+      
+      # Get dependencies.
+      - name: "Get dependencies"
+        run: ci/pub_upgrade.sh
+      
+      # Check for formatting issues
+      - name: Check for formatting issues (run "flutter format . ")
+        run: flutter format --set-exit-if-changed .
+      
+      # analyze Dart for errors
+      - name: "Analyze code"
+        run: flutter analyze .
+      
+      # Run tests
+      - name: "Run Tests"
+        run: ci/testing.sh

@@ -64,8 +64,7 @@ class ContinuousScanModel with ChangeNotifier {
     return null;
   }
 
-  Future<void> refreshProductList() async =>
-      _daoProductList.get(_productList);
+  Future<void> refreshProductList() async => _daoProductList.get(_productList);
 
   void setBarcodeState(
     final String barcode,

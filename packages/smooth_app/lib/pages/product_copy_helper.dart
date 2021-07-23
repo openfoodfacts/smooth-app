@@ -98,7 +98,9 @@ class ProductCopyHelper {
             Navigator.pop(context);
             Navigator.push<Widget>(
               context,
-              MaterialPageRoute<Widget>(builder: (BuildContext context) => ProductListPage(productList)),
+              MaterialPageRoute<Widget>(
+                  builder: (BuildContext context) =>
+                      ProductListPage(productList)),
             );
           },
         ),
