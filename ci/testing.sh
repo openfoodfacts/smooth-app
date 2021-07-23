@@ -5,9 +5,9 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
 REPO_DIR="$(dirname "$SCRIPT_DIR")"
 
-if [[ -n "$CIRRUS_CI" ]]; then
+if [[ -n "$CI" ]]; then
   echo "Updating PATH."
-  export PATH="$FLUTTER_DIR/bin:$FLUTTER_DIR/bin/cache/dart-sdk/bin:$PATH"
+  export PATH="$FLUTTER_ROOT/bin:$FLUTTER_ROOT/bin/cache/dart-sdk/bin:$PATH"
 else
   echo "Updating packages."
   "$SCRIPT_DIR/pub_upgrade.sh"

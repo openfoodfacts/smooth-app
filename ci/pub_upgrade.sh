@@ -6,8 +6,8 @@
 # A script that will run pub upgrade for each package in the repo.
 set -e
 
-if [[ -n '$CIRRUS_CI' ]]; then
-  export PATH="$FLUTTER_DIR/bin:$FLUTTER_DIR/bin/cache/dart-sdk/bin:$PATH"
+if [[ -n '$CI' ]]; then
+  export PATH="$FLUTTER_ROOT/bin:$FLUTTER_ROOT/bin/cache/dart-sdk/bin:$PATH"
 fi
 
 # So that users can run this script from anywhere and it will work as expected.

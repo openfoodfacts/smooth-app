@@ -1,10 +1,6 @@
-name: Flutter Tests and test build
+name: SmoothApp Post-Submit Tests
 
-
-#on: pull_request
-    
-on: push    # Default will running for every branch.
-
+on: push
     
 jobs:
   build:
@@ -63,5 +59,3 @@ jobs:
         with:
           name: release-apk
           path: packages/smooth_app/build/app/outputs/flutter-apk/app-debug.apk
-      
-
