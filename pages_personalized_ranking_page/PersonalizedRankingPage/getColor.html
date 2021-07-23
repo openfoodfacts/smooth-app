@@ -46,15 +46,16 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-method">getColor</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
       
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a></span>
-<span class="name ">getColor</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getColor-param-colorScheme">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/material/ColorScheme-class.html">ColorScheme</a></span> <span class="parameter-name">colorScheme</span>, </span></li>
-<li><span class="parameter" id="getColor-param-matchIndex"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">matchIndex</span>, </span></li>
-<li><span class="parameter" id="getColor-param-colorDestination"><span class="type-annotation"><a href="../../themes_smooth_theme/ColorDestination-class.html">ColorDestination</a></span> <span class="parameter-name">colorDestination</span>}</span></li>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span>
+<span class="name ">getColor</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getColor-param-colorScheme">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/material/ColorScheme-class.html">ColorScheme</a></span> <span class="parameter-name">colorScheme</span>, </span></li>
+<li><span class="parameter" id="getColor-param-matchIndex"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">matchIndex</span>, </span></li>
+<li><span class="parameter" id="getColor-param-colorDestination"><span>required</span> <span class="type-annotation"><a href="../../themes_smooth_theme/ColorDestination-class.html">ColorDestination</a></span> <span class="parameter-name">colorDestination</span>}</span></li>
 </ol>)
 
       
@@ -66,16 +67,16 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static Color getColor({
-  final ColorScheme colorScheme,
-  final int matchIndex,
-  final ColorDestination colorDestination,
+  <pre class="language-dart"><code class="language-dart">static Color? getColor({
+  required final ColorScheme colorScheme,
+  final int? matchIndex,
+  required final ColorDestination colorDestination,
 }) =&gt;
     _COLORS[matchIndex] == null
         ? null
         : SmoothTheme.getColor(
             colorScheme,
-            _COLORS[matchIndex],
+            _COLORS[matchIndex]!,
             colorDestination,
           );</code></pre>
 </section>

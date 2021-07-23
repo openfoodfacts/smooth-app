@@ -46,6 +46,7 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-method">build</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
@@ -108,30 +109,30 @@ and</li>
 Widget build(BuildContext context) {
   final ColorScheme colorScheme = Theme.of(context).colorScheme;
   final String importanceId =
-      productPreferences.getImportanceIdForAttributeId(attribute.id);
+      productPreferences.getImportanceIdForAttributeId(attribute.id!);
   final ThemeProvider themeProvider = context.watch&lt;ThemeProvider&gt;();
   final MaterialColor materialColor =
       SmoothTheme.getMaterialColor(themeProvider);
-  final Color strongBackgroundColor = SmoothTheme.getColor(
+  final Color? strongBackgroundColor = SmoothTheme.getColor(
     colorScheme,
     materialColor,
     ColorDestination.SURFACE_BACKGROUND,
   );
-  final Color strongForegroundColor = SmoothTheme.getColor(
+  final Color? strongForegroundColor = SmoothTheme.getColor(
     colorScheme,
     materialColor,
     ColorDestination.SURFACE_FOREGROUND,
   );
-  final Color foregroundColor =
-      _getForegroundColor(strongForegroundColor, importanceId);
+  final Color? foregroundColor =
+      _getForegroundColor(strongForegroundColor!, importanceId);
   return ListTile(
-    tileColor: _getBackgroundColor(strongBackgroundColor, importanceId),
-    title: Text(attribute.name, style: TextStyle(color: foregroundColor)),
+    tileColor: _getBackgroundColor(strongBackgroundColor!, importanceId),
+    title: Text(attribute.name!, style: TextStyle(color: foregroundColor)),
     leading: SvgCache(attribute.iconUrl, width: 40),
     trailing: _getIcon(importanceId, foregroundColor),
     onTap: () async =&gt; onTap(
       context: context,
-      attributeId: attribute.id,
+      attributeId: attribute.id!,
       productPreferences: productPreferences,
       themeProvider: themeProvider,
     ),

@@ -46,6 +46,7 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-method">build</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
@@ -106,26 +107,20 @@ and</li>
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) =&gt; FutureBuilder&lt;List&lt;Product&gt;&gt;(
-      future: daoProductList.getFirstProducts(
-        productList,
-        nbInPreview,
-        true,
-        true,
-      ),
+      future: daoProductList.getFirstProducts(productList, nbInPreview),
       builder: (
         final BuildContext context,
         final AsyncSnapshot&lt;List&lt;Product&gt;&gt; snapshot,
       ) {
         final String title =
             ProductQueryPageHelper.getProductListLabel(productList, context);
-        if (snapshot.connectionState == ConnectionState.done) {
-          final List&lt;Product&gt; list = snapshot.data;
+        if (snapshot.connectionState == ConnectionState.done &amp;&amp;
+            snapshot.data != null) {
+          final List&lt;Product&gt; list = snapshot.data!;
 
           String subtitle;
           final double iconSize = MediaQuery.of(context).size.width &#47; 6;
-          if (list == null || list.isEmpty) {
-            subtitle = AppLocalizations.of(context).empty_list;
-          }
+          subtitle = AppLocalizations.of(context)!.empty_list;
           return SmoothCard(
             child: Column(
               children: &lt;Widget&gt;[
@@ -139,13 +134,16 @@ Widget build(BuildContext context) =&gt; FutureBuilder&lt;List&lt;Product&gt;&gt
                             ProductListPage(productList),
                       ),
                     );
+                    if (andThen != null) {
+                      andThen!();
+                    }
                   },
                   leading: productList.getIcon(
                     Theme.of(context).colorScheme,
                     ColorDestination.SURFACE_FOREGROUND,
                   ),
                   trailing: const Icon(Icons.arrow_forward),
-                  subtitle: subtitle == null ? null : Text(subtitle),
+                  subtitle: Text(subtitle),
                   title: Text(
                     title,
                     style: Theme.of(context).textTheme.subtitle2,
@@ -164,7 +162,7 @@ Widget build(BuildContext context) =&gt; FutureBuilder&lt;List&lt;Product&gt;&gt
             leading: const CircularProgressIndicator(),
             subtitle: Text(title),
             title: Text(
-              AppLocalizations.of(context).searching,
+              AppLocalizations.of(context)!.searching,
               style: Theme.of(context).textTheme.subtitle2,
             ),
           ),
@@ -201,6 +199,7 @@ Widget build(BuildContext context) =&gt; FutureBuilder&lt;List&lt;Product&gt;&gt
     <li class="section-title">
       <a href="../../cards_product_cards_product_list_preview/ProductListPreview-class.html#instance-properties">Properties</a>
     </li>
+    <li><a href="../../cards_product_cards_product_list_preview/ProductListPreview/andThen.html">andThen</a></li>
     <li><a href="../../cards_product_cards_product_list_preview/ProductListPreview/daoProductList.html">daoProductList</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/hashCode.html">hashCode</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/key.html">key</a></li>

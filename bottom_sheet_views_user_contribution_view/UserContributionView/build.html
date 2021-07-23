@@ -46,6 +46,7 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-method">build</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
@@ -118,7 +119,6 @@ Widget build(BuildContext context) {
               Container(
                 height: MediaQuery.of(context).size.height * 0.9,
                 child: ListView(
-                  controller: _scrollController,
                   shrinkWrap: true,
                   scrollDirection: Axis.vertical,
                   children: &lt;Widget&gt;[
@@ -126,7 +126,7 @@ Widget build(BuildContext context) {
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       margin: const EdgeInsets.only(top: 20.0, bottom: 24.0),
                       child: Text(
-                        AppLocalizations.of(context).contribute,
+                        AppLocalizations.of(context)!.contribute,
                         style: Theme.of(context).textTheme.headline1,
                       ),
                     ),
@@ -135,27 +135,27 @@ Widget build(BuildContext context) {
                       children: &lt;SmoothListTile&gt;[
                         &#47;&#47;Contribute
                         SmoothListTile(
-                            text: AppLocalizations.of(context)
+                            text: AppLocalizations.of(context)!
                                 .contribute_improve_header,
                             onPressed: () =&gt; _contribute(context)),
 
                         &#47;&#47;Develop
                         SmoothListTile(
-                          text:
-                              AppLocalizations.of(context).contribute_develop,
+                          text: AppLocalizations.of(context)!
+                              .contribute_develop,
                           onPressed: () =&gt; _develop(context),
                         ),
 
                         &#47;&#47;Translate
                         SmoothListTile(
-                          text: AppLocalizations.of(context)
+                          text: AppLocalizations.of(context)!
                               .contribute_translate_header,
                           onPressed: () =&gt; _translate(context),
                         ),
 
                         &#47;&#47;Donate
                         SmoothListTile(
-                          text: AppLocalizations.of(context)
+                          text: AppLocalizations.of(context)!
                               .contribute_donate_header,
                           onPressed: () =&gt; _donate(context),
                         ),
@@ -204,7 +204,6 @@ Widget build(BuildContext context) {
     <li class="section-title">
       <a href="../../bottom_sheet_views_user_contribution_view/UserContributionView-class.html#instance-properties">Properties</a>
     </li>
-    <li><a href="../../bottom_sheet_views_user_contribution_view/UserContributionView/callback.html">callback</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/hashCode.html">hashCode</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/key.html">key</a></li>
     <li><a href="../../bottom_sheet_views_user_contribution_view/UserContributionView/launcher.html">launcher</a></li>

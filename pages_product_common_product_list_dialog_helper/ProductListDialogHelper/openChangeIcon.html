@@ -46,6 +46,7 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-method">openChangeIcon</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
@@ -73,52 +74,53 @@
 ) async {
   final List&lt;String&gt; orderedIcons = productList.getPossibleIcons();
   final double size = MediaQuery.of(context).size.width &#47; 8;
-  final AppLocalizations appLocalizations = AppLocalizations.of(context);
+  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
   return await showDialog&lt;bool&gt;(
-    context: context,
-    builder: (BuildContext context) =&gt; SmoothAlertDialog(
-      close: false,
-      title: appLocalizations.change_icon,
-      body: Container(
-        width: ProductList.ORDERED_COLORS.length.toDouble() * size,
-        height: orderedIcons.length.toDouble() * size,
-        child: GridView.count(
-          crossAxisCount: 5,
-          childAspectRatio: 1,
-          children: List&lt;Widget&gt;.generate(
-            ProductList.ORDERED_COLORS.length * orderedIcons.length,
-            (final int index) {
-              final String colorTag = ProductList
-                  .ORDERED_COLORS[index % ProductList.ORDERED_COLORS.length];
-              final String iconTag =
-                  orderedIcons[index ~&#47; ProductList.ORDERED_COLORS.length];
-              return IconButton(
-                icon: ProductList.getReferenceIcon(
-                  colorScheme: Theme.of(context).colorScheme,
-                  colorTag: colorTag,
-                  iconTag: iconTag,
-                  colorDestination: ColorDestination.SURFACE_FOREGROUND,
-                ),
-                onPressed: () async {
-                  productList.colorTag = colorTag;
-                  productList.iconTag = iconTag;
-                  await daoProductList.put(productList);
-                  Navigator.pop(context, true);
+        context: context,
+        builder: (BuildContext context) =&gt; SmoothAlertDialog(
+          close: false,
+          title: appLocalizations.change_icon,
+          body: Container(
+            width: ProductList.ORDERED_COLORS.length.toDouble() * size,
+            height: orderedIcons.length.toDouble() * size,
+            child: GridView.count(
+              crossAxisCount: 5,
+              childAspectRatio: 1,
+              children: List&lt;Widget&gt;.generate(
+                ProductList.ORDERED_COLORS.length * orderedIcons.length,
+                (final int index) {
+                  final String colorTag = ProductList.ORDERED_COLORS[
+                      index % ProductList.ORDERED_COLORS.length];
+                  final String iconTag = orderedIcons[
+                      index ~&#47; ProductList.ORDERED_COLORS.length];
+                  return IconButton(
+                    icon: ProductList.getReferenceIcon(
+                      colorScheme: Theme.of(context).colorScheme,
+                      colorTag: colorTag,
+                      iconTag: iconTag,
+                      colorDestination: ColorDestination.SURFACE_FOREGROUND,
+                    ),
+                    onPressed: () async {
+                      productList.colorTag = colorTag;
+                      productList.iconTag = iconTag;
+                      await daoProductList.put(productList);
+                      Navigator.pop(context, true);
+                    },
+                  );
                 },
-              );
-            },
+              ),
+            ),
           ),
+          actions: &lt;SmoothSimpleButton&gt;[
+            SmoothSimpleButton(
+              text: appLocalizations.cancel,
+              onPressed: () =&gt; Navigator.pop(context, false),
+              important: false,
+            ),
+          ],
         ),
-      ),
-      actions: &lt;SmoothSimpleButton&gt;[
-        SmoothSimpleButton(
-          text: appLocalizations.cancel,
-          onPressed: () =&gt; Navigator.pop(context, false),
-          important: false,
-        ),
-      ],
-    ),
-  );
+      ) ??
+      false;
 }</code></pre>
 </section>
 

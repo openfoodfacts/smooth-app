@@ -46,6 +46,7 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-method">build</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
@@ -127,14 +128,14 @@ Widget build(BuildContext context) {
   }
   String productTitle;
   if (product.productName != null) {
-    productTitle = product.productName;
+    productTitle = product.productName!;
     if (product.brands != null) {
-      productTitle += &#39; - &#39; + product.brands;
+      productTitle += &#39; - &#39; + product.brands!;
     }
   } else if (product.brands != null) {
-    productTitle = product.brands;
+    productTitle = product.brands!;
   } else {
-    productTitle = product.barcode;
+    productTitle = product.barcode!;
   }
   return GestureDetector(
     onTap: () async {
@@ -145,10 +146,14 @@ Widget build(BuildContext context) {
         ),
       );
       if (refresh != null) {
-        await refresh();
+        await refresh!();
       }
     },
-    onLongPress: () =&gt; onLongPress == null ? null : onLongPress(),
+    onLongPress: () {
+      if (onLongPress != null) {
+        onLongPress!();
+      }
+    },
     child: Hero(
       tag: heroTag,
       child: Material(
@@ -196,7 +201,7 @@ Widget build(BuildContext context) {
                                   overflow: TextOverflow.fade,
                                 ),
                               ),
-                              if (handle != null) handle,
+                              if (handle != null) handle!,
                             ],
                           ),
                           Container(

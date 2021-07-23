@@ -46,6 +46,7 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-method">build</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
@@ -123,7 +124,7 @@ Widget build(BuildContext context) {
       InkWell(
         onTap: () async =&gt; AttributeButton.onTap(
           context: context,
-          attributeId: attribute.id,
+          attributeId: attribute.id!, &#47;&#47;Can cause errors
           productPreferences: productPreferences,
           themeProvider: themeProvider,
         ),
@@ -143,7 +144,7 @@ Widget build(BuildContext context) {
       InkWell(
         onTap: () async =&gt; AttributeButton.onTap(
           context: context,
-          attributeId: attribute.id,
+          attributeId: attribute.id!, &#47;&#47;Can cause errors
           productPreferences: productPreferences,
           themeProvider: themeProvider,
         ),
@@ -155,7 +156,11 @@ Widget build(BuildContext context) {
               color: color,
               borderRadius: const BorderRadius.all(Radius.circular(16)),
             ),
-            child: AttributeCard(attribute, chip),
+            child: AttributeCard(
+              attribute,
+              chip,
+              barcode: product.barcode,
+            ),
           ),
         ),
       ),
@@ -202,7 +207,7 @@ Widget build(BuildContext context) {
       ),
     ),
     child: content,
-    expandedHeader: title == null ? null : header,
+    expandedHeader: header,
   );
 }</code></pre>
 </section>

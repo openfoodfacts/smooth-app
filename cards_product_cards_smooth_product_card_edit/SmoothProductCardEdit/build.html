@@ -46,6 +46,7 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-method">build</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
@@ -112,9 +113,10 @@ Widget build(BuildContext context) {
       Navigator.push&lt;Widget&gt;(
         context,
         MaterialPageRoute&lt;Widget&gt;(
-            builder: (BuildContext context) =&gt; ProductPage(
-                  product: product,
-                )),
+          builder: (BuildContext context) =&gt; ProductPage(
+            product: product,
+          ),
+        ),
       );
     },
     child: Hero(
@@ -134,7 +136,7 @@ Widget build(BuildContext context) {
               children: &lt;Widget&gt;[
                 Flexible(
                   child: Text(
-                    product.productName,
+                    product.productName ?? &#39;Unknown&#39;,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.headline4,

@@ -46,6 +46,7 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-method">launchURL</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
@@ -80,21 +81,18 @@ YES https://   openfoodfacts.org/...
 
   if (isOFF) {
     &#47;&#47;Get countrycode
-
     final Locale locale = Localizations.localeOf(context);
-    if (locale.countryCode.toString() == null) {
+    if (locale.countryCode == null) {
       localeString = &#39;world.&#39;;
     } else {
       localeString = &#39;${locale.countryCode.toString()}.&#39;;
     }
-    print(&#39;locale = $localeString&#39;);
 
     &#47;&#47;Check + Add to url
     if (!url.contains(&#39;https:&#47;&#47;openfoodfacts&#39;)) {
       throw &#39;Error do not use local identifier&#39;;
     }
-    print(&#39;url1 $url&#39;);
-    &#47;&#47;url.replaceAll(from, replace)
+
     openURL = url.replaceAll(&#39;https:&#47;&#47;openfoodfacts.org&#47;&#39;,
         &#39;https:&#47;&#47;${localeString}openfoodfacts.org&#47;&#39;);
   } else {
@@ -102,6 +100,7 @@ YES https://   openfoodfacts.org/...
   }
 
   if (await canLaunch(openURL)) {
+    print(&#39;Open url: $url&#39;);
     await launch(openURL);
   } else {
     throw &#39;Could not launch $url&#39;;

@@ -46,6 +46,7 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-method">onSubmitted</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
@@ -78,7 +79,7 @@
       localDatabase: localDatabase,
       refresh: false,
     );
-    final Product product = await productDialogHelper.openBestChoice();
+    final Product? product = await productDialogHelper.openBestChoice();
     if (product == null) {
       productDialogHelper.openProductNotFoundDialog();
       return;

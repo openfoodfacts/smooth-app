@@ -46,6 +46,7 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-method">build</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
@@ -107,26 +108,26 @@ and</li>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   final ColorScheme colorScheme = Theme.of(context).colorScheme;
-  final Color foregroundColor = materialColor == null
+  final Color? foregroundColor = materialColor == null
       ? null
       : SmoothTheme.getColor(
           colorScheme,
-          materialColor,
+          materialColor!,
           ColorDestination.BUTTON_FOREGROUND,
         );
-  final Color backgroundColor = materialColor == null
+  final Color? backgroundColor = materialColor == null
       ? null
       : SmoothTheme.getColor(
           colorScheme,
-          materialColor,
+          materialColor!,
           ColorDestination.BUTTON_BACKGROUND,
         );
-  final Widget text = label == null
+  final Widget? text = label == null
       ? null
-      : Text(label, style: TextStyle(color: foregroundColor));
+      : Text(label!, style: TextStyle(color: foregroundColor));
   final ButtonStyle buttonStyle =
       ElevatedButton.styleFrom(primary: backgroundColor, shape: shape);
-  final Icon icon =
+  final Icon? icon =
       iconData == null ? null : Icon(iconData, color: foregroundColor);
   if (text == null) {
     return ElevatedButton(

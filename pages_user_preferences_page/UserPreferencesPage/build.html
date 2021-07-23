@@ -46,6 +46,7 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-method">build</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
@@ -109,12 +110,12 @@ Widget build(BuildContext context) {
   final UserPreferences userPreferences = context.watch&lt;UserPreferences&gt;();
   final ProductPreferences productPreferences =
       context.watch&lt;ProductPreferences&gt;();
-  final List&lt;AttributeGroup&gt; groups = productPreferences.attributeGroups;
+  final List&lt;AttributeGroup&gt;? groups = productPreferences.attributeGroups;
   final List&lt;String&gt; orderedImportantAttributeIds =
       productPreferences.getOrderedImportantAttributeIds();
   return Scaffold(
     appBar: AppBar(
-      title: Text(AppLocalizations.of(context).myPreferences),
+      title: Text(AppLocalizations.of(context)!.myPreferences),
       actions: &lt;Widget&gt;[
         IconButton(
           icon: const Icon(Icons.refresh),
@@ -126,7 +127,7 @@ Widget build(BuildContext context) {
     ),
     body: ListView(
       children: List&lt;Widget&gt;.generate(
-        groups.length,
+        groups!.length,
         (int index) =&gt; _generateGroup(
           context,
           groups[index],

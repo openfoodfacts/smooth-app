@@ -46,6 +46,7 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-method">getBestSupplier</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
@@ -72,7 +73,7 @@
   final ProductQuery productQuery,
   final LocalDatabase localDatabase,
 ) async {
-  final int timestamp = await DaoProductList(localDatabase).getTimestamp(
+  final int? timestamp = await DaoProductList(localDatabase).getTimestamp(
     productQuery.getProductList(),
   );
   return timestamp == null

@@ -46,12 +46,13 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-method">load</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
       
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../data_models_continuous_scan_model/ContinuousScanModel-class.html">ContinuousScanModel</a></span>&gt;</span></span>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../data_models_continuous_scan_model/ContinuousScanModel-class.html">ContinuousScanModel</a>?</span>&gt;</span></span>
 <span class="name ">load</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="load-param-localDatabase"><span class="type-annotation"><a href="../../database_local_database/LocalDatabase-class.html">LocalDatabase</a></span> <span class="parameter-name">localDatabase</span></span></li>
 </ol>)
 
@@ -64,7 +65,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;ContinuousScanModel&gt; load(final LocalDatabase localDatabase) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;ContinuousScanModel?&gt; load(final LocalDatabase localDatabase) async {
   try {
     _daoProduct = DaoProduct(localDatabase);
     _daoProductList = DaoProductList(localDatabase);

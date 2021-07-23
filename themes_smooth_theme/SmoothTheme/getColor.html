@@ -46,12 +46,13 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-method">getColor</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
       
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a></span>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span>
 <span class="name ">getColor</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getColor-param-colorScheme"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/material/ColorScheme-class.html">ColorScheme</a></span> <span class="parameter-name">colorScheme</span>, </span></li>
 <li><span class="parameter" id="getColor-param-materialColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/material/MaterialColor-class.html">MaterialColor</a></span> <span class="parameter-name">materialColor</span>, </span></li>
 <li><span class="parameter" id="getColor-param-colorDestination"><span class="type-annotation"><a href="../../themes_smooth_theme/ColorDestination-class.html">ColorDestination</a></span> <span class="parameter-name">colorDestination</span></span></li>
@@ -74,7 +75,7 @@ For the moment, the ColorScheme matters only for the light/dark switch.</p>
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static Color getColor(
+  <pre class="language-dart"><code class="language-dart">static Color? getColor(
   final ColorScheme colorScheme,
   final MaterialColor materialColor,
   final ColorDestination colorDestination,
@@ -84,11 +85,11 @@ For the moment, the ColorScheme matters only for the light/dark switch.</p>
       case ColorDestination.APP_BAR_BACKGROUND:
       case ColorDestination.SURFACE_FOREGROUND:
       case ColorDestination.BUTTON_BACKGROUND:
-        return materialColor[800];
+        return materialColor[800]!;
       case ColorDestination.APP_BAR_FOREGROUND:
       case ColorDestination.SURFACE_BACKGROUND:
       case ColorDestination.BUTTON_FOREGROUND:
-        return materialColor[100];
+        return materialColor[100]!;
     }
   }
   switch (colorDestination) {
@@ -96,16 +97,12 @@ For the moment, the ColorScheme matters only for the light/dark switch.</p>
       return null;
     case ColorDestination.SURFACE_BACKGROUND:
     case ColorDestination.BUTTON_BACKGROUND:
-      return materialColor[900].withOpacity(ADDITIONAL_OPACITY_FOR_DARK);
+      return materialColor[900]!.withOpacity(ADDITIONAL_OPACITY_FOR_DARK);
     case ColorDestination.APP_BAR_FOREGROUND:
     case ColorDestination.SURFACE_FOREGROUND:
     case ColorDestination.BUTTON_FOREGROUND:
-      return materialColor[100];
+      return materialColor[100]!;
   }
-  throw Exception(
-    &#39;unknown brightness &#47; destination:&#39;
-    &#39; ${colorScheme.brightness} &#47; $colorDestination&#39;,
-  );
 }</code></pre>
 </section>
 

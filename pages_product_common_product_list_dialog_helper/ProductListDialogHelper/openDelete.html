@@ -46,6 +46,7 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-method">openDelete</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
@@ -75,15 +76,15 @@
       context: context,
       builder: (BuildContext context) =&gt; SmoothAlertDialog(
         close: false,
-        body: Text(AppLocalizations.of(context).want_to_delete_list),
+        body: Text(AppLocalizations.of(context)!.want_to_delete_list),
         actions: &lt;SmoothSimpleButton&gt;[
           SmoothSimpleButton(
-            text: AppLocalizations.of(context).no,
+            text: AppLocalizations.of(context)!.no,
             important: false,
             onPressed: () =&gt; Navigator.pop(context, false),
           ),
           SmoothSimpleButton(
-            text: AppLocalizations.of(context).yes,
+            text: AppLocalizations.of(context)!.yes,
             important: true,
             onPressed: () async {
               await daoProductList.delete(productList);
@@ -92,7 +93,8 @@
           ),
         ],
       ),
-    );</code></pre>
+    ) ??
+    false;</code></pre>
 </section>
 
 

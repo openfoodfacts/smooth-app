@@ -45,6 +45,7 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-class">ProductQueryPageHelper</span> class 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
  
 </h1></div>
 
@@ -111,7 +112,7 @@
 </dd>
 
         <dt id="openBestChoice" class="callable">
-  <span class="name"><a href="../pages_product_common_product_query_page_helper/ProductQueryPageHelper/openBestChoice.html">openBestChoice</a></span><span class="signature">(<wbr><span class="parameter" id="openBestChoice-param-productQuery">{<span class="type-annotation"><a href="../database_product_query/ProductQuery-class.html">ProductQuery</a></span> <span class="parameter-name">productQuery</span>, </span><span class="parameter" id="openBestChoice-param-localDatabase"><span class="type-annotation"><a href="../database_local_database/LocalDatabase-class.html">LocalDatabase</a></span> <span class="parameter-name">localDatabase</span>, </span><span class="parameter" id="openBestChoice-param-color"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a></span> <span class="parameter-name">color</span>, </span><span class="parameter" id="openBestChoice-param-heroTag"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">heroTag</span>, </span><span class="parameter" id="openBestChoice-param-name"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span>, </span><span class="parameter" id="openBestChoice-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>}</span>)
+  <span class="name"><a href="../pages_product_common_product_query_page_helper/ProductQueryPageHelper/openBestChoice.html">openBestChoice</a></span><span class="signature">(<wbr><span class="parameter" id="openBestChoice-param-productQuery">{<span>required</span> <span class="type-annotation"><a href="../database_product_query/ProductQuery-class.html">ProductQuery</a></span> <span class="parameter-name">productQuery</span>, </span><span class="parameter" id="openBestChoice-param-localDatabase"><span>required</span> <span class="type-annotation"><a href="../database_local_database/LocalDatabase-class.html">LocalDatabase</a></span> <span class="parameter-name">localDatabase</span>, </span><span class="parameter" id="openBestChoice-param-color"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a></span> <span class="parameter-name">color</span>, </span><span class="parameter" id="openBestChoice-param-heroTag"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">heroTag</span>, </span><span class="parameter" id="openBestChoice-param-name"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span>, </span><span class="parameter" id="openBestChoice-param-context"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>}</span>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
   </span>
   
@@ -162,6 +163,19 @@
     <section class="summary offset-anchor" id="static-methods">
       <h2>Static Methods</h2>
       <dl class="callables">
+        <dt id="getCreateListLabel" class="callable">
+  <span class="name"><a href="../pages_product_common_product_query_page_helper/ProductQueryPageHelper/getCreateListLabel.html">getCreateListLabel</a></span><span class="signature">(<wbr><span class="parameter" id="getCreateListLabel-param-productListType"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">productListType</span>, </span><span class="parameter" id="getCreateListLabel-param-appLocalizations"><span class="type-annotation">dynamic</span> <span class="parameter-name">appLocalizations</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the label for an "add button" with this <code>productListType</code> 
+  
+
+</dd>
+
         <dt id="getDurationStringFromSeconds" class="callable">
   <span class="name"><a href="../pages_product_common_product_query_page_helper/ProductQueryPageHelper/getDurationStringFromSeconds.html">getDurationStringFromSeconds</a></span><span class="signature">(<wbr><span class="parameter" id="getDurationStringFromSeconds-param-seconds"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">seconds</span>, </span><span class="parameter" id="getDurationStringFromSeconds-param-appLocalizations"><span class="type-annotation">dynamic</span> <span class="parameter-name">appLocalizations</span></span>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
@@ -210,6 +224,19 @@
 </dt>
 <dd>
    
+  
+
+</dd>
+
+        <dt id="getShape" class="callable">
+  <span class="name"><a href="../pages_product_common_product_query_page_helper/ProductQueryPageHelper/getShape.html">getShape</a></span><span class="signature">(<wbr><span class="parameter" id="getShape-param-productListType"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">productListType</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/painting/OutlinedBorder-class.html">OutlinedBorder</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the shape for a product list button with this <code>productListType</code> 
   
 
 </dd>
@@ -274,10 +301,12 @@
 
 
     <li class="section-title"><a href="../pages_product_common_product_query_page_helper/ProductQueryPageHelper-class.html#static-methods">Static methods</a></li>
+    <li><a href="../pages_product_common_product_query_page_helper/ProductQueryPageHelper/getCreateListLabel.html">getCreateListLabel</a></li>
     <li><a href="../pages_product_common_product_query_page_helper/ProductQueryPageHelper/getDurationStringFromSeconds.html">getDurationStringFromSeconds</a></li>
     <li><a href="../pages_product_common_product_query_page_helper/ProductQueryPageHelper/getDurationStringFromTimestamp.html">getDurationStringFromTimestamp</a></li>
     <li><a href="../pages_product_common_product_query_page_helper/ProductQueryPageHelper/getProductCount.html">getProductCount</a></li>
     <li><a href="../pages_product_common_product_query_page_helper/ProductQueryPageHelper/getProductListLabel.html">getProductListLabel</a></li>
+    <li><a href="../pages_product_common_product_query_page_helper/ProductQueryPageHelper/getShape.html">getShape</a></li>
 
 </ol>
 

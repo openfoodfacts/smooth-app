@@ -46,6 +46,7 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-method">build</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
@@ -113,27 +114,28 @@ Widget build(BuildContext context) {
       child: Hero(
         tag: heroTag,
         child: Container(
-            height: 60.0,
-            decoration: BoxDecoration(
-              color: color.withAlpha(32),
-              borderRadius: const BorderRadius.all(Radius.circular(20.0)),
-            ),
-            padding: const EdgeInsets.all(10.0),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: &lt;Widget&gt;[
-                Text(title,
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline4
-                        .copyWith(color: color)),
-                SvgPicture.asset(
-                  &#39;assets&#47;misc&#47;right_arrow.svg&#39;,
-                  color: color,
-                ),
-              ],
-            )),
+          height: 60.0,
+          decoration: BoxDecoration(
+            color: color.withAlpha(32),
+            borderRadius: const BorderRadius.all(Radius.circular(20.0)),
+          ),
+          padding: const EdgeInsets.all(10.0),
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: &lt;Widget&gt;[
+              Text(title,
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline4!
+                      .copyWith(color: color)),
+              SvgPicture.asset(
+                &#39;assets&#47;misc&#47;right_arrow.svg&#39;,
+                color: color,
+              ),
+            ],
+          ),
+        ),
       ),
     ),
   );

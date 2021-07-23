@@ -46,6 +46,7 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-method">build</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
@@ -118,11 +119,14 @@ Widget build(BuildContext context) {
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
         children: &lt;Widget&gt;[
-          Text(AppLocalizations.of(context).missing_product),
+          Text(AppLocalizations.of(context)!.missing_product),
           const SizedBox(
             height: 12.0,
           ),
-          Text(product.barcode, style: Theme.of(context).textTheme.subtitle1),
+          Text(
+            product.barcode ?? &#39;Unknown&#39;,
+            style: Theme.of(context).textTheme.subtitle1,
+          ),
           const SizedBox(
             height: 12.0,
           ),
@@ -131,7 +135,7 @@ Widget build(BuildContext context) {
             mainAxisAlignment: MainAxisAlignment.center,
             children: &lt;Widget&gt;[
               SmoothSimpleButton(
-                text: AppLocalizations.of(context).add,
+                text: AppLocalizations.of(context)!.add,
                 minWidth: 100.0,
                 onPressed: () {
                   Navigator.push&lt;Widget&gt;(
@@ -143,9 +147,10 @@ Widget build(BuildContext context) {
                       ),
                     ),
                   );
-                  callback();
+                  if (callback != null) {
+                    callback!();
+                  }
                 },
-                &#47;&#47;onLongPress: () =&gt; ProductPage.showLists(product, context),
               ),
             ],
           ),

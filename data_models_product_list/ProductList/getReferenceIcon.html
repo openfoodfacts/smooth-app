@@ -46,16 +46,17 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-method">getReferenceIcon</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
       
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
-<span class="name ">getReferenceIcon</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getReferenceIcon-param-colorScheme">{<span>@<a href="https://pub.dev/documentation/meta/1.3.0/meta/required-constant.html">required</a></span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/material/ColorScheme-class.html">ColorScheme</a></span> <span class="parameter-name">colorScheme</span>, </span></li>
-<li><span class="parameter" id="getReferenceIcon-param-colorTag"><span>@<a href="https://pub.dev/documentation/meta/1.3.0/meta/required-constant.html">required</a></span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">colorTag</span>, </span></li>
-<li><span class="parameter" id="getReferenceIcon-param-iconTag"><span>@<a href="https://pub.dev/documentation/meta/1.3.0/meta/required-constant.html">required</a></span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">iconTag</span>, </span></li>
-<li><span class="parameter" id="getReferenceIcon-param-colorDestination"><span>@<a href="https://pub.dev/documentation/meta/1.3.0/meta/required-constant.html">required</a></span> <span class="type-annotation"><a href="../../themes_smooth_theme/ColorDestination-class.html">ColorDestination</a></span> <span class="parameter-name">colorDestination</span>}</span></li>
+<span class="name ">getReferenceIcon</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getReferenceIcon-param-colorScheme">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/material/ColorScheme-class.html">ColorScheme</a></span> <span class="parameter-name">colorScheme</span>, </span></li>
+<li><span class="parameter" id="getReferenceIcon-param-colorTag"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">colorTag</span>, </span></li>
+<li><span class="parameter" id="getReferenceIcon-param-iconTag"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">iconTag</span>, </span></li>
+<li><span class="parameter" id="getReferenceIcon-param-colorDestination"><span>required</span> <span class="type-annotation"><a href="../../themes_smooth_theme/ColorDestination-class.html">ColorDestination</a></span> <span class="parameter-name">colorDestination</span>}</span></li>
 </ol>)
 
       
@@ -68,15 +69,15 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static Widget getReferenceIcon({
-  @required final ColorScheme colorScheme,
-  @required final String colorTag,
-  @required final String iconTag,
-  @required final ColorDestination colorDestination,
+  required final ColorScheme colorScheme,
+  required final String colorTag,
+  required final String iconTag,
+  required final ColorDestination colorDestination,
 }) =&gt;
     getTintedIcon(
       colorScheme: colorScheme,
       materialColor: _getReferenceMaterialColor(colorTag),
-      iconData: _ICON_DATA[iconTag] ?? _ICON_DATA[_ICON_TAG],
+      iconData: _ICON_DATA[iconTag] ?? _ICON_DATA[_ICON_TAG]!,
       colorDestination: colorDestination,
     );</code></pre>
 </section>
@@ -111,7 +112,6 @@
     </li>
     <li><a href="../../data_models_product_list/ProductList/barcodes.html">barcodes</a></li>
     <li><a href="../../data_models_product_list/ProductList/colorTag.html">colorTag</a></li>
-    <li><a href="../../data_models_product_list/ProductList/databaseCount.html">databaseCount</a></li>
     <li><a href="../../data_models_product_list/ProductList/databaseCountDistinct.html">databaseCountDistinct</a></li>
     <li><a href="../../data_models_product_list/ProductList/databaseTimestamp.html">databaseTimestamp</a></li>
     <li><a href="../../data_models_product_list/ProductList/extraTags.html">extraTags</a></li>
@@ -125,20 +125,21 @@
 
     <li class="section-title"><a href="../../data_models_product_list/ProductList-class.html#instance-methods">Methods</a></li>
     <li><a href="../../data_models_product_list/ProductList/add.html">add</a></li>
-    <li><a href="../../data_models_product_list/ProductList/addAll.html">addAll</a></li>
-    <li><a href="../../data_models_product_list/ProductList/clear.html">clear</a></li>
     <li><a href="../../data_models_product_list/ProductList/getIcon.html">getIcon</a></li>
     <li><a href="../../data_models_product_list/ProductList/getList.html">getList</a></li>
     <li><a href="../../data_models_product_list/ProductList/getMaterialColor.html">getMaterialColor</a></li>
-    <li><a href="../../data_models_product_list/ProductList/getOrderedBarcodes.html">getOrderedBarcodes</a></li>
     <li><a href="../../data_models_product_list/ProductList/getPossibleIcons.html">getPossibleIcons</a></li>
     <li><a href="../../data_models_product_list/ProductList/getProduct.html">getProduct</a></li>
-    <li><a href="../../data_models_product_list/ProductList/getUniqueList.html">getUniqueList</a></li>
+    <li><a href="../../data_models_product_list/ProductList/getProductExtra.html">getProductExtra</a></li>
     <li><a href="../../data_models_product_list/ProductList/isEmpty.html">isEmpty</a></li>
     <li><a href="../../data_models_product_list/ProductList/isSameAs.html">isSameAs</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li><a href="../../data_models_product_list/ProductList/refresh.html">refresh</a></li>
+    <li><a href="../../data_models_product_list/ProductList/remove.html">remove</a></li>
+    <li><a href="../../data_models_product_list/ProductList/reorder.html">reorder</a></li>
     <li><a href="../../data_models_product_list/ProductList/set.html">set</a></li>
+    <li><a href="../../data_models_product_list/ProductList/setAll.html">setAll</a></li>
+    <li><a href="../../data_models_product_list/ProductList/setProductExtra.html">setProductExtra</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
     <li class="section-title inherited"><a href="../../data_models_product_list/ProductList-class.html#operators">Operators</a></li>
@@ -149,6 +150,7 @@
     <li class="section-title"><a href="../../data_models_product_list/ProductList-class.html#static-methods">Static methods</a></li>
     <li><a href="../../data_models_product_list/ProductList/getReferenceIcon.html">getReferenceIcon</a></li>
     <li><a href="../../data_models_product_list/ProductList/getTintedIcon.html">getTintedIcon</a></li>
+    <li><a href="../../data_models_product_list/ProductList/getUniqueUserProductListType.html">getUniqueUserProductListType</a></li>
 
     <li class="section-title"><a href="../../data_models_product_list/ProductList-class.html#constants">Constants</a></li>
     <li><a href="../../data_models_product_list/ProductList/LIST_TYPE_HISTORY-constant.html">LIST_TYPE_HISTORY</a></li>
@@ -157,7 +159,10 @@
     <li><a href="../../data_models_product_list/ProductList/LIST_TYPE_HTTP_SEARCH_KEYWORDS-constant.html">LIST_TYPE_HTTP_SEARCH_KEYWORDS</a></li>
     <li><a href="../../data_models_product_list/ProductList/LIST_TYPE_SCAN-constant.html">LIST_TYPE_SCAN</a></li>
     <li><a href="../../data_models_product_list/ProductList/LIST_TYPE_USER_DEFINED-constant.html">LIST_TYPE_USER_DEFINED</a></li>
+    <li><a href="../../data_models_product_list/ProductList/LIST_TYPE_USER_PANTRY-constant.html">LIST_TYPE_USER_PANTRY</a></li>
+    <li><a href="../../data_models_product_list/ProductList/LIST_TYPE_USER_SHOPPING-constant.html">LIST_TYPE_USER_SHOPPING</a></li>
     <li><a href="../../data_models_product_list/ProductList/ORDERED_COLORS-constant.html">ORDERED_COLORS</a></li>
+    <li><a href="../../data_models_product_list/ProductList/PRODUCT_EXTRA_INIT_STRING_VALUE-constant.html">PRODUCT_EXTRA_INIT_STRING_VALUE</a></li>
 </ol>
 
   </div><!--/.sidebar-offcanvas-->

@@ -46,6 +46,7 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-method">build</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
@@ -106,13 +107,13 @@ and</li>
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final AppLocalizations appLocalizations = AppLocalizations.of(context);
+  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
   return ChangeNotifierProvider&lt;SelectedCategoryModel&gt;(
     create: (BuildContext context) =&gt;
         SelectedCategoryModel(categories, categoriesList),
     child: Consumer&lt;SelectedCategoryModel&gt;(
       builder: (BuildContext context,
-          SelectedCategoryModel selectedCategoryModel, Widget child) {
+          SelectedCategoryModel selectedCategoryModel, Widget? child) {
         return Material(
           child: Container(
             height: MediaQuery.of(context).size.height * 0.5,
@@ -144,24 +145,29 @@ Widget build(BuildContext context) {
                           borderRadius:
                               BorderRadius.all(Radius.circular(12.0))),
                       child: DropdownButton&lt;String&gt;(
-                        items: selectedCategoryModel.categoriesList
-                            .map((String key) {
-                          return DropdownMenuItem&lt;String&gt;(
-                            value: key,
-                            child: Container(
-                              width: MediaQuery.of(context).size.width * 0.8,
-                              child: Text(
-                                  categories[key] ?? appLocalizations.error,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyText2
-                                      .copyWith(fontSize: 12.0)),
-                            ),
-                          );
-                        }).toList(),
+                        items: selectedCategoryModel.categoriesList.map(
+                          (String key) {
+                            return DropdownMenuItem&lt;String&gt;(
+                              value: key,
+                              child: Container(
+                                width:
+                                    MediaQuery.of(context).size.width * 0.8,
+                                child: Text(
+                                    categories[key] ?? appLocalizations.error,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyText2!
+                                        .copyWith(fontSize: 12.0)),
+                              ),
+                            );
+                          },
+                        ).toList(),
                         value: selectedCategoryModel.selectedCategory,
-                        onChanged: (String value) =&gt;
-                            selectedCategoryModel.selectCategory(value),
+                        onChanged: (String? value) {
+                          if (value != null) {
+                            selectedCategoryModel.selectCategory(value);
+                          }
+                        },
                         icon: const Icon(
                           Icons.arrow_drop_down,
                         ),
@@ -177,7 +183,7 @@ Widget build(BuildContext context) {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: &lt;Widget&gt;[
                           Text(&#39;Store&#39;,
-                              style: Theme.of(context).textTheme.headline4.copyWith(color: Colors.black)),
+                              style: Theme.of(context).textTheme.headline4!.copyWith(color: Colors.black)),
                         ],
                       ),
                     ),
@@ -200,7 +206,7 @@ Widget build(BuildContext context) {
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodyText2
-                                      .copyWith(
+                                      !.copyWith(
                                       color: Colors.black,
                                       fontSize: 12.0)),
                             ),
@@ -233,7 +239,7 @@ Widget build(BuildContext context) {
                               horizontal: 12.0, vertical: 20.0),
                           child: SmoothMainButton(
                             text:
-                                AppLocalizations.of(context).applyButtonText,
+                                AppLocalizations.of(context)!.applyButtonText,
                             onPressed: () {
                               Navigator.pop(context);
                               callback(

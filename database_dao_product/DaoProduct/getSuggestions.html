@@ -46,12 +46,13 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-method">getSuggestions</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
       
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/1.3.0/model_Product/Product-class.html">Product</a></span>&gt;</span></span>&gt;</span></span>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/1.3.1/model_Product/Product-class.html">Product</a></span>&gt;</span></span>&gt;</span></span>
 <span class="name ">getSuggestions</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getSuggestions-param-pattern"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">pattern</span>, </span></li>
 <li><span class="parameter" id="getSuggestions-param-minLength"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">minLength</span></span></li>
 </ol>)
@@ -74,8 +75,20 @@
 Future&lt;List&lt;Product&gt;&gt; getSuggestions(
     final String pattern, final int minLength) async {
   final List&lt;Product&gt; result = &lt;Product&gt;[];
-  if (pattern == null || pattern.trim().length &lt; minLength) {
+  if (pattern.trim().length &lt; minLength) {
     return result;
+  }
+  late String whereClause;
+  late List&lt;String&gt; whereArgs;
+  late String orderBy;
+  if (int.tryParse(pattern) != null) {
+    whereClause = &#39;a.$TABLE_PRODUCT_COLUMN_BARCODE like ?&#39;;
+    whereArgs = &lt;String&gt;[&#39;%$pattern%&#39;];
+    orderBy = &#39;a.$TABLE_PRODUCT_COLUMN_BARCODE asc&#39;;
+  } else {
+    whereClause = &#39;exists(${DaoProductExtra.getExistsLikeSubQuery()})&#39;;
+    whereArgs = DaoProductExtra.getExistsLikeSubQueryArgs(pattern);
+    orderBy = &#39;a.${LocalDatabase.COLUMN_TIMESTAMP} desc&#39;;
   }
   final List&lt;Map&lt;String, dynamic&gt;&gt; queryResults =
       await localDatabase.database.rawQuery(
@@ -85,10 +98,10 @@ Future&lt;List&lt;Product&gt;&gt; getSuggestions(
     &#39;from &#39;
     &#39;  $TABLE_PRODUCT a &#39;
     &#39;where &#39;
-    &#39;  exists(${DaoProductExtra.getExistsLikeSubQuery()}) &#39;
+    &#39;  $whereClause &#39;
     &#39;order by &#39;
-    &#39;  a.${LocalDatabase.COLUMN_TIMESTAMP} desc&#39;,
-    DaoProductExtra.getExistsLikeSubQueryArgs(pattern),
+    &#39;  $orderBy&#39;,
+    whereArgs,
   );
   for (final Map&lt;String, dynamic&gt; row in queryResults) {
     result.add(_getProductFromQueryResult(row));
@@ -130,14 +143,11 @@ Future&lt;List&lt;Product&gt;&gt; getSuggestions(
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
     <li class="section-title"><a href="../../database_dao_product/DaoProduct-class.html#instance-methods">Methods</a></li>
-    <li class="inherited"><a href="../../database_abstract_dao/AbstractDao/bulkInsert.html">bulkInsert</a></li>
-    <li class="inherited"><a href="../../database_abstract_dao/AbstractDao/bulkUpsert.html">bulkUpsert</a></li>
-    <li><a href="../../database_dao_product/DaoProduct/bulkUpsertLoop.html">bulkUpsertLoop</a></li>
     <li><a href="../../database_dao_product/DaoProduct/get.html">get</a></li>
     <li><a href="../../database_dao_product/DaoProduct/getAll.html">getAll</a></li>
     <li><a href="../../database_dao_product/DaoProduct/getAllWithExtras.html">getAllWithExtras</a></li>
-    <li><a href="../../database_dao_product/DaoProduct/getBulkInsertColumns.html">getBulkInsertColumns</a></li>
-    <li class="inherited"><a href="../../database_abstract_dao/AbstractDao/getBulkMaxRecordNumber.html">getBulkMaxRecordNumber</a></li>
+    <li><a href="../../database_dao_product/DaoProduct/getDeleteWhere.html">getDeleteWhere</a></li>
+    <li><a href="../../database_dao_product/DaoProduct/getInsertColumns.html">getInsertColumns</a></li>
     <li><a href="../../database_dao_product/DaoProduct/getLastUpdate.html">getLastUpdate</a></li>
     <li><a href="../../database_dao_product/DaoProduct/getSuggestions.html">getSuggestions</a></li>
     <li><a href="../../database_dao_product/DaoProduct/getTableName.html">getTableName</a></li>

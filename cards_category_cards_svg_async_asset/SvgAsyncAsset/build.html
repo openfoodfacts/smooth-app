@@ -46,6 +46,7 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-method">build</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
@@ -110,14 +111,16 @@ Widget build(BuildContext context) =&gt; FutureBuilder&lt;String&gt;(
       builder: (BuildContext context, AsyncSnapshot&lt;String&gt; snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
           if (snapshot.data != null) {
-            return SvgPicture.string(snapshot.data,
-                width: width,
-                height: height,
-                fit: BoxFit.contain,
-                placeholderBuilder: (BuildContext context) =&gt; Container(
-                      width: width ?? height,
-                      height: height ?? width,
-                    ));
+            return SvgPicture.string(
+              snapshot.data!,
+              width: width,
+              height: height,
+              fit: BoxFit.contain,
+              placeholderBuilder: (BuildContext context) =&gt; Container(
+                width: width ?? height,
+                height: height ?? width,
+              ),
+            );
           } else {
             print(&#39;unexpected case: svg asset not found $fullFilename&#39;);
           }

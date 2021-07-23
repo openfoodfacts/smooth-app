@@ -46,6 +46,7 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-method">build</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
@@ -108,7 +109,7 @@ and</li>
 Widget build(BuildContext context) {
   final ThemeProvider themeProvider = context.watch&lt;ThemeProvider&gt;();
   final ThemeData themeData = Theme.of(context);
-  final AppLocalizations appLocalizations = AppLocalizations.of(context);
+  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
   final Launcher launcher = Launcher();
   return Scaffold(
     appBar: AppBar(title: Text(appLocalizations.settingsTitle)),
@@ -171,9 +172,7 @@ Widget build(BuildContext context) {
             context: context,
             backgroundColor: Colors.transparent,
             bounce: true,
-            builder: (BuildContext context) =&gt; UserContributionView(
-              ModalScrollController.of(context),
-            ),
+            builder: (BuildContext context) =&gt; UserContributionView(),
           ),
         ),
 
@@ -182,7 +181,7 @@ Widget build(BuildContext context) {
           text: appLocalizations.support,
           leadingWidget: const Icon(Icons.launch),
           onPressed: () =&gt; launcher.launchURL(
-              context, &#39;https:&#47;&#47;openfoodfacts.uservoice.com&#47;&#39;, false),
+              context, &#39;https:&#47;&#47;slack.openfoodfacts.org&#47;&#39;, false),
         ),
 
         &#47;&#47;About
@@ -204,8 +203,8 @@ Widget build(BuildContext context) {
                               AsyncSnapshot&lt;PackageInfo&gt; snapshot) {
                             if (snapshot.hasError) {
                               return Center(
-                                  child:
-                                      Text(&#39;${appLocalizations.error} #0&#39;));
+                                child: Text(&#39;${appLocalizations.error} #0&#39;),
+                              );
                             }
 
                             if (snapshot.connectionState ==
@@ -214,7 +213,7 @@ Widget build(BuildContext context) {
                                   child: CircularProgressIndicator());
                             }
 
-                            if (!snapshot.hasData)
+                            if (!snapshot.hasData || snapshot.data == null)
                               return Center(
                                   child: Text(
                                 &#39;${appLocalizations.error} #1&#39;,
@@ -225,11 +224,11 @@ Widget build(BuildContext context) {
                                 ListTile(
                                   leading: const Icon(Icons.no_sim_outlined),
                                   title: Text(
-                                    snapshot.data.appName.toString(),
+                                    snapshot.data!.appName.toString(),
                                     style: themeData.textTheme.headline1,
                                   ),
                                   subtitle: Text(
-                                    snapshot.data.version.toString(),
+                                    snapshot.data!.version.toString(),
                                     style: themeData.textTheme.subtitle2,
                                   ),
                                 ),

@@ -46,6 +46,7 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-method">build</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
@@ -107,118 +108,122 @@ and</li>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   final Size screenSize = MediaQuery.of(context).size;
-  final AppLocalizations appLocalizations = AppLocalizations.of(context);
+  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
   final ThemeData themeData = Theme.of(context);
   return ChangeNotifierProvider&lt;ContinuousScanModel&gt;.value(
     value: _continuousScanModel,
     child: Consumer&lt;ContinuousScanModel&gt;(
       builder:
-          (BuildContext context, ContinuousScanModel dummy, Widget child) =&gt;
-              Scaffold(
-        extendBodyBehindAppBar: true,
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
-            onPressed: () =&gt; Navigator.pop(context),
+          (BuildContext context, ContinuousScanModel dummy, Widget? child) {
+        return Scaffold(
+          extendBodyBehindAppBar: true,
+          appBar: AppBar(
+            elevation: 0,
+            backgroundColor: Colors.transparent,
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () =&gt; Navigator.pop(context),
+            ),
           ),
-        ),
-        floatingActionButton: SmoothRevealAnimation(
-          delay: 400,
-          animationCurve: Curves.easeInOutBack,
-          child: FloatingActionButton.extended(
-            icon: SvgPicture.asset(
-              &#39;assets&#47;actions&#47;smoothie.svg&#39;,
-              width: 24.0,
-              height: 24.0,
-              color: Colors.black,
+          floatingActionButton: SmoothRevealAnimation(
+            delay: 400,
+            animationCurve: Curves.easeInOutBack,
+            child: FloatingActionButton.extended(
+              icon: SvgPicture.asset(
+                &#39;assets&#47;actions&#47;smoothie.svg&#39;,
+                width: 24.0,
+                height: 24.0,
+                color: Colors.black,
+              ),
+              label: Text(
+                appLocalizations.myPersonalizedRanking,
+                style: const TextStyle(color: Colors.black),
+              ),
+              backgroundColor: Colors.white,
+              onPressed: () async {
+                await _continuousScanModel.refreshProductList();
+                await Navigator.push&lt;Widget&gt;(
+                  context,
+                  MaterialPageRoute&lt;Widget&gt;(
+                    builder: (BuildContext context) =&gt;
+                        PersonalizedRankingPage(
+                      _continuousScanModel.productList,
+                    ),
+                  ),
+                );
+              },
             ),
-            label: Text(
-              appLocalizations.myPersonalizedRanking,
-              style: const TextStyle(color: Colors.black),
-            ),
-            backgroundColor: Colors.white,
-            onPressed: () async {
-              await _continuousScanModel.refreshProductList();
-              await Navigator.push&lt;Widget&gt;(
-                context,
-                MaterialPageRoute&lt;Widget&gt;(
-                  builder: (BuildContext context) =&gt; PersonalizedRankingPage(
-                      _continuousScanModel.productList),
+          ),
+          body: Stack(
+            children: &lt;Widget&gt;[
+              ScanPage.getHero(screenSize),
+              SmoothRevealAnimation(
+                delay: 400,
+                startOffset: const Offset(0.0, 0.0),
+                animationCurve: Curves.easeInOutBack,
+                child: QRView(
+                  key: _scannerViewKey,
+                  onQRViewCreated: (QRViewController controller) =&gt;
+                      _continuousScanModel.setupScanner(controller),
                 ),
-              );
-            },
-          ),
-        ),
-        body: Stack(
-          children: &lt;Widget&gt;[
-            ScanPage.getHero(screenSize),
-            SmoothRevealAnimation(
-              delay: 400,
-              startOffset: const Offset(0.0, 0.0),
-              animationCurve: Curves.easeInOutBack,
-              child: QRView(
-                key: _scannerViewKey,
-                onQRViewCreated: (QRViewController controller) =&gt;
-                    _continuousScanModel.setupScanner(controller),
               ),
-            ),
-            SmoothRevealAnimation(
-              delay: 400,
-              startOffset: const Offset(0.0, 0.1),
-              animationCurve: Curves.easeInOutBack,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                mainAxisSize: MainAxisSize.max,
-                children: &lt;Widget&gt;[
-                  Container(
-                    padding: const EdgeInsets.only(top: 32.0),
-                    child: Column(
-                      children: &lt;Widget&gt;[
-                        ScanPage.getContributeChooseToggle(
-                          _continuousScanModel,
-                          context,
+              SmoothRevealAnimation(
+                delay: 400,
+                startOffset: const Offset(0.0, 0.1),
+                animationCurve: Curves.easeInOutBack,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisSize: MainAxisSize.max,
+                  children: &lt;Widget&gt;[
+                    Container(
+                      padding: const EdgeInsets.only(top: 32.0),
+                      child: Column(
+                        children: &lt;Widget&gt;[
+                          ScanPage.getContributeChooseToggle(
+                            _continuousScanModel,
+                            context,
+                          ),
+                        ],
+                      ),
+                    ),
+                    Center(
+                      child: Container(
+                        child: SmoothViewFinder(
+                          width: screenSize.width * 0.8,
+                          height: screenSize.width * 0.4,
+                          animationDuration: 1500,
                         ),
-                      ],
-                    ),
-                  ),
-                  Center(
-                    child: Container(
-                      child: SmoothViewFinder(
-                        width: screenSize.width * 0.8,
-                        height: screenSize.width * 0.4,
-                        animationDuration: 1500,
                       ),
                     ),
-                  ),
-                  if (_continuousScanModel.isNotEmpty)
-                    Container(
-                      height: screenSize.height * 0.35,
-                      padding:
-                          EdgeInsets.only(bottom: screenSize.height * 0.08),
-                      child: SmoothProductCarousel(
-                        continuousScanModel: _continuousScanModel,
+                    if (_continuousScanModel.isNotEmpty)
+                      Container(
+                        height: screenSize.height * 0.35,
+                        padding:
+                            EdgeInsets.only(bottom: screenSize.height * 0.08),
+                        child: SmoothProductCarousel(
+                          continuousScanModel: _continuousScanModel,
+                        ),
+                      )
+                    else
+                      Container(
+                        width: screenSize.width,
+                        height: screenSize.height * 0.35,
+                        padding:
+                            EdgeInsets.only(top: screenSize.height * 0.08),
+                        child: Text(
+                          appLocalizations.scannerProductsEmpty,
+                          style: themeData.textTheme.subtitle1!
+                              .copyWith(color: Colors.white),
+                          textAlign: TextAlign.center,
+                        ),
                       ),
-                    )
-                  else
-                    Container(
-                      width: screenSize.width,
-                      height: screenSize.height * 0.35,
-                      padding: EdgeInsets.only(top: screenSize.height * 0.08),
-                      child: Text(
-                        appLocalizations.scannerProductsEmpty,
-                        style: themeData.textTheme.subtitle1
-                            .copyWith(color: Colors.white),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
-        ),
-      ),
+            ],
+          ),
+        );
+      },
     ),
   );
 }</code></pre>

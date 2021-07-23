@@ -46,16 +46,17 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-method">onTap</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
       
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
-<span class="name ">onTap</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="onTap-param-context">{<span>@<a href="https://pub.dev/documentation/meta/1.3.0/meta/required-constant.html">required</a></span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span></li>
-<li><span class="parameter" id="onTap-param-attributeId"><span>@<a href="https://pub.dev/documentation/meta/1.3.0/meta/required-constant.html">required</a></span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">attributeId</span>, </span></li>
-<li><span class="parameter" id="onTap-param-productPreferences"><span>@<a href="https://pub.dev/documentation/meta/1.3.0/meta/required-constant.html">required</a></span> <span class="type-annotation"><a href="../../data_models_product_preferences/ProductPreferences-class.html">ProductPreferences</a></span> <span class="parameter-name">productPreferences</span>, </span></li>
-<li><span class="parameter" id="onTap-param-themeProvider"><span>@<a href="https://pub.dev/documentation/meta/1.3.0/meta/required-constant.html">required</a></span> <span class="type-annotation"><a href="../../themes_theme_provider/ThemeProvider-class.html">ThemeProvider</a></span> <span class="parameter-name">themeProvider</span>}</span></li>
+<span class="name ">onTap</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="onTap-param-context">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span></li>
+<li><span class="parameter" id="onTap-param-attributeId"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">attributeId</span>, </span></li>
+<li><span class="parameter" id="onTap-param-productPreferences"><span>required</span> <span class="type-annotation"><a href="../../data_models_product_preferences/ProductPreferences-class.html">ProductPreferences</a></span> <span class="parameter-name">productPreferences</span>, </span></li>
+<li><span class="parameter" id="onTap-param-themeProvider"><span>required</span> <span class="type-annotation"><a href="../../themes_theme_provider/ThemeProvider-class.html">ThemeProvider</a></span> <span class="parameter-name">themeProvider</span>}</span></li>
 </ol>)
 
       
@@ -68,33 +69,33 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; onTap({
-  @required final BuildContext context,
-  @required final String attributeId,
-  @required final ProductPreferences productPreferences,
-  @required final ThemeProvider themeProvider,
+  required final BuildContext context,
+  required final String attributeId,
+  required final ProductPreferences productPreferences,
+  required final ThemeProvider themeProvider,
 }) async {
-  final Attribute attribute =
+  final Attribute? attribute =
       productPreferences.getReferenceAttribute(attributeId);
   final ColorScheme colorScheme = Theme.of(context).colorScheme;
-  final AppLocalizations appLocalizations = AppLocalizations.of(context);
+  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
   final String importanceId =
       productPreferences.getImportanceIdForAttributeId(attributeId);
   final MaterialColor materialColor =
       SmoothTheme.getMaterialColor(themeProvider);
-  final Color strongBackgroundColor = SmoothTheme.getColor(
+  final Color? strongBackgroundColor = SmoothTheme.getColor(
     colorScheme,
     materialColor,
     ColorDestination.SURFACE_BACKGROUND,
   );
-  final Color strongForegroundColor = SmoothTheme.getColor(
+  final Color? strongForegroundColor = SmoothTheme.getColor(
     colorScheme,
     materialColor,
     ColorDestination.SURFACE_FOREGROUND,
   );
   final List&lt;Widget&gt; children = &lt;Widget&gt;[
     ListTile(
-      leading: SvgCache(attribute.iconUrl, width: 40),
-      title: Text(attribute.settingName),
+      leading: SvgCache(attribute!.iconUrl, width: 40),
+      title: Text(attribute.settingName!),
     ),
   ];
   final AttributeGroup attributeGroup =
@@ -110,7 +111,7 @@
         ),
         width: double.infinity,
         child: Text(
-          attributeGroup.warning,
+          attributeGroup.warning!,
           style: TextStyle(
             color: SmoothTheme.getColor(
               colorScheme,
@@ -122,19 +123,19 @@
       ),
     );
   }
-  for (final String item in productPreferences.importanceIds) {
-    final Color foregroundColor =
-        _getForegroundColor(strongForegroundColor, item);
+  for (final String item in productPreferences.importanceIds!) {
+    final Color? foregroundColor =
+        _getForegroundColor(strongForegroundColor!, item);
     children.add(
       ListTile(
-        tileColor: _getBackgroundColor(strongBackgroundColor, item),
+        tileColor: _getBackgroundColor(strongBackgroundColor!, item),
         leading: importanceId == item
             ? Icon(Icons.radio_button_checked, color: foregroundColor)
             : Icon(Icons.radio_button_unchecked, color: foregroundColor),
         title: Text(
           productPreferences
-              .getPreferenceImportanceFromImportanceId(item)
-              .name,
+              .getPreferenceImportanceFromImportanceId(item)!
+              .name!,
           style: TextStyle(color: foregroundColor),
         ),
         onTap: () =&gt; Navigator.pop&lt;String&gt;(context, item),
@@ -142,7 +143,7 @@
       ),
     );
   }
-  final String result = await showDialog&lt;String&gt;(
+  final String? result = await showDialog&lt;String&gt;(
     context: context,
     builder: (final BuildContext context) =&gt; SmoothAlertDialog(
       body: Column(

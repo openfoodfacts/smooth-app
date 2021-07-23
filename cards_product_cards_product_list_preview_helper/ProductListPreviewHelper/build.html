@@ -46,6 +46,7 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-method">build</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
@@ -106,11 +107,6 @@ and</li>
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  &#47;&#47; Return an empty widget if the list is null
-  if (list == null) {
-    return const SizedBox.shrink();
-  }
-
   final List&lt;Widget&gt; previews = &lt;Widget&gt;[];
   for (final Product product in list) {
     previews.add(GestureDetector(

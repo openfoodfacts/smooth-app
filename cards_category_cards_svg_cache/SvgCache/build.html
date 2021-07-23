@@ -46,6 +46,7 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-method">build</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
@@ -109,14 +110,14 @@ Widget build(BuildContext context) {
   if (iconUrl == null) {
     return _getDefaultUnknown();
   }
-  final int position = iconUrl.lastIndexOf(&#39;&#47;&#39;);
+  final int position = iconUrl!.lastIndexOf(&#39;&#47;&#39;);
   if (position == -1) {
     return _getDefaultUnknown();
   }
-  final String filename = iconUrl.substring(position + 1);
+  final String filename = iconUrl!.substring(position + 1);
   final String fullFilename = &#39;assets&#47;cache&#47;$filename&#39;;
   return SvgPicture.network(
-    iconUrl,
+    iconUrl!,
     width: width,
     height: height,
     fit: BoxFit.contain,

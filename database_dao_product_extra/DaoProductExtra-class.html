@@ -45,6 +45,7 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-class">DaoProductExtra</span> class 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
  
 </h1></div>
 
@@ -72,6 +73,12 @@ and the string value contains a list of timestamps encoded as json.</li>
           <li>DaoProductExtra</li>
         </ul></dd>
 
+        <dt>Implemented types</dt>
+        <dd>
+          <ul class="comma-separated clazz-relationships">
+            <li><a href="../database_bulk_deletable/BulkDeletable-class.html">BulkDeletable</a></li>
+          </ul>
+        </dd>
 
 
 
@@ -135,47 +142,34 @@ and the string value contains a list of timestamps encoded as json.</li>
     <section class="summary offset-anchor" id="instance-methods">
       <h2>Methods</h2>
       <dl class="callables">
-        <dt id="bulkInsert" class="callable inherited">
-  <span class="name"><a href="../database_abstract_dao/AbstractDao/bulkInsert.html">bulkInsert</a></span><span class="signature">(<wbr><span class="parameter" id="bulkInsert-param-parameters"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a></span> <span class="parameter-name">parameters</span>, </span><span class="parameter" id="bulkInsert-param-databaseExecutor"><span class="type-annotation"><a href="https://pub.dev/documentation/sqflite_common/2.0.0+2/sqlite_api/DatabaseExecutor-class.html">DatabaseExecutor</a></span> <span class="parameter-name">databaseExecutor</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
-  </span>
-  
-
-</dt>
-<dd class="inherited">
-  Optimized bulk insert 
-  <div class="features">@<a href="https://pub.dev/documentation/meta/1.3.0/meta/protected-constant.html">protected</a>, inherited</div>
-
-</dd>
-
-        <dt id="bulkUpsert" class="callable inherited">
-  <span class="name"><a href="../database_abstract_dao/AbstractDao/bulkUpsert.html">bulkUpsert</a></span><span class="signature">(<wbr><span class="parameter" id="bulkUpsert-param-insertParameters">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a></span> <span class="parameter-name">insertParameters</span>, </span><span class="parameter" id="bulkUpsert-param-deleteWhere"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">deleteWhere</span>, </span><span class="parameter" id="bulkUpsert-param-deleteParameters"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">deleteParameters</span>, </span><span class="parameter" id="bulkUpsert-param-databaseExecutor"><span class="type-annotation"><a href="https://pub.dev/documentation/sqflite_common/2.0.0+2/sqlite_api/DatabaseExecutor-class.html">DatabaseExecutor</a></span> <span class="parameter-name">databaseExecutor</span>}</span>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
-  </span>
-  
-
-</dt>
-<dd class="inherited">
-  Optimized bulk upsert <a href="../database_abstract_dao/AbstractDao/bulkUpsert.html">[...]</a>
-  <div class="features">@<a href="https://pub.dev/documentation/meta/1.3.0/meta/protected-constant.html">protected</a>, inherited</div>
-
-</dd>
-
-        <dt id="bulkUpsertLoopLast" class="callable">
-  <span class="name"><a href="../database_dao_product_extra/DaoProductExtra/bulkUpsertLoopLast.html">bulkUpsertLoopLast</a></span><span class="signature">(<wbr><span class="parameter" id="bulkUpsertLoopLast-param-databaseExecutor"><span class="type-annotation"><a href="https://pub.dev/documentation/sqflite_common/2.0.0+2/sqlite_api/DatabaseExecutor-class.html">DatabaseExecutor</a></span> <span class="parameter-name">databaseExecutor</span>, </span><span class="parameter" id="bulkUpsertLoopLast-param-products"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/1.3.0/model_Product/Product-class.html">Product</a></span>&gt;</span></span> <span class="parameter-name">products</span>, </span><span class="parameter" id="bulkUpsertLoopLast-param-timestamp"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">timestamp</span>, </span><span class="parameter" id="bulkUpsertLoopLast-param-extraKey"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">extraKey</span></span>)
+        <dt id="bulkInsertExtra" class="callable">
+  <span class="name"><a href="../database_dao_product_extra/DaoProductExtra/bulkInsertExtra.html">bulkInsertExtra</a></span><span class="signature">(<wbr><span class="parameter" id="bulkInsertExtra-param-databaseExecutor">{<span>required</span> <span class="type-annotation"><a href="https://pub.dev/documentation/sqflite_common/2.0.0+2/sqlite_api/DatabaseExecutor-class.html">DatabaseExecutor</a></span> <span class="parameter-name">databaseExecutor</span>, </span><span class="parameter" id="bulkInsertExtra-param-productList"><span>required</span> <span class="type-annotation"><a href="../data_models_product_list/ProductList-class.html">ProductList</a></span> <span class="parameter-name">productList</span>, </span><span class="parameter" id="bulkInsertExtra-param-productListId"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">productListId</span>}</span>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
   </span>
   
 
 </dt>
 <dd>
-  Upserts the "last time I did whatever with this product" in bulk mode 
+  Deletes all then inserts a simple product list in bulk mode 
+  
+
+</dd>
+
+        <dt id="bulkUpsertLoopLast" class="callable">
+  <span class="name"><a href="../database_dao_product_extra/DaoProductExtra/bulkUpsertLoopLast.html">bulkUpsertLoopLast</a></span><span class="signature">(<wbr><span class="parameter" id="bulkUpsertLoopLast-param-databaseExecutor"><span class="type-annotation"><a href="https://pub.dev/documentation/sqflite_common/2.0.0+2/sqlite_api/DatabaseExecutor-class.html">DatabaseExecutor</a></span> <span class="parameter-name">databaseExecutor</span>, </span><span class="parameter" id="bulkUpsertLoopLast-param-products"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/1.3.1/model_Product/Product-class.html">Product</a></span>&gt;</span></span> <span class="parameter-name">products</span>, </span><span class="parameter" id="bulkUpsertLoopLast-param-timestamp"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">timestamp</span>, </span><span class="parameter" id="bulkUpsertLoopLast-param-extraKey"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">extraKey</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Upserts the "last time I did whatever with those products" in bulk mode 
   
 
 </dd>
 
         <dt id="bulkUpsertLoopSimplifiedText" class="callable">
-  <span class="name"><a href="../database_dao_product_extra/DaoProductExtra/bulkUpsertLoopSimplifiedText.html">bulkUpsertLoopSimplifiedText</a></span><span class="signature">(<wbr><span class="parameter" id="bulkUpsertLoopSimplifiedText-param-databaseExecutor"><span class="type-annotation"><a href="https://pub.dev/documentation/sqflite_common/2.0.0+2/sqlite_api/DatabaseExecutor-class.html">DatabaseExecutor</a></span> <span class="parameter-name">databaseExecutor</span>, </span><span class="parameter" id="bulkUpsertLoopSimplifiedText-param-products"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/1.3.0/model_Product/Product-class.html">Product</a></span>&gt;</span></span> <span class="parameter-name">products</span>, </span><span class="parameter" id="bulkUpsertLoopSimplifiedText-param-timestamp"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">timestamp</span></span>)
+  <span class="name"><a href="../database_dao_product_extra/DaoProductExtra/bulkUpsertLoopSimplifiedText.html">bulkUpsertLoopSimplifiedText</a></span><span class="signature">(<wbr><span class="parameter" id="bulkUpsertLoopSimplifiedText-param-databaseExecutor"><span class="type-annotation"><a href="https://pub.dev/documentation/sqflite_common/2.0.0+2/sqlite_api/DatabaseExecutor-class.html">DatabaseExecutor</a></span> <span class="parameter-name">databaseExecutor</span>, </span><span class="parameter" id="bulkUpsertLoopSimplifiedText-param-products"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/1.3.1/model_Product/Product-class.html">Product</a></span>&gt;</span></span> <span class="parameter-name">products</span>, </span><span class="parameter" id="bulkUpsertLoopSimplifiedText-param-timestamp"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">timestamp</span></span>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
   </span>
   
@@ -187,8 +181,47 @@ and the string value contains a list of timestamps encoded as json.</li>
 
 </dd>
 
-        <dt id="getBulkInsertColumns" class="callable">
-  <span class="name"><a href="../database_dao_product_extra/DaoProductExtra/getBulkInsertColumns.html">getBulkInsertColumns</a></span><span class="signature">(<wbr>)
+        <dt id="clearList" class="callable">
+  <span class="name"><a href="../database_dao_product_extra/DaoProductExtra/clearList.html">clearList</a></span><span class="signature">(<wbr><span class="parameter" id="clearList-param-productList"><span class="type-annotation"><a href="../data_models_product_list/ProductList-class.html">ProductList</a></span> <span class="parameter-name">productList</span>, </span><span class="parameter" id="clearList-param-id"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">id</span>, </span><span class="parameter" id="clearList-param-databaseExecutor"><span class="type-annotation"><a href="https://pub.dev/documentation/sqflite_common/2.0.0+2/sqlite_api/DatabaseExecutor-class.html">DatabaseExecutor</a></span> <span class="parameter-name">databaseExecutor</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+   
+  
+
+</dd>
+
+        <dt id="getDeleteWhere" class="callable">
+  <span class="name"><a href="../database_dao_product_extra/DaoProductExtra/getDeleteWhere.html">getDeleteWhere</a></span><span class="signature">(<wbr><span class="parameter" id="getDeleteWhere-param-deleteWhereArgs"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a></span> <span class="parameter-name">deleteWhereArgs</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  "where" clause for delete in bulk mode 
+  <div class="features">override</div>
+
+</dd>
+
+        <dt id="getFirstBarcodes" class="callable">
+  <span class="name"><a href="../database_dao_product_extra/DaoProductExtra/getFirstBarcodes.html">getFirstBarcodes</a></span><span class="signature">(<wbr><span class="parameter" id="getFirstBarcodes-param-productList"><span class="type-annotation"><a href="../data_models_product_list/ProductList-class.html">ProductList</a></span> <span class="parameter-name">productList</span>, </span><span class="parameter" id="getFirstBarcodes-param-id"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">id</span>, </span><span class="parameter" id="getFirstBarcodes-param-limit"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">limit</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span>?</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+   
+  
+
+</dd>
+
+        <dt id="getInsertColumns" class="callable">
+  <span class="name"><a href="../database_dao_product_extra/DaoProductExtra/getInsertColumns.html">getInsertColumns</a></span><span class="signature">(<wbr>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span>
   </span>
   
@@ -200,34 +233,8 @@ and the string value contains a list of timestamps encoded as json.</li>
 
 </dd>
 
-        <dt id="getBulkMaxRecordNumber" class="callable inherited">
-  <span class="name"><a href="../database_abstract_dao/AbstractDao/getBulkMaxRecordNumber.html">getBulkMaxRecordNumber</a></span><span class="signature">(<wbr>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>
-  </span>
-  
-
-</dt>
-<dd class="inherited">
-  Max number of records to be inserted in bulk mode 
-  <div class="features">inherited</div>
-
-</dd>
-
-        <dt id="getFirstBarcodes" class="callable">
-  <span class="name"><a href="../database_dao_product_extra/DaoProductExtra/getFirstBarcodes.html">getFirstBarcodes</a></span><span class="signature">(<wbr><span class="parameter" id="getFirstBarcodes-param-productList"><span class="type-annotation"><a href="../data_models_product_list/ProductList-class.html">ProductList</a></span> <span class="parameter-name">productList</span>, </span><span class="parameter" id="getFirstBarcodes-param-limit"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">limit</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span>&gt;</span></span>
-  </span>
-  
-
-</dt>
-<dd>
-   
-  
-
-</dd>
-
         <dt id="getList" class="callable">
-  <span class="name"><a href="../database_dao_product_extra/DaoProductExtra/getList.html">getList</a></span><span class="signature">(<wbr><span class="parameter" id="getList-param-productList"><span class="type-annotation"><a href="../data_models_product_list/ProductList-class.html">ProductList</a></span> <span class="parameter-name">productList</span></span>)
+  <span class="name"><a href="../database_dao_product_extra/DaoProductExtra/getList.html">getList</a></span><span class="signature">(<wbr><span class="parameter" id="getList-param-productList"><span class="type-annotation"><a href="../data_models_product_list/ProductList-class.html">ProductList</a></span> <span class="parameter-name">productList</span>, </span><span class="parameter" id="getList-param-id"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">id</span></span>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>&gt;</span></span>
   </span>
   
@@ -240,7 +247,7 @@ and the string value contains a list of timestamps encoded as json.</li>
 </dd>
 
         <dt id="getOrderedProductExtras" class="callable">
-  <span class="name"><a href="../database_dao_product_extra/DaoProductExtra/getOrderedProductExtras.html">getOrderedProductExtras</a></span><span class="signature">(<wbr><span class="parameter" id="getOrderedProductExtras-param-key">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">key</span>, </span><span class="parameter" id="getOrderedProductExtras-param-reverse"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">reverse</span>, </span><span class="parameter" id="getOrderedProductExtras-param-limit"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">limit</span>}</span>)
+  <span class="name"><a href="../database_dao_product_extra/DaoProductExtra/getOrderedProductExtras.html">getOrderedProductExtras</a></span><span class="signature">(<wbr><span class="parameter" id="getOrderedProductExtras-param-key">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">key</span>, </span><span class="parameter" id="getOrderedProductExtras-param-reverse"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">reverse</span>, </span><span class="parameter" id="getOrderedProductExtras-param-limit"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">limit</span>}</span>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-collection/LinkedHashMap-class.html">LinkedHashMap</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="../data_models_product_extra/ProductExtra-class.html">ProductExtra</a></span>&gt;</span></span>&gt;</span></span>
   </span>
   
@@ -253,8 +260,8 @@ and the string value contains a list of timestamps encoded as json.</li>
 </dd>
 
         <dt id="getProductExtra" class="callable">
-  <span class="name"><a href="../database_dao_product_extra/DaoProductExtra/getProductExtra.html">getProductExtra</a></span><span class="signature">(<wbr><span class="parameter" id="getProductExtra-param-key">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">key</span>, </span><span class="parameter" id="getProductExtra-param-barcode"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">barcode</span>}</span>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../data_models_product_extra/ProductExtra-class.html">ProductExtra</a></span>&gt;</span></span>
+  <span class="name"><a href="../database_dao_product_extra/DaoProductExtra/getProductExtra.html">getProductExtra</a></span><span class="signature">(<wbr><span class="parameter" id="getProductExtra-param-key">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">key</span>, </span><span class="parameter" id="getProductExtra-param-barcode"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">barcode</span>}</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../data_models_product_extra/ProductExtra-class.html">ProductExtra</a>?</span>&gt;</span></span>
   </span>
   
 
@@ -266,7 +273,7 @@ and the string value contains a list of timestamps encoded as json.</li>
 </dd>
 
         <dt id="getProductExtras" class="callable">
-  <span class="name"><a href="../database_dao_product_extra/DaoProductExtra/getProductExtras.html">getProductExtras</a></span><span class="signature">(<wbr><span class="parameter" id="getProductExtras-param-key">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">key</span>, </span><span class="parameter" id="getProductExtras-param-barcodes"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">barcodes</span>, </span><span class="parameter" id="getProductExtras-param-databaseExecutor"><span class="type-annotation"><a href="https://pub.dev/documentation/sqflite_common/2.0.0+2/sqlite_api/DatabaseExecutor-class.html">DatabaseExecutor</a></span> <span class="parameter-name">databaseExecutor</span>}</span>)
+  <span class="name"><a href="../database_dao_product_extra/DaoProductExtra/getProductExtras.html">getProductExtras</a></span><span class="signature">(<wbr><span class="parameter" id="getProductExtras-param-key">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">key</span>, </span><span class="parameter" id="getProductExtras-param-barcodes"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">barcodes</span>, </span><span class="parameter" id="getProductExtras-param-databaseExecutor"><span class="type-annotation"><a href="https://pub.dev/documentation/sqflite_common/2.0.0+2/sqlite_api/DatabaseExecutor-class.html">DatabaseExecutor</a>?</span> <span class="parameter-name">databaseExecutor</span>}</span>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="../data_models_product_extra/ProductExtra-class.html">ProductExtra</a></span>&gt;</span></span>&gt;</span></span>
   </span>
   
@@ -274,6 +281,19 @@ and the string value contains a list of timestamps encoded as json.</li>
 </dt>
 <dd>
   Returns the <a href="../data_models_product_extra/ProductExtra-class.html">ProductExtra</a> values for an extra <code>key</code> and several <code>barcode</code>s 
+  
+
+</dd>
+
+        <dt id="getStats" class="callable">
+  <span class="name"><a href="../database_dao_product_extra/DaoProductExtra/getStats.html">getStats</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>&gt;</span></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the number of products of each product list 
   
 
 </dd>
@@ -305,7 +325,7 @@ and the string value contains a list of timestamps encoded as json.</li>
 </dd>
 
         <dt id="putLastScan" class="callable">
-  <span class="name"><a href="../database_dao_product_extra/DaoProductExtra/putLastScan.html">putLastScan</a></span><span class="signature">(<wbr><span class="parameter" id="putLastScan-param-product"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/1.3.0/model_Product/Product-class.html">Product</a></span> <span class="parameter-name">product</span></span>)
+  <span class="name"><a href="../database_dao_product_extra/DaoProductExtra/putLastScan.html">putLastScan</a></span><span class="signature">(<wbr><span class="parameter" id="putLastScan-param-product"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/1.3.1/model_Product/Product-class.html">Product</a></span> <span class="parameter-name">product</span></span>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
   </span>
   
@@ -318,7 +338,7 @@ and the string value contains a list of timestamps encoded as json.</li>
 </dd>
 
         <dt id="putLastSeen" class="callable">
-  <span class="name"><a href="../database_dao_product_extra/DaoProductExtra/putLastSeen.html">putLastSeen</a></span><span class="signature">(<wbr><span class="parameter" id="putLastSeen-param-product"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/1.3.0/model_Product/Product-class.html">Product</a></span> <span class="parameter-name">product</span></span>)
+  <span class="name"><a href="../database_dao_product_extra/DaoProductExtra/putLastSeen.html">putLastSeen</a></span><span class="signature">(<wbr><span class="parameter" id="putLastSeen-param-product"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/1.3.1/model_Product/Product-class.html">Product</a></span> <span class="parameter-name">product</span></span>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
   </span>
   
@@ -536,17 +556,18 @@ and the string value contains a list of timestamps encoded as json.</li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
     <li class="section-title"><a href="../database_dao_product_extra/DaoProductExtra-class.html#instance-methods">Methods</a></li>
-    <li class="inherited"><a href="../database_abstract_dao/AbstractDao/bulkInsert.html">bulkInsert</a></li>
-    <li class="inherited"><a href="../database_abstract_dao/AbstractDao/bulkUpsert.html">bulkUpsert</a></li>
+    <li><a href="../database_dao_product_extra/DaoProductExtra/bulkInsertExtra.html">bulkInsertExtra</a></li>
     <li><a href="../database_dao_product_extra/DaoProductExtra/bulkUpsertLoopLast.html">bulkUpsertLoopLast</a></li>
     <li><a href="../database_dao_product_extra/DaoProductExtra/bulkUpsertLoopSimplifiedText.html">bulkUpsertLoopSimplifiedText</a></li>
-    <li><a href="../database_dao_product_extra/DaoProductExtra/getBulkInsertColumns.html">getBulkInsertColumns</a></li>
-    <li class="inherited"><a href="../database_abstract_dao/AbstractDao/getBulkMaxRecordNumber.html">getBulkMaxRecordNumber</a></li>
+    <li><a href="../database_dao_product_extra/DaoProductExtra/clearList.html">clearList</a></li>
+    <li><a href="../database_dao_product_extra/DaoProductExtra/getDeleteWhere.html">getDeleteWhere</a></li>
     <li><a href="../database_dao_product_extra/DaoProductExtra/getFirstBarcodes.html">getFirstBarcodes</a></li>
+    <li><a href="../database_dao_product_extra/DaoProductExtra/getInsertColumns.html">getInsertColumns</a></li>
     <li><a href="../database_dao_product_extra/DaoProductExtra/getList.html">getList</a></li>
     <li><a href="../database_dao_product_extra/DaoProductExtra/getOrderedProductExtras.html">getOrderedProductExtras</a></li>
     <li><a href="../database_dao_product_extra/DaoProductExtra/getProductExtra.html">getProductExtra</a></li>
     <li><a href="../database_dao_product_extra/DaoProductExtra/getProductExtras.html">getProductExtras</a></li>
+    <li><a href="../database_dao_product_extra/DaoProductExtra/getStats.html">getStats</a></li>
     <li><a href="../database_dao_product_extra/DaoProductExtra/getTableName.html">getTableName</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li><a href="../database_dao_product_extra/DaoProductExtra/putLastScan.html">putLastScan</a></li>

@@ -46,6 +46,7 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-method">getLocalDatabase</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
@@ -69,7 +70,7 @@
 
   final Database database = await openDatabase(
     databasePath,
-    version: 7,
+    version: 8,
     singleInstance: true,
     onUpgrade: _onUpgrade,
   );

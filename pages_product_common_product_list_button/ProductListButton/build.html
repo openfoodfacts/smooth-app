@@ -46,6 +46,7 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-method">build</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
@@ -105,27 +106,17 @@ and</li>
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
-Widget build(BuildContext context) {
-  if (productList == null) {
-    return SmoothChip(
+Widget build(BuildContext context) =&gt; SmoothChip(
       onPressed: onPressed,
-      iconData: Icons.add,
-      label: onlyIcon ? null : AppLocalizations.of(context).new_list,
-      shape: _shape,
-    );
-  }
-  return SmoothChip(
-    onPressed: onPressed,
-    iconData: productList.iconData,
-    label: ProductQueryPageHelper.getProductListLabel(
-      productList,
-      context,
-      verbose: false,
-    ),
-    materialColor: productList.getMaterialColor(),
-    shape: _shape,
-  );
-}</code></pre>
+      iconData: productList.iconData,
+      label: ProductQueryPageHelper.getProductListLabel(
+        productList,
+        context,
+        verbose: false,
+      ),
+      materialColor: productList.getMaterialColor(),
+      shape: ProductQueryPageHelper.getShape(productList.listType),
+    );</code></pre>
 </section>
 
 
@@ -151,7 +142,6 @@ Widget build(BuildContext context) {
 
     <li class="section-title"><a href="../../pages_product_common_product_list_button/ProductListButton-class.html#constructors">Constructors</a></li>
     <li><a href="../../pages_product_common_product_list_button/ProductListButton/ProductListButton.html">ProductListButton</a></li>
-    <li><a href="../../pages_product_common_product_list_button/ProductListButton/ProductListButton.add.html">add</a></li>
 
 
     <li class="section-title">
@@ -159,7 +149,6 @@ Widget build(BuildContext context) {
     </li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/hashCode.html">hashCode</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/key.html">key</a></li>
-    <li><a href="../../pages_product_common_product_list_button/ProductListButton/onlyIcon.html">onlyIcon</a></li>
     <li><a href="../../pages_product_common_product_list_button/ProductListButton/onPressed.html">onPressed</a></li>
     <li><a href="../../pages_product_common_product_list_button/ProductListButton/productList.html">productList</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>

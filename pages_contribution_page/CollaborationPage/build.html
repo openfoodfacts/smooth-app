@@ -46,6 +46,7 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-method">build</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
@@ -123,10 +124,10 @@ Widget build(BuildContext context) {
               height: 28.0,
             ),
             Text(
-              AppLocalizations.of(context).featureInProgress,
+              AppLocalizations.of(context)!.featureInProgress,
               style: Theme.of(context)
                   .textTheme
-                  .subtitle1
+                  .subtitle1!
                   .copyWith(fontSize: 12, fontWeight: FontWeight.bold),
             ),
             const SizedBox(

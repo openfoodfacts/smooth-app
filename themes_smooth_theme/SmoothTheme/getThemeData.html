@@ -46,6 +46,7 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-method">getThemeData</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
@@ -74,10 +75,10 @@
     myColorScheme = const ColorScheme.dark();
   } else {
     final MaterialColor materialColor =
-        MATERIAL_COLORS[colorTag] ?? MATERIAL_COLORS[COLOR_TAG_BLUE];
+        MATERIAL_COLORS[colorTag] ?? MATERIAL_COLORS[COLOR_TAG_BLUE]!;
     myColorScheme = ColorScheme.light(
-      primary: materialColor[600],
-      primaryVariant: materialColor[900],
+      primary: materialColor[600]!,
+      primaryVariant: materialColor[900]!,
     );
   }
 

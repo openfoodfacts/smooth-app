@@ -46,6 +46,7 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-method">build</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
@@ -106,79 +107,46 @@ and</li>
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
+  final List&lt;Widget&gt; items = &lt;Widget&gt;[];
+  items.add(
+    Container(
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      margin: const EdgeInsets.only(top: 20.0, bottom: 24.0),
+      child: Text(
+        &#39;Add this product&#39;,
+        style: Theme.of(context).textTheme.headline1,
+      ),
+    ),
+  );
+  for (final String productListType in _USER_PRODUCT_TYPES) {
+    items.add(
+      Container(
+        alignment: Alignment.center,
+        child: Text(
+          _getLabel(productListType),
+          style: Theme.of(context).textTheme.headline2,
+        ),
+        width: MediaQuery.of(context).size.width,
+      ),
+    );
+    items.add(
+      Container(
+        margin: const EdgeInsets.symmetric(horizontal: 5),
+        child: Wrap(
+          direction: Axis.horizontal,
+          children: children[productListType]!,
+          spacing: 8.0,
+        ),
+      ),
+    );
+  }
+  items.add(
+    SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+  );
   return Material(
     child: Container(
       child: ListView(
-        shrinkWrap: true,
-        scrollDirection: Axis.vertical,
-        children: &lt;Widget&gt;[
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            margin: const EdgeInsets.only(top: 20.0, bottom: 24.0),
-            child: Text(
-              &#39;Add this product&#39;,
-              style: Theme.of(context).textTheme.headline1,
-            ),
-          ),
-          Container(
-            alignment: Alignment.center,
-            child: Text(
-              &#39;Lists:&#39;,
-              style: Theme.of(context).textTheme.headline2,
-            ),
-            width: MediaQuery.of(context).size.width,
-          ),
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 5),
-            child: Wrap(
-              direction: Axis.horizontal,
-              children: children.whereType&lt;ProductListButton&gt;().toList(),
-              spacing: 8.0,
-            ),
-          ),
-          Container(
-            alignment: Alignment.center,
-            child: Text(
-              &#39;Pantries:&#39;,
-              style: Theme.of(context).textTheme.headline2,
-            ),
-            width: MediaQuery.of(context).size.width,
-          ),
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 5),
-            child: Wrap(
-              direction: Axis.horizontal,
-              children: children
-                  .whereType&lt;PantryButton&gt;()
-                  .where((PantryButton pantryButton) =&gt;
-                      pantryButton.pantryType == PantryType.PANTRY)
-                  .toList(),
-              spacing: 8.0,
-            ),
-          ),
-          Container(
-            alignment: Alignment.center,
-            child: Text(
-              &#39;Shopping Lists:&#39;,
-              style: Theme.of(context).textTheme.headline2,
-            ),
-            width: MediaQuery.of(context).size.width,
-          ),
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 5),
-            child: Wrap(
-              direction: Axis.horizontal,
-              children: children
-                  .whereType&lt;PantryButton&gt;()
-                  .where((PantryButton pantryButton) =&gt;
-                      pantryButton.pantryType == PantryType.SHOPPING)
-                  .toList(),
-              spacing: 8.0,
-            ),
-          ),
-          SizedBox(height: MediaQuery.of(context).size.height * 0.05),
-        ],
-      ),
+          shrinkWrap: true, scrollDirection: Axis.vertical, children: items),
     ),
   );
 }</code></pre>

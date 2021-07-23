@@ -46,13 +46,14 @@
   <div id="dartdoc-main-content" class="main-content">
       <div>
 <h1><span class="kind-method">getPopulatedAttributes</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
       
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/1.3.0/model_Attribute/Attribute-class.html">Attribute</a></span>&gt;</span></span>
-<span class="name ">getPopulatedAttributes</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getPopulatedAttributes-param-product"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/1.3.0/model_Product/Product-class.html">Product</a></span> <span class="parameter-name">product</span>, </span></li>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/1.3.1/model_Attribute/Attribute-class.html">Attribute</a></span>&gt;</span></span>
+<span class="name ">getPopulatedAttributes</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getPopulatedAttributes-param-product"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/1.3.1/model_Product/Product-class.html">Product</a></span> <span class="parameter-name">product</span>, </span></li>
 <li><span class="parameter" id="getPopulatedAttributes-param-attributeIds"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">attributeIds</span></span></li>
 </ol>)
 
@@ -73,13 +74,13 @@
   final Map&lt;String, Attribute&gt; attributes =
       product.getAttributes(attributeIds);
   for (final String attributeId in attributeIds) {
-    Attribute attribute = attributes[attributeId];
+    Attribute? attribute = attributes[attributeId];
     &#47;&#47; Some attributes selected in the user preferences might be unavailable for some products
     if (attribute == null) {
       continue;
     } else if (attribute.id == Attribute.ATTRIBUTE_ADDITIVES) {
       &#47;&#47; TODO(stephanegigandet): remove that cheat when additives are more standard
-      final List&lt;String&gt; additiveNames = product.additives?.names;
+      final List&lt;String&gt;? additiveNames = product.additives?.names;
       attribute = Attribute(
         id: attribute.id,
         title: attribute.title,
