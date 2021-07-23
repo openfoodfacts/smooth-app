@@ -60,11 +60,14 @@ android {
         release {
             signingConfig signingConfigs.release
         }
-        debug {
+        debug{
             signingConfig signingConfigs.debug
         }
     }
 }
+
+
+
 
 flutter {
     source '../..'
