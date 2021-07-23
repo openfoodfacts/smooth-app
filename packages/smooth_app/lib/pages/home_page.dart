@@ -25,7 +25,7 @@ import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_ui_library/widgets/smooth_card.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage();
 
   @override
   State<HomePage> createState() => _HomePageState();

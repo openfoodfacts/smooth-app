@@ -6,8 +6,6 @@ import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_ui_library/widgets/smooth_list_tile.dart';
 
 class UserContributionView extends StatelessWidget {
-  UserContributionView({Key? key}) : super(key: key);
-
   final Launcher launcher = Launcher();
 
   @override

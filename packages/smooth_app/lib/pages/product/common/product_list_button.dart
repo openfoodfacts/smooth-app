@@ -8,8 +8,7 @@ class ProductListButton extends StatelessWidget {
   const ProductListButton({
     required this.productList,
     required this.onPressed,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final ProductList productList;
   final VoidCallback onPressed;

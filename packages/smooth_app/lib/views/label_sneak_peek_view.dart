@@ -4,8 +4,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
 
 class LabelSneakPeekView extends StatelessWidget {
-  const LabelSneakPeekView({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Column(

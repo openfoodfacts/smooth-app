@@ -11,8 +11,7 @@ class SmoothDataCard extends StatelessWidget {
     this.width,
     this.height,
     this.color = Colors.white,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final Widget content;
   final double? width;

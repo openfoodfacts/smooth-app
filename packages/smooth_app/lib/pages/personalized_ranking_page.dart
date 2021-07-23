@@ -13,10 +13,7 @@ import 'package:smooth_app/pages/user_preferences_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 class PersonalizedRankingPage extends StatefulWidget {
-  const PersonalizedRankingPage(
-    this.productList, {
-    Key? key,
-  }) : super(key: key);
+  const PersonalizedRankingPage(this.productList);
 
   final ProductList productList;
 

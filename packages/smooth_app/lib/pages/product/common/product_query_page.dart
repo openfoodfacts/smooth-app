@@ -21,8 +21,7 @@ class ProductQueryPage extends StatefulWidget {
     required this.mainColor,
     required this.name,
     this.lastUpdate,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final ProductListSupplier productListSupplier;
   final String heroTag;

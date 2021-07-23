@@ -7,8 +7,6 @@ import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 
 // TODO(stephanegigandet): not used, to be deleted?
 class CollaborationPage extends StatelessWidget {
-  const CollaborationPage({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

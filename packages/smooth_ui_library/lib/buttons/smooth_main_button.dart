@@ -7,8 +7,7 @@ class SmoothMainButton extends StatelessWidget {
     this.width = double.infinity,
     this.important = true,
     this.height = 56.0,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final String text;
   final VoidCallback onPressed;

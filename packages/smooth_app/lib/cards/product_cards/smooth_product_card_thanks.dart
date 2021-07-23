@@ -4,7 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SmoothProductCardThanks extends StatelessWidget {
-  const SmoothProductCardThanks({Key? key}) : super(key: key);
+  const SmoothProductCardThanks();
 
   @override
   Widget build(BuildContext context) {

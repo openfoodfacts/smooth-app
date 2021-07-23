@@ -12,8 +12,7 @@ class ListPage extends StatefulWidget {
   const ListPage({
     required this.title,
     required this.typeFilter,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final String title;
   final List<String> typeFilter;

@@ -11,8 +11,7 @@ import 'package:smooth_ui_library/widgets/smooth_toggle.dart';
 class ScanPage extends StatelessWidget {
   const ScanPage({
     required this.contributionMode,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final bool contributionMode;
 

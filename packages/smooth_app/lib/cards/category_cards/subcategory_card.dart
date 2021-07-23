@@ -7,8 +7,7 @@ class SubcategoryCard extends StatelessWidget {
     required this.color,
     required this.onTap,
     required this.heroTag,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final String title;
   final Color color;
