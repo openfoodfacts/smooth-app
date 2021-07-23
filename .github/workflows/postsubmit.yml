@@ -4,12 +4,11 @@ on: push
     
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./packages/smooth_app
+        shell: bash
     steps:
-    
       - name: "Checkout code"
         uses: actions/checkout@v1
 
@@ -44,6 +43,7 @@ jobs:
       # Build apk.
       - name: "Build apk"
         run: flutter build apk --debug
+        working-directory: ./packages/smooth_app
       
       # Upload generated apk to the artifacts.
       - name: "Upload APK"
