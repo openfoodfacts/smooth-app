@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/bottom_sheet_views/product_copy_view.dart';
-import 'package:smooth_app/pages/product/common/product_list_add_button.dart';
-import 'package:smooth_app/pages/product/common/product_list_button.dart';
-import 'package:smooth_app/pages/product/common/product_list_page.dart';
+import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
-import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/pages/product/common/product_list_add_button.dart';
+import 'package:smooth_app/pages/product/common/product_list_button.dart';
 import 'package:smooth_app/pages/product/common/product_list_dialog_helper.dart';
+import 'package:smooth_app/pages/product/common/product_list_page.dart';
 
 /// Helper for product copy as multi selected
 class ProductCopyHelper {
@@ -66,7 +66,7 @@ class ProductCopyHelper {
         ),
       );
     }
-    return await showCupertinoModalBottomSheet<ProductList>(
+    return showCupertinoModalBottomSheet<ProductList>(
       expand: false,
       context: context,
       backgroundColor: Colors.transparent,
@@ -87,8 +87,6 @@ class ProductCopyHelper {
       productList,
       products,
     );
-    final Widget Function(BuildContext) go =
-        (BuildContext context) => ProductListPage(productList);
     daoProductList.localDatabase.notifyListeners();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -100,7 +98,9 @@ class ProductCopyHelper {
             Navigator.pop(context);
             Navigator.push<Widget>(
               context,
-              MaterialPageRoute<Widget>(builder: go),
+              MaterialPageRoute<Widget>(
+                  builder: (BuildContext context) =>
+                      ProductListPage(productList)),
             );
           },
         ),

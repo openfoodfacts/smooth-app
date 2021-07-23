@@ -5,9 +5,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_ui_library/navigation/models/smooth_bottom_navigation_bar_item.dart';
 
 class SmoothBottomNavigationBar extends StatefulWidget {
-  const SmoothBottomNavigationBar(this.items, {required this.fabAction});
+  const SmoothBottomNavigationBar(
+    this.items, {
+    required this.fabAction,
+    Key? key,
+  }) : super(key: key);
+
   final List<SmoothBottomNavigationBarItem> items;
-  final Function fabAction;
+  final VoidCallback fabAction;
 
   @override
   State<StatefulWidget> createState() => SmoothBottomNavigationBarState();
@@ -100,7 +105,7 @@ class SmoothBottomNavigationBarState extends State<SmoothBottomNavigationBar>
     return Expanded(
       child: GestureDetector(
         onTap: () => _onItemTapped(i),
-        child: Container(
+        child: SizedBox(
           height: 60,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -122,7 +127,7 @@ class SmoothBottomNavigationBarState extends State<SmoothBottomNavigationBar>
     return Expanded(
       child: GestureDetector(
         onTap: () => _onItemTapped(i),
-        child: Container(
+        child: SizedBox(
           height: 60,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,

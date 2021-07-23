@@ -1,32 +1,33 @@
-import 'package:flutter/widgets.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/personalized_search/matched_product.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_edit.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_loading.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_not_found.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_thanks.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
-import 'package:openfoodfacts/personalized_search/matched_product.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:provider/provider.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/data_models/smooth_it_model.dart';
+import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 class SmoothProductCarousel extends StatefulWidget {
   const SmoothProductCarousel({
     required this.continuousScanModel,
     this.height = 120.0,
-  });
+    Key? key,
+  }) : super(key: key);
 
   final ContinuousScanModel continuousScanModel;
   final double height;
 
   @override
-  _SmoothProductCarouselState createState() => _SmoothProductCarouselState();
+  State<SmoothProductCarousel> createState() => _SmoothProductCarouselState();
 }
 
 class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
@@ -43,7 +44,7 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
       _length = barcodesLength;
       if (_length > 1) {
         Future<void>.delayed(
-          const Duration(seconds: 0),
+          Duration.zero,
           () => _controller.animateToPage(_length - 1),
         );
       }
@@ -98,7 +99,7 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
               .setBarcodeState(barcode, ScannedProductState.THANKS),
         );
       case ScannedProductState.THANKS:
-        return SmoothProductCardThanks();
+        return const SmoothProductCardThanks();
     }
   }
 }

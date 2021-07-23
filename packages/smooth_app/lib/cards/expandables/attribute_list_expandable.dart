@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_ui_library/widgets/smooth_card.dart';
-import 'package:smooth_ui_library/widgets/smooth_expandable_card.dart';
 import 'package:smooth_app/cards/data_cards/attribute_card.dart';
 import 'package:smooth_app/cards/data_cards/attribute_chip.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/pages/attribute_button.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
-import 'package:smooth_app/pages/attribute_button.dart';
+import 'package:smooth_ui_library/widgets/smooth_card.dart';
+import 'package:smooth_ui_library/widgets/smooth_expandable_card.dart';
 
 class AttributeListExpandable extends StatelessWidget {
   const AttributeListExpandable({
@@ -22,7 +22,8 @@ class AttributeListExpandable extends StatelessWidget {
     this.padding,
     this.insets,
     this.initiallyCollapsed = true,
-  });
+    Key? key,
+  }) : super(key: key);
 
   final Product product;
   final double iconHeight;
@@ -143,7 +144,7 @@ class AttributeListExpandable extends StatelessWidget {
       padding: padding,
       insets: insets,
       initiallyCollapsed: initiallyCollapsed,
-      collapsedHeader: Container(
+      collapsedHeader: SizedBox(
         width: screenSize.width * 0.8,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,

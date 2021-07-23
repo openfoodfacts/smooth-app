@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/pages/product_copy_helper.dart';
-import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
+import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/pages/product_copy_helper.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
 
 /// Page where products can be selected for copy or removal
 ///
@@ -17,14 +17,15 @@ class MultiSelectProductPage extends StatefulWidget {
   const MultiSelectProductPage({
     required this.barcode,
     required this.productList,
-  });
+    Key? key,
+  }) : super(key: key);
 
   /// Initial selected barcode
   final String barcode;
   final ProductList productList;
 
   @override
-  _MultiSelectProductPageState createState() => _MultiSelectProductPageState();
+  State<MultiSelectProductPage> createState() => _MultiSelectProductPageState();
 }
 
 class _MultiSelectProductPageState extends State<MultiSelectProductPage> {
@@ -129,7 +130,7 @@ class _MultiSelectProductPageState extends State<MultiSelectProductPage> {
               Colors.grey,
               ColorDestination.SURFACE_BACKGROUND,
             ),
-            child: Container(
+            child: SizedBox(
               height: screenSize.height / 10,
               child: ListTile(
                 onTap: () => setState(

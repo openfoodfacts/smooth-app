@@ -14,11 +14,12 @@ class ProductListItem extends StatelessWidget {
     required this.listRefresher,
     required this.daoProductList,
     this.reorderIndex,
-  });
+    Key? key,
+  }) : super(key: key);
 
   final Product product;
   final ProductList productList;
-  final Function listRefresher;
+  final VoidCallback listRefresher;
   final DaoProductList daoProductList;
   final int? reorderIndex;
 

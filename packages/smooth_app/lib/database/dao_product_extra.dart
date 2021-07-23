@@ -1,16 +1,17 @@
 import 'dart:async';
 import 'dart:collection';
 import 'dart:convert';
-import 'package:openfoodfacts/model/Product.dart';
-import 'package:smooth_app/database/abstract_dao.dart';
-import 'package:smooth_app/database/bulk_manager.dart';
-import 'package:smooth_app/database/bulk_deletable.dart';
-import 'package:smooth_app/database/dao_product.dart';
-import 'package:sqflite/sqflite.dart';
-import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/data_models/product_extra.dart';
+
 import 'package:diacritic/diacritic.dart';
+import 'package:openfoodfacts/model/Product.dart';
+import 'package:smooth_app/data_models/product_extra.dart';
 import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/database/abstract_dao.dart';
+import 'package:smooth_app/database/bulk_deletable.dart';
+import 'package:smooth_app/database/bulk_manager.dart';
+import 'package:smooth_app/database/dao_product.dart';
+import 'package:smooth_app/database/local_database.dart';
+import 'package:sqflite/sqflite.dart';
 
 /// DAO for Product Extra data
 ///
@@ -82,7 +83,7 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
   }
 
   /// Returns the sub-query for products that have a product extra
-  static String getExistsSubQuery() => ''
+  static String getExistsSubQuery() => //
       'select '
       '  null '
       'from '
@@ -96,8 +97,7 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
 
   /// Returns the sub-query for products about the suggestion field
   static String getExistsLikeSubQuery() =>
-      getExistsSubQuery() +
-      '  and b.$_TABLE_PRODUCT_EXTRA_COLUMN_VALUE like ? ';
+      '${getExistsSubQuery()}  and b.$_TABLE_PRODUCT_EXTRA_COLUMN_VALUE like ? ';
 
   /// Returns the sub-query parameters for products about the suggestion field
   static List<String> getExistsLikeSubQueryArgs(final String pattern) =>
@@ -105,11 +105,11 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
 
   /// Adds a "last time I saw this product" timestamp entry
   Future<void> putLastSeen(final Product product) async =>
-      await _putLast(product, EXTRA_ID_LAST_SEEN);
+      _putLast(product, EXTRA_ID_LAST_SEEN);
 
   /// Adds a "last time I scanned this product" timestamp entry
   Future<void> putLastScan(final Product product) async =>
-      await _putLast(product, EXTRA_ID_LAST_SCAN);
+      _putLast(product, EXTRA_ID_LAST_SCAN);
 
   /// Adds a "last time I did whatever with this product" timestamp entry
   Future<void> _putLast(
@@ -118,7 +118,7 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
     int? timestamp,
     DatabaseExecutor? databaseExecutor,
   }) async =>
-      await bulkUpsertLoopLast(
+      bulkUpsertLoopLast(
         databaseExecutor ?? localDatabase.database,
         <Product>[product],
         timestamp ?? LocalDatabase.nowInMillis(),
@@ -137,8 +137,8 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
     final List<dynamic> deleteParameters = <dynamic>[];
 
     for (final Product product in products) {
-      deleteParameters.add(product.barcode!);
-      insertParameters.add(product.barcode!);
+      deleteParameters.add(product.barcode);
+      insertParameters.add(product.barcode);
       insertParameters.add(KEY);
       insertParameters.add(_getSimplifiedTextForProduct(product));
       insertParameters.add(0);
@@ -188,8 +188,8 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
       }
       timestamps.add(timestamp);
 
-      deleteParameters.add(product.barcode!);
-      insertParameters.add(product.barcode!);
+      deleteParameters.add(product.barcode);
+      insertParameters.add(product.barcode);
       insertParameters.add(extraKey);
       insertParameters.add(jsonEncode(timestamps)); // string value
       insertParameters.add(timestamp); // int value
@@ -425,7 +425,7 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
     final int? id,
     final DatabaseExecutor databaseExecutor,
   ) async =>
-      await databaseExecutor.delete(
+      databaseExecutor.delete(
         _TABLE_PRODUCT_EXTRA,
         where: '$_TABLE_PRODUCT_EXTRA_COLUMN_KEY = ?',
         whereArgs: <String>[_getExtraKey(productList, id)],

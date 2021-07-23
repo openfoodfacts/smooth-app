@@ -5,20 +5,21 @@ import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/product/common/product_list_add_button.dart';
-import 'package:smooth_app/pages/product/common/product_list_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_dialog_helper.dart';
+import 'package:smooth_app/pages/product/common/product_list_page.dart';
 
 class ListPage extends StatefulWidget {
   const ListPage({
     required this.title,
     required this.typeFilter,
-  });
+    Key? key,
+  }) : super(key: key);
 
   final String title;
   final List<String> typeFilter;
 
   @override
-  _ListPageState createState() => _ListPageState();
+  State<ListPage> createState() => _ListPageState();
 }
 
 class _ListPageState extends State<ListPage> {
@@ -37,7 +38,7 @@ class _ListPageState extends State<ListPage> {
           if (userProductListType != null)
             IconButton(
               icon: const Icon(Icons.add),
-              onPressed: () async => await _add(
+              onPressed: () async => _add(
                 daoProductList,
                 userProductListType,
               ),
@@ -58,7 +59,7 @@ class _ListPageState extends State<ListPage> {
                     return Center(
                       child: ProductListAddButton(
                         onlyIcon: false,
-                        onPressed: () async => await _add(
+                        onPressed: () async => _add(
                           daoProductList,
                           userProductListType,
                         ),

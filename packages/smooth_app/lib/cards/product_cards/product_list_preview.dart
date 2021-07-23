@@ -1,11 +1,7 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
-
-// Package imports:
-import 'package:openfoodfacts/model/Product.dart';
-
-// Project imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/cards/product_cards/product_list_preview_helper.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
@@ -20,12 +16,13 @@ class ProductListPreview extends StatelessWidget {
     required this.productList,
     required this.nbInPreview,
     this.andThen,
-  });
+    Key? key,
+  }) : super(key: key);
 
   final DaoProductList daoProductList;
   final ProductList productList;
   final int nbInPreview;
-  final Function? andThen;
+  final VoidCallback? andThen;
 
   @override
   Widget build(BuildContext context) => FutureBuilder<List<Product>>(

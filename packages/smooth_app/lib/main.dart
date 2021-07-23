@@ -1,24 +1,25 @@
 import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo/matomo.dart';
+import 'package:openfoodfacts/personalized_search/product_preferences_selection.dart';
 import 'package:provider/provider.dart';
 import 'package:sentry/sentry.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/home_page.dart';
-import 'package:openfoodfacts/personalized_search/product_preferences_selection.dart';
-import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
-import 'package:smooth_app/data_models/product_preferences.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Sentry.init(
-    (dynamic options) {
+    (SentryOptions options) {
       options.dsn =
           'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745';
     },
@@ -28,7 +29,7 @@ Future<void> main() async {
     url: 'https://analytics.openfoodfacts.org/',
   );
   try {
-    runApp(MyApp());
+    runApp(const SmoothApp());
   } catch (exception, stackTrace) {
     await Sentry.captureException(
       exception,
@@ -37,13 +38,15 @@ Future<void> main() async {
   }
 }
 
-class MyApp extends StatefulWidget {
+class SmoothApp extends StatefulWidget {
+  const SmoothApp({Key? key}) : super(key: key);
+
   // This widget is the root of your application.
   @override
-  _MyAppState createState() => _MyAppState();
+  State<SmoothApp> createState() => _SmoothAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _SmoothAppState extends State<SmoothApp> {
   late UserPreferences _userPreferences;
   late ProductPreferences _productPreferences;
   late LocalDatabase _localDatabase;
@@ -58,7 +61,7 @@ class _MyAppState extends State<MyApp> {
           String attributeId,
           String importanceId,
         ) async =>
-            await _userPreferences.setImportance(attributeId, importanceId),
+            _userPreferences.setImportance(attributeId, importanceId),
         getImportance: (String attributeId) =>
             _userPreferences.getImportance(attributeId),
         notify: () => _productPreferences.notifyListeners(),
@@ -70,7 +73,7 @@ class _MyAppState extends State<MyApp> {
       );
     } catch (e) {
       // this is problematic - we should always be able to load the default
-      print('Could not load reference files: $e');
+      debugPrint('Could not load reference files: $e');
       rethrow;
     }
     await _userPreferences.init(_productPreferences);
@@ -78,7 +81,7 @@ class _MyAppState extends State<MyApp> {
       _localDatabase = await LocalDatabase.getLocalDatabase();
     } catch (e) {
       // this is problematic - we should always be able to init the database
-      print('Cannot init database: $e');
+      debugPrint('Cannot init database: $e');
       rethrow;
     }
     _themeProvider = ThemeProvider(_userPreferences);
@@ -131,7 +134,7 @@ class _MyAppState extends State<MyApp> {
                   themeMode: _themeProvider.darkTheme
                       ? ThemeMode.dark
                       : ThemeMode.light,
-                  home: SmoothAppGetLanguage(),
+                  home: const SmoothAppGetLanguage(),
                 );
               },
             ),
@@ -150,6 +153,8 @@ class _MyAppState extends State<MyApp> {
 
 /// Layer needed because we need to know the language
 class SmoothAppGetLanguage extends StatelessWidget {
+  const SmoothAppGetLanguage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final ProductPreferences productPreferences =
@@ -161,7 +166,7 @@ class SmoothAppGetLanguage extends StatelessWidget {
       DefaultAssetBundle.of(context),
       languageCode,
     );
-    return HomePage();
+    return const HomePage();
   }
 
   Future<void> _refresh(

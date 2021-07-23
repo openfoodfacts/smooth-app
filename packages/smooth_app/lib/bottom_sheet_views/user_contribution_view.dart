@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:smooth_app/functions/launch_url.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
-import 'package:smooth_ui_library/widgets/smooth_listTile.dart';
-import 'package:smooth_app/functions/launchURL.dart';
+import 'package:smooth_ui_library/widgets/smooth_list_tile.dart';
 
 class UserContributionView extends StatelessWidget {
+  UserContributionView({Key? key}) : super(key: key);
+
   final Launcher launcher = Launcher();
 
   @override
   Widget build(BuildContext context) {
     return Material(
-      child: Container(
+      child: SizedBox(
         height: MediaQuery.of(context).size.height * 0.9,
         child: Stack(
           children: <Widget>[
@@ -19,7 +21,7 @@ class UserContributionView extends StatelessWidget {
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
-                Container(
+                SizedBox(
                   height: MediaQuery.of(context).size.height * 0.9,
                   child: ListView(
                     shrinkWrap: true,
@@ -110,7 +112,7 @@ class UserContributionView extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context, rootNavigator: true).pop('dialog');
               },
-              text: '${AppLocalizations.of(context)!.okay}',
+              text: AppLocalizations.of(context)!.okay,
               minWidth: 100,
             ),
           ],

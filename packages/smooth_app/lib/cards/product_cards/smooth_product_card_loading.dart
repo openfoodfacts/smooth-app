@@ -1,11 +1,12 @@
-// Dart imports:
 import 'dart:ui';
 
-// Flutter imports:
 import 'package:flutter/material.dart';
 
 class SmoothProductCardLoading extends StatelessWidget {
-  const SmoothProductCardLoading({required this.barcode});
+  const SmoothProductCardLoading({
+    required this.barcode,
+    Key? key,
+  }) : super(key: key);
 
   final String barcode;
 

@@ -1,12 +1,13 @@
 import 'dart:async';
 import 'dart:convert';
+
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
-import 'package:smooth_app/database/bulk_manager.dart';
 import 'package:smooth_app/database/bulk_deletable.dart';
+import 'package:smooth_app/database/bulk_manager.dart';
 import 'package:smooth_app/database/dao_product_extra.dart';
-import 'package:sqflite/sqflite.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:sqflite/sqflite.dart';
 
 class DaoProduct extends AbstractDao implements BulkDeletable {
   DaoProduct(final LocalDatabase localDatabase) : super(localDatabase);
@@ -142,8 +143,7 @@ class DaoProduct extends AbstractDao implements BulkDeletable {
 
   /// Upserts products in database
   Future<void> put(final List<Product> products) async =>
-      await localDatabase.database
-          .transaction((final Transaction transaction) async {
+      localDatabase.database.transaction((final Transaction transaction) async {
         final int timestamp = LocalDatabase.nowInMillis();
         final DaoProductExtra daoProductExtra = DaoProductExtra(localDatabase);
         await _bulkUpsertLoop(transaction, products, timestamp);
@@ -170,8 +170,8 @@ class DaoProduct extends AbstractDao implements BulkDeletable {
     final List<dynamic> insertParameters = <dynamic>[];
     final List<dynamic> deleteParameters = <dynamic>[];
     for (final Product product in products) {
-      deleteParameters.add(product.barcode!);
-      insertParameters.add(product.barcode!);
+      deleteParameters.add(product.barcode);
+      insertParameters.add(product.barcode);
       insertParameters.add(json.encode(product.toJson()));
       insertParameters.add(timestamp);
     }

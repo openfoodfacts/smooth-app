@@ -1,13 +1,13 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:smooth_app/database/dao_product.dart';
+import 'package:smooth_app/pages/choose_page.dart';
+import 'package:smooth_app/pages/product/product_page.dart';
 import 'package:smooth_ui_library/widgets/smooth_card.dart';
 import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
-import 'package:smooth_app/database/dao_product.dart';
-import 'package:smooth_app/pages/product/product_page.dart';
-import 'package:smooth_app/pages/choose_page.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 /// Local product search by text
 class TextSearchWidget extends StatefulWidget {
@@ -15,7 +15,8 @@ class TextSearchWidget extends StatefulWidget {
     this.color,
     required this.daoProduct,
     this.addProductCallback,
-  });
+    Key? key,
+  }) : super(key: key);
 
   /// Icon color
   final Color? color;
@@ -25,7 +26,7 @@ class TextSearchWidget extends StatefulWidget {
   final Future<void> Function(Product product)? addProductCallback;
 
   @override
-  _TextSearchWidgetState createState() => _TextSearchWidgetState();
+  State<TextSearchWidget> createState() => _TextSearchWidgetState();
 }
 
 class _TextSearchWidgetState extends State<TextSearchWidget> {

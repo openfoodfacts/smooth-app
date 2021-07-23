@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 class SmoothGauge extends StatelessWidget {
-  const SmoothGauge(
-      {required this.value,
-      this.size = 80.0,
-      required this.color,
-      this.backgroundColor,
-      this.circular = true,
-      this.width = 100.0});
+  const SmoothGauge({
+    required this.value,
+    this.size = 80.0,
+    required this.color,
+    this.backgroundColor,
+    this.circular = true,
+    this.width = 100.0,
+    Key? key,
+  }) : super(key: key);
 
   final double value;
   final double size;

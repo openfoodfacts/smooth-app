@@ -7,11 +7,12 @@ class SmoothListTile extends StatelessWidget {
     this.onPressed,
     this.leadingWidget,
     this.title,
-  });
+    Key? key,
+  }) : super(key: key);
 
   final String? text;
   final Widget? leadingWidget;
-  final Function? onPressed;
+  final VoidCallback? onPressed;
   final Widget? title;
 
   @override

@@ -9,7 +9,8 @@ class SmoothProductImage extends StatelessWidget {
     required this.product,
     required this.height,
     required this.width,
-  });
+    Key? key,
+  }) : super(key: key);
 
   final Product product;
   final double height;

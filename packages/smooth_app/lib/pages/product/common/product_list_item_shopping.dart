@@ -13,11 +13,13 @@ class ProductListItemShopping extends StatelessWidget {
     required this.listRefresher,
     required this.daoProductList,
     required this.reorderIndex,
-  }) : _productExtra = productList.getProductExtra(product.barcode!);
+    Key? key,
+  })  : _productExtra = productList.getProductExtra(product.barcode!),
+        super(key: key);
 
   final Product product;
   final ProductList productList;
-  final Function listRefresher;
+  final VoidCallback listRefresher;
   final DaoProductList daoProductList;
   final int reorderIndex;
   final ProductExtra _productExtra;
@@ -37,12 +39,12 @@ class ProductListItemShopping extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           IconButton(
-            onPressed: () async => await _add(-1),
+            onPressed: () async => _add(-1),
             icon: const Icon(Icons.remove_circle_outline),
           ),
           Text('${_getCount()}', style: const TextStyle(fontSize: 16)),
           IconButton(
-            onPressed: () async => await _add(1),
+            onPressed: () async => _add(1),
             icon: const Icon(Icons.add_circle_outline),
           ),
         ],
