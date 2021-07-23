@@ -10,6 +10,7 @@
     <application
         android:name="io.flutter.app.FlutterApplication"
         android:label="Smoothie"
+        android:roundIcon="@mipmap/launcher_icon_round"
         android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
