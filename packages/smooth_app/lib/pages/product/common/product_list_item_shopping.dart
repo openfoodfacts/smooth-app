@@ -14,8 +14,8 @@ class ProductListItemShopping extends StatelessWidget {
     required this.daoProductList,
     required this.reorderIndex,
     Key? key,
-  }) : _productExtra = productList.getProductExtra(product.barcode!),
-       super(key: key);
+  })  : _productExtra = productList.getProductExtra(product.barcode!),
+        super(key: key);
 
   final Product product;
   final ProductList productList;

@@ -4,7 +4,7 @@ import 'package:smooth_app/main.dart';
 
 void main() {
   testWidgets('App Starts', (WidgetTester tester) async {
-    await tester.pumpWidget(MyApp());
-    expect(find.byType(MyApp), findsOneWidget);
+    await tester.pumpWidget(const SmoothApp());
+    expect(find.byType(SmoothApp), findsOneWidget);
   });
 }

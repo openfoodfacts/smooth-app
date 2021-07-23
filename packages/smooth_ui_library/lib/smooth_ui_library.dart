@@ -15,7 +15,7 @@ export 'widgets/models/single_boolean_model.dart';
 export 'widgets/smooth_card.dart';
 export 'widgets/smooth_expandable_card.dart';
 export 'widgets/smooth_gauge.dart';
-export 'widgets/smooth_listTile.dart';
+export 'widgets/smooth_list_tile.dart';
 export 'widgets/smooth_product_image.dart';
 export 'widgets/smooth_search_bar.dart';
 export 'widgets/smooth_sticky_list_view.dart';

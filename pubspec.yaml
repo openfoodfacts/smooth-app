@@ -1,0 +1,12 @@
+# This pubspec file exists solely to pick up the flutter_lints package for the
+# top level analysis_options.yaml to include.
+name: smooth_app_repo
+description: The official repo for smooth_app.
+version: 0.0.1
+publish_to: 'none'
+
+environment:
+  sdk: '>=2.12.2 <3.0.0'
+
+dependencies:
+  flutter_lints: ^1.0.4

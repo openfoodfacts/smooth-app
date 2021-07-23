@@ -143,8 +143,7 @@ class DaoProduct extends AbstractDao implements BulkDeletable {
 
   /// Upserts products in database
   Future<void> put(final List<Product> products) async =>
-      localDatabase.database
-          .transaction((final Transaction transaction) async {
+      localDatabase.database.transaction((final Transaction transaction) async {
         final int timestamp = LocalDatabase.nowInMillis();
         final DaoProductExtra daoProductExtra = DaoProductExtra(localDatabase);
         await _bulkUpsertLoop(transaction, products, timestamp);

@@ -1,6 +1,7 @@
 name: smooth_app
 description: A new official Open Food Facts application build with great user experience in mind.
 version: 0.0.1+5
+publish_to: 'none'
 
 environment:
   sdk: ">=2.13.3 <3.0.0"
@@ -84,5 +85,3 @@ flutter:
     - assets/product/
     - assets/ikonate_thin/
     - assets/ikonate_bold/
-
-publish_to: 'none'
