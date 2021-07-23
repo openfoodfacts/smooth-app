@@ -22,9 +22,10 @@ You can join the Open Food Facts's Slack here : [Get an invite](https://slack.op
 
 *full project documentation will be added here when ready*
 
-## Wiki 
+## Wiki & Doc 
 - https://github.com/openfoodfacts/smooth-app/wiki
 - https://wiki.openfoodfacts.org/Project_Smoothie
+- https://openfoodfacts.github.io/smooth-app/
 
 ## V1 Roadmap
 ### Design

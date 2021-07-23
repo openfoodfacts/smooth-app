@@ -33,7 +33,7 @@ class CategoryProductQuery implements ProductQuery {
               tagName: category,
             ),
           ],
-          lc: languageCode,
+          language: LanguageHelper.fromJson(languageCode),
           cc: countryCode,
         ),
       );
