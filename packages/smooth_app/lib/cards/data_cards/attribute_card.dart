@@ -1,6 +1,7 @@
 import 'dart:convert';
-import 'package:http/http.dart' as http;
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/database/product_query.dart';
@@ -11,7 +12,8 @@ class AttributeCard extends StatelessWidget {
     this.attribute,
     this.attributeChip, {
     this.barcode,
-  });
+    Key? key,
+  }) : super(key: key);
 
   final Attribute attribute;
   final Widget attributeChip;

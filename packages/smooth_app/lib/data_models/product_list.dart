@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Product.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/data_models/product_extra.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
 
 class ProductList {
   ProductList({
@@ -229,7 +229,7 @@ class ProductList {
   /// Don't forget to update the database afterwards
   bool add(final Product product) {
     refresh(product);
-    if (_barcodes.contains(product.barcode!)) {
+    if (_barcodes.contains(product.barcode)) {
       return false;
     }
     _barcodes.add(product.barcode!);

@@ -8,7 +8,8 @@ class SvgAsyncAsset extends StatelessWidget {
     this.fullFilename, {
     this.width,
     this.height,
-  });
+    Key? key,
+  }) : super(key: key);
 
   final String fullFilename;
   final double? width;
@@ -25,16 +26,16 @@ class SvgAsyncAsset extends StatelessWidget {
                 width: width,
                 height: height,
                 fit: BoxFit.contain,
-                placeholderBuilder: (BuildContext context) => Container(
+                placeholderBuilder: (BuildContext context) => SizedBox(
                   width: width ?? height,
                   height: height ?? width,
                 ),
               );
             } else {
-              print('unexpected case: svg asset not found $fullFilename');
+              debugPrint('unexpected case: svg asset not found $fullFilename');
             }
           }
-          return Container(
+          return SizedBox(
             width: width ?? height,
             height: height ?? width,
           );

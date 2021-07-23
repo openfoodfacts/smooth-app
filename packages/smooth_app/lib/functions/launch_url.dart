@@ -1,10 +1,6 @@
-// Dart imports:
 import 'dart:core';
 
-// Flutter imports:
 import 'package:flutter/material.dart';
-
-// Package imports:
 import 'package:url_launcher/url_launcher.dart';
 
 class Launcher {
@@ -43,7 +39,7 @@ class Launcher {
     }
 
     if (await canLaunch(openURL)) {
-      print('Open url: $url');
+      debugPrint('Open url: $url');
       await launch(openURL);
     } else {
       throw 'Could not launch $url';

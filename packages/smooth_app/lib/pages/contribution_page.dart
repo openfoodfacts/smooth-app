@@ -1,17 +1,14 @@
-// Flutter imports:
 import 'package:flutter/material.dart';
-
-// Package imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:smooth_app/pages/scan/scan_page.dart';
 import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 
-// Project imports:
-import 'package:smooth_app/pages/scan/scan_page.dart';
-
 // TODO(stephanegigandet): not used, to be deleted?
 class CollaborationPage extends StatelessWidget {
+  const CollaborationPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -7,10 +7,11 @@ class SmoothSimpleButton extends StatelessWidget {
     this.minWidth = 15,
     this.height = 20,
     this.important = true,
-  });
+    Key? key,
+  }) : super(key: key);
 
   final String text;
-  final Function onPressed;
+  final VoidCallback onPressed;
   final double minWidth;
   final double height;
   final bool important;

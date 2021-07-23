@@ -3,10 +3,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 class SmoothViewFinder extends StatefulWidget {
-  const SmoothViewFinder(
-      {required this.width,
-      required this.height,
-      required this.animationDuration});
+  const SmoothViewFinder({
+    required this.width,
+    required this.height,
+    required this.animationDuration,
+    Key? key,
+  }) : super(key: key);
 
   final double width;
   final double height;
@@ -71,15 +73,13 @@ class SmoothViewFinderState extends State<SmoothViewFinder>
         ),
         Transform.translate(
             offset: Offset(-widget.width * 0.12, 4.0),
-            child: Container(
-              child: Text(
-                'Powered by Open Food Facts',
-                style: Theme.of(context)
-                    .textTheme
-                    .subtitle1!
-                    .copyWith(color: Colors.white),
-                textAlign: TextAlign.start,
-              ),
+            child: Text(
+              'Powered by Open Food Facts',
+              style: Theme.of(context)
+                  .textTheme
+                  .subtitle1!
+                  .copyWith(color: Colors.white),
+              textAlign: TextAlign.start,
             )),
       ],
     );

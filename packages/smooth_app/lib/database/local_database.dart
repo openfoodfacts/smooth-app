@@ -1,17 +1,11 @@
-// Dart imports:
 import 'dart:async';
 
-// Flutter imports:
 import 'package:flutter/material.dart';
-
-// Package imports:
 import 'package:path/path.dart';
-import 'package:sqflite/sqflite.dart';
-
-// Project imports:
 import 'package:smooth_app/database/dao_product.dart';
-import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/dao_product_extra.dart';
+import 'package:smooth_app/database/dao_product_list.dart';
+import 'package:sqflite/sqflite.dart';
 
 class LocalDatabase extends ChangeNotifier {
   LocalDatabase._(final Database database) : _database = database;

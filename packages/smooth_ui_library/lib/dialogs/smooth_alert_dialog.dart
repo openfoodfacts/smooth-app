@@ -19,7 +19,8 @@ class SmoothAlertDialog extends StatelessWidget {
     this.height,
     required this.body,
     this.actions,
-  });
+    Key? key,
+  }) : super(key: key);
 
   final String? title;
   final bool close;
@@ -38,7 +39,7 @@ class SmoothAlertDialog extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           _buildTitle(context),
-          Container(height: height, child: body),
+          SizedBox(height: height, child: body),
         ],
       ),
 
@@ -72,7 +73,7 @@ class SmoothAlertDialog extends StatelessWidget {
             children: <Widget>[
               _buildCross(true, context),
               if (title != null)
-                Container(
+                SizedBox(
                   height: height,
                   child: Text(
                     title!,

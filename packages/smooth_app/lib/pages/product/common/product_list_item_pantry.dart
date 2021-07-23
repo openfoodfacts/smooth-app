@@ -16,8 +16,10 @@ class ProductListItemPantry extends StatelessWidget {
     required this.listRefresher,
     required this.daoProductList,
     required this.reorderIndex,
+    Key? key,
   })  : _productExtra = productList.getProductExtra(product.barcode!),
-        _counts = _getCounts(productList.getProductExtra(product.barcode!));
+        _counts = _getCounts(productList.getProductExtra(product.barcode!)),
+        super(key: key);
   // TODO(monsieurtanuki): do it with more elegance, but without a StatefulWidget
 
   static const String _EMPTY_DATE = '';
@@ -25,7 +27,7 @@ class ProductListItemPantry extends StatelessWidget {
 
   final Product product;
   final ProductList productList;
-  final Function listRefresher;
+  final VoidCallback listRefresher;
   final DaoProductList daoProductList;
   final int reorderIndex;
 
@@ -69,12 +71,12 @@ class ProductListItemPantry extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               IconButton(
-                onPressed: () async => await _add(day, -1),
+                onPressed: () async => _add(day, -1),
                 icon: const Icon(Icons.remove_circle_outline),
               ),
               Text('${_counts[day]}', style: textStyle),
               IconButton(
-                onPressed: () async => await _add(day, 1),
+                onPressed: () async => _add(day, 1),
                 icon: const Icon(Icons.add_circle_outline),
               ),
             ],
@@ -83,7 +85,7 @@ class ProductListItemPantry extends StatelessWidget {
             day != _EMPTY_DATE ? day : AppLocalizations.of(context)!.no_date,
             style: textStyle,
           ),
-          Container(
+          SizedBox(
             width: 60,
             child: Center(
               child: Text(
@@ -133,7 +135,7 @@ class ProductListItemPantry extends StatelessWidget {
       child: Text(AppLocalizations.of(context)!.add_date, style: textStyle),
     );
     final Widget noDateButton = ElevatedButton(
-      onPressed: () async => await _add(_EMPTY_DATE, 1),
+      onPressed: () async => _add(_EMPTY_DATE, 1),
       child: Text(AppLocalizations.of(context)!.no_date, style: textStyle),
     );
     children.add(

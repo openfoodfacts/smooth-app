@@ -9,7 +9,8 @@ class SmoothCard extends StatelessWidget {
     this.padding =
         const EdgeInsets.only(right: 8.0, left: 8.0, top: 4.0, bottom: 4.0),
     this.insets = const EdgeInsets.all(5.0),
-  });
+    Key? key,
+  }) : super(key: key);
 
   final Widget child;
   final Color? color;

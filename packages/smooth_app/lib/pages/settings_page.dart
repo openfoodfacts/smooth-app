@@ -1,25 +1,23 @@
-// Flutter imports:
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-// Package imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:package_info/package_info.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
-import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
-import 'package:smooth_ui_library/widgets/smooth_listTile.dart';
-import 'package:smooth_ui_library/widgets/smooth_toggle.dart';
-
-// Project imports:
 import 'package:smooth_app/bottom_sheet_views/user_contribution_view.dart';
+import 'package:smooth_app/functions/launch_url.dart';
 import 'package:smooth_app/pages/user_preferences_page.dart';
-import 'package:smooth_app/functions/launchURL.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
+import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_ui_library/widgets/smooth_list_tile.dart';
+import 'package:smooth_ui_library/widgets/smooth_toggle.dart';
 
 class ProfilePage extends StatelessWidget {
+  const ProfilePage({Key? key}) : super(key: key);
+
   static const List<String> _ORDERED_COLOR_TAGS = <String>[
     SmoothTheme.COLOR_TAG_BLUE,
     SmoothTheme.COLOR_TAG_GREEN,
@@ -54,14 +52,14 @@ class ProfilePage extends StatelessWidget {
                 color: Colors.black,
               ),
               onChanged: (bool newValue) async =>
-                  await themeProvider.setDarkTheme(newValue),
+                  themeProvider.setDarkTheme(newValue),
             ),
           ),
 
           //Configure Preferences
           SmoothListTile(
             text: appLocalizations.configurePreferences,
-            onPressed: () async => await Navigator.push<Widget>(
+            onPressed: () async => Navigator.push<Widget>(
               context,
               MaterialPageRoute<Widget>(
                 builder: (BuildContext context) => const UserPreferencesPage(),
@@ -134,22 +132,23 @@ class ProfilePage extends StatelessWidget {
                                     child: CircularProgressIndicator());
                               }
 
-                              if (!snapshot.hasData || snapshot.data == null)
+                              if (!snapshot.hasData || snapshot.data == null) {
                                 return Center(
                                     child: Text(
                                   '${appLocalizations.error} #1',
                                 ));
+                              }
 
                               return Column(
                                 children: <Widget>[
                                   ListTile(
                                     leading: const Icon(Icons.no_sim_outlined),
                                     title: Text(
-                                      snapshot.data!.appName.toString(),
+                                      snapshot.data!.appName,
                                       style: themeData.textTheme.headline1,
                                     ),
                                     subtitle: Text(
-                                      snapshot.data!.version.toString(),
+                                      snapshot.data!.version,
                                       style: themeData.textTheme.subtitle2,
                                     ),
                                   ),
@@ -229,7 +228,7 @@ class ProfilePage extends StatelessWidget {
     final ThemeProvider themeProvider,
   ) =>
       TextButton(
-        onPressed: () async => await themeProvider.setColorTag(colorTag),
+        onPressed: () async => themeProvider.setColorTag(colorTag),
         style: TextButton.styleFrom(
           backgroundColor: SmoothTheme.getColor(
             colorScheme,

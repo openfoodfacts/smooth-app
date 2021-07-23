@@ -12,7 +12,8 @@ class SmoothExpandableCard extends StatefulWidget {
         const EdgeInsets.only(right: 8.0, left: 8.0, top: 4.0, bottom: 20.0),
     this.insets = const EdgeInsets.all(12.0),
     this.initiallyCollapsed = true,
-  });
+    Key? key,
+  }) : super(key: key);
 
   final Widget collapsedHeader;
   final Widget? expandedHeader;
@@ -23,7 +24,7 @@ class SmoothExpandableCard extends StatefulWidget {
   final bool initiallyCollapsed;
 
   @override
-  _SmoothExpandableCardState createState() => _SmoothExpandableCardState();
+  State<SmoothExpandableCard> createState() => _SmoothExpandableCardState();
 }
 
 class _SmoothExpandableCardState extends State<SmoothExpandableCard> {

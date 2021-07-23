@@ -1,17 +1,11 @@
-// Dart imports:
 import 'dart:ui';
 
-// Flutter imports:
 import 'package:flutter/material.dart';
-
-// Package imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/utils/PnnsGroups.dart';
 import 'package:provider/provider.dart';
-
-// Project imports:
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/cards/category_cards/category_card.dart';
 import 'package:smooth_app/cards/category_cards/category_chip.dart';
 import 'package:smooth_app/cards/category_cards/subcategory_card.dart';
@@ -20,12 +14,14 @@ import 'package:smooth_app/database/keywords_product_query.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
-import 'package:smooth_app/pages/product/product_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
+import 'package:smooth_app/pages/product/product_page.dart';
 
 class ChoosePage extends StatefulWidget {
+  const ChoosePage({Key? key}) : super(key: key);
+
   @override
-  _ChoosePageState createState() => _ChoosePageState();
+  State<ChoosePage> createState() => _ChoosePageState();
 
   static Future<void> onSubmitted(
     final String value,
@@ -129,7 +125,7 @@ class _ChoosePageState extends State<ChoosePage> {
               Container()
             else
               Container(
-                padding: const EdgeInsets.only(bottom: 0.0),
+                padding: EdgeInsets.zero,
                 width: MediaQuery.of(context).size.width,
                 height: 100.0,
                 child: ListView(

@@ -1,11 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/utils/PnnsGroups.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/pages/product/common/product_list_add_button.dart';
-import 'package:smooth_ui_library/widgets/smooth_card.dart';
-import 'package:smooth_app/pages/user_preferences_page.dart';
+import 'package:smooth_app/cards/category_cards/svg_async_asset.dart';
 import 'package:smooth_app/cards/product_cards/product_list_preview.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product.dart';
@@ -13,20 +12,23 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/choose_page.dart';
 import 'package:smooth_app/pages/list_page.dart';
+import 'package:smooth_app/pages/product/common/product_list_add_button.dart';
 import 'package:smooth_app/pages/product/common/product_list_button.dart';
 import 'package:smooth_app/pages/product/common/product_list_dialog_helper.dart';
-import 'package:smooth_app/pages/settings_page.dart';
-import 'package:smooth_app/pages/scan/scan_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_page.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/pages/scan/scan_page.dart';
+import 'package:smooth_app/pages/settings_page.dart';
 import 'package:smooth_app/pages/text_search_widget.dart';
+import 'package:smooth_app/pages/user_preferences_page.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
-import 'package:smooth_app/cards/category_cards/svg_async_asset.dart';
+import 'package:smooth_ui_library/widgets/smooth_card.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
-  _HomePageState createState() => _HomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
@@ -70,7 +72,7 @@ class _HomePageState extends State<HomePage> {
               await Navigator.push<Widget>(
                 context,
                 MaterialPageRoute<Widget>(
-                  builder: (BuildContext context) => ProfilePage(),
+                  builder: (BuildContext context) => const ProfilePage(),
                 ),
               );
             },
@@ -171,7 +173,7 @@ class _HomePageState extends State<HomePage> {
               await Navigator.push<Widget>(
                 context,
                 MaterialPageRoute<Widget>(
-                  builder: (BuildContext context) => ChoosePage(),
+                  builder: (BuildContext context) => const ChoosePage(),
                 ),
               );
             },
@@ -222,7 +224,7 @@ class _HomePageState extends State<HomePage> {
               cards.add(
                 ProductListButton(
                   productList: item,
-                  onPressed: () async => await _goToProductListPage(item),
+                  onPressed: () async => _goToProductListPage(item),
                 ),
               );
             }
@@ -354,7 +356,7 @@ class _HomePageState extends State<HomePage> {
               ColorDestination.BUTTON_BACKGROUND,
             ),
           ),
-          onPressed: () async => await Navigator.push<Widget>(
+          onPressed: () async => Navigator.push<Widget>(
             context,
             MaterialPageRoute<Widget>(
               builder: (BuildContext context) => const ScanPage(
@@ -413,7 +415,7 @@ class _HomePageState extends State<HomePage> {
                         ColorDestination.BUTTON_BACKGROUND,
                       ),
                     ),
-                    onPressed: () async => await Navigator.push<Widget>(
+                    onPressed: () async => Navigator.push<Widget>(
                       context,
                       MaterialPageRoute<Widget>(
                         builder: (BuildContext context) =>

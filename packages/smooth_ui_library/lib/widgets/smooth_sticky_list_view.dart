@@ -23,7 +23,7 @@ class SmoothStickyListView extends StatefulWidget {
   final double itemExtend;
 
   @override
-  _SmoothStickyListViewState createState() => _SmoothStickyListViewState();
+  State<SmoothStickyListView> createState() => _SmoothStickyListViewState();
 }
 
 class _SmoothStickyListViewState extends State<SmoothStickyListView> {

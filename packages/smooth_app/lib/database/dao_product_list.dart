@@ -1,11 +1,12 @@
 import 'dart:async';
+
 import 'package:openfoodfacts/model/Product.dart';
-import 'package:smooth_app/database/abstract_dao.dart';
-import 'package:smooth_app/database/dao_product_extra.dart';
-import 'package:sqflite/sqflite.dart';
 import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/database/abstract_dao.dart';
 import 'package:smooth_app/database/dao_product.dart';
+import 'package:smooth_app/database/dao_product_extra.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:sqflite/sqflite.dart';
 
 class DaoProductList extends AbstractDao {
   DaoProductList(final LocalDatabase localDatabase) : super(localDatabase);
@@ -306,9 +307,9 @@ class DaoProductList extends AbstractDao {
   }
 
   Future<void> put(final ProductList productList) async =>
-      await localDatabase.database.transaction(
+      localDatabase.database.transaction(
         (final Transaction transaction) async =>
-            await DaoProductExtra(localDatabase).bulkInsertExtra(
+            DaoProductExtra(localDatabase).bulkInsertExtra(
           databaseExecutor: transaction,
           productList: productList,
           productListId: await _getId(productList, transaction),
@@ -316,10 +317,10 @@ class DaoProductList extends AbstractDao {
       );
 
   Future<int> create(final ProductList productList) async =>
-      await _upsertProductList(productList, localDatabase.database);
+      _upsertProductList(productList, localDatabase.database);
 
   Future<bool> get(final ProductList productList) async =>
-      await DaoProductExtra(localDatabase).getList(
+      DaoProductExtra(localDatabase).getList(
         productList,
         await _getId(productList, localDatabase.database),
       );

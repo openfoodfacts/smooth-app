@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:photo_view/photo_view.dart';
-
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:photo_view/photo_view.dart';
 
 class ProductImagePage extends StatelessWidget {
   const ProductImagePage({
@@ -11,7 +10,8 @@ class ProductImagePage extends StatelessWidget {
     required this.imageProvider,
     required this.title,
     required this.buttonText,
-  });
+    Key? key,
+  }) : super(key: key);
 
   final Product product;
   final ImageField imageField;

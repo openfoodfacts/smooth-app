@@ -1,22 +1,20 @@
-// Flutter imports:
 import 'package:flutter/material.dart';
-
-// Package imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
-import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
-import 'package:smooth_ui_library/widgets/smooth_view_finder.dart';
-
-// Project imports:
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/lists/smooth_product_carousel.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/scan/scan_page.dart';
+import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
+import 'package:smooth_ui_library/widgets/smooth_view_finder.dart';
 
 class ContinuousScanPage extends StatelessWidget {
-  ContinuousScanPage(this._continuousScanModel);
+  ContinuousScanPage(
+    this._continuousScanModel, {
+    Key? key,
+  }) : super(key: key);
 
   final ContinuousScanModel _continuousScanModel;
 
@@ -76,7 +74,7 @@ class ContinuousScanPage extends StatelessWidget {
                 ScanPage.getHero(screenSize),
                 SmoothRevealAnimation(
                   delay: 400,
-                  startOffset: const Offset(0.0, 0.0),
+                  startOffset: Offset.zero,
                   animationCurve: Curves.easeInOutBack,
                   child: QRView(
                     key: _scannerViewKey,
@@ -104,12 +102,10 @@ class ContinuousScanPage extends StatelessWidget {
                         ),
                       ),
                       Center(
-                        child: Container(
-                          child: SmoothViewFinder(
-                            width: screenSize.width * 0.8,
-                            height: screenSize.width * 0.4,
-                            animationDuration: 1500,
-                          ),
+                        child: SmoothViewFinder(
+                          width: screenSize.width * 0.8,
+                          height: screenSize.width * 0.4,
+                          animationDuration: 1500,
                         ),
                       ),
                       if (_continuousScanModel.isNotEmpty)

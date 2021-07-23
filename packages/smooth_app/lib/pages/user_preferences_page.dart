@@ -4,13 +4,13 @@ import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/pages/attribute_button.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
-import 'package:smooth_app/data_models/user_preferences.dart';
 
 /// Preferences page for attribute importances
 class UserPreferencesPage extends StatelessWidget {
-  const UserPreferencesPage();
+  const UserPreferencesPage({Key? key}) : super(key: key);
 
   static const double _TYPICAL_PADDING_OR_MARGIN = 12;
 

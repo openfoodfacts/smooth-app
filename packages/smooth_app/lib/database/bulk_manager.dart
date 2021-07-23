@@ -1,7 +1,8 @@
 import 'dart:async';
 import 'dart:math';
-import 'package:smooth_app/database/bulk_insertable.dart';
+
 import 'package:smooth_app/database/bulk_deletable.dart';
+import 'package:smooth_app/database/bulk_insertable.dart';
 import 'package:sqflite/sqflite.dart';
 
 /// Manager for bulk database inserts and deletes
