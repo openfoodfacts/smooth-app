@@ -93,7 +93,9 @@
           Navigator.pop(context);
           Navigator.push&lt;Widget&gt;(
             context,
-            MaterialPageRoute&lt;Widget&gt;(builder: (BuildContext context) =&gt; ProductListPage(productList)),
+            MaterialPageRoute&lt;Widget&gt;(
+                builder: (BuildContext context) =&gt;
+                    ProductListPage(productList)),
           );
         },
       ),
