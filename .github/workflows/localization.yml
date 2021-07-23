@@ -56,7 +56,7 @@ jobs:
       #  working-directory: ./packages/smooth_app
       #- run: flutter pub run intl:generate_from_arb --output-dir=lib/l10n --no-use-deferred-loading lib/main.dart lib/l10n/intl_*.arb
       #- run: flutter pub run intl_translation:generate_from_arb  --output-dir=lib/l10n --no-use-deferred-loading lib/pages/pantry_dialog_helper.dart lib/l10n/app_??.arb
-        working-directory: ./packages/smooth_app
+        #working-directory: ./packages/smooth_app
       - uses: actions/upload-artifact@v2
         with:
           name: screenshots
