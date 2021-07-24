@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:matomo/matomo.dart';
 import 'package:openfoodfacts/personalized_search/product_preferences_selection.dart';
 import 'package:provider/provider.dart';
 import 'package:sentry/sentry.dart';
@@ -24,10 +23,12 @@ Future<void> main() async {
           'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745';
     },
   );
+  /* TODO: put back when we have clearer ideas about analytics
   await MatomoTracker().initialize(
     siteId: 2,
     url: 'https://analytics.openfoodfacts.org/',
   );
+   */
   try {
     runApp(const SmoothApp());
   } catch (exception, stackTrace) {
