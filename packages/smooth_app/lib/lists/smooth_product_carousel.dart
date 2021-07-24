@@ -20,8 +20,7 @@ class SmoothProductCarousel extends StatefulWidget {
   const SmoothProductCarousel({
     required this.continuousScanModel,
     this.height = 120.0,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final ContinuousScanModel continuousScanModel;
   final double height;

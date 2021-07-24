@@ -22,8 +22,7 @@ class AttributeListExpandable extends StatelessWidget {
     this.padding,
     this.insets,
     this.initiallyCollapsed = true,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final Product product;
   final double iconHeight;

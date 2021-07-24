@@ -10,8 +10,7 @@ class ProductImagePage extends StatelessWidget {
     required this.imageProvider,
     required this.title,
     required this.buttonText,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final Product product;
   final ImageField imageField;

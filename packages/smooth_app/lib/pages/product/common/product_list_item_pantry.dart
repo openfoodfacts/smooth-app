@@ -16,10 +16,8 @@ class ProductListItemPantry extends StatelessWidget {
     required this.listRefresher,
     required this.daoProductList,
     required this.reorderIndex,
-    Key? key,
   })  : _productExtra = productList.getProductExtra(product.barcode!),
-        _counts = _getCounts(productList.getProductExtra(product.barcode!)),
-        super(key: key);
+        _counts = _getCounts(productList.getProductExtra(product.barcode!));
   // TODO(monsieurtanuki): do it with more elegance, but without a StatefulWidget
 
   static const String _EMPTY_DATE = '';

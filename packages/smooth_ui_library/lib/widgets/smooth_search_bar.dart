@@ -9,8 +9,7 @@ class SmoothSearchBar extends StatelessWidget {
     this.textColor = Colors.black,
     this.borderRadius = 20.0,
     this.onSubmitted,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final TextEditingController? controller;
   final String? hintText;

@@ -146,7 +146,7 @@ linter:
     use_full_hex_values_for_flutter_colors: true
     use_function_type_syntax_for_parameters: true
     use_is_even_rather_than_modulo: true
-    use_key_in_widget_constructors: true
+    use_key_in_widget_constructors: false
     use_late_for_private_fields_and_variables: true
     use_named_constants: true
     use_raw_strings: true

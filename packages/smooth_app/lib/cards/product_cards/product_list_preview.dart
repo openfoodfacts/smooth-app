@@ -16,8 +16,7 @@ class ProductListPreview extends StatelessWidget {
     required this.productList,
     required this.nbInPreview,
     this.andThen,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final DaoProductList daoProductList;
   final ProductList productList;

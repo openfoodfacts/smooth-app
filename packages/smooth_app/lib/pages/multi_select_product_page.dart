@@ -17,8 +17,7 @@ class MultiSelectProductPage extends StatefulWidget {
   const MultiSelectProductPage({
     required this.barcode,
     required this.productList,
-    Key? key,
-  }) : super(key: key);
+  });
 
   /// Initial selected barcode
   final String barcode;

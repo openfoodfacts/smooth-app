@@ -7,8 +7,7 @@ class SmoothViewFinder extends StatefulWidget {
     required this.width,
     required this.height,
     required this.animationDuration,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final double width;
   final double height;

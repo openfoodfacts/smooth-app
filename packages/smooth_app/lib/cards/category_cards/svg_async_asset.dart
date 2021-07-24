@@ -8,8 +8,7 @@ class SvgAsyncAsset extends StatelessWidget {
     this.fullFilename, {
     this.width,
     this.height,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final String fullFilename;
   final double? width;

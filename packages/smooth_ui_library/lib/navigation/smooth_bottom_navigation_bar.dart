@@ -5,12 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_ui_library/navigation/models/smooth_bottom_navigation_bar_item.dart';
 
 class SmoothBottomNavigationBar extends StatefulWidget {
-  const SmoothBottomNavigationBar(
-    this.items, {
-    required this.fabAction,
-    Key? key,
-  }) : super(key: key);
-
+  const SmoothBottomNavigationBar(this.items, {required this.fabAction});
   final List<SmoothBottomNavigationBarItem> items;
   final VoidCallback fabAction;
 

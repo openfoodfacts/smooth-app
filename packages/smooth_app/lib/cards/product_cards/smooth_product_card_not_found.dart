@@ -9,8 +9,7 @@ class SmoothProductCardNotFound extends StatelessWidget {
     required this.product,
     this.callback,
     this.elevation = 0.0,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final VoidCallback? callback;
   final double elevation;

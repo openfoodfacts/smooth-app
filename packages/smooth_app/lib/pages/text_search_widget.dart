@@ -15,8 +15,7 @@ class TextSearchWidget extends StatefulWidget {
     this.color,
     required this.daoProduct,
     this.addProductCallback,
-    Key? key,
-  }) : super(key: key);
+  });
 
   /// Icon color
   final Color? color;

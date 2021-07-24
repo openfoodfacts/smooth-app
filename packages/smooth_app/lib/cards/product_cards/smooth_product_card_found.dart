@@ -22,8 +22,7 @@ class SmoothProductCardFound extends StatelessWidget {
     this.handle,
     this.onLongPress,
     this.refresh,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final Product product;
   final String heroTag;

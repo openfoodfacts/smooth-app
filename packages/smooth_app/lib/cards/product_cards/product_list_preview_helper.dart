@@ -7,8 +7,7 @@ class ProductListPreviewHelper extends StatelessWidget {
   const ProductListPreviewHelper({
     required this.list,
     required this.iconSize,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final List<Product> list;
   final double iconSize;

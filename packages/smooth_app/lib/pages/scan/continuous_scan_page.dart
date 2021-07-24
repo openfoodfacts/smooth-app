@@ -11,10 +11,7 @@ import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
 import 'package:smooth_ui_library/widgets/smooth_view_finder.dart';
 
 class ContinuousScanPage extends StatelessWidget {
-  ContinuousScanPage(
-    this._continuousScanModel, {
-    Key? key,
-  }) : super(key: key);
+  ContinuousScanPage(this._continuousScanModel);
 
   final ContinuousScanModel _continuousScanModel;
 

@@ -12,8 +12,7 @@ class AttributeCard extends StatelessWidget {
     this.attribute,
     this.attributeChip, {
     this.barcode,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final Attribute attribute;
   final Widget attributeChip;

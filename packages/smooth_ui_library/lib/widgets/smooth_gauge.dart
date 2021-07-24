@@ -9,8 +9,7 @@ class SmoothGauge extends StatelessWidget {
     this.backgroundColor,
     this.circular = true,
     this.width = 100.0,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final double value;
   final double size;

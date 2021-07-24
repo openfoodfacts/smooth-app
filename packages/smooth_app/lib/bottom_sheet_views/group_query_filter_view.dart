@@ -14,8 +14,7 @@ class GroupQueryFilterView extends StatelessWidget {
     required this.categories,
     required this.categoriesList,
     required this.callback,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final Map<String, String> categories;
   final List<String> categoriesList;

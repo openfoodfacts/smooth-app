@@ -39,7 +39,7 @@ Future<void> main() async {
 }
 
 class SmoothApp extends StatefulWidget {
-  const SmoothApp({Key? key}) : super(key: key);
+  const SmoothApp();
 
   // This widget is the root of your application.
   @override
@@ -153,7 +153,7 @@ class _SmoothAppState extends State<SmoothApp> {
 
 /// Layer needed because we need to know the language
 class SmoothAppGetLanguage extends StatelessWidget {
-  const SmoothAppGetLanguage({Key? key}) : super(key: key);
+  const SmoothAppGetLanguage();
 
   @override
   Widget build(BuildContext context) {

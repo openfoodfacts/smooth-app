@@ -36,8 +36,7 @@ class ProductPage extends StatefulWidget {
   const ProductPage({
     required this.product,
     this.newProduct = false,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final bool newProduct;
   final Product product;

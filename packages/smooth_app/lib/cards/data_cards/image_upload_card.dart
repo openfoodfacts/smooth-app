@@ -15,8 +15,7 @@ class ImageUploadCard extends StatefulWidget {
     this.imageUrl,
     this.title,
     required this.buttonText,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final Product product;
   final ImageField imageField;

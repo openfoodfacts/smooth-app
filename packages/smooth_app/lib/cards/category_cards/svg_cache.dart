@@ -9,8 +9,7 @@ class SvgCache extends StatelessWidget {
     this.width,
     this.height,
     this.displayAssetWhileWaiting = true,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final String? iconUrl;
   final double? width;

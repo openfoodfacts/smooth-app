@@ -10,7 +10,7 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 
 /// Preferences page for attribute importances
 class UserPreferencesPage extends StatelessWidget {
-  const UserPreferencesPage({Key? key}) : super(key: key);
+  const UserPreferencesPage();
 
   static const double _TYPICAL_PADDING_OR_MARGIN = 12;
 

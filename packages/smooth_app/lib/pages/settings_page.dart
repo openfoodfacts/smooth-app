@@ -16,7 +16,7 @@ import 'package:smooth_ui_library/widgets/smooth_list_tile.dart';
 import 'package:smooth_ui_library/widgets/smooth_toggle.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+  const ProfilePage();
 
   static const List<String> _ORDERED_COLOR_TAGS = <String>[
     SmoothTheme.COLOR_TAG_BLUE,

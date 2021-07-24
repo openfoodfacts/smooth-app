@@ -10,8 +10,7 @@ class SmoothProductCardEdit extends StatelessWidget {
   const SmoothProductCardEdit({
     required this.product,
     required this.heroTag,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final Product product;
   final String heroTag;

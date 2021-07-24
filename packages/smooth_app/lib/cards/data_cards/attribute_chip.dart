@@ -7,8 +7,7 @@ class AttributeChip extends StatelessWidget {
   const AttributeChip(
     this.attribute, {
     required this.height,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final Attribute attribute;
   final double height;
