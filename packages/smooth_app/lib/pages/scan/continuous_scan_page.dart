@@ -83,52 +83,58 @@ class ContinuousScanPage extends StatelessWidget {
                   delay: 400,
                   startOffset: const Offset(0.0, 0.1),
                   animationCurve: Curves.easeInOutBack,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    mainAxisSize: MainAxisSize.max,
-                    children: <Widget>[
-                      Container(
-                        padding: const EdgeInsets.only(top: 32.0),
-                        child: Column(
-                          children: <Widget>[
-                            ScanPage.getContributeChooseToggle(
-                              _continuousScanModel,
-                              context,
-                            ),
-                          ],
-                        ),
-                      ),
-                      Center(
-                        child: SmoothViewFinder(
-                          width: screenSize.width * 0.8,
-                          height: screenSize.width * 0.4,
-                          animationDuration: 1500,
-                        ),
-                      ),
-                      if (_continuousScanModel.isNotEmpty)
-                        Container(
-                          height: screenSize.height * 0.35,
-                          padding:
-                              EdgeInsets.only(bottom: screenSize.height * 0.08),
-                          child: SmoothProductCarousel(
-                            continuousScanModel: _continuousScanModel,
+                  child: Stack(children: <Widget>[
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Center(
+                          child: SmoothViewFinder(
+                            width: screenSize.width * 0.8,
+                            height: screenSize.width * 0.4,
+                            animationDuration: 1500,
                           ),
                         )
-                      else
+                      ],
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
                         Container(
-                          width: screenSize.width,
-                          height: screenSize.height * 0.35,
-                          padding:
-                              EdgeInsets.only(top: screenSize.height * 0.08),
-                          child: Text(
-                            appLocalizations.scannerProductsEmpty,
-                            style: themeData.textTheme.subtitle1!
-                                .copyWith(color: Colors.white),
-                            textAlign: TextAlign.center,
+                          padding: const EdgeInsets.only(top: 32.0),
+                          child: Column(
+                            children: <Widget>[
+                              ScanPage.getContributeChooseToggle(
+                                _continuousScanModel,
+                                context,
+                              ),
+                            ],
                           ),
                         ),
-                    ],
-                  ),
+                        if (_continuousScanModel.isNotEmpty)
+                          Container(
+                            height: screenSize.height * 0.35,
+                            padding: EdgeInsets.only(
+                                bottom: screenSize.height * 0.08),
+                            child: SmoothProductCarousel(
+                              continuousScanModel: _continuousScanModel,
+                            ),
+                          )
+                        else
+                          Container(
+                            width: screenSize.width,
+                            height: screenSize.height * 0.35,
+                            padding:
+                                EdgeInsets.only(top: screenSize.height * 0.08),
+                            child: Text(
+                              appLocalizations.scannerProductsEmpty,
+                              style: themeData.textTheme.subtitle1!
+                                  .copyWith(color: Colors.white),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                      ],
+                    )
+                  ]),
                 ),
               ],
             ),
