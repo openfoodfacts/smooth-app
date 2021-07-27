@@ -378,9 +378,8 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
   bool _getExtraReverse(final ProductList productList, final int? id) {
     switch (productList.listType) {
       case ProductList.LIST_TYPE_HISTORY:
-        return true;
       case ProductList.LIST_TYPE_SCAN:
-        return false;
+        return true;
     }
     if (id == null) {
       throw Exception('Unknown product list of type ${productList.listType}');
