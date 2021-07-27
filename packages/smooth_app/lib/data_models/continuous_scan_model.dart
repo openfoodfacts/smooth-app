@@ -52,7 +52,7 @@ class ContinuousScanModel with ChangeNotifier {
       _daoProductList = DaoProductList(localDatabase);
       _daoProductExtra = DaoProductExtra(localDatabase);
       await _daoProductList.get(_productList);
-      for (final String barcode in _productList.barcodes) {
+      for (final String barcode in _productList.barcodes.reversed) {
         _barcodes.add(barcode);
         _states[barcode] = ScannedProductState.CACHED;
         _latestScannedBarcode = barcode;
