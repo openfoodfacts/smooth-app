@@ -36,9 +36,7 @@ class ProductListPreview extends StatelessWidget {
               snapshot.data != null) {
             final List<Product> list = snapshot.data!;
 
-            String subtitle;
             final double iconSize = MediaQuery.of(context).size.width / 6;
-            subtitle = AppLocalizations.of(context)!.empty_list;
             return SmoothCard(
               child: Column(
                 children: <Widget>[
@@ -61,7 +59,9 @@ class ProductListPreview extends StatelessWidget {
                       ColorDestination.SURFACE_FOREGROUND,
                     ),
                     trailing: const Icon(Icons.arrow_forward),
-                    subtitle: Text(subtitle),
+                    subtitle: list.isEmpty
+                        ? Text(AppLocalizations.of(context)!.empty_list)
+                        : null,
                     title: Text(
                       title,
                       style: Theme.of(context).textTheme.subtitle2,

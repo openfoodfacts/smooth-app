@@ -146,6 +146,15 @@ class _HomePageState extends State<HomePage> {
             nbInPreview: 5,
             andThen: () => setState(() {}),
           ),
+          ProductListPreview(
+            daoProductList: _daoProductList,
+            productList: ProductList(
+              listType: ProductList.LIST_TYPE_SCAN,
+              parameters: '',
+            ),
+            nbInPreview: 5,
+            andThen: () => setState(() {}),
+          ),
           GestureDetector(
             child: SmoothCard(
               child: ListTile(
