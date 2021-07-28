@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the refreshProductList method from the ContinuousScanModel class, for the Dart programming language.">
-  <title>refreshProductList method - ContinuousScanModel class - continuous_scan_model library - Dart API</title>
+  <meta name="description" content="API docs for the clearScanSession method from the ContinuousScanModel class, for the Dart programming language.">
+  <title>clearScanSession method - ContinuousScanModel class - continuous_scan_model library - Dart API</title>
 
 
   
@@ -32,9 +32,9 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../data_models_continuous_scan_model/data_models_continuous_scan_model-library.html">continuous_scan_model</a></li>
     <li><a href="../../data_models_continuous_scan_model/ContinuousScanModel-class.html">ContinuousScanModel</a></li>
-    <li class="self-crumb">refreshProductList method</li>
+    <li class="self-crumb">clearScanSession method</li>
   </ol>
-  <div class="self-name">refreshProductList</div>
+  <div class="self-name">clearScanSession</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,7 +45,7 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">refreshProductList</span> method 
+<h1><span class="kind-method">clearScanSession</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
@@ -53,7 +53,7 @@
       
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
-<span class="name ">refreshProductList</span>(<wbr>)
+<span class="name ">clearScanSession</span>(<wbr>)
 
       
 
@@ -64,7 +64,11 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; refreshProductList() async =&gt; _daoProductList.get(_productList);</code></pre>
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; clearScanSession() async {
+  await _daoProductExtra.clearScanSession();
+  await _refresh();
+  notifyListeners();
+}</code></pre>
 </section>
 
 
@@ -81,7 +85,7 @@
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../data_models_continuous_scan_model/data_models_continuous_scan_model-library.html">continuous_scan_model</a></li>
   <li><a href="../../data_models_continuous_scan_model/ContinuousScanModel-class.html">ContinuousScanModel</a></li>
-  <li class="self-crumb">refreshProductList method</li>
+  <li class="self-crumb">clearScanSession method</li>
 </ol>
 
 

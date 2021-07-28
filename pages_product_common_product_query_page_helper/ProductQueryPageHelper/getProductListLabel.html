@@ -81,7 +81,8 @@
     case ProductList.LIST_TYPE_HTTP_SEARCH_CATEGORY:
       return &#39;${productList.parameters}&#39;
           &#39;${verbose ? &#39; ${appLocalizations.category_search}&#39; : &#39;&#39;}&#39;;
-    case ProductList.LIST_TYPE_SCAN:
+    case ProductList.LIST_TYPE_SCAN_HISTORY:
+    case ProductList.LIST_TYPE_SCAN_SESSION:
       return appLocalizations.scan;
     case ProductList.LIST_TYPE_HISTORY:
       return appLocalizations.recently_seen_products;

@@ -110,6 +110,8 @@ Widget build(BuildContext context) {
   final Size screenSize = MediaQuery.of(context).size;
   final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
   final ThemeData themeData = Theme.of(context);
+  final Color backgroundColor = themeData.colorScheme.surface;
+  final Color foregroundColor = themeData.colorScheme.onSurface;
   return ChangeNotifierProvider&lt;ContinuousScanModel&gt;.value(
     value: _continuousScanModel,
     child: Consumer&lt;ContinuousScanModel&gt;(
@@ -118,41 +120,22 @@ Widget build(BuildContext context) {
         return Scaffold(
           extendBodyBehindAppBar: true,
           appBar: AppBar(
-            elevation: 0,
-            backgroundColor: Colors.transparent,
-            leading: IconButton(
-              icon: const Icon(Icons.arrow_back),
-              onPressed: () =&gt; Navigator.pop(context),
-            ),
-          ),
-          floatingActionButton: SmoothRevealAnimation(
-            delay: 400,
-            animationCurve: Curves.easeInOutBack,
-            child: FloatingActionButton.extended(
-              icon: SvgPicture.asset(
-                &#39;assets&#47;actions&#47;smoothie.svg&#39;,
-                width: 24.0,
-                height: 24.0,
-                color: Colors.black,
-              ),
-              label: Text(
-                appLocalizations.myPersonalizedRanking,
-                style: const TextStyle(color: Colors.black),
-              ),
-              backgroundColor: Colors.white,
-              onPressed: () async {
-                await _continuousScanModel.refreshProductList();
-                await Navigator.push&lt;Widget&gt;(
+            title: const Text(&#39;Scan&#39;),
+            actions: &lt;Widget&gt;[
+              IconButton(
+                icon: SvgPicture.asset(
+                  &#39;assets&#47;actions&#47;food-cog.svg&#39;,
+                  color: Colors.white,
+                ),
+                onPressed: () async =&gt; Navigator.push&lt;Widget&gt;(
                   context,
                   MaterialPageRoute&lt;Widget&gt;(
                     builder: (BuildContext context) =&gt;
-                        PersonalizedRankingPage(
-                      _continuousScanModel.productList,
-                    ),
+                        const UserPreferencesPage(),
                   ),
-                );
-              },
-            ),
+                ),
+              ),
+            ],
           ),
           body: Stack(
             children: &lt;Widget&gt;[
@@ -184,20 +167,44 @@ Widget build(BuildContext context) {
                       )
                     ],
                   ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: &lt;Widget&gt;[
-                      Container(
-                        padding: const EdgeInsets.only(top: 32.0),
-                        child: Column(
+                  if (_continuousScanModel.isNotEmpty)
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: &lt;Widget&gt;[
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: &lt;Widget&gt;[
-                            ScanPage.getContributeChooseToggle(
-                              _continuousScanModel,
-                              context,
+                            ElevatedButton.icon(
+                              icon: const Icon(CupertinoIcons.clear_circled),
+                              onPressed: () async =&gt;
+                                  _continuousScanModel.clearScanSession(),
+                              label: const Text(&#39;Clear&#39;),
+                            ),
+                            ElevatedButton.icon(
+                              icon: const Icon(Icons.emoji_events_outlined),
+                              onPressed: () async {
+                                await _continuousScanModel
+                                    .refreshProductList();
+                                await Navigator.push&lt;Widget&gt;(
+                                  context,
+                                  MaterialPageRoute&lt;Widget&gt;(
+                                    builder: (BuildContext context) =&gt;
+                                        PersonalizedRankingPage(
+                                      _continuousScanModel.productList,
+                                    ),
+                                  ),
+                                );
+                              },
+                              label: Text(
+                                  appLocalizations.myPersonalizedRanking),
                             ),
                           ],
                         ),
-                      ),
+                      ],
+                    ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: &lt;Widget&gt;[
                       if (_continuousScanModel.isNotEmpty)
                         Container(
                           height: screenSize.height * 0.35,
@@ -209,15 +216,25 @@ Widget build(BuildContext context) {
                         )
                       else
                         Container(
-                          width: screenSize.width,
-                          height: screenSize.height * 0.35,
-                          padding:
-                              EdgeInsets.only(top: screenSize.height * 0.08),
-                          child: Text(
-                            appLocalizations.scannerProductsEmpty,
-                            style: themeData.textTheme.subtitle1!
-                                .copyWith(color: Colors.white),
-                            textAlign: TextAlign.center,
+                          color: backgroundColor,
+                          child: ListTile(
+                            title: Text(
+                              &#39;${appLocalizations.scannerProductsEmpty}&#39;
+                              &#39;. Scan product barcodes to see which ones&#39;
+                              &#39; better match your food preferences&#39;,
+                              style: TextStyle(color: foregroundColor),
+                            ),
+                            trailing: SvgPicture.asset(
+                              &#39;assets&#47;actions&#47;food-cog.svg&#39;,
+                              color: foregroundColor,
+                            ),
+                            onTap: () async =&gt; Navigator.push&lt;Widget&gt;(
+                              context,
+                              MaterialPageRoute&lt;Widget&gt;(
+                                builder: (BuildContext context) =&gt;
+                                    const UserPreferencesPage(),
+                              ),
+                            ),
                           ),
                         ),
                     ],
