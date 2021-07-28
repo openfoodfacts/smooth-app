@@ -149,7 +149,7 @@ class _HomePageState extends State<HomePage> {
           ProductListPreview(
             daoProductList: _daoProductList,
             productList: ProductList(
-              listType: ProductList.LIST_TYPE_SCAN,
+              listType: ProductList.LIST_TYPE_SCAN_HISTORY,
               parameters: '',
             ),
             nbInPreview: 5,

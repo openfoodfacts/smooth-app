@@ -70,16 +70,6 @@ class SmoothViewFinderState extends State<SmoothViewFinder>
             ),
           ),
         ),
-        Transform.translate(
-            offset: Offset(-widget.width * 0.12, 4.0),
-            child: Text(
-              'Powered by Open Food Facts',
-              style: Theme.of(context)
-                  .textTheme
-                  .subtitle1!
-                  .copyWith(color: Colors.white),
-              textAlign: TextAlign.start,
-            )),
       ],
     );
   }

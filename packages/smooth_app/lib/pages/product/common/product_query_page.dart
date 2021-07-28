@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/bottom_sheet_views/group_query_filter_view.dart';
@@ -156,10 +155,8 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                 SizedBox(width: screenSize.width * 0.09),
                 FloatingActionButton.extended(
                   elevation: 12.0,
-                  icon: SvgPicture.asset(
-                    'assets/actions/smoothie.svg',
-                    width: 24.0,
-                    height: 24.0,
+                  icon: Icon(
+                    Icons.emoji_events_outlined,
                     color: widget.mainColor,
                   ),
                   label: Text(

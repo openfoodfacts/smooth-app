@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_extra.dart';
@@ -40,7 +39,8 @@ class _ProductListPageState extends State<ProductListPage> {
     final Map<String, ProductExtra> productExtras = productList.productExtras;
     final List<_Meta> metas = <_Meta>[];
     if (productList.listType == ProductList.LIST_TYPE_HISTORY ||
-        productList.listType == ProductList.LIST_TYPE_SCAN) {
+        productList.listType == ProductList.LIST_TYPE_SCAN_HISTORY ||
+        productList.listType == ProductList.LIST_TYPE_SCAN_SESSION) {
       final int nowInMillis = LocalDatabase.nowInMillis();
       const int DAY_IN_MILLIS = 24 * 3600 * 1000;
       String? daysAgoLabel;
@@ -78,7 +78,8 @@ class _ProductListPageState extends State<ProductListPage> {
       case ProductList.LIST_TYPE_HTTP_SEARCH_GROUP:
         deletable = true;
         break;
-      case ProductList.LIST_TYPE_SCAN:
+      case ProductList.LIST_TYPE_SCAN_HISTORY:
+      case ProductList.LIST_TYPE_SCAN_SESSION:
       case ProductList.LIST_TYPE_HISTORY:
         dismissible = true;
         break;
@@ -172,12 +173,7 @@ class _ProductListPageState extends State<ProductListPage> {
       floatingActionButton: metas.isEmpty
           ? null
           : FloatingActionButton(
-              child: SvgPicture.asset(
-                'assets/actions/smoothie.svg',
-                width: 24.0,
-                height: 24.0,
-                color: colorScheme.onSecondary,
-              ),
+              child: const Icon(Icons.emoji_events_outlined),
               onPressed: () => Navigator.push<Widget>(
                 context,
                 MaterialPageRoute<Widget>(

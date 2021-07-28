@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -7,6 +8,7 @@ import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/lists/smooth_product_carousel.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/scan/scan_page.dart';
+import 'package:smooth_app/pages/user_preferences_page.dart';
 import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
 import 'package:smooth_ui_library/widgets/smooth_view_finder.dart';
 
@@ -22,6 +24,8 @@ class ContinuousScanPage extends StatelessWidget {
     final Size screenSize = MediaQuery.of(context).size;
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final ThemeData themeData = Theme.of(context);
+    final Color backgroundColor = themeData.colorScheme.surface;
+    final Color foregroundColor = themeData.colorScheme.onSurface;
     return ChangeNotifierProvider<ContinuousScanModel>.value(
       value: _continuousScanModel,
       child: Consumer<ContinuousScanModel>(
@@ -30,41 +34,22 @@ class ContinuousScanPage extends StatelessWidget {
           return Scaffold(
             extendBodyBehindAppBar: true,
             appBar: AppBar(
-              elevation: 0,
-              backgroundColor: Colors.transparent,
-              leading: IconButton(
-                icon: const Icon(Icons.arrow_back),
-                onPressed: () => Navigator.pop(context),
-              ),
-            ),
-            floatingActionButton: SmoothRevealAnimation(
-              delay: 400,
-              animationCurve: Curves.easeInOutBack,
-              child: FloatingActionButton.extended(
-                icon: SvgPicture.asset(
-                  'assets/actions/smoothie.svg',
-                  width: 24.0,
-                  height: 24.0,
-                  color: Colors.black,
-                ),
-                label: Text(
-                  appLocalizations.myPersonalizedRanking,
-                  style: const TextStyle(color: Colors.black),
-                ),
-                backgroundColor: Colors.white,
-                onPressed: () async {
-                  await _continuousScanModel.refreshProductList();
-                  await Navigator.push<Widget>(
+              title: const Text('Scan'),
+              actions: <Widget>[
+                IconButton(
+                  icon: SvgPicture.asset(
+                    'assets/actions/food-cog.svg',
+                    color: Colors.white,
+                  ),
+                  onPressed: () async => Navigator.push<Widget>(
                     context,
                     MaterialPageRoute<Widget>(
                       builder: (BuildContext context) =>
-                          PersonalizedRankingPage(
-                        _continuousScanModel.productList,
-                      ),
+                          const UserPreferencesPage(),
                     ),
-                  );
-                },
-              ),
+                  ),
+                ),
+              ],
             ),
             body: Stack(
               children: <Widget>[
@@ -96,20 +81,44 @@ class ContinuousScanPage extends StatelessWidget {
                         )
                       ],
                     ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Container(
-                          padding: const EdgeInsets.only(top: 32.0),
-                          child: Column(
+                    if (_continuousScanModel.isNotEmpty)
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: <Widget>[
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: <Widget>[
-                              ScanPage.getContributeChooseToggle(
-                                _continuousScanModel,
-                                context,
+                              ElevatedButton.icon(
+                                icon: const Icon(CupertinoIcons.clear_circled),
+                                onPressed: () async =>
+                                    _continuousScanModel.clearScanSession(),
+                                label: const Text('Clear'),
+                              ),
+                              ElevatedButton.icon(
+                                icon: const Icon(Icons.emoji_events_outlined),
+                                onPressed: () async {
+                                  await _continuousScanModel
+                                      .refreshProductList();
+                                  await Navigator.push<Widget>(
+                                    context,
+                                    MaterialPageRoute<Widget>(
+                                      builder: (BuildContext context) =>
+                                          PersonalizedRankingPage(
+                                        _continuousScanModel.productList,
+                                      ),
+                                    ),
+                                  );
+                                },
+                                label: Text(
+                                    appLocalizations.myPersonalizedRanking),
                               ),
                             ],
                           ),
-                        ),
+                        ],
+                      ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
                         if (_continuousScanModel.isNotEmpty)
                           Container(
                             height: screenSize.height * 0.35,
@@ -121,15 +130,25 @@ class ContinuousScanPage extends StatelessWidget {
                           )
                         else
                           Container(
-                            width: screenSize.width,
-                            height: screenSize.height * 0.35,
-                            padding:
-                                EdgeInsets.only(top: screenSize.height * 0.08),
-                            child: Text(
-                              appLocalizations.scannerProductsEmpty,
-                              style: themeData.textTheme.subtitle1!
-                                  .copyWith(color: Colors.white),
-                              textAlign: TextAlign.center,
+                            color: backgroundColor,
+                            child: ListTile(
+                              title: Text(
+                                '${appLocalizations.scannerProductsEmpty}'
+                                '. Scan product barcodes to see which ones'
+                                ' better match your food preferences',
+                                style: TextStyle(color: foregroundColor),
+                              ),
+                              trailing: SvgPicture.asset(
+                                'assets/actions/food-cog.svg',
+                                color: foregroundColor,
+                              ),
+                              onTap: () async => Navigator.push<Widget>(
+                                context,
+                                MaterialPageRoute<Widget>(
+                                  builder: (BuildContext context) =>
+                                      const UserPreferencesPage(),
+                                ),
+                              ),
                             ),
                           ),
                       ],
