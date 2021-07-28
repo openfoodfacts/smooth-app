@@ -92,7 +92,7 @@ class ContinuousScanPage extends StatelessWidget {
                                 icon: const Icon(CupertinoIcons.clear_circled),
                                 onPressed: () async =>
                                     _continuousScanModel.clearScanSession(),
-                                label: const Text('clear'),
+                                label: const Text('Clear'),
                               ),
                               ElevatedButton.icon(
                                 icon: const Icon(Icons.emoji_events_outlined),
