@@ -7,18 +7,13 @@ import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/pages/scan/continuous_scan_page.dart';
 
 class ScanPage extends StatelessWidget {
-  const ScanPage({
-    required this.contributionMode,
-  });
-
-  final bool contributionMode;
+  const ScanPage();
 
   @override
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     return FutureBuilder<ContinuousScanModel?>(
         future: ContinuousScanModel(
-          contributionMode: contributionMode,
           languageCode: ProductQuery.getCurrentLanguageCode(context),
           countryCode: ProductQuery.getCurrentCountryCode(),
         ).load(localDatabase),

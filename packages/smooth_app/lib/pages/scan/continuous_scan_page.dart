@@ -108,6 +108,7 @@ class ContinuousScanPage extends StatelessWidget {
                                       ),
                                     ),
                                   );
+                                  await _continuousScanModel.refresh();
                                 },
                                 label: Text(
                                     appLocalizations.myPersonalizedRanking),

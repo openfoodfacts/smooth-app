@@ -174,13 +174,16 @@ class _ProductListPageState extends State<ProductListPage> {
           ? null
           : FloatingActionButton(
               child: const Icon(Icons.emoji_events_outlined),
-              onPressed: () => Navigator.push<Widget>(
-                context,
-                MaterialPageRoute<Widget>(
-                  builder: (BuildContext context) =>
-                      PersonalizedRankingPage(productList),
-                ),
-              ),
+              onPressed: () async {
+                await Navigator.push<Widget>(
+                  context,
+                  MaterialPageRoute<Widget>(
+                    builder: (BuildContext context) =>
+                        PersonalizedRankingPage(productList),
+                  ),
+                );
+                setState(() {});
+              },
             ),
       body: metas.isEmpty
           ? Center(
