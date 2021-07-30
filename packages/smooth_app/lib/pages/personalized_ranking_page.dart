@@ -2,6 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/personalized_search/matched_product.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
@@ -104,7 +105,10 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
         ),
         actions: <Widget>[
           IconButton(
-            icon: const Icon(Icons.settings),
+            icon: SvgPicture.asset(
+              'assets/actions/food-cog.svg',
+              color: Colors.white,
+            ),
             onPressed: () async {
               await Navigator.push<Widget>(
                 context,
