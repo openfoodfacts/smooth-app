@@ -9,6 +9,9 @@ import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/smooth_it_model.dart';
+import 'package:smooth_app/database/dao_product_list.dart';
+import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/pages/multi_select_product_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/user_preferences_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -66,6 +69,8 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
   Widget build(BuildContext context) {
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
+    final DaoProductList daoProductList = DaoProductList(localDatabase);
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
     _model.refresh(widget.productList, productPreferences);
     final List<BottomNavigationBarItem> bottomNavigationBarItems =
@@ -140,6 +145,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
         _model.getMatchedProducts(_ORDERED_MATCH_INDEXES[_currentTabIndex]),
         colorScheme,
         appLocalizations,
+        daoProductList,
       ),
     );
   }
@@ -147,25 +153,58 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
   Widget _buildSmoothProductCard(
     final MatchedProduct matchedProduct,
     final ColorScheme colorScheme,
+    final DaoProductList daoProductList,
   ) =>
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
-        child: SmoothProductCardFound(
-          heroTag: matchedProduct.product.barcode!,
-          product: matchedProduct.product,
-          elevation: 4.0,
-          backgroundColor: PersonalizedRankingPage.getColor(
-            colorScheme: colorScheme,
-            matchIndex: SmoothItModel.getMatchIndex(matchedProduct),
-            colorDestination: ColorDestination.SURFACE_BACKGROUND,
+      Dismissible(
+        key: Key(matchedProduct.product.barcode!),
+        onDismissed: (final DismissDirection direction) async {
+          final bool removed =
+              widget.productList.remove(matchedProduct.product.barcode!);
+          if (removed) {
+            await daoProductList.put(widget.productList);
+            setState(() {});
+          }
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                  removed ? 'Product removed' : 'Could not remove product'),
+              duration: const Duration(seconds: 3),
+            ),
+          );
+        },
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+          child: SmoothProductCardFound(
+            heroTag: matchedProduct.product.barcode!,
+            product: matchedProduct.product,
+            elevation: 4.0,
+            backgroundColor: PersonalizedRankingPage.getColor(
+              colorScheme: colorScheme,
+              matchIndex: SmoothItModel.getMatchIndex(matchedProduct),
+              colorDestination: ColorDestination.SURFACE_BACKGROUND,
+            ),
+            onLongPress: () async {
+              await Navigator.push<Widget>(
+                context,
+                MaterialPageRoute<Widget>(
+                  builder: (BuildContext context) => MultiSelectProductPage(
+                    barcode: matchedProduct.product.barcode!,
+                    productList: widget.productList,
+                  ),
+                ),
+              );
+              setState(() {});
+            },
           ),
         ),
       );
 
   Widget _getStickyHeader(
-          final List<MatchedProduct> matchedProducts,
-          final ColorScheme colorScheme,
-          final AppLocalizations appLocalizations) =>
+    final List<MatchedProduct> matchedProducts,
+    final ColorScheme colorScheme,
+    final AppLocalizations appLocalizations,
+    final DaoProductList daoProductList,
+  ) =>
       matchedProducts.isEmpty
           ? Center(
               child: Text(appLocalizations.no_product_in_section,
@@ -174,6 +213,10 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
           : ListView.builder(
               itemCount: matchedProducts.length,
               itemBuilder: (BuildContext context, int index) =>
-                  _buildSmoothProductCard(matchedProducts[index], colorScheme),
+                  _buildSmoothProductCard(
+                matchedProducts[index],
+                colorScheme,
+                daoProductList,
+              ),
             );
 }

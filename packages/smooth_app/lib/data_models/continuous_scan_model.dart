@@ -19,10 +19,9 @@ enum ScannedProductState {
 
 class ContinuousScanModel with ChangeNotifier {
   ContinuousScanModel({
-    required bool contributionMode,
     required this.countryCode,
     required this.languageCode,
-  }) : _contributionMode = contributionMode;
+  });
 
   final Map<String, ScannedProductState> _states =
       <String, ScannedProductState>{};
@@ -30,7 +29,6 @@ class ContinuousScanModel with ChangeNotifier {
   final ProductList _productList =
       ProductList(listType: ProductList.LIST_TYPE_SCAN_SESSION, parameters: '');
 
-  late bool _contributionMode;
   String? _latestScannedBarcode;
   String? _latestFoundBarcode;
   String? _barcodeTrustCheck; // TODO(monsieurtanuki): could probably be removed
@@ -41,7 +39,6 @@ class ContinuousScanModel with ChangeNotifier {
   final String countryCode;
 
   bool get isNotEmpty => getBarcodes().isNotEmpty;
-  bool get contributionMode => _contributionMode;
   ProductList get productList => _productList;
 
   List<String> getBarcodes() => _barcodes;
@@ -63,6 +60,9 @@ class ContinuousScanModel with ChangeNotifier {
 
   Future<bool> _refresh() async {
     try {
+      _latestScannedBarcode = null;
+      _latestFoundBarcode = null;
+      _barcodeTrustCheck = null;
       _barcodes.clear();
       _states.clear();
       _latestScannedBarcode = null;
@@ -107,13 +107,6 @@ class ContinuousScanModel with ChangeNotifier {
     }
     _latestScannedBarcode = code;
     _addBarcode(code);
-  }
-
-  void contributionModeSwitch(bool value) {
-    if (_contributionMode != value) {
-      _contributionMode = value;
-      notifyListeners();
-    }
   }
 
   Future<bool> _addBarcode(final String barcode) async {
@@ -200,6 +193,10 @@ class ContinuousScanModel with ChangeNotifier {
 
   Future<void> clearScanSession() async {
     await _daoProductExtra.clearScanSession();
+    await refresh();
+  }
+
+  Future<void> refresh() async {
     await _refresh();
     notifyListeners();
   }

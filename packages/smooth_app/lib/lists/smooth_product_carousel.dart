@@ -5,7 +5,6 @@ import 'package:flutter/widgets.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/personalized_search/matched_product.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/cards/product_cards/smooth_product_card_edit.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_loading.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_not_found.dart';
@@ -53,7 +52,7 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
       itemBuilder: (BuildContext context, int itemIndex, int itemRealIndex) =>
           Padding(
         padding: const EdgeInsets.symmetric(horizontal: 4.0),
-        child: _getWidget(barcodes[itemIndex], productPreferences),
+        child: _getWidget(barcodes, itemIndex, productPreferences),
       ),
       carouselController: _controller,
       options: CarouselOptions(
@@ -65,17 +64,25 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
     );
   }
 
+  /// Displays the card for this [index] of a list of [barcodes]
+  ///
+  /// There are special cases when the item display is refreshed
+  /// after the product disappeared and before the whole carousel is refreshed.
+  /// In those cases, we don't want the app to crash and display a Container
+  /// instead in the meanwhile.
   Widget _getWidget(
-    final String barcode,
+    final List<String> barcodes,
+    final int index,
     final ProductPreferences productPreferences,
   ) {
+    if (index >= barcodes.length) {
+      return Container();
+    }
+    final String barcode = barcodes[index];
     switch (widget.continuousScanModel.getBarcodeState(barcode)!) {
       case ScannedProductState.FOUND:
       case ScannedProductState.CACHED:
         final Product product = widget.continuousScanModel.getProduct(barcode);
-        if (widget.continuousScanModel.contributionMode) {
-          return SmoothProductCardEdit(heroTag: barcode, product: product);
-        }
         final MatchedProduct matchedProduct =
             MatchedProduct(product, productPreferences);
         return SmoothProductCardFound(

@@ -368,9 +368,7 @@ class _HomePageState extends State<HomePage> {
           onPressed: () async => Navigator.push<Widget>(
             context,
             MaterialPageRoute<Widget>(
-              builder: (BuildContext context) => const ScanPage(
-                contributionMode: false,
-              ),
+              builder: (BuildContext context) => const ScanPage(),
             ),
           ),
           icon: SvgPicture.asset(
