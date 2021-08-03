@@ -194,6 +194,7 @@ Widget build(BuildContext context) {
                                     ),
                                   ),
                                 );
+                                await _continuousScanModel.refresh();
                               },
                               label: Text(
                                   appLocalizations.myPersonalizedRanking),
