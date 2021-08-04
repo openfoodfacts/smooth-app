@@ -187,7 +187,7 @@ class DaoProductList extends AbstractDao {
         await databaseExecutor.query(
       _TABLE_PRODUCT_LIST,
       columns: <String>[_TABLE_PRODUCT_LIST_COLUMN_ID],
-      where: '$_TABLE_PRODUCT_LIST_COLUMN_TYPE in (?, ?)',
+      where: '$_TABLE_PRODUCT_LIST_COLUMN_TYPE in (?, ?, ?)',
       whereArgs: <String>[
         ProductList.LIST_TYPE_HISTORY,
         ProductList.LIST_TYPE_SCAN_HISTORY,
