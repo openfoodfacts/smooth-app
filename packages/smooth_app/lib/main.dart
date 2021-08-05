@@ -54,53 +54,47 @@ class _SmoothAppState extends State<SmoothApp> {
   late ThemeProvider _themeProvider;
   bool systemDarkmodeOn = false;
 
-  Future<void> _init(BuildContext context) async {
-    _userPreferences = await UserPreferences.getUserPreferences();
-    _productPreferences = ProductPreferences(
-      ProductPreferencesSelection(
-        setImportance: (
-          String attributeId,
-          String importanceId,
-        ) async =>
-            _userPreferences.setImportance(attributeId, importanceId),
-        getImportance: (String attributeId) =>
-            _userPreferences.getImportance(attributeId),
-        notify: () => _productPreferences.notifyListeners(),
-      ),
-    );
-    try {
-      await _productPreferences.loadReferenceFromAssets(
-        DefaultAssetBundle.of(context),
-      );
-    } catch (e) {
-      // this is problematic - we should always be able to load the default
-      debugPrint('Could not load reference files: $e');
-      rethrow;
-    }
-    await _userPreferences.init(_productPreferences);
-    try {
-      _localDatabase = await LocalDatabase.getLocalDatabase();
-    } catch (e) {
-      // this is problematic - we should always be able to init the database
-      debugPrint('Cannot init database: $e');
-      rethrow;
-    }
-    _themeProvider = ThemeProvider(_userPreferences);
-  }
+  // We store the argument of FutureBuilder to avoid re-initialization on
+  // subsequent builds. This enables hot reloading. See
+  // https://github.com/openfoodfacts/smooth-app/issues/473
+  late Future<void> _initFuture;
 
   @override
   void initState() {
+    super.initState();
+    _initFuture = _init();
+  }
+
+  Future<void> _init() async {
+    Function debugPrintAndRethrow(String message) => (dynamic error) {
+          debugPrint('$message: $error');
+          return error;
+        };
     final Brightness brightness =
         SchedulerBinding.instance?.window.platformBrightness ??
             Brightness.light;
     systemDarkmodeOn = brightness == Brightness.dark;
-    super.initState();
+    _userPreferences = await UserPreferences.getUserPreferences();
+    _productPreferences = ProductPreferences(ProductPreferencesSelection(
+      setImportance: _userPreferences.setImportance,
+      getImportance: _userPreferences.getImportance,
+      notify: () => _productPreferences.notifyListeners(),
+    ));
+    await _productPreferences
+        .loadReferenceFromAssets(DefaultAssetBundle.of(context))
+        // this is problematic - we should always be able to load the default
+        .catchError(debugPrintAndRethrow('Could not load reference files'));
+    await _userPreferences.init(_productPreferences);
+    _localDatabase = await LocalDatabase.getLocalDatabase()
+        // this is problematic - we should always be able to init the database
+        .catchError(debugPrintAndRethrow('Cannot init database'));
+    _themeProvider = ThemeProvider(_userPreferences);
   }
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<void>(
-      future: _init(context),
+      future: _initFuture,
       builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
           return MultiProvider(
