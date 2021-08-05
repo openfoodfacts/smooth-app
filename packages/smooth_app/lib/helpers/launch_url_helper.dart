@@ -1,13 +1,11 @@
-import 'dart:core';
-
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class LaunchUrlHelper {
   /// ifOFF true adds the users country code in front of the url
-  ///
-  /// NO  https://de.openfoodfacts.org/...
+  /// Throws a error when already populated
   /// YES https://   openfoodfacts.org/...
+  /// NO  https://de.openfoodfacts.org/...
   ///
   Future<void> launchURL(String url, bool isOFF) async {
     if (isOFF) {

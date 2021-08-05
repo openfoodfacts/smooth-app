@@ -6,7 +6,7 @@ import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_ui_library/widgets/smooth_list_tile.dart';
 
 class UserContributionView extends StatelessWidget {
-  final LaunchUrlHelper launcher = LaunchUrlHelper();
+  final LaunchUrlHelper launchUrlHelper = LaunchUrlHelper();
 
   @override
   Widget build(BuildContext context) {
@@ -94,7 +94,7 @@ class UserContributionView extends StatelessWidget {
                 height: 10,
               ),
               TextButton(
-                onPressed: () => launcher.launchURL(
+                onPressed: () => launchUrlHelper.launchURL(
                     'https://world.openfoodfacts.org/state/to-be-completed',
                     false),
                 child: Text(
@@ -142,7 +142,7 @@ class UserContributionView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   TextButton(
-                    onPressed: () => launcher.launchURL(
+                    onPressed: () => launchUrlHelper.launchURL(
                         'https://slack.openfoodfacts.org/', false),
                     child: const Text(
                       'Slack',
@@ -152,7 +152,7 @@ class UserContributionView extends StatelessWidget {
                     ),
                   ),
                   TextButton(
-                    onPressed: () => launcher.launchURL(
+                    onPressed: () => launchUrlHelper.launchURL(
                         'https://github.com/openfoodfacts', false),
                     child: const Text(
                       'Github',
@@ -195,7 +195,7 @@ class UserContributionView extends StatelessWidget {
           ),
           actions: <SmoothSimpleButton>[
             SmoothSimpleButton(
-              onPressed: () => launcher.launchURL(
+              onPressed: () => launchUrlHelper.launchURL(
                   'https://translate.openfoodfacts.org/', false),
               text:
                   AppLocalizations.of(context)!.contribute_translate_link_text,
