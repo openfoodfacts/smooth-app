@@ -18,7 +18,7 @@ import 'package:smooth_app/pages/product/common/product_list_dialog_helper.dart'
 import 'package:smooth_app/pages/product/common/product_list_page.dart';
 import 'package:smooth_app/pages/scan/scan_page.dart';
 import 'package:smooth_app/pages/settings_page.dart';
-import 'package:smooth_app/pages/text_search_widget.dart';
+import 'package:smooth_app/widgets/text_search_widget.dart';
 import 'package:smooth_app/pages/user_preferences_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';

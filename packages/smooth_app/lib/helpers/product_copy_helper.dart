@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:openfoodfacts/model/Product.dart';
-import 'package:smooth_app/bottom_sheet_views/product_copy_view.dart';
+import 'package:smooth_app/views/bottom_sheet_views/product_copy_view.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';

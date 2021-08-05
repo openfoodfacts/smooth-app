@@ -5,8 +5,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:package_info/package_info.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/bottom_sheet_views/user_contribution_view.dart';
-import 'package:smooth_app/functions/launch_url.dart';
+import 'package:smooth_app/views/bottom_sheet_views/user_contribution_view.dart';
+import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/user_preferences_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -29,7 +29,7 @@ class ProfilePage extends StatelessWidget {
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final ThemeData themeData = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-    final Launcher launcher = Launcher();
+    final LaunchUrlHelper launcher = LaunchUrlHelper();
     return Scaffold(
       appBar: AppBar(title: Text(appLocalizations.settingsTitle)),
       body: ListView(
@@ -99,8 +99,8 @@ class ProfilePage extends StatelessWidget {
           SmoothListTile(
             text: appLocalizations.support,
             leadingWidget: const Icon(Icons.launch),
-            onPressed: () => launcher.launchURL(
-                context, 'https://slack.openfoodfacts.org/', false),
+            onPressed: () =>
+                launcher.launchURL('https://slack.openfoodfacts.org/', false),
           ),
 
           //About
@@ -165,7 +165,6 @@ class ProfilePage extends StatelessWidget {
                                       TextButton(
                                         onPressed: () {
                                           launcher.launchURL(
-                                              context,
                                               'https://openfoodfacts.org/who-we-are',
                                               true);
                                         },
@@ -178,7 +177,6 @@ class ProfilePage extends StatelessWidget {
                                       ),
                                       TextButton(
                                         onPressed: () => launcher.launchURL(
-                                            context,
                                             'https://openfoodfacts.org/terms-of-use',
                                             true),
                                         child: Text(
