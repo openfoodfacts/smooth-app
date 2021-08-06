@@ -110,7 +110,6 @@ Widget build(BuildContext context) {
   final ThemeProvider themeProvider = context.watch&lt;ThemeProvider&gt;();
   final ThemeData themeData = Theme.of(context);
   final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-  final Launcher launcher = Launcher();
   return Scaffold(
     appBar: AppBar(title: Text(appLocalizations.settingsTitle)),
     body: ListView(
@@ -180,8 +179,8 @@ Widget build(BuildContext context) {
         SmoothListTile(
           text: appLocalizations.support,
           leadingWidget: const Icon(Icons.launch),
-          onPressed: () =&gt; launcher.launchURL(
-              context, &#39;https:&#47;&#47;slack.openfoodfacts.org&#47;&#39;, false),
+          onPressed: () =&gt; LaunchUrlHelper.launchURL(
+              &#39;https:&#47;&#47;slack.openfoodfacts.org&#47;&#39;, false),
         ),
 
         &#47;&#47;About
@@ -245,8 +244,7 @@ Widget build(BuildContext context) {
                                   children: &lt;Widget&gt;[
                                     TextButton(
                                       onPressed: () {
-                                        launcher.launchURL(
-                                            context,
+                                        LaunchUrlHelper.launchURL(
                                             &#39;https:&#47;&#47;openfoodfacts.org&#47;who-we-are&#39;,
                                             true);
                                       },
@@ -258,8 +256,7 @@ Widget build(BuildContext context) {
                                       ),
                                     ),
                                     TextButton(
-                                      onPressed: () =&gt; launcher.launchURL(
-                                          context,
+                                      onPressed: () =&gt; LaunchUrlHelper.launchURL(
                                           &#39;https:&#47;&#47;openfoodfacts.org&#47;terms-of-use&#39;,
                                           true),
                                       child: Text(
