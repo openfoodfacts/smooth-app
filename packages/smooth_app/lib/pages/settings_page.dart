@@ -29,7 +29,6 @@ class ProfilePage extends StatelessWidget {
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final ThemeData themeData = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-    final LaunchUrlHelper launchUrlHelper = LaunchUrlHelper();
     return Scaffold(
       appBar: AppBar(title: Text(appLocalizations.settingsTitle)),
       body: ListView(
@@ -99,7 +98,7 @@ class ProfilePage extends StatelessWidget {
           SmoothListTile(
             text: appLocalizations.support,
             leadingWidget: const Icon(Icons.launch),
-            onPressed: () => launchUrlHelper.launchURL(
+            onPressed: () => LaunchUrlHelper.launchURL(
                 'https://slack.openfoodfacts.org/', false),
           ),
 
@@ -164,7 +163,7 @@ class ProfilePage extends StatelessWidget {
                                     children: <Widget>[
                                       TextButton(
                                         onPressed: () {
-                                          launchUrlHelper.launchURL(
+                                          LaunchUrlHelper.launchURL(
                                               'https://openfoodfacts.org/who-we-are',
                                               true);
                                         },
@@ -176,7 +175,7 @@ class ProfilePage extends StatelessWidget {
                                         ),
                                       ),
                                       TextButton(
-                                        onPressed: () => launchUrlHelper.launchURL(
+                                        onPressed: () => LaunchUrlHelper.launchURL(
                                             'https://openfoodfacts.org/terms-of-use',
                                             true),
                                         child: Text(

@@ -100,7 +100,7 @@ class _ProductPageState extends State<ProductPage> {
             onSelected: (final String value) async {
               switch (value) {
                 case 'web':
-                  LaunchUrlHelper().launchURL(
+                  LaunchUrlHelper.launchURL(
                       'https://openfoodfacts.org/product/${_product.barcode}/',
                       false);
                   break;
