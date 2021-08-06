@@ -5,7 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
-import 'package:smooth_app/lists/smooth_product_carousel.dart';
+import 'package:smooth_app/widgets/smooth_product_carousel.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/scan/scan_page.dart';
 import 'package:smooth_app/pages/user_preferences_page.dart';

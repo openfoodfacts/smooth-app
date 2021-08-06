@@ -5,7 +5,7 @@ import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/pages/product_copy_helper.dart';
+import 'package:smooth_app/helpers/product_copy_helper.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
 
