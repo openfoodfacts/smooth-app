@@ -66,10 +66,6 @@ class _SmoothAppState extends State<SmoothApp> {
   }
 
   Future<void> _init() async {
-    Function debugPrintAndRethrow(String message) => (dynamic error) {
-          debugPrint('$message: $error');
-          return error;
-        };
     final Brightness brightness =
         SchedulerBinding.instance?.window.platformBrightness ??
             Brightness.light;
@@ -81,13 +77,9 @@ class _SmoothAppState extends State<SmoothApp> {
       notify: () => _productPreferences.notifyListeners(),
     ));
     await _productPreferences
-        .loadReferenceFromAssets(DefaultAssetBundle.of(context))
-        // this is problematic - we should always be able to load the default
-        .catchError(debugPrintAndRethrow('Could not load reference files'));
+        .loadReferenceFromAssets(DefaultAssetBundle.of(context));
     await _userPreferences.init(_productPreferences);
-    _localDatabase = await LocalDatabase.getLocalDatabase()
-        // this is problematic - we should always be able to init the database
-        .catchError(debugPrintAndRethrow('Cannot init database'));
+    _localDatabase = await LocalDatabase.getLocalDatabase();
     _themeProvider = ThemeProvider(_userPreferences);
   }
 
@@ -96,6 +88,17 @@ class _SmoothAppState extends State<SmoothApp> {
     return FutureBuilder<void>(
       future: _initFuture,
       builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
+        if (snapshot.hasError) {
+          return MaterialApp(
+            home: Scaffold(
+              body: Center(
+                child: Text(
+                  'Fatal Error: ${snapshot.error}',
+                ),
+              ),
+            ),
+          );
+        }
         if (snapshot.connectionState == ConnectionState.done) {
           return MultiProvider(
             providers: <ChangeNotifierProvider<dynamic>>[
