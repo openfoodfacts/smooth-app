@@ -28,39 +28,50 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
+class _Page {
+  const _Page({required this.name, required this.icon, required this.body});
+  final String name;
+  final IconData icon;
+  final Widget body;
+}
+
 class _HomePageState extends State<HomePage> {
-  final List<Widget> _pages = <Widget>[
-    const ProfilePage(),
-    const ScanPage(),
-    const OldHomePage(),
+  static const List<_Page> _pages = <_Page>[
+    _Page(
+      name: 'Profile',
+      icon: Icons.account_circle,
+      body: ProfilePage(),
+    ),
+    _Page(
+      name: 'Scan or Search',
+      icon: Icons.search,
+      body: ScanPage(),
+    ),
+    _Page(
+      name: 'History',
+      icon: Icons.history,
+      body: OldHomePage(),
+    ),
   ];
   int _currentPage = 1;
 
   @override
   Widget build(BuildContext context) {
-    // TODO(slava-sh): Add intro screen.
     return Scaffold(
-      body: _pages[_currentPage],
+      body: _pages[_currentPage].body,
       bottomNavigationBar: BottomNavigationBar(
         showSelectedLabels: false,
         showUnselectedLabels: false,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Colors.white,
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
         currentIndex: _currentPage,
         onTap: _onTap,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle),
-            label: 'Profile',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Scan or Search',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.history),
-            label: 'History',
-          ),
-        ],
+        items: _pages
+            .map((_Page p) => BottomNavigationBarItem(
+                  icon: Icon(p.icon, size: 28),
+                  label: p.name,
+                ))
+            .toList(),
       ),
     );
   }
