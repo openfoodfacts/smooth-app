@@ -5,8 +5,9 @@ import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/widgets/attribute_button.dart';
+import 'package:smooth_app/pages/settings_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/widgets/attribute_button.dart';
 
 /// Preferences page for attribute importances
 class UserPreferencesPage extends StatelessWidget {
@@ -19,17 +20,29 @@ class UserPreferencesPage extends StatelessWidget {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final List<AttributeGroup>? groups = productPreferences.attributeGroups;
     final List<String> orderedImportantAttributeIds =
         productPreferences.getOrderedImportantAttributeIds();
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.myPreferences),
+        title: Text(appLocalizations.myPreferences),
         actions: <Widget>[
           IconButton(
-            icon: const Icon(Icons.refresh),
+            icon: const Icon(Icons.rotate_left),
+            tooltip: appLocalizations.reset,
             onPressed: () => userPreferences.resetImportances(
               productPreferences,
+            ),
+          ),
+          IconButton(
+            icon: const Icon(Icons.settings),
+            tooltip: appLocalizations.settingsTitle,
+            onPressed: () => Navigator.push<Widget>(
+              context,
+              MaterialPageRoute<Widget>(
+                builder: (BuildContext context) => const ProfilePage(),
+              ),
             ),
           ),
         ],

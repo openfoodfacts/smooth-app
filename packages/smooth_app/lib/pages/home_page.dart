@@ -15,11 +15,11 @@ import 'package:smooth_app/pages/product/common/product_list_button.dart';
 import 'package:smooth_app/pages/product/common/product_list_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_list_page.dart';
 import 'package:smooth_app/pages/scan/scan_page.dart';
+import 'package:smooth_app/pages/user_preferences_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/text_search_widget.dart';
 import 'package:smooth_ui_library/widgets/smooth_card.dart';
-import 'package:smooth_app/pages/settings_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage();
@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
     _Page(
       name: 'Profile',
       icon: Icons.account_circle,
-      body: ProfilePage(),
+      body: UserPreferencesPage(),
     ),
     _Page(
       name: 'Scan or Search',
