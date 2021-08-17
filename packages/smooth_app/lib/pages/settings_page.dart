@@ -1,15 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:package_info/package_info.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/views/bottom_sheet_views/user_contribution_view.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
-import 'package:smooth_app/pages/user_preferences_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/views/bottom_sheet_views/user_contribution_view.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_ui_library/widgets/smooth_list_tile.dart';
@@ -52,17 +49,6 @@ class ProfilePage extends StatelessWidget {
               ),
               onChanged: (bool newValue) async =>
                   themeProvider.setDarkTheme(newValue),
-            ),
-          ),
-
-          //Configure Preferences
-          SmoothListTile(
-            text: appLocalizations.configurePreferences,
-            onPressed: () async => Navigator.push<Widget>(
-              context,
-              MaterialPageRoute<Widget>(
-                builder: (BuildContext context) => const UserPreferencesPage(),
-              ),
             ),
           ),
 
