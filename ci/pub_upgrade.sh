@@ -25,4 +25,3 @@ function pub_upgrade() {
 for dir in $(find "$REPO_DIR" -type d -not -path "*/.dart_tool/*"); do
   pub_upgrade "$dir"
 done
-

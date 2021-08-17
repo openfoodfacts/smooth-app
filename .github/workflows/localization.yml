@@ -1,0 +1,76 @@
+name: Flutter - localization
+
+on:
+  push:
+    branches: ['*']
+   # paths:
+  #    - "ux/lib/messages.dart"
+  #    - ".github/workflows/localization.yml"
+ # pull_request:
+  #  branches: [ main ]
+ #   paths:
+ #     - "ux/lib/messages.dart"
+  #    - ".github/workflows/localization.yml"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ github.head_ref }}
+      - name: Branch name
+        id: branch_name
+        run: |
+          echo ::set-output name=SOURCE_NAME::${GITHUB_REF#refs/*/}
+          echo ::set-output name=SOURCE_BRANCH::${GITHUB_REF#refs/heads/}
+          echo ::set-output name=SOURCE_TAG::${GITHUB_REF#refs/tags/}
+      - name: Dump env
+        run: |
+          echo ${SOURCE_TAG}
+          echo ${SOURCE_BRANCH}
+          echo ${SOURCE_TAG}
+          echo ${{ GITHUB.ref }}
+        env:
+          SOURCE_NAME: ${{ steps.branch_name.outputs.SOURCE_NAME }}
+          SOURCE_BRANCH: ${{ steps.branch_name.outputs.SOURCE_BRANCH }}
+          SOURCE_TAG: ${{ steps.branch_name.outputs.SOURCE_TAG }}
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '12.x'
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: 'stable' # or: 'dev' or 'beta'
+      # Get dependencies.
+      - name: "Get dependencies"
+        run: chmod u+x ci/pub_upgrade.sh && ci/pub_upgrade.sh
+      # /lib/pages/organization_page.dart lib/pages/tracking_page.dart lib/pages/product_page.dart /lib/pages/product_query_page.dart lib/bottom_sheet_views/user_preferences_view.dart lib/pages/product_list_dialog_helper.dart /lib/pages/pantry_dialog_helper.dart lib/pages/profile_page.dart /lib/bottom_sheet_views/user_contribution_view.dart lib/bottom_sheet_views/group_query_filter_view.dart lib/pages/continuous_scan_page.dart lib/pages/contribution_page.dart lib/main.dart lib/pages/alternative_continuous_scan_page.dart  
+      #- run: flutter pub get && flutter pub run intl:extract_to_arb --output-dir=lib/l10n lib/main.dart
+      - run: flutter pub run intl_generator:extract_to_arb --output-dir=lib/l10n lib/main.dart
+      #- run: flutter pub get && flutter pub run intl_translation:extract_to_arb --output-dir=lib/l10n lib/pages/pantry_dialog_helper.dart
+        working-directory: ./packages/smooth_app
+      #- run: |
+      #    cat lib/l10n/app_en.arb | awk '{ if (NR == 2) { print "  \"@@locale\": \"en\"," } print $0 }' > lib/l10n/app_en.arb
+      #  working-directory: ./packages/smooth_app
+      #- run: flutter pub run intl:generate_from_arb --output-dir=lib/l10n --no-use-deferred-loading lib/main.dart lib/l10n/intl_*.arb
+      #- run: flutter pub run intl_translation:generate_from_arb  --output-dir=lib/l10n --no-use-deferred-loading lib/pages/pantry_dialog_helper.dart lib/l10n/app_??.arb
+        #working-directory: ./packages/smooth_app
+      - uses: actions/upload-artifact@v2
+        with:
+          name: screenshots
+          path: packages/smooth_app/lib/l10n/ # or path/to/artifact
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add *
+          git commit -m "Update localization for ${{ steps.branch_name.outputs.SOURCE_TAG}} version" -a
+          
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+          force: true
