@@ -8,6 +8,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/pages/settings_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/widgets/attribute_button.dart';
+import 'package:smooth_ui_library/smooth_ui_library.dart';
 
 /// Preferences page for attribute importances
 class UserPreferencesPage extends StatelessWidget {
@@ -31,9 +32,7 @@ class UserPreferencesPage extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.rotate_left),
             tooltip: appLocalizations.reset,
-            onPressed: () => userPreferences.resetImportances(
-              productPreferences,
-            ),
+            onPressed: () => _confirmReset(context),
           ),
           IconButton(
             icon: const Icon(Icons.settings),
@@ -149,5 +148,46 @@ class UserPreferencesPage extends StatelessWidget {
     );
     importantAttributes.addAll(otherAttributes);
     return importantAttributes;
+  }
+
+  void _confirmReset(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final ProductPreferences preferences = context.read<ProductPreferences>();
+    showDialog<void>(
+      context: context,
+      //builder: (final BuildContext context) => SmoothAlertDialog(
+      //  body: const Text('Reset your preferences?'),
+      //  actions: <SmoothSimpleButton>[
+      //    SmoothSimpleButton(
+      //      text: appLocalizations.yes,
+      //      onPressed: () => Navigator.pop(context),
+      //    ),
+      //    SmoothSimpleButton(
+      //      text: appLocalizations.no,
+      //      onPressed: () => Navigator.pop(context),
+      //    ),
+      //  ],
+      //),
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Reset your preferences?'),
+          actions: <Widget>[
+            TextButton(
+              child: Text(appLocalizations.yes),
+              onPressed: () {
+                preferences.resetImportances();
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: Text(appLocalizations.no),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            )
+          ],
+        );
+      },
+    );
   }
 }
