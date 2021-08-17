@@ -110,17 +110,29 @@ Widget build(BuildContext context) {
   final UserPreferences userPreferences = context.watch&lt;UserPreferences&gt;();
   final ProductPreferences productPreferences =
       context.watch&lt;ProductPreferences&gt;();
+  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
   final List&lt;AttributeGroup&gt;? groups = productPreferences.attributeGroups;
   final List&lt;String&gt; orderedImportantAttributeIds =
       productPreferences.getOrderedImportantAttributeIds();
   return Scaffold(
     appBar: AppBar(
-      title: Text(AppLocalizations.of(context)!.myPreferences),
+      title: Text(appLocalizations.myPreferences),
       actions: &lt;Widget&gt;[
         IconButton(
-          icon: const Icon(Icons.refresh),
+          icon: const Icon(Icons.rotate_left),
+          tooltip: appLocalizations.reset,
           onPressed: () =&gt; userPreferences.resetImportances(
             productPreferences,
+          ),
+        ),
+        IconButton(
+          icon: const Icon(Icons.settings),
+          tooltip: appLocalizations.settingsTitle,
+          onPressed: () =&gt; Navigator.push&lt;Widget&gt;(
+            context,
+            MaterialPageRoute&lt;Widget&gt;(
+              builder: (BuildContext context) =&gt; const ProfilePage(),
+            ),
           ),
         ),
       ],
