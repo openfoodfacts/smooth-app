@@ -107,11 +107,12 @@ and</li>
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
+  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
   final UserPreferences userPreferences = context.watch&lt;UserPreferences&gt;();
   final ProductPreferences productPreferences =
       context.watch&lt;ProductPreferences&gt;();
-  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-  final List&lt;AttributeGroup&gt;? groups = productPreferences.attributeGroups;
+  final List&lt;AttributeGroup&gt; groups =
+      _reorderGroups(productPreferences.attributeGroups!);
   final List&lt;String&gt; orderedImportantAttributeIds =
       productPreferences.getOrderedImportantAttributeIds();
   return Scaffold(
@@ -137,7 +138,7 @@ Widget build(BuildContext context) {
     ),
     body: ListView(
       children: List&lt;Widget&gt;.generate(
-        groups!.length,
+        groups.length,
         (int index) =&gt; _generateGroup(
           context,
           groups[index],
