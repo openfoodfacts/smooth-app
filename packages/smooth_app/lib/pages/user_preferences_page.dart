@@ -31,9 +31,7 @@ class UserPreferencesPage extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.rotate_left),
             tooltip: appLocalizations.reset,
-            onPressed: () => userPreferences.resetImportances(
-              productPreferences,
-            ),
+            onPressed: () => _confirmReset(context),
           ),
           IconButton(
             icon: const Icon(Icons.settings),
@@ -149,5 +147,32 @@ class UserPreferencesPage extends StatelessWidget {
     );
     importantAttributes.addAll(otherAttributes);
     return importantAttributes;
+  }
+
+  void _confirmReset(BuildContext context) {
+    final AppLocalizations localizations = AppLocalizations.of(context)!;
+    showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(localizations.confirmResetPreferences),
+          actions: <Widget>[
+            TextButton(
+              child: Text(localizations.yes),
+              onPressed: () async {
+                await context.read<ProductPreferences>().resetImportances();
+                Navigator.pop(context);
+              },
+            ),
+            TextButton(
+              child: Text(localizations.no),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            )
+          ],
+        );
+      },
+    );
   }
 }
