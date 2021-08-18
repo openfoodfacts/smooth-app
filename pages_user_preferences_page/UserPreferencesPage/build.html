@@ -121,9 +121,7 @@ Widget build(BuildContext context) {
         IconButton(
           icon: const Icon(Icons.rotate_left),
           tooltip: appLocalizations.reset,
-          onPressed: () =&gt; userPreferences.resetImportances(
-            productPreferences,
-          ),
+          onPressed: () =&gt; _confirmReset(context),
         ),
         IconButton(
           icon: const Icon(Icons.settings),
