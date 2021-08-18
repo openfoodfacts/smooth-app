@@ -13,15 +13,25 @@ import 'package:smooth_app/widgets/attribute_button.dart';
 class UserPreferencesPage extends StatelessWidget {
   const UserPreferencesPage();
 
+  static const List<String> _ORDERED_ATTRIBUTE_GROUP_IDS = <String>[
+    AttributeGroup.ATTRIBUTE_GROUP_NUTRITIONAL_QUALITY,
+    AttributeGroup.ATTRIBUTE_GROUP_INGREDIENT_ANALYSIS,
+    AttributeGroup.ATTRIBUTE_GROUP_ENVIRONMENT,
+    AttributeGroup.ATTRIBUTE_GROUP_PROCESSING,
+    AttributeGroup.ATTRIBUTE_GROUP_LABELS,
+    AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS,
+  ];
+
   static const double _TYPICAL_PADDING_OR_MARGIN = 12;
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-    final List<AttributeGroup>? groups = productPreferences.attributeGroups;
+    final List<AttributeGroup> groups =
+        _reorderGroups(productPreferences.attributeGroups!);
     final List<String> orderedImportantAttributeIds =
         productPreferences.getOrderedImportantAttributeIds();
     return Scaffold(
@@ -47,7 +57,7 @@ class UserPreferencesPage extends StatelessWidget {
       ),
       body: ListView(
         children: List<Widget>.generate(
-          groups!.length,
+          groups.length,
           (int index) => _generateGroup(
             context,
             groups[index],
@@ -174,5 +184,15 @@ class UserPreferencesPage extends StatelessWidget {
         );
       },
     );
+  }
+
+  List<AttributeGroup> _reorderGroups(List<AttributeGroup> groups) {
+    final List<AttributeGroup> result = <AttributeGroup>[];
+    for (final String id in _ORDERED_ATTRIBUTE_GROUP_IDS) {
+      result.addAll(groups.where((AttributeGroup g) => g.id == id));
+    }
+    result.addAll(groups.where(
+        (AttributeGroup g) => !_ORDERED_ATTRIBUTE_GROUP_IDS.contains(g.id)));
+    return result;
   }
 }
