@@ -50,12 +50,10 @@ You can join the Open Food Facts's Slack here : [Get an invite](https://slack.op
 - [ ] User management + Small point system for contributions
 
 ### Product page
-- [ ] Show Eco-Score details for a product - https://github.com/openfoodfacts/smooth-app/issues/37
 
 ### Scanning
 - [ ] Allow the user to find alternatives products on a scan even if (s)he has scanned only 1 product https://github.com/openfoodfacts/smooth-app/issues/23
 - [ ] Add offline scanning to ensure results in all conditions https://github.com/openfoodfacts/smooth-app/issues/18
-
 
 ## Building
 
@@ -64,9 +62,11 @@ In order to build the application, make sure you are in the packages/smooth_app 
  - flutter run
  
 ### Android
+- Nothing to report
 
 ### iOS
-We need to change the supported architectures for iOS when we open the project in Xcode. There, in the settings, you can specify which ones you want to build for, and only specify the ones that are 64 bit.
+- [ ] We need to change the supported architectures for iOS when we open the project in Xcode. There, in the settings, you can specify which ones you want to build for, and only specify the ones that are 64 bit.
+- [ ] Fastlane is failing
 
 ## Internationalization
 
