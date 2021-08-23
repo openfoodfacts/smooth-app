@@ -20,8 +20,7 @@ class SmoothToggle extends StatefulWidget {
     required this.onChanged,
     this.width = 150.0,
     this.height = 50.0,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final bool value;
   final Function(bool) onChanged;

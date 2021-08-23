@@ -6,9 +6,8 @@ class CategoryCard extends StatelessWidget {
     required this.title,
     required this.color,
     required this.onTap,
-    this.iconName = 'smoothie.svg',
-    Key? key,
-  }) : super(key: key);
+    required this.iconName,
+  });
 
   final String title;
   final Color color;

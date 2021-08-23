@@ -3,7 +3,7 @@ import 'package:smooth_app/data_models/product_list.dart';
 
 ///The ModalBottomSheet to choose where to copy/add products to
 class ProductCopyView extends StatelessWidget {
-  const ProductCopyView(this.children, {Key? key}) : super(key: key);
+  const ProductCopyView(this.children);
 
   final Map<String, List<Widget>> children;
 

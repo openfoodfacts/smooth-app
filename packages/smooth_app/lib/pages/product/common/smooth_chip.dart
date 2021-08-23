@@ -9,8 +9,7 @@ class SmoothChip extends StatelessWidget {
     this.label,
     this.materialColor,
     this.shape,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final VoidCallback onPressed;
   final IconData? iconData;

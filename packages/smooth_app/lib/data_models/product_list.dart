@@ -42,7 +42,8 @@ class ProductList {
     LIST_TYPE_HTTP_SEARCH_KEYWORDS: _COLOR_RED,
     LIST_TYPE_HTTP_SEARCH_CATEGORY: _COLOR_BLUE,
     LIST_TYPE_HTTP_SEARCH_GROUP: _COLOR_ORANGE,
-    LIST_TYPE_SCAN: _COLOR_GREEN,
+    LIST_TYPE_SCAN_HISTORY: _COLOR_BLUE,
+    LIST_TYPE_SCAN_SESSION: _COLOR_GREEN,
     LIST_TYPE_HISTORY: _COLOR_BLUE,
     LIST_TYPE_USER_DEFINED: _COLOR_PURPLE,
     LIST_TYPE_USER_PANTRY: _COLOR_ORANGE,
@@ -68,7 +69,8 @@ class ProductList {
     LIST_TYPE_HTTP_SEARCH_KEYWORDS: <String>[_ICON_SEARCH],
     LIST_TYPE_HTTP_SEARCH_CATEGORY: <String>[_ICON_CATEGORY],
     LIST_TYPE_HTTP_SEARCH_GROUP: <String>[_ICON_GROUP],
-    LIST_TYPE_SCAN: <String>[_ICON_SCAN],
+    LIST_TYPE_SCAN_HISTORY: <String>[_ICON_SCAN],
+    LIST_TYPE_SCAN_SESSION: <String>[_ICON_SCAN],
     LIST_TYPE_HISTORY: <String>[_ICON_HISTORY],
     LIST_TYPE_USER_DEFINED: <String>[_ICON_TAG, _ICON_HEART],
     LIST_TYPE_USER_PANTRY: <String>[_ICON_PAW, _ICON_FREEZER, _ICON_HOME],
@@ -96,7 +98,8 @@ class ProductList {
     LIST_TYPE_HTTP_SEARCH_KEYWORDS: _ICON_SEARCH,
     LIST_TYPE_HTTP_SEARCH_CATEGORY: _ICON_CATEGORY,
     LIST_TYPE_HTTP_SEARCH_GROUP: _ICON_GROUP,
-    LIST_TYPE_SCAN: _ICON_SCAN,
+    LIST_TYPE_SCAN_HISTORY: _ICON_SCAN,
+    LIST_TYPE_SCAN_SESSION: _ICON_SCAN,
     LIST_TYPE_HISTORY: _ICON_HISTORY,
     LIST_TYPE_USER_DEFINED: _ICON_TAG,
     LIST_TYPE_USER_PANTRY: _ICON_PAW,
@@ -113,13 +116,31 @@ class ProductList {
   final Map<String, Product> _products = <String, Product>{};
   final Map<String, ProductExtra> _productExtras = <String, ProductExtra>{};
 
+  /// API search for [PnnsGroup2Filter] related food groups
   static const String LIST_TYPE_HTTP_SEARCH_GROUP = 'http/search/group';
+
+  /// API search by [SearchTerms] keywords
   static const String LIST_TYPE_HTTP_SEARCH_KEYWORDS = 'http/search/keywords';
+
+  /// API search for [CategoryProductQuery] category
   static const String LIST_TYPE_HTTP_SEARCH_CATEGORY = 'http/search/category';
-  static const String LIST_TYPE_SCAN = 'scan';
+
+  /// Whole scan history
+  static const String LIST_TYPE_SCAN_HISTORY = 'scan';
+
+  /// Current scan session; can be easily cleared by the end-user
+  static const String LIST_TYPE_SCAN_SESSION = 'scan_session';
+
+  /// History of products seen by the end-user
   static const String LIST_TYPE_HISTORY = 'history';
+
+  /// End-user normal list (just barcodes)
   static const String LIST_TYPE_USER_DEFINED = 'user';
+
+  /// End-user pantry list (barcodes with dates and counts)
   static const String LIST_TYPE_USER_PANTRY = 'pantry';
+
+  /// End-user shopping list (barcodes with counts)
   static const String LIST_TYPE_USER_SHOPPING = 'shopping';
 
   List<String> get barcodes => _barcodes;

@@ -19,8 +19,7 @@ class SmoothAlertDialog extends StatelessWidget {
     this.height,
     required this.body,
     this.actions,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final String? title;
   final bool close;

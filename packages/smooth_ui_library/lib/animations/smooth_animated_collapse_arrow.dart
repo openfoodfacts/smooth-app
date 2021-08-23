@@ -7,8 +7,7 @@ class SmoothAnimatedCollapseArrow extends StatefulWidget {
     required this.collapsed,
     this.duration = const Duration(milliseconds: 160),
     this.curve = Curves.ease,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final bool collapsed;
   final Duration duration;

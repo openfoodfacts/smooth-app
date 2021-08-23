@@ -17,9 +17,8 @@ import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 class AttributeButton extends StatelessWidget {
   const AttributeButton(
     this.attribute,
-    this.productPreferences, {
-    Key? key,
-  }) : super(key: key);
+    this.productPreferences,
+  );
 
   final Attribute attribute;
   final ProductPreferences productPreferences;

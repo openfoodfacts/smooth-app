@@ -37,6 +37,8 @@
     "@featureInProgress": {},
     "configurePreferences": "Configure my preferences",
     "@configurePreferences": {},
+    "confirmResetPreferences": "Reset your preferences?",
+    "@confirmResetPreferences": {},
     "yes": "Yes",
     "@yes": {},
     "no": "No",

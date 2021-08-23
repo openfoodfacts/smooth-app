@@ -18,7 +18,7 @@ import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/product_page.dart';
 
 class ChoosePage extends StatefulWidget {
-  const ChoosePage({Key? key}) : super(key: key);
+  const ChoosePage();
 
   @override
   State<ChoosePage> createState() => _ChoosePageState();

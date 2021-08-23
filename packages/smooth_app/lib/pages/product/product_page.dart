@@ -23,10 +23,10 @@ import 'package:smooth_app/database/dao_product_extra.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
-import 'package:smooth_app/functions/launch_url.dart';
+import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
-import 'package:smooth_app/pages/product_copy_helper.dart';
+import 'package:smooth_app/helpers/product_copy_helper.dart';
 import 'package:smooth_app/pages/user_preferences_page.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -36,8 +36,7 @@ class ProductPage extends StatefulWidget {
   const ProductPage({
     required this.product,
     this.newProduct = false,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final bool newProduct;
   final Product product;
@@ -101,8 +100,7 @@ class _ProductPageState extends State<ProductPage> {
             onSelected: (final String value) async {
               switch (value) {
                 case 'web':
-                  Launcher().launchURL(
-                      context,
+                  LaunchUrlHelper.launchURL(
                       'https://openfoodfacts.org/product/${_product.barcode}/',
                       false);
                   break;

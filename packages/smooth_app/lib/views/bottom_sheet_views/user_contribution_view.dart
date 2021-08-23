@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:smooth_app/functions/launch_url.dart';
+import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_ui_library/widgets/smooth_list_tile.dart';
 
 class UserContributionView extends StatelessWidget {
-  UserContributionView({Key? key}) : super(key: key);
-
-  final Launcher launcher = Launcher();
-
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -96,8 +92,7 @@ class UserContributionView extends StatelessWidget {
                 height: 10,
               ),
               TextButton(
-                onPressed: () => launcher.launchURL(
-                    context,
+                onPressed: () => LaunchUrlHelper.launchURL(
                     'https://world.openfoodfacts.org/state/to-be-completed',
                     false),
                 child: Text(
@@ -145,8 +140,8 @@ class UserContributionView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   TextButton(
-                    onPressed: () => launcher.launchURL(
-                        context, 'https://slack.openfoodfacts.org/', false),
+                    onPressed: () => LaunchUrlHelper.launchURL(
+                        'https://slack.openfoodfacts.org/', false),
                     child: const Text(
                       'Slack',
                       style: TextStyle(
@@ -155,8 +150,8 @@ class UserContributionView extends StatelessWidget {
                     ),
                   ),
                   TextButton(
-                    onPressed: () => launcher.launchURL(
-                        context, 'https://github.com/openfoodfacts', false),
+                    onPressed: () => LaunchUrlHelper.launchURL(
+                        'https://github.com/openfoodfacts', false),
                     child: const Text(
                       'Github',
                       style: TextStyle(
@@ -198,8 +193,8 @@ class UserContributionView extends StatelessWidget {
           ),
           actions: <SmoothSimpleButton>[
             SmoothSimpleButton(
-              onPressed: () => launcher.launchURL(
-                  context, 'https://translate.openfoodfacts.org/', false),
+              onPressed: () => LaunchUrlHelper.launchURL(
+                  'https://translate.openfoodfacts.org/', false),
               text:
                   AppLocalizations.of(context)!.contribute_translate_link_text,
               minWidth: 200,

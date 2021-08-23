@@ -19,18 +19,16 @@ enum ScannedProductState {
 
 class ContinuousScanModel with ChangeNotifier {
   ContinuousScanModel({
-    required bool contributionMode,
     required this.countryCode,
     required this.languageCode,
-  }) : _contributionMode = contributionMode;
+  });
 
   final Map<String, ScannedProductState> _states =
       <String, ScannedProductState>{};
   final List<String> _barcodes = <String>[];
   final ProductList _productList =
-      ProductList(listType: ProductList.LIST_TYPE_SCAN, parameters: '');
+      ProductList(listType: ProductList.LIST_TYPE_SCAN_SESSION, parameters: '');
 
-  late bool _contributionMode;
   String? _latestScannedBarcode;
   String? _latestFoundBarcode;
   String? _barcodeTrustCheck; // TODO(monsieurtanuki): could probably be removed
@@ -41,7 +39,6 @@ class ContinuousScanModel with ChangeNotifier {
   final String countryCode;
 
   bool get isNotEmpty => getBarcodes().isNotEmpty;
-  bool get contributionMode => _contributionMode;
   ProductList get productList => _productList;
 
   List<String> getBarcodes() => _barcodes;
@@ -51,17 +48,35 @@ class ContinuousScanModel with ChangeNotifier {
       _daoProduct = DaoProduct(localDatabase);
       _daoProductList = DaoProductList(localDatabase);
       _daoProductExtra = DaoProductExtra(localDatabase);
-      await _daoProductList.get(_productList);
-      for (final String barcode in _productList.barcodes) {
-        _barcodes.add(barcode);
-        _states[barcode] = ScannedProductState.CACHED;
-        _latestScannedBarcode = barcode;
+      if (!await _refresh()) {
+        return null;
       }
       return this;
     } catch (e) {
       debugPrint('exception: $e');
     }
     return null;
+  }
+
+  Future<bool> _refresh() async {
+    try {
+      _latestScannedBarcode = null;
+      _latestFoundBarcode = null;
+      _barcodeTrustCheck = null;
+      _barcodes.clear();
+      _states.clear();
+      _latestScannedBarcode = null;
+      await _daoProductList.get(_productList);
+      for (final String barcode in _productList.barcodes.reversed) {
+        _barcodes.add(barcode);
+        _states[barcode] = ScannedProductState.CACHED;
+        _latestScannedBarcode = barcode;
+      }
+      return true;
+    } catch (e) {
+      debugPrint('exception: $e');
+    }
+    return false;
   }
 
   Future<void> refreshProductList() async => _daoProductList.get(_productList);
@@ -92,13 +107,6 @@ class ContinuousScanModel with ChangeNotifier {
     }
     _latestScannedBarcode = code;
     _addBarcode(code);
-  }
-
-  void contributionModeSwitch(bool value) {
-    if (_contributionMode != value) {
-      _contributionMode = value;
-      notifyListeners();
-    }
   }
 
   Future<bool> _addBarcode(final String barcode) async {
@@ -181,5 +189,15 @@ class ContinuousScanModel with ChangeNotifier {
       await _daoProductExtra.putLastScan(product);
     }
     setBarcodeState(product.barcode!, state);
+  }
+
+  Future<void> clearScanSession() async {
+    await _daoProductExtra.clearScanSession();
+    await refresh();
+  }
+
+  Future<void> refresh() async {
+    await _refresh();
+    notifyListeners();
   }
 }

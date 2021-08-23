@@ -94,7 +94,8 @@ class ProductQueryPageHelper {
       case ProductList.LIST_TYPE_HTTP_SEARCH_CATEGORY:
         return '${productList.parameters}'
             '${verbose ? ' ${appLocalizations.category_search}' : ''}';
-      case ProductList.LIST_TYPE_SCAN:
+      case ProductList.LIST_TYPE_SCAN_HISTORY:
+      case ProductList.LIST_TYPE_SCAN_SESSION:
         return appLocalizations.scan;
       case ProductList.LIST_TYPE_HISTORY:
         return appLocalizations.recently_seen_products;
@@ -165,7 +166,8 @@ class ProductQueryPageHelper {
             right: Radius.circular(16.0),
           ),
         );
-      case ProductList.LIST_TYPE_SCAN:
+      case ProductList.LIST_TYPE_SCAN_HISTORY:
+      case ProductList.LIST_TYPE_SCAN_SESSION:
       case ProductList.LIST_TYPE_HISTORY:
       case ProductList.LIST_TYPE_HTTP_SEARCH_CATEGORY:
       case ProductList.LIST_TYPE_HTTP_SEARCH_GROUP:

@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:matomo/matomo.dart';
 import 'package:openfoodfacts/personalized_search/product_preferences_selection.dart';
 import 'package:provider/provider.dart';
 import 'package:sentry/sentry.dart';
@@ -24,10 +23,12 @@ Future<void> main() async {
           'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745';
     },
   );
+  /* TODO: put back when we have clearer ideas about analytics
   await MatomoTracker().initialize(
     siteId: 2,
     url: 'https://analytics.openfoodfacts.org/',
   );
+   */
   try {
     runApp(const SmoothApp());
   } catch (exception, stackTrace) {
@@ -39,7 +40,7 @@ Future<void> main() async {
 }
 
 class SmoothApp extends StatefulWidget {
-  const SmoothApp({Key? key}) : super(key: key);
+  const SmoothApp();
 
   // This widget is the root of your application.
   @override
@@ -53,54 +54,51 @@ class _SmoothAppState extends State<SmoothApp> {
   late ThemeProvider _themeProvider;
   bool systemDarkmodeOn = false;
 
-  Future<void> _init(BuildContext context) async {
-    _userPreferences = await UserPreferences.getUserPreferences();
-    _productPreferences = ProductPreferences(
-      ProductPreferencesSelection(
-        setImportance: (
-          String attributeId,
-          String importanceId,
-        ) async =>
-            _userPreferences.setImportance(attributeId, importanceId),
-        getImportance: (String attributeId) =>
-            _userPreferences.getImportance(attributeId),
-        notify: () => _productPreferences.notifyListeners(),
-      ),
-    );
-    try {
-      await _productPreferences.loadReferenceFromAssets(
-        DefaultAssetBundle.of(context),
-      );
-    } catch (e) {
-      // this is problematic - we should always be able to load the default
-      debugPrint('Could not load reference files: $e');
-      rethrow;
-    }
-    await _userPreferences.init(_productPreferences);
-    try {
-      _localDatabase = await LocalDatabase.getLocalDatabase();
-    } catch (e) {
-      // this is problematic - we should always be able to init the database
-      debugPrint('Cannot init database: $e');
-      rethrow;
-    }
-    _themeProvider = ThemeProvider(_userPreferences);
-  }
+  // We store the argument of FutureBuilder to avoid re-initialization on
+  // subsequent builds. This enables hot reloading. See
+  // https://github.com/openfoodfacts/smooth-app/issues/473
+  late Future<void> _initFuture;
 
   @override
   void initState() {
+    super.initState();
+    _initFuture = _init();
+  }
+
+  Future<void> _init() async {
     final Brightness brightness =
         SchedulerBinding.instance?.window.platformBrightness ??
             Brightness.light;
     systemDarkmodeOn = brightness == Brightness.dark;
-    super.initState();
+    _userPreferences = await UserPreferences.getUserPreferences();
+    _productPreferences = ProductPreferences(ProductPreferencesSelection(
+      setImportance: _userPreferences.setImportance,
+      getImportance: _userPreferences.getImportance,
+      notify: () => _productPreferences.notifyListeners(),
+    ));
+    await _productPreferences
+        .loadReferenceFromAssets(DefaultAssetBundle.of(context));
+    await _userPreferences.init(_productPreferences);
+    _localDatabase = await LocalDatabase.getLocalDatabase();
+    _themeProvider = ThemeProvider(_userPreferences);
   }
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<void>(
-      future: _init(context),
+      future: _initFuture,
       builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
+        if (snapshot.hasError) {
+          return MaterialApp(
+            home: Scaffold(
+              body: Center(
+                child: Text(
+                  'Fatal Error: ${snapshot.error}',
+                ),
+              ),
+            ),
+          );
+        }
         if (snapshot.connectionState == ConnectionState.done) {
           return MultiProvider(
             providers: <ChangeNotifierProvider<dynamic>>[
@@ -153,7 +151,7 @@ class _SmoothAppState extends State<SmoothApp> {
 
 /// Layer needed because we need to know the language
 class SmoothAppGetLanguage extends StatelessWidget {
-  const SmoothAppGetLanguage({Key? key}) : super(key: key);
+  const SmoothAppGetLanguage();
 
   @override
   Widget build(BuildContext context) {

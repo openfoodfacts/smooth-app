@@ -108,8 +108,10 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
       _putLast(product, EXTRA_ID_LAST_SEEN);
 
   /// Adds a "last time I scanned this product" timestamp entry
-  Future<void> putLastScan(final Product product) async =>
-      _putLast(product, EXTRA_ID_LAST_SCAN);
+  Future<void> putLastScan(final Product product) async {
+    await _putLast(product, EXTRA_ID_LAST_SCAN);
+    await _putLast(product, EXTRA_ID_SCAN_SESSION);
+  }
 
   /// Adds a "last time I did whatever with this product" timestamp entry
   Future<void> _putLast(
@@ -270,6 +272,9 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
   /// Extra id for each time the user scanned a product
   static const String EXTRA_ID_LAST_SCAN = 'last_scan';
 
+  /// Extra id for the current scan session
+  static const String EXTRA_ID_SCAN_SESSION = 'scan_session';
+
   /// Extra id for each time the product data was refreshed from the web
   static const String EXTRA_ID_LAST_REFRESH = 'last_refresh';
 
@@ -366,8 +371,10 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
     switch (productList.listType) {
       case ProductList.LIST_TYPE_HISTORY:
         return EXTRA_ID_LAST_SEEN;
-      case ProductList.LIST_TYPE_SCAN:
+      case ProductList.LIST_TYPE_SCAN_HISTORY:
         return EXTRA_ID_LAST_SCAN;
+      case ProductList.LIST_TYPE_SCAN_SESSION:
+        return EXTRA_ID_SCAN_SESSION;
     }
     if (id == null) {
       throw Exception('Unknown product list of type ${productList.listType}');
@@ -378,9 +385,9 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
   bool _getExtraReverse(final ProductList productList, final int? id) {
     switch (productList.listType) {
       case ProductList.LIST_TYPE_HISTORY:
+      case ProductList.LIST_TYPE_SCAN_HISTORY:
+      case ProductList.LIST_TYPE_SCAN_SESSION:
         return true;
-      case ProductList.LIST_TYPE_SCAN:
-        return false;
     }
     if (id == null) {
       throw Exception('Unknown product list of type ${productList.listType}');
@@ -452,4 +459,13 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
     }
     return result;
   }
+
+  /// Clears a scan session
+  ///
+  /// So far, that's the only case where the end-user explicitly clears a list.
+  Future<void> clearScanSession() async => localDatabase.database.delete(
+        'product_extra',
+        where: 'extra_key = ?',
+        whereArgs: <String>[EXTRA_ID_SCAN_SESSION],
+      );
 }

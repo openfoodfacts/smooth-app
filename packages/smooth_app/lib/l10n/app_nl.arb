@@ -51,7 +51,7 @@
     "@stop": {},
     "close": "Sluit",
     "@close": {},
-    "empty": "Leeg!",
+    "empty": "Verwijder!",
     "@empty": {
         "description": "Example: A preview of your search history, if you haven't searched for anything yet, it will show 'Empty!"
     },

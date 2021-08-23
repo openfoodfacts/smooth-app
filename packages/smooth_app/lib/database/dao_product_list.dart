@@ -149,7 +149,8 @@ class DaoProductList extends AbstractDao {
     final DatabaseExecutor databaseExecutor,
   ) async {
     if (productList.listType == ProductList.LIST_TYPE_HISTORY ||
-        productList.listType == ProductList.LIST_TYPE_SCAN) {
+        productList.listType == ProductList.LIST_TYPE_SCAN_HISTORY ||
+        productList.listType == ProductList.LIST_TYPE_SCAN_SESSION) {
       return null;
     }
     final List<Map<String, dynamic>> queryResult = await databaseExecutor.query(
@@ -186,10 +187,11 @@ class DaoProductList extends AbstractDao {
         await databaseExecutor.query(
       _TABLE_PRODUCT_LIST,
       columns: <String>[_TABLE_PRODUCT_LIST_COLUMN_ID],
-      where: '$_TABLE_PRODUCT_LIST_COLUMN_TYPE in (?, ?)',
+      where: '$_TABLE_PRODUCT_LIST_COLUMN_TYPE in (?, ?, ?)',
       whereArgs: <String>[
         ProductList.LIST_TYPE_HISTORY,
-        ProductList.LIST_TYPE_SCAN,
+        ProductList.LIST_TYPE_SCAN_HISTORY,
+        ProductList.LIST_TYPE_SCAN_SESSION,
       ],
     );
     for (final Map<String, dynamic> row in queryResultsPre) {

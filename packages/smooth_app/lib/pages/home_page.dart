@@ -1,10 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/utils/PnnsGroups.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/cards/category_cards/svg_async_asset.dart';
 import 'package:smooth_app/cards/product_cards/product_list_preview.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product.dart';
@@ -17,21 +15,86 @@ import 'package:smooth_app/pages/product/common/product_list_button.dart';
 import 'package:smooth_app/pages/product/common/product_list_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_list_page.dart';
 import 'package:smooth_app/pages/scan/scan_page.dart';
-import 'package:smooth_app/pages/settings_page.dart';
-import 'package:smooth_app/pages/text_search_widget.dart';
 import 'package:smooth_app/pages/user_preferences_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/text_search_widget.dart';
 import 'package:smooth_ui_library/widgets/smooth_card.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage();
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
+class _Page {
+  const _Page({required this.name, required this.icon, required this.body});
+  final String name;
+  final IconData icon;
+  final Widget body;
+}
+
 class _HomePageState extends State<HomePage> {
+  static const List<_Page> _pages = <_Page>[
+    _Page(
+      name: 'Profile',
+      icon: Icons.account_circle,
+      body: UserPreferencesPage(),
+    ),
+    _Page(
+      name: 'Scan or Search',
+      icon: Icons.search,
+      body: ScanPage(),
+    ),
+    _Page(
+      name: 'History',
+      icon: Icons.history,
+      body: OldHomePage(),
+    ),
+  ];
+  int _currentPage = 1;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: _pages[_currentPage].body,
+      bottomNavigationBar: BottomNavigationBar(
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        selectedItemColor: Colors.white,
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+        currentIndex: _currentPage,
+        onTap: _onTap,
+        items: _pages
+            .map((_Page p) => BottomNavigationBarItem(
+                  icon: Icon(p.icon, size: 28),
+                  label: p.name,
+                ))
+            .toList(),
+      ),
+    );
+  }
+
+  void _onTap(int index) {
+    setState(() {
+      _currentPage = index;
+    });
+  }
+}
+
+// Note: In addition to the history of scanned products, this page currently
+// contains the user's lists and other stuff from the old Smoothie home page.
+// The intention is to move those features to other screens later or remove them
+// altogether.
+class OldHomePage extends StatefulWidget {
+  const OldHomePage();
+
+  @override
+  State<OldHomePage> createState() => _OldHomePageState();
+}
+
+class _OldHomePageState extends State<OldHomePage> {
   static const ColorDestination _COLOR_DESTINATION_FOR_ICON =
       ColorDestination.SURFACE_FOREGROUND;
   static const Icon _ICON_ARROW_FORWARD = Icon(Icons.arrow_forward);
@@ -47,7 +110,6 @@ class _HomePageState extends State<HomePage> {
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-    final Size screenSize = MediaQuery.of(context).size;
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final MaterialColor materialColor =
         SmoothTheme.getMaterialColor(themeProvider);
@@ -58,37 +120,10 @@ class _HomePageState extends State<HomePage> {
         ColorDestination.SURFACE_BACKGROUND,
       ),
       appBar: AppBar(
-        title: Row(
-          children: const <Widget>[
-            Icon(Icons.pets),
-            SizedBox(width: 10.0),
-            Text('Smoothie'),
-          ],
-        ),
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.settings),
-            onPressed: () async {
-              await Navigator.push<Widget>(
-                context,
-                MaterialPageRoute<Widget>(
-                  builder: (BuildContext context) => const ProfilePage(),
-                ),
-              );
-            },
-          ),
-        ],
+        title: const Text('Smoothie'),
       ),
       body: ListView(
         children: <Widget>[
-          _getHeader(
-            themeData,
-            screenSize.width,
-            materialColor,
-            themeData.brightness == Brightness.light
-                ? 'assets/home/white.svg'
-                : 'assets/home/brown.svg',
-          ),
           TextSearchWidget(
             color: SmoothTheme.getColor(
               colorScheme,
@@ -97,7 +132,6 @@ class _HomePageState extends State<HomePage> {
             ),
             daoProduct: _daoProduct,
           ),
-          _getScanLargeButton(themeData, materialColor),
           _getProductListCard(
             <String>[ProductList.LIST_TYPE_USER_DEFINED],
             appLocalizations.my_lists,
@@ -141,6 +175,15 @@ class _HomePageState extends State<HomePage> {
             daoProductList: _daoProductList,
             productList: ProductList(
               listType: ProductList.LIST_TYPE_HISTORY,
+              parameters: '',
+            ),
+            nbInPreview: 5,
+            andThen: () => setState(() {}),
+          ),
+          ProductListPreview(
+            daoProductList: _daoProductList,
+            productList: ProductList(
+              listType: ProductList.LIST_TYPE_SCAN_HISTORY,
               parameters: '',
             ),
             nbInPreview: 5,
@@ -340,117 +383,5 @@ class _HomePageState extends State<HomePage> {
                   //children: cards,
                 ),
               ),
-      );
-
-  Widget _getScanLargeButton(
-    final ThemeData themeData,
-    final MaterialColor materialColor,
-  ) =>
-      Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ElevatedButton.icon(
-          style: ElevatedButton.styleFrom(
-            primary: SmoothTheme.getColor(
-              themeData.colorScheme,
-              materialColor,
-              ColorDestination.BUTTON_BACKGROUND,
-            ),
-          ),
-          onPressed: () async => Navigator.push<Widget>(
-            context,
-            MaterialPageRoute<Widget>(
-              builder: (BuildContext context) => const ScanPage(
-                contributionMode: false,
-              ),
-            ),
-          ),
-          icon: SvgPicture.asset(
-            'assets/actions/scanner_alt_2.svg',
-            height: 32,
-            color: SmoothTheme.getColor(
-              themeData.colorScheme,
-              materialColor,
-              ColorDestination.BUTTON_FOREGROUND,
-            ),
-          ),
-          label: Text(
-            'Scan and compare products',
-            style: themeData.textTheme.headline3!.copyWith(
-              color: SmoothTheme.getColor(
-                themeData.colorScheme,
-                materialColor,
-                ColorDestination.BUTTON_FOREGROUND,
-              ),
-            ),
-          ),
-        ),
-      );
-
-  Widget _getHeader(
-    final ThemeData themeData,
-    final double screenWidth,
-    final MaterialColor materialColor,
-    final String assetFilename,
-  ) =>
-      Row(
-        children: <Widget>[
-          SizedBox(
-            width: screenWidth / 2,
-            child: Padding(
-              padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    'Find the best food for you!',
-                    style: themeData.textTheme.headline1,
-                    textAlign: TextAlign.center,
-                  ),
-                  ElevatedButton.icon(
-                    style: ElevatedButton.styleFrom(
-                      primary: SmoothTheme.getColor(
-                        themeData.colorScheme,
-                        materialColor,
-                        ColorDestination.BUTTON_BACKGROUND,
-                      ),
-                    ),
-                    onPressed: () async => Navigator.push<Widget>(
-                      context,
-                      MaterialPageRoute<Widget>(
-                        builder: (BuildContext context) =>
-                            const UserPreferencesPage(),
-                      ),
-                    ),
-                    icon: SvgPicture.asset(
-                      'assets/actions/food-cog.svg',
-                      color: SmoothTheme.getColor(
-                        themeData.colorScheme,
-                        materialColor,
-                        ColorDestination.BUTTON_FOREGROUND,
-                      ),
-                    ),
-                    label: Flexible(
-                      child: Text(
-                        AppLocalizations.of(context)!.myPreferences,
-                        style: TextStyle(
-                          color: SmoothTheme.getColor(
-                            themeData.colorScheme,
-                            materialColor,
-                            ColorDestination.BUTTON_FOREGROUND,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          SvgAsyncAsset(
-            assetFilename,
-            width: screenWidth / 2,
-          ),
-        ],
       );
 }
