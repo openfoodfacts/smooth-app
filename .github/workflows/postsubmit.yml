@@ -39,6 +39,14 @@ jobs:
       # Run tests
       - name: "Run Tests"
         run: ci/testing.sh
+        
+      - name: Flutter Pubspec Updater
+        # You may pin to the exact commit or the version.
+        # uses: kuanyi-ng/update-flutter-packages@ef43c3fa7e22b39df320799f82866e37e94c1b93
+        uses: kuanyi-ng/update-flutter-packages@v0.1.1
+        with:
+          # relative path to pubspec.yaml file from root directory
+          pathToPubspecFile: packages/smooth_app/pubspec.yaml # default is ./pubspec.yaml
       
       # Build apk.
       - name: "Build apk"
@@ -51,3 +59,5 @@ jobs:
         with:
           name: release-apk
           path: packages/smooth_app/build/app/outputs/flutter-apk/app-debug.apk
+          
+          
