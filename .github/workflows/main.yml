@@ -31,4 +31,4 @@ jobs:
         uses: kuanyi-ng/update-flutter-packages@v0.1.1
         with:
           # relative path to pubspec.yaml file from root directory
-          pathToPubspecFile: ./pubspec.yaml # default is ./pubspec.yaml
+          pathToPubspecFile: packages/smooth_app/pubspec.yaml # default is ./pubspec.yaml
