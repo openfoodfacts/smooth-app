@@ -5,6 +5,7 @@ import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/scan/scan_page.dart';
+import 'package:smooth_app/pages/scan/search_panel.dart';
 import 'package:smooth_app/widgets/smooth_product_carousel.dart';
 import 'package:smooth_ui_library/smooth_ui_library.dart';
 
@@ -89,6 +90,7 @@ class ContinuousScanPage extends StatelessWidget {
               ],
             ),
           ),
+          SearchPanel(),
         ],
       ),
     );
