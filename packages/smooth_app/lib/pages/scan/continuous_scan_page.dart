@@ -24,7 +24,8 @@ class ContinuousScanPage extends StatelessWidget {
     );
   }
 
-  Widget _build(BuildContext context, ContinuousScanModel _, Widget? __) {
+  Widget _build(
+      BuildContext context, ContinuousScanModel model, Widget? child) {
     final AppLocalizations localizations = AppLocalizations.of(context)!;
     final Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
@@ -38,8 +39,7 @@ class ContinuousScanPage extends StatelessWidget {
             animationCurve: Curves.easeInOutBack,
             child: QRView(
               key: _scannerViewKey,
-              onQRViewCreated: (QRViewController controller) =>
-                  _continuousScanModel.setupScanner(controller),
+              onQRViewCreated: _continuousScanModel.setupScanner,
             ),
           ),
           SmoothRevealAnimation(

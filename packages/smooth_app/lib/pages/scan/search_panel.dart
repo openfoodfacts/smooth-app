@@ -11,18 +11,18 @@ class SearchPanel extends StatefulWidget {
 }
 
 class SearchPanelState extends State<SearchPanel> {
+  final FocusNode _searchFieldFocusNode = FocusNode();
   final PanelController _controller = PanelController();
-  final FocusNode _focusNode = FocusNode();
   double _position = 0.0;
 
-  static const double _IS_OPEN_THRESHOLD = 0.5;
-  bool get _isOpen => _position > _IS_OPEN_THRESHOLD;
+  bool get _isOpen => _position > _isOpenThreshold;
+  static const double _isOpenThreshold = 0.5;
 
   @override
   void initState() {
     super.initState();
-    _focusNode.addListener(() {
-      if (_focusNode.hasFocus) {
+    _searchFieldFocusNode.addListener(() {
+      if (_searchFieldFocusNode.hasFocus) {
         _controller.open();
       } else {
         _controller.close();
@@ -32,7 +32,7 @@ class SearchPanelState extends State<SearchPanel> {
 
   @override
   void dispose() {
-    _focusNode.dispose();
+    _searchFieldFocusNode.dispose();
     super.dispose();
   }
 
@@ -42,25 +42,26 @@ class SearchPanelState extends State<SearchPanel> {
   }
 
   Widget _build(BuildContext context, BoxConstraints constraints) {
+    final AppLocalizations localizations = AppLocalizations.of(context)!;
     return SlidingUpPanel(
       controller: _controller,
       borderRadius: BorderRadius.vertical(
         top: _isOpen ? Radius.zero : const Radius.circular(20.0),
       ),
       margin: EdgeInsets.symmetric(horizontal: _isOpen ? 0.0 : 12.0),
-      onPanelSlide: _onPanelSlide,
+      onPanelSlide: _handlePanelSlide,
       panel: Column(
         children: <Widget>[
           const SizedBox(height: 25.0),
           if (!_isOpen)
             Container(
               padding: const EdgeInsets.only(bottom: 22.0),
-              child: const Text('Search or scan your first product'),
+              child: Text(localizations.searchPanelHeader),
             ),
           Container(
-            // A key is required to preserve state when the above container is
+            // A key is required to preserve state when the above container
             // disappears from the tree.
-            key: const Key('input'),
+            key: const Key('searchField'),
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: _buildSearchField(context),
           )
@@ -74,7 +75,7 @@ class SearchPanelState extends State<SearchPanel> {
   Widget _buildSearchField(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context)!;
     return TextField(
-      focusNode: _focusNode,
+      focusNode: _searchFieldFocusNode,
       onSubmitted: _performSearch,
       decoration: InputDecoration(
         fillColor: Colors.grey.shade300,
@@ -89,12 +90,12 @@ class SearchPanelState extends State<SearchPanel> {
     );
   }
 
-  void _onPanelSlide(double newPosition) {
+  void _handlePanelSlide(double newPosition) {
     if (newPosition < _position && !_isOpen) {
-      FocusScope.of(context).unfocus();
+      _searchFieldFocusNode.unfocus();
     }
     if (newPosition > _position && _isOpen) {
-      _focusNode.requestFocus();
+      _searchFieldFocusNode.requestFocus();
     }
     setState(() {
       _position = newPosition;
