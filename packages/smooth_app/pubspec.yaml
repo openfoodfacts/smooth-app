@@ -39,7 +39,7 @@ dependencies:
     path: ../smooth_ui_library
   sqflite: ^2.0.0+3
   url_launcher: ^6.0.3
-  connectivity_plus: ^1.1.0
+  sliding_up_panel: ^2.0.0+1
 
 # 2 lines below needed to make flutter_launcher_icons + flutter_native_splash work
 # see https://github.com/fluttercommunity/flutter_launcher_icons/issues/262
