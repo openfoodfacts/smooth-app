@@ -99,15 +99,21 @@ class MockHttpOverrides extends HttpOverrides {
 
 class _MockHttpClient extends Mock implements HttpClient {
   @override
-  Future<HttpClientRequest> getUrl(Uri url) => Future<HttpClientRequest>.value(_MockHttpClientRequest());
+  Future<HttpClientRequest> getUrl(Uri url) {
+    if (url.toString().endsWith('.svg')) {
+      return Future<HttpClientRequest>.value(_MockHttpClientSVGRequest());
+    } else {
+      throw UnimplementedError('A mock for this request has not been created yet.');
+    }
+  }
 }
 
-class _MockHttpClientRequest extends Mock implements HttpClientRequest {
+class _MockHttpClientSVGRequest extends Mock implements HttpClientRequest {
   @override
-  Future<HttpClientResponse> close() => Future<HttpClientResponse>.value(_MockHttpClientResponse());
+  Future<HttpClientResponse> close() => Future<HttpClientResponse>.value(_MockHttpClientSVGResponse());
 }
 
-class _MockHttpClientResponse extends Mock implements HttpClientResponse {
+class _MockHttpClientSVGResponse extends Mock implements HttpClientResponse {
   @override
   int statusCode = 200;
 
@@ -135,25 +141,8 @@ class _MockHttpClientResponse extends Mock implements HttpClientResponse {
 
   static const String svgStr =
   '''
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 166 202">
-    <defs>
-        <linearGradient id="triangleGradient">
-            <stop offset="20%" stop-color="#000000" stop-opacity=".55" />
-            <stop offset="85%" stop-color="#616161" stop-opacity=".01" />
-        </linearGradient>
-        <linearGradient id="rectangleGradient" x1="0%" x2="0%" y1="0%" y2="100%">
-            <stop offset="20%" stop-color="#000000" stop-opacity=".15" />
-            <stop offset="85%" stop-color="#616161" stop-opacity=".01" />
-        </linearGradient>
-    </defs>
-    <path fill="#42A5F5" fill-opacity=".8" d="M37.7 128.9 9.8 101 100.4 10.4 156.2 10.4"/>
-    <path fill="#42A5F5" fill-opacity=".8" d="M156.2 94 100.4 94 79.5 114.9 107.4 142.8"/>
-    <path fill="#0D47A1" d="M79.5 170.7 100.4 191.6 156.2 191.6 156.2 191.6 107.4 142.8"/>
-    <g transform="matrix(0.7071, -0.7071, 0.7071, 0.7071, -77.667, 98.057)">
-        <rect width="39.4" height="39.4" x="59.8" y="123.1" fill="#42A5F5" />
-        <rect width="39.4" height="5.5" x="59.8" y="162.5" fill="url(#rectangleGradient)" />
-    </g>
-    <path d="M79.5 170.7 120.9 156.4 107.4 142.8" fill="url(#triangleGradient)" />
+  <svg width="400" height="110">
+    <rect width="300" height="100" style="fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)" />
   </svg>
   ''';
 

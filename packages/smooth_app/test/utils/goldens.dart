@@ -5,8 +5,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:path/path.dart' as path;
 
-/// Allowable pixel differance to allow for cross-platform testing. Adjust as
+/// Allowable pixel differance to for cross-platform testing. Adjust as
 /// needed to accommodate golden file testing on all machines.
+///
+/// Golden files can sometimes have insignificant differences when run on
+/// different platforms (i.e. linux versus mac).
 const double _kGoldenDiffTolerance = 0.05;
 
 /// Wrapper function for golden tests in smooth_app.

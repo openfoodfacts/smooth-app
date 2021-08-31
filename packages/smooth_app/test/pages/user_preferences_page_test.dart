@@ -16,8 +16,8 @@ void main() {
   HttpOverrides.global = MockHttpOverrides();
 
   group('UserPreferencesPage looks as expected', () {
-    for (final String color in <String>['blue', 'brown', 'green']) {
-      for (final bool themeDark in <bool>[true, false]) {
+    for (final String color in <String>[ 'blue', 'brown', 'green' ]) {
+      for (final bool themeDark in <bool>[ true, false ]) {
         final String theme = themeDark ? 'dark' : 'light';
 
         testWidgets('$color / $theme', (WidgetTester tester) async {
