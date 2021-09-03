@@ -5,6 +5,7 @@ import 'package:path/path.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_extra.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
+import 'package:smooth_app/database/search_history.dart';
 import 'package:sqflite/sqflite.dart';
 
 class LocalDatabase extends ChangeNotifier {
@@ -27,7 +28,7 @@ class LocalDatabase extends ChangeNotifier {
 
     final Database database = await openDatabase(
       databasePath,
-      version: 8,
+      version: 9,
       singleInstance: true,
       onUpgrade: _onUpgrade,
     );
@@ -47,6 +48,7 @@ class LocalDatabase extends ChangeNotifier {
     await DaoProduct.onUpgrade(db, oldVersion, newVersion);
     await DaoProductExtra.onUpgrade(db, oldVersion, newVersion);
     await DaoProductList.onUpgrade(db, oldVersion, newVersion);
+    await SearchHistory.onUpgrade(db, oldVersion, newVersion);
   }
 
   static int nowInMillis() => DateTime.now().millisecondsSinceEpoch;

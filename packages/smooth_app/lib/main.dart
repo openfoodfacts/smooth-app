@@ -11,6 +11,7 @@ import 'package:sentry/sentry.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/database/search_history.dart';
 import 'package:smooth_app/pages/home_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -51,6 +52,7 @@ class _SmoothAppState extends State<SmoothApp> {
   late UserPreferences _userPreferences;
   late ProductPreferences _productPreferences;
   late LocalDatabase _localDatabase;
+  late SearchHistory _searchHistory;
   late ThemeProvider _themeProvider;
   bool systemDarkmodeOn = false;
 
@@ -80,6 +82,7 @@ class _SmoothAppState extends State<SmoothApp> {
         .loadReferenceFromAssets(DefaultAssetBundle.of(context));
     await _userPreferences.init(_productPreferences);
     _localDatabase = await LocalDatabase.getLocalDatabase();
+    _searchHistory = SearchHistory(_localDatabase.database);
     _themeProvider = ThemeProvider(_userPreferences);
   }
 
