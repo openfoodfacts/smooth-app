@@ -59,37 +59,44 @@ Map<String, Object> mockSharedPreferences({
   bool init = true,
   bool themeDark = false,
 }) => <String, Object>{
-  'IMPORTANCE_AS_STRINGallergens_no_fish' : 'not_important',
-  'IMPORTANCE_AS_STRINGallergens_no_milk' : 'not_important',
-  'IMPORTANCE_AS_STRINGnova' : 'important',
-  'IMPORTANCE_AS_STRINGallergens_no_crustaceans' : 'not_important',
-  'IMPORTANCE_AS_STRINGecoscore' : 'important',
-  'IMPORTANCE_AS_STRINGlabels_fair_trade' : 'not_important',
-  'IMPORTANCE_AS_STRINGallergens_no_celery' : 'not_important',
-  'IMPORTANCE_AS_STRINGallergens_no_soybeans' : 'not_important',
-  'IMPORTANCE_AS_STRINGlow_salt' : 'not_important',
-  'IMPORTANCE_AS_STRINGlabels_organic' : 'not_important',
+  // Configured by test
   'init' : init,
-  'IMPORTANCE_AS_STRINGallergens_no_sesame_seeds' : 'not_important',
-  'IMPORTANCE_AS_STRINGallergens_no_peanuts' : 'not_important',
   'themeColorTag' : colorTag,
-  'IMPORTANCE_AS_STRINGadditives' : 'not_important',
-  'IMPORTANCE_AS_STRINGallergens_no_gluten' : 'not_important',
-  'IMPORTANCE_AS_STRINGallergens_no_molluscs' : 'not_important',
-  'IMPORTANCE_AS_STRINGlow_saturated_fat' : 'not_important',
-  'IMPORTANCE_AS_STRINGallergens_no_mustard' : 'not_important',
-  'IMPORTANCE_AS_STRINGpalm_oil_free' : 'not_important',
-  'IMPORTANCE_AS_STRINGlow_fat' : 'not_important',
   'themeDark' : themeDark,
-  'IMPORTANCE_AS_STRINGallergens_no_lupin' : 'not_important',
-  'IMPORTANCE_AS_STRINGlow_sugars' : 'not_important',
-  'IMPORTANCE_AS_STRINGallergens_no_nuts' : 'not_important',
+
+  // Very important by default
+  'IMPORTANCE_AS_STRINGnutriscore' : 'very_important',
+
+  // Important by default
+  'IMPORTANCE_AS_STRINGecoscore' : 'important',
+  'IMPORTANCE_AS_STRINGnova' : 'important',
+
+  // Not important by default
+  'IMPORTANCE_AS_STRINGadditives' : 'not_important',
+  'IMPORTANCE_AS_STRINGallergens_no_celery' : 'not_important',
+  'IMPORTANCE_AS_STRINGallergens_no_crustaceans' : 'not_important',
   'IMPORTANCE_AS_STRINGallergens_no_eggs' : 'not_important',
+  'IMPORTANCE_AS_STRINGallergens_no_fish' : 'not_important',
+  'IMPORTANCE_AS_STRINGallergens_no_gluten' : 'not_important',
+  'IMPORTANCE_AS_STRINGallergens_no_lupin' : 'not_important',
+  'IMPORTANCE_AS_STRINGallergens_no_milk' : 'not_important',
+  'IMPORTANCE_AS_STRINGallergens_no_molluscs' : 'not_important',
+  'IMPORTANCE_AS_STRINGallergens_no_mustard' : 'not_important',
+  'IMPORTANCE_AS_STRINGallergens_no_nuts' : 'not_important',
+  'IMPORTANCE_AS_STRINGallergens_no_peanuts' : 'not_important',
+  'IMPORTANCE_AS_STRINGallergens_no_sesame_seeds' : 'not_important',
+  'IMPORTANCE_AS_STRINGallergens_no_soybeans' : 'not_important',
+  'IMPORTANCE_AS_STRINGallergens_no_sulphur_dioxide_and_sulphites' : 'not_important',
+  'IMPORTANCE_AS_STRINGforest_footprint' : 'not_important',
+  'IMPORTANCE_AS_STRINGlabels_fair_trade' : 'not_important',
+  'IMPORTANCE_AS_STRINGlabels_organic' : 'not_important',
+  'IMPORTANCE_AS_STRINGlow_fat' : 'not_important',
+  'IMPORTANCE_AS_STRINGlow_salt' : 'not_important',
+  'IMPORTANCE_AS_STRINGlow_saturated_fat' : 'not_important',
+  'IMPORTANCE_AS_STRINGlow_sugars' : 'not_important',
+  'IMPORTANCE_AS_STRINGpalm_oil_free' : 'not_important',
   'IMPORTANCE_AS_STRINGvegan' : 'not_important',
   'IMPORTANCE_AS_STRINGvegetarian' : 'not_important',
-  'IMPORTANCE_AS_STRINGforest_footprint' : 'not_important',
-  'IMPORTANCE_AS_STRINGnutriscore' : 'very_important',
-  'IMPORTANCE_AS_STRINGallergens_no_sulphur_dioxide_and_sulphites' : 'not_important',
 };
 
 class MockHttpOverrides extends HttpOverrides {
@@ -141,8 +148,8 @@ class _MockHttpClientSVGResponse extends Mock implements HttpClientResponse {
 
   static const String svgStr =
   '''
-  <svg width="400" height="110">
-    <rect width="300" height="100" style="fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)" />
+  <svg width="400" height="400">
+    <rect width="400" height="400" style="fill:rgb(128,128,128);stroke-width:3;stroke:rgb(0,0,0)" />
   </svg>
   ''';
 

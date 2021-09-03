@@ -5,7 +5,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:path/path.dart' as path;
 
-/// Allowable pixel differance to for cross-platform testing. Adjust as
+/// Generate new golden file images by running:
+///
+///     flutter run --update-goldens
+
+/// Allowable percentage of pixel difference for cross-platform testing. Adjust as
 /// needed to accommodate golden file testing on all machines.
 ///
 /// Golden files can sometimes have insignificant differences when run on
@@ -16,7 +20,7 @@ const double _kGoldenDiffTolerance = 0.05;
 ///
 /// Ensures tests are only fail when the tolerance level is exceeded, and
 /// golden files are stored in a goldens directory.
-Future<void> expectGoldenMatches(dynamic actual,String goldenFileKey) {
+Future<void> expectGoldenMatches(dynamic actual,String goldenFileKey) async {
   final String goldenPath = path.join('goldens', goldenFileKey);
   goldenFileComparator = SmoothieFileComparator(path.join(
     (goldenFileComparator as LocalFileComparator).basedir.toString(),
