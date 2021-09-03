@@ -92,62 +92,70 @@ class _SmoothAppState extends State<SmoothApp> {
       future: _initFuture,
       builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
         if (snapshot.hasError) {
-          return MaterialApp(
-            home: Scaffold(
-              body: Center(
-                child: Text(
-                  'Fatal Error: ${snapshot.error}',
-                ),
-              ),
-            ),
-          );
+          return _buildError(snapshot);
         }
-        if (snapshot.connectionState == ConnectionState.done) {
-          return MultiProvider(
-            providers: <ChangeNotifierProvider<dynamic>>[
-              ChangeNotifierProvider<UserPreferences>.value(
-                  value: _userPreferences),
-              ChangeNotifierProvider<ProductPreferences>.value(
-                  value: _productPreferences),
-              ChangeNotifierProvider<LocalDatabase>.value(
-                  value: _localDatabase),
-              ChangeNotifierProvider<ThemeProvider>.value(
-                  value: _themeProvider),
-            ],
-            child: Consumer<ThemeProvider>(
-              builder: (
-                BuildContext context,
-                ThemeProvider value,
-                Widget? child,
-              ) {
-                return MaterialApp(
-                  localizationsDelegates:
-                      AppLocalizations.localizationsDelegates,
-                  supportedLocales: AppLocalizations.supportedLocales,
-                  theme: SmoothTheme.getThemeData(
-                    Brightness.light,
-                    _themeProvider.colorTag,
-                  ),
-                  darkTheme: SmoothTheme.getThemeData(
-                    Brightness.dark,
-                    _themeProvider.colorTag,
-                  ),
-                  themeMode: _themeProvider.darkTheme
-                      ? ThemeMode.dark
-                      : ThemeMode.light,
-                  home: const SmoothAppGetLanguage(),
-                );
-              },
-            ),
-          );
+        if (snapshot.connectionState != ConnectionState.done) {
+          return _buildLoader();
         }
-        return Container(
-          color: systemDarkmodeOn ? const Color(0xFF181818) : Colors.white,
-          child: const Center(
-            child: CircularProgressIndicator(),
-          ),
+
+        // The `create` constructor of [ChangeNotifierProvider] takes care of
+        // disposing the value.
+        ChangeNotifierProvider<T> provide<T extends ChangeNotifier>(T value) =>
+            ChangeNotifierProvider<T>(create: (BuildContext context) => value);
+
+        return MultiProvider(
+          providers: <ChangeNotifierProvider<ChangeNotifier>>[
+            provide<UserPreferences>(_userPreferences),
+            provide<ProductPreferences>(_productPreferences),
+            provide<LocalDatabase>(_localDatabase),
+            provide<SearchHistory>(_searchHistory),
+            provide<ThemeProvider>(_themeProvider),
+          ],
+          builder: _buildApp,
         );
       },
+    );
+  }
+
+  Widget _buildApp(
+    BuildContext context,
+    Widget? child,
+  ) {
+    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
+    return MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      theme: SmoothTheme.getThemeData(
+        Brightness.light,
+        themeProvider.colorTag,
+      ),
+      darkTheme: SmoothTheme.getThemeData(
+        Brightness.dark,
+        themeProvider.colorTag,
+      ),
+      themeMode: themeProvider.darkTheme ? ThemeMode.dark : ThemeMode.light,
+      home: const SmoothAppGetLanguage(),
+    );
+  }
+
+  Widget _buildLoader() {
+    return Container(
+      color: systemDarkmodeOn ? const Color(0xFF181818) : Colors.white,
+      child: const Center(
+        child: CircularProgressIndicator(),
+      ),
+    );
+  }
+
+  Widget _buildError(AsyncSnapshot<void> snapshot) {
+    return MaterialApp(
+      home: Scaffold(
+        body: Center(
+          child: Text(
+            'Fatal Error: ${snapshot.error}',
+          ),
+        ),
+      ),
     );
   }
 }
