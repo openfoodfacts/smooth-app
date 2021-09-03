@@ -25,7 +25,7 @@ void main() {
           final HttpOverrides? priorOverrides = HttpOverrides.current;
           HttpOverrides.global = MockHttpOverrides();
           // Enable shadows
-          debugDisableShadows = false;
+          // debugDisableShadows = false;
           // Load fonts
           await loadAppFonts();
 
@@ -67,7 +67,7 @@ void main() {
           // Restore prior overrides
           HttpOverrides.global = priorOverrides;
           // Disable shadows
-          debugDisableShadows = true;
+          // debugDisableShadows = true;
         });
       }
     }
