@@ -14,7 +14,7 @@ import 'package:path/path.dart' as path;
 ///
 /// Golden files can sometimes have insignificant differences when run on
 /// different platforms (i.e. linux versus mac).
-const double _kGoldenDiffTolerance = 0.05;
+const double _kGoldenDiffTolerance = 0.10;
 
 /// Wrapper function for golden tests in smooth_app.
 ///
