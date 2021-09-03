@@ -1,9 +1,7 @@
 import 'dart:io';
 
-// import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:golden_toolkit/golden_toolkit.dart';
 import 'package:openfoodfacts/personalized_search/product_preferences_selection.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
@@ -24,10 +22,6 @@ void main() {
           // Override & mock out HTTP Requests
           final HttpOverrides? priorOverrides = HttpOverrides.current;
           HttpOverrides.global = MockHttpOverrides();
-          // Enable shadows
-          // debugDisableShadows = false;
-          // Load fonts
-          await loadAppFonts();
 
           late UserPreferences _userPreferences;
           late ProductPreferences _productPreferences;
@@ -66,8 +60,6 @@ void main() {
 
           // Restore prior overrides
           HttpOverrides.global = priorOverrides;
-          // Disable shadows
-          // debugDisableShadows = true;
         });
       }
     }
