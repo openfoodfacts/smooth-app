@@ -16,8 +16,8 @@ import '../utils/mocks.dart';
 
 void main() {
   group('UserPreferencesPage looks as expected', () {
-    for (final String color in <String>[ 'blue', 'brown', 'green' ]) {
-      for (final bool themeDark in <bool>[ true, false ]) {
+    for (final String color in <String>['blue', 'brown', 'green']) {
+      for (final bool themeDark in <bool>[true, false]) {
         final String theme = themeDark ? 'dark' : 'light';
 
         testWidgets('$color / $theme', (WidgetTester tester) async {
@@ -57,8 +57,8 @@ void main() {
           ));
           await tester.pump();
 
-          await expectGoldenMatches(
-              find.byType(UserPreferencesPage), 'user_preferences_page-$color-$theme.png');
+          await expectGoldenMatches(find.byType(UserPreferencesPage),
+              'user_preferences_page-$color-$theme.png');
           expect(tester, meetsGuideline(textContrastGuideline));
           expect(tester, meetsGuideline(labeledTapTargetGuideline));
           expect(tester, meetsGuideline(iOSTapTargetGuideline));
