@@ -13,6 +13,7 @@ class SearchPanel extends StatefulWidget {
 }
 
 class SearchPanelState extends State<SearchPanel> {
+  final TextEditingController _searchFieldController = TextEditingController();
   final FocusNode _searchFieldFocusNode = FocusNode();
   final PanelController _controller = PanelController();
   double _position = 0.0;
@@ -34,6 +35,7 @@ class SearchPanelState extends State<SearchPanel> {
 
   @override
   void dispose() {
+    _searchFieldController.dispose();
     _searchFieldFocusNode.dispose();
     super.dispose();
   }
@@ -102,6 +104,7 @@ class SearchPanelState extends State<SearchPanel> {
     final AppLocalizations localizations = AppLocalizations.of(context)!;
     return TextField(
       textInputAction: TextInputAction.search,
+      controller: _searchFieldController,
       focusNode: _searchFieldFocusNode,
       onSubmitted: _performSearch,
       decoration: InputDecoration(
@@ -113,6 +116,13 @@ class SearchPanelState extends State<SearchPanel> {
         ),
         contentPadding: const EdgeInsets.all(20.0),
         hintText: localizations.search,
+        suffixIcon: Padding(
+          padding: const EdgeInsets.only(right: 12.0),
+          child: IconButton(
+            onPressed: _searchFieldController.clear,
+            icon: const Icon(Icons.clear),
+          ),
+        ),
       ),
       style: const TextStyle(fontSize: 24.0),
     );
