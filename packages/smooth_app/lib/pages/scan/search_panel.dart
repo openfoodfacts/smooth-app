@@ -101,6 +101,7 @@ class SearchPanelState extends State<SearchPanel> {
   Widget _buildSearchField(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context)!;
     return TextField(
+      textInputAction: TextInputAction.search,
       focusNode: _searchFieldFocusNode,
       onSubmitted: _performSearch,
       decoration: InputDecoration(
