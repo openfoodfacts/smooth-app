@@ -3,6 +3,10 @@
     "@searchTitle": {
         "description": "Temporary title for the app main page"
     },
+    "search": "Pretraži",
+    "@search": {},
+    "searchPanelHeader": "Search or scan your first product",
+    "@searchPanelHeader": {},
     "searchHintText": "Unesite crtični kôd ili ključne riječi",
     "@searchHintText": {},
     "categories": "Kategorije",
@@ -37,6 +41,8 @@
     "@featureInProgress": {},
     "configurePreferences": "Configure my preferences",
     "@configurePreferences": {},
+    "confirmResetPreferences": "Reset your preferences?",
+    "@confirmResetPreferences": {},
     "yes": "Yes",
     "@yes": {},
     "no": "No",
