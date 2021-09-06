@@ -112,11 +112,15 @@ class SearchPanelState extends State<SearchPanel> {
         ),
         contentPadding: const EdgeInsets.all(20.0),
         hintText: localizations.search,
-        suffixIcon: Padding(
-          padding: const EdgeInsets.only(right: 12.0),
-          child: IconButton(
-            onPressed: _handleClear,
-            icon: const Icon(Icons.clear),
+        suffixIcon: AnimatedOpacity(
+          opacity: !_isEmpty || _isOpen ? 1.0 : 0.0,
+          duration: const Duration(milliseconds: 100),
+          child: Padding(
+            padding: const EdgeInsets.only(right: 12.0),
+            child: IconButton(
+              onPressed: _handleClear,
+              icon: const Icon(Icons.clear),
+            ),
           ),
         ),
       ),
