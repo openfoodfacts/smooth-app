@@ -4,7 +4,7 @@ import 'package:sqflite/sqflite.dart';
 class SearchHistory extends ChangeNotifier {
   SearchHistory(this.db);
 
-  static const int maxSize = 5;
+  static const int maxSize = 10;
 
   final Database db;
   static const String _tableName = 'search_history';
@@ -26,7 +26,7 @@ class SearchHistory extends ChangeNotifier {
     }
   }
 
-  Future<List<String>> getAllQueries() async {
+  Future<List<String>> getAll() async {
     final List<Map<String, Object?>> rows = await db.query(
       _tableName,
       columns: <String>[_columnQuery],

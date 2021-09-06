@@ -117,10 +117,7 @@ class _SmoothAppState extends State<SmoothApp> {
     );
   }
 
-  Widget _buildApp(
-    BuildContext context,
-    Widget? child,
-  ) {
+  Widget _buildApp(BuildContext context, Widget? child) {
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     return MaterialApp(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
