@@ -124,14 +124,7 @@ class _OldHomePageState extends State<OldHomePage> {
       ),
       body: ListView(
         children: <Widget>[
-          TextSearchWidget(
-            color: SmoothTheme.getColor(
-              colorScheme,
-              Colors.red,
-              _COLOR_DESTINATION_FOR_ICON,
-            ),
-            daoProduct: _daoProduct,
-          ),
+          const SizedBox(height: 6.0),
           _getProductListCard(
             <String>[ProductList.LIST_TYPE_USER_DEFINED],
             appLocalizations.my_lists,
@@ -220,23 +213,6 @@ class _OldHomePageState extends State<OldHomePage> {
                 ),
               );
             },
-          ),
-          _getProductListCard(
-            <String>[
-              ProductList.LIST_TYPE_HTTP_SEARCH_GROUP,
-              ProductList.LIST_TYPE_HTTP_SEARCH_KEYWORDS,
-              ProductList.LIST_TYPE_HTTP_SEARCH_CATEGORY,
-            ],
-            appLocalizations.search_history,
-            Icon(
-              Icons.youtube_searched_for,
-              color: SmoothTheme.getColor(
-                colorScheme,
-                Colors.yellow,
-                _COLOR_DESTINATION_FOR_ICON,
-              ),
-            ),
-            appLocalizations,
           ),
         ],
       ),
