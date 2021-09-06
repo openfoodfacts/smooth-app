@@ -3,6 +3,10 @@
     "@searchTitle": {
         "description": "Temporary title for the app main page"
     },
+    "search": "Paieška",
+    "@search": {},
+    "searchPanelHeader": "Search or scan your first product",
+    "@searchPanelHeader": {},
     "searchHintText": "Įveskite barkodą arba raktažodžius",
     "@searchHintText": {},
     "categories": "Kategorijos",
@@ -37,6 +41,8 @@
     "@featureInProgress": {},
     "configurePreferences": "Configure my preferences",
     "@configurePreferences": {},
+    "confirmResetPreferences": "Reset your preferences?",
+    "@confirmResetPreferences": {},
     "yes": "Taip",
     "@yes": {},
     "no": "Ne",

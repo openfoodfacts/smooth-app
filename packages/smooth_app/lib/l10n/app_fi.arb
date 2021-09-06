@@ -3,6 +3,10 @@
     "@searchTitle": {
         "description": "Temporary title for the app main page"
     },
+    "search": "Etsi",
+    "@search": {},
+    "searchPanelHeader": "Search or scan your first product",
+    "@searchPanelHeader": {},
     "searchHintText": "Syötä viivakoodi tai avainsanoja",
     "@searchHintText": {},
     "categories": "Luokat",
@@ -37,6 +41,8 @@
     "@featureInProgress": {},
     "configurePreferences": "Määritä mieltymykseni",
     "@configurePreferences": {},
+    "confirmResetPreferences": "Reset your preferences?",
+    "@confirmResetPreferences": {},
     "yes": "Kyllä",
     "@yes": {},
     "no": "Ei",

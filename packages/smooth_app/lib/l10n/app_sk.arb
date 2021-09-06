@@ -3,6 +3,10 @@
     "@searchTitle": {
         "description": "Temporary title for the app main page"
     },
+    "search": "Vyhľadať",
+    "@search": {},
+    "searchPanelHeader": "Search or scan your first product",
+    "@searchPanelHeader": {},
     "searchHintText": "Zadajte čiarový kód alebo kľúčové slová",
     "@searchHintText": {},
     "categories": "Kategórie",
@@ -37,6 +41,8 @@
     "@featureInProgress": {},
     "configurePreferences": "Konfigurovať moje preferencie",
     "@configurePreferences": {},
+    "confirmResetPreferences": "Reset your preferences?",
+    "@confirmResetPreferences": {},
     "yes": "Áno",
     "@yes": {},
     "no": "Nie",

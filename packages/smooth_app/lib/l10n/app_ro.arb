@@ -3,6 +3,10 @@
     "@searchTitle": {
         "description": "Temporary title for the app main page"
     },
+    "search": "Caută",
+    "@search": {},
+    "searchPanelHeader": "Search or scan your first product",
+    "@searchPanelHeader": {},
     "searchHintText": "Introduceți un cod de bare sau cuvinte cheie",
     "@searchHintText": {},
     "categories": "Categorii",
@@ -37,6 +41,8 @@
     "@featureInProgress": {},
     "configurePreferences": "Configureaza Preferințe",
     "@configurePreferences": {},
+    "confirmResetPreferences": "Reset your preferences?",
+    "@confirmResetPreferences": {},
     "yes": "Da",
     "@yes": {},
     "no": "Nu",

@@ -3,6 +3,10 @@
     "@searchTitle": {
         "description": "Temporary title for the app main page"
     },
+    "search": "Tìm kiếm",
+    "@search": {},
+    "searchPanelHeader": "Search or scan your first product",
+    "@searchPanelHeader": {},
     "searchHintText": "Nhập mã vạch hoặc từ khóa",
     "@searchHintText": {},
     "categories": "Thể loại",
@@ -37,6 +41,8 @@
     "@featureInProgress": {},
     "configurePreferences": "Cấu hình các tuỳ chọn của tôi",
     "@configurePreferences": {},
+    "confirmResetPreferences": "Đặt lại tùy chọn ứng dụng?",
+    "@confirmResetPreferences": {},
     "yes": "Có",
     "@yes": {},
     "no": "Không",
@@ -77,7 +83,7 @@
     "@termsOfUse": {},
     "contribute": "Góp phần",
     "@contribute": {},
-    "contribute_improve_header": "Improving",
+    "contribute_improve_header": "Đang cải thiện",
     "@contribute_improve_header": {},
     "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ",
     "@contribute_improve_text": {},
