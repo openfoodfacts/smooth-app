@@ -17,15 +17,15 @@ class SearchPanelState extends State<SearchPanel> {
   final FocusNode _searchFieldFocusNode = FocusNode();
   final PanelController _controller = PanelController();
   double _position = 0.0;
-  bool _isEmpty = true;
 
   bool get _isOpen => _position > _isOpenThreshold;
   static const double _isOpenThreshold = 0.5;
 
+  bool get _isEmpty => _searchFieldController.text.isEmpty;
+
   @override
   void initState() {
     super.initState();
-    _searchFieldController.addListener(_handleTextChange);
     _searchFieldFocusNode.addListener(_handleFocusChange);
   }
 
@@ -142,13 +142,6 @@ class SearchPanelState extends State<SearchPanel> {
     } else {
       _controller.close();
     }
-  }
-
-  void _handleTextChange() {
-    if (_searchFieldController.text.isEmpty && !_isEmpty) {
-      _controller.close();
-    }
-    _isEmpty = _searchFieldController.text.isEmpty;
   }
 
   void _handleClear() {
