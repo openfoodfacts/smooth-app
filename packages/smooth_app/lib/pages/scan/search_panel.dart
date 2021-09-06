@@ -53,28 +53,30 @@ class SearchPanelState extends State<SearchPanel> {
       margin: EdgeInsets.symmetric(horizontal: _isOpen ? 0.0 : 12.0),
       onPanelSlide: _handlePanelSlide,
       panelBuilder: (ScrollController scrollController) {
-        const double textBoxHeight = 44.0;
-        final Widget textBox = SizedBox(
-          height: textBoxHeight,
-          child: Container(
-            padding: const EdgeInsets.only(bottom: 22.0),
-            child: Text(
-              localizations.searchPanelHeader,
-              style: const TextStyle(fontSize: 18.0),
-            ),
-          ),
-        );
+        const double textBoxHeight = 40.0;
         final double searchBoxHeight =
             _isOpen ? minHeight - textBoxHeight : minHeight;
-        final Widget searchBox = SizedBox(
-          height: searchBoxHeight,
+        final Widget searchBox = SizedOverflowBox(
+          size: Size.fromHeight(searchBoxHeight),
+          alignment: Alignment.topCenter,
           child: Column(children: <Widget>[
             const SizedBox(height: 25.0),
-            if (!_isOpen) textBox,
-            Container(
-              // A key is required to preserve state when the above container
-              // disappears from the tree.
-              key: const Key('searchField'),
+            AnimatedCrossFade(
+              duration: const Duration(milliseconds: 100),
+              crossFadeState: _isOpen
+                  ? CrossFadeState.showFirst
+                  : CrossFadeState.showSecond,
+              firstChild: Container(),
+              secondChild: Container(
+                alignment: Alignment.topCenter,
+                height: textBoxHeight,
+                child: Text(
+                  localizations.searchPanelHeader,
+                  style: const TextStyle(fontSize: 18.0),
+                ),
+              ),
+            ),
+            Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: _buildSearchField(context),
             ),
