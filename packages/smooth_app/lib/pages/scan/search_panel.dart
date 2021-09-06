@@ -15,7 +15,7 @@ class SearchPanel extends StatefulWidget {
 class SearchPanelState extends State<SearchPanel> {
   final TextEditingController _searchFieldController = TextEditingController();
   final FocusNode _searchFieldFocusNode = FocusNode();
-  final PanelController _controller = PanelController();
+  final PanelController _panelController = PanelController();
   double _position = 0.0;
 
   bool get _isOpen => _position > _isOpenThreshold;
@@ -46,7 +46,7 @@ class SearchPanelState extends State<SearchPanel> {
     const double minHeight = 160.0;
     final double maxHeight = constraints.maxHeight;
     return SlidingUpPanel(
-      controller: _controller,
+      controller: _panelController,
       borderRadius: BorderRadius.vertical(
         top: _isOpen ? Radius.zero : const Radius.circular(20.0),
       ),
@@ -138,15 +138,15 @@ class SearchPanelState extends State<SearchPanel> {
 
   void _handleFocusChange() {
     if (_searchFieldFocusNode.hasFocus) {
-      _controller.open();
+      _panelController.open();
     } else {
-      _controller.close();
+      _panelController.close();
     }
   }
 
   void _handleClear() {
     if (_isEmpty) {
-      _controller.close();
+      _panelController.close();
     } else {
       _searchFieldController.clear();
     }
