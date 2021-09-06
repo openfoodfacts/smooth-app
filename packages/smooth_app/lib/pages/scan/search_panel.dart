@@ -25,19 +25,8 @@ class SearchPanelState extends State<SearchPanel> {
   @override
   void initState() {
     super.initState();
-    _searchFieldController.addListener(() {
-      if (_searchFieldController.text.isEmpty && !_isEmpty) {
-        _controller.close();
-      }
-      _isEmpty = _searchFieldController.text.isEmpty;
-    });
-    _searchFieldFocusNode.addListener(() {
-      if (_searchFieldFocusNode.hasFocus) {
-        _controller.open();
-      } else {
-        _controller.close();
-      }
-    });
+    _searchFieldController.addListener(_handleTextChange);
+    _searchFieldFocusNode.addListener(_handleFocusChange);
   }
 
   @override
@@ -126,7 +115,7 @@ class SearchPanelState extends State<SearchPanel> {
         suffixIcon: Padding(
           padding: const EdgeInsets.only(right: 12.0),
           child: IconButton(
-            onPressed: _searchFieldController.clear,
+            onPressed: _handleClear,
             icon: const Icon(Icons.clear),
           ),
         ),
@@ -145,6 +134,29 @@ class SearchPanelState extends State<SearchPanel> {
     setState(() {
       _position = newPosition;
     });
+  }
+
+  void _handleFocusChange() {
+    if (_searchFieldFocusNode.hasFocus) {
+      _controller.open();
+    } else {
+      _controller.close();
+    }
+  }
+
+  void _handleTextChange() {
+    if (_searchFieldController.text.isEmpty && !_isEmpty) {
+      _controller.close();
+    }
+    _isEmpty = _searchFieldController.text.isEmpty;
+  }
+
+  void _handleClear() {
+    if (_isEmpty) {
+      _controller.close();
+    } else {
+      _searchFieldController.clear();
+    }
   }
 
   void _performSearch(String query) {
