@@ -21,7 +21,7 @@ jobs:
         upload_sources: true
 
         # Upload translations to Crowdin
-        upload_translations: true
+        upload_translations: false #default false
         # Use this option to upload translations for a single specified language
         upload_language: en
         # Automatically approves uploaded translations
