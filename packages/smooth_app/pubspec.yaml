@@ -51,6 +51,8 @@ dev_dependencies:
   flutter_native_splash: ^1.2.0
   flutter_test:
     sdk: flutter
+  mockito: ^5.0.14
+  path: ^1.6.4
 
 # 'flutter pub run flutter_launcher_icons:main' to update
 flutter_icons:
