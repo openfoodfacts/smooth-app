@@ -128,8 +128,10 @@ class SearchPanelState extends State<SearchPanel> {
                 crossFadeState: _isEmpty
                     ? CrossFadeState.showFirst
                     : CrossFadeState.showSecond,
-                firstChild: const Icon(Icons.cancel), // Closes the panel.
-                secondChild: const Icon(Icons.clear), // Clears the text.
+                // Closes the panel.
+                firstChild: const Icon(Icons.close, color: Colors.black),
+                // Clears the text.
+                secondChild: const Icon(Icons.cancel, color: Colors.black),
               ),
             ),
           ),
