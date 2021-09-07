@@ -55,6 +55,14 @@ class SearchPanelState extends State<SearchPanel> {
       onPanelSlide: _handlePanelSlide,
       panelBuilder: (ScrollController scrollController) {
         const double textBoxHeight = 40.0;
+        final Widget textBox = Container(
+          alignment: Alignment.topCenter,
+          height: textBoxHeight,
+          child: Text(
+            localizations.searchPanelHeader,
+            style: const TextStyle(fontSize: 18.0),
+          ),
+        );
         final double searchBoxHeight =
             _panelIsOpen ? minHeight - textBoxHeight : minHeight;
         final Widget searchBox = SizedOverflowBox(
@@ -68,14 +76,7 @@ class SearchPanelState extends State<SearchPanel> {
                   ? CrossFadeState.showFirst
                   : CrossFadeState.showSecond,
               firstChild: Container(), // Hide the text when the panel is open.
-              secondChild: Container(
-                alignment: Alignment.topCenter,
-                height: textBoxHeight,
-                child: Text(
-                  localizations.searchPanelHeader,
-                  style: const TextStyle(fontSize: 18.0),
-                ),
-              ),
+              secondChild: textBox,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
