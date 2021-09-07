@@ -17,15 +17,17 @@ class SearchPanelState extends State<SearchPanel> {
   final FocusNode _searchFieldFocusNode = FocusNode();
   final PanelController _panelController = PanelController();
   double _position = 0.0;
+  bool _isEmpty = true;
 
   bool get _isOpen => _position > _isOpenThreshold;
   static const double _isOpenThreshold = 0.5;
 
-  bool get _isEmpty => _searchFieldController.text.isEmpty;
+  static const Duration _animationDuration = Duration(milliseconds: 100);
 
   @override
   void initState() {
     super.initState();
+    _searchFieldController.addListener(_handleTextChange);
     _searchFieldFocusNode.addListener(_handleFocusChange);
   }
 
@@ -62,7 +64,7 @@ class SearchPanelState extends State<SearchPanel> {
           child: Column(children: <Widget>[
             const SizedBox(height: 25.0),
             AnimatedCrossFade(
-              duration: const Duration(milliseconds: 100),
+              duration: _animationDuration,
               crossFadeState: _isOpen
                   ? CrossFadeState.showFirst
                   : CrossFadeState.showSecond,
@@ -115,13 +117,20 @@ class SearchPanelState extends State<SearchPanel> {
         contentPadding: const EdgeInsets.all(20.0),
         hintText: localizations.search,
         suffixIcon: AnimatedOpacity(
+          duration: _animationDuration,
           opacity: !_isEmpty || _isOpen ? 1.0 : 0.0,
-          duration: const Duration(milliseconds: 100),
           child: Padding(
             padding: const EdgeInsets.only(right: 12.0),
             child: IconButton(
               onPressed: _handleClear,
-              icon: const Icon(Icons.clear),
+              icon: AnimatedCrossFade(
+                duration: _animationDuration,
+                crossFadeState: _isEmpty
+                    ? CrossFadeState.showFirst
+                    : CrossFadeState.showSecond,
+                firstChild: const Icon(Icons.cancel), // Closes the panel.
+                secondChild: const Icon(Icons.clear), // Clears the text.
+              ),
             ),
           ),
         ),
@@ -139,6 +148,12 @@ class SearchPanelState extends State<SearchPanel> {
     }
     setState(() {
       _position = newPosition;
+    });
+  }
+
+  void _handleTextChange() {
+    setState(() {
+      _isEmpty = _searchFieldController.text.isEmpty;
     });
   }
 
