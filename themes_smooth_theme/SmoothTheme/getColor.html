@@ -62,14 +62,6 @@
 
     </section>
     
-<section class="desc markdown">
-  <p>Returns a shade of a <code>materialColor</code></p>
-<p>For instance, if you want to display a red button,
-you'll use Colors.red as root color,
-the destination will be ColorDestination.BUTTON_BACKGROUND,
-and you'll specify the current ColorScheme.
-For the moment, the ColorScheme matters only for the light/dark switch.</p>
-</section>
 
 
     
@@ -79,31 +71,8 @@ For the moment, the ColorScheme matters only for the light/dark switch.</p>
   final ColorScheme colorScheme,
   final MaterialColor materialColor,
   final ColorDestination colorDestination,
-) {
-  if (colorScheme.brightness == Brightness.light) {
-    switch (colorDestination) {
-      case ColorDestination.APP_BAR_BACKGROUND:
-      case ColorDestination.SURFACE_FOREGROUND:
-      case ColorDestination.BUTTON_BACKGROUND:
-        return materialColor[800]!;
-      case ColorDestination.APP_BAR_FOREGROUND:
-      case ColorDestination.SURFACE_BACKGROUND:
-      case ColorDestination.BUTTON_FOREGROUND:
-        return materialColor[100]!;
-    }
-  }
-  switch (colorDestination) {
-    case ColorDestination.APP_BAR_BACKGROUND:
-      return null;
-    case ColorDestination.SURFACE_BACKGROUND:
-    case ColorDestination.BUTTON_BACKGROUND:
-      return materialColor[900]!.withOpacity(ADDITIONAL_OPACITY_FOR_DARK);
-    case ColorDestination.APP_BAR_FOREGROUND:
-    case ColorDestination.SURFACE_FOREGROUND:
-    case ColorDestination.BUTTON_FOREGROUND:
-      return materialColor[100]!;
-  }
-}</code></pre>
+) =&gt;
+    instance.getColorImpl(colorScheme, materialColor, colorDestination);</code></pre>
 </section>
 
 
@@ -137,7 +106,9 @@ For the moment, the ColorScheme matters only for the light/dark switch.</p>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
-    <li class="section-title inherited"><a href="../../themes_smooth_theme/SmoothTheme-class.html#instance-methods">Methods</a></li>
+    <li class="section-title"><a href="../../themes_smooth_theme/SmoothTheme-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../themes_smooth_theme/SmoothTheme/getColorImpl.html">getColorImpl</a></li>
+    <li><a href="../../themes_smooth_theme/SmoothTheme/getMaterialColorImpl.html">getMaterialColorImpl</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
@@ -145,6 +116,8 @@ For the moment, the ColorScheme matters only for the light/dark switch.</p>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
 
 
+    <li class="section-title"><a href="../../themes_smooth_theme/SmoothTheme-class.html#static-properties">Static properties</a></li>
+    <li><a href="../../themes_smooth_theme/SmoothTheme/instance.html">instance</a></li>
 
     <li class="section-title"><a href="../../themes_smooth_theme/SmoothTheme-class.html#static-methods">Static methods</a></li>
     <li><a href="../../themes_smooth_theme/SmoothTheme/getColor.html">getColor</a></li>

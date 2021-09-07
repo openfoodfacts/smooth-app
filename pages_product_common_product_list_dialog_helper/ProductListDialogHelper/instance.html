@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the openRename method from the ProductListDialogHelper class, for the Dart programming language.">
-  <title>openRename method - ProductListDialogHelper class - product_list_dialog_helper library - Dart API</title>
+  <meta name="description" content="API docs for the instance property from the ProductListDialogHelper class, for the Dart programming language.">
+  <title>instance property - ProductListDialogHelper class - product_list_dialog_helper library - Dart API</title>
 
 
   
@@ -32,9 +32,9 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../pages_product_common_product_list_dialog_helper/pages_product_common_product_list_dialog_helper-library.html">product_list_dialog_helper</a></li>
     <li><a href="../../pages_product_common_product_list_dialog_helper/ProductListDialogHelper-class.html">ProductListDialogHelper</a></li>
-    <li class="self-crumb">openRename method</li>
+    <li class="self-crumb">instance property</li>
   </ol>
-  <div class="self-name">openRename</div>
+  <div class="self-name">instance</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,105 +45,57 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">openRename</span> method 
+<h1><span class="kind-property">instance</span> property 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
-    <section class="multi-line-signature">
-      
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../data_models_product_list/ProductList-class.html">ProductList</a>?</span>&gt;</span></span>
-<span class="name ">openRename</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="openRename-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span></li>
-<li><span class="parameter" id="openRename-param-daoProductList"><span class="type-annotation"><a href="../../database_dao_product_list/DaoProductList-class.html">DaoProductList</a></span> <span class="parameter-name">daoProductList</span>, </span></li>
-<li><span class="parameter" id="openRename-param-productList"><span class="type-annotation"><a href="../../data_models_product_list/ProductList-class.html">ProductList</a></span> <span class="parameter-name">productList</span></span></li>
-</ol>)
+        
+<section id="getter">
 
-      
+<section class="multi-line-signature">
+  <span class="returntype"><a href="../../pages_product_common_product_list_dialog_helper/ProductListDialogHelper-class.html">ProductListDialogHelper</a></span>
+  <span class="name ">instance</span>
+  
 
-    </section>
-    
-
-
-    
-<section class="summary source-code" id="source">
-  <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;ProductList?&gt; openRename(
-  final BuildContext context,
-  final DaoProductList daoProductList,
-  final ProductList productList,
-) async {
-  final GlobalKey&lt;FormState&gt; formKey = GlobalKey&lt;FormState&gt;();
-  final List&lt;ProductList&gt; list =
-      await daoProductList.getAll(withStats: false);
-  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-  ProductList? newProductList;
-  return showDialog&lt;ProductList&gt;(
-    context: context,
-    builder: (BuildContext context) =&gt; SmoothAlertDialog(
-      close: false,
-      title: appLocalizations.rename_list,
-      body: Form(
-        key: formKey,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: &lt;Widget&gt;[
-            TextFormField(
-              initialValue: productList.parameters,
-              decoration: InputDecoration(
-                hintText: appLocalizations.my_list_hint,
-              ),
-              validator: (final String? value) {
-                if (value != null) {
-                  if (value.isEmpty) {
-                    return appLocalizations.empty_list;
-                  }
-                  newProductList = ProductList(
-                    listType: productList.listType,
-                    parameters: value,
-                  )..extraTags = productList.extraTags;
-                  for (final ProductList item in list) {
-                    if (item.isSameAs(newProductList!)) {
-                      if (item.isSameAs(productList)) {
-                        return appLocalizations.already_same;
-                      }
-                      return appLocalizations.list_name_taken;
-                    }
-                  }
-                  return null;
-                }
-              },
-            ),
-          ],
-        ),
-      ),
-      actions: &lt;SmoothSimpleButton&gt;[
-        SmoothSimpleButton(
-          text: appLocalizations.cancel,
-          onPressed: () =&gt; Navigator.pop(context, null),
-          important: false,
-        ),
-        SmoothSimpleButton(
-          text: AppLocalizations.of(context)!.okay,
-          onPressed: () async {
-            if (!formKey.currentState!.validate()) {
-              return;
-            }
-            if (!await daoProductList.rename(
-                productList, newProductList!.parameters)) {
-              &#47;&#47; TODO(monsieurtanuki): unexpected, but do something!
-              return;
-            }
-            await daoProductList.get(newProductList!);
-            Navigator.pop(context, newProductList);
-          },
-          important: true,
-        ),
-      ],
-    ),
-  );
-}</code></pre>
 </section>
 
+
+
+
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">static ProductListDialogHelper get instance =&gt;
+    _instance ??= const ProductListDialogHelper();</code></pre>
+</section>
+
+</section>
+
+
+        
+<section id="setter">
+
+<section class="multi-line-signature">
+  <span class="returntype">void</span>
+  <span class="name ">instance=</span><span class="signature">(<wbr><span class="parameter" id="instance=-param-testInstance"><span class="type-annotation"><a href="../../pages_product_common_product_list_dialog_helper/ProductListDialogHelper-class.html">ProductListDialogHelper</a></span> <span class="parameter-name">testInstance</span></span>)</span>
+  <div class="features">@<a href="https://pub.dev/documentation/meta/1.3.0/meta/visibleForTesting-constant.html">visibleForTesting</a></div>
+
+</section>
+
+
+<section class="desc markdown">
+  <p>Setter that allows tests to override the singleton instance.</p>
+</section>
+
+
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@visibleForTesting
+static set instance(ProductListDialogHelper testInstance) =&gt;
+    _instance = testInstance;</code></pre>
+</section>
+
+</section>
 
   </div> <!-- /.main-content -->
 
@@ -158,7 +110,7 @@
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../pages_product_common_product_list_dialog_helper/pages_product_common_product_list_dialog_helper-library.html">product_list_dialog_helper</a></li>
   <li><a href="../../pages_product_common_product_list_dialog_helper/ProductListDialogHelper-class.html">ProductListDialogHelper</a></li>
-  <li class="self-crumb">openRename method</li>
+  <li class="self-crumb">instance property</li>
 </ol>
 
 
