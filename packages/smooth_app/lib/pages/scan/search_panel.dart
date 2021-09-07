@@ -15,19 +15,18 @@ class SearchPanel extends StatefulWidget {
 class SearchPanelState extends State<SearchPanel> {
   final TextEditingController _searchFieldController = TextEditingController();
   final FocusNode _searchFieldFocusNode = FocusNode();
-  final PanelController _panelController = PanelController();
-  double _position = 0.0;
-  bool _isEmpty = true;
+  bool _searchFieldIsEmpty = true;
 
-  bool get _isOpen => _position > _isOpenThreshold;
-  static const double _isOpenThreshold = 0.5;
+  final PanelController _panelController = PanelController();
+  double _panelPosition = 0.0;
+  bool get _panelIsOpen => _panelPosition > 0.5;
 
   static const Duration _animationDuration = Duration(milliseconds: 100);
 
   @override
   void initState() {
     super.initState();
-    _searchFieldController.addListener(_handleTextChange);
+    _searchFieldController.addListener(_handleSearchFieldChange);
     _searchFieldFocusNode.addListener(_handleFocusChange);
   }
 
@@ -50,14 +49,14 @@ class SearchPanelState extends State<SearchPanel> {
     return SlidingUpPanel(
       controller: _panelController,
       borderRadius: BorderRadius.vertical(
-        top: _isOpen ? Radius.zero : const Radius.circular(20.0),
+        top: _panelIsOpen ? Radius.zero : const Radius.circular(20.0),
       ),
-      margin: EdgeInsets.symmetric(horizontal: _isOpen ? 0.0 : 12.0),
+      margin: EdgeInsets.symmetric(horizontal: _panelIsOpen ? 0.0 : 12.0),
       onPanelSlide: _handlePanelSlide,
       panelBuilder: (ScrollController scrollController) {
         const double textBoxHeight = 40.0;
         final double searchBoxHeight =
-            _isOpen ? minHeight - textBoxHeight : minHeight;
+            _panelIsOpen ? minHeight - textBoxHeight : minHeight;
         final Widget searchBox = SizedOverflowBox(
           size: Size.fromHeight(searchBoxHeight),
           alignment: Alignment.topCenter,
@@ -65,10 +64,10 @@ class SearchPanelState extends State<SearchPanel> {
             const SizedBox(height: 25.0),
             AnimatedCrossFade(
               duration: _animationDuration,
-              crossFadeState: _isOpen
+              crossFadeState: _panelIsOpen
                   ? CrossFadeState.showFirst
                   : CrossFadeState.showSecond,
-              firstChild: Container(),
+              firstChild: Container(), // Hide the text when the panel is open.
               secondChild: Container(
                 alignment: Alignment.topCenter,
                 height: textBoxHeight,
@@ -118,14 +117,14 @@ class SearchPanelState extends State<SearchPanel> {
         hintText: localizations.search,
         suffixIcon: AnimatedOpacity(
           duration: _animationDuration,
-          opacity: !_isEmpty || _isOpen ? 1.0 : 0.0,
+          opacity: !_searchFieldIsEmpty || _panelIsOpen ? 1.0 : 0.0,
           child: Padding(
             padding: const EdgeInsets.only(right: 12.0),
             child: IconButton(
               onPressed: _handleClear,
               icon: AnimatedCrossFade(
                 duration: _animationDuration,
-                crossFadeState: _isEmpty
+                crossFadeState: _searchFieldIsEmpty
                     ? CrossFadeState.showFirst
                     : CrossFadeState.showSecond,
                 // Closes the panel.
@@ -142,20 +141,20 @@ class SearchPanelState extends State<SearchPanel> {
   }
 
   void _handlePanelSlide(double newPosition) {
-    if (newPosition < _position && !_isOpen) {
+    if (newPosition < _panelPosition && !_panelIsOpen) {
       _searchFieldFocusNode.unfocus();
     }
-    if (newPosition > _position && _isOpen) {
+    if (newPosition > _panelPosition && _panelIsOpen) {
       _searchFieldFocusNode.requestFocus();
     }
     setState(() {
-      _position = newPosition;
+      _panelPosition = newPosition;
     });
   }
 
-  void _handleTextChange() {
+  void _handleSearchFieldChange() {
     setState(() {
-      _isEmpty = _searchFieldController.text.isEmpty;
+      _searchFieldIsEmpty = _searchFieldController.text.isEmpty;
     });
   }
 
@@ -168,7 +167,7 @@ class SearchPanelState extends State<SearchPanel> {
   }
 
   void _handleClear() {
-    if (_isEmpty) {
+    if (_searchFieldIsEmpty) {
       _panelController.close();
     } else {
       _searchFieldController.clear();
