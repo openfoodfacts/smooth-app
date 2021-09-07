@@ -74,9 +74,8 @@ class _MultiSelectProductPageState extends State<MultiSelectProductPage> {
                 // nothing selected
                 return;
               }
-              final ProductCopyHelper productCopyHelper = ProductCopyHelper();
               final ProductList? productList =
-                  await productCopyHelper.showProductListDialog(
+                  await ProductCopyHelper.instance.showProductListDialog(
                 context: context,
                 daoProductList: daoProductList,
                 daoProduct: daoProduct,
@@ -90,7 +89,7 @@ class _MultiSelectProductPageState extends State<MultiSelectProductPage> {
               for (final String barcode in barcodes) {
                 products.add(_getProduct(barcode));
               }
-              await productCopyHelper.copy(
+              await ProductCopyHelper.instance.copy(
                 context: context,
                 productList: productList,
                 daoProductList: daoProductList,

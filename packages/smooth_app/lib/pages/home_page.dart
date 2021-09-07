@@ -281,7 +281,7 @@ class _OldHomePageState extends State<OldHomePage> {
                 productListType: userProductListType,
                 onPressed: () async {
                   final ProductList? newProductList =
-                      await ProductListDialogHelper.openNew(
+                      await ProductListDialogHelper.instance.openNew(
                     context,
                     _daoProductList,
                     list,

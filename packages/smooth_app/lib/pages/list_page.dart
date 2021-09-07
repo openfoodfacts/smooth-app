@@ -91,7 +91,8 @@ class _ListPageState extends State<ListPage> {
     final DaoProductList daoProductList,
     final String userProductListType,
   ) async {
-    final ProductList? newProductList = await ProductListDialogHelper.openNew(
+    final ProductList? newProductList =
+        await ProductListDialogHelper.instance.openNew(
       context,
       daoProductList,
       _list!,

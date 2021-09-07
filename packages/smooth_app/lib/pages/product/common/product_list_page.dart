@@ -140,7 +140,7 @@ class _ProductListPageState extends State<ProductListPage> {
                     switch (value) {
                       case 'rename':
                         final ProductList? renamedProductList =
-                            await ProductListDialogHelper.openRename(
+                            await ProductListDialogHelper.instance.openRename(
                                 context, daoProductList, productList);
                         if (renamedProductList == null) {
                           return;
@@ -149,15 +149,16 @@ class _ProductListPageState extends State<ProductListPage> {
                         localDatabase.notifyListeners();
                         break;
                       case 'delete':
-                        if (await ProductListDialogHelper.openDelete(
-                            context, daoProductList, productList)) {
+                        if (await ProductListDialogHelper.instance
+                            .openDelete(context, daoProductList, productList)) {
                           Navigator.pop(context);
                           localDatabase.notifyListeners();
                         }
                         break;
                       case 'change':
-                        final bool changed =
-                            await ProductListDialogHelper.openChangeIcon(
+                        final bool changed = await ProductListDialogHelper
+                            .instance
+                            .openChangeIcon(
                                 context, daoProductList, productList);
                         if (changed) {
                           localDatabase.notifyListeners();
