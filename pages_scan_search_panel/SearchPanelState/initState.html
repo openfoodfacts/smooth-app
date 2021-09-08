@@ -98,13 +98,8 @@ method, as in <code>super.initState()</code>.</p>
   <pre class="language-dart"><code class="language-dart">@override
 void initState() {
   super.initState();
-  _searchFieldFocusNode.addListener(() {
-    if (_searchFieldFocusNode.hasFocus) {
-      _controller.open();
-    } else {
-      _controller.close();
-    }
-  });
+  _searchFieldController.addListener(_handleSearchFieldChange);
+  _searchFieldFocusNode.addListener(_handleFocusChange);
 }</code></pre>
 </section>
 
@@ -143,6 +138,7 @@ void initState() {
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/widget.html">widget</a></li>
 
     <li class="section-title"><a href="../../pages_scan_search_panel/SearchPanelState-class.html#instance-methods">Methods</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/activate.html">activate</a></li>
     <li><a href="../../pages_scan_search_panel/SearchPanelState/build.html">build</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/deactivate.html">deactivate</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/debugFillProperties.html">debugFillProperties</a></li>

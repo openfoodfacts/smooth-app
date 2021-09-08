@@ -69,7 +69,7 @@
 <p>Subclasses should override this method to return a newly created
 instance of their associated <a href="https://api.flutter.dev/flutter/widgets/State-class.html">State</a> subclass:</p>
 <pre class="language-dart"><code class="language-dart">@override
-_MyState createState() =&gt; _MyState();
+State&lt;MyWidget&gt; createState() =&gt; _MyWidgetState();
 </code></pre>
 <p>The framework can call this method multiple times over the lifetime of
 a <code>StatefulWidget</code>. For example, if the widget is inserted into the tree

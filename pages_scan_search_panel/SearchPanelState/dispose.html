@@ -99,6 +99,7 @@ method, as in <code>super.dispose()</code>.</p>
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 void dispose() {
+  _searchFieldController.dispose();
   _searchFieldFocusNode.dispose();
   super.dispose();
 }</code></pre>
@@ -139,6 +140,7 @@ void dispose() {
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/widget.html">widget</a></li>
 
     <li class="section-title"><a href="../../pages_scan_search_panel/SearchPanelState-class.html#instance-methods">Methods</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/activate.html">activate</a></li>
     <li><a href="../../pages_scan_search_panel/SearchPanelState/build.html">build</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/deactivate.html">deactivate</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/debugFillProperties.html">debugFillProperties</a></li>
