@@ -33,11 +33,13 @@ class SmoothViewFinderState extends State<SmoothViewFinder>
     return AnimatedBuilder(
       animation: _animationController,
       builder: (BuildContext context, Widget? child) {
-        return CustomPaint(
-          size: widget.boxSize,
-          painter: _Painter(
-            lineLength: widget.lineLength,
-            lineOpacity: _animationController.value,
+        return Center(
+          child: CustomPaint(
+            size: widget.boxSize,
+            painter: _Painter(
+              lineLength: widget.lineLength,
+              lineOpacity: _animationController.value,
+            ),
           ),
         );
       },
