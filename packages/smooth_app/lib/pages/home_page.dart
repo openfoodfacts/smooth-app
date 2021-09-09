@@ -5,7 +5,6 @@ import 'package:openfoodfacts/utils/PnnsGroups.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/product_list_preview.dart';
 import 'package:smooth_app/data_models/product_list.dart';
-import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/choose_page.dart';
@@ -18,7 +17,6 @@ import 'package:smooth_app/pages/scan/scan_page.dart';
 import 'package:smooth_app/pages/user_preferences_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
-import 'package:smooth_app/widgets/text_search_widget.dart';
 import 'package:smooth_ui_library/widgets/smooth_card.dart';
 
 class HomePage extends StatefulWidget {
@@ -100,13 +98,11 @@ class _OldHomePageState extends State<OldHomePage> {
   static const Icon _ICON_ARROW_FORWARD = Icon(Icons.arrow_forward);
 
   late DaoProductList _daoProductList;
-  late DaoProduct _daoProduct;
 
   @override
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     _daoProductList = DaoProductList(localDatabase);
-    _daoProduct = DaoProduct(localDatabase);
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
@@ -124,14 +120,7 @@ class _OldHomePageState extends State<OldHomePage> {
       ),
       body: ListView(
         children: <Widget>[
-          TextSearchWidget(
-            color: SmoothTheme.getColor(
-              colorScheme,
-              Colors.red,
-              _COLOR_DESTINATION_FOR_ICON,
-            ),
-            daoProduct: _daoProduct,
-          ),
+          const SizedBox(height: 6.0),
           _getProductListCard(
             <String>[ProductList.LIST_TYPE_USER_DEFINED],
             appLocalizations.my_lists,
@@ -221,23 +210,6 @@ class _OldHomePageState extends State<OldHomePage> {
               );
             },
           ),
-          _getProductListCard(
-            <String>[
-              ProductList.LIST_TYPE_HTTP_SEARCH_GROUP,
-              ProductList.LIST_TYPE_HTTP_SEARCH_KEYWORDS,
-              ProductList.LIST_TYPE_HTTP_SEARCH_CATEGORY,
-            ],
-            appLocalizations.search_history,
-            Icon(
-              Icons.youtube_searched_for,
-              color: SmoothTheme.getColor(
-                colorScheme,
-                Colors.yellow,
-                _COLOR_DESTINATION_FOR_ICON,
-              ),
-            ),
-            appLocalizations,
-          ),
         ],
       ),
     );
@@ -281,7 +253,7 @@ class _OldHomePageState extends State<OldHomePage> {
                 productListType: userProductListType,
                 onPressed: () async {
                   final ProductList? newProductList =
-                      await ProductListDialogHelper.openNew(
+                      await ProductListDialogHelper.instance.openNew(
                     context,
                     _daoProductList,
                     list,
