@@ -3,10 +3,6 @@
     "@searchTitle": {
         "description": "Temporary title for the app main page"
     },
-    "search": "Пошук",
-    "@search": {},
-    "searchPanelHeader": "Search or scan your first product",
-    "@searchPanelHeader": {},
     "searchHintText": "Введіть штрих-код або ключові слова",
     "@searchHintText": {},
     "categories": "Категорії",
@@ -41,8 +37,6 @@
     "@featureInProgress": {},
     "configurePreferences": "Налаштувати мої параметри",
     "@configurePreferences": {},
-    "confirmResetPreferences": "Reset your preferences?",
-    "@confirmResetPreferences": {},
     "yes": "Так",
     "@yes": {},
     "no": "Ні",

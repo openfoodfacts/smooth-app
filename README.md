@@ -28,7 +28,10 @@ You can join the Open Food Facts's Slack here : [Get an invite](https://slack.op
 - https://openfoodfacts.github.io/smooth-app/
 
 ## V1 Roadmap
-
+### Design
+- [ ] Add icon
+- [ ] Fix layout issue on the home screen (#372)
+- [ ] …
 
 ## V2 - Later Roadmap
 ### Screenshot automation

@@ -3,10 +3,6 @@
     "@searchTitle": {
         "description": "Temporary title for the app main page"
     },
-    "search": "검색",
-    "@search": {},
-    "searchPanelHeader": "Search or scan your first product",
-    "@searchPanelHeader": {},
     "searchHintText": "바코드나 검색어 입력",
     "@searchHintText": {},
     "categories": "카테고리",
@@ -41,8 +37,6 @@
     "@featureInProgress": {},
     "configurePreferences": "내 설정 구성하기",
     "@configurePreferences": {},
-    "confirmResetPreferences": "Reset your preferences?",
-    "@confirmResetPreferences": {},
     "yes": "예",
     "@yes": {},
     "no": "아니요",

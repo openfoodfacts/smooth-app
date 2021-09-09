@@ -24,9 +24,9 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
-import 'package:smooth_app/helpers/product_copy_helper.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
+import 'package:smooth_app/helpers/product_copy_helper.dart';
 import 'package:smooth_app/pages/user_preferences_page.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -306,7 +306,7 @@ class _ProductPageState extends State<ProductPage> {
             ),
             _getClickableIcon(
               label: appLocalizations.label_share,
-              icon: Icon(ConstantIcons.instance.getShareIcon()),
+              icon: Icon(ConstantIcons.getShareIcon()),
               onTap: () async => Share.share(
                 'Try this food: https://openfoodfacts.org/product/${_product.barcode}/',
                 subject: '${_product.productName} (by openfoodfacts.org)',
@@ -524,8 +524,9 @@ class _ProductPageState extends State<ProductPage> {
     required final DaoProductList daoProductList,
     required final DaoProduct daoProduct,
   }) async {
+    final ProductCopyHelper productCopyHelper = ProductCopyHelper();
     final ProductList? productList =
-        await ProductCopyHelper.instance.showProductListDialog(
+        await productCopyHelper.showProductListDialog(
       context: context,
       daoProductList: daoProductList,
       daoProduct: daoProduct,
@@ -535,7 +536,7 @@ class _ProductPageState extends State<ProductPage> {
       return;
     }
     final List<Product> products = <Product>[widget.product];
-    await ProductCopyHelper.instance.copy(
+    await productCopyHelper.copy(
       context: context,
       productList: productList,
       daoProductList: daoProductList,

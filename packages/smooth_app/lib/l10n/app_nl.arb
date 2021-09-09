@@ -3,10 +3,6 @@
     "@searchTitle": {
         "description": "Temporary title for the app main page"
     },
-    "search": "Zoeken",
-    "@search": {},
-    "searchPanelHeader": "Search or scan your first product",
-    "@searchPanelHeader": {},
     "searchHintText": "Voer een streepjescode of trefwoorden in",
     "@searchHintText": {},
     "categories": "Categorieën",
@@ -41,8 +37,6 @@
     "@featureInProgress": {},
     "configurePreferences": "Verander mijn instellingen",
     "@configurePreferences": {},
-    "confirmResetPreferences": "Reset your preferences?",
-    "@confirmResetPreferences": {},
     "yes": "Ja",
     "@yes": {},
     "no": "Nee",

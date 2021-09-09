@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/views/bottom_sheet_views/group_query_filter_view.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
 import 'package:smooth_app/data_models/product_query_model.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
-import 'package:smooth_app/views/bottom_sheet_views/group_query_filter_view.dart';
 import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
 
 class ProductQueryPage extends StatefulWidget {
@@ -344,7 +344,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
         padding: const EdgeInsets.only(top: 28.0),
         child: IconButton(
           icon: Icon(
-            ConstantIcons.instance.getBackIcon(),
+            ConstantIcons.getBackIcon(),
             color: color,
           ),
           onPressed: () => Navigator.pop(context),

@@ -3,10 +3,6 @@
     "@searchTitle": {
         "description": "Temporary title for the app main page"
     },
-    "search": "Cerca",
-    "@search": {},
-    "searchPanelHeader": "Cerqueu o escanegeu el vostre primer producte",
-    "@searchPanelHeader": {},
     "searchHintText": "Introduïu un codi de barres o paraules clau",
     "@searchHintText": {},
     "categories": "Categories",
@@ -41,8 +37,6 @@
     "@featureInProgress": {},
     "configurePreferences": "Configura les meves preferències",
     "@configurePreferences": {},
-    "confirmResetPreferences": "Reset your preferences?",
-    "@confirmResetPreferences": {},
     "yes": "Sí",
     "@yes": {},
     "no": "No",

@@ -7,19 +7,7 @@ import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 
 class ProductListDialogHelper {
-  @visibleForTesting
-  const ProductListDialogHelper();
-
-  static ProductListDialogHelper get instance =>
-      _instance ??= const ProductListDialogHelper();
-  static ProductListDialogHelper? _instance;
-
-  /// Setter that allows tests to override the singleton instance.
-  @visibleForTesting
-  static set instance(ProductListDialogHelper testInstance) =>
-      _instance = testInstance;
-
-  Future<bool> openDelete(
+  static Future<bool> openDelete(
     final BuildContext context,
     final DaoProductList daoProductList,
     final ProductList productList,
@@ -48,7 +36,7 @@ class ProductListDialogHelper {
       ) ??
       false;
 
-  Future<ProductList?> openNew(
+  static Future<ProductList?> openNew(
     final BuildContext context,
     final DaoProductList daoProductList,
     final List<ProductList> list,
@@ -115,7 +103,7 @@ class ProductListDialogHelper {
     );
   }
 
-  Future<ProductList?> openRename(
+  static Future<ProductList?> openRename(
     final BuildContext context,
     final DaoProductList daoProductList,
     final ProductList productList,
@@ -191,7 +179,7 @@ class ProductListDialogHelper {
     );
   }
 
-  Future<bool> openChangeIcon(
+  static Future<bool> openChangeIcon(
     final BuildContext context,
     final DaoProductList daoProductList,
     final ProductList productList,

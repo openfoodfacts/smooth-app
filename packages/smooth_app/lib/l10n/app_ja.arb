@@ -3,10 +3,6 @@
     "@searchTitle": {
         "description": "Temporary title for the app main page"
     },
-    "search": "検索",
-    "@search": {},
-    "searchPanelHeader": "Search or scan your first product",
-    "@searchPanelHeader": {},
     "searchHintText": "バーコードまたはキーワードを入力してください",
     "@searchHintText": {},
     "categories": "カテゴリー",
@@ -41,8 +37,6 @@
     "@featureInProgress": {},
     "configurePreferences": "ユーザー設定",
     "@configurePreferences": {},
-    "confirmResetPreferences": "Reset your preferences?",
-    "@confirmResetPreferences": {},
     "yes": "はい",
     "@yes": {},
     "no": "いいえ",

@@ -3,10 +3,6 @@
     "@searchTitle": {
         "description": "Temporary title for the app main page"
     },
-    "search": "Search",
-    "@search": {},
-    "searchPanelHeader": "Search or scan your first product",
-    "@searchPanelHeader": {},
     "searchHintText": "Enter a barcode or keywords",
     "@searchHintText": {},
     "categories": "వర్గాలు",
@@ -41,8 +37,6 @@
     "@featureInProgress": {},
     "configurePreferences": "Configure my preferences",
     "@configurePreferences": {},
-    "confirmResetPreferences": "Reset your preferences?",
-    "@confirmResetPreferences": {},
     "yes": "అవును",
     "@yes": {},
     "no": "నో",

@@ -3,10 +3,6 @@
     "@searchTitle": {
         "description": "Temporary title for the app main page"
     },
-    "search": "חיפוש",
-    "@search": {},
-    "searchPanelHeader": "כדאי לך לחפש או לסרוק את המוצר הראשון שלך",
-    "@searchPanelHeader": {},
     "searchHintText": "נא למלא ברקוד או מילות מפתח",
     "@searchHintText": {},
     "categories": "קטגוריות",
@@ -41,8 +37,6 @@
     "@featureInProgress": {},
     "configurePreferences": "להגדיר את ההעדפות שלי",
     "@configurePreferences": {},
-    "confirmResetPreferences": "לאפס את ההעדפות שלך?",
-    "@confirmResetPreferences": {},
     "yes": "כן",
     "@yes": {},
     "no": "לא",

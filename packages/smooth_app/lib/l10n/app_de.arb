@@ -3,10 +3,6 @@
     "@searchTitle": {
         "description": "Temporary title for the app main page"
     },
-    "search": "Suchen",
-    "@search": {},
-    "searchPanelHeader": "Suchen Sie Ihr erstes Produkt oder lesen Sie es ein",
-    "@searchPanelHeader": {},
     "searchHintText": "Barcode oder Schlüsselwörter eingeben",
     "@searchHintText": {},
     "categories": "Kategorien",
@@ -41,8 +37,6 @@
     "@featureInProgress": {},
     "configurePreferences": "Meine Einstellungen festlegen",
     "@configurePreferences": {},
-    "confirmResetPreferences": "Eigene Voreinstellungen zurücksetzen?",
-    "@confirmResetPreferences": {},
     "yes": "Ja",
     "@yes": {},
     "no": "Nein",

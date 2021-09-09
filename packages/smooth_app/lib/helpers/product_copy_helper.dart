@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:smooth_app/views/bottom_sheet_views/product_copy_view.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
@@ -8,22 +9,9 @@ import 'package:smooth_app/pages/product/common/product_list_add_button.dart';
 import 'package:smooth_app/pages/product/common/product_list_button.dart';
 import 'package:smooth_app/pages/product/common/product_list_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_list_page.dart';
-import 'package:smooth_app/views/bottom_sheet_views/product_copy_view.dart';
 
 /// Helper for product copy as multi selected
 class ProductCopyHelper {
-  @visibleForTesting
-  const ProductCopyHelper();
-
-  static ProductCopyHelper get instance =>
-      _instance ??= const ProductCopyHelper();
-  static ProductCopyHelper? _instance;
-
-  /// Setter that allows tests to override the singleton instance.
-  @visibleForTesting
-  static set instance(ProductCopyHelper testInstance) =>
-      _instance = testInstance;
-
   /// Returns a user [ProductList] selected among the existing ones, or created
   Future<ProductList?> showProductListDialog({
     required final BuildContext context,
@@ -64,7 +52,7 @@ class ProductCopyHelper {
           productListType: productListType,
           onPressed: () async {
             final ProductList? newProductList =
-                await ProductListDialogHelper.instance.openNew(
+                await ProductListDialogHelper.openNew(
               context,
               daoProductList,
               productLists,

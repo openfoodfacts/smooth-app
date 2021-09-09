@@ -3,10 +3,6 @@
     "@searchTitle": {
         "description": "Temporary title for the app main page"
     },
-    "search": "Søg",
-    "@search": {},
-    "searchPanelHeader": "Søg eller skan dit første produkt",
-    "@searchPanelHeader": {},
     "searchHintText": "Angiv stregkode eller søgeord",
     "@searchHintText": {},
     "categories": "Kategorier",
@@ -41,8 +37,6 @@
     "@featureInProgress": {},
     "configurePreferences": "Opsæt mine præferencer",
     "@configurePreferences": {},
-    "confirmResetPreferences": "Nulstil præferencerne?",
-    "@confirmResetPreferences": {},
     "yes": "Ja",
     "@yes": {},
     "no": "Nej",

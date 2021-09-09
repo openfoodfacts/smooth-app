@@ -3,10 +3,6 @@
     "@searchTitle": {
         "description": "Temporary title for the app main page"
     },
-    "search": "Ara",
-    "@search": {},
-    "searchPanelHeader": "Search or scan your first product",
-    "@searchPanelHeader": {},
     "searchHintText": "Barkod ya da anahtar kelimeleri girin",
     "@searchHintText": {},
     "categories": "Kategoriler",
@@ -41,8 +37,6 @@
     "@featureInProgress": {},
     "configurePreferences": "Tercihlerimi düzenle",
     "@configurePreferences": {},
-    "confirmResetPreferences": "Reset your preferences?",
-    "@confirmResetPreferences": {},
     "yes": "Evet",
     "@yes": {},
     "no": "Hayır",
