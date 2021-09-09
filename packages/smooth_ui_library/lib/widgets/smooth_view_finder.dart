@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 
 class SmoothViewFinder extends StatefulWidget {
   const SmoothViewFinder({
-    required this.boxWidth,
-    required this.boxHeight,
+    required this.boxSize,
     required this.lineLength,
   });
 
-  final double boxWidth;
-  final double boxHeight;
+  final Size boxSize;
   final double lineLength;
 
   @override
@@ -36,7 +34,7 @@ class SmoothViewFinderState extends State<SmoothViewFinder>
       animation: _animationController,
       builder: (BuildContext context, Widget? child) {
         return CustomPaint(
-          size: Size(widget.boxWidth, widget.boxHeight),
+          size: widget.boxSize,
           painter: _Painter(
             lineLength: widget.lineLength,
             lineOpacity: _animationController.value,

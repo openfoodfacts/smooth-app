@@ -51,8 +51,8 @@ class ContinuousScanPage extends StatelessWidget {
               children: <Widget>[
                 Center(
                   child: SmoothViewFinder(
-                    boxWidth: screenSize.width * 0.6,
-                    boxHeight: screenSize.width * 0.33,
+                    boxSize:
+                        Size(screenSize.width * 0.6, screenSize.width * 0.33),
                     lineLength: screenSize.width * 0.8,
                   ),
                 )
