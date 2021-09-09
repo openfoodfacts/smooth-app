@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:package_info/package_info.dart';
 import 'package:provider/provider.dart';
@@ -91,97 +92,78 @@ class ProfilePage extends StatelessWidget {
           //About
           SmoothListTile(
             text: appLocalizations.about,
-            onPressed: () {
+            onPressed: () async {
+              final PackageInfo packageInfo = await PackageInfo.fromPlatform();
               showDialog<void>(
                 context: context,
                 builder: (BuildContext context) {
-                  //ToDo: Show App Icon  !!! 2x !!! + onTap open App in Store https://pub.dev/packages/open_appstore
-
                   return SmoothAlertDialog(
                     close: false,
                     body: Column(
                       children: <Widget>[
-                        FutureBuilder<PackageInfo>(
-                            future: PackageInfo.fromPlatform(),
-                            builder: (BuildContext context,
-                                AsyncSnapshot<PackageInfo> snapshot) {
-                              if (snapshot.hasError) {
-                                return Center(
-                                  child: Text('${appLocalizations.error} #0'),
-                                );
-                              }
-
-                              if (snapshot.connectionState ==
-                                  ConnectionState.waiting) {
-                                return const Center(
-                                    child: CircularProgressIndicator());
-                              }
-
-                              if (!snapshot.hasData || snapshot.data == null) {
-                                return Center(
-                                    child: Text(
-                                  '${appLocalizations.error} #1',
-                                ));
-                              }
-
-                              return Column(
-                                children: <Widget>[
-                                  ListTile(
-                                    leading: const Icon(Icons.no_sim_outlined),
-                                    title: Text(
-                                      snapshot.data!.appName,
-                                      style: themeData.textTheme.headline1,
-                                    ),
-                                    subtitle: Text(
-                                      snapshot.data!.version,
-                                      style: themeData.textTheme.subtitle2,
-                                    ),
-                                  ),
-                                  Divider(
-                                    color: themeData.colorScheme.onSurface,
-                                  ),
-                                  const SizedBox(
-                                    height: 20,
-                                  ),
-                                  Text(appLocalizations.whatIsOff),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: <Widget>[
-                                      TextButton(
-                                        onPressed: () {
-                                          LaunchUrlHelper.launchURL(
-                                              'https://openfoodfacts.org/who-we-are',
-                                              true);
-                                        },
-                                        child: Text(
-                                          appLocalizations.learnMore,
-                                          style: const TextStyle(
-                                            color: Colors.blue,
-                                          ),
-                                        ),
-                                      ),
-                                      TextButton(
-                                        onPressed: () => LaunchUrlHelper.launchURL(
-                                            'https://openfoodfacts.org/terms-of-use',
-                                            true),
-                                        child: Text(
-                                          appLocalizations.termsOfUse,
-                                          style: const TextStyle(
-                                            color: Colors.blue,
-                                          ),
-                                        ),
-                                      )
-                                    ],
-                                  )
-                                ],
-                              );
-                            }),
+                        ListTile(
+                          leading: Image.asset(
+                            'assets/app/smoothie-icon.1200x1200.png',
+                          ),
+                          title: Text(
+                            packageInfo.appName,
+                            style: themeData.textTheme.headline1,
+                          ),
+                          subtitle: Text(
+                            packageInfo.version,
+                            style: themeData.textTheme.subtitle2,
+                          ),
+                        ),
+                        Divider(
+                          color: themeData.colorScheme.onSurface,
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Text(appLocalizations.whatIsOff),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            TextButton(
+                              onPressed: () {
+                                LaunchUrlHelper.launchURL(
+                                    'https://openfoodfacts.org/who-we-are',
+                                    true);
+                              },
+                              child: Text(
+                                appLocalizations.learnMore,
+                                style: const TextStyle(
+                                  color: Colors.blue,
+                                ),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () => LaunchUrlHelper.launchURL(
+                                  'https://openfoodfacts.org/terms-of-use',
+                                  true),
+                              child: Text(
+                                appLocalizations.termsOfUse,
+                                style: const TextStyle(
+                                  color: Colors.blue,
+                                ),
+                              ),
+                            )
+                          ],
+                        )
                       ],
                     ),
                     actions: <SmoothSimpleButton>[
                       SmoothSimpleButton(
-                        onPressed: () {
-                          showLicensePage(context: context);
+                        onPressed: () async {
+                          showLicensePage(
+                            context: context,
+                            applicationName: packageInfo.appName,
+                            applicationVersion: packageInfo.version,
+                            applicationIcon: Image.asset(
+                              'assets/app/smoothie-icon.1200x1200.png',
+                              height: MediaQuery.of(context).size.height * 0.1,
+                            ),
+                          );
                         },
                         text: appLocalizations.licenses,
                         minWidth: 100,
