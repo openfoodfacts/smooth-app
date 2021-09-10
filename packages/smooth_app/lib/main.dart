@@ -120,7 +120,7 @@ class _SmoothAppState extends State<SmoothApp> {
     return MaterialApp(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      navigatorObservers: [
+      navigatorObservers: <NavigatorObserver>[
         SentryNavigatorObserver(),
       ],
       theme: SmoothTheme.getThemeData(
