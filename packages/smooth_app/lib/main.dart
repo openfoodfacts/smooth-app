@@ -6,8 +6,9 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/personalized_search/product_preferences_selection.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
-import 'package:sentry/sentry.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -18,26 +19,23 @@ import 'package:smooth_app/themes/theme_provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Sentry.init(
-    (SentryOptions options) {
-      options.dsn =
-          'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745';
-    },
-  );
+  final PackageInfo packageInfo = await PackageInfo.fromPlatform();
+
   /* TODO: put back when we have clearer ideas about analytics
   await MatomoTracker().initialize(
     siteId: 2,
     url: 'https://analytics.openfoodfacts.org/',
   );
    */
-  try {
-    runApp(const SmoothApp());
-  } catch (exception, stackTrace) {
-    await Sentry.captureException(
-      exception,
-      stackTrace: stackTrace,
-    );
-  }
+
+  await SentryFlutter.init(
+    (SentryOptions options) {
+      options.dsn =
+          'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745';
+      options.sentryClientName = 'sentry.dart.smoothie/${packageInfo.version}';
+    },
+    appRunner: () => runApp(const SmoothApp()),
+  );
 }
 
 class SmoothApp extends StatefulWidget {
