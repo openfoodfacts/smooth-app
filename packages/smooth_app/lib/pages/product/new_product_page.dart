@@ -178,7 +178,7 @@ class _ProductPageState extends State<NewProductPage> {
     final ThemeData themeData = Theme.of(context);
     final double iconHeight =
         screenSize.width / 10; // TODO(monsieurtanuki): target size?
-    final List<String> scoreAttributeIds = [
+    final List<String> scoreAttributeIds = <String>[
       Attribute.ATTRIBUTE_NUTRISCORE,
       Attribute.ATTRIBUTE_ECOSCORE
     ];
@@ -186,8 +186,11 @@ class _ProductPageState extends State<NewProductPage> {
         AttributeListExpandable.getPopulatedAttributes(
             _product, scoreAttributeIds);
 
-    final List<String> importantAttributeIds = productPreferences
-        .getOrderedImportantAttributeIds(filter_ids: scoreAttributeIds);
+    List<String> importantAttributeIds =
+        productPreferences.getOrderedImportantAttributeIds();
+    importantAttributeIds = importantAttributeIds
+        .where((String attributeId) => scoreAttributeIds.contains(attributeId))
+        .toList();
     final List<Attribute> importantAttributes =
         AttributeListExpandable.getPopulatedAttributes(
             _product, importantAttributeIds);
@@ -201,7 +204,7 @@ class _ProductPageState extends State<NewProductPage> {
           ])
         ]));
 
-    final List<Widget> listItems = [];
+    final List<Widget> listItems = <Widget>[];
     listItems.add(Align(
         heightFactor: 0.7,
         alignment: Alignment.topLeft,
@@ -215,7 +218,7 @@ class _ProductPageState extends State<NewProductPage> {
           bottom: 20.0,
         ),
         insets: const EdgeInsets.all(12.0),
-        child: Column(children: [
+        child: Column(children: <Widget>[
           Align(
               alignment: Alignment.topLeft,
               child: ListTile(
@@ -227,7 +230,7 @@ class _ProductPageState extends State<NewProductPage> {
                 subtitle:
                     Text(_product.brands ?? appLocalizations.unknownBrand),
                 trailing: Text(
-                  _product.quantity?? '',
+                  _product.quantity ?? '',
                   style: themeData.textTheme.headline3,
                 ),
               )),
