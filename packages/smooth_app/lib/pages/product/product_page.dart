@@ -13,9 +13,13 @@ import 'package:provider/provider.dart';
 import 'package:share/share.dart';
 import 'package:smooth_app/cards/data_cards/image_upload_card.dart';
 import 'package:smooth_app/cards/expandables/attribute_list_expandable.dart';
+import 'package:smooth_app/data_models/product_database_timestamp.dart';
 import 'package:smooth_app/data_models/product_extra.dart';
 import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/data_models/product_off_timestamp.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/data_models/product_timestamp.dart';
+import 'package:smooth_app/data_models/product_timestamp_list.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/category_product_query.dart';
 import 'package:smooth_app/database/dao_product.dart';
@@ -47,6 +51,7 @@ class ProductPage extends StatefulWidget {
 
 class _ProductPageState extends State<ProductPage> {
   late Product _product;
+  static const Duration _duration = Duration(minutes: 5);
   bool _first = true;
 
   final EdgeInsets padding = const EdgeInsets.only(
@@ -73,6 +78,20 @@ class _ProductPageState extends State<ProductPage> {
     _updateHistory(context);
   }
 
+  Future<void> _refreshIfNeeded(final ProductTimestamp productTimestamp) async {
+    final int? millisecondsSinceEpoch =
+        await productTimestamp.getTimestamp(widget.product);
+    if (millisecondsSinceEpoch == null) {
+      return;
+    }
+    final int nowInMillis = DateTime.now().millisecondsSinceEpoch;
+    final int elapsedInMillis = nowInMillis - millisecondsSinceEpoch;
+    print('last modified was ${elapsedInMillis ~/ 1000} seconds ago');
+    if (_duration.inMilliseconds < elapsedInMillis) {
+      print('should refresh');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
@@ -80,6 +99,14 @@ class _ProductPageState extends State<ProductPage> {
     if (_first) {
       _first = false;
       _product = widget.product;
+      _refreshIfNeeded(
+        ProductTimestampList(
+          <ProductTimestamp>[
+            ProductDatabaseTimestamp(localDatabase),
+            ProductOffTimestamp(),
+          ],
+        ),
+      );
     }
     return Scaffold(
       appBar: AppBar(
