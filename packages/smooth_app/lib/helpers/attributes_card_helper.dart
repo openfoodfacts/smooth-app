@@ -37,28 +37,28 @@ Color getTextColor(final Attribute attribute) {
     }
     return const Color.fromARGB(1, 3, 129, 65);
   } else {
-    return Color.fromARGB(1, 75, 75, 75);
+    return const Color.fromARGB(1, 75, 75, 75);
   }
 }
 
 Widget getAttributeDisplayIcon(final Attribute attribute) {
   if (attribute.status != Attribute.STATUS_KNOWN || attribute.match == null) {
     // Default emoji.
-    return Text("ℹ️  ");
+    return const Text('ℹ️  ');
   }
   if (attribute.match! < 20) {
-    return Text("💔  ");
+    return const Text('💔  ');
   }
   if (attribute.match! < 40) {
-    return Text("🍂  ");
+    return const Text('🍂  ');
   }
   if (attribute.match! < 60) {
-    return Text("🌻  ");
+    return const Text('🌻  ');
   }
   if (attribute.match! < 80) {
-    return Text("🌱  ");
+    return const Text('🌱  ');
   }
-  return Text("💚  ");
+  return const Text('💚  ');
 }
 
 String? getDisplayTitle(final Attribute attribute) {
@@ -69,22 +69,23 @@ String? getDisplayTitle(final Attribute attribute) {
 }
 
 String? _getNovaDisplayTitle(final Attribute attribute) {
+  // Note: This method is temporary, this field will come from Backend and it will be internationalized.
   if (attribute.status != Attribute.STATUS_KNOWN ||
       attribute.match == null ||
       attribute.title == null) {
     return null;
   }
   if (attribute.match! <= 20) {
-    return "Ultra processed";
+    return 'Ultra processed';
   }
   if (attribute.match! <= 40) {
-    return "Extremely processed";
+    return 'Highly processed';
   }
   if (attribute.match! <= 60) {
-    return "Processed";
+    return 'Processed';
   }
   if (attribute.match! <= 80) {
-    return "Slightly processed";
+    return 'Slightly processed';
   }
-  return "Unprocessed";
+  return 'Unprocessed';
 }

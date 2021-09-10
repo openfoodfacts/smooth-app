@@ -227,7 +227,7 @@ class _ProductPageState extends State<NewProductPage> {
                 subtitle:
                     Text(_product.brands ?? appLocalizations.unknownBrand),
                 trailing: Text(
-                  _product.quantity != null ? _product.quantity! : '',
+                  _product.quantity?? '',
                   style: themeData.textTheme.headline3,
                 ),
               )),

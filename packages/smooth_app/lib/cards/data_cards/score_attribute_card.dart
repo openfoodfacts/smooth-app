@@ -23,7 +23,7 @@ class ScoreAttributeCard extends StatelessWidget {
         : SmoothTheme.ADDITIONAL_OPACITY_FOR_DARK;
     final Color backgroundColor =
         getBackgroundColor(attribute).withOpacity(opacity);
-    final Color textColor = getTextColor(attribute).withOpacity(1);
+    final Color textColor = getTextColor(attribute).withOpacity(opacity);
     final AttributeChip attributeChip =
         AttributeChip(attribute, height: iconHeight);
     final String? description =
