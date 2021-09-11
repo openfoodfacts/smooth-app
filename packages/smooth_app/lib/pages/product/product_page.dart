@@ -51,7 +51,7 @@ class ProductPage extends StatefulWidget {
 
 class _ProductPageState extends State<ProductPage> {
   late Product _product;
-  static const Duration _duration = Duration(minutes: 5);
+  static const Duration _refreshInterval = Duration(minutes: 5);
   bool _first = true;
 
   final EdgeInsets padding = const EdgeInsets.only(
@@ -78,7 +78,11 @@ class _ProductPageState extends State<ProductPage> {
     _updateHistory(context);
   }
 
-  Future<void> _refreshIfNeeded(final ProductTimestamp productTimestamp) async {
+  Future<void> _refreshIfNeeded(
+    final ProductTimestamp productTimestamp,
+    final LocalDatabase localDatabase,
+    final AppLocalizations appLocalizations,
+  ) async {
     final int? millisecondsSinceEpoch =
         await productTimestamp.getTimestamp(widget.product);
     if (millisecondsSinceEpoch == null) {
@@ -86,9 +90,19 @@ class _ProductPageState extends State<ProductPage> {
     }
     final int nowInMillis = DateTime.now().millisecondsSinceEpoch;
     final int elapsedInMillis = nowInMillis - millisecondsSinceEpoch;
-    print('last modified was ${elapsedInMillis ~/ 1000} seconds ago');
-    if (_duration.inMilliseconds < elapsedInMillis) {
-      print('should refresh');
+    if (_refreshInterval.inMilliseconds < elapsedInMillis) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            'The data is more that ${elapsedInMillis ~/ (60 * 1000)} minutes old',
+          ),
+          action: SnackBarAction(
+            label: 'REFRESH',
+            onPressed: () => _refreshProduct(localDatabase, appLocalizations),
+          ),
+          duration: const Duration(seconds: 5),
+        ),
+      );
     }
   }
 
@@ -106,6 +120,8 @@ class _ProductPageState extends State<ProductPage> {
             ProductOffTimestamp(),
           ],
         ),
+        localDatabase,
+        appLocalizations,
       );
     }
     return Scaffold(
@@ -132,27 +148,7 @@ class _ProductPageState extends State<ProductPage> {
                       false);
                   break;
                 case 'refresh':
-                  final ProductDialogHelper productDialogHelper =
-                      ProductDialogHelper(
-                    barcode: _product.barcode!,
-                    context: context,
-                    localDatabase: localDatabase,
-                    refresh: true,
-                  );
-                  final Product? product =
-                      await productDialogHelper.openUniqueProductSearch();
-                  if (product == null) {
-                    productDialogHelper.openProductNotFoundDialog();
-                    return;
-                  }
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(appLocalizations.product_refreshed),
-                      duration: const Duration(seconds: 2),
-                    ),
-                  );
-                  _product = product;
-                  await _updateHistory(context);
+                  _refreshProduct(localDatabase, appLocalizations);
                   break;
                 default:
                   throw Exception('Unknown value: $value');
@@ -165,6 +161,32 @@ class _ProductPageState extends State<ProductPage> {
           ? _buildNewProductBody(context)
           : _buildProductBody(context),
     );
+  }
+
+  Future<void> _refreshProduct(
+    final LocalDatabase localDatabase,
+    final AppLocalizations appLocalizations,
+  ) async {
+    final ProductDialogHelper productDialogHelper = ProductDialogHelper(
+      barcode: _product.barcode!,
+      context: context,
+      localDatabase: localDatabase,
+      refresh: true,
+    );
+    final Product? product =
+        await productDialogHelper.openUniqueProductSearch();
+    if (product == null) {
+      productDialogHelper.openProductNotFoundDialog();
+      return;
+    }
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(appLocalizations.product_refreshed),
+        duration: const Duration(seconds: 2),
+      ),
+    );
+    _product = product;
+    await _updateHistory(context);
   }
 
   Future<void> _updateHistory(final BuildContext context) async {
