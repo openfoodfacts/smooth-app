@@ -22,7 +22,7 @@ class SmoothCard extends StatelessWidget {
     final Widget result = Material(
       elevation: 8.0,
       shadowColor: Colors.black45,
-      borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+      borderRadius: BorderRadius.circular(10.0),
       color: color ?? Theme.of(context).colorScheme.surface,
       child: Container(
         padding: insets,
