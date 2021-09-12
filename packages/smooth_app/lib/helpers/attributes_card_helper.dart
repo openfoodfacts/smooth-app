@@ -49,7 +49,8 @@ String? getDisplayTitle(final Attribute attribute) {
 
 String? _getNovaDisplayTitle(final Attribute attribute) {
   // Note: This method is temporary, this field will come from Backend and it will be internationalized.
-  return _attributeMatchComparison(attribute,
+  return _attributeMatchComparison(
+      attribute,
       null,
       'Ultra processed',
       'Highly processed',
@@ -67,8 +68,7 @@ dynamic _attributeMatchComparison(
     dynamic midMatchResult,
     dynamic highMatchResult,
     dynamic highestMatchResult) {
-  if (attribute.status != Attribute.STATUS_KNOWN ||
-      attribute.match == null) {
+  if (attribute.status != Attribute.STATUS_KNOWN || attribute.match == null) {
     return invalidAttributeResult;
   }
   if (attribute.match! <= _LOWEST_MATCH_SCORE_THRESHOLD) {
