@@ -8,12 +8,10 @@ class ScoreAttributeCard extends StatelessWidget {
   const ScoreAttributeCard({
     required this.attribute,
     required this.iconHeight,
-    this.barcode,
   });
 
   final Attribute attribute;
   final double iconHeight;
-  final String? barcode;
 
   @override
   Widget build(BuildContext context) {
@@ -42,10 +40,7 @@ class ScoreAttributeCard extends StatelessWidget {
                   child: Center(
                       child: Text(
                 description,
-                style: TextStyle(
-                    fontFamily: 'Open Sans',
-                    fontWeight: FontWeight.bold,
-                    color: textColor),
+                style: themeData.textTheme.headline4!.apply(color: textColor),
               ))),
           ],
         ),

@@ -2,63 +2,42 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 
+const int _LOWEST_MATCH_SCORE_THRESHOLD = 20;
+const int _LOW_MATCH_SCORE_THRESHOLD = 40;
+const int _MID_MATCH_SCORE_THRESHOLD = 60;
+const int _HIGH_MATCH_SCORE_THRESHOLD = 80;
+
 Color getBackgroundColor(final Attribute attribute) {
-  if (attribute.status != Attribute.STATUS_KNOWN || attribute.match == null) {
-    return const Color.fromARGB(0xff, 0xEE, 0xEE, 0xEE);
-  }
-  if (attribute.match! <= 20) {
-    return const HSLColor.fromAHSL(1, 0, 1, .9).toColor();
-  }
-  if (attribute.match! <= 40) {
-    return const HSLColor.fromAHSL(1, 30, 1, .9).toColor();
-  }
-  if (attribute.match! <= 60) {
-    return const HSLColor.fromAHSL(1, 60, 1, .9).toColor();
-  }
-  if (attribute.match! <= 80) {
-    return const HSLColor.fromAHSL(1, 90, 1, .9).toColor();
-  }
-  return const HSLColor.fromAHSL(1, 120, 1, .9).toColor();
+  return _attributeMatchComparison(
+      attribute,
+      const Color.fromARGB(0xff, 0xEE, 0xEE, 0xEE),
+      const HSLColor.fromAHSL(1, 0, 1, .9).toColor(),
+      const HSLColor.fromAHSL(1, 30, 1, .9).toColor(),
+      const HSLColor.fromAHSL(1, 60, 1, .9).toColor(),
+      const HSLColor.fromAHSL(1, 90, 1, .9).toColor(),
+      const HSLColor.fromAHSL(1, 120, 1, .9).toColor()) as Color;
 }
 
 Color getTextColor(final Attribute attribute) {
-  if (attribute.status == Attribute.STATUS_KNOWN && attribute.match != null) {
-    if (attribute.match! <= 20) {
-      return const Color.fromARGB(1, 235, 87, 87);
-    }
-    if (attribute.match! <= 40) {
-      return const Color.fromARGB(1, 242, 153, 74);
-    }
-    if (attribute.match! <= 60) {
-      return const Color.fromARGB(255, 149, 116, 0);
-    }
-    if (attribute.match! <= 80) {
-      return const Color.fromARGB(1, 133, 187, 47);
-    }
-    return const Color.fromARGB(1, 3, 129, 65);
-  } else {
-    return const Color.fromARGB(1, 75, 75, 75);
-  }
+  return _attributeMatchComparison(
+      attribute,
+      const Color.fromARGB(1, 75, 75, 75),
+      const Color.fromARGB(1, 235, 87, 87),
+      const Color.fromARGB(1, 242, 153, 74),
+      const Color.fromARGB(255, 149, 116, 0),
+      const Color.fromARGB(1, 133, 187, 47),
+      const Color.fromARGB(1, 3, 129, 65)) as Color;
 }
 
 Widget getAttributeDisplayIcon(final Attribute attribute) {
-  if (attribute.status != Attribute.STATUS_KNOWN || attribute.match == null) {
-    // Default emoji.
-    return const Text('ℹ️  ');
-  }
-  if (attribute.match! < 20) {
-    return const Text('💔  ');
-  }
-  if (attribute.match! < 40) {
-    return const Text('🍂  ');
-  }
-  if (attribute.match! < 60) {
-    return const Text('🌻  ');
-  }
-  if (attribute.match! < 80) {
-    return const Text('🌱  ');
-  }
-  return const Text('💚  ');
+  return _attributeMatchComparison(
+      attribute,
+      const Text('ℹ️  '),
+      const Text('💔  '),
+      const Text('🍂  '),
+      const Text('🌻  '),
+      const Text('🌱  '),
+      const Text('💚  ')) as Widget;
 }
 
 String? getDisplayTitle(final Attribute attribute) {
@@ -70,22 +49,39 @@ String? getDisplayTitle(final Attribute attribute) {
 
 String? _getNovaDisplayTitle(final Attribute attribute) {
   // Note: This method is temporary, this field will come from Backend and it will be internationalized.
+  return _attributeMatchComparison(attribute,
+      null,
+      'Ultra processed',
+      'Highly processed',
+      'Processed',
+      'Slightly processed',
+      'Unprocessed') as String?;
+}
+
+/// Compares the match score from [attribute] with various thresholds and returns appropriate result.
+dynamic _attributeMatchComparison(
+    final Attribute attribute,
+    dynamic invalidAttributeResult,
+    dynamic lowestMatchResult,
+    dynamic lowMatchResult,
+    dynamic midMatchResult,
+    dynamic highMatchResult,
+    dynamic highestMatchResult) {
   if (attribute.status != Attribute.STATUS_KNOWN ||
-      attribute.match == null ||
-      attribute.title == null) {
-    return null;
+      attribute.match == null) {
+    return invalidAttributeResult;
   }
-  if (attribute.match! <= 20) {
-    return 'Ultra processed';
+  if (attribute.match! <= _LOWEST_MATCH_SCORE_THRESHOLD) {
+    return lowestMatchResult;
   }
-  if (attribute.match! <= 40) {
-    return 'Highly processed';
+  if (attribute.match! <= _LOW_MATCH_SCORE_THRESHOLD) {
+    return lowMatchResult;
   }
-  if (attribute.match! <= 60) {
-    return 'Processed';
+  if (attribute.match! <= _MID_MATCH_SCORE_THRESHOLD) {
+    return midMatchResult;
   }
-  if (attribute.match! <= 80) {
-    return 'Slightly processed';
+  if (attribute.match! <= _HIGH_MATCH_SCORE_THRESHOLD) {
+    return highMatchResult;
   }
-  return 'Unprocessed';
+  return highestMatchResult;
 }

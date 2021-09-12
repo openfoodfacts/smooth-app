@@ -33,6 +33,8 @@ class _ProductPageState extends State<NewProductPage> {
   late Product _product;
   bool _first = true;
 
+  static const Color _BACKGROUND_COLOR = Color.fromARGB(255, 234, 244, 234);
+
   @override
   void initState() {
     super.initState();
@@ -47,9 +49,8 @@ class _ProductPageState extends State<NewProductPage> {
       _first = false;
       _product = widget.product;
     }
-    const Color backgroundColor = Color.fromARGB(255, 234, 244, 234);
     return Scaffold(
-      backgroundColor: backgroundColor,
+      backgroundColor: _BACKGROUND_COLOR,
       appBar: AppBar(
         title: Text(_getProductName(appLocalizations)),
         actions: <Widget>[
@@ -189,7 +190,7 @@ class _ProductPageState extends State<NewProductPage> {
     List<String> importantAttributeIds =
         productPreferences.getOrderedImportantAttributeIds();
     importantAttributeIds = importantAttributeIds
-        .where((String attributeId) => scoreAttributeIds.contains(attributeId))
+        .where((String attributeId) => !scoreAttributeIds.contains(attributeId))
         .toList();
     final List<Attribute> importantAttributes =
         AttributeListExpandable.getPopulatedAttributes(
@@ -237,8 +238,7 @@ class _ProductPageState extends State<NewProductPage> {
           for (final Attribute attribute in scoreAttributes)
             ScoreAttributeCard(
                 attribute: attribute,
-                iconHeight: iconHeight,
-                barcode: _product.barcode),
+                iconHeight: iconHeight),
           attributesContainer
         ]),
       ),
