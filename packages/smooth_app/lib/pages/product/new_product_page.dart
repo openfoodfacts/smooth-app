@@ -16,6 +16,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_ui_library/widgets/smooth_card.dart';
 
 class NewProductPage extends StatefulWidget {
@@ -50,7 +51,7 @@ class _ProductPageState extends State<NewProductPage> {
       _product = widget.product;
     }
     return Scaffold(
-      backgroundColor: _BACKGROUND_COLOR,
+      backgroundColor: SmoothTheme.COLOR_PRODUCT_PAGE_BACKGROUND,
       appBar: AppBar(
         title: Text(_getProductName(appLocalizations)),
         actions: <Widget>[
