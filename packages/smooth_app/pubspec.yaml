@@ -33,7 +33,7 @@ dependencies:
   provider: ^5.0.0
   qr_code_scanner: ^0.5.2
   rubber: ^1.0.1
-  sentry: ^5.1.0
+  sentry_flutter: ^6.0.0
   share: ^2.0.4
   smooth_ui_library:
     path: ../smooth_ui_library
