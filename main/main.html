@@ -64,26 +64,23 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Sentry.init(
-    (SentryOptions options) {
-      options.dsn =
-          &#39;https:&#47;&#47;22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io&#47;5376745&#39;;
-    },
-  );
+  final PackageInfo packageInfo = await PackageInfo.fromPlatform();
+
   &#47;* TODO: put back when we have clearer ideas about analytics
   await MatomoTracker().initialize(
     siteId: 2,
     url: &#39;https:&#47;&#47;analytics.openfoodfacts.org&#47;&#39;,
   );
    *&#47;
-  try {
-    runApp(const SmoothApp());
-  } catch (exception, stackTrace) {
-    await Sentry.captureException(
-      exception,
-      stackTrace: stackTrace,
-    );
-  }
+
+  await SentryFlutter.init(
+    (SentryOptions options) {
+      options.dsn =
+          &#39;https:&#47;&#47;22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io&#47;5376745&#39;;
+      options.sentryClientName = &#39;sentry.dart.smoothie&#47;${packageInfo.version}&#39;;
+    },
+    appRunner: () =&gt; runApp(const SmoothApp()),
+  );
 }</code></pre>
 </section>
 
