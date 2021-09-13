@@ -34,8 +34,6 @@ class _ProductPageState extends State<NewProductPage> {
   late Product _product;
   bool _first = true;
 
-  static const Color _BACKGROUND_COLOR = Color.fromARGB(255, 234, 244, 234);
-
   @override
   void initState() {
     super.initState();
