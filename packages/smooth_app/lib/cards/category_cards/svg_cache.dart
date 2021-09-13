@@ -8,12 +8,16 @@ class SvgCache extends StatelessWidget {
     this.iconUrl, {
     this.width,
     this.height,
+    this.fit,
+    this.alignment,
     this.displayAssetWhileWaiting = true,
   });
 
   final String? iconUrl;
   final double? width;
   final double? height;
+  final BoxFit? fit;
+  final AlignmentGeometry? alignment;
   final bool displayAssetWhileWaiting;
 
   @override
@@ -31,7 +35,8 @@ class SvgCache extends StatelessWidget {
       iconUrl!,
       width: width,
       height: height,
-      fit: BoxFit.contain,
+      fit: fit ?? BoxFit.contain,
+      alignment: alignment ?? Alignment.center,
       placeholderBuilder: (BuildContext context) => displayAssetWhileWaiting
           ? SvgAsyncAsset(fullFilename, width: width, height: height)
           : SizedBox(
