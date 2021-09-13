@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -29,20 +28,4 @@ class ScanPage extends StatelessWidget {
         });
   }
 
-  static Widget getHero(final Size screenSize) => Hero(
-        tag: 'action_button',
-        child: Container(
-          width: screenSize.width,
-          height: screenSize.height,
-          color: Colors.black,
-          child: Center(
-            child: SvgPicture.asset(
-              'assets/actions/scanner_alt_2.svg',
-              width: 60.0,
-              height: 60.0,
-              color: Colors.white,
-            ),
-          ),
-        ),
-      );
 }

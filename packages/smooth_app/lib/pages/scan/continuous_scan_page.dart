@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
-import 'package:smooth_app/pages/scan/scan_page.dart';
 import 'package:smooth_app/pages/scan/search_panel.dart';
 import 'package:smooth_app/widgets/smooth_product_carousel.dart';
 import 'package:smooth_ui_library/smooth_ui_library.dart';
@@ -32,7 +32,16 @@ class ContinuousScanPage extends StatelessWidget {
       appBar: AppBar(toolbarHeight: 0.0),
       body: Stack(
         children: <Widget>[
-          ScanPage.getHero(screenSize),
+          Container(
+            alignment: Alignment.center,
+            color: Colors.black,
+            child: SvgPicture.asset(
+              'assets/actions/scanner_alt_2.svg',
+              width: 60.0,
+              height: 60.0,
+              color: Colors.white,
+            ),
+          ),
           SmoothRevealAnimation(
             delay: 400,
             startOffset: Offset.zero,
