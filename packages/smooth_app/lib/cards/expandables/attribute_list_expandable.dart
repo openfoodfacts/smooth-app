@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/attribute_card.dart';
 import 'package:smooth_app/cards/data_cards/attribute_chip.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/attribute_button.dart';
@@ -70,12 +71,12 @@ class AttributeListExpandable extends StatelessWidget {
     final ThemeData themeData = Theme.of(context);
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final double opacity = themeData.brightness == Brightness.light
-        ? 1
+        ? 1.0
         : SmoothTheme.ADDITIONAL_OPACITY_FOR_DARK;
     final List<Widget> chips = <Widget>[];
     final List<Widget> cards = <Widget>[];
     for (final Attribute attribute in attributes) {
-      final Color color = _getBackgroundColor(attribute).withOpacity(opacity);
+      final Color color = getBackgroundColor(attribute).withOpacity(opacity);
       final Widget chip = AttributeChip(attribute, height: iconHeight);
       chips.add(
         InkWell(
@@ -166,25 +167,5 @@ class AttributeListExpandable extends StatelessWidget {
       child: content,
       expandedHeader: header,
     );
-  }
-
-  static Color _getBackgroundColor(final Attribute attribute) {
-    if (attribute.status == Attribute.STATUS_KNOWN && attribute.match != null) {
-      if (attribute.match! <= 20) {
-        return const HSLColor.fromAHSL(1, 0, 1, .9).toColor();
-      }
-      if (attribute.match! <= 40) {
-        return const HSLColor.fromAHSL(1, 30, 1, .9).toColor();
-      }
-      if (attribute.match! <= 60) {
-        return const HSLColor.fromAHSL(1, 60, 1, .9).toColor();
-      }
-      if (attribute.match! <= 80) {
-        return const HSLColor.fromAHSL(1, 90, 1, .9).toColor();
-      }
-      return const HSLColor.fromAHSL(1, 120, 1, .9).toColor();
-    } else {
-      return const Color.fromARGB(0xff, 0xEE, 0xEE, 0xEE);
-    }
   }
 }
