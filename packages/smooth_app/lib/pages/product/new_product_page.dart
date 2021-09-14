@@ -69,7 +69,7 @@ class _ProductPageState extends State<NewProductPage> {
                       false);
                   break;
                 case ProductPageMenuItem.REFRESH:
-                  _refreshProduct(localDatabase, context);
+                  _refreshProduct(localDatabase, appLocalizations);
                   break;
                 default:
                   throw UnimplementedError(
@@ -84,8 +84,7 @@ class _ProductPageState extends State<NewProductPage> {
   }
 
   Future<void> _refreshProduct(
-      LocalDatabase localDatabase, BuildContext context) async {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+      LocalDatabase localDatabase, AppLocalizations appLocalizations) async {
     final ProductDialogHelper productDialogHelper = ProductDialogHelper(
       barcode: _product.barcode!,
       context: context,
