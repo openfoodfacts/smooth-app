@@ -36,13 +36,12 @@ class _ProductPageState extends State<NewProductPage> {
   @override
   void initState() {
     super.initState();
-    _updateHistory(context);
     _product = widget.product;
+    _updateLastSeenProduct(context, _product);
   }
 
   @override
   Widget build(BuildContext context) {
-    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     return Scaffold(
       backgroundColor: SmoothTheme.COLOR_PRODUCT_PAGE_BACKGROUND,
@@ -69,11 +68,8 @@ class _ProductPageState extends State<NewProductPage> {
                       false);
                   break;
                 case ProductPageMenuItem.REFRESH:
-                  _refreshProduct(localDatabase, appLocalizations);
+                  _refreshProduct(context);
                   break;
-                default:
-                  throw UnimplementedError(
-                      "$value Popup item isn't handled yet.");
               }
             },
           ),
@@ -83,8 +79,9 @@ class _ProductPageState extends State<NewProductPage> {
     );
   }
 
-  Future<void> _refreshProduct(
-      LocalDatabase localDatabase, AppLocalizations appLocalizations) async {
+  Future<void> _refreshProduct(BuildContext context) async {
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final ProductDialogHelper productDialogHelper = ProductDialogHelper(
       barcode: _product.barcode!,
       context: context,
@@ -106,12 +103,13 @@ class _ProductPageState extends State<NewProductPage> {
     setState(() {
       _product = product;
     });
-    await _updateHistory(context);
+    await _updateLastSeenProduct(context, _product);
   }
 
-  Future<void> _updateHistory(BuildContext context) async {
+  Future<void> _updateLastSeenProduct(
+      BuildContext context, Product product) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    await DaoProductExtra(localDatabase).putLastSeen(widget.product);
+    await DaoProductExtra(localDatabase).putLastSeen(product);
     localDatabase.notifyListeners();
   }
 
@@ -204,14 +202,15 @@ class _ProductPageState extends State<NewProductPage> {
           Wrap(runSpacing: 16, children: <Widget>[
             for (final Attribute attribute in importantAttributes)
               getAttributeChip(attribute, screenSize) ?? Container(),
-          ])
+          ]),
         ]));
 
     final List<Widget> listItems = <Widget>[];
     listItems.add(Align(
-        heightFactor: 0.7,
-        alignment: Alignment.topLeft,
-        child: _buildProductImagesCarousel(context)));
+      heightFactor: 0.7,
+      alignment: Alignment.topLeft,
+      child: _buildProductImagesCarousel(context),
+    ));
     listItems.add(
       SmoothCard(
         padding: const EdgeInsets.only(
@@ -223,20 +222,20 @@ class _ProductPageState extends State<NewProductPage> {
         insets: const EdgeInsets.all(12.0),
         child: Column(children: <Widget>[
           Align(
-              alignment: Alignment.topLeft,
-              child: ListTile(
-                contentPadding: EdgeInsets.zero,
-                title: Text(
-                  _getProductName(appLocalizations),
-                  style: themeData.textTheme.headline4,
-                ),
-                subtitle:
-                    Text(_product.brands ?? appLocalizations.unknownBrand),
-                trailing: Text(
-                  _product.quantity ?? '',
-                  style: themeData.textTheme.headline3,
-                ),
-              )),
+            alignment: Alignment.topLeft,
+            child: ListTile(
+              contentPadding: EdgeInsets.zero,
+              title: Text(
+                _getProductName(appLocalizations),
+                style: themeData.textTheme.headline4,
+              ),
+              subtitle: Text(_product.brands ?? appLocalizations.unknownBrand),
+              trailing: Text(
+                _product.quantity ?? '',
+                style: themeData.textTheme.headline3,
+              ),
+            ),
+          ),
           for (final Attribute attribute in scoreAttributes)
             ScoreAttributeCard(attribute: attribute, iconHeight: iconHeight),
           attributesContainer
@@ -264,7 +263,7 @@ class _ProductPageState extends State<NewProductPage> {
                 Expanded(
                     child: Text(
                   attributeDisplayTitle,
-                ))
+                )),
               ]));
     });
   }

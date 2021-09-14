@@ -27,23 +27,20 @@ class ScoreAttributeCard extends StatelessWidget {
     final String? description =
         attribute.descriptionShort ?? attribute.description;
     return Container(
-      margin: const EdgeInsets.fromLTRB(0, 8, 0, 8),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            attributeChip,
-            if (description != null)
-              Expanded(
-                  child: Center(
-                      child: Text(
-                description,
-                style: themeData.textTheme.headline4!.apply(color: textColor),
-              ))),
-          ],
-        ),
+      margin: const EdgeInsets.symmetric(vertical: 8.0),
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          attributeChip,
+          if (description != null)
+            Expanded(
+                child: Center(
+                    child: Text(
+              description,
+              style: themeData.textTheme.headline4!.apply(color: textColor),
+            ))),
+        ],
       ),
       decoration: BoxDecoration(
         color: backgroundColor,
