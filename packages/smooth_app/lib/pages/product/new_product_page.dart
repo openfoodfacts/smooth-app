@@ -20,9 +20,7 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_ui_library/widgets/smooth_card.dart';
 
 class NewProductPage extends StatefulWidget {
-  const NewProductPage({
-    required this.product,
-  });
+  const NewProductPage(this.product);
 
   final Product product;
 
@@ -30,73 +28,52 @@ class NewProductPage extends StatefulWidget {
   State<NewProductPage> createState() => _ProductPageState();
 }
 
+enum ProductPageMenuItem { WEB, REFRESH }
+
 class _ProductPageState extends State<NewProductPage> {
   late Product _product;
-  bool _first = true;
 
   @override
   void initState() {
     super.initState();
     _updateHistory(context);
+    _product = widget.product;
   }
 
   @override
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-    if (_first) {
-      _first = false;
-      _product = widget.product;
-    }
     return Scaffold(
       backgroundColor: SmoothTheme.COLOR_PRODUCT_PAGE_BACKGROUND,
       appBar: AppBar(
         title: Text(_getProductName(appLocalizations)),
         actions: <Widget>[
-          PopupMenuButton<String>(
-            itemBuilder: (final BuildContext context) =>
-                <PopupMenuEntry<String>>[
-              PopupMenuItem<String>(
-                value: 'web',
+          PopupMenuButton<ProductPageMenuItem>(
+            itemBuilder: (BuildContext context) =>
+                <PopupMenuEntry<ProductPageMenuItem>>[
+              PopupMenuItem<ProductPageMenuItem>(
+                value: ProductPageMenuItem.WEB,
                 child: Text(appLocalizations.label_web),
               ),
-              PopupMenuItem<String>(
-                value: 'refresh',
+              PopupMenuItem<ProductPageMenuItem>(
+                value: ProductPageMenuItem.REFRESH,
                 child: Text(appLocalizations.label_refresh),
               ),
             ],
-            onSelected: (final String value) async {
+            onSelected: (final ProductPageMenuItem value) async {
               switch (value) {
-                case 'web':
+                case ProductPageMenuItem.WEB:
                   LaunchUrlHelper.launchURL(
                       'https://openfoodfacts.org/product/${_product.barcode}/',
                       false);
                   break;
-                case 'refresh':
-                  final ProductDialogHelper productDialogHelper =
-                      ProductDialogHelper(
-                    barcode: _product.barcode!,
-                    context: context,
-                    localDatabase: localDatabase,
-                    refresh: true,
-                  );
-                  final Product? product =
-                      await productDialogHelper.openUniqueProductSearch();
-                  if (product == null) {
-                    productDialogHelper.openProductNotFoundDialog();
-                    return;
-                  }
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(appLocalizations.product_refreshed),
-                      duration: const Duration(seconds: 2),
-                    ),
-                  );
-                  _product = product;
-                  await _updateHistory(context);
+                case ProductPageMenuItem.REFRESH:
+                  _refreshProduct(localDatabase, context);
                   break;
                 default:
-                  throw Exception('Unknown value: $value');
+                  throw UnimplementedError(
+                      "$value Popup item isn't handled yet.");
               }
             },
           ),
@@ -104,6 +81,31 @@ class _ProductPageState extends State<NewProductPage> {
       ),
       body: _buildProductBody(context),
     );
+  }
+
+  Future<void> _refreshProduct(
+      LocalDatabase localDatabase, BuildContext context) async {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final ProductDialogHelper productDialogHelper = ProductDialogHelper(
+      barcode: _product.barcode!,
+      context: context,
+      localDatabase: localDatabase,
+      refresh: true,
+    );
+    final Product? product =
+        await productDialogHelper.openUniqueProductSearch();
+    if (product == null) {
+      productDialogHelper.openProductNotFoundDialog();
+      return;
+    }
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(appLocalizations.product_refreshed),
+        duration: const Duration(seconds: 2),
+      ),
+    );
+    setState(() => _product = product);
+    await _updateHistory(context);
   }
 
   Future<void> _updateHistory(final BuildContext context) async {

@@ -15,7 +15,7 @@ Color getBackgroundColor(final Attribute attribute) {
       const HSLColor.fromAHSL(1, 30, 1, .9).toColor(),
       const HSLColor.fromAHSL(1, 60, 1, .9).toColor(),
       const HSLColor.fromAHSL(1, 90, 1, .9).toColor(),
-      const HSLColor.fromAHSL(1, 120, 1, .9).toColor()) as Color;
+      const HSLColor.fromAHSL(1, 120, 1, .9).toColor());
 }
 
 Color getTextColor(final Attribute attribute) {
@@ -26,7 +26,7 @@ Color getTextColor(final Attribute attribute) {
       const Color.fromARGB(1, 242, 153, 74),
       const Color.fromARGB(255, 149, 116, 0),
       const Color.fromARGB(1, 133, 187, 47),
-      const Color.fromARGB(1, 3, 129, 65)) as Color;
+      const Color.fromARGB(1, 3, 129, 65));
 }
 
 Widget getAttributeDisplayIcon(final Attribute attribute) {
@@ -37,7 +37,7 @@ Widget getAttributeDisplayIcon(final Attribute attribute) {
       const Text('🍂  '),
       const Text('🌻  '),
       const Text('🌱  '),
-      const Text('💚  ')) as Widget;
+      const Text('💚  '));
 }
 
 String? getDisplayTitle(final Attribute attribute) {
@@ -49,25 +49,19 @@ String? getDisplayTitle(final Attribute attribute) {
 
 String? _getNovaDisplayTitle(final Attribute attribute) {
   // Note: This method is temporary, this field will come from Backend and it will be internationalized.
-  return _attributeMatchComparison(
-      attribute,
-      null,
-      'Ultra processed',
-      'Highly processed',
-      'Processed',
-      'Slightly processed',
-      'Unprocessed') as String?;
+  return _attributeMatchComparison(attribute, null, 'Ultra processed',
+      'Highly processed', 'Processed', 'Slightly processed', 'Unprocessed');
 }
 
 /// Compares the match score from [attribute] with various thresholds and returns appropriate result.
-dynamic _attributeMatchComparison(
+T _attributeMatchComparison<T>(
     final Attribute attribute,
-    dynamic invalidAttributeResult,
-    dynamic lowestMatchResult,
-    dynamic lowMatchResult,
-    dynamic midMatchResult,
-    dynamic highMatchResult,
-    dynamic highestMatchResult) {
+    T invalidAttributeResult,
+    T lowestMatchResult,
+    T lowMatchResult,
+    T midMatchResult,
+    T highMatchResult,
+    T highestMatchResult) {
   if (attribute.status != Attribute.STATUS_KNOWN || attribute.match == null) {
     return invalidAttributeResult;
   }
