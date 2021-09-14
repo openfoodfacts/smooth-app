@@ -104,7 +104,9 @@ class _ProductPageState extends State<NewProductPage> {
         duration: const Duration(seconds: 2),
       ),
     );
-    setState(() => _product = product);
+    setState(() {
+      _product = product;
+    });
     await _updateHistory(context);
   }
 
