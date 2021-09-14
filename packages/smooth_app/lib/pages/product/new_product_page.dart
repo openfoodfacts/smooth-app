@@ -110,7 +110,7 @@ class _ProductPageState extends State<NewProductPage> {
     await _updateHistory(context);
   }
 
-  Future<void> _updateHistory(final BuildContext context) async {
+  Future<void> _updateHistory(BuildContext context) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     await DaoProductExtra(localDatabase).putLastSeen(widget.product);
     localDatabase.notifyListeners();
