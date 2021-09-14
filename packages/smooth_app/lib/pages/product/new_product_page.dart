@@ -37,7 +37,7 @@ class _ProductPageState extends State<NewProductPage> {
   void initState() {
     super.initState();
     _product = widget.product;
-    _updateLastSeenProduct(context, _product);
+    _updateLocalDatabaseWithProductHistory(context, _product);
   }
 
   @override
@@ -103,10 +103,10 @@ class _ProductPageState extends State<NewProductPage> {
     setState(() {
       _product = product;
     });
-    await _updateLastSeenProduct(context, _product);
+    await _updateLocalDatabaseWithProductHistory(context, _product);
   }
 
-  Future<void> _updateLastSeenProduct(
+  Future<void> _updateLocalDatabaseWithProductHistory(
       BuildContext context, Product product) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     await DaoProductExtra(localDatabase).putLastSeen(product);
