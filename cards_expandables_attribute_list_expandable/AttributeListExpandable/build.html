@@ -113,12 +113,12 @@ Widget build(BuildContext context) {
   final ThemeData themeData = Theme.of(context);
   final ThemeProvider themeProvider = context.watch&lt;ThemeProvider&gt;();
   final double opacity = themeData.brightness == Brightness.light
-      ? 1
+      ? 1.0
       : SmoothTheme.ADDITIONAL_OPACITY_FOR_DARK;
   final List&lt;Widget&gt; chips = &lt;Widget&gt;[];
   final List&lt;Widget&gt; cards = &lt;Widget&gt;[];
   for (final Attribute attribute in attributes) {
-    final Color color = _getBackgroundColor(attribute).withOpacity(opacity);
+    final Color color = getBackgroundColor(attribute).withOpacity(opacity);
     final Widget chip = AttributeChip(attribute, height: iconHeight);
     chips.add(
       InkWell(
