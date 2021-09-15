@@ -1,6 +1,9 @@
+name: Dep notifier
 on:
-  schedule:
-    - cron: 0 2 * * *
+  push:
+    branches:
+      #- '*'
+      - 'dependancy-notifier'
 jobs:
   test:
     name: example Flutter package updater
