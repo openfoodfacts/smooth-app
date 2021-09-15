@@ -10,22 +10,11 @@ import 'package:smooth_app/widgets/smooth_product_carousel.dart';
 import 'package:smooth_ui_library/smooth_ui_library.dart';
 
 class ContinuousScanPage extends StatelessWidget {
-  ContinuousScanPage(this._continuousScanModel);
-
-  final ContinuousScanModel _continuousScanModel;
-
   final GlobalKey _scannerViewKey = GlobalKey(debugLabel: 'Barcode Scanner');
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<ContinuousScanModel>.value(
-      value: _continuousScanModel,
-      child: Consumer<ContinuousScanModel>(builder: _build),
-    );
-  }
-
-  Widget _build(
-      BuildContext context, ContinuousScanModel model, Widget? child) {
+    final ContinuousScanModel model = context.watch<ContinuousScanModel>();
     final AppLocalizations localizations = AppLocalizations.of(context)!;
     final Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
@@ -48,7 +37,7 @@ class ContinuousScanPage extends StatelessWidget {
             animationCurve: Curves.easeInOutBack,
             child: QRView(
               key: _scannerViewKey,
-              onQRViewCreated: _continuousScanModel.setupScanner,
+              onQRViewCreated: model.setupScanner,
             ),
           ),
           SmoothRevealAnimation(
@@ -74,14 +63,14 @@ class ContinuousScanPage extends StatelessWidget {
             animationCurve: Curves.easeInOutBack,
             child: Column(
               children: <Widget>[
-                if (_continuousScanModel.isNotEmpty) ...<Widget>[
+                if (model.isNotEmpty) ...<Widget>[
                   const SizedBox(height: 10.0),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
                       ElevatedButton.icon(
                         icon: const Icon(Icons.cancel_outlined),
-                        onPressed: _continuousScanModel.clearScanSession,
+                        onPressed: model.clearScanSession,
                         label: const Text('Clear'),
                       ),
                       ElevatedButton.icon(
@@ -93,7 +82,7 @@ class ContinuousScanPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 10.0),
                   SmoothProductCarousel(
-                    continuousScanModel: _continuousScanModel,
+                    continuousScanModel: model,
                   )
                 ],
               ],
@@ -106,15 +95,16 @@ class ContinuousScanPage extends StatelessWidget {
   }
 
   Future<void> _openPersonalizedRankingPage(BuildContext context) async {
-    await _continuousScanModel.refreshProductList();
+    final ContinuousScanModel model = context.read<ContinuousScanModel>();
+    await model.refreshProductList();
     await Navigator.push<Widget>(
       context,
       MaterialPageRoute<Widget>(
         builder: (BuildContext context) => PersonalizedRankingPage(
-          _continuousScanModel.productList,
+          model.productList,
         ),
       ),
     );
-    await _continuousScanModel.refresh();
+    await model.refresh();
   }
 }
