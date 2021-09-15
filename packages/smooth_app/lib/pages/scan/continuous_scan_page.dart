@@ -81,9 +81,7 @@ class ContinuousScanPage extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 10.0),
-                  SmoothProductCarousel(
-                    continuousScanModel: model,
-                  )
+                  const SmoothProductCarousel(),
                 ],
               ],
             ),
