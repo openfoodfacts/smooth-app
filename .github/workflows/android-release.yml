@@ -9,32 +9,33 @@ on:
 jobs:
   deploy_android:
     runs-on: ubuntu-latest
-   #needs: [build_android]
-    #defaults:
-    #  run:
-    #    working-directory: ./packages/smooth_app/android/
-    #    shell: pwd
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Setup Java
-        uses: actions/setup-java@v1
+
+      - name: Setup Java jdk
+        uses: actions/setup-java@v2.3.0
         with:
+          distribution: 'zulu'
           java-version: 12.x
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '2.7.2'
           bundler-cache: true
+
       - name: Decrypt API JSON file
         run: cd ./packages/smooth_app/android/fastlane/envfiles && chmod +x ./decrypt_secrets.sh && ./decrypt_secrets.sh
         env:
           API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
           STORE_JKS_DECRYPTKEY: ${{ secrets.STORE_JKS_DECRYPTKEY }}
+
       - name: Setup Flutter
         uses: subosito/flutter-action@v1
         with:
           channel: 'stable'
+
       - name: Install Flutter dependencies
         run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get
 
@@ -43,8 +44,6 @@ jobs:
         with:
           lane: setVersion
           subdirectory: packages/smooth_app/android
-
-
 
       - name: Build AAB
         run: echo $SIGN_STORE_PATH && pwd && cd ./packages/smooth_app/ && pwd && flutter build appbundle --release
