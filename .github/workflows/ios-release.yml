@@ -17,12 +17,12 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '2.7.2'
           bundler-cache: true
       
-      - name: Setup JDK
-        uses: actions/setup-java@v1
+      - name: Setup Java jdk
+        uses: actions/setup-java@v2.3.0
         with:
+          distribution: 'zulu'
           java-version: "12.x"
 
       - name: Setup Flutter

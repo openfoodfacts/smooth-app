@@ -23,7 +23,7 @@ class SmoothListTile extends StatelessWidget {
           child: Card(
             color: Theme.of(context).colorScheme.surface,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
+              borderRadius: BorderRadius.circular(10.0),
             ),
             elevation: 10,
             child: ConstrainedBox(
