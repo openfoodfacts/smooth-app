@@ -30,14 +30,10 @@ class SmoothTheme {
   static const String COLOR_TAG_GREEN = 'green';
   static const String COLOR_TAG_BROWN = 'brown';
 
-  /// Product page color
-  static const Color COLOR_PRODUCT_PAGE_BACKGROUND =
-      Color.fromARGB(255, 234, 244, 234);
-
   /// Theme material colors
   static const Map<String, MaterialColor> MATERIAL_COLORS =
       <String, MaterialColor>{
-    COLOR_TAG_BLUE: Colors.blue,
+    COLOR_TAG_BLUE: Colors.lightBlue,
     COLOR_TAG_GREEN: Colors.green,
     COLOR_TAG_BROWN: Colors.brown,
   };

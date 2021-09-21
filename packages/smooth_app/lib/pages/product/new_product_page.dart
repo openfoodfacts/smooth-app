@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
+import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -17,7 +18,8 @@ import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
-import 'package:smooth_ui_library/widgets/smooth_card.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_ui_library/smooth_ui_library.dart';
 
 class NewProductPage extends StatefulWidget {
   const NewProductPage(this.product);
@@ -29,6 +31,20 @@ class NewProductPage extends StatefulWidget {
 }
 
 enum ProductPageMenuItem { WEB, REFRESH }
+final List<String> scoreAttributeIds_ = <String>[
+  Attribute.ATTRIBUTE_NUTRISCORE,
+  Attribute.ATTRIBUTE_ECOSCORE
+];
+
+final List<String> attributeGroupOrder_ = [
+  AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS,
+  AttributeGroup.ATTRIBUTE_GROUP_INGREDIENT_ANALYSIS,
+  AttributeGroup.ATTRIBUTE_GROUP_PROCESSING,
+  AttributeGroup.ATTRIBUTE_GROUP_NUTRITIONAL_QUALITY,
+  AttributeGroup.ATTRIBUTE_GROUP_LABELS,
+];
+
+const Widget emptyWidget_ = SizedBox.shrink();
 
 class _ProductPageState extends State<NewProductPage> {
   late Product _product;
@@ -43,8 +59,17 @@ class _ProductPageState extends State<NewProductPage> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final ThemeData themeData = Theme.of(context);
+    final ColorScheme colorScheme = themeData.colorScheme;
+    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
+    final MaterialColor materialColor =
+        SmoothTheme.getMaterialColor(themeProvider);
     return Scaffold(
-      backgroundColor: SmoothTheme.COLOR_PRODUCT_PAGE_BACKGROUND,
+      backgroundColor: SmoothTheme.getColor(
+        colorScheme,
+        materialColor,
+        ColorDestination.SURFACE_BACKGROUND,
+      ),
       appBar: AppBar(
         title: Text(_getProductName(appLocalizations)),
         actions: <Widget>[
@@ -172,37 +197,19 @@ class _ProductPageState extends State<NewProductPage> {
   }
 
   Widget _buildProductBody(BuildContext context) {
-    final ProductPreferences productPreferences =
-        context.watch<ProductPreferences>();
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final Size screenSize = MediaQuery.of(context).size;
-    final ThemeData themeData = Theme.of(context);
     final double iconHeight =
         screenSize.width / 10; // TODO(monsieurtanuki): target size?
-    final List<String> scoreAttributeIds = <String>[
-      Attribute.ATTRIBUTE_NUTRISCORE,
-      Attribute.ATTRIBUTE_ECOSCORE
-    ];
     final List<Attribute> scoreAttributes =
         AttributeListExpandable.getPopulatedAttributes(
-            _product, scoreAttributeIds);
+            _product, scoreAttributeIds_);
 
-    List<String> importantAttributeIds =
-        productPreferences.getOrderedImportantAttributeIds();
-    importantAttributeIds = importantAttributeIds
-        .where((String attributeId) => !scoreAttributeIds.contains(attributeId))
-        .toList();
-    final List<Attribute> importantAttributes =
-        AttributeListExpandable.getPopulatedAttributes(
-            _product, importantAttributeIds);
     final Widget attributesContainer = Container(
         alignment: Alignment.topLeft,
         margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
         child: Column(children: <Widget>[
-          Wrap(runSpacing: 16, children: <Widget>[
-            for (final Attribute attribute in importantAttributes)
-              getAttributeChip(attribute, screenSize) ?? Container(),
-          ]),
+          for (final String groupId in attributeGroupOrder_)
+            getAttributeGroupWidget(context, _product, groupId),
         ]));
 
     final List<Widget> listItems = <Widget>[];
@@ -219,33 +226,133 @@ class _ProductPageState extends State<NewProductPage> {
           top: 4.0,
           bottom: 20.0,
         ),
-        insets: const EdgeInsets.all(12.0),
-        child: Column(children: <Widget>[
-          Align(
-            alignment: Alignment.topLeft,
-            child: ListTile(
-              contentPadding: EdgeInsets.zero,
-              title: Text(
-                _getProductName(appLocalizations),
-                style: themeData.textTheme.headline4,
-              ),
-              subtitle: Text(_product.brands ?? appLocalizations.unknownBrand),
-              trailing: Text(
-                _product.quantity ?? '',
-                style: themeData.textTheme.headline3,
-              ),
+        insets: EdgeInsets.zero, // Zero padding for the card content.
+        clipBehavior: Clip.antiAliasWithSaveLayer,
+        child: Column(
+          children: <Widget>[
+            getProductMatchHeader(context),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 12.0),
+              child: Column(children: [
+                getProductTitleTile(context),
+                for (final Attribute attribute in scoreAttributes)
+                  ScoreAttributeCard(
+                      attribute: attribute, iconHeight: iconHeight),
+                attributesContainer
+              ]),
             ),
-          ),
-          for (final Attribute attribute in scoreAttributes)
-            ScoreAttributeCard(attribute: attribute, iconHeight: iconHeight),
-          attributesContainer
-        ]),
+          ],
+        ),
       ),
     );
     return ListView(children: listItems);
   }
 
-  Widget? getAttributeChip(Attribute attribute, Size screenSize) {
+  Widget getProductMatchHeader(BuildContext context) {
+    // NOTE: This is temporary and will be updated once the feature is supported
+    // by the server.
+    return Container(
+      color: Colors.red,
+      padding: EdgeInsets.zero,
+      child: Container(
+        alignment: Alignment.topLeft,
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        child: Center(child: Text('Very poor Match', style: Theme.of(context).textTheme.subtitle1)),
+      ),
+    );
+  }
+
+  Widget getProductTitleTile(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final ThemeData themeData = Theme.of(context);
+    return Align(
+      alignment: Alignment.topLeft,
+      child: ListTile(
+        contentPadding: EdgeInsets.zero,
+        title: Text(
+          _getProductName(appLocalizations),
+          style: themeData.textTheme.headline4,
+        ),
+        subtitle: Text(_product.brands ?? appLocalizations.unknownBrand),
+        trailing: Text(
+          _product.quantity ?? '',
+          style: themeData.textTheme.headline3,
+        ),
+      ),
+    );
+  }
+
+  Widget getAttributeGroupWidget(
+      BuildContext context, Product product, String groupId) {
+    final Iterable<AttributeGroup> groupIterable = _product.attributeGroups!
+        .where((AttributeGroup group) => group.id == groupId);
+    if (groupIterable.isEmpty) {
+      return emptyWidget_;
+    }
+    final AttributeGroup group = groupIterable.single;
+    return Container(
+      alignment: Alignment.topLeft,
+      child: Column(
+        children: <Widget>[
+          Container(
+            alignment: Alignment.topLeft,
+            padding: const EdgeInsets.symmetric(vertical: 8),
+            child: getAttributeGroupHeader(context, group),
+          ),
+          Container(
+            alignment: Alignment.topLeft,
+            child: Wrap(
+              runSpacing: 16,
+              children: <Widget>[
+                for (final Attribute attribute in group.attributes!)
+                  getAttributeChipForValidAttributes(context, attribute) ??
+                      emptyWidget_,
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  /// The attribute group header can either be group name or a divider depending
+  /// upon the type of the group.
+  Widget getAttributeGroupHeader(BuildContext context, AttributeGroup group) {
+    final ProductPreferences productPreferences =
+        context.watch<ProductPreferences>();
+    final bool containsImportantAttributes = group.attributes!.any(
+        (Attribute attribute) =>
+            productPreferences.isAttributeImportant(attribute.id!));
+    if (!containsImportantAttributes) {
+      return emptyWidget_;
+    }
+    if (group.id == AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS) {
+      return
+        Padding(
+          padding: const EdgeInsets.only(bottom: 8),
+          child:Text(
+        group.name!,
+        style: const TextStyle(color: Colors.blueGrey),
+      ),
+      );
+    }
+    return const Divider(
+      color: Colors.black12,
+    );
+  }
+
+  Widget? getAttributeChipForValidAttributes(
+      BuildContext context, Attribute attribute) {
+    final ProductPreferences productPreferences =
+        context.watch<ProductPreferences>();
+    if (attribute.id == null || scoreAttributeIds_.contains(attribute.id)) {
+      // Score Attribute Ids have already been rendered.
+      return null;
+    }
+    if (!productPreferences.isAttributeImportant(attribute.id!)) {
+      // Not an important attribute.
+      return null;
+    }
     final String? attributeDisplayTitle = getDisplayTitle(attribute);
     final Widget attributeIcon = getAttributeDisplayIcon(attribute);
     if (attributeDisplayTitle == null) {
