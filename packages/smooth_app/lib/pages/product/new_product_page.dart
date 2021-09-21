@@ -238,7 +238,7 @@ class _ProductPageState extends State<NewProductPage> {
                 for (final Attribute attribute in scoreAttributes)
                   ScoreAttributeCard(
                       attribute: attribute, iconHeight: iconHeight),
-                attributesContainer
+                attributesContainer,
               ]),
             ),
           ],
