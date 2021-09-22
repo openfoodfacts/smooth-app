@@ -39,7 +39,7 @@ jobs:
         run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get
 
       - name: Bump version
-        uses: maierj/fastlane-action@v2.0.1
+        uses: maierj/fastlane-action@v2.1.0
         with:
           lane: setVersion
           subdirectory: packages/smooth_app/android
@@ -53,7 +53,7 @@ jobs:
          SIGN_KEY_PASSWORD: ${{ secrets.SIGN_KEY_PASSWORD }}
 
       - name: Run Fastlane
-        uses: maierj/fastlane-action@v2.0.1
+        uses: maierj/fastlane-action@v2.1.0
         with:
           lane: closed_beta
           subdirectory: packages/smooth_app/android
