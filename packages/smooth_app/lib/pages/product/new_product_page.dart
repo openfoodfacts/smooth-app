@@ -31,12 +31,13 @@ class NewProductPage extends StatefulWidget {
 }
 
 enum ProductPageMenuItem { WEB, REFRESH }
-final List<String> _SCORE_ATTRIBUTE_IDS = <String>[
+
+const List<String> _SCORE_ATTRIBUTE_IDS = <String>[
   Attribute.ATTRIBUTE_NUTRISCORE,
   Attribute.ATTRIBUTE_ECOSCORE
 ];
 
-final List<String> _ATTRIBUTE_GROUP_ORDER = [
+const List<String> _ATTRIBUTE_GROUP_ORDER = [
   AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS,
   AttributeGroup.ATTRIBUTE_GROUP_INGREDIENT_ANALYSIS,
   AttributeGroup.ATTRIBUTE_GROUP_PROCESSING,
