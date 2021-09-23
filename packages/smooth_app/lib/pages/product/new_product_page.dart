@@ -257,8 +257,12 @@ class _ProductPageState extends State<NewProductPage> {
         alignment: Alignment.topLeft,
         padding: const EdgeInsets.symmetric(vertical: 8.0),
         child: Center(
-          child: Text('Very poor Match',
-              style: Theme.of(context).textTheme.subtitle1!.apply(color: Colors.white),
+          child: Text(
+            'Very poor Match',
+            style: Theme.of(context)
+                .textTheme
+                .subtitle1!
+                .apply(color: Colors.white),
           ),
         ),
       ),
@@ -286,7 +290,9 @@ class _ProductPageState extends State<NewProductPage> {
   }
 
   Widget _buildAttributeGroupContainer(
-      BuildContext context, String groupId,) {
+    BuildContext context,
+    String groupId,
+  ) {
     final Iterable<AttributeGroup> groupIterable = _product.attributeGroups!
         .where((AttributeGroup group) => group.id == groupId);
     if (groupIterable.isEmpty) {
@@ -334,7 +340,10 @@ class _ProductPageState extends State<NewProductPage> {
         padding: const EdgeInsets.only(bottom: 8.0),
         child: Text(
           group.name!,
-          style: Theme.of(context).textTheme.bodyText2!.apply(color: Colors.blueGrey),
+          style: Theme.of(context)
+              .textTheme
+              .bodyText2!
+              .apply(color: Colors.blueGrey),
         ),
       );
     }
