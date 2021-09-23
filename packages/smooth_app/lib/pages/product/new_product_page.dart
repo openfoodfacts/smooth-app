@@ -210,7 +210,7 @@ class _ProductPageState extends State<NewProductPage> {
         margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
         child: Column(children: <Widget>[
           for (final String groupId in _ATTRIBUTE_GROUP_ORDER)
-            _buildAttributeGroupContainer(context, groupId),
+            _buildAttributeGroup(context, groupId),
         ]));
 
     final List<Widget> listItems = <Widget>[];
@@ -228,7 +228,9 @@ class _ProductPageState extends State<NewProductPage> {
           bottom: 20.0,
         ),
         insets: EdgeInsets.zero, // Zero padding for the card content.
-        clipBehavior: Clip.antiAlias,
+        // Without setting a ClipBehavior, widgets overflow and the corner
+        // rounding does not work.
+        clipBehavior: Clip.hardEdge,
         child: Column(
           children: <Widget>[
             _buildProductMatchHeader(context),
@@ -292,7 +294,7 @@ class _ProductPageState extends State<NewProductPage> {
     );
   }
 
-  Widget _buildAttributeGroupContainer(
+  Widget _buildAttributeGroup(
     BuildContext context,
     String groupId,
   ) {
@@ -334,7 +336,7 @@ class _ProductPageState extends State<NewProductPage> {
         context.watch<ProductPreferences>();
     final bool containsImportantAttributes = group.attributes!.any(
         (Attribute attribute) =>
-            productPreferences.isAttributeImportant(attribute.id!));
+            productPreferences.isAttributeImportant(attribute.id!) == true);
     if (!containsImportantAttributes) {
       return _EMPTY_WIDGET;
     }
@@ -361,7 +363,7 @@ class _ProductPageState extends State<NewProductPage> {
       // Score Attribute Ids have already been rendered.
       return null;
     }
-    if (!productPreferences.isAttributeImportant(attribute.id!)) {
+    if (productPreferences.isAttributeImportant(attribute.id!) != true) {
       // Not an important attribute.
       return null;
     }
