@@ -309,7 +309,7 @@ class _ProductPageState extends State<NewProductPage> {
           Container(
             alignment: Alignment.topLeft,
             padding: const EdgeInsets.symmetric(vertical: 8.0),
-            child: getAttributeGroupHeader(context, group),
+            child: _buildAttributeGroupHeader(context, group),
           ),
           Container(
             alignment: Alignment.topLeft,
@@ -317,7 +317,7 @@ class _ProductPageState extends State<NewProductPage> {
               runSpacing: 16,
               children: <Widget>[
                 for (final Attribute attribute in group.attributes!)
-                  getAttributeChipForValidAttributes(context, attribute) ??
+                  _buildAttributeChipForValidAttributes(context, attribute) ??
                       _EMPTY_WIDGET,
               ],
             ),
@@ -329,7 +329,7 @@ class _ProductPageState extends State<NewProductPage> {
 
   /// The attribute group header can either be group name or a divider depending
   /// upon the type of the group.
-  Widget getAttributeGroupHeader(BuildContext context, AttributeGroup group) {
+  Widget _buildAttributeGroupHeader(BuildContext context, AttributeGroup group) {
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
     final bool containsImportantAttributes = group.attributes!.any(
@@ -353,7 +353,7 @@ class _ProductPageState extends State<NewProductPage> {
     );
   }
 
-  Widget? getAttributeChipForValidAttributes(
+  Widget? _buildAttributeChipForValidAttributes(
       BuildContext context, Attribute attribute) {
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
