@@ -342,10 +342,8 @@ class _ProductPageState extends State<NewProductPage> {
         padding: const EdgeInsets.only(bottom: 8.0),
         child: Text(
           group.name!,
-          style: Theme.of(context)
-              .textTheme
-              .bodyText2!
-              .apply(color: Colors.grey),
+          style:
+              Theme.of(context).textTheme.bodyText2!.apply(color: Colors.grey),
         ),
       );
     }
