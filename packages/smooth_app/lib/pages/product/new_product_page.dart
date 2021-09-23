@@ -31,12 +31,12 @@ class NewProductPage extends StatefulWidget {
 }
 
 enum ProductPageMenuItem { WEB, REFRESH }
-final List<String> scoreAttributeIds_ = <String>[
+final List<String> _SCORE_ATTRIBUTE_IDS = <String>[
   Attribute.ATTRIBUTE_NUTRISCORE,
   Attribute.ATTRIBUTE_ECOSCORE
 ];
 
-final List<String> attributeGroupOrder_ = [
+final List<String> _ATTRIBUTE_GROUP_ORDER = [
   AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS,
   AttributeGroup.ATTRIBUTE_GROUP_INGREDIENT_ANALYSIS,
   AttributeGroup.ATTRIBUTE_GROUP_PROCESSING,
@@ -44,7 +44,7 @@ final List<String> attributeGroupOrder_ = [
   AttributeGroup.ATTRIBUTE_GROUP_LABELS,
 ];
 
-const Widget emptyWidget_ = SizedBox.shrink();
+const Widget _EMPTY_WIDGET = SizedBox.shrink();
 
 class _ProductPageState extends State<NewProductPage> {
   late Product _product;
@@ -202,14 +202,14 @@ class _ProductPageState extends State<NewProductPage> {
         screenSize.width / 10; // TODO(monsieurtanuki): target size?
     final List<Attribute> scoreAttributes =
         AttributeListExpandable.getPopulatedAttributes(
-            _product, scoreAttributeIds_);
+            _product, _SCORE_ATTRIBUTE_IDS);
 
     final Widget attributesContainer = Container(
         alignment: Alignment.topLeft,
         margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
         child: Column(children: <Widget>[
-          for (final String groupId in attributeGroupOrder_)
-            getAttributeGroupWidget(context, _product, groupId),
+          for (final String groupId in _ATTRIBUTE_GROUP_ORDER)
+            _buildAttributeGroupContainer(context, groupId),
         ]));
 
     final List<Widget> listItems = <Widget>[];
@@ -227,14 +227,14 @@ class _ProductPageState extends State<NewProductPage> {
           bottom: 20.0,
         ),
         insets: EdgeInsets.zero, // Zero padding for the card content.
-        clipBehavior: Clip.antiAliasWithSaveLayer,
+        clipBehavior: Clip.antiAlias,
         child: Column(
           children: <Widget>[
-            getProductMatchHeader(context),
-            Container(
+            _buildProductMatchHeader(context),
+            Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12.0),
               child: Column(children: [
-                getProductTitleTile(context),
+                _buildProductTitleTile(context),
                 for (final Attribute attribute in scoreAttributes)
                   ScoreAttributeCard(
                       attribute: attribute, iconHeight: iconHeight),
@@ -248,21 +248,24 @@ class _ProductPageState extends State<NewProductPage> {
     return ListView(children: listItems);
   }
 
-  Widget getProductMatchHeader(BuildContext context) {
+  Widget _buildProductMatchHeader(BuildContext context) {
     // NOTE: This is temporary and will be updated once the feature is supported
     // by the server.
     return Container(
       color: Colors.red,
-      padding: EdgeInsets.zero,
       child: Container(
         alignment: Alignment.topLeft,
-        padding: const EdgeInsets.symmetric(vertical: 8),
-        child: Center(child: Text('Very poor Match', style: Theme.of(context).textTheme.subtitle1)),
+        padding: const EdgeInsets.symmetric(vertical: 8.0),
+        child: Center(
+          child: Text('Very poor Match',
+              style: Theme.of(context).textTheme.subtitle1!.apply(color: Colors.white),
+          ),
+        ),
       ),
     );
   }
 
-  Widget getProductTitleTile(BuildContext context) {
+  Widget _buildProductTitleTile(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final ThemeData themeData = Theme.of(context);
     return Align(
@@ -282,12 +285,12 @@ class _ProductPageState extends State<NewProductPage> {
     );
   }
 
-  Widget getAttributeGroupWidget(
-      BuildContext context, Product product, String groupId) {
+  Widget _buildAttributeGroupContainer(
+      BuildContext context, String groupId,) {
     final Iterable<AttributeGroup> groupIterable = _product.attributeGroups!
         .where((AttributeGroup group) => group.id == groupId);
     if (groupIterable.isEmpty) {
-      return emptyWidget_;
+      return _EMPTY_WIDGET;
     }
     final AttributeGroup group = groupIterable.single;
     return Container(
@@ -296,7 +299,7 @@ class _ProductPageState extends State<NewProductPage> {
         children: <Widget>[
           Container(
             alignment: Alignment.topLeft,
-            padding: const EdgeInsets.symmetric(vertical: 8),
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
             child: getAttributeGroupHeader(context, group),
           ),
           Container(
@@ -306,7 +309,7 @@ class _ProductPageState extends State<NewProductPage> {
               children: <Widget>[
                 for (final Attribute attribute in group.attributes!)
                   getAttributeChipForValidAttributes(context, attribute) ??
-                      emptyWidget_,
+                      _EMPTY_WIDGET,
               ],
             ),
           ),
@@ -324,16 +327,15 @@ class _ProductPageState extends State<NewProductPage> {
         (Attribute attribute) =>
             productPreferences.isAttributeImportant(attribute.id!));
     if (!containsImportantAttributes) {
-      return emptyWidget_;
+      return _EMPTY_WIDGET;
     }
     if (group.id == AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS) {
-      return
-        Padding(
-          padding: const EdgeInsets.only(bottom: 8),
-          child:Text(
-        group.name!,
-        style: const TextStyle(color: Colors.blueGrey),
-      ),
+      return Padding(
+        padding: const EdgeInsets.only(bottom: 8.0),
+        child: Text(
+          group.name!,
+          style: Theme.of(context).textTheme.bodyText2!.apply(color: Colors.blueGrey),
+        ),
       );
     }
     return const Divider(
@@ -345,7 +347,7 @@ class _ProductPageState extends State<NewProductPage> {
       BuildContext context, Attribute attribute) {
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
-    if (attribute.id == null || scoreAttributeIds_.contains(attribute.id)) {
+    if (attribute.id == null || _SCORE_ATTRIBUTE_IDS.contains(attribute.id)) {
       // Score Attribute Ids have already been rendered.
       return null;
     }
