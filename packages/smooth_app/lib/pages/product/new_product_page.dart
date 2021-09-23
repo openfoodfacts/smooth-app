@@ -237,7 +237,9 @@ class _ProductPageState extends State<NewProductPage> {
                 _buildProductTitleTile(context),
                 for (final Attribute attribute in scoreAttributes)
                   ScoreAttributeCard(
-                      attribute: attribute, iconHeight: iconHeight),
+                    attribute: attribute,
+                    iconHeight: iconHeight,
+                  ),
                 attributesContainer,
               ]),
             ),
@@ -343,7 +345,7 @@ class _ProductPageState extends State<NewProductPage> {
           style: Theme.of(context)
               .textTheme
               .bodyText2!
-              .apply(color: Colors.blueGrey),
+              .apply(color: Colors.grey),
         ),
       );
     }
