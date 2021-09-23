@@ -331,7 +331,8 @@ class _ProductPageState extends State<NewProductPage> {
 
   /// The attribute group header can either be group name or a divider depending
   /// upon the type of the group.
-  Widget _buildAttributeGroupHeader(BuildContext context, AttributeGroup group) {
+  Widget _buildAttributeGroupHeader(
+      BuildContext context, AttributeGroup group) {
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
     final bool containsImportantAttributes = group.attributes!.any(
