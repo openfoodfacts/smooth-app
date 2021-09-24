@@ -17,11 +17,9 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 
 class SmoothProductCarousel extends StatefulWidget {
   const SmoothProductCarousel({
-    required this.continuousScanModel,
     this.height = 120.0,
   });
 
-  final ContinuousScanModel continuousScanModel;
   final double height;
 
   @override
@@ -36,7 +34,8 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
   Widget build(BuildContext context) {
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
-    final List<String> barcodes = widget.continuousScanModel.getBarcodes();
+    final ContinuousScanModel model = context.watch<ContinuousScanModel>();
+    final List<String> barcodes = model.getBarcodes();
     final int barcodesLength = barcodes.length;
     if (_length != barcodesLength) {
       _length = barcodesLength;
@@ -78,11 +77,12 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
     if (index >= barcodes.length) {
       return Container();
     }
+    final ContinuousScanModel model = context.watch<ContinuousScanModel>();
     final String barcode = barcodes[index];
-    switch (widget.continuousScanModel.getBarcodeState(barcode)!) {
+    switch (model.getBarcodeState(barcode)!) {
       case ScannedProductState.FOUND:
       case ScannedProductState.CACHED:
-        final Product product = widget.continuousScanModel.getProduct(barcode);
+        final Product product = model.getProduct(barcode);
         final MatchedProduct matchedProduct =
             MatchedProduct(product, productPreferences);
         return SmoothProductCardFound(
@@ -98,11 +98,9 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
         return SmoothProductCardLoading(barcode: barcode);
       case ScannedProductState.NOT_FOUND:
         return SmoothProductCardNotFound(
-          product: Product(
-            barcode: barcode,
-          ),
-          callback: () => widget.continuousScanModel
-              .setBarcodeState(barcode, ScannedProductState.THANKS),
+          product: Product(barcode: barcode),
+          callback: () =>
+              model.setBarcodeState(barcode, ScannedProductState.THANKS),
         );
       case ScannedProductState.THANKS:
         return const SmoothProductCardThanks();
