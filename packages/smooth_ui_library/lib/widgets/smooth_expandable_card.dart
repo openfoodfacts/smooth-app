@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_ui_library/animations/smooth_animated_collapse_arrow.dart';
 
