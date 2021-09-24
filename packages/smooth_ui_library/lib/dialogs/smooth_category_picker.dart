@@ -15,8 +15,7 @@ typedef CategoryPathSelector<T extends Comparable<T>> = Category<T>? Function(
 
 /// A callback used to notify that the visible path in the [SmoothCategoryPicker]
 /// has changed to the given path.
-typedef CategoryPathChangedCallback<T extends Object> = void Function(
-    Iterable<T> categoryPath);
+typedef CategoryPathChangedCallback<T extends Object> = void Function(Iterable<T> categoryPath);
 
 /// A callback used to notify that the [SmoothCategoryPicker] has requested a new
 /// category to be added at the given path.
@@ -24,8 +23,7 @@ typedef AddCategoryCallback<T extends Object> = void Function(List<T> path);
 
 /// A callback used by the [SmoothCategoryPicker] to notify that the set of selected
 /// categories has changed.
-typedef CategoriesChangedCallback<T extends Object> = void Function(
-    Set<T> categories);
+typedef CategoriesChangedCallback<T extends Object> = void Function(Set<T> categories);
 
 /// A Picker for hierarchical categories or other hierarchical data.
 ///
@@ -79,12 +77,10 @@ class SmoothCategoryPicker<T extends Comparable<T>> extends StatefulWidget {
   final CategoryPathChangedCallback<T> onPathChanged;
 
   @override
-  State<SmoothCategoryPicker<T>> createState() =>
-      _SmoothCategoryPickerState<T>();
+  State<SmoothCategoryPicker<T>> createState() => _SmoothCategoryPickerState<T>();
 }
 
-class _SmoothCategoryPickerState<T extends Comparable<T>>
-    extends State<SmoothCategoryPicker<T>> {
+class _SmoothCategoryPickerState<T extends Comparable<T>> extends State<SmoothCategoryPicker<T>> {
   @override
   Widget build(BuildContext context) {
     final Category<T>? category = widget.categoryFinder(widget.currentPath);
@@ -109,8 +105,7 @@ class _SmoothCategoryPickerState<T extends Comparable<T>>
             child: SmoothCategoryDisplay<T>(
               categories: widget.currentCategories,
               onDeleted: (T item) {
-                widget.onCategoriesChanged(
-                    widget.currentCategories.difference(<T>{item}));
+                widget.onCategoriesChanged(widget.currentCategories.difference(<T>{item}));
               },
             ),
           ),
@@ -123,8 +118,8 @@ class _SmoothCategoryPickerState<T extends Comparable<T>>
                 onPressed: category.value != widget.currentPath.first
                     ? () {
                         setState(() {
-                          widget.onPathChanged(widget.currentPath
-                              .take(widget.currentPath.length - 1));
+                          widget.onPathChanged(
+                              widget.currentPath.take(widget.currentPath.length - 1));
                         });
                       }
                     : null,
@@ -159,6 +154,17 @@ abstract class Category<T extends Comparable<T>> {
   /// The value of this node.
   final T value;
 
+  /// This returns a breadth-first iterable over the values in all of the descendants
+  /// of this node.
+  Iterable<Category<T>> get descendants sync* {
+    for (final Category<T> child in children) {
+      yield child;
+    }
+  }
+
+  /// Whether or not this node has children.
+  bool get hasChildren => _children.isNotEmpty;
+
   /// Gets the list of children of this node.
   Set<Category<T>> get children => _children.toSet();
   final Set<Category<T>> _children;
@@ -192,6 +198,15 @@ abstract class Category<T extends Comparable<T>> {
     return results.single;
   }
 
+  Category<T>? findInDescendants(T value) {
+    final Iterable<Category<T>> results =
+        descendants.where((Category<T> child) => child.value == value);
+    if (results.isEmpty) {
+      return null;
+    }
+    return results.single;
+  }
+
   /// Returns a human-readable label that will be displayed in the UI
   String get label;
 
@@ -219,8 +234,7 @@ class _CategoryView<T extends Comparable<T>> extends StatefulWidget {
   State<_CategoryView<T>> createState() => _CategoryViewState<T>();
 }
 
-class _CategoryViewState<T extends Comparable<T>>
-    extends State<_CategoryView<T>> {
+class _CategoryViewState<T extends Comparable<T>> extends State<_CategoryView<T>> {
   late PageController controller;
 
   @override
@@ -288,8 +302,7 @@ class _CategoryViewState<T extends Comparable<T>>
 
 // A callback used to notify that the category page has asked to descend to a child
 // category.
-typedef _DescendCategoryCallback<T extends Category<dynamic>> = void Function(
-    T childCategory);
+typedef _DescendCategoryCallback<T extends Category<dynamic>> = void Function(T childCategory);
 
 class _CategoryPage<T extends Comparable<T>> extends StatelessWidget {
   const _CategoryPage({
@@ -384,8 +397,7 @@ class _CategoryItem<T extends Category<dynamic>> extends StatelessWidget {
 /// If [onDeleted] is supplied, chips can be deleted, and [onDeleted] will be called
 /// when they are.
 class SmoothCategoryDisplay<T extends Object> extends StatefulWidget {
-  SmoothCategoryDisplay({Set<T>? categories, this.onDeleted})
-      : categories = categories ?? <T>{};
+  SmoothCategoryDisplay({Set<T>? categories, this.onDeleted}) : categories = categories ?? <T>{};
 
   /// The set of categories to display.
   ///
@@ -398,12 +410,10 @@ class SmoothCategoryDisplay<T extends Object> extends StatefulWidget {
   final ValueChanged<T>? onDeleted;
 
   @override
-  State<SmoothCategoryDisplay<T>> createState() =>
-      _SmoothCategoryDisplayState<T>();
+  State<SmoothCategoryDisplay<T>> createState() => _SmoothCategoryDisplayState<T>();
 }
 
-class _SmoothCategoryDisplayState<T extends Object>
-    extends State<SmoothCategoryDisplay<T>> {
+class _SmoothCategoryDisplayState<T extends Object> extends State<SmoothCategoryDisplay<T>> {
   Set<T> removedCategories = <T>{};
   Set<T> addedCategories = <T>{};
 
@@ -440,8 +450,7 @@ class _SmoothCategoryDisplayState<T extends Object>
         for (final T category in combinedCategories)
           _AnimatedInputChip(
             key: ValueKey<T>(category),
-            visible: !removedCategories.contains(category) &&
-                !addedCategories.contains(category),
+            visible: !removedCategories.contains(category) && !addedCategories.contains(category),
             label: Text(category.toString()),
             onDeleted: widget.onDeleted != null
                 ? () {
@@ -538,29 +547,26 @@ class _AnimatedSqueeze extends ImplicitlyAnimatedWidget {
   final FilterQuality? filterQuality;
 
   @override
-  ImplicitlyAnimatedWidgetState<_AnimatedSqueeze> createState() =>
-      _AnimatedSqeezeState();
+  ImplicitlyAnimatedWidgetState<_AnimatedSqueeze> createState() => _AnimatedSqeezeState();
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties.add(DiagnosticsProperty<Size>('scale', scale));
-    properties.add(DiagnosticsProperty<Alignment>('alignment', alignment,
-        defaultValue: Alignment.center));
-    properties.add(EnumProperty<FilterQuality>('filterQuality', filterQuality,
-        defaultValue: null));
+    properties.add(
+        DiagnosticsProperty<Alignment>('alignment', alignment, defaultValue: Alignment.center));
+    properties.add(EnumProperty<FilterQuality>('filterQuality', filterQuality, defaultValue: null));
   }
 }
 
-class _AnimatedSqeezeState
-    extends ImplicitlyAnimatedWidgetState<_AnimatedSqueeze> {
+class _AnimatedSqeezeState extends ImplicitlyAnimatedWidgetState<_AnimatedSqueeze> {
   Tween<Size>? _scale;
   late Animation<Size> _scaleAnimation;
 
   @override
   void forEachTween(TweenVisitor<dynamic> visitor) {
-    _scale = visitor(_scale, widget.scale,
-        (dynamic value) => Tween<Size>(begin: value as Size)) as Tween<Size>?;
+    _scale = visitor(_scale, widget.scale, (dynamic value) => Tween<Size>(begin: value as Size))
+        as Tween<Size>?;
   }
 
   @override

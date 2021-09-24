@@ -2,6 +2,44 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
+import 'package:smooth_ui_library/smooth_ui_library.dart';
+
+class CategoryInfo implements Comparable<CategoryInfo> {
+  CategoryInfo(this.id, {required this.label, this.productCount = 0}) ;
+
+  String id;
+  String label;
+
+  int productCount;
+
+  @override
+  int compareTo(CategoryInfo other) {
+    return id.compareTo(other.id);
+  }
+}
+
+class SmoothCategory extends Category<CategoryInfo> {
+  SmoothCategory(CategoryInfo value) : super(value);
+
+  @override
+  String get label => value.label;
+
+  // These overrides are just to provide more type convenience when working with the
+  // categories, so we don't have to use "Category<CategoryInfo>" instead of
+  // "SmoothCategory".
+  @override
+  Iterable<SmoothCategory> get descendants {
+    return super.descendants as Iterable<SmoothCategory>;
+  }
+
+    @override
+  Set<SmoothCategory> get children => super.children as Set<SmoothCategory>;
+
+  @override
+  SmoothCategory? operator [](CategoryInfo childValue) {
+    return super[childValue] as SmoothCategory?;
+  }
+}
 
 enum LoadingStatus {
   LOADING,
@@ -26,9 +64,8 @@ class ProductQueryModel with ChangeNotifier {
   List<Product>? displayProducts;
   bool isNotEmpty() => _products != null && _products!.isNotEmpty;
 
-  Map<String, String> categories = <String, String>{};
-  Map<String, int> categoriesCounter = <String, int>{};
   List<String>? sortedCategories;
+  SmoothCategory categories = SmoothCategory(CategoryInfo(_CATEGORY_ALL, label: 'All'));
 
   String? get loadingError => _loadingError;
   LoadingStatus get loadingStatus => _loadingStatus;
@@ -54,9 +91,6 @@ class ProductQueryModel with ChangeNotifier {
     _products = productList.getList();
 
     displayProducts = _products;
-
-    categories[_CATEGORY_ALL] =
-        'All'; // TODO(monsieurtanuki): find a translation
 
     for (final Product product in _products!) {
       if (product.categoriesTags != null) {
