@@ -35,7 +35,7 @@ jobs:
       
       # analyze Dart for errors
       - name: "Analyze code"
-        run: flutter analyze .
+        run: flutter analyze --fatal-infos --fatal-warnings .
       
       # Run tests
       - name: "Run Tests"
