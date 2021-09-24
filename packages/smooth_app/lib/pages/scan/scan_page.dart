@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -27,6 +28,7 @@ class _ScanPageState extends State<ScanPage> {
       _model = await ContinuousScanModel(
         languageCode: ProductQuery.getCurrentLanguageCode(context),
         countryCode: ProductQuery.getCurrentCountryCode(),
+        cameraStatus: await Permission.camera.status,
       ).load(localDatabase);
     } else {
       await _model?.refresh();

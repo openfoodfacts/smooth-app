@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/barcode_product_query.dart';
@@ -21,6 +22,7 @@ class ContinuousScanModel with ChangeNotifier {
   ContinuousScanModel({
     required this.countryCode,
     required this.languageCode,
+    required this.cameraStatus,
   });
 
   final Map<String, ScannedProductState> _states =
@@ -37,6 +39,7 @@ class ContinuousScanModel with ChangeNotifier {
   late DaoProductExtra _daoProductExtra;
   final String languageCode;
   final String countryCode;
+  PermissionStatus cameraStatus;
 
   bool get isNotEmpty => getBarcodes().isNotEmpty;
   ProductList get productList => _productList;
@@ -80,6 +83,11 @@ class ContinuousScanModel with ChangeNotifier {
   }
 
   Future<void> refreshProductList() async => _daoProductList.get(_productList);
+
+  void setCameraStatus(PermissionStatus status) {
+    cameraStatus = status;
+    notifyListeners();
+  }
 
   void setBarcodeState(
     final String barcode,
