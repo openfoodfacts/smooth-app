@@ -37,7 +37,7 @@ const List<String> _SCORE_ATTRIBUTE_IDS = <String>[
   Attribute.ATTRIBUTE_ECOSCORE
 ];
 
-const List<String> _ATTRIBUTE_GROUP_ORDER = <String> [
+const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS,
   AttributeGroup.ATTRIBUTE_GROUP_INGREDIENT_ANALYSIS,
   AttributeGroup.ATTRIBUTE_GROUP_PROCESSING,
@@ -236,7 +236,7 @@ class _ProductPageState extends State<NewProductPage> {
             _buildProductMatchHeader(context),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12.0),
-              child: Column(children: <Widget> [
+              child: Column(children: <Widget>[
                 _buildProductTitleTile(context),
                 for (final Attribute attribute in scoreAttributes)
                   ScoreAttributeCard(
