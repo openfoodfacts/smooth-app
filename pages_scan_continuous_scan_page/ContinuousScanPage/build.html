@@ -107,9 +107,81 @@ and</li>
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  return ChangeNotifierProvider&lt;ContinuousScanModel&gt;.value(
-    value: _continuousScanModel,
-    child: Consumer&lt;ContinuousScanModel&gt;(builder: _build),
+  final ContinuousScanModel model = context.watch&lt;ContinuousScanModel&gt;();
+  final AppLocalizations localizations = AppLocalizations.of(context)!;
+  final Size screenSize = MediaQuery.of(context).size;
+  return Scaffold(
+    appBar: AppBar(toolbarHeight: 0.0),
+    body: Stack(
+      children: &lt;Widget&gt;[
+        Container(
+          alignment: Alignment.center,
+          color: Colors.black,
+          child: SvgPicture.asset(
+            &#39;assets&#47;actions&#47;scanner_alt_2.svg&#39;,
+            width: 60.0,
+            height: 60.0,
+            color: Colors.white,
+          ),
+        ),
+        SmoothRevealAnimation(
+          delay: 400,
+          startOffset: Offset.zero,
+          animationCurve: Curves.easeInOutBack,
+          child: QRView(
+            key: _scannerViewKey,
+            onQRViewCreated: model.setupScanner,
+          ),
+        ),
+        SmoothRevealAnimation(
+          delay: 400,
+          startOffset: const Offset(0.0, 0.1),
+          animationCurve: Curves.easeInOutBack,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: &lt;Widget&gt;[
+              Center(
+                child: SmoothViewFinder(
+                  boxSize:
+                      Size(screenSize.width * 0.6, screenSize.width * 0.33),
+                  lineLength: screenSize.width * 0.8,
+                ),
+              )
+            ],
+          ),
+        ),
+        SmoothRevealAnimation(
+          delay: 400,
+          startOffset: const Offset(0.0, -0.1),
+          animationCurve: Curves.easeInOutBack,
+          child: Column(
+            children: &lt;Widget&gt;[
+              if (model.isNotEmpty) ...&lt;Widget&gt;[
+                const SizedBox(height: 10.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: &lt;Widget&gt;[
+                    ElevatedButton.icon(
+                      icon: const Icon(Icons.cancel_outlined),
+                      onPressed: model.clearScanSession,
+                      label: const Text(&#39;Clear&#39;),
+                    ),
+                    ElevatedButton.icon(
+                      icon: const Icon(Icons.emoji_events_outlined),
+                      onPressed: () =&gt; _openPersonalizedRankingPage(context),
+                      label: Text(localizations.myPersonalizedRanking),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 10.0),
+                const SmoothProductCarousel(),
+              ],
+            ],
+          ),
+        ),
+        SearchPanel(),
+      ],
+    ),
   );
 }</code></pre>
 </section>
