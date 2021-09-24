@@ -22,6 +22,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
+          ruby-version: 2.6.1
           bundler-cache: true
 
       - name: Decrypt API JSON file
