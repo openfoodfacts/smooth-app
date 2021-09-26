@@ -8,6 +8,7 @@ class SmoothCard extends StatelessWidget {
     this.padding =
         const EdgeInsets.only(right: 8.0, left: 8.0, top: 4.0, bottom: 4.0),
     this.insets = const EdgeInsets.all(5.0),
+    this.clipBehavior = Clip.none,
   });
 
   final Widget child;
@@ -15,11 +16,13 @@ class SmoothCard extends StatelessWidget {
   final Widget? header;
   final EdgeInsets? padding;
   final EdgeInsets? insets;
+  final Clip clipBehavior;
 
   @override
   Widget build(BuildContext context) {
     final Widget result = Material(
       elevation: 8.0,
+      clipBehavior: clipBehavior,
       shadowColor: Colors.black45,
       borderRadius: BorderRadius.circular(10.0),
       color: color ?? Theme.of(context).colorScheme.surface,

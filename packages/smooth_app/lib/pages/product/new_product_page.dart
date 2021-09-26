@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
+import 'package:openfoodfacts/model/AttributeGroup.dart';
+import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/image_upload_card.dart';
@@ -13,7 +15,8 @@ import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
-import 'package:smooth_ui_library/widgets/smooth_card.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_ui_library/smooth_ui_library.dart';
 
 class NewProductPage extends StatefulWidget {
   const NewProductPage(this.product);
@@ -25,6 +28,21 @@ class NewProductPage extends StatefulWidget {
 }
 
 enum ProductPageMenuItem { WEB, REFRESH }
+
+const List<String> _SCORE_ATTRIBUTE_IDS = <String>[
+  Attribute.ATTRIBUTE_NUTRISCORE,
+  Attribute.ATTRIBUTE_ECOSCORE
+];
+
+const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
+  AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS,
+  AttributeGroup.ATTRIBUTE_GROUP_INGREDIENT_ANALYSIS,
+  AttributeGroup.ATTRIBUTE_GROUP_PROCESSING,
+  AttributeGroup.ATTRIBUTE_GROUP_NUTRITIONAL_QUALITY,
+  AttributeGroup.ATTRIBUTE_GROUP_LABELS,
+];
+
+const Widget _EMPTY_WIDGET = SizedBox.shrink();
 
 class _ProductPageState extends State<NewProductPage> {
   late Product _product;
@@ -39,8 +57,17 @@ class _ProductPageState extends State<NewProductPage> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final ThemeData themeData = Theme.of(context);
+    final ColorScheme colorScheme = themeData.colorScheme;
+    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
+    final MaterialColor materialColor =
+        SmoothTheme.getMaterialColor(themeProvider);
     return Scaffold(
-      backgroundColor: SmoothTheme.COLOR_PRODUCT_PAGE_BACKGROUND,
+      backgroundColor: SmoothTheme.getColor(
+        colorScheme,
+        materialColor,
+        ColorDestination.SURFACE_BACKGROUND,
+      ),
       appBar: AppBar(
         title: Text(_getProductName(appLocalizations)),
         actions: <Widget>[
@@ -168,37 +195,19 @@ class _ProductPageState extends State<NewProductPage> {
   }
 
   Widget _buildProductBody(BuildContext context) {
-    final ProductPreferences productPreferences =
-        context.watch<ProductPreferences>();
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final Size screenSize = MediaQuery.of(context).size;
-    final ThemeData themeData = Theme.of(context);
     final double iconHeight =
         screenSize.width / 10; // TODO(monsieurtanuki): target size?
-    final List<String> scoreAttributeIds = <String>[
-      Attribute.ATTRIBUTE_NUTRISCORE,
-      Attribute.ATTRIBUTE_ECOSCORE
-    ];
     final List<Attribute> scoreAttributes =
         AttributeListExpandable.getPopulatedAttributes(
-            _product, scoreAttributeIds);
+            _product, _SCORE_ATTRIBUTE_IDS);
 
-    List<String> importantAttributeIds =
-        productPreferences.getOrderedImportantAttributeIds();
-    importantAttributeIds = importantAttributeIds
-        .where((String attributeId) => !scoreAttributeIds.contains(attributeId))
-        .toList();
-    final List<Attribute> importantAttributes =
-        AttributeListExpandable.getPopulatedAttributes(
-            _product, importantAttributeIds);
     final Widget attributesContainer = Container(
         alignment: Alignment.topLeft,
         margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
         child: Column(children: <Widget>[
-          Wrap(runSpacing: 16, children: <Widget>[
-            for (final Attribute attribute in importantAttributes)
-              getAttributeChip(attribute, screenSize) ?? Container(),
-          ]),
+          for (final String groupId in _ATTRIBUTE_GROUP_ORDER)
+            _buildAttributeGroup(context, groupId),
         ]));
 
     final List<Widget> listItems = <Widget>[];
@@ -215,33 +224,147 @@ class _ProductPageState extends State<NewProductPage> {
           top: 4.0,
           bottom: 20.0,
         ),
-        insets: const EdgeInsets.all(12.0),
-        child: Column(children: <Widget>[
-          Align(
-            alignment: Alignment.topLeft,
-            child: ListTile(
-              contentPadding: EdgeInsets.zero,
-              title: Text(
-                _getProductName(appLocalizations),
-                style: themeData.textTheme.headline4,
-              ),
-              subtitle: Text(_product.brands ?? appLocalizations.unknownBrand),
-              trailing: Text(
-                _product.quantity ?? '',
-                style: themeData.textTheme.headline3,
-              ),
+        insets: EdgeInsets.zero, // Zero padding for the card content.
+        // Without setting a ClipBehavior, widgets overflow and the corner
+        // rounding does not work.
+        clipBehavior: Clip.hardEdge,
+        child: Column(
+          children: <Widget>[
+            _buildProductMatchHeader(context),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12.0),
+              child: Column(children: <Widget>[
+                _buildProductTitleTile(context),
+                for (final Attribute attribute in scoreAttributes)
+                  ScoreAttributeCard(
+                    attribute: attribute,
+                    iconHeight: iconHeight,
+                  ),
+                attributesContainer,
+              ]),
             ),
-          ),
-          for (final Attribute attribute in scoreAttributes)
-            ScoreAttributeCard(attribute: attribute, iconHeight: iconHeight),
-          attributesContainer
-        ]),
+          ],
+        ),
       ),
     );
     return ListView(children: listItems);
   }
 
-  Widget? getAttributeChip(Attribute attribute, Size screenSize) {
+  Widget _buildProductMatchHeader(BuildContext context) {
+    // NOTE: This is temporary and will be updated once the feature is supported
+    // by the server.
+    return Container(
+      color: Colors.red,
+      child: Container(
+        alignment: Alignment.topLeft,
+        padding: const EdgeInsets.symmetric(vertical: 8.0),
+        child: Center(
+          child: Text(
+            'Very poor Match',
+            style: Theme.of(context)
+                .textTheme
+                .subtitle1!
+                .apply(color: Colors.white),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildProductTitleTile(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final ThemeData themeData = Theme.of(context);
+    return Align(
+      alignment: Alignment.topLeft,
+      child: ListTile(
+        contentPadding: EdgeInsets.zero,
+        title: Text(
+          _getProductName(appLocalizations),
+          style: themeData.textTheme.headline4,
+        ),
+        subtitle: Text(_product.brands ?? appLocalizations.unknownBrand),
+        trailing: Text(
+          _product.quantity ?? '',
+          style: themeData.textTheme.headline3,
+        ),
+      ),
+    );
+  }
+
+  Widget _buildAttributeGroup(
+    BuildContext context,
+    String groupId,
+  ) {
+    final Iterable<AttributeGroup> groupIterable = _product.attributeGroups!
+        .where((AttributeGroup group) => group.id == groupId);
+    if (groupIterable.isEmpty) {
+      return _EMPTY_WIDGET;
+    }
+    final AttributeGroup group = groupIterable.single;
+    return Container(
+      alignment: Alignment.topLeft,
+      child: Column(
+        children: <Widget>[
+          Container(
+            alignment: Alignment.topLeft,
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            child: _buildAttributeGroupHeader(context, group),
+          ),
+          Container(
+            alignment: Alignment.topLeft,
+            child: Wrap(
+              runSpacing: 16,
+              children: <Widget>[
+                for (final Attribute attribute in group.attributes!)
+                  _buildAttributeChipForValidAttributes(context, attribute) ??
+                      _EMPTY_WIDGET,
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  /// The attribute group header can either be group name or a divider depending
+  /// upon the type of the group.
+  Widget _buildAttributeGroupHeader(
+      BuildContext context, AttributeGroup group) {
+    final ProductPreferences productPreferences =
+        context.watch<ProductPreferences>();
+    final bool containsImportantAttributes = group.attributes!.any(
+        (Attribute attribute) =>
+            productPreferences.isAttributeImportant(attribute.id!) == true);
+    if (!containsImportantAttributes) {
+      return _EMPTY_WIDGET;
+    }
+    if (group.id == AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS) {
+      return Padding(
+        padding: const EdgeInsets.only(bottom: 8.0),
+        child: Text(
+          group.name!,
+          style:
+              Theme.of(context).textTheme.bodyText2!.apply(color: Colors.grey),
+        ),
+      );
+    }
+    return const Divider(
+      color: Colors.black12,
+    );
+  }
+
+  Widget? _buildAttributeChipForValidAttributes(
+      BuildContext context, Attribute attribute) {
+    final ProductPreferences productPreferences =
+        context.watch<ProductPreferences>();
+    if (attribute.id == null || _SCORE_ATTRIBUTE_IDS.contains(attribute.id)) {
+      // Score Attribute Ids have already been rendered.
+      return null;
+    }
+    if (productPreferences.isAttributeImportant(attribute.id!) != true) {
+      // Not an important attribute.
+      return null;
+    }
     final String? attributeDisplayTitle = getDisplayTitle(attribute);
     final Widget attributeIcon = getAttributeDisplayIcon(attribute);
     if (attributeDisplayTitle == null) {

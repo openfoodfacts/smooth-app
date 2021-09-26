@@ -32,12 +32,12 @@ Color getTextColor(final Attribute attribute) {
 Widget getAttributeDisplayIcon(final Attribute attribute) {
   return _attributeMatchComparison(
       attribute,
-      const Text('ℹ️  '),
-      const Text('💔  '),
-      const Text('🍂  '),
-      const Text('🌻  '),
-      const Text('🌱  '),
-      const Text('💚  '));
+      const Text('❓  '),
+      const Text('🔴  '),
+      const Text('🟡  '),
+      const Text('🟡  '),
+      const Text('🟢  '),
+      const Text('🟢  '));
 }
 
 String? getDisplayTitle(final Attribute attribute) {
