@@ -1,45 +1,43 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
-import 'package:smooth_app/pages/scan/scan_page.dart';
 import 'package:smooth_app/pages/scan/search_panel.dart';
 import 'package:smooth_app/widgets/smooth_product_carousel.dart';
 import 'package:smooth_ui_library/smooth_ui_library.dart';
 
 class ContinuousScanPage extends StatelessWidget {
-  ContinuousScanPage(this._continuousScanModel);
-
-  final ContinuousScanModel _continuousScanModel;
-
   final GlobalKey _scannerViewKey = GlobalKey(debugLabel: 'Barcode Scanner');
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<ContinuousScanModel>.value(
-      value: _continuousScanModel,
-      child: Consumer<ContinuousScanModel>(builder: _build),
-    );
-  }
-
-  Widget _build(
-      BuildContext context, ContinuousScanModel model, Widget? child) {
+    final ContinuousScanModel model = context.watch<ContinuousScanModel>();
     final AppLocalizations localizations = AppLocalizations.of(context)!;
     final Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(toolbarHeight: 0.0),
       body: Stack(
         children: <Widget>[
-          ScanPage.getHero(screenSize),
+          Container(
+            alignment: Alignment.center,
+            color: Colors.black,
+            child: SvgPicture.asset(
+              'assets/actions/scanner_alt_2.svg',
+              width: 60.0,
+              height: 60.0,
+              color: Colors.white,
+            ),
+          ),
           SmoothRevealAnimation(
             delay: 400,
             startOffset: Offset.zero,
             animationCurve: Curves.easeInOutBack,
             child: QRView(
               key: _scannerViewKey,
-              onQRViewCreated: _continuousScanModel.setupScanner,
+              onQRViewCreated: model.setupScanner,
             ),
           ),
           SmoothRevealAnimation(
@@ -65,14 +63,14 @@ class ContinuousScanPage extends StatelessWidget {
             animationCurve: Curves.easeInOutBack,
             child: Column(
               children: <Widget>[
-                if (_continuousScanModel.isNotEmpty) ...<Widget>[
+                if (model.isNotEmpty) ...<Widget>[
                   const SizedBox(height: 10.0),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
                       ElevatedButton.icon(
                         icon: const Icon(Icons.cancel_outlined),
-                        onPressed: _continuousScanModel.clearScanSession,
+                        onPressed: model.clearScanSession,
                         label: const Text('Clear'),
                       ),
                       ElevatedButton.icon(
@@ -83,9 +81,7 @@ class ContinuousScanPage extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 10.0),
-                  SmoothProductCarousel(
-                    continuousScanModel: _continuousScanModel,
-                  )
+                  const SmoothProductCarousel(),
                 ],
               ],
             ),
@@ -97,15 +93,16 @@ class ContinuousScanPage extends StatelessWidget {
   }
 
   Future<void> _openPersonalizedRankingPage(BuildContext context) async {
-    await _continuousScanModel.refreshProductList();
+    final ContinuousScanModel model = context.read<ContinuousScanModel>();
+    await model.refreshProductList();
     await Navigator.push<Widget>(
       context,
       MaterialPageRoute<Widget>(
         builder: (BuildContext context) => PersonalizedRankingPage(
-          _continuousScanModel.productList,
+          model.productList,
         ),
       ),
     );
-    await _continuousScanModel.refresh();
+    await model.refresh();
   }
 }
