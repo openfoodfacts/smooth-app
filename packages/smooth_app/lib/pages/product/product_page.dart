@@ -23,6 +23,7 @@ import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_copy_helper.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
+import 'package:smooth_app/pages/product/new_product_page.dart';
 import 'package:smooth_app/pages/user_preferences_page.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -92,6 +93,10 @@ class _ProductPageState extends State<ProductPage> {
                 value: 'refresh',
                 child: Text(appLocalizations.label_refresh),
               ),
+              const PopupMenuItem<String>(
+                value: 'new_product_page',
+                child: Text('New Product Page (Beta)'),
+              ),
             ],
             onSelected: (final String value) async {
               switch (value) {
@@ -122,6 +127,15 @@ class _ProductPageState extends State<ProductPage> {
                   );
                   _product = product;
                   await _updateHistory(context);
+                  break;
+                case 'new_product_page':
+                  Navigator.push<Widget>(
+                    context,
+                    MaterialPageRoute<Widget>(
+                      builder: (BuildContext context) =>
+                          NewProductPage(_product),
+                    ),
+                  );
                   break;
                 default:
                   throw Exception('Unknown value: $value');
