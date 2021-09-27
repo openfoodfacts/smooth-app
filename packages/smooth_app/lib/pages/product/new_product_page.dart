@@ -46,6 +46,7 @@ const Widget _EMPTY_WIDGET = SizedBox.shrink();
 
 class _ProductPageState extends State<NewProductPage> {
   late Product _product;
+  late ProductPreferences _productPreferences;
 
   @override
   void initState() {
@@ -56,10 +57,13 @@ class _ProductPageState extends State<NewProductPage> {
 
   @override
   Widget build(BuildContext context) {
+    // All watchers defined here:
+    _productPreferences = context.watch<ProductPreferences>();
+    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
+
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
-    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final MaterialColor materialColor =
         SmoothTheme.getMaterialColor(themeProvider);
     return Scaffold(
@@ -257,8 +261,6 @@ class _ProductPageState extends State<NewProductPage> {
   }
 
   List<AttributeGroup> _getAttributeGroupsToBeRendered() {
-    final ProductPreferences productPreferences =
-        context.watch<ProductPreferences>();
     final List<AttributeGroup> attributeGroupsToBeRendered = [];
     for (final String groupId in _ATTRIBUTE_GROUP_ORDER) {
       final Iterable<AttributeGroup> groupIterable = _product.attributeGroups!
@@ -270,7 +272,7 @@ class _ProductPageState extends State<NewProductPage> {
 
       final bool containsImportantAttributes = group.attributes!.any(
           (Attribute attribute) =>
-              productPreferences.isAttributeImportant(attribute.id!) == true);
+              _productPreferences.isAttributeImportant(attribute.id!) == true);
       if (containsImportantAttributes) {
         attributeGroupsToBeRendered.add(group);
       }
@@ -335,7 +337,7 @@ class _ProductPageState extends State<NewProductPage> {
             runSpacing: 16,
             children: <Widget>[
               for (final Attribute attribute in group.attributes!)
-                _buildAttributeChipForValidAttributes(context, attribute) ??
+                _buildAttributeChipForValidAttributes(attribute) ??
                     _EMPTY_WIDGET,
             ],
           ),
@@ -372,15 +374,12 @@ class _ProductPageState extends State<NewProductPage> {
     );
   }
 
-  Widget? _buildAttributeChipForValidAttributes(
-      BuildContext context, Attribute attribute) {
-    final ProductPreferences productPreferences =
-        context.watch<ProductPreferences>();
+  Widget? _buildAttributeChipForValidAttributes(Attribute attribute) {
     if (attribute.id == null || _SCORE_ATTRIBUTE_IDS.contains(attribute.id)) {
       // Score Attribute Ids have already been rendered.
       return null;
     }
-    if (productPreferences.isAttributeImportant(attribute.id!) != true) {
+    if (_productPreferences.isAttributeImportant(attribute.id!) != true) {
       // Not an important attribute.
       return null;
     }
