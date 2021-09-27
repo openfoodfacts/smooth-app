@@ -210,7 +210,10 @@ class _ProductPageState extends State<NewProductPage> {
         child: Column(children: <Widget>[
           for (final AttributeGroup group in attributeGroupsToBeRendered)
             _buildAttributeGroup(
-                context, group, group == attributeGroupsToBeRendered.first),
+              context,
+              group,
+              group == attributeGroupsToBeRendered.first,
+            ),
         ]));
 
     final List<Widget> listItems = <Widget>[];
