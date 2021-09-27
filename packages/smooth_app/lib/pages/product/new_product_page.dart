@@ -261,7 +261,7 @@ class _ProductPageState extends State<NewProductPage> {
   }
 
   List<AttributeGroup> _getAttributeGroupsToBeRendered() {
-    final List<AttributeGroup> attributeGroupsToBeRendered = [];
+    final List<AttributeGroup> attributeGroupsToBeRendered = <AttributeGroup>[];
     for (final String groupId in _ATTRIBUTE_GROUP_ORDER) {
       final Iterable<AttributeGroup> groupIterable = _product.attributeGroups!
           .where((AttributeGroup group) => group.id == groupId);
