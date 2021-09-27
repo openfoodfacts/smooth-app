@@ -46,6 +46,7 @@ const Widget _EMPTY_WIDGET = SizedBox.shrink();
 
 class _ProductPageState extends State<NewProductPage> {
   late Product _product;
+  late ProductPreferences _productPreferences;
 
   @override
   void initState() {
@@ -56,10 +57,13 @@ class _ProductPageState extends State<NewProductPage> {
 
   @override
   Widget build(BuildContext context) {
+    // All watchers defined here:
+    _productPreferences = context.watch<ProductPreferences>();
+    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
+
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
-    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final MaterialColor materialColor =
         SmoothTheme.getMaterialColor(themeProvider);
     return Scaffold(
@@ -202,12 +206,18 @@ class _ProductPageState extends State<NewProductPage> {
         AttributeListExpandable.getPopulatedAttributes(
             _product, _SCORE_ATTRIBUTE_IDS);
 
+    final List<AttributeGroup> attributeGroupsToBeRendered =
+        _getAttributeGroupsToBeRendered();
     final Widget attributesContainer = Container(
         alignment: Alignment.topLeft,
-        margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
+        margin: const EdgeInsets.only(bottom: 16),
         child: Column(children: <Widget>[
-          for (final String groupId in _ATTRIBUTE_GROUP_ORDER)
-            _buildAttributeGroup(context, groupId),
+          for (final AttributeGroup group in attributeGroupsToBeRendered)
+            _buildAttributeGroup(
+              context,
+              group,
+              group == attributeGroupsToBeRendered.first,
+            ),
         ]));
 
     final List<Widget> listItems = <Widget>[];
@@ -248,6 +258,26 @@ class _ProductPageState extends State<NewProductPage> {
       ),
     );
     return ListView(children: listItems);
+  }
+
+  List<AttributeGroup> _getAttributeGroupsToBeRendered() {
+    final List<AttributeGroup> attributeGroupsToBeRendered = [];
+    for (final String groupId in _ATTRIBUTE_GROUP_ORDER) {
+      final Iterable<AttributeGroup> groupIterable = _product.attributeGroups!
+          .where((AttributeGroup group) => group.id == groupId);
+      if (groupIterable.isEmpty) {
+        continue;
+      }
+      final AttributeGroup group = groupIterable.single;
+
+      final bool containsImportantAttributes = group.attributes!.any(
+          (Attribute attribute) =>
+              _productPreferences.isAttributeImportant(attribute.id!) == true);
+      if (containsImportantAttributes) {
+        attributeGroupsToBeRendered.add(group);
+      }
+    }
+    return attributeGroupsToBeRendered;
   }
 
   Widget _buildProductMatchHeader(BuildContext context) {
@@ -291,56 +321,42 @@ class _ProductPageState extends State<NewProductPage> {
     );
   }
 
+  /// Builds an AttributeGroup, if [isFirstGroup] is true the group doesn't get
+  /// a divider header.
   Widget _buildAttributeGroup(
     BuildContext context,
-    String groupId,
+    AttributeGroup group,
+    bool isFirstGroup,
   ) {
-    final Iterable<AttributeGroup> groupIterable = _product.attributeGroups!
-        .where((AttributeGroup group) => group.id == groupId);
-    if (groupIterable.isEmpty) {
-      return _EMPTY_WIDGET;
-    }
-    final AttributeGroup group = groupIterable.single;
-    return Container(
-      alignment: Alignment.topLeft,
-      child: Column(
-        children: <Widget>[
-          Container(
-            alignment: Alignment.topLeft,
-            padding: const EdgeInsets.symmetric(vertical: 8.0),
-            child: _buildAttributeGroupHeader(context, group),
+    return Column(
+      children: <Widget>[
+        _buildAttributeGroupHeader(context, group, isFirstGroup),
+        Container(
+          alignment: Alignment.topLeft,
+          child: Wrap(
+            runSpacing: 16,
+            children: <Widget>[
+              for (final Attribute attribute in group.attributes!)
+                _buildAttributeChipForValidAttributes(attribute) ??
+                    _EMPTY_WIDGET,
+            ],
           ),
-          Container(
-            alignment: Alignment.topLeft,
-            child: Wrap(
-              runSpacing: 16,
-              children: <Widget>[
-                for (final Attribute attribute in group.attributes!)
-                  _buildAttributeChipForValidAttributes(context, attribute) ??
-                      _EMPTY_WIDGET,
-              ],
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
   /// The attribute group header can either be group name or a divider depending
   /// upon the type of the group.
   Widget _buildAttributeGroupHeader(
-      BuildContext context, AttributeGroup group) {
-    final ProductPreferences productPreferences =
-        context.watch<ProductPreferences>();
-    final bool containsImportantAttributes = group.attributes!.any(
-        (Attribute attribute) =>
-            productPreferences.isAttributeImportant(attribute.id!) == true);
-    if (!containsImportantAttributes) {
-      return _EMPTY_WIDGET;
-    }
+    BuildContext context,
+    AttributeGroup group,
+    bool isFirstGroup,
+  ) {
     if (group.id == AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS) {
-      return Padding(
-        padding: const EdgeInsets.only(bottom: 8.0),
+      return Container(
+        alignment: Alignment.topLeft,
+        padding: const EdgeInsets.only(top: 8.0, bottom: 16.0),
         child: Text(
           group.name!,
           style:
@@ -348,20 +364,22 @@ class _ProductPageState extends State<NewProductPage> {
         ),
       );
     }
-    return const Divider(
-      color: Colors.black12,
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: isFirstGroup
+          ? _EMPTY_WIDGET
+          : const Divider(
+              color: Colors.black12,
+            ),
     );
   }
 
-  Widget? _buildAttributeChipForValidAttributes(
-      BuildContext context, Attribute attribute) {
-    final ProductPreferences productPreferences =
-        context.watch<ProductPreferences>();
+  Widget? _buildAttributeChipForValidAttributes(Attribute attribute) {
     if (attribute.id == null || _SCORE_ATTRIBUTE_IDS.contains(attribute.id)) {
       // Score Attribute Ids have already been rendered.
       return null;
     }
-    if (productPreferences.isAttributeImportant(attribute.id!) != true) {
+    if (_productPreferences.isAttributeImportant(attribute.id!) != true) {
       // Not an important attribute.
       return null;
     }
