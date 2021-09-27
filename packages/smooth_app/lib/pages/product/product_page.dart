@@ -132,7 +132,8 @@ class _ProductPageState extends State<ProductPage> {
                   Navigator.push<Widget>(
                     context,
                     MaterialPageRoute<Widget>(
-                      builder: (BuildContext context) => NewProductPage(_product),
+                      builder: (BuildContext context) =>
+                          NewProductPage(_product),
                     ),
                   );
                   break;
