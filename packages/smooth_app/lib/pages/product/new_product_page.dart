@@ -279,6 +279,7 @@ class _ProductPageState extends State<NewProductPage> {
     return Container(
       decoration: const BoxDecoration(
         color: Colors.red,
+        // Ensure that the header has the same curcular radius as the SmoothCard.
         borderRadius: BorderRadius.only(
             topLeft: SmoothCard.CIRCULAR_RADIUS,
             topRight: SmoothCard.CIRCULAR_RADIUS),

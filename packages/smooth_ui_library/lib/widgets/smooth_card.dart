@@ -23,7 +23,7 @@ class SmoothCard extends StatelessWidget {
     final Widget result = Material(
       elevation: 8.0,
       shadowColor: Colors.black45,
-      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+      borderRadius: const BorderRadius.all(CIRCULAR_RADIUS),
       color: color ?? Theme.of(context).colorScheme.surface,
       child: Container(
         padding: padding,
@@ -36,12 +36,11 @@ class SmoothCard extends StatelessWidget {
         ),
       ),
     );
-    if (margin == null) {
-      return result;
-    }
-    return Padding(
-      padding: margin!,
-      child: result,
-    );
+    return margin == null
+        ? result
+        : Padding(
+            padding: margin!,
+            child: result,
+          );
   }
 }
