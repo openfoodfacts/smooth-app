@@ -375,6 +375,16 @@ class _ProductPageState extends State<ProductPage> {
           i < _product.categoriesTags!.length;
           i++) {
         final String categoryTag = _product.categoriesTags![i];
+        final String currentLanguageCode =
+            ProductQuery.getCurrentLanguageCode(context);
+        final OpenFoodFactsLanguage currentLanguage =
+            LanguageHelper.fromJson(currentLanguageCode);
+        String categoryTagInLocalLanguage = categoryTag;
+        if (_product.categoriesTagsInLanguages!.containsKey(currentLanguage)) {
+          categoryTagInLocalLanguage =
+              _product.categoriesTagsInLanguages![currentLanguage]![i];
+        }
+
         const MaterialColor materialColor = Colors.blue;
         listItems.add(
           SmoothCard(
@@ -409,7 +419,7 @@ class _ProductPageState extends State<ProductPage> {
                 context: context,
               ),
               title: Text(
-                categoryTag,
+                categoryTagInLocalLanguage,
                 style: themeData.textTheme.headline3,
               ),
               subtitle: Text(
