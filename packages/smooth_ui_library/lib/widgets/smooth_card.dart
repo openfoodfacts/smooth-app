@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+/// Renders a Material card with elevation, shadow, Border radius etc...
+/// Note: If the caller updates BoxDecoration of the [header] or [child] widget,
+/// the caller must also set the borderRadius to [CIRCULAR_RADIUS] in
+/// BoxDecoration.
 class SmoothCard extends StatelessWidget {
   const SmoothCard({
     required this.child,
