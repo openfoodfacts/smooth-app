@@ -378,8 +378,8 @@ class _ProductPageState extends State<ProductPage> {
         const MaterialColor materialColor = Colors.blue;
         listItems.add(
           SmoothCard(
-            padding: padding,
-            insets: insets,
+            margin: padding,
+            padding: insets,
             color: SmoothTheme.getColor(
               themeData.colorScheme,
               materialColor,

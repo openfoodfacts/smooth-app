@@ -131,8 +131,8 @@ class AttributeListExpandable extends StatelessWidget {
     );
     if (!collapsible) {
       return SmoothCard(
-        padding: padding,
-        insets: insets,
+        margin: padding,
+        padding: insets,
         child: content,
         color: background,
       );
