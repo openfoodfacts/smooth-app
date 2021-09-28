@@ -46,14 +46,14 @@ class _ProductPageState extends State<ProductPage> {
   late Product _product;
   bool _first = true;
 
-  final EdgeInsets padding = const EdgeInsets.only(
+  final EdgeInsets margin = const EdgeInsets.only(
     right: 8.0,
     left: 8.0,
     top: 4.0,
     bottom: 20.0,
   );
 
-  final EdgeInsets insets = const EdgeInsets.all(12.0);
+  final EdgeInsets padding = const EdgeInsets.all(12.0);
 
   static const List<String> _ORDERED_ATTRIBUTE_GROUP_IDS = <String>[
     AttributeGroup.ATTRIBUTE_GROUP_INGREDIENT_ANALYSIS,
@@ -348,8 +348,8 @@ class _ProductPageState extends State<ProductPage> {
     if (attributes.isNotEmpty) {
       listItems.add(
         AttributeListExpandable(
-          margin: padding,
-          padding: insets,
+          margin: margin,
+          padding: padding,
           product: _product,
           iconHeight: iconHeight,
           attributes: attributes,
@@ -378,8 +378,8 @@ class _ProductPageState extends State<ProductPage> {
         const MaterialColor materialColor = Colors.blue;
         listItems.add(
           SmoothCard(
-            margin: padding,
-            padding: insets,
+            margin: margin,
+            padding: padding,
             color: SmoothTheme.getColor(
               themeData.colorScheme,
               materialColor,
@@ -498,8 +498,8 @@ class _ProductPageState extends State<ProductPage> {
       return null;
     }
     return AttributeListExpandable(
-      margin: padding,
-      padding: insets,
+      margin: margin,
+      padding: padding,
       product: _product,
       iconHeight: iconHeight,
       attributes: attributes,
