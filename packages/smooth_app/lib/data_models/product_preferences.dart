@@ -38,7 +38,7 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
   static String _getAttributeAssetPath(final String languageCode) =>
       'assets/metadata/init_attribute_groups_$languageCode.json';
 
-  static const List<String> _DEFAULT_ATTRIBUTES = [
+  static const List<String> _DEFAULT_ATTRIBUTES = <String>[
     Attribute.ATTRIBUTE_NUTRISCORE,
     Attribute.ATTRIBUTE_ECOSCORE,
     Attribute.ATTRIBUTE_NOVA,
@@ -109,7 +109,7 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
   Future<void> resetImportances() async {
     await clearImportances(notifyListeners: false);
 
-    final List<Future<void>> futures = [];
+    final List<Future<void>> futures = <Future<void>>[];
     // Execute all network calls in parallel.
     for (final String attributeId in _DEFAULT_ATTRIBUTES) {
       futures.add(setImportance(
