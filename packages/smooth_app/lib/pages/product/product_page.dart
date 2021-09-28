@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -9,7 +8,6 @@ import 'package:provider/provider.dart';
 import 'package:share/share.dart';
 import 'package:smooth_app/cards/data_cards/image_upload_card.dart';
 import 'package:smooth_app/cards/expandables/attribute_list_expandable.dart';
-import 'package:smooth_app/data_models/product_extra.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
@@ -255,7 +253,6 @@ class _ProductPageState extends State<ProductPage> {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
     final DaoProduct daoProduct = DaoProduct(localDatabase);
-    final DaoProductExtra daoProductExtra = DaoProductExtra(localDatabase);
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
@@ -422,66 +419,7 @@ class _ProductPageState extends State<ProductPage> {
       }
     }
 
-    listItems.add(_getTemporaryButton(daoProductExtra));
-
     return ListView(children: listItems);
-  }
-
-  // TODO(monsieurtanuki): remove / improve the display according to the feedbacks
-  Widget _getTemporaryButton(final DaoProductExtra daoProductExtra) =>
-      ElevatedButton(
-        onPressed: () async {
-          final List<Widget> children = <Widget>[];
-          _temporary(
-            await daoProductExtra.getProductExtra(
-              key: DaoProductExtra.EXTRA_ID_LAST_SEEN,
-              barcode: _product.barcode!,
-            ),
-            children,
-            'History of your access:',
-          );
-          _temporary(
-            await daoProductExtra.getProductExtra(
-              key: DaoProductExtra.EXTRA_ID_LAST_SCAN,
-              barcode: _product.barcode!,
-            ),
-            children,
-            'History of your barcode scan:',
-          );
-          _temporary(
-            await daoProductExtra.getProductExtra(
-              key: DaoProductExtra.EXTRA_ID_LAST_REFRESH,
-              barcode: _product.barcode!,
-            ),
-            children,
-            'History of your server refresh:',
-          );
-          await showCupertinoModalBottomSheet<void>(
-            context: context,
-            builder: (final BuildContext context) => ListView(
-              children: children,
-            ),
-          );
-        },
-        child: const Text('History (temporary button)'),
-      );
-
-  void _temporary(
-    final ProductExtra? productExtra,
-    final List<Widget> children,
-    final String title,
-  ) {
-    if (productExtra == null) {
-      return;
-    }
-    final List<int> timestamps = productExtra.decodeStringAsIntList();
-    if (timestamps.isNotEmpty) {
-      children.add(Material(child: Text(title)));
-      for (final int timestamp in timestamps.reversed) {
-        final DateTime dateTime = LocalDatabase.timestampToDateTime(timestamp);
-        children.add(Material(child: Text('* $dateTime')));
-      }
-    }
   }
 
   Widget? _getAttributeGroupWidget(
