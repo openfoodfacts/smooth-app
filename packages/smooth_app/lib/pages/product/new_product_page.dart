@@ -281,8 +281,8 @@ class _ProductPageState extends State<NewProductPage> {
         color: Colors.red,
         // Ensure that the header has the same curcular radius as the SmoothCard.
         borderRadius: BorderRadius.only(
-            topLeft: SmoothCard.CIRCULAR_RADIUS,
-            topRight: SmoothCard.CIRCULAR_RADIUS,
+          topLeft: SmoothCard.CIRCULAR_RADIUS,
+          topRight: SmoothCard.CIRCULAR_RADIUS,
         ),
       ),
       alignment: Alignment.topLeft,
