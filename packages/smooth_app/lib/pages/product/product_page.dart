@@ -379,11 +379,9 @@ class _ProductPageState extends State<ProductPage> {
             ProductQuery.getCurrentLanguageCode(context);
         final OpenFoodFactsLanguage currentLanguage =
             LanguageHelper.fromJson(currentLanguageCode);
-        String categoryTagInLocalLanguage = categoryTag;
-        if (_product.categoriesTagsInLanguages!.containsKey(currentLanguage)) {
-          categoryTagInLocalLanguage =
-              _product.categoriesTagsInLanguages![currentLanguage]![i];
-        }
+        final String categoryTagInLocalLanguage =
+            _product.categoriesTagsInLanguages?[currentLanguage]?[i] ??
+                categoryTag;
 
         const MaterialColor materialColor = Colors.blue;
         listItems.add(
