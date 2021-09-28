@@ -20,8 +20,8 @@ class AttributeListExpandable extends StatelessWidget {
     required this.title,
     this.collapsible = true,
     this.background,
+    this.margin,
     this.padding,
-    this.insets,
     this.initiallyCollapsed = true,
   });
 
@@ -31,8 +31,8 @@ class AttributeListExpandable extends StatelessWidget {
   final String title;
   final bool collapsible;
   final Color? background;
+  final EdgeInsets? margin;
   final EdgeInsets? padding;
-  final EdgeInsets? insets;
   final bool initiallyCollapsed;
 
   static List<Attribute> getPopulatedAttributes(
@@ -131,8 +131,8 @@ class AttributeListExpandable extends StatelessWidget {
     );
     if (!collapsible) {
       return SmoothCard(
-        margin: padding,
-        padding: insets,
+        margin: margin,
+        padding: padding,
         child: content,
         color: background,
       );
@@ -141,8 +141,8 @@ class AttributeListExpandable extends StatelessWidget {
     final Widget header =
         Text(title, style: Theme.of(context).textTheme.headline3);
     return SmoothExpandableCard(
+      margin: margin,
       padding: padding,
-      insets: insets,
       initiallyCollapsed: initiallyCollapsed,
       collapsedHeader: SizedBox(
         width: screenSize.width * 0.8,

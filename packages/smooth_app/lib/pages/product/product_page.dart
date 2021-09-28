@@ -348,8 +348,8 @@ class _ProductPageState extends State<ProductPage> {
     if (attributes.isNotEmpty) {
       listItems.add(
         AttributeListExpandable(
-          padding: padding,
-          insets: insets,
+          margin: padding,
+          padding: insets,
           product: _product,
           iconHeight: iconHeight,
           attributes: attributes,
@@ -498,8 +498,8 @@ class _ProductPageState extends State<ProductPage> {
       return null;
     }
     return AttributeListExpandable(
-      padding: padding,
-      insets: insets,
+      margin: padding,
+      padding: insets,
       product: _product,
       iconHeight: iconHeight,
       attributes: attributes,
