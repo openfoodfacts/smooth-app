@@ -371,14 +371,15 @@ class _ProductPageState extends State<ProductPage> {
     //Similar foods
     if (_product.categoriesTags != null &&
         _product.categoriesTags!.isNotEmpty) {
+      final String currentLanguageCode =
+          ProductQuery.getCurrentLanguageCode(context);
+      final OpenFoodFactsLanguage currentLanguage =
+          LanguageHelper.fromJson(currentLanguageCode);
+
       for (int i = _product.categoriesTags!.length - 1;
           i < _product.categoriesTags!.length;
           i++) {
         final String categoryTag = _product.categoriesTags![i];
-        final String currentLanguageCode =
-            ProductQuery.getCurrentLanguageCode(context);
-        final OpenFoodFactsLanguage currentLanguage =
-            LanguageHelper.fromJson(currentLanguageCode);
         final String categoryTagInLocalLanguage =
             _product.categoriesTagsInLanguages?[currentLanguage]?[i] ??
                 categoryTag;
@@ -410,7 +411,7 @@ class _ProductPageState extends State<ProductPage> {
                 localDatabase: localDatabase,
                 productQuery: CategoryProductQuery(
                   category: categoryTag,
-                  languageCode: ProductQuery.getCurrentLanguageCode(context),
+                  languageCode: currentLanguageCode,
                   countryCode: ProductQuery.getCurrentCountryCode(),
                   size: 500,
                 ),
