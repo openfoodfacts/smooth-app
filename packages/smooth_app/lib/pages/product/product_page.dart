@@ -368,10 +368,19 @@ class _ProductPageState extends State<ProductPage> {
     //Similar foods
     if (_product.categoriesTags != null &&
         _product.categoriesTags!.isNotEmpty) {
+      final String currentLanguageCode =
+          ProductQuery.getCurrentLanguageCode(context);
+      final OpenFoodFactsLanguage currentLanguage =
+          LanguageHelper.fromJson(currentLanguageCode);
+
       for (int i = _product.categoriesTags!.length - 1;
           i < _product.categoriesTags!.length;
           i++) {
         final String categoryTag = _product.categoriesTags![i];
+        final String categoryTagInLocalLanguage =
+            _product.categoriesTagsInLanguages?[currentLanguage]?[i] ??
+                categoryTag;
+
         const MaterialColor materialColor = Colors.blue;
         listItems.add(
           SmoothCard(
@@ -399,14 +408,14 @@ class _ProductPageState extends State<ProductPage> {
                 localDatabase: localDatabase,
                 productQuery: CategoryProductQuery(
                   category: categoryTag,
-                  languageCode: ProductQuery.getCurrentLanguageCode(context),
+                  languageCode: currentLanguageCode,
                   countryCode: ProductQuery.getCurrentCountryCode(),
                   size: 500,
                 ),
                 context: context,
               ),
               title: Text(
-                categoryTag,
+                categoryTagInLocalLanguage,
                 style: themeData.textTheme.headline3,
               ),
               subtitle: Text(
