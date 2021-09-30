@@ -108,17 +108,16 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
 
   Future<void> resetImportances() async {
     await clearImportances(notifyListeners: false);
-
-    final List<Future<void>> futures = <Future<void>>[];
     // Execute all network calls in parallel.
-    for (final String attributeId in _DEFAULT_ATTRIBUTES) {
-      futures.add(setImportance(
-        attributeId,
-        PreferenceImportance.ID_VERY_IMPORTANT,
-        notifyListeners: false,
-      ));
-    }
-    await Future.wait(futures);
+    await Future.wait(
+      _DEFAULT_ATTRIBUTES.map(
+        (String attributeId) => setImportance(
+          attributeId,
+          PreferenceImportance.ID_VERY_IMPORTANT,
+          notifyListeners: false,
+        ),
+      ),
+    );
     notify();
   }
 
