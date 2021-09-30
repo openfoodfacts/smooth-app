@@ -228,32 +228,25 @@ class _ProductPageState extends State<NewProductPage> {
     ));
     listItems.add(
       SmoothCard(
-        padding: const EdgeInsets.only(
+        margin: const EdgeInsets.only(
           right: 8.0,
           left: 8.0,
           top: 4.0,
           bottom: 20.0,
         ),
-        insets: EdgeInsets.zero, // Zero padding for the card content.
-        // Without setting a ClipBehavior, widgets overflow and the corner
-        // rounding does not work.
-        clipBehavior: Clip.hardEdge,
-        child: Column(
-          children: <Widget>[
-            _buildProductMatchHeader(context),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12.0),
-              child: Column(children: <Widget>[
-                _buildProductTitleTile(context),
-                for (final Attribute attribute in scoreAttributes)
-                  ScoreAttributeCard(
-                    attribute: attribute,
-                    iconHeight: iconHeight,
-                  ),
-                attributesContainer,
-              ]),
-            ),
-          ],
+        padding: EdgeInsets.zero,
+        header: _buildProductMatchHeader(context),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12.0),
+          child: Column(children: <Widget>[
+            _buildProductTitleTile(context),
+            for (final Attribute attribute in scoreAttributes)
+              ScoreAttributeCard(
+                attribute: attribute,
+                iconHeight: iconHeight,
+              ),
+            attributesContainer,
+          ]),
         ),
       ),
     );
@@ -284,18 +277,21 @@ class _ProductPageState extends State<NewProductPage> {
     // NOTE: This is temporary and will be updated once the feature is supported
     // by the server.
     return Container(
-      color: Colors.red,
-      child: Container(
-        alignment: Alignment.topLeft,
-        padding: const EdgeInsets.symmetric(vertical: 8.0),
-        child: Center(
-          child: Text(
-            'Very poor Match',
-            style: Theme.of(context)
-                .textTheme
-                .subtitle1!
-                .apply(color: Colors.white),
-          ),
+      decoration: const BoxDecoration(
+        color: Colors.red,
+        // Ensure that the header has the same curcular radius as the SmoothCard.
+        borderRadius: BorderRadius.only(
+          topLeft: SmoothCard.CIRCULAR_RADIUS,
+          topRight: SmoothCard.CIRCULAR_RADIUS,
+        ),
+      ),
+      alignment: Alignment.topLeft,
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Center(
+        child: Text(
+          'Very poor Match',
+          style:
+              Theme.of(context).textTheme.subtitle1!.apply(color: Colors.white),
         ),
       ),
     );
