@@ -66,20 +66,15 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; resetImportances() async {
   await clearImportances(notifyListeners: false);
-  await setImportance(
-    Attribute.ATTRIBUTE_NUTRISCORE,
-    PreferenceImportance.ID_VERY_IMPORTANT,
-    notifyListeners: false,
-  );
-  await setImportance(
-    Attribute.ATTRIBUTE_NOVA,
-    PreferenceImportance.ID_IMPORTANT,
-    notifyListeners: false,
-  );
-  await setImportance(
-    Attribute.ATTRIBUTE_ECOSCORE,
-    PreferenceImportance.ID_IMPORTANT,
-    notifyListeners: false,
+  &#47;&#47; Execute all network calls in parallel.
+  await Future.wait(
+    _DEFAULT_ATTRIBUTES.map(
+      (String attributeId) =&gt; setImportance(
+        attributeId,
+        PreferenceImportance.ID_VERY_IMPORTANT,
+        notifyListeners: false,
+      ),
+    ),
   );
   notify();
 }</code></pre>
