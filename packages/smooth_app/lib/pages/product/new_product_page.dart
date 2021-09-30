@@ -324,6 +324,20 @@ class _ProductPageState extends State<NewProductPage> {
     AttributeGroup group,
     bool isFirstGroup,
   ) {
+    final List<Widget> attributeChips = <Widget>[];
+    for (final Attribute attribute in group.attributes!) {
+      final Widget? attributeChip = _buildAttributeChipForValidAttributes(
+        attribute: attribute,
+        returnNullIfStatusUnknown:
+            group.id == AttributeGroup.ATTRIBUTE_GROUP_LABELS,
+      );
+      if (attributeChip != null) {
+        attributeChips.add(attributeChip);
+      }
+    }
+    if (attributeChips.isEmpty) {
+      return _EMPTY_WIDGET;
+    }
     return Column(
       children: <Widget>[
         _buildAttributeGroupHeader(context, group, isFirstGroup),
@@ -331,11 +345,7 @@ class _ProductPageState extends State<NewProductPage> {
           alignment: Alignment.topLeft,
           child: Wrap(
             runSpacing: 16,
-            children: <Widget>[
-              for (final Attribute attribute in group.attributes!)
-                _buildAttributeChipForValidAttributes(attribute) ??
-                    _EMPTY_WIDGET,
-            ],
+            children: attributeChips,
           ),
         ),
       ],
@@ -370,13 +380,20 @@ class _ProductPageState extends State<NewProductPage> {
     );
   }
 
-  Widget? _buildAttributeChipForValidAttributes(Attribute attribute) {
+  Widget? _buildAttributeChipForValidAttributes({
+    required Attribute attribute,
+    required bool returnNullIfStatusUnknown,
+  }) {
     if (attribute.id == null || _SCORE_ATTRIBUTE_IDS.contains(attribute.id)) {
       // Score Attribute Ids have already been rendered.
       return null;
     }
     if (_productPreferences.isAttributeImportant(attribute.id!) != true) {
       // Not an important attribute.
+      return null;
+    }
+    if (returnNullIfStatusUnknown &&
+        attribute.status == Attribute.STATUS_UNKNOWN) {
       return null;
     }
     final String? attributeDisplayTitle = getDisplayTitle(attribute);
