@@ -234,7 +234,7 @@ class _ProductPageState extends State<NewProductPage> {
           top: 4.0,
           bottom: 20.0,
         ),
-        padding: EdgeInsets.zero, // Zero padding for the card content.
+        padding: EdgeInsets.zero,
         header: _buildProductMatchHeader(context),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12.0),
