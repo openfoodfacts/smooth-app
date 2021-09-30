@@ -331,7 +331,10 @@ class _ProductPageState extends State<NewProductPage> {
     final List<Widget> attributeChips = <Widget>[];
     for (final Attribute attribute in group.attributes!) {
       final Widget? attributeChip = _buildAttributeChipForValidAttributes(
-          attribute, group.id == AttributeGroup.ATTRIBUTE_GROUP_LABELS);
+        attribute: attribute,
+        returnNullIfStatusUnknown:
+            group.id == AttributeGroup.ATTRIBUTE_GROUP_LABELS,
+      );
       if (attributeChip != null) {
         attributeChips.add(attributeChip);
       }
@@ -381,8 +384,10 @@ class _ProductPageState extends State<NewProductPage> {
     );
   }
 
-  Widget? _buildAttributeChipForValidAttributes(
-      Attribute attribute, bool returnNullIfStatusUnknown) {
+  Widget? _buildAttributeChipForValidAttributes({
+    required Attribute attribute,
+    required bool returnNullIfStatusUnknown,
+  }) {
     if (attribute.id == null || _SCORE_ATTRIBUTE_IDS.contains(attribute.id)) {
       // Score Attribute Ids have already been rendered.
       return null;
