@@ -76,7 +76,9 @@ class _SwitchablePageState extends State<_SwitchablePage> {
 
 void main() {
   // Regression test for https://github.com/openfoodfacts/smooth-app/issues/483
-  testWidgets("SmoothRevealAnimation doesn't use AnimationController after dispose", (WidgetTester tester) async {
+  testWidgets(
+      "SmoothRevealAnimation doesn't use AnimationController after dispose",
+      (WidgetTester tester) async {
     await tester.pumpWidget(
       const MaterialApp(
         home: _SwitchablePage(
