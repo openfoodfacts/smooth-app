@@ -32,7 +32,7 @@ class UserPreferencesPage extends StatelessWidget {
         context.watch<ProductPreferences>();
     final List<AttributeGroup> groups =
         _reorderGroups(productPreferences.attributeGroups!);
-    final List<String> orderedImportantAttributeIds =
+    List<String> orderedImportantAttributeIds =
         productPreferences.getOrderedImportantAttributeIds();
     return Scaffold(
       appBar: AppBar(
@@ -63,7 +63,10 @@ class UserPreferencesPage extends StatelessWidget {
             groups[index],
             userPreferences,
             productPreferences,
-            _reorderAttributes(groups[index], orderedImportantAttributeIds),
+            _reorderAttributes(
+              _filterPermanentAttributes(groups[index].attributes!),
+              orderedImportantAttributeIds,
+            ),
           ),
         ),
       ),
@@ -126,21 +129,29 @@ class UserPreferencesPage extends StatelessWidget {
         ],
       );
 
+  // Filter out attributes that are permanent and can't be modified in preferences.
+  List<Attribute> _filterPermanentAttributes(List<Attribute> attributes) {
+    return attributes
+        .where((Attribute attribute) =>
+            !Attribute.PERMANENT_ATTRIBUTES.contains(attribute.id!))
+        .toList();
+  }
+
   /// Returns a list of the attributes in the preferences order.
   ///
   /// First, the attributes ordered by id designated by [orderedAttributeIds],
   /// if they belong to the [group].
   /// Then, the remaining attributes of the group in the initial group order.
   List<Attribute> _reorderAttributes(
-    final AttributeGroup group,
+    final List<Attribute> attributes,
     final List<String> orderedAttributeIds,
   ) {
     if (orderedAttributeIds.isEmpty) {
-      return group.attributes!;
+      return attributes;
     }
     final List<Attribute> importantAttributes = <Attribute>[];
     final List<Attribute> otherAttributes = <Attribute>[];
-    for (final Attribute attribute in group.attributes!) {
+    for (final Attribute attribute in attributes) {
       if (orderedAttributeIds.contains(attribute.id)) {
         importantAttributes.add(attribute);
       } else {
