@@ -32,7 +32,7 @@ class UserPreferencesPage extends StatelessWidget {
         context.watch<ProductPreferences>();
     final List<AttributeGroup> groups =
         _reorderGroups(productPreferences.attributeGroups!);
-    List<String> orderedImportantAttributeIds =
+    final List<String> orderedImportantAttributeIds =
         productPreferences.getOrderedImportantAttributeIds();
     return Scaffold(
       appBar: AppBar(

@@ -381,7 +381,7 @@ class _ProductPageState extends State<NewProductPage> {
   }) {
     if (attribute.id == null ||
         Attribute.PERMANENT_ATTRIBUTES.contains(attribute.id)) {
-      // Score Attribute Ids have already been rendered.
+      // Permanent Attribute have already been rendered.
       return null;
     }
     if (_productPreferences.isAttributeImportant(attribute.id!) != true) {
