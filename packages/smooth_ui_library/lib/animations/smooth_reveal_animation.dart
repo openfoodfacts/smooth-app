@@ -22,8 +22,9 @@ class SmoothRevealAnimation extends StatefulWidget {
 
 class _SmoothRevealAnimationState extends State<SmoothRevealAnimation>
     with SingleTickerProviderStateMixin {
-  AnimationController? _animationController;
-  late Animation<Offset> _animationOffset;
+  late final AnimationController _animationController;
+  late final Animation<Offset> _animationOffset;
+  late final Timer _animationTimer;
 
   @override
   void initState() {
@@ -32,24 +33,20 @@ class _SmoothRevealAnimationState extends State<SmoothRevealAnimation>
         vsync: this,
         duration: Duration(milliseconds: widget.animationDuration));
     final CurvedAnimation curve = CurvedAnimation(
-        curve: widget.animationCurve, parent: _animationController!);
+        curve: widget.animationCurve, parent: _animationController);
     _animationOffset =
         Tween<Offset>(begin: widget.startOffset, end: Offset.zero)
             .animate(curve);
 
-    Timer(Duration(milliseconds: widget.delay), () {
-      if (_animationController != null) {
-        _animationController!.forward();
-      }
+    _animationTimer = Timer(Duration(milliseconds: widget.delay), () {
+      _animationController.forward();
     });
   }
 
   @override
   void dispose() {
-    if (_animationController != null) {
-      _animationController!.dispose();
-      _animationController = null;
-    }
+    _animationController.dispose();
+    _animationTimer.cancel();
     super.dispose();
   }
 
@@ -60,7 +57,7 @@ class _SmoothRevealAnimationState extends State<SmoothRevealAnimation>
         position: _animationOffset,
         child: widget.child,
       ),
-      opacity: _animationController!,
+      opacity: _animationController,
     );
   }
 }
