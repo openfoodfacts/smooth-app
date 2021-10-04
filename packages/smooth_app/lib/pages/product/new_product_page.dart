@@ -237,7 +237,10 @@ class _ProductPageState extends State<NewProductPage> {
         ),
         padding: EdgeInsets.zero,
         header: _buildProductCompatibilityHeader(
-            context, _productPreferences, _product),
+          context,
+          _productPreferences,
+          _product,
+        ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12.0),
           child: Column(children: <Widget>[
@@ -280,7 +283,7 @@ class _ProductPageState extends State<NewProductPage> {
     ProductPreferences productPreferences,
     Product product,
   ) {
-    ProductCompatibility compatibility =
+    final ProductCompatibility compatibility =
         getProductCompatibility(productPreferences, product);
     // NOTE: This is temporary and will be updated once the feature is supported
     // by the server.

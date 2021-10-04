@@ -17,7 +17,7 @@ enum ProductCompatibility {
 
 // Defines the weight of an attribute while computing the average match score
 // for the product. The weight depends upon it's importance set in user prefs.
-const Map<String, double> attributeImportanceWeight = {
+const Map<String, int> attributeImportanceWeight = <String, int>{
   PreferenceImportance.ID_MANDATORY: 4,
   PreferenceImportance.ID_VERY_IMPORTANT: 2,
   PreferenceImportance.ID_IMPORTANT: 1,
@@ -75,8 +75,8 @@ ProductCompatibility getProductCompatibility(
         return ProductCompatibility.INCOMPATIBLE;
       }
       if (!attributeImportanceWeight.containsKey(importanceLevel)) {
-        // Unknown attribute importance level. (This should ideally never happen)
-        // TODO(jasmeetsingh): `importanceLevel` should be an enum not a string.
+        // Unknown attribute importance level. (This should ideally never happen).
+        // TODO(jasmeetsingh): [importanceLevel] should be an enum not a string.
         continue;
       }
       if (!isMatchAvailable(attribute)) {
