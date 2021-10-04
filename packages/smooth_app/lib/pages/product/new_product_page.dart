@@ -236,11 +236,7 @@ class _ProductPageState extends State<NewProductPage> {
           bottom: 20.0,
         ),
         padding: EdgeInsets.zero,
-        header: _buildProductCompatibilityHeader(
-          context,
-          _productPreferences,
-          _product,
-        ),
+        header: _buildProductCompatibilityHeader(context),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12.0),
           child: Column(children: <Widget>[
@@ -278,13 +274,9 @@ class _ProductPageState extends State<NewProductPage> {
     return attributeGroupsToBeRendered;
   }
 
-  Widget _buildProductCompatibilityHeader(
-    BuildContext context,
-    ProductPreferences productPreferences,
-    Product product,
-  ) {
+  Widget _buildProductCompatibilityHeader(BuildContext context) {
     final ProductCompatibility compatibility =
-        getProductCompatibility(productPreferences, product);
+        getProductCompatibility(_productPreferences, _product);
     // NOTE: This is temporary and will be updated once the feature is supported
     // by the server.
     return Container(
@@ -300,10 +292,7 @@ class _ProductPageState extends State<NewProductPage> {
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Center(
         child: Text(
-          getProductCompatibilityHeaderTextWidget(
-            context,
-            compatibility,
-          ),
+          getProductCompatibilityHeaderTextWidget(compatibility),
           style:
               Theme.of(context).textTheme.subtitle1!.apply(color: Colors.white),
         ),

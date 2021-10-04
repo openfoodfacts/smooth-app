@@ -60,6 +60,7 @@ AttributeEvaluation getAttributeEvaluation(Attribute attribute) {
   // 41-60: Neutral
   // 61-80: Good
   // 81-100: Very good
+  // > 100: Unknown
   final int matchGrade = (attribute.match! / 20.0).ceil();
   switch (matchGrade) {
     case 0 | 1:

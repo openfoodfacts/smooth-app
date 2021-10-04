@@ -41,7 +41,6 @@ Color getProductCompatibilityHeaderBackgroundColor(
 }
 
 String getProductCompatibilityHeaderTextWidget(
-  BuildContext context,
   ProductCompatibility compatibility,
 ) {
   // Note: This text should come from BE.
