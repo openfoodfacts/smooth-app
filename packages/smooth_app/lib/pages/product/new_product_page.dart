@@ -29,6 +29,11 @@ class NewProductPage extends StatefulWidget {
 
 enum ProductPageMenuItem { WEB, REFRESH }
 
+const List<String> _SCORE_ATTRIBUTE_IDS = <String>[
+  Attribute.ATTRIBUTE_NUTRISCORE,
+  Attribute.ATTRIBUTE_ECOSCORE
+];
+
 const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS,
   AttributeGroup.ATTRIBUTE_GROUP_INGREDIENT_ANALYSIS,
@@ -199,7 +204,7 @@ class _ProductPageState extends State<NewProductPage> {
         screenSize.width / 10; // TODO(monsieurtanuki): target size?
     final List<Attribute> scoreAttributes =
         AttributeListExpandable.getPopulatedAttributes(
-            _product, Attribute.PERMANENT_ATTRIBUTES);
+            _product, _SCORE_ATTRIBUTE_IDS);
 
     final List<AttributeGroup> attributeGroupsToBeRendered =
         _getAttributeGroupsToBeRendered();
@@ -379,9 +384,8 @@ class _ProductPageState extends State<NewProductPage> {
     required Attribute attribute,
     required bool returnNullIfStatusUnknown,
   }) {
-    if (attribute.id == null ||
-        Attribute.PERMANENT_ATTRIBUTES.contains(attribute.id)) {
-      // Permanent Attribute have already been rendered.
+    if (attribute.id == null || _SCORE_ATTRIBUTE_IDS.contains(attribute.id)) {
+      // Score Attribute Ids have already been rendered.
       return null;
     }
     if (_productPreferences.isAttributeImportant(attribute.id!) != true) {

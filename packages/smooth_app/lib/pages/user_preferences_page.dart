@@ -63,10 +63,7 @@ class UserPreferencesPage extends StatelessWidget {
             groups[index],
             userPreferences,
             productPreferences,
-            _reorderAttributes(
-              _filterPermanentAttributes(groups[index].attributes!),
-              orderedImportantAttributeIds,
-            ),
+            _reorderAttributes(groups[index], orderedImportantAttributeIds),
           ),
         ),
       ),
@@ -129,29 +126,21 @@ class UserPreferencesPage extends StatelessWidget {
         ],
       );
 
-  // Filter out attributes that are permanent and can't be modified in preferences.
-  List<Attribute> _filterPermanentAttributes(List<Attribute> attributes) {
-    return attributes
-        .where((Attribute attribute) =>
-            !Attribute.PERMANENT_ATTRIBUTES.contains(attribute.id!))
-        .toList();
-  }
-
   /// Returns a list of the attributes in the preferences order.
   ///
   /// First, the attributes ordered by id designated by [orderedAttributeIds],
   /// if they belong to the [group].
   /// Then, the remaining attributes of the group in the initial group order.
   List<Attribute> _reorderAttributes(
-    final List<Attribute> attributes,
+    final AttributeGroup group,
     final List<String> orderedAttributeIds,
   ) {
     if (orderedAttributeIds.isEmpty) {
-      return attributes;
+      return group.attributes!;
     }
     final List<Attribute> importantAttributes = <Attribute>[];
     final List<Attribute> otherAttributes = <Attribute>[];
-    for (final Attribute attribute in attributes) {
+    for (final Attribute attribute in group.attributes!) {
       if (orderedAttributeIds.contains(attribute.id)) {
         importantAttributes.add(attribute);
       } else {
