@@ -15,6 +15,9 @@ enum ProductCompatibility {
   GOOD_COMPATIBILITY,
 }
 
+const int _BAD_COMPATIBILITY_UPPER_THRESHOLD = 33;
+const int _NEUTRAL_COMPATIBILITY_UPPER_THRESHOLD = 66;
+
 // Defines the weight of an attribute while computing the average match score
 // for the product. The weight depends upon it's importance set in user prefs.
 const Map<String, int> attributeImportanceWeight = <String, int>{
@@ -87,10 +90,10 @@ ProductCompatibility getProductCompatibility(
     }
   }
   averageAttributeMatch /= numAttributesComputed;
-  if (averageAttributeMatch < 33) {
+  if (averageAttributeMatch < _BAD_COMPATIBILITY_UPPER_THRESHOLD) {
     return ProductCompatibility.BAD_COMPATIBILITY;
   }
-  if (averageAttributeMatch < 66) {
+  if (averageAttributeMatch < _NEUTRAL_COMPATIBILITY_UPPER_THRESHOLD) {
     return ProductCompatibility.NEUTRAL_COMPATIBILITY;
   }
   return ProductCompatibility.GOOD_COMPATIBILITY;
