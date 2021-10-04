@@ -50,11 +50,11 @@ bool isMatchAvailable(Attribute attribute) {
 }
 
 AttributeEvaluation getAttributeEvaluation(Attribute attribute) {
-  // Note: Evaluation should come directly from the BE.
   if (!isMatchAvailable(attribute)) {
     return AttributeEvaluation.UNKNOWN;
   }
-  // Match evaluation is temporary, it should come from the server, currently it's computed as:
+  // Note: Match evaluation is temporary, it should come from the server,
+  // currently it's computed as:
   // 0-20: Very Bad
   // 21-40: Bad
   // 41-60: Neutral

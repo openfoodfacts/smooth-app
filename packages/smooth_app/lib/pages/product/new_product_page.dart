@@ -275,16 +275,18 @@ class _ProductPageState extends State<NewProductPage> {
     return attributeGroupsToBeRendered;
   }
 
-  Widget _buildProductCompatibilityHeader(BuildContext context,
-      ProductPreferences productPreferences, Product product) {
+  Widget _buildProductCompatibilityHeader(
+    BuildContext context,
+    ProductPreferences productPreferences,
+    Product product,
+  ) {
+    ProductCompatibility compatibility =
+        getProductCompatibility(productPreferences, product);
     // NOTE: This is temporary and will be updated once the feature is supported
     // by the server.
     return Container(
       decoration: BoxDecoration(
-        color: getProductCompatibilityHeaderBackgroundColor(
-          productPreferences,
-          product,
-        ),
+        color: getProductCompatibilityHeaderBackgroundColor(compatibility),
         // Ensure that the header has the same circular radius as the SmoothCard.
         borderRadius: const BorderRadius.only(
           topLeft: SmoothCard.CIRCULAR_RADIUS,
@@ -297,8 +299,7 @@ class _ProductPageState extends State<NewProductPage> {
         child: Text(
           getProductCompatibilityHeaderTextWidget(
             context,
-            productPreferences,
-            product,
+            compatibility,
           ),
           style:
               Theme.of(context).textTheme.subtitle1!.apply(color: Colors.white),

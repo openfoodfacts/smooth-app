@@ -24,14 +24,8 @@ const Map<String, double> attributeImportanceWeight = {
   PreferenceImportance.ID_NOT_IMPORTANT: 0,
 };
 
-// Maybe return the full widget from here.
-
 Color getProductCompatibilityHeaderBackgroundColor(
-  ProductPreferences productPreferences,
-  Product product,
-) {
-  final ProductCompatibility compatibility =
-      _getProductCompatibility(productPreferences, product);
+    ProductCompatibility compatibility) {
   switch (compatibility) {
     case ProductCompatibility.UNKNOWN:
       return Colors.grey;
@@ -48,12 +42,9 @@ Color getProductCompatibilityHeaderBackgroundColor(
 
 String getProductCompatibilityHeaderTextWidget(
   BuildContext context,
-  ProductPreferences productPreferences,
-  Product product,
+  ProductCompatibility compatibility,
 ) {
   // Note: This text should come from BE.
-  final ProductCompatibility compatibility =
-      _getProductCompatibility(productPreferences, product);
   switch (compatibility) {
     case ProductCompatibility.UNKNOWN:
       return 'Product Compatibility Unknown';
@@ -68,7 +59,7 @@ String getProductCompatibilityHeaderTextWidget(
   }
 }
 
-ProductCompatibility _getProductCompatibility(
+ProductCompatibility getProductCompatibility(
   ProductPreferences productPreferences,
   Product product,
 ) {
