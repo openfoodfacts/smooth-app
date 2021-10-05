@@ -1,33 +1,36 @@
 import 'package:flutter/material.dart';
 
+/// Renders a Material card with elevation, shadow, Border radius etc...
+/// Note: If the caller updates BoxDecoration of the [header] or [child] widget,
+/// the caller must also set the borderRadius to [CIRCULAR_RADIUS] in
+/// BoxDecoration.
 class SmoothCard extends StatelessWidget {
   const SmoothCard({
     required this.child,
     this.color,
     this.header,
-    this.padding =
+    this.margin =
         const EdgeInsets.only(right: 8.0, left: 8.0, top: 4.0, bottom: 4.0),
-    this.insets = const EdgeInsets.all(5.0),
-    this.clipBehavior = Clip.none,
+    this.padding = const EdgeInsets.all(5.0),
   });
 
   final Widget child;
   final Color? color;
   final Widget? header;
+  final EdgeInsets? margin;
   final EdgeInsets? padding;
-  final EdgeInsets? insets;
-  final Clip clipBehavior;
+
+  static const Radius CIRCULAR_RADIUS = Radius.circular(10.0);
 
   @override
   Widget build(BuildContext context) {
     final Widget result = Material(
       elevation: 8.0,
-      clipBehavior: clipBehavior,
       shadowColor: Colors.black45,
-      borderRadius: BorderRadius.circular(10.0),
+      borderRadius: const BorderRadius.all(CIRCULAR_RADIUS),
       color: color ?? Theme.of(context).colorScheme.surface,
       child: Container(
-        padding: insets,
+        padding: padding,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
@@ -37,12 +40,11 @@ class SmoothCard extends StatelessWidget {
         ),
       ),
     );
-    if (padding == null) {
-      return result;
-    }
-    return Padding(
-      padding: padding!,
-      child: result,
-    );
+    return margin == null
+        ? result
+        : Padding(
+            padding: margin!,
+            child: result,
+          );
   }
 }

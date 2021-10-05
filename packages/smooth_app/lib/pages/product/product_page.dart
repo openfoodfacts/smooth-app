@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -9,7 +8,6 @@ import 'package:provider/provider.dart';
 import 'package:share/share.dart';
 import 'package:smooth_app/cards/data_cards/image_upload_card.dart';
 import 'package:smooth_app/cards/expandables/attribute_list_expandable.dart';
-import 'package:smooth_app/data_models/product_extra.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
@@ -46,14 +44,14 @@ class _ProductPageState extends State<ProductPage> {
   late Product _product;
   bool _first = true;
 
-  final EdgeInsets padding = const EdgeInsets.only(
+  final EdgeInsets margin = const EdgeInsets.only(
     right: 8.0,
     left: 8.0,
     top: 4.0,
     bottom: 20.0,
   );
 
-  final EdgeInsets insets = const EdgeInsets.all(12.0);
+  final EdgeInsets padding = const EdgeInsets.all(12.0);
 
   static const List<String> _ORDERED_ATTRIBUTE_GROUP_IDS = <String>[
     AttributeGroup.ATTRIBUTE_GROUP_INGREDIENT_ANALYSIS,
@@ -255,7 +253,6 @@ class _ProductPageState extends State<ProductPage> {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
     final DaoProduct daoProduct = DaoProduct(localDatabase);
-    final DaoProductExtra daoProductExtra = DaoProductExtra(localDatabase);
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
@@ -348,8 +345,8 @@ class _ProductPageState extends State<ProductPage> {
     if (attributes.isNotEmpty) {
       listItems.add(
         AttributeListExpandable(
+          margin: margin,
           padding: padding,
-          insets: insets,
           product: _product,
           iconHeight: iconHeight,
           attributes: attributes,
@@ -371,15 +368,24 @@ class _ProductPageState extends State<ProductPage> {
     //Similar foods
     if (_product.categoriesTags != null &&
         _product.categoriesTags!.isNotEmpty) {
+      final String currentLanguageCode =
+          ProductQuery.getCurrentLanguageCode(context);
+      final OpenFoodFactsLanguage currentLanguage =
+          LanguageHelper.fromJson(currentLanguageCode);
+
       for (int i = _product.categoriesTags!.length - 1;
           i < _product.categoriesTags!.length;
           i++) {
         final String categoryTag = _product.categoriesTags![i];
+        final String categoryTagInLocalLanguage =
+            _product.categoriesTagsInLanguages?[currentLanguage]?[i] ??
+                categoryTag;
+
         const MaterialColor materialColor = Colors.blue;
         listItems.add(
           SmoothCard(
+            margin: margin,
             padding: padding,
-            insets: insets,
             color: SmoothTheme.getColor(
               themeData.colorScheme,
               materialColor,
@@ -402,14 +408,14 @@ class _ProductPageState extends State<ProductPage> {
                 localDatabase: localDatabase,
                 productQuery: CategoryProductQuery(
                   category: categoryTag,
-                  languageCode: ProductQuery.getCurrentLanguageCode(context),
+                  languageCode: currentLanguageCode,
                   countryCode: ProductQuery.getCurrentCountryCode(),
                   size: 500,
                 ),
                 context: context,
               ),
               title: Text(
-                categoryTag,
+                categoryTagInLocalLanguage,
                 style: themeData.textTheme.headline3,
               ),
               subtitle: Text(
@@ -422,66 +428,7 @@ class _ProductPageState extends State<ProductPage> {
       }
     }
 
-    listItems.add(_getTemporaryButton(daoProductExtra));
-
     return ListView(children: listItems);
-  }
-
-  // TODO(monsieurtanuki): remove / improve the display according to the feedbacks
-  Widget _getTemporaryButton(final DaoProductExtra daoProductExtra) =>
-      ElevatedButton(
-        onPressed: () async {
-          final List<Widget> children = <Widget>[];
-          _temporary(
-            await daoProductExtra.getProductExtra(
-              key: DaoProductExtra.EXTRA_ID_LAST_SEEN,
-              barcode: _product.barcode!,
-            ),
-            children,
-            'History of your access:',
-          );
-          _temporary(
-            await daoProductExtra.getProductExtra(
-              key: DaoProductExtra.EXTRA_ID_LAST_SCAN,
-              barcode: _product.barcode!,
-            ),
-            children,
-            'History of your barcode scan:',
-          );
-          _temporary(
-            await daoProductExtra.getProductExtra(
-              key: DaoProductExtra.EXTRA_ID_LAST_REFRESH,
-              barcode: _product.barcode!,
-            ),
-            children,
-            'History of your server refresh:',
-          );
-          await showCupertinoModalBottomSheet<void>(
-            context: context,
-            builder: (final BuildContext context) => ListView(
-              children: children,
-            ),
-          );
-        },
-        child: const Text('History (temporary button)'),
-      );
-
-  void _temporary(
-    final ProductExtra? productExtra,
-    final List<Widget> children,
-    final String title,
-  ) {
-    if (productExtra == null) {
-      return;
-    }
-    final List<int> timestamps = productExtra.decodeStringAsIntList();
-    if (timestamps.isNotEmpty) {
-      children.add(Material(child: Text(title)));
-      for (final int timestamp in timestamps.reversed) {
-        final DateTime dateTime = LocalDatabase.timestampToDateTime(timestamp);
-        children.add(Material(child: Text('* $dateTime')));
-      }
-    }
   }
 
   Widget? _getAttributeGroupWidget(
@@ -498,8 +445,8 @@ class _ProductPageState extends State<ProductPage> {
       return null;
     }
     return AttributeListExpandable(
+      margin: margin,
       padding: padding,
-      insets: insets,
       product: _product,
       iconHeight: iconHeight,
       attributes: attributes,

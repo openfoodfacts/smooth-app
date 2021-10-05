@@ -13,6 +13,7 @@ import 'package:smooth_app/database/dao_product_extra.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -228,32 +229,25 @@ class _ProductPageState extends State<NewProductPage> {
     ));
     listItems.add(
       SmoothCard(
-        padding: const EdgeInsets.only(
+        margin: const EdgeInsets.only(
           right: 8.0,
           left: 8.0,
           top: 4.0,
           bottom: 20.0,
         ),
-        insets: EdgeInsets.zero, // Zero padding for the card content.
-        // Without setting a ClipBehavior, widgets overflow and the corner
-        // rounding does not work.
-        clipBehavior: Clip.hardEdge,
-        child: Column(
-          children: <Widget>[
-            _buildProductMatchHeader(context),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12.0),
-              child: Column(children: <Widget>[
-                _buildProductTitleTile(context),
-                for (final Attribute attribute in scoreAttributes)
-                  ScoreAttributeCard(
-                    attribute: attribute,
-                    iconHeight: iconHeight,
-                  ),
-                attributesContainer,
-              ]),
-            ),
-          ],
+        padding: EdgeInsets.zero,
+        header: _buildProductCompatibilityHeader(context),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12.0),
+          child: Column(children: <Widget>[
+            _buildProductTitleTile(context),
+            for (final Attribute attribute in scoreAttributes)
+              ScoreAttributeCard(
+                attribute: attribute,
+                iconHeight: iconHeight,
+              ),
+            attributesContainer,
+          ]),
         ),
       ),
     );
@@ -280,22 +274,27 @@ class _ProductPageState extends State<NewProductPage> {
     return attributeGroupsToBeRendered;
   }
 
-  Widget _buildProductMatchHeader(BuildContext context) {
+  Widget _buildProductCompatibilityHeader(BuildContext context) {
+    final ProductCompatibility compatibility =
+        getProductCompatibility(_productPreferences, _product);
     // NOTE: This is temporary and will be updated once the feature is supported
     // by the server.
     return Container(
-      color: Colors.red,
-      child: Container(
-        alignment: Alignment.topLeft,
-        padding: const EdgeInsets.symmetric(vertical: 8.0),
-        child: Center(
-          child: Text(
-            'Very poor Match',
-            style: Theme.of(context)
-                .textTheme
-                .subtitle1!
-                .apply(color: Colors.white),
-          ),
+      decoration: BoxDecoration(
+        color: getProductCompatibilityHeaderBackgroundColor(compatibility),
+        // Ensure that the header has the same circular radius as the SmoothCard.
+        borderRadius: const BorderRadius.only(
+          topLeft: SmoothCard.CIRCULAR_RADIUS,
+          topRight: SmoothCard.CIRCULAR_RADIUS,
+        ),
+      ),
+      alignment: Alignment.topLeft,
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Center(
+        child: Text(
+          getProductCompatibilityHeaderTextWidget(compatibility),
+          style:
+              Theme.of(context).textTheme.subtitle1!.apply(color: Colors.white),
         ),
       ),
     );
