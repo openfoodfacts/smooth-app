@@ -55,8 +55,8 @@ platform :ios do
   lane :setVersion do
     begin
 
-      new_version_name = '0.0.1'
-#        new_version_name = get_version_number_from_git_branch(pattern: 'release/#')
+        #new_version_name = '0.0.1'
+        new_version_name = get_version_number_from_git_branch(pattern: 'release/#')
         puts new_version_name.to_s
 
 
