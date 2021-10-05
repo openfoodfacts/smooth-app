@@ -46,7 +46,7 @@ Color getProductCompatibilityHeaderBackgroundColor(
 String getProductCompatibilityHeaderTextWidget(
   ProductCompatibility compatibility,
 ) {
-  // Note: This text should come from BE.
+  // Note: This text should be internationalized.
   switch (compatibility) {
     case ProductCompatibility.UNKNOWN:
       return 'Product Compatibility Unknown';
