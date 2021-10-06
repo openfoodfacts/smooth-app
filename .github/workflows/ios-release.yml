@@ -1,10 +1,10 @@
-name: Smoothie Testflight internal release
-#on: [push]
+name: App Store release
+
 on:
   push:
     branches:
-      #- '*'
-      - 'release/*'
+      #- '*'  
+      - 'release-v*.*.*'
 
 jobs:
   testflight-release:
