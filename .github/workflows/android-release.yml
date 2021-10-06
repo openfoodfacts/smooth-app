@@ -22,7 +22,6 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.6.1
           bundler-cache: true
 
       - name: Decrypt API JSON file
@@ -36,8 +35,8 @@ jobs:
         with:
           channel: 'stable'
 
-      - name: Install Flutter dependencies
-        run: pwd && cd ./packages/smooth_app/ && pwd && flutter pub get
+      - name: Get dependencies
+        run: ci/pub_upgrade.sh
 
       - name: Bump version
         uses: maierj/fastlane-action@v2.1.0
@@ -53,7 +52,7 @@ jobs:
          SIGN_KEY_ALIAS: ${{ secrets.SIGN_KEY_ALIAS }}
          SIGN_KEY_PASSWORD: ${{ secrets.SIGN_KEY_PASSWORD }}
 
-      - name: Run Fastlane
+      - name: Release AAB
         uses: maierj/fastlane-action@v2.1.0
         with:
           lane: closed_beta
