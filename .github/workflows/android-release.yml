@@ -1,10 +1,10 @@
-name: Smoothie Google Play release
-#on: [push, pull_request]
+name: Google Play release
+
 on:
   push:
     branches:
       #- '*'
-      - 'release/*'
+      - 'release-v*.*.*'
     
 jobs:
   deploy_android:

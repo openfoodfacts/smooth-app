@@ -48,7 +48,7 @@ platform :android do
           new_version_code = old_version_code.last().to_i + 1
           puts "new_version_code: " + new_version_code.to_s
 
-          new_version_name = get_version_number_from_git_branch(pattern: 'release/#')
+          new_version_name = get_version_number_from_git_branch(pattern: 'release-v#')
           puts new_version_name.to_s
 
           flutter_set_version(
