@@ -200,16 +200,14 @@ class _ProductPageState extends State<NewProductPage> {
   }
 
   Widget _buildProductBody(BuildContext context) {
-    final List<Widget> listItems = <Widget>[];
-    listItems.add(
+    return ListView(children: [
       Align(
         heightFactor: 0.7,
         alignment: Alignment.topLeft,
         child: _buildProductImagesCarousel(context),
       ),
-    );
-    listItems.add(_buildSummaryCard());
-    return ListView(children: listItems);
+      _buildSummaryCard(),
+    ]);
   }
 
   Widget _buildSummaryCard() {
@@ -421,6 +419,23 @@ class _ProductPageState extends State<NewProductPage> {
                 )),
               ]));
     });
+  }
+
+  Widget _buildSmoothCard({
+    required Widget header,
+    required Widget body,
+  }) {
+    return SmoothCard(
+      margin: const EdgeInsets.only(
+        right: 8.0,
+        left: 8.0,
+        top: 4.0,
+        bottom: 20.0,
+      ),
+      padding: EdgeInsets.zero,
+      header: header,
+      child: body,
+    );
   }
 
   Widget _buildSmoothCard({
