@@ -17,6 +17,7 @@ class ContinuousScanPage extends StatelessWidget {
     final ContinuousScanModel model = context.watch<ContinuousScanModel>();
     final AppLocalizations localizations = AppLocalizations.of(context)!;
     final Size screenSize = MediaQuery.of(context).size;
+    const double viewFinderBottomOffset = 0.0;
     return Scaffold(
       appBar: AppBar(toolbarHeight: 0.0),
       body: Stack(
@@ -36,6 +37,12 @@ class ContinuousScanPage extends StatelessWidget {
             startOffset: Offset.zero,
             animationCurve: Curves.easeInOutBack,
             child: QRView(
+              overlay: QrScannerOverlayShape(
+                // We use [SmoothViewFinder] instead of the overlay.
+                overlayColor: Colors.transparent,
+                // This offset adjusts the scanning area on iOS.
+                cutOutBottomOffset: viewFinderBottomOffset,
+              ),
               key: _scannerViewKey,
               onQRViewCreated: model.setupScanner,
             ),
@@ -47,13 +54,19 @@ class ContinuousScanPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Center(
+                Padding(
+                  // Double the offset to account for the vertical centering.
+                  padding:
+                      // ignore: use_named_constants
+                      const EdgeInsets.only(bottom: 2 * viewFinderBottomOffset),
                   child: SmoothViewFinder(
-                    boxSize:
-                        Size(screenSize.width * 0.6, screenSize.width * 0.33),
+                    boxSize: Size(
+                      screenSize.width * 0.6,
+                      screenSize.width * 0.33,
+                    ),
                     lineLength: screenSize.width * 0.8,
                   ),
-                )
+                ),
               ],
             ),
           ),
