@@ -200,7 +200,7 @@ class _ProductPageState extends State<NewProductPage> {
   }
 
   Widget _buildProductBody(BuildContext context) {
-    return ListView(children: [
+    return ListView(children: <Widget>[
       Align(
         heightFactor: 0.7,
         alignment: Alignment.topLeft,
@@ -419,23 +419,6 @@ class _ProductPageState extends State<NewProductPage> {
                 )),
               ]));
     });
-  }
-
-  Widget _buildSmoothCard({
-    required Widget header,
-    required Widget body,
-  }) {
-    return SmoothCard(
-      margin: const EdgeInsets.only(
-        right: 8.0,
-        left: 8.0,
-        top: 4.0,
-        bottom: 20.0,
-      ),
-      padding: EdgeInsets.zero,
-      header: header,
-      child: body,
-    );
   }
 
   Widget _buildSmoothCard({
