@@ -8,12 +8,14 @@ class SvgCache extends StatelessWidget {
     this.iconUrl, {
     this.width,
     this.height,
+    this.color,
     this.displayAssetWhileWaiting = true,
   });
 
   final String? iconUrl;
   final double? width;
   final double? height;
+  final Color? color;
   final bool displayAssetWhileWaiting;
 
   @override
@@ -29,14 +31,15 @@ class SvgCache extends StatelessWidget {
     final String fullFilename = 'assets/cache/$filename';
     return SvgPicture.network(
       iconUrl!,
+      color: color,
       width: width,
       height: height,
       fit: BoxFit.contain,
       placeholderBuilder: (BuildContext context) => displayAssetWhileWaiting
           ? SvgAsyncAsset(fullFilename, width: width, height: height)
           : SizedBox(
-              width: width ?? height,
-              height: height ?? width,
+              width: width ?? width,
+              height: height ?? height,
               child: const CircularProgressIndicator(),
             ),
     );
