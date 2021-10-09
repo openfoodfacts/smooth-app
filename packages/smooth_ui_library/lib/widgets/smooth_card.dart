@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 /// Note: If the caller updates BoxDecoration of the [header] or [child] widget,
 /// the caller must also set the borderRadius to [CIRCULAR_RADIUS] in
 /// BoxDecoration.
+/// Note: [padding] applies to both header and body, if you want to have a
+/// padding only for body and not for header (or vice versa) set it to zero here
+/// and set the padding explicitly in the desired element.
 class SmoothCard extends StatelessWidget {
   const SmoothCard({
     required this.child,
