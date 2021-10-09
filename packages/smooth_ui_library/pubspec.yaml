@@ -10,10 +10,10 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_svg: ^0.22.0
-#  openfoodfacts: ^1.1.0-beta
-# Uncomment those lines if you want to use a local version of the openfoodfacts package
-  openfoodfacts:
-    path: ../../../openfoodfacts-dart-new
+  openfoodfacts: ^1.1.0-beta
+  # Uncomment those lines if you want to use a local version of the openfoodfacts package
+  #  openfoodfacts:
+  #    path: ../../../openfoodfacts-dart-new
   percent_indicator: ^3.0.1
 
 dev_dependencies:
