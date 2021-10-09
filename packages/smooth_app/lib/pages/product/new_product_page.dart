@@ -225,8 +225,9 @@ class _ProductPageState extends State<NewProductPage> {
         future: knowledgePanels,
         builder:
             (BuildContext context, AsyncSnapshot<KnowledgePanels> snapshot) {
-          final List<Widget> knowledgePanelWidgets = const KnowledgePanelsBuilder()
-              .buildKnowledgePanelWidgets(context, snapshot);
+          final List<Widget> knowledgePanelWidgets =
+              const KnowledgePanelsBuilder()
+                  .buildKnowledgePanelWidgets(context, snapshot);
           final List<Widget> widgetsWrappedInSmoothCards = <Widget>[];
           for (final Widget widget in knowledgePanelWidgets) {
             widgetsWrappedInSmoothCards.add(_buildSmoothCard(
