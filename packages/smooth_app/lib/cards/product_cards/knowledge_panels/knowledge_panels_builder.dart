@@ -21,7 +21,7 @@ class KnowledgePanelsBuilder {
       // [knowledgePanelElementWidgets] are a set of widgets inside the root panel.
       final List<Widget> knowledgePanelElementWidgets = <Widget>[];
       for (final KnowledgePanelElement knowledgePanelElement
-          in rootKnowledgePanel.elements) {
+          in rootKnowledgePanel.elements ?? <KnowledgePanelElement>[]) {
         knowledgePanelElementWidgets.add(KnowledgePanelElementCard(
           knowledgePanelElement: knowledgePanelElement,
           allPanels: knowledgePanels,
