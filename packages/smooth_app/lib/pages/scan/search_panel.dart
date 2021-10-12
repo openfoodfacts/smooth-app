@@ -51,6 +51,7 @@ class SearchPanelState extends State<SearchPanel> {
       borderRadius: BorderRadius.vertical(
         top: _panelIsOpen ? Radius.zero : const Radius.circular(20.0),
       ),
+      color: Theme.of(context).cardColor,
       margin: EdgeInsets.symmetric(horizontal: _panelIsOpen ? 0.0 : 12.0),
       onPanelSlide: _handlePanelSlide,
       panelBuilder: (ScrollController scrollController) {
@@ -108,7 +109,6 @@ class SearchPanelState extends State<SearchPanel> {
       focusNode: _searchFieldFocusNode,
       onSubmitted: _performSearch,
       decoration: InputDecoration(
-        fillColor: Colors.grey.shade300,
         filled: true,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(40.0),
@@ -129,9 +129,9 @@ class SearchPanelState extends State<SearchPanel> {
                     ? CrossFadeState.showFirst
                     : CrossFadeState.showSecond,
                 // Closes the panel.
-                firstChild: const Icon(Icons.close, color: Colors.black),
+                firstChild: const Icon(Icons.close),
                 // Clears the text.
-                secondChild: const Icon(Icons.cancel, color: Colors.black),
+                secondChild: const Icon(Icons.cancel),
               ),
             ),
           ),
