@@ -11,7 +11,6 @@ class KnowledgePanelSummaryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData themeData = Theme.of(context);
     if (knowledgePanel.type == KnowledgePanelType.SCORE) {
       return ScoreCard(
         iconUrl: knowledgePanel.titleElement.iconUrl!,
@@ -19,22 +18,9 @@ class KnowledgePanelSummaryCard extends StatelessWidget {
         cardEvaluation: getCardEvaluationFromKnowledgePanel(knowledgePanel),
       );
     }
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          if (knowledgePanel.name != null)
-            Text(
-              knowledgePanel.name!,
-              style: themeData.textTheme.subtitle2!.apply(color: Colors.grey),
-            ),
-          KnowledgePanelTitleCard(
-            knowledgePanelTitleElement: knowledgePanel.titleElement,
-            evaluation: knowledgePanel.evaluation,
-          )
-        ],
-      ),
+    return KnowledgePanelTitleCard(
+      knowledgePanelTitleElement: knowledgePanel.titleElement,
+      evaluation: knowledgePanel.evaluation,
     );
   }
 }

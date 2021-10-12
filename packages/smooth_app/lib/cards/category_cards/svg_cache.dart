@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/cards/category_cards/svg_async_asset.dart';
 
+/// Creates a widget that displays a [PictureStream] obtained from the network using iconUrl.
+/// if only 1 of [height] or [width] is provided the resulting image will be of the size:
+/// [height] * [height] or [width] * [width].
 class SvgCache extends StatelessWidget {
   const SvgCache(
     this.iconUrl, {
@@ -38,8 +41,8 @@ class SvgCache extends StatelessWidget {
       placeholderBuilder: (BuildContext context) => displayAssetWhileWaiting
           ? SvgAsyncAsset(fullFilename, width: width, height: height)
           : SizedBox(
-              width: width ?? width,
-              height: height ?? height,
+              width: width ?? height,
+              height: height ?? width,
               child: const CircularProgressIndicator(),
             ),
     );

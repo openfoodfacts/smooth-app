@@ -5,7 +5,7 @@ import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 class KnowledgePanelTitleCard extends StatelessWidget {
   const KnowledgePanelTitleCard({
     required this.knowledgePanelTitleElement,
-    required this.evaluation,
+    this.evaluation,
   });
 
   final TitleElement knowledgePanelTitleElement;
@@ -67,8 +67,6 @@ class KnowledgePanelTitleCard extends StatelessWidget {
       case Evaluation.GOOD:
         return Colors.green;
       case Evaluation.UNKNOWN:
-      default:
-        return null;
     }
   }
 }

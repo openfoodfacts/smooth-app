@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
 import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
+import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_group_card.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_summary_card.dart';
 
 class KnowledgePanelElementCard extends StatelessWidget {
@@ -27,6 +28,10 @@ class KnowledgePanelElementCard extends StatelessWidget {
       case KnowledgePanelElementType.PANEL:
         return KnowledgePanelSummaryCard(allPanels
             .panelIdToPanelMap[knowledgePanelElement.panelElement!.panelId]!);
+      case KnowledgePanelElementType.PANEL_GROUP:
+        return KnowledgePanelGroupCard(
+            groupElement: knowledgePanelElement.panelGroupElement!,
+            allPanels: allPanels);
       default:
         throw UnsupportedError(
             'ElementType not supported yet: ${knowledgePanelElement.elementType}');

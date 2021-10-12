@@ -47,7 +47,7 @@ const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_LABELS,
 ];
 
-const _SMOOTH_CARD_PADDING = EdgeInsets.symmetric(horizontal: 12.0);
+const EdgeInsets _SMOOTH_CARD_PADDING = EdgeInsets.symmetric(horizontal: 12.0);
 
 const Widget _EMPTY_WIDGET = SizedBox.shrink();
 
@@ -225,9 +225,18 @@ class _ProductPageState extends State<NewProductPage> {
         future: knowledgePanels,
         builder:
             (BuildContext context, AsyncSnapshot<KnowledgePanels> snapshot) {
-          final List<Widget> knowledgePanelWidgets =
-              const KnowledgePanelsBuilder()
-                  .buildKnowledgePanelWidgets(context, snapshot);
+          List<Widget> knowledgePanelWidgets = <Widget>[];
+          if (snapshot.hasData) {
+            // Render all KnowledgePanels
+            knowledgePanelWidgets =
+                const KnowledgePanelsBuilder().build(snapshot.data!);
+          } else if (snapshot.hasError) {
+            // TODO(jasmeet): Retry the request.
+            // Do nothing for now.
+          } else {
+            // Query results not available yet.
+            knowledgePanelWidgets = <Widget>[_buildLoadingWidget()];
+          }
           final List<Widget> widgetsWrappedInSmoothCards = <Widget>[];
           for (final Widget widget in knowledgePanelWidgets) {
             widgetsWrappedInSmoothCards.add(_buildSmoothCard(
@@ -243,6 +252,27 @@ class _ProductPageState extends State<NewProductPage> {
             ),
           );
         });
+  }
+
+  Widget _buildLoadingWidget() {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: const <Widget>[
+          SizedBox(
+            child: CircularProgressIndicator(),
+            width: 60,
+            height: 60,
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 16),
+            // TODO(jasmeet): This should be localized.
+            child: Text('Loading...'),
+          )
+        ],
+      ),
+    );
   }
 
   Widget _buildSummaryCard() {

@@ -61,7 +61,10 @@ CardEvaluation getCardEvaluationFromAttribute(Attribute attribute) {
 }
 
 CardEvaluation getCardEvaluationFromKnowledgePanel(KnowledgePanel panel) {
-  switch (panel.grade) {
+  if (panel.grade == null) {
+    return CardEvaluation.UNKNOWN;
+  }
+  switch (panel.grade!) {
     case Grade.E:
       return CardEvaluation.VERY_BAD;
     case Grade.D:
@@ -73,7 +76,6 @@ CardEvaluation getCardEvaluationFromKnowledgePanel(KnowledgePanel panel) {
     case Grade.A:
       return CardEvaluation.VERY_GOOD;
     case Grade.UNKNOWN:
-    default:
       return CardEvaluation.UNKNOWN;
   }
 }
