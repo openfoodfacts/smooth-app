@@ -200,6 +200,17 @@ class _ProductPageState extends State<NewProductPage> {
   }
 
   Widget _buildProductBody(BuildContext context) {
+    return ListView(children: <Widget>[
+      Align(
+        heightFactor: 0.7,
+        alignment: Alignment.topLeft,
+        child: _buildProductImagesCarousel(context),
+      ),
+      _buildSummaryCard(),
+    ]);
+  }
+
+  Widget _buildSummaryCard() {
     final Size screenSize = MediaQuery.of(context).size;
     final double iconHeight =
         screenSize.width / 10; // TODO(monsieurtanuki): target size?
@@ -210,36 +221,26 @@ class _ProductPageState extends State<NewProductPage> {
     final List<AttributeGroup> attributeGroupsToBeRendered =
         _getAttributeGroupsToBeRendered();
     final Widget attributesContainer = Container(
-        alignment: Alignment.topLeft,
-        margin: const EdgeInsets.only(bottom: 16),
-        child: Column(children: <Widget>[
+      alignment: Alignment.topLeft,
+      margin: const EdgeInsets.only(bottom: 16),
+      child: Column(
+        children: <Widget>[
           for (final AttributeGroup group in attributeGroupsToBeRendered)
             _buildAttributeGroup(
               context,
               group,
               group == attributeGroupsToBeRendered.first,
             ),
-        ]));
+        ],
+      ),
+    );
 
-    final List<Widget> listItems = <Widget>[];
-    listItems.add(Align(
-      heightFactor: 0.7,
-      alignment: Alignment.topLeft,
-      child: _buildProductImagesCarousel(context),
-    ));
-    listItems.add(
-      SmoothCard(
-        margin: const EdgeInsets.only(
-          right: 8.0,
-          left: 8.0,
-          top: 4.0,
-          bottom: 20.0,
-        ),
-        padding: EdgeInsets.zero,
-        header: _buildProductCompatibilityHeader(context),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12.0),
-          child: Column(children: <Widget>[
+    return _buildSmoothCard(
+      header: _buildProductCompatibilityHeader(context),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12.0),
+        child: Column(
+          children: <Widget>[
             _buildProductTitleTile(context),
             for (final Attribute attribute in scoreAttributes)
               ScoreAttributeCard(
@@ -247,11 +248,10 @@ class _ProductPageState extends State<NewProductPage> {
                 iconHeight: iconHeight,
               ),
             attributesContainer,
-          ]),
+          ],
         ),
       ),
     );
-    return ListView(children: listItems);
   }
 
   List<AttributeGroup> _getAttributeGroupsToBeRendered() {
@@ -419,6 +419,23 @@ class _ProductPageState extends State<NewProductPage> {
                 )),
               ]));
     });
+  }
+
+  Widget _buildSmoothCard({
+    required Widget header,
+    required Widget body,
+  }) {
+    return SmoothCard(
+      margin: const EdgeInsets.only(
+        right: 8.0,
+        left: 8.0,
+        top: 4.0,
+        bottom: 20.0,
+      ),
+      padding: EdgeInsets.zero,
+      header: header,
+      child: body,
+    );
   }
 
   String _getProductName(final AppLocalizations appLocalizations) =>
