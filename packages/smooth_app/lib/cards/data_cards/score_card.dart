@@ -41,10 +41,7 @@ class ScoreCard extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(right: 16.0),
-            child: iconChip,
-          ),
+          iconChip,
           Expanded(
             child: Center(
               child: Text(
