@@ -15,6 +15,7 @@ import 'package:smooth_app/database/dao_product_extra.dart';
 import 'package:smooth_app/database/knowledge_panels_query.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
+import 'package:smooth_app/helpers/constants.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
@@ -48,8 +49,6 @@ const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
 ];
 
 const EdgeInsets _SMOOTH_CARD_PADDING = EdgeInsets.symmetric(horizontal: 12.0);
-
-const Widget _EMPTY_WIDGET = SizedBox.shrink();
 
 class _ProductPageState extends State<NewProductPage> {
   late Product _product;
@@ -403,7 +402,7 @@ class _ProductPageState extends State<NewProductPage> {
       }
     }
     if (attributeChips.isEmpty) {
-      return _EMPTY_WIDGET;
+      return EMPTY_WIDGET;
     }
     return Column(
       children: <Widget>[
@@ -439,11 +438,7 @@ class _ProductPageState extends State<NewProductPage> {
     }
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: isFirstGroup
-          ? _EMPTY_WIDGET
-          : const Divider(
-              color: Colors.black12,
-            ),
+      child: isFirstGroup ? EMPTY_WIDGET : DIVIDER,
     );
   }
 
