@@ -124,7 +124,7 @@ Widget build(BuildContext context) {
   final List&lt;Attribute&gt; attributes =
       AttributeListExpandable.getPopulatedAttributes(product, attributeIds);
   for (final Attribute attribute in attributes) {
-    scores.add(AttributeChip(attribute, height: iconSize));
+    scores.add(SvgIconChip(attribute.iconUrl!, height: iconSize));
   }
   String productTitle;
   if (product.productName != null) {

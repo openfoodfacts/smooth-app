@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the getCardEvaluationFromKnowledgePanel function from the score_card_helper library, for the Dart programming language.">
+  <title>getCardEvaluationFromKnowledgePanel function - score_card_helper library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">smooth_app</a></li>
+    <li><a href="../helpers_score_card_helper/helpers_score_card_helper-library.html">score_card_helper</a></li>
+    <li class="self-crumb">getCardEvaluationFromKnowledgePanel function</li>
+  </ol>
+  <div class="self-name">getCardEvaluationFromKnowledgePanel</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-function">getCardEvaluationFromKnowledgePanel</span> function 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+ 
+</h1></div>
+
+    <section class="multi-line-signature">
+        
+
+<span class="returntype"><a href="../cards_data_cards_score_card/CardEvaluation.html">CardEvaluation</a></span>
+<span class="name ">getCardEvaluationFromKnowledgePanel</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getCardEvaluationFromKnowledgePanel-param-panel"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/1.3.5/model_KnowledgePanel/KnowledgePanel-class.html">KnowledgePanel</a></span> <span class="parameter-name">panel</span></span></li>
+</ol>)
+
+    </section>
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">CardEvaluation getCardEvaluationFromKnowledgePanel(KnowledgePanel panel) {
+  if (panel.grade == null) {
+    return CardEvaluation.UNKNOWN;
+  }
+  switch (panel.grade!) {
+    case Grade.E:
+      return CardEvaluation.VERY_BAD;
+    case Grade.D:
+      return CardEvaluation.BAD;
+    case Grade.C:
+      return CardEvaluation.NEUTRAL;
+    case Grade.B:
+      return CardEvaluation.GOOD;
+    case Grade.A:
+      return CardEvaluation.VERY_GOOD;
+    case Grade.UNKNOWN:
+      return CardEvaluation.UNKNOWN;
+  }
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../index.html">smooth_app</a></li>
+  <li><a href="../helpers_score_card_helper/helpers_score_card_helper-library.html">score_card_helper</a></li>
+  <li class="self-crumb">getCardEvaluationFromKnowledgePanel function</li>
+</ol>
+
+
+    <h5>score_card_helper library</h5>
+    <ol>
+
+
+
+
+
+  <li class="section-title"><a href="../helpers_score_card_helper/helpers_score_card_helper-library.html#functions">Functions</a></li>
+  <li><a href="../helpers_score_card_helper/getBackgroundColor.html">getBackgroundColor</a></li>
+  <li><a href="../helpers_score_card_helper/getBackgroundColorFromAttribute.html">getBackgroundColorFromAttribute</a></li>
+  <li><a href="../helpers_score_card_helper/getCardEvaluationFromAttribute.html">getCardEvaluationFromAttribute</a></li>
+  <li><a href="../helpers_score_card_helper/getCardEvaluationFromKnowledgePanel.html">getCardEvaluationFromKnowledgePanel</a></li>
+  <li><a href="../helpers_score_card_helper/getTextColor.html">getTextColor</a></li>
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-left-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    smooth_app
+      0.0.1+5
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+

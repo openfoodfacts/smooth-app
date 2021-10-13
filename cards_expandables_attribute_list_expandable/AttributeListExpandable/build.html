@@ -118,8 +118,9 @@ Widget build(BuildContext context) {
   final List&lt;Widget&gt; chips = &lt;Widget&gt;[];
   final List&lt;Widget&gt; cards = &lt;Widget&gt;[];
   for (final Attribute attribute in attributes) {
-    final Color color = getBackgroundColor(attribute).withOpacity(opacity);
-    final Widget chip = AttributeChip(attribute, height: iconHeight);
+    final Color color =
+        getBackgroundColorFromAttribute(attribute).withOpacity(opacity);
+    final Widget chip = SvgIconChip(attribute.iconUrl!, height: iconHeight);
     chips.add(
       InkWell(
         onTap: () async =&gt; AttributeButton.onTap(
