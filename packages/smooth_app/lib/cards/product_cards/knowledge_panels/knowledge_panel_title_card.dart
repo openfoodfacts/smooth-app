@@ -22,37 +22,43 @@ class KnowledgePanelTitleCard extends StatelessWidget {
       padding: const EdgeInsets.only(top: 8.0),
       child: Row(
         children: <Widget>[
-          SizedBox(
-            height: 36,
-            width: 36,
+          Expanded(
+            flex: 1,
             child: Center(
-                child: SvgCache(
-              knowledgePanelTitleElement.iconUrl,
-              color: colorFromEvaluation,
-              width: 36,
-              height: 36,
-            )),
-          ),
-          const Padding(padding: EdgeInsets.only(left: 16.0)),
-          Wrap(
-            direction: Axis.vertical,
-            children: <Widget>[
-              Text(
-                knowledgePanelTitleElement.title,
-                style: TextStyle(color: colorFromEvaluation),
+              child: SvgCache(
+                knowledgePanelTitleElement.iconUrl,
+                color: colorFromEvaluation,
+                width: 36,
+                height: 36,
               ),
-              if (knowledgePanelTitleElement.subtitle != null)
-                SizedBox(
-                  // TODO(jasmeet): Don't hard code the width, somehow obtain this dynamically.
-                  width: 300,
-                  child: Text(
-                    knowledgePanelTitleElement.subtitle!,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ),
-            ],
+            ),
           ),
+          const Padding(padding: EdgeInsets.only(left: 8.0)),
+          Expanded(
+              flex: 9,
+              child: LayoutBuilder(
+                  builder: (BuildContext context, BoxConstraints constraints) {
+                return Wrap(
+                  direction: Axis.vertical,
+                  children: <Widget>[
+                    Text(
+                      knowledgePanelTitleElement.title,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(color: colorFromEvaluation),
+                    ),
+                    if (knowledgePanelTitleElement.subtitle != null)
+                      SizedBox(
+                        width: constraints.maxWidth,
+                        child: Text(
+                          knowledgePanelTitleElement.subtitle!,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                  ],
+                );
+              })),
         ],
       ),
     );

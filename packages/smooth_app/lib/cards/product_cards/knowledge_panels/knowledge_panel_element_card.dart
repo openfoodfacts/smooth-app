@@ -33,6 +33,7 @@ class KnowledgePanelElementCard extends StatelessWidget {
             groupElement: knowledgePanelElement.panelGroupElement!,
             allPanels: allPanels);
       default:
+        // Silently print and exit, the Card is in WIP.
         throw UnsupportedError(
             'ElementType not supported yet: ${knowledgePanelElement.elementType}');
     }
