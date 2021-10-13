@@ -19,6 +19,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_copy_helper.dart';
+import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/new_product_page.dart';
@@ -258,8 +259,7 @@ class _ProductPageState extends State<ProductPage> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final Size screenSize = MediaQuery.of(context).size;
     final ThemeData themeData = Theme.of(context);
-    final double iconHeight =
-        screenSize.width / 10; // TODO(monsieurtanuki): target size?
+    final double iconHeight = getIconSizeFromContext(context);
     final Map<String, String> attributeGroupLabels = <String, String>{};
     final List<String> attributeIds =
         productPreferences.getOrderedImportantAttributeIds();

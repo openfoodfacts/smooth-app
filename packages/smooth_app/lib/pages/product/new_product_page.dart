@@ -15,7 +15,7 @@ import 'package:smooth_app/database/dao_product_extra.dart';
 import 'package:smooth_app/database/knowledge_panels_query.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
-import 'package:smooth_app/helpers/constants.dart';
+import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
