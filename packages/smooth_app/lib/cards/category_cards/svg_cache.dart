@@ -3,17 +3,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/cards/category_cards/svg_async_asset.dart';
 
+/// Creates a widget that displays a [PictureStream] obtained from the network using [iconUrl].
+/// if only 1 of [height] or [width] is provided the resulting image will be of the size:
+/// [height] * [height] or [width] * [width].
 class SvgCache extends StatelessWidget {
   const SvgCache(
     this.iconUrl, {
     this.width,
     this.height,
+    this.color,
     this.displayAssetWhileWaiting = true,
   });
 
   final String? iconUrl;
   final double? width;
   final double? height;
+  final Color? color;
   final bool displayAssetWhileWaiting;
 
   @override
@@ -29,6 +34,7 @@ class SvgCache extends StatelessWidget {
     final String fullFilename = 'assets/cache/$filename';
     return SvgPicture.network(
       iconUrl!,
+      color: color,
       width: width,
       height: height,
       fit: BoxFit.contain,
