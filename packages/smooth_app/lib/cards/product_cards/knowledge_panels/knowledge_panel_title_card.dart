@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
-import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_ui_library/util/ui_constants.dart';
 
 class KnowledgePanelTitleCard extends StatelessWidget {
   const KnowledgePanelTitleCard({

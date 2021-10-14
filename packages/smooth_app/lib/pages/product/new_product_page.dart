@@ -18,11 +18,11 @@ import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
-import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_ui_library/smooth_ui_library.dart';
+import 'package:smooth_ui_library/util/ui_constants.dart';
 
 class NewProductPage extends StatefulWidget {
   const NewProductPage(this.product);
@@ -48,7 +48,8 @@ const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_LABELS,
 ];
 
-const EdgeInsets _SMOOTH_CARD_PADDING = EdgeInsets.symmetric(horizontal: MEDIUM_SPACE);
+const EdgeInsets _SMOOTH_CARD_PADDING =
+    EdgeInsets.symmetric(horizontal: MEDIUM_SPACE);
 
 class _ProductPageState extends State<NewProductPage> {
   late Product _product;
@@ -438,9 +439,11 @@ class _ProductPageState extends State<NewProductPage> {
     }
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
-      child: isFirstGroup ? EMPTY_WIDGET : const Divider(
-        color: Colors.black12,
-      ),
+      child: isFirstGroup
+          ? EMPTY_WIDGET
+          : const Divider(
+              color: Colors.black12,
+            ),
     );
   }
 

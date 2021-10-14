@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_ui_library/animations/smooth_animated_collapse_arrow.dart';
+import 'package:smooth_ui_library/util/ui_constants.dart';
 
 class SmoothExpandableCard extends StatefulWidget {
   const SmoothExpandableCard({
@@ -8,7 +9,7 @@ class SmoothExpandableCard extends StatefulWidget {
     this.expandedHeader,
     this.color,
     this.margin =
-        const EdgeInsets.only(right: 8.0, left: 8.0, top: 4.0, bottom: 20.0),
+        const EdgeInsets.only(right: SMALL_SPACE, left: SMALL_SPACE, top: VERY_SMALL_SPACE, bottom: 20.0),
     this.padding = const EdgeInsets.all(12.0),
     this.initiallyCollapsed = true,
   });
@@ -47,7 +48,7 @@ class _SmoothExpandableCardState extends State<SmoothExpandableCard> {
 
   Widget _buildCard() {
     final Widget notPadded = Material(
-      elevation: 8.0,
+      elevation: SMALL_SPACE,
       shadowColor: Colors.black45,
       borderRadius: const BorderRadius.all(Radius.circular(10.0)),
       color: widget.color ?? Theme.of(context).colorScheme.surface,

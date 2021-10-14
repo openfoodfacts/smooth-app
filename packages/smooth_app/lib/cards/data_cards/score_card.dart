@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/cards/data_cards/svg_icon_chip.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
-import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_ui_library/util/ui_constants.dart';
 
 enum CardEvaluation {
   UNKNOWN,
