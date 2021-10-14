@@ -48,7 +48,7 @@ const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_LABELS,
 ];
 
-const EdgeInsets _SMOOTH_CARD_PADDING = EdgeInsets.symmetric(horizontal: 12.0);
+const EdgeInsets _SMOOTH_CARD_PADDING = EdgeInsets.symmetric(horizontal: MEDIUM_SPACE);
 
 class _ProductPageState extends State<NewProductPage> {
   late Product _product;
@@ -352,7 +352,7 @@ class _ProductPageState extends State<NewProductPage> {
         ),
       ),
       alignment: Alignment.topLeft,
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
       child: Center(
         child: Text(
           getProductCompatibilityHeaderTextWidget(compatibility),
@@ -428,7 +428,7 @@ class _ProductPageState extends State<NewProductPage> {
     if (group.id == AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS) {
       return Container(
         alignment: Alignment.topLeft,
-        padding: const EdgeInsets.only(top: 8.0, bottom: 16.0),
+        padding: const EdgeInsets.only(top: SMALL_SPACE, bottom: LARGE_SPACE),
         child: Text(
           group.name!,
           style:
@@ -437,8 +437,10 @@ class _ProductPageState extends State<NewProductPage> {
       );
     }
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: isFirstGroup ? EMPTY_WIDGET : DIVIDER,
+      padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
+      child: isFirstGroup ? EMPTY_WIDGET : const Divider(
+        color: Colors.black12,
+      ),
     );
   }
 
@@ -487,8 +489,8 @@ class _ProductPageState extends State<NewProductPage> {
   }) {
     return SmoothCard(
       margin: const EdgeInsets.only(
-        right: 8.0,
-        left: 8.0,
+        right: SMALL_SPACE,
+        left: SMALL_SPACE,
         top: 4.0,
         bottom: 20.0,
       ),

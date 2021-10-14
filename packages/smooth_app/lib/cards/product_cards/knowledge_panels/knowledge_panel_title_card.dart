@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
+import 'package:smooth_app/helpers/ui_helpers.dart';
 
 class KnowledgePanelTitleCard extends StatelessWidget {
   const KnowledgePanelTitleCard({
@@ -19,7 +20,7 @@ class KnowledgePanelTitleCard extends StatelessWidget {
       colorFromEvaluation = _getColorFromEvaluation(evaluation!);
     }
     return Padding(
-      padding: const EdgeInsets.only(top: 8.0),
+      padding: const EdgeInsets.only(top: SMALL_SPACE),
       child: Row(
         children: <Widget>[
           SizedBox(
@@ -33,7 +34,7 @@ class KnowledgePanelTitleCard extends StatelessWidget {
               height: 36,
             )),
           ),
-          const Padding(padding: EdgeInsets.only(left: 16.0)),
+          const Padding(padding: EdgeInsets.only(left: LARGE_SPACE)),
           Wrap(
             direction: Axis.vertical,
             children: <Widget>[
