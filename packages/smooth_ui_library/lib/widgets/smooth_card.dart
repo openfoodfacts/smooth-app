@@ -13,8 +13,12 @@ class SmoothCard extends StatelessWidget {
     required this.child,
     this.color,
     this.header,
-    this.margin =
-        const EdgeInsets.only(right: SMALL_SPACE, left: SMALL_SPACE, top: VERY_SMALL_SPACE, bottom: VERY_SMALL_SPACE),
+    this.margin = const EdgeInsets.only(
+      right: SMALL_SPACE,
+      left: SMALL_SPACE,
+      top: VERY_SMALL_SPACE,
+      bottom: VERY_SMALL_SPACE,
+    ),
     this.padding = const EdgeInsets.all(5.0),
   });
 

@@ -8,8 +8,12 @@ class SmoothExpandableCard extends StatefulWidget {
     required this.child,
     this.expandedHeader,
     this.color,
-    this.margin =
-        const EdgeInsets.only(right: SMALL_SPACE, left: SMALL_SPACE, top: VERY_SMALL_SPACE, bottom: 20.0),
+    this.margin = const EdgeInsets.only(
+      right: SMALL_SPACE,
+      left: SMALL_SPACE,
+      top: VERY_SMALL_SPACE,
+      bottom: 20.0,
+    ),
     this.padding = const EdgeInsets.all(12.0),
     this.initiallyCollapsed = true,
   });
