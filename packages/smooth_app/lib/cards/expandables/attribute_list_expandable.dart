@@ -3,9 +3,9 @@ import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/attribute_card.dart';
-import 'package:smooth_app/cards/data_cards/attribute_chip.dart';
+import 'package:smooth_app/cards/data_cards/svg_icon_chip.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/helpers/attributes_card_helper.dart';
+import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/attribute_button.dart';
@@ -76,8 +76,9 @@ class AttributeListExpandable extends StatelessWidget {
     final List<Widget> chips = <Widget>[];
     final List<Widget> cards = <Widget>[];
     for (final Attribute attribute in attributes) {
-      final Color color = getBackgroundColor(attribute).withOpacity(opacity);
-      final Widget chip = AttributeChip(attribute, height: iconHeight);
+      final Color color =
+          getBackgroundColorFromAttribute(attribute).withOpacity(opacity);
+      final Widget chip = SvgIconChip(attribute.iconUrl!, height: iconHeight);
       chips.add(
         InkWell(
           onTap: () async => AttributeButton.onTap(

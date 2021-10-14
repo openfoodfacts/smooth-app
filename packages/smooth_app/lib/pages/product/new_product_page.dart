@@ -2,18 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
+import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/image_upload_card.dart';
-import 'package:smooth_app/cards/data_cards/score_attribute_card.dart';
+import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/cards/expandables/attribute_list_expandable.dart';
+import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panels_builder.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/database/dao_product_extra.dart';
+import 'package:smooth_app/database/knowledge_panels_query.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
+import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -42,6 +46,9 @@ const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_NUTRITIONAL_QUALITY,
   AttributeGroup.ATTRIBUTE_GROUP_LABELS,
 ];
+
+const EdgeInsets _SMOOTH_CARD_PADDING =
+    EdgeInsets.symmetric(horizontal: 12.0, vertical: 4.0);
 
 const Widget _EMPTY_WIDGET = SizedBox.shrink();
 
@@ -200,20 +207,71 @@ class _ProductPageState extends State<NewProductPage> {
   }
 
   Widget _buildProductBody(BuildContext context) {
-    return ListView(children: [
+    return ListView(children: <Widget>[
       Align(
         heightFactor: 0.7,
         alignment: Alignment.topLeft,
         child: _buildProductImagesCarousel(context),
       ),
       _buildSummaryCard(),
+      _buildKnowledgePanelCards(),
     ]);
   }
 
+  FutureBuilder<KnowledgePanels> _buildKnowledgePanelCards() {
+    final Future<KnowledgePanels> knowledgePanels =
+        KnowledgePanelsQuery(barcode: _product.barcode!)
+            .getKnowledgePanels(context);
+    return FutureBuilder<KnowledgePanels>(
+        future: knowledgePanels,
+        builder:
+            (BuildContext context, AsyncSnapshot<KnowledgePanels> snapshot) {
+          List<Widget> knowledgePanelWidgets = <Widget>[];
+          if (snapshot.hasData) {
+            // Render all KnowledgePanels
+            knowledgePanelWidgets =
+                const KnowledgePanelsBuilder().build(snapshot.data!);
+          } else if (snapshot.hasError) {
+            // TODO(jasmeet): Retry the request.
+            // Do nothing for now.
+          } else {
+            // Query results not available yet.
+            knowledgePanelWidgets = <Widget>[_buildLoadingWidget()];
+          }
+          final List<Widget> widgetsWrappedInSmoothCards = <Widget>[];
+          for (final Widget widget in knowledgePanelWidgets) {
+            widgetsWrappedInSmoothCards.add(_buildSmoothCard(
+              body: widget,
+              padding: _SMOOTH_CARD_PADDING,
+            ));
+          }
+          return Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: widgetsWrappedInSmoothCards,
+            ),
+          );
+        });
+  }
+
+  Widget _buildLoadingWidget() {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: const <Widget>[
+          SizedBox(
+            child: CircularProgressIndicator(),
+            width: 60,
+            height: 60,
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget _buildSummaryCard() {
-    final Size screenSize = MediaQuery.of(context).size;
-    final double iconHeight =
-        screenSize.width / 10; // TODO(monsieurtanuki): target size?
     final List<Attribute> scoreAttributes =
         AttributeListExpandable.getPopulatedAttributes(
             _product, _SCORE_ATTRIBUTE_IDS);
@@ -238,14 +296,16 @@ class _ProductPageState extends State<NewProductPage> {
     return _buildSmoothCard(
       header: _buildProductCompatibilityHeader(context),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12.0),
+        padding: _SMOOTH_CARD_PADDING,
         child: Column(
           children: <Widget>[
             _buildProductTitleTile(context),
             for (final Attribute attribute in scoreAttributes)
-              ScoreAttributeCard(
-                attribute: attribute,
-                iconHeight: iconHeight,
+              ScoreCard(
+                iconUrl: attribute.iconUrl!,
+                description:
+                    attribute.descriptionShort ?? attribute.description!,
+                cardEvaluation: getCardEvaluationFromAttribute(attribute),
               ),
             attributesContainer,
           ],
@@ -422,8 +482,9 @@ class _ProductPageState extends State<NewProductPage> {
   }
 
   Widget _buildSmoothCard({
-    required Widget header,
+    Widget? header,
     required Widget body,
+    EdgeInsets? padding,
   }) {
     return SmoothCard(
       margin: const EdgeInsets.only(
@@ -432,24 +493,7 @@ class _ProductPageState extends State<NewProductPage> {
         top: 4.0,
         bottom: 20.0,
       ),
-      padding: EdgeInsets.zero,
-      header: header,
-      child: body,
-    );
-  }
-
-  Widget _buildSmoothCard({
-    required Widget header,
-    required Widget body,
-  }) {
-    return SmoothCard(
-      margin: const EdgeInsets.only(
-        right: 8.0,
-        left: 8.0,
-        top: 4.0,
-        bottom: 20.0,
-      ),
-      padding: EdgeInsets.zero,
+      padding: padding ?? EdgeInsets.zero,
       header: header,
       child: body,
     );

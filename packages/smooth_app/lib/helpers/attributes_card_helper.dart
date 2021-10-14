@@ -12,28 +12,6 @@ enum AttributeEvaluation {
   VERY_GOOD,
 }
 
-Color getBackgroundColor(final Attribute attribute) {
-  return _attributeMatchComparison(
-      attribute,
-      const Color.fromARGB(0xff, 0xEE, 0xEE, 0xEE),
-      const HSLColor.fromAHSL(1, 0, 1, .9).toColor(),
-      const HSLColor.fromAHSL(1, 30, 1, .9).toColor(),
-      const HSLColor.fromAHSL(1, 60, 1, .9).toColor(),
-      const HSLColor.fromAHSL(1, 90, 1, .9).toColor(),
-      const HSLColor.fromAHSL(1, 120, 1, .9).toColor());
-}
-
-Color getTextColor(final Attribute attribute) {
-  return _attributeMatchComparison(
-      attribute,
-      const Color.fromARGB(1, 75, 75, 75),
-      const Color.fromARGB(1, 235, 87, 87),
-      const Color.fromARGB(1, 242, 153, 74),
-      const Color.fromARGB(255, 149, 116, 0),
-      const Color.fromARGB(1, 133, 187, 47),
-      const Color.fromARGB(1, 3, 129, 65));
-}
-
 Widget getAttributeDisplayIcon(final Attribute attribute) {
   return _attributeMatchComparison(
       attribute,
