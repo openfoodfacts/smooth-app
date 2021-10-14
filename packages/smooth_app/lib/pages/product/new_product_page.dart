@@ -47,7 +47,8 @@ const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_LABELS,
 ];
 
-const EdgeInsets _SMOOTH_CARD_PADDING = EdgeInsets.symmetric(horizontal: 12.0);
+const EdgeInsets _SMOOTH_CARD_PADDING =
+    EdgeInsets.symmetric(horizontal: 12.0, vertical: 4.0);
 
 const Widget _EMPTY_WIDGET = SizedBox.shrink();
 
@@ -265,11 +266,6 @@ class _ProductPageState extends State<NewProductPage> {
             width: 60,
             height: 60,
           ),
-          Padding(
-            padding: EdgeInsets.only(top: 16),
-            // TODO(jasmeet): This should be localized.
-            child: Text('Loading...'),
-          )
         ],
       ),
     );
