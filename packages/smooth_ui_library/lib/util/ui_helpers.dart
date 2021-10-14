@@ -14,7 +14,7 @@ const double VERY_LARGE_SPACE = 20.0;
 /// Creates the Size or flex for widgets that contains icons.
 class IconWidgetSizer {
   /// Ratio of Widget size taken up by an icon.
-  static const double _ICON_WIDGET_SIZE_RATIO = 1/10;
+  static const double _ICON_WIDGET_SIZE_RATIO = 1 / 10;
 
   static double getIconSizeFromContext(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
@@ -29,4 +29,3 @@ class IconWidgetSizer {
     return (10 - _ICON_WIDGET_SIZE_RATIO * 10).toInt();
   }
 }
-
