@@ -12,7 +12,7 @@ class SmoothExpandableCard extends StatefulWidget {
       right: SMALL_SPACE,
       left: SMALL_SPACE,
       top: VERY_SMALL_SPACE,
-      bottom: 20.0,
+      bottom: VERY_LARGE_SPACE,
     ),
     this.padding = const EdgeInsets.all(12.0),
     this.initiallyCollapsed = true,

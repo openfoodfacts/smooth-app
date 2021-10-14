@@ -494,8 +494,8 @@ class _ProductPageState extends State<NewProductPage> {
       margin: const EdgeInsets.only(
         right: SMALL_SPACE,
         left: SMALL_SPACE,
-        top: 4.0,
-        bottom: 20.0,
+        top: VERY_SMALL_SPACE,
+        bottom: VERY_LARGE_SPACE,
       ),
       padding: padding ?? EdgeInsets.zero,
       header: header,
