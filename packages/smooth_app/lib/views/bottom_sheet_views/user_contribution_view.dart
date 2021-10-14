@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'dart:convert' as convert;
+import 'package:http/http.dart' as http;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:http/http.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
@@ -59,6 +63,12 @@ class UserContributionView extends StatelessWidget {
                             text: AppLocalizations.of(context)!
                                 .contribute_donate_header,
                             onPressed: () => _donate(context),
+                          ),
+
+                          //Contributors list
+                          SmoothListTile(
+                            text: AppLocalizations.of(context)!.contributors,
+                            onPressed: () => _contributors(context),
                           ),
                         ],
                       ),
@@ -224,6 +234,59 @@ class UserContributionView extends StatelessWidget {
                   Navigator.of(context, rootNavigator: true).pop('dialog'),
               minWidth: 150,
             )
+          ],
+        );
+      },
+    );
+  }
+
+  Future<void> _contributors(BuildContext context) async {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return SmoothAlertDialog(
+          title: AppLocalizations.of(context)!.contributors,
+          body: FutureBuilder<Response>(
+            future: http.get(Uri.https('api.github.com',
+                '/repos/openfoodfacts/smooth-app/contributors')),
+            builder: (BuildContext context, AsyncSnapshot<dynamic> snap) {
+              if (snap.hasData) {
+                final spacing = 5.0;
+
+                final List<dynamic> contributors = convert
+                    .jsonDecode(snap.data.body.toString()) as List<dynamic>;
+
+                return SingleChildScrollView(
+                  child: Wrap(
+                    crossAxisAlignment: WrapCrossAlignment.center,
+                    children: contributors
+                        .map((dynamic e) => Padding(
+                              padding: EdgeInsets.all(spacing),
+                              child: InkWell(
+                                onTap: () => LaunchUrlHelper.launchURL(
+                                    e['html_url'] as String, false),
+                                child: CircleAvatar(
+                                  foregroundImage:
+                                      NetworkImage(e['avatar_url'] as String),
+                                  backgroundColor: Colors.brown.shade800,
+                                ),
+                              ),
+                            ))
+                        .toList(),
+                  ),
+                );
+              }
+
+              return const CircularProgressIndicator();
+            },
+          ),
+          actions: <SmoothSimpleButton>[
+            SmoothSimpleButton(
+              onPressed: () => LaunchUrlHelper.launchURL(
+                  'https://github.com/openfoodfacts/smooth-app', false),
+              text: AppLocalizations.of(context)!.contribute,
+              minWidth: 200,
+            ),
           ],
         );
       },
