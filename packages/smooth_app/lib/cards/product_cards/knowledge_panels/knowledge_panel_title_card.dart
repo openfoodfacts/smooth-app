@@ -34,7 +34,7 @@ class KnowledgePanelTitleCard extends StatelessWidget {
               height: 36,
             )),
           ),
-          const Padding(padding: EdgeInsets.only(left: 16.0)),
+          const Padding(padding: EdgeInsets.only(left: LARGE_SPACE)),
           Wrap(
             direction: Axis.vertical,
             children: <Widget>[
