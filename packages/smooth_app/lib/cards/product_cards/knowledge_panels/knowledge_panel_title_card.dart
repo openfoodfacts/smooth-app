@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
-import 'package:smooth_ui_library/util/ui_constants.dart';
+import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 class KnowledgePanelTitleCard extends StatelessWidget {
   const KnowledgePanelTitleCard({
@@ -24,7 +24,7 @@ class KnowledgePanelTitleCard extends StatelessWidget {
       child: Row(
         children: <Widget>[
           Expanded(
-            flex: 1,
+            flex: IconWidgetSizer.getIconFlex(),
             child: Center(
               child: SvgCache(
                 knowledgePanelTitleElement.iconUrl,
@@ -36,7 +36,7 @@ class KnowledgePanelTitleCard extends StatelessWidget {
           ),
           const Padding(padding: EdgeInsets.only(left: SMALL_SPACE)),
           Expanded(
-              flex: 9,
+              flex: IconWidgetSizer.getRemainingWidgetFlex(),
               child: LayoutBuilder(
                   builder: (BuildContext context, BoxConstraints constraints) {
                 return Wrap(

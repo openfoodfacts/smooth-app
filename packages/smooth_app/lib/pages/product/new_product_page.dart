@@ -22,7 +22,7 @@ import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_ui_library/smooth_ui_library.dart';
-import 'package:smooth_ui_library/util/ui_constants.dart';
+import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 class NewProductPage extends StatefulWidget {
   const NewProductPage(this.product);

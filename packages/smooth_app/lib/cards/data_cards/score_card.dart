@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smooth_app/cards/data_cards/svg_icon_chip.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
-import 'package:smooth_ui_library/util/ui_constants.dart';
+import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 enum CardEvaluation {
   UNKNOWN,
@@ -26,7 +26,7 @@ class ScoreCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double iconHeight = getIconSizeFromContext(context);
+    final double iconHeight = IconWidgetSizer.getIconSizeFromContext(context);
     final ThemeData themeData = Theme.of(context);
     final double opacity = themeData.brightness == Brightness.light
         ? 1

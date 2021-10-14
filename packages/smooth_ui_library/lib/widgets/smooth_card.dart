@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_ui_library/util/ui_constants.dart';
+import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 /// Renders a Material card with elevation, shadow, Border radius etc...
 /// Note: If the caller updates BoxDecoration of the [header] or [child] widget,
