@@ -39,27 +39,27 @@ class KnowledgePanelTitleCard extends StatelessWidget {
               flex: 9,
               child: LayoutBuilder(
                   builder: (BuildContext context, BoxConstraints constraints) {
-                    return Wrap(
-                      direction: Axis.vertical,
-                      children: <Widget>[
-                        Text(
-                          knowledgePanelTitleElement.title,
+                return Wrap(
+                  direction: Axis.vertical,
+                  children: <Widget>[
+                    Text(
+                      knowledgePanelTitleElement.title,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(color: colorFromEvaluation),
+                    ),
+                    if (knowledgePanelTitleElement.subtitle != null)
+                      SizedBox(
+                        width: constraints.maxWidth,
+                        child: Text(
+                          knowledgePanelTitleElement.subtitle!,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
-                          style: TextStyle(color: colorFromEvaluation),
                         ),
-                        if (knowledgePanelTitleElement.subtitle != null)
-                          SizedBox(
-                            width: constraints.maxWidth,
-                            child: Text(
-                              knowledgePanelTitleElement.subtitle!,
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ),
-                      ],
-                    );
-                  })),
+                      ),
+                  ],
+                );
+              })),
         ],
       ),
     );
