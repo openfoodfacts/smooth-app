@@ -41,7 +41,13 @@ class ScoreCard extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          iconChip,
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(right: 8.0),
+              child: iconChip,
+            ),
+            flex: 1,
+          ),
           Expanded(
             child: Center(
               child: Text(
@@ -49,6 +55,7 @@ class ScoreCard extends StatelessWidget {
                 style: themeData.textTheme.headline4!.apply(color: textColor),
               ),
             ),
+            flex: 3,
           ),
         ],
       ),

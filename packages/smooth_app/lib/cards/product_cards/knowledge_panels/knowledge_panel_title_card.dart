@@ -20,7 +20,7 @@ class KnowledgePanelTitleCard extends StatelessWidget {
       colorFromEvaluation = _getColorFromEvaluation(evaluation!);
     }
     return Padding(
-      padding: const EdgeInsets.only(top: SMALL_SPACE),
+      padding: const EdgeInsets.only(top: 8.0),
       child: Row(
         children: <Widget>[
           SizedBox(
@@ -34,7 +34,7 @@ class KnowledgePanelTitleCard extends StatelessWidget {
               height: 36,
             )),
           ),
-          const Padding(padding: EdgeInsets.only(left: LARGE_SPACE)),
+          const Padding(padding: EdgeInsets.only(left: 16.0)),
           Wrap(
             direction: Axis.vertical,
             children: <Widget>[
