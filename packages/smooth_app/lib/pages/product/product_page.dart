@@ -276,7 +276,9 @@ class _ProductPageState extends State<ProductPage> {
           context,
           MaterialPageRoute<Widget>(
             builder: (BuildContext context) =>
-                const EditIngredientsPage(),
+                EditIngredientsPage(
+                  ingredients: widget.product.ingredients ?? <Ingredient>[],
+                ),
           ),
         ),
         child: const Text('debug Ingredients'),
