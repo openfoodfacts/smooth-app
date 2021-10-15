@@ -25,6 +25,7 @@ import 'package:smooth_app/pages/product/new_product_page.dart';
 import 'package:smooth_app/pages/user_preferences_page.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_ui_library/util/ui_helpers.dart';
 import 'package:smooth_ui_library/widgets/smooth_card.dart';
 
 class ProductPage extends StatefulWidget {
@@ -258,8 +259,7 @@ class _ProductPageState extends State<ProductPage> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final Size screenSize = MediaQuery.of(context).size;
     final ThemeData themeData = Theme.of(context);
-    final double iconHeight =
-        screenSize.width / 10; // TODO(monsieurtanuki): target size?
+    final double iconHeight = IconWidgetSizer.getIconSizeFromContext(context);
     final Map<String, String> attributeGroupLabels = <String, String>{};
     final List<String> attributeIds =
         productPreferences.getOrderedImportantAttributeIds();
