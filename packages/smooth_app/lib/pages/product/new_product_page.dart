@@ -49,7 +49,7 @@ const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
 ];
 
 const EdgeInsets _SMOOTH_CARD_PADDING =
-    EdgeInsets.symmetric(horizontal: MEDIUM_SPACE);
+    EdgeInsets.symmetric(horizontal: 12.0, vertical: 4.0);
 
 class _ProductPageState extends State<NewProductPage> {
   late Product _product;
@@ -265,11 +265,6 @@ class _ProductPageState extends State<NewProductPage> {
             width: 60,
             height: 60,
           ),
-          Padding(
-            padding: EdgeInsets.only(top: 16),
-            // TODO(jasmeet): This should be localized.
-            child: Text('Loading...'),
-          )
         ],
       ),
     );
