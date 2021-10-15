@@ -107,8 +107,7 @@ and</li>
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final Size screenSize = MediaQuery.of(context).size;
-  final double iconHeight = screenSize.width &#47; 10;
+  final double iconHeight = IconWidgetSizer.getIconSizeFromContext(context);
   final ThemeData themeData = Theme.of(context);
   final double opacity = themeData.brightness == Brightness.light
       ? 1
