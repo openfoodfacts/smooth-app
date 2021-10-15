@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 /// Renders a Material card with elevation, shadow, Border radius etc...
 /// Note: If the caller updates BoxDecoration of the [header] or [child] widget,
@@ -12,8 +13,12 @@ class SmoothCard extends StatelessWidget {
     required this.child,
     this.color,
     this.header,
-    this.margin =
-        const EdgeInsets.only(right: 8.0, left: 8.0, top: 4.0, bottom: 4.0),
+    this.margin = const EdgeInsets.only(
+      right: SMALL_SPACE,
+      left: SMALL_SPACE,
+      top: VERY_SMALL_SPACE,
+      bottom: VERY_SMALL_SPACE,
+    ),
     this.padding = const EdgeInsets.all(5.0),
   });
 
@@ -28,7 +33,7 @@ class SmoothCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Widget result = Material(
-      elevation: 8.0,
+      elevation: SMALL_SPACE,
       shadowColor: Colors.black45,
       borderRadius: const BorderRadius.all(CIRCULAR_RADIUS),
       color: color ?? Theme.of(context).colorScheme.surface,
