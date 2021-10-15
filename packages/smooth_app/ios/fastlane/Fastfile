@@ -2,7 +2,7 @@ setup_travis
 default_platform(:ios)
 
 before_all do
-  xcversion(version: "~> 12.0.1")
+  xcversion(version: "~> 12.3")
 end
 
 platform :ios do
