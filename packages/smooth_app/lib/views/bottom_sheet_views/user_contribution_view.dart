@@ -1,9 +1,7 @@
 import 'dart:convert' as convert;
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:http/http.dart' as http;
-import 'package:http/http.dart';
 import 'package:smooth_app/data_models/github_contributors_model.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
@@ -250,7 +248,7 @@ class UserContributionView extends StatelessWidget {
           body: FutureBuilder<Response>(
             future: http.get(Uri.https('api.github.com',
                 '/repos/openfoodfacts/smooth-app/contributors')),
-            builder: (BuildContext context, AsyncSnapshot<dynamic> snap) {
+            builder: (BuildContext context, AsyncSnapshot<Response> snap) {
               if (snap.hasData) {
                 final List<dynamic> contributors =
                     // ignore: avoid_dynamic_calls
