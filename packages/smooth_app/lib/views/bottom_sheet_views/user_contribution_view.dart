@@ -245,15 +245,13 @@ class UserContributionView extends StatelessWidget {
       builder: (BuildContext context) {
         return SmoothAlertDialog(
           title: AppLocalizations.of(context)!.contributors,
-          body: FutureBuilder<Response>(
+          body: FutureBuilder<http.Response>(
             future: http.get(Uri.https('api.github.com',
                 '/repos/openfoodfacts/smooth-app/contributors')),
-            builder: (BuildContext context, AsyncSnapshot<Response> snap) {
+            builder: (BuildContext context, AsyncSnapshot<http.Response> snap) {
               if (snap.hasData) {
                 final List<dynamic> contributors =
-                    // ignore: avoid_dynamic_calls
-                    convert.jsonDecode(snap.data.body.toString())
-                        as List<dynamic>;
+                    convert.jsonDecode(snap.data!.body) as List<dynamic>;
 
                 return SingleChildScrollView(
                   child: Wrap(
@@ -261,7 +259,7 @@ class UserContributionView extends StatelessWidget {
                     children: contributors.map((dynamic contributorsData) {
                       final ContributorsModel _contributor =
                           ContributorsModel.fromJson(
-                              contributorsData as Map<String, dynamic>);
+                              contributorsData as Map<String, String>);
 
                       return Padding(
                         padding: const EdgeInsets.all(5.0),
