@@ -252,18 +252,18 @@ class UserContributionView extends StatelessWidget {
                 '/repos/openfoodfacts/smooth-app/contributors')),
             builder: (BuildContext context, AsyncSnapshot<dynamic> snap) {
               if (snap.hasData) {
-                final List<Map<String, dynamic>> contributors =
+                final List<dynamic> contributors =
                     // ignore: avoid_dynamic_calls
                     convert.jsonDecode(snap.data.body.toString())
-                        as List<Map<String, dynamic>>;
+                        as List<dynamic>;
 
                 return SingleChildScrollView(
                   child: Wrap(
                     crossAxisAlignment: WrapCrossAlignment.center,
-                    children: contributors
-                        .map((Map<String, dynamic> contributorsData) {
+                    children: contributors.map((dynamic contributorsData) {
                       final ContributorsModel _contributor =
-                          ContributorsModel.fromJson(contributorsData);
+                          ContributorsModel.fromJson(
+                              contributorsData as Map<String, dynamic>);
 
                       return Padding(
                         padding: const EdgeInsets.all(5.0),
