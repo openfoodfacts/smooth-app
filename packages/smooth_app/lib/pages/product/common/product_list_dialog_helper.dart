@@ -32,12 +32,12 @@ class ProductListDialogHelper {
           actions: <SmoothSimpleButton>[
             SmoothSimpleButton(
               text: AppLocalizations.of(context)!.no,
-              important: false,
+              
               onPressed: () => Navigator.pop(context, false),
             ),
             SmoothSimpleButton(
               text: AppLocalizations.of(context)!.yes,
-              important: true,
+              
               onPressed: () async {
                 await daoProductList.delete(productList);
                 Navigator.pop(context, true);
@@ -96,19 +96,19 @@ class ProductListDialogHelper {
           SmoothSimpleButton(
             text: appLocalizations.cancel,
             onPressed: () => Navigator.pop(context, null),
-            important: false,
+            
           ),
           SmoothSimpleButton(
             text: appLocalizations.okay,
             onPressed: () async {
-              if (!formKey.currentState!.validate()) {
+            
                 return;
               }
               await daoProductList.create(newProductList!);
               await daoProductList.put(newProductList!);
               Navigator.pop(context, newProductList);
             },
-            important: true,
+            
           ),
         ],
       ),
@@ -168,12 +168,12 @@ class ProductListDialogHelper {
           SmoothSimpleButton(
             text: appLocalizations.cancel,
             onPressed: () => Navigator.pop(context, null),
-            important: false,
+            
           ),
           SmoothSimpleButton(
             text: AppLocalizations.of(context)!.okay,
             onPressed: () async {
-              if (!formKey.currentState!.validate()) {
+            
                 return;
               }
               if (!await daoProductList.rename(
@@ -184,7 +184,7 @@ class ProductListDialogHelper {
               await daoProductList.get(newProductList!);
               Navigator.pop(context, newProductList);
             },
-            important: true,
+            
           ),
         ],
       ),
@@ -239,11 +239,11 @@ class ProductListDialogHelper {
               SmoothSimpleButton(
                 text: appLocalizations.cancel,
                 onPressed: () => Navigator.pop(context, false),
-                important: false,
+                
               ),
             ],
           ),
         ) ??
-        false;
+        false
   }
 }
