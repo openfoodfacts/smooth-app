@@ -41,9 +41,9 @@ We are always looking for new contributors, if you're willing to help please let
 - [Smoothie GitHub wiki](https://github.com/openfoodfacts/smooth-app/wiki)
 
 ## V1 Roadmap
-- [ ] Revamped and knowledgeable product page
-- [ ] Minimal editing/addition value proposition, including by deep linking to the classic Android/iOS apps.
-- [ ] [Automation of marketing texts](https://github.com/openfoodfacts/fastlane-descriptions-smoothie)
+- [ ] Revamped and knowledgeable product page (Jasmeet)
+- [ ] Minimal editing/addition value proposition, including by deep linking to the classic Android/iOS apps. (up for grabs)
+- [ ] [Automation of marketing texts](https://github.com/openfoodfacts/fastlane-descriptions-smoothie) (mostly done)
 
 ## V2 - Later Roadmap
 ### Screenshot automation (High priority)
