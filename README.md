@@ -2,7 +2,21 @@
 
 # Open Food Facts - Codename: "Smooth App"
 
-A new Flutter application by Open Food Facts
+A new Flutter application by Open Food Facts. You can install it on [Android](https://play.google.com/store/apps/details?id=org.openfoodfacts.app) or [iPhone/iPad](https://apps.apple.com/us/app/smooth-app/id1526747703)
+
+Smoothie. We pioneered the collaborative scanning app in 2012. With this experimental app, we’re reinventing it from the ground up, and this time, it’s personal.
+
+## You get: 
+- a scan that truly matches who you are (Green: the product matches your criteria, Red: there is a problem, Gray: Help us answer you by photographing the products)
+- a product page that's knowledgeable, building on the vast amount of food facts we collect collaboratively, and other sources of knowledge, to help you make better food decisions
+## You can: 
+- scan and compare in 15 seconds the 3 brands of tomato sauces left on the shelf, on your terms.
+- get a tailored comparison of any food category
+- set your preferences without ruining your privacy
+
+## Criteria you can pick: 
+- Environment: Eco-Score
+- Health: Additives & Ultra processed foods, Salt, Allergens, Nutri-Score
 
 ## Presentation
 
@@ -18,9 +32,8 @@ Every new interaction with the API should be implemented in the plugin in order 
 Are you a developer? A graphic designer? Full of innovative ideas to help users improve their mode of consumption? Then join us!
 We are always looking for new contributors, if you're willing to help please let us know, we'll be pleased to introduce you to the project.
 
-You can join the Open Food Facts's Slack here : [Get an invite](https://slack.openfoodfacts.org) - [Open our Slack](https://openfoodfacts.slack.com).
-
-*full project documentation will be added here when ready*
+- On GitHub, [you can start here to get some inspiration](https://github.com/openfoodfacts/smooth-app/issues/525) 
+- You can join the Open Food Facts's Slack here : [Get an invite](https://slack.openfoodfacts.org) - [Open our Slack](https://openfoodfacts.slack.com).
 
 ## Wiki & Doc 
 - https://github.com/openfoodfacts/smooth-app/wiki
@@ -31,7 +44,7 @@ You can join the Open Food Facts's Slack here : [Get an invite](https://slack.op
 
 
 ## V2 - Later Roadmap
-### Screenshot automation
+### Screenshot automation (High priority)
 - [ ] Add multilingual screenshot generation using Fastlane (Scan screen, settings screen, personalized ranking screen, home screen) - https://github.com/openfoodfacts/smooth-app/issues/217
 
 ### Navigation
@@ -58,17 +71,13 @@ In order to build the application, make sure you are in the packages/smooth_app 
  - flutter pub get
  - flutter run
  
-### Android
+### Android & iOS
 - Nothing to report
-
-### iOS
-- [ ] We need to change the supported architectures for iOS when we open the project in Xcode. There, in the settings, you can specify which ones you want to build for, and only specify the ones that are 64 bit.
-- [ ] Fastlane is failing
 
 ## Internationalization
 
-Translations of the interface are managed using the new [Flutter internationalization](https://github.com/openfoodfacts/openfoodfacts-hungergames/blob/master/src/i18n/common.json) introduced in Flutter 1.22.
-New strings need to be added to lib/l10n/app_en.arb and the [corresponding translations can be added through CrowdIn](https://translate.openfoodfacts.org/translate/openfoodfacts/1322). Do not edit the other app_*.arb files as they will be overwritten by CrowdIn.
+- Translations of the interface are managed using the new [Flutter internationalization](https://github.com/openfoodfacts/openfoodfacts-hungergames/blob/master/src/i18n/common.json) introduced in Flutter 1.22.
+- New strings need to be added to lib/l10n/app_en.arb and the [corresponding translations can be added through CrowdIn](https://translate.openfoodfacts.org/translate/openfoodfacts/1322). Do not edit the other app_*.arb files as they will be overwritten by CrowdIn.
 
 ![Crowdin Action](https://github.com/openfoodfacts/smooth-app/workflows/Crowdin%20Action/badge.svg)
 
