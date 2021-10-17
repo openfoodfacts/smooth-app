@@ -1,7 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/personalized_search/matched_product.dart';
 import 'package:provider/provider.dart';

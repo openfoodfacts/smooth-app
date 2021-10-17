@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_ui_library/animations/smooth_animated_collapse_arrow.dart';
+import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 class SmoothExpandableCard extends StatefulWidget {
   const SmoothExpandableCard({
@@ -8,9 +8,13 @@ class SmoothExpandableCard extends StatefulWidget {
     required this.child,
     this.expandedHeader,
     this.color,
-    this.padding =
-        const EdgeInsets.only(right: 8.0, left: 8.0, top: 4.0, bottom: 20.0),
-    this.insets = const EdgeInsets.all(12.0),
+    this.margin = const EdgeInsets.only(
+      right: SMALL_SPACE,
+      left: SMALL_SPACE,
+      top: VERY_SMALL_SPACE,
+      bottom: VERY_LARGE_SPACE,
+    ),
+    this.padding = const EdgeInsets.all(12.0),
     this.initiallyCollapsed = true,
   });
 
@@ -18,8 +22,8 @@ class SmoothExpandableCard extends StatefulWidget {
   final Widget? expandedHeader;
   final Color? color;
   final Widget child;
+  final EdgeInsets? margin;
   final EdgeInsets? padding;
-  final EdgeInsets? insets;
   final bool initiallyCollapsed;
 
   @override
@@ -48,12 +52,12 @@ class _SmoothExpandableCardState extends State<SmoothExpandableCard> {
 
   Widget _buildCard() {
     final Widget notPadded = Material(
-      elevation: 8.0,
+      elevation: SMALL_SPACE,
       shadowColor: Colors.black45,
       borderRadius: const BorderRadius.all(Radius.circular(10.0)),
       color: widget.color ?? Theme.of(context).colorScheme.surface,
       child: Container(
-        padding: widget.insets,
+        padding: widget.padding,
         child: Column(
           children: <Widget>[
             Row(
@@ -77,10 +81,10 @@ class _SmoothExpandableCardState extends State<SmoothExpandableCard> {
         ),
       ),
     );
-    final Widget padded = widget.padding == null
+    final Widget padded = widget.margin == null
         ? notPadded
         : Padding(
-            padding: widget.padding!,
+            padding: widget.margin!,
             child: notPadded,
           );
     return GestureDetector(

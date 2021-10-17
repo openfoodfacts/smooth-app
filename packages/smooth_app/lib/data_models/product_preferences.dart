@@ -1,5 +1,6 @@
+import 'dart:async' show Future;
+
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
@@ -36,6 +37,22 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
       'assets/metadata/init_preferences_$languageCode.json';
   static String _getAttributeAssetPath(final String languageCode) =>
       'assets/metadata/init_attribute_groups_$languageCode.json';
+
+  static const List<String> _DEFAULT_ATTRIBUTES = <String>[
+    Attribute.ATTRIBUTE_NUTRISCORE,
+    Attribute.ATTRIBUTE_ECOSCORE,
+    Attribute.ATTRIBUTE_NOVA,
+    Attribute.ATTRIBUTE_VEGETARIAN,
+    Attribute.ATTRIBUTE_VEGAN,
+    Attribute.ATTRIBUTE_PALM_OIL_FREE,
+    Attribute.ATTRIBUTE_LOW_SALT,
+    Attribute.ATTRIBUTE_LOW_SUGARS,
+    Attribute.ATTRIBUTE_LOW_FAT,
+    Attribute.ATTRIBUTE_LOW_SATURATED_FAT,
+    Attribute.ATTRIBUTE_LABELS_ORGANIC,
+    Attribute.ATTRIBUTE_LABELS_FAIR_TRADE,
+    Attribute.ATTRIBUTE_FOREST_FOOTPRINT,
+  ];
 
   /// Loads the references of importance and attribute groups from assets.
   ///
@@ -91,20 +108,15 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
 
   Future<void> resetImportances() async {
     await clearImportances(notifyListeners: false);
-    await setImportance(
-      Attribute.ATTRIBUTE_NUTRISCORE,
-      PreferenceImportance.ID_VERY_IMPORTANT,
-      notifyListeners: false,
-    );
-    await setImportance(
-      Attribute.ATTRIBUTE_NOVA,
-      PreferenceImportance.ID_IMPORTANT,
-      notifyListeners: false,
-    );
-    await setImportance(
-      Attribute.ATTRIBUTE_ECOSCORE,
-      PreferenceImportance.ID_IMPORTANT,
-      notifyListeners: false,
+    // Execute all network calls in parallel.
+    await Future.wait(
+      _DEFAULT_ATTRIBUTES.map(
+        (String attributeId) => setImportance(
+          attributeId,
+          PreferenceImportance.ID_VERY_IMPORTANT,
+          notifyListeners: false,
+        ),
+      ),
     );
     notify();
   }

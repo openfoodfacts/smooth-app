@@ -3,9 +3,9 @@ import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/attribute_card.dart';
-import 'package:smooth_app/cards/data_cards/attribute_chip.dart';
+import 'package:smooth_app/cards/data_cards/svg_icon_chip.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/helpers/attributes_card_helper.dart';
+import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/attribute_button.dart';
@@ -20,8 +20,8 @@ class AttributeListExpandable extends StatelessWidget {
     required this.title,
     this.collapsible = true,
     this.background,
+    this.margin,
     this.padding,
-    this.insets,
     this.initiallyCollapsed = true,
   });
 
@@ -31,8 +31,8 @@ class AttributeListExpandable extends StatelessWidget {
   final String title;
   final bool collapsible;
   final Color? background;
+  final EdgeInsets? margin;
   final EdgeInsets? padding;
-  final EdgeInsets? insets;
   final bool initiallyCollapsed;
 
   static List<Attribute> getPopulatedAttributes(
@@ -76,8 +76,9 @@ class AttributeListExpandable extends StatelessWidget {
     final List<Widget> chips = <Widget>[];
     final List<Widget> cards = <Widget>[];
     for (final Attribute attribute in attributes) {
-      final Color color = getBackgroundColor(attribute).withOpacity(opacity);
-      final Widget chip = AttributeChip(attribute, height: iconHeight);
+      final Color color =
+          getBackgroundColorFromAttribute(attribute).withOpacity(opacity);
+      final Widget chip = SvgIconChip(attribute.iconUrl!, height: iconHeight);
       chips.add(
         InkWell(
           onTap: () async => AttributeButton.onTap(
@@ -131,8 +132,8 @@ class AttributeListExpandable extends StatelessWidget {
     );
     if (!collapsible) {
       return SmoothCard(
+        margin: margin,
         padding: padding,
-        insets: insets,
         child: content,
         color: background,
       );
@@ -141,8 +142,8 @@ class AttributeListExpandable extends StatelessWidget {
     final Widget header =
         Text(title, style: Theme.of(context).textTheme.headline3);
     return SmoothExpandableCard(
+      margin: margin,
       padding: padding,
-      insets: insets,
       initiallyCollapsed: initiallyCollapsed,
       collapsedHeader: SizedBox(
         width: screenSize.width * 0.8,

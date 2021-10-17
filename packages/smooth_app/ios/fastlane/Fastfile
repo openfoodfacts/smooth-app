@@ -2,7 +2,7 @@ setup_travis
 default_platform(:ios)
 
 before_all do
-  xcversion(version: "~> 12.0.0")
+  xcversion(version: "~> 12.3")
 end
 
 platform :ios do
@@ -55,8 +55,8 @@ platform :ios do
   lane :setVersion do
     begin
 
-      new_version_name = '0.0.1'
-#        new_version_name = get_version_number_from_git_branch(pattern: 'release/#')
+        #new_version_name = '0.0.1'
+        new_version_name = get_version_number_from_git_branch(pattern: 'release/#')
         puts new_version_name.to_s
 
 

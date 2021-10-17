@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/LanguageHelper.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/product_query.dart';
 
