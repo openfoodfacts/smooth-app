@@ -6,12 +6,14 @@ class SmoothSimpleButton extends StatelessWidget {
     required this.onPressed,
     this.minWidth = 15,
     this.height = 20,
+    this.important = true,
   });
 
   final String text;
   final VoidCallback onPressed;
   final double minWidth;
   final double height;
+  final bool important;
 
   @override
   Widget build(BuildContext context) {
