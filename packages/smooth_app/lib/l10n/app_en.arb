@@ -19,6 +19,8 @@
     "@scanProductTitle": {},
     "organizationPage": "Organization Page",
     "@organizationPage": {},
+    "contributors": "Contributors",
+    "@contributors": {},
     "contributionPage": "Contribution Page",
     "@contributionPage": {},
     "trackingPage": "Tracking Page",
