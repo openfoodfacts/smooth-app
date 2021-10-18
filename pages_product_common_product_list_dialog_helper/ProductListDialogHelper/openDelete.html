@@ -80,12 +80,10 @@
         actions: &lt;SmoothSimpleButton&gt;[
           SmoothSimpleButton(
             text: AppLocalizations.of(context)!.no,
-            important: false,
             onPressed: () =&gt; Navigator.pop(context, false),
           ),
           SmoothSimpleButton(
             text: AppLocalizations.of(context)!.yes,
-            important: true,
             onPressed: () async {
               await daoProductList.delete(productList);
               Navigator.pop(context, true);

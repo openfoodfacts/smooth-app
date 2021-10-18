@@ -114,10 +114,8 @@
       ),
       actions: &lt;SmoothSimpleButton&gt;[
         SmoothSimpleButton(
-          text: appLocalizations.cancel,
-          onPressed: () =&gt; Navigator.pop(context, null),
-          important: false,
-        ),
+            text: appLocalizations.cancel,
+            onPressed: () =&gt; Navigator.pop(context, null)),
         SmoothSimpleButton(
           text: appLocalizations.okay,
           onPressed: () async {
@@ -128,7 +126,6 @@
             await daoProductList.put(newProductList!);
             Navigator.pop(context, newProductList);
           },
-          important: true,
         ),
       ],
     ),
