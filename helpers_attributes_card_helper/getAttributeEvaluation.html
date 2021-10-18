@@ -77,7 +77,8 @@
   &#47;&#47; &gt; 100: Unknown
   final int matchGrade = (attribute.match! &#47; 20.0).ceil();
   switch (matchGrade) {
-    case 0 | 1:
+    case 0:
+    case 1:
       return AttributeEvaluation.VERY_BAD;
     case 2:
       return AttributeEvaluation.BAD;
