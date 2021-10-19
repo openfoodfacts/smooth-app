@@ -11,3 +11,4 @@
          with:
            token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
            release-type: simple
+           fork: true
