@@ -1,10 +1,8 @@
 name: Google Play release
 
 on:
-  push:
-    branches:
-      #- '*'
-      - 'release-v*.*.*'
+  release:
+    types: [published]
     
 jobs:
   deploy_android:
@@ -12,6 +10,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Set env
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+
+      - name: Version
+        run: echo ${{ env.RELEASE_VERSION }}
 
       - name: Setup Java jdk
         uses: actions/setup-java@v2.3.1
@@ -23,6 +27,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+          ruby-version: 3.0.2
 
       - name: Decrypt API JSON file
         run: cd ./packages/smooth_app/android/fastlane/envfiles && chmod +x ./decrypt_secrets.sh && ./decrypt_secrets.sh
@@ -43,6 +48,8 @@ jobs:
         with:
           lane: setVersion
           subdirectory: packages/smooth_app/android
+        env:
+          VERSION_NAME: ${{ env.RELEASE_VERSION }}
 
       - name: Build AAB
         run: echo $SIGN_STORE_PATH && pwd && cd ./packages/smooth_app/ && pwd && flutter build appbundle --release

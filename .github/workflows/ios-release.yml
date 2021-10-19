@@ -1,10 +1,8 @@
 name: App Store release
 
 on:
-  push:
-    branches:
-      #- '*'  
-      - 'release-v*.*.*'
+  release:
+    types: [published]
 
 jobs:
   testflight-release:
@@ -14,10 +12,17 @@ jobs:
       - name: Checkout sources
         uses: actions/checkout@v2
 
+      - name: Set env
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+
+      - name: Version
+        run: echo ${{ env.RELEASE_VERSION }}
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+          ruby-version: 3.0.2
       
       - name: Setup Java jdk
         uses: actions/setup-java@v2.3.1
@@ -58,6 +63,7 @@ jobs:
           SPACESHIP_CONNECT_API_KEY_ID: ${{ secrets.SPACESHIP_CONNECT_API_KEY_ID }}
           SPACESHIP_CONNECT_API_KEY_FILEPATH: ./fastlane/envfiles/AuthKey_KDAUTTM76R.p8
           CI_RELEASE: true
+          VERSION_NAME: ${{ env.RELEASE_VERSION }}
 
       - name: Build app
         run: pwd && cd ./packages/smooth_app/ios && pwd && flutter pub get && flutter build ios --release --no-codesign

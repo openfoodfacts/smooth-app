@@ -55,17 +55,16 @@ platform :ios do
   lane :setVersion do
     begin
 
-        #new_version_name = '0.0.1'
-        new_version_name = get_version_number_from_git_branch(pattern: 'release-v#')
-        puts new_version_name.to_s
-
+        new_version_name = ENV["VERSION_NAME"]
+        new_version_name = new_version_name.to_s
+        new_version_name = new_version_name[1..-1]
+        puts new_version_name
 
         api_key = app_store_connect_api_key(
           key_id: ENV["SPACESHIP_CONNECT_API_KEY_ID"],
           issuer_id: ENV["SPACESHIP_CONNECT_API_ISSUER_ID"],
           key_filepath: ENV["SPACESHIP_CONNECT_API_KEY_FILEPATH"]
         )
-
 
 
         old_version_code = app_store_build_number(
@@ -75,7 +74,7 @@ platform :ios do
           initial_build_number: "0",
           version: new_version_name
         )
-        new_version_code = old_version_code.to_i + 2
+        new_version_code = old_version_code.to_i + 1
 
         puts "old_version_code: " + old_version_code.to_s
         puts "new_version_code: " + new_version_code.to_s
@@ -85,7 +84,7 @@ platform :ios do
 
         flutter_set_version(
           path_to_yaml: "../pubspec.yaml",
-          version_name: new_version_name.to_s,
+          version_name: new_version_name,
           version_code:  new_version_code.to_s,
         )
     end
