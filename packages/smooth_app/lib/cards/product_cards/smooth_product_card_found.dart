@@ -4,10 +4,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/cards/data_cards/attribute_chip.dart';
+import 'package:smooth_app/cards/data_cards/svg_icon_chip.dart';
 import 'package:smooth_app/cards/expandables/attribute_list_expandable.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/pages/product/product_page.dart';
+import 'package:smooth_ui_library/util/ui_helpers.dart';
 import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
 
 class SmoothProductCardFound extends StatelessWidget {
@@ -45,12 +46,11 @@ class SmoothProductCardFound extends StatelessWidget {
     final List<String> attributeIds =
         productPreferences.getOrderedImportantAttributeIds();
     final List<Widget> scores = <Widget>[];
-    final double iconSize =
-        screenSize.width / 10; // TODO(monsieurtanuki): target size?
+    final double iconSize = IconWidgetSizer.getIconSizeFromContext(context);
     final List<Attribute> attributes =
         AttributeListExpandable.getPopulatedAttributes(product, attributeIds);
     for (final Attribute attribute in attributes) {
-      scores.add(AttributeChip(attribute, height: iconSize));
+      scores.add(SvgIconChip(attribute.iconUrl!, height: iconSize));
     }
     String productTitle;
     if (product.productName != null) {
