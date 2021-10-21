@@ -16,15 +16,17 @@ class KnowledgePanelTableCard extends StatelessWidget {
     final List<List<Widget>> columns = <List<Widget>>[];
     for (final KnowledgePanelTableColumn column in tableElement.columns) {
       if (column.type == 'text') {
-        columns.add(<Widget>[
-          _buildTableCell(
-            context: context,
-            text: column.text,
-            textColor: Colors.grey,
-            isFirstCell: column == tableElement.columns.first,
-            isHeader: true,
-          )
-        ]);
+        columns.add(
+          <Widget>[
+            _buildTableCell(
+              context: context,
+              text: column.text,
+              textColor: Colors.grey,
+              isFirstCell: column == tableElement.columns.first,
+              isHeader: true,
+            )
+          ],
+        );
       } else {
         throw UnsupportedError('Unsupported columnType: ${column.type}');
       }
