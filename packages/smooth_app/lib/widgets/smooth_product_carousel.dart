@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/personalized_search/matched_product.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/cards/product_cards/smooth_product_card_error.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_loading.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_not_found.dart';
@@ -102,6 +103,8 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
         );
       case ScannedProductState.THANKS:
         return const SmoothProductCardThanks();
+      case ScannedProductState.ERROR:
+        return SmoothProductCardError(barcode: barcode);
     }
   }
 }

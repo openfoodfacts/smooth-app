@@ -15,6 +15,7 @@ enum ScannedProductState {
   LOADING,
   THANKS,
   CACHED,
+  ERROR,
 }
 
 class ContinuousScanModel with ChangeNotifier {
@@ -162,20 +163,28 @@ class ContinuousScanModel with ChangeNotifier {
   Future<void> _loadBarcode(
     final String barcode,
   ) async {
-    final Product? product = await _queryBarcode(barcode);
-    if (product != null) {
-      _addProduct(product, ScannedProductState.FOUND);
-    } else {
-      setBarcodeState(barcode, ScannedProductState.NOT_FOUND);
+    try {
+      final Product? product = await _queryBarcode(barcode);
+      if (product != null) {
+        _addProduct(product, ScannedProductState.FOUND);
+      } else {
+        setBarcodeState(barcode, ScannedProductState.NOT_FOUND);
+      }
+    } catch (e) {
+      setBarcodeState(barcode, ScannedProductState.ERROR);
     }
   }
 
   Future<void> _updateBarcode(
     final String barcode,
   ) async {
-    final Product? product = await _queryBarcode(barcode);
-    if (product != null) {
-      _addProduct(product, ScannedProductState.FOUND);
+    try {
+      final Product? product = await _queryBarcode(barcode);
+      if (product != null) {
+        _addProduct(product, ScannedProductState.FOUND);
+      }
+    } catch (e) {
+      setBarcodeState(barcode, ScannedProductState.ERROR);
     }
   }
 
