@@ -48,10 +48,11 @@ class KnowledgePanelTableCard extends StatelessWidget {
       children: <Widget>[
         for (List<Widget> column in columns)
           Expanded(
-              child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: column,
-          ))
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: column,
+            ),
+          )
       ],
     );
   }

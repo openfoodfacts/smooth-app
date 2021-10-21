@@ -16,6 +16,7 @@ class KnowledgePanelCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // If [expanded] = true, renders all panel elements, otherwise just renders panel summary.
     if (panel.expanded ?? false) {
       final List<Widget> elementWidgets = <Widget>[];
       for (final KnowledgePanelElement element in panel.elements!) {
