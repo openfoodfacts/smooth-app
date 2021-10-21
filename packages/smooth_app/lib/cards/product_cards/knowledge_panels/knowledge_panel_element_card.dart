@@ -40,7 +40,7 @@ class KnowledgePanelElementCard extends StatelessWidget {
         return KnowledgePanelTableCard(
           tableElement: knowledgePanelElement.tableElement!,
         );
-      default:
+      case KnowledgePanelElementType.UNKNOWN:
         throw UnsupportedError(
             'ElementType not supported yet: ${knowledgePanelElement.elementType}');
     }

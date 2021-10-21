@@ -13,10 +13,10 @@ class KnowledgePanelTableCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<List<Widget>> columns = <List<Widget>>[];
+    final List<List<Widget>> columnCells = <List<Widget>>[];
     for (final KnowledgePanelTableColumn column in tableElement.columns) {
       if (column.type == 'text') {
-        columns.add(
+        columnCells.add(
           <Widget>[
             _buildTableCell(
               context: context,
@@ -32,10 +32,9 @@ class KnowledgePanelTableCard extends StatelessWidget {
       }
     }
     for (final KnowledgePanelTableRowElement row in tableElement.rows) {
-      final Iterator<List<Widget>> columnsIterator = columns.iterator;
+      int i = 0;
       for (final KnowledgePanelTableCell cell in row.values) {
-        columnsIterator.moveNext();
-        columnsIterator.current.add(
+        columnCells[i++].add(
           _buildTableCell(
             context: context,
             text: cell.text,
@@ -48,7 +47,7 @@ class KnowledgePanelTableCard extends StatelessWidget {
     }
     return Row(
       children: <Widget>[
-        for (List<Widget> column in columns)
+        for (List<Widget> column in columnCells)
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
