@@ -20,10 +20,12 @@ class KnowledgePanelCard extends StatelessWidget {
     if (panel.expanded ?? false) {
       final List<Widget> elementWidgets = <Widget>[];
       for (final KnowledgePanelElement element in panel.elements!) {
-        elementWidgets.add(KnowledgePanelElementCard(
-          knowledgePanelElement: element,
-          allPanels: allPanels,
-        ));
+        elementWidgets.add(
+          KnowledgePanelElementCard(
+            knowledgePanelElement: element,
+            allPanels: allPanels,
+          ),
+        );
       }
       return Column(children: elementWidgets);
     }
