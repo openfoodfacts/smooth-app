@@ -32,12 +32,10 @@ class ProductListDialogHelper {
           actions: <SmoothSimpleButton>[
             SmoothSimpleButton(
               text: AppLocalizations.of(context)!.no,
-              important: false,
               onPressed: () => Navigator.pop(context, false),
             ),
             SmoothSimpleButton(
               text: AppLocalizations.of(context)!.yes,
-              important: true,
               onPressed: () async {
                 await daoProductList.delete(productList);
                 Navigator.pop(context, true);
@@ -94,10 +92,8 @@ class ProductListDialogHelper {
         ),
         actions: <SmoothSimpleButton>[
           SmoothSimpleButton(
-            text: appLocalizations.cancel,
-            onPressed: () => Navigator.pop(context, null),
-            important: false,
-          ),
+              text: appLocalizations.cancel,
+              onPressed: () => Navigator.pop(context, null)),
           SmoothSimpleButton(
             text: appLocalizations.okay,
             onPressed: () async {
@@ -108,7 +104,6 @@ class ProductListDialogHelper {
               await daoProductList.put(newProductList!);
               Navigator.pop(context, newProductList);
             },
-            important: true,
           ),
         ],
       ),
@@ -166,26 +161,22 @@ class ProductListDialogHelper {
         ),
         actions: <SmoothSimpleButton>[
           SmoothSimpleButton(
-            text: appLocalizations.cancel,
-            onPressed: () => Navigator.pop(context, null),
-            important: false,
-          ),
+              text: appLocalizations.cancel,
+              onPressed: () => Navigator.pop(context, null)),
           SmoothSimpleButton(
-            text: AppLocalizations.of(context)!.okay,
-            onPressed: () async {
-              if (!formKey.currentState!.validate()) {
-                return;
-              }
-              if (!await daoProductList.rename(
-                  productList, newProductList!.parameters)) {
-                // TODO(monsieurtanuki): unexpected, but do something!
-                return;
-              }
-              await daoProductList.get(newProductList!);
-              Navigator.pop(context, newProductList);
-            },
-            important: true,
-          ),
+              text: AppLocalizations.of(context)!.okay,
+              onPressed: () async {
+                if (!formKey.currentState!.validate()) {
+                  return;
+                }
+                if (!await daoProductList.rename(
+                    productList, newProductList!.parameters)) {
+                  // TODO(monsieurtanuki): unexpected, but do something!
+                  return;
+                }
+                await daoProductList.get(newProductList!);
+                Navigator.pop(context, newProductList);
+              }),
         ],
       ),
     );
@@ -239,7 +230,6 @@ class ProductListDialogHelper {
               SmoothSimpleButton(
                 text: appLocalizations.cancel,
                 onPressed: () => Navigator.pop(context, false),
-                important: false,
               ),
             ],
           ),
