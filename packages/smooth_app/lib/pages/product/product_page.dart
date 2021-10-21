@@ -404,7 +404,7 @@ class _ProductPageState extends State<ProductPage> {
               onTap: () async => ProductQueryPageHelper().openBestChoice(
                 color: materialColor,
                 heroTag: 'search_bar',
-                name: categoryTag,
+                name: categoryTagInLocalLanguage,
                 localDatabase: localDatabase,
                 productQuery: CategoryProductQuery(
                   category: categoryTag,

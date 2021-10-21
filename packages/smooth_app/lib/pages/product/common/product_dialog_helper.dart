@@ -74,7 +74,6 @@ class ProductDialogHelper {
         actions: <SmoothSimpleButton>[
           SmoothSimpleButton(
             text: AppLocalizations.of(context)!.stop,
-            important: false,
             onPressed: () => _popSearchingDialog(null),
           ),
         ],
@@ -93,12 +92,11 @@ class ProductDialogHelper {
             actions: <SmoothSimpleButton>[
               SmoothSimpleButton(
                 text: AppLocalizations.of(context)!.close,
-                important: false,
                 onPressed: () => Navigator.pop(context),
               ),
               SmoothSimpleButton(
                 text: AppLocalizations.of(context)!.contribute,
-                important: true,
+
                 onPressed: () => Navigator.pop(
                     context), // TODO(monsieurtanuki): to be implemented
               ),
