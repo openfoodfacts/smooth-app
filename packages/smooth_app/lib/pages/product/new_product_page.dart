@@ -10,6 +10,7 @@ import 'package:smooth_app/cards/data_cards/image_upload_card.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/cards/expandables/attribute_list_expandable.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panels_builder.dart';
+import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/database/dao_product_extra.dart';
 import 'package:smooth_app/database/knowledge_panels_query.dart';
@@ -122,22 +123,20 @@ class _ProductPageState extends State<NewProductPage> {
       localDatabase: localDatabase,
       refresh: true,
     );
-    final Product? product =
+    final FetchedProduct fetchedProduct =
         await productDialogHelper.openUniqueProductSearch();
-    if (product == null) {
-      productDialogHelper.openProductNotFoundDialog();
-      return;
+    if (fetchedProduct.status == FetchedProductStatus.ok) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(appLocalizations.product_refreshed),
+          duration: const Duration(seconds: 2),
+        ),
+      );
+      setState(() => _product = fetchedProduct.product!);
+      await _updateLocalDatabaseWithProductHistory(context, _product);
+    } else {
+      productDialogHelper.openError(fetchedProduct);
     }
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(appLocalizations.product_refreshed),
-        duration: const Duration(seconds: 2),
-      ),
-    );
-    setState(() {
-      _product = product;
-    });
-    await _updateLocalDatabaseWithProductHistory(context, _product);
   }
 
   Future<void> _updateLocalDatabaseWithProductHistory(

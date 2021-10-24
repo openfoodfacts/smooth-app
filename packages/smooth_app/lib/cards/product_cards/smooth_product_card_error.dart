@@ -1,5 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 
 /// Product Card when an exception is caught
 class SmoothProductCardError extends StatelessWidget {
@@ -28,7 +29,9 @@ class SmoothProductCardError extends StatelessWidget {
           const SizedBox(
             height: 12.0,
           ),
-          const Icon(Icons.error_outline, color: Colors.red),
+          ProductDialogHelper.getErrorMessage(
+            AppLocalizations.of(context)!.product_internet_error,
+          ),
         ],
       ),
     );
