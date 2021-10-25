@@ -117,13 +117,20 @@ Widget build(BuildContext context) {
         height: knowledgePanelElement.imageElement!.height!.toDouble(),
       );
     case KnowledgePanelElementType.PANEL:
-      return KnowledgePanelSummaryCard(allPanels
-          .panelIdToPanelMap[knowledgePanelElement.panelElement!.panelId]!);
+      return KnowledgePanelCard(
+        panel: allPanels
+            .panelIdToPanelMap[knowledgePanelElement.panelElement!.panelId]!,
+        allPanels: allPanels,
+      );
     case KnowledgePanelElementType.PANEL_GROUP:
       return KnowledgePanelGroupCard(
           groupElement: knowledgePanelElement.panelGroupElement!,
           allPanels: allPanels);
-    default:
+    case KnowledgePanelElementType.TABLE:
+      return KnowledgePanelTableCard(
+        tableElement: knowledgePanelElement.tableElement!,
+      );
+    case KnowledgePanelElementType.UNKNOWN:
       throw UnsupportedError(
           &#39;ElementType not supported yet: ${knowledgePanelElement.elementType}&#39;);
   }
