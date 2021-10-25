@@ -1,6 +1,7 @@
 /// Contains UI related constant that are shared across the entire app.
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:openfoodfacts/model/KnowledgePanel.dart';
 
 const Widget EMPTY_WIDGET = SizedBox.shrink();
 
@@ -27,5 +28,18 @@ class IconWidgetSizer {
 
   static int getRemainingWidgetFlex() {
     return (10 - _ICON_WIDGET_SIZE_RATIO * 10).toInt();
+  }
+}
+
+Color? getTextColorFromKnowledgePanelElementEvaluation(Evaluation evaluation) {
+  switch (evaluation) {
+    case Evaluation.UNKNOWN:
+    case Evaluation.NEUTRAL:
+      // Use default color for neutral and unknown.
+      return null;
+    case Evaluation.BAD:
+      return Colors.red;
+    case Evaluation.GOOD:
+      return Colors.green;
   }
 }
