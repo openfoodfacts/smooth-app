@@ -238,6 +238,8 @@
     "@could_not_refresh": {},
     "no_product_found": "No product found",
     "@no_product_found": {},
+    "product_internet_error": "Impossible to fetch information about this product due to a network error.",
+    "product_internet_cancel": "Canceled by user.",
     "products_pasted": "products pasted",
     "@products_pasted": {},
     "no_prodcut_in_list": "There is no product in this list",
