@@ -6,6 +6,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/search_history.dart';
 import 'package:smooth_app/pages/choose_page.dart';
 import 'package:smooth_app/pages/scan/search_history_view.dart';
+import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 class SearchPanel extends StatefulWidget {
   @override
@@ -57,6 +58,11 @@ class SearchPanelState extends State<SearchPanel> {
       panelBuilder: (ScrollController scrollController) {
         const double textBoxHeight = 40.0;
         final Widget textBox = Container(
+          margin: const EdgeInsets.only(
+            left: LARGE_SPACE,
+            right: LARGE_SPACE,
+            bottom: SMALL_SPACE,
+          ),
           alignment: Alignment.topCenter,
           height: textBoxHeight,
           child: Text(
