@@ -1,0 +1,28 @@
+name: smooth_ui_library
+description: The official UI library for smooth_app.
+version: 0.0.1
+
+environment:
+  sdk: '>=2.12.2 <3.0.0'
+
+dependencies:
+  flutter_lints: ^1.0.4
+  flutter:
+    sdk: flutter
+  flutter_svg: ^0.23.0+1
+  openfoodfacts: ^1.3.8
+  # Uncomment those lines if you want to use a local version of the openfoodfacts package
+  #  openfoodfacts:
+  #    path: ../../../openfoodfacts-dart
+  percent_indicator: ^3.4.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  test: ^1.16.8
+
+flutter:
+
+  assets:
+    - assets/product/
+    - assets/icons/
