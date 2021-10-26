@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/model/RobotoffQuestion.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/data_models/product_list.dart';
@@ -9,6 +10,7 @@ import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_extra.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/database/robotoff_questions_query.dart';
 
 enum ScannedProductState {
   FOUND,
@@ -96,6 +98,17 @@ class ContinuousScanModel with ChangeNotifier {
 
   Product getProduct(final String barcode) => _productList.getProduct(barcode);
 
+  RobotoffQuestionResult? getRobotoffQuestions(final String barcode) {
+    final RobotoffQuestionResult? questions =
+        _productList.getRobotoffQuestions(barcode);
+    if (questions != null &&
+        questions.questions != null &&
+        questions.questions!.isNotEmpty) {
+      return questions;
+    }
+    return null;
+  }
+
   void setupScanner(QRViewController controller) => controller.scannedDataStream
       .listen((Barcode barcode) => onScan(barcode.code));
 
@@ -109,6 +122,17 @@ class ContinuousScanModel with ChangeNotifier {
     }
     _latestScannedBarcode = code;
     _addBarcode(code);
+    _addQuestionsForProduct(code);
+  }
+
+  Future<bool> _addQuestionsForProduct(String barcode) async {
+    if (_productList.getRobotoffQuestions(barcode) == null) {
+      final RobotoffQuestionResult questions =
+          await RobotoffQuestionsQuery(barcode: barcode)
+              .getRobotoffQuestionsForProduct(languageCode);
+      _productList.addProductQuestion(barcode, questions);
+    }
+    return true;
   }
 
   Future<bool> _addBarcode(final String barcode) async {

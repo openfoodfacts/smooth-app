@@ -16,7 +16,7 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 
 class SmoothProductCarousel extends StatefulWidget {
   const SmoothProductCarousel({
-    this.height = 120.0,
+    this.height = 220.0,
   });
 
   final double height;
@@ -87,6 +87,7 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
         return SmoothProductCardFound(
           heroTag: barcode,
           product: product,
+          robotoffQuestions: model.getRobotoffQuestions(barcode),
           backgroundColor: PersonalizedRankingPage.getColor(
             colorScheme: Theme.of(context).colorScheme,
             matchIndex: SmoothItModel.getMatchIndex(matchedProduct),

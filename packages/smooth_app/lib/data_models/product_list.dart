@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/model/RobotoffQuestion.dart';
 import 'package:smooth_app/data_models/product_extra.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
@@ -114,6 +115,8 @@ class ProductList {
 
   final List<String> _barcodes = <String>[];
   final Map<String, Product> _products = <String, Product>{};
+  final Map<String, RobotoffQuestionResult> _productQuestions =
+      <String, RobotoffQuestionResult>{};
   final Map<String, ProductExtra> _productExtras = <String, ProductExtra>{};
 
   /// API search for [PnnsGroup2Filter] related food groups
@@ -266,6 +269,22 @@ class ProductList {
     }
     _productExtras[product.barcode!] = _getNewProductExtra(index);
     return true;
+  }
+
+  RobotoffQuestionResult? getRobotoffQuestions(String barcode) {
+    if (_productQuestions.containsKey(barcode)) {
+      return _productQuestions[barcode];
+    }
+    return null;
+  }
+
+  void addProductQuestion(
+    String barcode,
+    RobotoffQuestionResult productQuestionResult,
+  ) {
+    if (!_productQuestions.containsKey(barcode)) {
+      _productQuestions[barcode] = productQuestionResult;
+    }
   }
 
   /// Removes a barcode from the list

@@ -3,11 +3,13 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/model/RobotoffQuestion.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/svg_icon_chip.dart';
 import 'package:smooth_app/cards/expandables/attribute_list_expandable.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/pages/product/product_page.dart';
+import 'package:smooth_ui_library/smooth_ui_library.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
 import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
 
@@ -15,6 +17,7 @@ class SmoothProductCardFound extends StatelessWidget {
   const SmoothProductCardFound({
     required this.product,
     required this.heroTag,
+    this.robotoffQuestions,
     this.elevation = 0.0,
     this.useNewStyle = true,
     this.backgroundColor,
@@ -27,6 +30,7 @@ class SmoothProductCardFound extends StatelessWidget {
   final String heroTag;
   final double elevation;
   final bool useNewStyle;
+  final RobotoffQuestionResult? robotoffQuestions;
   final Color? backgroundColor;
   final Widget? handle;
   final VoidCallback? onLongPress;
@@ -63,6 +67,10 @@ class SmoothProductCardFound extends StatelessWidget {
     } else {
       productTitle = product.barcode!;
     }
+    Widget questionPrompt = EMPTY_WIDGET;
+    if (robotoffQuestions != null) {
+      questionPrompt = _getQuestionPrompt(context);
+    }
     return GestureDetector(
       onTap: () async {
         await Navigator.push<Widget>(
@@ -88,63 +96,96 @@ class SmoothProductCardFound extends StatelessWidget {
               borderRadius: const BorderRadius.all(Radius.circular(15.0)),
             ),
             padding: const EdgeInsets.all(5.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: Column(
               children: <Widget>[
-                Expanded(
-                  flex: 1,
-                  child: SmoothProductImage(
-                      product: product,
-                      width: screenSize.width * 0.20,
-                      height: screenSize.width * 0.20),
-                ),
-                const SizedBox(
-                  width: 8.0,
-                ),
-                Expanded(
-                  flex: 2,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      SizedBox(
-                        width: screenSize.width * 0.65,
-                        child: Column(
-                          children: <Widget>[
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Expanded(
+                      flex: 1,
+                      child: SmoothProductImage(
+                          product: product,
+                          width: screenSize.width * 0.20,
+                          height: screenSize.width * 0.20),
+                    ),
+                    const SizedBox(
+                      width: 8.0,
+                    ),
+                    Expanded(
+                      flex: 2,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          SizedBox(
+                            width: screenSize.width * 0.65,
+                            child: Column(
                               children: <Widget>[
-                                Flexible(
-                                  child: Text(
-                                    productTitle,
-                                    maxLines: 2,
-                                    overflow: TextOverflow.fade,
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    Flexible(
+                                      child: Text(
+                                        productTitle,
+                                        maxLines: 2,
+                                        overflow: TextOverflow.fade,
+                                      ),
+                                    ),
+                                    if (handle != null) handle!,
+                                  ],
+                                ),
+                                SizedBox(
+                                  width: screenSize.width * 0.65,
+                                  child: Wrap(
+                                    direction: Axis.horizontal,
+                                    children: scores,
+                                    spacing: 2.0,
+                                    runSpacing: 2.0,
                                   ),
                                 ),
-                                if (handle != null) handle!,
                               ],
                             ),
-                            SizedBox(
-                              width: screenSize.width * 0.65,
-                              child: Wrap(
-                                direction: Axis.horizontal,
-                                children: scores,
-                                spacing: 2.0,
-                                runSpacing: 2.0,
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
+                questionPrompt,
               ],
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _getQuestionPrompt(BuildContext context) {
+    return SmoothCard(
+      margin: const EdgeInsets.only(
+        right: VERY_SMALL_SPACE,
+        left: VERY_SMALL_SPACE,
+        top: LARGE_SPACE,
+        bottom: SMALL_SPACE,
+      ),
+      padding: const EdgeInsets.only(
+        right: SMALL_SPACE,
+        left: SMALL_SPACE,
+        top: SMALL_SPACE,
+        bottom: SMALL_SPACE,
+      ),
+      child: Column(
+        children: [
+          const Text('🏅 Answer questions'),
+          Container(
+              padding: const EdgeInsets.only(top: SMALL_SPACE),
+              width: MediaQuery.of(context).size.width * 0.75,
+              child: const Text(
+                  'Tap here to help food transparency and get reward badges')),
+        ],
       ),
     );
   }
