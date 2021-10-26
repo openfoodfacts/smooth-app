@@ -10,6 +10,7 @@ import 'package:smooth_app/cards/data_cards/image_upload_card.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/cards/expandables/attribute_list_expandable.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panels_builder.dart';
+import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/database/dao_product_extra.dart';
 import 'package:smooth_app/database/knowledge_panels_query.dart';
@@ -22,6 +23,7 @@ import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_ui_library/smooth_ui_library.dart';
+import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 class NewProductPage extends StatefulWidget {
   const NewProductPage(this.product);
@@ -49,8 +51,6 @@ const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
 
 const EdgeInsets _SMOOTH_CARD_PADDING =
     EdgeInsets.symmetric(horizontal: 12.0, vertical: 4.0);
-
-const Widget _EMPTY_WIDGET = SizedBox.shrink();
 
 class _ProductPageState extends State<NewProductPage> {
   late Product _product;
@@ -123,22 +123,20 @@ class _ProductPageState extends State<NewProductPage> {
       localDatabase: localDatabase,
       refresh: true,
     );
-    final Product? product =
+    final FetchedProduct fetchedProduct =
         await productDialogHelper.openUniqueProductSearch();
-    if (product == null) {
-      productDialogHelper.openProductNotFoundDialog();
-      return;
+    if (fetchedProduct.status == FetchedProductStatus.ok) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(appLocalizations.product_refreshed),
+          duration: const Duration(seconds: 2),
+        ),
+      );
+      setState(() => _product = fetchedProduct.product!);
+      await _updateLocalDatabaseWithProductHistory(context, _product);
+    } else {
+      productDialogHelper.openError(fetchedProduct);
     }
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(appLocalizations.product_refreshed),
-        duration: const Duration(seconds: 2),
-      ),
-    );
-    setState(() {
-      _product = product;
-    });
-    await _updateLocalDatabaseWithProductHistory(context, _product);
   }
 
   Future<void> _updateLocalDatabaseWithProductHistory(
@@ -349,7 +347,7 @@ class _ProductPageState extends State<NewProductPage> {
         ),
       ),
       alignment: Alignment.topLeft,
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
       child: Center(
         child: Text(
           getProductCompatibilityHeaderTextWidget(compatibility),
@@ -399,7 +397,7 @@ class _ProductPageState extends State<NewProductPage> {
       }
     }
     if (attributeChips.isEmpty) {
-      return _EMPTY_WIDGET;
+      return EMPTY_WIDGET;
     }
     return Column(
       children: <Widget>[
@@ -425,7 +423,7 @@ class _ProductPageState extends State<NewProductPage> {
     if (group.id == AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS) {
       return Container(
         alignment: Alignment.topLeft,
-        padding: const EdgeInsets.only(top: 8.0, bottom: 16.0),
+        padding: const EdgeInsets.only(top: SMALL_SPACE, bottom: LARGE_SPACE),
         child: Text(
           group.name!,
           style:
@@ -434,9 +432,9 @@ class _ProductPageState extends State<NewProductPage> {
       );
     }
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
       child: isFirstGroup
-          ? _EMPTY_WIDGET
+          ? EMPTY_WIDGET
           : const Divider(
               color: Colors.black12,
             ),
@@ -488,10 +486,10 @@ class _ProductPageState extends State<NewProductPage> {
   }) {
     return SmoothCard(
       margin: const EdgeInsets.only(
-        right: 8.0,
-        left: 8.0,
-        top: 4.0,
-        bottom: 20.0,
+        right: SMALL_SPACE,
+        left: SMALL_SPACE,
+        top: VERY_SMALL_SPACE,
+        bottom: VERY_LARGE_SPACE,
       ),
       padding: padding ?? EdgeInsets.zero,
       header: header,

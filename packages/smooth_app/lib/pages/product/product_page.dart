@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:share/share.dart';
 import 'package:smooth_app/cards/data_cards/image_upload_card.dart';
 import 'package:smooth_app/cards/expandables/attribute_list_expandable.dart';
+import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
@@ -25,6 +26,7 @@ import 'package:smooth_app/pages/product/new_product_page.dart';
 import 'package:smooth_app/pages/user_preferences_page.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_ui_library/util/ui_helpers.dart';
 import 'package:smooth_ui_library/widgets/smooth_card.dart';
 
 class ProductPage extends StatefulWidget {
@@ -111,20 +113,20 @@ class _ProductPageState extends State<ProductPage> {
                     localDatabase: localDatabase,
                     refresh: true,
                   );
-                  final Product? product =
+                  final FetchedProduct fetchedProduct =
                       await productDialogHelper.openUniqueProductSearch();
-                  if (product == null) {
-                    productDialogHelper.openProductNotFoundDialog();
-                    return;
+                  if (fetchedProduct.status == FetchedProductStatus.ok) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(appLocalizations.product_refreshed),
+                        duration: const Duration(seconds: 2),
+                      ),
+                    );
+                    _product = fetchedProduct.product!;
+                    await _updateHistory(context);
+                  } else {
+                    productDialogHelper.openError(fetchedProduct);
                   }
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(appLocalizations.product_refreshed),
-                      duration: const Duration(seconds: 2),
-                    ),
-                  );
-                  _product = product;
-                  await _updateHistory(context);
                   break;
                 case 'new_product_page':
                   Navigator.push<Widget>(
@@ -258,8 +260,7 @@ class _ProductPageState extends State<ProductPage> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final Size screenSize = MediaQuery.of(context).size;
     final ThemeData themeData = Theme.of(context);
-    final double iconHeight =
-        screenSize.width / 10; // TODO(monsieurtanuki): target size?
+    final double iconHeight = IconWidgetSizer.getIconSizeFromContext(context);
     final Map<String, String> attributeGroupLabels = <String, String>{};
     final List<String> attributeIds =
         productPreferences.getOrderedImportantAttributeIds();
@@ -404,7 +405,7 @@ class _ProductPageState extends State<ProductPage> {
               onTap: () async => ProductQueryPageHelper().openBestChoice(
                 color: materialColor,
                 heroTag: 'search_bar',
-                name: categoryTag,
+                name: categoryTagInLocalLanguage,
                 localDatabase: localDatabase,
                 productQuery: CategoryProductQuery(
                   category: categoryTag,

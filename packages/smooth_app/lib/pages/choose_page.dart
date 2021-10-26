@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/utils/PnnsGroups.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/category_cards/category_card.dart';
 import 'package:smooth_app/cards/category_cards/category_chip.dart';
 import 'package:smooth_app/cards/category_cards/subcategory_card.dart';
+import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/database/group_product_query.dart';
 import 'package:smooth_app/database/keywords_product_query.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -33,19 +33,20 @@ class ChoosePage extends StatefulWidget {
         localDatabase: localDatabase,
         refresh: false,
       );
-      final Product? product = await productDialogHelper.openBestChoice();
-      if (product == null) {
-        productDialogHelper.openProductNotFoundDialog();
-        return;
-      }
-      Navigator.push<Widget>(
-        context,
-        MaterialPageRoute<Widget>(
-          builder: (BuildContext context) => ProductPage(
-            product: product,
+      final FetchedProduct fetchedProduct =
+          await productDialogHelper.openBestChoice();
+      if (fetchedProduct.status == FetchedProductStatus.ok) {
+        Navigator.push<Widget>(
+          context,
+          MaterialPageRoute<Widget>(
+            builder: (BuildContext context) => ProductPage(
+              product: fetchedProduct.product!,
+            ),
           ),
-        ),
-      );
+        );
+      } else {
+        productDialogHelper.openError(fetchedProduct);
+      }
       return;
     }
     await ProductQueryPageHelper().openBestChoice(
