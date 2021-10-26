@@ -52,7 +52,7 @@
     <section class="multi-line-signature">
       
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/1.3.8/model_Product/Product-class.html">Product</a>?</span>&gt;</span></span>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../data_models_fetched_product/FetchedProduct-class.html">FetchedProduct</a></span>&gt;</span></span>
 <span class="name ">openBestChoice</span>(<wbr>)
 
       
@@ -64,10 +64,10 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;Product?&gt; openBestChoice() async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;FetchedProduct&gt; openBestChoice() async {
   final Product? product = await DaoProduct(localDatabase).get(barcode);
   if (product != null) {
-    return product;
+    return FetchedProduct(product);
   }
   return openUniqueProductSearch();
 }</code></pre>
@@ -111,7 +111,7 @@
     <li class="section-title"><a href="../../pages_product_common_product_dialog_helper/ProductDialogHelper-class.html#instance-methods">Methods</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li><a href="../../pages_product_common_product_dialog_helper/ProductDialogHelper/openBestChoice.html">openBestChoice</a></li>
-    <li><a href="../../pages_product_common_product_dialog_helper/ProductDialogHelper/openProductNotFoundDialog.html">openProductNotFoundDialog</a></li>
+    <li><a href="../../pages_product_common_product_dialog_helper/ProductDialogHelper/openError.html">openError</a></li>
     <li><a href="../../pages_product_common_product_dialog_helper/ProductDialogHelper/openUniqueProductSearch.html">openUniqueProductSearch</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
@@ -120,6 +120,8 @@
 
 
 
+    <li class="section-title"><a href="../../pages_product_common_product_dialog_helper/ProductDialogHelper-class.html#static-methods">Static methods</a></li>
+    <li><a href="../../pages_product_common_product_dialog_helper/ProductDialogHelper/getErrorMessage.html">getErrorMessage</a></li>
 
 </ol>
 

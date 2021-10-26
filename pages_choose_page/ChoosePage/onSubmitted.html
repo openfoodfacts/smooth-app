@@ -79,19 +79,20 @@
       localDatabase: localDatabase,
       refresh: false,
     );
-    final Product? product = await productDialogHelper.openBestChoice();
-    if (product == null) {
-      productDialogHelper.openProductNotFoundDialog();
-      return;
-    }
-    Navigator.push&lt;Widget&gt;(
-      context,
-      MaterialPageRoute&lt;Widget&gt;(
-        builder: (BuildContext context) =&gt; ProductPage(
-          product: product,
+    final FetchedProduct fetchedProduct =
+        await productDialogHelper.openBestChoice();
+    if (fetchedProduct.status == FetchedProductStatus.ok) {
+      Navigator.push&lt;Widget&gt;(
+        context,
+        MaterialPageRoute&lt;Widget&gt;(
+          builder: (BuildContext context) =&gt; ProductPage(
+            product: fetchedProduct.product!,
+          ),
         ),
-      ),
-    );
+      );
+    } else {
+      productDialogHelper.openError(fetchedProduct);
+    }
     return;
   }
   await ProductQueryPageHelper().openBestChoice(

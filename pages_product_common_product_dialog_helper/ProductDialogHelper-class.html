@@ -160,7 +160,7 @@
 
         <dt id="openBestChoice" class="callable">
   <span class="name"><a href="../pages_product_common_product_dialog_helper/ProductDialogHelper/openBestChoice.html">openBestChoice</a></span><span class="signature">(<wbr>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/1.3.8/model_Product/Product-class.html">Product</a>?</span>&gt;</span></span>
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../data_models_fetched_product/FetchedProduct-class.html">FetchedProduct</a></span>&gt;</span></span>
   </span>
   
 
@@ -171,22 +171,22 @@
 
 </dd>
 
-        <dt id="openProductNotFoundDialog" class="callable">
-  <span class="name"><a href="../pages_product_common_product_dialog_helper/ProductDialogHelper/openProductNotFoundDialog.html">openProductNotFoundDialog</a></span><span class="signature">(<wbr>)
+        <dt id="openError" class="callable">
+  <span class="name"><a href="../pages_product_common_product_dialog_helper/ProductDialogHelper/openError.html">openError</a></span><span class="signature">(<wbr><span class="parameter" id="openError-param-fetchedProduct"><span class="type-annotation"><a href="../data_models_fetched_product/FetchedProduct-class.html">FetchedProduct</a></span> <span class="parameter-name">fetchedProduct</span></span>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
   
 
 </dt>
 <dd>
-   
+  Opens an error dialog; to be used only if the status is not ok. 
   
 
 </dd>
 
         <dt id="openUniqueProductSearch" class="callable">
   <span class="name"><a href="../pages_product_common_product_dialog_helper/ProductDialogHelper/openUniqueProductSearch.html">openUniqueProductSearch</a></span><span class="signature">(<wbr>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/1.3.8/model_Product/Product-class.html">Product</a>?</span>&gt;</span></span>
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../data_models_fetched_product/FetchedProduct-class.html">FetchedProduct</a></span>&gt;</span></span>
   </span>
   
 
@@ -233,6 +233,24 @@
     </section>
 
 
+    <section class="summary offset-anchor" id="static-methods">
+      <h2>Static Methods</h2>
+      <dl class="callables">
+        <dt id="getErrorMessage" class="callable">
+  <span class="name"><a href="../pages_product_common_product_dialog_helper/ProductDialogHelper/getErrorMessage.html">getErrorMessage</a></span><span class="signature">(<wbr><span class="parameter" id="getErrorMessage-param-message"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">message</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+   
+  
+
+</dd>
+
+      </dl>
+    </section>
 
 
   </div> <!-- /.main-content -->
@@ -287,7 +305,7 @@
     <li class="section-title"><a href="../pages_product_common_product_dialog_helper/ProductDialogHelper-class.html#instance-methods">Methods</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li><a href="../pages_product_common_product_dialog_helper/ProductDialogHelper/openBestChoice.html">openBestChoice</a></li>
-    <li><a href="../pages_product_common_product_dialog_helper/ProductDialogHelper/openProductNotFoundDialog.html">openProductNotFoundDialog</a></li>
+    <li><a href="../pages_product_common_product_dialog_helper/ProductDialogHelper/openError.html">openError</a></li>
     <li><a href="../pages_product_common_product_dialog_helper/ProductDialogHelper/openUniqueProductSearch.html">openUniqueProductSearch</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
@@ -296,6 +314,8 @@
 
 
 
+    <li class="section-title"><a href="../pages_product_common_product_dialog_helper/ProductDialogHelper-class.html#static-methods">Static methods</a></li>
+    <li><a href="../pages_product_common_product_dialog_helper/ProductDialogHelper/getErrorMessage.html">getErrorMessage</a></li>
 
 </ol>
 

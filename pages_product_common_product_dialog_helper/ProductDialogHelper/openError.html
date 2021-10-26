@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the openProductNotFoundDialog method from the ProductDialogHelper class, for the Dart programming language.">
-  <title>openProductNotFoundDialog method - ProductDialogHelper class - product_dialog_helper library - Dart API</title>
+  <meta name="description" content="API docs for the openError method from the ProductDialogHelper class, for the Dart programming language.">
+  <title>openError method - ProductDialogHelper class - product_dialog_helper library - Dart API</title>
 
 
   
@@ -32,9 +32,9 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../pages_product_common_product_dialog_helper/pages_product_common_product_dialog_helper-library.html">product_dialog_helper</a></li>
     <li><a href="../../pages_product_common_product_dialog_helper/ProductDialogHelper-class.html">ProductDialogHelper</a></li>
-    <li class="self-crumb">openProductNotFoundDialog method</li>
+    <li class="self-crumb">openError method</li>
   </ol>
-  <div class="self-name">openProductNotFoundDialog</div>
+  <div class="self-name">openError</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,7 +45,7 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">openProductNotFoundDialog</span> method 
+<h1><span class="kind-method">openError</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
@@ -53,42 +53,37 @@
       
 
 <span class="returntype">void</span>
-<span class="name ">openProductNotFoundDialog</span>(<wbr>)
+<span class="name ">openError</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="openError-param-fetchedProduct"><span class="type-annotation"><a href="../../data_models_fetched_product/FetchedProduct-class.html">FetchedProduct</a></span> <span class="parameter-name">fetchedProduct</span></span></li>
+</ol>)
 
       
 
     </section>
     
+<section class="desc markdown">
+  <p>Opens an error dialog; to be used only if the status is not ok.</p>
+</section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">void openProductNotFoundDialog() =&gt; showDialog&lt;Widget&gt;(
-      context: context,
-      builder: (BuildContext context) {
-        return SmoothAlertDialog(
-          close: false,
-          body: Text(
-            refresh
-                ? AppLocalizations.of(context)!.could_not_refresh
-                : &#39;${AppLocalizations.of(context)!.no_product_found}: $barcode&#39;,
-          ),
-          actions: &lt;SmoothSimpleButton&gt;[
-            SmoothSimpleButton(
-              text: AppLocalizations.of(context)!.close,
-              onPressed: () =&gt; Navigator.pop(context),
-            ),
-            SmoothSimpleButton(
-              text: AppLocalizations.of(context)!.contribute,
-
-              onPressed: () =&gt; Navigator.pop(
-                  context), &#47;&#47; TODO(monsieurtanuki): to be implemented
-            ),
-          ],
-        );
-      },
-    );</code></pre>
+  <pre class="language-dart"><code class="language-dart">void openError(final FetchedProduct fetchedProduct) {
+  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+  switch (fetchedProduct.status) {
+    case FetchedProductStatus.ok:
+      throw Exception(&quot;You&#39;re not supposed to call this if the status is ok&quot;);
+    case FetchedProductStatus.userCancelled:
+      _openErrorMessage(appLocalizations.product_internet_cancel);
+      return;
+    case FetchedProductStatus.internetError:
+      _openErrorMessage(appLocalizations.product_internet_error);
+      return;
+    case FetchedProductStatus.internetNotFound:
+      _openProductNotFoundDialog();
+      return;
+  }
+}</code></pre>
 </section>
 
 
@@ -105,7 +100,7 @@
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../pages_product_common_product_dialog_helper/pages_product_common_product_dialog_helper-library.html">product_dialog_helper</a></li>
   <li><a href="../../pages_product_common_product_dialog_helper/ProductDialogHelper-class.html">ProductDialogHelper</a></li>
-  <li class="self-crumb">openProductNotFoundDialog method</li>
+  <li class="self-crumb">openError method</li>
 </ol>
 
 
@@ -129,7 +124,7 @@
     <li class="section-title"><a href="../../pages_product_common_product_dialog_helper/ProductDialogHelper-class.html#instance-methods">Methods</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li><a href="../../pages_product_common_product_dialog_helper/ProductDialogHelper/openBestChoice.html">openBestChoice</a></li>
-    <li><a href="../../pages_product_common_product_dialog_helper/ProductDialogHelper/openProductNotFoundDialog.html">openProductNotFoundDialog</a></li>
+    <li><a href="../../pages_product_common_product_dialog_helper/ProductDialogHelper/openError.html">openError</a></li>
     <li><a href="../../pages_product_common_product_dialog_helper/ProductDialogHelper/openUniqueProductSearch.html">openUniqueProductSearch</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
@@ -138,6 +133,8 @@
 
 
 
+    <li class="section-title"><a href="../../pages_product_common_product_dialog_helper/ProductDialogHelper-class.html#static-methods">Static methods</a></li>
+    <li><a href="../../pages_product_common_product_dialog_helper/ProductDialogHelper/getErrorMessage.html">getErrorMessage</a></li>
 
 </ol>
 
