@@ -1,7 +1,7 @@
 name: smooth_app
 description: A new official Open Food Facts application build with great user experience in mind.
 version: 0.0.1+6
-publish_to: 'none'
+publish_to: "none"
 
 environment:
   sdk: ">=2.13.3 <3.0.0"
@@ -39,7 +39,6 @@ dependencies:
     path: ../smooth_ui_library
   sqflite: ^2.0.0+3
   url_launcher: ^6.0.12
-  sliding_up_panel: ^2.0.0+1
   http: ^0.13.4
 
 # 2 lines below needed to make flutter_launcher_icons + flutter_native_splash work
@@ -75,7 +74,6 @@ flutter_native_splash:
   color_dark: "004455"
 
 flutter:
-
   uses-material-design: true
   generate: true
 
