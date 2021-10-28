@@ -25,6 +25,27 @@ import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_ui_library/smooth_ui_library.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
 
+Widget _buildSmoothCard({
+  Widget? header,
+  required Widget body,
+  EdgeInsets? padding,
+}) {
+  return SmoothCard(
+    margin: const EdgeInsets.only(
+      right: SMALL_SPACE,
+      left: SMALL_SPACE,
+      top: VERY_SMALL_SPACE,
+      bottom: VERY_LARGE_SPACE,
+    ),
+    padding: padding ?? EdgeInsets.zero,
+    header: header,
+    child: body,
+  );
+}
+
+String _getProductName(Product product, AppLocalizations appLocalizations) =>
+    product.productName ?? appLocalizations.unknownProductName;
+
 class NewProductPage extends StatefulWidget {
   const NewProductPage(this.product);
 
@@ -81,7 +102,7 @@ class _ProductPageState extends State<NewProductPage> {
         ColorDestination.SURFACE_BACKGROUND,
       ),
       appBar: AppBar(
-        title: Text(_getProductName(appLocalizations)),
+        title: Text(_getProductName(_product, appLocalizations)),
         actions: <Widget>[
           PopupMenuButton<ProductPageMenuItem>(
             itemBuilder: (BuildContext context) =>
@@ -211,12 +232,14 @@ class _ProductPageState extends State<NewProductPage> {
         alignment: Alignment.topLeft,
         child: _buildProductImagesCarousel(context),
       ),
-      _buildSummaryCard(),
+      SummaryCard(_product, _productPreferences),
       _buildKnowledgePanelCards(),
     ]);
   }
 
   FutureBuilder<KnowledgePanels> _buildKnowledgePanelCards() {
+    // Note that this will make a new request on every rebuild.
+    // TODO(jasmeet): Avoid additional requests on rebuilds.
     final Future<KnowledgePanels> knowledgePanels =
         KnowledgePanelsQuery(barcode: _product.barcode!)
             .getKnowledgePanels(context);
@@ -268,8 +291,18 @@ class _ProductPageState extends State<NewProductPage> {
       ),
     );
   }
+}
 
-  Widget _buildSummaryCard() {
+class SummaryCard extends StatelessWidget {
+  // TODO(jasmeet): Change the signature to
+  //    SummaryCard({ required this.product, required this.productPreferences });
+  const SummaryCard(this._product, this._productPreferences);
+
+  final Product _product;
+  final ProductPreferences _productPreferences;
+
+  @override
+  Widget build(BuildContext context) {
     final List<Attribute> scoreAttributes =
         AttributeListExpandable.getPopulatedAttributes(
             _product, _SCORE_ATTRIBUTE_IDS);
@@ -366,7 +399,7 @@ class _ProductPageState extends State<NewProductPage> {
       child: ListTile(
         contentPadding: EdgeInsets.zero,
         title: Text(
-          _getProductName(appLocalizations),
+          _getProductName(_product, appLocalizations),
           style: themeData.textTheme.headline4,
         ),
         subtitle: Text(_product.brands ?? appLocalizations.unknownBrand),
@@ -478,25 +511,4 @@ class _ProductPageState extends State<NewProductPage> {
               ]));
     });
   }
-
-  Widget _buildSmoothCard({
-    Widget? header,
-    required Widget body,
-    EdgeInsets? padding,
-  }) {
-    return SmoothCard(
-      margin: const EdgeInsets.only(
-        right: SMALL_SPACE,
-        left: SMALL_SPACE,
-        top: VERY_SMALL_SPACE,
-        bottom: VERY_LARGE_SPACE,
-      ),
-      padding: padding ?? EdgeInsets.zero,
-      header: header,
-      child: body,
-    );
-  }
-
-  String _getProductName(final AppLocalizations appLocalizations) =>
-      _product.productName ?? appLocalizations.unknownProductName;
 }

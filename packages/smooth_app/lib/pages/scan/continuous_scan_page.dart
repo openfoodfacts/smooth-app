@@ -16,7 +16,7 @@ class ContinuousScanPage extends StatelessWidget {
     final ContinuousScanModel model = context.watch<ContinuousScanModel>();
     final AppLocalizations localizations = AppLocalizations.of(context)!;
     final Size screenSize = MediaQuery.of(context).size;
-    const double carouselHeight = 300;
+    const double carouselHeight = 400.0;
     const double viewFinderBottomOffset = carouselHeight / 2.0;
     return Scaffold(
       appBar: AppBar(toolbarHeight: 0.0),

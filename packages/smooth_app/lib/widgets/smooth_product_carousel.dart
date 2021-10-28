@@ -6,7 +6,6 @@ import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/personalized_search/matched_product.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_error.dart';
-import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_loading.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_not_found.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_thanks.dart';
@@ -14,6 +13,8 @@ import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/smooth_it_model.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
+import 'package:smooth_app/pages/product/new_product_page.dart';
+import 'package:smooth_app/pages/scan/scan_product_card.dart';
 import 'package:smooth_app/pages/scan/search_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
@@ -55,12 +56,7 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
           padding: const EdgeInsets.symmetric(horizontal: 2.0),
           child: widget.showSearchCard && itemIndex == 0
               ? SearchCard()
-              : Center(
-                  child: SizedBox(
-                    height: 170.0,
-                    child: _getWidget(itemIndex - _searchCardAdjustment),
-                  ),
-                ),
+              : _getWidget(itemIndex - _searchCardAdjustment),
         );
       },
       carouselController: _controller,
@@ -85,23 +81,11 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
     }
     final String barcode = barcodes[index];
     final ContinuousScanModel model = context.watch<ContinuousScanModel>();
-    final ProductPreferences productPreferences =
-        context.watch<ProductPreferences>();
     switch (model.getBarcodeState(barcode)!) {
       case ScannedProductState.FOUND:
       case ScannedProductState.CACHED:
         final Product product = model.getProduct(barcode);
-        final MatchedProduct matchedProduct =
-            MatchedProduct(product, productPreferences);
-        return SmoothProductCardFound(
-          heroTag: barcode,
-          product: product,
-          backgroundColor: PersonalizedRankingPage.getColor(
-            colorScheme: Theme.of(context).colorScheme,
-            matchIndex: SmoothItModel.getMatchIndex(matchedProduct),
-            colorDestination: ColorDestination.SURFACE_BACKGROUND,
-          ),
-        );
+        return ScanProductCard(product);
       case ScannedProductState.LOADING:
         return SmoothProductCardLoading(barcode: barcode);
       case ScannedProductState.NOT_FOUND:
