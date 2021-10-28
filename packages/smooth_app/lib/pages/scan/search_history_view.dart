@@ -4,12 +4,10 @@ import 'package:smooth_app/database/search_history.dart';
 
 class SearchHistoryView extends StatefulWidget {
   const SearchHistoryView({
-    this.height,
     this.scrollController,
     this.onTap,
   });
 
-  final double? height;
   final ScrollController? scrollController;
   final void Function(String)? onTap;
 
@@ -36,14 +34,11 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: widget.height,
-      child: ListView.builder(
-        controller: widget.scrollController,
-        itemCount: _queries.length,
-        itemBuilder: (BuildContext context, int i) =>
-            _buildSearchHistoryTile(context, _queries[i]),
-      ),
+    return ListView.builder(
+      controller: widget.scrollController,
+      itemCount: _queries.length,
+      itemBuilder: (BuildContext context, int i) =>
+          _buildSearchHistoryTile(context, _queries[i]),
     );
   }
 

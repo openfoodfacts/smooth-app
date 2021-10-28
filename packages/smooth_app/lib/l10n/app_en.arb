@@ -5,6 +5,8 @@
     },
     "search": "Search",
     "@search": {},
+    "welcomeToOpenFoodFacts": "Welcome to OpenFoodFacts",
+    "@welcomeToOpenFoodFacts": {},
     "searchPanelHeader": "Search or scan your first product",
     "@searchPanelHeader": {},
     "searchHintText": "Enter a barcode or keywords",

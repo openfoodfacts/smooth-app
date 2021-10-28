@@ -1,5 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/personalized_search/matched_product.dart';
 import 'package:provider/provider.dart';
@@ -12,13 +14,16 @@ import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/smooth_it_model.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
+import 'package:smooth_app/pages/scan/search_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 class SmoothProductCarousel extends StatefulWidget {
   const SmoothProductCarousel({
-    this.height = 120.0,
+    this.showSearchCard = false,
+    required this.height,
   });
 
+  final bool showSearchCard;
   final double height;
 
   @override
@@ -27,31 +32,37 @@ class SmoothProductCarousel extends StatefulWidget {
 
 class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
   final CarouselController _controller = CarouselController();
-  int _length = 0;
+  List<String> barcodes = <String>[];
+
+  int get _searchCardAdjustment => widget.showSearchCard ? 1 : 0;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final ContinuousScanModel model = context.watch<ContinuousScanModel>();
+    setState(() {
+      barcodes = model.getBarcodes();
+    });
+    _controller.animateToPage(barcodes.length - 1 + _searchCardAdjustment);
+  }
 
   @override
   Widget build(BuildContext context) {
-    final ProductPreferences productPreferences =
-        context.watch<ProductPreferences>();
-    final ContinuousScanModel model = context.watch<ContinuousScanModel>();
-    final List<String> barcodes = model.getBarcodes();
-    final int barcodesLength = barcodes.length;
-    if (_length != barcodesLength) {
-      _length = barcodesLength;
-      if (_length > 1) {
-        Future<void>.delayed(
-          Duration.zero,
-          () => _controller.animateToPage(_length - 1),
-        );
-      }
-    }
     return CarouselSlider.builder(
-      itemCount: _length,
-      itemBuilder: (BuildContext context, int itemIndex, int itemRealIndex) =>
-          Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 4.0),
-        child: _getWidget(barcodes, itemIndex, productPreferences),
-      ),
+      itemCount: barcodes.length + _searchCardAdjustment,
+      itemBuilder: (BuildContext context, int itemIndex, int itemRealIndex) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 2.0),
+          child: widget.showSearchCard && itemIndex == 0
+              ? SearchCard()
+              : Center(
+                  child: SizedBox(
+                    height: 170.0,
+                    child: _getWidget(itemIndex - _searchCardAdjustment),
+                  ),
+                ),
+        );
+      },
       carouselController: _controller,
       options: CarouselOptions(
         enlargeCenterPage: false,
@@ -68,16 +79,14 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
   /// after the product disappeared and before the whole carousel is refreshed.
   /// In those cases, we don't want the app to crash and display a Container
   /// instead in the meanwhile.
-  Widget _getWidget(
-    final List<String> barcodes,
-    final int index,
-    final ProductPreferences productPreferences,
-  ) {
+  Widget _getWidget(final int index) {
     if (index >= barcodes.length) {
       return Container();
     }
-    final ContinuousScanModel model = context.watch<ContinuousScanModel>();
     final String barcode = barcodes[index];
+    final ContinuousScanModel model = context.watch<ContinuousScanModel>();
+    final ProductPreferences productPreferences =
+        context.watch<ProductPreferences>();
     switch (model.getBarcodeState(barcode)!) {
       case ScannedProductState.FOUND:
       case ScannedProductState.CACHED:
@@ -106,5 +115,55 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
       case ScannedProductState.ERROR:
         return SmoothProductCardError(barcode: barcode);
     }
+  }
+}
+
+class SearchCard extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations localizations = AppLocalizations.of(context)!;
+    return Card(
+      color: Colors.white.withOpacity(0.95),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20.0),
+      ),
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 20.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Text(
+              localizations.welcomeToOpenFoodFacts,
+              textAlign: TextAlign.center,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(
+                fontSize: 36.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(
+              localizations.searchPanelHeader,
+              textAlign: TextAlign.center,
+              style: const TextStyle(fontSize: 18.0),
+            ),
+            SearchField(
+              onFocus: () => _openSearchPage(context),
+              showClearButton: false,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _openSearchPage(BuildContext context) {
+    Navigator.push<Widget>(
+      context,
+      MaterialPageRoute<Widget>(
+        builder: (BuildContext context) => SearchPage(),
+      ),
+    );
   }
 }
