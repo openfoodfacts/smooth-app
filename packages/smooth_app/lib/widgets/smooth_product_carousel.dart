@@ -123,7 +123,7 @@ class SearchCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context)!;
     return Card(
-      color: Colors.white.withOpacity(0.95),
+      color: Theme.of(context).colorScheme.background.withOpacity(0.85),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20.0),
       ),
