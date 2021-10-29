@@ -1,4 +1,5 @@
-import 'dart:convert' as convert;
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:http/http.dart' as http;
@@ -239,19 +240,23 @@ class UserContributionView extends StatelessWidget {
     );
   }
 
-  Future<void> _contributors(BuildContext context) async {
+  Future<void> _contributors(BuildContext context) {
     return showDialog<void>(
       context: context,
       builder: (BuildContext context) {
         return SmoothAlertDialog(
           title: AppLocalizations.of(context)!.contributors,
           body: FutureBuilder<http.Response>(
-            future: http.get(Uri.https('api.github.com',
-                '/repos/openfoodfacts/smooth-app/contributors')),
+            future: http.get(
+              Uri.https(
+                'api.github.com',
+                '/repos/openfoodfacts/smooth-app/contributors',
+              ),
+            ),
             builder: (BuildContext context, AsyncSnapshot<http.Response> snap) {
               if (snap.hasData) {
                 final List<dynamic> contributors =
-                    convert.jsonDecode(snap.data!.body) as List<dynamic>;
+                    jsonDecode(snap.data!.body) as List<dynamic>;
 
                 return SingleChildScrollView(
                   child: Wrap(
@@ -259,7 +264,7 @@ class UserContributionView extends StatelessWidget {
                     children: contributors.map((dynamic contributorsData) {
                       final ContributorsModel _contributor =
                           ContributorsModel.fromJson(
-                              contributorsData as Map<String, String>);
+                              contributorsData as Map<String, dynamic>);
 
                       return Padding(
                         padding: const EdgeInsets.all(5.0),
@@ -271,7 +276,6 @@ class UserContributionView extends StatelessWidget {
                           child: CircleAvatar(
                             foregroundImage:
                                 NetworkImage(_contributor.avatarUrl),
-                            backgroundColor: Colors.brown.shade800,
                           ),
                         ),
                       );
