@@ -276,6 +276,8 @@ class UserContributionView extends StatelessWidget {
                           child: CircleAvatar(
                             foregroundImage:
                                 NetworkImage(_contributor.avatarUrl),
+                            backgroundColor:
+                                Theme.of(context).colorScheme.primary,
                           ),
                         ),
                       );
