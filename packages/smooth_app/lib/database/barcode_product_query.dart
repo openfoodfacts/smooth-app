@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/product_query.dart';
 
@@ -17,7 +18,7 @@ class BarcodeProductQuery {
   final String countryCode;
   final DaoProduct daoProduct;
 
-  Future<Product?> getProduct() async {
+  Future<FetchedProduct> getFetchedProduct() async {
     final ProductQueryConfiguration configuration = ProductQueryConfiguration(
       barcode,
       fields: ProductQuery.fields,
@@ -25,16 +26,20 @@ class BarcodeProductQuery {
       cc: countryCode,
     );
 
-    final ProductResult result =
-        await OpenFoodAPIClient.getProduct(configuration);
+    final ProductResult result;
+    try {
+      result = await OpenFoodAPIClient.getProduct(configuration);
+    } catch (e) {
+      return FetchedProduct.error(FetchedProductStatus.internetError);
+    }
 
     if (result.status == 1) {
       final Product? product = result.product;
       if (product != null) {
         await daoProduct.put(<Product>[product]);
+        return FetchedProduct(product);
       }
-      return product;
     }
-    return null;
+    return FetchedProduct.error(FetchedProductStatus.internetNotFound);
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/barcode_product_query.dart';
 import 'package:smooth_app/database/dao_product.dart';
@@ -15,6 +16,7 @@ enum ScannedProductState {
   LOADING,
   THANKS,
   CACHED,
+  ERROR,
 }
 
 class ContinuousScanModel with ChangeNotifier {
@@ -149,7 +151,7 @@ class ContinuousScanModel with ChangeNotifier {
     return false;
   }
 
-  Future<Product?> _queryBarcode(
+  Future<FetchedProduct> _queryBarcode(
     final String barcode,
   ) async =>
       BarcodeProductQuery(
@@ -157,25 +159,45 @@ class ContinuousScanModel with ChangeNotifier {
         languageCode: languageCode,
         countryCode: countryCode,
         daoProduct: _daoProduct,
-      ).getProduct();
+      ).getFetchedProduct();
 
   Future<void> _loadBarcode(
     final String barcode,
   ) async {
-    final Product? product = await _queryBarcode(barcode);
-    if (product != null) {
-      _addProduct(product, ScannedProductState.FOUND);
-    } else {
-      setBarcodeState(barcode, ScannedProductState.NOT_FOUND);
+    final FetchedProduct fetchedProduct = await _queryBarcode(barcode);
+    switch (fetchedProduct.status) {
+      case FetchedProductStatus.ok:
+        _addProduct(fetchedProduct.product!, ScannedProductState.FOUND);
+        return;
+      case FetchedProductStatus.internetNotFound:
+        setBarcodeState(barcode, ScannedProductState.NOT_FOUND);
+        return;
+      case FetchedProductStatus.internetError:
+        setBarcodeState(barcode, ScannedProductState.ERROR);
+        return;
+      case FetchedProductStatus.userCancelled:
+        // we do nothing
+        return;
     }
   }
 
   Future<void> _updateBarcode(
     final String barcode,
   ) async {
-    final Product? product = await _queryBarcode(barcode);
-    if (product != null) {
-      _addProduct(product, ScannedProductState.FOUND);
+    final FetchedProduct fetchedProduct = await _queryBarcode(barcode);
+    switch (fetchedProduct.status) {
+      case FetchedProductStatus.ok:
+        _addProduct(fetchedProduct.product!, ScannedProductState.FOUND);
+        return;
+      case FetchedProductStatus.internetNotFound:
+        setBarcodeState(barcode, ScannedProductState.NOT_FOUND);
+        return;
+      case FetchedProductStatus.internetError:
+        setBarcodeState(barcode, ScannedProductState.ERROR);
+        return;
+      case FetchedProductStatus.userCancelled:
+        // we do nothing
+        return;
     }
   }
 

@@ -9,5 +9,6 @@
      steps:
        - uses: GoogleCloudPlatform/release-please-action@v2
          with:
-           token: ${{ secrets.GITHUB_TOKEN }}
+           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
            release-type: simple
+           fork: true

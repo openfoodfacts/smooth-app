@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:share/share.dart';
 import 'package:smooth_app/cards/data_cards/image_upload_card.dart';
 import 'package:smooth_app/cards/expandables/attribute_list_expandable.dart';
+import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
@@ -113,20 +114,20 @@ class _ProductPageState extends State<ProductPage> {
                     localDatabase: localDatabase,
                     refresh: true,
                   );
-                  final Product? product =
+                  final FetchedProduct fetchedProduct =
                       await productDialogHelper.openUniqueProductSearch();
-                  if (product == null) {
-                    productDialogHelper.openProductNotFoundDialog();
-                    return;
+                  if (fetchedProduct.status == FetchedProductStatus.ok) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(appLocalizations.product_refreshed),
+                        duration: const Duration(seconds: 2),
+                      ),
+                    );
+                    _product = fetchedProduct.product!;
+                    await _updateHistory(context);
+                  } else {
+                    productDialogHelper.openError(fetchedProduct);
                   }
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(appLocalizations.product_refreshed),
-                      duration: const Duration(seconds: 2),
-                    ),
-                  );
-                  _product = product;
-                  await _updateHistory(context);
                   break;
                 case 'new_product_page':
                   Navigator.push<Widget>(
@@ -417,7 +418,7 @@ class _ProductPageState extends State<ProductPage> {
               onTap: () async => ProductQueryPageHelper().openBestChoice(
                 color: materialColor,
                 heroTag: 'search_bar',
-                name: categoryTag,
+                name: categoryTagInLocalLanguage,
                 localDatabase: localDatabase,
                 productQuery: CategoryProductQuery(
                   category: categoryTag,

@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
-import 'package:smooth_app/pages/scan/search_panel.dart';
 import 'package:smooth_app/widgets/smooth_product_carousel.dart';
 import 'package:smooth_ui_library/smooth_ui_library.dart';
 
@@ -17,6 +16,8 @@ class ContinuousScanPage extends StatelessWidget {
     final ContinuousScanModel model = context.watch<ContinuousScanModel>();
     final AppLocalizations localizations = AppLocalizations.of(context)!;
     final Size screenSize = MediaQuery.of(context).size;
+    const double carouselHeight = 300;
+    const double viewFinderBottomOffset = carouselHeight / 2.0;
     return Scaffold(
       appBar: AppBar(toolbarHeight: 0.0),
       body: Stack(
@@ -24,11 +25,16 @@ class ContinuousScanPage extends StatelessWidget {
           Container(
             alignment: Alignment.center,
             color: Colors.black,
-            child: SvgPicture.asset(
-              'assets/actions/scanner_alt_2.svg',
-              width: 60.0,
-              height: 60.0,
-              color: Colors.white,
+            child: Padding(
+              // Double the offset to account for the vertical centering.
+              padding:
+                  const EdgeInsets.only(bottom: 2 * viewFinderBottomOffset),
+              child: SvgPicture.asset(
+                'assets/actions/scanner_alt_2.svg',
+                width: 60.0,
+                height: 60.0,
+                color: Colors.white,
+              ),
             ),
           ),
           SmoothRevealAnimation(
@@ -36,6 +42,12 @@ class ContinuousScanPage extends StatelessWidget {
             startOffset: Offset.zero,
             animationCurve: Curves.easeInOutBack,
             child: QRView(
+              overlay: QrScannerOverlayShape(
+                // We use [SmoothViewFinder] instead of the overlay.
+                overlayColor: Colors.transparent,
+                // This offset adjusts the scanning area on iOS.
+                cutOutBottomOffset: viewFinderBottomOffset,
+              ),
               key: _scannerViewKey,
               onQRViewCreated: model.setupScanner,
             ),
@@ -47,13 +59,18 @@ class ContinuousScanPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Center(
+                Padding(
+                  // Double the offset to account for the vertical centering.
+                  padding:
+                      const EdgeInsets.only(bottom: 2 * viewFinderBottomOffset),
                   child: SmoothViewFinder(
-                    boxSize:
-                        Size(screenSize.width * 0.6, screenSize.width * 0.33),
+                    boxSize: Size(
+                      screenSize.width * 0.6,
+                      screenSize.width * 0.33,
+                    ),
                     lineLength: screenSize.width * 0.8,
                   ),
-                )
+                ),
               ],
             ),
           ),
@@ -62,10 +79,12 @@ class ContinuousScanPage extends StatelessWidget {
             startOffset: const Offset(0.0, -0.1),
             animationCurve: Curves.easeInOutBack,
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
-                if (model.isNotEmpty) ...<Widget>[
-                  const SizedBox(height: 10.0),
-                  Row(
+                AnimatedOpacity(
+                  opacity: model.isNotEmpty ? 1.0 : 0.0,
+                  duration: const Duration(milliseconds: 50),
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
                       ElevatedButton.icon(
@@ -80,13 +99,17 @@ class ContinuousScanPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 10.0),
-                  const SmoothProductCarousel(),
-                ],
+                ),
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 8.0),
+                  child: SmoothProductCarousel(
+                    showSearchCard: true,
+                    height: carouselHeight,
+                  ),
+                ),
               ],
             ),
           ),
-          SearchPanel(),
         ],
       ),
     );
