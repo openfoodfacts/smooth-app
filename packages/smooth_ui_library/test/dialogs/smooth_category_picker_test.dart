@@ -2,19 +2,36 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_ui_library/dialogs/smooth_category_picker.dart';
 
-class TestCategory extends Category<String> {
+class TestCategory extends SmoothCategory<String> {
   TestCategory(String value, [Iterable<TestCategory>? children])
-      : super(value, children);
+      : children = children?.toSet() ?? const <TestCategory>{},
+        super(value);
+
+  Set<TestCategory> children;
 
   @override
-  TestCategory? operator [](String childValue) {
-    return super[childValue] as TestCategory?;
+  Future<TestCategory?> getChild(String childValue) {
+    return super.getChild(childValue) as Future<TestCategory?>;
   }
 
   @override
-  String get label => value;
+  String getLabel(OpenFoodFactsLanguage language) => value;
+
+  @override
+  void addChild(covariant SmoothCategory<String> newChild) {}
+
+  @override
+  Stream<SmoothCategory<String>> getChildren() async* {
+    for (final SmoothCategory<String> child in children) {
+      yield child;
+    }
+  }
+
+  @override
+  Stream<SmoothCategory<String>> getParents() async* {}
 }
 
 TestCategory categories = TestCategory(
@@ -57,14 +74,14 @@ TestCategory categories = TestCategory(
   },
 );
 
-TestCategory? getCategory(Iterable<String> path) {
+Future<TestCategory?> getCategory(Iterable<String> path) async {
   if (path.isEmpty) {
     return null;
   }
   TestCategory? result = categories.value == path.first ? categories : null;
   final List<String> followPath = path.skip(1).toList();
   while (result != null && followPath.isNotEmpty) {
-    result = result[followPath.first];
+    result = await result.getChild(followPath.first);
     followPath.removeAt(0);
   }
   return result;
@@ -152,8 +169,7 @@ void main() {
       await tester.pumpAndSettle();
       await tester.tap(find.byType(Checkbox).first);
       expect(currentCategoryPath, equals(<String>['fruit', 'apple', 'red']));
-      expect(
-          currentCategories, equals(<String>{'Granny Smith', 'Red Delicious'}));
+      expect(currentCategories, equals(<String>{'Granny Smith', 'Red Delicious'}));
       expect(requestedNewCategory, isFalse);
     });
     testWidgets('can create new categories', (WidgetTester tester) async {
@@ -216,10 +232,7 @@ void main() {
   });
   group('SmoothCategoryDisplay', () {
     testWidgets('can toggle deletable', (WidgetTester tester) async {
-      final Set<String> currentCategories = <String>{
-        'Granny Smith',
-        'Red Delicious'
-      };
+      final Set<String> currentCategories = <String>{'Granny Smith', 'Red Delicious'};
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
@@ -246,10 +259,7 @@ void main() {
       expect(find.byIcon(Icons.cancel), findsNWidgets(2));
     });
     testWidgets('can delete', (WidgetTester tester) async {
-      final Set<String> currentCategories = <String>{
-        'Granny Smith',
-        'Red Delicious'
-      };
+      final Set<String> currentCategories = <String>{'Granny Smith', 'Red Delicious'};
       expect(find.byIcon(Icons.cancel), findsNothing);
       await tester.pumpWidget(
         MaterialApp(

@@ -4,13 +4,15 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/utils/LanguageHelper.dart';
 
 const double _kCategoryHeight = 35.0;
 const double _kMaxCategoryWidth = 200.0;
 
 /// A callback used to find information about the category node at the given
 /// `categoryPath`.
-typedef CategoryPathSelector<T extends Comparable<T>> = Category<T>? Function(
+typedef CategoryPathSelector<T extends Comparable<T>> = Future<SmoothCategory<T>?> Function(
     Iterable<T> categoryPath);
 
 /// A callback used to notify that the visible path in the [SmoothCategoryPicker]
@@ -55,6 +57,8 @@ class SmoothCategoryPicker<T extends Comparable<T>> extends StatefulWidget {
   /// The current set of selected categories.
   ///
   /// This set will be reflected in the UI when the parent's category is visited.
+  ///
+  /// If this set changes, [onCategoriesChanged] will be called.
   final Set<T> currentCategories;
 
   /// The "path" to the currently displayed category.
@@ -72,8 +76,10 @@ class SmoothCategoryPicker<T extends Comparable<T>> extends StatefulWidget {
   /// what to display.
   final CategoryPathSelector<T> categoryFinder;
 
-  /// A callback
+  /// A callback called when the categories list changes.
   final CategoriesChangedCallback<T> onCategoriesChanged;
+
+  /// A callback called when the selected path changes.
   final CategoryPathChangedCallback<T> onPathChanged;
 
   @override
@@ -83,135 +89,77 @@ class SmoothCategoryPicker<T extends Comparable<T>> extends StatefulWidget {
 class _SmoothCategoryPickerState<T extends Comparable<T>> extends State<SmoothCategoryPicker<T>> {
   @override
   Widget build(BuildContext context) {
-    final Category<T>? category = widget.categoryFinder(widget.currentPath);
-    if (category == null) {
-      return Container(
-        alignment: Alignment.center,
-        child: Text(
-          'No Category Found for ${widget.currentPath.map<String>((T item) => item.toString()).join(' > ')}',
-        ),
-      );
-    }
-    return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
-        onPressed: () => widget.onAddCategory(widget.currentPath),
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: SmoothCategoryDisplay<T>(
-              categories: widget.currentCategories,
-              onDeleted: (T item) {
-                widget.onCategoriesChanged(widget.currentCategories.difference(<T>{item}));
-              },
-            ),
-          ),
-          const Divider(),
-          Row(
-            children: <Widget>[
-              IconButton(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                icon: const Icon(Icons.chevron_left),
-                onPressed: category.value != widget.currentPath.first
-                    ? () {
-                        setState(() {
-                          widget.onPathChanged(
-                              widget.currentPath.take(widget.currentPath.length - 1));
-                        });
-                      }
-                    : null,
+    return FutureBuilder<SmoothCategory<T>?>(
+        future: widget.categoryFinder(widget.currentPath),
+        initialData: null,
+        builder: (BuildContext context, AsyncSnapshot<SmoothCategory<T>?> snapshot) {
+          final SmoothCategory<T>? category = snapshot.data;
+          if (category == null) {
+            return Container(
+              alignment: Alignment.center,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    'No Category Found for ${widget.currentPath.map<String>((T item) => item.toString()).join(' > ')}',
+                  ),
+                  TextButton(child: const Text('BACK'), onPressed: () {
+                    widget.onPathChanged(widget.currentPath.sublist(0, widget.currentPath.length - 1));
+                  }),
+                ],
               ),
-              Text(widget.currentPath.join(' > ')),
-            ],
-          ),
-          const Divider(),
-          Expanded(
-            child: _CategoryView<T>(
-              currentCategories: widget.currentCategories,
-              currentPath: widget.currentPath,
-              categoryFinder: widget.categoryFinder,
-              onPathChanged: widget.onPathChanged,
-              onChanged: widget.onCategoriesChanged,
+            );
+          }
+          return Scaffold(
+            floatingActionButton: FloatingActionButton(
+              child: const Icon(Icons.add),
+              onPressed: () => widget.onAddCategory(widget.currentPath),
             ),
-          ),
-        ],
-      ),
-    );
+            body: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SmoothCategoryDisplay<T>(
+                    categories: widget.currentCategories,
+                    onDeleted: (T item) {
+                      widget.onCategoriesChanged(widget.currentCategories.difference(<T>{item}));
+                    },
+                  ),
+                ),
+                const Divider(),
+                Row(
+                  children: <Widget>[
+                    IconButton(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      icon: const Icon(Icons.chevron_left),
+                      onPressed: category.value != widget.currentPath.first
+                          ? () {
+                              setState(() {
+                                widget.onPathChanged(
+                                    widget.currentPath.take(widget.currentPath.length - 1));
+                              });
+                            }
+                          : null,
+                    ),
+                    Text(widget.currentPath.join(' > ')),
+                  ],
+                ),
+                const Divider(),
+                Expanded(
+                  child: _CategoryView<T>(
+                    currentCategories: widget.currentCategories,
+                    currentPath: widget.currentPath,
+                    categoryFinder: widget.categoryFinder,
+                    onPathChanged: widget.onPathChanged,
+                    onChanged: widget.onCategoriesChanged,
+                  ),
+                ),
+              ],
+            ),
+          );
+        });
   }
-}
-
-/// The base class for data provided to the [SmoothCategoryPicker].
-///
-/// Subclasses should override the [label] accessor to give a human-readable version
-/// of this category for display in the UI.
-abstract class Category<T extends Comparable<T>> {
-  Category(this.value, [Iterable<Category<T>>? children])
-      : _children = children?.toSet() ?? <Category<T>>{};
-
-  /// The value of this node.
-  final T value;
-
-  /// This returns a breadth-first iterable over the values in all of the descendants
-  /// of this node.
-  Iterable<Category<T>> get descendants sync* {
-    for (final Category<T> child in children) {
-      yield child;
-    }
-  }
-
-  /// Whether or not this node has children.
-  bool get hasChildren => _children.isNotEmpty;
-
-  /// Gets the list of children of this node.
-  Set<Category<T>> get children => _children.toSet();
-  final Set<Category<T>> _children;
-
-  /// Adds a subcategory (a child) to this node.
-  void add(Category<T> child) {
-    if (!containsChildWithValue(child.value)) {
-      _children.add(child);
-    }
-  }
-
-  /// Removes the given child from this node, if any.
-  ///
-  /// Does nothing if the child doesn't exist.
-  void remove(Category<T> child) {
-    _children.removeWhere((Category<T> item) => item.value == child.value);
-  }
-
-  /// Returns true if this node has a child with the given value.
-  bool containsChildWithValue(T childValue) {
-    return this[childValue] != null;
-  }
-
-  /// Returns the child node with the value given in the brackets.
-  Category<T>? operator [](T childValue) {
-    final Iterable<Category<T>> results =
-        _children.where((Category<T> child) => child.value == childValue);
-    if (results.isEmpty) {
-      return null;
-    }
-    return results.single;
-  }
-
-  Category<T>? findInDescendants(T value) {
-    final Iterable<Category<T>> results =
-        descendants.where((Category<T> child) => child.value == value);
-    if (results.isEmpty) {
-      return null;
-    }
-    return results.single;
-  }
-
-  /// Returns a human-readable label that will be displayed in the UI
-  String get label;
-
-  @override
-  String toString() => label;
 }
 
 class _CategoryView<T extends Comparable<T>> extends StatefulWidget {
@@ -259,22 +207,22 @@ class _CategoryViewState<T extends Comparable<T>> extends State<_CategoryView<T>
     }
   }
 
-  void onDescend(Category<T> childCategory) {
+  void onDescend(SmoothCategory<T> childCategory) {
     setState(() {
       widget.onPathChanged(<T>[...widget.currentPath, childCategory.value]);
     });
   }
 
-  Iterable<_CategoryPage<T>> _generatePages(List<T> path) sync* {
+  Stream<_CategoryPage<T>> _generatePages(List<T> path) async* {
     final List<T> accumulator = <T>[];
     for (final T element in path) {
       accumulator.add(element);
-      final Category<T>? category = widget.categoryFinder(accumulator);
+      final SmoothCategory<T>? category = await widget.categoryFinder(accumulator);
       if (category != null) {
         yield _CategoryPage<T>(
           currentCategories: widget.currentCategories,
           currentPath: accumulator,
-          childCategories: category.children,
+          childCategories: await category.getChildren().toSet(),
           onDescend: onDescend,
           onSelect: widget.onChanged,
         );
@@ -292,17 +240,25 @@ class _CategoryViewState<T extends Comparable<T>> extends State<_CategoryView<T>
 
   @override
   Widget build(BuildContext context) {
-    return PageView(
-      onPageChanged: _onPageChanged,
-      controller: controller,
-      children: _generatePages(widget.currentPath).toList(),
+    return FutureBuilder<List<_CategoryPage<T>>>(
+      future: _generatePages(widget.currentPath).toList(),
+      // ignore: prefer_const_literals_to_create_immutables
+      initialData: <_CategoryPage<T>>[],
+      builder: (BuildContext context, AsyncSnapshot<List<_CategoryPage<T>>> snapshot) {
+        return PageView(
+          onPageChanged: _onPageChanged,
+          controller: controller,
+          children: snapshot.data!,
+        );
+      },
     );
   }
 }
 
 // A callback used to notify that the category page has asked to descend to a child
 // category.
-typedef _DescendCategoryCallback<T extends Category<dynamic>> = void Function(T childCategory);
+typedef _DescendCategoryCallback<T extends SmoothCategory<dynamic>> = void Function(
+    T childCategory);
 
 class _CategoryPage<T extends Comparable<T>> extends StatelessWidget {
   const _CategoryPage({
@@ -316,17 +272,17 @@ class _CategoryPage<T extends Comparable<T>> extends StatelessWidget {
 
   final Set<T> currentCategories;
   final List<T> currentPath;
-  final Set<Category<T>> childCategories;
+  final Set<SmoothCategory<T>> childCategories;
   final CategoriesChangedCallback<T> onSelect;
-  final _DescendCategoryCallback<Category<T>> onDescend;
+  final _DescendCategoryCallback<SmoothCategory<T>> onDescend;
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[
-          for (final Category<T> category in childCategories) ...<Widget>[
-            _CategoryItem<Category<T>>(
+          for (final SmoothCategory<T> category in childCategories) ...<Widget>[
+            _CategoryItem<SmoothCategory<T>>(
               selected: currentCategories.contains(category.value),
               category: category,
               onDescend: onDescend,
@@ -346,7 +302,7 @@ class _CategoryPage<T extends Comparable<T>> extends StatelessWidget {
   }
 }
 
-class _CategoryItem<T extends Category<dynamic>> extends StatelessWidget {
+class _CategoryItem<T extends SmoothCategory<dynamic>> extends StatelessWidget {
   const _CategoryItem({
     Key? key,
     required this.selected,
@@ -364,29 +320,38 @@ class _CategoryItem<T extends Category<dynamic>> extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsetsDirectional.only(start: 8.0),
-      child: Row(children: <Widget>[
-        if (category.children.isEmpty)
-          Checkbox(value: selected, onChanged: onSelect)
-        else
-          const SizedBox(width: Checkbox.width + 32.0, height: Checkbox.width),
-        Expanded(
-          flex: 2,
-          child: GestureDetector(
-            onTap: () {
-              if (category.children.isNotEmpty) {
-                onDescend(category);
-              } else {
-                onSelect(!selected);
-              }
-            },
-            child: Text(category.toString()),
-          ),
-        ),
-        IconButton(
-          icon: const Icon(Icons.chevron_right),
-          onPressed: () => onDescend(category),
-        ),
-      ]),
+      child: FutureBuilder<bool>(
+        future: category.hasChildren,
+        initialData: false,
+        builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
+          final bool hasChildren = !(snapshot.data ?? false);
+          return Row(
+            children: <Widget>[
+              if (hasChildren)
+                Checkbox(value: selected, onChanged: onSelect)
+              else
+                const SizedBox(width: Checkbox.width + 32.0, height: Checkbox.width),
+              Expanded(
+                flex: 2,
+                child: GestureDetector(
+                  onTap: () {
+                    if (hasChildren) {
+                      onDescend(category);
+                    } else {
+                      onSelect(!selected);
+                    }
+                  },
+                  child: Text(category.toString()),
+                ),
+              ),
+              IconButton(
+                icon: const Icon(Icons.chevron_right),
+                onPressed: () => onDescend(category),
+              ),
+            ],
+          );
+        },
+      ),
     );
   }
 }
@@ -547,7 +512,7 @@ class _AnimatedSqueeze extends ImplicitlyAnimatedWidget {
   final FilterQuality? filterQuality;
 
   @override
-  ImplicitlyAnimatedWidgetState<_AnimatedSqueeze> createState() => _AnimatedSqeezeState();
+  ImplicitlyAnimatedWidgetState<_AnimatedSqueeze> createState() => _AnimatedSqueezeState();
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
@@ -559,7 +524,7 @@ class _AnimatedSqueeze extends ImplicitlyAnimatedWidget {
   }
 }
 
-class _AnimatedSqeezeState extends ImplicitlyAnimatedWidgetState<_AnimatedSqueeze> {
+class _AnimatedSqueezeState extends ImplicitlyAnimatedWidgetState<_AnimatedSqueeze> {
   Tween<Size>? _scale;
   late Animation<Size> _scaleAnimation;
 
@@ -628,4 +593,66 @@ class _SqueezeTransition extends AnimatedWidget {
       child: child,
     );
   }
+}
+
+/// The base class for data provided to the [SmoothCategoryPicker].
+///
+/// Subclasses should override the [getLabel] accessor to give a human-readable version
+/// of this category for display in the UI.
+abstract class SmoothCategory<T extends Comparable<T>> {
+  const SmoothCategory(this.value);
+
+  /// The value of this node.
+  final T value;
+
+  /// This returns a depth-first iterable over the descendants of this node.
+  Stream<SmoothCategory<T>> getDescendants() async* {
+    await for (final SmoothCategory<T> child in getChildren()) {
+      yield* child.getDescendants();
+      yield child;
+    }
+  }
+
+  /// Whether or not this node has children.
+  Future<bool> get hasChildren async => !(await getChildren().isEmpty);
+
+  /// Returns an iterable of the parents of this node.
+  Stream<SmoothCategory<T>> getParents();
+
+  /// Gets the list of children of this node.
+  Stream<SmoothCategory<T>> getChildren();
+
+  /// Returns true if this node has a child with the given value.
+  Future<bool> containsChildWithValue(T childValue) async {
+    return await getChild(childValue) != null;
+  }
+
+  void addChild(covariant SmoothCategory<T> newChild);
+
+  /// Returns the child node with the value given.
+  Future<SmoothCategory<T>?> getChild(T childValue) async {
+    final List<SmoothCategory<T>> results = await
+        getChildren().where((SmoothCategory<T> child) => child.value == childValue).toList();
+    if (results.isEmpty) {
+      debugPrint('Child $childValue not found.');
+      return null;
+    }
+    debugPrint('Returning child ${results.single}');
+    return results.single;
+  }
+
+  Future<SmoothCategory<T>?> findInDescendants(T value) async {
+    final List<SmoothCategory<T>> results =
+        await getDescendants().where((SmoothCategory<T> child) => child.value == value).toList();
+    if (results.isEmpty) {
+      return null;
+    }
+    return results.single;
+  }
+
+  /// Returns a human-readable label that will be displayed in the UI
+  String getLabel(OpenFoodFactsLanguage language);
+
+  @override
+  String toString() => getLabel(OpenFoodFactsLanguage.ENGLISH);
 }
