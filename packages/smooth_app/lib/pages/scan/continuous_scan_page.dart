@@ -16,8 +16,8 @@ class ContinuousScanPage extends StatelessWidget {
     final ContinuousScanModel model = context.watch<ContinuousScanModel>();
     final AppLocalizations localizations = AppLocalizations.of(context)!;
     final Size screenSize = MediaQuery.of(context).size;
-    const double carouselHeight = 400.0;
-    const double viewFinderBottomOffset = carouselHeight / 2.0;
+    final double carouselHeight = screenSize.height / 2;
+    final double viewFinderBottomOffset = carouselHeight / 2.0;
     return Scaffold(
       appBar: AppBar(toolbarHeight: 0.0),
       body: Stack(
@@ -27,8 +27,7 @@ class ContinuousScanPage extends StatelessWidget {
             color: Colors.black,
             child: Padding(
               // Double the offset to account for the vertical centering.
-              padding:
-                  const EdgeInsets.only(bottom: 2 * viewFinderBottomOffset),
+              padding: EdgeInsets.only(bottom: 2 * viewFinderBottomOffset),
               child: SvgPicture.asset(
                 'assets/actions/scanner_alt_2.svg',
                 width: 60.0,
@@ -61,8 +60,7 @@ class ContinuousScanPage extends StatelessWidget {
               children: <Widget>[
                 Padding(
                   // Double the offset to account for the vertical centering.
-                  padding:
-                      const EdgeInsets.only(bottom: 2 * viewFinderBottomOffset),
+                  padding: EdgeInsets.only(bottom: 2 * viewFinderBottomOffset),
                   child: SmoothViewFinder(
                     boxSize: Size(
                       screenSize.width * 0.6,
@@ -100,8 +98,8 @@ class ContinuousScanPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 8.0),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
                   child: SmoothProductCarousel(
                     showSearchCard: true,
                     height: carouselHeight,

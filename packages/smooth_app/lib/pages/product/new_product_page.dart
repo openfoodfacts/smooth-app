@@ -18,6 +18,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
+import 'package:smooth_app/helpers/product_page_helper.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -42,9 +43,6 @@ Widget _buildSmoothCard({
     child: body,
   );
 }
-
-String _getProductName(Product product, AppLocalizations appLocalizations) =>
-    product.productName ?? appLocalizations.unknownProductName;
 
 class NewProductPage extends StatefulWidget {
   const NewProductPage(this.product);
@@ -102,7 +100,7 @@ class _ProductPageState extends State<NewProductPage> {
         ColorDestination.SURFACE_BACKGROUND,
       ),
       appBar: AppBar(
-        title: Text(_getProductName(_product, appLocalizations)),
+        title: Text(getProductName(_product, appLocalizations)),
         actions: <Widget>[
           PopupMenuButton<ProductPageMenuItem>(
             itemBuilder: (BuildContext context) =>
@@ -399,7 +397,7 @@ class SummaryCard extends StatelessWidget {
       child: ListTile(
         contentPadding: EdgeInsets.zero,
         title: Text(
-          _getProductName(_product, appLocalizations),
+          getProductName(_product, appLocalizations),
           style: themeData.textTheme.headline4,
         ),
         subtitle: Text(_product.brands ?? appLocalizations.unknownBrand),
