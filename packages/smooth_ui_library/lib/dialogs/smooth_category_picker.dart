@@ -176,6 +176,68 @@ class _SmoothCategoryPickerState<T extends Comparable<T>>
   }
 }
 
+/// The base class for data provided to the [SmoothCategoryPicker].
+///
+/// Subclasses should override the [getLabel] accessor to give a human-readable version
+/// of this category for display in the UI.
+abstract class SmoothCategory<T extends Comparable<T>> {
+  const SmoothCategory(this.value);
+
+  /// The value of this node.
+  final T value;
+
+  /// This returns a depth-first iterable over the descendants of this node.
+  Stream<SmoothCategory<T>> getDescendants() async* {
+    await for (final SmoothCategory<T> child in getChildren()) {
+      yield* child.getDescendants();
+      yield child;
+    }
+  }
+
+  /// Whether or not this node has children.
+  Future<bool> get hasChildren async => !(await getChildren().isEmpty);
+
+  /// Returns an iterable of the parents of this node.
+  Stream<SmoothCategory<T>> getParents();
+
+  /// Gets the list of children of this node.
+  Stream<SmoothCategory<T>> getChildren();
+
+  /// Returns true if this node has a child with the given value.
+  Future<bool> containsChildWithValue(T childValue) async {
+    return await getChild(childValue) != null;
+  }
+
+  void addChild(covariant SmoothCategory<T> newChild);
+
+  /// Returns the child node with the value given.
+  Future<SmoothCategory<T>?> getChild(T childValue) async {
+    final List<SmoothCategory<T>> results = await getChildren()
+        .where((SmoothCategory<T> child) => child.value == childValue)
+        .toList();
+    if (results.isEmpty) {
+      return null;
+    }
+    return results.single;
+  }
+
+  Future<SmoothCategory<T>?> findInDescendants(T value) async {
+    final List<SmoothCategory<T>> results = await getDescendants()
+        .where((SmoothCategory<T> child) => child.value == value)
+        .toList();
+    if (results.isEmpty) {
+      return null;
+    }
+    return results.single;
+  }
+
+  /// Returns a human-readable label that will be displayed in the UI
+  String getLabel(OpenFoodFactsLanguage language);
+
+  @override
+  String toString() => getLabel(OpenFoodFactsLanguage.ENGLISH);
+}
+
 class _CategoryView<T extends Comparable<T>> extends StatefulWidget {
   const _CategoryView({
     Key? key,
@@ -236,6 +298,7 @@ class _CategoryViewState<T extends Comparable<T>>
       accumulator.add(element);
       final SmoothCategory<T>? category =
           await widget.categoryFinder(accumulator);
+      debugPrint('Generating page for category $category');
       if (category != null) {
         yield _CategoryPage<T>(
           currentCategories: widget.currentCategories,
@@ -259,12 +322,25 @@ class _CategoryViewState<T extends Comparable<T>>
 
   @override
   Widget build(BuildContext context) {
+    final Future<List<_CategoryPage<T>>> pages =
+        _generatePages(widget.currentPath)
+            .toList()
+            .then((List<_CategoryPage<T>> pages) {
+      debugPrint(
+          'Using generated pages ${pages.map<String>((_CategoryPage<T> page) => page.childCategories.join(','))}');
+      return pages;
+    });
+
     return FutureBuilder<List<_CategoryPage<T>>>(
-      future: _generatePages(widget.currentPath).toList(),
+      future: pages,
       // ignore: prefer_const_literals_to_create_immutables
-      initialData: <_CategoryPage<T>>[],
       builder: (BuildContext context,
           AsyncSnapshot<List<_CategoryPage<T>>> snapshot) {
+        if (snapshot.data == null) {
+          return const SizedBox();
+        }
+        debugPrint(
+            'Building with ${snapshot.data!.map<String>((_CategoryPage<T> page) => page.childCategories.join(','))}');
         return PageView(
           onPageChanged: _onPageChanged,
           controller: controller,
@@ -420,7 +496,8 @@ class _SmoothCategoryDisplayState<T extends Object>
     bool removed = false;
     final List<T> displayedKeys = displayed.keys.toList();
     for (final T category in displayedKeys) {
-      if (displayed[category]!.status == AnimationStatus.dismissed && !widget.categories.contains(category)) {
+      if (displayed[category]!.status == AnimationStatus.dismissed &&
+          !widget.categories.contains(category)) {
         displayed[category]!.removeStatusListener(_cleanup);
         displayed[category]!.dispose();
         displayed.remove(category);
@@ -592,66 +669,4 @@ class _SqueezeTransition extends AnimatedWidget {
       child: child,
     );
   }
-}
-
-/// The base class for data provided to the [SmoothCategoryPicker].
-///
-/// Subclasses should override the [getLabel] accessor to give a human-readable version
-/// of this category for display in the UI.
-abstract class SmoothCategory<T extends Comparable<T>> {
-  const SmoothCategory(this.value);
-
-  /// The value of this node.
-  final T value;
-
-  /// This returns a depth-first iterable over the descendants of this node.
-  Stream<SmoothCategory<T>> getDescendants() async* {
-    await for (final SmoothCategory<T> child in getChildren()) {
-      yield* child.getDescendants();
-      yield child;
-    }
-  }
-
-  /// Whether or not this node has children.
-  Future<bool> get hasChildren async => !(await getChildren().isEmpty);
-
-  /// Returns an iterable of the parents of this node.
-  Stream<SmoothCategory<T>> getParents();
-
-  /// Gets the list of children of this node.
-  Stream<SmoothCategory<T>> getChildren();
-
-  /// Returns true if this node has a child with the given value.
-  Future<bool> containsChildWithValue(T childValue) async {
-    return await getChild(childValue) != null;
-  }
-
-  void addChild(covariant SmoothCategory<T> newChild);
-
-  /// Returns the child node with the value given.
-  Future<SmoothCategory<T>?> getChild(T childValue) async {
-    final List<SmoothCategory<T>> results = await getChildren()
-        .where((SmoothCategory<T> child) => child.value == childValue)
-        .toList();
-    if (results.isEmpty) {
-      return null;
-    }
-    return results.single;
-  }
-
-  Future<SmoothCategory<T>?> findInDescendants(T value) async {
-    final List<SmoothCategory<T>> results = await getDescendants()
-        .where((SmoothCategory<T> child) => child.value == value)
-        .toList();
-    if (results.isEmpty) {
-      return null;
-    }
-    return results.single;
-  }
-
-  /// Returns a human-readable label that will be displayed in the UI
-  String getLabel(OpenFoodFactsLanguage language);
-
-  @override
-  String toString() => getLabel(OpenFoodFactsLanguage.ENGLISH);
 }

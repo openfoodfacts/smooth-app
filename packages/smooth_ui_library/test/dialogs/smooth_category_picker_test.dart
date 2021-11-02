@@ -13,8 +13,8 @@ class TestCategory extends SmoothCategory<String> {
   Set<TestCategory> children;
 
   @override
-  Future<TestCategory?> getChild(String childValue) {
-    return super.getChild(childValue) as Future<TestCategory?>;
+  Future<TestCategory?> getChild(String childValue) async {
+    return await super.getChild(childValue) as TestCategory?;
   }
 
   @override
@@ -26,6 +26,7 @@ class TestCategory extends SmoothCategory<String> {
   @override
   Stream<SmoothCategory<String>> getChildren() async* {
     for (final SmoothCategory<String> child in children) {
+      print('Getting child of $value:  ${child.value}');
       yield child;
     }
   }
@@ -84,6 +85,7 @@ Future<TestCategory?> getCategory(Iterable<String> path) async {
     result = await result.getChild(followPath.first);
     followPath.removeAt(0);
   }
+  print('Found category ${result?.value ?? '<none>'}');
   return result;
 }
 
@@ -111,6 +113,8 @@ void main() {
           ),
         ),
       );
+      await tester.pump(const Duration(seconds: 1));
+      debugDumpApp();
       await tester.tap(find.text('red'));
       await tester.pumpAndSettle();
       expect(currentCategoryPath, equals(<String>['fruit', 'apple', 'red']));

@@ -189,29 +189,29 @@ class _ExampleAppState extends State<ExampleApp> {
               currentCategoryPath = path.toList();
             });
           },
-          // onAddCategory: (Iterable<Fruit> path) {
-          //   getCategory(path).then((FruitCategory? currentCategory) {
-          //     if (currentCategory != null) {
-          //       showDialog<FruitCategory>(
-          //               builder: (BuildContext context) =>
-          //                   _addCategoryDialog(context, currentCategory),
-          //               context: context)
-          //           .then<void>((FruitCategory? category) {
-          //         if (category != null) {
-          //           setState(() {
-          //             // Remove the parent from the set of assigned categories,
-          //             // since it isn't a leaf anymore.
-          //             currentCategories.remove(currentCategory.value);
-          //             currentCategory.addChild(category);
-          //             // If they added a new category, they must mean that the
-          //             // category applies.
-          //             currentCategories.add(category.value);
-          //           });
-          //         }
-          //       });
-          //     }
-          //   });
-          // },
+          onAddCategory: (Iterable<Fruit> path) {
+            getCategory(path).then((FruitCategory? currentCategory) {
+              if (currentCategory != null) {
+                showDialog<FruitCategory>(
+                        builder: (BuildContext context) =>
+                            _addCategoryDialog(context, currentCategory),
+                        context: context)
+                    .then<void>((FruitCategory? category) {
+                  if (category != null) {
+                    setState(() {
+                      // Remove the parent from the set of assigned categories,
+                      // since it isn't a leaf anymore.
+                      currentCategories.remove(currentCategory.value);
+                      currentCategory.addChild(category);
+                      // If they added a new category, they must mean that the
+                      // category applies.
+                      currentCategories.add(category.value);
+                    });
+                  }
+                });
+              }
+            });
+          },
         ),
       ),
     );
