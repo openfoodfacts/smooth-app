@@ -9,7 +9,7 @@ import 'package:smooth_app/cards/expandables/attribute_list_expandable.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
-import 'package:smooth_app/helpers/product_page_helper.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_ui_library/smooth_ui_library.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
