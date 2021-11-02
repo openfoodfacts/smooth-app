@@ -12,7 +12,7 @@ String getProductName(Product product, AppLocalizations appLocalizations) =>
 const EdgeInsets SMOOTH_CARD_PADDING =
     EdgeInsets.symmetric(horizontal: 12.0, vertical: 4.0);
 
-/// A SmoothCard on Product page.
+/// A SmoothCard on Product page using standardized margin.
 Widget buildProductSmoothCard({
   Widget? header,
   required Widget body,
