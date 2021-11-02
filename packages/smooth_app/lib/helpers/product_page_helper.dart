@@ -10,7 +10,7 @@ String getProductName(Product product, AppLocalizations appLocalizations) =>
 
 /// Padding to be used while building the SmoothCard on Product page.
 const EdgeInsets SMOOTH_CARD_PADDING =
-EdgeInsets.symmetric(horizontal: 12.0, vertical: 4.0);
+    EdgeInsets.symmetric(horizontal: 12.0, vertical: 4.0);
 
 /// A SmoothCard on Product page.
 Widget buildProductSmoothCard({

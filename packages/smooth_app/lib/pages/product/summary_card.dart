@@ -38,11 +38,11 @@ class SummaryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<Attribute> scoreAttributes =
-    AttributeListExpandable.getPopulatedAttributes(
-        _product, _SCORE_ATTRIBUTE_IDS);
+        AttributeListExpandable.getPopulatedAttributes(
+            _product, _SCORE_ATTRIBUTE_IDS);
 
     final List<AttributeGroup> attributeGroupsToBeRendered =
-    _getAttributeGroupsToBeRendered();
+        _getAttributeGroupsToBeRendered();
     final Widget attributesContainer = Container(
       alignment: Alignment.topLeft,
       margin: const EdgeInsets.only(bottom: 16),
@@ -69,7 +69,7 @@ class SummaryCard extends StatelessWidget {
               ScoreCard(
                 iconUrl: attribute.iconUrl!,
                 description:
-                attribute.descriptionShort ?? attribute.description!,
+                    attribute.descriptionShort ?? attribute.description!,
                 cardEvaluation: getCardEvaluationFromAttribute(attribute),
               ),
             attributesContainer,
@@ -90,8 +90,8 @@ class SummaryCard extends StatelessWidget {
       final AttributeGroup group = groupIterable.single;
 
       final bool containsImportantAttributes = group.attributes!.any(
-              (Attribute attribute) =>
-          _productPreferences.isAttributeImportant(attribute.id!) == true);
+          (Attribute attribute) =>
+              _productPreferences.isAttributeImportant(attribute.id!) == true);
       if (containsImportantAttributes) {
         attributeGroupsToBeRendered.add(group);
       }
@@ -101,7 +101,7 @@ class SummaryCard extends StatelessWidget {
 
   Widget _buildProductCompatibilityHeader(BuildContext context) {
     final ProductCompatibility compatibility =
-    getProductCompatibility(_productPreferences, _product);
+        getProductCompatibility(_productPreferences, _product);
     // NOTE: This is temporary and will be updated once the feature is supported
     // by the server.
     return Container(
@@ -119,7 +119,7 @@ class SummaryCard extends StatelessWidget {
         child: Text(
           getProductCompatibilityHeaderTextWidget(compatibility),
           style:
-          Theme.of(context).textTheme.subtitle1!.apply(color: Colors.white),
+              Theme.of(context).textTheme.subtitle1!.apply(color: Colors.white),
         ),
       ),
     );
@@ -148,16 +148,16 @@ class SummaryCard extends StatelessWidget {
   /// Builds an AttributeGroup, if [isFirstGroup] is true the group doesn't get
   /// a divider header.
   Widget _buildAttributeGroup(
-      BuildContext context,
-      AttributeGroup group,
-      bool isFirstGroup,
-      ) {
+    BuildContext context,
+    AttributeGroup group,
+    bool isFirstGroup,
+  ) {
     final List<Widget> attributeChips = <Widget>[];
     for (final Attribute attribute in group.attributes!) {
       final Widget? attributeChip = _buildAttributeChipForValidAttributes(
         attribute: attribute,
         returnNullIfStatusUnknown:
-        group.id == AttributeGroup.ATTRIBUTE_GROUP_LABELS,
+            group.id == AttributeGroup.ATTRIBUTE_GROUP_LABELS,
       );
       if (attributeChip != null) {
         attributeChips.add(attributeChip);
@@ -183,10 +183,10 @@ class SummaryCard extends StatelessWidget {
   /// The attribute group header can either be group name or a divider depending
   /// upon the type of the group.
   Widget _buildAttributeGroupHeader(
-      BuildContext context,
-      AttributeGroup group,
-      bool isFirstGroup,
-      ) {
+    BuildContext context,
+    AttributeGroup group,
+    bool isFirstGroup,
+  ) {
     if (group.id == AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS) {
       return Container(
         alignment: Alignment.topLeft,
@@ -194,7 +194,7 @@ class SummaryCard extends StatelessWidget {
         child: Text(
           group.name!,
           style:
-          Theme.of(context).textTheme.bodyText2!.apply(color: Colors.grey),
+              Theme.of(context).textTheme.bodyText2!.apply(color: Colors.grey),
         ),
       );
     }
@@ -203,8 +203,8 @@ class SummaryCard extends StatelessWidget {
       child: isFirstGroup
           ? EMPTY_WIDGET
           : const Divider(
-        color: Colors.black12,
-      ),
+              color: Colors.black12,
+            ),
     );
   }
 
@@ -231,18 +231,18 @@ class SummaryCard extends StatelessWidget {
     }
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-          return SizedBox(
-              width: constraints.maxWidth / 2,
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    attributeIcon,
-                    Expanded(
-                        child: Text(
-                          attributeDisplayTitle,
-                        )),
-                  ]));
-        });
+      return SizedBox(
+          width: constraints.maxWidth / 2,
+          child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                attributeIcon,
+                Expanded(
+                    child: Text(
+                  attributeDisplayTitle,
+                )),
+              ]));
+    });
   }
 }
