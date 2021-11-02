@@ -1,11 +1,13 @@
 // @dart = 2.12
 
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/LanguageHelper.dart';
 import 'package:smooth_ui_library/smooth_ui_library.dart';
 
 void main() {
+  timeDilation = 1.0;
   runApp(
     const MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -100,14 +102,12 @@ Future<FruitCategory?> getCategory(Iterable<Fruit> path) async {
   if (path.isEmpty) {
     return null;
   }
-  debugPrint('Looking at path $path');
   FruitCategory? result = categories.value == path.first ? categories : null;
   final List<Fruit> followPath = path.skip(1).toList();
   while (result != null && followPath.isNotEmpty) {
     result = await result.getChild(followPath.first);
     followPath.removeAt(0);
   }
-  debugPrint('Found $result');
   return result;
 }
 
@@ -182,38 +182,36 @@ class _ExampleAppState extends State<ExampleApp> {
           onCategoriesChanged: (Set<Fruit> value) {
             setState(() {
               currentCategories = value;
-              debugPrint('Categories: ${currentCategories.join(', ')}');
             });
           },
           onPathChanged: (Iterable<Fruit> path) {
             setState(() {
               currentCategoryPath = path.toList();
-              debugPrint('Path changed: ${currentCategoryPath.join(' > ')}');
             });
           },
-          onAddCategory: (Iterable<Fruit> path) {
-            getCategory(path).then((FruitCategory? currentCategory) {
-              if (currentCategory != null) {
-                showDialog<FruitCategory>(
-                        builder: (BuildContext context) =>
-                            _addCategoryDialog(context, currentCategory),
-                        context: context)
-                    .then<void>((FruitCategory? category) {
-                  if (category != null) {
-                    setState(() {
-                      // Remove the parent from the set of assigned categories,
-                      // since it isn't a leaf anymore.
-                      currentCategories.remove(currentCategory.value);
-                      currentCategory.addChild(category);
-                      // If they added a new category, they must mean that the
-                      // category applies.
-                      currentCategories.add(category.value);
-                    });
-                  }
-                });
-              }
-            });
-          },
+          // onAddCategory: (Iterable<Fruit> path) {
+          //   getCategory(path).then((FruitCategory? currentCategory) {
+          //     if (currentCategory != null) {
+          //       showDialog<FruitCategory>(
+          //               builder: (BuildContext context) =>
+          //                   _addCategoryDialog(context, currentCategory),
+          //               context: context)
+          //           .then<void>((FruitCategory? category) {
+          //         if (category != null) {
+          //           setState(() {
+          //             // Remove the parent from the set of assigned categories,
+          //             // since it isn't a leaf anymore.
+          //             currentCategories.remove(currentCategory.value);
+          //             currentCategory.addChild(category);
+          //             // If they added a new category, they must mean that the
+          //             // category applies.
+          //             currentCategories.add(category.value);
+          //           });
+          //         }
+          //       });
+          //     }
+          //   });
+          // },
         ),
       ),
     );
