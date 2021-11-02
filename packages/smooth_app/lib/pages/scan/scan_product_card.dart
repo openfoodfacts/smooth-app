@@ -3,6 +3,7 @@ import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/pages/product/new_product_page.dart';
+import 'package:smooth_app/pages/product/summary_card.dart';
 
 class ScanProductCard extends StatelessWidget {
   const ScanProductCard(this.product);
