@@ -110,8 +110,8 @@ Widget build(BuildContext context) {
   final ContinuousScanModel model = context.watch&lt;ContinuousScanModel&gt;();
   final AppLocalizations localizations = AppLocalizations.of(context)!;
   final Size screenSize = MediaQuery.of(context).size;
-  const double carouselHeight = 300;
-  const double viewFinderBottomOffset = carouselHeight &#47; 2.0;
+  final double carouselHeight = screenSize.height &#47; 2;
+  final double viewFinderBottomOffset = carouselHeight &#47; 2.0;
   return Scaffold(
     appBar: AppBar(toolbarHeight: 0.0),
     body: Stack(
@@ -121,8 +121,7 @@ Widget build(BuildContext context) {
           color: Colors.black,
           child: Padding(
             &#47;&#47; Double the offset to account for the vertical centering.
-            padding:
-                const EdgeInsets.only(bottom: 2 * viewFinderBottomOffset),
+            padding: EdgeInsets.only(bottom: 2 * viewFinderBottomOffset),
             child: SvgPicture.asset(
               &#39;assets&#47;actions&#47;scanner_alt_2.svg&#39;,
               width: 60.0,
@@ -155,8 +154,7 @@ Widget build(BuildContext context) {
             children: &lt;Widget&gt;[
               Padding(
                 &#47;&#47; Double the offset to account for the vertical centering.
-                padding:
-                    const EdgeInsets.only(bottom: 2 * viewFinderBottomOffset),
+                padding: EdgeInsets.only(bottom: 2 * viewFinderBottomOffset),
                 child: SmoothViewFinder(
                   boxSize: Size(
                     screenSize.width * 0.6,
@@ -194,8 +192,8 @@ Widget build(BuildContext context) {
                   ],
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 8.0),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: SmoothProductCarousel(
                   showSearchCard: true,
                   height: carouselHeight,
