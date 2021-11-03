@@ -27,8 +27,8 @@ const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_LABELS,
 ];
 
-// Each row in the summary card takes roughly 45px.
-const int SUMMARY_CARD_ROW_HEIGHT = 45;
+// Each row in the summary card takes roughly 40px.
+const int SUMMARY_CARD_ROW_HEIGHT = 40;
 
 class SummaryCard extends StatefulWidget {
   const SummaryCard(this._product, this._productPreferences,
@@ -54,11 +54,31 @@ class _SummaryCardState extends State<SummaryCard> {
       if (!widget.isRenderedInProductPage) {
         totalPrintableRows = constraints.maxHeight ~/ SUMMARY_CARD_ROW_HEIGHT;
       }
+      Widget summaryCard;
+      if (widget.isRenderedInProductPage) {
+        summaryCard = _buildSummaryCardContent(context);
+      } else {
+        summaryCard = Column(
+          children: <Widget>[
+            SizedBox(
+                height: constraints.maxHeight - 60,
+                child: _buildSummaryCardContent(context)),
+            // TODO(jasmeet): Add translations.
+            Text(
+              'Tap to see more info...',
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyText1!
+                  .apply(color: Colors.lightBlue),
+            ),
+          ],
+        );
+      }
       return buildProductSmoothCard(
         header: _buildProductCompatibilityHeader(context),
         body: Padding(
           padding: SMOOTH_CARD_PADDING,
-          child: _buildSummaryCardContent(context),
+          child: summaryCard,
         ),
       );
     });
@@ -69,10 +89,12 @@ class _SummaryCardState extends State<SummaryCard> {
         AttributeListExpandable.getPopulatedAttributes(
             widget._product, _SCORE_ATTRIBUTE_IDS);
 
-    // Header takes 1 row and product Title Tile takes 2 rows to render.
-    totalPrintableRows -= 3;
-    // Each Score card takes about 2 rows to render.
-    totalPrintableRows -= 2 * scoreAttributes.length;
+    // Header takes 1 row.
+    // Product Title Tile takes 2 rows to render.
+    // Footer takes 1 row.
+    totalPrintableRows -= 4;
+    // Each Score card takes about 1.5 rows to render.
+    totalPrintableRows -= (1.5 * scoreAttributes.length).ceil();
 
     final List<AttributeGroup> attributeGroupsToBeRendered =
         _getAttributeGroupsToBeRendered();
@@ -100,15 +122,6 @@ class _SummaryCardState extends State<SummaryCard> {
             cardEvaluation: getCardEvaluationFromAttribute(attribute),
           ),
         attributesContainer,
-        if (!widget.isRenderedInProductPage)
-          // TODO(jasmeet): Add translations.
-          Text(
-            'Tap to see more info...',
-            style: Theme.of(context)
-                .textTheme
-                .bodyText1!
-                .apply(color: Colors.lightBlue),
-          ),
       ],
     );
   }

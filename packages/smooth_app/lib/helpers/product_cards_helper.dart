@@ -19,11 +19,8 @@ Widget buildProductSmoothCard({
   EdgeInsets? padding = EdgeInsets.zero,
 }) {
   return SmoothCard(
-    margin: const EdgeInsets.only(
-      right: SMALL_SPACE,
-      left: SMALL_SPACE,
-      top: VERY_SMALL_SPACE,
-      bottom: VERY_LARGE_SPACE,
+    margin: const EdgeInsets.symmetric(
+      horizontal: SMALL_SPACE,
     ),
     padding: padding,
     header: header,
