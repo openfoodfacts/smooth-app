@@ -8,7 +8,7 @@ import 'package:smooth_ui_library/util/ui_helpers.dart';
 String getProductName(Product product, AppLocalizations appLocalizations) =>
     product.productName ?? appLocalizations.unknownProductName;
 
-/// Padding to be used while building the SmoothCard on any Product cardgit .
+/// Padding to be used while building the SmoothCard on any Product card.
 const EdgeInsets SMOOTH_CARD_PADDING =
     EdgeInsets.symmetric(horizontal: 12.0, vertical: 4.0);
 

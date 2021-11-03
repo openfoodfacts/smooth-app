@@ -27,6 +27,9 @@ const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_LABELS,
 ];
 
+// Each row in the summary card takes roughly 45px.
+const int SUMMARY_CARD_ROW_HEIGHT = 45;
+
 class SummaryCard extends StatefulWidget {
   const SummaryCard(this._product, this._productPreferences,
       {this.isRenderedInProductPage = false});
@@ -49,8 +52,7 @@ class _SummaryCardState extends State<SummaryCard> {
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
       if (!widget.isRenderedInProductPage) {
-        // Each row takes about a 45px height.
-        totalPrintableRows = constraints.maxHeight ~/ 45;
+        totalPrintableRows = constraints.maxHeight ~/ SUMMARY_CARD_ROW_HEIGHT;
       }
       return buildProductSmoothCard(
         header: _buildProductCompatibilityHeader(context),
