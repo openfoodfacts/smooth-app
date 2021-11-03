@@ -188,7 +188,7 @@ class _ProductPageState extends State<NewProductPage> {
         alignment: Alignment.topLeft,
         child: _buildProductImagesCarousel(context),
       ),
-      SummaryCard(_product, _productPreferences),
+      SummaryCard(_product, _productPreferences, isRenderedInProductPage: true),
       _buildKnowledgePanelCards(),
     ]);
   }

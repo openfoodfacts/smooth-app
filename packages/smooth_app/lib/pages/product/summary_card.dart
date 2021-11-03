@@ -27,19 +27,50 @@ const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_LABELS,
 ];
 
-class SummaryCard extends StatelessWidget {
-  // TODO(jasmeet): Change the signature to
-  //    SummaryCard({ required this.product, required this.productPreferences });
-  const SummaryCard(this._product, this._productPreferences);
+class SummaryCard extends StatefulWidget {
+  const SummaryCard(this._product, this._productPreferences,
+      {this.isRenderedInProductPage = false});
 
   final Product _product;
   final ProductPreferences _productPreferences;
+  final bool isRenderedInProductPage;
+
+  @override
+  State<SummaryCard> createState() => _SummaryCardState();
+}
+
+class _SummaryCardState extends State<SummaryCard> {
+  // Number of Rows that will be printed in the SummaryCard, initialized to a
+  // very high number for infinite rows.
+  int totalPrintableRows = 10000;
 
   @override
   Widget build(BuildContext context) {
+    return LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+      if (!widget.isRenderedInProductPage) {
+        // Each row takes about a 45px height.
+        totalPrintableRows = constraints.maxHeight ~/ 45;
+      }
+      return buildProductSmoothCard(
+        header: _buildProductCompatibilityHeader(context),
+        body: Padding(
+          padding: SMOOTH_CARD_PADDING,
+          child: _buildSummaryCardContent(context),
+        ),
+      );
+    });
+  }
+
+  Widget _buildSummaryCardContent(BuildContext context) {
     final List<Attribute> scoreAttributes =
         AttributeListExpandable.getPopulatedAttributes(
-            _product, _SCORE_ATTRIBUTE_IDS);
+            widget._product, _SCORE_ATTRIBUTE_IDS);
+
+    // Header takes 1 row and product Title Tile takes 2 rows to render.
+    totalPrintableRows -= 3;
+    // Each Score card takes about 2 rows to render.
+    totalPrintableRows -= 2 * scoreAttributes.length;
 
     final List<AttributeGroup> attributeGroupsToBeRendered =
         _getAttributeGroupsToBeRendered();
@@ -57,32 +88,34 @@ class SummaryCard extends StatelessWidget {
         ],
       ),
     );
-
-    return buildProductSmoothCard(
-      header: _buildProductCompatibilityHeader(context),
-      body: Padding(
-        padding: SMOOTH_CARD_PADDING,
-        child: Column(
-          children: <Widget>[
-            _buildProductTitleTile(context),
-            for (final Attribute attribute in scoreAttributes)
-              ScoreCard(
-                iconUrl: attribute.iconUrl!,
-                description:
-                    attribute.descriptionShort ?? attribute.description!,
-                cardEvaluation: getCardEvaluationFromAttribute(attribute),
-              ),
-            attributesContainer,
-          ],
-        ),
-      ),
+    return Column(
+      children: <Widget>[
+        _buildProductTitleTile(context),
+        for (final Attribute attribute in scoreAttributes)
+          ScoreCard(
+            iconUrl: attribute.iconUrl!,
+            description: attribute.descriptionShort ?? attribute.description!,
+            cardEvaluation: getCardEvaluationFromAttribute(attribute),
+          ),
+        attributesContainer,
+        if (!widget.isRenderedInProductPage)
+          // TODO(jasmeet): Add translations.
+          Text(
+            'Tap to see more info...',
+            style: Theme.of(context)
+                .textTheme
+                .bodyText1!
+                .apply(color: Colors.lightBlue),
+          ),
+      ],
     );
   }
 
   List<AttributeGroup> _getAttributeGroupsToBeRendered() {
     final List<AttributeGroup> attributeGroupsToBeRendered = <AttributeGroup>[];
     for (final String groupId in _ATTRIBUTE_GROUP_ORDER) {
-      final Iterable<AttributeGroup> groupIterable = _product.attributeGroups!
+      final Iterable<AttributeGroup> groupIterable = widget
+          ._product.attributeGroups!
           .where((AttributeGroup group) => group.id == groupId);
       if (groupIterable.isEmpty) {
         continue;
@@ -91,7 +124,8 @@ class SummaryCard extends StatelessWidget {
 
       final bool containsImportantAttributes = group.attributes!.any(
           (Attribute attribute) =>
-              _productPreferences.isAttributeImportant(attribute.id!) == true);
+              widget._productPreferences.isAttributeImportant(attribute.id!) ==
+              true);
       if (containsImportantAttributes) {
         attributeGroupsToBeRendered.add(group);
       }
@@ -101,7 +135,7 @@ class SummaryCard extends StatelessWidget {
 
   Widget _buildProductCompatibilityHeader(BuildContext context) {
     final ProductCompatibility compatibility =
-        getProductCompatibility(_productPreferences, _product);
+        getProductCompatibility(widget._productPreferences, widget._product);
     // NOTE: This is temporary and will be updated once the feature is supported
     // by the server.
     return Container(
@@ -133,12 +167,12 @@ class SummaryCard extends StatelessWidget {
       child: ListTile(
         contentPadding: EdgeInsets.zero,
         title: Text(
-          getProductName(_product, appLocalizations),
+          getProductName(widget._product, appLocalizations),
           style: themeData.textTheme.headline4,
         ),
-        subtitle: Text(_product.brands ?? appLocalizations.unknownBrand),
+        subtitle: Text(widget._product.brands ?? appLocalizations.unknownBrand),
         trailing: Text(
-          _product.quantity ?? '',
+          widget._product.quantity ?? '',
           style: themeData.textTheme.headline3,
         ),
       ),
@@ -159,13 +193,16 @@ class SummaryCard extends StatelessWidget {
         returnNullIfStatusUnknown:
             group.id == AttributeGroup.ATTRIBUTE_GROUP_LABELS,
       );
-      if (attributeChip != null) {
+      if (attributeChip != null &&
+          attributeChips.length / 2 < totalPrintableRows) {
         attributeChips.add(attributeChip);
       }
     }
     if (attributeChips.isEmpty) {
       return EMPTY_WIDGET;
     }
+    totalPrintableRows =
+        totalPrintableRows - (attributeChips.length / 2).ceil();
     return Column(
       children: <Widget>[
         _buildAttributeGroupHeader(context, group, isFirstGroup),
@@ -216,7 +253,8 @@ class SummaryCard extends StatelessWidget {
       // Score Attribute Ids have already been rendered.
       return null;
     }
-    if (_productPreferences.isAttributeImportant(attribute.id!) != true) {
+    if (widget._productPreferences.isAttributeImportant(attribute.id!) !=
+        true) {
       // Not an important attribute.
       return null;
     }
