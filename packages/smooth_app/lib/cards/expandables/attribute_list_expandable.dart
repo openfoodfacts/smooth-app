@@ -137,6 +137,7 @@ class AttributeListExpandable extends StatelessWidget {
             builder: (BuildContext context) =>
                 EditIngredientsPage(
                   ingredients: product.ingredients ?? <Ingredient>[],
+                  imageProvider: product.imageIngredientsUrl == null ? null : NetworkImage(product.imageIngredientsUrl!),
                 ),
           ),
         ),

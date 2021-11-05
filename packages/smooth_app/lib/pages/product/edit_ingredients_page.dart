@@ -50,13 +50,26 @@ class EditIngredientsPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Log Food'),
       ),
+      /*
+      body: ConstrainedBox(
+        constraints: const BoxConstraints.expand(),
+        child: Image(
+          fit: BoxFit.cover,
+          image: imageProvider!,
+        ),
+      ),
+      */
       body: Stack(
         children: <Widget>[
           if (imageProvider == null)
             Container(color: Colors.white),
           if (imageProvider != null)
-            Image(
-              image: imageProvider!,
+            ConstrainedBox(
+              constraints: const BoxConstraints.expand(),
+              child: Image(
+                fit: BoxFit.cover,
+                image: imageProvider!,
+              ),
             ),
           Align(
             alignment: Alignment.bottomLeft,
