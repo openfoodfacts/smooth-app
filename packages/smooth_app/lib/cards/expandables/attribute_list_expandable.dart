@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
+import 'package:openfoodfacts/model/Ingredient.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/attribute_card.dart';
 import 'package:smooth_app/cards/data_cards/svg_icon_chip.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
+import 'package:smooth_app/pages/product/edit_ingredients_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/attribute_button.dart';
@@ -124,6 +126,22 @@ class AttributeListExpandable extends StatelessWidget {
           ),
         ),
       );
+    }
+    // TODO(justinmc): Make this prettier.
+    // TODO(justinmc): Make this less hacky and hard coded. Button parameter?
+    if (title == 'Ingredients') {
+      cards.add(TextButton(
+        onPressed: () async => Navigator.push<Widget>(
+          context,
+          MaterialPageRoute<Widget>(
+            builder: (BuildContext context) =>
+                EditIngredientsPage(
+                  ingredients: product.ingredients ?? <Ingredient>[],
+                ),
+          ),
+        ),
+        child: const Text('Edit ingredients'),
+      ));
     }
     final Widget content = Column(
       mainAxisAlignment: MainAxisAlignment.start,

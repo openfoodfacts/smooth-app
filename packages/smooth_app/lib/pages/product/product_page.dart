@@ -22,7 +22,6 @@ import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_copy_helper.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
-import 'package:smooth_app/pages/product/edit_ingredients_page.dart';
 import 'package:smooth_app/pages/product/new_product_page.dart';
 import 'package:smooth_app/pages/user_preferences_page.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
@@ -272,18 +271,6 @@ class _ProductPageState extends State<ProductPage> {
     }
 
     final List<Widget> listItems = <Widget>[
-      TextButton(
-        onPressed: () async => Navigator.push<Widget>(
-          context,
-          MaterialPageRoute<Widget>(
-            builder: (BuildContext context) =>
-                EditIngredientsPage(
-                  ingredients: widget.product.ingredients ?? <Ingredient>[],
-                ),
-          ),
-        ),
-        child: const Text('debug Ingredients'),
-      ),
       _buildProductImagesCarousel(context),
     ];
 
