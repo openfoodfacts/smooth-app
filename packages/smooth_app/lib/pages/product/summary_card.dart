@@ -27,9 +27,6 @@ const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_LABELS,
 ];
 
-// Each row in the summary card takes roughly 40px.
-const int SUMMARY_CARD_ROW_HEIGHT = 40;
-
 class SummaryCard extends StatefulWidget {
   const SummaryCard(this._product, this._productPreferences,
       {this.isRenderedInProductPage = false});
@@ -43,37 +40,35 @@ class SummaryCard extends StatefulWidget {
 }
 
 class _SummaryCardState extends State<SummaryCard> {
-  // Number of Rows that will be printed in the SummaryCard, initialized to a
-  // very high number for infinite rows.
-  int totalPrintableRows = 10000;
-
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-      if (!widget.isRenderedInProductPage) {
-        totalPrintableRows = constraints.maxHeight ~/ SUMMARY_CARD_ROW_HEIGHT;
-      }
       Widget summaryCard;
       if (widget.isRenderedInProductPage) {
         summaryCard = _buildSummaryCardContent(context);
       } else {
-        summaryCard = Column(
-          children: <Widget>[
-            SizedBox(
-                height: constraints.maxHeight - 60,
-                child: _buildSummaryCardContent(context)),
-            // TODO(jasmeet): Add translations.
-            Text(
-              'Tap to see more info...',
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyText1!
-                  .apply(color: Colors.lightBlue),
-            ),
-          ],
+        summaryCard = ClipRect(
+          child: SizedBox(
+              height: constraints.maxHeight - 40,
+              child: _buildSummaryCardContent(context)),
         );
       }
+
+      //   Column(
+      //   children: <Widget>[
+      //     SizedBox(
+      //         child: _buildSummaryCardContent(context)),
+      //     // TODO(jasmeet): Add translations.
+      //     // Text(
+      //     //   'Tap to see more info...',
+      //     //   style: Theme.of(context)
+      //     //       .textTheme
+      //     //       .bodyText1!
+      //     //       .apply(color: Colors.lightBlue),
+      //     // ),
+      //   ],
+      // ),
       return buildProductSmoothCard(
         header: _buildProductCompatibilityHeader(context),
         body: Padding(
@@ -88,13 +83,6 @@ class _SummaryCardState extends State<SummaryCard> {
     final List<Attribute> scoreAttributes =
         AttributeListExpandable.getPopulatedAttributes(
             widget._product, _SCORE_ATTRIBUTE_IDS);
-
-    // Header takes 1 row.
-    // Product Title Tile takes 2 rows to render.
-    // Footer takes 1 row.
-    totalPrintableRows -= 4;
-    // Each Score card takes about 1.5 rows to render.
-    totalPrintableRows -= (1.5 * scoreAttributes.length).ceil();
 
     final List<AttributeGroup> attributeGroupsToBeRendered =
         _getAttributeGroupsToBeRendered();
@@ -208,16 +196,13 @@ class _SummaryCardState extends State<SummaryCard> {
         returnNullIfStatusUnknown:
             group.id == AttributeGroup.ATTRIBUTE_GROUP_LABELS,
       );
-      if (attributeChip != null &&
-          attributeChips.length / 2 < totalPrintableRows) {
+      if (attributeChip != null) {
         attributeChips.add(attributeChip);
       }
     }
     if (attributeChips.isEmpty) {
       return EMPTY_WIDGET;
     }
-    totalPrintableRows =
-        totalPrintableRows - (attributeChips.length / 2).ceil();
     return Column(
       children: <Widget>[
         _buildAttributeGroupHeader(context, group, isFirstGroup),
