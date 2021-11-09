@@ -29,6 +29,8 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
   final CarouselController _controller = CarouselController();
   List<String> barcodes = <String>[];
 
+  bool start = true;
+
   int get _searchCardAdjustment => widget.showSearchCard ? 1 : 0;
 
   @override
@@ -39,6 +41,12 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
       barcodes = model.getBarcodes();
     });
     _controller.animateToPage(barcodes.length - 1 + _searchCardAdjustment);
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      if (start) {
+        start = false;
+        model.addBarcode('3017620422003');
+      }
+    });
   }
 
   @override
