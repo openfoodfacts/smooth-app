@@ -119,7 +119,10 @@ class ExampleApp extends StatefulWidget {
 }
 
 class _ExampleAppState extends State<ExampleApp> {
-  Set<Fruit> currentCategories = <Fruit>{const Fruit('raspberry'), const Fruit('Fuji')};
+  Set<Fruit> currentCategories = <Fruit>{
+    const Fruit('raspberry'),
+    const Fruit('Fuji')
+  };
   List<Fruit> currentCategoryPath = <Fruit>[
     const Fruit('fruit'),
     const Fruit('apple'),
@@ -128,7 +131,8 @@ class _ExampleAppState extends State<ExampleApp> {
   Widget _addCategoryDialog(BuildContext context, FruitCategory parent) {
     final TextEditingController controller = TextEditingController();
     void addCategory(String name) {
-      Navigator.of(context).pop(name.isNotEmpty ? FruitCategory(Fruit(name)) : null);
+      Navigator.of(context)
+          .pop(name.isNotEmpty ? FruitCategory(Fruit(name)) : null);
     }
 
     return AlertDialog(
@@ -165,14 +169,16 @@ class _ExampleAppState extends State<ExampleApp> {
           foregroundColor: Colors.black,
         ),
         checkboxTheme: CheckboxTheme.of(context).copyWith(
-          fillColor: MaterialStateColor.resolveWith((Set<MaterialState> states) {
+          fillColor:
+              MaterialStateColor.resolveWith((Set<MaterialState> states) {
             if (states.contains(MaterialState.selected)) {
               return Colors.green;
             }
             return Colors.black38;
           }),
         ),
-        chipTheme: ChipTheme.of(context).copyWith(backgroundColor: Colors.green),
+        chipTheme:
+            ChipTheme.of(context).copyWith(backgroundColor: Colors.green),
       ),
       child: Scaffold(
         body: SmoothCategoryPicker<Fruit>(

@@ -171,7 +171,8 @@ void main() {
       await tester.pumpAndSettle();
       await tester.tap(find.byType(Checkbox).first);
       expect(currentCategoryPath, equals(<String>['fruit', 'apple', 'red']));
-      expect(currentCategories, equals(<String>{'Granny Smith', 'Red Delicious'}));
+      expect(
+          currentCategories, equals(<String>{'Granny Smith', 'Red Delicious'}));
       expect(requestedNewCategory, isFalse);
     });
     testWidgets('can create new categories', (WidgetTester tester) async {
@@ -234,7 +235,10 @@ void main() {
   });
   group('SmoothCategoryDisplay', () {
     testWidgets('can toggle deletable', (WidgetTester tester) async {
-      final Set<String> currentCategories = <String>{'Granny Smith', 'Red Delicious',};
+      final Set<String> currentCategories = <String>{
+        'Granny Smith',
+        'Red Delicious',
+      };
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
@@ -261,7 +265,10 @@ void main() {
       expect(find.byIcon(Icons.cancel), findsNWidgets(2));
     });
     testWidgets('can delete', (WidgetTester tester) async {
-      final Set<String> currentCategories = <String>{'Granny Smith', 'Red Delicious',};
+      final Set<String> currentCategories = <String>{
+        'Granny Smith',
+        'Red Delicious',
+      };
       expect(find.byIcon(Icons.cancel), findsNothing);
       await tester.pumpWidget(
         MaterialApp(

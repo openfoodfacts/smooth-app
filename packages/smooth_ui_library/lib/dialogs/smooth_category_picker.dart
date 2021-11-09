@@ -327,7 +327,8 @@ class _CategoryViewState<T extends Comparable<T>>
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<_CategoryPage<T>>>(
-      future: _generatePages(widget.currentPath).then((List<_CategoryPage<T>> pageList) {
+      future: _generatePages(widget.currentPath)
+          .then((List<_CategoryPage<T>> pageList) {
         return pageList;
       }),
       builder: (BuildContext context,
