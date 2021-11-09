@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_print
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -26,7 +24,6 @@ class TestCategory extends SmoothCategory<String> {
   @override
   Stream<SmoothCategory<String>> getChildren() async* {
     for (final SmoothCategory<String> child in children) {
-      print('Getting child of $value:  ${child.value}');
       yield child;
     }
   }
@@ -85,7 +82,6 @@ Future<TestCategory?> getCategory(Iterable<String> path) async {
     result = await result.getChild(followPath.first);
     followPath.removeAt(0);
   }
-  print('Found category ${result?.value ?? '<none>'}');
   return result;
 }
 
@@ -113,8 +109,10 @@ void main() {
           ),
         ),
       );
-      await tester.pump(const Duration(seconds: 1));
-      debugDumpApp();
+      expect(currentCategoryPath, equals(<String>['fruit', 'apple']));
+      await tester.pumpAndSettle();
+      // Make sure nothing changes in the initialization of the widget.
+      expect(currentCategoryPath, equals(<String>['fruit', 'apple']));
       await tester.tap(find.text('red'));
       await tester.pumpAndSettle();
       expect(currentCategoryPath, equals(<String>['fruit', 'apple', 'red']));
@@ -236,7 +234,7 @@ void main() {
   });
   group('SmoothCategoryDisplay', () {
     testWidgets('can toggle deletable', (WidgetTester tester) async {
-      final Set<String> currentCategories = <String>{'Granny Smith', 'Red Delicious'};
+      final Set<String> currentCategories = <String>{'Granny Smith', 'Red Delicious',};
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
@@ -263,7 +261,7 @@ void main() {
       expect(find.byIcon(Icons.cancel), findsNWidgets(2));
     });
     testWidgets('can delete', (WidgetTester tester) async {
-      final Set<String> currentCategories = <String>{'Granny Smith', 'Red Delicious'};
+      final Set<String> currentCategories = <String>{'Granny Smith', 'Red Delicious',};
       expect(find.byIcon(Icons.cancel), findsNothing);
       await tester.pumpWidget(
         MaterialApp(

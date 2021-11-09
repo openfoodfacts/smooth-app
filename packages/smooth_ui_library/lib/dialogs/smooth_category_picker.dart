@@ -107,13 +107,16 @@ class _SmoothCategoryPickerState<T extends Comparable<T>>
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Text(
+                  // TODO(gspencergoog): Internationalize this.
                   'No Category Found for ${widget.currentPath.map<String>((T item) => item.toString()).join(' > ')}',
                 ),
                 TextButton(
                     child: const Text('BACK'),
                     onPressed: () {
-                      widget.onPathChanged(widget.currentPath
-                          .sublist(0, widget.currentPath.length - 1));
+                      setState(() {
+                        widget.onPathChanged(widget.currentPath
+                            .sublist(0, widget.currentPath.length - 1));
+                      });
                     }),
               ],
             ),
@@ -281,7 +284,7 @@ class _CategoryViewState<T extends Comparable<T>>
   @override
   void didUpdateWidget(_CategoryView<T> oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (widget.currentPath.length != oldWidget.currentPath.length) {
+    if (!listEquals<T>(widget.currentPath, oldWidget.currentPath)) {
       animateToPage(widget.currentPath.length - 1);
     }
   }
@@ -292,24 +295,25 @@ class _CategoryViewState<T extends Comparable<T>>
     });
   }
 
-  Stream<_CategoryPage<T>> _generatePages(List<T> path) async* {
+  Future<List<_CategoryPage<T>>> _generatePages(List<T> path) async {
     final List<T> accumulator = <T>[];
+    final List<_CategoryPage<T>> result = <_CategoryPage<T>>[];
     for (final T element in path) {
       accumulator.add(element);
       final SmoothCategory<T>? category =
           await widget.categoryFinder(accumulator);
-      debugPrint('Generating page for category $category');
       if (category != null) {
-        yield _CategoryPage<T>(
+        result.add(_CategoryPage<T>(
           currentCategories: widget.currentCategories,
-          currentPath: accumulator,
+          currentPath: accumulator.toList(),
           childCategories: await category.getChildren().toSet(),
           onDescend: onDescend,
           onSelect: widget.onChanged,
           allowEmpty: widget.allowEmpty,
-        );
+        ));
       }
     }
+    return result;
   }
 
   void _onPageChanged(int page) {
@@ -322,25 +326,15 @@ class _CategoryViewState<T extends Comparable<T>>
 
   @override
   Widget build(BuildContext context) {
-    final Future<List<_CategoryPage<T>>> pages =
-        _generatePages(widget.currentPath)
-            .toList()
-            .then((List<_CategoryPage<T>> pages) {
-      debugPrint(
-          'Using generated pages ${pages.map<String>((_CategoryPage<T> page) => page.childCategories.join(','))}');
-      return pages;
-    });
-
     return FutureBuilder<List<_CategoryPage<T>>>(
-      future: pages,
-      // ignore: prefer_const_literals_to_create_immutables
+      future: _generatePages(widget.currentPath).then((List<_CategoryPage<T>> pageList) {
+        return pageList;
+      }),
       builder: (BuildContext context,
           AsyncSnapshot<List<_CategoryPage<T>>> snapshot) {
         if (snapshot.data == null) {
           return const SizedBox();
         }
-        debugPrint(
-            'Building with ${snapshot.data!.map<String>((_CategoryPage<T> page) => page.childCategories.join(','))}');
         return PageView(
           onPageChanged: _onPageChanged,
           controller: controller,
