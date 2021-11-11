@@ -218,13 +218,15 @@ class _ProductPageState extends State<NewProductPage> {
           }
           final List<Widget> widgetsWrappedInSmoothCards = <Widget>[];
           for (final Widget widget in knowledgePanelWidgets) {
-            widgetsWrappedInSmoothCards.add(Padding(
-              padding: const EdgeInsets.only(top: VERY_LARGE_SPACE),
-              child: buildProductSmoothCard(
-                body: widget,
-                padding: SMOOTH_CARD_PADDING,
+            widgetsWrappedInSmoothCards.add(
+              Padding(
+                padding: const EdgeInsets.only(top: VERY_LARGE_SPACE),
+                child: buildProductSmoothCard(
+                  body: widget,
+                  padding: SMOOTH_CARD_PADDING,
+                ),
               ),
-            ));
+            );
           }
           return Center(
             child: Column(
