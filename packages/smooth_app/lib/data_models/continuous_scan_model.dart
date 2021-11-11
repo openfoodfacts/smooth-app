@@ -108,10 +108,10 @@ class ContinuousScanModel with ChangeNotifier {
       return;
     }
     _latestScannedBarcode = code;
-    addBarcode(code);
+    _addBarcode(code);
   }
 
-  Future<bool> addBarcode(final String barcode) async {
+  Future<bool> _addBarcode(final String barcode) async {
     final ScannedProductState? state = getBarcodeState(barcode);
     if (state == null) {
       _barcodes.add(barcode);
