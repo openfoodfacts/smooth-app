@@ -1,20 +1,35 @@
-// ignore_for_file: avoid_print
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_ui_library/dialogs/smooth_category_picker.dart';
 
-class TestCategory extends Category<String> {
+class TestCategory extends SmoothCategory<String> {
   TestCategory(String value, [Iterable<TestCategory>? children])
-      : super(value, children);
+      : children = children?.toSet() ?? const <TestCategory>{},
+        super(value);
+
+  Set<TestCategory> children;
 
   @override
-  TestCategory? operator [](String childValue) {
-    return super[childValue] as TestCategory?;
+  Future<TestCategory?> getChild(String childValue) async {
+    return await super.getChild(childValue) as TestCategory?;
   }
 
   @override
-  String get label => value;
+  String getLabel(OpenFoodFactsLanguage language) => value;
+
+  @override
+  void addChild(covariant SmoothCategory<String> newChild) {}
+
+  @override
+  Stream<SmoothCategory<String>> getChildren() async* {
+    for (final SmoothCategory<String> child in children) {
+      yield child;
+    }
+  }
+
+  @override
+  Stream<SmoothCategory<String>> getParents() async* {}
 }
 
 TestCategory categories = TestCategory(
@@ -57,14 +72,14 @@ TestCategory categories = TestCategory(
   },
 );
 
-TestCategory? getCategory(Iterable<String> path) {
+Future<TestCategory?> getCategory(Iterable<String> path) async {
   if (path.isEmpty) {
     return null;
   }
   TestCategory? result = categories.value == path.first ? categories : null;
   final List<String> followPath = path.skip(1).toList();
   while (result != null && followPath.isNotEmpty) {
-    result = result[followPath.first];
+    result = await result.getChild(followPath.first);
     followPath.removeAt(0);
   }
   return result;
@@ -94,6 +109,10 @@ void main() {
           ),
         ),
       );
+      expect(currentCategoryPath, equals(<String>['fruit', 'apple']));
+      await tester.pumpAndSettle();
+      // Make sure nothing changes in the initialization of the widget.
+      expect(currentCategoryPath, equals(<String>['fruit', 'apple']));
       await tester.tap(find.text('red'));
       await tester.pumpAndSettle();
       expect(currentCategoryPath, equals(<String>['fruit', 'apple', 'red']));
@@ -218,7 +237,7 @@ void main() {
     testWidgets('can toggle deletable', (WidgetTester tester) async {
       final Set<String> currentCategories = <String>{
         'Granny Smith',
-        'Red Delicious'
+        'Red Delicious',
       };
       await tester.pumpWidget(
         MaterialApp(
@@ -248,7 +267,7 @@ void main() {
     testWidgets('can delete', (WidgetTester tester) async {
       final Set<String> currentCategories = <String>{
         'Granny Smith',
-        'Red Delicious'
+        'Red Delicious',
       };
       expect(find.byIcon(Icons.cancel), findsNothing);
       await tester.pumpWidget(
