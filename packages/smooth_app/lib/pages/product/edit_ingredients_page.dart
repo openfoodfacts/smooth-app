@@ -1,3 +1,5 @@
+import 'dart:ui' show ImageFilter;
+
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Ingredient.dart';
 //import 'package:openfoodfacts/model/Product.dart';
@@ -47,18 +49,19 @@ class EditIngredientsPage extends StatelessWidget {
     //final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
 
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: const Text('Log Food'),
-      ),
-      /*
-      body: ConstrainedBox(
-        constraints: const BoxConstraints.expand(),
-        child: Image(
-          fit: BoxFit.cover,
-          image: imageProvider!,
+        backgroundColor: Colors.transparent,
+        flexibleSpace: ClipRect(
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+            child: Container(
+              color: Colors.transparent,
+            ),
+          ),
         ),
       ),
-      */
       body: Stack(
         children: <Widget>[
           if (imageProvider == null)
