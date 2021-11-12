@@ -43,6 +43,7 @@ abstract class ProductQuery {
         ProductField.CATEGORIES_TAGS_IN_LANGUAGES,
         ProductField.LANGUAGE,
         ProductField.ATTRIBUTE_GROUPS,
+        ProductField.STATES_TAGS,
       ];
 
   Future<SearchResult> getSearchResult();
