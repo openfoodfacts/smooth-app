@@ -4,6 +4,7 @@ import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/cards/expandables/attribute_list_expandable.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
@@ -13,11 +14,6 @@ import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_ui_library/smooth_ui_library.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
-
-const List<String> _SCORE_ATTRIBUTE_IDS = <String>[
-  Attribute.ATTRIBUTE_NUTRISCORE,
-  Attribute.ATTRIBUTE_ECOSCORE,
-];
 
 const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS,
@@ -119,7 +115,7 @@ class _SummaryCardState extends State<SummaryCard> {
   Widget _buildSummaryCardContent(BuildContext context) {
     final List<Attribute> scoreAttributes =
         AttributeListExpandable.getPopulatedAttributes(
-            widget._product, _SCORE_ATTRIBUTE_IDS);
+            widget._product, _getMandatoryAttributeIds());
 
     // Header takes 1 row.
     // Product Title Tile takes 2 rows to render.
@@ -150,7 +146,8 @@ class _SummaryCardState extends State<SummaryCard> {
         for (final Attribute attribute in scoreAttributes)
           ScoreCard(
             iconUrl: attribute.iconUrl!,
-            description: attribute.descriptionShort ?? attribute.description!,
+            description:
+                attribute.descriptionShort ?? attribute.description ?? '',
             cardEvaluation: getCardEvaluationFromAttribute(attribute),
           ),
         attributesContainer,
@@ -233,8 +230,16 @@ class _SummaryCardState extends State<SummaryCard> {
     AttributeGroup group,
     bool isFirstGroup,
   ) {
+    // "not important": we don't care
+    // "mandatory": already dealt with
+    // "very importance" first, then "important"
+    const List<String> orderedImportanceFilter = <String>[
+      PreferenceImportance.ID_VERY_IMPORTANT,
+      PreferenceImportance.ID_IMPORTANT,
+    ];
     final List<Widget> attributeChips = <Widget>[];
-    for (final Attribute attribute in group.attributes!) {
+    for (final Attribute attribute
+        in _getOrderedAndFilteredAttributes(group, orderedImportanceFilter)) {
       final Widget? attributeChip = _buildAttributeChipForValidAttributes(
         attribute: attribute,
         returnNullIfStatusUnknown:
@@ -296,7 +301,8 @@ class _SummaryCardState extends State<SummaryCard> {
     required Attribute attribute,
     required bool returnNullIfStatusUnknown,
   }) {
-    if (attribute.id == null || _SCORE_ATTRIBUTE_IDS.contains(attribute.id)) {
+    if (attribute.id == null ||
+        _getMandatoryAttributeIds().contains(attribute.id)) {
       // Score Attribute Ids have already been rendered.
       return null;
     }
@@ -326,5 +332,58 @@ class _SummaryCardState extends State<SummaryCard> {
                 Expanded(child: Text(attributeDisplayTitle)),
               ]));
     });
+  }
+
+  List<String> _getMandatoryAttributeIds() {
+    final List<String> result = <String>[];
+    if (widget._productPreferences.attributeGroups == null) {
+      return result;
+    }
+    const List<String> filter = <String>[PreferenceImportance.ID_MANDATORY];
+    final Map<String, List<Attribute>> mandatoryAttributesByGroup =
+        <String, List<Attribute>>{};
+    for (final AttributeGroup attributeGroup
+        in widget._productPreferences.attributeGroups!) {
+      mandatoryAttributesByGroup[attributeGroup.id!] =
+          _getOrderedAndFilteredAttributes(attributeGroup, filter);
+    }
+    // now ordering by attribute group order
+    for (final String attributeGroupId in _ATTRIBUTE_GROUP_ORDER) {
+      final List<Attribute>? attributes =
+          mandatoryAttributesByGroup[attributeGroupId];
+      if (attributes != null) {
+        for (final Attribute attribute in attributes) {
+          result.add(attribute.id!);
+        }
+      }
+    }
+    return result;
+  }
+
+  List<Attribute> _getOrderedAndFilteredAttributes(
+    final AttributeGroup attributeGroup,
+    final List<String> orderedImportanceFilter,
+  ) {
+    final List<Attribute> result = <Attribute>[];
+    if (attributeGroup.attributes == null) {
+      return result;
+    }
+    final Map<String, List<Attribute>> attributeByImportances =
+        <String, List<Attribute>>{};
+    for (final Attribute attribute in attributeGroup.attributes!) {
+      final String attributeId = attribute.id!;
+      final String importanceId =
+          widget._productPreferences.getImportanceIdForAttributeId(attributeId);
+      if (orderedImportanceFilter.contains(importanceId)) {
+        attributeByImportances[importanceId] ??= <Attribute>[];
+        attributeByImportances[importanceId]!.add(attribute);
+      }
+    }
+    for (final String importanceId in orderedImportanceFilter) {
+      if (attributeByImportances[importanceId] != null) {
+        result.addAll(attributeByImportances[importanceId]!);
+      }
+    }
+    return result;
   }
 }
