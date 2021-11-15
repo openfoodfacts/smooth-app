@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
@@ -100,7 +99,7 @@ class ContinuousScanPage extends StatelessWidget {
       ),
     );
     return AnimatedOpacity(
-      opacity: model.hasMoreThanOneProduct ? 0.7 : 0.0,
+      opacity: model.hasMoreThanOneProduct ? 0.8 : 0.0,
       duration: const Duration(milliseconds: 50),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
