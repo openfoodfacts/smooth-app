@@ -107,104 +107,93 @@ and</li>
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final ContinuousScanModel model = context.watch&lt;ContinuousScanModel&gt;();
-  final AppLocalizations localizations = AppLocalizations.of(context)!;
-  final Size screenSize = MediaQuery.of(context).size;
-  final double carouselHeight = screenSize.height &#47; 2;
-  final double viewFinderBottomOffset = carouselHeight &#47; 2.0;
-  return Scaffold(
-    appBar: AppBar(toolbarHeight: 0.0),
-    body: Stack(
-      children: &lt;Widget&gt;[
-        Container(
-          alignment: Alignment.center,
-          color: Colors.black,
-          child: Padding(
-            &#47;&#47; Double the offset to account for the vertical centering.
-            padding: EdgeInsets.only(bottom: 2 * viewFinderBottomOffset),
-            child: SvgPicture.asset(
-              &#39;assets&#47;actions&#47;scanner_alt_2.svg&#39;,
-              width: 60.0,
-              height: 60.0,
-              color: Colors.white,
+  return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+    final ContinuousScanModel model = context.watch&lt;ContinuousScanModel&gt;();
+    final Size screenSize = MediaQuery.of(context).size;
+    final Size scannerSize = Size(
+      screenSize.width * 0.6,
+      screenSize.width * 0.33,
+    );
+    final double carouselHeight =
+        constraints.maxHeight &#47; 1.81; &#47;&#47; roughly 55% of the available height
+    final double buttonRowHeight = areButtonsRendered(model) ? 48 : 0;
+    final double availableScanHeight =
+        constraints.maxHeight - carouselHeight - buttonRowHeight;
+    &#47;&#47; Padding for the qr code scanner. This ensures the scanner has equal spacing between buttons and carousel.
+    final EdgeInsets qrScannerPadding = EdgeInsets.only(
+        top:
+            (availableScanHeight - scannerSize.height) &#47; 2 + buttonRowHeight);
+    final double viewFinderBottomOffset = carouselHeight &#47; 2.0;
+    return Scaffold(
+      appBar: AppBar(toolbarHeight: 0.0),
+      body: Stack(
+        children: &lt;Widget&gt;[
+          Container(
+            alignment: Alignment.center,
+            color: Colors.black,
+            child: Padding(
+              padding: qrScannerPadding,
+              child: SvgPicture.asset(
+                &#39;assets&#47;actions&#47;scanner_alt_2.svg&#39;,
+                width: 60.0,
+                height: 60.0,
+                color: Colors.white,
+              ),
             ),
           ),
-        ),
-        SmoothRevealAnimation(
-          delay: 400,
-          startOffset: Offset.zero,
-          animationCurve: Curves.easeInOutBack,
-          child: QRView(
-            overlay: QrScannerOverlayShape(
-              &#47;&#47; We use [SmoothViewFinder] instead of the overlay.
-              overlayColor: Colors.transparent,
-              &#47;&#47; This offset adjusts the scanning area on iOS.
-              cutOutBottomOffset: viewFinderBottomOffset,
+          SmoothRevealAnimation(
+            delay: 400,
+            startOffset: Offset.zero,
+            animationCurve: Curves.easeInOutBack,
+            child: QRView(
+              overlay: QrScannerOverlayShape(
+                &#47;&#47; We use [SmoothViewFinder] instead of the overlay.
+                overlayColor: Colors.transparent,
+                &#47;&#47; This offset adjusts the scanning area on iOS.
+                cutOutBottomOffset: viewFinderBottomOffset,
+              ),
+              key: _scannerViewKey,
+              onQRViewCreated: model.setupScanner,
             ),
-            key: _scannerViewKey,
-            onQRViewCreated: model.setupScanner,
           ),
-        ),
-        SmoothRevealAnimation(
-          delay: 400,
-          startOffset: const Offset(0.0, 0.1),
-          animationCurve: Curves.easeInOutBack,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: &lt;Widget&gt;[
-              Padding(
-                &#47;&#47; Double the offset to account for the vertical centering.
-                padding: EdgeInsets.only(bottom: 2 * viewFinderBottomOffset),
-                child: SmoothViewFinder(
-                  boxSize: Size(
-                    screenSize.width * 0.6,
-                    screenSize.width * 0.33,
+          SmoothRevealAnimation(
+            delay: 400,
+            startOffset: const Offset(0.0, 0.1),
+            animationCurve: Curves.easeInOutBack,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: &lt;Widget&gt;[
+                Padding(
+                  padding: qrScannerPadding,
+                  child: SmoothViewFinder(
+                    boxSize: scannerSize,
+                    lineLength: screenSize.width * 0.8,
                   ),
-                  lineLength: screenSize.width * 0.8,
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-        SmoothRevealAnimation(
-          delay: 400,
-          startOffset: const Offset(0.0, -0.1),
-          animationCurve: Curves.easeInOutBack,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: &lt;Widget&gt;[
-              AnimatedOpacity(
-                opacity: model.isNotEmpty ? 1.0 : 0.0,
-                duration: const Duration(milliseconds: 50),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: &lt;Widget&gt;[
-                    ElevatedButton.icon(
-                      icon: const Icon(Icons.cancel_outlined),
-                      onPressed: model.clearScanSession,
-                      label: const Text(&#39;Clear&#39;),
-                    ),
-                    ElevatedButton.icon(
-                      icon: const Icon(Icons.emoji_events_outlined),
-                      onPressed: () =&gt; _openPersonalizedRankingPage(context),
-                      label: Text(localizations.myPersonalizedRanking),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8.0),
-                child: SmoothProductCarousel(
+          SmoothRevealAnimation(
+            delay: 400,
+            startOffset: const Offset(0.0, -0.1),
+            animationCurve: Curves.easeInOutBack,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: &lt;Widget&gt;[
+                _buildButtonsRow(context, model),
+                const Spacer(),
+                SmoothProductCarousel(
                   showSearchCard: true,
                   height: carouselHeight,
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-      ],
-    ),
-  );
+        ],
+      ),
+    );
+  });
 }</code></pre>
 </section>
 
@@ -241,6 +230,7 @@ Widget build(BuildContext context) {
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
     <li class="section-title"><a href="../../pages_scan_continuous_scan_page/ContinuousScanPage-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../pages_scan_continuous_scan_page/ContinuousScanPage/areButtonsRendered.html">areButtonsRendered</a></li>
     <li><a href="../../pages_scan_continuous_scan_page/ContinuousScanPage/build.html">build</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/StatelessWidget/createElement.html">createElement</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/debugDescribeChildren.html">debugDescribeChildren</a></li>
