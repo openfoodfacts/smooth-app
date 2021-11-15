@@ -40,7 +40,7 @@ class ContinuousScanModel with ChangeNotifier {
   final String languageCode;
   final String countryCode;
 
-  bool get isNotEmpty => getBarcodes().isNotEmpty;
+  bool get hasMoreThanOneProduct => getBarcodes().length > 1;
   ProductList get productList => _productList;
 
   List<String> getBarcodes() => _barcodes;
