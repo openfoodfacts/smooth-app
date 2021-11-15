@@ -92,7 +92,6 @@ class ContinuousScanPage extends StatelessWidget {
   }
 
   Widget _buildButtonsRow(BuildContext context, ContinuousScanModel model) {
-    final AppLocalizations localizations = AppLocalizations.of(context)!;
     final ButtonStyle buttonStyle = ButtonStyle(
       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
         RoundedRectangleBorder(
