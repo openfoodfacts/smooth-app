@@ -53,7 +53,7 @@
       
 
 <span class="returntype">void</span>
-<span class="name ">setupScanner</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="setupScanner-param-controller"><span class="type-annotation"><a href="https://pub.dev/documentation/qr_code_scanner/0.5.2/qr_code_scanner/QRViewController-class.html">QRViewController</a></span> <span class="parameter-name">controller</span></span></li>
+<span class="name ">setupScanner</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="setupScanner-param-controller"><span class="type-annotation"><a href="https://pub.dev/documentation/qr_code_scanner/0.6.1/qr_code_scanner/QRViewController-class.html">QRViewController</a></span> <span class="parameter-name">controller</span></span></li>
 </ol>)
 
       
@@ -65,8 +65,8 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">void setupScanner(QRViewController controller) =&gt; controller.scannedDataStream
-    .listen((Barcode barcode) =&gt; onScan(barcode.code));</code></pre>
+  <pre class="language-dart"><code class="language-dart">void setupScanner(QRViewController controller) =&gt;
+    controller.scannedDataStream.listen((Barcode barcode) =&gt; onScan(barcode));</code></pre>
 </section>
 
 
