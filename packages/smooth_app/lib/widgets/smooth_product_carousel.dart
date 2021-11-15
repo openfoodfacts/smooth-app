@@ -99,13 +99,14 @@ class SearchCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context)!;
+    final ThemeData theme = Theme.of(context);
     return Card(
-      color: Theme.of(context).colorScheme.background.withOpacity(0.85),
+      color: theme.colorScheme.background.withOpacity(0.85),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20.0),
       ),
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 20.0),
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.stretch,
