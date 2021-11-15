@@ -14,7 +14,7 @@ class ContinuousScanPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
-    final ContinuousScanModel model = context.read<ContinuousScanModel>();
+    final ContinuousScanModel model = context.watch<ContinuousScanModel>();
     final double carouselHeight = screenSize.height / 2.2; // Roughly 45%
     final double viewFinderBottomOffset = carouselHeight / 2.0;
     return Scaffold(
