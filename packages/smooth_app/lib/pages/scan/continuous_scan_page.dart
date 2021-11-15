@@ -15,12 +15,12 @@ class ContinuousScanPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
+      final ContinuousScanModel model = context.watch<ContinuousScanModel>();
       final Size screenSize = MediaQuery.of(context).size;
       final Size scannerSize = Size(
         screenSize.width * 0.6,
         screenSize.width * 0.33,
       );
-      final ContinuousScanModel model = context.watch<ContinuousScanModel>();
       final double carouselHeight =
           constraints.maxHeight / 1.81; // roughly 55% of the available height
       final double buttonRowHeight = areButtonsRendered(model) ? 48 : 0;
