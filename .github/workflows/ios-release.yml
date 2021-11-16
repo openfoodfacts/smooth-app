@@ -2,7 +2,7 @@ name: App Store release
 
 on:
   release:
-    types: [published]
+    - 'release/*'
 
 jobs:
   testflight-release:

@@ -2,7 +2,7 @@ name: Google Play release
 
 on:
   release:
-    types: [published]
+    - 'release/*'
     
 jobs:
   deploy_android:
