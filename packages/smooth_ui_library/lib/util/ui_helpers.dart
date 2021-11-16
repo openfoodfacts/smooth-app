@@ -34,8 +34,8 @@ class IconWidgetSizer {
 Color? getTextColorFromKnowledgePanelElementEvaluation(Evaluation evaluation) {
   switch (evaluation) {
     case Evaluation.UNKNOWN:
-    case Evaluation.NEUTRAL:
-      // Use default color for neutral and unknown.
+    case Evaluation.AVERAGE:
+      // Use default color for average and unknown.
       return null;
     case Evaluation.BAD:
       return Colors.red;
