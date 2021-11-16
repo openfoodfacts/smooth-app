@@ -50,6 +50,9 @@ class _SummaryCardState extends State<SummaryCard> {
   // very high number for infinite rows.
   int totalPrintableRows = 10000;
 
+  // For some reason, special case for "label" attributes
+  final Set<String> _attributesToExcludeIfStatusIsUnknown = <String>{};
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -136,7 +139,6 @@ class _SummaryCardState extends State<SummaryCard> {
     // First, a virtual group with mandatory attributes of all groups
     final List<Widget> attributeChips = _buildAttributeChips(
       _getMandatoryAttributes(),
-      dontIncludeAnAttributeWhoseStatusIsUnknown: false,
     );
     if (attributeChips.isNotEmpty) {
       displayedGroups.add(
@@ -166,8 +168,6 @@ class _SummaryCardState extends State<SummaryCard> {
             PreferenceImportance.ID_IMPORTANT,
           ],
         ),
-        dontIncludeAnAttributeWhoseStatusIsUnknown:
-            group.id == AttributeGroup.ATTRIBUTE_GROUP_LABELS,
       );
       if (attributeChips.isNotEmpty) {
         displayedGroups.add(
@@ -268,16 +268,11 @@ class _SummaryCardState extends State<SummaryCard> {
     );
   }
 
-  List<Widget> _buildAttributeChips(
-    final List<Attribute> attributes, {
-    required final bool dontIncludeAnAttributeWhoseStatusIsUnknown,
-  }) {
+  List<Widget> _buildAttributeChips(final List<Attribute> attributes) {
     final List<Widget> result = <Widget>[];
     for (final Attribute attribute in attributes) {
-      final Widget? attributeChip = _buildAttributeChipForValidAttributes(
-        attribute: attribute,
-        returnNullIfStatusUnknown: dontIncludeAnAttributeWhoseStatusIsUnknown,
-      );
+      final Widget? attributeChip =
+          _buildAttributeChipForValidAttributes(attribute);
       if (attributeChip != null && result.length / 2 < totalPrintableRows) {
         result.add(attributeChip);
       }
@@ -310,12 +305,9 @@ class _SummaryCardState extends State<SummaryCard> {
     );
   }
 
-  Widget? _buildAttributeChipForValidAttributes({
-    required Attribute attribute,
-    required bool returnNullIfStatusUnknown,
-  }) {
-    if (returnNullIfStatusUnknown &&
-        attribute.status == Attribute.STATUS_UNKNOWN) {
+  Widget? _buildAttributeChipForValidAttributes(final Attribute attribute) {
+    if (attribute.status == Attribute.STATUS_UNKNOWN &&
+        _attributesToExcludeIfStatusIsUnknown.contains(attribute.id)) {
       return null;
     }
     final String? attributeDisplayTitle = getDisplayTitle(attribute);
@@ -381,6 +373,9 @@ class _SummaryCardState extends State<SummaryCard> {
       final String attributeId = attribute.id!;
       if (_SCORE_ATTRIBUTE_IDS.contains(attributeId)) {
         continue;
+      }
+      if (attributeGroup.id == AttributeGroup.ATTRIBUTE_GROUP_LABELS) {
+        _attributesToExcludeIfStatusIsUnknown.add(attributeId);
       }
       final String importanceId =
           widget._productPreferences.getImportanceIdForAttributeId(attributeId);
