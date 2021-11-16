@@ -134,12 +134,17 @@ class _SummaryCardState extends State<SummaryCard> {
     final List<Widget> displayedGroups = <Widget>[];
 
     // First, a virtual group with mandatory attributes of all groups
-    final List<Widget> attributeChips =
-        _buildAttributeChips(_getMandatoryAttributes(), false);
+    final List<Widget> attributeChips = _buildAttributeChips(
+      _getMandatoryAttributes(),
+      dontIncludeAnAttributeWhoseStatusIsUnknown: false,
+    );
     if (attributeChips.isNotEmpty) {
       displayedGroups.add(
         _buildAttributeGroup(
-          _buildAttributeGroupHeader(displayedGroups.isEmpty, null),
+          _buildAttributeGroupHeader(
+            isFirstGroup: displayedGroups.isEmpty,
+            groupName: null,
+          ),
           attributeChips,
         ),
       );
@@ -161,14 +166,15 @@ class _SummaryCardState extends State<SummaryCard> {
             PreferenceImportance.ID_IMPORTANT,
           ],
         ),
-        group.id == AttributeGroup.ATTRIBUTE_GROUP_LABELS,
+        dontIncludeAnAttributeWhoseStatusIsUnknown:
+            group.id == AttributeGroup.ATTRIBUTE_GROUP_LABELS,
       );
       if (attributeChips.isNotEmpty) {
         displayedGroups.add(
           _buildAttributeGroup(
             _buildAttributeGroupHeader(
-                displayedGroups.isEmpty,
-                group.id == AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS
+                isFirstGroup: displayedGroups.isEmpty,
+                groupName: group.id == AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS
                     ? group.name!
                     : null),
             attributeChips,
@@ -263,14 +269,14 @@ class _SummaryCardState extends State<SummaryCard> {
   }
 
   List<Widget> _buildAttributeChips(
-    final List<Attribute> attributes,
-    final bool returnNullIfStatusUnknown,
-  ) {
+    final List<Attribute> attributes, {
+    required final bool dontIncludeAnAttributeWhoseStatusIsUnknown,
+  }) {
     final List<Widget> result = <Widget>[];
     for (final Attribute attribute in attributes) {
       final Widget? attributeChip = _buildAttributeChipForValidAttributes(
         attribute: attribute,
-        returnNullIfStatusUnknown: returnNullIfStatusUnknown,
+        returnNullIfStatusUnknown: dontIncludeAnAttributeWhoseStatusIsUnknown,
       );
       if (attributeChip != null && result.length / 2 < totalPrintableRows) {
         result.add(attributeChip);
@@ -279,7 +285,10 @@ class _SummaryCardState extends State<SummaryCard> {
     return result;
   }
 
-  Widget _buildAttributeGroupHeader(bool isFirstGroup, String? groupName) {
+  Widget _buildAttributeGroupHeader({
+    required bool isFirstGroup,
+    String? groupName,
+  }) {
     if (groupName != null) {
       return Container(
         alignment: Alignment.topLeft,
