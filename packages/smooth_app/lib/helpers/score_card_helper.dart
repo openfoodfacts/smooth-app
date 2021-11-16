@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
+import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_title_card.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
 
 Color getBackgroundColor(CardEvaluation evaluation) {
@@ -60,11 +61,11 @@ CardEvaluation getCardEvaluationFromAttribute(Attribute attribute) {
   }
 }
 
-CardEvaluation getCardEvaluationFromKnowledgePanel(KnowledgePanel panel) {
-  if (panel.grade == null) {
+CardEvaluation getCardEvaluationFromKnowledgePanelTitleElement(TitleElement titleElement) {
+  if (titleElement.grade == null) {
     return CardEvaluation.UNKNOWN;
   }
-  switch (panel.grade!) {
+  switch (titleElement.grade!) {
     case Grade.E:
       return CardEvaluation.VERY_BAD;
     case Grade.D:

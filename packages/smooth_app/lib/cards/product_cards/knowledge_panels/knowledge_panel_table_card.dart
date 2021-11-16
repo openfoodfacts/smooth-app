@@ -15,7 +15,21 @@ class KnowledgePanelTableCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<List<Widget>> columnCells = <List<Widget>>[];
     for (final KnowledgePanelTableColumn column in tableElement.columns) {
+      // TODO(jasmeet): Turn column.type into an ENUM.
       if (column.type == 'text') {
+        columnCells.add(
+          <Widget>[
+            _buildTableCell(
+              context: context,
+              text: column.text,
+              textColor: Colors.grey,
+              isFirstCell: column == tableElement.columns.first,
+              isHeader: true,
+            )
+          ],
+        );
+      } else if (column.type == 'percent') {
+        // TODO(jasmeet): Implement percent knowledge panels.
         columnCells.add(
           <Widget>[
             _buildTableCell(
