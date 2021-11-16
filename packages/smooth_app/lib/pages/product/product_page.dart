@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:share/share.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:smooth_app/cards/data_cards/image_upload_card.dart';
 import 'package:smooth_app/cards/expandables/attribute_list_expandable.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
@@ -20,6 +21,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_copy_helper.dart';
+import 'package:smooth_app/helpers/product_translation_helper.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/new_product_page.dart';
@@ -77,6 +79,31 @@ class _ProductPageState extends State<ProductPage> {
     if (_first) {
       _first = false;
       _product = widget.product;
+      final Set<ProductImprovement> improvements =
+          _product.getProductImprovements();
+      if (improvements.isNotEmpty) {
+        Future<void>.delayed(
+          Duration.zero,
+          () => ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                appLocalizations
+                    .product_improvements_count(improvements.length),
+              ),
+              action: SnackBarAction(
+                label: appLocalizations.showAll.toUpperCase(),
+                onPressed: () async {
+                  // TODO(monsieurtanuki): do something with the result
+                  await _getSelectedImprovement(
+                    appLocalizations,
+                    improvements,
+                  );
+                },
+              ),
+            ),
+          ),
+        );
+      }
     }
     return Scaffold(
       appBar: AppBar(
@@ -525,4 +552,46 @@ class _ProductPageState extends State<ProductPage> {
 
   static String _capitalize(final String input) =>
       '${input.substring(0, 1).toUpperCase()}${input.substring(1)}';
+
+  Future<ProductImprovement?> _getSelectedImprovement(
+    final AppLocalizations appLocalizations,
+    final Set<ProductImprovement> improvements,
+  ) async =>
+      showCupertinoModalBottomSheet<ProductImprovement>(
+        context: context,
+        builder: (final BuildContext context) {
+          final ProductTranslationHelper helper =
+              ProductTranslationHelper(appLocalizations);
+          final List<Widget> children = <Widget>[];
+          // vaguely ordered
+          for (final ProductImprovement improvement
+              in ProductImprovement.values) {
+            if (improvements.contains(improvement)) {
+              children.add(
+                ListTile(
+                  leading: const Icon(Icons.arrow_forward),
+                  title: Text(helper.getImprovementTranslation(improvement)),
+                  onTap: () => Navigator.pop(context, improvement),
+                ),
+              );
+            }
+          }
+          children.add(
+            ListTile(
+              trailing: const Icon(Icons.close),
+              onTap: () => Navigator.pop(context),
+            ),
+          );
+          return Material(
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: children,
+              ),
+            ),
+          );
+        },
+      );
 }

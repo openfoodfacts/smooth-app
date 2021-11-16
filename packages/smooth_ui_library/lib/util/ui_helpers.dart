@@ -1,5 +1,4 @@
 /// Contains UI related constant that are shared across the entire app.
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
 
