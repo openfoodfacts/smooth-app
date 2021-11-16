@@ -2,7 +2,8 @@ name: Google Play release
 
 on:
   push:
-    - 'release/*'
+    branches:
+      - 'release/*'
     
 jobs:
   deploy_android:
