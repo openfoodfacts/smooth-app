@@ -2,7 +2,8 @@ name: App Store release
 
 on:
   push:
-    - 'release/*'
+    branches:
+      - 'release/*'
 
 jobs:
   testflight-release:
