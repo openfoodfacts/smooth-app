@@ -20,6 +20,6 @@ class KnowledgePanelsQuery {
           LanguageHelper.fromJson(ProductQuery.getCurrentLanguageCode(context)),
       cc: ProductQuery.getCurrentCountryCode(),
     );
-    return OpenFoodAPIClient.getKnowledgePanels(configuration, QueryType.TEST);
+    return OpenFoodAPIClient.getKnowledgePanels(configuration, QueryType.PROD);
   }
 }

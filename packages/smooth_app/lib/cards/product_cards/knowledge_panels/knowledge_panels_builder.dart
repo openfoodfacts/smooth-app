@@ -9,8 +9,6 @@ class KnowledgePanelsBuilder {
 
   List<Widget> build(KnowledgePanels knowledgePanels) {
     final List<Widget> rootPanelWidgets = <Widget>[];
-    print('printing');
-    print(knowledgePanels.panelIdToPanelMap.keys);
     for (final KnowledgePanelElement panelElement
         in knowledgePanels.panelIdToPanelMap['root']!.elements!) {
       if (panelElement.elementType != KnowledgePanelElementType.PANEL) {

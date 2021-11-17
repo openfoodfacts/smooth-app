@@ -69,8 +69,10 @@ class KnowledgePanelTitleCard extends StatelessWidget {
     switch (evaluation) {
       case Evaluation.BAD:
         return Colors.red;
+      case Evaluation.NEUTRAL:
+        return Colors.grey;
       case Evaluation.AVERAGE:
-        return Colors.yellow;
+        return Colors.orange;
       case Evaluation.GOOD:
         return Colors.green;
       case Evaluation.UNKNOWN:
