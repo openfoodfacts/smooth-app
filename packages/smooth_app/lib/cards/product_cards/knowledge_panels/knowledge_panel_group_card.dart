@@ -27,7 +27,9 @@ class KnowledgePanelGroupCard extends StatelessWidget {
             style: themeData.textTheme.subtitle2!.apply(color: Colors.grey),
           ),
           for (String panelId in groupElement.panelIds)
-            KnowledgePanelCard(panel: allPanels.panelIdToPanelMap[panelId]!, allPanels: allPanels)
+            KnowledgePanelCard(
+                panel: allPanels.panelIdToPanelMap[panelId]!,
+                allPanels: allPanels)
         ],
       ),
     );

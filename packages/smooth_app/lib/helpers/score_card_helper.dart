@@ -61,7 +61,8 @@ CardEvaluation getCardEvaluationFromAttribute(Attribute attribute) {
   }
 }
 
-CardEvaluation getCardEvaluationFromKnowledgePanelTitleElement(TitleElement titleElement) {
+CardEvaluation getCardEvaluationFromKnowledgePanelTitleElement(
+    TitleElement titleElement) {
   if (titleElement.grade == null) {
     return CardEvaluation.UNKNOWN;
   }

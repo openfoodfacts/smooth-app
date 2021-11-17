@@ -20,7 +20,8 @@ class KnowledgePanelSummaryCard extends StatelessWidget {
       return ScoreCard(
         iconUrl: knowledgePanel.titleElement!.iconUrl!,
         description: knowledgePanel.titleElement!.title,
-        cardEvaluation: getCardEvaluationFromKnowledgePanelTitleElement(knowledgePanel.titleElement!),
+        cardEvaluation: getCardEvaluationFromKnowledgePanelTitleElement(
+            knowledgePanel.titleElement!),
       );
     }
     return KnowledgePanelTitleCard(
