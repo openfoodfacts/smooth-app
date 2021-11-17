@@ -14,7 +14,7 @@ class KnowledgePanelTableCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<List<Widget>> columnCells = <List<Widget>>[];
     for (final KnowledgePanelTableColumn column in tableElement.columns) {
-      switch(column.type) {
+      switch (column.type) {
         case KnowledgePanelColumnType.TEXT:
           columnCells.add(
             <Widget>[
@@ -29,7 +29,7 @@ class KnowledgePanelTableCard extends StatelessWidget {
           );
           break;
         case KnowledgePanelColumnType.PERCENT:
-        // TODO(jasmeet): Implement percent knowledge panels.
+          // TODO(jasmeet): Implement percent knowledge panels.
           columnCells.add(
             <Widget>[
               _buildTableCell(

@@ -21,7 +21,7 @@ class KnowledgePanelSummaryCard extends StatelessWidget {
         iconUrl: knowledgePanel.titleElement!.iconUrl!,
         description: knowledgePanel.titleElement!.title,
         cardEvaluation: getCardEvaluationFromKnowledgePanelTitleElement(
-            knowledgePanel.titleElement!,
+          knowledgePanel.titleElement!,
         ),
       );
     }
