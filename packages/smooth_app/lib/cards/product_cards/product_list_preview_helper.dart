@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Product.dart';
-import 'package:smooth_app/pages/product/new_product_page.dart';
+import 'package:smooth_app/pages/product/product_page.dart';
 import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
 
 class ProductListPreviewHelper extends StatelessWidget {
@@ -22,7 +22,9 @@ class ProductListPreviewHelper extends StatelessWidget {
         onTap: () async => Navigator.push<Widget>(
           context,
           MaterialPageRoute<Widget>(
-            builder: (BuildContext context) => NewProductPage(product),
+            builder: (BuildContext context) => ProductPage(
+              product: product,
+            ),
           ),
         ),
         child: SmoothProductImage(
