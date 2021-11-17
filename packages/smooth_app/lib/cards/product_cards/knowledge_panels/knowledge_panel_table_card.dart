@@ -15,6 +15,7 @@ class KnowledgePanelTableCard extends StatelessWidget {
     final List<List<Widget>> columnCells = <List<Widget>>[];
     for (final KnowledgePanelTableColumn column in tableElement.columns) {
       switch (column.type) {
+        case null:
         case KnowledgePanelColumnType.TEXT:
           columnCells.add(
             <Widget>[
