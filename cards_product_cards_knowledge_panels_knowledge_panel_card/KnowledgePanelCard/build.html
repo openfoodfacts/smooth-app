@@ -107,9 +107,10 @@ and</li>
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  &#47;&#47; If [expanded] = true, renders all panel elements, otherwise just renders panel summary.
+  &#47;&#47; If [expanded] = true, render all panel elements (including summary), otherwise just renders panel summary.
   if (panel.expanded ?? false) {
     final List&lt;Widget&gt; elementWidgets = &lt;Widget&gt;[];
+    elementWidgets.add(KnowledgePanelSummaryCard(panel));
     for (final KnowledgePanelElement element in panel.elements!) {
       elementWidgets.add(
         KnowledgePanelElementCard(

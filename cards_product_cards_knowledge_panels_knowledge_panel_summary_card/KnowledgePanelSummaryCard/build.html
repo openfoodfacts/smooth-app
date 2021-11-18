@@ -107,17 +107,25 @@ and</li>
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  if (knowledgePanel.type == KnowledgePanelType.SCORE) {
-    return ScoreCard(
-      iconUrl: knowledgePanel.titleElement.iconUrl!,
-      description: knowledgePanel.titleElement.title,
-      cardEvaluation: getCardEvaluationFromKnowledgePanel(knowledgePanel),
-    );
+  if (knowledgePanel.titleElement == null) {
+    return EMPTY_WIDGET;
   }
-  return KnowledgePanelTitleCard(
-    knowledgePanelTitleElement: knowledgePanel.titleElement,
-    evaluation: knowledgePanel.evaluation,
-  );
+  switch (knowledgePanel.titleElement!.type) {
+    case TitleElementType.GRADE:
+      return ScoreCard(
+        iconUrl: knowledgePanel.titleElement!.iconUrl!,
+        description: knowledgePanel.titleElement!.title,
+        cardEvaluation: getCardEvaluationFromKnowledgePanelTitleElement(
+          knowledgePanel.titleElement!,
+        ),
+      );
+    case null:
+    case TitleElementType.UNKNOWN:
+      return KnowledgePanelTitleCard(
+        knowledgePanelTitleElement: knowledgePanel.titleElement!,
+        evaluation: knowledgePanel.evaluation,
+      );
+  }
 }</code></pre>
 </section>
 

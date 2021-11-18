@@ -118,7 +118,10 @@ Widget build(BuildContext context) {
           style: themeData.textTheme.subtitle2!.apply(color: Colors.grey),
         ),
         for (String panelId in groupElement.panelIds)
-          KnowledgePanelSummaryCard(allPanels.panelIdToPanelMap[panelId]!)
+          KnowledgePanelCard(
+            panel: allPanels.panelIdToPanelMap[panelId]!,
+            allPanels: allPanels,
+          )
       ],
     ),
   );

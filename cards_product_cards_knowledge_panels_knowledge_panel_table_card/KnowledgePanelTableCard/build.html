@@ -109,20 +109,35 @@ and</li>
 Widget build(BuildContext context) {
   final List&lt;List&lt;Widget&gt;&gt; columnCells = &lt;List&lt;Widget&gt;&gt;[];
   for (final KnowledgePanelTableColumn column in tableElement.columns) {
-    if (column.type == &#39;text&#39;) {
-      columnCells.add(
-        &lt;Widget&gt;[
-          _buildTableCell(
-            context: context,
-            text: column.text,
-            textColor: Colors.grey,
-            isFirstCell: column == tableElement.columns.first,
-            isHeader: true,
-          )
-        ],
-      );
-    } else {
-      throw UnsupportedError(&#39;Unsupported columnType: ${column.type}&#39;);
+    switch (column.type) {
+      case null:
+      case KnowledgePanelColumnType.TEXT:
+        columnCells.add(
+          &lt;Widget&gt;[
+            _buildTableCell(
+              context: context,
+              text: column.text,
+              textColor: Colors.grey,
+              isFirstCell: column == tableElement.columns.first,
+              isHeader: true,
+            )
+          ],
+        );
+        break;
+      case KnowledgePanelColumnType.PERCENT:
+        &#47;&#47; TODO(jasmeet): Implement percent knowledge panels.
+        columnCells.add(
+          &lt;Widget&gt;[
+            _buildTableCell(
+              context: context,
+              text: column.text,
+              textColor: Colors.grey,
+              isFirstCell: column == tableElement.columns.first,
+              isHeader: true,
+            )
+          ],
+        );
+        break;
     }
   }
   for (final KnowledgePanelTableRowElement row in tableElement.rows) {
