@@ -1,6 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
     <g fill="red" stroke="none">
-        <circle cx="9" cy="19" r="2"/><path d="M7 3h4v12h-4z"/>
-        <circle cx="15" cy="19" r="2"/><path d="M13 3h4v12h-4z"/>
+        <circle cx="6" cy="19" r="2"/><path d="M4 3h4v12h-4z"/>
+        <circle cx="12" cy="19" r="2"/><path d="M10 3h4v12h-4z"/>
+        <circle cx="18" cy="19" r="2"/><path d="M16 3h4v12h-4z"/>
     </g>
 </svg>

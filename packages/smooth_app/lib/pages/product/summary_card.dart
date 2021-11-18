@@ -161,9 +161,12 @@ class _SummaryCardState extends State<SummaryCard> {
       }
       final AttributeGroup group = groupIterable.single;
       final List<Widget> attributeChips = _buildAttributeChips(
-        _getFilteredAttributes(
+        _getOrderedAndFilteredAttributes(
           group,
-          PreferenceImportance.ID_IMPORTANT,
+          <String>[
+            PreferenceImportance.ID_VERY_IMPORTANT,
+            PreferenceImportance.ID_IMPORTANT,
+          ],
         ),
       );
       if (attributeChips.isNotEmpty) {
@@ -332,15 +335,14 @@ class _SummaryCardState extends State<SummaryCard> {
     if (widget._product.attributeGroups == null) {
       return result;
     }
+    const List<String> filter = <String>[PreferenceImportance.ID_MANDATORY];
     final Map<String, List<Attribute>> mandatoryAttributesByGroup =
         <String, List<Attribute>>{};
     // collecting all the mandatory attributes, by group
     for (final AttributeGroup attributeGroup
         in widget._product.attributeGroups!) {
-      mandatoryAttributesByGroup[attributeGroup.id!] = _getFilteredAttributes(
-        attributeGroup,
-        PreferenceImportance.ID_MANDATORY,
-      );
+      mandatoryAttributesByGroup[attributeGroup.id!] =
+          _getOrderedAndFilteredAttributes(attributeGroup, filter);
     }
     // now ordering by attribute group order
     for (final String attributeGroupId in _ATTRIBUTE_GROUP_ORDER) {
@@ -353,18 +355,20 @@ class _SummaryCardState extends State<SummaryCard> {
     return result;
   }
 
-  /// Returns the attributes that match the filter
+  /// Returns the attributes that match the filter, ordered by filter order
   ///
   /// [_SCORE_ATTRIBUTE_IDS] attributes are not included, as they are already
   /// dealt with somewhere else.
-  List<Attribute> _getFilteredAttributes(
+  List<Attribute> _getOrderedAndFilteredAttributes(
     final AttributeGroup attributeGroup,
-    final String importance,
+    final List<String> orderedImportanceFilter,
   ) {
     final List<Attribute> result = <Attribute>[];
     if (attributeGroup.attributes == null) {
       return result;
     }
+    final Map<String, List<Attribute>> attributeByImportances =
+        <String, List<Attribute>>{};
     for (final Attribute attribute in attributeGroup.attributes!) {
       final String attributeId = attribute.id!;
       if (_SCORE_ATTRIBUTE_IDS.contains(attributeId)) {
@@ -375,8 +379,14 @@ class _SummaryCardState extends State<SummaryCard> {
       }
       final String importanceId =
           widget._productPreferences.getImportanceIdForAttributeId(attributeId);
-      if (importance == importanceId) {
-        result.add(attribute);
+      if (orderedImportanceFilter.contains(importanceId)) {
+        attributeByImportances[importanceId] ??= <Attribute>[];
+        attributeByImportances[importanceId]!.add(attribute);
+      }
+    }
+    for (final String importanceId in orderedImportanceFilter) {
+      if (attributeByImportances[importanceId] != null) {
+        result.addAll(attributeByImportances[importanceId]!);
       }
     }
     return result;

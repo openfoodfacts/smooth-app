@@ -22,37 +22,25 @@ class AttributeButton extends StatelessWidget {
   final Attribute attribute;
   final ProductPreferences productPreferences;
 
-  /// Importance ids we're dealing with in the project
-  ///
-  /// Note: for UX reasons we ignore "very important"
-  /// cf. https://github.com/openfoodfacts/smooth-app/issues/671
-  static const List<String> _importanceIds = <String>[
-    PreferenceImportance.ID_NOT_IMPORTANT,
-    PreferenceImportance.ID_IMPORTANT,
-    PreferenceImportance.ID_MANDATORY,
-  ];
-
   static const MaterialColor WARNING_COLOR = Colors.deepOrange;
 
   static const Map<String, String> _IMPORTANCE_SVG_ASSETS = <String, String>{
     PreferenceImportance.ID_IMPORTANT: 'assets/data/important.svg',
+    PreferenceImportance.ID_VERY_IMPORTANT: 'assets/data/very_important.svg',
     PreferenceImportance.ID_MANDATORY: 'assets/data/mandatory.svg',
   };
 
   static const Map<String, double> _IMPORTANCE_OPACITIES = <String, double>{
-    PreferenceImportance.ID_IMPORTANT: .5,
+    PreferenceImportance.ID_IMPORTANT: .33,
+    PreferenceImportance.ID_VERY_IMPORTANT: .66,
     PreferenceImportance.ID_MANDATORY: 1,
   };
 
   @override
   Widget build(BuildContext context) {
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
-    String importanceId =
+    final String importanceId =
         productPreferences.getImportanceIdForAttributeId(attribute.id!);
-    // 2021/11/18: temporary fix while we switch from 4 to 3 choices
-    if (importanceId == PreferenceImportance.ID_VERY_IMPORTANT) {
-      importanceId = PreferenceImportance.ID_IMPORTANT;
-    }
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final MaterialColor materialColor =
         SmoothTheme.getMaterialColor(themeProvider);
@@ -137,7 +125,7 @@ class AttributeButton extends StatelessWidget {
         ),
       );
     }
-    for (final String item in _importanceIds) {
+    for (final String item in productPreferences.importanceIds!) {
       final Color? foregroundColor =
           _getForegroundColor(strongForegroundColor!, item);
       children.add(

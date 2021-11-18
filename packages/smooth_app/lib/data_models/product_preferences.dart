@@ -113,7 +113,7 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
       _DEFAULT_ATTRIBUTES.map(
         (String attributeId) => setImportance(
           attributeId,
-          PreferenceImportance.ID_IMPORTANT,
+          PreferenceImportance.ID_VERY_IMPORTANT,
           notifyListeners: false,
         ),
       ),
