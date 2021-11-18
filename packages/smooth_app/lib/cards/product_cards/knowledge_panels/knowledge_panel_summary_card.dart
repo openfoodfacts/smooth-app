@@ -16,8 +16,8 @@ class KnowledgePanelSummaryCard extends StatelessWidget {
     if (knowledgePanel.titleElement == null) {
       return EMPTY_WIDGET;
     }
-    switch(knowledgePanel.titleElement!.type) {
-      case  TitleElementType.GRADE:
+    switch (knowledgePanel.titleElement!.type) {
+      case TitleElementType.GRADE:
         return ScoreCard(
           iconUrl: knowledgePanel.titleElement!.iconUrl!,
           description: knowledgePanel.titleElement!.title,
