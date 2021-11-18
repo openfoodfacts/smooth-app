@@ -62,10 +62,7 @@ CardEvaluation getCardEvaluationFromAttribute(Attribute attribute) {
 
 CardEvaluation getCardEvaluationFromKnowledgePanelTitleElement(
     TitleElement titleElement) {
-  if (titleElement.grade == null) {
-    return CardEvaluation.UNKNOWN;
-  }
-  switch (titleElement.grade!) {
+  switch (titleElement.grade) {
     case Grade.E:
       return CardEvaluation.VERY_BAD;
     case Grade.D:
@@ -76,6 +73,7 @@ CardEvaluation getCardEvaluationFromKnowledgePanelTitleElement(
       return CardEvaluation.GOOD;
     case Grade.A:
       return CardEvaluation.VERY_GOOD;
+    case null:
     case Grade.UNKNOWN:
       return CardEvaluation.UNKNOWN;
   }

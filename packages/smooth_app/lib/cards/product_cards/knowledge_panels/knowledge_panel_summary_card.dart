@@ -16,18 +16,21 @@ class KnowledgePanelSummaryCard extends StatelessWidget {
     if (knowledgePanel.titleElement == null) {
       return EMPTY_WIDGET;
     }
-    if (knowledgePanel.titleElement!.type == TitleElementType.GRADE) {
-      return ScoreCard(
-        iconUrl: knowledgePanel.titleElement!.iconUrl!,
-        description: knowledgePanel.titleElement!.title,
-        cardEvaluation: getCardEvaluationFromKnowledgePanelTitleElement(
-          knowledgePanel.titleElement!,
-        ),
-      );
+    switch(knowledgePanel.titleElement!.type) {
+      case  TitleElementType.GRADE:
+        return ScoreCard(
+          iconUrl: knowledgePanel.titleElement!.iconUrl!,
+          description: knowledgePanel.titleElement!.title,
+          cardEvaluation: getCardEvaluationFromKnowledgePanelTitleElement(
+            knowledgePanel.titleElement!,
+          ),
+        );
+      case null:
+      case TitleElementType.UNKNOWN:
+        return KnowledgePanelTitleCard(
+          knowledgePanelTitleElement: knowledgePanel.titleElement!,
+          evaluation: knowledgePanel.evaluation,
+        );
     }
-    return KnowledgePanelTitleCard(
-      knowledgePanelTitleElement: knowledgePanel.titleElement!,
-      evaluation: knowledgePanel.evaluation,
-    );
   }
 }
