@@ -156,6 +156,7 @@ class _SummaryCardState extends State<SummaryCard> {
       final Iterable<AttributeGroup> groupIterable = widget
           ._product.attributeGroups!
           .where((AttributeGroup group) => group.id == groupId);
+
       if (groupIterable.isEmpty) {
         continue;
       }
