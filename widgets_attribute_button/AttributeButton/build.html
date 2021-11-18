@@ -108,8 +108,12 @@ and</li>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   final ColorScheme colorScheme = Theme.of(context).colorScheme;
-  final String importanceId =
+  String importanceId =
       productPreferences.getImportanceIdForAttributeId(attribute.id!);
+  &#47;&#47; We switch from 4 to 3 choices: very important is downgraded to important
+  if (importanceId == PreferenceImportance.ID_VERY_IMPORTANT) {
+    importanceId = PreferenceImportance.ID_IMPORTANT;
+  }
   final ThemeProvider themeProvider = context.watch&lt;ThemeProvider&gt;();
   final MaterialColor materialColor =
       SmoothTheme.getMaterialColor(themeProvider);
