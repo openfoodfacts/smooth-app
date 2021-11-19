@@ -1,7 +1,10 @@
+import 'dart:io';
 import 'dart:ui' show ImageFilter;
 
 import 'package:flutter/material.dart';
-import 'package:openfoodfacts/model/Ingredient.dart';
+import 'package:image_cropper/image_cropper.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 //import 'package:openfoodfacts/model/Product.dart';
 //import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 //import 'package:smooth_app/data_models/product_preferences.dart';
@@ -11,18 +14,19 @@ import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Page for editing the ingredients of a product and the image of the
 /// ingredients.
-class EditIngredientsPage extends StatelessWidget {
+class EditIngredientsPage extends StatefulWidget {
   EditIngredientsPage({
     Key? key,
+    this.imageIngredientsUrl,
     required this.ingredients,
-    this.imageProvider,
-  }) : _controller = TextEditingController(text: _getIngredientsString(ingredients)),
+    this.barcode,
+  }) : controller = TextEditingController(text: _getIngredientsString(ingredients)),
        super(key: key);
 
-  final TextEditingController _controller;
-
+  final String? barcode;
+  final TextEditingController controller;
   final List<Ingredient> ingredients;
-  final ImageProvider? imageProvider;
+  final String? imageIngredientsUrl;
 
   static String _getIngredientsString(List<Ingredient> ingredients) {
     String string = '';
@@ -35,6 +39,55 @@ class EditIngredientsPage extends StatelessWidget {
       }
     }
     return string;
+  }
+
+  @override
+  _EditIngredientsPageState createState() => _EditIngredientsPageState();
+}
+
+class _EditIngredientsPageState extends State<EditIngredientsPage> {
+  // TODO(justinmc): Deduplicate this with image_upload_card.dart.
+  Future<void> _getImage() async {
+    final ImagePicker picker = ImagePicker();
+
+    final XFile? pickedFile =
+        await picker.pickImage(source: ImageSource.camera);
+
+    if (pickedFile != null) {
+      final File? croppedImageFile = await ImageCropper.cropImage(
+        sourcePath: pickedFile.path,
+        androidUiSettings: const AndroidUiSettings(
+          lockAspectRatio: false,
+          hideBottomControls: true,
+        ),
+      );
+
+      if (croppedImageFile == null) {
+        return;
+      }
+
+      final SendImage image = SendImage(
+        lang: LanguageHelper.fromJson(
+            Localizations.localeOf(context).languageCode),
+        barcode: widget.barcode!, //Probably throws an error, but this is not a big problem when we got a product without a barcode
+        imageField: ImageField.INGREDIENTS,
+        imageUri: croppedImageFile.uri,
+      );
+
+      // a registered user login for https://world.openfoodfacts.org/ is required
+      //ToDo: Add user
+      const User myUser =
+          User(userId: 'smoothie-app', password: 'strawberrybanana');
+
+      // query the OpenFoodFacts API
+      final Status result =
+          await OpenFoodAPIClient.addProductImage(myUser, image);
+
+      if (result.status != 'status ok') {
+        throw Exception(
+            'image could not be uploaded: ${result.error} ${result.imageId.toString()}');
+      }
+    }
   }
 
   @override
@@ -64,14 +117,14 @@ class EditIngredientsPage extends StatelessWidget {
       ),
       body: Stack(
         children: <Widget>[
-          if (imageProvider == null)
+          if (widget.imageIngredientsUrl == null)
             Container(color: Colors.white),
-          if (imageProvider != null)
+          if (widget.imageIngredientsUrl != null)
             ConstrainedBox(
               constraints: const BoxConstraints.expand(),
               child: Image(
                 fit: BoxFit.cover,
-                image: imageProvider!,
+                image: NetworkImage(widget.imageIngredientsUrl!),
               ),
             ),
           Align(
@@ -86,7 +139,8 @@ class EditIngredientsPage extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.only(bottom: 16.0),
                       child: _ActionButtons(
-                        hasImage: imageProvider != null,
+                        getImage: _getImage,
+                        hasImage: widget.imageIngredientsUrl != null,
                       ),
                     ),
                   ),
@@ -104,7 +158,7 @@ class EditIngredientsPage extends StatelessWidget {
                           child: Column(
                             children: <Widget>[
                               TextField(
-                                controller: _controller,
+                                controller: widget.controller,
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(3.0),
@@ -134,9 +188,11 @@ class _ActionButtons extends StatelessWidget {
   const _ActionButtons({
     Key? key,
     required this.hasImage,
+    required this.getImage,
   }) : super(key: key);
 
   final bool hasImage;
+  final VoidCallback getImage;
 
   @override
   Widget build(BuildContext context) {
@@ -151,8 +207,7 @@ class _ActionButtons extends StatelessWidget {
             // At least don't duplicate the colors.
             backgroundColor: Colors.white,
             foregroundColor: Colors.grey,
-            onPressed: () {
-            },
+            onPressed: getImage,
             child: const Icon(Icons.camera_alt),
           ),
         if (hasImage)
