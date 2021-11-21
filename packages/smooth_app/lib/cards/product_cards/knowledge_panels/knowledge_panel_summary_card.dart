@@ -4,6 +4,8 @@ import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_title_card.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
 
+import 'package:smooth_ui_library/util/ui_helpers.dart';
+
 class KnowledgePanelSummaryCard extends StatelessWidget {
   const KnowledgePanelSummaryCard(this.knowledgePanel);
 
@@ -11,16 +13,24 @@ class KnowledgePanelSummaryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (knowledgePanel.type == KnowledgePanelType.SCORE) {
-      return ScoreCard(
-        iconUrl: knowledgePanel.titleElement.iconUrl!,
-        description: knowledgePanel.titleElement.title,
-        cardEvaluation: getCardEvaluationFromKnowledgePanel(knowledgePanel),
-      );
+    if (knowledgePanel.titleElement == null) {
+      return EMPTY_WIDGET;
     }
-    return KnowledgePanelTitleCard(
-      knowledgePanelTitleElement: knowledgePanel.titleElement,
-      evaluation: knowledgePanel.evaluation,
-    );
+    switch (knowledgePanel.titleElement!.type) {
+      case TitleElementType.GRADE:
+        return ScoreCard(
+          iconUrl: knowledgePanel.titleElement!.iconUrl!,
+          description: knowledgePanel.titleElement!.title,
+          cardEvaluation: getCardEvaluationFromKnowledgePanelTitleElement(
+            knowledgePanel.titleElement!,
+          ),
+        );
+      case null:
+      case TitleElementType.UNKNOWN:
+        return KnowledgePanelTitleCard(
+          knowledgePanelTitleElement: knowledgePanel.titleElement!,
+          evaluation: knowledgePanel.evaluation,
+        );
+    }
   }
 }

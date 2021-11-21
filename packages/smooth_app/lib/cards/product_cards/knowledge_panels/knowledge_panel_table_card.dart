@@ -14,20 +14,35 @@ class KnowledgePanelTableCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<List<Widget>> columnCells = <List<Widget>>[];
     for (final KnowledgePanelTableColumn column in tableElement.columns) {
-      if (column.type == 'text') {
-        columnCells.add(
-          <Widget>[
-            _buildTableCell(
-              context: context,
-              text: column.text,
-              textColor: Colors.grey,
-              isFirstCell: column == tableElement.columns.first,
-              isHeader: true,
-            )
-          ],
-        );
-      } else {
-        throw UnsupportedError('Unsupported columnType: ${column.type}');
+      switch (column.type) {
+        case null:
+        case KnowledgePanelColumnType.TEXT:
+          columnCells.add(
+            <Widget>[
+              _buildTableCell(
+                context: context,
+                text: column.text,
+                textColor: Colors.grey,
+                isFirstCell: column == tableElement.columns.first,
+                isHeader: true,
+              )
+            ],
+          );
+          break;
+        case KnowledgePanelColumnType.PERCENT:
+          // TODO(jasmeet): Implement percent knowledge panels.
+          columnCells.add(
+            <Widget>[
+              _buildTableCell(
+                context: context,
+                text: column.text,
+                textColor: Colors.grey,
+                isFirstCell: column == tableElement.columns.first,
+                isHeader: true,
+              )
+            ],
+          );
+          break;
       }
     }
     for (final KnowledgePanelTableRowElement row in tableElement.rows) {
