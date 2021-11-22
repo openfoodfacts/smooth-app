@@ -18,6 +18,9 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_INIT = 'init';
   static const String _TAG_THEME_DARK = 'themeDark';
   static const String _TAG_THEME_COLOR_TAG = 'themeColorTag';
+  static const String _TAG_BOTTOM_TAB_INDEX = 'bottomTabIndex';
+
+  static const int _BOTTOM_TAB_INDEX_DEFAULT = 1;
 
   Future<void> init(final ProductPreferences productPreferences) async {
     final bool? alreadyDone = _sharedPreferences.getBool(_TAG_INIT);
@@ -57,4 +60,11 @@ class UserPreferences extends ChangeNotifier {
 
   String get themeColorTag =>
       _sharedPreferences.getString(_TAG_THEME_COLOR_TAG) ?? 'COLOR_TAG_BLUE';
+
+  Future<void> setBottomTabIndex(final int index) async =>
+      _sharedPreferences.setInt(_TAG_BOTTOM_TAB_INDEX, index);
+
+  int get bottomTabIndex =>
+      _sharedPreferences.getInt(_TAG_BOTTOM_TAB_INDEX) ??
+      _BOTTOM_TAB_INDEX_DEFAULT;
 }

@@ -9,8 +9,6 @@ export 'buttons/smooth_main_button.dart';
 export 'buttons/smooth_simple_button.dart';
 export 'dialogs/smooth_alert_dialog.dart';
 export 'dialogs/smooth_category_picker.dart';
-export 'navigation/models/smooth_bottom_navigation_bar_item.dart';
-export 'navigation/smooth_bottom_navigation_bar.dart';
 export 'page_routes/smooth_sneak_peek_route.dart';
 export 'widgets/models/single_boolean_model.dart';
 export 'widgets/smooth_card.dart';
