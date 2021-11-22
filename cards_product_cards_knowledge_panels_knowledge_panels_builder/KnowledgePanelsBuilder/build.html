@@ -67,6 +67,12 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">List&lt;Widget&gt; build(KnowledgePanels knowledgePanels) {
   final List&lt;Widget&gt; rootPanelWidgets = &lt;Widget&gt;[];
+  if (knowledgePanels.panelIdToPanelMap[&#39;root&#39;] == null) {
+    return rootPanelWidgets;
+  }
+  if (knowledgePanels.panelIdToPanelMap[&#39;root&#39;]!.elements == null) {
+    return rootPanelWidgets;
+  }
   for (final KnowledgePanelElement panelElement
       in knowledgePanels.panelIdToPanelMap[&#39;root&#39;]!.elements!) {
     if (panelElement.elementType != KnowledgePanelElementType.PANEL) {
