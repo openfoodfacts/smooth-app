@@ -171,7 +171,7 @@ class SmoothAppGetLanguage extends StatelessWidget {
       DefaultAssetBundle.of(context),
       languageCode,
     );
-    return SmoothBottomNavigationBar.getCurrentPage(context);
+    return SmoothBottomNavigationBar.getCurrentPage();
   }
 
   Future<void> _refresh(
