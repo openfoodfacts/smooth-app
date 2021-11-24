@@ -88,7 +88,9 @@ class _ProductListPageState extends State<ProductListPage> {
         throw Exception('unknown list type ${productList.listType}');
     }
     return Scaffold(
-      bottomNavigationBar: SmoothBottomNavigationBar(),
+      bottomNavigationBar: const SmoothBottomNavigationBar(
+        tab: SmoothBottomNavigationTab.History,
+      ),
       appBar: AppBar(
         backgroundColor: SmoothTheme.getColor(
           colorScheme,

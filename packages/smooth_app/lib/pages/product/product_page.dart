@@ -107,7 +107,7 @@ class _ProductPageState extends State<ProductPage> {
       }
     }
     return Scaffold(
-      bottomNavigationBar: SmoothBottomNavigationBar(),
+      bottomNavigationBar: const SmoothBottomNavigationBar(),
       appBar: AppBar(
         title: Text(_getProductName(appLocalizations)),
         actions: <Widget>[

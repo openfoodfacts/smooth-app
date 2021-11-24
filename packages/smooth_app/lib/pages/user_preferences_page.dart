@@ -36,7 +36,9 @@ class UserPreferencesPage extends StatelessWidget {
     final List<String> orderedImportantAttributeIds =
         productPreferences.getOrderedImportantAttributeIds();
     return Scaffold(
-      bottomNavigationBar: SmoothBottomNavigationBar(),
+      bottomNavigationBar: const SmoothBottomNavigationBar(
+        tab: SmoothBottomNavigationTab.Profile,
+      ),
       appBar: AppBar(
         title: Text(appLocalizations.myPreferences),
         actions: <Widget>[

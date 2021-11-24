@@ -34,7 +34,9 @@ class ContinuousScanPage extends StatelessWidget {
       final double viewFinderBottomOffset = carouselHeight / 2.0;
       return Scaffold(
         appBar: AppBar(toolbarHeight: 0.0),
-        bottomNavigationBar: SmoothBottomNavigationBar(),
+        bottomNavigationBar: const SmoothBottomNavigationBar(
+          tab: SmoothBottomNavigationTab.Scan,
+        ),
         body: Stack(
           children: <Widget>[
             Container(

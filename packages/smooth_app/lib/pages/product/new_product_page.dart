@@ -53,7 +53,7 @@ class _ProductPageState extends State<NewProductPage> {
     final MaterialColor materialColor =
         SmoothTheme.getMaterialColor(themeProvider);
     return Scaffold(
-      bottomNavigationBar: SmoothBottomNavigationBar(),
+      bottomNavigationBar: const SmoothBottomNavigationBar(),
       backgroundColor: SmoothTheme.getColor(
         colorScheme,
         materialColor,
