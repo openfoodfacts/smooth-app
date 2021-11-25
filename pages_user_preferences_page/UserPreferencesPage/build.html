@@ -116,6 +116,9 @@ Widget build(BuildContext context) {
   final List&lt;String&gt; orderedImportantAttributeIds =
       productPreferences.getOrderedImportantAttributeIds();
   return Scaffold(
+    bottomNavigationBar: const SmoothBottomNavigationBar(
+      tab: SmoothBottomNavigationTab.Profile,
+    ),
     appBar: AppBar(
       title: Text(appLocalizations.myPreferences),
       actions: &lt;Widget&gt;[

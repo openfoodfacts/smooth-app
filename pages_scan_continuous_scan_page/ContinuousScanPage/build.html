@@ -127,6 +127,9 @@ Widget build(BuildContext context) {
     final double viewFinderBottomOffset = carouselHeight &#47; 2.0;
     return Scaffold(
       appBar: AppBar(toolbarHeight: 0.0),
+      bottomNavigationBar: const SmoothBottomNavigationBar(
+        tab: SmoothBottomNavigationTab.Scan,
+      ),
       body: Stack(
         children: &lt;Widget&gt;[
           Container(
