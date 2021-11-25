@@ -46,6 +46,34 @@ class ProductListDialogHelper {
       ) ??
       false;
 
+  Future<bool> openClear(
+    final BuildContext context,
+    final DaoProductList daoProductList,
+    final ProductList productList,
+  ) async =>
+      await showDialog<bool>(
+        context: context,
+        builder: (BuildContext context) => SmoothAlertDialog(
+          close: false,
+          body: const Text(
+              'Do you really want to clear this list?'), // TODO(monsieurtanuki): translate
+          actions: <SmoothSimpleButton>[
+            SmoothSimpleButton(
+              text: AppLocalizations.of(context)!.no,
+              onPressed: () => Navigator.pop(context, false),
+            ),
+            SmoothSimpleButton(
+              text: AppLocalizations.of(context)!.yes,
+              onPressed: () async {
+                await daoProductList.clear(productList);
+                Navigator.pop(context, true);
+              },
+            ),
+          ],
+        ),
+      ) ??
+      false;
+
   Future<ProductList?> openNew(
     final BuildContext context,
     final DaoProductList daoProductList,

@@ -352,6 +352,7 @@ class DaoProductList extends AbstractDao {
     return result;
   }
 
+  /// Removes a product list (it won't exist anymore) and unlinks all its items
   Future<void> delete(final ProductList productList) async {
     await localDatabase.database.transaction(
       (final Transaction transaction) async {
@@ -371,6 +372,19 @@ class DaoProductList extends AbstractDao {
       },
     );
   }
+
+  /// Clears a product list: unlinks all its items
+  Future<void> clear(final ProductList productList) async =>
+      localDatabase.database.transaction(
+        (final Transaction transaction) async {
+          final int? id = await _getId(productList, transaction);
+          await DaoProductExtra(localDatabase).clearList(
+            productList,
+            id,
+            transaction,
+          );
+        },
+      );
 
   Future<Map<int, Map<String, String>>> _getExtras({final int? listId}) async {
     final Map<int, Map<String, String>> result = <int, Map<String, String>>{};
