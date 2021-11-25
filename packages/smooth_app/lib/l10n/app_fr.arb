@@ -201,7 +201,7 @@
     "@label_lists": {},
     "label_web": "Web",
     "@label_web": {},
-    "label_refresh": "actualiser",
+    "label_refresh": "Actualiser",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
