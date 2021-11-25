@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/pages/settings_page.dart';
+import 'package:smooth_app/pages/smooth_bottom_navigation_bar.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/widgets/attribute_button.dart';
 
@@ -35,6 +36,9 @@ class UserPreferencesPage extends StatelessWidget {
     final List<String> orderedImportantAttributeIds =
         productPreferences.getOrderedImportantAttributeIds();
     return Scaffold(
+      bottomNavigationBar: const SmoothBottomNavigationBar(
+        tab: SmoothBottomNavigationTab.Profile,
+      ),
       appBar: AppBar(
         title: Text(appLocalizations.myPreferences),
         actions: <Widget>[
