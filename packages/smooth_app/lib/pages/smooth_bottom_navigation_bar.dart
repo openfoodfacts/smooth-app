@@ -52,9 +52,9 @@ class SmoothBottomNavigationBar extends StatelessWidget {
     ),
   };
 
-  static Widget getCurrentPage({
-    final SmoothBottomNavigationTab tab = _defaultTab,
-  }) =>
+  static Widget getDefaultPage() => _getTabPage(_defaultTab);
+
+  static Widget _getTabPage(final SmoothBottomNavigationTab tab) =>
       _pages[tab]!.body;
 
   @override
@@ -67,7 +67,7 @@ class SmoothBottomNavigationBar extends StatelessWidget {
         onTap: (final int index) async => Navigator.push<Widget>(
           context,
           MaterialPageRoute<Widget>(
-            builder: (BuildContext context) => _pages[_tabs[index]]!.body,
+            builder: (BuildContext context) => _getTabPage(_tabs[index]),
           ),
         ),
         items: <BottomNavigationBarItem>[
