@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the getTimestamp method from the DaoProductList class, for the Dart programming language.">
-  <title>getTimestamp method - DaoProductList class - dao_product_list library - Dart API</title>
+  <meta name="description" content="API docs for the clear method from the DaoProductList class, for the Dart programming language.">
+  <title>clear method - DaoProductList class - dao_product_list library - Dart API</title>
 
 
   
@@ -32,9 +32,9 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../database_dao_product_list/database_dao_product_list-library.html">dao_product_list</a></li>
     <li><a href="../../database_dao_product_list/DaoProductList-class.html">DaoProductList</a></li>
-    <li class="self-crumb">getTimestamp method</li>
+    <li class="self-crumb">clear method</li>
   </ol>
-  <div class="self-name">getTimestamp</div>
+  <div class="self-name">clear</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,36 +45,40 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">getTimestamp</span> method 
+<h1><span class="kind-method">clear</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
       
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span>&gt;</span></span>
-<span class="name ">getTimestamp</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getTimestamp-param-productList"><span class="type-annotation"><a href="../../data_models_product_list/ProductList-class.html">ProductList</a></span> <span class="parameter-name">productList</span></span></li>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+<span class="name ">clear</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="clear-param-productList"><span class="type-annotation"><a href="../../data_models_product_list/ProductList-class.html">ProductList</a></span> <span class="parameter-name">productList</span></span></li>
 </ol>)
 
       
 
     </section>
     
+<section class="desc markdown">
+  <p>Clears a product list: unlinks all its items</p>
+</section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;int?&gt; getTimestamp(final ProductList productList) async {
-  final Map&lt;String, dynamic&gt;? record = await _getRecord(
-    productList,
-    localDatabase.database,
-  );
-  if (record == null) {
-    return null;
-  }
-  return record[LocalDatabase.COLUMN_TIMESTAMP] as int;
-}</code></pre>
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; clear(final ProductList productList) async =&gt;
+    localDatabase.database.transaction(
+      (final Transaction transaction) async {
+        final int? id = await _getId(productList, transaction);
+        await DaoProductExtra(localDatabase).clearList(
+          productList,
+          id,
+          transaction,
+        );
+      },
+    );</code></pre>
 </section>
 
 
@@ -91,7 +95,7 @@
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../database_dao_product_list/database_dao_product_list-library.html">dao_product_list</a></li>
   <li><a href="../../database_dao_product_list/DaoProductList-class.html">DaoProductList</a></li>
-  <li class="self-crumb">getTimestamp method</li>
+  <li class="self-crumb">clear method</li>
 </ol>
 
 

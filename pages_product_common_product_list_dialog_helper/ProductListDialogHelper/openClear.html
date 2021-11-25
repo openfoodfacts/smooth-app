@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the openChangeIcon method from the ProductListDialogHelper class, for the Dart programming language.">
-  <title>openChangeIcon method - ProductListDialogHelper class - product_list_dialog_helper library - Dart API</title>
+  <meta name="description" content="API docs for the openClear method from the ProductListDialogHelper class, for the Dart programming language.">
+  <title>openClear method - ProductListDialogHelper class - product_list_dialog_helper library - Dart API</title>
 
 
   
@@ -32,9 +32,9 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../pages_product_common_product_list_dialog_helper/pages_product_common_product_list_dialog_helper-library.html">product_list_dialog_helper</a></li>
     <li><a href="../../pages_product_common_product_list_dialog_helper/ProductListDialogHelper-class.html">ProductListDialogHelper</a></li>
-    <li class="self-crumb">openChangeIcon method</li>
+    <li class="self-crumb">openClear method</li>
   </ol>
-  <div class="self-name">openChangeIcon</div>
+  <div class="self-name">openClear</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,7 +45,7 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">openChangeIcon</span> method 
+<h1><span class="kind-method">openClear</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
@@ -53,9 +53,9 @@
       
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>&gt;</span></span>
-<span class="name ">openChangeIcon</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="openChangeIcon-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span></li>
-<li><span class="parameter" id="openChangeIcon-param-daoProductList"><span class="type-annotation"><a href="../../database_dao_product_list/DaoProductList-class.html">DaoProductList</a></span> <span class="parameter-name">daoProductList</span>, </span></li>
-<li><span class="parameter" id="openChangeIcon-param-productList"><span class="type-annotation"><a href="../../data_models_product_list/ProductList-class.html">ProductList</a></span> <span class="parameter-name">productList</span></span></li>
+<span class="name ">openClear</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="openClear-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span></li>
+<li><span class="parameter" id="openClear-param-daoProductList"><span class="type-annotation"><a href="../../database_dao_product_list/DaoProductList-class.html">DaoProductList</a></span> <span class="parameter-name">daoProductList</span>, </span></li>
+<li><span class="parameter" id="openClear-param-productList"><span class="type-annotation"><a href="../../data_models_product_list/ProductList-class.html">ProductList</a></span> <span class="parameter-name">productList</span></span></li>
 </ol>)
 
       
@@ -67,60 +67,33 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;bool&gt; openChangeIcon(
+  <pre class="language-dart"><code class="language-dart">Future&lt;bool&gt; openClear(
   final BuildContext context,
   final DaoProductList daoProductList,
   final ProductList productList,
-) async {
-  final List&lt;String&gt; orderedIcons = productList.getPossibleIcons();
-  final double size = MediaQuery.of(context).size.width &#47; 8;
-  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-  return await showDialog&lt;bool&gt;(
-        context: context,
-        builder: (BuildContext context) =&gt; SmoothAlertDialog(
-          close: false,
-          title: appLocalizations.change_icon,
-          body: SizedBox(
-            width: ProductList.ORDERED_COLORS.length.toDouble() * size,
-            height: orderedIcons.length.toDouble() * size,
-            child: GridView.count(
-              crossAxisCount: 5,
-              childAspectRatio: 1,
-              children: List&lt;Widget&gt;.generate(
-                ProductList.ORDERED_COLORS.length * orderedIcons.length,
-                (final int index) {
-                  final String colorTag = ProductList.ORDERED_COLORS[
-                      index % ProductList.ORDERED_COLORS.length];
-                  final String iconTag = orderedIcons[
-                      index ~&#47; ProductList.ORDERED_COLORS.length];
-                  return IconButton(
-                    icon: ProductList.getReferenceIcon(
-                      colorScheme: Theme.of(context).colorScheme,
-                      colorTag: colorTag,
-                      iconTag: iconTag,
-                      colorDestination: ColorDestination.SURFACE_FOREGROUND,
-                    ),
-                    onPressed: () async {
-                      productList.colorTag = colorTag;
-                      productList.iconTag = iconTag;
-                      await daoProductList.put(productList);
-                      Navigator.pop(context, true);
-                    },
-                  );
-                },
-              ),
-            ),
+) async =&gt;
+    await showDialog&lt;bool&gt;(
+      context: context,
+      builder: (BuildContext context) =&gt; SmoothAlertDialog(
+        close: false,
+        body: const Text(
+            &#39;Do you really want to clear this list?&#39;), &#47;&#47; TODO(monsieurtanuki): translate
+        actions: &lt;SmoothSimpleButton&gt;[
+          SmoothSimpleButton(
+            text: AppLocalizations.of(context)!.no,
+            onPressed: () =&gt; Navigator.pop(context, false),
           ),
-          actions: &lt;SmoothSimpleButton&gt;[
-            SmoothSimpleButton(
-              text: appLocalizations.cancel,
-              onPressed: () =&gt; Navigator.pop(context, false),
-            ),
-          ],
-        ),
-      ) ??
-      false;
-}</code></pre>
+          SmoothSimpleButton(
+            text: AppLocalizations.of(context)!.yes,
+            onPressed: () async {
+              await daoProductList.clear(productList);
+              Navigator.pop(context, true);
+            },
+          ),
+        ],
+      ),
+    ) ??
+    false;</code></pre>
 </section>
 
 
@@ -137,7 +110,7 @@
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../pages_product_common_product_list_dialog_helper/pages_product_common_product_list_dialog_helper-library.html">product_list_dialog_helper</a></li>
   <li><a href="../../pages_product_common_product_list_dialog_helper/ProductListDialogHelper-class.html">ProductListDialogHelper</a></li>
-  <li class="self-crumb">openChangeIcon method</li>
+  <li class="self-crumb">openClear method</li>
 </ol>
 
 
