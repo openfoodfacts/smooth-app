@@ -75,9 +75,10 @@
   _barcodes.clear();
   _products.clear();
   _productExtras.clear();
-  _barcodes.addAll(barcodes);
   _products.addAll(products);
   _productExtras.addAll(productExtras);
+  &#47;&#47; Last step, because they have no meaning without the others being loaded
+  _barcodes.addAll(barcodes);
 }</code></pre>
 </section>
 
