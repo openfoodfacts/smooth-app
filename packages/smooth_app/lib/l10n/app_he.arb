@@ -5,6 +5,8 @@
     },
     "search": "חיפוש",
     "@search": {},
+    "welcomeToOpenFoodFacts": "ברוך בואך ל־OpenFoodFacts",
+    "@welcomeToOpenFoodFacts": {},
     "searchPanelHeader": "כדאי לך לחפש או לסרוק את המוצר הראשון שלך",
     "@searchPanelHeader": {},
     "searchHintText": "נא למלא ברקוד או מילות מפתח",
@@ -19,6 +21,8 @@
     "@scanProductTitle": {},
     "organizationPage": "עמוד הארגון",
     "@organizationPage": {},
+    "contributors": "תורמים",
+    "@contributors": {},
     "contributionPage": "עמוד התרומה",
     "@contributionPage": {},
     "trackingPage": "עמוד מעקב",
@@ -236,6 +240,39 @@
     "@could_not_refresh": {},
     "no_product_found": "לא נמצאו מוצרים",
     "@no_product_found": {},
+    "product_internet_error": "לא ניתן למשוך מידע על המוצר הזה עקב שגיאת רשת.",
+    "product_internet_cancel": "בוטל על ידי המשתמש.",
+    "product_improvement_origins_to_be_completed": "ה־Eco-Score מתחשב במקורות הרכיבים. נא לצלם אותם (רשימת רכיבים ו/או טענות גאוגרפיות או לערוך את המוצר כדי שאפשר יהיה לקחת אותם בחשבון. אם זה לא ברור, אפשר ליצור קשר עם יצרן המזון.",
+    "@product_improvement_origins_to_be_completed": {
+        "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
+    },
+    "product_improvement_categories_but_no_nutriscore": "לא הצלחנו לחשב את ה־Nutri-Score למוצר הזה. יכול להיות שהקטגוריה הזאת חריגה. אם לדעתך מדובר בטעות, נא ליצור אתנו קשר.",
+    "@product_improvement_categories_but_no_nutriscore": {
+        "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
+    },
+    "product_improvement_add_nutrition_facts": "יש להוסיף מפרט תזונתי כדי לחשב את ה־Nutri-Score.",
+    "@product_improvement_add_nutrition_facts": {
+        "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
+    },
+    "product_improvement_add_category": "יש להוסיף קטגוריה כדי לחשב את ה־Nutri-Score.",
+    "@product_improvement_add_category": {
+        "description": "Message for ProductImprovement.ADD_CATEGORY"
+    },
+    "product_improvement_add_nutrition_facts_and_category": "יש להוסיף עובדות תזונתיות וקטגוריה כדי לחשב את ה־Nutri-Score.",
+    "@product_improvement_add_nutrition_facts_and_category": {
+        "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
+    },
+    "product_improvement_obsolete_nutrition_image": "התמונה התזונתית מיושנת: נא לרענן אותה.",
+    "@product_improvement_obsolete_nutrition_image": {
+        "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
+    },
+    "product_improvements_count": "{count,plural, one {} two {{count} שיפורים אפשריים} many {{count} שיפורים אפשריים} =1{שיפור אחד אפשרי} other{{count} שיפורים אפשריים}}",
+    "@product_improvements_count": {
+        "description": "x possible improvements",
+        "placeholders": {
+            "count": {}
+        }
+    },
     "products_pasted": "מוצרים הודבקו",
     "@products_pasted": {},
     "no_prodcut_in_list": "אין מוצרים ברשימה הזאת",
