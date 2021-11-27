@@ -51,5 +51,10 @@
 		<string>This app needs to access photo library for product photos uploads</string>
 		<key>NSCameraUsageDescription</key>
 		<string>This app needs Camera Usage for scanning barcodes and cropping photos</string>
+		<key>LSApplicationQueriesSchemes</key>
+        <array>
+          <string>https</string>
+          <string>http</string>
+        </array>
 	</dict>
 </plist>
