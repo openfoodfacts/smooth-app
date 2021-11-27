@@ -10,7 +10,6 @@ import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_list_item.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
-import 'package:smooth_app/pages/smooth_bottom_navigation_bar.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 class ProductListPage extends StatefulWidget {
@@ -88,9 +87,6 @@ class _ProductListPageState extends State<ProductListPage> {
         throw Exception('unknown list type ${productList.listType}');
     }
     return Scaffold(
-      bottomNavigationBar: const SmoothBottomNavigationBar(
-        tab: SmoothBottomNavigationTab.History,
-      ),
       appBar: AppBar(
         backgroundColor: SmoothTheme.getColor(
           colorScheme,

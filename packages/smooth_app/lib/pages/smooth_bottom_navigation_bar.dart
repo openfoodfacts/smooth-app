@@ -1,85 +1,97 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_app/pages/history_page.dart';
-import 'package:smooth_app/pages/scan/scan_page.dart';
-import 'package:smooth_app/pages/user_preferences_page.dart';
-
-class _Page {
-  const _Page({required this.name, required this.icon, required this.body});
-  final String name;
-  final IconData icon;
-  final Widget body;
-}
+import 'package:smooth_app/widgets/tab_navigator.dart';
 
 enum SmoothBottomNavigationTab {
   Profile,
   Scan,
   History,
+};
+
+class SmoothBottomNavigationBar extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => SmoothBottomNavigationBarState();
 }
 
-class SmoothBottomNavigationBar extends StatelessWidget {
-  const SmoothBottomNavigationBar({
-    this.tab = _defaultTab,
-  });
+class SmoothBottomNavigationBarState extends State<SmoothBottomNavigationBar> {
+  String _currentPage = 'Page1';
+  List<String> pageKeys = <String>['Page1', 'Page2', 'Page3'];
 
-  final SmoothBottomNavigationTab tab;
-
-  static const SmoothBottomNavigationTab _defaultTab =
-      SmoothBottomNavigationTab.Scan;
-
-  static const List<SmoothBottomNavigationTab> _tabs =
-      <SmoothBottomNavigationTab>[
-    SmoothBottomNavigationTab.Profile,
-    SmoothBottomNavigationTab.Scan,
-    SmoothBottomNavigationTab.History,
-  ];
-
-  static const Map<SmoothBottomNavigationTab, _Page> _pages =
-      <SmoothBottomNavigationTab, _Page>{
-    SmoothBottomNavigationTab.Profile: _Page(
-      name: 'Profile', // TODO(monsieurtanuki): translate
-      icon: Icons.account_circle,
-      body: UserPreferencesPage(),
-    ),
-    SmoothBottomNavigationTab.Scan: _Page(
-      name: 'Scan or Search',
-      icon: Icons.search,
-      body: ScanPage(),
-    ),
-    SmoothBottomNavigationTab.History: _Page(
-      name: 'History',
-      icon: Icons.history,
-      body: HistoryPage(),
-    ),
+  final Map<String, GlobalKey<NavigatorState>> _navigatorKeys =
+      <String, GlobalKey<NavigatorState>>{
+    'Page1': GlobalKey<NavigatorState>(),
+    'Page2': GlobalKey<NavigatorState>(),
+    'Page3': GlobalKey<NavigatorState>(),
   };
+  int _selectedIndex = 0;
 
-  static Widget getDefaultPage() => _getTabPage(_defaultTab);
-
-  static Widget _getTabPage(final SmoothBottomNavigationTab tab) =>
-      _pages[tab]!.body;
+  void _selectTab(String tabItem, int index) {
+    if (tabItem == _currentPage) {
+      _navigatorKeys[tabItem]!
+          .currentState!
+          .popUntil((Route<dynamic> route) => route.isFirst);
+    } else {
+      setState(() {
+        _currentPage = pageKeys[index];
+        _selectedIndex = index;
+      });
+    }
+  }
 
   @override
-  Widget build(BuildContext context) => BottomNavigationBar(
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        selectedItemColor: Colors.white,
-        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-        currentIndex: _tabs.indexOf(tab),
-        onTap: (final int index) async => Navigator.push<Widget>(
-          context,
-          MaterialPageRoute<Widget>(
-            builder: (BuildContext context) => _getTabPage(_tabs[index]),
-          ),
-        ),
-        items: <BottomNavigationBarItem>[
-          _buildItem(_pages[_tabs[0]]!),
-          _buildItem(_pages[_tabs[1]]!),
-          _buildItem(_pages[_tabs[2]]!),
-        ],
-      );
+  Widget build(BuildContext context) {
+    return WillPopScope(
+      onWillPop: () async {
+        final bool isFirstRouteInCurrentTab =
+            !await _navigatorKeys[_currentPage]!.currentState!.maybePop();
+        if (isFirstRouteInCurrentTab) {
+          if (_currentPage != 'Page1') {
+            _selectTab('Page1', 1);
 
-  BottomNavigationBarItem _buildItem(final _Page page) =>
-      BottomNavigationBarItem(
-        icon: Icon(page.icon, size: 28),
-        label: page.name,
-      );
+            return false;
+          }
+        }
+        // let system handle back button if we're on the first route
+        return isFirstRouteInCurrentTab;
+      },
+      child: Scaffold(
+        body: Stack(children: <Widget>[
+          _buildOffstageNavigator('Page1'),
+          _buildOffstageNavigator('Page2'),
+          _buildOffstageNavigator('Page3'),
+        ]),
+        bottomNavigationBar: BottomNavigationBar(
+          selectedItemColor: Colors.blueAccent,
+          onTap: (int index) {
+            _selectTab(pageKeys[index], index);
+          },
+          currentIndex: _selectedIndex,
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.looks_one),
+              label: 'Page1',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.looks_two),
+              label: 'Page2',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.looks_3),
+              label: 'Page3',
+            ),
+          ],
+          type: BottomNavigationBarType.fixed,
+        ),
+      ),
+    );
+  }
+
+  Widget _buildOffstageNavigator(String tabItem) {
+    return Offstage(
+      offstage: _currentPage != tabItem,
+      child: TabNavigator(
+        navigatorKey: _navigatorKeys[tabItem]!,
+        tabItem: tabItem,
+      ),
+    );
+  }
 }
