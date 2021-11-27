@@ -74,9 +74,21 @@
     key: extraKey,
     reverse: extraReverse,
   );
-  final List&lt;String&gt; barcodes = List&lt;String&gt;.from(extras.keys);
+  final List&lt;String&gt; orderedBarcodes = List&lt;String&gt;.from(extras.keys);
   final Map&lt;String, Product&gt; products =
       await DaoProduct(localDatabase).getAllWithExtras(extraKey);
+  &#47;&#47; in some cases, like the scan history list,
+  &#47;&#47; for unknown scanned barcodes there&#39;s a barcode but no product.
+  &#47;&#47; Here, we want ordered barcodes that match an actual product.
+  final List&lt;String&gt; barcodes = &lt;String&gt;[];
+  for (final String barcode in orderedBarcodes) {
+    if (products[barcode] != null) {
+      barcodes.add(barcode);
+    } else {
+      debugPrint(
+          &#39;Rare case of unknown product for barcode &quot;$barcode&quot; from list &quot;$extraKey&quot;&#39;);
+    }
+  }
   productList.set(barcodes, products, extras);
   return true;
 }</code></pre>
