@@ -5,7 +5,7 @@
     },
     "search": "Keres",
     "@search": {},
-    "welcomeToOpenFoodFacts": "Welcome to OpenFoodFacts",
+    "welcomeToOpenFoodFacts": "Üdvözli az OpenFoodFacts",
     "@welcomeToOpenFoodFacts": {},
     "searchPanelHeader": "Keresse meg vagy szkennelje első termékét",
     "@searchPanelHeader": {},
@@ -87,23 +87,23 @@
     "@termsOfUse": {},
     "contribute": "Hozzájárulás",
     "@contribute": {},
-    "contribute_improve_header": "Improving",
+    "contribute_improve_header": "Javítás",
     "@contribute_improve_header": {},
-    "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ",
+    "contribute_improve_text": "Az adatbázis a projekt magja. Könnyű és nagyon gyorsan hozzá tud járulni. Letöltheti a mobilalkalmazást telefonjára, és megkezdheti a termékek hozzáadását vagy kiegészítését.\n\nAz Open Food Facts webhely pedig számos, további módot kínál a hozzájárulásra: ",
     "@contribute_improve_text": {},
     "contribute_improve_ProductsToBeCompleted": "Kiegészítendő termékek",
     "@contribute_improve_ProductsToBeCompleted": {},
     "contribute_develop": "Fejlesztés",
     "@contribute_develop": {},
-    "contribute_develop_text": "The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.",
+    "contribute_develop_text": "Minden Open Food Facts termék kódja elérhető a GitHubon. Örömmel veszük, ha felhasználja a kódot (nyílt forráskódú) és segít jobbá tenni azt, a bolygó minden lakója számára.",
     "@contribute_develop_text": {},
-    "contribute_develop_text_2": "You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.",
+    "contribute_develop_text_2": "Csatlakozhat az Open Food Facts Slack csevegőszobához, amely a legjobb módja a kérdések feltevésének.",
     "@contribute_develop_text_2": {},
     "contribute_translate_header": "Fordítás",
     "@contribute_translate_header": {},
-    "contribute_translate_text": "Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.",
+    "contribute_translate_text": "Az Open Food Facts egy globális projekt, amely több mint 160 ország termékeit tartalmazza. Az Open Food Facts több tucat nyelvre van lefordítva, folyamatosan fejlődő tartalommal.",
     "@contribute_translate_text": {},
-    "contribute_translate_text_2": "Translations is one of the key tasks of the project",
+    "contribute_translate_text_2": "A fordítás a projekt egyik legfontosabb feladatai közé tartozik",
     "@contribute_translate_text_2": {},
     "contribute_translate_link_text": "Kezdje el a fordítást",
     "@contribute_translate_link_text": {},
@@ -113,7 +113,7 @@
     "@support": {},
     "error": "Valami hiba történt",
     "@error": {},
-    "darkmode": "Darkmode",
+    "darkmode": "Sötét mód",
     "@darkmode": {},
     "settingsTitle": "Beállítások",
     "@settingsTitle": {},
@@ -123,9 +123,9 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "added_product_thanks": "Thank you for adding this product!",
+    "added_product_thanks": "Köszönjük a terméket hozzáadását!",
     "@added_product_thanks": {},
-    "missing_product": "This product is missing",
+    "missing_product": "Ez a termék hiányzik",
     "@missing_product": {},
     "add": "Hozzáad",
     "@add": {},
@@ -135,7 +135,7 @@
     "@missing_picture": {},
     "searching": "Keresés...",
     "@searching": {},
-    "empty_list": "Empty list",
+    "empty_list": "Üres lista",
     "@empty_list": {},
     "nothing_set": "Jelenleg semmi nincs beállítva",
     "rename": "Átnevezés",
@@ -240,33 +240,33 @@
     "@could_not_refresh": {},
     "no_product_found": "Nem található termék",
     "@no_product_found": {},
-    "product_internet_error": "Impossible to fetch information about this product due to a network error.",
-    "product_internet_cancel": "Canceled by user.",
-    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take them into a photo (ingredient list and/or any geographic claim or edit the product so that they can be taken into account. If it is not clear, you can contact the food producer.",
+    "product_internet_error": "Hálózati hiba miatt nem lehet információkat lekérni erről a termékről.",
+    "product_internet_cancel": "Felhasználó által megszakítva.",
+    "product_improvement_origins_to_be_completed": "Az Eco-Score figyelembe veszi az összetevők eredetét. Kérjük, fényképezze le őket (összetevők listája és/vagy bármilyen földrajzi helyadat, vagy módosítsa a terméket úgy, hogy figyelembe lehessen venni azt. Ha ez nem egyértelmű, forduljon az élelmiszergyártóhoz.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
-    "product_improvement_categories_but_no_nutriscore": "We could not compute an Nutri-Score for this product. It might be that the category is an exception. If you believe this is an error, contact us.",
+    "product_improvement_categories_but_no_nutriscore": "Nem tudtunk Nutri-Score pontszámot kiszámítani ehhez a termékhez. Lehetséges, hogy ez a kategória egy kivétel. Ha úgy gondolja, hogy ez hiba, lépjen kapcsolatba velünk.",
     "@product_improvement_categories_but_no_nutriscore": {
         "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
-    "product_improvement_add_nutrition_facts": "Add nutrition facts to compute the Nutri-Score.",
+    "product_improvement_add_nutrition_facts": "Adjon hozzá tápérték adatokat a Nutri-Score kiszámításához.",
     "@product_improvement_add_nutrition_facts": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
     },
-    "product_improvement_add_category": "Add a category to compute the Nutri-Score.",
+    "product_improvement_add_category": "Adjon hozzá egy kategóriát a Nutri-Score kiszámításához.",
     "@product_improvement_add_category": {
         "description": "Message for ProductImprovement.ADD_CATEGORY"
     },
-    "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to compute the Nutri-Score.",
+    "product_improvement_add_nutrition_facts_and_category": "Adjon hozzá tápérték adatokat és egy kategóriát a Nutri-Score kiszámításához.",
     "@product_improvement_add_nutrition_facts_and_category": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
     },
-    "product_improvement_obsolete_nutrition_image": "The nutrition image is obsolete: please refresh it.",
+    "product_improvement_obsolete_nutrition_image": "A tép érték kép elavult: kérjük frissítse azt.",
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvements_count": "{count,plural, =1{One possible improvement} other{{count} possible improvements}}",
+    "product_improvements_count": "{count,plural, =1{Egy lehetséges hozzájárulás} other{{count} lehetséges hozzájárulás}}",
     "@product_improvements_count": {
         "description": "x possible improvements",
         "placeholders": {

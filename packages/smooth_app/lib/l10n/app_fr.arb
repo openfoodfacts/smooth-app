@@ -5,7 +5,7 @@
     },
     "search": "Rechercher",
     "@search": {},
-    "welcomeToOpenFoodFacts": "Welcome to OpenFoodFacts",
+    "welcomeToOpenFoodFacts": "Bienvenue sur OpenFoodFacts",
     "@welcomeToOpenFoodFacts": {},
     "searchPanelHeader": "Recherchez ou scannez votre premier produit",
     "@searchPanelHeader": {},
@@ -240,33 +240,33 @@
     "@could_not_refresh": {},
     "no_product_found": "Aucun produit trouvé",
     "@no_product_found": {},
-    "product_internet_error": "Impossible to fetch information about this product due to a network error.",
-    "product_internet_cancel": "Canceled by user.",
-    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take them into a photo (ingredient list and/or any geographic claim or edit the product so that they can be taken into account. If it is not clear, you can contact the food producer.",
+    "product_internet_error": "Impossible de récupérer les informations sur ce produit en raison d'une erreur réseau.",
+    "product_internet_cancel": "Annulé par l'utilisateur.",
+    "product_improvement_origins_to_be_completed": "L'Eco-Score prend en compte l'origine des ingrédients. Veuillez les prendre en photo (liste des ingrédients et/ou toute appellation géographique) ou modifier le produit de sorte qu'ils soient pris en compte. En cas de doute, veuillez contacter le fabricant.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
-    "product_improvement_categories_but_no_nutriscore": "We could not compute an Nutri-Score for this product. It might be that the category is an exception. If you believe this is an error, contact us.",
+    "product_improvement_categories_but_no_nutriscore": "Nous n'avons pas pu calculer un Nutri-Score pour ce produit. Il se peut que la catégorie soit une exception. Si vous pensez qu'il s'agit d'une erreur, contactez-nous.",
     "@product_improvement_categories_but_no_nutriscore": {
         "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
-    "product_improvement_add_nutrition_facts": "Add nutrition facts to compute the Nutri-Score.",
+    "product_improvement_add_nutrition_facts": "Ajoutez les informations nutritionnelles pour calculer le Nutri-Score.",
     "@product_improvement_add_nutrition_facts": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
     },
-    "product_improvement_add_category": "Add a category to compute the Nutri-Score.",
+    "product_improvement_add_category": "Ajoutez une catégorie pour calculer le Nutri-Score.",
     "@product_improvement_add_category": {
         "description": "Message for ProductImprovement.ADD_CATEGORY"
     },
-    "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to compute the Nutri-Score.",
+    "product_improvement_add_nutrition_facts_and_category": "Ajoutez les informations nutritionnelles et une catégorie pour calculer le Nutri-Score.",
     "@product_improvement_add_nutrition_facts_and_category": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
     },
-    "product_improvement_obsolete_nutrition_image": "The nutrition image is obsolete: please refresh it.",
+    "product_improvement_obsolete_nutrition_image": "L'image des informations nutritionnelles est obsolète : mettez-la à jour s'il-vous-plait.",
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvements_count": "{count,plural, =1{One possible improvement} other{{count} possible improvements}}",
+    "product_improvements_count": "{count,plural, =1{Une amélioration possible} other{{count} améliorations possibles}}",
     "@product_improvements_count": {
         "description": "x possible improvements",
         "placeholders": {
