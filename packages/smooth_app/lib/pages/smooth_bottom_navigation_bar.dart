@@ -5,7 +5,7 @@ enum SmoothBottomNavigationTab {
   Profile,
   Scan,
   History,
-};
+}
 
 class SmoothBottomNavigationBar extends StatefulWidget {
   @override
@@ -13,18 +13,22 @@ class SmoothBottomNavigationBar extends StatefulWidget {
 }
 
 class SmoothBottomNavigationBarState extends State<SmoothBottomNavigationBar> {
-  String _currentPage = 'Page1';
-  List<String> pageKeys = <String>['Page1', 'Page2', 'Page3'];
+  List<SmoothBottomNavigationTab> pageKeys = <SmoothBottomNavigationTab>[
+    SmoothBottomNavigationTab.Profile,
+    SmoothBottomNavigationTab.Scan,
+    SmoothBottomNavigationTab.History,
+  ];
+  SmoothBottomNavigationTab _currentPage = SmoothBottomNavigationTab.Scan;
 
-  final Map<String, GlobalKey<NavigatorState>> _navigatorKeys =
-      <String, GlobalKey<NavigatorState>>{
-    'Page1': GlobalKey<NavigatorState>(),
-    'Page2': GlobalKey<NavigatorState>(),
-    'Page3': GlobalKey<NavigatorState>(),
+  final Map<SmoothBottomNavigationTab, GlobalKey<NavigatorState>>
+      _navigatorKeys = <SmoothBottomNavigationTab, GlobalKey<NavigatorState>>{
+    SmoothBottomNavigationTab.Profile: GlobalKey<NavigatorState>(),
+    SmoothBottomNavigationTab.Scan: GlobalKey<NavigatorState>(),
+    SmoothBottomNavigationTab.History: GlobalKey<NavigatorState>(),
   };
-  int _selectedIndex = 0;
+  int _selectedIndex = 1;
 
-  void _selectTab(String tabItem, int index) {
+  void _selectTab(SmoothBottomNavigationTab tabItem, int index) {
     if (tabItem == _currentPage) {
       _navigatorKeys[tabItem]!
           .currentState!
@@ -44,8 +48,8 @@ class SmoothBottomNavigationBarState extends State<SmoothBottomNavigationBar> {
         final bool isFirstRouteInCurrentTab =
             !await _navigatorKeys[_currentPage]!.currentState!.maybePop();
         if (isFirstRouteInCurrentTab) {
-          if (_currentPage != 'Page1') {
-            _selectTab('Page1', 1);
+          if (_currentPage != SmoothBottomNavigationTab.Scan) {
+            _selectTab(SmoothBottomNavigationTab.Scan, 1);
 
             return false;
           }
@@ -55,37 +59,40 @@ class SmoothBottomNavigationBarState extends State<SmoothBottomNavigationBar> {
       },
       child: Scaffold(
         body: Stack(children: <Widget>[
-          _buildOffstageNavigator('Page1'),
-          _buildOffstageNavigator('Page2'),
-          _buildOffstageNavigator('Page3'),
+          _buildOffstageNavigator(SmoothBottomNavigationTab.Profile),
+          _buildOffstageNavigator(SmoothBottomNavigationTab.Scan),
+          _buildOffstageNavigator(SmoothBottomNavigationTab.History),
         ]),
         bottomNavigationBar: BottomNavigationBar(
-          selectedItemColor: Colors.blueAccent,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          selectedItemColor: Colors.white,
+          backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
           onTap: (int index) {
             _selectTab(pageKeys[index], index);
           },
           currentIndex: _selectedIndex,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.looks_one),
-              label: 'Page1',
+              icon: Icon(Icons.account_circle),
+              label: 'Profile',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.looks_two),
-              label: 'Page2',
+              icon: Icon(Icons.search),
+              label: 'Scan or Search',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.looks_3),
-              label: 'Page3',
+              icon: Icon(Icons.history),
+              label: 'History',
             ),
           ],
-          type: BottomNavigationBarType.fixed,
+          //type: BottomNavigationBarType.fixed,
         ),
       ),
     );
   }
 
-  Widget _buildOffstageNavigator(String tabItem) {
+  Widget _buildOffstageNavigator(SmoothBottomNavigationTab tabItem) {
     return Offstage(
       offstage: _currentPage != tabItem,
       child: TabNavigator(
