@@ -38,7 +38,7 @@ dependencies:
   smooth_ui_library:
     path: ../smooth_ui_library
   sqflite: ^2.0.0+4
-  url_launcher: ^6.0.12
+  url_launcher: ^6.0.15
   http: ^0.13.4
 
 dev_dependencies:
