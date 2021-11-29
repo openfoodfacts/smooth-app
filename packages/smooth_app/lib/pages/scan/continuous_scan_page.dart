@@ -41,6 +41,7 @@ class _ContinuousScanPageState extends State<ContinuousScanPage>
     }
   }
 
+  //Called when the top route has been popped off, so restarting camera
   @override
   void didPopNext() {
     super.didPopNext();

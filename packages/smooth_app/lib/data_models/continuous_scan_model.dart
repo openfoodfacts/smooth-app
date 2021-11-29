@@ -40,7 +40,7 @@ class ContinuousScanModel with ChangeNotifier {
   final String languageCode;
   final String countryCode;
 
-  late QRViewController qrViewController;
+  QRViewController? qrViewController;
 
   bool get hasMoreThanOneProduct => getBarcodes().length > 1;
   ProductList get productList => _productList;
@@ -105,11 +105,15 @@ class ContinuousScanModel with ChangeNotifier {
 
   //Used when navigating away from the QRView itself
   void stopQRView() {
-    qrViewController.stopCamera();
+    if (qrViewController != null) {
+      qrViewController!.stopCamera();
+    }
   }
 
   void restartQRView() {
-    qrViewController.resumeCamera();
+    if (qrViewController != null) {
+      qrViewController!.resumeCamera();
+    }
   }
 
   Future<void> onScan(final Barcode barcode) async {
