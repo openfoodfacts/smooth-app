@@ -51,7 +51,6 @@ class SmoothBottomNavigationBarState extends State<SmoothBottomNavigationBar> {
         if (isFirstRouteInCurrentTab) {
           if (_currentPage != SmoothBottomNavigationTab.Scan) {
             _selectTab(SmoothBottomNavigationTab.Scan, 1);
-
             return false;
           }
         }
@@ -96,8 +95,7 @@ class SmoothBottomNavigationBarState extends State<SmoothBottomNavigationBar> {
   Widget _buildOffstageNavigator(SmoothBottomNavigationTab tabItem) {
     final bool offstage = _currentPage != tabItem;
     return Offstage(
-      //TODO: Replace with offstage
-      offstage: tabItem != SmoothBottomNavigationTab.Scan,
+      offstage: offstage,
       child: tabItem != SmoothBottomNavigationTab.Scan
           ? TabNavigator(
               navigatorKey: _navigatorKeys[tabItem]!,

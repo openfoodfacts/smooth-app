@@ -8,14 +8,52 @@ import 'package:smooth_app/widgets/smooth_product_carousel.dart';
 import 'package:smooth_ui_library/smooth_ui_library.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
 
-class ContinuousScanPage extends StatelessWidget {
+class ContinuousScanPage extends StatefulWidget {
+  const ContinuousScanPage({required this.routeObserver});
+  final RouteObserver<ModalRoute<void>> routeObserver;
+
+  @override
+  State<ContinuousScanPage> createState() => _ContinuousScanPageState();
+}
+
+class _ContinuousScanPageState extends State<ContinuousScanPage>
+    with RouteAware {
   final GlobalKey _scannerViewKey = GlobalKey(debugLabel: 'Barcode Scanner');
+  ContinuousScanModel? model;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    widget.routeObserver.subscribe(this, ModalRoute.of(context)!);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    widget.routeObserver.unsubscribe(this);
+  }
+
+  @override
+  void didPushNext() {
+    super.didPushNext();
+    if (model != null) {
+      model!.stopQRView();
+    }
+  }
+
+  @override
+  void didPopNext() {
+    super.didPopNext();
+    if (model != null) {
+      model!.restartQRView();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-      final ContinuousScanModel model = context.watch<ContinuousScanModel>();
+      model = context.watch<ContinuousScanModel>();
       final Size screenSize = MediaQuery.of(context).size;
       final Size scannerSize = Size(
         screenSize.width * 0.6,
@@ -23,7 +61,7 @@ class ContinuousScanPage extends StatelessWidget {
       );
       final double carouselHeight =
           constraints.maxHeight / 1.81; // roughly 55% of the available height
-      final double buttonRowHeight = areButtonsRendered(model) ? 48 : 0;
+      final double buttonRowHeight = areButtonsRendered(model!) ? 48 : 0;
       final double availableScanHeight =
           constraints.maxHeight - carouselHeight - buttonRowHeight;
       // Padding for the qr code scanner. This ensures the scanner has equal spacing between buttons and carousel.
@@ -60,7 +98,7 @@ class ContinuousScanPage extends StatelessWidget {
                   cutOutBottomOffset: viewFinderBottomOffset,
                 ),
                 key: _scannerViewKey,
-                onQRViewCreated: model.setupScanner,
+                onQRViewCreated: model!.setupScanner,
               ),
             ),
             SmoothRevealAnimation(
@@ -87,7 +125,7 @@ class ContinuousScanPage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-                  _buildButtonsRow(context, model),
+                  _buildButtonsRow(context, model!),
                   const Spacer(),
                   SmoothProductCarousel(
                     showSearchCard: true,

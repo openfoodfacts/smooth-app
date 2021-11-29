@@ -108,6 +108,10 @@ class ContinuousScanModel with ChangeNotifier {
     qrViewController.stopCamera();
   }
 
+  void restartQRView() {
+    qrViewController.resumeCamera();
+  }
+
   Future<void> onScan(final Barcode barcode) async {
     if (barcode.code == null) {
       final String code = barcode.code!;

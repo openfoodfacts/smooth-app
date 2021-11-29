@@ -17,7 +17,8 @@ class ScanPage extends StatefulWidget {
 
 class _ScanPageState extends State<ScanPage> {
   ContinuousScanModel? _model;
-  bool runUpdate = false;
+  final RouteObserver<ModalRoute<void>> routeObserver =
+      RouteObserver<ModalRoute<void>>();
 
   @override
   void didChangeDependencies() {
@@ -26,8 +27,6 @@ class _ScanPageState extends State<ScanPage> {
   }
 
   Future<void> _updateModel() async {
-    print('update model');
-    runUpdate = true;
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     if (_model == null) {
       _model = await ContinuousScanModel(
@@ -41,22 +40,6 @@ class _ScanPageState extends State<ScanPage> {
   }
 
   @override
-  void initState() {
-    print('initState');
-    super.initState();
-    if (!runUpdate) {
-      _updateModel();
-    }
-    runUpdate = false;
-  }
-
-  @override
-  void dispose() {
-    print('dispose');
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     if (_model == null) {
       return const Center(child: CircularProgressIndicator());
@@ -64,37 +47,25 @@ class _ScanPageState extends State<ScanPage> {
 
     return ChangeNotifierProvider<ContinuousScanModel>(
       create: (BuildContext context) => _model!,
-      child: _buildChild(),
+      child: Navigator(
+        key: widget.navigatorKey,
+        observers: <RouteObserver<ModalRoute<void>>>[routeObserver],
+        onGenerateRoute: (RouteSettings routeSettings) {
+          return MaterialPageRoute<dynamic>(
+              builder: (BuildContext context) => _buildChild());
+        },
+      ),
     );
   }
 
-  /*
-  * Navigator(
-      key: navigatorKey,
-      onGenerateRoute: (RouteSettings routeSettings) {
-        return MaterialPageRoute<dynamic>(
-            builder: (BuildContext context) => child);
-      },
-    )
-  *
-  *
-  *
-  * */
-
   Widget _buildChild() {
-    print('Start build scan page');
     if (widget.offstage) {
       _model!.stopQRView();
+      //Build instead if the ContinuousScanPage when not on the Scan Tab (and not navigated further) shouldn't be visible at all
       //This has to be build inside of the ChangeNotifierProvider to prevent the model to be disposed.
       return const Center(child: Text('A error occurred'));
     } else {
-      return Navigator(
-        key: widget.navigatorKey,
-        onGenerateRoute: (RouteSettings routeSettings) {
-          return MaterialPageRoute<dynamic>(
-              builder: (BuildContext context) => ContinuousScanPage());
-        },
-      );
+      return ContinuousScanPage(routeObserver: routeObserver);
     }
   }
 }
