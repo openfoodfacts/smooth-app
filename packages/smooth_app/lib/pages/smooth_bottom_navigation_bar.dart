@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_app/pages/scan/scan_page.dart';
 import 'package:smooth_app/widgets/tab_navigator.dart';
 
 enum SmoothBottomNavigationTab {
@@ -93,12 +94,19 @@ class SmoothBottomNavigationBarState extends State<SmoothBottomNavigationBar> {
   }
 
   Widget _buildOffstageNavigator(SmoothBottomNavigationTab tabItem) {
+    final bool offstage = _currentPage != tabItem;
     return Offstage(
-      offstage: _currentPage != tabItem,
-      child: TabNavigator(
-        navigatorKey: _navigatorKeys[tabItem]!,
-        tabItem: tabItem,
-      ),
+      //TODO: Replace with offstage
+      offstage: tabItem != SmoothBottomNavigationTab.Scan,
+      child: tabItem != SmoothBottomNavigationTab.Scan
+          ? TabNavigator(
+              navigatorKey: _navigatorKeys[tabItem]!,
+              tabItem: tabItem,
+            )
+          : ScanPage(
+              offstage: offstage,
+              navigatorKey: _navigatorKeys[tabItem]!,
+            ),
     );
   }
 }
