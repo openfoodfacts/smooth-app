@@ -136,7 +136,7 @@ class AttributeListExpandable extends StatelessWidget {
           MaterialPageRoute<Widget>(
             builder: (BuildContext context) =>
                 EditIngredientsPage(
-                  ingredients: product.ingredients ?? <Ingredient>[],
+                  product: product,
                   imageIngredientsUrl: product.imageIngredientsUrl,
                   barcode: product.barcode,
                 ),

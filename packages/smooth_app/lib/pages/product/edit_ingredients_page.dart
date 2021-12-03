@@ -4,6 +4,7 @@ import 'dart:ui' show ImageFilter;
 import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:openfoodfacts/model/OcrIngredientsResult.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 //import 'package:openfoodfacts/model/Product.dart';
 //import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -15,20 +16,28 @@ import 'package:smooth_app/themes/theme_provider.dart';
 /// Page for editing the ingredients of a product and the image of the
 /// ingredients.
 class EditIngredientsPage extends StatefulWidget {
-  EditIngredientsPage({
+  const EditIngredientsPage({
     Key? key,
     this.imageIngredientsUrl,
-    required this.ingredients,
+    required this.product,
     this.barcode,
-  }) : controller = TextEditingController(text: _getIngredientsString(ingredients)),
-       super(key: key);
+  }) : super(key: key);
 
   final String? barcode;
-  final TextEditingController controller;
-  final List<Ingredient> ingredients;
+  final Product product;
   final String? imageIngredientsUrl;
 
-  static String _getIngredientsString(List<Ingredient> ingredients) {
+  @override
+  _EditIngredientsPageState createState() => _EditIngredientsPageState();
+}
+
+class _EditIngredientsPageState extends State<EditIngredientsPage> {
+  final TextEditingController _controller = TextEditingController();
+
+  static String _getIngredientsString(List<Ingredient>? ingredients) {
+    if (ingredients == null) {
+      return '';
+    }
     String string = '';
     for (int i = 0; i < ingredients.length; i += i) {
       final Ingredient ingredient = ingredients[i];
@@ -42,10 +51,20 @@ class EditIngredientsPage extends StatefulWidget {
   }
 
   @override
-  _EditIngredientsPageState createState() => _EditIngredientsPageState();
-}
+  void initState() {
+    super.initState();
+    _controller.text = _getIngredientsString(widget.product.ingredients);
+  }
 
-class _EditIngredientsPageState extends State<EditIngredientsPage> {
+  @override
+  void didUpdateWidget(EditIngredientsPage oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    final String productIngredients = _getIngredientsString(widget.product.ingredients);
+    if (productIngredients != _controller.text) {
+      _controller.text = productIngredients;
+    }
+  }
+
   // TODO(justinmc): Deduplicate this with image_upload_card.dart.
   Future<void> _getImage() async {
     final ImagePicker picker = ImagePicker();
@@ -66,9 +85,10 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
         return;
       }
 
+      final OpenFoodFactsLanguage language = LanguageHelper.fromJson(
+          Localizations.localeOf(context).languageCode);
       final SendImage image = SendImage(
-        lang: LanguageHelper.fromJson(
-            Localizations.localeOf(context).languageCode),
+        lang: language,
         barcode: widget.barcode!, //Probably throws an error, but this is not a big problem when we got a product without a barcode
         imageField: ImageField.INGREDIENTS,
         imageUri: croppedImageFile.uri,
@@ -79,13 +99,34 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
       const User myUser =
           User(userId: 'smoothie-app', password: 'strawberrybanana');
 
+      // TODO(justinmc): This doesn't seem to update the product if I refetch it.
       // query the OpenFoodFacts API
       final Status result =
           await OpenFoodAPIClient.addProductImage(myUser, image);
 
+      // TODO(justinmc): Refetch the product, if that's how addProductImage works.
+      // Doesn't seem to work in image_upload_card either.
+
       if (result.status != 'status ok') {
         throw Exception(
             'image could not be uploaded: ${result.error} ${result.imageId.toString()}');
+      }
+
+      // Get the ingredients from the image.
+      final OcrIngredientsResult ingredientsResult = await OpenFoodAPIClient
+          .extractIngredients(myUser, widget.barcode!, language);
+
+      final String? nextIngredients = ingredientsResult.ingredientsTextFromImage;
+      // Save the product's ingredients if needed.
+      if (nextIngredients != null
+          && _getIngredientsString(widget.product.ingredients) != nextIngredients) {
+        setState(() {
+          print('justin ingredients $nextIngredients');
+          _controller.text = nextIngredients;
+        });
+        // TODO(justinmc): How do I update the product's ingredients? Lots of
+        // ingredient-related fields on Product. I only see the saveProduct API
+        // method, is that for editing too?
       }
     }
   }
@@ -157,8 +198,9 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
                           padding: const EdgeInsets.all(16.0),
                           child: Column(
                             children: <Widget>[
+                              // TODO(justinmc): Implement editing of ingredients.
                               TextField(
-                                controller: widget.controller,
+                                controller: _controller,
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(3.0),
@@ -215,8 +257,9 @@ class _ActionButtons extends StatelessWidget {
             tooltip: 'Retake photo',
             backgroundColor: Colors.white,
             foregroundColor: Colors.grey,
-            onPressed: () {
-            },
+            // TODO(justinmc): Is editing the product image the same API call
+            // to addProductImage?
+            onPressed: getImage,
             child: const Icon(Icons.refresh),
           ),
         if (hasImage)
