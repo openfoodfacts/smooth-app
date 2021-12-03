@@ -4,6 +4,7 @@ import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/cards/expandables/attribute_list_expandable.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
@@ -14,6 +15,7 @@ import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_ui_library/smooth_ui_library.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
 
+/// Main attributes, to be displayed on top
 const List<String> _SCORE_ATTRIBUTE_IDS = <String>[
   Attribute.ATTRIBUTE_NUTRISCORE,
   Attribute.ATTRIBUTE_ECOSCORE,
@@ -25,6 +27,7 @@ const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_PROCESSING,
   AttributeGroup.ATTRIBUTE_GROUP_NUTRITIONAL_QUALITY,
   AttributeGroup.ATTRIBUTE_GROUP_LABELS,
+  AttributeGroup.ATTRIBUTE_GROUP_ENVIRONMENT,
 ];
 
 // Each row in the summary card takes roughly 40px.
@@ -46,6 +49,9 @@ class _SummaryCardState extends State<SummaryCard> {
   // Number of Rows that will be printed in the SummaryCard, initialized to a
   // very high number for infinite rows.
   int totalPrintableRows = 10000;
+
+  // For some reason, special case for "label" attributes
+  final Set<String> _attributesToExcludeIfStatusIsUnknown = <String>{};
 
   @override
   Widget build(BuildContext context) {
@@ -128,21 +134,57 @@ class _SummaryCardState extends State<SummaryCard> {
     // Each Score card takes about 1.5 rows to render.
     totalPrintableRows -= (1.5 * scoreAttributes.length).ceil();
 
-    final List<AttributeGroup> attributeGroupsToBeRendered =
-        _getAttributeGroupsToBeRendered();
+    final List<Widget> displayedGroups = <Widget>[];
+
+    // First, a virtual group with mandatory attributes of all groups
+    final List<Widget> attributeChips = _buildAttributeChips(
+      _getMandatoryAttributes(),
+    );
+    if (attributeChips.isNotEmpty) {
+      displayedGroups.add(
+        _buildAttributeGroup(
+          _buildAttributeGroupHeader(
+            isFirstGroup: displayedGroups.isEmpty,
+            groupName: null,
+          ),
+          attributeChips,
+        ),
+      );
+    }
+    // Then, all groups, each with very important and important attributes
+    for (final String groupId in _ATTRIBUTE_GROUP_ORDER) {
+      final Iterable<AttributeGroup> groupIterable = widget
+          ._product.attributeGroups!
+          .where((AttributeGroup group) => group.id == groupId);
+
+      if (groupIterable.isEmpty) {
+        continue;
+      }
+      final AttributeGroup group = groupIterable.single;
+      final List<Widget> attributeChips = _buildAttributeChips(
+        _getFilteredAttributes(
+          group,
+          PreferenceImportance.ID_IMPORTANT,
+        ),
+      );
+      if (attributeChips.isNotEmpty) {
+        displayedGroups.add(
+          _buildAttributeGroup(
+            _buildAttributeGroupHeader(
+                isFirstGroup: displayedGroups.isEmpty,
+                groupName: group.id == AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS
+                    ? group.name!
+                    : null),
+            attributeChips,
+          ),
+        );
+      }
+    }
+
     final Widget attributesContainer = Container(
       alignment: Alignment.topLeft,
       margin: const EdgeInsets.only(bottom: 16),
-      child: Column(
-        children: <Widget>[
-          for (final AttributeGroup group in attributeGroupsToBeRendered)
-            _buildAttributeGroup(
-              context,
-              group,
-              group == attributeGroupsToBeRendered.first,
-            ),
-        ],
-      ),
+      child: Column(children: displayedGroups),
     );
     return Column(
       children: <Widget>[
@@ -150,34 +192,13 @@ class _SummaryCardState extends State<SummaryCard> {
         for (final Attribute attribute in scoreAttributes)
           ScoreCard(
             iconUrl: attribute.iconUrl!,
-            description: attribute.descriptionShort ?? attribute.description!,
+            description:
+                attribute.descriptionShort ?? attribute.description ?? '',
             cardEvaluation: getCardEvaluationFromAttribute(attribute),
           ),
         attributesContainer,
       ],
     );
-  }
-
-  List<AttributeGroup> _getAttributeGroupsToBeRendered() {
-    final List<AttributeGroup> attributeGroupsToBeRendered = <AttributeGroup>[];
-    for (final String groupId in _ATTRIBUTE_GROUP_ORDER) {
-      final Iterable<AttributeGroup> groupIterable = widget
-          ._product.attributeGroups!
-          .where((AttributeGroup group) => group.id == groupId);
-      if (groupIterable.isEmpty) {
-        continue;
-      }
-      final AttributeGroup group = groupIterable.single;
-
-      final bool containsImportantAttributes = group.attributes!.any(
-          (Attribute attribute) =>
-              widget._productPreferences.isAttributeImportant(attribute.id!) ==
-              true);
-      if (containsImportantAttributes) {
-        attributeGroupsToBeRendered.add(group);
-      }
-    }
-    return attributeGroupsToBeRendered;
   }
 
   Widget _buildProductCompatibilityHeader(BuildContext context) {
@@ -226,33 +247,14 @@ class _SummaryCardState extends State<SummaryCard> {
     );
   }
 
-  /// Builds an AttributeGroup, if [isFirstGroup] is true the group doesn't get
-  /// a divider header.
   Widget _buildAttributeGroup(
-    BuildContext context,
-    AttributeGroup group,
-    bool isFirstGroup,
+    final Widget header,
+    final List<Widget> attributeChips,
   ) {
-    final List<Widget> attributeChips = <Widget>[];
-    for (final Attribute attribute in group.attributes!) {
-      final Widget? attributeChip = _buildAttributeChipForValidAttributes(
-        attribute: attribute,
-        returnNullIfStatusUnknown:
-            group.id == AttributeGroup.ATTRIBUTE_GROUP_LABELS,
-      );
-      if (attributeChip != null &&
-          attributeChips.length / 2 < totalPrintableRows) {
-        attributeChips.add(attributeChip);
-      }
-    }
-    if (attributeChips.isEmpty) {
-      return EMPTY_WIDGET;
-    }
-    totalPrintableRows =
-        totalPrintableRows - (attributeChips.length / 2).ceil();
+    totalPrintableRows -= (attributeChips.length / 2).ceil();
     return Column(
       children: <Widget>[
-        _buildAttributeGroupHeader(context, group, isFirstGroup),
+        header,
         Container(
           alignment: Alignment.topLeft,
           child: Wrap(
@@ -264,19 +266,28 @@ class _SummaryCardState extends State<SummaryCard> {
     );
   }
 
-  /// The attribute group header can either be group name or a divider depending
-  /// upon the type of the group.
-  Widget _buildAttributeGroupHeader(
-    BuildContext context,
-    AttributeGroup group,
-    bool isFirstGroup,
-  ) {
-    if (group.id == AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS) {
+  List<Widget> _buildAttributeChips(final List<Attribute> attributes) {
+    final List<Widget> result = <Widget>[];
+    for (final Attribute attribute in attributes) {
+      final Widget? attributeChip =
+          _buildAttributeChipForValidAttributes(attribute);
+      if (attributeChip != null && result.length / 2 < totalPrintableRows) {
+        result.add(attributeChip);
+      }
+    }
+    return result;
+  }
+
+  Widget _buildAttributeGroupHeader({
+    required bool isFirstGroup,
+    String? groupName,
+  }) {
+    if (groupName != null) {
       return Container(
         alignment: Alignment.topLeft,
         padding: const EdgeInsets.only(top: SMALL_SPACE, bottom: LARGE_SPACE),
         child: Text(
-          group.name!,
+          groupName,
           style:
               Theme.of(context).textTheme.bodyText2!.apply(color: Colors.grey),
         ),
@@ -292,21 +303,9 @@ class _SummaryCardState extends State<SummaryCard> {
     );
   }
 
-  Widget? _buildAttributeChipForValidAttributes({
-    required Attribute attribute,
-    required bool returnNullIfStatusUnknown,
-  }) {
-    if (attribute.id == null || _SCORE_ATTRIBUTE_IDS.contains(attribute.id)) {
-      // Score Attribute Ids have already been rendered.
-      return null;
-    }
-    if (widget._productPreferences.isAttributeImportant(attribute.id!) !=
-        true) {
-      // Not an important attribute.
-      return null;
-    }
-    if (returnNullIfStatusUnknown &&
-        attribute.status == Attribute.STATUS_UNKNOWN) {
+  Widget? _buildAttributeChipForValidAttributes(final Attribute attribute) {
+    if (attribute.status == Attribute.STATUS_UNKNOWN &&
+        _attributesToExcludeIfStatusIsUnknown.contains(attribute.id)) {
       return null;
     }
     final String? attributeDisplayTitle = getDisplayTitle(attribute);
@@ -326,5 +325,61 @@ class _SummaryCardState extends State<SummaryCard> {
                 Expanded(child: Text(attributeDisplayTitle)),
               ]));
     });
+  }
+
+  /// Returns the mandatory attributes, ordered by attribute group order
+  List<Attribute> _getMandatoryAttributes() {
+    final List<Attribute> result = <Attribute>[];
+    if (widget._product.attributeGroups == null) {
+      return result;
+    }
+    final Map<String, List<Attribute>> mandatoryAttributesByGroup =
+        <String, List<Attribute>>{};
+    // collecting all the mandatory attributes, by group
+    for (final AttributeGroup attributeGroup
+        in widget._product.attributeGroups!) {
+      mandatoryAttributesByGroup[attributeGroup.id!] = _getFilteredAttributes(
+        attributeGroup,
+        PreferenceImportance.ID_MANDATORY,
+      );
+    }
+    // now ordering by attribute group order
+    for (final String attributeGroupId in _ATTRIBUTE_GROUP_ORDER) {
+      final List<Attribute>? attributes =
+          mandatoryAttributesByGroup[attributeGroupId];
+      if (attributes != null) {
+        result.addAll(attributes);
+      }
+    }
+    return result;
+  }
+
+  /// Returns the attributes that match the filter
+  ///
+  /// [_SCORE_ATTRIBUTE_IDS] attributes are not included, as they are already
+  /// dealt with somewhere else.
+  List<Attribute> _getFilteredAttributes(
+    final AttributeGroup attributeGroup,
+    final String importance,
+  ) {
+    final List<Attribute> result = <Attribute>[];
+    if (attributeGroup.attributes == null) {
+      return result;
+    }
+    for (final Attribute attribute in attributeGroup.attributes!) {
+      final String attributeId = attribute.id!;
+      if (_SCORE_ATTRIBUTE_IDS.contains(attributeId)) {
+        continue;
+      }
+      if (attributeGroup.id == AttributeGroup.ATTRIBUTE_GROUP_LABELS) {
+        _attributesToExcludeIfStatusIsUnknown.add(attributeId);
+      }
+      final String importanceId =
+          widget._productPreferences.getImportanceIdForAttributeId(attributeId);
+      if (importance == importanceId) {
+        result.add(attribute);
+      }
+    }
+    return result;
   }
 }

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
@@ -22,7 +21,7 @@ const int _NEUTRAL_COMPATIBILITY_UPPER_THRESHOLD = 66;
 // for the product. The weight depends upon it's importance set in user prefs.
 const Map<String, int> attributeImportanceWeight = <String, int>{
   PreferenceImportance.ID_MANDATORY: 4,
-  PreferenceImportance.ID_VERY_IMPORTANT: 2,
+  PreferenceImportance.ID_VERY_IMPORTANT: 1, // same as important from now on
   PreferenceImportance.ID_IMPORTANT: 1,
   PreferenceImportance.ID_NOT_IMPORTANT: 0,
 };

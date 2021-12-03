@@ -8,20 +8,24 @@ class KnowledgePanelsBuilder {
   const KnowledgePanelsBuilder();
 
   List<Widget> build(KnowledgePanels knowledgePanels) {
-    final List<KnowledgePanel> rootKnowledgePanels = <KnowledgePanel>[];
-    for (final KnowledgePanel knowledgePanel
-        in knowledgePanels.panelIdToPanelMap.values) {
-      if (knowledgePanel.parentPanelId == 'root') {
-        rootKnowledgePanels.add(knowledgePanel);
-      }
-    }
-
     final List<Widget> rootPanelWidgets = <Widget>[];
-    for (final KnowledgePanel rootKnowledgePanel in rootKnowledgePanels) {
+    if (knowledgePanels.panelIdToPanelMap['root'] == null) {
+      return rootPanelWidgets;
+    }
+    if (knowledgePanels.panelIdToPanelMap['root']!.elements == null) {
+      return rootPanelWidgets;
+    }
+    for (final KnowledgePanelElement panelElement
+        in knowledgePanels.panelIdToPanelMap['root']!.elements!) {
+      if (panelElement.elementType != KnowledgePanelElementType.PANEL) {
+        continue;
+      }
+      final KnowledgePanel rootPanel = knowledgePanels
+          .panelIdToPanelMap[panelElement.panelElement!.panelId]!;
       // [knowledgePanelElementWidgets] are a set of widgets inside the root panel.
       final List<Widget> knowledgePanelElementWidgets = <Widget>[];
       for (final KnowledgePanelElement knowledgePanelElement
-          in rootKnowledgePanel.elements ?? <KnowledgePanelElement>[]) {
+          in rootPanel.elements ?? <KnowledgePanelElement>[]) {
         knowledgePanelElementWidgets.add(KnowledgePanelElementCard(
           knowledgePanelElement: knowledgePanelElement,
           allPanels: knowledgePanels,

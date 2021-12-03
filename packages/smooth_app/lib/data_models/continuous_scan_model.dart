@@ -40,7 +40,7 @@ class ContinuousScanModel with ChangeNotifier {
   final String languageCode;
   final String countryCode;
 
-  bool get isNotEmpty => getBarcodes().isNotEmpty;
+  bool get hasMoreThanOneProduct => getBarcodes().length > 1;
   ProductList get productList => _productList;
 
   List<String> getBarcodes() => _barcodes;
@@ -96,19 +96,22 @@ class ContinuousScanModel with ChangeNotifier {
 
   Product getProduct(final String barcode) => _productList.getProduct(barcode);
 
-  void setupScanner(QRViewController controller) => controller.scannedDataStream
-      .listen((Barcode barcode) => onScan(barcode.code));
+  void setupScanner(QRViewController controller) =>
+      controller.scannedDataStream.listen((Barcode barcode) => onScan(barcode));
 
-  Future<void> onScan(final String code) async {
-    if (_barcodeTrustCheck != code) {
-      _barcodeTrustCheck = code;
-      return;
+  Future<void> onScan(final Barcode barcode) async {
+    if (barcode.code == null) {
+      final String code = barcode.code!;
+      if (_barcodeTrustCheck != code) {
+        _barcodeTrustCheck = code;
+        return;
+      }
+      if (_latestScannedBarcode == code) {
+        return;
+      }
+      _latestScannedBarcode = code;
+      _addBarcode(code);
     }
-    if (_latestScannedBarcode == code) {
-      return;
-    }
-    _latestScannedBarcode = code;
-    _addBarcode(code);
   }
 
   Future<bool> _addBarcode(final String barcode) async {

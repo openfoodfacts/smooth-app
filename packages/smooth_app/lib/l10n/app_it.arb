@@ -5,6 +5,8 @@
     },
     "search": "Cerca",
     "@search": {},
+    "welcomeToOpenFoodFacts": "Benvenuto in OpenFoodFacts",
+    "@welcomeToOpenFoodFacts": {},
     "searchPanelHeader": "Cerca o scansiona il tuo primo prodotto",
     "@searchPanelHeader": {},
     "searchHintText": "Inserisci un codice a barre o delle parole chiave",
@@ -19,6 +21,8 @@
     "@scanProductTitle": {},
     "organizationPage": "Pagina dell'Organizzazione",
     "@organizationPage": {},
+    "contributors": "Contributori",
+    "@contributors": {},
     "contributionPage": "Pagina del Contributo",
     "@contributionPage": {},
     "trackingPage": "Pagina di Monitoraggio",
@@ -236,6 +240,39 @@
     "@could_not_refresh": {},
     "no_product_found": "Nessun prodotto trovato",
     "@no_product_found": {},
+    "product_internet_error": "Impossibile recuperare le informazioni su questo prodotto a causa di un errore di rete.",
+    "product_internet_cancel": "Annullato dall'utente.",
+    "product_improvement_origins_to_be_completed": "L'Eco-Score tiene in considerazione le origini degli ingredienti. Sei pregato di inserire una foto (elenco degli ingredienti e/o ogni indicazione geografica) o di modificare il prodotto così che siano presi in considerazione. Se non è chiaro, puoi contattare il produttore dell'alimento.",
+    "@product_improvement_origins_to_be_completed": {
+        "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
+    },
+    "product_improvement_categories_but_no_nutriscore": "Non siamo riusciti a calcolare un Nutri-Score per questo prodotto. Potrebbe essere che la categoria sia un'eccezione. Se credi che questo sia un errore, contattaci.",
+    "@product_improvement_categories_but_no_nutriscore": {
+        "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
+    },
+    "product_improvement_add_nutrition_facts": "Aggiungi i valori nutrizionali per calcolare il Nutri-Score.",
+    "@product_improvement_add_nutrition_facts": {
+        "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
+    },
+    "product_improvement_add_category": "Aggiungi una categoria per calcolare il Nutri-Score.",
+    "@product_improvement_add_category": {
+        "description": "Message for ProductImprovement.ADD_CATEGORY"
+    },
+    "product_improvement_add_nutrition_facts_and_category": "Aggiungi i valori nutrizionali e una categoria per calcolare il Nutri-Score.",
+    "@product_improvement_add_nutrition_facts_and_category": {
+        "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
+    },
+    "product_improvement_obsolete_nutrition_image": "L'immagine nutrizionale è obsoleta: sei pregato di aggiornarla.",
+    "@product_improvement_obsolete_nutrition_image": {
+        "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
+    },
+    "product_improvements_count": "{count,plural, one {} =1{Un possibile miglioramento} other{{count} possibili miglioramenti}}",
+    "@product_improvements_count": {
+        "description": "x possible improvements",
+        "placeholders": {
+            "count": {}
+        }
+    },
     "products_pasted": "prodotti incollati",
     "@products_pasted": {},
     "no_prodcut_in_list": "Non ci sono prodotti nella tua lista.",

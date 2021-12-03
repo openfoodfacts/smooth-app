@@ -1,5 +1,4 @@
 /// Contains UI related constant that are shared across the entire app.
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
 
@@ -34,9 +33,12 @@ class IconWidgetSizer {
 Color? getTextColorFromKnowledgePanelElementEvaluation(Evaluation evaluation) {
   switch (evaluation) {
     case Evaluation.UNKNOWN:
-    case Evaluation.NEUTRAL:
-      // Use default color for neutral and unknown.
+      // Use default color for unknown.
       return null;
+    case Evaluation.AVERAGE:
+      return Colors.grey;
+    case Evaluation.NEUTRAL:
+      return Colors.orange;
     case Evaluation.BAD:
       return Colors.red;
     case Evaluation.GOOD:
