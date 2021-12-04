@@ -58,11 +58,11 @@ class _ScanPageState extends State<ScanPage> {
     );
   }
 
-  //Don't build Scanner (+activate camer) when not on the Scan Tab
+  //This has to be build inside of the ChangeNotifierProvider to prevent the model to be disposed.
   Widget _buildChild() {
+    //Don't build Scanner (+activate camera) when not on the Scan Tab
     if (widget.offstage) {
       _model!.stopQRView();
-      //This has to be build inside of the ChangeNotifierProvider to prevent the model to be disposed.
       //shouldn't be visible since only build when offstage
       return const Center(child: Text('A error occurred'));
     } else {

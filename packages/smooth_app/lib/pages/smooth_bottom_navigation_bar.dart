@@ -86,7 +86,6 @@ class SmoothBottomNavigationBarState extends State<SmoothBottomNavigationBar> {
               label: 'History',
             ),
           ],
-          //type: BottomNavigationBarType.fixed,
         ),
       ),
     );

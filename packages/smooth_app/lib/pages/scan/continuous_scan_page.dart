@@ -60,7 +60,7 @@ class _ContinuousScanPageState extends State<ContinuousScanPage>
   Widget build(BuildContext context) {
     if (!ModalRoute.of(context)!.isCurrent) {
       isCurrent = false;
-      return const Center(child: Text('A unknow error occured'));
+      return const Center(child: Text('A unknown error occurred'));
     }
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
