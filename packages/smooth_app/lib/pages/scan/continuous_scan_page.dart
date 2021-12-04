@@ -20,6 +20,8 @@ class _ContinuousScanPageState extends State<ContinuousScanPage>
     with RouteAware {
   final GlobalKey _scannerViewKey = GlobalKey(debugLabel: 'Barcode Scanner');
   ContinuousScanModel? model;
+  //isCurrent (latest) route in navigator stack, tracked to decide whether to rebuild scanner or just to reactivate the camera.
+  bool isCurrent = true;
 
   @override
   void didChangeDependencies() {
@@ -45,13 +47,21 @@ class _ContinuousScanPageState extends State<ContinuousScanPage>
   @override
   void didPopNext() {
     super.didPopNext();
-    if (model != null) {
+    if (!isCurrent) {
+      isCurrent = true;
+      //First building of scanner
+      setState(() {});
+    } else if (model != null) {
       model!.restartQRView();
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    if (!ModalRoute.of(context)!.isCurrent) {
+      isCurrent = false;
+      return const Center(child: Text('A unknow error occured'));
+    }
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
       model = context.watch<ContinuousScanModel>();
