@@ -55,7 +55,7 @@ class ProductDialogHelper {
       return;
     }
     _popEd = true;
-    Navigator.pop(context, fetchedProduct);
+    Navigator.of(context, rootNavigator: true).pop(fetchedProduct);
   }
 
   Widget _getSearchingDialog() => SmoothAlertDialog(
