@@ -64,7 +64,8 @@ class _ScanPageState extends State<ScanPage> {
     if (widget.offstage) {
       _model!.stopQRView();
       //shouldn't be visible since only build when offstage
-      return const Center(child: Text('A error occurred'));
+      return const Center(
+          child: Text("shouldn't be visible since only build when offstage"));
     } else {
       return ContinuousScanPage(routeObserver: routeObserver);
     }

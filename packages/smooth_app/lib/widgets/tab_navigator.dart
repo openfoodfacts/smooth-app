@@ -10,7 +10,7 @@ class TabNavigator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    late Widget child;
+    late final Widget child;
 
     //Scan is not dealt with here, as it has to be handled differently with its greater complexity (camera on/off)
     if (tabItem == BottomNavigationTab.Profile) {

@@ -49,8 +49,8 @@ class _ContinuousScanPageState extends State<ContinuousScanPage>
       isCurrent = true;
       //First building of scanner
       setState(() {});
-    } else if (model != null) {
-      model!.restartQRView();
+    } else {
+      model?.restartQRView();
     }
   }
 

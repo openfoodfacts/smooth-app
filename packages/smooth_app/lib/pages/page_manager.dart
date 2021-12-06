@@ -8,6 +8,12 @@ enum BottomNavigationTab {
   History,
 }
 
+/// Here the different tabs in the bottom navigation bar are taken care of,
+/// so that they are statefull, that is not only things like the scroll position
+/// but also keeping the navigation on the different tabs.
+///
+/// Scan Page is an exception here as it needs a little more work so that the
+/// camera is not kept unnecessarily kept active.
 class PageManager extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => PageManagerState();
@@ -74,6 +80,7 @@ class PageManagerState extends State<PageManager> {
           },
           currentIndex: _selectedIndex,
           items: const <BottomNavigationBarItem>[
+            // TODO(M123): Translate
             BottomNavigationBarItem(
               icon: Icon(Icons.account_circle),
               label: 'Profile',
