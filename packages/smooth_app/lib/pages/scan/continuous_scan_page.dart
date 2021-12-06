@@ -38,9 +38,7 @@ class _ContinuousScanPageState extends State<ContinuousScanPage>
   @override
   void didPushNext() {
     super.didPushNext();
-    if (model != null) {
-      model!.stopQRView();
-    }
+    model?.stopQRView();
   }
 
   //Called when the top route has been popped off, so restarting camera

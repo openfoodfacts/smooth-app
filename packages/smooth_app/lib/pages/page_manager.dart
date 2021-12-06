@@ -2,41 +2,42 @@ import 'package:flutter/material.dart';
 import 'package:smooth_app/pages/scan/scan_page.dart';
 import 'package:smooth_app/widgets/tab_navigator.dart';
 
-enum SmoothBottomNavigationTab {
+enum BottomNavigationTab {
   Profile,
   Scan,
   History,
 }
 
-class SmoothBottomNavigationBar extends StatefulWidget {
+class PageManager extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => SmoothBottomNavigationBarState();
+  State<StatefulWidget> createState() => PageManagerState();
 }
 
-class SmoothBottomNavigationBarState extends State<SmoothBottomNavigationBar> {
-  List<SmoothBottomNavigationTab> pageKeys = <SmoothBottomNavigationTab>[
-    SmoothBottomNavigationTab.Profile,
-    SmoothBottomNavigationTab.Scan,
-    SmoothBottomNavigationTab.History,
+class PageManagerState extends State<PageManager> {
+  static const List<BottomNavigationTab> _pageKeys = <BottomNavigationTab>[
+    BottomNavigationTab.Profile,
+    BottomNavigationTab.Scan,
+    BottomNavigationTab.History,
   ];
-  SmoothBottomNavigationTab _currentPage = SmoothBottomNavigationTab.Scan;
 
-  final Map<SmoothBottomNavigationTab, GlobalKey<NavigatorState>>
-      _navigatorKeys = <SmoothBottomNavigationTab, GlobalKey<NavigatorState>>{
-    SmoothBottomNavigationTab.Profile: GlobalKey<NavigatorState>(),
-    SmoothBottomNavigationTab.Scan: GlobalKey<NavigatorState>(),
-    SmoothBottomNavigationTab.History: GlobalKey<NavigatorState>(),
+  final Map<BottomNavigationTab, GlobalKey<NavigatorState>> _navigatorKeys =
+      <BottomNavigationTab, GlobalKey<NavigatorState>>{
+    BottomNavigationTab.Profile: GlobalKey<NavigatorState>(),
+    BottomNavigationTab.Scan: GlobalKey<NavigatorState>(),
+    BottomNavigationTab.History: GlobalKey<NavigatorState>(),
   };
-  int _selectedIndex = 1;
 
-  void _selectTab(SmoothBottomNavigationTab tabItem, int index) {
+  int _selectedIndex = 1;
+  BottomNavigationTab _currentPage = BottomNavigationTab.Scan;
+
+  void _selectTab(BottomNavigationTab tabItem, int index) {
     if (tabItem == _currentPage) {
       _navigatorKeys[tabItem]!
           .currentState!
           .popUntil((Route<dynamic> route) => route.isFirst);
     } else {
       setState(() {
-        _currentPage = pageKeys[index];
+        _currentPage = _pageKeys[index];
         _selectedIndex = index;
       });
     }
@@ -49,8 +50,8 @@ class SmoothBottomNavigationBarState extends State<SmoothBottomNavigationBar> {
         final bool isFirstRouteInCurrentTab =
             !await _navigatorKeys[_currentPage]!.currentState!.maybePop();
         if (isFirstRouteInCurrentTab) {
-          if (_currentPage != SmoothBottomNavigationTab.Scan) {
-            _selectTab(SmoothBottomNavigationTab.Scan, 1);
+          if (_currentPage != BottomNavigationTab.Scan) {
+            _selectTab(BottomNavigationTab.Scan, 1);
             return false;
           }
         }
@@ -59,9 +60,9 @@ class SmoothBottomNavigationBarState extends State<SmoothBottomNavigationBar> {
       },
       child: Scaffold(
         body: Stack(children: <Widget>[
-          _buildOffstageNavigator(SmoothBottomNavigationTab.Profile),
-          _buildOffstageNavigator(SmoothBottomNavigationTab.Scan),
-          _buildOffstageNavigator(SmoothBottomNavigationTab.History),
+          _buildOffstageNavigator(BottomNavigationTab.Profile),
+          _buildOffstageNavigator(BottomNavigationTab.Scan),
+          _buildOffstageNavigator(BottomNavigationTab.History),
         ]),
         bottomNavigationBar: BottomNavigationBar(
           showSelectedLabels: false,
@@ -69,7 +70,7 @@ class SmoothBottomNavigationBarState extends State<SmoothBottomNavigationBar> {
           selectedItemColor: Colors.white,
           backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
           onTap: (int index) {
-            _selectTab(pageKeys[index], index);
+            _selectTab(_pageKeys[index], index);
           },
           currentIndex: _selectedIndex,
           items: const <BottomNavigationBarItem>[
@@ -91,11 +92,14 @@ class SmoothBottomNavigationBarState extends State<SmoothBottomNavigationBar> {
     );
   }
 
-  Widget _buildOffstageNavigator(SmoothBottomNavigationTab tabItem) {
+  Widget _buildOffstageNavigator(BottomNavigationTab tabItem) {
     final bool offstage = _currentPage != tabItem;
+    // In order for the scanPage be to able to decide whether to activate the camera or not
+    // the offstage value has to be passed to it and can because of that not be
+    // handled by the TabNavigator
     return Offstage(
       offstage: offstage,
-      child: tabItem != SmoothBottomNavigationTab.Scan
+      child: tabItem != BottomNavigationTab.Scan
           ? TabNavigator(
               navigatorKey: _navigatorKeys[tabItem]!,
               tabItem: tabItem,
