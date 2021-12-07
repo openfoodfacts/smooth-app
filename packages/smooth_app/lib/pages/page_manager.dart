@@ -32,7 +32,6 @@ class PageManagerState extends State<PageManager> {
     BottomNavigationTab.History: GlobalKey<NavigatorState>(),
   };
 
-  int _selectedIndex = 1;
   BottomNavigationTab _currentPage = BottomNavigationTab.Scan;
 
   void _selectTab(BottomNavigationTab tabItem, int index) {
@@ -43,7 +42,6 @@ class PageManagerState extends State<PageManager> {
     } else {
       setState(() {
         _currentPage = _pageKeys[index];
-        _selectedIndex = index;
       });
     }
   }
@@ -77,7 +75,7 @@ class PageManagerState extends State<PageManager> {
           onTap: (int index) {
             _selectTab(_pageKeys[index], index);
           },
-          currentIndex: _selectedIndex,
+          currentIndex: _currentPage.index,
           items: const <BottomNavigationBarItem>[
             // TODO(M123): Translate
             BottomNavigationBarItem(

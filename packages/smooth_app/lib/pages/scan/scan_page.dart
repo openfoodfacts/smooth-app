@@ -60,7 +60,7 @@ class _ScanPageState extends State<ScanPage> {
   Widget _buildChild() {
     //Don't build Scanner (+activate camera) when not on the Scan Tab
     if (widget.offstage) {
-      _model!.stopQRView();
+      _model?.stopQRView();
       return const Center(
           child: Text(
         "This shouldn't be visible since only build when offstage, when you see this page send a email to contact@openfoodfacts.org",

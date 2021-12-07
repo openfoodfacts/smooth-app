@@ -23,7 +23,7 @@ class TabNavigator extends StatelessWidget {
     } else if (tabItem == BottomNavigationTab.History) {
       child = const HistoryPage();
     } else if (tabItem == BottomNavigationTab.Scan) {
-      // The ScanPage has it's own Navigator for it to be able to track further navigation
+      // The ScanPage doesn't use the here build Navigator, so that it can update when its offstage status changes
       return ScanPage(offstage: offstage, navigatorKey: navigatorKey);
     }
 
