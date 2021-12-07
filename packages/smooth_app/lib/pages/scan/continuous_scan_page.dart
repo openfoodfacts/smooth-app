@@ -9,57 +9,18 @@ import 'package:smooth_ui_library/smooth_ui_library.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 class ContinuousScanPage extends StatefulWidget {
-  const ContinuousScanPage({required this.routeObserver});
-  final RouteObserver<ModalRoute<void>> routeObserver;
+  const ContinuousScanPage();
 
   @override
   State<ContinuousScanPage> createState() => _ContinuousScanPageState();
 }
 
-class _ContinuousScanPageState extends State<ContinuousScanPage>
-    with RouteAware {
+class _ContinuousScanPageState extends State<ContinuousScanPage> {
   final GlobalKey _scannerViewKey = GlobalKey(debugLabel: 'Barcode Scanner');
   ContinuousScanModel? model;
-  //isCurrent (latest) route in navigator stack, tracked to decide whether to rebuild scanner or just to reactivate the camera.
-  bool isCurrent = true;
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    widget.routeObserver.subscribe(this, ModalRoute.of(context)!);
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    widget.routeObserver.unsubscribe(this);
-  }
-
-  @override
-  void didPushNext() {
-    super.didPushNext();
-    model?.stopQRView();
-  }
-
-  //Called when the top route has been popped off, so restarting camera
-  @override
-  void didPopNext() {
-    super.didPopNext();
-    if (!isCurrent) {
-      isCurrent = true;
-      //First building of scanner
-      setState(() {});
-    } else {
-      model?.restartQRView();
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
-    if (!ModalRoute.of(context)!.isCurrent) {
-      isCurrent = false;
-      return const Center(child: Text('A unknown error occurred'));
-    }
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
       model = context.watch<ContinuousScanModel>();

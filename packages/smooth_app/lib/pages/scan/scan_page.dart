@@ -17,8 +17,6 @@ class ScanPage extends StatefulWidget {
 
 class _ScanPageState extends State<ScanPage> {
   ContinuousScanModel? _model;
-  final RouteObserver<ModalRoute<void>> routeObserver =
-      RouteObserver<ModalRoute<void>>();
 
   @override
   void didChangeDependencies() {
@@ -49,10 +47,10 @@ class _ScanPageState extends State<ScanPage> {
       create: (BuildContext context) => _model!,
       child: Navigator(
         key: widget.navigatorKey,
-        observers: <RouteObserver<ModalRoute<void>>>[routeObserver],
         onGenerateRoute: (RouteSettings routeSettings) {
           return MaterialPageRoute<dynamic>(
-              builder: (BuildContext context) => _buildChild());
+            builder: (BuildContext context) => _buildChild(),
+          );
         },
       ),
     );
@@ -63,11 +61,12 @@ class _ScanPageState extends State<ScanPage> {
     //Don't build Scanner (+activate camera) when not on the Scan Tab
     if (widget.offstage) {
       _model!.stopQRView();
-      //shouldn't be visible since only build when offstage
       return const Center(
-          child: Text("shouldn't be visible since only build when offstage"));
+          child: Text(
+        "This shouldn't be visible since only build when offstage, when you see this page send a email to contact@openfoodfacts.org",
+      ));
     } else {
-      return ContinuousScanPage(routeObserver: routeObserver);
+      return const ContinuousScanPage();
     }
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_app/pages/scan/scan_page.dart';
 import 'package:smooth_app/widgets/tab_navigator.dart';
 
 enum BottomNavigationTab {
@@ -9,7 +8,7 @@ enum BottomNavigationTab {
 }
 
 /// Here the different tabs in the bottom navigation bar are taken care of,
-/// so that they are statefull, that is not only things like the scroll position
+/// so that they are stateful, that is not only things like the scroll position
 /// but also keeping the navigation on the different tabs.
 ///
 /// Scan Page is an exception here as it needs a little more work so that the
@@ -101,20 +100,13 @@ class PageManagerState extends State<PageManager> {
 
   Widget _buildOffstageNavigator(BottomNavigationTab tabItem) {
     final bool offstage = _currentPage != tabItem;
-    // In order for the scanPage be to able to decide whether to activate the camera or not
-    // the offstage value has to be passed to it and can because of that not be
-    // handled by the TabNavigator
     return Offstage(
       offstage: offstage,
-      child: tabItem != BottomNavigationTab.Scan
-          ? TabNavigator(
-              navigatorKey: _navigatorKeys[tabItem]!,
-              tabItem: tabItem,
-            )
-          : ScanPage(
-              offstage: offstage,
-              navigatorKey: _navigatorKeys[tabItem]!,
-            ),
+      child: TabNavigator(
+        offstage: offstage,
+        navigatorKey: _navigatorKeys[tabItem]!,
+        tabItem: tabItem,
+      ),
     );
   }
 }
