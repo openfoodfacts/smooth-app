@@ -87,7 +87,7 @@ class SmoothProductCardFound extends StatelessWidget {
                 ),
                 const SizedBox(width: 5),
                 Expanded(
-                  child: Container(
+                  child: SizedBox(
                     height: screenSize.width * 0.2,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
