@@ -77,7 +77,7 @@ class SmoothProductCardFound extends StatelessWidget {
               color: backgroundColor ?? themeData.colorScheme.surface,
               borderRadius: const BorderRadius.all(Radius.circular(15.0)),
             ),
-            padding: const EdgeInsets.all(4.0),
+            padding: const EdgeInsets.all(VERY_SMALL_SPACE),
             child: Row(
               children: <Widget>[
                 SmoothProductImage(
@@ -85,7 +85,7 @@ class SmoothProductCardFound extends StatelessWidget {
                   width: screenSize.width * 0.20,
                   height: screenSize.width * 0.20,
                 ),
-                const Padding(padding: EdgeInsets.only(left: 5)),
+                const Padding(padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
                 Expanded(
                   child: SizedBox(
                     height: screenSize.width * 0.2,
@@ -112,7 +112,7 @@ class SmoothProductCardFound extends StatelessWidget {
                                   getProductCompatibilityHeaderBackgroundColor(
                                       compatibility),
                             ),
-                            const Padding(padding: EdgeInsets.only(left: 5)),
+                            const Padding(padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
                             Text(getProductCompatibilityHeaderTextWidget(
                                 compatibility),
                               style: Theme.of(context).textTheme.bodyText2,
@@ -123,7 +123,7 @@ class SmoothProductCardFound extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Padding(padding: EdgeInsets.only(left: 5)),
+                const Padding(padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
                 Column(
                   children: scores,
                 ),
