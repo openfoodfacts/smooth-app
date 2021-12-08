@@ -85,7 +85,7 @@ class SmoothProductCardFound extends StatelessWidget {
                   width: screenSize.width * 0.20,
                   height: screenSize.width * 0.20,
                 ),
-                const SizedBox(width: 5),
+                const Padding(padding: EdgeInsets.only(left: 5)),
                 Expanded(
                   child: SizedBox(
                     height: screenSize.width * 0.2,
@@ -112,7 +112,7 @@ class SmoothProductCardFound extends StatelessWidget {
                                   getProductCompatibilityHeaderBackgroundColor(
                                       compatibility),
                             ),
-                            const SizedBox(width: 5),
+                            const Padding(padding: EdgeInsets.only(left: 5)),
                             Text(getProductCompatibilityHeaderTextWidget(
                                 compatibility),
                               style: Theme.of(context).textTheme.bodyText2,
@@ -123,7 +123,7 @@ class SmoothProductCardFound extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(width: 5),
+                const Padding(padding: EdgeInsets.only(left: 5)),
                 Column(
                   children: scores,
                 ),
