@@ -47,7 +47,7 @@ class SmoothProductCardFound extends StatelessWidget {
     final double iconSize = IconWidgetSizer.getIconSizeFromContext(context);
     final List<Attribute> attributes =
         AttributeListExpandable.getPopulatedAttributes(
-            product, <String>['nutriscore', 'ecoscore']);
+            product, SCORE_ATTRIBUTE_IDS);
     for (final Attribute attribute in attributes) {
       scores.add(SvgIconChip(attribute.iconUrl!, height: iconSize));
     }
