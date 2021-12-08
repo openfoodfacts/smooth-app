@@ -96,14 +96,12 @@ class SmoothProductCardFound extends StatelessWidget {
                         Text(
                           product.productName ?? '???',
                           overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: Theme.of(context).textTheme.headline4,
                         ),
                         Text(
                           product.brands ?? '???',
                           overflow: TextOverflow.ellipsis,
+                          style: Theme.of(context).textTheme.subtitle1,
                         ),
                         Row(
                           children: <Widget>[
@@ -116,7 +114,9 @@ class SmoothProductCardFound extends StatelessWidget {
                             ),
                             const SizedBox(width: 5),
                             Text(getProductCompatibilityHeaderTextWidget(
-                                compatibility)),
+                                compatibility),
+                              style: Theme.of(context).textTheme.bodyText2,
+                            ),
                           ],
                         ),
                       ],
