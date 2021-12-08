@@ -77,7 +77,7 @@ class SmoothProductCardFound extends StatelessWidget {
               color: backgroundColor ?? themeData.colorScheme.surface,
               borderRadius: const BorderRadius.all(Radius.circular(15.0)),
             ),
-            padding: const EdgeInsets.all(5.0),
+            padding: const EdgeInsets.all(4.0),
             child: Row(
               children: <Widget>[
                 SmoothProductImage(
