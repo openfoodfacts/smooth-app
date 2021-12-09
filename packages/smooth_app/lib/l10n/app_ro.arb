@@ -5,7 +5,7 @@
     },
     "search": "Caută",
     "@search": {},
-    "welcomeToOpenFoodFacts": "Bun venit la OpenFoodFacts",
+    "welcomeToOpenFoodFacts": "Bun venit la Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
     "searchPanelHeader": "Cauta sau scaneaza primul produs",
     "@searchPanelHeader": {},
@@ -133,7 +133,7 @@
     "@nutri_score_unavailable": {},
     "missing_picture": "Poza lipsă",
     "@missing_picture": {},
-    "searching": "Căutare...",
+    "searching": "Searching…",
     "@searching": {},
     "empty_list": "Listă goală",
     "@empty_list": {},
@@ -203,7 +203,7 @@
     "@label_preferences": {},
     "label_lists": "liste",
     "@label_lists": {},
-    "label_web": "Web",
+    "label_web": "View on the Web",
     "@label_web": {},
     "label_refresh": "Reîmprospătare",
     "@label_refresh": {
@@ -292,6 +292,13 @@
     "scan_contribute": "CONTRIBUȚIE",
     "@scan_contribute": {
         "description": "Switch on top of the Scanner to choose between to scan or add products"
+    },
+    "incompatible": "Incompatible",
+    "pct_match": "{pct}% match",
+    "@pct_match": {
+        "placeholders": {
+            "pct": {}
+        }
     },
     "scan_choose": "ALEGE",
     "@scan_choose": {

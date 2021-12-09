@@ -5,7 +5,7 @@
     },
     "search": "検索",
     "@search": {},
-    "welcomeToOpenFoodFacts": "Welcome to OpenFoodFacts",
+    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
     "searchPanelHeader": "Search or scan your first product",
     "@searchPanelHeader": {},
@@ -133,7 +133,7 @@
     "@nutri_score_unavailable": {},
     "missing_picture": "画像がありません",
     "@missing_picture": {},
-    "searching": "検索しています...",
+    "searching": "Searching…",
     "@searching": {},
     "empty_list": "空のリスト",
     "@empty_list": {},
@@ -203,7 +203,7 @@
     "@label_preferences": {},
     "label_lists": "リスト",
     "@label_lists": {},
-    "label_web": "ウェブ",
+    "label_web": "View on the Web",
     "@label_web": {},
     "label_refresh": "更新",
     "@label_refresh": {
@@ -292,6 +292,13 @@
     "scan_contribute": "貢献",
     "@scan_contribute": {
         "description": "Switch on top of the Scanner to choose between to scan or add products"
+    },
+    "incompatible": "Incompatible",
+    "pct_match": "{pct}% match",
+    "@pct_match": {
+        "placeholders": {
+            "pct": {}
+        }
     },
     "scan_choose": "選択",
     "@scan_choose": {

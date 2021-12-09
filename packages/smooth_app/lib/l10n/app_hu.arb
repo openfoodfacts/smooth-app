@@ -5,7 +5,7 @@
     },
     "search": "Keres",
     "@search": {},
-    "welcomeToOpenFoodFacts": "Üdvözli az OpenFoodFacts",
+    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
     "searchPanelHeader": "Keresse meg vagy szkennelje első termékét",
     "@searchPanelHeader": {},
@@ -133,7 +133,7 @@
     "@nutri_score_unavailable": {},
     "missing_picture": "Hiányzó kép",
     "@missing_picture": {},
-    "searching": "Keresés...",
+    "searching": "Searching…",
     "@searching": {},
     "empty_list": "Üres lista",
     "@empty_list": {},
@@ -203,7 +203,7 @@
     "@label_preferences": {},
     "label_lists": "listák",
     "@label_lists": {},
-    "label_web": "Web",
+    "label_web": "View on the Web",
     "@label_web": {},
     "label_refresh": "frissítés",
     "@label_refresh": {
@@ -292,6 +292,13 @@
     "scan_contribute": "JÁRULJ HOZZÁ",
     "@scan_contribute": {
         "description": "Switch on top of the Scanner to choose between to scan or add products"
+    },
+    "incompatible": "Incompatible",
+    "pct_match": "{pct}% match",
+    "@pct_match": {
+        "placeholders": {
+            "pct": {}
+        }
     },
     "scan_choose": "VÁLASSZ",
     "@scan_choose": {
