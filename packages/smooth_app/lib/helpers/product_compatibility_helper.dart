@@ -88,9 +88,6 @@ ProductCompatibility getProductCompatibility(
       numAttributesComputed++;
     }
   }
-  if (numAttributesComputed == 0) {
-    return ProductCompatibility.UNKNOWN;
-  }
   averageAttributeMatch /= numAttributesComputed;
   if (averageAttributeMatch < _BAD_COMPATIBILITY_UPPER_THRESHOLD) {
     return ProductCompatibility.BAD_COMPATIBILITY;
