@@ -1,4 +1,3 @@
-// Flutter imports:
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -11,7 +10,6 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/smooth_it_model.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/pages/multi_select_product_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/user_preferences_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -183,18 +181,6 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
               matchIndex: SmoothItModel.getMatchIndex(matchedProduct),
               colorDestination: ColorDestination.SURFACE_BACKGROUND,
             ),
-            onLongPress: () async {
-              await Navigator.push<Widget>(
-                context,
-                MaterialPageRoute<Widget>(
-                  builder: (BuildContext context) => MultiSelectProductPage(
-                    barcode: matchedProduct.product.barcode!,
-                    productList: widget.productList,
-                  ),
-                ),
-              );
-              setState(() {});
-            },
           ),
         ),
       );

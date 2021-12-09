@@ -77,31 +77,20 @@ class ProductQueryPageHelper {
       {final bool verbose = true}) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     switch (productList.listType) {
-      case ProductList.LIST_TYPE_HTTP_SEARCH_GROUP:
+      case ProductListType.HTTP_SEARCH_GROUP:
         return '${_getGroupName(productList.parameters, appLocalizations)}'
             '${verbose ? ' ${appLocalizations.category_search}' : ''}';
-      case ProductList.LIST_TYPE_HTTP_SEARCH_KEYWORDS:
+      case ProductListType.HTTP_SEARCH_KEYWORDS:
         return '${productList.parameters}'
             '${verbose ? ' ${appLocalizations.category_search}' : ''}';
-      case ProductList.LIST_TYPE_HTTP_SEARCH_CATEGORY:
+      case ProductListType.HTTP_SEARCH_CATEGORY:
         return '${productList.parameters}'
             '${verbose ? ' ${appLocalizations.category_search}' : ''}';
-      case ProductList.LIST_TYPE_SCAN_HISTORY:
-      case ProductList.LIST_TYPE_SCAN_SESSION:
+      case ProductListType.SCAN_SESSION:
         return appLocalizations.scan;
-      case ProductList.LIST_TYPE_HISTORY:
+      case ProductListType.HISTORY:
         return appLocalizations.recently_seen_products;
-      case ProductList.LIST_TYPE_USER_DEFINED:
-        return '${productList.parameters}'
-            '${verbose ? ' ${appLocalizations.my_list}' : ''}';
-      case ProductList.LIST_TYPE_USER_PANTRY:
-        return '${productList.parameters}'
-            '${verbose ? ' ${appLocalizations.my_pantrie_lists}' : ''}';
-      case ProductList.LIST_TYPE_USER_SHOPPING:
-        return '${productList.parameters}'
-            '${verbose ? ' ${appLocalizations.my_shopping_lists}' : ''}';
     }
-    return '${appLocalizations.unknown_product_list} ${productList.listType} / ${productList.parameters}';
   }
 
   static String _getGroupName(
@@ -112,60 +101,5 @@ class ProductQueryPageHelper {
       }
     }
     return '${appLocalizations.not_found} $groupId';
-  }
-
-  static String getProductCount(
-      final ProductList productList, final AppLocalizations appLocalizations) {
-    if (productList.databaseCountDistinct == null ||
-        productList.databaseCountDistinct == 0) {
-      return appLocalizations.no_product;
-    }
-    if (productList.databaseCountDistinct == 1) {
-      return appLocalizations.one_product;
-    }
-    return '${productList.databaseCountDistinct} ${appLocalizations.x_products}';
-  }
-
-  /// Returns the label for an "add button" with this [productListType]
-  static String getCreateListLabel(
-    final String productListType,
-    final AppLocalizations appLocalizations,
-  ) {
-    switch (productListType) {
-      case ProductList.LIST_TYPE_USER_DEFINED:
-        return appLocalizations.new_list;
-      case ProductList.LIST_TYPE_USER_PANTRY:
-        return appLocalizations.new_pantry;
-      case ProductList.LIST_TYPE_USER_SHOPPING:
-        return appLocalizations.new_shopping;
-    }
-    throw Exception('not handled for product list type $productListType');
-  }
-
-  /// Returns the shape for a product list button with this [productListType]
-  static OutlinedBorder? getShape(final String productListType) {
-    switch (productListType) {
-      case ProductList.LIST_TYPE_USER_DEFINED:
-        return RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(32.0),
-        );
-      case ProductList.LIST_TYPE_USER_PANTRY:
-        return null;
-      case ProductList.LIST_TYPE_USER_SHOPPING:
-        return const BeveledRectangleBorder(
-          borderRadius: BorderRadius.horizontal(
-            left: Radius.circular(16.0),
-            right: Radius.circular(16.0),
-          ),
-        );
-      case ProductList.LIST_TYPE_SCAN_HISTORY:
-      case ProductList.LIST_TYPE_SCAN_SESSION:
-      case ProductList.LIST_TYPE_HISTORY:
-      case ProductList.LIST_TYPE_HTTP_SEARCH_CATEGORY:
-      case ProductList.LIST_TYPE_HTTP_SEARCH_GROUP:
-      case ProductList.LIST_TYPE_HTTP_SEARCH_KEYWORDS:
-        return null;
-    }
-    throw Exception('not handled for product list type $productListType');
   }
 }
