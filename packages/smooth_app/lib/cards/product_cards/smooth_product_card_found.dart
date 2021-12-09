@@ -39,6 +39,7 @@ class SmoothProductCardFound extends StatelessWidget {
     if (!useNewStyle) {
       return _getOldStyle(context);
     }
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
 
     final Size screenSize = MediaQuery.of(context).size;
     final ThemeData themeData = Theme.of(context);
@@ -51,7 +52,7 @@ class SmoothProductCardFound extends StatelessWidget {
     for (final Attribute attribute in attributes) {
       scores.add(SvgIconChip(attribute.iconUrl!, height: iconSize));
     }
-    final ProductCompatibility compatibility =
+    final ProductCompatibilityResult compatibility =
         getProductCompatibility(context.watch<ProductPreferences>(), product);
     return GestureDetector(
       onTap: () async {
@@ -110,16 +111,25 @@ class SmoothProductCardFound extends StatelessWidget {
                               size: 15,
                               color:
                                   getProductCompatibilityHeaderBackgroundColor(
-                                      compatibility),
+                                      compatibility.productCompatibility),
                             ),
                             const Padding(
                                 padding:
                                     EdgeInsets.only(left: VERY_SMALL_SPACE)),
-                            Text(
-                              getProductCompatibilityHeaderTextWidget(
-                                  compatibility),
-                              style: Theme.of(context).textTheme.bodyText2,
-                            ),
+                            if (compatibility.productCompatibility !=
+                                ProductCompatibility.INCOMPATIBLE)
+                              Text(
+                                appLocalizations.pct_match(compatibility
+                                    .averageAttributeMatch
+                                    .toStringAsFixed(0)),
+                                style: Theme.of(context).textTheme.bodyText2,
+                              ),
+                            if (compatibility.productCompatibility ==
+                                ProductCompatibility.INCOMPATIBLE)
+                              Text(
+                                appLocalizations.incompatible,
+                                style: Theme.of(context).textTheme.bodyText2,
+                              ),
                           ],
                         ),
                       ],

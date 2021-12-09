@@ -197,7 +197,8 @@ class _SummaryCardState extends State<SummaryCard> {
 
   Widget _buildProductCompatibilityHeader(BuildContext context) {
     final ProductCompatibility compatibility =
-        getProductCompatibility(widget._productPreferences, widget._product);
+        getProductCompatibility(widget._productPreferences, widget._product)
+            .productCompatibility;
     // NOTE: This is temporary and will be updated once the feature is supported
     // by the server.
     return Container(
