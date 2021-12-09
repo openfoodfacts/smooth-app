@@ -19,9 +19,10 @@ class KnowledgePanelTableCard extends StatelessWidget {
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
       // Dynamically calculate the width of each cell = Available space / total columns.
-      final double parentWidgetPadding = SMOOTH_CARD_PADDING.left + SMOOTH_CARD_PADDING.right;
-      final double cellWidth =
-          (constraints.maxWidth - parentWidgetPadding) / tableElement.columns.length;
+      final double parentWidgetPadding =
+          SMOOTH_CARD_PADDING.left + SMOOTH_CARD_PADDING.right;
+      final double cellWidth = (constraints.maxWidth - parentWidgetPadding) /
+          tableElement.columns.length;
       for (final KnowledgePanelTableColumn column in tableElement.columns) {
         switch (column.type) {
           case null:
