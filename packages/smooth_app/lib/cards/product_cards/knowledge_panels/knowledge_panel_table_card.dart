@@ -24,23 +24,27 @@ class KnowledgePanelTableCard extends StatelessWidget {
         switch (column.type) {
           case null:
           case KnowledgePanelColumnType.TEXT:
-            rows[0].add(_buildTableCell(
-              context: context,
-              text: column.text,
-              cellWidth: cellWidth,
-              textColor: Colors.grey,
-              isHeader: true,
-            ),);
+            rows[0].add(
+              _buildTableCell(
+                context: context,
+                text: column.text,
+                cellWidth: cellWidth,
+                textColor: Colors.grey,
+                isHeader: true,
+              ),
+            );
             break;
           case KnowledgePanelColumnType.PERCENT:
             // TODO(jasmeet): Implement percent knowledge panels.
-            rows[0].add(_buildTableCell(
-              context: context,
-              text: column.text,
-              cellWidth: cellWidth,
-              textColor: Colors.grey,
-              isHeader: true,
-            ),);
+            rows[0].add(
+              _buildTableCell(
+                context: context,
+                text: column.text,
+                cellWidth: cellWidth,
+                textColor: Colors.grey,
+                isHeader: true,
+              ),
+            );
             break;
         }
       }
@@ -78,7 +82,8 @@ class KnowledgePanelTableCard extends StatelessWidget {
     Color? textColor,
     bool isHeader = false,
   }) {
-    EdgeInsetsGeometry padding = const EdgeInsets.only(bottom: VERY_SMALL_SPACE);
+    EdgeInsetsGeometry padding =
+        const EdgeInsets.only(bottom: VERY_SMALL_SPACE);
     // header cells get a bigger vertical padding.
     if (isHeader) {
       padding = const EdgeInsets.symmetric(vertical: SMALL_SPACE);
@@ -90,11 +95,12 @@ class KnowledgePanelTableCard extends StatelessWidget {
     return Padding(
       padding: padding,
       child: SizedBox(
-          width: cellWidth,
-          child: HtmlWidget(
-            text,
-            textStyle: style,
-          ),),
+        width: cellWidth,
+        child: HtmlWidget(
+          text,
+          textStyle: style,
+        ),
+      ),
     );
   }
 }
