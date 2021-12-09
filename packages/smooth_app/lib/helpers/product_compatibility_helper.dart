@@ -95,6 +95,9 @@ ProductCompatibilityResult getProductCompatibility(
       numAttributesComputed++;
     }
   }
+  if (numAttributesComputed == 0) {
+    return ProductCompatibilityResult(0, ProductCompatibility.INCOMPATIBLE);
+  }
   averageAttributeMatch /= numAttributesComputed;
   if (averageAttributeMatch < _BAD_COMPATIBILITY_UPPER_THRESHOLD) {
     return ProductCompatibilityResult(
