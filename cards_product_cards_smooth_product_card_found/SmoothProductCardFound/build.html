@@ -110,32 +110,21 @@ Widget build(BuildContext context) {
   if (!useNewStyle) {
     return _getOldStyle(context);
   }
+  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
 
-  final ProductPreferences productPreferences =
-      context.watch&lt;ProductPreferences&gt;();
   final Size screenSize = MediaQuery.of(context).size;
   final ThemeData themeData = Theme.of(context);
 
-  final List&lt;String&gt; attributeIds =
-      productPreferences.getOrderedImportantAttributeIds();
   final List&lt;Widget&gt; scores = &lt;Widget&gt;[];
   final double iconSize = IconWidgetSizer.getIconSizeFromContext(context);
   final List&lt;Attribute&gt; attributes =
-      AttributeListExpandable.getPopulatedAttributes(product, attributeIds);
+      AttributeListExpandable.getPopulatedAttributes(
+          product, SCORE_ATTRIBUTE_IDS);
   for (final Attribute attribute in attributes) {
     scores.add(SvgIconChip(attribute.iconUrl!, height: iconSize));
   }
-  String productTitle;
-  if (product.productName != null) {
-    productTitle = product.productName!;
-    if (product.brands != null) {
-      productTitle += &#39; - ${product.brands!}&#39;;
-    }
-  } else if (product.brands != null) {
-    productTitle = product.brands!;
-  } else {
-    productTitle = product.barcode!;
-  }
+  final ProductCompatibilityResult compatibility =
+      getProductCompatibility(context.watch&lt;ProductPreferences&gt;(), product);
   return GestureDetector(
     onTap: () async {
       await Navigator.push&lt;Widget&gt;(
@@ -160,59 +149,67 @@ Widget build(BuildContext context) {
             color: backgroundColor ?? themeData.colorScheme.surface,
             borderRadius: const BorderRadius.all(Radius.circular(15.0)),
           ),
-          padding: const EdgeInsets.all(5.0),
+          padding: const EdgeInsets.all(VERY_SMALL_SPACE),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: &lt;Widget&gt;[
-              Expanded(
-                flex: 1,
-                child: SmoothProductImage(
-                    product: product,
-                    width: screenSize.width * 0.20,
-                    height: screenSize.width * 0.20),
+              SmoothProductImage(
+                product: product,
+                width: screenSize.width * 0.20,
+                height: screenSize.width * 0.20,
               ),
-              const SizedBox(
-                width: 8.0,
-              ),
+              const Padding(padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
               Expanded(
-                flex: 2,
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: &lt;Widget&gt;[
-                    SizedBox(
-                      width: screenSize.width * 0.65,
-                      child: Column(
+                child: SizedBox(
+                  height: screenSize.width * 0.2,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: &lt;Widget&gt;[
+                      Text(
+                        product.productName ?? &#39;???&#39;,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context).textTheme.headline4,
+                      ),
+                      Text(
+                        product.brands ?? &#39;???&#39;,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context).textTheme.subtitle1,
+                      ),
+                      Row(
                         children: &lt;Widget&gt;[
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: &lt;Widget&gt;[
-                              Flexible(
-                                child: Text(
-                                  productTitle,
-                                  maxLines: 2,
-                                  overflow: TextOverflow.fade,
-                                ),
-                              ),
-                              if (handle != null) handle!,
-                            ],
+                          Icon(
+                            Icons.circle,
+                            size: 15,
+                            color:
+                                getProductCompatibilityHeaderBackgroundColor(
+                                    compatibility.productCompatibility),
                           ),
-                          SizedBox(
-                            width: screenSize.width * 0.65,
-                            child: Wrap(
-                              direction: Axis.horizontal,
-                              children: scores,
-                              spacing: 2.0,
-                              runSpacing: 2.0,
+                          const Padding(
+                              padding:
+                                  EdgeInsets.only(left: VERY_SMALL_SPACE)),
+                          if (compatibility.productCompatibility !=
+                              ProductCompatibility.INCOMPATIBLE)
+                            Text(
+                              appLocalizations.pct_match(compatibility
+                                  .averageAttributeMatch
+                                  .toStringAsFixed(0)),
+                              style: Theme.of(context).textTheme.bodyText2,
                             ),
-                          ),
+                          if (compatibility.productCompatibility ==
+                              ProductCompatibility.INCOMPATIBLE)
+                            Text(
+                              appLocalizations.incompatible,
+                              style: Theme.of(context).textTheme.bodyText2,
+                            ),
                         ],
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
+              ),
+              const Padding(padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
+              Column(
+                children: scores,
               ),
             ],
           ),
