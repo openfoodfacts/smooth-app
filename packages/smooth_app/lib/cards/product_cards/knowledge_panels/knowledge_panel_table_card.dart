@@ -85,12 +85,12 @@ class KnowledgePanelTableCard extends StatelessWidget {
     }
     TextStyle style = Theme.of(context).textTheme.bodyText2!;
     if (textColor != null) {
-      style = style.copyWith(
-          color: textColor);
+      style = style.copyWith(color: textColor);
     }
     return Padding(
       padding: padding,
-      child: SizedBox(width: cellWidth,
+      child: SizedBox(
+          width: cellWidth,
           child: HtmlWidget(
             text,
             textStyle: style,
