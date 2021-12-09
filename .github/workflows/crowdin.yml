@@ -14,7 +14,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: crowdin action
-      uses: crowdin/github-action@1.4.1
+      uses: crowdin/github-action@1.4.2
       continue-on-error: true
       with:
         # Upload sources to Crowdin
@@ -56,7 +56,7 @@ jobs:
         # To add labels for created pull request
         pull_request_labels: "translations"
         # Create pull request to specified branch instead of default one
-        # pull_request_base_branch_name: # optional
+        pull_request_base_branch_name: develop
 
         # global options
 

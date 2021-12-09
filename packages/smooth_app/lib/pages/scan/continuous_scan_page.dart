@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
+import 'package:smooth_app/pages/smooth_bottom_navigation_bar.dart';
 import 'package:smooth_app/widgets/smooth_product_carousel.dart';
 import 'package:smooth_ui_library/smooth_ui_library.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
@@ -33,6 +34,9 @@ class ContinuousScanPage extends StatelessWidget {
       final double viewFinderBottomOffset = carouselHeight / 2.0;
       return Scaffold(
         appBar: AppBar(toolbarHeight: 0.0),
+        bottomNavigationBar: const SmoothBottomNavigationBar(
+          tab: SmoothBottomNavigationTab.Scan,
+        ),
         body: Stack(
           children: <Widget>[
             Container(

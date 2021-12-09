@@ -5,6 +5,8 @@
     },
     "search": "Søg",
     "@search": {},
+    "welcomeToOpenFoodFacts": "Velkommen til OpenFoodFacts",
+    "@welcomeToOpenFoodFacts": {},
     "searchPanelHeader": "Søg eller skan dit første produkt",
     "@searchPanelHeader": {},
     "searchHintText": "Angiv stregkode eller søgeord",
@@ -19,6 +21,8 @@
     "@scanProductTitle": {},
     "organizationPage": "Virksomhedsside",
     "@organizationPage": {},
+    "contributors": "Bidragsydere",
+    "@contributors": {},
     "contributionPage": "Bidragsside",
     "@contributionPage": {},
     "trackingPage": "Sporingsside",
@@ -236,6 +240,39 @@
     "@could_not_refresh": {},
     "no_product_found": "Intet produkt fundet",
     "@no_product_found": {},
+    "product_internet_error": "Ikke muligt at hente disse produktoplysninger grundet netværksfejl.",
+    "product_internet_cancel": "Afbrudt af bruger.",
+    "product_improvement_origins_to_be_completed": "Øko-Score tager højde for ingrediensoprindelser. Inkludér dem gerne på et foto (ingrediensliste og/eller hævdet oprindelsessted, eller redigér produktet, så denne information kan tages i betragtning.",
+    "@product_improvement_origins_to_be_completed": {
+        "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
+    },
+    "product_improvement_categories_but_no_nutriscore": "Nutri-Score kan ikke beregnes, hvilket an skyldes, at produktet er placeret i f.eks. en ikke-standard kategori. Anses dette for er en fejl, så kontakt os venligst.",
+    "@product_improvement_categories_but_no_nutriscore": {
+        "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
+    },
+    "product_improvement_add_nutrition_facts": "Tilføj ernæringsfakta for at beregne Nutri-Score.",
+    "@product_improvement_add_nutrition_facts": {
+        "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
+    },
+    "product_improvement_add_category": "Tilføj en kategori for at beregne Nutri-Score.",
+    "@product_improvement_add_category": {
+        "description": "Message for ProductImprovement.ADD_CATEGORY"
+    },
+    "product_improvement_add_nutrition_facts_and_category": "Tilføj ernæringsfakta og en kategori for at beregne Nutri-Score.",
+    "@product_improvement_add_nutrition_facts_and_category": {
+        "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
+    },
+    "product_improvement_obsolete_nutrition_image": "Ernæringsfaktafoto forældet. Opdatér det venligst.",
+    "@product_improvement_obsolete_nutrition_image": {
+        "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
+    },
+    "product_improvements_count": "{count,plural, one {} =1{En mulig forbedring} other{{count} mulige forbedringer}}",
+    "@product_improvements_count": {
+        "description": "x possible improvements",
+        "placeholders": {
+            "count": {}
+        }
+    },
     "products_pasted": "produkter indsat",
     "@products_pasted": {},
     "no_prodcut_in_list": "Der er intet produkt på denne liste",

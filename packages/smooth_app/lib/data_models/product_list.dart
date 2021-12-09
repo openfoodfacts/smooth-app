@@ -305,9 +305,10 @@ class ProductList {
     _barcodes.clear();
     _products.clear();
     _productExtras.clear();
-    _barcodes.addAll(barcodes);
     _products.addAll(products);
     _productExtras.addAll(productExtras);
+    // Last step, because they have no meaning without the others being loaded
+    _barcodes.addAll(barcodes);
   }
 
   /// The init string value to be used when you add a product to a list

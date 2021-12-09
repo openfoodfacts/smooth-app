@@ -3,6 +3,7 @@ import 'dart:collection';
 import 'dart:convert';
 
 import 'package:diacritic/diacritic.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/data_models/product_extra.dart';
 import 'package:smooth_app/data_models/product_list.dart';
@@ -403,9 +404,21 @@ class DaoProductExtra extends AbstractDao implements BulkDeletable {
       key: extraKey,
       reverse: extraReverse,
     );
-    final List<String> barcodes = List<String>.from(extras.keys);
+    final List<String> orderedBarcodes = List<String>.from(extras.keys);
     final Map<String, Product> products =
         await DaoProduct(localDatabase).getAllWithExtras(extraKey);
+    // in some cases, like the scan history list,
+    // for unknown scanned barcodes there's a barcode but no product.
+    // Here, we want ordered barcodes that match an actual product.
+    final List<String> barcodes = <String>[];
+    for (final String barcode in orderedBarcodes) {
+      if (products[barcode] != null) {
+        barcodes.add(barcode);
+      } else {
+        debugPrint(
+            'Rare case of unknown product for barcode "$barcode" from list "$extraKey"');
+      }
+    }
     productList.set(barcodes, products, extras);
     return true;
   }
