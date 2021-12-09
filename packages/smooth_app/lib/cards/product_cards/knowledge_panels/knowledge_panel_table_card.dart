@@ -30,7 +30,7 @@ class KnowledgePanelTableCard extends StatelessWidget {
               cellWidth: cellWidth,
               textColor: Colors.grey,
               isHeader: true,
-            ));
+            ),);
             break;
           case KnowledgePanelColumnType.PERCENT:
             // TODO(jasmeet): Implement percent knowledge panels.
@@ -40,7 +40,7 @@ class KnowledgePanelTableCard extends StatelessWidget {
               cellWidth: cellWidth,
               textColor: Colors.grey,
               isHeader: true,
-            ));
+            ),);
             break;
         }
       }
@@ -78,14 +78,14 @@ class KnowledgePanelTableCard extends StatelessWidget {
     Color? textColor,
     bool isHeader = false,
   }) {
-    EdgeInsetsGeometry padding = const EdgeInsets.symmetric(vertical: 2);
+    EdgeInsetsGeometry padding = const EdgeInsets.only(bottom: VERY_SMALL_SPACE);
     // header cells get a bigger vertical padding.
     if (isHeader) {
-      padding = padding.add(const EdgeInsets.symmetric(vertical: SMALL_SPACE));
+      padding = const EdgeInsets.symmetric(vertical: SMALL_SPACE);
     }
     TextStyle style = Theme.of(context).textTheme.bodyText2!;
     if (textColor != null) {
-      style = style.copyWith(color: textColor);
+      style = style.apply(color: textColor);
     }
     return Padding(
       padding: padding,
@@ -94,7 +94,7 @@ class KnowledgePanelTableCard extends StatelessWidget {
           child: HtmlWidget(
             text,
             textStyle: style,
-          )),
+          ),),
     );
   }
 }
