@@ -15,66 +15,63 @@ class KnowledgePanelTableCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<List<Widget>> rows = <List<Widget>>[];
     rows.add(<Widget>[]);
-        return LayoutBuilder(
+    return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-          // Dynamically calculate the width of each cell = Available space / total columns.
-          final double cellWidth = (constraints.maxWidth - 32) / tableElement.columns.length;
-          for (final KnowledgePanelTableColumn column in tableElement.columns) {
-            switch (column.type) {
-              case null:
-              case KnowledgePanelColumnType.TEXT:
-                rows[0].add(
-                    _buildTableCell(
-                      context: context,
-                      text: column.text,
-                      cellWidth: cellWidth,
-                      textColor: Colors.grey,
-                      isFirstCell: column == tableElement.columns.first,
-                      isHeader: true,
-                    )
-                );
-                break;
-              case KnowledgePanelColumnType.PERCENT:
-              // TODO(jasmeet): Implement percent knowledge panels.
-                rows[0].add(
-                    _buildTableCell(
-                      context: context,
-                      text: column.text,
-                      cellWidth: cellWidth,
-                      textColor: Colors.grey,
-                      isFirstCell: column == tableElement.columns.first,
-                      isHeader: true,
-                    )
-                );
-                break;
-            }
-          }
-          for (final KnowledgePanelTableRowElement row in tableElement.rows) {
-            rows.add(<Widget>[]);
-            for (final KnowledgePanelTableCell cell in row.values) {
-              rows[rows.length - 1].add(
-                _buildTableCell(
-                  context: context,
-                  text: cell.text,
-                  cellWidth: cellWidth,
-                  isFirstCell: cell == row.values.first,
-                  textColor: getTextColorFromKnowledgePanelElementEvaluation(
-                      cell.evaluation ?? Evaluation.UNKNOWN),
-                ),
-              );
-            }
-          }
-          return Column(
-            children: <Widget>[
-              for (List<Widget> row in rows)
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: row,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                )
-            ],
+      // Dynamically calculate the width of each cell = Available space / total columns.
+      final double cellWidth =
+          (constraints.maxWidth - 32) / tableElement.columns.length;
+      for (final KnowledgePanelTableColumn column in tableElement.columns) {
+        switch (column.type) {
+          case null:
+          case KnowledgePanelColumnType.TEXT:
+            rows[0].add(_buildTableCell(
+              context: context,
+              text: column.text,
+              cellWidth: cellWidth,
+              textColor: Colors.grey,
+              isFirstCell: column == tableElement.columns.first,
+              isHeader: true,
+            ));
+            break;
+          case KnowledgePanelColumnType.PERCENT:
+            // TODO(jasmeet): Implement percent knowledge panels.
+            rows[0].add(_buildTableCell(
+              context: context,
+              text: column.text,
+              cellWidth: cellWidth,
+              textColor: Colors.grey,
+              isFirstCell: column == tableElement.columns.first,
+              isHeader: true,
+            ));
+            break;
+        }
+      }
+      for (final KnowledgePanelTableRowElement row in tableElement.rows) {
+        rows.add(<Widget>[]);
+        for (final KnowledgePanelTableCell cell in row.values) {
+          rows[rows.length - 1].add(
+            _buildTableCell(
+              context: context,
+              text: cell.text,
+              cellWidth: cellWidth,
+              isFirstCell: cell == row.values.first,
+              textColor: getTextColorFromKnowledgePanelElementEvaluation(
+                  cell.evaluation ?? Evaluation.UNKNOWN),
+            ),
           );
-       });
+        }
+      }
+      return Column(
+        children: <Widget>[
+          for (List<Widget> row in rows)
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: row,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            )
+        ],
+      );
+    });
   }
 
   Widget _buildTableCell({
@@ -97,10 +94,25 @@ class KnowledgePanelTableCard extends StatelessWidget {
     TextStyle style = Theme.of(context).textTheme.bodyText2!;
     const double lineHeight = 1.2;
     if (textColor != null) {
-      style = style.copyWith(color: textColor, overflow: TextOverflow.ellipsis, height: lineHeight);
+      style = style.copyWith(
+          color: textColor,
+          overflow: TextOverflow.ellipsis,
+          height: lineHeight);
     }
     final double maxHeight = style.fontSize! * lineHeight * 3;
     final double minHeight = style.fontSize! * lineHeight * 1.5;
-    return Padding(padding: padding, child: ConstrainedBox(constraints: BoxConstraints(minWidth: cellWidth, maxWidth: cellWidth, minHeight: minHeight, maxHeight: maxHeight), child: HtmlWidget(text, textStyle: style, )),);
+    return Padding(
+      padding: padding,
+      child: ConstrainedBox(
+          constraints: BoxConstraints(
+              minWidth: cellWidth,
+              maxWidth: cellWidth,
+              minHeight: minHeight,
+              maxHeight: maxHeight),
+          child: HtmlWidget(
+            text,
+            textStyle: style,
+          )),
+    );
   }
 }
