@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 class KnowledgePanelTableCard extends StatelessWidget {
@@ -18,8 +19,9 @@ class KnowledgePanelTableCard extends StatelessWidget {
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
       // Dynamically calculate the width of each cell = Available space / total columns.
+      final double parentWidgetPadding = SMOOTH_CARD_PADDING.left + SMOOTH_CARD_PADDING.right;
       final double cellWidth =
-          (constraints.maxWidth - 32) / tableElement.columns.length;
+          (constraints.maxWidth - parentWidgetPadding) / tableElement.columns.length;
       for (final KnowledgePanelTableColumn column in tableElement.columns) {
         switch (column.type) {
           case null:
