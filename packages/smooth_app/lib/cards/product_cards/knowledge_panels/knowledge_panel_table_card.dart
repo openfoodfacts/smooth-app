@@ -29,7 +29,6 @@ class KnowledgePanelTableCard extends StatelessWidget {
               text: column.text,
               cellWidth: cellWidth,
               textColor: Colors.grey,
-              isFirstCell: column == tableElement.columns.first,
               isHeader: true,
             ));
             break;
@@ -40,7 +39,6 @@ class KnowledgePanelTableCard extends StatelessWidget {
               text: column.text,
               cellWidth: cellWidth,
               textColor: Colors.grey,
-              isFirstCell: column == tableElement.columns.first,
               isHeader: true,
             ));
             break;
@@ -54,7 +52,6 @@ class KnowledgePanelTableCard extends StatelessWidget {
               context: context,
               text: cell.text,
               cellWidth: cellWidth,
-              isFirstCell: cell == row.values.first,
               textColor: getTextColorFromKnowledgePanelElementEvaluation(
                   cell.evaluation ?? Evaluation.UNKNOWN),
             ),
@@ -79,36 +76,21 @@ class KnowledgePanelTableCard extends StatelessWidget {
     required String text,
     required double cellWidth,
     Color? textColor,
-    bool isFirstCell = false,
     bool isHeader = false,
   }) {
-    EdgeInsetsGeometry padding = EdgeInsets.zero;
-    // Cells that are not the first ones in a row get a right padding.
-    if (!isFirstCell) {
-      padding = padding.add(const EdgeInsets.only(left: MEDIUM_SPACE));
-    }
-    // header cells get a vertical padding.
+    EdgeInsetsGeometry padding = const EdgeInsets.symmetric(vertical: 2);
+    // header cells get a bigger vertical padding.
     if (isHeader) {
       padding = padding.add(const EdgeInsets.symmetric(vertical: SMALL_SPACE));
     }
     TextStyle style = Theme.of(context).textTheme.bodyText2!;
-    const double lineHeight = 1.2;
     if (textColor != null) {
       style = style.copyWith(
-          color: textColor,
-          overflow: TextOverflow.ellipsis,
-          height: lineHeight);
+          color: textColor);
     }
-    final double maxHeight = style.fontSize! * lineHeight * 3;
-    final double minHeight = style.fontSize! * lineHeight * 1.5;
     return Padding(
       padding: padding,
-      child: ConstrainedBox(
-          constraints: BoxConstraints(
-              minWidth: cellWidth,
-              maxWidth: cellWidth,
-              minHeight: minHeight,
-              maxHeight: maxHeight),
+      child: SizedBox(width: cellWidth,
           child: HtmlWidget(
             text,
             textStyle: style,
