@@ -7,7 +7,7 @@
    release-please:
      runs-on: ubuntu-latest
      steps:
-       - uses: GoogleCloudPlatform/release-please-action@v2.34
+       - uses: GoogleCloudPlatform/release-please-action@v2.35
          with:
            token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
            release-type: simple

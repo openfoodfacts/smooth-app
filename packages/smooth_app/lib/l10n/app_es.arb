@@ -240,8 +240,8 @@
     "@could_not_refresh": {},
     "no_product_found": "No se ha encontrado ningún producto",
     "@no_product_found": {},
-    "product_internet_error": "Impossible to fetch information about this product due to a network error.",
-    "product_internet_cancel": "Canceled by user.",
+    "product_internet_error": "Imposible obtener información sobre este producto debido a un error de red.",
+    "product_internet_cancel": "Cancelado por el usuario.",
     "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take them into a photo (ingredient list and/or any geographic claim or edit the product so that they can be taken into account. If it is not clear, you can contact the food producer.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"

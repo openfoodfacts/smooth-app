@@ -33,7 +33,9 @@ class ScoreCard extends StatelessWidget {
         : SmoothTheme.ADDITIONAL_OPACITY_FOR_DARK;
     final Color backgroundColor =
         getBackgroundColor(cardEvaluation).withOpacity(opacity);
-    final Color textColor = getTextColor(cardEvaluation).withOpacity(opacity);
+    final Color textColor = themeData.brightness == Brightness.dark
+        ? Colors.white
+        : getTextColor(cardEvaluation).withOpacity(opacity);
     final SvgIconChip iconChip = SvgIconChip(iconUrl, height: iconHeight);
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 8.0),

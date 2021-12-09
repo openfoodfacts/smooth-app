@@ -10,6 +10,7 @@ import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_list_item.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
+import 'package:smooth_app/pages/smooth_bottom_navigation_bar.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 class ProductListPage extends StatefulWidget {
@@ -71,7 +72,7 @@ class _ProductListPageState extends State<ProductListPage> {
         deletable = true;
         renamable = true;
         reorderable = true;
-        dismissible = true;
+        dismissible = productList.barcodes.isNotEmpty;
         break;
       case ProductList.LIST_TYPE_HTTP_SEARCH_KEYWORDS:
       case ProductList.LIST_TYPE_HTTP_SEARCH_CATEGORY:
@@ -81,12 +82,15 @@ class _ProductListPageState extends State<ProductListPage> {
       case ProductList.LIST_TYPE_SCAN_HISTORY:
       case ProductList.LIST_TYPE_SCAN_SESSION:
       case ProductList.LIST_TYPE_HISTORY:
-        dismissible = true;
+        dismissible = productList.barcodes.isNotEmpty;
         break;
       default:
         throw Exception('unknown list type ${productList.listType}');
     }
     return Scaffold(
+      bottomNavigationBar: const SmoothBottomNavigationBar(
+        tab: SmoothBottomNavigationTab.History,
+      ),
       appBar: AppBar(
         backgroundColor: SmoothTheme.getColor(
           colorScheme,
@@ -112,7 +116,7 @@ class _ProductListPageState extends State<ProductListPage> {
             ),
           ],
         ),
-        actions: (!renamable) && (!deletable)
+        actions: (!renamable) && (!deletable) && (!dismissible)
             ? null
             : <Widget>[
                 PopupMenuButton<String>(
@@ -124,11 +128,18 @@ class _ProductListPageState extends State<ProductListPage> {
                         child: Text(appLocalizations.rename),
                         enabled: true,
                       ),
-                    PopupMenuItem<String>(
-                      value: 'change',
-                      child: Text(appLocalizations.change_icon),
-                      enabled: true,
-                    ),
+                    if (renamable)
+                      PopupMenuItem<String>(
+                        value: 'change',
+                        child: Text(appLocalizations.change_icon),
+                        enabled: true,
+                      ),
+                    if (dismissible)
+                      const PopupMenuItem<String>(
+                        value: 'clear',
+                        child: Text('Clear'), // TODO(monsieurtanuki): translate
+                        enabled: true,
+                      ),
                     if (deletable)
                       PopupMenuItem<String>(
                         value: 'delete',
@@ -152,6 +163,12 @@ class _ProductListPageState extends State<ProductListPage> {
                         if (await ProductListDialogHelper.instance
                             .openDelete(context, daoProductList, productList)) {
                           Navigator.pop(context);
+                          localDatabase.notifyListeners();
+                        }
+                        break;
+                      case 'clear':
+                        if (await ProductListDialogHelper.instance
+                            .openClear(context, daoProductList, productList)) {
                           localDatabase.notifyListeners();
                         }
                         break;
