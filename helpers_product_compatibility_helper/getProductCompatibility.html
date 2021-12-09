@@ -92,6 +92,9 @@
       numAttributesComputed++;
     }
   }
+  if (numAttributesComputed == 0) {
+    return ProductCompatibilityResult(0, ProductCompatibility.INCOMPATIBLE);
+  }
   averageAttributeMatch &#47;= numAttributesComputed;
   if (averageAttributeMatch &lt; _BAD_COMPATIBILITY_UPPER_THRESHOLD) {
     return ProductCompatibilityResult(
