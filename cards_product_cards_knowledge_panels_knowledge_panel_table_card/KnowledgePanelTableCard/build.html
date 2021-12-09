@@ -107,64 +107,68 @@ and</li>
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final List&lt;List&lt;Widget&gt;&gt; columnCells = &lt;List&lt;Widget&gt;&gt;[];
-  for (final KnowledgePanelTableColumn column in tableElement.columns) {
-    switch (column.type) {
-      case null:
-      case KnowledgePanelColumnType.TEXT:
-        columnCells.add(
-          &lt;Widget&gt;[
+  final List&lt;List&lt;Widget&gt;&gt; rows = &lt;List&lt;Widget&gt;&gt;[];
+  rows.add(&lt;Widget&gt;[]);
+  return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+    &#47;&#47; Dynamically calculate the width of each cell = Available space &#47; total columns.
+    final double parentWidgetPadding =
+        SMOOTH_CARD_PADDING.left + SMOOTH_CARD_PADDING.right;
+    final double cellWidth = (constraints.maxWidth - parentWidgetPadding) &#47;
+        tableElement.columns.length;
+    for (final KnowledgePanelTableColumn column in tableElement.columns) {
+      switch (column.type) {
+        case null:
+        case KnowledgePanelColumnType.TEXT:
+          rows[0].add(
             _buildTableCell(
               context: context,
               text: column.text,
+              cellWidth: cellWidth,
               textColor: Colors.grey,
-              isFirstCell: column == tableElement.columns.first,
               isHeader: true,
-            )
-          ],
-        );
-        break;
-      case KnowledgePanelColumnType.PERCENT:
-        &#47;&#47; TODO(jasmeet): Implement percent knowledge panels.
-        columnCells.add(
-          &lt;Widget&gt;[
+            ),
+          );
+          break;
+        case KnowledgePanelColumnType.PERCENT:
+          &#47;&#47; TODO(jasmeet): Implement percent knowledge panels.
+          rows[0].add(
             _buildTableCell(
               context: context,
               text: column.text,
+              cellWidth: cellWidth,
               textColor: Colors.grey,
-              isFirstCell: column == tableElement.columns.first,
               isHeader: true,
-            )
-          ],
-        );
-        break;
+            ),
+          );
+          break;
+      }
     }
-  }
-  for (final KnowledgePanelTableRowElement row in tableElement.rows) {
-    int i = 0;
-    for (final KnowledgePanelTableCell cell in row.values) {
-      columnCells[i++].add(
-        _buildTableCell(
-          context: context,
-          text: cell.text,
-          isFirstCell: cell == row.values.first,
-          textColor: getTextColorFromKnowledgePanelElementEvaluation(
-              cell.evaluation ?? Evaluation.UNKNOWN),
-        ),
-      );
-    }
-  }
-  return Row(
-    children: &lt;Widget&gt;[
-      for (List&lt;Widget&gt; column in columnCells)
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: column,
+    for (final KnowledgePanelTableRowElement row in tableElement.rows) {
+      rows.add(&lt;Widget&gt;[]);
+      for (final KnowledgePanelTableCell cell in row.values) {
+        rows[rows.length - 1].add(
+          _buildTableCell(
+            context: context,
+            text: cell.text,
+            cellWidth: cellWidth,
+            textColor: getTextColorFromKnowledgePanelElementEvaluation(
+                cell.evaluation ?? Evaluation.UNKNOWN),
           ),
-        )
-    ],
-  );
+        );
+      }
+    }
+    return Column(
+      children: &lt;Widget&gt;[
+        for (List&lt;Widget&gt; row in rows)
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: row,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          )
+      ],
+    );
+  });
 }</code></pre>
 </section>
 
