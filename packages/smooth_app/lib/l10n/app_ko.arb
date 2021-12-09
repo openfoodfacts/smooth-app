@@ -5,7 +5,7 @@
     },
     "search": "검색",
     "@search": {},
-    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
+    "welcomeToOpenFoodFacts": "Welcome to OpenFoodFacts",
     "@welcomeToOpenFoodFacts": {},
     "searchPanelHeader": "Search or scan your first product",
     "@searchPanelHeader": {},
@@ -133,7 +133,7 @@
     "@nutri_score_unavailable": {},
     "missing_picture": "사진 누락됨",
     "@missing_picture": {},
-    "searching": "Searching…",
+    "searching": "검색 중...",
     "@searching": {},
     "empty_list": "빈 목록",
     "@empty_list": {},
@@ -203,7 +203,7 @@
     "@label_preferences": {},
     "label_lists": "목록",
     "@label_lists": {},
-    "label_web": "View on the Web",
+    "label_web": "웹",
     "@label_web": {},
     "label_refresh": "새로고침",
     "@label_refresh": {
@@ -292,13 +292,6 @@
     "scan_contribute": "기여",
     "@scan_contribute": {
         "description": "Switch on top of the Scanner to choose between to scan or add products"
-    },
-    "incompatible": "Incompatible",
-    "pct_match": "{pct}% match",
-    "@pct_match": {
-        "placeholders": {
-            "pct": {}
-        }
     },
     "scan_choose": "선택",
     "@scan_choose": {

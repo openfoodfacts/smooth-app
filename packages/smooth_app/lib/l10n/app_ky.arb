@@ -5,7 +5,7 @@
     },
     "search": "Издөө",
     "@search": {},
-    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
+    "welcomeToOpenFoodFacts": "Welcome to OpenFoodFacts",
     "@welcomeToOpenFoodFacts": {},
     "searchPanelHeader": "Search or scan your first product",
     "@searchPanelHeader": {},
@@ -133,7 +133,7 @@
     "@nutri_score_unavailable": {},
     "missing_picture": "Missing picture",
     "@missing_picture": {},
-    "searching": "Searching…",
+    "searching": "Searching...",
     "@searching": {},
     "empty_list": "Empty list",
     "@empty_list": {},
@@ -203,7 +203,7 @@
     "@label_preferences": {},
     "label_lists": "lists",
     "@label_lists": {},
-    "label_web": "View on the Web",
+    "label_web": "Web",
     "@label_web": {},
     "label_refresh": "refresh",
     "@label_refresh": {
@@ -292,13 +292,6 @@
     "scan_contribute": "CONTRIBUTE",
     "@scan_contribute": {
         "description": "Switch on top of the Scanner to choose between to scan or add products"
-    },
-    "incompatible": "Incompatible",
-    "pct_match": "{pct}% match",
-    "@pct_match": {
-        "placeholders": {
-            "pct": {}
-        }
     },
     "scan_choose": "CHOOSE",
     "@scan_choose": {

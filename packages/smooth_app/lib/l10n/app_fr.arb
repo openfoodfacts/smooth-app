@@ -5,7 +5,7 @@
     },
     "search": "Rechercher",
     "@search": {},
-    "welcomeToOpenFoodFacts": "Bienvenue sur Open Food Facts",
+    "welcomeToOpenFoodFacts": "Bienvenue sur OpenFoodFacts",
     "@welcomeToOpenFoodFacts": {},
     "searchPanelHeader": "Recherchez ou scannez votre premier produit",
     "@searchPanelHeader": {},
@@ -133,7 +133,7 @@
     "@nutri_score_unavailable": {},
     "missing_picture": "Image manquante",
     "@missing_picture": {},
-    "searching": "Searching…",
+    "searching": "Recherche en cours...",
     "@searching": {},
     "empty_list": "Liste vide",
     "@empty_list": {},
@@ -203,9 +203,9 @@
     "@label_preferences": {},
     "label_lists": "listes",
     "@label_lists": {},
-    "label_web": "View on the Web",
+    "label_web": "Web",
     "@label_web": {},
-    "label_refresh": "actualiser",
+    "label_refresh": "Actualiser",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
@@ -292,13 +292,6 @@
     "scan_contribute": "CONTRIBUER",
     "@scan_contribute": {
         "description": "Switch on top of the Scanner to choose between to scan or add products"
-    },
-    "incompatible": "Incompatible",
-    "pct_match": "{pct}% match",
-    "@pct_match": {
-        "placeholders": {
-            "pct": {}
-        }
     },
     "scan_choose": "CHOISIR",
     "@scan_choose": {
