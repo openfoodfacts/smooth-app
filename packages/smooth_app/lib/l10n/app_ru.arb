@@ -5,7 +5,7 @@
     },
     "search": "Поиск",
     "@search": {},
-    "welcomeToOpenFoodFacts": "Добро пожаловать в Open Food Facts",
+    "welcomeToOpenFoodFacts": "Welcome to OpenFoodFacts",
     "@welcomeToOpenFoodFacts": {},
     "searchPanelHeader": "Найдите или просканируйте свой первый продукт",
     "@searchPanelHeader": {},
@@ -133,7 +133,7 @@
     "@nutri_score_unavailable": {},
     "missing_picture": "Изображение не найдено",
     "@missing_picture": {},
-    "searching": "Searching…",
+    "searching": "Поиск...",
     "@searching": {},
     "empty_list": "Список пуст",
     "@empty_list": {},
@@ -203,7 +203,7 @@
     "@label_preferences": {},
     "label_lists": "списки",
     "@label_lists": {},
-    "label_web": "View on the Web",
+    "label_web": "Web",
     "@label_web": {},
     "label_refresh": "обновить",
     "@label_refresh": {
@@ -292,13 +292,6 @@
     "scan_contribute": "ВНЕСТИ ВКЛАД",
     "@scan_contribute": {
         "description": "Switch on top of the Scanner to choose between to scan or add products"
-    },
-    "incompatible": "Incompatible",
-    "pct_match": "{pct}% match",
-    "@pct_match": {
-        "placeholders": {
-            "pct": {}
-        }
     },
     "scan_choose": "ВЫБЕРИТЕ",
     "@scan_choose": {

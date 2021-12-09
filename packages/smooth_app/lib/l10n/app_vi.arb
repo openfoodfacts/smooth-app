@@ -5,7 +5,7 @@
     },
     "search": "Tìm kiếm",
     "@search": {},
-    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
+    "welcomeToOpenFoodFacts": "Welcome to OpenFoodFacts",
     "@welcomeToOpenFoodFacts": {},
     "searchPanelHeader": "Tìm kiếm hoặc quét sản phẩm đầu tiên của bạn",
     "@searchPanelHeader": {},
@@ -133,7 +133,7 @@
     "@nutri_score_unavailable": {},
     "missing_picture": "Thiếu hình",
     "@missing_picture": {},
-    "searching": "Searching…",
+    "searching": "Đang tìm...",
     "@searching": {},
     "empty_list": "Danh sách trống",
     "@empty_list": {},
@@ -203,7 +203,7 @@
     "@label_preferences": {},
     "label_lists": "danh sách",
     "@label_lists": {},
-    "label_web": "View on the Web",
+    "label_web": "Web",
     "@label_web": {},
     "label_refresh": "làm mới",
     "@label_refresh": {
@@ -292,13 +292,6 @@
     "scan_contribute": "ĐÓNG GÓP",
     "@scan_contribute": {
         "description": "Switch on top of the Scanner to choose between to scan or add products"
-    },
-    "incompatible": "Incompatible",
-    "pct_match": "{pct}% match",
-    "@pct_match": {
-        "placeholders": {
-            "pct": {}
-        }
     },
     "scan_choose": "CHỌN",
     "@scan_choose": {
