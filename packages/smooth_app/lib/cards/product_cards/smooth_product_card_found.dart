@@ -112,9 +112,12 @@ class SmoothProductCardFound extends StatelessWidget {
                                   getProductCompatibilityHeaderBackgroundColor(
                                       compatibility),
                             ),
-                            const Padding(padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
-                            Text(getProductCompatibilityHeaderTextWidget(
-                                compatibility),
+                            const Padding(
+                                padding:
+                                    EdgeInsets.only(left: VERY_SMALL_SPACE)),
+                            Text(
+                              getProductCompatibilityHeaderTextWidget(
+                                  compatibility),
                               style: Theme.of(context).textTheme.bodyText2,
                             ),
                           ],
