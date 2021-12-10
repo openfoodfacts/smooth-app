@@ -9,7 +9,6 @@ import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 
 class ProductListPage extends StatefulWidget {
   const ProductListPage(this.productList);
