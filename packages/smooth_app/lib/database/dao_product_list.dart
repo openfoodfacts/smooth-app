@@ -17,6 +17,10 @@ class _BarcodeList {
   _BarcodeList.fromProductList(final ProductList productList)
       : this(LocalDatabase.nowInMillis(), productList.barcodes);
 
+  /// Freshness indicator: last time the list was updated.
+  ///
+  /// In milliseconds since epoch.
+  /// Can be used to decide if the data is recent enough or deprecated.
   final int timestamp;
   final List<String> barcodes;
 }
@@ -83,7 +87,11 @@ class DaoProductList extends AbstractDao {
     productList.set(barcodes, products);
   }
 
-  /// Moves a barcode to the top of the list
+  /// Moves a barcode to the end of the list.
+  ///
+  /// One barcode duplicate is potentially removed:
+  /// * If the barcode was already there, it's moved to the end of the list.
+  /// * If the barcode wasn't there, it's added to the end of the list.
   Future<void> push(final ProductList productList, final String barcode) async {
     final _BarcodeList? list = await _get(productList);
     final List<String> barcodes;
@@ -92,7 +100,7 @@ class DaoProductList extends AbstractDao {
     } else {
       barcodes = list.barcodes;
     }
-    barcodes.remove(barcode); // remove duplicates
+    barcodes.remove(barcode); // removes a potential duplicate
     barcodes.add(barcode);
     final _BarcodeList newList = _BarcodeList.now(barcodes);
     await _put(_getKey(productList), newList);
