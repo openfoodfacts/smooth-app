@@ -12,10 +12,7 @@ class HistoryPage extends StatefulWidget {
 }
 
 class _HistoryPageState extends State<HistoryPage> {
-  final ProductList productList = ProductList(
-    listType: ProductList.LIST_TYPE_HISTORY,
-    parameters: '',
-  );
+  final ProductList productList = ProductList.history();
 
   @protected
   @mustCallSuper

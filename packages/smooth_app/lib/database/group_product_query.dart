@@ -28,8 +28,5 @@ class GroupProductQuery implements ProductQuery {
       );
 
   @override
-  ProductList getProductList() => ProductList(
-        listType: ProductList.LIST_TYPE_HTTP_SEARCH_GROUP,
-        parameters: group.id,
-      );
+  ProductList getProductList() => ProductList.groupSearch(group);
 }
