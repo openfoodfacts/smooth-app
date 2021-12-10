@@ -69,7 +69,6 @@
   try {
     _daoProduct = DaoProduct(localDatabase);
     _daoProductList = DaoProductList(localDatabase);
-    _daoProductExtra = DaoProductExtra(localDatabase);
     if (!await _refresh()) {
       return null;
     }

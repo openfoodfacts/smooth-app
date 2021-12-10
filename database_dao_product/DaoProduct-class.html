@@ -50,6 +50,9 @@
 </h1></div>
 
     
+<section class="desc markdown">
+  <p>Where we store the products as "barcode =&gt; product".</p>
+</section>
 
 
     <section>
@@ -61,12 +64,6 @@
           <li>DaoProduct</li>
         </ul></dd>
 
-        <dt>Implemented types</dt>
-        <dd>
-          <ul class="comma-separated clazz-relationships">
-            <li><a href="../database_bulk_deletable/BulkDeletable-class.html">BulkDeletable</a></li>
-          </ul>
-        </dd>
 
 
 
@@ -144,60 +141,8 @@
 </dd>
 
         <dt id="getAll" class="callable">
-  <span class="name"><a href="../database_dao_product/DaoProduct/getAll.html">getAll</a></span><span class="signature">(<wbr><span class="parameter" id="getAll-param-barcodes"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">barcodes</span></span>)
+  <span class="name"><a href="../database_dao_product/DaoProduct/getAll.html">getAll</a></span><span class="signature">(<wbr><span class="parameter" id="getAll-param-barcodes"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">barcodes</span></span>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/1.3.9/model_Product/Product-class.html">Product</a></span>&gt;</span></span>&gt;</span></span>
-  </span>
-  
-
-</dt>
-<dd>
-   
-  
-
-</dd>
-
-        <dt id="getAllWithExtras" class="callable">
-  <span class="name"><a href="../database_dao_product/DaoProduct/getAllWithExtras.html">getAllWithExtras</a></span><span class="signature">(<wbr><span class="parameter" id="getAllWithExtras-param-extraKey"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">extraKey</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/1.3.9/model_Product/Product-class.html">Product</a></span>&gt;</span></span>&gt;</span></span>
-  </span>
-  
-
-</dt>
-<dd>
-   
-  
-
-</dd>
-
-        <dt id="getDeleteWhere" class="callable">
-  <span class="name"><a href="../database_dao_product/DaoProduct/getDeleteWhere.html">getDeleteWhere</a></span><span class="signature">(<wbr><span class="parameter" id="getDeleteWhere-param-deleteWhereArgs"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a></span> <span class="parameter-name">deleteWhereArgs</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
-  </span>
-  
-
-</dt>
-<dd>
-  "where" clause for delete in bulk mode 
-  <div class="features">override</div>
-
-</dd>
-
-        <dt id="getInsertColumns" class="callable">
-  <span class="name"><a href="../database_dao_product/DaoProduct/getInsertColumns.html">getInsertColumns</a></span><span class="signature">(<wbr>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span>
-  </span>
-  
-
-</dt>
-<dd>
-  Insert columns for bulk mode 
-  <div class="features">override</div>
-
-</dd>
-
-        <dt id="getLastUpdate" class="callable">
-  <span class="name"><a href="../database_dao_product/DaoProduct/getLastUpdate.html">getLastUpdate</a></span><span class="signature">(<wbr><span class="parameter" id="getLastUpdate-param-barcode"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">barcode</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span>&gt;</span></span>
   </span>
   
 
@@ -210,26 +155,26 @@
 
         <dt id="getSuggestions" class="callable">
   <span class="name"><a href="../database_dao_product/DaoProduct/getSuggestions.html">getSuggestions</a></span><span class="signature">(<wbr><span class="parameter" id="getSuggestions-param-pattern"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">pattern</span>, </span><span class="parameter" id="getSuggestions-param-minLength"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">minLength</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/1.3.9/model_Product/Product-class.html">Product</a></span>&gt;</span></span>&gt;</span></span>
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/1.3.9/model_Product/Product-class.html">Product</a></span>&gt;</span></span>&gt;</span></span>
   </span>
   
 
 </dt>
 <dd>
-  Returns the products that match a string <a href="../database_dao_product/DaoProduct/getSuggestions.html">[...]</a>
+  Returns the products that match a string 
   
 
 </dd>
 
-        <dt id="getTableName" class="callable">
-  <span class="name"><a href="../database_dao_product/DaoProduct/getTableName.html">getTableName</a></span><span class="signature">(<wbr>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+        <dt id="init" class="callable">
+  <span class="name"><a href="../database_dao_product/DaoProduct/init.html">init</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
   </span>
   
 
 </dt>
 <dd>
-  Table name 
+  Best place to open a hive box. 
   <div class="features">override</div>
 
 </dd>
@@ -248,15 +193,41 @@
 </dd>
 
         <dt id="put" class="callable">
-  <span class="name"><a href="../database_dao_product/DaoProduct/put.html">put</a></span><span class="signature">(<wbr><span class="parameter" id="put-param-products"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/1.3.9/model_Product/Product-class.html">Product</a></span>&gt;</span></span> <span class="parameter-name">products</span></span>)
+  <span class="name"><a href="../database_dao_product/DaoProduct/put.html">put</a></span><span class="signature">(<wbr><span class="parameter" id="put-param-product"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/1.3.9/model_Product/Product-class.html">Product</a></span> <span class="parameter-name">product</span></span>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
   </span>
   
 
 </dt>
 <dd>
-  Upserts products in database 
+   
   
+
+</dd>
+
+        <dt id="putAll" class="callable">
+  <span class="name"><a href="../database_dao_product/DaoProduct/putAll.html">putAll</a></span><span class="signature">(<wbr><span class="parameter" id="putAll-param-products"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/1.3.9/model_Product/Product-class.html">Product</a></span>&gt;</span></span> <span class="parameter-name">products</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+   
+  
+
+</dd>
+
+        <dt id="registerAdapter" class="callable">
+  <span class="name"><a href="../database_dao_product/DaoProduct/registerAdapter.html">registerAdapter</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Where the specific <code>registerAdapter</code> hive related method is called. <a href="../database_dao_product/DaoProduct/registerAdapter.html">[...]</a>
+  <div class="features">override</div>
 
 </dd>
 
@@ -296,61 +267,7 @@
     </section>
 
 
-    <section class="summary offset-anchor" id="static-methods">
-      <h2>Static Methods</h2>
-      <dl class="callables">
-        <dt id="onUpgrade" class="callable">
-  <span class="name"><a href="../database_dao_product/DaoProduct/onUpgrade.html">onUpgrade</a></span><span class="signature">(<wbr><span class="parameter" id="onUpgrade-param-db"><span class="type-annotation"><a href="https://pub.dev/documentation/sqflite_common/2.0.1+1/sqlite_api/Database-class.html">Database</a></span> <span class="parameter-name">db</span>, </span><span class="parameter" id="onUpgrade-param-oldVersion"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">oldVersion</span>, </span><span class="parameter" id="onUpgrade-param-newVersion"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">newVersion</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/FutureOr-class.html">FutureOr</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
-  </span>
-  
 
-</dt>
-<dd>
-   
-  
-
-</dd>
-
-      </dl>
-    </section>
-
-    <section class="summary offset-anchor" id="constants">
-      <h2>Constants</h2>
-
-      <dl class="properties">
-        <dt id="TABLE_PRODUCT" class="constant">
-  <span class="name "><a href="../database_dao_product/DaoProduct/TABLE_PRODUCT-constant.html">TABLE_PRODUCT</a></span>
-  <span class="signature">&#8594; const <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
-  
-
-</dt>
-<dd>
-   
-  
-
-  <div>
-    <span class="signature"><code>&#39;product&#39;</code></span>
-  </div>
-</dd>
-
-        <dt id="TABLE_PRODUCT_COLUMN_BARCODE" class="constant">
-  <span class="name "><a href="../database_dao_product/DaoProduct/TABLE_PRODUCT_COLUMN_BARCODE-constant.html">TABLE_PRODUCT_COLUMN_BARCODE</a></span>
-  <span class="signature">&#8594; const <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
-  
-
-</dt>
-<dd>
-   
-  
-
-  <div>
-    <span class="signature"><code>&#39;barcode&#39;</code></span>
-  </div>
-</dd>
-
-      </dl>
-    </section>
 
   </div> <!-- /.main-content -->
 
@@ -401,14 +318,12 @@
     <li class="section-title"><a href="../database_dao_product/DaoProduct-class.html#instance-methods">Methods</a></li>
     <li><a href="../database_dao_product/DaoProduct/get.html">get</a></li>
     <li><a href="../database_dao_product/DaoProduct/getAll.html">getAll</a></li>
-    <li><a href="../database_dao_product/DaoProduct/getAllWithExtras.html">getAllWithExtras</a></li>
-    <li><a href="../database_dao_product/DaoProduct/getDeleteWhere.html">getDeleteWhere</a></li>
-    <li><a href="../database_dao_product/DaoProduct/getInsertColumns.html">getInsertColumns</a></li>
-    <li><a href="../database_dao_product/DaoProduct/getLastUpdate.html">getLastUpdate</a></li>
     <li><a href="../database_dao_product/DaoProduct/getSuggestions.html">getSuggestions</a></li>
-    <li><a href="../database_dao_product/DaoProduct/getTableName.html">getTableName</a></li>
+    <li><a href="../database_dao_product/DaoProduct/init.html">init</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li><a href="../database_dao_product/DaoProduct/put.html">put</a></li>
+    <li><a href="../database_dao_product/DaoProduct/putAll.html">putAll</a></li>
+    <li><a href="../database_dao_product/DaoProduct/registerAdapter.html">registerAdapter</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
     <li class="section-title inherited"><a href="../database_dao_product/DaoProduct-class.html#operators">Operators</a></li>
@@ -416,12 +331,7 @@
 
 
 
-    <li class="section-title"><a href="../database_dao_product/DaoProduct-class.html#static-methods">Static methods</a></li>
-    <li><a href="../database_dao_product/DaoProduct/onUpgrade.html">onUpgrade</a></li>
 
-    <li class="section-title"><a href="../database_dao_product/DaoProduct-class.html#constants">Constants</a></li>
-    <li><a href="../database_dao_product/DaoProduct/TABLE_PRODUCT-constant.html">TABLE_PRODUCT</a></li>
-    <li><a href="../database_dao_product/DaoProduct/TABLE_PRODUCT_COLUMN_BARCODE-constant.html">TABLE_PRODUCT_COLUMN_BARCODE</a></li>
 </ol>
 
   </div><!--/.sidebar-offcanvas-->

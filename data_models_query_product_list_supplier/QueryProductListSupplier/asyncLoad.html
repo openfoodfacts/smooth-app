@@ -79,11 +79,9 @@ Future&lt;String?&gt; asyncLoad() async {
     productList = productQuery.getProductList();
     if (searchResult.products != null) {
       productList.setAll(searchResult.products!);
+      await DaoProduct(localDatabase).putAll(searchResult.products!);
     }
-    final DaoProductList daoProductList = DaoProductList(localDatabase);
-    await daoProductList.create(productList);
-    await DaoProduct(localDatabase).put(productList.getList());
-    await daoProductList.put(productList);
+    await DaoProductList(localDatabase).put(productList);
     return null;
   } catch (e) {
     return e.toString();

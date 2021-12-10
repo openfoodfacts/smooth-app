@@ -53,7 +53,7 @@
       
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/1.3.9/model_Product/Product-class.html">Product</a></span>&gt;</span></span>&gt;</span></span>
-<span class="name ">getAll</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getAll-param-barcodes"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">barcodes</span></span></li>
+<span class="name ">getAll</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getAll-param-barcodes"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">barcodes</span></span></li>
 </ol>)
 
       
@@ -65,23 +65,16 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;Map&lt;String, Product&gt;&gt; getAll(final List&lt;String&gt; barcodes) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;Map&lt;String, Product&gt;&gt; getAll(final Iterable&lt;String&gt; barcodes) async {
+  final Box&lt;Product&gt; box = _getBox();
   final Map&lt;String, Product&gt; result = &lt;String, Product&gt;{};
-  if (barcodes.isEmpty) {
-    return result;
+  for (final String barcode in barcodes) {
+    final Product? product = box.get(barcode);
+    if (product != null) {
+      result[barcode] = product;
+    }
   }
-  final List&lt;Map&lt;String, dynamic&gt;&gt; queryResults =
-      await localDatabase.database.query(
-    TABLE_PRODUCT,
-    columns: &lt;String&gt;[
-      TABLE_PRODUCT_COLUMN_BARCODE,
-      _TABLE_PRODUCT_COLUMN_JSON,
-    ],
-    where:
-        &#39;$TABLE_PRODUCT_COLUMN_BARCODE in(? ${&#39;,?&#39; * (barcodes.length - 1)})&#39;,
-    whereArgs: barcodes,
-  );
-  return _getAll(queryResults);
+  return result;
 }</code></pre>
 </section>
 
@@ -120,14 +113,12 @@
     <li class="section-title"><a href="../../database_dao_product/DaoProduct-class.html#instance-methods">Methods</a></li>
     <li><a href="../../database_dao_product/DaoProduct/get.html">get</a></li>
     <li><a href="../../database_dao_product/DaoProduct/getAll.html">getAll</a></li>
-    <li><a href="../../database_dao_product/DaoProduct/getAllWithExtras.html">getAllWithExtras</a></li>
-    <li><a href="../../database_dao_product/DaoProduct/getDeleteWhere.html">getDeleteWhere</a></li>
-    <li><a href="../../database_dao_product/DaoProduct/getInsertColumns.html">getInsertColumns</a></li>
-    <li><a href="../../database_dao_product/DaoProduct/getLastUpdate.html">getLastUpdate</a></li>
     <li><a href="../../database_dao_product/DaoProduct/getSuggestions.html">getSuggestions</a></li>
-    <li><a href="../../database_dao_product/DaoProduct/getTableName.html">getTableName</a></li>
+    <li><a href="../../database_dao_product/DaoProduct/init.html">init</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li><a href="../../database_dao_product/DaoProduct/put.html">put</a></li>
+    <li><a href="../../database_dao_product/DaoProduct/putAll.html">putAll</a></li>
+    <li><a href="../../database_dao_product/DaoProduct/registerAdapter.html">registerAdapter</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
     <li class="section-title inherited"><a href="../../database_dao_product/DaoProduct-class.html#operators">Operators</a></li>
@@ -135,12 +126,7 @@
 
 
 
-    <li class="section-title"><a href="../../database_dao_product/DaoProduct-class.html#static-methods">Static methods</a></li>
-    <li><a href="../../database_dao_product/DaoProduct/onUpgrade.html">onUpgrade</a></li>
 
-    <li class="section-title"><a href="../../database_dao_product/DaoProduct-class.html#constants">Constants</a></li>
-    <li><a href="../../database_dao_product/DaoProduct/TABLE_PRODUCT-constant.html">TABLE_PRODUCT</a></li>
-    <li><a href="../../database_dao_product/DaoProduct/TABLE_PRODUCT_COLUMN_BARCODE-constant.html">TABLE_PRODUCT_COLUMN_BARCODE</a></li>
 </ol>
 
   </div><!--/.sidebar-offcanvas-->

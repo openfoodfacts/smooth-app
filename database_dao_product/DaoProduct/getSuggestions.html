@@ -52,7 +52,7 @@
     <section class="multi-line-signature">
       
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/1.3.9/model_Product/Product-class.html">Product</a></span>&gt;</span></span>&gt;</span></span>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/1.3.9/model_Product/Product-class.html">Product</a></span>&gt;</span></span>&gt;</span></span>
 <span class="name ">getSuggestions</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getSuggestions-param-pattern"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">pattern</span>, </span></li>
 <li><span class="parameter" id="getSuggestions-param-minLength"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">minLength</span></span></li>
 </ol>)
@@ -63,48 +63,38 @@
     
 <section class="desc markdown">
   <p>Returns the products that match a string</p>
-<p>The search is actually ugly, but it's a start.</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">&#47;&#47; TODO(monsieurtanuki): check only the fields that are deemed relevant
-&#47;&#47; TODO(monsieurtanuki): consider space-separated fields as distinct keywords
-Future&lt;List&lt;Product&gt;&gt; getSuggestions(
-    final String pattern, final int minLength) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;Iterable&lt;Product&gt;&gt; getSuggestions(
+  final String pattern,
+  final int minLength,
+) async {
   final List&lt;Product&gt; result = &lt;Product&gt;[];
   if (pattern.trim().length &lt; minLength) {
     return result;
   }
-  late String whereClause;
-  late List&lt;String&gt; whereArgs;
-  late String orderBy;
+  final Box&lt;Product&gt; box = _getBox();
   if (int.tryParse(pattern) != null) {
-    whereClause = &#39;a.$TABLE_PRODUCT_COLUMN_BARCODE like ?&#39;;
-    whereArgs = &lt;String&gt;[&#39;%$pattern%&#39;];
-    orderBy = &#39;a.$TABLE_PRODUCT_COLUMN_BARCODE asc&#39;;
-  } else {
-    whereClause = &#39;exists(${DaoProductExtra.getExistsLikeSubQuery()})&#39;;
-    whereArgs = DaoProductExtra.getExistsLikeSubQueryArgs(pattern);
-    orderBy = &#39;a.${LocalDatabase.COLUMN_TIMESTAMP} desc&#39;;
+    for (final dynamic barcode in box.keys) {
+      if (barcode.toString().contains(pattern)) {
+        result.add(box.get(barcode)!);
+      }
+    }
+    return result;
   }
-  final List&lt;Map&lt;String, dynamic&gt;&gt; queryResults =
-      await localDatabase.database.rawQuery(
-    &#39;select&#39;
-    &#39;  a.$TABLE_PRODUCT_COLUMN_BARCODE &#39;
-    &#39;, a.$_TABLE_PRODUCT_COLUMN_JSON &#39;
-    &#39;from &#39;
-    &#39;  $TABLE_PRODUCT a &#39;
-    &#39;where &#39;
-    &#39;  $whereClause &#39;
-    &#39;order by &#39;
-    &#39;  $orderBy&#39;,
-    whereArgs,
-  );
-  for (final Map&lt;String, dynamic&gt; row in queryResults) {
-    result.add(_getProductFromQueryResult(row));
+  final String betterPattern = removeDiacritics(pattern);
+  for (final Product product in box.values) {
+    &#47;&#47; TODO(monsieurtanuki): check other fields
+    if (product.productName != null &amp;&amp;
+        removeDiacritics(product.productName!)
+            .toLowerCase()
+            .contains(betterPattern)) {
+      result.add(product);
+    }
   }
   return result;
 }</code></pre>
@@ -145,14 +135,12 @@ Future&lt;List&lt;Product&gt;&gt; getSuggestions(
     <li class="section-title"><a href="../../database_dao_product/DaoProduct-class.html#instance-methods">Methods</a></li>
     <li><a href="../../database_dao_product/DaoProduct/get.html">get</a></li>
     <li><a href="../../database_dao_product/DaoProduct/getAll.html">getAll</a></li>
-    <li><a href="../../database_dao_product/DaoProduct/getAllWithExtras.html">getAllWithExtras</a></li>
-    <li><a href="../../database_dao_product/DaoProduct/getDeleteWhere.html">getDeleteWhere</a></li>
-    <li><a href="../../database_dao_product/DaoProduct/getInsertColumns.html">getInsertColumns</a></li>
-    <li><a href="../../database_dao_product/DaoProduct/getLastUpdate.html">getLastUpdate</a></li>
     <li><a href="../../database_dao_product/DaoProduct/getSuggestions.html">getSuggestions</a></li>
-    <li><a href="../../database_dao_product/DaoProduct/getTableName.html">getTableName</a></li>
+    <li><a href="../../database_dao_product/DaoProduct/init.html">init</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li><a href="../../database_dao_product/DaoProduct/put.html">put</a></li>
+    <li><a href="../../database_dao_product/DaoProduct/putAll.html">putAll</a></li>
+    <li><a href="../../database_dao_product/DaoProduct/registerAdapter.html">registerAdapter</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
     <li class="section-title inherited"><a href="../../database_dao_product/DaoProduct-class.html#operators">Operators</a></li>
@@ -160,12 +148,7 @@ Future&lt;List&lt;Product&gt;&gt; getSuggestions(
 
 
 
-    <li class="section-title"><a href="../../database_dao_product/DaoProduct-class.html#static-methods">Static methods</a></li>
-    <li><a href="../../database_dao_product/DaoProduct/onUpgrade.html">onUpgrade</a></li>
 
-    <li class="section-title"><a href="../../database_dao_product/DaoProduct-class.html#constants">Constants</a></li>
-    <li><a href="../../database_dao_product/DaoProduct/TABLE_PRODUCT-constant.html">TABLE_PRODUCT</a></li>
-    <li><a href="../../database_dao_product/DaoProduct/TABLE_PRODUCT_COLUMN_BARCODE-constant.html">TABLE_PRODUCT_COLUMN_BARCODE</a></li>
 </ol>
 
   </div><!--/.sidebar-offcanvas-->

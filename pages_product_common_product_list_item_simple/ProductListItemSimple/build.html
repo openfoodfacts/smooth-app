@@ -109,28 +109,6 @@ and</li>
 Widget build(BuildContext context) =&gt; SmoothProductCardFound(
       heroTag: product.barcode!,
       product: product,
-      refresh: () async {
-        await daoProductList.get(productList);
-        listRefresher();
-      },
-      handle: reorderIndex == null
-          ? null
-          : ReorderableDragStartListener(
-              index: reorderIndex!,
-              child: const Icon(Icons.drag_handle),
-            ),
-      onLongPress: () async {
-        await Navigator.push&lt;Widget&gt;(
-          context,
-          MaterialPageRoute&lt;Widget&gt;(
-            builder: (BuildContext context) =&gt; MultiSelectProductPage(
-              barcode: product.barcode!,
-              productList: productList,
-            ),
-          ),
-        );
-        listRefresher();
-      },
     );</code></pre>
 </section>
 
@@ -162,13 +140,9 @@ Widget build(BuildContext context) =&gt; SmoothProductCardFound(
     <li class="section-title">
       <a href="../../pages_product_common_product_list_item_simple/ProductListItemSimple-class.html#instance-properties">Properties</a>
     </li>
-    <li><a href="../../pages_product_common_product_list_item_simple/ProductListItemSimple/daoProductList.html">daoProductList</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/hashCode.html">hashCode</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/key.html">key</a></li>
-    <li><a href="../../pages_product_common_product_list_item_simple/ProductListItemSimple/listRefresher.html">listRefresher</a></li>
     <li><a href="../../pages_product_common_product_list_item_simple/ProductListItemSimple/product.html">product</a></li>
-    <li><a href="../../pages_product_common_product_list_item_simple/ProductListItemSimple/productList.html">productList</a></li>
-    <li><a href="../../pages_product_common_product_list_item_simple/ProductListItemSimple/reorderIndex.html">reorderIndex</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
     <li class="section-title"><a href="../../pages_product_common_product_list_item_simple/ProductListItemSimple-class.html#instance-methods">Methods</a></li>

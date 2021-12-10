@@ -70,10 +70,7 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
-ProductList getProductList() =&gt; ProductList(
-      listType: ProductList.LIST_TYPE_HTTP_SEARCH_CATEGORY,
-      parameters: category,
-    );</code></pre>
+ProductList getProductList() =&gt; ProductList.categorySearch(category);</code></pre>
 </section>
 
 

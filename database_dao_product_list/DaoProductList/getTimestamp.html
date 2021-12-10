@@ -65,16 +65,8 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;int?&gt; getTimestamp(final ProductList productList) async {
-  final Map&lt;String, dynamic&gt;? record = await _getRecord(
-    productList,
-    localDatabase.database,
-  );
-  if (record == null) {
-    return null;
-  }
-  return record[LocalDatabase.COLUMN_TIMESTAMP] as int;
-}</code></pre>
+  <pre class="language-dart"><code class="language-dart">Future&lt;int?&gt; getTimestamp(final ProductList productList) async =&gt;
+    (await _get(productList))?.timestamp;</code></pre>
 </section>
 
 
@@ -111,15 +103,14 @@
 
     <li class="section-title"><a href="../../database_dao_product_list/DaoProductList-class.html#instance-methods">Methods</a></li>
     <li><a href="../../database_dao_product_list/DaoProductList/clear.html">clear</a></li>
-    <li><a href="../../database_dao_product_list/DaoProductList/create.html">create</a></li>
     <li><a href="../../database_dao_product_list/DaoProductList/delete.html">delete</a></li>
     <li><a href="../../database_dao_product_list/DaoProductList/get.html">get</a></li>
-    <li><a href="../../database_dao_product_list/DaoProductList/getAll.html">getAll</a></li>
-    <li><a href="../../database_dao_product_list/DaoProductList/getFirstProducts.html">getFirstProducts</a></li>
     <li><a href="../../database_dao_product_list/DaoProductList/getTimestamp.html">getTimestamp</a></li>
+    <li><a href="../../database_dao_product_list/DaoProductList/init.html">init</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li><a href="../../database_dao_product_list/DaoProductList/push.html">push</a></li>
     <li><a href="../../database_dao_product_list/DaoProductList/put.html">put</a></li>
-    <li><a href="../../database_dao_product_list/DaoProductList/rename.html">rename</a></li>
+    <li><a href="../../database_dao_product_list/DaoProductList/registerAdapter.html">registerAdapter</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
     <li class="section-title inherited"><a href="../../database_dao_product_list/DaoProductList-class.html#operators">Operators</a></li>
@@ -127,8 +118,6 @@
 
 
 
-    <li class="section-title"><a href="../../database_dao_product_list/DaoProductList-class.html#static-methods">Static methods</a></li>
-    <li><a href="../../database_dao_product_list/DaoProductList/onUpgrade.html">onUpgrade</a></li>
 
 </ol>
 

@@ -70,11 +70,7 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
-ProductList getProductList() =&gt; ProductList(
-      listType: ProductList.LIST_TYPE_HTTP_SEARCH_KEYWORDS,
-      &#47;&#47; TODO(monsieurtanuki): parameters should include languageCode, countryCode and pageSize
-      parameters: keywords,
-    );</code></pre>
+ProductList getProductList() =&gt; ProductList.keywordSearch(keywords);</code></pre>
 </section>
 
 

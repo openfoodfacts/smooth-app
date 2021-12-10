@@ -82,7 +82,7 @@
   if (result.status == 1) {
     final Product? product = result.product;
     if (product != null) {
-      await daoProduct.put(&lt;Product&gt;[product]);
+      await daoProduct.put(product);
       return FetchedProduct(product);
     }
   }

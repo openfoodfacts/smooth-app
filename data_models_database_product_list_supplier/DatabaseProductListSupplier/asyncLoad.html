@@ -76,11 +76,7 @@
 Future&lt;String?&gt; asyncLoad() async {
   try {
     final ProductList loadedProductList = productQuery.getProductList();
-    final bool result =
-        await DaoProductList(localDatabase).get(loadedProductList);
-    if (!result) {
-      return &#39;unexpected empty record&#39;;
-    }
+    await DaoProductList(localDatabase).get(loadedProductList);
     productList = loadedProductList;
     return null;
   } catch (e) {

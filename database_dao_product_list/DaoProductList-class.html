@@ -132,72 +132,33 @@
 
 </dt>
 <dd>
-  Clears a product list: unlinks all its items 
-  
-
-</dd>
-
-        <dt id="create" class="callable">
-  <span class="name"><a href="../database_dao_product_list/DaoProductList/create.html">create</a></span><span class="signature">(<wbr><span class="parameter" id="create-param-productList"><span class="type-annotation"><a href="../data_models_product_list/ProductList-class.html">ProductList</a></span> <span class="parameter-name">productList</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>&gt;</span></span>
-  </span>
-  
-
-</dt>
-<dd>
    
   
 
 </dd>
 
         <dt id="delete" class="callable">
-  <span class="name"><a href="../database_dao_product_list/DaoProductList/delete.html">delete</a></span><span class="signature">(<wbr><span class="parameter" id="delete-param-productList"><span class="type-annotation"><a href="../data_models_product_list/ProductList-class.html">ProductList</a></span> <span class="parameter-name">productList</span></span>)
+  <span class="name"><a href="../database_dao_product_list/DaoProductList/delete.html">delete</a></span><span class="signature">(<wbr><span class="parameter" id="delete-param-key"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">key</span></span>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
   </span>
   
 
 </dt>
 <dd>
-  Removes a product list (it won't exist anymore) and unlinks all its items 
+   
   
 
 </dd>
 
         <dt id="get" class="callable">
   <span class="name"><a href="../database_dao_product_list/DaoProductList/get.html">get</a></span><span class="signature">(<wbr><span class="parameter" id="get-param-productList"><span class="type-annotation"><a href="../data_models_product_list/ProductList-class.html">ProductList</a></span> <span class="parameter-name">productList</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>&gt;</span></span>
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
   </span>
   
 
 </dt>
 <dd>
-   
-  
-
-</dd>
-
-        <dt id="getAll" class="callable">
-  <span class="name"><a href="../database_dao_product_list/DaoProductList/getAll.html">getAll</a></span><span class="signature">(<wbr><span class="parameter" id="getAll-param-withStats">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">withStats</span> = <span class="default-value">true</span>, </span><span class="parameter" id="getAll-param-typeFilter"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span>?</span> <span class="parameter-name">typeFilter</span>, </span><span class="parameter" id="getAll-param-reverse"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">reverse</span> = <span class="default-value">true</span>, </span><span class="parameter" id="getAll-param-limit"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">limit</span>}</span>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../data_models_product_list/ProductList-class.html">ProductList</a></span>&gt;</span></span>&gt;</span></span>
-  </span>
-  
-
-</dt>
-<dd>
-   
-  
-
-</dd>
-
-        <dt id="getFirstProducts" class="callable">
-  <span class="name"><a href="../database_dao_product_list/DaoProductList/getFirstProducts.html">getFirstProducts</a></span><span class="signature">(<wbr><span class="parameter" id="getFirstProducts-param-productList"><span class="type-annotation"><a href="../data_models_product_list/ProductList-class.html">ProductList</a></span> <span class="parameter-name">productList</span>, </span><span class="parameter" id="getFirstProducts-param-limit"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">limit</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/1.3.9/model_Product/Product-class.html">Product</a></span>&gt;</span></span>&gt;</span></span>
-  </span>
-  
-
-</dt>
-<dd>
-   
+  Loads the barcodes AND all the products. 
   
 
 </dd>
@@ -215,6 +176,19 @@
 
 </dd>
 
+        <dt id="init" class="callable">
+  <span class="name"><a href="../database_dao_product_list/DaoProductList/init.html">init</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Best place to open a hive box. 
+  <div class="features">override</div>
+
+</dd>
+
         <dt id="noSuchMethod" class="callable inherited">
   <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
     <span class="returntype parameter">&#8594; dynamic</span>
@@ -225,6 +199,19 @@
 <dd class="inherited">
   Invoked when a non-existent method or property is accessed. <a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">[...]</a>
   <div class="features">inherited</div>
+
+</dd>
+
+        <dt id="push" class="callable">
+  <span class="name"><a href="../database_dao_product_list/DaoProductList/push.html">push</a></span><span class="signature">(<wbr><span class="parameter" id="push-param-productList"><span class="type-annotation"><a href="../data_models_product_list/ProductList-class.html">ProductList</a></span> <span class="parameter-name">productList</span>, </span><span class="parameter" id="push-param-barcode"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">barcode</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Moves a barcode to the end of the list. <a href="../database_dao_product_list/DaoProductList/push.html">[...]</a>
+  
 
 </dd>
 
@@ -241,16 +228,16 @@
 
 </dd>
 
-        <dt id="rename" class="callable">
-  <span class="name"><a href="../database_dao_product_list/DaoProductList/rename.html">rename</a></span><span class="signature">(<wbr><span class="parameter" id="rename-param-productList"><span class="type-annotation"><a href="../data_models_product_list/ProductList-class.html">ProductList</a></span> <span class="parameter-name">productList</span>, </span><span class="parameter" id="rename-param-newName"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">newName</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>&gt;</span></span>
+        <dt id="registerAdapter" class="callable">
+  <span class="name"><a href="../database_dao_product_list/DaoProductList/registerAdapter.html">registerAdapter</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
   </span>
   
 
 </dt>
 <dd>
-   
-  
+  Where the specific <code>registerAdapter</code> hive related method is called. <a href="../database_dao_product_list/DaoProductList/registerAdapter.html">[...]</a>
+  <div class="features">override</div>
 
 </dd>
 
@@ -290,24 +277,6 @@
     </section>
 
 
-    <section class="summary offset-anchor" id="static-methods">
-      <h2>Static Methods</h2>
-      <dl class="callables">
-        <dt id="onUpgrade" class="callable">
-  <span class="name"><a href="../database_dao_product_list/DaoProductList/onUpgrade.html">onUpgrade</a></span><span class="signature">(<wbr><span class="parameter" id="onUpgrade-param-db"><span class="type-annotation"><a href="https://pub.dev/documentation/sqflite_common/2.0.1+1/sqlite_api/Database-class.html">Database</a></span> <span class="parameter-name">db</span>, </span><span class="parameter" id="onUpgrade-param-oldVersion"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">oldVersion</span>, </span><span class="parameter" id="onUpgrade-param-newVersion"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">newVersion</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/FutureOr-class.html">FutureOr</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
-  </span>
-  
-
-</dt>
-<dd>
-   
-  
-
-</dd>
-
-      </dl>
-    </section>
 
 
   </div> <!-- /.main-content -->
@@ -358,15 +327,14 @@
 
     <li class="section-title"><a href="../database_dao_product_list/DaoProductList-class.html#instance-methods">Methods</a></li>
     <li><a href="../database_dao_product_list/DaoProductList/clear.html">clear</a></li>
-    <li><a href="../database_dao_product_list/DaoProductList/create.html">create</a></li>
     <li><a href="../database_dao_product_list/DaoProductList/delete.html">delete</a></li>
     <li><a href="../database_dao_product_list/DaoProductList/get.html">get</a></li>
-    <li><a href="../database_dao_product_list/DaoProductList/getAll.html">getAll</a></li>
-    <li><a href="../database_dao_product_list/DaoProductList/getFirstProducts.html">getFirstProducts</a></li>
     <li><a href="../database_dao_product_list/DaoProductList/getTimestamp.html">getTimestamp</a></li>
+    <li><a href="../database_dao_product_list/DaoProductList/init.html">init</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li><a href="../database_dao_product_list/DaoProductList/push.html">push</a></li>
     <li><a href="../database_dao_product_list/DaoProductList/put.html">put</a></li>
-    <li><a href="../database_dao_product_list/DaoProductList/rename.html">rename</a></li>
+    <li><a href="../database_dao_product_list/DaoProductList/registerAdapter.html">registerAdapter</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
     <li class="section-title inherited"><a href="../database_dao_product_list/DaoProductList-class.html#operators">Operators</a></li>
@@ -374,8 +342,6 @@
 
 
 
-    <li class="section-title"><a href="../database_dao_product_list/DaoProductList-class.html#static-methods">Static methods</a></li>
-    <li><a href="../database_dao_product_list/DaoProductList/onUpgrade.html">onUpgrade</a></li>
 
 </ol>
 
