@@ -15,12 +15,6 @@ import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_ui_library/smooth_ui_library.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
 
-/// Main attributes, to be displayed on top
-const List<String> _SCORE_ATTRIBUTE_IDS = <String>[
-  Attribute.ATTRIBUTE_NUTRISCORE,
-  Attribute.ATTRIBUTE_ECOSCORE,
-];
-
 const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS,
   AttributeGroup.ATTRIBUTE_GROUP_INGREDIENT_ANALYSIS,
@@ -125,7 +119,7 @@ class _SummaryCardState extends State<SummaryCard> {
   Widget _buildSummaryCardContent(BuildContext context) {
     final List<Attribute> scoreAttributes =
         AttributeListExpandable.getPopulatedAttributes(
-            widget._product, _SCORE_ATTRIBUTE_IDS);
+            widget._product, SCORE_ATTRIBUTE_IDS);
 
     // Header takes 1 row.
     // Product Title Tile takes 2 rows to render.
@@ -203,7 +197,8 @@ class _SummaryCardState extends State<SummaryCard> {
 
   Widget _buildProductCompatibilityHeader(BuildContext context) {
     final ProductCompatibility compatibility =
-        getProductCompatibility(widget._productPreferences, widget._product);
+        getProductCompatibility(widget._productPreferences, widget._product)
+            .productCompatibility;
     // NOTE: This is temporary and will be updated once the feature is supported
     // by the server.
     return Container(
@@ -356,7 +351,7 @@ class _SummaryCardState extends State<SummaryCard> {
 
   /// Returns the attributes that match the filter
   ///
-  /// [_SCORE_ATTRIBUTE_IDS] attributes are not included, as they are already
+  /// [SCORE_ATTRIBUTE_IDS] attributes are not included, as they are already
   /// dealt with somewhere else.
   List<Attribute> _getFilteredAttributes(
     final AttributeGroup attributeGroup,
@@ -368,7 +363,7 @@ class _SummaryCardState extends State<SummaryCard> {
     }
     for (final Attribute attribute in attributeGroup.attributes!) {
       final String attributeId = attribute.id!;
-      if (_SCORE_ATTRIBUTE_IDS.contains(attributeId)) {
+      if (SCORE_ATTRIBUTE_IDS.contains(attributeId)) {
         continue;
       }
       if (attributeGroup.id == AttributeGroup.ATTRIBUTE_GROUP_LABELS) {

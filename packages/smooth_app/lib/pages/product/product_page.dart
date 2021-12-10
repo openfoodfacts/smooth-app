@@ -12,15 +12,11 @@ import 'package:smooth_app/cards/expandables/attribute_list_expandable.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/category_product_query.dart';
-import 'package:smooth_app/database/dao_product.dart';
-import 'package:smooth_app/database/dao_product_extra.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
-import 'package:smooth_app/helpers/product_copy_helper.dart';
 import 'package:smooth_app/helpers/product_translation_helper.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
@@ -179,7 +175,10 @@ class _ProductPageState extends State<ProductPage> {
 
   Future<void> _updateHistory(final BuildContext context) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    await DaoProductExtra(localDatabase).putLastSeen(widget.product);
+    await DaoProductList(localDatabase).push(
+      ProductList.history(),
+      widget.product.barcode!,
+    );
     localDatabase.notifyListeners();
   }
 
@@ -279,9 +278,6 @@ class _ProductPageState extends State<ProductPage> {
 
   Widget _buildProductBody(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    final UserPreferences userPreferences = context.watch<UserPreferences>();
-    final DaoProductList daoProductList = DaoProductList(localDatabase);
-    final DaoProduct daoProduct = DaoProduct(localDatabase);
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
@@ -329,16 +325,6 @@ class _ProductPageState extends State<ProductPage> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            _getClickableIcon(
-              label: 'lists',
-              icon: const Icon(Icons.playlist_add),
-              onTap: () async => _copy(
-                userPreferences: userPreferences,
-                daoProductList: daoProductList,
-                daoProduct: daoProduct,
-              ),
-              width: itemWidth,
-            ),
             _getClickableIcon(
               label: appLocalizations.label_share,
               icon: Icon(ConstantIcons.instance.getShareIcon()),
@@ -502,30 +488,6 @@ class _ProductPageState extends State<ProductPage> {
       }
     }
     return attributeGroups;
-  }
-
-  Future<void> _copy({
-    required final UserPreferences userPreferences,
-    required final DaoProductList daoProductList,
-    required final DaoProduct daoProduct,
-  }) async {
-    final ProductList? productList =
-        await ProductCopyHelper.instance.showProductListDialog(
-      context: context,
-      daoProductList: daoProductList,
-      daoProduct: daoProduct,
-    );
-    if (productList == null) {
-      // nothing selected
-      return;
-    }
-    final List<Product> products = <Product>[widget.product];
-    await ProductCopyHelper.instance.copy(
-      context: context,
-      productList: productList,
-      daoProductList: daoProductList,
-      products: products,
-    );
   }
 
   String _getProductName(final AppLocalizations appLocalizations) =>

@@ -6,7 +6,6 @@ import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/barcode_product_query.dart';
 import 'package:smooth_app/database/dao_product.dart';
-import 'package:smooth_app/database/dao_product_extra.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 
@@ -28,15 +27,13 @@ class ContinuousScanModel with ChangeNotifier {
   final Map<String, ScannedProductState> _states =
       <String, ScannedProductState>{};
   final List<String> _barcodes = <String>[];
-  final ProductList _productList =
-      ProductList(listType: ProductList.LIST_TYPE_SCAN_SESSION, parameters: '');
+  final ProductList _productList = ProductList.scanSession();
 
   String? _latestScannedBarcode;
   String? _latestFoundBarcode;
   String? _barcodeTrustCheck; // TODO(monsieurtanuki): could probably be removed
   late DaoProduct _daoProduct;
   late DaoProductList _daoProductList;
-  late DaoProductExtra _daoProductExtra;
   final String languageCode;
   final String countryCode;
 
@@ -51,7 +48,6 @@ class ContinuousScanModel with ChangeNotifier {
     try {
       _daoProduct = DaoProduct(localDatabase);
       _daoProductList = DaoProductList(localDatabase);
-      _daoProductExtra = DaoProductExtra(localDatabase);
       if (!await _refresh()) {
         return null;
       }
@@ -70,7 +66,7 @@ class ContinuousScanModel with ChangeNotifier {
       _barcodes.clear();
       _states.clear();
       _latestScannedBarcode = null;
-      await _daoProductList.get(_productList);
+      await refreshProductList();
       for (final String barcode in _productList.barcodes.reversed) {
         _barcodes.add(barcode);
         _states[barcode] = ScannedProductState.CACHED;
@@ -152,10 +148,9 @@ class ContinuousScanModel with ChangeNotifier {
   }
 
   Future<bool> _cachedBarcode(final String barcode) async {
-    final int? latestUpdate = await _daoProduct.getLastUpdate(barcode);
-    if (latestUpdate != null) {
-      _addProduct(
-          (await _daoProduct.get(barcode))!, ScannedProductState.CACHED);
+    final Product? product = await _daoProduct.get(barcode);
+    if (product != null) {
+      _addProduct(product, ScannedProductState.CACHED);
       return true;
     }
     return false;
@@ -218,13 +213,13 @@ class ContinuousScanModel with ChangeNotifier {
     _productList.refresh(product);
     if (_latestFoundBarcode != product.barcode!) {
       _latestFoundBarcode = product.barcode;
-      await _daoProductExtra.putLastScan(product);
+      await _daoProductList.push(productList, _latestFoundBarcode!);
     }
     setBarcodeState(product.barcode!, state);
   }
 
   Future<void> clearScanSession() async {
-    await _daoProductExtra.clearScanSession();
+    await _daoProductList.clear(productList);
     await refresh();
   }
 

@@ -38,10 +38,7 @@ class CategoryProductQuery implements ProductQuery {
       );
 
   @override
-  ProductList getProductList() => ProductList(
-        listType: ProductList.LIST_TYPE_HTTP_SEARCH_CATEGORY,
-        parameters: category,
-      );
+  ProductList getProductList() => ProductList.categorySearch(category);
 
   @override
   String toString() => 'CategoryProductQuery('

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/database/search_history.dart';
+import 'package:smooth_app/database/dao_string_list.dart';
+import 'package:smooth_app/database/local_database.dart';
 
 class SearchHistoryView extends StatefulWidget {
   const SearchHistoryView({
@@ -25,11 +26,9 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
   }
 
   Future<void> _fetchQueries() async {
-    final SearchHistory history = context.watch<SearchHistory>();
-    final List<String> queries = await history.getAll();
-    setState(() {
-      _queries = queries;
-    });
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
+    final List<String> queries = await DaoStringList(localDatabase).getAll();
+    setState(() => _queries = queries.reversed.toList());
   }
 
   @override
@@ -62,10 +61,8 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
   }
 
   Future<void> _handleDismissed(BuildContext context, String query) async {
-    setState(() {
-      _queries.remove(query);
-    });
-    final SearchHistory history = context.read<SearchHistory>();
-    await history.remove(query);
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    await DaoStringList(localDatabase).remove(query);
+    setState(() {});
   }
 }

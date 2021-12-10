@@ -6,8 +6,9 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/image_upload_card.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panels_builder.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
+import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/database/dao_product_extra.dart';
+import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/knowledge_panels_query.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
@@ -119,7 +120,8 @@ class _ProductPageState extends State<NewProductPage> {
   Future<void> _updateLocalDatabaseWithProductHistory(
       BuildContext context, Product product) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    await DaoProductExtra(localDatabase).putLastSeen(product);
+    await DaoProductList(localDatabase)
+        .push(ProductList.history(), product.barcode!);
     localDatabase.notifyListeners();
   }
 
