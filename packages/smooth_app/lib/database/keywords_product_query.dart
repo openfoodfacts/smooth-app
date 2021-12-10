@@ -33,11 +33,7 @@ class KeywordsProductQuery implements ProductQuery {
       );
 
   @override
-  ProductList getProductList() => ProductList(
-        listType: ProductList.LIST_TYPE_HTTP_SEARCH_KEYWORDS,
-        // TODO(monsieurtanuki): parameters should include languageCode, countryCode and pageSize
-        parameters: keywords,
-      );
+  ProductList getProductList() => ProductList.keywordSearch(keywords);
 
   @override
   String toString() => 'KeywordsProductQuery('

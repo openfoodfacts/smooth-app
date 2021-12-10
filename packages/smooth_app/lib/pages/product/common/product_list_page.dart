@@ -2,16 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/data_models/product_extra.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_dialog_helper.dart';
-import 'package:smooth_app/pages/product/common/product_list_item.dart';
+import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/smooth_bottom_navigation_bar.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 
 class ProductListPage extends StatefulWidget {
   const ProductListPage(this.productList);
@@ -37,73 +35,24 @@ class _ProductListPageState extends State<ProductListPage> {
       productList = widget.productList;
     }
     final List<Product> products = productList.getList();
-    final Map<String, ProductExtra> productExtras = productList.productExtras;
-    final List<_Meta> metas = <_Meta>[];
-    if (productList.listType == ProductList.LIST_TYPE_HISTORY ||
-        productList.listType == ProductList.LIST_TYPE_SCAN_HISTORY ||
-        productList.listType == ProductList.LIST_TYPE_SCAN_SESSION) {
-      final int nowInMillis = LocalDatabase.nowInMillis();
-      const int DAY_IN_MILLIS = 24 * 3600 * 1000;
-      String? daysAgoLabel;
-      for (final Product product in products) {
-        final int timestamp = productExtras[product.barcode]!.intValue;
-        final int daysAgo = ((nowInMillis - timestamp) / DAY_IN_MILLIS).round();
-        final String tmpDaysAgoLabel = _getDaysAgoLabel(daysAgo);
-        if (daysAgoLabel != tmpDaysAgoLabel) {
-          daysAgoLabel = tmpDaysAgoLabel;
-          metas.add(_Meta.daysAgoLabel(daysAgoLabel));
-        }
-        metas.add(_Meta.product(product));
-      }
-    } else {
-      for (final Product product in products) {
-        metas.add(_Meta.product(product));
-      }
-    }
-    bool renamable = false;
-    bool deletable = false;
-    bool dismissible = false;
-    bool reorderable = false;
+    final bool dismissible;
     switch (productList.listType) {
-      case ProductList.LIST_TYPE_USER_DEFINED:
-      case ProductList.LIST_TYPE_USER_PANTRY:
-      case ProductList.LIST_TYPE_USER_SHOPPING:
-        // TODO(monsieurtanuki): clear the preference when the product list is deleted
-        deletable = true;
-        renamable = true;
-        reorderable = true;
+      case ProductListType.SCAN_SESSION:
+      case ProductListType.HISTORY:
         dismissible = productList.barcodes.isNotEmpty;
         break;
-      case ProductList.LIST_TYPE_HTTP_SEARCH_KEYWORDS:
-      case ProductList.LIST_TYPE_HTTP_SEARCH_CATEGORY:
-      case ProductList.LIST_TYPE_HTTP_SEARCH_GROUP:
-        deletable = true;
-        break;
-      case ProductList.LIST_TYPE_SCAN_HISTORY:
-      case ProductList.LIST_TYPE_SCAN_SESSION:
-      case ProductList.LIST_TYPE_HISTORY:
-        dismissible = productList.barcodes.isNotEmpty;
-        break;
-      default:
-        throw Exception('unknown list type ${productList.listType}');
+      case ProductListType.HTTP_SEARCH_CATEGORY:
+      case ProductListType.HTTP_SEARCH_KEYWORDS:
+      case ProductListType.HTTP_SEARCH_GROUP:
+        dismissible = false;
     }
     return Scaffold(
       bottomNavigationBar: const SmoothBottomNavigationBar(
         tab: SmoothBottomNavigationTab.History,
       ),
       appBar: AppBar(
-        backgroundColor: SmoothTheme.getColor(
-          colorScheme,
-          productList.getMaterialColor(),
-          ColorDestination.APP_BAR_BACKGROUND,
-        ),
         title: Row(
           children: <Widget>[
-            productList.getIcon(
-              colorScheme,
-              ColorDestination.APP_BAR_FOREGROUND,
-            ),
-            const SizedBox(width: 8.0),
             Flexible(
               child: Text(
                 ProductQueryPageHelper.getProductListLabel(
@@ -116,68 +65,23 @@ class _ProductListPageState extends State<ProductListPage> {
             ),
           ],
         ),
-        actions: (!renamable) && (!deletable) && (!dismissible)
+        actions: !dismissible
             ? null
             : <Widget>[
                 PopupMenuButton<String>(
                   itemBuilder: (final BuildContext context) =>
                       <PopupMenuEntry<String>>[
-                    if (renamable)
-                      PopupMenuItem<String>(
-                        value: 'rename',
-                        child: Text(appLocalizations.rename),
-                        enabled: true,
-                      ),
-                    if (renamable)
-                      PopupMenuItem<String>(
-                        value: 'change',
-                        child: Text(appLocalizations.change_icon),
-                        enabled: true,
-                      ),
-                    if (dismissible)
-                      const PopupMenuItem<String>(
-                        value: 'clear',
-                        child: Text('Clear'), // TODO(monsieurtanuki): translate
-                        enabled: true,
-                      ),
-                    if (deletable)
-                      PopupMenuItem<String>(
-                        value: 'delete',
-                        child: Text(appLocalizations.delete),
-                        enabled: true,
-                      ),
+                    const PopupMenuItem<String>(
+                      value: 'clear',
+                      child: Text('Clear'), // TODO(monsieurtanuki): translate
+                      enabled: true,
+                    ),
                   ],
                   onSelected: (final String value) async {
                     switch (value) {
-                      case 'rename':
-                        final ProductList? renamedProductList =
-                            await ProductListDialogHelper.instance.openRename(
-                                context, daoProductList, productList);
-                        if (renamedProductList == null) {
-                          return;
-                        }
-                        productList = renamedProductList;
-                        localDatabase.notifyListeners();
-                        break;
-                      case 'delete':
-                        if (await ProductListDialogHelper.instance
-                            .openDelete(context, daoProductList, productList)) {
-                          Navigator.pop(context);
-                          localDatabase.notifyListeners();
-                        }
-                        break;
                       case 'clear':
                         if (await ProductListDialogHelper.instance
                             .openClear(context, daoProductList, productList)) {
-                          localDatabase.notifyListeners();
-                        }
-                        break;
-                      case 'change':
-                        final bool changed = await ProductListDialogHelper
-                            .instance
-                            .openChangeIcon(
-                                context, daoProductList, productList);
-                        if (changed) {
                           localDatabase.notifyListeners();
                         }
                         break;
@@ -188,7 +92,7 @@ class _ProductListPageState extends State<ProductListPage> {
                 ),
               ],
       ),
-      floatingActionButton: metas.isEmpty
+      floatingActionButton: products.isEmpty
           ? null
           : FloatingActionButton(
               child: const Icon(Icons.emoji_events_outlined),
@@ -203,40 +107,19 @@ class _ProductListPageState extends State<ProductListPage> {
                 setState(() {});
               },
             ),
-      body: metas.isEmpty
+      body: products.isEmpty
           ? Center(
               child: Text(appLocalizations.no_prodcut_in_list,
                   style: Theme.of(context).textTheme.subtitle1),
             )
-          : ReorderableListView.builder(
-              onReorder: (final int oldIndex, final int newIndex) async {
-                productList.reorder(oldIndex, newIndex);
-                daoProductList
-                    .put(productList); // careful: if "await", flickering
-                setState(() {});
-              },
-              buildDefaultDragHandles: false,
-              itemCount: metas.length,
+          : ListView.builder(
+              itemCount: products.length,
               itemBuilder: (BuildContext context, int index) {
-                final _Meta meta = metas[index];
-                if (!meta.isProduct()) {
-                  return ListTile(
-                    key: Key(meta.daysAgoLabel!),
-                    leading: const Icon(Icons.history),
-                    title: Text(meta.daysAgoLabel!),
-                  );
-                }
-                final Product product = meta.product!;
+                final Product product = products[index];
                 final Widget child = Padding(
                   padding: const EdgeInsets.symmetric(
                       horizontal: 12.0, vertical: 8.0),
-                  child: ProductListItem(
-                    product: product,
-                    productList: productList,
-                    listRefresher: () => setState(() {}),
-                    daoProductList: daoProductList,
-                    reorderIndex: reorderable ? index : null,
-                  ),
+                  child: ProductListItemSimple(product: product),
                 );
                 if (dismissible) {
                   return Dismissible(
@@ -246,7 +129,7 @@ class _ProductListPageState extends State<ProductListPage> {
                       final bool removed = productList.remove(product.barcode!);
                       if (removed) {
                         await daoProductList.put(productList);
-                        setState(() => metas.removeAt(index));
+                        setState(() => products.removeAt(index));
                       }
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
@@ -269,38 +152,4 @@ class _ProductListPageState extends State<ProductListPage> {
             ),
     );
   }
-
-  static String _getDaysAgoLabel(final int daysAgo) {
-    final int weeksAgo = (daysAgo.toDouble() / 7).round();
-    final int monthsAgo = (daysAgo.toDouble() / (365.25 / 12)).round();
-    if (daysAgo == 0) {
-      return 'Today';
-    }
-    if (daysAgo == 1) {
-      return 'Yesterday';
-    }
-    if (daysAgo < 7) {
-      return '$daysAgo days ago';
-    }
-    if (weeksAgo == 1) {
-      return 'One week ago';
-    }
-    if (monthsAgo == 0) {
-      return '$weeksAgo weeks ago';
-    }
-    if (monthsAgo == 1) {
-      return 'One month ago';
-    }
-    return '$monthsAgo months ago';
-  }
-}
-
-class _Meta {
-  _Meta.product(this.product) : daysAgoLabel = null;
-  _Meta.daysAgoLabel(this.daysAgoLabel) : product = null;
-
-  final Product? product;
-  final String? daysAgoLabel;
-
-  bool isProduct() => product != null;
 }
