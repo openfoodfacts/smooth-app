@@ -15,7 +15,6 @@ import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
-import 'package:smooth_app/pages/smooth_bottom_navigation_bar.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
@@ -54,7 +53,6 @@ class _ProductPageState extends State<NewProductPage> {
     final MaterialColor materialColor =
         SmoothTheme.getMaterialColor(themeProvider);
     return Scaffold(
-      bottomNavigationBar: const SmoothBottomNavigationBar(),
       backgroundColor: SmoothTheme.getColor(
         colorScheme,
         materialColor,

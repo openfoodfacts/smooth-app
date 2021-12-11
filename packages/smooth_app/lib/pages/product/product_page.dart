@@ -21,7 +21,6 @@ import 'package:smooth_app/helpers/product_translation_helper.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/new_product_page.dart';
-import 'package:smooth_app/pages/smooth_bottom_navigation_bar.dart';
 import 'package:smooth_app/pages/user_preferences_page.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -103,7 +102,6 @@ class _ProductPageState extends State<ProductPage> {
       }
     }
     return Scaffold(
-      bottomNavigationBar: const SmoothBottomNavigationBar(),
       appBar: AppBar(
         title: Text(_getProductName(appLocalizations)),
         actions: <Widget>[

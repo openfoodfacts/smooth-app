@@ -11,7 +11,7 @@ import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/pages/smooth_bottom_navigation_bar.dart';
+import 'package:smooth_app/pages/page_manager.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -173,7 +173,7 @@ class SmoothAppGetLanguage extends StatelessWidget {
       DefaultAssetBundle.of(context),
       languageCode,
     );
-    return SmoothBottomNavigationBar.getDefaultPage();
+    return PageManager();
   }
 
   Future<void> _refresh(

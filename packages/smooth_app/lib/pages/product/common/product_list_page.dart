@@ -9,7 +9,6 @@ import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
-import 'package:smooth_app/pages/smooth_bottom_navigation_bar.dart';
 
 class ProductListPage extends StatefulWidget {
   const ProductListPage(this.productList);
@@ -47,9 +46,6 @@ class _ProductListPageState extends State<ProductListPage> {
         dismissible = false;
     }
     return Scaffold(
-      bottomNavigationBar: const SmoothBottomNavigationBar(
-        tab: SmoothBottomNavigationTab.History,
-      ),
       appBar: AppBar(
         title: Row(
           children: <Widget>[

@@ -55,7 +55,8 @@ class ProductDialogHelper {
       return;
     }
     _popEd = true;
-    Navigator.pop(context, fetchedProduct);
+    // Here we use the root navigator so that we can pop dialog while using multiple navigators.
+    Navigator.of(context, rootNavigator: true).pop(fetchedProduct);
   }
 
   Widget _getSearchingDialog() => SmoothAlertDialog(
