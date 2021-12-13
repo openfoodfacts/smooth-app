@@ -43,30 +43,23 @@ class _ScanPageState extends State<ScanPage> {
       return const Center(child: CircularProgressIndicator());
     }
 
+    //Don't build Scanner (+activate camera) when not on the Scan Tab
+    if (widget.offstage) {
+      _model?.stopQRView();
+    } else {
+      _model?.restartQRView();
+    }
+
     return ChangeNotifierProvider<ContinuousScanModel>(
       create: (BuildContext context) => _model!,
       child: Navigator(
         key: widget.navigatorKey,
         onGenerateRoute: (RouteSettings routeSettings) {
           return MaterialPageRoute<dynamic>(
-            builder: (BuildContext context) => _buildChild(),
+            builder: (BuildContext context) => const ContinuousScanPage(),
           );
         },
       ),
     );
-  }
-
-  //This has to be build inside of the ChangeNotifierProvider to prevent the model to be disposed.
-  Widget _buildChild() {
-    //Don't build Scanner (+activate camera) when not on the Scan Tab
-    if (widget.offstage) {
-      _model?.stopQRView();
-      return const Center(
-          child: Text(
-        "This shouldn't be visible since only build when offstage, when you see this page send a email to contact@openfoodfacts.org",
-      ));
-    } else {
-      return const ContinuousScanPage();
-    }
   }
 }
