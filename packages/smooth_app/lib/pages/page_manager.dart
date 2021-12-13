@@ -99,6 +99,7 @@ class PageManagerState extends State<PageManager> {
 
   Widget _buildOffstageNavigator(BottomNavigationTab tabItem) {
     final bool offstage = _currentPage != tabItem;
+    //If is ScanTab check if it is currently offstage or not to decide whether the camera should be active or not
     if (tabItem == BottomNavigationTab.Scan) {
       if (offstage) {
         ScanPageState.continuousScanModel?.pauseQRView();
