@@ -104,17 +104,18 @@ class ContinuousScanModel with ChangeNotifier {
 
   Future<void> onScan(final Barcode barcode) async {
     if (barcode.code == null) {
-      final String code = barcode.code!;
-      if (_barcodeTrustCheck != code) {
-        _barcodeTrustCheck = code;
-        return;
-      }
-      if (_latestScannedBarcode == code) {
-        return;
-      }
-      _latestScannedBarcode = code;
-      _addBarcode(code);
+      return;
     }
+    final String code = barcode.code!;
+    if (_barcodeTrustCheck != code) {
+      _barcodeTrustCheck = code;
+      return;
+    }
+    if (_latestScannedBarcode == code) {
+      return;
+    }
+    _latestScannedBarcode = code;
+    _addBarcode(code);
   }
 
   Future<bool> _addBarcode(final String barcode) async {
