@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_app/pages/scan/scan_page.dart';
 import 'package:smooth_app/widgets/tab_navigator.dart';
 
 enum BottomNavigationTab {
@@ -98,6 +99,13 @@ class PageManagerState extends State<PageManager> {
 
   Widget _buildOffstageNavigator(BottomNavigationTab tabItem) {
     final bool offstage = _currentPage != tabItem;
+    if (tabItem == BottomNavigationTab.Scan) {
+      if (offstage) {
+        ScanPageState.continuousScanModel?.pauseQRView();
+      } else {
+        ScanPageState.continuousScanModel?.restartQRView();
+      }
+    }
     return Offstage(
       offstage: offstage,
       child: TabNavigator(

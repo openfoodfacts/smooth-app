@@ -6,17 +6,14 @@ import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/pages/scan/continuous_scan_page.dart';
 
 class ScanPage extends StatefulWidget {
-  const ScanPage({required this.offstage, required this.navigatorKey});
-
-  final bool offstage;
-  final GlobalKey<NavigatorState> navigatorKey;
+  const ScanPage();
 
   @override
-  State<ScanPage> createState() => _ScanPageState();
+  State<ScanPage> createState() => ScanPageState();
 }
 
-class _ScanPageState extends State<ScanPage> {
-  ContinuousScanModel? _model;
+class ScanPageState extends State<ScanPage> {
+  static ContinuousScanModel? continuousScanModel;
 
   @override
   void didChangeDependencies() {
@@ -26,40 +23,26 @@ class _ScanPageState extends State<ScanPage> {
 
   Future<void> _updateModel() async {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    if (_model == null) {
-      _model = await ContinuousScanModel(
+    if (continuousScanModel == null) {
+      continuousScanModel = await ContinuousScanModel(
         languageCode: ProductQuery.getCurrentLanguageCode(context),
         countryCode: ProductQuery.getCurrentCountryCode(),
       ).load(localDatabase);
     } else {
-      await _model?.refresh();
+      await continuousScanModel?.refresh();
     }
     setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    if (_model == null) {
+    if (continuousScanModel == null) {
       return const Center(child: CircularProgressIndicator());
     }
 
-    //Don't build Scanner (+activate camera) when not on the Scan Tab
-    if (widget.offstage) {
-      _model?.stopQRView();
-    } else {
-      _model?.restartQRView();
-    }
-
     return ChangeNotifierProvider<ContinuousScanModel>(
-      create: (BuildContext context) => _model!,
-      child: Navigator(
-        key: widget.navigatorKey,
-        onGenerateRoute: (RouteSettings routeSettings) {
-          return MaterialPageRoute<dynamic>(
-            builder: (BuildContext context) => const ContinuousScanPage(),
-          );
-        },
-      ),
+      create: (BuildContext context) => continuousScanModel!,
+      child: const ContinuousScanPage(),
     );
   }
 }

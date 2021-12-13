@@ -100,7 +100,7 @@ class ContinuousScanModel with ChangeNotifier {
   }
 
   //Used when navigating away from the QRView itself
-  void stopQRView() => _qrViewController?.stopCamera();
+  void pauseQRView() => _qrViewController?.pauseCamera();
 
   //Used when navigating back to the QRView
   void restartQRView() => _qrViewController?.resumeCamera();
