@@ -67,17 +67,18 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; onScan(final Barcode barcode) async {
   if (barcode.code == null) {
-    final String code = barcode.code!;
-    if (_barcodeTrustCheck != code) {
-      _barcodeTrustCheck = code;
-      return;
-    }
-    if (_latestScannedBarcode == code) {
-      return;
-    }
-    _latestScannedBarcode = code;
-    _addBarcode(code);
+    return;
   }
+  final String code = barcode.code!;
+  if (_barcodeTrustCheck != code) {
+    _barcodeTrustCheck = code;
+    return;
+  }
+  if (_latestScannedBarcode == code) {
+    return;
+  }
+  _latestScannedBarcode = code;
+  _addBarcode(code);
 }</code></pre>
 </section>
 
