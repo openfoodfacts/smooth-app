@@ -36,7 +36,7 @@ class BarcodeProductQuery {
     if (result.status == 1) {
       final Product? product = result.product;
       if (product != null) {
-        await daoProduct.put(<Product>[product]);
+        await daoProduct.put(product);
         return FetchedProduct(product);
       }
     }

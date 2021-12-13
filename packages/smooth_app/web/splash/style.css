@@ -2,7 +2,7 @@ body, html {
   margin:0;
   height:100%;
   background: #00ccff;
-  background-image: url("img/light-background.png");
+  
   background-size: 100% 100%;
 }
 
@@ -37,7 +37,7 @@ body, html {
     margin:0;
     height:100%;
     background: #004455;
-    background-image: url("img/dark-background.png");
+    
     background-size: 100% 100%;
   }
 }

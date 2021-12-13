@@ -28,7 +28,10 @@ class KnowledgePanelCard extends StatelessWidget {
           ),
         );
       }
-      return Column(children: elementWidgets);
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: elementWidgets,
+      );
     }
     return KnowledgePanelSummaryCard(panel);
   }
