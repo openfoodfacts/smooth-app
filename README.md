@@ -2,7 +2,7 @@
 
 # Open Food Facts - Codename: "Smooth App"
 
-A new Flutter application by Open Food Facts. You can install it on [Android](https://play.google.com/store/apps/details?id=org.openfoodfacts.app) or [iPhone/iPad](https://apps.apple.com/us/app/smooth-app/id1526747703). Note that a internal development build if you'd like to use the results of your PRs quicker.
+A new Flutter application by Open Food Facts. You can install it on [Android](https://play.google.com/store/apps/details?id=org.openfoodfacts.app) or [iPhone/iPad](https://apps.apple.com/us/app/smooth-app/id1526747703). Note that a internal development build ([Android](https://play.google.com/apps/internaltest/4700279390303733107) or [iPhone/iPad](https://testflight.apple.com/join/dIhF6Gi4) if you'd like to use the results of your PRs quicker.
 
 Smoothie. We pioneered the collaborative scanning app in 2012. With this experimental app, we’re reinventing it from the ground up, and this time, it’s personal.
 
