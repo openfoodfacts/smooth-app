@@ -13,7 +13,7 @@ class ScanPage extends StatefulWidget {
 }
 
 class ScanPageState extends State<ScanPage> {
-  static ContinuousScanModel? continuousScanModel;
+  static ContinuousScanModel? _model;
 
   @override
   void didChangeDependencies() {
@@ -21,27 +21,35 @@ class ScanPageState extends State<ScanPage> {
     _updateModel();
   }
 
+  static void pauseCamera() {
+    _model?.pauseQRView();
+  }
+
+  static void resumeCamera() {
+    _model?.resumeQRView();
+  }
+
   Future<void> _updateModel() async {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    if (continuousScanModel == null) {
-      continuousScanModel = await ContinuousScanModel(
+    if (_model == null) {
+      _model = await ContinuousScanModel(
         languageCode: ProductQuery.getCurrentLanguageCode(context),
         countryCode: ProductQuery.getCurrentCountryCode(),
       ).load(localDatabase);
     } else {
-      await continuousScanModel?.refresh();
+      await _model?.refresh();
     }
     setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    if (continuousScanModel == null) {
+    if (_model == null) {
       return const Center(child: CircularProgressIndicator());
     }
 
     return ChangeNotifierProvider<ContinuousScanModel>(
-      create: (BuildContext context) => continuousScanModel!,
+      create: (BuildContext context) => _model!,
       child: const ContinuousScanPage(),
     );
   }

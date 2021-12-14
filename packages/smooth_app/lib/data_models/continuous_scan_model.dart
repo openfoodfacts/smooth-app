@@ -103,7 +103,7 @@ class ContinuousScanModel with ChangeNotifier {
   void pauseQRView() => _qrViewController?.pauseCamera();
 
   //Used when navigating back to the QRView
-  void restartQRView() => _qrViewController?.resumeCamera();
+  void resumeQRView() => _qrViewController?.resumeCamera();
 
   Future<void> onScan(final Barcode barcode) async {
     if (barcode.code == null) {
