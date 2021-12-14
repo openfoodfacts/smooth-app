@@ -130,9 +130,9 @@ Widget build(BuildContext context) {
       return KnowledgePanelTableCard(
         tableElement: knowledgePanelElement.tableElement!,
       );
+    case KnowledgePanelElementType.MAP:
     case KnowledgePanelElementType.UNKNOWN:
-      throw UnsupportedError(
-          &#39;ElementType not supported yet: ${knowledgePanelElement.elementType}&#39;);
+      return EMPTY_WIDGET;
   }
 }</code></pre>
 </section>
