@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/database/search_history.dart';
 import 'package:smooth_app/pages/choose_page.dart';
 import 'package:smooth_app/pages/scan/search_history_view.dart';
 
@@ -10,8 +10,8 @@ void _performSearch(BuildContext context, String query) {
   if (query.trim().isEmpty) {
     return;
   }
-  final SearchHistory history = context.read<SearchHistory>();
-  history.add(query);
+  final LocalDatabase localDatabase = context.read<LocalDatabase>();
+  DaoStringList(localDatabase).add(query);
   ChoosePage.onSubmitted(
     query,
     context,

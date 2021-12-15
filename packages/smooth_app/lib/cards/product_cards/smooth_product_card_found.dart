@@ -154,7 +154,7 @@ class SmoothProductCardFound extends StatelessWidget {
             context,
             MaterialPageRoute<Widget>(
               builder: (BuildContext context) => ProductPage(
-                product,
+                product
               ),
             ),
           );
