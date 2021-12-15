@@ -59,8 +59,6 @@
 
         <dt>Implementers</dt>
         <dd><ul class="comma-separated clazz-relationships">
-          <li><a href="../database_category_product_query/CategoryProductQuery-class.html">CategoryProductQuery</a></li>
-          <li><a href="../database_group_product_query/GroupProductQuery-class.html">GroupProductQuery</a></li>
           <li><a href="../database_keywords_product_query/KeywordsProductQuery-class.html">KeywordsProductQuery</a></li>
         </ul></dd>
 
@@ -128,7 +126,7 @@
 
         <dt id="getSearchResult" class="callable">
   <span class="name"><a href="../database_product_query/ProductQuery/getSearchResult.html">getSearchResult</a></span><span class="signature">(<wbr>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/1.3.9/model_SearchResult/SearchResult-class.html">SearchResult</a></span>&gt;</span></span>
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/1.6.0/model_SearchResult/SearchResult-class.html">SearchResult</a></span>&gt;</span></span>
   </span>
   
 
@@ -193,7 +191,7 @@
       <dl class="properties">
         <dt id="fields" class="property">
   <span class="name"><a href="../database_product_query/ProductQuery/fields.html">fields</a></span>
-  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/1.3.9/utils_ProductFields/ProductField.html">ProductField</a></span>&gt;</span></span> 
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/1.6.0/utils_ProductFields/ProductField.html">ProductField</a></span>&gt;</span></span> 
 
 </dt>
 <dd>
@@ -208,9 +206,9 @@
     <section class="summary offset-anchor" id="static-methods">
       <h2>Static Methods</h2>
       <dl class="callables">
-        <dt id="getCurrentCountryCode" class="callable">
-  <span class="name"><a href="../database_product_query/ProductQuery/getCurrentCountryCode.html">getCurrentCountryCode</a></span><span class="signature">(<wbr>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+        <dt id="getCurrentCountry" class="callable">
+  <span class="name"><a href="../database_product_query/ProductQuery/getCurrentCountry.html">getCurrentCountry</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/openfoodfacts/1.6.0/utils_CountryHelper/OpenFoodFactsCountry.html">OpenFoodFactsCountry</a>?</span>
   </span>
   
 
@@ -221,9 +219,9 @@
 
 </dd>
 
-        <dt id="getCurrentLanguageCode" class="callable">
-  <span class="name"><a href="../database_product_query/ProductQuery/getCurrentLanguageCode.html">getCurrentLanguageCode</a></span><span class="signature">(<wbr><span class="parameter" id="getCurrentLanguageCode-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+        <dt id="getCurrentLanguage" class="callable">
+  <span class="name"><a href="../database_product_query/ProductQuery/getCurrentLanguage.html">getCurrentLanguage</a></span><span class="signature">(<wbr><span class="parameter" id="getCurrentLanguage-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/openfoodfacts/1.6.0/utils_LanguageHelper/OpenFoodFactsLanguage.html">OpenFoodFactsLanguage</a>?</span>
   </span>
   
 
@@ -243,7 +241,7 @@
       <dl class="properties">
         <dt id="SMOOTH_USER" class="constant">
   <span class="name "><a href="../database_product_query/ProductQuery/SMOOTH_USER-constant.html">SMOOTH_USER</a></span>
-  <span class="signature">&#8594; const <a href="https://pub.dev/documentation/openfoodfacts/1.3.9/model_User/User-class.html">User</a></span>
+  <span class="signature">&#8594; const <a href="https://pub.dev/documentation/openfoodfacts/1.6.0/model_User/User-class.html">User</a></span>
   
 
 </dt>
@@ -252,7 +250,7 @@
   
 
   <div>
-    <span class="signature"><code><a href="https://pub.dev/documentation/openfoodfacts/1.3.9/model_User/User/User.html">User</a>(userId: &#39;project-smoothie&#39;, password: &#39;smoothie&#39;, comment: &#39;Test user for project smoothie&#39;)</code></span>
+    <span class="signature"><code><a href="https://pub.dev/documentation/openfoodfacts/1.6.0/model_User/User/User.html">User</a>(userId: &#39;project-smoothie&#39;, password: &#39;smoothie&#39;, comment: &#39;Test user for project smoothie&#39;)</code></span>
   </div>
 </dd>
 
@@ -318,8 +316,8 @@
     <li><a href="../database_product_query/ProductQuery/fields.html">fields</a></li>
 
     <li class="section-title"><a href="../database_product_query/ProductQuery-class.html#static-methods">Static methods</a></li>
-    <li><a href="../database_product_query/ProductQuery/getCurrentCountryCode.html">getCurrentCountryCode</a></li>
-    <li><a href="../database_product_query/ProductQuery/getCurrentLanguageCode.html">getCurrentLanguageCode</a></li>
+    <li><a href="../database_product_query/ProductQuery/getCurrentCountry.html">getCurrentCountry</a></li>
+    <li><a href="../database_product_query/ProductQuery/getCurrentLanguage.html">getCurrentLanguage</a></li>
 
     <li class="section-title"><a href="../database_product_query/ProductQuery-class.html#constants">Constants</a></li>
     <li><a href="../database_product_query/ProductQuery/SMOOTH_USER-constant.html">SMOOTH_USER</a></li>

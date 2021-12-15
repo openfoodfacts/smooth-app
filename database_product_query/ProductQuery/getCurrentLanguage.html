@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the getCurrentCountryCode method from the ProductQuery class, for the Dart programming language.">
-  <title>getCurrentCountryCode method - ProductQuery class - product_query library - Dart API</title>
+  <meta name="description" content="API docs for the getCurrentLanguage method from the ProductQuery class, for the Dart programming language.">
+  <title>getCurrentLanguage method - ProductQuery class - product_query library - Dart API</title>
 
 
   
@@ -32,9 +32,9 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../database_product_query/database_product_query-library.html">product_query</a></li>
     <li><a href="../../database_product_query/ProductQuery-class.html">ProductQuery</a></li>
-    <li class="self-crumb">getCurrentCountryCode method</li>
+    <li class="self-crumb">getCurrentLanguage method</li>
   </ol>
-  <div class="self-name">getCurrentCountryCode</div>
+  <div class="self-name">getCurrentLanguage</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,15 +45,16 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">getCurrentCountryCode</span> method 
+<h1><span class="kind-method">getCurrentLanguage</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
       
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
-<span class="name ">getCurrentCountryCode</span>(<wbr>)
+<span class="returntype"><a href="https://pub.dev/documentation/openfoodfacts/1.6.0/utils_LanguageHelper/OpenFoodFactsLanguage.html">OpenFoodFactsLanguage</a>?</span>
+<span class="name ">getCurrentLanguage</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getCurrentLanguage-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span></li>
+</ol>)
 
       
 
@@ -64,7 +65,9 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static String getCurrentCountryCode() =&gt; window.locale.countryCode ?? &#39;&#39;;</code></pre>
+  <pre class="language-dart"><code class="language-dart">static OpenFoodFactsLanguage? getCurrentLanguage(
+        final BuildContext context) =&gt;
+    LanguageHelper.fromJson(_getCurrentLanguageCode(context));</code></pre>
 </section>
 
 
@@ -81,7 +84,7 @@
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../database_product_query/database_product_query-library.html">product_query</a></li>
   <li><a href="../../database_product_query/ProductQuery-class.html">ProductQuery</a></li>
-  <li class="self-crumb">getCurrentCountryCode method</li>
+  <li class="self-crumb">getCurrentLanguage method</li>
 </ol>
 
 
@@ -112,8 +115,8 @@
     <li><a href="../../database_product_query/ProductQuery/fields.html">fields</a></li>
 
     <li class="section-title"><a href="../../database_product_query/ProductQuery-class.html#static-methods">Static methods</a></li>
-    <li><a href="../../database_product_query/ProductQuery/getCurrentCountryCode.html">getCurrentCountryCode</a></li>
-    <li><a href="../../database_product_query/ProductQuery/getCurrentLanguageCode.html">getCurrentLanguageCode</a></li>
+    <li><a href="../../database_product_query/ProductQuery/getCurrentCountry.html">getCurrentCountry</a></li>
+    <li><a href="../../database_product_query/ProductQuery/getCurrentLanguage.html">getCurrentLanguage</a></li>
 
     <li class="section-title"><a href="../../database_product_query/ProductQuery-class.html#constants">Constants</a></li>
     <li><a href="../../database_product_query/ProductQuery/SMOOTH_USER-constant.html">SMOOTH_USER</a></li>

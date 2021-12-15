@@ -107,9 +107,6 @@ and</li>
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  if (!useNewStyle) {
-    return _getOldStyle(context);
-  }
   final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
 
   final Size screenSize = MediaQuery.of(context).size;
@@ -118,8 +115,7 @@ Widget build(BuildContext context) {
   final List&lt;Widget&gt; scores = &lt;Widget&gt;[];
   final double iconSize = IconWidgetSizer.getIconSizeFromContext(context);
   final List&lt;Attribute&gt; attributes =
-      AttributeListExpandable.getPopulatedAttributes(
-          product, SCORE_ATTRIBUTE_IDS);
+      getPopulatedAttributes(product, SCORE_ATTRIBUTE_IDS);
   for (final Attribute attribute in attributes) {
     scores.add(SvgIconChip(attribute.iconUrl!, height: iconSize));
   }
@@ -258,7 +254,6 @@ Widget build(BuildContext context) {
     <li><a href="../../cards_product_cards_smooth_product_card_found/SmoothProductCardFound/product.html">product</a></li>
     <li><a href="../../cards_product_cards_smooth_product_card_found/SmoothProductCardFound/refresh.html">refresh</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
-    <li><a href="../../cards_product_cards_smooth_product_card_found/SmoothProductCardFound/useNewStyle.html">useNewStyle</a></li>
 
     <li class="section-title"><a href="../../cards_product_cards_smooth_product_card_found/SmoothProductCardFound-class.html#instance-methods">Methods</a></li>
     <li><a href="../../cards_product_cards_smooth_product_card_found/SmoothProductCardFound/build.html">build</a></li>
