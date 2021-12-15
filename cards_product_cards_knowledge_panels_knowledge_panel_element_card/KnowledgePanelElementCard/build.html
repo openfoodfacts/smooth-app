@@ -131,6 +131,7 @@ Widget build(BuildContext context) {
         tableElement: knowledgePanelElement.tableElement!,
       );
     case KnowledgePanelElementType.MAP:
+      return KnowledgePanelWorldMapCard(knowledgePanelElement.mapElement!);
     case KnowledgePanelElementType.UNKNOWN:
       return EMPTY_WIDGET;
   }
