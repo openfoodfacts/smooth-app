@@ -15,6 +15,8 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
     if (mapElement.pointers.isEmpty || mapElement.pointers.first.geo == null) {
       return EMPTY_WIDGET;
     }
+    // TODO(monsieurtanuki): Zoom the map to show all [mapElement.pointers]
+    // TODO(monsieurtanuki): Add a OSM copyright.
     return Padding(
       padding: const EdgeInsets.only(bottom: MEDIUM_SPACE),
       child: SizedBox(
