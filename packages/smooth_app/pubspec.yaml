@@ -16,14 +16,16 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_svg: ^0.23.0+1
+  flutter_map: ^0.13.0
   flutter_widget_from_html_core: ^0.8.3+1
   hive: ^2.0.4
   hive_flutter: ^1.1.0
   image_cropper: ^1.4.1
   image_picker: ^0.8.4+4
+  latlong2: ^0.8.1
   matomo: ^1.1.0
   modal_bottom_sheet: ^2.0.0
-  openfoodfacts: ^1.6.0
+  openfoodfacts: ^1.7.0
   # Uncomment those lines if you want to use a local version of the openfoodfacts package
 #  openfoodfacts:
 #    path: ../../../openfoodfacts-dart
