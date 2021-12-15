@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the setupScanner method from the ContinuousScanModel class, for the Dart programming language.">
-  <title>setupScanner method - ContinuousScanModel class - continuous_scan_model library - Dart API</title>
+  <meta name="description" content="API docs for the resumeQRView method from the ContinuousScanModel class, for the Dart programming language.">
+  <title>resumeQRView method - ContinuousScanModel class - continuous_scan_model library - Dart API</title>
 
 
   
@@ -32,9 +32,9 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../data_models_continuous_scan_model/data_models_continuous_scan_model-library.html">continuous_scan_model</a></li>
     <li><a href="../../data_models_continuous_scan_model/ContinuousScanModel-class.html">ContinuousScanModel</a></li>
-    <li class="self-crumb">setupScanner method</li>
+    <li class="self-crumb">resumeQRView method</li>
   </ol>
-  <div class="self-name">setupScanner</div>
+  <div class="self-name">resumeQRView</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,7 +45,7 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">setupScanner</span> method 
+<h1><span class="kind-method">resumeQRView</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
@@ -53,8 +53,7 @@
       
 
 <span class="returntype">void</span>
-<span class="name ">setupScanner</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="setupScanner-param-controller"><span class="type-annotation"><a href="https://pub.dev/documentation/qr_code_scanner/0.6.1/qr_code_scanner/QRViewController-class.html">QRViewController</a></span> <span class="parameter-name">controller</span></span></li>
-</ol>)
+<span class="name ">resumeQRView</span>(<wbr>)
 
       
 
@@ -65,10 +64,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">void setupScanner(QRViewController controller) {
-  _qrViewController = controller;
-  controller.scannedDataStream.listen((Barcode barcode) =&gt; onScan(barcode));
-}</code></pre>
+  <pre class="language-dart"><code class="language-dart">void resumeQRView() =&gt; _qrViewController?.resumeCamera();</code></pre>
 </section>
 
 
@@ -85,7 +81,7 @@
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../data_models_continuous_scan_model/data_models_continuous_scan_model-library.html">continuous_scan_model</a></li>
   <li><a href="../../data_models_continuous_scan_model/ContinuousScanModel-class.html">ContinuousScanModel</a></li>
-  <li class="self-crumb">setupScanner method</li>
+  <li class="self-crumb">resumeQRView method</li>
 </ol>
 
 
