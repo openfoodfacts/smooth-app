@@ -19,18 +19,18 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
 
-class NewProductPage extends StatefulWidget {
-  const NewProductPage(this.product);
+class ProductPage extends StatefulWidget {
+  const ProductPage(this.product);
 
   final Product product;
 
   @override
-  State<NewProductPage> createState() => _ProductPageState();
+  State<ProductPage> createState() => _ProductPageState();
 }
 
 enum ProductPageMenuItem { WEB, REFRESH }
 
-class _ProductPageState extends State<NewProductPage> {
+class _ProductPageState extends State<ProductPage> {
   late Product _product;
   late ProductPreferences _productPreferences;
 
