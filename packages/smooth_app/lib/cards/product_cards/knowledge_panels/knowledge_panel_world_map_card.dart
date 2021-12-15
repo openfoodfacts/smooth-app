@@ -15,26 +15,29 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
     if (mapElement.pointers.isEmpty || mapElement.pointers.first.geo == null) {
       return EMPTY_WIDGET;
     }
-    return SizedBox(
-      height: 300,
-      child: FlutterMap(
-        options: MapOptions(
-          // The first pointer is used as the center of the map.
-          center: LatLng(
-            mapElement.pointers.first.geo!.lat,
-            mapElement.pointers.first.geo!.lng,
+    return Padding(
+      padding: const EdgeInsets.only(bottom: MEDIUM_SPACE),
+      child: SizedBox(
+        height: 200,
+        child: FlutterMap(
+          options: MapOptions(
+            // The first pointer is used as the center of the map.
+            center: LatLng(
+              mapElement.pointers.first.geo!.lat,
+              mapElement.pointers.first.geo!.lng,
+            ),
+            zoom: 13.0,
           ),
-          zoom: 13.0,
+          layers: <LayerOptions>[
+            TileLayerOptions(
+              urlTemplate: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+              subdomains: <String>['a', 'b', 'c'],
+            ),
+            MarkerLayerOptions(
+              markers: getMarkers(mapElement.pointers),
+            ),
+          ],
         ),
-        layers: <LayerOptions>[
-          TileLayerOptions(
-            urlTemplate: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-            subdomains: <String>['a', 'b', 'c'],
-          ),
-          MarkerLayerOptions(
-            markers: getMarkers(mapElement.pointers),
-          ),
-        ],
       ),
     );
   }
