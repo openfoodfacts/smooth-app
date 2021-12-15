@@ -28,8 +28,7 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
         ),
         layers: <LayerOptions>[
           TileLayerOptions(
-            urlTemplate:
-                'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+            urlTemplate: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
             subdomains: <String>['a', 'b', 'c'],
           ),
           MarkerLayerOptions(
