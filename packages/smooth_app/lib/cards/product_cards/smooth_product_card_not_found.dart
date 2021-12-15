@@ -51,10 +51,8 @@ class SmoothProductCardNotFound extends StatelessWidget {
                     Navigator.push<Widget>(
                       context,
                       MaterialPageRoute<Widget>(
-                        builder: (BuildContext context) => ProductPage(
-                          product: product,
-                          newProduct: true,
-                        ),
+                        builder: (BuildContext context) =>
+                            ProductPage(product),
                       ),
                     );
                     if (callback != null) {

@@ -22,9 +22,7 @@ class ProductListPreviewHelper extends StatelessWidget {
         onTap: () async => Navigator.push<Widget>(
           context,
           MaterialPageRoute<Widget>(
-            builder: (BuildContext context) => ProductPage(
-              product: product,
-            ),
+            builder: (BuildContext context) => ProductPage(product),
           ),
         ),
         child: SmoothProductImage(

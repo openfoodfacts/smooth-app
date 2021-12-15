@@ -58,7 +58,7 @@ class SmoothProductCardFound extends StatelessWidget {
         await Navigator.push<Widget>(
           context,
           MaterialPageRoute<Widget>(
-            builder: (BuildContext context) => ProductPage(product: product),
+            builder: (BuildContext context) => ProductPage(product),
           ),
         );
         refresh?.call();
@@ -154,7 +154,7 @@ class SmoothProductCardFound extends StatelessWidget {
             context,
             MaterialPageRoute<Widget>(
               builder: (BuildContext context) => ProductPage(
-                product: product,
+                product,
               ),
             ),
           );

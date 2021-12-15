@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/pages/product/new_product_page.dart';
+import 'package:smooth_app/pages/product/product_page.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
 
 class ScanProductCard extends StatelessWidget {
@@ -24,7 +24,7 @@ class ScanProductCard extends StatelessWidget {
     await Navigator.push<Widget>(
       context,
       MaterialPageRoute<Widget>(
-        builder: (BuildContext context) => NewProductPage(product),
+        builder: (BuildContext context) => ProductPage(product),
       ),
     );
   }

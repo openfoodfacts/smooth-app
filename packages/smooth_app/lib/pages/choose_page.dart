@@ -39,9 +39,8 @@ class ChoosePage extends StatefulWidget {
         Navigator.push<Widget>(
           context,
           MaterialPageRoute<Widget>(
-            builder: (BuildContext context) => ProductPage(
-              product: fetchedProduct.product!,
-            ),
+            builder: (BuildContext context) =>
+                ProductPage(fetchedProduct.product!),
           ),
         );
       } else {

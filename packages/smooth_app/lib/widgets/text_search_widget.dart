@@ -102,9 +102,7 @@ class _TextSearchWidgetState extends State<TextSearchWidget> {
           await Navigator.push<Widget>(
             context,
             MaterialPageRoute<Widget>(
-              builder: (BuildContext context) => ProductPage(
-                product: suggestion!,
-              ),
+              builder: (BuildContext context) => ProductPage(suggestion!),
             ),
           );
           if (widget.addProductCallback != null) {
