@@ -85,9 +85,8 @@
       Navigator.push&lt;Widget&gt;(
         context,
         MaterialPageRoute&lt;Widget&gt;(
-          builder: (BuildContext context) =&gt; ProductPage(
-            product: fetchedProduct.product!,
-          ),
+          builder: (BuildContext context) =&gt;
+              ProductPage(fetchedProduct.product!),
         ),
       );
     } else {

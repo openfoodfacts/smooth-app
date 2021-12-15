@@ -141,10 +141,7 @@ Widget build(BuildContext context) {
                   Navigator.push&lt;Widget&gt;(
                     context,
                     MaterialPageRoute&lt;Widget&gt;(
-                      builder: (BuildContext context) =&gt; ProductPage(
-                        product: product,
-                        newProduct: true,
-                      ),
+                      builder: (BuildContext context) =&gt; ProductPage(product),
                     ),
                   );
                   if (callback != null) {
