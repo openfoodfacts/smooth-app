@@ -26,7 +26,7 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
               mapElement.pointers.first.geo!.lat,
               mapElement.pointers.first.geo!.lng,
             ),
-            zoom: 13.0,
+            zoom: 6.0,
           ),
           layers: <LayerOptions>[
             TileLayerOptions(
@@ -48,13 +48,15 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
       if (pointer.geo == null) {
         continue;
       }
-      markers.add(Marker(
-        point: LatLng(pointer.geo!.lat, pointer.geo!.lng),
-        builder: (BuildContext ctx) => const Icon(
-          Icons.pin_drop,
-          color: Colors.lightBlue,
+      markers.add(
+        Marker(
+          point: LatLng(pointer.geo!.lat, pointer.geo!.lng),
+          builder: (BuildContext ctx) => const Icon(
+            Icons.pin_drop,
+            color: Colors.lightBlue,
+          ),
         ),
-      ));
+      );
     }
     return markers;
   }
