@@ -5,8 +5,8 @@ import 'package:latlong2/latlong.dart';
 import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
 
-class KnowledgePanelMap extends StatelessWidget {
-  const KnowledgePanelMap(this.mapElement);
+class KnowledgePanelWorldMapCard extends StatelessWidget {
+  const KnowledgePanelWorldMapCard(this.mapElement);
 
   final KnowledgePanelWorldMapElement mapElement;
 
@@ -19,8 +19,11 @@ class KnowledgePanelMap extends StatelessWidget {
       height: 300,
       child: FlutterMap(
         options: MapOptions(
-          center: LatLng(mapElement.pointers.first.geo!.lat,
-              mapElement.pointers.first.geo!.lng),
+          // The first pointer is used as the center of the map.
+          center: LatLng(
+            mapElement.pointers.first.geo!.lat,
+            mapElement.pointers.first.geo!.lng,
+          ),
           zoom: 13.0,
         ),
         layers: <LayerOptions>[
@@ -47,8 +50,7 @@ class KnowledgePanelMap extends StatelessWidget {
         point: LatLng(pointer.geo!.lat, pointer.geo!.lng),
         builder: (BuildContext ctx) => const Icon(
           Icons.pin_drop,
-          color: Colors.blue,
-          size: 56,
+          color: Colors.lightBlue,
         ),
       ));
     }
