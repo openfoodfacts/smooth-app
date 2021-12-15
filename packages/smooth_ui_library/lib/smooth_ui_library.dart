@@ -12,7 +12,6 @@ export 'dialogs/smooth_category_picker.dart';
 export 'page_routes/smooth_sneak_peek_route.dart';
 export 'widgets/models/single_boolean_model.dart';
 export 'widgets/smooth_card.dart';
-export 'widgets/smooth_expandable_card.dart';
 export 'widgets/smooth_gauge.dart';
 export 'widgets/smooth_list_tile.dart';
 export 'widgets/smooth_product_image.dart';
