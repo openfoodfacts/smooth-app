@@ -6,7 +6,6 @@ import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
-import 'package:smooth_app/cards/expandables/attribute_list_expandable.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
@@ -118,8 +117,7 @@ class _SummaryCardState extends State<SummaryCard> {
 
   Widget _buildSummaryCardContent(BuildContext context) {
     final List<Attribute> scoreAttributes =
-        AttributeListExpandable.getPopulatedAttributes(
-            widget._product, SCORE_ATTRIBUTE_IDS);
+        getPopulatedAttributes(widget._product, SCORE_ATTRIBUTE_IDS);
 
     // Header takes 1 row.
     // Product Title Tile takes 2 rows to render.
