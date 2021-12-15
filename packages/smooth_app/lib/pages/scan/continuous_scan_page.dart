@@ -4,19 +4,26 @@ import 'package:provider/provider.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
-import 'package:smooth_app/pages/smooth_bottom_navigation_bar.dart';
 import 'package:smooth_app/widgets/smooth_product_carousel.dart';
 import 'package:smooth_ui_library/smooth_ui_library.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
 
-class ContinuousScanPage extends StatelessWidget {
+class ContinuousScanPage extends StatefulWidget {
+  const ContinuousScanPage();
+
+  @override
+  State<ContinuousScanPage> createState() => _ContinuousScanPageState();
+}
+
+class _ContinuousScanPageState extends State<ContinuousScanPage> {
   final GlobalKey _scannerViewKey = GlobalKey(debugLabel: 'Barcode Scanner');
+  ContinuousScanModel? model;
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-      final ContinuousScanModel model = context.watch<ContinuousScanModel>();
+      model = context.watch<ContinuousScanModel>();
       final Size screenSize = MediaQuery.of(context).size;
       final Size scannerSize = Size(
         screenSize.width * 0.6,
@@ -24,7 +31,7 @@ class ContinuousScanPage extends StatelessWidget {
       );
       final double carouselHeight =
           constraints.maxHeight / 1.81; // roughly 55% of the available height
-      final double buttonRowHeight = areButtonsRendered(model) ? 48 : 0;
+      final double buttonRowHeight = areButtonsRendered(model!) ? 48 : 0;
       final double availableScanHeight =
           constraints.maxHeight - carouselHeight - buttonRowHeight;
       // Padding for the qr code scanner. This ensures the scanner has equal spacing between buttons and carousel.
@@ -34,9 +41,6 @@ class ContinuousScanPage extends StatelessWidget {
       final double viewFinderBottomOffset = carouselHeight / 2.0;
       return Scaffold(
         appBar: AppBar(toolbarHeight: 0.0),
-        bottomNavigationBar: const SmoothBottomNavigationBar(
-          tab: SmoothBottomNavigationTab.Scan,
-        ),
         body: Stack(
           children: <Widget>[
             Container(
@@ -64,7 +68,7 @@ class ContinuousScanPage extends StatelessWidget {
                   cutOutBottomOffset: viewFinderBottomOffset,
                 ),
                 key: _scannerViewKey,
-                onQRViewCreated: model.setupScanner,
+                onQRViewCreated: model!.setupScanner,
               ),
             ),
             SmoothRevealAnimation(
@@ -91,7 +95,7 @@ class ContinuousScanPage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-                  _buildButtonsRow(context, model),
+                  _buildButtonsRow(context, model!),
                   const Spacer(),
                   SmoothProductCarousel(
                     showSearchCard: true,

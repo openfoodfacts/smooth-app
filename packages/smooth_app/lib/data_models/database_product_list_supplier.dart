@@ -16,11 +16,7 @@ class DatabaseProductListSupplier extends ProductListSupplier {
   Future<String?> asyncLoad() async {
     try {
       final ProductList loadedProductList = productQuery.getProductList();
-      final bool result =
-          await DaoProductList(localDatabase).get(loadedProductList);
-      if (!result) {
-        return 'unexpected empty record';
-      }
+      await DaoProductList(localDatabase).get(loadedProductList);
       productList = loadedProductList;
       return null;
     } catch (e) {
