@@ -76,11 +76,11 @@ class _ProductPageState extends State<ProductPage> {
       _first = false;
       _product = widget.product;
       final Set<ProductImprovement> improvements =
-      _product.getProductImprovements();
+          _product.getProductImprovements();
       if (improvements.isNotEmpty) {
         Future<void>.delayed(
           Duration.zero,
-              () => ScaffoldMessenger.of(context).showSnackBar(
+          () => ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(
                 appLocalizations
@@ -107,7 +107,7 @@ class _ProductPageState extends State<ProductPage> {
         actions: <Widget>[
           PopupMenuButton<String>(
             itemBuilder: (final BuildContext context) =>
-            <PopupMenuEntry<String>>[
+                <PopupMenuEntry<String>>[
               PopupMenuItem<String>(
                 value: 'web',
                 child: Text(appLocalizations.label_web),
@@ -130,14 +130,14 @@ class _ProductPageState extends State<ProductPage> {
                   break;
                 case 'refresh':
                   final ProductDialogHelper productDialogHelper =
-                  ProductDialogHelper(
+                      ProductDialogHelper(
                     barcode: _product.barcode!,
                     context: context,
                     localDatabase: localDatabase,
                     refresh: true,
                   );
                   final FetchedProduct fetchedProduct =
-                  await productDialogHelper.openUniqueProductSearch();
+                      await productDialogHelper.openUniqueProductSearch();
                   if (fetchedProduct.status == FetchedProductStatus.ok) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
@@ -230,11 +230,11 @@ class _ProductPageState extends State<ProductPage> {
         children: carouselItems
             .map(
               (ImageUploadCard item) => Container(
-            margin: const EdgeInsets.fromLTRB(0, 0, 5, 0),
-            decoration: const BoxDecoration(color: Colors.black12),
-            child: item,
-          ),
-        )
+                margin: const EdgeInsets.fromLTRB(0, 0, 5, 0),
+                decoration: const BoxDecoration(color: Colors.black12),
+                child: item,
+              ),
+            )
             .toList(),
       ),
     );
@@ -279,17 +279,17 @@ class _ProductPageState extends State<ProductPage> {
   Widget _buildProductBody(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final ProductPreferences productPreferences =
-    context.watch<ProductPreferences>();
+        context.watch<ProductPreferences>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final Size screenSize = MediaQuery.of(context).size;
     final ThemeData themeData = Theme.of(context);
     final double iconHeight = IconWidgetSizer.getIconSizeFromContext(context);
     final Map<String, String> attributeGroupLabels = <String, String>{};
     final List<String> attributeIds =
-    productPreferences.getOrderedImportantAttributeIds();
+        productPreferences.getOrderedImportantAttributeIds();
 
     for (final AttributeGroup attributeGroup
-    in productPreferences.attributeGroups!) {
+        in productPreferences.attributeGroups!) {
       attributeGroupLabels[attributeGroup.id!] = attributeGroup.name!;
     }
 
@@ -344,7 +344,7 @@ class _ProductPageState extends State<ProductPage> {
                 context,
                 MaterialPageRoute<Widget>(
                   builder: (BuildContext context) =>
-                  const UserPreferencesPage(),
+                      const UserPreferencesPage(),
                 ),
               ),
               width: itemWidth,
@@ -355,7 +355,7 @@ class _ProductPageState extends State<ProductPage> {
     );
 
     final List<Attribute> attributes =
-    AttributeListExpandable.getPopulatedAttributes(_product, attributeIds);
+        AttributeListExpandable.getPopulatedAttributes(_product, attributeIds);
     if (attributes.isNotEmpty) {
       listItems.add(
         AttributeListExpandable(
@@ -371,9 +371,9 @@ class _ProductPageState extends State<ProductPage> {
     }
 
     for (final AttributeGroup attributeGroup
-    in _getOrderedAttributeGroups(productPreferences)) {
+        in _getOrderedAttributeGroups(productPreferences)) {
       final Widget? grouped =
-      _getAttributeGroupWidget(attributeGroup, iconHeight);
+          _getAttributeGroupWidget(attributeGroup, iconHeight);
       if (grouped != null) {
         listItems.add(grouped);
       }
@@ -383,13 +383,13 @@ class _ProductPageState extends State<ProductPage> {
     if (_product.categoriesTags != null &&
         _product.categoriesTags!.isNotEmpty) {
       final String currentLanguageCode =
-      ProductQuery.getCurrentLanguageCode(context);
+          ProductQuery.getCurrentLanguageCode(context);
       final OpenFoodFactsLanguage currentLanguage =
-      LanguageHelper.fromJson(currentLanguageCode);
+          LanguageHelper.fromJson(currentLanguageCode);
 
       for (int i = _product.categoriesTags!.length - 1;
-      i < _product.categoriesTags!.length;
-      i++) {
+          i < _product.categoriesTags!.length;
+          i++) {
         final String categoryTag = _product.categoriesTags![i];
         final String categoryTagInLocalLanguage =
             _product.categoriesTagsInLanguages?[currentLanguage]?[i] ??
@@ -446,15 +446,15 @@ class _ProductPageState extends State<ProductPage> {
   }
 
   Widget? _getAttributeGroupWidget(
-      final AttributeGroup attributeGroup,
-      final double iconHeight,
-      ) {
+    final AttributeGroup attributeGroup,
+    final double iconHeight,
+  ) {
     final List<String> attributeIds = <String>[];
     for (final Attribute attribute in attributeGroup.attributes!) {
       attributeIds.add(attribute.id!);
     }
     final List<Attribute> attributes =
-    AttributeListExpandable.getPopulatedAttributes(_product, attributeIds);
+        AttributeListExpandable.getPopulatedAttributes(_product, attributeIds);
     if (attributes.isEmpty) {
       return null;
     }
@@ -473,7 +473,7 @@ class _ProductPageState extends State<ProductPage> {
     final List<AttributeGroup> attributeGroups = <AttributeGroup>[];
     for (final String attributeGroupId in _ORDERED_ATTRIBUTE_GROUP_IDS) {
       for (final AttributeGroup attributeGroup
-      in productPreferences.attributeGroups!) {
+          in productPreferences.attributeGroups!) {
         if (attributeGroupId == attributeGroup.id) {
           attributeGroups.add(attributeGroup);
         }
@@ -482,7 +482,7 @@ class _ProductPageState extends State<ProductPage> {
 
     /// in case we get new attribute groups but we haven't included them yet
     for (final AttributeGroup attributeGroup
-    in productPreferences.attributeGroups!) {
+        in productPreferences.attributeGroups!) {
       if (!_ORDERED_ATTRIBUTE_GROUP_IDS.contains(attributeGroup.id)) {
         attributeGroups.add(attributeGroup);
       }
@@ -516,18 +516,18 @@ class _ProductPageState extends State<ProductPage> {
       '${input.substring(0, 1).toUpperCase()}${input.substring(1)}';
 
   Future<ProductImprovement?> _getSelectedImprovement(
-      final AppLocalizations appLocalizations,
-      final Set<ProductImprovement> improvements,
-      ) async =>
+    final AppLocalizations appLocalizations,
+    final Set<ProductImprovement> improvements,
+  ) async =>
       showCupertinoModalBottomSheet<ProductImprovement>(
         context: context,
         builder: (final BuildContext context) {
           final ProductTranslationHelper helper =
-          ProductTranslationHelper(appLocalizations);
+              ProductTranslationHelper(appLocalizations);
           final List<Widget> children = <Widget>[];
           // vaguely ordered
           for (final ProductImprovement improvement
-          in ProductImprovement.values) {
+              in ProductImprovement.values) {
             if (improvements.contains(improvement)) {
               children.add(
                 ListTile(
