@@ -500,10 +500,10 @@ packages:
   openfoodfacts:
     dependency: "direct main"
     description:
-      path: "../../../openfoodfacts-dart-new"
-      relative: true
-    source: path
-    version: "1.0.0"
+      name: openfoodfacts
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.6.0"
   package_config:
     dependency: transitive
     description:
