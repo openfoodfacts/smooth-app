@@ -5,6 +5,7 @@ import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_card.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_group_card.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_table_card.dart';
+import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_world_map_card.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 class KnowledgePanelElementCard extends StatelessWidget {
@@ -42,6 +43,7 @@ class KnowledgePanelElementCard extends StatelessWidget {
           tableElement: knowledgePanelElement.tableElement!,
         );
       case KnowledgePanelElementType.MAP:
+        return KnowledgePanelWorldMapCard(knowledgePanelElement.mapElement!);
       case KnowledgePanelElementType.UNKNOWN:
         return EMPTY_WIDGET;
     }
