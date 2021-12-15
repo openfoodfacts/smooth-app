@@ -28,8 +28,8 @@ class _ScanPageState extends State<ScanPage> {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     if (_model == null) {
       _model = await ContinuousScanModel(
-        languageCode: ProductQuery.getCurrentLanguageCode(context),
-        countryCode: ProductQuery.getCurrentCountryCode(),
+        language: ProductQuery.getCurrentLanguage(context),
+        country: ProductQuery.getCurrentCountry(),
       ).load(localDatabase);
     } else {
       await _model?.refresh();

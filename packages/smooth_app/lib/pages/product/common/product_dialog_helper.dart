@@ -38,8 +38,8 @@ class ProductDialogHelper {
       builder: (BuildContext context) {
         BarcodeProductQuery(
           barcode: barcode,
-          languageCode: ProductQuery.getCurrentLanguageCode(context),
-          countryCode: ProductQuery.getCurrentCountryCode(),
+          language: ProductQuery.getCurrentLanguage(context),
+          country: ProductQuery.getCurrentCountry(),
           daoProduct: DaoProduct(localDatabase),
         ).getFetchedProduct().then<void>(
               (final FetchedProduct value) => _popSearchingDialog(value),

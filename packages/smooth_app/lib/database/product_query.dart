@@ -2,13 +2,21 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 
 abstract class ProductQuery {
-  static String getCurrentLanguageCode(final BuildContext context) =>
+  static String _getCurrentLanguageCode(final BuildContext context) =>
       Localizations.localeOf(context).languageCode;
 
-  static String getCurrentCountryCode() => window.locale.countryCode ?? '';
+  static OpenFoodFactsLanguage? getCurrentLanguage(
+          final BuildContext context) =>
+      LanguageHelper.fromJson(_getCurrentLanguageCode(context));
+
+  static String _getCurrentCountryCode() => window.locale.countryCode ?? '';
+
+  static OpenFoodFactsCountry? getCurrentCountry() =>
+      CountryHelper.fromJson(_getCurrentCountryCode());
 
   static const User SMOOTH_USER = User(
     userId: 'project-smoothie',
