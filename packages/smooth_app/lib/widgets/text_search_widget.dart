@@ -4,7 +4,7 @@ import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/pages/choose_page.dart';
-import 'package:smooth_app/pages/product/product_page.dart';
+import 'package:smooth_app/pages/product/new_product_page.dart';
 import 'package:smooth_ui_library/widgets/smooth_card.dart';
 import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
 

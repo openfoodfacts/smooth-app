@@ -13,7 +13,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
-import 'package:smooth_app/pages/product/product_page.dart';
+import 'package:smooth_app/pages/product/new_product_page.dart';
 
 class ChoosePage extends StatefulWidget {
   const ChoosePage();
