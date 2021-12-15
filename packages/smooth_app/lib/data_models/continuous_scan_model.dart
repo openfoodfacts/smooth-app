@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/utils/CountryHelper.dart';
+import 'package:openfoodfacts/utils/LanguageHelper.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/data_models/product_list.dart';
@@ -20,8 +22,8 @@ enum ScannedProductState {
 
 class ContinuousScanModel with ChangeNotifier {
   ContinuousScanModel({
-    required this.countryCode,
-    required this.languageCode,
+    required this.country,
+    required this.language,
   });
 
   final Map<String, ScannedProductState> _states =
@@ -34,8 +36,8 @@ class ContinuousScanModel with ChangeNotifier {
   String? _barcodeTrustCheck; // TODO(monsieurtanuki): could probably be removed
   late DaoProduct _daoProduct;
   late DaoProductList _daoProductList;
-  final String languageCode;
-  final String countryCode;
+  final OpenFoodFactsLanguage? language;
+  final OpenFoodFactsCountry? country;
 
   QRViewController? _qrViewController;
 
@@ -165,8 +167,8 @@ class ContinuousScanModel with ChangeNotifier {
   ) async =>
       BarcodeProductQuery(
         barcode: barcode,
-        languageCode: languageCode,
-        countryCode: countryCode,
+        language: language,
+        country: country,
         daoProduct: _daoProduct,
       ).getFetchedProduct();
 

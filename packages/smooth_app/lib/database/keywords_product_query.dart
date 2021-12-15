@@ -1,20 +1,21 @@
 import 'dart:async';
 import 'package:openfoodfacts/model/parameter/SearchTerms.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/product_query.dart';
 
 class KeywordsProductQuery implements ProductQuery {
   KeywordsProductQuery({
     required this.keywords,
-    required this.languageCode,
-    required this.countryCode,
+    required this.language,
+    required this.country,
     required this.size,
   });
 
   final String keywords;
-  final String languageCode;
-  final String countryCode;
+  final OpenFoodFactsLanguage? language;
+  final OpenFoodFactsCountry? country;
   final int size;
 
   @override
@@ -27,8 +28,8 @@ class KeywordsProductQuery implements ProductQuery {
             PageSize(size: size),
             SearchTerms(terms: <String>[keywords]),
           ],
-          language: LanguageHelper.fromJson(languageCode),
-          cc: countryCode,
+          language: language,
+          country: country,
         ),
       );
 
@@ -38,8 +39,8 @@ class KeywordsProductQuery implements ProductQuery {
   @override
   String toString() => 'KeywordsProductQuery('
       '"$keywords"'
-      ', $languageCode'
-      ', $countryCode'
+      ', $language'
+      ', $country'
       ', $size'
       ')';
 }

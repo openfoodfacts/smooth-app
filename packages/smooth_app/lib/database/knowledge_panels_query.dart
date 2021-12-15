@@ -16,9 +16,8 @@ class KnowledgePanelsQuery {
   Future<KnowledgePanels> getKnowledgePanels(BuildContext context) async {
     final ProductQueryConfiguration configuration = ProductQueryConfiguration(
       barcode,
-      language:
-          LanguageHelper.fromJson(ProductQuery.getCurrentLanguageCode(context)),
-      cc: ProductQuery.getCurrentCountryCode(),
+      language: ProductQuery.getCurrentLanguage(context),
+      country: ProductQuery.getCurrentCountry(),
     );
     return OpenFoodAPIClient.getKnowledgePanels(configuration, QueryType.PROD);
   }
