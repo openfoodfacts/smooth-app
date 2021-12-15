@@ -4,6 +4,7 @@ import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_card.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_group_card.dart';
+import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_map.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_table_card.dart';
 
 class KnowledgePanelElementCard extends StatelessWidget {
@@ -40,6 +41,8 @@ class KnowledgePanelElementCard extends StatelessWidget {
         return KnowledgePanelTableCard(
           tableElement: knowledgePanelElement.tableElement!,
         );
+      case KnowledgePanelElementType.MAP:
+        return KnowledgePanelMap(knowledgePanelElement.mapElement!);
       case KnowledgePanelElementType.UNKNOWN:
         throw UnsupportedError(
             'ElementType not supported yet: ${knowledgePanelElement.elementType}');
