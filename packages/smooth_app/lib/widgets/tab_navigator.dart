@@ -16,22 +16,26 @@ class TabNavigator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    late final Widget child;
+    final Widget child;
 
-    if (tabItem == BottomNavigationTab.Profile) {
-      child = const UserPreferencesPage();
-    } else if (tabItem == BottomNavigationTab.History) {
-      child = const HistoryPage();
-    } else if (tabItem == BottomNavigationTab.Scan) {
-      // The ScanPage doesn't use the here build Navigator, so that it can update when its offstage status changes
-      return ScanPage(offstage: offstage, navigatorKey: navigatorKey);
+    switch (tabItem) {
+      case BottomNavigationTab.Profile:
+        child = const UserPreferencesPage();
+        break;
+      case BottomNavigationTab.History:
+        child = const HistoryPage();
+        break;
+      case BottomNavigationTab.Scan:
+        child = const ScanPage();
+        break;
     }
 
     return Navigator(
       key: navigatorKey,
       onGenerateRoute: (RouteSettings routeSettings) {
         return MaterialPageRoute<dynamic>(
-            builder: (BuildContext context) => child);
+          builder: (BuildContext context) => child,
+        );
       },
     );
   }
