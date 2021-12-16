@@ -113,9 +113,12 @@ Widget build(BuildContext context) {
     elementWidgets.add(KnowledgePanelSummaryCard(panel));
     for (final KnowledgePanelElement element in panel.elements!) {
       elementWidgets.add(
-        KnowledgePanelElementCard(
-          knowledgePanelElement: element,
-          allPanels: allPanels,
+        Padding(
+          padding: const EdgeInsets.only(top: VERY_SMALL_SPACE),
+          child: KnowledgePanelElementCard(
+            knowledgePanelElement: element,
+            allPanels: allPanels,
+          ),
         ),
       );
     }
