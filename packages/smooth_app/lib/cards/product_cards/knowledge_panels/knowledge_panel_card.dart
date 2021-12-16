@@ -4,6 +4,7 @@ import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_element_card.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_summary_card.dart';
+import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 class KnowledgePanelCard extends StatelessWidget {
   const KnowledgePanelCard({
@@ -22,9 +23,12 @@ class KnowledgePanelCard extends StatelessWidget {
       elementWidgets.add(KnowledgePanelSummaryCard(panel));
       for (final KnowledgePanelElement element in panel.elements!) {
         elementWidgets.add(
-          KnowledgePanelElementCard(
-            knowledgePanelElement: element,
-            allPanels: allPanels,
+          Padding(
+            padding: const EdgeInsets.only(top: VERY_SMALL_SPACE),
+            child: KnowledgePanelElementCard(
+              knowledgePanelElement: element,
+              allPanels: allPanels,
+            ),
           ),
         );
       }
