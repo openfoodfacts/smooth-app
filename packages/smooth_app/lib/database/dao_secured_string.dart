@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:openfoodfacts/model/User.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
 import 'package:smooth_app/database/local_database.dart';
 
@@ -53,5 +54,10 @@ class DaoSecuredString extends AbstractDao {
 
   Future<void> put({required SecuredValues type, required String value}) async {
     _getBox().put(type.name, value);
+  }
+
+  Future<void> putUser(User user) async {
+    put(type: SecuredValues.USER_ID, value: user.userId);
+    put(type: SecuredValues.PASSWORD, value: user.password);
   }
 }
