@@ -1,1 +1,3 @@
-Test
+# Add 'label1' to any changes within 'example' folder or any subfolders
+android:
+- packages/smooth_app/android/**/*
