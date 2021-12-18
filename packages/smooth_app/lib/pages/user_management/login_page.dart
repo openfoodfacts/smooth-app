@@ -5,6 +5,7 @@ import 'package:smooth_app/database/dao_secured_string.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_ui_library/smooth_ui_library.dart';
+import 'package:smooth_ui_library/widgets/smooth_text_form_field.dart';
 
 // TODO(Marvin): Autofill support
 // TODO(Marvin): Handle colors better
@@ -24,7 +25,6 @@ class _LoginPageState extends State<LoginPage> {
   static const Color textFieldBackgroundColor =
       Color.fromARGB(255, 240, 240, 240);
 
-  bool _hidePassword = true;
   bool _runningQuery = false;
   bool _wrongCredentials = false;
 
@@ -119,7 +119,8 @@ class _LoginPageState extends State<LoginPage> {
                 ],
 
                 //Login
-                TextFormField(
+                SmoothTextFormField(
+                  type: TextFieldTypes.PLAIN_TEXT,
                   controller: userIdController,
                   enabled: !_runningQuery,
                   textInputAction: TextInputAction.next, // Moves focus to next.
@@ -129,37 +130,15 @@ class _LoginPageState extends State<LoginPage> {
                     }
                     return null;
                   },
-                  decoration: InputDecoration(
-                    prefixIcon: const Icon(Icons.person),
-                    filled: true,
-                    hintStyle: const TextStyle(
-                      color: customGrey,
-                      fontSize: 20.0,
-                    ),
-                    hintText: 'Login',
-                    fillColor: textFieldBackgroundColor,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(40.0),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(40.0),
-                      borderSide: const BorderSide(
-                        color: Colors.transparent,
-                        width: 5.0,
-                      ),
-                    ),
-                  ),
                 ),
 
                 const Spacer(flex: 1),
 
                 //Password
-                TextFormField(
+                SmoothTextFormField(
+                  type: TextFieldTypes.PASSWORD,
                   controller: passwordController,
                   enabled: !_runningQuery,
-                  obscureText: _hidePassword,
-                  enableSuggestions: false,
-                  autocorrect: false,
                   textInputAction: TextInputAction.done, // Hides the keyboard
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
@@ -167,33 +146,6 @@ class _LoginPageState extends State<LoginPage> {
                     }
                     return null;
                   },
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: textFieldBackgroundColor,
-                    hintStyle: const TextStyle(
-                      color: customGrey,
-                      fontSize: 20.0,
-                    ),
-                    hintText: 'Password',
-                    prefixIcon: const Icon(Icons.vpn_key),
-                    suffixIcon: IconButton(
-                      splashRadius: 10.0,
-                      onPressed: () => setState(() {
-                        _hidePassword = !_hidePassword;
-                      }),
-                      icon: const Icon(Icons.remove_red_eye),
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(40.0),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(40.0),
-                      borderSide: const BorderSide(
-                        color: Colors.transparent,
-                        width: 5.0,
-                      ),
-                    ),
-                  ),
                 ),
 
                 const Spacer(flex: 6),
