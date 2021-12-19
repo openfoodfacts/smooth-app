@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 enum TextFieldTypes {
   PLAIN_TEXT,
   PASSWORD,
-  EMAIL,
 }
 
 class SmoothTextFormField extends StatefulWidget {
@@ -59,9 +58,14 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
       enableSuggestions: _enableSuggestions,
       autocorrect: _autocorrect,
       onChanged: (String data) {
-        if (data.isNotEmpty) {
-          setState(() {});
-        } else if()
+        // Rebuilds for changing the eye icon
+        if(widget.type == TextFieldTypes.PASSWORD){
+          if (data.isEmpty) {
+            setState(() {});
+          } else if(data.isNotEmpty && data.length !> 1){
+            setState(() {});
+          }
+        }
       },
       decoration: InputDecoration(
         prefixIcon: widget.prefixIcon,
