@@ -17,7 +17,8 @@ class SmoothTextFormField extends StatefulWidget {
     this.backgroundColor,
     required this.hintText,
     this.prefixIcon,
-  }) : super(key: key);
+  })  : assert(type == TextFieldTypes.PASSWORD && controller == null),
+        super(key: key);
 
   final TextFieldTypes type;
   final TextEditingController? controller;
@@ -59,10 +60,10 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
       autocorrect: _autocorrect,
       onChanged: (String data) {
         // Rebuilds for changing the eye icon
-        if(widget.type == TextFieldTypes.PASSWORD){
+        if (widget.type == TextFieldTypes.PASSWORD) {
           if (data.isEmpty) {
             setState(() {});
-          } else if(data.isNotEmpty && data.length !> 1){
+          } else if (data.isNotEmpty && data.length > 1) {
             setState(() {});
           }
         }
@@ -92,7 +93,7 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
                 onPressed: () => setState(() {
                   _obscureText = !_obscureText;
                 }),
-                icon: _obscureText && widget.controller?.text.isNotEmpty
+                icon: _obscureText && widget.controller!.text.isNotEmpty
                     ? const Icon(Icons.visibility_off)
                     : const Icon(Icons.visibility),
               )
