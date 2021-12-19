@@ -16,10 +16,14 @@ class SmoothTextFormField extends StatefulWidget {
     this.validator,
     this.textColor,
     this.backgroundColor,
+    required this.hintText,
+    this.prefixIcon,
   }) : super(key: key);
 
   final TextFieldTypes type;
   final TextEditingController? controller;
+  final String hintText;
+  final Widget? prefixIcon;
   final bool? enabled;
   final TextInputAction? textInputAction;
   final String? Function(String?)? validator;
@@ -34,6 +38,7 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
   late bool _obscureText;
   late final bool _enableSuggestions;
   late final bool _autocorrect;
+  bool isEmpty = true;
 
   @override
   void initState() {
@@ -53,14 +58,19 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
       obscureText: _obscureText,
       enableSuggestions: _enableSuggestions,
       autocorrect: _autocorrect,
+      onChanged: (String data) {
+        if (data.isNotEmpty) {
+          setState(() {});
+        } else if()
+      },
       decoration: InputDecoration(
-        prefixIcon: const Icon(Icons.person),
+        prefixIcon: widget.prefixIcon,
         filled: true,
         hintStyle: TextStyle(
           color: widget.textColor,
           fontSize: 20.0,
         ),
-        hintText: 'Login',
+        hintText: widget.hintText,
         fillColor: widget.backgroundColor,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(40.0),
@@ -78,7 +88,9 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
                 onPressed: () => setState(() {
                   _obscureText = !_obscureText;
                 }),
-                icon: const Icon(Icons.remove_red_eye),
+                icon: _obscureText && widget.controller?.text.isNotEmpty
+                    ? const Icon(Icons.visibility_off)
+                    : const Icon(Icons.visibility),
               )
             : const SizedBox.shrink(),
       ),

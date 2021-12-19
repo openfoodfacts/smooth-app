@@ -122,6 +122,10 @@ class _LoginPageState extends State<LoginPage> {
                 SmoothTextFormField(
                   type: TextFieldTypes.PLAIN_TEXT,
                   controller: userIdController,
+                  hintText: 'Login',
+                  textColor: customGrey,
+                  backgroundColor: textFieldBackgroundColor,
+                  prefixIcon: const Icon(Icons.person),
                   enabled: !_runningQuery,
                   textInputAction: TextInputAction.next, // Moves focus to next.
                   validator: (String? value) {
@@ -138,6 +142,10 @@ class _LoginPageState extends State<LoginPage> {
                 SmoothTextFormField(
                   type: TextFieldTypes.PASSWORD,
                   controller: passwordController,
+                  hintText: 'Password',
+                  textColor: customGrey,
+                  backgroundColor: textFieldBackgroundColor,
+                  prefixIcon: const Icon(Icons.vpn_key),
                   enabled: !_runningQuery,
                   textInputAction: TextInputAction.done, // Hides the keyboard
                   validator: (String? value) {
