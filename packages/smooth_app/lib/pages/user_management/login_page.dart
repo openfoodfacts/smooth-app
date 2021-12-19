@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/database/dao_secured_string.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/helpers/user_management%20_helper.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_ui_library/smooth_ui_library.dart';
 import 'package:smooth_ui_library/widgets/smooth_text_form_field.dart';
 
-// TODO(Marvin): Autofill support
-// TODO(Marvin): Handle colors better
-// TODO(Marvin): internationalize everything
-// TODO(Marvin): Validation
-// TODO(Marvin): Darkmode
+// TODO(M123-dev): Autofill support
+// TODO(M123-dev): Handle colors better
+// TODO(M123-dev): internationalize everything
+// TODO(M123-dev): Beter validation
+// TODO(M123-dev): Darkmode support
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -34,29 +34,31 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController passwordController = TextEditingController();
 
   Future<void> _login(BuildContext context) async {
-    if (_formKey.currentState!.validate()) {
+    if (!_formKey.currentState!.validate()) {
+      return;
+    }
+
+    setState(() {
+      _runningQuery = true;
       _wrongCredentials = false;
-      setState(() => _runningQuery = true);
+    });
 
-      final LocalDatabase localDatabase = context.read<LocalDatabase>();
-      final DaoSecuredString daoSecuredString = DaoSecuredString(localDatabase);
-
-      final User user = User(
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final bool login =
+        await UserManagementHelper(localDatabase: localDatabase).smoothieLogin(
+      User(
         userId: userIdController.text,
         password: passwordController.text,
-      );
+      ),
+    );
 
-      final bool login = await OpenFoodAPIClient.login(user);
-
-      if (login) {
-        _wrongCredentials = false;
-        daoSecuredString.putUser(user);
-        Navigator.pop(context, true);
-      } else {
+    if (login) {
+      Navigator.pop(context, true);
+    } else {
+      setState(() {
+        _runningQuery = false;
         _wrongCredentials = true;
-      }
-
-      setState(() => _runningQuery = false);
+      });
     }
   }
 
