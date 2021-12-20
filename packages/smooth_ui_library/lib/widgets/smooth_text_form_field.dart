@@ -17,7 +17,7 @@ class SmoothTextFormField extends StatefulWidget {
     this.backgroundColor,
     required this.hintText,
     this.prefixIcon,
-  })  : super(key: key);
+  }) : super(key: key);
 
   final TextFieldTypes type;
   final TextEditingController? controller;
