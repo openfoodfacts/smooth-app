@@ -42,6 +42,28 @@ class UserPreferencesPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(appLocalizations.myPreferences),
         actions: <Widget>[
+          //Temporary for checking the credentials
+          IconButton(
+            icon: const Icon(Icons.threesixty_outlined),
+            tooltip: 'Check credentials',
+            onPressed: () async {
+              final bool correct =
+                  await UserManagementHelper(localDatabase: localDatabase)
+                      .checkAndReMountCredentials();
+
+              final SnackBar snackBar = SnackBar(
+                content: Text('It is $correct'),
+                action: SnackBarAction(
+                  label: 'Logout',
+                  onPressed: () async {
+                    UserManagementHelper(localDatabase: localDatabase)
+                        .smoothieLogout();
+                  },
+                ),
+              );
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+            },
+          ),
           // TODO(Marvin): Remove and replace with expandable mock
           IconButton(
             icon: const Icon(Icons.supervised_user_circle),
