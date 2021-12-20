@@ -51,7 +51,7 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     if (login) {
-      Navigator.pop(context, true);
+      Navigator.pop(context);
     } else {
       setState(() {
         _runningQuery = false;

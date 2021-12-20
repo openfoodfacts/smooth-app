@@ -21,7 +21,7 @@ class UserManagementHelper {
 
   /// Checks if the saved credentials are still valid
   /// and mounts credentials for use in queries
-  Future<bool> checkAndMountCredentials() async {
+  Future<bool> checkAndReMountCredentials() async {
     final String? userId =
         DaoSecuredString(localDatabase).get(SecuredValues.USER_ID);
     final String? password =

@@ -5,6 +5,8 @@ import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/pages/settings_page.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -35,6 +37,7 @@ class UserPreferencesPage extends StatelessWidget {
         _reorderGroups(productPreferences.attributeGroups!);
     final List<String> orderedImportantAttributeIds =
         productPreferences.getOrderedImportantAttributeIds();
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
     return Scaffold(
       appBar: AppBar(
         title: Text(appLocalizations.myPreferences),
@@ -52,6 +55,7 @@ class UserPreferencesPage extends StatelessWidget {
               );
             },
           ),
+
           IconButton(
             icon: const Icon(Icons.rotate_left),
             tooltip: appLocalizations.reset,
