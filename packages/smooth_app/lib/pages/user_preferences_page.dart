@@ -37,7 +37,7 @@ class UserPreferencesPage extends StatelessWidget {
         _reorderGroups(productPreferences.attributeGroups!);
     final List<String> orderedImportantAttributeIds =
         productPreferences.getOrderedImportantAttributeIds();
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+
     return Scaffold(
       appBar: AppBar(
         title: Text(appLocalizations.myPreferences),
@@ -47,6 +47,8 @@ class UserPreferencesPage extends StatelessWidget {
             icon: const Icon(Icons.threesixty_outlined),
             tooltip: 'Check credentials',
             onPressed: () async {
+              // Needs to be in here for mock tests to work
+              final LocalDatabase localDatabase = context.read<LocalDatabase>();
               final bool correct =
                   await UserManagementHelper(localDatabase: localDatabase)
                       .checkAndReMountCredentials();
@@ -64,7 +66,7 @@ class UserPreferencesPage extends StatelessWidget {
               ScaffoldMessenger.of(context).showSnackBar(snackBar);
             },
           ),
-          // TODO(Marvin): Remove and replace with expandable mock
+          // TODO(M123-dev): Remove and replace with expandable mock
           IconButton(
             icon: const Icon(Icons.supervised_user_circle),
             tooltip: 'User management',
