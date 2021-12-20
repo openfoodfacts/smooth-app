@@ -9,7 +9,7 @@ class SmoothTextFormField extends StatefulWidget {
   const SmoothTextFormField({
     Key? key,
     required this.type,
-    this.controller,
+    required this.controller,
     this.enabled,
     this.textInputAction,
     this.validator,
@@ -17,8 +17,7 @@ class SmoothTextFormField extends StatefulWidget {
     this.backgroundColor,
     required this.hintText,
     this.prefixIcon,
-  })  : assert(type == TextFieldTypes.PASSWORD && controller == null),
-        super(key: key);
+  })  : super(key: key);
 
   final TextFieldTypes type;
   final TextEditingController? controller;

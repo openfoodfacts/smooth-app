@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/helpers/user_management%20_helper.dart';
+import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_ui_library/smooth_ui_library.dart';
 import 'package:smooth_ui_library/widgets/smooth_text_form_field.dart';
@@ -10,7 +10,7 @@ import 'package:smooth_ui_library/widgets/smooth_text_form_field.dart';
 // TODO(M123-dev): Autofill support
 // TODO(M123-dev): Handle colors better
 // TODO(M123-dev): internationalize everything
-// TODO(M123-dev): Beter validation
+// TODO(M123-dev): Better validation
 // TODO(M123-dev): Darkmode support
 
 class LoginPage extends StatefulWidget {

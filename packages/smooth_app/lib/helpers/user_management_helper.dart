@@ -1,4 +1,5 @@
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:smooth_app/database/dao_secured_string.dart';
 import 'package:smooth_app/database/local_database.dart';
 
@@ -15,7 +16,7 @@ class UserManagementHelper {
       _putUser(user);
     }
 
-    return rightCredentials && _checkExistence();
+    return rightCredentials && _checkCredentialsInStorage();
   }
 
   /// Checks if the saved credentials are still valid
@@ -35,7 +36,7 @@ class UserManagementHelper {
     final bool rightCredentials = await OpenFoodAPIClient.login(user);
 
     if (rightCredentials) {
-      //OpenFoodAPIConfiguration.globalUser = user;
+      OpenFoodAPIConfiguration.globalUser = user;
     }
 
     return rightCredentials;
@@ -43,10 +44,11 @@ class UserManagementHelper {
 
   /// Deletes saved credentials from storage
   bool smoothieLogout() {
+    OpenFoodAPIConfiguration.globalUser = null;
     DaoSecuredString(localDatabase).remove(type: SecuredValues.USER_ID);
     DaoSecuredString(localDatabase).remove(type: SecuredValues.PASSWORD);
 
-    return !_checkExistence();
+    return !_checkCredentialsInStorage();
   }
 
   /// Saves user to storage
@@ -62,7 +64,7 @@ class UserManagementHelper {
   }
 
   /// Checks if some credentials exist in storage
-  bool _checkExistence() {
+  bool _checkCredentialsInStorage() {
     final bool userId =
         DaoSecuredString(localDatabase).contains(type: SecuredValues.USER_ID);
     final bool password =
