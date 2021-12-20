@@ -11,7 +11,6 @@ import 'package:smooth_ui_library/widgets/smooth_text_form_field.dart';
 // TODO(M123-dev): Handle colors better
 // TODO(M123-dev): internationalize everything
 // TODO(M123-dev): Better validation
-// TODO(M123-dev): Darkmode support
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -22,8 +21,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   static const Color customGrey = Colors.grey;
-  static const Color textFieldBackgroundColor =
-      Color.fromARGB(255, 240, 240, 240);
+  static Color textFieldBackgroundColor = Color.fromARGB(255, 240, 240, 240);
 
   bool _runningQuery = false;
   bool _wrongCredentials = false;
@@ -74,6 +72,11 @@ class _LoginPageState extends State<LoginPage> {
     final ThemeData theme = Theme.of(context);
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final Size size = MediaQuery.of(context).size;
+
+    // Needs to be changed
+    if (themeProvider.darkTheme) {
+      textFieldBackgroundColor = Colors.white10;
+    }
 
     return Scaffold(
       appBar: AppBar(
