@@ -21,7 +21,8 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   static const Color customGrey = Colors.grey;
-  static Color textFieldBackgroundColor = Color.fromARGB(255, 240, 240, 240);
+  static Color textFieldBackgroundColor =
+      const Color.fromARGB(255, 240, 240, 240);
 
   bool _runningQuery = false;
   bool _wrongCredentials = false;
