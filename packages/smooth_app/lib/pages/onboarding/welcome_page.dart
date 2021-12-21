@@ -7,7 +7,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
 
-// Welcome page for first time users.
+/// Welcome page for first time users.
 class WelcomePage extends StatelessWidget {
   const WelcomePage();
 
@@ -92,7 +92,7 @@ class WelcomePage extends StatelessWidget {
   }
 }
 
-// Welcome page for first time users.
+/// A selector for selecting user's country.
 class CountrySelector extends StatefulWidget {
   const CountrySelector();
 
