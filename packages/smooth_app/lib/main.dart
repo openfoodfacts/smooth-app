@@ -11,6 +11,7 @@ import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/pages/onboarding/welcome_page.dart';
 import 'package:smooth_app/pages/page_manager.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -55,6 +56,7 @@ class _SmoothAppState extends State<SmoothApp> {
   late LocalDatabase _localDatabase;
   late ThemeProvider _themeProvider;
   bool systemDarkmodeOn = false;
+  bool isFirstTimeUser = false;
 
   // We store the argument of FutureBuilder to avoid re-initialization on
   // subsequent builds. This enables hot reloading. See
@@ -80,6 +82,7 @@ class _SmoothAppState extends State<SmoothApp> {
     ));
     await _productPreferences
         .loadReferenceFromAssets(DefaultAssetBundle.of(context));
+    isFirstTimeUser = _userPreferences.isFirstTimeUser();
     await _userPreferences.init(_productPreferences);
     _localDatabase = await LocalDatabase.getLocalDatabase();
     _themeProvider = ThemeProvider(_userPreferences);
@@ -132,7 +135,7 @@ class _SmoothAppState extends State<SmoothApp> {
         themeProvider.colorTag,
       ),
       themeMode: themeProvider.darkTheme ? ThemeMode.dark : ThemeMode.light,
-      home: const SmoothAppGetLanguage(),
+      home: SmoothAppGetLanguage(isFirstTimeUser),
     );
   }
 
@@ -160,7 +163,9 @@ class _SmoothAppState extends State<SmoothApp> {
 
 /// Layer needed because we need to know the language
 class SmoothAppGetLanguage extends StatelessWidget {
-  const SmoothAppGetLanguage();
+  const SmoothAppGetLanguage(this.isFirstTimeUser);
+
+  final bool isFirstTimeUser;
 
   @override
   Widget build(BuildContext context) {
@@ -173,6 +178,9 @@ class SmoothAppGetLanguage extends StatelessWidget {
       DefaultAssetBundle.of(context),
       languageCode,
     );
+    if (!isFirstTimeUser) {
+      return const WelcomePage();
+    }
     return PageManager();
   }
 

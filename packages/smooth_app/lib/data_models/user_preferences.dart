@@ -19,6 +19,10 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_THEME_DARK = 'themeDark';
   static const String _TAG_THEME_COLOR_TAG = 'themeColorTag';
 
+  bool isFirstTimeUser() {
+    return _sharedPreferences.getBool(_TAG_INIT) == null;
+  }
+
   Future<void> init(final ProductPreferences productPreferences) async {
     final bool? alreadyDone = _sharedPreferences.getBool(_TAG_INIT);
     if (alreadyDone != null) {

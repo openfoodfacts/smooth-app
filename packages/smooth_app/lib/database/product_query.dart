@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:smooth_app/data_models/product_list.dart';
-
 abstract class ProductQuery {
   static String _getCurrentLanguageCode(final BuildContext context) =>
       Localizations.localeOf(context).languageCode;

@@ -79,8 +79,10 @@
     "@about": {},
     "licenses": "Licences",
     "@licenses": {},
-    "whatIsOff": "Open Food Facts is a database of food products, made by everyone, for everyone. You can use it to make better food choices, and as it is open data, anyone can re-use it for any purpose.",
-    "@whatIsOff": {},
+    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "@whatIsOff": {
+        "description": "Description of Open Food Facts organization."
+    },
     "learnMore": "Learn more",
     "@learnMore": {},
     "termsOfUse": "Terms of use",
@@ -109,6 +111,16 @@
     "@contribute_translate_link_text": {},
     "contribute_donate_header": "Donate to Open Food Facts",
     "@contribute_donate_header": {},
+    "country_label": "Country",
+    "@country_label": {
+        "description": "Label shown above a selector where the user can select their country"
+    },
+    "country_chooser_label": "Please choose a country",
+    "@country_chooser_label": {},
+    "country_selection_explanation": "Some environment features depend on your location",
+    "@country_label": {
+        "description": "Explanation as to why users should select their country."
+    },
     "support": "Support",
     "@support": {},
     "error": "Something went wrong",
@@ -308,6 +320,10 @@
     "no_product_in_section": "There is no product in this section",
     "what_are_you_looking_for": "What are you looking for?",
     "chached_results_from": "Cached results from:",
+    "next_label": "Next",
+    "@next_label": {
+        "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
+    },
     "plural_ago_minutes": "{count,plural, =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
