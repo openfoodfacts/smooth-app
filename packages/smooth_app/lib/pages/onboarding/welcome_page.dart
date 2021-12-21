@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:iso_countries/iso_countries.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
@@ -176,7 +175,7 @@ class _CountrySelectorState extends State<CountrySelector> {
     final Map<String, OpenFoodFactsCountry> oFFIsoCodeToCountry =
         <String, OpenFoodFactsCountry>{};
     final Map<String, Country> localizedIsoCodeToCountry = <String, Country>{};
-    for (OpenFoodFactsCountry c in OpenFoodFactsCountry.values) {
+    for (final OpenFoodFactsCountry c in OpenFoodFactsCountry.values) {
       oFFIsoCodeToCountry.putIfAbsent(c.iso2Code.toLowerCase(), () => c);
     }
     for (final Country c in localizedCountries) {
