@@ -99,15 +99,13 @@ class _LoginPageState extends State<LoginPage> {
               children: <Widget>[
                 const Spacer(flex: 4),
 
-                //Text
                 Text(
                   'Sign in to your Open Food Facts account to save your contributions ',
                   textAlign: TextAlign.center,
                   style: theme.textTheme.headline1?.copyWith(
                     fontSize: 20.0,
                     fontWeight: FontWeight.w700,
-                    color:
-                        themeProvider.darkTheme ? Colors.white : Colors.black,
+                    color: theme.colorScheme.onSurface,
                   ),
                 ),
 
@@ -171,8 +169,7 @@ class _LoginPageState extends State<LoginPage> {
                     'Sign in',
                     style: theme.textTheme.bodyText2?.copyWith(
                       fontSize: 18.0,
-                      color:
-                          themeProvider.darkTheme ? Colors.black : Colors.white,
+                      color: theme.colorScheme.onSurface,
                     ),
                   ),
                   style: ButtonStyle(
@@ -189,7 +186,12 @@ class _LoginPageState extends State<LoginPage> {
 
                 //Forgot password
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    const SnackBar snackBar = SnackBar(
+                      content: Text('Not implemented yet'),
+                    );
+                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                  },
                   child: Text(
                     'Forgot password',
                     style: theme.textTheme.bodyText2?.copyWith(
@@ -205,7 +207,12 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(
                   height: size.height * 0.06,
                   child: OutlinedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      const SnackBar snackBar = SnackBar(
+                        content: Text('Not implemented yet'),
+                      );
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    },
                     child: Text(
                       'Create account',
                       style: theme.textTheme.bodyText2?.copyWith(

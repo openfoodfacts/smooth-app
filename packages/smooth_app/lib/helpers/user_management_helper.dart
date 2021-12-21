@@ -8,24 +8,32 @@ class UserManagementHelper {
 
   final LocalDatabase localDatabase;
 
+  static const String USER_ID = 'user_id';
+  static const String PASSWORD = 'pasword';
+
   /// Checks credentials and conditionally saves them
-  Future<bool> smoothieLogin(User user) async {
-    final bool rightCredentials = await OpenFoodAPIClient.login(user);
+  Future<bool?> login(User user) async {
+    final bool rightCredentials;
+    try {
+      rightCredentials = await OpenFoodAPIClient.login(user);
+    } catch (e) {
+      // Returning null to show a error on the page
+      return null;
+    }
 
     if (rightCredentials) {
+      OpenFoodAPIConfiguration.globalUser = user;
       _putUser(user);
     }
 
-    return rightCredentials && _checkCredentialsInStorage();
+    return rightCredentials && await _checkCredentialsInStorage();
   }
 
   /// Checks if the saved credentials are still valid
   /// and mounts credentials for use in queries
-  Future<bool> checkAndReMountCredentials() async {
-    final String? userId =
-        DaoSecuredString(localDatabase).get(SecuredValues.USER_ID);
-    final String? password =
-        DaoSecuredString(localDatabase).get(SecuredValues.PASSWORD);
+  Future<bool?> checkAndReMountCredentials() async {
+    final String? userId = await DaoSecuredString.get(USER_ID);
+    final String? password = await DaoSecuredString.get(PASSWORD);
 
     if (userId == null || password == null) {
       return false;
@@ -33,7 +41,13 @@ class UserManagementHelper {
 
     final User user = User(userId: userId, password: password);
 
-    final bool rightCredentials = await OpenFoodAPIClient.login(user);
+    final bool rightCredentials;
+    try {
+      rightCredentials = await OpenFoodAPIClient.login(user);
+    } catch (e) {
+      // Returning null to show a error
+      return null;
+    }
 
     if (rightCredentials) {
       OpenFoodAPIConfiguration.globalUser = user;
@@ -43,32 +57,30 @@ class UserManagementHelper {
   }
 
   /// Deletes saved credentials from storage
-  bool smoothieLogout() {
+  Future<bool> logout() async {
     OpenFoodAPIConfiguration.globalUser = null;
-    DaoSecuredString(localDatabase).remove(type: SecuredValues.USER_ID);
-    DaoSecuredString(localDatabase).remove(type: SecuredValues.PASSWORD);
-
-    return !_checkCredentialsInStorage();
+    DaoSecuredString.remove(key: USER_ID);
+    DaoSecuredString.remove(key: PASSWORD);
+    final bool contains = await _checkCredentialsInStorage();
+    return !contains;
   }
 
   /// Saves user to storage
-  void _putUser(User user) {
-    DaoSecuredString(localDatabase).put(
-      type: SecuredValues.USER_ID,
+  Future<void> _putUser(User user) async {
+    await DaoSecuredString.put(
+      key: USER_ID,
       value: user.userId,
     );
-    DaoSecuredString(localDatabase).put(
-      type: SecuredValues.PASSWORD,
+    await DaoSecuredString.put(
+      key: PASSWORD,
       value: user.password,
     );
   }
 
   /// Checks if some credentials exist in storage
-  bool _checkCredentialsInStorage() {
-    final bool userId =
-        DaoSecuredString(localDatabase).contains(type: SecuredValues.USER_ID);
-    final bool password =
-        DaoSecuredString(localDatabase).contains(type: SecuredValues.PASSWORD);
+  Future<bool> _checkCredentialsInStorage() async {
+    final bool userId = await DaoSecuredString.contains(key: USER_ID);
+    final bool password = await DaoSecuredString.contains(key: PASSWORD);
 
     return userId && password;
   }

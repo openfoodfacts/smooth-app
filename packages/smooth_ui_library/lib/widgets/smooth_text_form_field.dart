@@ -34,21 +34,14 @@ class SmoothTextFormField extends StatefulWidget {
 }
 
 class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
-  late bool _obscureText;
-  late final bool _enableSuggestions;
-  late final bool _autocorrect;
   bool isEmpty = true;
 
   @override
-  void initState() {
-    super.initState();
-    _obscureText = widget.type == TextFieldTypes.PASSWORD;
-    _enableSuggestions = widget.type == TextFieldTypes.PLAIN_TEXT;
-    _autocorrect = widget.type == TextFieldTypes.PLAIN_TEXT;
-  }
-
-  @override
   Widget build(BuildContext context) {
+    bool _obscureText = widget.type == TextFieldTypes.PASSWORD;
+    final bool _enableSuggestions = widget.type == TextFieldTypes.PLAIN_TEXT;
+    final bool _autocorrect = widget.type == TextFieldTypes.PLAIN_TEXT;
+
     return TextFormField(
       controller: widget.controller,
       enabled: widget.enabled,
@@ -92,11 +85,11 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
                 onPressed: () => setState(() {
                   _obscureText = !_obscureText;
                 }),
-                icon: _obscureText && widget.controller!.text.isNotEmpty
+                icon: _obscureText
                     ? const Icon(Icons.visibility_off)
                     : const Icon(Icons.visibility),
               )
-            : const SizedBox.shrink(),
+            : null,
       ),
     );
   }

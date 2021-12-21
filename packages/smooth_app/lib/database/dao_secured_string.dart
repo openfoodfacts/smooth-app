@@ -1,66 +1,23 @@
-import 'dart:convert';
-import 'dart:typed_data';
-
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:smooth_app/database/abstract_dao.dart';
-import 'package:smooth_app/database/local_database.dart';
-
-enum SecuredValues {
-  USER_ID,
-  PASSWORD,
-}
 
 /// Where we store extra secured strings
-class DaoSecuredString extends AbstractDao {
-  DaoSecuredString(final LocalDatabase localDatabase) : super(localDatabase);
+class DaoSecuredString {
+  const DaoSecuredString._();
 
-  static const String _hiveBoxName = 'credentialsBox';
-  //The key-value key under which the base64 encrypted encryption key is stored
-  static const String _encryptionKeyKey = 'securedStringsKey';
+  static FlutterSecureStorage get _getStorage => const FlutterSecureStorage();
 
-  @override
-  Future<void> init() async {
-    const FlutterSecureStorage secureStorage = FlutterSecureStorage();
+  static Future<String?> get(String key) async => _getStorage.read(key: key);
 
-    final bool containsEncryptionKey =
-        await secureStorage.containsKey(key: _encryptionKeyKey);
-    if (!containsEncryptionKey) {
-      final List<int> key = Hive.generateSecureKey();
-      await secureStorage.write(
-          key: _encryptionKeyKey, value: base64UrlEncode(key));
-    }
-
-    final String? encryptedEncryptionKey =
-        await secureStorage.read(key: _encryptionKeyKey);
-    if (encryptedEncryptionKey == null) {
-      throw Exception('Encryption key is null');
-    }
-    final Uint8List encryptionKey = base64Url.decode(encryptedEncryptionKey);
-
-    await Hive.openBox<String>(
-      _hiveBoxName,
-      encryptionCipher: HiveAesCipher(encryptionKey),
-    );
+  static Future<void> put({required String key, required String value}) async {
+    await _getStorage.write(key: key, value: value);
   }
 
-  @override
-  void registerAdapter() {}
-
-  Box<String> _getBox() => Hive.box<String>(_hiveBoxName);
-
-  String? get(SecuredValues type) => _getBox().get(type.name);
-
-  void put({required SecuredValues type, required String value}) {
-    _getBox().put(type.name, value);
+  static Future<bool> remove({required String key}) async {
+    await _getStorage.delete(key: key);
+    return contains(key: key);
   }
 
-  bool remove({required SecuredValues type}) {
-    _getBox().delete(type.name);
-    return _getBox().containsKey(type.name);
-  }
-
-  bool contains({required SecuredValues type}) {
-    return _getBox().containsKey(type.name);
+  static Future<bool> contains({required String key}) async {
+    return _getStorage.containsKey(key: key);
   }
 }

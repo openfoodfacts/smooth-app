@@ -42,7 +42,6 @@ class UserPreferencesPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(appLocalizations.myPreferences),
         actions: <Widget>[
-          //Temporary for checking the credentials
           IconButton(
             icon: const Icon(Icons.threesixty_outlined),
             tooltip: 'Check credentials',
