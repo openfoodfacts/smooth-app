@@ -5,7 +5,6 @@ import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/pages/settings_page.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
@@ -46,19 +45,22 @@ class UserPreferencesPage extends StatelessWidget {
             icon: const Icon(Icons.threesixty_outlined),
             tooltip: 'Check credentials',
             onPressed: () async {
-              // Needs to be in here for mock tests to work
-              final LocalDatabase localDatabase = context.read<LocalDatabase>();
-              final bool correct =
-                  await UserManagementHelper(localDatabase: localDatabase)
-                      .checkAndReMountCredentials();
+              final bool? correct =
+                  await UserManagementHelper.checkAndReMountCredentials();
+
+              late String text;
+              if (correct == null) {
+                text = 'error';
+              } else {
+                text = 'It is $correct';
+              }
 
               final SnackBar snackBar = SnackBar(
-                content: Text('It is $correct'),
+                content: Text(text),
                 action: SnackBarAction(
                   label: 'Logout',
                   onPressed: () async {
-                    UserManagementHelper(localDatabase: localDatabase)
-                        .smoothieLogout();
+                    UserManagementHelper.logout();
                   },
                 ),
               );

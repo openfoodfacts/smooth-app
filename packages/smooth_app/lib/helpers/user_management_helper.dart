@@ -1,18 +1,15 @@
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:smooth_app/database/dao_secured_string.dart';
-import 'package:smooth_app/database/local_database.dart';
 
 class UserManagementHelper {
-  UserManagementHelper({required this.localDatabase});
-
-  final LocalDatabase localDatabase;
+  UserManagementHelper._();
 
   static const String USER_ID = 'user_id';
   static const String PASSWORD = 'pasword';
 
   /// Checks credentials and conditionally saves them
-  Future<bool?> login(User user) async {
+  static Future<bool?> login(User user) async {
     final bool rightCredentials;
     try {
       rightCredentials = await OpenFoodAPIClient.login(user);
@@ -31,7 +28,7 @@ class UserManagementHelper {
 
   /// Checks if the saved credentials are still valid
   /// and mounts credentials for use in queries
-  Future<bool?> checkAndReMountCredentials() async {
+  static Future<bool?> checkAndReMountCredentials() async {
     final String? userId = await DaoSecuredString.get(USER_ID);
     final String? password = await DaoSecuredString.get(PASSWORD);
 
@@ -57,7 +54,7 @@ class UserManagementHelper {
   }
 
   /// Deletes saved credentials from storage
-  Future<bool> logout() async {
+  static Future<bool> logout() async {
     OpenFoodAPIConfiguration.globalUser = null;
     DaoSecuredString.remove(key: USER_ID);
     DaoSecuredString.remove(key: PASSWORD);
@@ -66,7 +63,7 @@ class UserManagementHelper {
   }
 
   /// Saves user to storage
-  Future<void> _putUser(User user) async {
+  static Future<void> _putUser(User user) async {
     await DaoSecuredString.put(
       key: USER_ID,
       value: user.userId,
@@ -78,7 +75,7 @@ class UserManagementHelper {
   }
 
   /// Checks if some credentials exist in storage
-  Future<bool> _checkCredentialsInStorage() async {
+  static Future<bool> _checkCredentialsInStorage() async {
     final bool userId = await DaoSecuredString.contains(key: USER_ID);
     final bool password = await DaoSecuredString.contains(key: PASSWORD);
 
