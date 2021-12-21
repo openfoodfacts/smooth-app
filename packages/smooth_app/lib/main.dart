@@ -135,7 +135,7 @@ class _SmoothAppState extends State<SmoothApp> {
         themeProvider.colorTag,
       ),
       themeMode: themeProvider.darkTheme ? ThemeMode.dark : ThemeMode.light,
-      home: SmoothAppGetLanguage(isFirstTimeUser),
+      home: SmoothAppGetLanguage(isFirstTimeUser: isFirstTimeUser),
     );
   }
 
@@ -163,7 +163,7 @@ class _SmoothAppState extends State<SmoothApp> {
 
 /// Layer needed because we need to know the language
 class SmoothAppGetLanguage extends StatelessWidget {
-  const SmoothAppGetLanguage(this.isFirstTimeUser);
+  const SmoothAppGetLanguage({required this.isFirstTimeUser});
 
   final bool isFirstTimeUser;
 
@@ -178,7 +178,7 @@ class SmoothAppGetLanguage extends StatelessWidget {
       DefaultAssetBundle.of(context),
       languageCode,
     );
-    if (!isFirstTimeUser) {
+    if (isFirstTimeUser) {
       return const WelcomePage();
     }
     return PageManager();
