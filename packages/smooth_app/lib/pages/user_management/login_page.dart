@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
@@ -42,30 +41,12 @@ class _LoginPageState extends State<LoginPage> {
       _wrongCredentials = false;
     });
 
-    final bool? login = await UserManagementHelper.login(
+    final bool login = await UserManagementHelper.login(
       User(
         userId: userIdController.text,
         password: passwordController.text,
       ),
     );
-
-    if (login == null) {
-      // TODO(M123-dev): more precise error message
-      await showDialog<bool>(
-        context: context,
-        builder: (BuildContext context) => SmoothAlertDialog(
-          close: false,
-          body: const Text('A error occured'),
-          actions: <SmoothSimpleButton>[
-            SmoothSimpleButton(
-              text: AppLocalizations.of(context)!.okay,
-              onPressed: () => Navigator.pop(context, false),
-            ),
-          ],
-        ),
-      );
-      return;
-    }
 
     if (login) {
       Navigator.pop(context);

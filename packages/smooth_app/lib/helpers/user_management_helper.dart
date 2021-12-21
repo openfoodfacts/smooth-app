@@ -5,17 +5,16 @@ import 'package:smooth_app/database/dao_secured_string.dart';
 class UserManagementHelper {
   UserManagementHelper._();
 
-  static const String USER_ID = 'user_id';
-  static const String PASSWORD = 'pasword';
+  static const String _USER_ID = 'user_id';
+  static const String _PASSWORD = 'pasword';
 
   /// Checks credentials and conditionally saves them
-  static Future<bool?> login(User user) async {
+  static Future<bool> login(User user) async {
     final bool rightCredentials;
     try {
       rightCredentials = await OpenFoodAPIClient.login(user);
     } catch (e) {
-      // Returning null to show a error on the page
-      return null;
+      throw Exception(e);
     }
 
     if (rightCredentials) {
@@ -28,9 +27,9 @@ class UserManagementHelper {
 
   /// Checks if the saved credentials are still valid
   /// and mounts credentials for use in queries
-  static Future<bool?> checkAndReMountCredentials() async {
-    final String? userId = await DaoSecuredString.get(USER_ID);
-    final String? password = await DaoSecuredString.get(PASSWORD);
+  static Future<bool> checkAndReMountCredentials() async {
+    final String? userId = await DaoSecuredString.get(_USER_ID);
+    final String? password = await DaoSecuredString.get(_PASSWORD);
 
     if (userId == null || password == null) {
       return false;
@@ -42,8 +41,7 @@ class UserManagementHelper {
     try {
       rightCredentials = await OpenFoodAPIClient.login(user);
     } catch (e) {
-      // Returning null to show a error
-      return null;
+      throw Exception(e);
     }
 
     if (rightCredentials) {
@@ -56,8 +54,8 @@ class UserManagementHelper {
   /// Deletes saved credentials from storage
   static Future<bool> logout() async {
     OpenFoodAPIConfiguration.globalUser = null;
-    DaoSecuredString.remove(key: USER_ID);
-    DaoSecuredString.remove(key: PASSWORD);
+    DaoSecuredString.remove(key: _USER_ID);
+    DaoSecuredString.remove(key: _PASSWORD);
     final bool contains = await _checkCredentialsInStorage();
     return !contains;
   }
@@ -65,19 +63,19 @@ class UserManagementHelper {
   /// Saves user to storage
   static Future<void> _putUser(User user) async {
     await DaoSecuredString.put(
-      key: USER_ID,
+      key: _USER_ID,
       value: user.userId,
     );
     await DaoSecuredString.put(
-      key: PASSWORD,
+      key: _PASSWORD,
       value: user.password,
     );
   }
 
   /// Checks if some credentials exist in storage
   static Future<bool> _checkCredentialsInStorage() async {
-    final bool userId = await DaoSecuredString.contains(key: USER_ID);
-    final bool password = await DaoSecuredString.contains(key: PASSWORD);
+    final bool userId = await DaoSecuredString.contains(key: _USER_ID);
+    final bool password = await DaoSecuredString.contains(key: _PASSWORD);
 
     return userId && password;
   }

@@ -45,18 +45,11 @@ class UserPreferencesPage extends StatelessWidget {
             icon: const Icon(Icons.threesixty_outlined),
             tooltip: 'Check credentials',
             onPressed: () async {
-              final bool? correct =
+              final bool correct =
                   await UserManagementHelper.checkAndReMountCredentials();
 
-              late String text;
-              if (correct == null) {
-                text = 'error';
-              } else {
-                text = 'It is $correct';
-              }
-
               final SnackBar snackBar = SnackBar(
-                content: Text(text),
+                content: Text('It is $correct'),
                 action: SnackBarAction(
                   label: 'Logout',
                   onPressed: () async {
