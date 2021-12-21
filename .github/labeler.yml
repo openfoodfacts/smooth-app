@@ -1,0 +1,11 @@
+# Add 'label1' to any changes within 'example' folder or any subfolders
+android:
+- packages/smooth_app/android/**/*
+
+github:
+- .github/**/*
+
+User management:
+- packages/smooth_app/lib/pages/user_management/login_page.dart
+- packages/smooth_app/lib/pages/user_preferences_page.dart
+- packages/smooth_app/lib/helpers/user_management_helper.dart
