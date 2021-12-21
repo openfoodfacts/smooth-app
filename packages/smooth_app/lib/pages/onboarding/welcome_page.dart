@@ -3,7 +3,6 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:iso_countries/iso_countries.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
-import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
 
@@ -36,11 +35,11 @@ class WelcomePage extends StatelessWidget {
             right: sidePadding),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
+          children: <Widget>[
             Text(appLocalizations.whatIsOff, style: headlineStyle),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+              children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.only(left: SMALL_SPACE),
                   child: Text(
@@ -59,7 +58,7 @@ class WelcomePage extends StatelessWidget {
               ],
             ),
             Row(
-              children: [
+              children: <Widget>[
                 Expanded(
                   child: TextButton(
                     style: TextButton.styleFrom(
@@ -101,9 +100,7 @@ class CountrySelector extends StatefulWidget {
 }
 
 class _CountrySelectorState extends State<CountrySelector> {
-  // TODO(jasmeet): Store User's country in UserPreferences.
-  late UserPreferences _unusedUserPreferences;
-  late List<Country> _countryList = [];
+  late List<Country> _countryList = <Country>[];
   String? _chosenValue;
   late Future<void> _initFuture;
 
@@ -114,7 +111,6 @@ class _CountrySelectorState extends State<CountrySelector> {
   }
 
   Future<void> _init() async {
-    _unusedUserPreferences = await UserPreferences.getUserPreferences();
     final String locale = Localizations.localeOf(context).languageCode;
     final List<Country> localizedCountries =
         await IsoCountries.iso_countries_for_locale(locale);
