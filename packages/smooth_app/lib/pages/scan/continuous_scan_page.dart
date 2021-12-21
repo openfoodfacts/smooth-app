@@ -40,7 +40,7 @@ class _ContinuousScanPageState extends State<ContinuousScanPage> {
             screenSize.width * 0.33,
           );
           final double carouselHeight = constraints.maxHeight /
-              1.81; // roughly 55% of the available heighte
+              1.81; // roughly 55% of the available height
           final double buttonRowHeight = areButtonsRendered(_model!) ? 48 : 0;
           final double availableScanHeight =
               constraints.maxHeight - carouselHeight - buttonRowHeight;
