@@ -2,6 +2,36 @@
 android:
 - packages/smooth_app/android/**/*
 
+ios:
+- packages/smooth_app/ios/**/*
+
+web:
+- packages/smooth_app/web/**/*
+
+tests:
+- packages/smooth_app/test/**/*
+
+database:
+- packages/smooth_app/lib/database/**/*
+
+l10n:
+- packages/smooth_app/lib/l10n/**/*
+
+history:
+- packages/smooth_app/lib/pages/history_page.dart
+
+settings:
+- packages/smooth_app/lib/pages/settings_page.dart
+
+settings:
+- packages/smooth_app/lib/pages/user_preferences_page.dart
+
+scan:
+- packages/smooth_app/lib/pages/scan/**/*
+
+product page:
+- packages/smooth_app/lib/pages/product/**/*
+
 github:
 - .github/**/*
 
