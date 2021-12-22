@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/widgets/tab_navigator.dart';
 
 enum BottomNavigationTab {
@@ -48,6 +49,7 @@ class PageManagerState extends State<PageManager> {
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     return WillPopScope(
       onWillPop: () async {
         final bool isFirstRouteInCurrentTab =
@@ -76,19 +78,18 @@ class PageManagerState extends State<PageManager> {
             _selectTab(_pageKeys[index], index);
           },
           currentIndex: _currentPage.index,
-          items: const <BottomNavigationBarItem>[
-            // TODO(M123): Translate
+          items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.account_circle),
-              label: 'Profile',
+              label: appLocalizations.profile_navbar_label,
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.search),
-              label: 'Scan or Search',
+              label: appLocalizations.scan_navbar_label,
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.history),
-              label: 'History',
+              label: appLocalizations.history_navbar_label,
             ),
           ],
         ),

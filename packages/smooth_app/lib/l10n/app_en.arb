@@ -57,6 +57,32 @@
 
 
 
+  "@user_management": {},
+
+  "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
+  "incorrect_credentials": "Incorrect user name or password.",
+  "login": "Darkmode",
+  "@login": {
+    "description": "Text field hint: unified name for "
+  },
+  "sign_in": "Sign in",
+  "@sign_in": {
+    "description": "Button label: For sign in"
+  },
+  "password": "Password",
+  "forgot_password": "Forgot password",
+  "@forgot_password": {
+    "description": "Button label: Opens a page where a password reset email can be requested"
+  },
+  "enter_some_text": "Please enter some text",
+  "@enter_some_text": {
+    "description": "Error when text field is empty"
+  },
+
+
+
+
+
   "@Settings": {},
 
   "settingsTitle": "Settings",
@@ -151,6 +177,19 @@
 
   "@other": {},
 
+  "profile_navbar_label": "Profile",
+  "@profile_navbar_label": {
+    "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+  },
+  "scan_navbar_label": "Profile",
+  "@scan_navbar_label": {
+    "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+  } , 
+  "history_navbar_label": "Profile",
+  "@history_navbar_label": {
+    "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+  },
+
   "category": "Category",
   "@category": {},
   "category_search": "(category search)",
@@ -159,11 +198,14 @@
     "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
   },
   "scan": "Scan",
-  "@scan": "Page title: List type: Scanned products",
+  "@scan": {
+    "description": "Page title: List type: Scanned products"
+  },
   "search": "Search",
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "tab_for_more": "Tap to see more info...",
 
 
   
@@ -210,6 +252,7 @@
   "no_product_found": "No product found",
   "@no_product_found": {},
   "not_found": "not found:",
+  "searchPanelHeader": "Search or scan your first product",
 
 
 
@@ -279,6 +322,11 @@
   "no_prodcut_in_list": "There is no product in this list",
   "no_product_in_section": "There is no product in this section",
   "recently_seen_products": "My recently seen products",
+  "clear": "Clear",
+  "@clear": {
+    "description": "Clears a product list"
+  },
+  "really_clear": "Do you really want to clear this list?",
 
 
 
@@ -323,6 +371,13 @@
   "plural_ago_weeks": "{count,plural, =1{one week ago} other{{count} weeks ago}}",
   "@plural_ago_weeks": {
     "description": "Cached results from: x weeks ago",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "plural_compare_x_products": "{count,plural, =other{Compare {count} Products}",
+  "@plural_compare_x_products": {
+    "description": "Button label",
     "placeholders": {
       "count": {}
     }

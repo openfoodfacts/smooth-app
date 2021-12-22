@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Product.dart';
@@ -67,9 +68,9 @@ class _ProductListPageState extends State<ProductListPage> {
                 PopupMenuButton<String>(
                   itemBuilder: (final BuildContext context) =>
                       <PopupMenuEntry<String>>[
-                    const PopupMenuItem<String>(
+                    PopupMenuItem<String>(
                       value: 'clear',
-                      child: Text('Clear'), // TODO(monsieurtanuki): translate
+                      child: Text(appLocalizations.clear),
                       enabled: true,
                     ),
                   ],
