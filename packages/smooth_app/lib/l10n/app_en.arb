@@ -1,22 +1,80 @@
 {
-  "about": "About this app",
-  "@about": {},
+
+  "@Utils": {},
+
   "add": "Add",
   "@add": {},
-  "added_product_thanks": "Thank you for adding this product!",
-  "@added_product_thanks": {},
+  "okay": "Okay",
+  "@okay": {},
+  "yes": "Yes",
+  "@yes": {},
+
   "applyButtonText": "Apply",
   "@applyButtonText": {},
+
   "cancel": "Cancel",
   "@cancel": {},
-  "category": "Category",
-  "@category": {},
-  "category_search": "(category search)",
-  "chached_results_from": "Cached results from:",
   "close": "Close",
   "@close": {},
-  "confirmResetPreferences": "Reset your preferences?",
-  "@confirmResetPreferences": {},
+  "no": "No",
+  "@no": {},
+  "stop": "Stop",
+  "@stop": {},
+
+  "error": "Something went wrong",
+  "@error": {},
+  "error_occurred": "An error occurred",
+  "@error_occurred": {},
+
+  "featureInProgress": "We're still working on this feature, stay tuned",
+  "@featureInProgress": {},
+
+  "reset": "Reset",
+  "@reset": {},
+
+  "label_web": "View on the Web",
+  "@label_web": {},
+  "learnMore": "Learn more",
+  "@learnMore": {},
+  "incompatible": "Incompatible",
+  "licenses": "Licences",
+  "@licenses": {},
+  "looking_for": "Looking for",
+  "@looking_for": {},
+
+
+
+
+  "@Introduction screen": {},
+
+  "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
+  "@welcomeToOpenFoodFacts": {},
+  "whatIsOff": "Open Food Facts is a database of food products, made by everyone, for everyone. You can use it to make better food choices, and as it is open data, anyone can re-use it for any purpose.",
+  "@whatIsOff": {},
+
+
+
+
+  "@Settings": {},
+
+  "settingsTitle": "Settings",
+  "@settingsTitle": {},
+  "darkmode": "Darkmode",
+  "@darkmode": {},
+  "contributors": "Contributors",
+  "@contributors": {},
+  "support": "Support",
+  "@support": {},
+  "termsOfUse": "Terms of use",
+  "@termsOfUse": {},
+  "about_this_app": "About this app",
+  "@about_this_app": {},
+
+
+
+
+  "@About this app section": {},
+
   "contribute": "Contribute",
   "@contribute": {},
   "contribute_develop": "Develop",
@@ -41,72 +99,142 @@
   "@contribute_translate_text": {},
   "contribute_translate_text_2": "Translations is one of the key tasks of the project",
   "@contribute_translate_text_2": {},
-  "contributors": "Contributors",
-  "@contributors": {},
-  "could_not_refresh": "Could not refresh product",
-  "@could_not_refresh": {},
-  "darkmode": "Darkmode",
-  "@darkmode": {},
-  "error": "Something went wrong",
-  "@error": {},
-  "error_occurred": "An error occurred",
-  "@error_occurred": {},
-  "featureInProgress": "We're still working on this feature, stay tuned",
-  "@featureInProgress": {},
-  "filter": "Filter",
-  "@filter": {
-    "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
-  },
-  "front_photo": "Front photo",
-  "@front_photo": {},
-  "incompatible": "Incompatible",
-  "ingredients": "Ingredients",
-  "@ingredients": {},
-  "ingredients_photo": "Ingredients photo",
-  "@ingredients_photo": {},
-  "label_refresh": "refresh",
-  "@label_refresh": {
-    "description": "Refresh the cached product"
-  },
-  "label_web": "View on the Web",
-  "@label_web": {},
-  "learnMore": "Learn more",
-  "@learnMore": {},
-  "licenses": "Licences",
-  "@licenses": {},
-  "looking_for": "Looking for",
-  "@looking_for": {},
-  "missing_product": "This product is missing",
-  "@missing_product": {},
-  "more_photos": "More interesting photos",
-  "@more_photos": {},
+
+
+
+
+  "@Personal preferences": {},
+
+  "myPreferences": "My preferences",
+  "@myPreferences": {},
+  "confirmResetPreferences": "Reset your preferences?",
+  "@confirmResetPreferences": {},
   "myPersonalizedRanking": "My personalized ranking",
   "@myPersonalizedRanking": {
     "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
   },
-  "myPreferences": "My preferences",
-  "@myPreferences": {},
-  "no": "No",
-  "@no": {},
-  "no_prodcut_in_list": "There is no product in this list",
+  "reloaded_with_new_preferences": "Reloaded with new preferences",
+
+
+
+
+  "@other": {},
+
+  "category": "Category",
+  "@category": {},
+  "category_search": "(category search)",
+  "filter": "Filter",
+  "@filter": {
+    "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
+  },
+  "scan": "Scan",
+  "search": "Search",
+  "@search": {},
+  "searchPanelHeader": "Search or scan your first product",
+  "@searchPanelHeader": {},
+
+
+  
+
+  "@Product": {},
+  
+  "could_not_refresh": "Could not refresh product",
+  "@could_not_refresh": {},
+  "label_refresh": "refresh",
+  "@label_refresh": {
+    "description": "Refresh the cached product"
+  },
+  "front_photo": "Front photo",
+  "@front_photo": {},
+  
+  "ingredients": "Ingredients",
+  "@ingredients": {},
+  "ingredients_photo": "Ingredients photo",
+  "@ingredients_photo": {},
+  "missing_product": "This product is missing",
+  "@missing_product": {},
+  "more_photos": "More interesting photos",
+  "@more_photos": {},
   "no_product_found": "No product found",
   "@no_product_found": {},
-  "no_product_in_section": "There is no product in this section",
   "not_found": "not found:",
   "nutrition": "Nutrition",
   "@nutrition": {},
   "nutrition_facts_photo": "Nutrition facts photo",
   "@nutrition_facts_photo": {},
-  "okay": "Okay",
-  "@okay": {},
   "packaging_information": "Packaging information",
   "@packaging_information": {},
   "packaging_information_photo": "Packaging information photo",
   "@packaging_information_photo": {},
+  "product": "Product",
+  "@product": {},
+  "unknownBrand": "Unknown brand",
+  "@unknownBrand": {},
+  "unknownProductName": "Unknown product name",
+  "@unknownProductName": {},
+
+
+
+  "@Product query status": {},
+
+  "refreshing_product": "Refreshing product",
+  "@refreshing_product": {},
+  "product_refreshed": "Product refreshed",
+  "@product_refreshed": {},
+  "product_internet_cancel": "Canceled by user.",
+  "product_internet_error": "Impossible to fetch information about this product due to a network error.",
+  "cached_results_from": "Cached results from:",
+
+
+
+
+  "@Product Addition": {},
+
+  "added_product_thanks": "Thank you for adding this product!",
+  "@added_product_thanks": {},
+  "product_improvement_add_category": "Add a category to compute the Nutri-Score.",
+  "@product_improvement_add_category": {
+    "description": "Message for ProductImprovement.ADD_CATEGORY"
+  },
+  "product_improvement_add_nutrition_facts": "Add nutrition facts to compute the Nutri-Score.",
+  "@product_improvement_add_nutrition_facts": {
+    "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
+  },
+  "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to compute the Nutri-Score.",
+  "@product_improvement_add_nutrition_facts_and_category": {
+    "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
+  },
+  "product_improvement_categories_but_no_nutriscore": "We could not compute an Nutri-Score for this product. It might be that the category is an exception. If you believe this is an error, contact us.",
+  "@product_improvement_categories_but_no_nutriscore": {
+    "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
+  },
+  "product_improvement_obsolete_nutrition_image": "The nutrition image is obsolete: please refresh it.",
+  "@product_improvement_obsolete_nutrition_image": {
+    "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
+  },
+  "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take them into a photo (ingredient list and/or any geographic claim or edit the product so that they can be taken into account. If it is not clear, you can contact the food producer.",
+  "@product_improvement_origins_to_be_completed": {
+    "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
+  },
+
+
+
+
+  "@Lists": {},
+
+  "no_prodcut_in_list": "There is no product in this list",
+  "no_product_in_section": "There is no product in this section",
+  "recently_seen_products": "My recently seen products",
+
+
+
+
+  "@Plural": {},
+
   "pct_match": "{pct}% match",
   "@pct_match": {
     "placeholders": {
-      "pct": {}
+     "pct": {}
     }
   },
   "plural_ago_days": "{count,plural, =1{one day ago} other{{count} days ago}}",
@@ -143,64 +271,6 @@
     "placeholders": {
       "count": {}
     }
-  },
-  "product": "Product",
-  "@product": {},
-  "product_improvement_add_category": "Add a category to compute the Nutri-Score.",
-  "@product_improvement_add_category": {
-    "description": "Message for ProductImprovement.ADD_CATEGORY"
-  },
-  "product_improvement_add_nutrition_facts": "Add nutrition facts to compute the Nutri-Score.",
-  "@product_improvement_add_nutrition_facts": {
-    "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
-  },
-  "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to compute the Nutri-Score.",
-  "@product_improvement_add_nutrition_facts_and_category": {
-    "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
-  },
-  "product_improvement_categories_but_no_nutriscore": "We could not compute an Nutri-Score for this product. It might be that the category is an exception. If you believe this is an error, contact us.",
-  "@product_improvement_categories_but_no_nutriscore": {
-    "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
-  },
-  "product_improvement_obsolete_nutrition_image": "The nutrition image is obsolete: please refresh it.",
-  "@product_improvement_obsolete_nutrition_image": {
-    "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
-  },
-  "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take them into a photo (ingredient list and/or any geographic claim or edit the product so that they can be taken into account. If it is not clear, you can contact the food producer.",
-  "@product_improvement_origins_to_be_completed": {
-    "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
-  },
-  "product_internet_cancel": "Canceled by user.",
-  "product_internet_error": "Impossible to fetch information about this product due to a network error.",
-  "product_refreshed": "Product refreshed",
-  "@product_refreshed": {},
-  "recently_seen_products": "My recently seen products",
-  "refreshing_product": "Refreshing product",
-  "@refreshing_product": {},
-  "reloaded_with_new_preferences": "Reloaded with new preferences",
-  "reset": "Reset",
-  "@reset": {},
-  "scan": "Scan",
-  "search": "Search",
-  "@search": {},
-  "searchPanelHeader": "Search or scan your first product",
-  "@searchPanelHeader": {},
-  "settingsTitle": "Settings",
-  "@settingsTitle": {},
-  "stop": "Stop",
-  "@stop": {},
-  "support": "Support",
-  "@support": {},
-  "termsOfUse": "Terms of use",
-  "@termsOfUse": {},
-  "unknownBrand": "Unknown brand",
-  "@unknownBrand": {},
-  "unknownProductName": "Unknown product name",
-  "@unknownProductName": {},
-  "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
-  "@welcomeToOpenFoodFacts": {},
-  "whatIsOff": "Open Food Facts is a database of food products, made by everyone, for everyone. You can use it to make better food choices, and as it is open data, anyone can re-use it for any purpose.",
-  "@whatIsOff": {},
-  "yes": "Yes",
-  "@yes": {}
+  }
+
 }

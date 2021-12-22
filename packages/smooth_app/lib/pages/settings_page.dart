@@ -88,9 +88,9 @@ class ProfilePage extends StatelessWidget {
                 'https://slack.openfoodfacts.org/', false),
           ),
 
-          //About
+          //About this app
           SmoothListTile(
-            text: appLocalizations.about,
+            text: appLocalizations.about_this_app,
             onPressed: () async {
               final PackageInfo packageInfo = await PackageInfo.fromPlatform();
               showDialog<void>(
