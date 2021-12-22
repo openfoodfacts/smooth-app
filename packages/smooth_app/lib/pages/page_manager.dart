@@ -80,15 +80,15 @@ class PageManagerState extends State<PageManager> {
           currentIndex: _currentPage.index,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle),
+              icon: const Icon(Icons.account_circle),
               label: appLocalizations.profile_navbar_label,
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.search),
+              icon: const Icon(Icons.search),
               label: appLocalizations.scan_navbar_label,
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.history),
+              icon: const Icon(Icons.history),
               label: appLocalizations.history_navbar_label,
             ),
           ],

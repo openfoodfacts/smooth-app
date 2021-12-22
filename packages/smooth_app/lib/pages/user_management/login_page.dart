@@ -111,7 +111,7 @@ class _LoginPageState extends State<LoginPage> {
 
                 if (_wrongCredentials) ...<Widget>[
                   SmoothCard(
-                    padding: EdgeInsets.all(10.0),
+                    padding: const EdgeInsets.all(10.0),
                     color: Colors.red,
                     child: Text(appLocalizations.incorrect_credentials),
                   ),
