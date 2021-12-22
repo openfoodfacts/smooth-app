@@ -76,8 +76,8 @@ class WelcomePage extends StatelessWidget {
                       Navigator.push<Widget>(
                           context,
                           MaterialPageRoute<Widget>(
-                      builder: (BuildContext context) => PageManager(),)
-                      );
+                            builder: (BuildContext context) => PageManager(),
+                          ));
                     },
                     child: Text(
                       appLocalizations.next_label,

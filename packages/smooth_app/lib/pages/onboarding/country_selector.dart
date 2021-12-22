@@ -28,13 +28,12 @@ class _CountrySelectorState extends State<CountrySelector> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     _initFuture = _init();
-
   }
 
   Future<void> _init() async {
     final String locale = Localizations.localeOf(context).languageCode;
     final List<Country> localizedCountries =
-    await IsoCountries.iso_countries_for_locale(locale);
+        await IsoCountries.iso_countries_for_locale(locale);
     _countryList = sanitizeCountriesList(localizedCountries);
   }
 
@@ -52,7 +51,7 @@ class _CountrySelectorState extends State<CountrySelector> {
           }
           return Padding(
             padding:
-            const EdgeInsets.only(top: MEDIUM_SPACE, bottom: LARGE_SPACE),
+                const EdgeInsets.only(top: MEDIUM_SPACE, bottom: LARGE_SPACE),
             child: DropdownButtonFormField<String>(
               value: _chosenValue,
               style: const TextStyle(color: Colors.black),
@@ -66,7 +65,7 @@ class _CountrySelectorState extends State<CountrySelector> {
                 fillColor: const Color.fromARGB(255, 235, 235, 235),
               ),
               items:
-              _countryList.map<DropdownMenuItem<String>>((Country country) {
+                  _countryList.map<DropdownMenuItem<String>>((Country country) {
                 return DropdownMenuItem<String>(
                   value: country.name,
                   child: Text(country.name),
@@ -95,7 +94,7 @@ class _CountrySelectorState extends State<CountrySelector> {
   List<Country> sanitizeCountriesList(List<Country> localizedCountries) {
     final List<Country> finalCountriesList = <Country>[];
     final Map<String, OpenFoodFactsCountry> oFFIsoCodeToCountry =
-    <String, OpenFoodFactsCountry>{};
+        <String, OpenFoodFactsCountry>{};
     final Map<String, Country> localizedIsoCodeToCountry = <String, Country>{};
     for (final OpenFoodFactsCountry c in OpenFoodFactsCountry.values) {
       oFFIsoCodeToCountry.putIfAbsent(c.iso2Code.toLowerCase(), () => c);
@@ -114,16 +113,16 @@ class _CountrySelectorState extends State<CountrySelector> {
             .replaceAll('OpenFoodFactsCountry.', '')
             .replaceAll('_', ' ');
         countryName =
-        '${countryName[0].toUpperCase()}${countryName.substring(1).toLowerCase()}';
+            '${countryName[0].toUpperCase()}${countryName.substring(1).toLowerCase()}';
         final Country country =
-        Country(name: countryName, countryCode: countryName);
+            Country(name: countryName, countryCode: countryName);
         finalCountriesList.add(country);
         continue;
       }
       // 'gb' is handled as 'uk' in the backend.
       if (countryCode == 'gb') {
         final Country modifiedCountry =
-        Country(name: localizedCountry.name, countryCode: 'uk');
+            Country(name: localizedCountry.name, countryCode: 'uk');
         finalCountriesList.add(modifiedCountry);
         continue;
       }
@@ -131,9 +130,12 @@ class _CountrySelectorState extends State<CountrySelector> {
     }
     return reorderCountries(finalCountriesList);
   }
+
   List<Country> reorderCountries(List<Country> countries) {
-    countries.sort((final Country a,final Country b) => a.name.compareTo(b.name));
-    final String? mostLikelyUserCountryCode = WidgetsBinding.instance?.window.locale.countryCode;
+    countries
+        .sort((final Country a, final Country b) => a.name.compareTo(b.name));
+    final String? mostLikelyUserCountryCode =
+        WidgetsBinding.instance?.window.locale.countryCode;
     if (mostLikelyUserCountryCode == null) {
       return countries;
     }
