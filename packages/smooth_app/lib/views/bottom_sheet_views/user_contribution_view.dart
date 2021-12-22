@@ -47,7 +47,7 @@ class UserContributionView extends StatelessWidget {
                           //Develop
                           SmoothListTile(
                             text: AppLocalizations.of(context)!
-                                .contribute_develop,
+                                .contribute_sw_development,
                             onPressed: () => _develop(context),
                           ),
 
