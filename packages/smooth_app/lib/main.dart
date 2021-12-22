@@ -55,8 +55,8 @@ class _SmoothAppState extends State<SmoothApp> {
   late ProductPreferences _productPreferences;
   late LocalDatabase _localDatabase;
   late ThemeProvider _themeProvider;
+  late bool _isFirstTimeUser;
   bool systemDarkmodeOn = false;
-  bool isFirstTimeUser = false;
 
   // We store the argument of FutureBuilder to avoid re-initialization on
   // subsequent builds. This enables hot reloading. See
@@ -80,9 +80,9 @@ class _SmoothAppState extends State<SmoothApp> {
       getImportance: _userPreferences.getImportance,
       notify: () => _productPreferences.notifyListeners(),
     ));
+    _isFirstTimeUser = _userPreferences.isFirstTimeUser();
     await _productPreferences
         .loadReferenceFromAssets(DefaultAssetBundle.of(context));
-    isFirstTimeUser = _userPreferences.isFirstTimeUser();
     await _userPreferences.init(_productPreferences);
     _localDatabase = await LocalDatabase.getLocalDatabase();
     _themeProvider = ThemeProvider(_userPreferences);
@@ -135,7 +135,7 @@ class _SmoothAppState extends State<SmoothApp> {
         themeProvider.colorTag,
       ),
       themeMode: themeProvider.darkTheme ? ThemeMode.dark : ThemeMode.light,
-      home: SmoothAppGetLanguage(isFirstTimeUser: isFirstTimeUser),
+      home: SmoothAppGetLanguage(isFirstTimeUser: _isFirstTimeUser),
     );
   }
 
