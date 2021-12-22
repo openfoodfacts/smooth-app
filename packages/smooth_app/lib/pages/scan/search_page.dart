@@ -1,23 +1,82 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/fetched_product.dart';
+import 'package:smooth_app/database/dao_string_list.dart';
+import 'package:smooth_app/database/keywords_product_query.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/database/search_history.dart';
-import 'package:smooth_app/pages/choose_page.dart';
+import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
+import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
+import 'package:smooth_app/pages/product/new_product_page.dart';
 import 'package:smooth_app/pages/scan/search_history_view.dart';
 
 void _performSearch(BuildContext context, String query) {
   if (query.trim().isEmpty) {
     return;
   }
-  final SearchHistory history = context.read<SearchHistory>();
-  history.add(query);
-  ChoosePage.onSubmitted(
-    query,
-    context,
-    context.read<LocalDatabase>(),
-  );
+  final LocalDatabase localDatabase = context.read<LocalDatabase>();
+  DaoStringList(localDatabase).add(query);
+  if (int.tryParse(query) != null) {
+    _onSubmittedBarcode(
+      query,
+      context,
+      localDatabase,
+    );
+  } else {
+    _onSubmittedText(
+      query,
+      context,
+      localDatabase,
+    );
+  }
 }
+
+// used to be in now defunct `ChoosePage`
+Future<void> _onSubmittedBarcode(
+  final String value,
+  final BuildContext context,
+  final LocalDatabase localDatabase,
+) async {
+  final ProductDialogHelper productDialogHelper = ProductDialogHelper(
+    barcode: value,
+    context: context,
+    localDatabase: localDatabase,
+    refresh: false,
+  );
+  final FetchedProduct fetchedProduct =
+      await productDialogHelper.openBestChoice();
+  if (fetchedProduct.status == FetchedProductStatus.ok) {
+    Navigator.push<Widget>(
+      context,
+      MaterialPageRoute<Widget>(
+        builder: (BuildContext context) => ProductPage(fetchedProduct.product!),
+      ),
+    );
+  } else {
+    productDialogHelper.openError(fetchedProduct);
+  }
+}
+
+// used to be in now defunct `ChoosePage`
+Future<void> _onSubmittedText(
+  final String value,
+  final BuildContext context,
+  final LocalDatabase localDatabase,
+) async =>
+    ProductQueryPageHelper().openBestChoice(
+      color: Colors.deepPurple,
+      heroTag: 'search_bar',
+      name: value,
+      localDatabase: localDatabase,
+      productQuery: KeywordsProductQuery(
+        keywords: value,
+        language: ProductQuery.getCurrentLanguage(context),
+        country: ProductQuery.getCurrentCountry(),
+        size: 500,
+      ),
+      context: context,
+    );
 
 class SearchPage extends StatelessWidget {
   @override
