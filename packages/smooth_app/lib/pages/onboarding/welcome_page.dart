@@ -72,7 +72,7 @@ class WelcomePage extends StatelessWidget {
                       primary: Colors.white,
                     ),
                     onPressed: () {
-                      // TODO(jasmeet): Check selected country and navigate to the next onboarding page.
+                      // TODO(jasmeet): Navigate to the next onboarding page.
                       Navigator.push<Widget>(
                           context,
                           MaterialPageRoute<Widget>(
