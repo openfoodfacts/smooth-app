@@ -5,7 +5,7 @@
     },
     "search": "Търсене",
     "@search": {},
-    "welcomeToOpenFoodFacts": "Добре дошъл в OpenFoodFacts",
+    "welcomeToOpenFoodFacts": "Добре дошъл в Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
     "searchPanelHeader": "Потърси или сканирай първия си продукт",
     "@searchPanelHeader": {},
@@ -109,7 +109,7 @@
     "@contribute_translate_link_text": {},
     "contribute_donate_header": "Дари на Open Food Facts",
     "@contribute_donate_header": {},
-    "support": "Support",
+    "support": "Поддръжка",
     "@support": {},
     "error": "Нещо се обърка",
     "@error": {},
@@ -133,7 +133,7 @@
     "@nutri_score_unavailable": {},
     "missing_picture": "Липсва снимка",
     "@missing_picture": {},
-    "searching": "Търсене...",
+    "searching": "Търси се…",
     "@searching": {},
     "empty_list": "Празен списък",
     "@empty_list": {},
@@ -198,12 +198,12 @@
     "my_shopping_lists": "Списъци за пазаруване",
     "my_lists": "Моите списъци",
     "food_categories": "Категории храни",
-    "search_history": "Search history",
+    "search_history": "История на търсенията",
     "label_preferences": "предпочитания",
     "@label_preferences": {},
     "label_lists": "списъци",
     "@label_lists": {},
-    "label_web": "Уеб",
+    "label_web": "Преглед в интернет",
     "@label_web": {},
     "label_refresh": "опресняване",
     "@label_refresh": {
@@ -262,7 +262,7 @@
     "@product_improvement_add_nutrition_facts_and_category": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
     },
-    "product_improvement_obsolete_nutrition_image": "Изображението за хранене е остаряло: моля, актуализирай го.",
+    "product_improvement_obsolete_nutrition_image": "Снимката за хранене е остаряла: моля, актуализирай го.",
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
@@ -288,10 +288,17 @@
     "not_found": "не е намерено:",
     "no_product": "няма продукт",
     "one_product": "1 продукт",
-    "x_products": "products",
+    "x_products": "продукти",
     "scan_contribute": "ДОПРИНЕСИ",
     "@scan_contribute": {
         "description": "Switch on top of the Scanner to choose between to scan or add products"
+    },
+    "incompatible": "Несъвместимо",
+    "pct_match": "{pct}% съвпадение",
+    "@pct_match": {
+        "placeholders": {
+            "pct": {}
+        }
     },
     "scan_choose": "ИЗБЕРИ",
     "@scan_choose": {

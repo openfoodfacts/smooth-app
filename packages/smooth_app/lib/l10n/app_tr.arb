@@ -5,7 +5,7 @@
     },
     "search": "Ara",
     "@search": {},
-    "welcomeToOpenFoodFacts": "Welcome to OpenFoodFacts",
+    "welcomeToOpenFoodFacts": "Open Food Facts'e hoşgeldiniz",
     "@welcomeToOpenFoodFacts": {},
     "searchPanelHeader": "İlk ürününüzü arayın veya tarayın",
     "@searchPanelHeader": {},
@@ -133,7 +133,7 @@
     "@nutri_score_unavailable": {},
     "missing_picture": "Resim yok",
     "@missing_picture": {},
-    "searching": "Aranıyor...",
+    "searching": "Searching…",
     "@searching": {},
     "empty_list": "Boş liste",
     "@empty_list": {},
@@ -203,7 +203,7 @@
     "@label_preferences": {},
     "label_lists": "listeler",
     "@label_lists": {},
-    "label_web": "Web",
+    "label_web": "View on the Web",
     "@label_web": {},
     "label_refresh": "yenile",
     "@label_refresh": {
@@ -292,6 +292,13 @@
     "scan_contribute": "KATKIDA BULUNUN",
     "@scan_contribute": {
         "description": "Switch on top of the Scanner to choose between to scan or add products"
+    },
+    "incompatible": "Incompatible",
+    "pct_match": "{pct}% match",
+    "@pct_match": {
+        "placeholders": {
+            "pct": {}
+        }
     },
     "scan_choose": "SEÇ",
     "@scan_choose": {

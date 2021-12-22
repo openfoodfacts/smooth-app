@@ -5,7 +5,7 @@
     },
     "search": "Buscar",
     "@search": {},
-    "welcomeToOpenFoodFacts": "Welcome to OpenFoodFacts",
+    "welcomeToOpenFoodFacts": "Bienvenido a Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
     "searchPanelHeader": "Busca o escanea tu primer producto",
     "@searchPanelHeader": {},
@@ -133,7 +133,7 @@
     "@nutri_score_unavailable": {},
     "missing_picture": "Falta imagen",
     "@missing_picture": {},
-    "searching": "Buscando...",
+    "searching": "Buscando…",
     "@searching": {},
     "empty_list": "Lista vacía",
     "@empty_list": {},
@@ -203,7 +203,7 @@
     "@label_preferences": {},
     "label_lists": "listas",
     "@label_lists": {},
-    "label_web": "Web",
+    "label_web": "Ver en el sitio web",
     "@label_web": {},
     "label_refresh": "actualizar",
     "@label_refresh": {
@@ -242,31 +242,31 @@
     "@no_product_found": {},
     "product_internet_error": "Imposible obtener información sobre este producto debido a un error de red.",
     "product_internet_cancel": "Cancelado por el usuario.",
-    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take them into a photo (ingredient list and/or any geographic claim or edit the product so that they can be taken into account. If it is not clear, you can contact the food producer.",
+    "product_improvement_origins_to_be_completed": "El Eco-Score tiene en cuenta el origen de los ingredientes. Por favor tómele una foto (lista de ingredientes y / o cualquier lugar de proveniencia geográfica o edite el producto para que puedan ser tomados en cuenta. Si no está claro, puede comunicarse con el productor de alimentos).",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
-    "product_improvement_categories_but_no_nutriscore": "We could not compute an Nutri-Score for this product. It might be that the category is an exception. If you believe this is an error, contact us.",
+    "product_improvement_categories_but_no_nutriscore": "No hemos podido calcular un Nutri-Score para este producto. Puede ser que la categoría sea una excepción. Si cree que se trata de un error, póngase en contacto con nosotros.",
     "@product_improvement_categories_but_no_nutriscore": {
         "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
-    "product_improvement_add_nutrition_facts": "Add nutrition facts to compute the Nutri-Score.",
+    "product_improvement_add_nutrition_facts": "Añada la información nutricional para calcular la puntuación de Nutri-Score.",
     "@product_improvement_add_nutrition_facts": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
     },
-    "product_improvement_add_category": "Add a category to compute the Nutri-Score.",
+    "product_improvement_add_category": "Añada la categoría para calcular la puntuación de Nutri-Score.",
     "@product_improvement_add_category": {
         "description": "Message for ProductImprovement.ADD_CATEGORY"
     },
-    "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to compute the Nutri-Score.",
+    "product_improvement_add_nutrition_facts_and_category": "Añade una categoría y datos nutricionales para calcular la puntuación de Nutri-Score.",
     "@product_improvement_add_nutrition_facts_and_category": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
     },
-    "product_improvement_obsolete_nutrition_image": "The nutrition image is obsolete: please refresh it.",
+    "product_improvement_obsolete_nutrition_image": "La imagen nutricional está obsoleta: por favor actualícela.",
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvements_count": "{count,plural, =1{One possible improvement} other{{count} possible improvements}}",
+    "product_improvements_count": "{count,plural, one {} =1{Una posible mejora} other{{count} posibles mejoras}}",
     "@product_improvements_count": {
         "description": "x possible improvements",
         "placeholders": {
@@ -293,13 +293,20 @@
     "@scan_contribute": {
         "description": "Switch on top of the Scanner to choose between to scan or add products"
     },
+    "incompatible": "Incompatible",
+    "pct_match": "{pct}% match",
+    "@pct_match": {
+        "placeholders": {
+            "pct": {}
+        }
+    },
     "scan_choose": "ELEGIR",
     "@scan_choose": {
         "description": "Switch on top of the Scanner to choose between to scan or add products"
     },
     "reloaded_with_new_preferences": "Recargado con nuevas preferencias",
     "no_product_in_section": "No hay ningún producto en esta sección",
-    "what_are_you_looking_for": "¿Qué estás buscando?",
+    "what_are_you_looking_for": "¿Que buscas?",
     "chached_results_from": "Resultados en caché de:",
     "plural_ago_minutes": "{count,plural, one {} =0{hace menos de un minuto} =1{hace un minuto} other{{count} minutos atrás}}",
     "@plural_ago_minutes": {
