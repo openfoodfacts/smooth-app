@@ -144,6 +144,7 @@ class _CountrySelectorState extends State<CountrySelector> {
     for (final Country country in countries) {
       if (country.countryCode == mostLikelyUserCountryCode) {
         mostLikelyUserCountry = country;
+        break;
       }
     }
     if (mostLikelyUserCountry == null) {
