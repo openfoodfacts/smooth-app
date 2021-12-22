@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:iso_countries/iso_countries.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
@@ -42,7 +41,6 @@ class _CountrySelectorState extends State<CountrySelector> {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     return FutureBuilder<void>(
         future: _initFuture,
         builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
