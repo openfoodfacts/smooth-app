@@ -18,6 +18,7 @@ dependencies:
   flutter_svg: ^1.0.0
   flutter_map: ^0.14.0
   flutter_widget_from_html_core: ^0.8.3+1
+  flutter_secure_storage: ^5.0.2
   hive: ^2.0.4
   hive_flutter: ^1.1.0
   http: ^0.13.4
@@ -26,7 +27,7 @@ dependencies:
   latlong2: ^0.8.1
   matomo: ^1.1.0
   modal_bottom_sheet: ^2.0.0
-  openfoodfacts: ^1.7.0
+  openfoodfacts: ^1.8.0
   # Uncomment those lines if you want to use a local version of the openfoodfacts package
 #  openfoodfacts:
 #    path: ../../../openfoodfacts-dart
@@ -48,6 +49,9 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   mockito: ^5.0.16
+  path: ^1.8.0
+
+dependency_overrides:
   path: ^1.8.0
 
 # 'flutter pub run flutter_launcher_icons:main' to update
