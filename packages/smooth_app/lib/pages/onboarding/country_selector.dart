@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:iso_countries/country.dart';
 import 'package:iso_countries/iso_countries.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
