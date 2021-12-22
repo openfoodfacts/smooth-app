@@ -111,12 +111,10 @@
     "@contribute_translate_link_text": {},
     "contribute_donate_header": "Donate to Open Food Facts",
     "@contribute_donate_header": {},
-    "country_label": "Country",
-    "@country_label": {
+    "country_chooser_label": "Please choose a country",
+    "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },
-    "country_chooser_label": "Please choose a country",
-    "@country_chooser_label": {},
     "country_selection_explanation": "Some environment features depend on your location",
     "@country_label": {
         "description": "Explanation as to why users should select their country."

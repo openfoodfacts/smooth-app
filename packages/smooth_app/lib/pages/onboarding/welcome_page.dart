@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/pages/onboarding/country_selector.dart';
+import 'package:smooth_app/pages/onboarding/scan_example.dart';
 import 'package:smooth_app/pages/page_manager.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
@@ -42,7 +43,7 @@ class WelcomePage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: SMALL_SPACE),
                   child: Text(
-                    appLocalizations.country_label,
+                    appLocalizations.country_chooser_label,
                     style: bodyTextStyle,
                   ),
                 ),
@@ -76,7 +77,7 @@ class WelcomePage extends StatelessWidget {
                       Navigator.push<Widget>(
                           context,
                           MaterialPageRoute<Widget>(
-                            builder: (BuildContext context) => PageManager(),
+                            builder: (BuildContext context) => ScanExample(),
                           ));
                     },
                     child: Text(
