@@ -115,10 +115,44 @@ Widget build(BuildContext context) {
       _reorderGroups(productPreferences.attributeGroups!);
   final List&lt;String&gt; orderedImportantAttributeIds =
       productPreferences.getOrderedImportantAttributeIds();
+
   return Scaffold(
     appBar: AppBar(
       title: Text(appLocalizations.myPreferences),
       actions: &lt;Widget&gt;[
+        IconButton(
+          icon: const Icon(Icons.threesixty_outlined),
+          tooltip: &#39;Check credentials&#39;,
+          onPressed: () async {
+            final bool correct =
+                await UserManagementHelper.checkAndReMountCredentials();
+
+            final SnackBar snackBar = SnackBar(
+              content: Text(&#39;It is $correct&#39;),
+              action: SnackBarAction(
+                label: &#39;Logout&#39;,
+                onPressed: () async {
+                  UserManagementHelper.logout();
+                },
+              ),
+            );
+            ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          },
+        ),
+        &#47;&#47; TODO(M123-dev): Remove and replace with expandable mock
+        IconButton(
+          icon: const Icon(Icons.supervised_user_circle),
+          tooltip: &#39;User management&#39;,
+          onPressed: () {
+            Navigator.push&lt;Widget&gt;(
+              context,
+              MaterialPageRoute&lt;Widget&gt;(
+                builder: (BuildContext context) =&gt; const LoginPage(),
+              ),
+            );
+          },
+        ),
+
         IconButton(
           icon: const Icon(Icons.rotate_left),
           tooltip: appLocalizations.reset,
