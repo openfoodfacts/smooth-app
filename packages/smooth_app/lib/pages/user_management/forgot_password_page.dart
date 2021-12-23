@@ -35,14 +35,15 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     }
     setState(() => _runningQuery = true);
 
-    final Status status;
+    Status? status;
     try {
       status = await OpenFoodAPIClient.resetPassword(_userIdController.text);
     } catch (e) {
-      throw Exception(e);
+      status = null;
     }
-
-    if (status.status == 200) {
+    if (status == null) {
+      _message = appLocalizations.error;
+    } else if (status.status == 200) {
       _send = true;
       _message = appLocalizations.reset_password_done;
     } else if (status.status == 400) {
