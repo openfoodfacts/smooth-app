@@ -94,14 +94,6 @@
   "@send_reset_password_mail": {
     "description": "Button label: Submit the password reset email request"
   },
-  "open_mail_app": "Open Mail App",
-  "@open_mail_app": {
-    "description": "Button label: Opens the standard mail app after password reset"
-  },
-  "no_email_app": "No email app found",
-  "@no_email_app": {
-    "description": "Error message when opening standard email app after password reset"
-  },
 
   "enter_some_text": "Please enter some text",
   "@enter_some_text": {

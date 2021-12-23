@@ -1,8 +1,5 @@
-import 'dart:io' show Platform;
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:open_mail_app/open_mail_app.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -54,57 +51,6 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
       _message = appLocalizations.error;
     }
     setState(() => _runningQuery = false);
-  }
-
-  // Checks and returns right String if opening mail app is possible
-  String _getSubmitButtonText() {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-
-    if (!_send) {
-      return appLocalizations.send_reset_password_mail;
-    } else if (Platform.isAndroid || Platform.isIOS) {
-      return appLocalizations.open_mail_app;
-    } else {
-      return appLocalizations.okay;
-    }
-  }
-
-  // Opens mail app if possible otherwise pops page
-  Future<void> _openMailOrPop() async {
-    if (Platform.isAndroid || Platform.isIOS) {
-      final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-      final OpenMailAppResult result = await OpenMailApp.openMailApp();
-
-      // If no mail apps found, show error
-      if (!result.didOpen && !result.canOpen) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(appLocalizations.no_email_app),
-            action: SnackBarAction(
-              label: appLocalizations.okay,
-              onPressed: () => Navigator.pop(context),
-            ),
-          ),
-        );
-
-        // iOS: if multiple mail apps found, show dialog to select.
-        // There is no native intent/default app system in iOS so
-        // you have to do it yourself.
-      } else if (!result.didOpen && result.canOpen) {
-        showDialog<Widget>(
-          context: context,
-          builder: (_) {
-            return MailAppPickerDialog(
-              mailApps: result.options,
-            );
-          },
-        );
-      } else {
-        Navigator.pop(context);
-      }
-    } else {
-      Navigator.pop(context);
-    }
   }
 
   @override
@@ -200,11 +146,13 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                       if (_send == false) {
                         _resetPassword();
                       } else {
-                        _openMailOrPop();
+                        Navigator.pop(context);
                       }
                     },
                     child: Text(
-                      _getSubmitButtonText(),
+                      _send
+                          ? appLocalizations.close
+                          : appLocalizations.send_reset_password_mail,
                       style: theme.textTheme.bodyText2?.copyWith(
                         fontSize: 18.0,
                         color: theme.colorScheme.surface,
