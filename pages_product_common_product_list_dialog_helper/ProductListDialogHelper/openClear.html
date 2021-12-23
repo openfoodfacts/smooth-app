@@ -76,8 +76,7 @@
       context: context,
       builder: (BuildContext context) =&gt; SmoothAlertDialog(
         close: false,
-        body: const Text(
-            &#39;Do you really want to clear this list?&#39;), &#47;&#47; TODO(monsieurtanuki): translate
+        body: Text(AppLocalizations.of(context)!.really_clear),
         actions: &lt;SmoothSimpleButton&gt;[
           SmoothSimpleButton(
             text: AppLocalizations.of(context)!.no,

@@ -172,9 +172,9 @@ Widget build(BuildContext context) {
               &#39;https:&#47;&#47;slack.openfoodfacts.org&#47;&#39;, false),
         ),
 
-        &#47;&#47;About
+        &#47;&#47;About this app
         SmoothListTile(
-          text: appLocalizations.about,
+          text: appLocalizations.about_this_app,
           onPressed: () async {
             final PackageInfo packageInfo = await PackageInfo.fromPlatform();
             showDialog&lt;void&gt;(

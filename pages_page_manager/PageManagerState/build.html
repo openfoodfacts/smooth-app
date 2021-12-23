@@ -160,6 +160,7 @@ prints green, as expected.</p>
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
+  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
   return WillPopScope(
     onWillPop: () async {
       final bool isFirstRouteInCurrentTab =
@@ -188,19 +189,18 @@ Widget build(BuildContext context) {
           _selectTab(_pageKeys[index], index);
         },
         currentIndex: _currentPage.index,
-        items: const &lt;BottomNavigationBarItem&gt;[
-          &#47;&#47; TODO(M123): Translate
+        items: &lt;BottomNavigationBarItem&gt;[
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle),
-            label: &#39;Profile&#39;,
+            icon: const Icon(Icons.account_circle),
+            label: appLocalizations.profile_navbar_label,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: &#39;Scan or Search&#39;,
+            icon: const Icon(Icons.search),
+            label: appLocalizations.scan_navbar_label,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.history),
-            label: &#39;History&#39;,
+            icon: const Icon(Icons.history),
+            label: appLocalizations.history_navbar_label,
           ),
         ],
       ),
