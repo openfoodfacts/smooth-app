@@ -42,7 +42,7 @@ class WelcomePage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: SMALL_SPACE),
                   child: Text(
-                    appLocalizations.country_label,
+                    appLocalizations.country_chooser_label,
                     style: bodyTextStyle,
                   ),
                 ),
@@ -72,7 +72,7 @@ class WelcomePage extends StatelessWidget {
                       primary: Colors.white,
                     ),
                     onPressed: () {
-                      // TODO(jasmeet): Check selected country and navigate to the next onboarding page.
+                      // TODO(jasmeet): Navigate to the next onboarding page.
                       Navigator.push<Widget>(
                           context,
                           MaterialPageRoute<Widget>(

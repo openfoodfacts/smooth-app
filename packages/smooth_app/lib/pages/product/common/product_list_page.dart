@@ -67,9 +67,9 @@ class _ProductListPageState extends State<ProductListPage> {
                 PopupMenuButton<String>(
                   itemBuilder: (final BuildContext context) =>
                       <PopupMenuEntry<String>>[
-                    const PopupMenuItem<String>(
+                    PopupMenuItem<String>(
                       value: 'clear',
-                      child: Text('Clear'), // TODO(monsieurtanuki): translate
+                      child: Text(appLocalizations.clear),
                       enabled: true,
                     ),
                   ],

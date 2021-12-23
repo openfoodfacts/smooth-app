@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:iso_countries/iso_countries.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 /// A selector for selecting user's country.
@@ -13,14 +13,10 @@ class CountrySelector extends StatefulWidget {
 }
 
 class _CountrySelectorState extends State<CountrySelector> {
+  late UserPreferences _userPreferences;
   late List<Country> _countryList = <Country>[];
-  String? _chosenValue;
+  late Country _chosenValue;
   late Future<void> _initFuture;
-
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   void didChangeDependencies() {
@@ -32,12 +28,14 @@ class _CountrySelectorState extends State<CountrySelector> {
     final String locale = Localizations.localeOf(context).languageCode;
     final List<Country> localizedCountries =
         await IsoCountries.iso_countries_for_locale(locale);
-    _countryList = sanitizeCountriesList(localizedCountries);
+    _userPreferences = await UserPreferences.getUserPreferences();
+    _countryList = _sanitizeCountriesList(localizedCountries);
+    _chosenValue = _countryList[0];
+    _userPreferences.setUserCountry(_chosenValue.countryCode);
   }
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     return FutureBuilder<void>(
         future: _initFuture,
         builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
@@ -50,7 +48,7 @@ class _CountrySelectorState extends State<CountrySelector> {
           return Padding(
             padding:
                 const EdgeInsets.only(top: MEDIUM_SPACE, bottom: LARGE_SPACE),
-            child: DropdownButtonFormField<String>(
+            child: DropdownButtonFormField<Country>(
               value: _chosenValue,
               style: const TextStyle(color: Colors.black),
               decoration: InputDecoration(
@@ -62,25 +60,18 @@ class _CountrySelectorState extends State<CountrySelector> {
                 filled: true,
                 fillColor: const Color.fromARGB(255, 235, 235, 235),
               ),
-              items:
-                  _countryList.map<DropdownMenuItem<String>>((Country country) {
-                return DropdownMenuItem<String>(
-                  value: country.name,
+              items: _countryList
+                  .map<DropdownMenuItem<Country>>((Country country) {
+                return DropdownMenuItem<Country>(
+                  value: country,
                   child: Text(country.name),
                 );
               }).toList(),
-              hint: Text(
-                appLocalizations.country_chooser_label,
-                style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600),
-              ),
-              onChanged: (String? value) {
+              onChanged: (Country? value) {
                 setState(() {
                   if (value != null) {
-                    // TODO(jasmeet): Store pref in _userPreferences
                     _chosenValue = value;
+                    _userPreferences.setUserCountry(_chosenValue.countryCode);
                   }
                 });
               },
@@ -89,13 +80,16 @@ class _CountrySelectorState extends State<CountrySelector> {
         });
   }
 
-  List<Country> sanitizeCountriesList(List<Country> localizedCountries) {
+  /// Sanitize the country list by removing countries that are not in [OpenFoodFactsCountry]
+  /// and providing a fallback English name for countries that are in [OpenFoodFactsCountry]
+  /// but not in [localizedCountries].
+  List<Country> _sanitizeCountriesList(List<Country> localizedCountries) {
     final List<Country> finalCountriesList = <Country>[];
     final Map<String, OpenFoodFactsCountry> oFFIsoCodeToCountry =
         <String, OpenFoodFactsCountry>{};
     final Map<String, Country> localizedIsoCodeToCountry = <String, Country>{};
     for (final OpenFoodFactsCountry c in OpenFoodFactsCountry.values) {
-      oFFIsoCodeToCountry.putIfAbsent(c.iso2Code.toLowerCase(), () => c);
+      oFFIsoCodeToCountry[c.iso2Code.toLowerCase()] = c;
     }
     for (final Country c in localizedCountries) {
       localizedIsoCodeToCountry.putIfAbsent(
@@ -112,24 +106,30 @@ class _CountrySelectorState extends State<CountrySelector> {
             .replaceAll('_', ' ');
         countryName =
             '${countryName[0].toUpperCase()}${countryName.substring(1).toLowerCase()}';
-        final Country country =
-            Country(name: countryName, countryCode: countryName);
-        finalCountriesList.add(country);
+        finalCountriesList.add(Country(
+            name: countryName, countryCode: _fixCountryCode(countryCode)));
         continue;
       }
-      // 'gb' is handled as 'uk' in the backend.
-      if (countryCode == 'gb') {
-        final Country modifiedCountry =
-            Country(name: localizedCountry.name, countryCode: 'uk');
-        finalCountriesList.add(modifiedCountry);
-        continue;
-      }
-      finalCountriesList.add(localizedCountry);
+      final String fixedCountryCode = _fixCountryCode(countryCode);
+      final Country country = fixedCountryCode == countryCode
+          ? localizedCountry
+          : Country(name: localizedCountry.name, countryCode: countryCode);
+      finalCountriesList.add(country);
     }
-    return reorderCountries(finalCountriesList);
+    return _reorderCountries(finalCountriesList);
   }
 
-  List<Country> reorderCountries(List<Country> countries) {
+  /// Fix the countryCode if needed so Backend can process it.
+  String _fixCountryCode(String countryCode) {
+    // 'gb' is handled as 'uk' in the backend.
+    if (countryCode == 'gb') {
+      countryCode = 'uk';
+    }
+    return countryCode;
+  }
+
+  /// Reorder countries alphabetically, bring user's locale country to top.
+  List<Country> _reorderCountries(List<Country> countries) {
     countries
         .sort((final Country a, final Country b) => a.name.compareTo(b.name));
     final String? mostLikelyUserCountryCode =
