@@ -17,7 +17,6 @@ class ForgotPasswordPage extends StatefulWidget {
 }
 
 class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
-  static const Color customGrey = Colors.grey;
   static Color textFieldBackgroundColor = const Color.fromARGB(
     255,
     240,
@@ -179,7 +178,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                       controller: userIdController,
                       hintText: appLocalizations.username_or_email,
                       hintTextFontSize: 15.0,
-                      textColor: customGrey,
+                      textColor: Colors.grey,
                       backgroundColor: textFieldBackgroundColor,
                       enabled: !_runningQuery,
                       prefixIcon: const Icon(Icons.email),
