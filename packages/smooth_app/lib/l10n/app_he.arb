@@ -5,7 +5,7 @@
     },
     "search": "חיפוש",
     "@search": {},
-    "welcomeToOpenFoodFacts": "ברוך בואך ל־OpenFoodFacts",
+    "welcomeToOpenFoodFacts": "ברוך בואך ל־Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
     "searchPanelHeader": "כדאי לך לחפש או לסרוק את המוצר הראשון שלך",
     "@searchPanelHeader": {},
@@ -203,7 +203,7 @@
     "@label_preferences": {},
     "label_lists": "רשימות",
     "@label_lists": {},
-    "label_web": "אינטרנט",
+    "label_web": "הצגה באינטרנט",
     "@label_web": {},
     "label_refresh": "רענון",
     "@label_refresh": {
@@ -292,6 +292,13 @@
     "scan_contribute": "לתרום",
     "@scan_contribute": {
         "description": "Switch on top of the Scanner to choose between to scan or add products"
+    },
+    "incompatible": "אין תאימות",
+    "pct_match": "{pct}% התאמה",
+    "@pct_match": {
+        "placeholders": {
+            "pct": {}
+        }
     },
     "scan_choose": "לבחור",
     "@scan_choose": {

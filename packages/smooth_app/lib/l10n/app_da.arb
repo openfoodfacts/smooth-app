@@ -5,7 +5,7 @@
     },
     "search": "Søg",
     "@search": {},
-    "welcomeToOpenFoodFacts": "Velkommen til OpenFoodFacts",
+    "welcomeToOpenFoodFacts": "Velkommen til Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
     "searchPanelHeader": "Søg eller skan dit første produkt",
     "@searchPanelHeader": {},
@@ -133,7 +133,7 @@
     "@nutri_score_unavailable": {},
     "missing_picture": "Manglende foto",
     "@missing_picture": {},
-    "searching": "Søger...",
+    "searching": "Søger…",
     "@searching": {},
     "empty_list": "Tom liste",
     "@empty_list": {},
@@ -203,7 +203,7 @@
     "@label_preferences": {},
     "label_lists": "lister",
     "@label_lists": {},
-    "label_web": "Web",
+    "label_web": "Se på nettet",
     "@label_web": {},
     "label_refresh": "opfrisk",
     "@label_refresh": {
@@ -292,6 +292,13 @@
     "scan_contribute": "BIDRAG",
     "@scan_contribute": {
         "description": "Switch on top of the Scanner to choose between to scan or add products"
+    },
+    "incompatible": "Inkompatibel",
+    "pct_match": "{pct}% match",
+    "@pct_match": {
+        "placeholders": {
+            "pct": {}
+        }
     },
     "scan_choose": "VÆLG",
     "@scan_choose": {
