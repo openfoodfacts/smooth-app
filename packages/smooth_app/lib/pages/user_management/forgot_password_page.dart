@@ -17,7 +17,7 @@ class ForgotPasswordPage extends StatefulWidget {
 }
 
 class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
-  static Color textFieldBackgroundColor = const Color.fromARGB(
+  static Color _textFieldBackgroundColor = const Color.fromARGB(
     255,
     240,
     240,
@@ -25,7 +25,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   );
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  final TextEditingController userIdController = TextEditingController();
+  final TextEditingController _userIdController = TextEditingController();
 
   bool _send = false;
   bool _runningQuery = false;
@@ -40,7 +40,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
 
     final Status status;
     try {
-      status = await OpenFoodAPIClient.resetPassword(userIdController.text);
+      status = await OpenFoodAPIClient.resetPassword(_userIdController.text);
     } catch (e) {
       throw Exception(e);
     }
@@ -109,7 +109,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
 
   @override
   void dispose() {
-    userIdController.dispose();
+    _userIdController.dispose();
     super.dispose();
   }
 
@@ -122,7 +122,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
 
     // Needs to be changed
     if (themeProvider.darkTheme) {
-      textFieldBackgroundColor = Colors.white10;
+      _textFieldBackgroundColor = Colors.white10;
     }
 
     return Scaffold(
@@ -175,11 +175,11 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                   if (!_send)
                     SmoothTextFormField(
                       type: TextFieldTypes.PLAIN_TEXT,
-                      controller: userIdController,
+                      controller: _userIdController,
                       hintText: appLocalizations.username_or_email,
                       hintTextFontSize: 15.0,
                       textColor: Colors.grey,
-                      backgroundColor: textFieldBackgroundColor,
+                      backgroundColor: _textFieldBackgroundColor,
                       enabled: !_runningQuery,
                       prefixIcon: const Icon(Icons.email),
                       textInputAction: TextInputAction.done,

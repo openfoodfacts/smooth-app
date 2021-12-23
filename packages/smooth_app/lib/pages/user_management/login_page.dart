@@ -18,8 +18,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  static const Color customGrey = Colors.grey;
-  static Color textFieldBackgroundColor =
+  static const Color _customGrey = Colors.grey;
+  static Color _textFieldBackgroundColor =
       const Color.fromARGB(255, 240, 240, 240);
 
   bool _runningQuery = false;
@@ -73,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
 
     // Needs to be changed
     if (themeProvider.darkTheme) {
-      textFieldBackgroundColor = Colors.white10;
+      _textFieldBackgroundColor = Colors.white10;
     }
 
     return Scaffold(
@@ -125,8 +125,8 @@ class _LoginPageState extends State<LoginPage> {
                     type: TextFieldTypes.PLAIN_TEXT,
                     controller: userIdController,
                     hintText: appLocalizations.login,
-                    textColor: customGrey,
-                    backgroundColor: textFieldBackgroundColor,
+                    textColor: _customGrey,
+                    backgroundColor: _textFieldBackgroundColor,
                     prefixIcon: const Icon(Icons.person),
                     enabled: !_runningQuery,
                     // Moves focus to the next field
@@ -150,8 +150,8 @@ class _LoginPageState extends State<LoginPage> {
                     type: TextFieldTypes.PASSWORD,
                     controller: passwordController,
                     hintText: appLocalizations.password,
-                    textColor: customGrey,
-                    backgroundColor: textFieldBackgroundColor,
+                    textColor: _customGrey,
+                    backgroundColor: _textFieldBackgroundColor,
                     prefixIcon: const Icon(Icons.vpn_key),
                     enabled: !_runningQuery,
                     textInputAction: TextInputAction.done, // Hides the keyboard
