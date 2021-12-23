@@ -99,9 +99,8 @@ class _SummaryCardState extends State<SummaryCard> {
                     BorderRadius.vertical(bottom: SmoothCard.CIRCULAR_RADIUS),
               ),
               child: Center(
-                // TODO(jasmeet): Internationalize
                 child: Text(
-                  'Tap to see more info...',
+                  AppLocalizations.of(context)!.tab_for_more,
                   style: Theme.of(context)
                       .textTheme
                       .bodyText1!

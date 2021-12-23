@@ -5,7 +5,7 @@
     },
     "search": "بحث",
     "@search": {},
-    "welcomeToOpenFoodFacts": "Welcome to OpenFoodFacts",
+    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
     "searchPanelHeader": "ابحث عن أول منتج لك، أو اعمل مسح ضوئي للكود. ",
     "@searchPanelHeader": {},
@@ -133,7 +133,7 @@
     "@nutri_score_unavailable": {},
     "missing_picture": "صورة مفقودة",
     "@missing_picture": {},
-    "searching": "جاري البحث...",
+    "searching": "جاري البحث…",
     "@searching": {},
     "empty_list": "قائمة فارغة",
     "@empty_list": {},
@@ -203,7 +203,7 @@
     "@label_preferences": {},
     "label_lists": "القوائم",
     "@label_lists": {},
-    "label_web": "موقع",
+    "label_web": "View on the Web",
     "@label_web": {},
     "label_refresh": "تحديث",
     "@label_refresh": {
@@ -292,6 +292,13 @@
     "scan_contribute": "مساهمة",
     "@scan_contribute": {
         "description": "Switch on top of the Scanner to choose between to scan or add products"
+    },
+    "incompatible": "Incompatible",
+    "pct_match": "{pct}% match",
+    "@pct_match": {
+        "placeholders": {
+            "pct": {}
+        }
     },
     "scan_choose": "اختيار",
     "@scan_choose": {

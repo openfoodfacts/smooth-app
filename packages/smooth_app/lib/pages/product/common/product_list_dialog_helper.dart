@@ -27,8 +27,7 @@ class ProductListDialogHelper {
         context: context,
         builder: (BuildContext context) => SmoothAlertDialog(
           close: false,
-          body: const Text(
-              'Do you really want to clear this list?'), // TODO(monsieurtanuki): translate
+          body: Text(AppLocalizations.of(context)!.really_clear),
           actions: <SmoothSimpleButton>[
             SmoothSimpleButton(
               text: AppLocalizations.of(context)!.no,
