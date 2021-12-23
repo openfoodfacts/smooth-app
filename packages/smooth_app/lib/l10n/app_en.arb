@@ -11,6 +11,10 @@
 
   "applyButtonText": "Apply",
   "@applyButtonText": {},
+  "next_label": "Next",
+  "@next_label": {
+      "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
+  },
 
   "cancel": "Cancel",
   "@cancel": {},
@@ -51,8 +55,10 @@
 
   "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
   "@welcomeToOpenFoodFacts": {},
-  "whatIsOff": "Open Food Facts is a database of food products, made by everyone, for everyone. You can use it to make better food choices, and as it is open data, anyone can re-use it for any purpose.",
-  "@whatIsOff": {},
+  "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+  "@whatIsOff": {
+    "description": "Description of Open Food Facts organization."
+  },
 
 
 
@@ -184,7 +190,7 @@
   "scan_navbar_label": "Profile",
   "@scan_navbar_label": {
     "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
-  } , 
+  } ,
   "history_navbar_label": "Profile",
   "@history_navbar_label": {
     "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
@@ -208,7 +214,7 @@
   "tab_for_more": "Tap to see more info...",
 
 
-  
+
 
   "@Product": {},
 
@@ -226,7 +232,7 @@
   "@front_photo": {
     "description": "Button label: For adding a picture of the front of a product"
   },
-  
+
   "ingredients": "Ingredients",
   "@ingredients": {},
   "ingredients_photo": "Ingredients photo",
@@ -312,6 +318,14 @@
   "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take them into a photo (ingredient list and/or any geographic claim or edit the product so that they can be taken into account. If it is not clear, you can contact the food producer.",
   "@product_improvement_origins_to_be_completed": {
     "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
+  },
+  "country_chooser_label": "Please choose a country",
+  "@country_chooser_label": {
+      "description": "Label shown above a selector where the user can select their country"
+  },
+  "country_selection_explanation": "Some environment features depend on your location",
+  "@country_label": {
+      "description": "Explanation as to why users should select their country."
   },
 
 
