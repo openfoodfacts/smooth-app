@@ -5,9 +5,9 @@
     },
     "search": "Suchen",
     "@search": {},
-    "welcomeToOpenFoodFacts": "Willkommen bei OpenFoodFacts",
+    "welcomeToOpenFoodFacts": "Willkommen bei Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "searchPanelHeader": "Suchen Sie Ihr erstes Produkt oder lesen Sie es ein",
+    "searchPanelHeader": "Suchen Sie Ihr erstes Produkt oder scannen Sie es ein",
     "@searchPanelHeader": {},
     "searchHintText": "Barcode oder Schlüsselwörter eingeben",
     "@searchHintText": {},
@@ -203,7 +203,7 @@
     "@label_preferences": {},
     "label_lists": "Listen",
     "@label_lists": {},
-    "label_web": "Web",
+    "label_web": "Im Web anzeigen",
     "@label_web": {},
     "label_refresh": "Aktualisieren",
     "@label_refresh": {
@@ -292,6 +292,13 @@
     "scan_contribute": "Mitwirken",
     "@scan_contribute": {
         "description": "Switch on top of the Scanner to choose between to scan or add products"
+    },
+    "incompatible": "Inkompatibel",
+    "pct_match": "{pct}% Übereinstimmung",
+    "@pct_match": {
+        "placeholders": {
+            "pct": {}
+        }
     },
     "scan_choose": "Wählen",
     "@scan_choose": {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
@@ -8,7 +9,6 @@ import 'package:smooth_ui_library/widgets/smooth_text_form_field.dart';
 
 // TODO(M123-dev): Autofill support
 // TODO(M123-dev): Handle colors better
-// TODO(M123-dev): internationalize everything
 // TODO(M123-dev): Better validation
 
 class LoginPage extends StatefulWidget {
@@ -69,6 +69,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final Size size = MediaQuery.of(context).size;
 
     // Needs to be changed
@@ -97,7 +98,7 @@ class _LoginPageState extends State<LoginPage> {
                 const Spacer(flex: 4),
 
                 Text(
-                  'Sign in to your Open Food Facts account to save your contributions ',
+                  appLocalizations.sign_in_text,
                   textAlign: TextAlign.center,
                   style: theme.textTheme.headline1?.copyWith(
                     fontSize: 20.0,
@@ -108,13 +109,13 @@ class _LoginPageState extends State<LoginPage> {
 
                 const Spacer(flex: 8),
 
-                if (_wrongCredentials) ...const <Widget>[
+                if (_wrongCredentials) ...<Widget>[
                   SmoothCard(
-                    padding: EdgeInsets.all(10.0),
+                    padding: const EdgeInsets.all(10.0),
                     color: Colors.red,
-                    child: Text('Incorrect user name or password.'),
+                    child: Text(appLocalizations.incorrect_credentials),
                   ),
-                  Spacer(
+                  const Spacer(
                     flex: 1,
                   )
                 ],
@@ -123,7 +124,7 @@ class _LoginPageState extends State<LoginPage> {
                 SmoothTextFormField(
                   type: TextFieldTypes.PLAIN_TEXT,
                   controller: userIdController,
-                  hintText: 'Login',
+                  hintText: appLocalizations.login,
                   textColor: customGrey,
                   backgroundColor: textFieldBackgroundColor,
                   prefixIcon: const Icon(Icons.person),
@@ -131,7 +132,7 @@ class _LoginPageState extends State<LoginPage> {
                   textInputAction: TextInputAction.next, // Moves focus to next.
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please enter some text';
+                      return appLocalizations.enter_some_text;
                     }
                     return null;
                   },
@@ -143,7 +144,7 @@ class _LoginPageState extends State<LoginPage> {
                 SmoothTextFormField(
                   type: TextFieldTypes.PASSWORD,
                   controller: passwordController,
-                  hintText: 'Password',
+                  hintText: appLocalizations.password,
                   textColor: customGrey,
                   backgroundColor: textFieldBackgroundColor,
                   prefixIcon: const Icon(Icons.vpn_key),
@@ -151,7 +152,7 @@ class _LoginPageState extends State<LoginPage> {
                   textInputAction: TextInputAction.done, // Hides the keyboard
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please enter some text';
+                      return appLocalizations.enter_some_text;
                     }
                     return null;
                   },
@@ -163,7 +164,7 @@ class _LoginPageState extends State<LoginPage> {
                 ElevatedButton(
                   onPressed: () => _login(context),
                   child: Text(
-                    'Sign in',
+                    appLocalizations.sign_in,
                     style: theme.textTheme.bodyText2?.copyWith(
                       fontSize: 18.0,
                       color: theme.colorScheme.onSurface,
@@ -184,13 +185,13 @@ class _LoginPageState extends State<LoginPage> {
                 //Forgot password
                 TextButton(
                   onPressed: () {
-                    const SnackBar snackBar = SnackBar(
-                      content: Text('Not implemented yet'),
+                    final SnackBar snackBar = SnackBar(
+                      content: Text(appLocalizations.featureInProgress),
                     );
                     ScaffoldMessenger.of(context).showSnackBar(snackBar);
                   },
                   child: Text(
-                    'Forgot password',
+                    appLocalizations.forgot_password,
                     style: theme.textTheme.bodyText2?.copyWith(
                       fontSize: 18.0,
                       color: theme.colorScheme.primary,
@@ -205,8 +206,8 @@ class _LoginPageState extends State<LoginPage> {
                   height: size.height * 0.06,
                   child: OutlinedButton(
                     onPressed: () {
-                      const SnackBar snackBar = SnackBar(
-                        content: Text('Not implemented yet'),
+                      final SnackBar snackBar = SnackBar(
+                        content: Text(appLocalizations.featureInProgress),
                       );
                       ScaffoldMessenger.of(context).showSnackBar(snackBar);
                     },

@@ -1,6 +1,7 @@
 <img height='175' src="https://static.openfoodfacts.org/images/svg/openfoodfacts-logo-en.svg" align="left" hspace="1" vspace="1">
 
 # Open Food Facts - Codename: "Smooth App"
+[![SmoothApp Post-Submit Tests](https://github.com/openfoodfacts/smooth-app/actions/workflows/postsubmit.yml/badge.svg)](https://github.com/openfoodfacts/smooth-app/actions/workflows/postsubmit.yml)
 
 A new Flutter application by Open Food Facts. You can install it on [Android](https://play.google.com/store/apps/details?id=org.openfoodfacts.app) or [iPhone/iPad](https://apps.apple.com/us/app/smooth-app/id1526747703). Note that a internal development build ([Android](https://play.google.com/apps/internaltest/4700279390303733107) or [iPhone/iPad](https://testflight.apple.com/join/dIhF6Gi4) )if you'd like to use the results of your PRs quicker.
 

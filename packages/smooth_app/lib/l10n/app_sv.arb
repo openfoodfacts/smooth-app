@@ -5,7 +5,7 @@
     },
     "search": "Sök",
     "@search": {},
-    "welcomeToOpenFoodFacts": "Welcome to OpenFoodFacts",
+    "welcomeToOpenFoodFacts": "Valkommen till Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
     "searchPanelHeader": "Sök eller skanna din första produkt",
     "@searchPanelHeader": {},
@@ -133,7 +133,7 @@
     "@nutri_score_unavailable": {},
     "missing_picture": "Bild saknas",
     "@missing_picture": {},
-    "searching": "Söker...",
+    "searching": "Searching…",
     "@searching": {},
     "empty_list": "Tom lista",
     "@empty_list": {},
@@ -203,7 +203,7 @@
     "@label_preferences": {},
     "label_lists": "listor",
     "@label_lists": {},
-    "label_web": "Webb",
+    "label_web": "View on the Web",
     "@label_web": {},
     "label_refresh": "uppdatera",
     "@label_refresh": {
@@ -292,6 +292,13 @@
     "scan_contribute": "BIDRA",
     "@scan_contribute": {
         "description": "Switch on top of the Scanner to choose between to scan or add products"
+    },
+    "incompatible": "Incompatible",
+    "pct_match": "{pct}% match",
+    "@pct_match": {
+        "placeholders": {
+            "pct": {}
+        }
     },
     "scan_choose": "VÄLJ",
     "@scan_choose": {

@@ -5,11 +5,11 @@
     },
     "search": "Cari",
     "@search": {},
-    "welcomeToOpenFoodFacts": "Welcome to OpenFoodFacts",
+    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
     "searchPanelHeader": "Cari atau pindai produk pertama Anda",
     "@searchPanelHeader": {},
-    "searchHintText": "Masukkan kode batang atau kata kunci",
+    "searchHintText": "Masukkan barcode atau kata kunci",
     "@searchHintText": {},
     "categories": "Kategori",
     "@categories": {},
@@ -133,7 +133,7 @@
     "@nutri_score_unavailable": {},
     "missing_picture": "Gambar yang hilang",
     "@missing_picture": {},
-    "searching": "Mencari...",
+    "searching": "Searching…",
     "@searching": {},
     "empty_list": "Daftar kosong",
     "@empty_list": {},
@@ -203,7 +203,7 @@
     "@label_preferences": {},
     "label_lists": "daftar",
     "@label_lists": {},
-    "label_web": "Web",
+    "label_web": "Lihat di web",
     "@label_web": {},
     "label_refresh": "muat ulang",
     "@label_refresh": {
@@ -240,33 +240,33 @@
     "@could_not_refresh": {},
     "no_product_found": "Produk tidak ditemukan",
     "@no_product_found": {},
-    "product_internet_error": "Impossible to fetch information about this product due to a network error.",
-    "product_internet_cancel": "Canceled by user.",
-    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take them into a photo (ingredient list and/or any geographic claim or edit the product so that they can be taken into account. If it is not clear, you can contact the food producer.",
+    "product_internet_error": "Gagal mengambil informasi tentang produk ini karena kesalahan jaringan.",
+    "product_internet_cancel": "Dibatalkan oleh pengguna.",
+    "product_improvement_origins_to_be_completed": "Eco-Score memperhitungkan asal-usul kandungan bahan. Mohon ambil foto (daftar kandungan bahan dan/atau klaim geografis manapun) atau sunting produknya agar informasi tersebut dapat dipertanggung-jawabkan. Jika informasi tersebut tidak jelas, silakan hubungi produsen makanan.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
-    "product_improvement_categories_but_no_nutriscore": "We could not compute an Nutri-Score for this product. It might be that the category is an exception. If you believe this is an error, contact us.",
+    "product_improvement_categories_but_no_nutriscore": "Kami tidak dapat menghitung Nutri-Score untuk produk ini. Mungkin kategori tersebut merupakan pengecualian. Jika Anda yakin ini adalah kesalahan, mohon hubungi kami.",
     "@product_improvement_categories_but_no_nutriscore": {
         "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
-    "product_improvement_add_nutrition_facts": "Add nutrition facts to compute the Nutri-Score.",
+    "product_improvement_add_nutrition_facts": "Tambahkan informasi nilai gizi untuk menghitung Nutri-Score.",
     "@product_improvement_add_nutrition_facts": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
     },
-    "product_improvement_add_category": "Add a category to compute the Nutri-Score.",
+    "product_improvement_add_category": "Tambahkan kategori untuk menghitung Nutri-Score.",
     "@product_improvement_add_category": {
         "description": "Message for ProductImprovement.ADD_CATEGORY"
     },
-    "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to compute the Nutri-Score.",
+    "product_improvement_add_nutrition_facts_and_category": "Tambahkan informasi nilai gizi dan kategori untuk menghitung Nutri-Score.",
     "@product_improvement_add_nutrition_facts_and_category": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
     },
-    "product_improvement_obsolete_nutrition_image": "The nutrition image is obsolete: please refresh it.",
+    "product_improvement_obsolete_nutrition_image": "Gambar nutrisi sudah usang: harap segarkan.",
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvements_count": "{count,plural, =1{One possible improvement} other{{count} possible improvements}}",
+    "product_improvements_count": "{count} hal yang dapat ditingkatkan",
     "@product_improvements_count": {
         "description": "x possible improvements",
         "placeholders": {
@@ -292,6 +292,13 @@
     "scan_contribute": "BERKONTRIBUSI",
     "@scan_contribute": {
         "description": "Switch on top of the Scanner to choose between to scan or add products"
+    },
+    "incompatible": "Tidak sesuai",
+    "pct_match": "{pct}% cocok",
+    "@pct_match": {
+        "placeholders": {
+            "pct": {}
+        }
     },
     "scan_choose": "PILIH",
     "@scan_choose": {
