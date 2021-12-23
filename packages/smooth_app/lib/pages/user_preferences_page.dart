@@ -5,7 +5,9 @@ import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/pages/settings_page.dart';
+import 'package:smooth_app/pages/user_management/login_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/widgets/attribute_button.dart';
 
@@ -34,10 +36,44 @@ class UserPreferencesPage extends StatelessWidget {
         _reorderGroups(productPreferences.attributeGroups!);
     final List<String> orderedImportantAttributeIds =
         productPreferences.getOrderedImportantAttributeIds();
+
     return Scaffold(
       appBar: AppBar(
         title: Text(appLocalizations.myPreferences),
         actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.threesixty_outlined),
+            tooltip: 'Check credentials',
+            onPressed: () async {
+              final bool correct =
+                  await UserManagementHelper.checkAndReMountCredentials();
+
+              final SnackBar snackBar = SnackBar(
+                content: Text('It is $correct'),
+                action: SnackBarAction(
+                  label: 'Logout',
+                  onPressed: () async {
+                    UserManagementHelper.logout();
+                  },
+                ),
+              );
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+            },
+          ),
+          // TODO(M123-dev): Remove and replace with expandable mock
+          IconButton(
+            icon: const Icon(Icons.supervised_user_circle),
+            tooltip: 'User management',
+            onPressed: () {
+              Navigator.push<Widget>(
+                context,
+                MaterialPageRoute<Widget>(
+                  builder: (BuildContext context) => const LoginPage(),
+                ),
+              );
+            },
+          ),
+
           IconButton(
             icon: const Icon(Icons.rotate_left),
             tooltip: appLocalizations.reset,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
@@ -123,6 +124,7 @@ class _ContinuousScanPageState extends State<ContinuousScanPage> {
   }
 
   Widget _buildButtonsRow(BuildContext context, ContinuousScanModel model) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final ButtonStyle buttonStyle = ButtonStyle(
       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
         RoundedRectangleBorder(
@@ -143,15 +145,17 @@ class _ContinuousScanPageState extends State<ContinuousScanPage> {
               style: buttonStyle,
               icon: const Icon(Icons.cancel_outlined),
               onPressed: model.clearScanSession,
-              // TODO(jasmeet): Internationalize
-              label: const Text('Clear'),
+              label: Text(appLocalizations.clear),
             ),
             ElevatedButton.icon(
               style: buttonStyle,
               icon: const Icon(Icons.emoji_events_outlined),
               onPressed: () => _openPersonalizedRankingPage(context),
-              // TODO(jasmeet): Internationalize
-              label: Text('Compare ${model.getBarcodes().length} Products'),
+              label: Text(
+                appLocalizations.plural_compare_x_products(
+                  model.getBarcodes().length,
+                ),
+              ),
             ),
           ],
         ),
