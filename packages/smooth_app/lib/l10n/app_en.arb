@@ -67,9 +67,9 @@
 
   "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
   "incorrect_credentials": "Incorrect user name or password.",
-  "login": "Darkmode",
+  "login": "Login",
   "@login": {
-    "description": "Text field hint: unified name for "
+    "description": "Text field hint: unified name for either username or email address"
   },
   "sign_in": "Sign in",
   "@sign_in": {
