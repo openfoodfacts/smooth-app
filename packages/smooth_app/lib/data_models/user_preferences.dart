@@ -18,7 +18,7 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_INIT = 'init';
   static const String _TAG_THEME_DARK = 'themeDark';
   static const String _TAG_THEME_COLOR_TAG = 'themeColorTag';
-  static const String _TAG_USER_COUNTRY = 'userCountry';
+  static const String _TAG_USER_COUNTRY_CODE = 'userCountry';
 
   bool isFirstTimeUser() {
     return _sharedPreferences.getBool(_TAG_INIT) == null;
@@ -62,8 +62,9 @@ class UserPreferences extends ChangeNotifier {
   String get themeColorTag =>
       _sharedPreferences.getString(_TAG_THEME_COLOR_TAG) ?? 'COLOR_TAG_BLUE';
 
-  Future<void> setUserCountry(final String countryName) async =>
-      _sharedPreferences.setString(_TAG_USER_COUNTRY, countryName);
+  Future<void> setUserCountry(final String countryCode) async =>
+      _sharedPreferences.setString(_TAG_USER_COUNTRY_CODE, countryCode);
 
-  String? get userCountry => _sharedPreferences.getString(_TAG_USER_COUNTRY);
+  String? get userCountry =>
+      _sharedPreferences.getString(_TAG_USER_COUNTRY_CODE);
 }

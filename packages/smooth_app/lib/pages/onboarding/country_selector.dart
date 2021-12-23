@@ -15,13 +15,8 @@ class CountrySelector extends StatefulWidget {
 class _CountrySelectorState extends State<CountrySelector> {
   late UserPreferences _userPreferences;
   late List<Country> _countryList = <Country>[];
-  late String _chosenValue;
+  late Country _chosenValue;
   late Future<void> _initFuture;
-
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   void didChangeDependencies() {
@@ -35,8 +30,8 @@ class _CountrySelectorState extends State<CountrySelector> {
         await IsoCountries.iso_countries_for_locale(locale);
     _userPreferences = await UserPreferences.getUserPreferences();
     _countryList = _sanitizeCountriesList(localizedCountries);
-    _chosenValue = _countryList[0].name;
-    _userPreferences.setUserCountry(_chosenValue);
+    _chosenValue = _countryList[0];
+    _userPreferences.setUserCountry(_chosenValue.countryCode);
   }
 
   @override
@@ -53,7 +48,7 @@ class _CountrySelectorState extends State<CountrySelector> {
           return Padding(
             padding:
                 const EdgeInsets.only(top: MEDIUM_SPACE, bottom: LARGE_SPACE),
-            child: DropdownButtonFormField<String>(
+            child: DropdownButtonFormField<Country>(
               value: _chosenValue,
               style: const TextStyle(color: Colors.black),
               decoration: InputDecoration(
@@ -65,18 +60,18 @@ class _CountrySelectorState extends State<CountrySelector> {
                 filled: true,
                 fillColor: const Color.fromARGB(255, 235, 235, 235),
               ),
-              items:
-                  _countryList.map<DropdownMenuItem<String>>((Country country) {
-                return DropdownMenuItem<String>(
-                  value: country.name,
+              items: _countryList
+                  .map<DropdownMenuItem<Country>>((Country country) {
+                return DropdownMenuItem<Country>(
+                  value: country,
                   child: Text(country.name),
                 );
               }).toList(),
-              onChanged: (String? value) {
+              onChanged: (Country? value) {
                 setState(() {
                   if (value != null) {
                     _chosenValue = value;
-                    _userPreferences.setUserCountry(_chosenValue);
+                    _userPreferences.setUserCountry(_chosenValue.countryCode);
                   }
                 });
               },
