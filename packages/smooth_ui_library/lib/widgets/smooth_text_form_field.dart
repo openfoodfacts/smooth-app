@@ -17,6 +17,7 @@ class SmoothTextFormField extends StatefulWidget {
     this.textColor,
     this.backgroundColor,
     required this.hintText,
+    this.hintTextFontSize,
     this.prefixIcon,
   }) : super(key: key);
 
@@ -29,6 +30,7 @@ class SmoothTextFormField extends StatefulWidget {
   final String? Function(String?)? validator;
   final Iterable<String>? autofillHints;
   final Color? textColor;
+  final double? hintTextFontSize;
   final Color? backgroundColor;
 
   @override
@@ -68,7 +70,7 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
         filled: true,
         hintStyle: TextStyle(
           color: widget.textColor,
-          fontSize: 20.0,
+          fontSize: widget.hintTextFontSize ?? 20.0,
         ),
         hintText: widget.hintText,
         fillColor: widget.backgroundColor,

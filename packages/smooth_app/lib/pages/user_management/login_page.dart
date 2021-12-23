@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
+import 'package:smooth_app/pages/user_management/forgot_password_page.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_ui_library/smooth_ui_library.dart';
 import 'package:smooth_ui_library/widgets/smooth_text_form_field.dart';
@@ -132,7 +133,6 @@ class _LoginPageState extends State<LoginPage> {
                     textInputAction: TextInputAction.next,
                     autofillHints: const <String>[
                       AutofillHints.username,
-                      AutofillHints.name,
                       AutofillHints.email,
                     ],
                     validator: (String? value) {
@@ -175,7 +175,7 @@ class _LoginPageState extends State<LoginPage> {
                       appLocalizations.sign_in,
                       style: theme.textTheme.bodyText2?.copyWith(
                         fontSize: 18.0,
-                        color: theme.colorScheme.onSurface,
+                        color: theme.colorScheme.surface,
                       ),
                     ),
                     style: ButtonStyle(
@@ -193,10 +193,13 @@ class _LoginPageState extends State<LoginPage> {
                   //Forgot password
                   TextButton(
                     onPressed: () {
-                      final SnackBar snackBar = SnackBar(
-                        content: Text(appLocalizations.featureInProgress),
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute<Widget>(
+                          builder: (BuildContext context) =>
+                              const ForgotPasswordPage(),
+                        ),
                       );
-                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
                     },
                     child: Text(
                       appLocalizations.forgot_password,

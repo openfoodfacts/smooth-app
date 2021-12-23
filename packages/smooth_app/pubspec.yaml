@@ -28,6 +28,7 @@ dependencies:
   latlong2: ^0.8.1
   matomo: ^1.1.0
   modal_bottom_sheet: ^2.0.0
+  open_mail_app: ^0.4.1
   openfoodfacts: ^1.8.0
   # Uncomment those lines if you want to use a local version of the openfoodfacts package
 #  openfoodfacts:
@@ -42,6 +43,7 @@ dependencies:
     path: ../smooth_ui_library
   url_launcher: ^6.0.17
   visibility_detector: ^0.2.2
+
 
   
 dev_dependencies:
