@@ -13,6 +13,7 @@ class SmoothTextFormField extends StatefulWidget {
     this.enabled,
     this.textInputAction,
     this.validator,
+    this.autofillHints,
     this.textColor,
     this.backgroundColor,
     required this.hintText,
@@ -26,6 +27,7 @@ class SmoothTextFormField extends StatefulWidget {
   final bool? enabled;
   final TextInputAction? textInputAction;
   final String? Function(String?)? validator;
+  final Iterable<String>? autofillHints;
   final Color? textColor;
   final Color? backgroundColor;
 
@@ -50,6 +52,7 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
       obscureText: _obscureText,
       enableSuggestions: _enableSuggestions,
       autocorrect: _autocorrect,
+      autofillHints: widget.autofillHints,
       onChanged: (String data) {
         // Rebuilds for changing the eye icon
         if (widget.type == TextFieldTypes.PASSWORD) {
