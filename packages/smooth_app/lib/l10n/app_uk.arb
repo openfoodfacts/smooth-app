@@ -1,316 +1,281 @@
 {
-    "searchTitle": "Шукайте.\nЗнайдіть ідеальний продукт",
-    "@searchTitle": {
-        "description": "Temporary title for the app main page"
-    },
-    "search": "Пошук",
-    "@search": {},
-    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
-    "@welcomeToOpenFoodFacts": {},
-    "searchPanelHeader": "Шукайте або відскануйте ваш перший товар",
-    "@searchPanelHeader": {},
-    "searchHintText": "Введіть штрих-код або ключові слова",
-    "@searchHintText": {},
-    "categories": "Категорії",
-    "@categories": {},
-    "category": "Категорія",
-    "@category": {},
-    "showAll": "Показати все",
-    "@showAll": {},
-    "scanProductTitle": "Сканування товару",
-    "@scanProductTitle": {},
-    "organizationPage": "Сторінка організації",
-    "@organizationPage": {},
-    "contributors": "Співучасники",
-    "@contributors": {},
-    "contributionPage": "Сторінка внеску",
-    "@contributionPage": {},
-    "trackingPage": "Сторінка відстеження",
-    "@trackingPage": {},
-    "preferencesText": "Мої вподобання",
-    "@preferencesText": {},
-    "saveButtonText": "Зберегти",
-    "@saveButtonText": {},
-    "applyButtonText": "Застосувати",
-    "@applyButtonText": {},
-    "myPersonalizedRanking": "Мій персональний рейтинг",
-    "@myPersonalizedRanking": {
-        "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
-    },
-    "scannerProductsEmpty": "Продукти, які ви скануєте, з’являться тут",
-    "@scannerProductsEmpty": {},
-    "myPreferences": "Мої вподобання",
-    "@myPreferences": {},
-    "featureInProgress": "Ми все ще працюємо над цією функцією, стежте за оновленнями",
-    "@featureInProgress": {},
-    "configurePreferences": "Налаштувати мої параметри",
-    "@configurePreferences": {},
-    "confirmResetPreferences": "Скинути ваші налаштування?",
-    "@confirmResetPreferences": {},
+    "@Utils": {},
     "yes": "Так",
     "@yes": {},
-    "no": "Ні",
-    "@no": {},
+    "add": "Додати",
+    "@add": {},
     "okay": "Okay",
     "@okay": {},
-    "undo": "СКАСУВАТИ",
-    "@undo": {},
+    "applyButtonText": "Застосувати",
+    "@applyButtonText": {},
     "cancel": "Відмінити",
     "@cancel": {},
-    "stop": "Зупинити",
-    "@stop": {},
     "close": "Закрити",
     "@close": {},
-    "empty": "Порожньо!",
-    "@empty": {
-        "description": "Example: A preview of your search history, if you haven't searched for anything yet, it will show 'Empty!"
-    },
-    "unknownBrand": "Невідома марка",
-    "@unknownBrand": {},
-    "unknownProductName": "Невідомий продукт",
-    "@unknownProductName": {},
-    "nutrition": "Харчова цінність",
-    "@nutrition": {},
-    "ingredients": "Інгредієнти",
-    "@ingredients": {},
-    "ecology": "Екологія",
-    "@ecology": {},
-    "about": "Про додаток",
-    "@about": {},
-    "licenses": "Licences",
-    "@licenses": {},
-    "whatIsOff": "Open Food Facts - це база даних про харчові продукти, створена всіма для кожного. Ви можете використовувати його для кращого вибору їжі, а оскільки це відкриті дані, кожен може повторно використовувати їх для будь-яких інших цілей.",
-    "@whatIsOff": {},
+    "no": "Ні",
+    "@no": {},
+    "stop": "Зупинити",
+    "@stop": {},
+    "reset": "Повернути налаштування",
+    "@reset": {},
+    "error": "Сталась помилка",
+    "@error": {},
+    "error_occurred": "Виникла помилка",
+    "@error_occurred": {},
+    "featureInProgress": "Ми все ще працюємо над цією функцією, стежте за оновленнями",
+    "@featureInProgress": {},
+    "label_web": "Переглянути в Інтернеті",
+    "@label_web": {},
     "learnMore": "Докладніше",
     "@learnMore": {},
+    "incompatible": "Несумісний",
+    "licenses": "Licences",
+    "@licenses": {},
+    "looking_for": "Шукаю",
+    "@looking_for": {
+        "description": "Looking for: ${BARCODE}"
+    },
+    "@Introduction screen": {},
+    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
+    "@welcomeToOpenFoodFacts": {},
+    "whatIsOff": "Open Food Facts - це база даних про харчові продукти, створена всіма для кожного. Ви можете використовувати його для кращого вибору їжі, а оскільки це відкриті дані, кожен може повторно використовувати їх для будь-яких інших цілей.",
+    "@whatIsOff": {},
+    "@user_management": {},
+    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
+    "incorrect_credentials": "Incorrect user name or password.",
+    "login": "Темний режим",
+    "@login": {
+        "description": "Text field hint: unified name for "
+    },
+    "sign_in": "Увійти",
+    "@sign_in": {
+        "description": "Button label: For sign in"
+    },
+    "password": "Пароль",
+    "forgot_password": "Forgot password",
+    "@forgot_password": {
+        "description": "Button label: Opens a page where a password reset email can be requested"
+    },
+    "enter_some_text": "Please enter some text",
+    "@enter_some_text": {
+        "description": "Error when text field is empty"
+    },
+    "@Settings": {},
+    "settingsTitle": "Налаштування",
+    "@settingsTitle": {
+        "description": "The title of the Settings page"
+    },
+    "darkmode": "Темний режим",
+    "@darkmode": {
+        "description": "The name of the darkmode on off switch"
+    },
+    "contributors": "Співучасники",
+    "@contributors": {
+        "description": "Button label: Opens a pop up window where all contributors of this app are shown"
+    },
+    "support": "Support",
+    "@support": {
+        "description": "Button label: Opens a pop up window where all ways to get support are shown"
+    },
     "termsOfUse": "Умови використання",
     "@termsOfUse": {},
+    "about_this_app": "About this app",
+    "@about_this_app": {
+        "description": "Button label: Opens a popo up window which shows informations about this app"
+    },
+    "@About this app section": {},
     "contribute": "Зробіть свій внесок",
-    "@contribute": {},
-    "contribute_improve_header": "Поліпшення",
-    "@contribute_improve_header": {},
-    "contribute_improve_text": "База знань - це ядро проекту. Допомогти легко і дуже швидко. Ви можете завантажити мобільний додаток для свого телефону та почати додавати або вдосконалювати продукти.\n\nЗ іншого боку, веб-сайт Open Food Facts пропонує безліч способів зробити свій внесок: ",
-    "@contribute_improve_text": {},
-    "contribute_improve_ProductsToBeCompleted": "Незавантажені продукти",
-    "@contribute_improve_ProductsToBeCompleted": {},
-    "contribute_develop": "Розробка",
-    "@contribute_develop": {},
+    "@contribute": {
+        "description": "Button label: Shows multiple ways how users can contribute to OFF"
+    },
+    "contribute_sw_development": "Software development",
+    "@contribute_sw_development": {
+        "description": "Button label + page title: Ways to help"
+    },
     "contribute_develop_text": "Код кожного продукту Open Food Facts доступний на GitHub. Ви можете повторно використовувати код (він із відкритим кодом) і допомогти нам вдосконалити його для всіх на цій планеті.",
     "@contribute_develop_text": {},
     "contribute_develop_text_2": "Ви можете приєднатися до чату Open Food Facts Slack, який є найкращим способом задавати питання.",
     "@contribute_develop_text_2": {},
+    "contribute_donate_header": "Пожертвуй на Open Food Facts",
+    "@contribute_donate_header": {},
+    "contribute_improve_ProductsToBeCompleted": "Незавантажені продукти",
+    "@contribute_improve_ProductsToBeCompleted": {
+        "description": "Button label: Shows a list of products which aren't completed"
+    },
+    "contribute_improve_header": "Поліпшення",
+    "@contribute_improve_header": {
+        "description": "Button label + page title: Ways to improve the database"
+    },
+    "contribute_improve_text": "База знань - це ядро проекту. Допомогти легко і дуже швидко. Ви можете завантажити мобільний додаток для свого телефону та почати додавати або вдосконалювати продукти.\n\nЗ іншого боку, веб-сайт Open Food Facts пропонує безліч способів зробити свій внесок: ",
+    "@contribute_improve_text": {},
     "contribute_translate_header": "Перекласти",
-    "@contribute_translate_header": {},
+    "@contribute_translate_header": {
+        "description": "Button label + pop up window title: Shows information about helping by translating"
+    },
+    "contribute_translate_link_text": "Почніть перекладати",
+    "@contribute_translate_link_text": {
+        "description": "Button label: Opens the Crowdin translation portal"
+    },
     "contribute_translate_text": "Open Food Facts - це глобальний проєкт, що містить продукти з більш ніж 160 країн. Інформація про Open Food Facts перекладається на десятки мов, і постійно змінюється.",
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Переклади - одне з ключових завдань проекту",
     "@contribute_translate_text_2": {},
-    "contribute_translate_link_text": "Почніть перекладати",
-    "@contribute_translate_link_text": {},
-    "contribute_donate_header": "Пожертвуй на Open Food Facts",
-    "@contribute_donate_header": {},
-    "support": "Support",
-    "@support": {},
-    "error": "Сталась помилка",
-    "@error": {},
-    "darkmode": "Темний режим",
-    "@darkmode": {},
-    "settingsTitle": "Налаштування",
-    "@settingsTitle": {},
-    "reset": "Повернути налаштування",
-    "@reset": {},
+    "@Personal preferences": {},
+    "myPreferences": "Мої вподобання",
+    "@myPreferences": {
+        "description": "Page title: Page where the ranking preferences can be changed"
+    },
+    "confirmResetPreferences": "Скинути ваші налаштування?",
+    "@confirmResetPreferences": {
+        "description": "Pop up title: Reassuring if the food preferences should really be reset"
+    },
+    "myPersonalizedRanking": "Мій персональний рейтинг",
+    "@myPersonalizedRanking": {
+        "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
+    },
+    "reloaded_with_new_preferences": "Перезавантажено з новими уподобаннями",
+    "@reloaded_with_new_preferences": {
+        "description": "Snackbar title: Shows that the modified settings have been applied"
+    },
+    "@other": {},
+    "profile_navbar_label": "Profile",
+    "@profile_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+    },
+    "scan_navbar_label": "Profile",
+    "@scan_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+    },
+    "history_navbar_label": "Profile",
+    "@history_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+    },
+    "category": "Категорія",
+    "@category": {},
+    "category_search": "(пошук за категорією)",
     "filter": "Фільтр",
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "added_product_thanks": "Дякуємо Вам за додавання цього продукту!",
-    "@added_product_thanks": {},
-    "missing_product": "Цей товар відсутній",
-    "@missing_product": {},
-    "add": "Додати",
-    "@add": {},
-    "nutri_score_unavailable": "Nutri-Score недоступний",
-    "@nutri_score_unavailable": {},
-    "missing_picture": "Зображення не знайдено",
-    "@missing_picture": {},
-    "searching": "Пошук…",
-    "@searching": {},
-    "empty_list": "Список порожній",
-    "@empty_list": {},
-    "nothing_set": "На даний момент нічого не встановлено",
-    "rename": "Перейменувати",
-    "@rename": {},
-    "delete": "Видалити",
-    "@delete": {},
-    "change_icon": "Змінити піктограму",
-    "@change_icon": {},
-    "paste": "вставити",
-    "@paste": {},
-    "copy": "копіювати",
-    "@copy": {},
-    "clear": "очистити",
-    "@clear": {},
-    "grocery": "бакалія",
-    "@grocery": {},
-    "add_date": "Додати іншу дату",
-    "@add_date": {},
-    "no_date": "Немає дати",
-    "@no_date": {},
-    "already_in_pantry": "Уже в коморі!",
-    "@already_in_pantry": {},
-    "added_to_pantry": "Додано в комору!",
-    "@added_to_pantry": {},
-    "want_to_delete_pantry": "Чи ви бажаєте видалити цю комору?",
-    "@want_to_delete_pantry": {},
-    "want_to_delete_shopping": "Ви бажаєте видалити цей список покупок?",
-    "@want_to_delete_shopping": {},
-    "want_to_delete_list": "Ви бажаєте видалити цей список продуктів?",
-    "@want_to_delete_list": {},
-    "new_pantry": "Нова комора",
-    "@new_pantry": {},
-    "new_shopping": "Новий список покупок",
-    "@new_shopping": {},
-    "new_list": "Новий список",
-    "@new_list": {},
-    "rename_pantry": "Перейменувати комору",
-    "@rename_pantry": {},
-    "rename_shopping": "Перейменувати список покупок",
-    "@rename_shopping": {},
-    "rename_list": "Перейменувати список",
-    "@rename_list": {},
-    "my_pantry_hint": "Моя власна комора",
-    "@my_pantry_hint": {},
-    "my_shopping_hint": "Мій список покупок",
-    "@my_shopping_hint": {},
-    "my_list_hint": "Мій власний список",
-    "@my_list_hint": {},
-    "enter_text": "Будь ласка, введіть текст",
-    "@enter_text": {},
-    "pantry_name_taken": "Комора з такою назвою вже існує",
-    "@pantry_name_taken": {},
-    "shopping_name_taken": "Список покупок з такою назвою вже існує",
-    "@shopping_name_taken": {},
-    "list_name_taken": "Список покупок з такою назвою вже існує",
-    "@list_name_taken": {},
-    "already_same": "Це та ж сама назва!",
-    "@already_same": {},
-    "my_pantrie_lists": "Мої комори",
-    "my_shopping_lists": "Мої списки покупок",
-    "my_lists": "Мої списки",
-    "food_categories": "Категорії їжі",
-    "search_history": "Історія пошуку",
-    "label_preferences": "вподобання",
-    "@label_preferences": {},
-    "label_lists": "списки",
-    "@label_lists": {},
-    "label_web": "Переглянути в Інтернеті",
-    "@label_web": {},
+    "scan": "Сканувати",
+    "@scan": {
+        "description": "Page title: List type: Scanned products"
+    },
+    "search": "Пошук",
+    "@search": {
+        "description": "Hint text of a search text input field"
+    },
+    "tab_for_more": "Tap to see more info...",
+    "@Product": {},
+    "product": "Продукт",
+    "@product": {},
+    "unknownBrand": "Невідома марка",
+    "@unknownBrand": {},
+    "unknownProductName": "Невідомий продукт",
+    "@unknownProductName": {},
     "label_refresh": "оновити",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
-    "label_share": "поділитись",
-    "@label_share": {},
-    "product_refreshed": "Продукт обновлено",
-    "@product_refreshed": {},
-    "food_ranking_parameters": "Параметри рейтингу їжі",
-    "product": "Продукт",
-    "@product": {},
-    "packaging_information": "Інформація про упакування",
-    "@packaging_information": {},
-    "more_photos": "Більше цікавих фото",
-    "@more_photos": {},
     "front_photo": "Фото переднього плану",
-    "@front_photo": {},
+    "@front_photo": {
+        "description": "Button label: For adding a picture of the front of a product"
+    },
+    "ingredients": "Інгредієнти",
+    "@ingredients": {},
     "ingredients_photo": "Фото інгредієнтів",
-    "@ingredients_photo": {},
+    "@ingredients_photo": {
+        "description": "Button label: For adding a picture of the Ingredients of a product"
+    },
+    "nutrition": "Харчова цінність",
+    "@nutrition": {},
     "nutrition_facts_photo": "Фото харчової цінності",
-    "@nutrition_facts_photo": {},
+    "@nutrition_facts_photo": {
+        "description": "Button label: For adding a picture of the nutrition facts of a product"
+    },
+    "packaging_information": "Інформація про упакування",
+    "@packaging_information": {
+        "description": "Button label: For adding a picture of the packaging of a product"
+    },
     "packaging_information_photo": "Фото з інформацією про упакування",
     "@packaging_information_photo": {},
-    "add_product": "Додати новий продукт",
-    "@add_product": {},
-    "similar_food": "Схожа їжа",
-    "@similar_foods": {},
-    "refreshing_product": "Освіжаючий товар",
-    "@refreshing_product": {},
-    "looking_for": "Шукаю",
-    "@looking_for": {},
-    "could_not_refresh": "Не вдалося оновити продукт",
-    "@could_not_refresh": {},
+    "missing_product": "Цей товар відсутній",
+    "@missing_product": {},
+    "more_photos": "Більше цікавих фото",
+    "@more_photos": {},
     "no_product_found": "Продукт не знайдено",
     "@no_product_found": {},
-    "product_internet_error": "Неможливо отримати інформацію про цей продукт через помилку мережі.",
-    "product_internet_cancel": "Скасовано користувачем.",
-    "product_improvement_origins_to_be_completed": "Eco-Score бере до уваги походження інгредієнтів. Будь ласка, сфотографуйте їх (список інгредієнтів і/або будь-яку географічну вимогу або відредагуйте продукт, щоб його можна було взяти до уваги. Якщо це не зрозуміло, зв'яжіться з виробником харчових продуктів.",
-    "@product_improvement_origins_to_be_completed": {
-        "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
+    "not_found": "не знайдено:",
+    "searchPanelHeader": "Шукайте або відскануйте ваш перший товар",
+    "@Product query status": {},
+    "refreshing_product": "Освіжаючий товар",
+    "@refreshing_product": {
+        "description": "Confirmation, that the product data of a cached product is queried again"
     },
-    "product_improvement_categories_but_no_nutriscore": "Ми не змогли підрахувати Nutri-Score для цього продукту. Можливо це тому, що ця категорія є винятком. Якщо ви вважаєте, що це помилка, зв'яжіться з нами.",
-    "@product_improvement_categories_but_no_nutriscore": {
-        "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
+    "product_refreshed": "Продукт обновлено",
+    "@product_refreshed": {
+        "description": "Confirmation, that the product data refresh is done"
+    },
+    "could_not_refresh": "Не вдалося оновити продукт",
+    "@could_not_refresh": {
+        "description": "The product data couldn't be refreshed"
+    },
+    "product_internet_cancel": "Скасовано користувачем.",
+    "@product_internet_cancel": {
+        "description": "Confirmation, that the product data got canceled by the user"
+    },
+    "product_internet_error": "Неможливо отримати інформацію про цей продукт через помилку мережі.",
+    "cached_results_from": "Cached results from:",
+    "@cached_results_from": {
+        "description": "Cached results from: x time ago (time ago should not be added to the string)"
+    },
+    "@Product Addition": {},
+    "added_product_thanks": "Дякуємо Вам за додавання цього продукту!",
+    "@added_product_thanks": {},
+    "product_improvement_add_category": "Додайте категорію щоб обчислити Nutri-Score.",
+    "@product_improvement_add_category": {
+        "description": "Message for ProductImprovement.ADD_CATEGORY"
     },
     "product_improvement_add_nutrition_facts": "Додайте харчову цінність щоб обчислити Nutri-Score.",
     "@product_improvement_add_nutrition_facts": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
     },
-    "product_improvement_add_category": "Додайте категорію щоб обчислити Nutri-Score.",
-    "@product_improvement_add_category": {
-        "description": "Message for ProductImprovement.ADD_CATEGORY"
-    },
     "product_improvement_add_nutrition_facts_and_category": "Додайте харчову цінність і категорію щоб підрахувати Nutri-Score.",
     "@product_improvement_add_nutrition_facts_and_category": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
+    },
+    "product_improvement_categories_but_no_nutriscore": "Ми не змогли підрахувати Nutri-Score для цього продукту. Можливо це тому, що ця категорія є винятком. Якщо ви вважаєте, що це помилка, зв'яжіться з нами.",
+    "@product_improvement_categories_but_no_nutriscore": {
+        "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
     "product_improvement_obsolete_nutrition_image": "Зображення харчування є застарілим: будь ласка, оновіть його.",
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvements_count": "{count,plural, one {} few {{count} можливі покращення} many {{count} можливі покращення} =1{Одне з можливих покращень} other{{count} можливі покращення}}",
-    "@product_improvements_count": {
-        "description": "x possible improvements",
-        "placeholders": {
-            "count": {}
-        }
+    "product_improvement_origins_to_be_completed": "Eco-Score бере до уваги походження інгредієнтів. Будь ласка, сфотографуйте їх (список інгредієнтів і/або будь-яку географічну вимогу або відредагуйте продукт, щоб його можна було взяти до уваги. Якщо це не зрозуміло, зв'яжіться з виробником харчових продуктів.",
+    "@product_improvement_origins_to_be_completed": {
+        "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
-    "products_pasted": "продукти вставлені",
-    "@products_pasted": {},
+    "@Lists": {},
     "no_prodcut_in_list": "В цьому списку немає такого товару",
-    "@no_product_in_list": {},
-    "error_occurred": "Виникла помилка",
-    "@error_occurred": {},
-    "keyword_search": "(пошук за ключовими словами)",
-    "category_search": "(пошук за категорією)",
-    "my_list": "(мій список)",
-    "scan": "Сканувати",
+    "no_product_in_section": "У цьому розділі немає товару",
     "recently_seen_products": "Мої нещодавно переглянуті продукти",
-    "unknown_product_list": "Список невідомих продуктів:",
-    "not_found": "не знайдено:",
-    "no_product": "немає товарів",
-    "one_product": "Товар",
-    "x_products": "товари",
-    "scan_contribute": "ВНЕСОК",
-    "@scan_contribute": {
-        "description": "Switch on top of the Scanner to choose between to scan or add products"
+    "clear": "Очистити",
+    "@clear": {
+        "description": "Clears a product list"
     },
-    "incompatible": "Несумісний",
+    "really_clear": "Do you really want to clear this list?",
+    "@Plural": {},
     "pct_match": "{pct}% збігів",
     "@pct_match": {
+        "description": "This product has a x percent match with your preferences",
         "placeholders": {
             "pct": {}
         }
     },
-    "scan_choose": "ВИБЕРІТЬ",
-    "@scan_choose": {
-        "description": "Switch on top of the Scanner to choose between to scan or add products"
-    },
-    "reloaded_with_new_preferences": "Перезавантажено з новими уподобаннями",
-    "no_product_in_section": "У цьому розділі немає товару",
-    "what_are_you_looking_for": "Що ви шукаєте?",
-    "chached_results_from": "Кешовані результати від:",
-    "plural_ago_minutes": "{count,plural, one {} few {{count} хвилин тому} many {{count} хвилин тому} =0{менше хвилини тому} =1{хвилину тому} other{{count} хвилин тому}}",
-    "@plural_ago_minutes": {
-        "description": "Cached results from: x minutes ago",
+    "plural_ago_days": "{count,plural, one {} few {{count} днів тому} many {{count}днів тому} =1{один день тому} other{{count} дні тому}}",
+    "@plural_ago_days": {
+        "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
@@ -322,9 +287,16 @@
             "count": {}
         }
     },
-    "plural_ago_days": "{count,plural, one {} few {{count} днів тому} many {{count}днів тому} =1{один день тому} other{{count} дні тому}}",
-    "@plural_ago_days": {
-        "description": "Cached results from: x days ago",
+    "plural_ago_minutes": "{count,plural, one {} few {{count} хвилин тому} many {{count} хвилин тому} =0{менше хвилини тому} =1{хвилину тому} other{{count} хвилин тому}}",
+    "@plural_ago_minutes": {
+        "description": "Cached results from: x minutes ago",
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "plural_ago_months": "{count,plural, one {} few {{count}місяців тому} many {{count} місяців тому} =1{один місяць тому} other{{count} місяців тому}}",
+    "@plural_ago_months": {
+        "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
@@ -336,9 +308,9 @@
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, one {} few {{count}місяців тому} many {{count} місяців тому} =1{один місяць тому} other{{count} місяців тому}}",
-    "@plural_ago_months": {
-        "description": "Cached results from: x months ago",
+    "plural_compare_x_products": "{count,plural, =other{Compare {count} Products}",
+    "@plural_compare_x_products": {
+        "description": "Button label",
         "placeholders": {
             "count": {}
         }
