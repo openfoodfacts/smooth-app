@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -10,8 +11,7 @@ import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/database/search_history.dart';
-import 'package:smooth_app/pages/home_page.dart';
+import 'package:smooth_app/pages/page_manager.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -19,21 +19,26 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final PackageInfo packageInfo = await PackageInfo.fromPlatform();
 
-  /* TODO: put back when we have clearer ideas about analytics
-  await MatomoTracker().initialize(
-    siteId: 2,
-    url: 'https://analytics.openfoodfacts.org/',
-  );
-   */
+  if (kReleaseMode) {
+    await SentryFlutter.init(
+      (SentryOptions options) {
+        options.dsn =
+            'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745';
+        options.sentryClientName =
+            'sentry.dart.smoothie/${packageInfo.version}';
+      },
+      appRunner: () => runApp(const SmoothApp()),
+    );
 
-  await SentryFlutter.init(
-    (SentryOptions options) {
-      options.dsn =
-          'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745';
-      options.sentryClientName = 'sentry.dart.smoothie/${packageInfo.version}';
-    },
-    appRunner: () => runApp(const SmoothApp()),
-  );
+    /* TODO: put back when we have clearer ideas about analytics
+    await MatomoTracker().initialize(
+      siteId: 2,
+      url: 'https://analytics.openfoodfacts.org/',
+    );
+    */
+  } else {
+    runApp(const SmoothApp());
+  }
 }
 
 class SmoothApp extends StatefulWidget {
@@ -48,7 +53,6 @@ class _SmoothAppState extends State<SmoothApp> {
   late UserPreferences _userPreferences;
   late ProductPreferences _productPreferences;
   late LocalDatabase _localDatabase;
-  late SearchHistory _searchHistory;
   late ThemeProvider _themeProvider;
   bool systemDarkmodeOn = false;
 
@@ -78,7 +82,6 @@ class _SmoothAppState extends State<SmoothApp> {
         .loadReferenceFromAssets(DefaultAssetBundle.of(context));
     await _userPreferences.init(_productPreferences);
     _localDatabase = await LocalDatabase.getLocalDatabase();
-    _searchHistory = SearchHistory(_localDatabase.database);
     _themeProvider = ThemeProvider(_userPreferences);
   }
 
@@ -104,7 +107,6 @@ class _SmoothAppState extends State<SmoothApp> {
             provide<UserPreferences>(_userPreferences),
             provide<ProductPreferences>(_productPreferences),
             provide<LocalDatabase>(_localDatabase),
-            provide<SearchHistory>(_searchHistory),
             provide<ThemeProvider>(_themeProvider),
           ],
           builder: _buildApp,
@@ -171,7 +173,7 @@ class SmoothAppGetLanguage extends StatelessWidget {
       DefaultAssetBundle.of(context),
       languageCode,
     );
-    return const HomePage();
+    return PageManager();
   }
 
   Future<void> _refresh(

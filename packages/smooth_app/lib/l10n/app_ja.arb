@@ -1,272 +1,281 @@
 {
-    "searchTitle": "探す。\n 完璧な製品を見つける",
-    "@searchTitle": {
-        "description": "Temporary title for the app main page"
-    },
-    "search": "検索",
-    "@search": {},
-    "searchPanelHeader": "Search or scan your first product",
-    "@searchPanelHeader": {},
-    "searchHintText": "バーコードまたはキーワードを入力してください",
-    "@searchHintText": {},
-    "categories": "カテゴリー",
-    "@categories": {},
-    "category": "カテゴリー",
-    "@category": {},
-    "showAll": "すべて表示する",
-    "@showAll": {},
-    "scanProductTitle": "製品をスキャンする",
-    "@scanProductTitle": {},
-    "organizationPage": "組織ページ",
-    "@organizationPage": {},
-    "contributionPage": "投稿ページ",
-    "@contributionPage": {},
-    "trackingPage": "トラッキングページ",
-    "@trackingPage": {},
-    "preferencesText": "設定",
-    "@preferencesText": {},
-    "saveButtonText": "保存",
-    "@saveButtonText": {},
-    "applyButtonText": "適用",
-    "@applyButtonText": {},
-    "myPersonalizedRanking": "おすすめランキング",
-    "@myPersonalizedRanking": {
-        "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
-    },
-    "scannerProductsEmpty": "スキャンした製品がここに表示されます",
-    "@scannerProductsEmpty": {},
-    "myPreferences": "設定",
-    "@myPreferences": {},
-    "featureInProgress": "この機能はまだ調整中です。ご期待ください。",
-    "@featureInProgress": {},
-    "configurePreferences": "ユーザー設定",
-    "@configurePreferences": {},
-    "confirmResetPreferences": "Reset your preferences?",
-    "@confirmResetPreferences": {},
+    "@Utils": {},
     "yes": "はい",
     "@yes": {},
-    "no": "いいえ",
-    "@no": {},
+    "add": "追加",
+    "@add": {},
     "okay": "はい",
     "@okay": {},
-    "undo": "元に戻す",
-    "@undo": {},
+    "applyButtonText": "適用",
+    "@applyButtonText": {},
     "cancel": "取消",
     "@cancel": {},
-    "stop": "停止",
-    "@stop": {},
     "close": "閉じる",
     "@close": {},
-    "empty": "空き",
-    "@empty": {
-        "description": "Example: A preview of your search history, if you haven't searched for anything yet, it will show 'Empty!"
-    },
-    "unknownBrand": "不明なブランド",
-    "@unknownBrand": {},
-    "unknownProductName": "不明な製品名",
-    "@unknownProductName": {},
-    "nutrition": "栄養",
-    "@nutrition": {},
-    "ingredients": "原材料",
-    "@ingredients": {},
-    "ecology": "環境",
-    "@ecology": {},
-    "about": "このアプリについて",
-    "@about": {},
-    "licenses": "Licences",
-    "@licenses": {},
-    "whatIsOff": "Open Food Factsは、すべての人のためにすべての人が作っていく食品のデータベースです。また、オープンデータなので、いつでも誰でもどのような目的でも利用することができます。",
-    "@whatIsOff": {},
+    "no": "いいえ",
+    "@no": {},
+    "stop": "停止",
+    "@stop": {},
+    "reset": "初期化",
+    "@reset": {},
+    "error": "問題が発生しました",
+    "@error": {},
+    "error_occurred": "エラーが発生しました",
+    "@error_occurred": {},
+    "featureInProgress": "この機能はまだ調整中です。ご期待ください。",
+    "@featureInProgress": {},
+    "label_web": "View on the Web",
+    "@label_web": {},
     "learnMore": "詳細",
     "@learnMore": {},
+    "incompatible": "Incompatible",
+    "licenses": "Licences",
+    "@licenses": {},
+    "looking_for": "を探しています",
+    "@looking_for": {
+        "description": "Looking for: ${BARCODE}"
+    },
+    "@Introduction screen": {},
+    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
+    "@welcomeToOpenFoodFacts": {},
+    "whatIsOff": "Open Food Factsは、すべての人のためにすべての人が作っていく食品のデータベースです。また、オープンデータなので、いつでも誰でもどのような目的でも利用することができます。",
+    "@whatIsOff": {},
+    "@user_management": {},
+    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
+    "incorrect_credentials": "Incorrect user name or password.",
+    "login": "ダークモード",
+    "@login": {
+        "description": "Text field hint: unified name for "
+    },
+    "sign_in": "サインイン",
+    "@sign_in": {
+        "description": "Button label: For sign in"
+    },
+    "password": "パスワード",
+    "forgot_password": "Forgot password",
+    "@forgot_password": {
+        "description": "Button label: Opens a page where a password reset email can be requested"
+    },
+    "enter_some_text": "Please enter some text",
+    "@enter_some_text": {
+        "description": "Error when text field is empty"
+    },
+    "@Settings": {},
+    "settingsTitle": "設定",
+    "@settingsTitle": {
+        "description": "The title of the Settings page"
+    },
+    "darkmode": "ダークモード",
+    "@darkmode": {
+        "description": "The name of the darkmode on off switch"
+    },
+    "contributors": "貢献者",
+    "@contributors": {
+        "description": "Button label: Opens a pop up window where all contributors of this app are shown"
+    },
+    "support": "Support",
+    "@support": {
+        "description": "Button label: Opens a pop up window where all ways to get support are shown"
+    },
     "termsOfUse": "利用規約",
     "@termsOfUse": {},
+    "about_this_app": "About this app",
+    "@about_this_app": {
+        "description": "Button label: Opens a popo up window which shows informations about this app"
+    },
+    "@About this app section": {},
     "contribute": "貢献する",
-    "@contribute": {},
-    "contribute_improve_header": "改善",
-    "@contribute_improve_header": {},
-    "contribute_improve_text": "データベースはプロジェクトの核となるものです。簡単かつ迅速に支援することができます。スマホ用のモバイルアプリをダウンロードすれば、製品の追加や修正ができます。\n\n他にも、Open Food Factsのウェブサイトで貢献する方法があります。: ",
-    "@contribute_improve_text": {},
-    "contribute_improve_ProductsToBeCompleted": "完了が必要な製品",
-    "@contribute_improve_ProductsToBeCompleted": {},
-    "contribute_develop": "開発者向けサイト",
-    "@contribute_develop": {},
+    "@contribute": {
+        "description": "Button label: Shows multiple ways how users can contribute to OFF"
+    },
+    "contribute_sw_development": "Software development",
+    "@contribute_sw_development": {
+        "description": "Button label + page title: Ways to help"
+    },
     "contribute_develop_text": "すべてのOpenFood Facts製品のコードは、GitHubで入手できます。コード（オープンソース）を再利用して、世界中のすべての人のためにコードを改善するのを手伝ってください。",
     "@contribute_develop_text": {},
     "contribute_develop_text_2": "質問がある場合はOpen Food FactsのSlackチャットで聞いてみましょう。",
     "@contribute_develop_text_2": {},
+    "contribute_donate_header": "Open Food Facts に寄付する",
+    "@contribute_donate_header": {},
+    "contribute_improve_ProductsToBeCompleted": "完了が必要な製品",
+    "@contribute_improve_ProductsToBeCompleted": {
+        "description": "Button label: Shows a list of products which aren't completed"
+    },
+    "contribute_improve_header": "改善",
+    "@contribute_improve_header": {
+        "description": "Button label + page title: Ways to improve the database"
+    },
+    "contribute_improve_text": "データベースはプロジェクトの核となるものです。簡単かつ迅速に支援することができます。スマホ用のモバイルアプリをダウンロードすれば、製品の追加や修正ができます。\n\n他にも、Open Food Factsのウェブサイトで貢献する方法があります。: ",
+    "@contribute_improve_text": {},
     "contribute_translate_header": "翻訳",
-    "@contribute_translate_header": {},
+    "@contribute_translate_header": {
+        "description": "Button label + pop up window title: Shows information about helping by translating"
+    },
+    "contribute_translate_link_text": "翻訳を開始",
+    "@contribute_translate_link_text": {
+        "description": "Button label: Opens the Crowdin translation portal"
+    },
     "contribute_translate_text": "Open Food Factsは、160か国以上の製品を含むグローバルプロジェクトです。 Open Food Factsは数十の言語に翻訳されており、コンテンツは絶えず進化しています。",
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "翻訳はプロジェクトの重要なタスクの1つです",
     "@contribute_translate_text_2": {},
-    "contribute_translate_link_text": "翻訳を開始",
-    "@contribute_translate_link_text": {},
-    "contribute_donate_header": "Open Food Facts に寄付する",
-    "@contribute_donate_header": {},
-    "support": "Support",
-    "@support": {},
-    "error": "問題が発生しました",
-    "@error": {},
-    "darkmode": "ダークモード",
-    "@darkmode": {},
-    "settingsTitle": "設定",
-    "@settingsTitle": {},
-    "reset": "初期化",
-    "@reset": {},
+    "@Personal preferences": {},
+    "myPreferences": "設定",
+    "@myPreferences": {
+        "description": "Page title: Page where the ranking preferences can be changed"
+    },
+    "confirmResetPreferences": "Reset your preferences?",
+    "@confirmResetPreferences": {
+        "description": "Pop up title: Reassuring if the food preferences should really be reset"
+    },
+    "myPersonalizedRanking": "おすすめランキング",
+    "@myPersonalizedRanking": {
+        "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
+    },
+    "reloaded_with_new_preferences": "設定を再読み込みしました",
+    "@reloaded_with_new_preferences": {
+        "description": "Snackbar title: Shows that the modified settings have been applied"
+    },
+    "@other": {},
+    "profile_navbar_label": "Profile",
+    "@profile_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+    },
+    "scan_navbar_label": "Profile",
+    "@scan_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+    },
+    "history_navbar_label": "Profile",
+    "@history_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+    },
+    "category": "カテゴリー",
+    "@category": {},
+    "category_search": "(カテゴリ検索)",
     "filter": "絞り込み",
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "added_product_thanks": "この製品を追加していただきありがとうございます！",
-    "@added_product_thanks": {},
-    "missing_product": "この製品はありません",
-    "@missing_product": {},
-    "add": "追加",
-    "@add": {},
-    "nutri_score_unavailable": "栄養スコアは利用できません",
-    "@nutri_score_unavailable": {},
-    "missing_picture": "画像がありません",
-    "@missing_picture": {},
-    "searching": "検索しています...",
-    "@searching": {},
-    "empty_list": "空のリスト",
-    "@empty_list": {},
-    "nothing_set": "まだ何も設定されていません",
-    "rename": "名前を変更",
-    "@rename": {},
-    "delete": "削除",
-    "@delete": {},
-    "change_icon": "アイコンを変更",
-    "@change_icon": {},
-    "paste": "貼り付け",
-    "@paste": {},
-    "copy": "コピー",
-    "@copy": {},
-    "clear": "消去",
-    "@clear": {},
-    "grocery": "食料品",
-    "@grocery": {},
-    "add_date": "項目を追加",
-    "@add_date": {},
-    "no_date": "日付なし",
-    "@no_date": {},
-    "already_in_pantry": "すでにパントリーに入っています！",
-    "@already_in_pantry": {},
-    "added_to_pantry": "パントリーに追加しました！",
-    "@added_to_pantry": {},
-    "want_to_delete_pantry": "このパントリーを削除しますか？",
-    "@want_to_delete_pantry": {},
-    "want_to_delete_shopping": "この買い物リストを削除しますか？",
-    "@want_to_delete_shopping": {},
-    "want_to_delete_list": "この製品リストを削除しますか？",
-    "@want_to_delete_list": {},
-    "new_pantry": "新しいパントリー",
-    "@new_pantry": {},
-    "new_shopping": "新しい買い物リスト",
-    "@new_shopping": {},
-    "new_list": "新しいリスト",
-    "@new_list": {},
-    "rename_pantry": "パントリーの名前を変更",
-    "@rename_pantry": {},
-    "rename_shopping": "買い物リストの名前を変更",
-    "@rename_shopping": {},
-    "rename_list": "リストの名前を変更",
-    "@rename_list": {},
-    "my_pantry_hint": "自分のパントリー",
-    "@my_pantry_hint": {},
-    "my_shopping_hint": "買い物リスト",
-    "@my_shopping_hint": {},
-    "my_list_hint": "カスタムリスト",
-    "@my_list_hint": {},
-    "enter_text": "テキストを入力してください。",
-    "@enter_text": {},
-    "pantry_name_taken": "その名前のパントリーが既に存在します",
-    "@pantry_name_taken": {},
-    "shopping_name_taken": "その名前の買い物リストはすでにあります",
-    "@shopping_name_taken": {},
-    "list_name_taken": "その名前のリストが既に存在します",
-    "@list_name_taken": {},
-    "already_same": "同じ名前です!",
-    "@already_same": {},
-    "my_pantrie_lists": "パントリー",
-    "my_shopping_lists": "買い物リスト",
-    "my_lists": "マイリスト",
-    "food_categories": "食品カテゴリー",
-    "search_history": "Search history",
-    "label_preferences": "設定",
-    "@label_preferences": {},
-    "label_lists": "リスト",
-    "@label_lists": {},
-    "label_web": "ウェブ",
-    "@label_web": {},
+    "scan": "スキャン",
+    "@scan": {
+        "description": "Page title: List type: Scanned products"
+    },
+    "search": "検索",
+    "@search": {
+        "description": "Hint text of a search text input field"
+    },
+    "tab_for_more": "Tap to see more info...",
+    "@Product": {},
+    "product": "製品",
+    "@product": {},
+    "unknownBrand": "不明なブランド",
+    "@unknownBrand": {},
+    "unknownProductName": "不明な製品名",
+    "@unknownProductName": {},
     "label_refresh": "更新",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
-    "label_share": "シェア",
-    "@label_share": {},
-    "product_refreshed": "製品更新",
-    "@product_refreshed": {},
-    "food_ranking_parameters": "食品ランキングのパラメータ",
-    "product": "製品",
-    "@product": {},
-    "packaging_information": "パッケージ情報",
-    "@packaging_information": {},
-    "more_photos": "より興味深い画像",
-    "@more_photos": {},
     "front_photo": "正面",
-    "@front_photo": {},
+    "@front_photo": {
+        "description": "Button label: For adding a picture of the front of a product"
+    },
+    "ingredients": "原材料",
+    "@ingredients": {},
     "ingredients_photo": "原材料一覧",
-    "@ingredients_photo": {},
+    "@ingredients_photo": {
+        "description": "Button label: For adding a picture of the Ingredients of a product"
+    },
+    "nutrition": "栄養",
+    "@nutrition": {},
     "nutrition_facts_photo": "栄養成分表",
-    "@nutrition_facts_photo": {},
+    "@nutrition_facts_photo": {
+        "description": "Button label: For adding a picture of the nutrition facts of a product"
+    },
+    "packaging_information": "パッケージ情報",
+    "@packaging_information": {
+        "description": "Button label: For adding a picture of the packaging of a product"
+    },
     "packaging_information_photo": "パッケージ情報",
     "@packaging_information_photo": {},
-    "add_product": "新しい製品を追加",
-    "@add_product": {},
-    "similar_food": "類似の食品",
-    "@similar_foods": {},
-    "refreshing_product": "製品を更新中",
-    "@refreshing_product": {},
-    "looking_for": "を探しています",
-    "@looking_for": {},
-    "could_not_refresh": "製品を更新できませんでした",
-    "@could_not_refresh": {},
+    "missing_product": "この製品はありません",
+    "@missing_product": {},
+    "more_photos": "より興味深い画像",
+    "@more_photos": {},
     "no_product_found": "製品が見つかりません",
     "@no_product_found": {},
-    "products_pasted": "製品を貼り付け",
-    "@products_pasted": {},
-    "no_prodcut_in_list": "このリストには製品がありません",
-    "@no_product_in_list": {},
-    "error_occurred": "エラーが発生しました",
-    "@error_occurred": {},
-    "keyword_search": "(キーワード検索)",
-    "category_search": "(カテゴリ検索)",
-    "my_list": "(マイリスト)",
-    "scan": "スキャン",
-    "recently_seen_products": "最近見た製品",
-    "unknown_product_list": "不明な製品リスト：",
     "not_found": "見つかりません:",
-    "no_product": "製品なし",
-    "one_product": "1 製品",
-    "x_products": "製品",
-    "scan_contribute": "貢献",
-    "@scan_contribute": {
-        "description": "Switch on top of the Scanner to choose between to scan or add products"
+    "searchPanelHeader": "Search or scan your first product",
+    "@Product query status": {},
+    "refreshing_product": "製品を更新中",
+    "@refreshing_product": {
+        "description": "Confirmation, that the product data of a cached product is queried again"
     },
-    "scan_choose": "選択",
-    "@scan_choose": {
-        "description": "Switch on top of the Scanner to choose between to scan or add products"
+    "product_refreshed": "製品更新",
+    "@product_refreshed": {
+        "description": "Confirmation, that the product data refresh is done"
     },
-    "reloaded_with_new_preferences": "設定を再読み込みしました",
+    "could_not_refresh": "製品を更新できませんでした",
+    "@could_not_refresh": {
+        "description": "The product data couldn't be refreshed"
+    },
+    "product_internet_cancel": "Canceled by user.",
+    "@product_internet_cancel": {
+        "description": "Confirmation, that the product data got canceled by the user"
+    },
+    "product_internet_error": "Impossible to fetch information about this product due to a network error.",
+    "cached_results_from": "Cached results from:",
+    "@cached_results_from": {
+        "description": "Cached results from: x time ago (time ago should not be added to the string)"
+    },
+    "@Product Addition": {},
+    "added_product_thanks": "この製品を追加していただきありがとうございます！",
+    "@added_product_thanks": {},
+    "product_improvement_add_category": "Add a category to compute the Nutri-Score.",
+    "@product_improvement_add_category": {
+        "description": "Message for ProductImprovement.ADD_CATEGORY"
+    },
+    "product_improvement_add_nutrition_facts": "Add nutrition facts to compute the Nutri-Score.",
+    "@product_improvement_add_nutrition_facts": {
+        "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
+    },
+    "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to compute the Nutri-Score.",
+    "@product_improvement_add_nutrition_facts_and_category": {
+        "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
+    },
+    "product_improvement_categories_but_no_nutriscore": "We could not compute an Nutri-Score for this product. It might be that the category is an exception. If you believe this is an error, contact us.",
+    "@product_improvement_categories_but_no_nutriscore": {
+        "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
+    },
+    "product_improvement_obsolete_nutrition_image": "The nutrition image is obsolete: please refresh it.",
+    "@product_improvement_obsolete_nutrition_image": {
+        "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
+    },
+    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take them into a photo (ingredient list and/or any geographic claim or edit the product so that they can be taken into account. If it is not clear, you can contact the food producer.",
+    "@product_improvement_origins_to_be_completed": {
+        "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
+    },
+    "@Lists": {},
+    "no_prodcut_in_list": "このリストには製品がありません",
     "no_product_in_section": "このリストには製品がありません",
-    "what_are_you_looking_for": "何をお探しですか？",
-    "chached_results_from": "キャッシュされた結果:",
-    "plural_ago_minutes": "{count,plural, =0{1分未満} =1{1分前} other{{count} 分前}}",
-    "@plural_ago_minutes": {
-        "description": "Cached results from: x minutes ago",
+    "recently_seen_products": "最近見た製品",
+    "clear": "クリア",
+    "@clear": {
+        "description": "Clears a product list"
+    },
+    "really_clear": "Do you really want to clear this list?",
+    "@Plural": {},
+    "pct_match": "{pct}% match",
+    "@pct_match": {
+        "description": "This product has a x percent match with your preferences",
+        "placeholders": {
+            "pct": {}
+        }
+    },
+    "plural_ago_days": "{count,plural, =1{1 日前} other{{count} 日前}}",
+    "@plural_ago_days": {
+        "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
@@ -278,9 +287,16 @@
             "count": {}
         }
     },
-    "plural_ago_days": "{count,plural, =1{1 日前} other{{count} 日前}}",
-    "@plural_ago_days": {
-        "description": "Cached results from: x days ago",
+    "plural_ago_minutes": "{count,plural, =0{1分未満} =1{1分前} other{{count} 分前}}",
+    "@plural_ago_minutes": {
+        "description": "Cached results from: x minutes ago",
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "plural_ago_months": "{count,plural, =1{1 ヶ月前} other{{count} ヶ月前}}",
+    "@plural_ago_months": {
+        "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
@@ -292,9 +308,9 @@
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, =1{1 ヶ月前} other{{count} ヶ月前}}",
-    "@plural_ago_months": {
-        "description": "Cached results from: x months ago",
+    "plural_compare_x_products": "{count,plural, =other{Compare {count} Products}",
+    "@plural_compare_x_products": {
+        "description": "Button label",
         "placeholders": {
             "count": {}
         }

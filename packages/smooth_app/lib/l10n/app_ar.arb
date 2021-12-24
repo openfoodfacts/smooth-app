@@ -1,272 +1,281 @@
 {
-    "searchTitle": "بحث.\nاعثر على المنتج المثالي",
-    "@searchTitle": {
-        "description": "Temporary title for the app main page"
-    },
-    "search": "بحث",
-    "@search": {},
-    "searchPanelHeader": "ابحث عن أول منتج لك، أو اعمل مسح ضوئي للكود. ",
-    "@searchPanelHeader": {},
-    "searchHintText": "أدخل الرقم التسلسلي/الباركود أو الكلمات الدلالية",
-    "@searchHintText": {},
-    "categories": "الفئات",
-    "@categories": {},
-    "category": "Category",
-    "@category": {},
-    "showAll": "عرض الكل",
-    "@showAll": {},
-    "scanProductTitle": "فحص المنتجات",
-    "@scanProductTitle": {},
-    "organizationPage": "صفحة المنظمة",
-    "@organizationPage": {},
-    "contributionPage": "صفحة المساهمة",
-    "@contributionPage": {},
-    "trackingPage": "صفحة التغقب",
-    "@trackingPage": {},
-    "preferencesText": "خياراتي",
-    "@preferencesText": {},
-    "saveButtonText": "حفظ",
-    "@saveButtonText": {},
-    "applyButtonText": "طبق",
-    "@applyButtonText": {},
-    "myPersonalizedRanking": "تصنيفي الشخصي",
-    "@myPersonalizedRanking": {
-        "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
-    },
-    "scannerProductsEmpty": "ستظهر هنا المنتجات التي تمسحها ضوئيًا هنا",
-    "@scannerProductsEmpty": {},
-    "myPreferences": "خياراتي",
-    "@myPreferences": {},
-    "featureInProgress": "لا زلنا نعمل على هذه الميزة. ترقبوا",
-    "@featureInProgress": {},
-    "configurePreferences": "ضبط خياراتي",
-    "@configurePreferences": {},
-    "confirmResetPreferences": "إعادة تعيين تفضيلات التطبيق؟",
-    "@confirmResetPreferences": {},
+    "@Utils": {},
     "yes": "نعم",
     "@yes": {},
-    "no": "كلا",
-    "@no": {},
+    "add": "إضافة",
+    "@add": {},
     "okay": "حسناً",
     "@okay": {},
-    "undo": "تراجع",
-    "@undo": {},
+    "applyButtonText": "طبق",
+    "@applyButtonText": {},
     "cancel": "إلغاء",
     "@cancel": {},
-    "stop": "توقّف",
-    "@stop": {},
     "close": "إغلق",
     "@close": {},
-    "empty": "فارغ!",
-    "@empty": {
-        "description": "Example: A preview of your search history, if you haven't searched for anything yet, it will show 'Empty!"
-    },
-    "unknownBrand": "علامة تجارية مجهولة",
-    "@unknownBrand": {},
-    "unknownProductName": "إسم منتج غير معروف",
-    "@unknownProductName": {},
-    "nutrition": "التغذية",
-    "@nutrition": {},
-    "ingredients": "مكونات",
-    "@ingredients": {},
-    "ecology": "الإيكولوجيا/ البيئة",
-    "@ecology": {},
-    "about": "عن هذا التطبيق",
-    "@about": {},
-    "licenses": "Licences",
-    "@licenses": {},
-    "whatIsOff": "Open Food Facts هو عبارة عن قاعدة بيانات عن منتجات غذائية من صنع الجميع, لجميع العالم. بإمكانك إستخدامه لإتخاذ خيارات غذاء أفضل. وبما إنه بيانات مفتوحة يمكن لأي شخص أن يعيد إستخدامه لأي هدف.",
-    "@whatIsOff": {},
+    "no": "كلا",
+    "@no": {},
+    "stop": "توقّف",
+    "@stop": {},
+    "reset": "إعادة تعيين",
+    "@reset": {},
+    "error": "حدث خطأ ما",
+    "@error": {},
+    "error_occurred": "حدث خطأ",
+    "@error_occurred": {},
+    "featureInProgress": "لا زلنا نعمل على هذه الميزة. ترقبوا",
+    "@featureInProgress": {},
+    "label_web": "View on the Web",
+    "@label_web": {},
     "learnMore": "لمعرفة المزيد",
     "@learnMore": {},
+    "incompatible": "Incompatible",
+    "licenses": "Licences",
+    "@licenses": {},
+    "looking_for": "البحث عن",
+    "@looking_for": {
+        "description": "Looking for: ${BARCODE}"
+    },
+    "@Introduction screen": {},
+    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
+    "@welcomeToOpenFoodFacts": {},
+    "whatIsOff": "Open Food Facts هو عبارة عن قاعدة بيانات عن منتجات غذائية من صنع الجميع, لجميع العالم. بإمكانك إستخدامه لإتخاذ خيارات غذاء أفضل. وبما إنه بيانات مفتوحة يمكن لأي شخص أن يعيد إستخدامه لأي هدف.",
+    "@whatIsOff": {},
+    "@user_management": {},
+    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
+    "incorrect_credentials": "Incorrect user name or password.",
+    "login": "الوضع الداكن",
+    "@login": {
+        "description": "Text field hint: unified name for "
+    },
+    "sign_in": "تسجيل الدخول",
+    "@sign_in": {
+        "description": "Button label: For sign in"
+    },
+    "password": "كلمة المرور",
+    "forgot_password": "Forgot password",
+    "@forgot_password": {
+        "description": "Button label: Opens a page where a password reset email can be requested"
+    },
+    "enter_some_text": "Please enter some text",
+    "@enter_some_text": {
+        "description": "Error when text field is empty"
+    },
+    "@Settings": {},
+    "settingsTitle": "الإعدادات",
+    "@settingsTitle": {
+        "description": "The title of the Settings page"
+    },
+    "darkmode": "الوضع الداكن",
+    "@darkmode": {
+        "description": "The name of the darkmode on off switch"
+    },
+    "contributors": "المساهمون",
+    "@contributors": {
+        "description": "Button label: Opens a pop up window where all contributors of this app are shown"
+    },
+    "support": "Support",
+    "@support": {
+        "description": "Button label: Opens a pop up window where all ways to get support are shown"
+    },
     "termsOfUse": "شروط الاستخدام",
     "@termsOfUse": {},
+    "about_this_app": "About this app",
+    "@about_this_app": {
+        "description": "Button label: Opens a popo up window which shows informations about this app"
+    },
+    "@About this app section": {},
     "contribute": "المساهمة",
-    "@contribute": {},
-    "contribute_improve_header": "قيد التحسن",
-    "@contribute_improve_header": {},
-    "contribute_improve_text": "قاعدة البيانات هي جوهر المشروع. انها سهلة وسريعة جدا للمساعدة. بإمكانك تحميل تطبيق على هاتفك والبدء بإضافة أو تعزيز المنتجات.\n\nمن ناحية أُخرى, موقع Open Food Facts يقدم عدة طرق للمساهمة: ",
-    "@contribute_improve_text": {},
-    "contribute_improve_ProductsToBeCompleted": "مُنتجات مراد إكمالها",
-    "@contribute_improve_ProductsToBeCompleted": {},
-    "contribute_develop": "تطوير",
-    "@contribute_develop": {},
+    "@contribute": {
+        "description": "Button label: Shows multiple ways how users can contribute to OFF"
+    },
+    "contribute_sw_development": "Software development",
+    "@contribute_sw_development": {
+        "description": "Button label + page title: Ways to help"
+    },
     "contribute_develop_text": "رمز كل منتج في Open Food Facts موجود على GitHub. نرحب بإعادة استخدام الكود (وهو مفتوح المصدر) ومساعدتنا على تعزيزه للجميع ، في جميع أنحاء الكوكب.",
     "@contribute_develop_text": {},
     "contribute_develop_text_2": "يمكنك الانضمام إلى غرفة الدردشة Open Food Facts Slack وهي الطريقة المفضلة لطرح الأسئلة.",
     "@contribute_develop_text_2": {},
+    "contribute_donate_header": "تبرع ل Open Food Facts",
+    "@contribute_donate_header": {},
+    "contribute_improve_ProductsToBeCompleted": "مُنتجات مراد إكمالها",
+    "@contribute_improve_ProductsToBeCompleted": {
+        "description": "Button label: Shows a list of products which aren't completed"
+    },
+    "contribute_improve_header": "قيد التحسن",
+    "@contribute_improve_header": {
+        "description": "Button label + page title: Ways to improve the database"
+    },
+    "contribute_improve_text": "قاعدة البيانات هي جوهر المشروع. انها سهلة وسريعة جدا للمساعدة. بإمكانك تحميل تطبيق على هاتفك والبدء بإضافة أو تعزيز المنتجات.\n\nمن ناحية أُخرى, موقع Open Food Facts يقدم عدة طرق للمساهمة: ",
+    "@contribute_improve_text": {},
     "contribute_translate_header": "ترجم",
-    "@contribute_translate_header": {},
+    "@contribute_translate_header": {
+        "description": "Button label + pop up window title: Shows information about helping by translating"
+    },
+    "contribute_translate_link_text": "إبدأ بالترجمة",
+    "@contribute_translate_link_text": {
+        "description": "Button label: Opens the Crowdin translation portal"
+    },
     "contribute_translate_text": "Open Food Facts مشروع عالمي يحتوي على منتجات من أكثر من 160 دولة.\nتُترجم Open Food Facts إلى عشرات اللغات ، مع محتويات متطورة باستمرار.",
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "الترجمات هي إحدى المهام الرئيسية للمشروع",
     "@contribute_translate_text_2": {},
-    "contribute_translate_link_text": "إبدأ بالترجمة",
-    "@contribute_translate_link_text": {},
-    "contribute_donate_header": "تبرع ل Open Food Facts",
-    "@contribute_donate_header": {},
-    "support": "Support",
-    "@support": {},
-    "error": "حدث خطأ ما",
-    "@error": {},
-    "darkmode": "الوضع الداكن",
-    "@darkmode": {},
-    "settingsTitle": "الإعدادات",
-    "@settingsTitle": {},
-    "reset": "إعادة تعيين",
-    "@reset": {},
+    "@Personal preferences": {},
+    "myPreferences": "خياراتي",
+    "@myPreferences": {
+        "description": "Page title: Page where the ranking preferences can be changed"
+    },
+    "confirmResetPreferences": "إعادة تعيين تفضيلات التطبيق؟",
+    "@confirmResetPreferences": {
+        "description": "Pop up title: Reassuring if the food preferences should really be reset"
+    },
+    "myPersonalizedRanking": "تصنيفي الشخصي",
+    "@myPersonalizedRanking": {
+        "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
+    },
+    "reloaded_with_new_preferences": "تم التحميل مع تفضيلات جديدة",
+    "@reloaded_with_new_preferences": {
+        "description": "Snackbar title: Shows that the modified settings have been applied"
+    },
+    "@other": {},
+    "profile_navbar_label": "Profile",
+    "@profile_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+    },
+    "scan_navbar_label": "Profile",
+    "@scan_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+    },
+    "history_navbar_label": "Profile",
+    "@history_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+    },
+    "category": "Category",
+    "@category": {},
+    "category_search": "(بحث عن فئة)",
     "filter": "تصفية",
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "added_product_thanks": "شكرًا لَإضافة هذا المنتج!",
-    "@added_product_thanks": {},
-    "missing_product": "هذا المنتج مفقود",
-    "@missing_product": {},
-    "add": "إضافة",
-    "@add": {},
-    "nutri_score_unavailable": "Nutri-Score غير متوفر",
-    "@nutri_score_unavailable": {},
-    "missing_picture": "صورة مفقودة",
-    "@missing_picture": {},
-    "searching": "جاري البحث...",
-    "@searching": {},
-    "empty_list": "قائمة فارغة",
-    "@empty_list": {},
-    "nothing_set": "لم يتم تعيين أي شيء في الوقت الحالي",
-    "rename": "إعادة التسمية",
-    "@rename": {},
-    "delete": "حذف",
-    "@delete": {},
-    "change_icon": "تغيير الأيقونة",
-    "@change_icon": {},
-    "paste": "لصق",
-    "@paste": {},
-    "copy": "نسخ",
-    "@copy": {},
-    "clear": "مسح",
-    "@clear": {},
-    "grocery": "البقالة",
-    "@grocery": {},
-    "add_date": "أضف تاريخًا آخر",
-    "@add_date": {},
-    "no_date": "بلا تاريخ",
-    "@no_date": {},
-    "already_in_pantry": "موجود بالفعل في المخزن!",
-    "@already_in_pantry": {},
-    "added_to_pantry": "تمت الإضافة إلى المخزن!",
-    "@added_to_pantry": {},
-    "want_to_delete_pantry": "هل تريد حذف هذا المخزن؟",
-    "@want_to_delete_pantry": {},
-    "want_to_delete_shopping": "هل تريد حذف قائمة التسوق هذه؟",
-    "@want_to_delete_shopping": {},
-    "want_to_delete_list": "هل تريد حذف قائمة المنتجات هذه؟",
-    "@want_to_delete_list": {},
-    "new_pantry": "مخزن جديد",
-    "@new_pantry": {},
-    "new_shopping": "قائمة تسوق جديدة",
-    "@new_shopping": {},
-    "new_list": "قائمة جديدة",
-    "@new_list": {},
-    "rename_pantry": "إعادة تسمية المخزن",
-    "@rename_pantry": {},
-    "rename_shopping": "إعادة تسمية قائمة التسوق",
-    "@rename_shopping": {},
-    "rename_list": "إعادة تسمية القائمة",
-    "@rename_list": {},
-    "my_pantry_hint": "مخزني الخاص",
-    "@my_pantry_hint": {},
-    "my_shopping_hint": "قائمة تسوّقي",
-    "@my_shopping_hint": {},
-    "my_list_hint": "قائمتي المخصصة",
-    "@my_list_hint": {},
-    "enter_text": "الرجاء إدخال نص",
-    "@enter_text": {},
-    "pantry_name_taken": "يوجد بالفعل مخزن بهذا الاسم",
-    "@pantry_name_taken": {},
-    "shopping_name_taken": "توجد بالفعل قائمة تسوق بهذا الاسم",
-    "@shopping_name_taken": {},
-    "list_name_taken": "هناك بالفعل قائمة بهذا الاسم",
-    "@list_name_taken": {},
-    "already_same": "هذا نفس الاسم!",
-    "@already_same": {},
-    "my_pantrie_lists": "مخازِني",
-    "my_shopping_lists": "قائمة تسوّقي",
-    "my_lists": "قوائمي",
-    "food_categories": "فئات الطعام",
-    "search_history": "Search history",
-    "label_preferences": "التفضيلات",
-    "@label_preferences": {},
-    "label_lists": "القوائم",
-    "@label_lists": {},
-    "label_web": "موقع",
-    "@label_web": {},
+    "scan": "مسح",
+    "@scan": {
+        "description": "Page title: List type: Scanned products"
+    },
+    "search": "بحث",
+    "@search": {
+        "description": "Hint text of a search text input field"
+    },
+    "tab_for_more": "Tap to see more info...",
+    "@Product": {},
+    "product": "نتاج",
+    "@product": {},
+    "unknownBrand": "علامة تجارية مجهولة",
+    "@unknownBrand": {},
+    "unknownProductName": "إسم منتج غير معروف",
+    "@unknownProductName": {},
     "label_refresh": "تحديث",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
-    "label_share": "مشاركة",
-    "@label_share": {},
-    "product_refreshed": "تم تحديث المنتج",
-    "@product_refreshed": {},
-    "food_ranking_parameters": "مَعلمات تصنيف الطعام",
-    "product": "نتاج",
-    "@product": {},
-    "packaging_information": "معلومات التعبِئة",
-    "@packaging_information": {},
-    "more_photos": "صور أكثر إثارة للاهتمام",
-    "@more_photos": {},
     "front_photo": "الصورة الأمامية",
-    "@front_photo": {},
+    "@front_photo": {
+        "description": "Button label: For adding a picture of the front of a product"
+    },
+    "ingredients": "مكونات",
+    "@ingredients": {},
     "ingredients_photo": "صورة المكونات",
-    "@ingredients_photo": {},
+    "@ingredients_photo": {
+        "description": "Button label: For adding a picture of the Ingredients of a product"
+    },
+    "nutrition": "التغذية",
+    "@nutrition": {},
     "nutrition_facts_photo": "صورة حقائق التغذية",
-    "@nutrition_facts_photo": {},
+    "@nutrition_facts_photo": {
+        "description": "Button label: For adding a picture of the nutrition facts of a product"
+    },
+    "packaging_information": "معلومات التعبِئة",
+    "@packaging_information": {
+        "description": "Button label: For adding a picture of the packaging of a product"
+    },
     "packaging_information_photo": "صورة معلومات التعبِئة",
     "@packaging_information_photo": {},
-    "add_product": "إضافة منتج جديد",
-    "@add_product": {},
-    "similar_food": "أطعمة مماثلة",
-    "@similar_foods": {},
-    "refreshing_product": "تحديث المنتج",
-    "@refreshing_product": {},
-    "looking_for": "البحث عن",
-    "@looking_for": {},
-    "could_not_refresh": "تعذر تحديث المنتج",
-    "@could_not_refresh": {},
+    "missing_product": "هذا المنتج مفقود",
+    "@missing_product": {},
+    "more_photos": "صور أكثر إثارة للاهتمام",
+    "@more_photos": {},
     "no_product_found": "لم يتم العثور على أي منتج",
     "@no_product_found": {},
-    "products_pasted": "تم لصق المنتجات",
-    "@products_pasted": {},
-    "no_prodcut_in_list": "لا يوجد منتج في هذه القائمة",
-    "@no_product_in_list": {},
-    "error_occurred": "حدث خطأ",
-    "@error_occurred": {},
-    "keyword_search": "(بحث بكلمة مفتاحية)",
-    "category_search": "(بحث عن فئة)",
-    "my_list": "(قائمتي)",
-    "scan": "مسح",
-    "recently_seen_products": "المنتجات التي شاهدتها مؤخرًا",
-    "unknown_product_list": "قائمة المنتجات غير المعروفة:",
     "not_found": "لم يتم العثور على نتائج:",
-    "no_product": "لا يوجد منتج",
-    "one_product": "منتج",
-    "x_products": "المنتوجات",
-    "scan_contribute": "مساهمة",
-    "@scan_contribute": {
-        "description": "Switch on top of the Scanner to choose between to scan or add products"
+    "searchPanelHeader": "ابحث عن أول منتج لك، أو اعمل مسح ضوئي للكود. ",
+    "@Product query status": {},
+    "refreshing_product": "تحديث المنتج",
+    "@refreshing_product": {
+        "description": "Confirmation, that the product data of a cached product is queried again"
     },
-    "scan_choose": "اختيار",
-    "@scan_choose": {
-        "description": "Switch on top of the Scanner to choose between to scan or add products"
+    "product_refreshed": "تم تحديث المنتج",
+    "@product_refreshed": {
+        "description": "Confirmation, that the product data refresh is done"
     },
-    "reloaded_with_new_preferences": "تم التحميل مع تفضيلات جديدة",
+    "could_not_refresh": "تعذر تحديث المنتج",
+    "@could_not_refresh": {
+        "description": "The product data couldn't be refreshed"
+    },
+    "product_internet_cancel": "Canceled by user.",
+    "@product_internet_cancel": {
+        "description": "Confirmation, that the product data got canceled by the user"
+    },
+    "product_internet_error": "Impossible to fetch information about this product due to a network error.",
+    "cached_results_from": "Cached results from:",
+    "@cached_results_from": {
+        "description": "Cached results from: x time ago (time ago should not be added to the string)"
+    },
+    "@Product Addition": {},
+    "added_product_thanks": "شكرًا لَإضافة هذا المنتج!",
+    "@added_product_thanks": {},
+    "product_improvement_add_category": "Add a category to compute the Nutri-Score.",
+    "@product_improvement_add_category": {
+        "description": "Message for ProductImprovement.ADD_CATEGORY"
+    },
+    "product_improvement_add_nutrition_facts": "Add nutrition facts to compute the Nutri-Score.",
+    "@product_improvement_add_nutrition_facts": {
+        "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
+    },
+    "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to compute the Nutri-Score.",
+    "@product_improvement_add_nutrition_facts_and_category": {
+        "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
+    },
+    "product_improvement_categories_but_no_nutriscore": "We could not compute an Nutri-Score for this product. It might be that the category is an exception. If you believe this is an error, contact us.",
+    "@product_improvement_categories_but_no_nutriscore": {
+        "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
+    },
+    "product_improvement_obsolete_nutrition_image": "The nutrition image is obsolete: please refresh it.",
+    "@product_improvement_obsolete_nutrition_image": {
+        "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
+    },
+    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take them into a photo (ingredient list and/or any geographic claim or edit the product so that they can be taken into account. If it is not clear, you can contact the food producer.",
+    "@product_improvement_origins_to_be_completed": {
+        "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
+    },
+    "@Lists": {},
+    "no_prodcut_in_list": "لا يوجد منتج في هذه القائمة",
     "no_product_in_section": "لا يوجد منتج في هذا القسم",
-    "what_are_you_looking_for": "ما الذي تبحث عنه؟",
-    "chached_results_from": "نتائج المخزون من:",
-    "plural_ago_minutes": "{count,plural, =0{قبل أقل من دقيقة} =1{قبل دقيقة} other{{count} منذ دقائق}}",
-    "@plural_ago_minutes": {
-        "description": "Cached results from: x minutes ago",
+    "recently_seen_products": "المنتجات التي شاهدتها مؤخرًا",
+    "clear": "محو",
+    "@clear": {
+        "description": "Clears a product list"
+    },
+    "really_clear": "Do you really want to clear this list?",
+    "@Plural": {},
+    "pct_match": "{pct}% match",
+    "@pct_match": {
+        "description": "This product has a x percent match with your preferences",
+        "placeholders": {
+            "pct": {}
+        }
+    },
+    "plural_ago_days": "{count,plural, =1{قبل يوم} other{{count} قبل أيام}}",
+    "@plural_ago_days": {
+        "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
@@ -278,9 +287,16 @@
             "count": {}
         }
     },
-    "plural_ago_days": "{count,plural, =1{قبل يوم} other{{count} قبل أيام}}",
-    "@plural_ago_days": {
-        "description": "Cached results from: x days ago",
+    "plural_ago_minutes": "{count,plural, =0{قبل أقل من دقيقة} =1{قبل دقيقة} other{{count} منذ دقائق}}",
+    "@plural_ago_minutes": {
+        "description": "Cached results from: x minutes ago",
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "plural_ago_months": "{count,plural, =1{قبل شهر} other{{count} قبل أشهر}}",
+    "@plural_ago_months": {
+        "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
@@ -292,9 +308,9 @@
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, =1{قبل شهر} other{{count} قبل أشهر}}",
-    "@plural_ago_months": {
-        "description": "Cached results from: x months ago",
+    "plural_compare_x_products": "{count,plural, =other{Compare {count} Products}",
+    "@plural_compare_x_products": {
+        "description": "Button label",
         "placeholders": {
             "count": {}
         }

@@ -1,272 +1,281 @@
 {
-    "searchTitle": "Поиск.\nНайдите идеальный продукт",
-    "@searchTitle": {
-        "description": "Temporary title for the app main page"
-    },
-    "search": "Поиск",
-    "@search": {},
-    "searchPanelHeader": "Найдите или просканируйте свой первый продукт",
-    "@searchPanelHeader": {},
-    "searchHintText": "Введите штрих-код или ключевые слова",
-    "@searchHintText": {},
-    "categories": "Категории",
-    "@categories": {},
-    "category": "Категория",
-    "@category": {},
-    "showAll": "Показать все",
-    "@showAll": {},
-    "scanProductTitle": "Сканируйте продукты",
-    "@scanProductTitle": {},
-    "organizationPage": "Страница организации",
-    "@organizationPage": {},
-    "contributionPage": "Страница Вклада",
-    "@contributionPage": {},
-    "trackingPage": "Скорость отслеживания",
-    "@trackingPage": {},
-    "preferencesText": "Мои предпочтения",
-    "@preferencesText": {},
-    "saveButtonText": "Сохранить",
-    "@saveButtonText": {},
-    "applyButtonText": "Применить",
-    "@applyButtonText": {},
-    "myPersonalizedRanking": "Мой персональный рейтинг",
-    "@myPersonalizedRanking": {
-        "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
-    },
-    "scannerProductsEmpty": "Продукты, которые вы отсканируете, появятся здесь",
-    "@scannerProductsEmpty": {},
-    "myPreferences": "Мои настройки",
-    "@myPreferences": {},
-    "featureInProgress": "Мы все еще работаем над этой функцией, следите за обновлениями",
-    "@featureInProgress": {},
-    "configurePreferences": "Настроить мои предпочтения",
-    "@configurePreferences": {},
-    "confirmResetPreferences": "Сбросить настройки?",
-    "@confirmResetPreferences": {},
+    "@Utils": {},
     "yes": "Да",
     "@yes": {},
-    "no": "Нет",
-    "@no": {},
+    "add": "Добавить",
+    "@add": {},
     "okay": "Окей",
     "@okay": {},
-    "undo": "ОТМЕНИТЬ",
-    "@undo": {},
+    "applyButtonText": "Применить",
+    "@applyButtonText": {},
     "cancel": "Отмена",
     "@cancel": {},
-    "stop": "Стоп",
-    "@stop": {},
     "close": "Закрыть",
     "@close": {},
-    "empty": "Пусто!",
-    "@empty": {
-        "description": "Example: A preview of your search history, if you haven't searched for anything yet, it will show 'Empty!"
-    },
-    "unknownBrand": "Неизвестный бренд",
-    "@unknownBrand": {},
-    "unknownProductName": "Неизвестный продукт",
-    "@unknownProductName": {},
-    "nutrition": "Пищевая ценность",
-    "@nutrition": {},
-    "ingredients": "Состав",
-    "@ingredients": {},
-    "ecology": "Экология",
-    "@ecology": {},
-    "about": "О приложении",
-    "@about": {},
-    "licenses": "Лицензии",
-    "@licenses": {},
-    "whatIsOff": "Open Food Facts - это база данных о продуктах питания, созданная общими усилиями, для каждого. Вы можете пользоваться ей, чтобы сделать правильный выбор из многообразия еды, и, поскольку данные в открытом доступе, каждый может использовать их в любых целях.",
-    "@whatIsOff": {},
+    "no": "Нет",
+    "@no": {},
+    "stop": "Стоп",
+    "@stop": {},
+    "reset": "Сбросить",
+    "@reset": {},
+    "error": "Упс... что-то пошло не так",
+    "@error": {},
+    "error_occurred": "Произошла ошибка",
+    "@error_occurred": {},
+    "featureInProgress": "Мы все еще работаем над этой функцией, следите за обновлениями",
+    "@featureInProgress": {},
+    "label_web": "View on the Web",
+    "@label_web": {},
     "learnMore": "Докладніше",
     "@learnMore": {},
+    "incompatible": "Incompatible",
+    "licenses": "Лицензии",
+    "@licenses": {},
+    "looking_for": "Я ищу",
+    "@looking_for": {
+        "description": "Looking for: ${BARCODE}"
+    },
+    "@Introduction screen": {},
+    "welcomeToOpenFoodFacts": "Добро пожаловать в Open Food Facts",
+    "@welcomeToOpenFoodFacts": {},
+    "whatIsOff": "Open Food Facts - это база данных о продуктах питания, созданная общими усилиями, для каждого. Вы можете пользоваться ей, чтобы сделать правильный выбор из многообразия еды, и, поскольку данные в открытом доступе, каждый может использовать их в любых целях.",
+    "@whatIsOff": {},
+    "@user_management": {},
+    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
+    "incorrect_credentials": "Incorrect user name or password.",
+    "login": "Темная тема",
+    "@login": {
+        "description": "Text field hint: unified name for "
+    },
+    "sign_in": "Войти",
+    "@sign_in": {
+        "description": "Button label: For sign in"
+    },
+    "password": "Пароль",
+    "forgot_password": "Forgot password",
+    "@forgot_password": {
+        "description": "Button label: Opens a page where a password reset email can be requested"
+    },
+    "enter_some_text": "Please enter some text",
+    "@enter_some_text": {
+        "description": "Error when text field is empty"
+    },
+    "@Settings": {},
+    "settingsTitle": "Настройки",
+    "@settingsTitle": {
+        "description": "The title of the Settings page"
+    },
+    "darkmode": "Темная тема",
+    "@darkmode": {
+        "description": "The name of the darkmode on off switch"
+    },
+    "contributors": "Участники",
+    "@contributors": {
+        "description": "Button label: Opens a pop up window where all contributors of this app are shown"
+    },
+    "support": "Поддержка",
+    "@support": {
+        "description": "Button label: Opens a pop up window where all ways to get support are shown"
+    },
     "termsOfUse": "Условия использования",
     "@termsOfUse": {},
+    "about_this_app": "About this app",
+    "@about_this_app": {
+        "description": "Button label: Opens a popo up window which shows informations about this app"
+    },
+    "@About this app section": {},
     "contribute": "Способствовать",
-    "@contribute": {},
-    "contribute_improve_header": "Улучшение",
-    "@contribute_improve_header": {},
-    "contribute_improve_text": "База данных — это основа проекта. Помочь нетрудно и не займет много времени. Вы можете загрузить мобильное приложение на свой телефон и начать добавлять или улучшать продукты.\n\nВ то же время, сайт Open Food Facts предлагает множество способов внести свой вклад: ",
-    "@contribute_improve_text": {},
-    "contribute_improve_ProductsToBeCompleted": "Незавершенные продукты",
-    "@contribute_improve_ProductsToBeCompleted": {},
-    "contribute_develop": "Разработка",
-    "@contribute_develop": {},
+    "@contribute": {
+        "description": "Button label: Shows multiple ways how users can contribute to OFF"
+    },
+    "contribute_sw_development": "Software development",
+    "@contribute_sw_development": {
+        "description": "Button label + page title: Ways to help"
+    },
     "contribute_develop_text": "Код для каждого продукта Open Food Facts доступен на GitHub. Вы можете повторно использовать код (это открытый исходный код) и помочь нам улучшить его для всех людей на нашей планете.",
     "@contribute_develop_text": {},
     "contribute_develop_text_2": "Вы можете присоединиться к чату Open Food Facts Slack, здесь будет удобно задавать вопросы.",
     "@contribute_develop_text_2": {},
+    "contribute_donate_header": "Пожертвовать Open Food Facts",
+    "@contribute_donate_header": {},
+    "contribute_improve_ProductsToBeCompleted": "Незавершенные продукты",
+    "@contribute_improve_ProductsToBeCompleted": {
+        "description": "Button label: Shows a list of products which aren't completed"
+    },
+    "contribute_improve_header": "Улучшение",
+    "@contribute_improve_header": {
+        "description": "Button label + page title: Ways to improve the database"
+    },
+    "contribute_improve_text": "База данных — это основа проекта. Помочь нетрудно и не займет много времени. Вы можете загрузить мобильное приложение на свой телефон и начать добавлять или улучшать продукты.\n\nВ то же время, сайт Open Food Facts предлагает множество способов внести свой вклад: ",
+    "@contribute_improve_text": {},
     "contribute_translate_header": "Перевести",
-    "@contribute_translate_header": {},
+    "@contribute_translate_header": {
+        "description": "Button label + pop up window title: Shows information about helping by translating"
+    },
+    "contribute_translate_link_text": "Начать переводить",
+    "@contribute_translate_link_text": {
+        "description": "Button label: Opens the Crowdin translation portal"
+    },
     "contribute_translate_text": "Open Food Facts — это глобальный проект, содержащий информацию о продуктах из более чем 160 стран. Open Food Facts переведена на десятки языков, и продолжает постоянно изменяться.",
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Переводы — одна из ключевых задач проекта",
     "@contribute_translate_text_2": {},
-    "contribute_translate_link_text": "Начать переводить",
-    "@contribute_translate_link_text": {},
-    "contribute_donate_header": "Пожертвовать Open Food Facts",
-    "@contribute_donate_header": {},
-    "support": "Поддержка",
-    "@support": {},
-    "error": "Упс... что-то пошло не так",
-    "@error": {},
-    "darkmode": "Темная тема",
-    "@darkmode": {},
-    "settingsTitle": "Настройки",
-    "@settingsTitle": {},
-    "reset": "Сбросить",
-    "@reset": {},
+    "@Personal preferences": {},
+    "myPreferences": "Мои настройки",
+    "@myPreferences": {
+        "description": "Page title: Page where the ranking preferences can be changed"
+    },
+    "confirmResetPreferences": "Сбросить настройки?",
+    "@confirmResetPreferences": {
+        "description": "Pop up title: Reassuring if the food preferences should really be reset"
+    },
+    "myPersonalizedRanking": "Мой персональный рейтинг",
+    "@myPersonalizedRanking": {
+        "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
+    },
+    "reloaded_with_new_preferences": "Перезагружено с новыми настройками",
+    "@reloaded_with_new_preferences": {
+        "description": "Snackbar title: Shows that the modified settings have been applied"
+    },
+    "@other": {},
+    "profile_navbar_label": "Profile",
+    "@profile_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+    },
+    "scan_navbar_label": "Profile",
+    "@scan_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+    },
+    "history_navbar_label": "Profile",
+    "@history_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+    },
+    "category": "Категория",
+    "@category": {},
+    "category_search": "(поиск по категории)",
     "filter": "Фильтр",
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "added_product_thanks": "Спасибо Вам за добавление этого продукта!",
-    "@added_product_thanks": {},
-    "missing_product": "Продукт не найден",
-    "@missing_product": {},
-    "add": "Добавить",
-    "@add": {},
-    "nutri_score_unavailable": "Nutri-Score недоступен",
-    "@nutri_score_unavailable": {},
-    "missing_picture": "Изображение не найдено",
-    "@missing_picture": {},
-    "searching": "Поиск...",
-    "@searching": {},
-    "empty_list": "Список пуст",
-    "@empty_list": {},
-    "nothing_set": "Nothing set for the moment",
-    "rename": "Переименовать",
-    "@rename": {},
-    "delete": "Удалить",
-    "@delete": {},
-    "change_icon": "Сменить иконку",
-    "@change_icon": {},
-    "paste": "вставить",
-    "@paste": {},
-    "copy": "скопировать",
-    "@copy": {},
-    "clear": "очистить",
-    "@clear": {},
-    "grocery": "бакалея",
-    "@grocery": {},
-    "add_date": "Добавить еще одну дату",
-    "@add_date": {},
-    "no_date": "Нет даты",
-    "@no_date": {},
-    "already_in_pantry": "Already in the pantry!",
-    "@already_in_pantry": {},
-    "added_to_pantry": "Added to the pantry!",
-    "@added_to_pantry": {},
-    "want_to_delete_pantry": "Do you want to delete this pantry?",
-    "@want_to_delete_pantry": {},
-    "want_to_delete_shopping": "Вы точно хотите удалить этот список покупок?",
-    "@want_to_delete_shopping": {},
-    "want_to_delete_list": "Вы точно хотите удалить этот список продуктов?",
-    "@want_to_delete_list": {},
-    "new_pantry": "Новая кладовая",
-    "@new_pantry": {},
-    "new_shopping": "Новый список покупок",
-    "@new_shopping": {},
-    "new_list": "Новый список",
-    "@new_list": {},
-    "rename_pantry": "Переименовать кладовую",
-    "@rename_pantry": {},
-    "rename_shopping": "Переименовать список покупок",
-    "@rename_shopping": {},
-    "rename_list": "Переименовать список",
-    "@rename_list": {},
-    "my_pantry_hint": "Моя кладовая",
-    "@my_pantry_hint": {},
-    "my_shopping_hint": "Мой список покупок",
-    "@my_shopping_hint": {},
-    "my_list_hint": "Мой индивидуальный список",
-    "@my_list_hint": {},
-    "enter_text": "Пожалуйста, введите текст",
-    "@enter_text": {},
-    "pantry_name_taken": "Кладовая с таким названием уже существует",
-    "@pantry_name_taken": {},
-    "shopping_name_taken": "Список покупок с таким названием уже существует",
-    "@shopping_name_taken": {},
-    "list_name_taken": "Список с таким названием уже существует",
-    "@list_name_taken": {},
-    "already_same": "Это то же самое название!",
-    "@already_same": {},
-    "my_pantrie_lists": "Мои кладовые",
-    "my_shopping_lists": "Мои списки покупок",
-    "my_lists": "Мои списки",
-    "food_categories": "Категории еды",
-    "search_history": "История поиска",
-    "label_preferences": "настройки",
-    "@label_preferences": {},
-    "label_lists": "списки",
-    "@label_lists": {},
-    "label_web": "Web",
-    "@label_web": {},
+    "scan": "Сканировать",
+    "@scan": {
+        "description": "Page title: List type: Scanned products"
+    },
+    "search": "Поиск",
+    "@search": {
+        "description": "Hint text of a search text input field"
+    },
+    "tab_for_more": "Tap to see more info...",
+    "@Product": {},
+    "product": "Продукт",
+    "@product": {},
+    "unknownBrand": "Неизвестный бренд",
+    "@unknownBrand": {},
+    "unknownProductName": "Неизвестный продукт",
+    "@unknownProductName": {},
     "label_refresh": "обновить",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
-    "label_share": "поделиться",
-    "@label_share": {},
-    "product_refreshed": "Продукт обновлен",
-    "@product_refreshed": {},
-    "food_ranking_parameters": "Параметры оценки еды",
-    "product": "Продукт",
-    "@product": {},
-    "packaging_information": "Информация об упаковке",
-    "@packaging_information": {},
-    "more_photos": "Больше интересных фото",
-    "@more_photos": {},
     "front_photo": "Фото спереди",
-    "@front_photo": {},
+    "@front_photo": {
+        "description": "Button label: For adding a picture of the front of a product"
+    },
+    "ingredients": "Состав",
+    "@ingredients": {},
     "ingredients_photo": "Фото состава",
-    "@ingredients_photo": {},
+    "@ingredients_photo": {
+        "description": "Button label: For adding a picture of the Ingredients of a product"
+    },
+    "nutrition": "Пищевая ценность",
+    "@nutrition": {},
     "nutrition_facts_photo": "Фото информации о пищевой ценности",
-    "@nutrition_facts_photo": {},
+    "@nutrition_facts_photo": {
+        "description": "Button label: For adding a picture of the nutrition facts of a product"
+    },
+    "packaging_information": "Информация об упаковке",
+    "@packaging_information": {
+        "description": "Button label: For adding a picture of the packaging of a product"
+    },
     "packaging_information_photo": "Фото информации об упаковке",
     "@packaging_information_photo": {},
-    "add_product": "Добавить новый продукт",
-    "@add_product": {},
-    "similar_food": "Похожая еда",
-    "@similar_foods": {},
-    "refreshing_product": "Обновление продукта",
-    "@refreshing_product": {},
-    "looking_for": "Я ищу",
-    "@looking_for": {},
-    "could_not_refresh": "Не удалось обновить продукт",
-    "@could_not_refresh": {},
+    "missing_product": "Продукт не найден",
+    "@missing_product": {},
+    "more_photos": "Больше интересных фото",
+    "@more_photos": {},
     "no_product_found": "Продукт не найден",
     "@no_product_found": {},
-    "products_pasted": "продукты вставлены",
-    "@products_pasted": {},
-    "no_prodcut_in_list": "В этом списке нет продуктов",
-    "@no_product_in_list": {},
-    "error_occurred": "Произошла ошибка",
-    "@error_occurred": {},
-    "keyword_search": "(поиск по ключевым словам)",
-    "category_search": "(поиск по категории)",
-    "my_list": "(мой список)",
-    "scan": "Сканировать",
-    "recently_seen_products": "Мои недавно просмотренные продукты",
-    "unknown_product_list": "Список неизвестных продуктов:",
     "not_found": "не найдено:",
-    "no_product": "нет продукта",
-    "one_product": "1 продукт",
-    "x_products": "продукты",
-    "scan_contribute": "ВНЕСТИ ВКЛАД",
-    "@scan_contribute": {
-        "description": "Switch on top of the Scanner to choose between to scan or add products"
+    "searchPanelHeader": "Найдите или просканируйте свой первый продукт",
+    "@Product query status": {},
+    "refreshing_product": "Обновление продукта",
+    "@refreshing_product": {
+        "description": "Confirmation, that the product data of a cached product is queried again"
     },
-    "scan_choose": "ВЫБЕРИТЕ",
-    "@scan_choose": {
-        "description": "Switch on top of the Scanner to choose between to scan or add products"
+    "product_refreshed": "Продукт обновлен",
+    "@product_refreshed": {
+        "description": "Confirmation, that the product data refresh is done"
     },
-    "reloaded_with_new_preferences": "Перезагружено с новыми настройками",
+    "could_not_refresh": "Не удалось обновить продукт",
+    "@could_not_refresh": {
+        "description": "The product data couldn't be refreshed"
+    },
+    "product_internet_cancel": "Canceled by user.",
+    "@product_internet_cancel": {
+        "description": "Confirmation, that the product data got canceled by the user"
+    },
+    "product_internet_error": "Impossible to fetch information about this product due to a network error.",
+    "cached_results_from": "Cached results from:",
+    "@cached_results_from": {
+        "description": "Cached results from: x time ago (time ago should not be added to the string)"
+    },
+    "@Product Addition": {},
+    "added_product_thanks": "Спасибо Вам за добавление этого продукта!",
+    "@added_product_thanks": {},
+    "product_improvement_add_category": "Add a category to compute the Nutri-Score.",
+    "@product_improvement_add_category": {
+        "description": "Message for ProductImprovement.ADD_CATEGORY"
+    },
+    "product_improvement_add_nutrition_facts": "Add nutrition facts to compute the Nutri-Score.",
+    "@product_improvement_add_nutrition_facts": {
+        "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
+    },
+    "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to compute the Nutri-Score.",
+    "@product_improvement_add_nutrition_facts_and_category": {
+        "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
+    },
+    "product_improvement_categories_but_no_nutriscore": "We could not compute an Nutri-Score for this product. It might be that the category is an exception. If you believe this is an error, contact us.",
+    "@product_improvement_categories_but_no_nutriscore": {
+        "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
+    },
+    "product_improvement_obsolete_nutrition_image": "The nutrition image is obsolete: please refresh it.",
+    "@product_improvement_obsolete_nutrition_image": {
+        "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
+    },
+    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take them into a photo (ingredient list and/or any geographic claim or edit the product so that they can be taken into account. If it is not clear, you can contact the food producer.",
+    "@product_improvement_origins_to_be_completed": {
+        "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
+    },
+    "@Lists": {},
+    "no_prodcut_in_list": "В этом списке нет продуктов",
     "no_product_in_section": "В этом разделе нет продуктов",
-    "what_are_you_looking_for": "Что вы ищете?",
-    "chached_results_from": "Сохранённые результаты:",
-    "plural_ago_minutes": "{count,plural, =0{меньше минуты назад} =1{одну минуту назад} other{{count} минут назад}}",
-    "@plural_ago_minutes": {
-        "description": "Cached results from: x minutes ago",
+    "recently_seen_products": "Мои недавно просмотренные продукты",
+    "clear": "Очистить",
+    "@clear": {
+        "description": "Clears a product list"
+    },
+    "really_clear": "Do you really want to clear this list?",
+    "@Plural": {},
+    "pct_match": "{pct}% match",
+    "@pct_match": {
+        "description": "This product has a x percent match with your preferences",
+        "placeholders": {
+            "pct": {}
+        }
+    },
+    "plural_ago_days": "{count,plural, =1{один день назад} other{{count} дней назад}}",
+    "@plural_ago_days": {
+        "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
@@ -278,9 +287,16 @@
             "count": {}
         }
     },
-    "plural_ago_days": "{count,plural, =1{один день назад} other{{count} дней назад}}",
-    "@plural_ago_days": {
-        "description": "Cached results from: x days ago",
+    "plural_ago_minutes": "{count,plural, =0{меньше минуты назад} =1{одну минуту назад} other{{count} минут назад}}",
+    "@plural_ago_minutes": {
+        "description": "Cached results from: x minutes ago",
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "plural_ago_months": "{count,plural, =1{один месяц назад} other{{count} месяцев назад}}",
+    "@plural_ago_months": {
+        "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
@@ -292,9 +308,9 @@
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, =1{один месяц назад} other{{count} месяцев назад}}",
-    "@plural_ago_months": {
-        "description": "Cached results from: x months ago",
+    "plural_compare_x_products": "{count,plural, =other{Compare {count} Products}",
+    "@plural_compare_x_products": {
+        "description": "Button label",
         "placeholders": {
             "count": {}
         }

@@ -1,300 +1,316 @@
 {
-    "searchTitle": "Search.\nFind the perfect product",
-    "@searchTitle": {
-        "description": "Temporary title for the app main page"
-    },
-    "search": "Търсене",
-    "@search": {},
-    "searchPanelHeader": "Потърси или сканирай първия си продукт",
-    "@searchPanelHeader": {},
-    "searchHintText": "Enter a barcode or keywords",
-    "@searchHintText": {},
-    "categories": "Категории",
-    "@categories": {},
-    "category": "Категория",
-    "@category": {},
-    "showAll": "Show all",
-    "@showAll": {},
-    "scanProductTitle": "Scan products",
-    "@scanProductTitle": {},
-    "organizationPage": "Organization Page",
-    "@organizationPage": {},
-    "contributionPage": "Contribution Page",
-    "@contributionPage": {},
-    "trackingPage": "Tracking Page",
-    "@trackingPage": {},
-    "preferencesText": "My Preferences",
-    "@preferencesText": {},
-    "saveButtonText": "Запис",
-    "@saveButtonText": {},
-    "applyButtonText": "Apply",
+    "@Utils": {},
+    "yes": "Да",
+    "@yes": {},
+    "add": "Добави",
+    "@add": {},
+    "okay": "Добре",
+    "@okay": {},
+    "applyButtonText": "Потвърди",
     "@applyButtonText": {},
-    "myPersonalizedRanking": "My personalized ranking",
+    "cancel": "Отмени",
+    "@cancel": {},
+    "close": "Затвори",
+    "@close": {},
+    "no": "Не",
+    "@no": {},
+    "stop": "Спри",
+    "@stop": {},
+    "reset": "Нулиране",
+    "@reset": {},
+    "error": "Нещо се обърка",
+    "@error": {},
+    "error_occurred": "Възникна грешка",
+    "@error_occurred": {},
+    "featureInProgress": "Все още работим по тази функция, следвай ни",
+    "@featureInProgress": {},
+    "label_web": "Преглед в интернет",
+    "@label_web": {},
+    "learnMore": "Научи повече",
+    "@learnMore": {},
+    "incompatible": "Несъвместимо",
+    "licenses": "Licences",
+    "@licenses": {},
+    "looking_for": "Какво търсиш",
+    "@looking_for": {
+        "description": "Looking for: ${BARCODE}"
+    },
+    "@Introduction screen": {},
+    "welcomeToOpenFoodFacts": "Добре дошъл в Open Food Facts",
+    "@welcomeToOpenFoodFacts": {},
+    "whatIsOff": "Open Food Facts е база данни с хранителни продукти, направена от всеки, за всеки. Можеш да го използваш, за да правиш по-добър избор на храна и тъй като е с отворени данни, всеки може да го използва за всякакви цели.",
+    "@whatIsOff": {},
+    "@user_management": {},
+    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
+    "incorrect_credentials": "Incorrect user name or password.",
+    "login": "Тъмен режим",
+    "@login": {
+        "description": "Text field hint: unified name for "
+    },
+    "sign_in": "Вход",
+    "@sign_in": {
+        "description": "Button label: For sign in"
+    },
+    "password": "Парола",
+    "forgot_password": "Forgot password",
+    "@forgot_password": {
+        "description": "Button label: Opens a page where a password reset email can be requested"
+    },
+    "enter_some_text": "Please enter some text",
+    "@enter_some_text": {
+        "description": "Error when text field is empty"
+    },
+    "@Settings": {},
+    "settingsTitle": "Настройки",
+    "@settingsTitle": {
+        "description": "The title of the Settings page"
+    },
+    "darkmode": "Тъмен режим",
+    "@darkmode": {
+        "description": "The name of the darkmode on off switch"
+    },
+    "contributors": "Contributors",
+    "@contributors": {
+        "description": "Button label: Opens a pop up window where all contributors of this app are shown"
+    },
+    "support": "Поддръжка",
+    "@support": {
+        "description": "Button label: Opens a pop up window where all ways to get support are shown"
+    },
+    "termsOfUse": "Terms of use",
+    "@termsOfUse": {},
+    "about_this_app": "About this app",
+    "@about_this_app": {
+        "description": "Button label: Opens a popo up window which shows informations about this app"
+    },
+    "@About this app section": {},
+    "contribute": "Contribute",
+    "@contribute": {
+        "description": "Button label: Shows multiple ways how users can contribute to OFF"
+    },
+    "contribute_sw_development": "Software development",
+    "@contribute_sw_development": {
+        "description": "Button label + page title: Ways to help"
+    },
+    "contribute_develop_text": "Кодът за всяка версия на Open Food Facts е достъпен в GitHub. Можеш да използваш повторно кода (той е с отворен код) и да ни помогнеш да го подобрим за всички, на цялата планета.",
+    "@contribute_develop_text": {},
+    "contribute_develop_text_2": "Можеш да се присъединиш към чата Open Food Facts в Slack, където е най-удобно да задаваш въпроси.",
+    "@contribute_develop_text_2": {},
+    "contribute_donate_header": "Дари на Open Food Facts",
+    "@contribute_donate_header": {},
+    "contribute_improve_ProductsToBeCompleted": "Продукти, които трябва да бъдат завършени",
+    "@contribute_improve_ProductsToBeCompleted": {
+        "description": "Button label: Shows a list of products which aren't completed"
+    },
+    "contribute_improve_header": "Подобряване",
+    "@contribute_improve_header": {
+        "description": "Button label + page title: Ways to improve the database"
+    },
+    "contribute_improve_text": "Базата данни е ядрото на проекта. Лесно и много бързо се помага. Можеш да изтеглиш мобилното приложение на телефона ти и да започнеш да добавяш или подобряваш продукти.\n\nОт друга страна, уебсайтът Open Food Facts предлага много начини за принос: ",
+    "@contribute_improve_text": {},
+    "contribute_translate_header": "Превеждане",
+    "@contribute_translate_header": {
+        "description": "Button label + pop up window title: Shows information about helping by translating"
+    },
+    "contribute_translate_link_text": "Започни превода",
+    "@contribute_translate_link_text": {
+        "description": "Button label: Opens the Crowdin translation portal"
+    },
+    "contribute_translate_text": "Open Food Facts е глобален проект, съдържащ продукти от повече от 160 страни. Open Food Facts е преведен на десетки езици, с постоянно развиващо се съдържание.",
+    "@contribute_translate_text": {},
+    "contribute_translate_text_2": "Преводите са една от ключовите задачи на проекта",
+    "@contribute_translate_text_2": {},
+    "@Personal preferences": {},
+    "myPreferences": "Моите настройки",
+    "@myPreferences": {
+        "description": "Page title: Page where the ranking preferences can be changed"
+    },
+    "confirmResetPreferences": "Нулиране на предпочитанията?",
+    "@confirmResetPreferences": {
+        "description": "Pop up title: Reassuring if the food preferences should really be reset"
+    },
+    "myPersonalizedRanking": "Моето класиране",
     "@myPersonalizedRanking": {
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
-    "scannerProductsEmpty": "Products you scan will appear here",
-    "@scannerProductsEmpty": {},
-    "myPreferences": "Моите настройки",
-    "@myPreferences": {},
-    "featureInProgress": "We're still working on this feature, stay tuned",
-    "@featureInProgress": {},
-    "configurePreferences": "Configure my preferences",
-    "@configurePreferences": {},
-    "confirmResetPreferences": "Reset your preferences?",
-    "@confirmResetPreferences": {},
-    "yes": "Да",
-    "@yes": {},
-    "no": "Не",
-    "@no": {},
-    "okay": "Okay",
-    "@okay": {},
-    "undo": "UNDO",
-    "@undo": {},
-    "cancel": "Отмени",
-    "@cancel": {},
-    "stop": "Stop",
-    "@stop": {},
-    "close": "Затвори",
-    "@close": {},
-    "empty": "Empty!",
-    "@empty": {
-        "description": "Example: A preview of your search history, if you haven't searched for anything yet, it will show 'Empty!"
+    "reloaded_with_new_preferences": "Презаредено с нови предпочитания",
+    "@reloaded_with_new_preferences": {
+        "description": "Snackbar title: Shows that the modified settings have been applied"
     },
-    "unknownBrand": "Unknown brand",
-    "@unknownBrand": {},
-    "unknownProductName": "Unknown product name",
-    "@unknownProductName": {},
-    "nutrition": "Хранене",
-    "@nutrition": {},
-    "ingredients": "Съставки",
-    "@ingredients": {},
-    "ecology": "Ecology",
-    "@ecology": {},
-    "about": "About this app",
-    "@about": {},
-    "licenses": "Licences",
-    "@licenses": {},
-    "whatIsOff": "Open Food Facts is a database of food products, made by everyone, for everyone. You can use it to make better food choices, and as it is open data, anyone can re-use it for any purpose.",
-    "@whatIsOff": {},
-    "learnMore": "Learn more",
-    "@learnMore": {},
-    "termsOfUse": "Terms of use",
-    "@termsOfUse": {},
-    "contribute": "Contribute",
-    "@contribute": {},
-    "contribute_improve_header": "Improving",
-    "@contribute_improve_header": {},
-    "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ",
-    "@contribute_improve_text": {},
-    "contribute_improve_ProductsToBeCompleted": "Продукти, които трябва да бъдат завършени",
-    "@contribute_improve_ProductsToBeCompleted": {},
-    "contribute_develop": "Develop",
-    "@contribute_develop": {},
-    "contribute_develop_text": "The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.",
-    "@contribute_develop_text": {},
-    "contribute_develop_text_2": "You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.",
-    "@contribute_develop_text_2": {},
-    "contribute_translate_header": "Translate",
-    "@contribute_translate_header": {},
-    "contribute_translate_text": "Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.",
-    "@contribute_translate_text": {},
-    "contribute_translate_text_2": "Translations is one of the key tasks of the project",
-    "@contribute_translate_text_2": {},
-    "contribute_translate_link_text": "Start Translating",
-    "@contribute_translate_link_text": {},
-    "contribute_donate_header": "Дарете за Open Food Facts",
-    "@contribute_donate_header": {},
-    "support": "Support",
-    "@support": {},
-    "error": "Something went wrong",
-    "@error": {},
-    "darkmode": "Darkmode",
-    "@darkmode": {},
-    "settingsTitle": "Настройки",
-    "@settingsTitle": {},
-    "reset": "Reset",
-    "@reset": {},
-    "filter": "Filter",
+    "@other": {},
+    "profile_navbar_label": "Profile",
+    "@profile_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+    },
+    "scan_navbar_label": "Profile",
+    "@scan_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+    },
+    "history_navbar_label": "Profile",
+    "@history_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+    },
+    "category": "Категория",
+    "@category": {},
+    "category_search": "(търсене по категории)",
+    "filter": "Филтър",
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "added_product_thanks": "Thank you for adding this product!",
-    "@added_product_thanks": {},
-    "missing_product": "This product is missing",
-    "@missing_product": {},
-    "add": "Добави",
-    "@add": {},
-    "nutri_score_unavailable": "Nutri-Score unavailable",
-    "@nutri_score_unavailable": {},
-    "missing_picture": "Missing picture",
-    "@missing_picture": {},
-    "searching": "Searching...",
-    "@searching": {},
-    "empty_list": "Empty list",
-    "@empty_list": {},
-    "nothing_set": "Nothing set for the moment",
-    "rename": "Rename",
-    "@rename": {},
-    "delete": "Изтрий",
-    "@delete": {},
-    "change_icon": "Change icon",
-    "@change_icon": {},
-    "paste": "paste",
-    "@paste": {},
-    "copy": "copy",
-    "@copy": {},
-    "clear": "clear",
-    "@clear": {},
-    "grocery": "grocery",
-    "@grocery": {},
-    "add_date": "Add another date",
-    "@add_date": {},
-    "no_date": "No date",
-    "@no_date": {},
-    "already_in_pantry": "Already in the pantry!",
-    "@already_in_pantry": {},
-    "added_to_pantry": "Added to the pantry!",
-    "@added_to_pantry": {},
-    "want_to_delete_pantry": "Do you want to delete this pantry?",
-    "@want_to_delete_pantry": {},
-    "want_to_delete_shopping": "Do you want to delete this shopping list?",
-    "@want_to_delete_shopping": {},
-    "want_to_delete_list": "Do you want to delete this product list?",
-    "@want_to_delete_list": {},
-    "new_pantry": "New pantry",
-    "@new_pantry": {},
-    "new_shopping": "New shopping list",
-    "@new_shopping": {},
-    "new_list": "New list",
-    "@new_list": {},
-    "rename_pantry": "Rename pantry",
-    "@rename_pantry": {},
-    "rename_shopping": "Rename shopping list",
-    "@rename_shopping": {},
-    "rename_list": "Rename list",
-    "@rename_list": {},
-    "my_pantry_hint": "My own pantry",
-    "@my_pantry_hint": {},
-    "my_shopping_hint": "My shopping list",
-    "@my_shopping_hint": {},
-    "my_list_hint": "My custom list",
-    "@my_list_hint": {},
-    "enter_text": "Please enter some text",
-    "@enter_text": {},
-    "pantry_name_taken": "There's already a pantry with that name",
-    "@pantry_name_taken": {},
-    "shopping_name_taken": "There's already a shopping list with that name",
-    "@shopping_name_taken": {},
-    "list_name_taken": "There's already a list with that name",
-    "@list_name_taken": {},
-    "already_same": "That's the same name!",
-    "@already_same": {},
-    "my_pantrie_lists": "My pantries",
-    "my_shopping_lists": "My shopping lists",
-    "my_lists": "My lists",
-    "food_categories": "Food categories",
-    "search_history": "Search history",
-    "label_preferences": "preferences",
-    "@label_preferences": {},
-    "label_lists": "lists",
-    "@label_lists": {},
-    "label_web": "Web",
-    "@label_web": {},
-    "label_refresh": "refresh",
+    "scan": "Сканирай",
+    "@scan": {
+        "description": "Page title: List type: Scanned products"
+    },
+    "search": "Търсене",
+    "@search": {
+        "description": "Hint text of a search text input field"
+    },
+    "tab_for_more": "Tap to see more info...",
+    "@Product": {},
+    "product": "Продукт",
+    "@product": {},
+    "unknownBrand": "Неизвестна марка",
+    "@unknownBrand": {},
+    "unknownProductName": "Неразпознат продукт",
+    "@unknownProductName": {},
+    "label_refresh": "опресняване",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
-    "label_share": "share",
-    "@label_share": {},
-    "product_refreshed": "Product refreshed",
-    "@product_refreshed": {},
-    "food_ranking_parameters": "Food ranking parameters",
-    "product": "Продукт",
-    "@product": {},
-    "packaging_information": "Packaging information",
-    "@packaging_information": {},
-    "more_photos": "More interesting photos",
-    "@more_photos": {},
-    "front_photo": "Front photo",
-    "@front_photo": {},
-    "ingredients_photo": "Ingredients photo",
-    "@ingredients_photo": {},
-    "nutrition_facts_photo": "Nutrition facts photo",
-    "@nutrition_facts_photo": {},
-    "packaging_information_photo": "Packaging information photo",
+    "front_photo": "Предна снимка",
+    "@front_photo": {
+        "description": "Button label: For adding a picture of the front of a product"
+    },
+    "ingredients": "Съставки",
+    "@ingredients": {},
+    "ingredients_photo": "Снимка на съставките",
+    "@ingredients_photo": {
+        "description": "Button label: For adding a picture of the Ingredients of a product"
+    },
+    "nutrition": "Хранене",
+    "@nutrition": {},
+    "nutrition_facts_photo": "Снимка на хранителните стойности",
+    "@nutrition_facts_photo": {
+        "description": "Button label: For adding a picture of the nutrition facts of a product"
+    },
+    "packaging_information": "Информация на опаковката",
+    "@packaging_information": {
+        "description": "Button label: For adding a picture of the packaging of a product"
+    },
+    "packaging_information_photo": "Снимка с информация за опаковката",
     "@packaging_information_photo": {},
-    "add_product": "Добавете нов продукт",
-    "@add_product": {},
-    "similar_food": "Similar foods",
-    "@similar_foods": {},
-    "refreshing_product": "Refreshing product",
-    "@refreshing_product": {},
-    "looking_for": "Looking for",
-    "@looking_for": {},
-    "could_not_refresh": "Could not refresh product",
-    "@could_not_refresh": {},
-    "no_product_found": "No product found",
+    "missing_product": "Този продукт липсва",
+    "@missing_product": {},
+    "more_photos": "Още интересни снимки",
+    "@more_photos": {},
+    "no_product_found": "Няма намерен продукт",
     "@no_product_found": {},
-    "products_pasted": "products pasted",
-    "@products_pasted": {},
-    "no_prodcut_in_list": "There is no product in this list",
-    "@no_product_in_list": {},
-    "error_occurred": "An error occurred",
-    "@error_occurred": {},
-    "keyword_search": "(keyword search)",
-    "category_search": "(category search)",
-    "my_list": "(my list)",
-    "scan": "Сканирай",
-    "recently_seen_products": "My recently seen products",
-    "unknown_product_list": "Unknown product list:",
-    "not_found": "not found:",
-    "no_product": "no product",
-    "one_product": "1 продукт",
-    "x_products": "products",
-    "scan_contribute": "CONTRIBUTE",
-    "@scan_contribute": {
-        "description": "Switch on top of the Scanner to choose between to scan or add products"
+    "not_found": "не е намерено:",
+    "searchPanelHeader": "Потърси или сканирай първия си продукт",
+    "@Product query status": {},
+    "refreshing_product": "Актуализация на продукта",
+    "@refreshing_product": {
+        "description": "Confirmation, that the product data of a cached product is queried again"
     },
-    "scan_choose": "CHOOSE",
-    "@scan_choose": {
-        "description": "Switch on top of the Scanner to choose between to scan or add products"
+    "product_refreshed": "Продуктът е актуализиран",
+    "@product_refreshed": {
+        "description": "Confirmation, that the product data refresh is done"
     },
-    "reloaded_with_new_preferences": "Reloaded with new preferences",
-    "no_product_in_section": "There is no product in this section",
-    "what_are_you_looking_for": "What are you looking for?",
-    "chached_results_from": "Cached results from:",
-    "plural_ago_minutes": "{count,plural, =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
-    "@plural_ago_minutes": {
-        "description": "Cached results from: x minutes ago",
+    "could_not_refresh": "Продуктът не можа да се обнови",
+    "@could_not_refresh": {
+        "description": "The product data couldn't be refreshed"
+    },
+    "product_internet_cancel": "Отменено от потребител.",
+    "@product_internet_cancel": {
+        "description": "Confirmation, that the product data got canceled by the user"
+    },
+    "product_internet_error": "Невъзможно е да се извлече информация за този продукт поради грешка в мрежата.",
+    "cached_results_from": "Cached results from:",
+    "@cached_results_from": {
+        "description": "Cached results from: x time ago (time ago should not be added to the string)"
+    },
+    "@Product Addition": {},
+    "added_product_thanks": "Благодарим, че добави този продукт!",
+    "@added_product_thanks": {},
+    "product_improvement_add_category": "Добави категория, за да изчислиш Nutri-Score.",
+    "@product_improvement_add_category": {
+        "description": "Message for ProductImprovement.ADD_CATEGORY"
+    },
+    "product_improvement_add_nutrition_facts": "Добави хранителни стойности, за да изчислиш Nutri-Score.",
+    "@product_improvement_add_nutrition_facts": {
+        "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
+    },
+    "product_improvement_add_nutrition_facts_and_category": "Добави хранителни стойности и категория, за да изчислиш Nutri-Score.",
+    "@product_improvement_add_nutrition_facts_and_category": {
+        "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
+    },
+    "product_improvement_categories_but_no_nutriscore": "Не можахме да изчислим Nutri-Score за този продукт. Може да се окаже, че категорията е изключение. Ако смяташ, че това е грешка, се свържи с нас.",
+    "@product_improvement_categories_but_no_nutriscore": {
+        "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
+    },
+    "product_improvement_obsolete_nutrition_image": "Снимката за хранене е остаряла: моля, актуализирай го.",
+    "@product_improvement_obsolete_nutrition_image": {
+        "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
+    },
+    "product_improvement_origins_to_be_completed": "Eco-Score взема предвид произхода на съставките. Моля, направи снимка (списък на съставките и/или всякакви географски обозначения или редактирай продукта, така че да могат да бъдат взети под внимание. Ако не е ясно, можеш да се свържеш с производителя на храната.",
+    "@product_improvement_origins_to_be_completed": {
+        "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
+    },
+    "@Lists": {},
+    "no_prodcut_in_list": "Няма продукт в този списък",
+    "no_product_in_section": "Няма продукт в този раздел",
+    "recently_seen_products": "Наскоро видяни продукти",
+    "clear": "Изчисти",
+    "@clear": {
+        "description": "Clears a product list"
+    },
+    "really_clear": "Do you really want to clear this list?",
+    "@Plural": {},
+    "pct_match": "{pct}% съвпадение",
+    "@pct_match": {
+        "description": "This product has a x percent match with your preferences",
         "placeholders": {
-            "count": {}
+            "pct": {}
         }
     },
-    "plural_ago_hours": "{count,plural, =1{one hour ago} other{{count} hours ago}}",
-    "@plural_ago_hours": {
-        "description": "Cached results from: x hours ago",
-        "placeholders": {
-            "count": {}
-        }
-    },
-    "plural_ago_days": "{count,plural, =1{one day ago} other{{count} days ago}}",
+    "plural_ago_days": "{count,plural, one {} =1{преди един ден} other{{count} преди дни}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, =1{one week ago} other{{count} weeks ago}}",
+    "plural_ago_hours": "{count,plural, one {} =1{преди час} other{{count} преди часове}}",
+    "@plural_ago_hours": {
+        "description": "Cached results from: x hours ago",
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "plural_ago_minutes": "{count,plural, one {} =0{преди по-малко от минута} =1{преди една минута} other{{count} преди минути}}",
+    "@plural_ago_minutes": {
+        "description": "Cached results from: x minutes ago",
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "plural_ago_months": "{count,plural, one {} =1{преди един месец} other{{count} преди месеци}}",
+    "@plural_ago_months": {
+        "description": "Cached results from: x months ago",
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "plural_ago_weeks": "{count,plural, one {} =1{преди една седмица} other{{count} преди седмици}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, =1{one month ago} other{{count} months ago}}",
-    "@plural_ago_months": {
-        "description": "Cached results from: x months ago",
+    "plural_compare_x_products": "{count,plural, =other{Compare {count} Products}",
+    "@plural_compare_x_products": {
+        "description": "Button label",
         "placeholders": {
             "count": {}
         }

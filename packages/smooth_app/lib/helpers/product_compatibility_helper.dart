@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
@@ -15,6 +14,13 @@ enum ProductCompatibility {
   GOOD_COMPATIBILITY,
 }
 
+class ProductCompatibilityResult {
+  ProductCompatibilityResult(
+      this.averageAttributeMatch, this.productCompatibility);
+  final num averageAttributeMatch;
+  final ProductCompatibility productCompatibility;
+}
+
 const int _BAD_COMPATIBILITY_UPPER_THRESHOLD = 33;
 const int _NEUTRAL_COMPATIBILITY_UPPER_THRESHOLD = 66;
 
@@ -22,7 +28,7 @@ const int _NEUTRAL_COMPATIBILITY_UPPER_THRESHOLD = 66;
 // for the product. The weight depends upon it's importance set in user prefs.
 const Map<String, int> attributeImportanceWeight = <String, int>{
   PreferenceImportance.ID_MANDATORY: 4,
-  PreferenceImportance.ID_VERY_IMPORTANT: 2,
+  PreferenceImportance.ID_VERY_IMPORTANT: 1, // same as important from now on
   PreferenceImportance.ID_IMPORTANT: 1,
   PreferenceImportance.ID_NOT_IMPORTANT: 0,
 };
@@ -61,7 +67,7 @@ String getProductCompatibilityHeaderTextWidget(
   }
 }
 
-ProductCompatibility getProductCompatibility(
+ProductCompatibilityResult getProductCompatibility(
   ProductPreferences productPreferences,
   Product product,
 ) {
@@ -74,7 +80,7 @@ ProductCompatibility getProductCompatibility(
       // Check whether any mandatory attribute is incompatible
       if (importanceLevel == PreferenceImportance.ID_MANDATORY &&
           getAttributeEvaluation(attribute) == AttributeEvaluation.VERY_BAD) {
-        return ProductCompatibility.INCOMPATIBLE;
+        return ProductCompatibilityResult(0, ProductCompatibility.INCOMPATIBLE);
       }
       if (!attributeImportanceWeight.containsKey(importanceLevel)) {
         // Unknown attribute importance level. (This should ideally never happen).
@@ -89,12 +95,18 @@ ProductCompatibility getProductCompatibility(
       numAttributesComputed++;
     }
   }
+  if (numAttributesComputed == 0) {
+    return ProductCompatibilityResult(0, ProductCompatibility.INCOMPATIBLE);
+  }
   averageAttributeMatch /= numAttributesComputed;
   if (averageAttributeMatch < _BAD_COMPATIBILITY_UPPER_THRESHOLD) {
-    return ProductCompatibility.BAD_COMPATIBILITY;
+    return ProductCompatibilityResult(
+        averageAttributeMatch, ProductCompatibility.BAD_COMPATIBILITY);
   }
   if (averageAttributeMatch < _NEUTRAL_COMPATIBILITY_UPPER_THRESHOLD) {
-    return ProductCompatibility.NEUTRAL_COMPATIBILITY;
+    return ProductCompatibilityResult(
+        averageAttributeMatch, ProductCompatibility.NEUTRAL_COMPATIBILITY);
   }
-  return ProductCompatibility.GOOD_COMPATIBILITY;
+  return ProductCompatibilityResult(
+      averageAttributeMatch, ProductCompatibility.GOOD_COMPATIBILITY);
 }

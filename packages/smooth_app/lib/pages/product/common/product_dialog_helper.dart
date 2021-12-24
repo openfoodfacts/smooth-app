@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/database/barcode_product_query.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -23,42 +24,39 @@ class ProductDialogHelper {
   final bool refresh;
   bool _popEd = false;
 
-  Future<Product?> openBestChoice() async {
+  Future<FetchedProduct> openBestChoice() async {
     final Product? product = await DaoProduct(localDatabase).get(barcode);
     if (product != null) {
-      return product;
+      return FetchedProduct(product);
     }
     return openUniqueProductSearch();
   }
 
-  Future<Product?> openUniqueProductSearch() => showDialog<Product>(
-        context: context,
-        builder: (BuildContext context) {
-          BarcodeProductQuery(
-            barcode: barcode,
-            languageCode: ProductQuery.getCurrentLanguageCode(context),
-            countryCode: ProductQuery.getCurrentCountryCode(),
-            daoProduct: DaoProduct(localDatabase),
-          ).getProduct().then<void>(
-              (final Product? value) => _popSearchingDialog(value)
-              /* TODO(monsieurtanuki): better granularity - being able to say...
-             1. you clicked on 'stop'
-             2. no internet connection
-             3. no result at all
-             4. time out
-             5. of course, the product (when everything is fine)
-             */
-              );
-          return _getSearchingDialog();
-        },
-      );
+  Future<FetchedProduct> openUniqueProductSearch() async {
+    final FetchedProduct? result = await showDialog<FetchedProduct>(
+      context: context,
+      builder: (BuildContext context) {
+        BarcodeProductQuery(
+          barcode: barcode,
+          language: ProductQuery.getCurrentLanguage(context),
+          country: ProductQuery.getCurrentCountry(),
+          daoProduct: DaoProduct(localDatabase),
+        ).getFetchedProduct().then<void>(
+              (final FetchedProduct value) => _popSearchingDialog(value),
+            );
+        return _getSearchingDialog();
+      },
+    );
+    return result ?? FetchedProduct.error(FetchedProductStatus.userCancelled);
+  }
 
-  void _popSearchingDialog(final Product? product) {
+  void _popSearchingDialog(final FetchedProduct fetchedProduct) {
     if (_popEd) {
       return;
     }
     _popEd = true;
-    Navigator.pop(context, product);
+    // Here we use the root navigator so that we can pop dialog while using multiple navigators.
+    Navigator.of(context, rootNavigator: true).pop(fetchedProduct);
   }
 
   Widget _getSearchingDialog() => SmoothAlertDialog(
@@ -74,13 +72,14 @@ class ProductDialogHelper {
         actions: <SmoothSimpleButton>[
           SmoothSimpleButton(
             text: AppLocalizations.of(context)!.stop,
-            important: false,
-            onPressed: () => _popSearchingDialog(null),
+            onPressed: () => _popSearchingDialog(
+              FetchedProduct.error(FetchedProductStatus.userCancelled),
+            ),
           ),
         ],
       );
 
-  void openProductNotFoundDialog() => showDialog<Widget>(
+  void _openProductNotFoundDialog() => showDialog<Widget>(
         context: context,
         builder: (BuildContext context) {
           return SmoothAlertDialog(
@@ -93,12 +92,11 @@ class ProductDialogHelper {
             actions: <SmoothSimpleButton>[
               SmoothSimpleButton(
                 text: AppLocalizations.of(context)!.close,
-                important: false,
                 onPressed: () => Navigator.pop(context),
               ),
               SmoothSimpleButton(
                 text: AppLocalizations.of(context)!.contribute,
-                important: true,
+
                 onPressed: () => Navigator.pop(
                     context), // TODO(monsieurtanuki): to be implemented
               ),
@@ -106,4 +104,41 @@ class ProductDialogHelper {
           );
         },
       );
+
+  static Widget getErrorMessage(final String message) => ListTile(
+        leading: const Icon(Icons.error_outline, color: Colors.red),
+        title: Text(message),
+      );
+
+  void _openErrorMessage(final String message) => showDialog<void>(
+        context: context,
+        builder: (BuildContext context) => SmoothAlertDialog(
+          close: false,
+          body: getErrorMessage(message),
+          actions: <SmoothSimpleButton>[
+            SmoothSimpleButton(
+              text: AppLocalizations.of(context)!.close,
+              onPressed: () => Navigator.pop(context),
+            ),
+          ],
+        ),
+      );
+
+  /// Opens an error dialog; to be used only if the status is not ok.
+  void openError(final FetchedProduct fetchedProduct) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    switch (fetchedProduct.status) {
+      case FetchedProductStatus.ok:
+        throw Exception("You're not supposed to call this if the status is ok");
+      case FetchedProductStatus.userCancelled:
+        _openErrorMessage(appLocalizations.product_internet_cancel);
+        return;
+      case FetchedProductStatus.internetError:
+        _openErrorMessage(appLocalizations.product_internet_error);
+        return;
+      case FetchedProductStatus.internetNotFound:
+        _openProductNotFoundDialog();
+        return;
+    }
+  }
 }

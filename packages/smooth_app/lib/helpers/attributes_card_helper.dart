@@ -41,7 +41,8 @@ AttributeEvaluation getAttributeEvaluation(Attribute attribute) {
   // > 100: Unknown
   final int matchGrade = (attribute.match! / 20.0).ceil();
   switch (matchGrade) {
-    case 0 | 1:
+    case 0:
+    case 1:
       return AttributeEvaluation.VERY_BAD;
     case 2:
       return AttributeEvaluation.BAD;

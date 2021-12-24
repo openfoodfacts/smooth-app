@@ -1,272 +1,281 @@
 {
-    "searchTitle": "Zoeken.\nVind het perfecte product",
-    "@searchTitle": {
-        "description": "Temporary title for the app main page"
-    },
-    "search": "Zoeken",
-    "@search": {},
-    "searchPanelHeader": "Search or scan your first product",
-    "@searchPanelHeader": {},
-    "searchHintText": "Voer een streepjescode of trefwoorden in",
-    "@searchHintText": {},
-    "categories": "Categorieën",
-    "@categories": {},
-    "category": "Categorie",
-    "@category": {},
-    "showAll": "Alle tonen",
-    "@showAll": {},
-    "scanProductTitle": "Scan producten",
-    "@scanProductTitle": {},
-    "organizationPage": "Organisatiepagina",
-    "@organizationPage": {},
-    "contributionPage": "Bijdrage pagina",
-    "@contributionPage": {},
-    "trackingPage": "Tracking Page",
-    "@trackingPage": {},
-    "preferencesText": "Mijn instellingen",
-    "@preferencesText": {},
-    "saveButtonText": "Bewaar",
-    "@saveButtonText": {},
-    "applyButtonText": "Toepassen",
-    "@applyButtonText": {},
-    "myPersonalizedRanking": "Mijn persoonlijke ranglijst",
-    "@myPersonalizedRanking": {
-        "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
-    },
-    "scannerProductsEmpty": "Producten die je scant, verschijnen hier",
-    "@scannerProductsEmpty": {},
-    "myPreferences": "Mijn voorkeuren",
-    "@myPreferences": {},
-    "featureInProgress": "We werken nog aan deze functie, wacht af",
-    "@featureInProgress": {},
-    "configurePreferences": "Verander mijn instellingen",
-    "@configurePreferences": {},
-    "confirmResetPreferences": "Reset your preferences?",
-    "@confirmResetPreferences": {},
+    "@Utils": {},
     "yes": "Ja",
     "@yes": {},
-    "no": "Nee",
-    "@no": {},
+    "add": "Toevoegen",
+    "@add": {},
     "okay": "Oké",
     "@okay": {},
-    "undo": "ONGED. MKN",
-    "@undo": {},
+    "applyButtonText": "Toepassen",
+    "@applyButtonText": {},
     "cancel": "Annuleer",
     "@cancel": {},
-    "stop": "Stop",
-    "@stop": {},
     "close": "Sluit",
     "@close": {},
-    "empty": "Verwijder!",
-    "@empty": {
-        "description": "Example: A preview of your search history, if you haven't searched for anything yet, it will show 'Empty!"
-    },
-    "unknownBrand": "Onbekend merk",
-    "@unknownBrand": {},
-    "unknownProductName": "Onbekende productnaam",
-    "@unknownProductName": {},
-    "nutrition": "Voedingswaarde",
-    "@nutrition": {},
-    "ingredients": "Ingrediënten",
-    "@ingredients": {},
-    "ecology": "Milieu",
-    "@ecology": {},
-    "about": "Over deze app",
-    "@about": {},
-    "licenses": "Licenties",
-    "@licenses": {},
-    "whatIsOff": "Open Food Facts is een database met voedingsproducten, gemaakt door iedereen, voor iedereen. Je kunt het gebruiken om betere voedselkeuzes te maken, en aangezien het open data zijn, kan iedereen het voor elk doel hergebruiken.",
-    "@whatIsOff": {},
+    "no": "Nee",
+    "@no": {},
+    "stop": "Stop",
+    "@stop": {},
+    "reset": "Herstel",
+    "@reset": {},
+    "error": "Er ging iets mis",
+    "@error": {},
+    "error_occurred": "Er is een fout opgetreden",
+    "@error_occurred": {},
+    "featureInProgress": "We werken nog aan deze functie, wacht af",
+    "@featureInProgress": {},
+    "label_web": "View on the Web",
+    "@label_web": {},
     "learnMore": "Lees meer",
     "@learnMore": {},
+    "incompatible": "Incompatible",
+    "licenses": "Licenties",
+    "@licenses": {},
+    "looking_for": "Zoeken naar",
+    "@looking_for": {
+        "description": "Looking for: ${BARCODE}"
+    },
+    "@Introduction screen": {},
+    "welcomeToOpenFoodFacts": "Welkom bij Open Food Facts",
+    "@welcomeToOpenFoodFacts": {},
+    "whatIsOff": "Open Food Facts is een database met voedingsproducten, gemaakt door iedereen, voor iedereen. Je kunt het gebruiken om betere voedselkeuzes te maken, en aangezien het open data zijn, kan iedereen het voor elk doel hergebruiken.",
+    "@whatIsOff": {},
+    "@user_management": {},
+    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
+    "incorrect_credentials": "Incorrect user name or password.",
+    "login": "Donkere modus",
+    "@login": {
+        "description": "Text field hint: unified name for "
+    },
+    "sign_in": "Inloggen",
+    "@sign_in": {
+        "description": "Button label: For sign in"
+    },
+    "password": "Wachtwoord",
+    "forgot_password": "Forgot password",
+    "@forgot_password": {
+        "description": "Button label: Opens a page where a password reset email can be requested"
+    },
+    "enter_some_text": "Please enter some text",
+    "@enter_some_text": {
+        "description": "Error when text field is empty"
+    },
+    "@Settings": {},
+    "settingsTitle": "Instellingen",
+    "@settingsTitle": {
+        "description": "The title of the Settings page"
+    },
+    "darkmode": "Donkere modus",
+    "@darkmode": {
+        "description": "The name of the darkmode on off switch"
+    },
+    "contributors": "Gebruikers",
+    "@contributors": {
+        "description": "Button label: Opens a pop up window where all contributors of this app are shown"
+    },
+    "support": "Ondersteuning",
+    "@support": {
+        "description": "Button label: Opens a pop up window where all ways to get support are shown"
+    },
     "termsOfUse": "Gebruiksvoorwaarden",
     "@termsOfUse": {},
+    "about_this_app": "About this app",
+    "@about_this_app": {
+        "description": "Button label: Opens a popo up window which shows informations about this app"
+    },
+    "@About this app section": {},
     "contribute": "Bijdragen",
-    "@contribute": {},
-    "contribute_improve_header": "Verbeteren",
-    "@contribute_improve_header": {},
-    "contribute_improve_text": "De database is het hart van het project. Je kan makkelijk en heel snel ons helpen: door de app voor je telefoon te downloaden en te beginnen met het toevoegen of verbeteren van producten.\n\nDe Open Food Facts-website biedt vele andere manieren om bij te dragen:",
-    "@contribute_improve_text": {},
-    "contribute_improve_ProductsToBeCompleted": "Onvoltooide producten",
-    "@contribute_improve_ProductsToBeCompleted": {},
-    "contribute_develop": "Ontwikkelen",
-    "@contribute_develop": {},
+    "@contribute": {
+        "description": "Button label: Shows multiple ways how users can contribute to OFF"
+    },
+    "contribute_sw_development": "Software development",
+    "@contribute_sw_development": {
+        "description": "Button label + page title: Ways to help"
+    },
     "contribute_develop_text": "De code voor elk Open Food Facts-product is beschikbaar op GitHub. Je bent van harte welkom om de code te hergebruiken (hij is open source) en ons te helpen deze te verbeteren, voor iedereen, op de hele planeet.",
     "@contribute_develop_text": {},
     "contribute_develop_text_2": "U kunt deelnemen aan de Open Food Facts Slack-chatroom, wat de beste manier is om vragen te stellen.",
     "@contribute_develop_text_2": {},
+    "contribute_donate_header": "Doneer aan Open Food Facts",
+    "@contribute_donate_header": {},
+    "contribute_improve_ProductsToBeCompleted": "Onvoltooide producten",
+    "@contribute_improve_ProductsToBeCompleted": {
+        "description": "Button label: Shows a list of products which aren't completed"
+    },
+    "contribute_improve_header": "Verbeteren",
+    "@contribute_improve_header": {
+        "description": "Button label + page title: Ways to improve the database"
+    },
+    "contribute_improve_text": "De database is het hart van het project. Je kan makkelijk en heel snel ons helpen: door de app voor je telefoon te downloaden en te beginnen met het toevoegen of verbeteren van producten.\n\nDe Open Food Facts-website biedt vele andere manieren om bij te dragen:",
+    "@contribute_improve_text": {},
     "contribute_translate_header": "Vertaal",
-    "@contribute_translate_header": {},
+    "@contribute_translate_header": {
+        "description": "Button label + pop up window title: Shows information about helping by translating"
+    },
+    "contribute_translate_link_text": "Begin met vertalen",
+    "@contribute_translate_link_text": {
+        "description": "Button label: Opens the Crowdin translation portal"
+    },
     "contribute_translate_text": "Open Food Facts is een wereldwijd project met producten uit meer dan 160 landen. Open Food Facts is in tientallen talen vertaald, met voortdurend wijzigende inhoud.",
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Vertalingen zijn een van de belangrijkste taken van het project",
     "@contribute_translate_text_2": {},
-    "contribute_translate_link_text": "Begin met vertalen",
-    "@contribute_translate_link_text": {},
-    "contribute_donate_header": "Doneer aan Open Food Facts",
-    "@contribute_donate_header": {},
-    "support": "Ondersteuning",
-    "@support": {},
-    "error": "Er ging iets mis",
-    "@error": {},
-    "darkmode": "Donkere modus",
-    "@darkmode": {},
-    "settingsTitle": "Instellingen",
-    "@settingsTitle": {},
-    "reset": "Herstel",
-    "@reset": {},
+    "@Personal preferences": {},
+    "myPreferences": "Mijn voorkeuren",
+    "@myPreferences": {
+        "description": "Page title: Page where the ranking preferences can be changed"
+    },
+    "confirmResetPreferences": "Reset your preferences?",
+    "@confirmResetPreferences": {
+        "description": "Pop up title: Reassuring if the food preferences should really be reset"
+    },
+    "myPersonalizedRanking": "Mijn persoonlijke ranglijst",
+    "@myPersonalizedRanking": {
+        "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
+    },
+    "reloaded_with_new_preferences": "Herladen met nieuwe voorkeuren",
+    "@reloaded_with_new_preferences": {
+        "description": "Snackbar title: Shows that the modified settings have been applied"
+    },
+    "@other": {},
+    "profile_navbar_label": "Profile",
+    "@profile_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+    },
+    "scan_navbar_label": "Profile",
+    "@scan_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+    },
+    "history_navbar_label": "Profile",
+    "@history_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+    },
+    "category": "Categorie",
+    "@category": {},
+    "category_search": "(categorie zoeken)",
     "filter": "Filter",
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "added_product_thanks": "Bedankt voor het toevoegen van dit product!",
-    "@added_product_thanks": {},
-    "missing_product": "Dit product ontbreekt",
-    "@missing_product": {},
-    "add": "Toevoegen",
-    "@add": {},
-    "nutri_score_unavailable": "Nutri-Score niet beschikbaar",
-    "@nutri_score_unavailable": {},
-    "missing_picture": "Ontbrekende foto",
-    "@missing_picture": {},
-    "searching": "Bezig met zoeken...",
-    "@searching": {},
-    "empty_list": "Lege lijst",
-    "@empty_list": {},
-    "nothing_set": "Nog niet ingesteld",
-    "rename": "Wijzig naam",
-    "@rename": {},
-    "delete": "Verwijder",
-    "@delete": {},
-    "change_icon": "Verander icoon",
-    "@change_icon": {},
-    "paste": "plakken",
-    "@paste": {},
-    "copy": "kopiëren",
-    "@copy": {},
-    "clear": "wissen",
-    "@clear": {},
-    "grocery": "boodschap",
-    "@grocery": {},
-    "add_date": "Nog een datum toevoegen",
-    "@add_date": {},
-    "no_date": "Geen datum",
-    "@no_date": {},
-    "already_in_pantry": "Staat al in de voorraadkast!",
-    "@already_in_pantry": {},
-    "added_to_pantry": "Staat al in de voorraadkast!",
-    "@added_to_pantry": {},
-    "want_to_delete_pantry": "Wil je deze voorraadkast verwijderen?",
-    "@want_to_delete_pantry": {},
-    "want_to_delete_shopping": "Wil je deze boodschappenlijst verwijderen?",
-    "@want_to_delete_shopping": {},
-    "want_to_delete_list": "Wilt u deze productlijst verwijderen?",
-    "@want_to_delete_list": {},
-    "new_pantry": "Nieuwe voorraadkast",
-    "@new_pantry": {},
-    "new_shopping": "Nieuwe boodschappenlijst",
-    "@new_shopping": {},
-    "new_list": "Nieuwe lijst",
-    "@new_list": {},
-    "rename_pantry": "Naam voorraadkast wijzigen",
-    "@rename_pantry": {},
-    "rename_shopping": "Naam boodschappenlijst wijzigen",
-    "@rename_shopping": {},
-    "rename_list": "Lijstnaam wijzigen",
-    "@rename_list": {},
-    "my_pantry_hint": "Mijn eigen voorraadkast",
-    "@my_pantry_hint": {},
-    "my_shopping_hint": "Mijn boodschappenlijst",
-    "@my_shopping_hint": {},
-    "my_list_hint": "Mijn eigen lijst",
-    "@my_list_hint": {},
-    "enter_text": "Voer wat tekst in",
-    "@enter_text": {},
-    "pantry_name_taken": "Er is al een voorraadkast met deze naam",
-    "@pantry_name_taken": {},
-    "shopping_name_taken": "Er is al een boodschappenlijst met die naam",
-    "@shopping_name_taken": {},
-    "list_name_taken": "Er is al een lijst met die naam",
-    "@list_name_taken": {},
-    "already_same": "Dat is dezelfde naam!",
-    "@already_same": {},
-    "my_pantrie_lists": "Mijn voorraadkasten",
-    "my_shopping_lists": "Mijn boodschappenlijsten",
-    "my_lists": "Mijn lijsten",
-    "food_categories": "Voedselcategorieën",
-    "search_history": "Zoekgeschiedenis",
-    "label_preferences": "voorkeuren",
-    "@label_preferences": {},
-    "label_lists": "lijsten",
-    "@label_lists": {},
-    "label_web": "Web",
-    "@label_web": {},
+    "scan": "Scan",
+    "@scan": {
+        "description": "Page title: List type: Scanned products"
+    },
+    "search": "Zoeken",
+    "@search": {
+        "description": "Hint text of a search text input field"
+    },
+    "tab_for_more": "Tap to see more info...",
+    "@Product": {},
+    "product": "Product",
+    "@product": {},
+    "unknownBrand": "Onbekend merk",
+    "@unknownBrand": {},
+    "unknownProductName": "Onbekende productnaam",
+    "@unknownProductName": {},
     "label_refresh": "herladen",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
-    "label_share": "delen",
-    "@label_share": {},
-    "product_refreshed": "Product herladen",
-    "@product_refreshed": {},
-    "food_ranking_parameters": "Parameters voor voedselrangschikking",
-    "product": "Product",
-    "@product": {},
-    "packaging_information": "Verpakkingsinformatie",
-    "@packaging_information": {},
-    "more_photos": "Meer interessante foto's",
-    "@more_photos": {},
     "front_photo": "Foto voorzijde",
-    "@front_photo": {},
+    "@front_photo": {
+        "description": "Button label: For adding a picture of the front of a product"
+    },
+    "ingredients": "Ingrediënten",
+    "@ingredients": {},
     "ingredients_photo": "Ingrediënten foto",
-    "@ingredients_photo": {},
+    "@ingredients_photo": {
+        "description": "Button label: For adding a picture of the Ingredients of a product"
+    },
+    "nutrition": "Voedingswaarde",
+    "@nutrition": {},
     "nutrition_facts_photo": "Foto van voedingswaarden",
-    "@nutrition_facts_photo": {},
+    "@nutrition_facts_photo": {
+        "description": "Button label: For adding a picture of the nutrition facts of a product"
+    },
+    "packaging_information": "Verpakkingsinformatie",
+    "@packaging_information": {
+        "description": "Button label: For adding a picture of the packaging of a product"
+    },
     "packaging_information_photo": "Verpakking informatie foto",
     "@packaging_information_photo": {},
-    "add_product": "Voeg een nieuw product toe",
-    "@add_product": {},
-    "similar_food": "Soortgelijke levensmiddelen",
-    "@similar_foods": {},
-    "refreshing_product": "Herladen product",
-    "@refreshing_product": {},
-    "looking_for": "Zoeken naar",
-    "@looking_for": {},
-    "could_not_refresh": "Kan product niet herladen",
-    "@could_not_refresh": {},
+    "missing_product": "Dit product ontbreekt",
+    "@missing_product": {},
+    "more_photos": "Meer interessante foto's",
+    "@more_photos": {},
     "no_product_found": "Geen product gevonden",
     "@no_product_found": {},
-    "products_pasted": "producten geplakt",
-    "@products_pasted": {},
-    "no_prodcut_in_list": "Er is geen product in deze lijst",
-    "@no_product_in_list": {},
-    "error_occurred": "Er is een fout opgetreden",
-    "@error_occurred": {},
-    "keyword_search": "(trefwoord zoeken)",
-    "category_search": "(categorie zoeken)",
-    "my_list": "(mijn lijst)",
-    "scan": "Scan",
-    "recently_seen_products": "Mijn recent bekeken producten",
-    "unknown_product_list": "Onbekende productlijst:",
     "not_found": "niet gevonden:",
-    "no_product": "geen product",
-    "one_product": "1 product",
-    "x_products": "producten",
-    "scan_contribute": "TOEVOEGEN",
-    "@scan_contribute": {
-        "description": "Switch on top of the Scanner to choose between to scan or add products"
+    "searchPanelHeader": "Search or scan your first product",
+    "@Product query status": {},
+    "refreshing_product": "Herladen product",
+    "@refreshing_product": {
+        "description": "Confirmation, that the product data of a cached product is queried again"
     },
-    "scan_choose": "KIEZEN",
-    "@scan_choose": {
-        "description": "Switch on top of the Scanner to choose between to scan or add products"
+    "product_refreshed": "Product herladen",
+    "@product_refreshed": {
+        "description": "Confirmation, that the product data refresh is done"
     },
-    "reloaded_with_new_preferences": "Herladen met nieuwe voorkeuren",
+    "could_not_refresh": "Kan product niet herladen",
+    "@could_not_refresh": {
+        "description": "The product data couldn't be refreshed"
+    },
+    "product_internet_cancel": "Canceled by user.",
+    "@product_internet_cancel": {
+        "description": "Confirmation, that the product data got canceled by the user"
+    },
+    "product_internet_error": "Impossible to fetch information about this product due to a network error.",
+    "cached_results_from": "Cached results from:",
+    "@cached_results_from": {
+        "description": "Cached results from: x time ago (time ago should not be added to the string)"
+    },
+    "@Product Addition": {},
+    "added_product_thanks": "Bedankt voor het toevoegen van dit product!",
+    "@added_product_thanks": {},
+    "product_improvement_add_category": "Add a category to compute the Nutri-Score.",
+    "@product_improvement_add_category": {
+        "description": "Message for ProductImprovement.ADD_CATEGORY"
+    },
+    "product_improvement_add_nutrition_facts": "Add nutrition facts to compute the Nutri-Score.",
+    "@product_improvement_add_nutrition_facts": {
+        "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
+    },
+    "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to compute the Nutri-Score.",
+    "@product_improvement_add_nutrition_facts_and_category": {
+        "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
+    },
+    "product_improvement_categories_but_no_nutriscore": "We could not compute an Nutri-Score for this product. It might be that the category is an exception. If you believe this is an error, contact us.",
+    "@product_improvement_categories_but_no_nutriscore": {
+        "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
+    },
+    "product_improvement_obsolete_nutrition_image": "The nutrition image is obsolete: please refresh it.",
+    "@product_improvement_obsolete_nutrition_image": {
+        "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
+    },
+    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take them into a photo (ingredient list and/or any geographic claim or edit the product so that they can be taken into account. If it is not clear, you can contact the food producer.",
+    "@product_improvement_origins_to_be_completed": {
+        "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
+    },
+    "@Lists": {},
+    "no_prodcut_in_list": "Er is geen product in deze lijst",
     "no_product_in_section": "Er is geen product in deze sectie",
-    "what_are_you_looking_for": "Waar ben je naar op zoek?",
-    "chached_results_from": "Gebufferde resultaten van:",
-    "plural_ago_minutes": "{count,plural, one {} =0{minder dan een minuut geleden} =1{een minuut geleden} other{{count} minuten geleden}}",
-    "@plural_ago_minutes": {
-        "description": "Cached results from: x minutes ago",
+    "recently_seen_products": "Mijn recent bekeken producten",
+    "clear": "Wissen",
+    "@clear": {
+        "description": "Clears a product list"
+    },
+    "really_clear": "Do you really want to clear this list?",
+    "@Plural": {},
+    "pct_match": "{pct}% match",
+    "@pct_match": {
+        "description": "This product has a x percent match with your preferences",
+        "placeholders": {
+            "pct": {}
+        }
+    },
+    "plural_ago_days": "{count,plural, one {} =1{een dag geleden} other{{count} dagen geleden}}",
+    "@plural_ago_days": {
+        "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
@@ -278,9 +287,16 @@
             "count": {}
         }
     },
-    "plural_ago_days": "{count,plural, one {} =1{een dag geleden} other{{count} dagen geleden}}",
-    "@plural_ago_days": {
-        "description": "Cached results from: x days ago",
+    "plural_ago_minutes": "{count,plural, one {} =0{minder dan een minuut geleden} =1{een minuut geleden} other{{count} minuten geleden}}",
+    "@plural_ago_minutes": {
+        "description": "Cached results from: x minutes ago",
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "plural_ago_months": "{count,plural, one {} =1{een maand geleden} other{{count} maanden geleden}}",
+    "@plural_ago_months": {
+        "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
@@ -292,9 +308,9 @@
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, one {} =1{een maand geleden} other{{count} maanden geleden}}",
-    "@plural_ago_months": {
-        "description": "Cached results from: x months ago",
+    "plural_compare_x_products": "{count,plural, =other{Compare {count} Products}",
+    "@plural_compare_x_products": {
+        "description": "Button label",
         "placeholders": {
             "count": {}
         }

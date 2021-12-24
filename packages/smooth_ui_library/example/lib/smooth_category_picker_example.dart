@@ -1,9 +1,13 @@
 // @dart = 2.12
 
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/utils/LanguageHelper.dart';
 import 'package:smooth_ui_library/smooth_ui_library.dart';
 
 void main() {
+  timeDilation = 1.0;
   runApp(
     const MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -25,17 +29,33 @@ class Fruit implements Comparable<Fruit> {
   String toString() => name;
 }
 
-class FruitCategory extends Category<Fruit> {
+class FruitCategory extends SmoothCategory<Fruit> {
   FruitCategory(Fruit value, [Iterable<FruitCategory>? children])
-      : super(value, children);
+      : children = children?.toSet() ?? <FruitCategory>{},
+        super(value);
+
+  Set<FruitCategory> children;
 
   @override
-  FruitCategory? operator [](Fruit childValue) {
-    return super[childValue] as FruitCategory?;
+  void addChild(FruitCategory newChild) => children.add(newChild);
+
+  @override
+  Future<FruitCategory?> getChild(Fruit childValue) async {
+    return await super.getChild(childValue) as FruitCategory?;
   }
 
   @override
-  String get label => value.name;
+  String getLabel(OpenFoodFactsLanguage language) => value.name;
+
+  @override
+  Stream<SmoothCategory<Fruit>> getChildren() async* {
+    for (final SmoothCategory<Fruit> child in children) {
+      yield child;
+    }
+  }
+
+  @override
+  Stream<SmoothCategory<Fruit>> getParents() async* {}
 }
 
 FruitCategory categories = FruitCategory(
@@ -78,14 +98,14 @@ FruitCategory categories = FruitCategory(
   },
 );
 
-FruitCategory? getCategory(Iterable<Fruit> path) {
+Future<FruitCategory?> getCategory(Iterable<Fruit> path) async {
   if (path.isEmpty) {
     return null;
   }
   FruitCategory? result = categories.value == path.first ? categories : null;
   final List<Fruit> followPath = path.skip(1).toList();
   while (result != null && followPath.isNotEmpty) {
-    result = result[followPath.first];
+    result = await result.getChild(followPath.first);
     followPath.removeAt(0);
   }
   return result;
@@ -166,7 +186,6 @@ class _ExampleAppState extends State<ExampleApp> {
           currentPath: currentCategoryPath,
           currentCategories: currentCategories,
           onCategoriesChanged: (Set<Fruit> value) {
-            debugPrint('Categories: ${value.join(', ')}');
             setState(() {
               currentCategories = value;
             });
@@ -177,26 +196,27 @@ class _ExampleAppState extends State<ExampleApp> {
             });
           },
           onAddCategory: (Iterable<Fruit> path) {
-            final FruitCategory? currentCategory = getCategory(path);
-            if (currentCategory != null) {
-              showDialog<FruitCategory>(
-                      builder: (BuildContext context) =>
-                          _addCategoryDialog(context, currentCategory),
-                      context: context)
-                  .then<void>((FruitCategory? category) {
-                if (category != null) {
-                  setState(() {
-                    // Remove the parent from the set of assign categories,
-                    // since it isn't a leaf anymore.
-                    currentCategories.remove(currentCategory.value);
-                    currentCategory.add(category);
-                    // If they added a new category, they must mean that the
-                    // category applies.
-                    currentCategories.add(category.value);
-                  });
-                }
-              });
-            }
+            getCategory(path).then((FruitCategory? currentCategory) {
+              if (currentCategory != null) {
+                showDialog<FruitCategory>(
+                        builder: (BuildContext context) =>
+                            _addCategoryDialog(context, currentCategory),
+                        context: context)
+                    .then<void>((FruitCategory? category) {
+                  if (category != null) {
+                    setState(() {
+                      // Remove the parent from the set of assigned categories,
+                      // since it isn't a leaf anymore.
+                      currentCategories.remove(currentCategory.value);
+                      currentCategory.addChild(category);
+                      // If they added a new category, they must mean that the
+                      // category applies.
+                      currentCategories.add(category.value);
+                    });
+                  }
+                });
+              }
+            });
           },
         ),
       ),
