@@ -80,10 +80,26 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset email can be requested"
   },
+  "reset_password": "Reset password",
+  "@reset_password": {
+    "description": "Forgot password page title"
+  },
+  "reset_password_explanation_text": "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password. Please also check your spam folder.",
+  "username_or_email": "Username or e-mail address",
+  "@username_or_email": {
+    "description": "Text field hint for password reset"
+  },
+  "reset_password_done": "An email with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
+  "send_reset_password_mail": "Change password",
+  "@send_reset_password_mail": {
+    "description": "Button label: Submit the password reset email request"
+  },
+
   "enter_some_text": "Please enter some text",
   "@enter_some_text": {
     "description": "Error when text field is empty"
   },
+
 
 
 
