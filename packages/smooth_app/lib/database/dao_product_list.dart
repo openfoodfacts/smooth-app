@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:openfoodfacts/model/Product.dart';
@@ -63,8 +64,14 @@ class DaoProductList extends AbstractDao {
   Future<int?> getTimestamp(final ProductList productList) async =>
       (await _get(productList))?.timestamp;
 
-  String _getKey(final ProductList productList) =>
-      '${productList.listType.key}::${productList.parameters}';
+  // Why the "base64" part? Because of #753!
+  // "HiveError: String keys need to be ASCII Strings with a max length of 255"
+  // Encoding the parameter part in base64 makes us safe regarding ASCII.
+  // As it's a list of keywords, there's a fairly high probability
+  // that we'll be under the 255 character length.
+  String _getKey(final ProductList productList) => '${productList.listType.key}'
+      '::'
+      '${base64.encode(utf8.encode(productList.parameters))}';
 
   Future<void> _put(final String key, final _BarcodeList barcodeList) async =>
       _getBox().put(key, barcodeList);
