@@ -26,7 +26,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
 
   bool _send = false;
   bool _runningQuery = false;
-  late String _message;
+  String _message = '';
 
   Future<void> _resetPassword() async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
@@ -109,7 +109,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                       style: theme.textTheme.bodyText2,
                     ),
                   const Spacer(flex: 2),
-                  if (_message != 'Error') ...<Widget>[
+                  if (_message != '') ...<Widget>[
                     SmoothCard(
                       padding: const EdgeInsets.all(10.0),
                       color: _send ? Colors.green : Colors.red,
