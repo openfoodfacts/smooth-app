@@ -240,7 +240,7 @@
   "@unknownBrand": {},
   "unknownProductName": "Unknown product name",
   "@unknownProductName": {},
-  "label_refresh": "refresh",
+  "label_refresh": "Refresh",
   "@label_refresh": {
     "description": "Refresh the cached product"
   },
