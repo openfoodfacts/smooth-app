@@ -21,9 +21,8 @@ class WelcomePage extends StatelessWidget {
     return Scaffold(
       body: Stack(children: <Widget>[
         Padding(
-          padding: EdgeInsets.only(
-            left: sidePadding(screenSize.width),
-            right: sidePadding(screenSize.width),
+          padding: EdgeInsets.symmetric(
+            horizontal: sidePadding(screenSize.width),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

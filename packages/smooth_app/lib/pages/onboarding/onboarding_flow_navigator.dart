@@ -18,20 +18,14 @@ class OnboardingFlowNavigator {
 
   final Future<UserPreferences> _userPreferences;
 
-  void start(BuildContext context) {
-    _userPreferences.then((UserPreferences prefs) =>
-        navigateToNextPage(context, prefs.lastVisitedOnboardingPage));
-  }
-
   Widget getNextPageWidget(BuildContext context, OnboardingPage currentPage) {
-    Widget nextPageWidget;
     switch (currentPage) {
       case OnboardingPage.NOT_STARTED:
         // First screen, doesn't have a back navigation button.
-        nextPageWidget = const WelcomePage();
+        return const WelcomePage();
         break;
       case OnboardingPage.WELCOME:
-        nextPageWidget = _wrapWidgetInCustomBackNavigator(
+        return _wrapWidgetInCustomBackNavigator(
           context,
           currentPage,
           const ScanExample(),
@@ -39,9 +33,8 @@ class OnboardingFlowNavigator {
         break;
       case OnboardingPage.SCAN_EXAMPLE:
       case OnboardingPage.ONBOARDING_COMPLETE:
-        nextPageWidget = PageManager();
+        return PageManager();
     }
-    return nextPageWidget;
   }
 
   void navigateToNextPage(BuildContext context, OnboardingPage currentPage) {

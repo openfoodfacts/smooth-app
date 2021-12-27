@@ -83,13 +83,6 @@ class _SmoothAppState extends State<SmoothApp> {
     await _userPreferences.init(_productPreferences);
     _localDatabase = await LocalDatabase.getLocalDatabase();
     _themeProvider = ThemeProvider(_userPreferences);
-
-    final String languageCode = Localizations.localeOf(context).languageCode;
-    await _refreshReferences(
-      _productPreferences,
-      DefaultAssetBundle.of(context),
-      languageCode,
-    );
   }
 
   @override
@@ -143,32 +136,8 @@ class _SmoothAppState extends State<SmoothApp> {
         themeProvider.colorTag,
       ),
       themeMode: themeProvider.darkTheme ? ThemeMode.dark : ThemeMode.light,
-      home: appWidget,
+      home: SmoothAppGetLanguage(appWidget),
     );
-  }
-
-  Future<void> _refreshReferences(
-    final ProductPreferences productPreferences,
-    final AssetBundle assetBundle,
-    final String languageCode,
-  ) async {
-    if (productPreferences.languageCode != languageCode) {
-      try {
-        await productPreferences.loadReferenceFromAssets(
-          assetBundle,
-          languageCode: languageCode,
-        );
-      } catch (e) {
-        // no problem, we were just trying
-      }
-    }
-    if (!productPreferences.isNetwork) {
-      try {
-        await productPreferences.loadReferenceFromNetwork(languageCode);
-      } catch (e) {
-        // no problem, we were just trying
-      }
-    }
   }
 
   Widget _buildLoader() {
@@ -190,5 +159,51 @@ class _SmoothAppState extends State<SmoothApp> {
         ),
       ),
     );
+  }
+}
+
+/// Layer needed because we need to know the language. Language isn't available
+/// in the [context] in top level widget ([SmoothApp])
+class SmoothAppGetLanguage extends StatelessWidget {
+  const SmoothAppGetLanguage(this.appWidget);
+
+  final Widget appWidget;
+
+  @override
+  Widget build(BuildContext context) {
+    final ProductPreferences productPreferences =
+        context.watch<ProductPreferences>();
+    final Locale myLocale = Localizations.localeOf(context);
+    final String languageCode = myLocale.languageCode;
+    _refresh(
+      productPreferences,
+      DefaultAssetBundle.of(context),
+      languageCode,
+    );
+    return appWidget;
+  }
+
+  Future<void> _refresh(
+    final ProductPreferences productPreferences,
+    final AssetBundle assetBundle,
+    final String languageCode,
+  ) async {
+    if (productPreferences.languageCode != languageCode) {
+      try {
+        await productPreferences.loadReferenceFromAssets(
+          assetBundle,
+          languageCode: languageCode,
+        );
+      } catch (e) {
+        // no problem, we were just trying
+      }
+    }
+    if (!productPreferences.isNetwork) {
+      try {
+        await productPreferences.loadReferenceFromNetwork(languageCode);
+      } catch (e) {
+        // no problem, we were just trying
+      }
+    }
   }
 }
