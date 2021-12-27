@@ -4,7 +4,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/pages/onboarding/next_button.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 /// Example explanation on how to scan a product.
@@ -16,13 +15,13 @@ class ScanExample extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final Size screenSize = MediaQuery.of(context).size;
     return Stack(
-      children: [
+      children: <Widget>[
         Container(
           color: const Color.fromARGB(255, 225, 208, 208),
           height: screenSize.height,
         ),
         Column(
-          children: [
+          children: <Widget>[
             Flexible(
               flex: 8,
               child: Stack(
@@ -33,7 +32,7 @@ class ScanExample extends StatelessWidget {
                     child: Transform.rotate(
                       angle: -0.22828907, // 13.08 degrees
                       child: Container(
-                        color: Color.fromARGB(255, 3, 129, 65),
+                        color: const Color.fromARGB(255, 3, 129, 65),
                         width: screenSize.width,
                         height: screenSize.height / 2,
                       ),
@@ -61,7 +60,7 @@ class ScanExample extends StatelessWidget {
                   style: Theme.of(context)
                       .textTheme
                       .headline1!
-                      .apply(color: Color.fromARGB(255, 51, 51, 51)),
+                      .apply(color: const Color.fromARGB(255, 51, 51, 51)),
                 ),
               ),
             ),

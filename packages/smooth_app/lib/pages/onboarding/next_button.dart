@@ -4,7 +4,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_constants.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
-import 'package:smooth_app/pages/onboarding/scan_example.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
 
@@ -35,7 +34,8 @@ class NextButton extends StatelessWidget {
                 ColorDestination.BUTTON_BACKGROUND,
               ),
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(SMALL_SPACE)),
+                borderRadius: BorderRadius.circular(SMALL_SPACE),
+              ),
               primary: Colors.white,
             ),
             onPressed: () {

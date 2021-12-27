@@ -16,12 +16,10 @@ class WelcomePage extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final TextStyle headlineStyle =
         Theme.of(context).textTheme.headline2!.apply(color: Colors.white);
-    final TextStyle largeButtonTextStyle =
-        Theme.of(context).textTheme.headline3!.apply(color: Colors.white);
     final TextStyle bodyTextStyle =
         Theme.of(context).textTheme.bodyText1!.apply(color: Colors.white);
     return Scaffold(
-      body: Stack(children: [
+      body: Stack(children: <Widget>[
         Padding(
           padding: EdgeInsets.only(
             left: sidePadding(screenSize.width),

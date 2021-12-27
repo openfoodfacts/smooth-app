@@ -12,11 +12,8 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
-import 'package:smooth_app/pages/onboarding/welcome_page.dart';
-import 'package:smooth_app/pages/page_manager.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
-import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -88,7 +85,7 @@ class _SmoothAppState extends State<SmoothApp> {
     _themeProvider = ThemeProvider(_userPreferences);
 
     final String languageCode = Localizations.localeOf(context).languageCode;
-    await _refreshUserLanguageFromPref(
+    await _refreshReferences(
       _productPreferences,
       DefaultAssetBundle.of(context),
       languageCode,
@@ -150,7 +147,7 @@ class _SmoothAppState extends State<SmoothApp> {
     );
   }
 
-  Future<void> _refreshUserLanguageFromPref(
+  Future<void> _refreshReferences(
     final ProductPreferences productPreferences,
     final AssetBundle assetBundle,
     final String languageCode,
