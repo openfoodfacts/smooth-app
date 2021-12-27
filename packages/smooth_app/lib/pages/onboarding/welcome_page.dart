@@ -3,7 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/pages/onboarding/country_selector.dart';
 import 'package:smooth_app/pages/onboarding/next_button.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_constants.dart';
-import 'package:smooth_app/pages/onboarding/onboarding_flow.dart';
+import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 /// Welcome page for first time users.
@@ -62,9 +62,11 @@ class WelcomePage extends StatelessWidget {
           ),
         ),
         const Positioned(
-            child: Align(
-                alignment: Alignment.bottomCenter,
-                child: NextButton(OnboardingPage.WELCOME))),
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: NextButton(OnboardingPage.WELCOME),
+          ),
+        ),
       ]),
       backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
     );

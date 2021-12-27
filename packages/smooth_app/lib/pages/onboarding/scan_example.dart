@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/pages/onboarding/next_button.dart';
-import 'package:smooth_app/pages/onboarding/onboarding_flow.dart';
+import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
 
@@ -86,7 +86,7 @@ class ScanExample extends StatelessWidget {
                 ),
               ),
             ),
-            Spacer(flex: 3),
+            const Spacer(flex: 3),
           ],
         ),
         const Positioned(

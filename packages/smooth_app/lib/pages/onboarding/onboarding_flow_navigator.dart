@@ -23,20 +23,7 @@ class OnboardingFlowNavigator {
         navigateToNextPage(context, prefs.lastVisitedOnboardingPage));
   }
 
-  void navigateToNextPage(BuildContext context, OnboardingPage currentPage) {
-    _userPreferences.then((UserPreferences prefs) {
-      prefs.setLastVisitedOnboardingPage(currentPage);
-      Navigator.push<Widget>(
-        context,
-        MaterialPageRoute<Widget>(
-          builder: (BuildContext context) =>
-              _nextPageWidget(context, currentPage),
-        ),
-      );
-    });
-  }
-
-  Widget _nextPageWidget(BuildContext context, OnboardingPage currentPage) {
+  Widget getNextPageWidget(BuildContext context, OnboardingPage currentPage) {
     Widget nextPageWidget;
     switch (currentPage) {
       case OnboardingPage.NOT_STARTED:
@@ -45,13 +32,29 @@ class OnboardingFlowNavigator {
         break;
       case OnboardingPage.WELCOME:
         nextPageWidget = _wrapWidgetInCustomBackNavigator(
-            context, currentPage, const ScanExample());
+          context,
+          currentPage,
+          const ScanExample(),
+        );
         break;
       case OnboardingPage.SCAN_EXAMPLE:
       case OnboardingPage.ONBOARDING_COMPLETE:
         nextPageWidget = PageManager();
     }
     return nextPageWidget;
+  }
+
+  void navigateToNextPage(BuildContext context, OnboardingPage currentPage) {
+    _userPreferences.then((UserPreferences prefs) {
+      prefs.setLastVisitedOnboardingPage(currentPage);
+      Navigator.push<Widget>(
+        context,
+        MaterialPageRoute<Widget>(
+          builder: (BuildContext context) =>
+              getNextPageWidget(context, currentPage),
+        ),
+      );
+    });
   }
 
   OnboardingPage _getPrevPage(OnboardingPage currentPage) {

@@ -11,7 +11,7 @@ import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/pages/onboarding/onboarding_flow.dart';
+import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/onboarding/welcome_page.dart';
 import 'package:smooth_app/pages/page_manager.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -120,6 +120,10 @@ class _SmoothAppState extends State<SmoothApp> {
 
   Widget _buildApp(BuildContext context, Widget? child) {
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
+    final Widget appWidget =
+        OnboardingFlowNavigator(Future<UserPreferences>.value(_userPreferences))
+            .getNextPageWidget(
+                context, _userPreferences.lastVisitedOnboardingPage);
     return MaterialApp(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
@@ -135,7 +139,7 @@ class _SmoothAppState extends State<SmoothApp> {
         themeProvider.colorTag,
       ),
       themeMode: themeProvider.darkTheme ? ThemeMode.dark : ThemeMode.light,
-      home: SmoothAppGetLanguage(),
+      home: SmoothAppGetLanguage(appWidget),
     );
   }
 
@@ -163,7 +167,9 @@ class _SmoothAppState extends State<SmoothApp> {
 
 /// Layer needed because we need to know the language
 class SmoothAppGetLanguage extends StatelessWidget {
-  const SmoothAppGetLanguage();
+  const SmoothAppGetLanguage(this.appWidget);
+
+  final Widget appWidget;
 
   @override
   Widget build(BuildContext context) {
@@ -176,10 +182,7 @@ class SmoothAppGetLanguage extends StatelessWidget {
       DefaultAssetBundle.of(context),
       languageCode,
     );
-    OnboardingFlowNavigator(UserPreferences.getUserPreferences())
-        .start(context);
-    // Fix this hack
-    return EMPTY_WIDGET;
+    return appWidget;
   }
 
   Future<void> _refresh(
