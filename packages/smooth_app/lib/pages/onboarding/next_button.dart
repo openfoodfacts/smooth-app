@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -18,6 +19,7 @@ class NextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
     return Container(
       color: Theme.of(context).appBarTheme.backgroundColor,
       padding: EdgeInsets.symmetric(
@@ -41,8 +43,8 @@ class NextButton extends StatelessWidget {
               primary: Colors.white,
             ),
             onPressed: () {
-              OnboardingFlowNavigator(UserPreferences.getUserPreferences())
-                  .navigateToNextPage(context, currentPage);
+              OnboardingFlowNavigator(userPreferences).navigateToPage(
+                  context, OnboardingFlowNavigator.getNextPage(currentPage));
             },
             child: Text(
               appLocalizations.next_label,

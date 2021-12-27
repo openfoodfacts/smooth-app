@@ -15,39 +15,22 @@ enum OnboardingPage {
 class OnboardingFlowNavigator {
   OnboardingFlowNavigator(this._userPreferences);
 
-  final Future<UserPreferences> _userPreferences;
+  final UserPreferences _userPreferences;
 
-  Widget getNextPageWidget(BuildContext context, OnboardingPage currentPage) {
+  static OnboardingPage getNextPage(OnboardingPage currentPage) {
     switch (currentPage) {
       case OnboardingPage.NOT_STARTED:
-        // First screen, doesn't have a back navigation button.
-        return const WelcomePage();
+        return OnboardingPage.WELCOME;
       case OnboardingPage.WELCOME:
-        return _wrapWidgetInCustomBackNavigator(
-          context,
-          currentPage,
-          const ScanExample(),
-        );
+        return OnboardingPage.SCAN_EXAMPLE;
       case OnboardingPage.SCAN_EXAMPLE:
+        return OnboardingPage.ONBOARDING_COMPLETE;
       case OnboardingPage.ONBOARDING_COMPLETE:
-        return PageManager();
+        return OnboardingPage.ONBOARDING_COMPLETE;
     }
   }
 
-  void navigateToNextPage(BuildContext context, OnboardingPage currentPage) {
-    _userPreferences.then((UserPreferences prefs) {
-      prefs.setLastVisitedOnboardingPage(currentPage);
-      Navigator.push<Widget>(
-        context,
-        MaterialPageRoute<Widget>(
-          builder: (BuildContext context) =>
-              getNextPageWidget(context, currentPage),
-        ),
-      );
-    });
-  }
-
-  OnboardingPage _getPrevPage(OnboardingPage currentPage) {
+  static OnboardingPage _getPrevPage(OnboardingPage currentPage) {
     switch (currentPage) {
       case OnboardingPage.NOT_STARTED:
       case OnboardingPage.WELCOME:
@@ -56,6 +39,29 @@ class OnboardingFlowNavigator {
         return OnboardingPage.WELCOME;
       case OnboardingPage.ONBOARDING_COMPLETE:
         return OnboardingPage.SCAN_EXAMPLE;
+    }
+  }
+
+  void navigateToPage(BuildContext context, OnboardingPage page) {
+    _userPreferences.setLastVisitedOnboardingPage(page);
+    Navigator.push<Widget>(
+      context,
+      MaterialPageRoute<Widget>(
+        builder: (BuildContext context) => getPageWidget(context, page),
+      ),
+    );
+  }
+
+  Widget getPageWidget(BuildContext context, OnboardingPage page) {
+    switch (page) {
+      case OnboardingPage.NOT_STARTED:
+      case OnboardingPage.WELCOME:
+        return const WelcomePage();
+      case OnboardingPage.SCAN_EXAMPLE:
+        return _wrapWidgetInCustomBackNavigator(
+            context, page, const ScanExample());
+      case OnboardingPage.ONBOARDING_COMPLETE:
+        return PageManager();
     }
   }
 
@@ -71,7 +77,7 @@ class OnboardingFlowNavigator {
             leading: IconButton(
               icon: const Icon(Icons.arrow_back),
               onPressed: () =>
-                  navigateToNextPage(context, _getPrevPage(currentPage)),
+                  navigateToPage(context, _getPrevPage(currentPage)),
             ),
           ),
         ),

@@ -117,10 +117,8 @@ class _SmoothAppState extends State<SmoothApp> {
 
   Widget _buildApp(BuildContext context, Widget? child) {
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
-    final Widget appWidget =
-        OnboardingFlowNavigator(Future<UserPreferences>.value(_userPreferences))
-            .getNextPageWidget(
-                context, _userPreferences.lastVisitedOnboardingPage);
+    final Widget appWidget = OnboardingFlowNavigator(_userPreferences)
+        .getPageWidget(context, _userPreferences.lastVisitedOnboardingPage);
     return MaterialApp(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
