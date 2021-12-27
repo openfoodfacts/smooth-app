@@ -8,6 +8,10 @@
     "@okay": {},
     "applyButtonText": "החלה",
     "@applyButtonText": {},
+    "next_label": "הבא",
+    "@next_label": {
+        "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
+    },
     "cancel": "ביטול",
     "@cancel": {},
     "close": "סגירה",
@@ -38,25 +42,41 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "ברוך בואך ל־Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "‏Open Food Facts הוא מסד נתונים של מוצרי מזון שנוצר על ידי כולם לטובת הכלל. ניתן להשתמש בו כדי לקבל החלטות טובות יותר בנוגע למזון וכיוון שאלו נתונים פתוחים כולם יכולים לגזור את הנתונים האלו לכל מטרה שהיא.",
-    "@whatIsOff": {},
+    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "@whatIsOff": {
+        "description": "Description of Open Food Facts organization."
+    },
     "@user_management": {},
-    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
-    "incorrect_credentials": "Incorrect user name or password.",
-    "login": "מצב כהה",
+    "sign_in_text": "ניתן להיכנס לחשבונך ב־Open Food Facts כדי לשמור את התרומות שלך",
+    "incorrect_credentials": "שם משתמש או סיסמה שגויים.",
+    "login": "שם משתמש",
     "@login": {
-        "description": "Text field hint: unified name for "
+        "description": "Text field hint: unified name for either username or email address"
     },
     "sign_in": "כניסה",
     "@sign_in": {
         "description": "Button label: For sign in"
     },
     "password": "ססמה",
-    "forgot_password": "Forgot password",
+    "forgot_password": "שכחתי סיסמה",
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset email can be requested"
     },
-    "enter_some_text": "Please enter some text",
+    "reset_password": "איפוס הססמה",
+    "@reset_password": {
+        "description": "Forgot password page title"
+    },
+    "reset_password_explanation_text": "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password. Please also check your spam folder.",
+    "username_or_email": "Username or e-mail address",
+    "@username_or_email": {
+        "description": "Text field hint for password reset"
+    },
+    "reset_password_done": "An email with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
+    "send_reset_password_mail": "Change password",
+    "@send_reset_password_mail": {
+        "description": "Button label: Submit the password reset email request"
+    },
+    "enter_some_text": "נא למלא טקסט כלשהו",
     "@enter_some_text": {
         "description": "Error when text field is empty"
     },
@@ -79,7 +99,7 @@
     },
     "termsOfUse": "תנאי שימוש",
     "@termsOfUse": {},
-    "about_this_app": "About this app",
+    "about_this_app": "על היישומון הזה",
     "@about_this_app": {
         "description": "Button label: Opens a popo up window which shows informations about this app"
     },
@@ -88,7 +108,7 @@
     "@contribute": {
         "description": "Button label: Shows multiple ways how users can contribute to OFF"
     },
-    "contribute_sw_development": "Software development",
+    "contribute_sw_development": "פיתוח תוכנה",
     "@contribute_sw_development": {
         "description": "Button label + page title: Ways to help"
     },
@@ -138,15 +158,15 @@
         "description": "Snackbar title: Shows that the modified settings have been applied"
     },
     "@other": {},
-    "profile_navbar_label": "Profile",
+    "profile_navbar_label": "פרופיל",
     "@profile_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "scan_navbar_label": "Profile",
+    "scan_navbar_label": "פרופיל",
     "@scan_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "history_navbar_label": "Profile",
+    "history_navbar_label": "פרופיל",
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
@@ -165,7 +185,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Tap to see more info...",
+    "tab_for_more": "נגיעה לפרטים נוספים…",
     "@Product": {},
     "product": "מוצר",
     "@product": {},
@@ -173,7 +193,7 @@
     "@unknownBrand": {},
     "unknownProductName": "שם המוצר אינו ידוע",
     "@unknownProductName": {},
-    "label_refresh": "רענון",
+    "label_refresh": "Refresh",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
@@ -225,7 +245,7 @@
         "description": "Confirmation, that the product data got canceled by the user"
     },
     "product_internet_error": "לא ניתן למשוך מידע על המוצר הזה עקב שגיאת רשת.",
-    "cached_results_from": "Cached results from:",
+    "cached_results_from": "תוצאות שמורות מלפני:",
     "@cached_results_from": {
         "description": "Cached results from: x time ago (time ago should not be added to the string)"
     },
@@ -256,6 +276,14 @@
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
+    "country_chooser_label": "Please choose a country",
+    "@country_chooser_label": {
+        "description": "Label shown above a selector where the user can select their country"
+    },
+    "country_selection_explanation": "Some environment features depend on your location",
+    "@country_label": {
+        "description": "Explanation as to why users should select their country."
+    },
     "@Lists": {},
     "no_prodcut_in_list": "אין מוצרים ברשימה הזאת",
     "no_product_in_section": "אין מוצרים בסעיף זה",
@@ -264,7 +292,7 @@
     "@clear": {
         "description": "Clears a product list"
     },
-    "really_clear": "Do you really want to clear this list?",
+    "really_clear": "לפנות את הרשימה?",
     "@Plural": {},
     "pct_match": "{pct}% התאמה",
     "@pct_match": {
@@ -308,7 +336,7 @@
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, =other{Compare {count} Products}",
+    "plural_compare_x_products": "{count,plural, =other{השוואת {count} מוצרים}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {
