@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/pages/onboarding/scan_example.dart';
@@ -23,14 +22,12 @@ class OnboardingFlowNavigator {
       case OnboardingPage.NOT_STARTED:
         // First screen, doesn't have a back navigation button.
         return const WelcomePage();
-        break;
       case OnboardingPage.WELCOME:
         return _wrapWidgetInCustomBackNavigator(
           context,
           currentPage,
           const ScanExample(),
         );
-        break;
       case OnboardingPage.SCAN_EXAMPLE:
       case OnboardingPage.ONBOARDING_COMPLETE:
         return PageManager();
