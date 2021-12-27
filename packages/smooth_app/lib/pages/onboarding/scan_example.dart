@@ -29,6 +29,8 @@ class ScanExample extends StatelessWidget {
                     top: -screenSize.height / 8,
                     left: screenSize.width / 16,
                     child: Transform.rotate(
+                      // We rotate with this angle in order to correctly display
+                      // the image.
                       angle: -0.22828907, // 13.08 degrees
                       child: Container(
                         color: const Color.fromARGB(255, 3, 129, 65),
