@@ -8,6 +8,10 @@
     "@okay": {},
     "applyButtonText": "Appliquer",
     "@applyButtonText": {},
+    "next_label": "Suivante",
+    "@next_label": {
+        "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
+    },
     "cancel": "Annuler",
     "@cancel": {},
     "close": "Fermer",
@@ -38,25 +42,41 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Bienvenue sur Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts est une base de données de produits alimentaires, faite pour tout le monde, par tout le monde. Vous pouvez l'utiliser pour mieux choisir vos aliments, et comme c'est une base ouverte, tout le monde peut la réutiliser pour d'autres motifs.",
-    "@whatIsOff": {},
+    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "@whatIsOff": {
+        "description": "Description of Open Food Facts organization."
+    },
     "@user_management": {},
-    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
-    "incorrect_credentials": "Incorrect user name or password.",
-    "login": "Mode sombre",
+    "sign_in_text": "Connectez-vous à votre compte Open Food Facts pour enregistrer vos contributions",
+    "incorrect_credentials": "Nom d'utilisateur ou mot de passe incorrect.",
+    "login": "Nom d'utilisateur",
     "@login": {
-        "description": "Text field hint: unified name for "
+        "description": "Text field hint: unified name for either username or email address"
     },
     "sign_in": "Se connecter",
     "@sign_in": {
         "description": "Button label: For sign in"
     },
     "password": "Mot de passe",
-    "forgot_password": "Forgot password",
+    "forgot_password": "Mot de passe oublié",
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset email can be requested"
     },
-    "enter_some_text": "Please enter some text",
+    "reset_password": "Réinitialiser le mot de passe",
+    "@reset_password": {
+        "description": "Forgot password page title"
+    },
+    "reset_password_explanation_text": "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password. Please also check your spam folder.",
+    "username_or_email": "Username or e-mail address",
+    "@username_or_email": {
+        "description": "Text field hint for password reset"
+    },
+    "reset_password_done": "An email with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
+    "send_reset_password_mail": "Change password",
+    "@send_reset_password_mail": {
+        "description": "Button label: Submit the password reset email request"
+    },
+    "enter_some_text": "Veuillez saisir du texte",
     "@enter_some_text": {
         "description": "Error when text field is empty"
     },
@@ -79,7 +99,7 @@
     },
     "termsOfUse": "Conditions d'utilisation",
     "@termsOfUse": {},
-    "about_this_app": "About this app",
+    "about_this_app": "À propos de cette appli",
     "@about_this_app": {
         "description": "Button label: Opens a popo up window which shows informations about this app"
     },
@@ -88,7 +108,7 @@
     "@contribute": {
         "description": "Button label: Shows multiple ways how users can contribute to OFF"
     },
-    "contribute_sw_development": "Software development",
+    "contribute_sw_development": "Développement logiciel",
     "@contribute_sw_development": {
         "description": "Button label + page title: Ways to help"
     },
@@ -138,15 +158,15 @@
         "description": "Snackbar title: Shows that the modified settings have been applied"
     },
     "@other": {},
-    "profile_navbar_label": "Profile",
+    "profile_navbar_label": "Profil",
     "@profile_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "scan_navbar_label": "Profile",
+    "scan_navbar_label": "Profil",
     "@scan_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "history_navbar_label": "Profile",
+    "history_navbar_label": "Profil",
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
@@ -165,7 +185,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Tap to see more info...",
+    "tab_for_more": "Appuyez pour plus d'informations...",
     "@Product": {},
     "product": "Produit",
     "@product": {},
@@ -173,7 +193,7 @@
     "@unknownBrand": {},
     "unknownProductName": "Produit inconnu",
     "@unknownProductName": {},
-    "label_refresh": "Actualiser",
+    "label_refresh": "Refresh",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
@@ -225,7 +245,7 @@
         "description": "Confirmation, that the product data got canceled by the user"
     },
     "product_internet_error": "Impossible de récupérer les informations sur ce produit en raison d'une erreur réseau.",
-    "cached_results_from": "Cached results from:",
+    "cached_results_from": "Résultats mis en cache depuis :",
     "@cached_results_from": {
         "description": "Cached results from: x time ago (time ago should not be added to the string)"
     },
@@ -256,6 +276,14 @@
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
+    "country_chooser_label": "Please choose a country",
+    "@country_chooser_label": {
+        "description": "Label shown above a selector where the user can select their country"
+    },
+    "country_selection_explanation": "Some environment features depend on your location",
+    "@country_label": {
+        "description": "Explanation as to why users should select their country."
+    },
     "@Lists": {},
     "no_prodcut_in_list": "Il n'y a pas de produit dans cette liste",
     "no_product_in_section": "Il n'y a pas de produit dans cette section",
@@ -264,7 +292,7 @@
     "@clear": {
         "description": "Clears a product list"
     },
-    "really_clear": "Do you really want to clear this list?",
+    "really_clear": "Voulez-vous vraiment vider cette liste ?",
     "@Plural": {},
     "pct_match": "{pct} % de correspondance",
     "@pct_match": {
