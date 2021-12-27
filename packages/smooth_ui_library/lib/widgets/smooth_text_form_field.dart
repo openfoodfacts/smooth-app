@@ -13,9 +13,11 @@ class SmoothTextFormField extends StatefulWidget {
     this.enabled,
     this.textInputAction,
     this.validator,
+    this.autofillHints,
     this.textColor,
     this.backgroundColor,
     required this.hintText,
+    this.hintTextFontSize,
     this.prefixIcon,
   }) : super(key: key);
 
@@ -26,7 +28,9 @@ class SmoothTextFormField extends StatefulWidget {
   final bool? enabled;
   final TextInputAction? textInputAction;
   final String? Function(String?)? validator;
+  final Iterable<String>? autofillHints;
   final Color? textColor;
+  final double? hintTextFontSize;
   final Color? backgroundColor;
 
   @override
@@ -50,6 +54,7 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
       obscureText: _obscureText,
       enableSuggestions: _enableSuggestions,
       autocorrect: _autocorrect,
+      autofillHints: widget.autofillHints,
       onChanged: (String data) {
         // Rebuilds for changing the eye icon
         if (widget.type == TextFieldTypes.PASSWORD) {
@@ -65,7 +70,7 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
         filled: true,
         hintStyle: TextStyle(
           color: widget.textColor,
-          fontSize: 20.0,
+          fontSize: widget.hintTextFontSize ?? 20.0,
         ),
         hintText: widget.hintText,
         fillColor: widget.backgroundColor,

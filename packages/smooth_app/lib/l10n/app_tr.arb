@@ -1,316 +1,281 @@
 {
-    "searchTitle": "Arayın.\nMükemmel ürünü bulun",
-    "@searchTitle": {
-        "description": "Temporary title for the app main page"
-    },
-    "search": "Ara",
-    "@search": {},
-    "welcomeToOpenFoodFacts": "Open Food Facts'e hoşgeldiniz",
-    "@welcomeToOpenFoodFacts": {},
-    "searchPanelHeader": "İlk ürününüzü arayın veya tarayın",
-    "@searchPanelHeader": {},
-    "searchHintText": "Barkod ya da anahtar kelimeleri girin",
-    "@searchHintText": {},
-    "categories": "Kategoriler",
-    "@categories": {},
-    "category": "Kategori",
-    "@category": {},
-    "showAll": "Tümünü göster",
-    "@showAll": {},
-    "scanProductTitle": "Ürünleri tara",
-    "@scanProductTitle": {},
-    "organizationPage": "Firma Sayfası",
-    "@organizationPage": {},
-    "contributors": "Katkıda bulunanlar",
-    "@contributors": {},
-    "contributionPage": "Katkılar Sayfası",
-    "@contributionPage": {},
-    "trackingPage": "Takip Sayfası",
-    "@trackingPage": {},
-    "preferencesText": "Tercihlerim",
-    "@preferencesText": {},
-    "saveButtonText": "Kaydet",
-    "@saveButtonText": {},
-    "applyButtonText": "Uygula",
-    "@applyButtonText": {},
-    "myPersonalizedRanking": "Bireysel Sıralamam",
-    "@myPersonalizedRanking": {
-        "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
-    },
-    "scannerProductsEmpty": "Tarattığın ürünler burada görünecek",
-    "@scannerProductsEmpty": {},
-    "myPreferences": "Tercihlerim",
-    "@myPreferences": {},
-    "featureInProgress": "Bu özellik üzerinde halâ çalışıyoruz, takipte kal",
-    "@featureInProgress": {},
-    "configurePreferences": "Tercihlerimi düzenle",
-    "@configurePreferences": {},
-    "confirmResetPreferences": "Tercihleriniz sıfırlansın mı?",
-    "@confirmResetPreferences": {},
+    "@Utils": {},
     "yes": "Evet",
     "@yes": {},
-    "no": "Hayır",
-    "@no": {},
+    "add": "Ekle",
+    "@add": {},
     "okay": "Tamam",
     "@okay": {},
-    "undo": "GERİ AL",
-    "@undo": {},
+    "applyButtonText": "Uygula",
+    "@applyButtonText": {},
     "cancel": "İptal",
     "@cancel": {},
-    "stop": "Durdur",
-    "@stop": {},
     "close": "Kapat",
     "@close": {},
-    "empty": "Boş!",
-    "@empty": {
-        "description": "Example: A preview of your search history, if you haven't searched for anything yet, it will show 'Empty!"
-    },
-    "unknownBrand": "Bilinmeyen marka",
-    "@unknownBrand": {},
-    "unknownProductName": "Bilinmeyen ürün adı",
-    "@unknownProductName": {},
-    "nutrition": "Beslenme",
-    "@nutrition": {},
-    "ingredients": "İçindekiler",
-    "@ingredients": {},
-    "ecology": "Ekoloji",
-    "@ecology": {},
-    "about": "Uygulama hakkında",
-    "@about": {},
-    "licenses": "Lisanslar",
-    "@licenses": {},
-    "whatIsOff": "Open Food Facts, herkes tarafından, herkes için hazırlanan gıda ürünleri veri tabanıdır. Daha iyi yemek seçimleri yapmak için kullanabilirsiniz ve açık veri olduğu için herkes onu herhangi bir amaç için yeniden kullanabilir.",
-    "@whatIsOff": {},
+    "no": "Hayır",
+    "@no": {},
+    "stop": "Durdur",
+    "@stop": {},
+    "reset": "Sıfırla",
+    "@reset": {},
+    "error": "Bir şeyler ters gitti",
+    "@error": {},
+    "error_occurred": "Hata oluştu",
+    "@error_occurred": {},
+    "featureInProgress": "Bu özellik üzerinde halâ çalışıyoruz, takipte kal",
+    "@featureInProgress": {},
+    "label_web": "View on the Web",
+    "@label_web": {},
     "learnMore": "Daha fazla bilgi edin",
     "@learnMore": {},
+    "incompatible": "Incompatible",
+    "licenses": "Lisanslar",
+    "@licenses": {},
+    "looking_for": "Aranıyor",
+    "@looking_for": {
+        "description": "Looking for: ${BARCODE}"
+    },
+    "@Introduction screen": {},
+    "welcomeToOpenFoodFacts": "Open Food Facts'e hoşgeldiniz",
+    "@welcomeToOpenFoodFacts": {},
+    "whatIsOff": "Open Food Facts, herkes tarafından, herkes için hazırlanan gıda ürünleri veri tabanıdır. Daha iyi yemek seçimleri yapmak için kullanabilirsiniz ve açık veri olduğu için herkes onu herhangi bir amaç için yeniden kullanabilir.",
+    "@whatIsOff": {},
+    "@user_management": {},
+    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
+    "incorrect_credentials": "Incorrect user name or password.",
+    "login": "Karanlık Mod",
+    "@login": {
+        "description": "Text field hint: unified name for "
+    },
+    "sign_in": "Giriş Yap",
+    "@sign_in": {
+        "description": "Button label: For sign in"
+    },
+    "password": "Şifre",
+    "forgot_password": "Forgot password",
+    "@forgot_password": {
+        "description": "Button label: Opens a page where a password reset email can be requested"
+    },
+    "enter_some_text": "Please enter some text",
+    "@enter_some_text": {
+        "description": "Error when text field is empty"
+    },
+    "@Settings": {},
+    "settingsTitle": "Ayarlar",
+    "@settingsTitle": {
+        "description": "The title of the Settings page"
+    },
+    "darkmode": "Karanlık Mod",
+    "@darkmode": {
+        "description": "The name of the darkmode on off switch"
+    },
+    "contributors": "Katkıda bulunanlar",
+    "@contributors": {
+        "description": "Button label: Opens a pop up window where all contributors of this app are shown"
+    },
+    "support": "Destek",
+    "@support": {
+        "description": "Button label: Opens a pop up window where all ways to get support are shown"
+    },
     "termsOfUse": "Kullanım Koşulları",
     "@termsOfUse": {},
+    "about_this_app": "About this app",
+    "@about_this_app": {
+        "description": "Button label: Opens a popo up window which shows informations about this app"
+    },
+    "@About this app section": {},
     "contribute": "Destekleyebilirsiniz",
-    "@contribute": {},
-    "contribute_improve_header": "Geliştirmek",
-    "@contribute_improve_header": {},
-    "contribute_improve_text": "Veritabanı, projenin özüdür. Yardım etmek kolay ve çok hızlı. Telefonunuz için mobil uygulamayı indirebilir ve ürün eklemeye veya iyileştirmeye başlayabilirsiniz.\n\nÖte yandan, Open Food Facts web sitesi katkıda bulunmanız için birçok yol sunar: ",
-    "@contribute_improve_text": {},
-    "contribute_improve_ProductsToBeCompleted": "Tamamlanacak ürünler",
-    "@contribute_improve_ProductsToBeCompleted": {},
-    "contribute_develop": "Geliştirme",
-    "@contribute_develop": {},
+    "@contribute": {
+        "description": "Button label: Shows multiple ways how users can contribute to OFF"
+    },
+    "contribute_sw_development": "Software development",
+    "@contribute_sw_development": {
+        "description": "Button label + page title: Ways to help"
+    },
     "contribute_develop_text": "Her Open Food Facts ürününün kodu GitHub'da mevcuttur. Kodu yeniden kullanmakta özgürsünüz (kod açık kaynaklı) ve dünyadaki herkes için iyileştirmemize yardımcı olabilirsiniz.",
     "@contribute_develop_text": {},
     "contribute_develop_text_2": "Soru sormanın genelde tercih edilen yolu olan Open Food Facts Slack sohbet odasına katılabilirsiniz.",
     "@contribute_develop_text_2": {},
+    "contribute_donate_header": "Open Food Facts'e Bağışta Bulunun",
+    "@contribute_donate_header": {},
+    "contribute_improve_ProductsToBeCompleted": "Tamamlanacak ürünler",
+    "@contribute_improve_ProductsToBeCompleted": {
+        "description": "Button label: Shows a list of products which aren't completed"
+    },
+    "contribute_improve_header": "Geliştirmek",
+    "@contribute_improve_header": {
+        "description": "Button label + page title: Ways to improve the database"
+    },
+    "contribute_improve_text": "Veritabanı, projenin özüdür. Yardım etmek kolay ve çok hızlı. Telefonunuz için mobil uygulamayı indirebilir ve ürün eklemeye veya iyileştirmeye başlayabilirsiniz.\n\nÖte yandan, Open Food Facts web sitesi katkıda bulunmanız için birçok yol sunar: ",
+    "@contribute_improve_text": {},
     "contribute_translate_header": "Çeviri",
-    "@contribute_translate_header": {},
+    "@contribute_translate_header": {
+        "description": "Button label + pop up window title: Shows information about helping by translating"
+    },
+    "contribute_translate_link_text": "Çeviri Yapmaya Başlayın",
+    "@contribute_translate_link_text": {
+        "description": "Button label: Opens the Crowdin translation portal"
+    },
     "contribute_translate_text": "Open Food Facts, 160'tan fazla ülkeden ürünler içeren global bir projedir. Open Food Facts, sürekli gelişen içeriklerle düzinelerce dile çevrilir.",
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Çeviriler, projenin temel görevlerinden biridir",
     "@contribute_translate_text_2": {},
-    "contribute_translate_link_text": "Çeviri Yapmaya Başlayın",
-    "@contribute_translate_link_text": {},
-    "contribute_donate_header": "Open Food Facts'e Bağışta Bulunun",
-    "@contribute_donate_header": {},
-    "support": "Destek",
-    "@support": {},
-    "error": "Bir şeyler ters gitti",
-    "@error": {},
-    "darkmode": "Karanlık Mod",
-    "@darkmode": {},
-    "settingsTitle": "Ayarlar",
-    "@settingsTitle": {},
-    "reset": "Sıfırla",
-    "@reset": {},
+    "@Personal preferences": {},
+    "myPreferences": "Tercihlerim",
+    "@myPreferences": {
+        "description": "Page title: Page where the ranking preferences can be changed"
+    },
+    "confirmResetPreferences": "Tercihleriniz sıfırlansın mı?",
+    "@confirmResetPreferences": {
+        "description": "Pop up title: Reassuring if the food preferences should really be reset"
+    },
+    "myPersonalizedRanking": "Bireysel Sıralamam",
+    "@myPersonalizedRanking": {
+        "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
+    },
+    "reloaded_with_new_preferences": "Yeni tercihlerle yeniden yüklendi",
+    "@reloaded_with_new_preferences": {
+        "description": "Snackbar title: Shows that the modified settings have been applied"
+    },
+    "@other": {},
+    "profile_navbar_label": "Profile",
+    "@profile_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+    },
+    "scan_navbar_label": "Profile",
+    "@scan_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+    },
+    "history_navbar_label": "Profile",
+    "@history_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+    },
+    "category": "Kategori",
+    "@category": {},
+    "category_search": "(kategori arama)",
     "filter": "Filtrele",
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "added_product_thanks": "Bu ürünü eklediğiniz için teşekkürler!",
-    "@added_product_thanks": {},
-    "missing_product": "Bu ürün yok",
-    "@missing_product": {},
-    "add": "Ekle",
-    "@add": {},
-    "nutri_score_unavailable": "Nutri-Score mevcut değil",
-    "@nutri_score_unavailable": {},
-    "missing_picture": "Resim yok",
-    "@missing_picture": {},
-    "searching": "Searching…",
-    "@searching": {},
-    "empty_list": "Boş liste",
-    "@empty_list": {},
-    "nothing_set": "Şu an için hiçbir şey ayarlanmadı",
-    "rename": "Yeniden Adlandır",
-    "@rename": {},
-    "delete": "Sil",
-    "@delete": {},
-    "change_icon": "Simgeyi değiştir",
-    "@change_icon": {},
-    "paste": "yapıştır",
-    "@paste": {},
-    "copy": "kopyala",
-    "@copy": {},
-    "clear": "temizle",
-    "@clear": {},
-    "grocery": "market",
-    "@grocery": {},
-    "add_date": "Başka bir tarih ekleyin",
-    "@add_date": {},
-    "no_date": "Tarih yok",
-    "@no_date": {},
-    "already_in_pantry": "Kilerde var zaten!",
-    "@already_in_pantry": {},
-    "added_to_pantry": "Mutfağa eklendi!",
-    "@added_to_pantry": {},
-    "want_to_delete_pantry": "Bu kileri silmek ister misiniz?",
-    "@want_to_delete_pantry": {},
-    "want_to_delete_shopping": "Bu alışveriş listesini silmek ister misiniz?",
-    "@want_to_delete_shopping": {},
-    "want_to_delete_list": "Bu ürün listesini silmek ister misiniz?",
-    "@want_to_delete_list": {},
-    "new_pantry": "Yeni kiler",
-    "@new_pantry": {},
-    "new_shopping": "Yeni alışveriş listesi",
-    "@new_shopping": {},
-    "new_list": "Yeni liste",
-    "@new_list": {},
-    "rename_pantry": "Kileri yeniden adlandır",
-    "@rename_pantry": {},
-    "rename_shopping": "Alışveriş listesini yeniden adlandır",
-    "@rename_shopping": {},
-    "rename_list": "Listeyi yeniden adlandır",
-    "@rename_list": {},
-    "my_pantry_hint": "Benim kilerim",
-    "@my_pantry_hint": {},
-    "my_shopping_hint": "Alışveriş listem",
-    "@my_shopping_hint": {},
-    "my_list_hint": "Özel listem",
-    "@my_list_hint": {},
-    "enter_text": "Lütfen bir metin girin",
-    "@enter_text": {},
-    "pantry_name_taken": "Zaten bu isimde bir kiler var",
-    "@pantry_name_taken": {},
-    "shopping_name_taken": "Bu isimde zaten bir alışveriş listesi var",
-    "@shopping_name_taken": {},
-    "list_name_taken": "Zaten bu isimde bir liste var",
-    "@list_name_taken": {},
-    "already_same": "Bu aynı isim!",
-    "@already_same": {},
-    "my_pantrie_lists": "Kilerim",
-    "my_shopping_lists": "Alışveriş listelerim",
-    "my_lists": "Listelerim",
-    "food_categories": "Yiyecek kategorileri",
-    "search_history": "Arama geçmişi",
-    "label_preferences": "tercihler",
-    "@label_preferences": {},
-    "label_lists": "listeler",
-    "@label_lists": {},
-    "label_web": "View on the Web",
-    "@label_web": {},
+    "scan": "Tara",
+    "@scan": {
+        "description": "Page title: List type: Scanned products"
+    },
+    "search": "Ara",
+    "@search": {
+        "description": "Hint text of a search text input field"
+    },
+    "tab_for_more": "Tap to see more info...",
+    "@Product": {},
+    "product": "Ürün",
+    "@product": {},
+    "unknownBrand": "Bilinmeyen marka",
+    "@unknownBrand": {},
+    "unknownProductName": "Bilinmeyen ürün adı",
+    "@unknownProductName": {},
     "label_refresh": "yenile",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
-    "label_share": "paylaş",
-    "@label_share": {},
-    "product_refreshed": "Ürün yenilendi",
-    "@product_refreshed": {},
-    "food_ranking_parameters": "Gıda sıralama parametreleri",
-    "product": "Ürün",
-    "@product": {},
-    "packaging_information": "Paketleme bilgileri",
-    "@packaging_information": {},
-    "more_photos": "Daha ilginç fotoğraflar",
-    "@more_photos": {},
     "front_photo": "Ön fotoğraf",
-    "@front_photo": {},
+    "@front_photo": {
+        "description": "Button label: For adding a picture of the front of a product"
+    },
+    "ingredients": "İçindekiler",
+    "@ingredients": {},
     "ingredients_photo": "İçindekiler fotoğarafı",
-    "@ingredients_photo": {},
+    "@ingredients_photo": {
+        "description": "Button label: For adding a picture of the Ingredients of a product"
+    },
+    "nutrition": "Beslenme",
+    "@nutrition": {},
     "nutrition_facts_photo": "Besin değerleri fotoğrafı",
-    "@nutrition_facts_photo": {},
+    "@nutrition_facts_photo": {
+        "description": "Button label: For adding a picture of the nutrition facts of a product"
+    },
+    "packaging_information": "Paketleme bilgileri",
+    "@packaging_information": {
+        "description": "Button label: For adding a picture of the packaging of a product"
+    },
     "packaging_information_photo": "Paketleme bilgileri fotoğrafı",
     "@packaging_information_photo": {},
-    "add_product": "Yeni bir ürün ekle",
-    "@add_product": {},
-    "similar_food": "Benzer yiyecekler",
-    "@similar_foods": {},
-    "refreshing_product": "Ürün yenileme",
-    "@refreshing_product": {},
-    "looking_for": "Aranıyor",
-    "@looking_for": {},
-    "could_not_refresh": "Ürün yenilenemedi",
-    "@could_not_refresh": {},
+    "missing_product": "Bu ürün yok",
+    "@missing_product": {},
+    "more_photos": "Daha ilginç fotoğraflar",
+    "@more_photos": {},
     "no_product_found": "Ürün bulunamadı",
     "@no_product_found": {},
-    "product_internet_error": "Impossible to fetch information about this product due to a network error.",
-    "product_internet_cancel": "Canceled by user.",
-    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take them into a photo (ingredient list and/or any geographic claim or edit the product so that they can be taken into account. If it is not clear, you can contact the food producer.",
-    "@product_improvement_origins_to_be_completed": {
-        "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
+    "not_found": "bulunamadı:",
+    "searchPanelHeader": "İlk ürününüzü arayın veya tarayın",
+    "@Product query status": {},
+    "refreshing_product": "Ürün yenileme",
+    "@refreshing_product": {
+        "description": "Confirmation, that the product data of a cached product is queried again"
     },
-    "product_improvement_categories_but_no_nutriscore": "We could not compute an Nutri-Score for this product. It might be that the category is an exception. If you believe this is an error, contact us.",
-    "@product_improvement_categories_but_no_nutriscore": {
-        "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
+    "product_refreshed": "Ürün yenilendi",
+    "@product_refreshed": {
+        "description": "Confirmation, that the product data refresh is done"
+    },
+    "could_not_refresh": "Ürün yenilenemedi",
+    "@could_not_refresh": {
+        "description": "The product data couldn't be refreshed"
+    },
+    "product_internet_cancel": "Canceled by user.",
+    "@product_internet_cancel": {
+        "description": "Confirmation, that the product data got canceled by the user"
+    },
+    "product_internet_error": "Impossible to fetch information about this product due to a network error.",
+    "cached_results_from": "Cached results from:",
+    "@cached_results_from": {
+        "description": "Cached results from: x time ago (time ago should not be added to the string)"
+    },
+    "@Product Addition": {},
+    "added_product_thanks": "Bu ürünü eklediğiniz için teşekkürler!",
+    "@added_product_thanks": {},
+    "product_improvement_add_category": "Add a category to compute the Nutri-Score.",
+    "@product_improvement_add_category": {
+        "description": "Message for ProductImprovement.ADD_CATEGORY"
     },
     "product_improvement_add_nutrition_facts": "Add nutrition facts to compute the Nutri-Score.",
     "@product_improvement_add_nutrition_facts": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
     },
-    "product_improvement_add_category": "Add a category to compute the Nutri-Score.",
-    "@product_improvement_add_category": {
-        "description": "Message for ProductImprovement.ADD_CATEGORY"
-    },
     "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to compute the Nutri-Score.",
     "@product_improvement_add_nutrition_facts_and_category": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
+    },
+    "product_improvement_categories_but_no_nutriscore": "We could not compute an Nutri-Score for this product. It might be that the category is an exception. If you believe this is an error, contact us.",
+    "@product_improvement_categories_but_no_nutriscore": {
+        "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
     "product_improvement_obsolete_nutrition_image": "The nutrition image is obsolete: please refresh it.",
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvements_count": "{count,plural, =1{One possible improvement} other{{count} possible improvements}}",
-    "@product_improvements_count": {
-        "description": "x possible improvements",
-        "placeholders": {
-            "count": {}
-        }
+    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take them into a photo (ingredient list and/or any geographic claim or edit the product so that they can be taken into account. If it is not clear, you can contact the food producer.",
+    "@product_improvement_origins_to_be_completed": {
+        "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
-    "products_pasted": "ürünler yapıştırıldı",
-    "@products_pasted": {},
+    "@Lists": {},
     "no_prodcut_in_list": "Bu listede ürün yok",
-    "@no_product_in_list": {},
-    "error_occurred": "Hata oluştu",
-    "@error_occurred": {},
-    "keyword_search": "(anahtar kelime araması)",
-    "category_search": "(kategori arama)",
-    "my_list": "(listem)",
-    "scan": "Tara",
+    "no_product_in_section": "Bu bölümde ürün bulunmamaktadır",
     "recently_seen_products": "Yakın zamanda görülen ürünlerim",
-    "unknown_product_list": "Bilinmeyen ürün listesi:",
-    "not_found": "bulunamadı:",
-    "no_product": "ürün yok",
-    "one_product": "1 ürün",
-    "x_products": "ürünler",
-    "scan_contribute": "KATKIDA BULUNUN",
-    "@scan_contribute": {
-        "description": "Switch on top of the Scanner to choose between to scan or add products"
+    "clear": "Temizle",
+    "@clear": {
+        "description": "Clears a product list"
     },
-    "incompatible": "Incompatible",
+    "really_clear": "Do you really want to clear this list?",
+    "@Plural": {},
     "pct_match": "{pct}% match",
     "@pct_match": {
+        "description": "This product has a x percent match with your preferences",
         "placeholders": {
             "pct": {}
         }
     },
-    "scan_choose": "SEÇ",
-    "@scan_choose": {
-        "description": "Switch on top of the Scanner to choose between to scan or add products"
-    },
-    "reloaded_with_new_preferences": "Yeni tercihlerle yeniden yüklendi",
-    "no_product_in_section": "Bu bölümde ürün bulunmamaktadır",
-    "what_are_you_looking_for": "Ne arıyorsunuz?",
-    "chached_results_from": "Şunlardan önbelleğe alınmış sonuçlar:",
-    "plural_ago_minutes": "{count,plural, one {} =0{bir dakikadan daha kısa bir süre önce} =1{bir dakika önce} other{{count} dakika önce}}",
-    "@plural_ago_minutes": {
-        "description": "Cached results from: x minutes ago",
+    "plural_ago_days": "{count,plural, =1{bir gün önce} other{{count} gün önce}}",
+    "@plural_ago_days": {
+        "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
@@ -322,9 +287,16 @@
             "count": {}
         }
     },
-    "plural_ago_days": "{count,plural, =1{bir gün önce} other{{count} gün önce}}",
-    "@plural_ago_days": {
-        "description": "Cached results from: x days ago",
+    "plural_ago_minutes": "{count,plural, one {} =0{bir dakikadan daha kısa bir süre önce} =1{bir dakika önce} other{{count} dakika önce}}",
+    "@plural_ago_minutes": {
+        "description": "Cached results from: x minutes ago",
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "plural_ago_months": "{count,plural, =1{bir ay önce} other{{count} ay önce}}",
+    "@plural_ago_months": {
+        "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
@@ -336,9 +308,9 @@
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, =1{bir ay önce} other{{count} ay önce}}",
-    "@plural_ago_months": {
-        "description": "Cached results from: x months ago",
+    "plural_compare_x_products": "{count,plural, =other{Compare {count} Products}",
+    "@plural_compare_x_products": {
+        "description": "Button label",
         "placeholders": {
             "count": {}
         }

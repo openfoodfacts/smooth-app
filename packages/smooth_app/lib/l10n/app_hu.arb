@@ -1,316 +1,281 @@
 {
-    "searchTitle": "Keresés. Találja meg a tökéletes terméket",
-    "@searchTitle": {
-        "description": "Temporary title for the app main page"
-    },
-    "search": "Keres",
-    "@search": {},
-    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
-    "@welcomeToOpenFoodFacts": {},
-    "searchPanelHeader": "Keresse meg vagy szkennelje első termékét",
-    "@searchPanelHeader": {},
-    "searchHintText": "Add meg a vonalkódot vagy kulcsszavakat",
-    "@searchHintText": {},
-    "categories": "Kategóriák",
-    "@categories": {},
-    "category": "Kategória",
-    "@category": {},
-    "showAll": "Mind megjelenítése",
-    "@showAll": {},
-    "scanProductTitle": "Termékek beolvasása",
-    "@scanProductTitle": {},
-    "organizationPage": "Szervezeti oldal",
-    "@organizationPage": {},
-    "contributors": "Hozzájárulók",
-    "@contributors": {},
-    "contributionPage": "Hozzájáruló oldal",
-    "@contributionPage": {},
-    "trackingPage": "Nyomon követési oldal",
-    "@trackingPage": {},
-    "preferencesText": "Beállításaim",
-    "@preferencesText": {},
-    "saveButtonText": "Mentés",
-    "@saveButtonText": {},
-    "applyButtonText": "Alkalmaz",
-    "@applyButtonText": {},
-    "myPersonalizedRanking": "Személyre szabott rendezés",
-    "@myPersonalizedRanking": {
-        "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
-    },
-    "scannerProductsEmpty": "Itt jelennek meg a beolvasott termékek",
-    "@scannerProductsEmpty": {},
-    "myPreferences": "Saját beállítások",
-    "@myPreferences": {},
-    "featureInProgress": "Még dolgozunk ezen a funkción, maradjon velünk",
-    "@featureInProgress": {},
-    "configurePreferences": "Beállításaim konfigurálása",
-    "@configurePreferences": {},
-    "confirmResetPreferences": "Visszaállítja a beállításokat?",
-    "@confirmResetPreferences": {},
+    "@Utils": {},
     "yes": "Igen",
     "@yes": {},
-    "no": "Nem",
-    "@no": {},
+    "add": "Hozzáad",
+    "@add": {},
     "okay": "Rendben",
     "@okay": {},
-    "undo": "VISSZAVONÁS",
-    "@undo": {},
+    "applyButtonText": "Alkalmaz",
+    "@applyButtonText": {},
     "cancel": "Mégse",
     "@cancel": {},
-    "stop": "Állj",
-    "@stop": {},
     "close": "Bezár",
     "@close": {},
-    "empty": "Ürítés!",
-    "@empty": {
-        "description": "Example: A preview of your search history, if you haven't searched for anything yet, it will show 'Empty!"
-    },
-    "unknownBrand": "Ismeretlen márka",
-    "@unknownBrand": {},
-    "unknownProductName": "Ismeretlen terméknév",
-    "@unknownProductName": {},
-    "nutrition": "Tápanyag",
-    "@nutrition": {},
-    "ingredients": "Összetevők",
-    "@ingredients": {},
-    "ecology": "Ökológia",
-    "@ecology": {},
-    "about": "Névjegy",
-    "@about": {},
-    "licenses": "Licences",
-    "@licenses": {},
-    "whatIsOff": "Az Open Food Facts egy élelmiszeripari termékek adatbázisa, amelyet mindenki készít, mindenki számára. Használhatja jobb ételválasztásra, és mivel nyílt adatról van szó, bárki bármilyen célra felhasználhatja.",
-    "@whatIsOff": {},
+    "no": "Nem",
+    "@no": {},
+    "stop": "Állj",
+    "@stop": {},
+    "reset": "Visszaállítás",
+    "@reset": {},
+    "error": "Valami hiba történt",
+    "@error": {},
+    "error_occurred": "Hiba történt",
+    "@error_occurred": {},
+    "featureInProgress": "Még dolgozunk ezen a funkción, maradjon velünk",
+    "@featureInProgress": {},
+    "label_web": "Megtekintés a weben",
+    "@label_web": {},
     "learnMore": "További információk",
     "@learnMore": {},
+    "incompatible": "Inkompatibilis",
+    "licenses": "Licences",
+    "@licenses": {},
+    "looking_for": "Keresés",
+    "@looking_for": {
+        "description": "Looking for: ${BARCODE}"
+    },
+    "@Introduction screen": {},
+    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
+    "@welcomeToOpenFoodFacts": {},
+    "whatIsOff": "Az Open Food Facts egy élelmiszeripari termékek adatbázisa, amelyet mindenki készít, mindenki számára. Használhatja jobb ételválasztásra, és mivel nyílt adatról van szó, bárki bármilyen célra felhasználhatja.",
+    "@whatIsOff": {},
+    "@user_management": {},
+    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
+    "incorrect_credentials": "Incorrect user name or password.",
+    "login": "Sötét mód",
+    "@login": {
+        "description": "Text field hint: unified name for "
+    },
+    "sign_in": "Bejelentkezés",
+    "@sign_in": {
+        "description": "Button label: For sign in"
+    },
+    "password": "Jelszó",
+    "forgot_password": "Forgot password",
+    "@forgot_password": {
+        "description": "Button label: Opens a page where a password reset email can be requested"
+    },
+    "enter_some_text": "Please enter some text",
+    "@enter_some_text": {
+        "description": "Error when text field is empty"
+    },
+    "@Settings": {},
+    "settingsTitle": "Beállítások",
+    "@settingsTitle": {
+        "description": "The title of the Settings page"
+    },
+    "darkmode": "Sötét mód",
+    "@darkmode": {
+        "description": "The name of the darkmode on off switch"
+    },
+    "contributors": "Hozzájárulók",
+    "@contributors": {
+        "description": "Button label: Opens a pop up window where all contributors of this app are shown"
+    },
+    "support": "Support",
+    "@support": {
+        "description": "Button label: Opens a pop up window where all ways to get support are shown"
+    },
     "termsOfUse": "Felhasználási feltételek (ToU) (angolul)",
     "@termsOfUse": {},
+    "about_this_app": "About this app",
+    "@about_this_app": {
+        "description": "Button label: Opens a popo up window which shows informations about this app"
+    },
+    "@About this app section": {},
     "contribute": "Hozzájárulás",
-    "@contribute": {},
-    "contribute_improve_header": "Javítás",
-    "@contribute_improve_header": {},
-    "contribute_improve_text": "Az adatbázis a projekt magja. Könnyű és nagyon gyorsan hozzá tud járulni. Letöltheti a mobilalkalmazást telefonjára, és megkezdheti a termékek hozzáadását vagy kiegészítését.\n\nAz Open Food Facts webhely pedig számos, további módot kínál a hozzájárulásra: ",
-    "@contribute_improve_text": {},
-    "contribute_improve_ProductsToBeCompleted": "Kiegészítendő termékek",
-    "@contribute_improve_ProductsToBeCompleted": {},
-    "contribute_develop": "Fejlesztés",
-    "@contribute_develop": {},
+    "@contribute": {
+        "description": "Button label: Shows multiple ways how users can contribute to OFF"
+    },
+    "contribute_sw_development": "Software development",
+    "@contribute_sw_development": {
+        "description": "Button label + page title: Ways to help"
+    },
     "contribute_develop_text": "Minden Open Food Facts termék kódja elérhető a GitHubon. Örömmel veszük, ha felhasználja a kódot (nyílt forráskódú) és segít jobbá tenni azt, a bolygó minden lakója számára.",
     "@contribute_develop_text": {},
     "contribute_develop_text_2": "Csatlakozhat az Open Food Facts Slack csevegőszobához, amely a legjobb módja a kérdések feltevésének.",
     "@contribute_develop_text_2": {},
+    "contribute_donate_header": "Adományozzon az Open Food Facts programnak",
+    "@contribute_donate_header": {},
+    "contribute_improve_ProductsToBeCompleted": "Kiegészítendő termékek",
+    "@contribute_improve_ProductsToBeCompleted": {
+        "description": "Button label: Shows a list of products which aren't completed"
+    },
+    "contribute_improve_header": "Javítás",
+    "@contribute_improve_header": {
+        "description": "Button label + page title: Ways to improve the database"
+    },
+    "contribute_improve_text": "Az adatbázis a projekt magja. Könnyű és nagyon gyorsan hozzá tud járulni. Letöltheti a mobilalkalmazást telefonjára, és megkezdheti a termékek hozzáadását vagy kiegészítését.\n\nAz Open Food Facts webhely pedig számos, további módot kínál a hozzájárulásra: ",
+    "@contribute_improve_text": {},
     "contribute_translate_header": "Fordítás",
-    "@contribute_translate_header": {},
+    "@contribute_translate_header": {
+        "description": "Button label + pop up window title: Shows information about helping by translating"
+    },
+    "contribute_translate_link_text": "Kezdje el a fordítást",
+    "@contribute_translate_link_text": {
+        "description": "Button label: Opens the Crowdin translation portal"
+    },
     "contribute_translate_text": "Az Open Food Facts egy globális projekt, amely több mint 160 ország termékeit tartalmazza. Az Open Food Facts több tucat nyelvre van lefordítva, folyamatosan fejlődő tartalommal.",
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "A fordítás a projekt egyik legfontosabb feladatai közé tartozik",
     "@contribute_translate_text_2": {},
-    "contribute_translate_link_text": "Kezdje el a fordítást",
-    "@contribute_translate_link_text": {},
-    "contribute_donate_header": "Adományozzon az Open Food Facts programnak",
-    "@contribute_donate_header": {},
-    "support": "Support",
-    "@support": {},
-    "error": "Valami hiba történt",
-    "@error": {},
-    "darkmode": "Sötét mód",
-    "@darkmode": {},
-    "settingsTitle": "Beállítások",
-    "@settingsTitle": {},
-    "reset": "Visszaállítás",
-    "@reset": {},
+    "@Personal preferences": {},
+    "myPreferences": "Saját beállítások",
+    "@myPreferences": {
+        "description": "Page title: Page where the ranking preferences can be changed"
+    },
+    "confirmResetPreferences": "Visszaállítja a beállításokat?",
+    "@confirmResetPreferences": {
+        "description": "Pop up title: Reassuring if the food preferences should really be reset"
+    },
+    "myPersonalizedRanking": "Személyre szabott rendezés",
+    "@myPersonalizedRanking": {
+        "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
+    },
+    "reloaded_with_new_preferences": "Újratöltve az új beállításokkal",
+    "@reloaded_with_new_preferences": {
+        "description": "Snackbar title: Shows that the modified settings have been applied"
+    },
+    "@other": {},
+    "profile_navbar_label": "Profile",
+    "@profile_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+    },
+    "scan_navbar_label": "Profile",
+    "@scan_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+    },
+    "history_navbar_label": "Profile",
+    "@history_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+    },
+    "category": "Kategória",
+    "@category": {},
+    "category_search": "(kategória keresés)",
     "filter": "Szűrés",
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "added_product_thanks": "Köszönjük a terméket hozzáadását!",
-    "@added_product_thanks": {},
-    "missing_product": "Ez a termék hiányzik",
-    "@missing_product": {},
-    "add": "Hozzáad",
-    "@add": {},
-    "nutri_score_unavailable": "A Nutri-Score nem érhető el",
-    "@nutri_score_unavailable": {},
-    "missing_picture": "Hiányzó kép",
-    "@missing_picture": {},
-    "searching": "Keresés…",
-    "@searching": {},
-    "empty_list": "Üres lista",
-    "@empty_list": {},
-    "nothing_set": "Jelenleg semmi nincs beállítva",
-    "rename": "Átnevezés",
-    "@rename": {},
-    "delete": "Törlés",
-    "@delete": {},
-    "change_icon": "Ikon módosítása",
-    "@change_icon": {},
-    "paste": "beillesztés",
-    "@paste": {},
-    "copy": "másolás",
-    "@copy": {},
-    "clear": "törlés",
-    "@clear": {},
-    "grocery": "élelmiszerbolt",
-    "@grocery": {},
-    "add_date": "Másik dátum hozzáadása",
-    "@add_date": {},
-    "no_date": "Nincs dátum",
-    "@no_date": {},
-    "already_in_pantry": "Már a spájzban van!",
-    "@already_in_pantry": {},
-    "added_to_pantry": "Hozzáadva a spájzhoz!",
-    "@added_to_pantry": {},
-    "want_to_delete_pantry": "Törli ezt a spájzot?",
-    "@want_to_delete_pantry": {},
-    "want_to_delete_shopping": "Törli ezt a bevásárlólistát?",
-    "@want_to_delete_shopping": {},
-    "want_to_delete_list": "Törli ezt a terméklistát?",
-    "@want_to_delete_list": {},
-    "new_pantry": "Új spájz",
-    "@new_pantry": {},
-    "new_shopping": "Új bevásárlólista",
-    "@new_shopping": {},
-    "new_list": "Új lista",
-    "@new_list": {},
-    "rename_pantry": "Spájz átnevezése",
-    "@rename_pantry": {},
-    "rename_shopping": "Bevásárlólista átnevezése",
-    "@rename_shopping": {},
-    "rename_list": "Lista átnevezése",
-    "@rename_list": {},
-    "my_pantry_hint": "Saját spájzom",
-    "@my_pantry_hint": {},
-    "my_shopping_hint": "Bevásárlólistám",
-    "@my_shopping_hint": {},
-    "my_list_hint": "Saját egyedi listám",
-    "@my_list_hint": {},
-    "enter_text": "Kérjük, írjon be szöveget",
-    "@enter_text": {},
-    "pantry_name_taken": "Már van egy spájz ezzel a névvel",
-    "@pantry_name_taken": {},
-    "shopping_name_taken": "Már van egy bevásárlólista ezzel a névvel",
-    "@shopping_name_taken": {},
-    "list_name_taken": "Már van egy lista ezzel a névvel",
-    "@list_name_taken": {},
-    "already_same": "Ez ugyanaz a név!",
-    "@already_same": {},
-    "my_pantrie_lists": "Spájzaim",
-    "my_shopping_lists": "Bevásárlólistáim",
-    "my_lists": "Listáim",
-    "food_categories": "Élelmiszer kategóriák",
-    "search_history": "Keresés az előzményekben",
-    "label_preferences": "preferenciák",
-    "@label_preferences": {},
-    "label_lists": "listák",
-    "@label_lists": {},
-    "label_web": "Megtekintés a weben",
-    "@label_web": {},
+    "scan": "Beolvasás",
+    "@scan": {
+        "description": "Page title: List type: Scanned products"
+    },
+    "search": "Keres",
+    "@search": {
+        "description": "Hint text of a search text input field"
+    },
+    "tab_for_more": "Tap to see more info...",
+    "@Product": {},
+    "product": "Termék",
+    "@product": {},
+    "unknownBrand": "Ismeretlen márka",
+    "@unknownBrand": {},
+    "unknownProductName": "Ismeretlen terméknév",
+    "@unknownProductName": {},
     "label_refresh": "frissítés",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
-    "label_share": "megosztás",
-    "@label_share": {},
-    "product_refreshed": "Termék frissítve",
-    "@product_refreshed": {},
-    "food_ranking_parameters": "Élelmiszer-rangsorolási paraméterek",
-    "product": "Termék",
-    "@product": {},
-    "packaging_information": "Csomagolási információk",
-    "@packaging_information": {},
-    "more_photos": "További érdekes képek",
-    "@more_photos": {},
     "front_photo": "Fénykép szemből",
-    "@front_photo": {},
+    "@front_photo": {
+        "description": "Button label: For adding a picture of the front of a product"
+    },
+    "ingredients": "Összetevők",
+    "@ingredients": {},
     "ingredients_photo": "Összetevők fényképe",
-    "@ingredients_photo": {},
+    "@ingredients_photo": {
+        "description": "Button label: For adding a picture of the Ingredients of a product"
+    },
+    "nutrition": "Tápanyag",
+    "@nutrition": {},
     "nutrition_facts_photo": "Tápértékadatok fényképe",
-    "@nutrition_facts_photo": {},
+    "@nutrition_facts_photo": {
+        "description": "Button label: For adding a picture of the nutrition facts of a product"
+    },
+    "packaging_information": "Csomagolási információk",
+    "@packaging_information": {
+        "description": "Button label: For adding a picture of the packaging of a product"
+    },
     "packaging_information_photo": "Csomagolási információ fényképe",
     "@packaging_information_photo": {},
-    "add_product": "Új termék hozzáadása",
-    "@add_product": {},
-    "similar_food": "Hasonló ételek",
-    "@similar_foods": {},
-    "refreshing_product": "Termék frissítése",
-    "@refreshing_product": {},
-    "looking_for": "Keresés",
-    "@looking_for": {},
-    "could_not_refresh": "Nem sikerült frissíteni a terméket",
-    "@could_not_refresh": {},
+    "missing_product": "Ez a termék hiányzik",
+    "@missing_product": {},
+    "more_photos": "További érdekes képek",
+    "@more_photos": {},
     "no_product_found": "Nem található termék",
     "@no_product_found": {},
-    "product_internet_error": "Hálózati hiba miatt nem lehet információkat lekérni erről a termékről.",
-    "product_internet_cancel": "Felhasználó által megszakítva.",
-    "product_improvement_origins_to_be_completed": "Az Eco-Score figyelembe veszi az összetevők eredetét. Kérjük, fényképezze le őket (összetevők listája és/vagy bármilyen földrajzi helyadat, vagy módosítsa a terméket úgy, hogy figyelembe lehessen venni azt. Ha ez nem egyértelmű, forduljon az élelmiszergyártóhoz.",
-    "@product_improvement_origins_to_be_completed": {
-        "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
+    "not_found": "nem található:",
+    "searchPanelHeader": "Keresse meg vagy szkennelje első termékét",
+    "@Product query status": {},
+    "refreshing_product": "Termék frissítése",
+    "@refreshing_product": {
+        "description": "Confirmation, that the product data of a cached product is queried again"
     },
-    "product_improvement_categories_but_no_nutriscore": "Nem tudtunk Nutri-Score pontszámot kiszámítani ehhez a termékhez. Lehetséges, hogy ez a kategória egy kivétel. Ha úgy gondolja, hogy ez hiba, lépjen kapcsolatba velünk.",
-    "@product_improvement_categories_but_no_nutriscore": {
-        "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
+    "product_refreshed": "Termék frissítve",
+    "@product_refreshed": {
+        "description": "Confirmation, that the product data refresh is done"
+    },
+    "could_not_refresh": "Nem sikerült frissíteni a terméket",
+    "@could_not_refresh": {
+        "description": "The product data couldn't be refreshed"
+    },
+    "product_internet_cancel": "Felhasználó által megszakítva.",
+    "@product_internet_cancel": {
+        "description": "Confirmation, that the product data got canceled by the user"
+    },
+    "product_internet_error": "Hálózati hiba miatt nem lehet információkat lekérni erről a termékről.",
+    "cached_results_from": "Cached results from:",
+    "@cached_results_from": {
+        "description": "Cached results from: x time ago (time ago should not be added to the string)"
+    },
+    "@Product Addition": {},
+    "added_product_thanks": "Köszönjük a terméket hozzáadását!",
+    "@added_product_thanks": {},
+    "product_improvement_add_category": "Adjon hozzá egy kategóriát a Nutri-Score kiszámításához.",
+    "@product_improvement_add_category": {
+        "description": "Message for ProductImprovement.ADD_CATEGORY"
     },
     "product_improvement_add_nutrition_facts": "Adjon hozzá tápérték adatokat a Nutri-Score kiszámításához.",
     "@product_improvement_add_nutrition_facts": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
     },
-    "product_improvement_add_category": "Adjon hozzá egy kategóriát a Nutri-Score kiszámításához.",
-    "@product_improvement_add_category": {
-        "description": "Message for ProductImprovement.ADD_CATEGORY"
-    },
     "product_improvement_add_nutrition_facts_and_category": "Adjon hozzá tápérték adatokat és egy kategóriát a Nutri-Score kiszámításához.",
     "@product_improvement_add_nutrition_facts_and_category": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
+    },
+    "product_improvement_categories_but_no_nutriscore": "Nem tudtunk Nutri-Score pontszámot kiszámítani ehhez a termékhez. Lehetséges, hogy ez a kategória egy kivétel. Ha úgy gondolja, hogy ez hiba, lépjen kapcsolatba velünk.",
+    "@product_improvement_categories_but_no_nutriscore": {
+        "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
     "product_improvement_obsolete_nutrition_image": "A tép érték kép elavult: kérjük frissítse azt.",
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvements_count": "{count,plural, =1{Egy lehetséges hozzájárulás} other{{count} lehetséges hozzájárulás}}",
-    "@product_improvements_count": {
-        "description": "x possible improvements",
-        "placeholders": {
-            "count": {}
-        }
+    "product_improvement_origins_to_be_completed": "Az Eco-Score figyelembe veszi az összetevők eredetét. Kérjük, fényképezze le őket (összetevők listája és/vagy bármilyen földrajzi helyadat, vagy módosítsa a terméket úgy, hogy figyelembe lehessen venni azt. Ha ez nem egyértelmű, forduljon az élelmiszergyártóhoz.",
+    "@product_improvement_origins_to_be_completed": {
+        "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
-    "products_pasted": "beillesztett termékek",
-    "@products_pasted": {},
+    "@Lists": {},
     "no_prodcut_in_list": "Nincs termék ebben a listában",
-    "@no_product_in_list": {},
-    "error_occurred": "Hiba történt",
-    "@error_occurred": {},
-    "keyword_search": "(kulcsszó keresés)",
-    "category_search": "(kategória keresés)",
-    "my_list": "(listám)",
-    "scan": "Beolvasás",
+    "no_product_in_section": "Nincs termék ebben a szekcióban",
     "recently_seen_products": "Nemrég megtekintett termékeim",
-    "unknown_product_list": "Ismeretlen terméklista:",
-    "not_found": "nem található:",
-    "no_product": "nincs termék",
-    "one_product": "1 termék",
-    "x_products": "termékek",
-    "scan_contribute": "JÁRULJ HOZZÁ",
-    "@scan_contribute": {
-        "description": "Switch on top of the Scanner to choose between to scan or add products"
+    "clear": "Törlés",
+    "@clear": {
+        "description": "Clears a product list"
     },
-    "incompatible": "Inkompatibilis",
+    "really_clear": "Do you really want to clear this list?",
+    "@Plural": {},
     "pct_match": "{pct}% egyezés",
     "@pct_match": {
+        "description": "This product has a x percent match with your preferences",
         "placeholders": {
             "pct": {}
         }
     },
-    "scan_choose": "VÁLASSZ",
-    "@scan_choose": {
-        "description": "Switch on top of the Scanner to choose between to scan or add products"
-    },
-    "reloaded_with_new_preferences": "Újratöltve az új beállításokkal",
-    "no_product_in_section": "Nincs termék ebben a szekcióban",
-    "what_are_you_looking_for": "Mit keresel?",
-    "chached_results_from": "Gyorsítótárazott eredmények innen:",
-    "plural_ago_minutes": "{count,plural, =0{kevesebb, mint egy perce} =1{egy perce} other{{count} perccel ezelőtt}}",
-    "@plural_ago_minutes": {
-        "description": "Cached results from: x minutes ago",
+    "plural_ago_days": "{count,plural, =1{egy napja} other{{count} nappal ezelőtt}}",
+    "@plural_ago_days": {
+        "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
@@ -322,9 +287,16 @@
             "count": {}
         }
     },
-    "plural_ago_days": "{count,plural, =1{egy napja} other{{count} nappal ezelőtt}}",
-    "@plural_ago_days": {
-        "description": "Cached results from: x days ago",
+    "plural_ago_minutes": "{count,plural, =0{kevesebb, mint egy perce} =1{egy perce} other{{count} perccel ezelőtt}}",
+    "@plural_ago_minutes": {
+        "description": "Cached results from: x minutes ago",
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "plural_ago_months": "{count,plural, =1{egy hónapja} other{{count} hónappal ezelőtt}}",
+    "@plural_ago_months": {
+        "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
@@ -336,9 +308,9 @@
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, =1{egy hónapja} other{{count} hónappal ezelőtt}}",
-    "@plural_ago_months": {
-        "description": "Cached results from: x months ago",
+    "plural_compare_x_products": "{count,plural, =other{Compare {count} Products}",
+    "@plural_compare_x_products": {
+        "description": "Button label",
         "placeholders": {
             "count": {}
         }
