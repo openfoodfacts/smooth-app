@@ -1,316 +1,281 @@
 {
-    "searchTitle": "Pesquise.\nEncontre o produto perfeito",
-    "@searchTitle": {
-        "description": "Temporary title for the app main page"
-    },
-    "search": "Procurar",
-    "@search": {},
-    "welcomeToOpenFoodFacts": "Bem-vindo ao Open Food Facts",
-    "@welcomeToOpenFoodFacts": {},
-    "searchPanelHeader": "Pesquise ou escaneie seu primeiro produto",
-    "@searchPanelHeader": {},
-    "searchHintText": "Insira um código de barras ou palavras-chave",
-    "@searchHintText": {},
-    "categories": "Categorias",
-    "@categories": {},
-    "category": "Categoria",
-    "@category": {},
-    "showAll": "Mostrar todos",
-    "@showAll": {},
-    "scanProductTitle": "Escanear produtos",
-    "@scanProductTitle": {},
-    "organizationPage": "Página da Organização",
-    "@organizationPage": {},
-    "contributors": "Colaboradores",
-    "@contributors": {},
-    "contributionPage": "Página de contribuição",
-    "@contributionPage": {},
-    "trackingPage": "Página de rastreamento",
-    "@trackingPage": {},
-    "preferencesText": "Minhas Preferências",
-    "@preferencesText": {},
-    "saveButtonText": "Salvar",
-    "@saveButtonText": {},
-    "applyButtonText": "Candidatar",
-    "@applyButtonText": {},
-    "myPersonalizedRanking": "Classificação Pessoal",
-    "@myPersonalizedRanking": {
-        "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
-    },
-    "scannerProductsEmpty": "Os produtos que você escanear aparecerão aqui",
-    "@scannerProductsEmpty": {},
-    "myPreferences": "Minhas Preferências",
-    "@myPreferences": {},
-    "featureInProgress": "Ainda estamos trabalhando nesse recurso, fique ligado",
-    "@featureInProgress": {},
-    "configurePreferences": "Configurar minhas preferências",
-    "@configurePreferences": {},
-    "confirmResetPreferences": "Redefinir suas preferências?",
-    "@confirmResetPreferences": {},
+    "@Utils": {},
     "yes": "Sim",
     "@yes": {},
-    "no": "Não",
-    "@no": {},
+    "add": "Adicione",
+    "@add": {},
     "okay": "Ok",
     "@okay": {},
-    "undo": "DESFAZER",
-    "@undo": {},
+    "applyButtonText": "Candidatar",
+    "@applyButtonText": {},
     "cancel": "Cancelar",
     "@cancel": {},
-    "stop": "Parar",
-    "@stop": {},
     "close": "Fechar",
     "@close": {},
-    "empty": "Vazio!",
-    "@empty": {
-        "description": "Example: A preview of your search history, if you haven't searched for anything yet, it will show 'Empty!"
-    },
-    "unknownBrand": "Marca desconhecida",
-    "@unknownBrand": {},
-    "unknownProductName": "Produto desconhecido",
-    "@unknownProductName": {},
-    "nutrition": "Nutrição",
-    "@nutrition": {},
-    "ingredients": "Ingredientes",
-    "@ingredients": {},
-    "ecology": "Ecologia",
-    "@ecology": {},
-    "about": "Sobre este app",
-    "@about": {},
-    "licenses": "Licenças",
-    "@licenses": {},
-    "whatIsOff": "Open Food Facts é uma base de dados de produtos alimentares, feitos por todos, para todos. Você pode usá-lo para fazer melhores escolhas de alimentos e, como são dados abertos, qualquer um pode reutilizá-lo para qualquer propósito.",
-    "@whatIsOff": {},
+    "no": "Não",
+    "@no": {},
+    "stop": "Parar",
+    "@stop": {},
+    "reset": "Restaurar",
+    "@reset": {},
+    "error": "Algo correu mal",
+    "@error": {},
+    "error_occurred": "Ocorreu um erro",
+    "@error_occurred": {},
+    "featureInProgress": "Ainda estamos trabalhando nesse recurso, fique ligado",
+    "@featureInProgress": {},
+    "label_web": "Visualizar no navegador",
+    "@label_web": {},
     "learnMore": "Saiba mais",
     "@learnMore": {},
+    "incompatible": "Incompatível",
+    "licenses": "Licenças",
+    "@licenses": {},
+    "looking_for": "Procurando",
+    "@looking_for": {
+        "description": "Looking for: ${BARCODE}"
+    },
+    "@Introduction screen": {},
+    "welcomeToOpenFoodFacts": "Bem-vindo ao Open Food Facts",
+    "@welcomeToOpenFoodFacts": {},
+    "whatIsOff": "Open Food Facts é uma base de dados de produtos alimentares, feitos por todos, para todos. Você pode usá-lo para fazer melhores escolhas de alimentos e, como são dados abertos, qualquer um pode reutilizá-lo para qualquer propósito.",
+    "@whatIsOff": {},
+    "@user_management": {},
+    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
+    "incorrect_credentials": "Incorrect user name or password.",
+    "login": "Modo escuro",
+    "@login": {
+        "description": "Text field hint: unified name for "
+    },
+    "sign_in": "Iniciar sessão",
+    "@sign_in": {
+        "description": "Button label: For sign in"
+    },
+    "password": "Palavra-passe",
+    "forgot_password": "Forgot password",
+    "@forgot_password": {
+        "description": "Button label: Opens a page where a password reset email can be requested"
+    },
+    "enter_some_text": "Please enter some text",
+    "@enter_some_text": {
+        "description": "Error when text field is empty"
+    },
+    "@Settings": {},
+    "settingsTitle": "Definições",
+    "@settingsTitle": {
+        "description": "The title of the Settings page"
+    },
+    "darkmode": "Modo escuro",
+    "@darkmode": {
+        "description": "The name of the darkmode on off switch"
+    },
+    "contributors": "Colaboradores",
+    "@contributors": {
+        "description": "Button label: Opens a pop up window where all contributors of this app are shown"
+    },
+    "support": "Suporte",
+    "@support": {
+        "description": "Button label: Opens a pop up window where all ways to get support are shown"
+    },
     "termsOfUse": "Termos de uso",
     "@termsOfUse": {},
+    "about_this_app": "About this app",
+    "@about_this_app": {
+        "description": "Button label: Opens a popo up window which shows informations about this app"
+    },
+    "@About this app section": {},
     "contribute": "Contribuir",
-    "@contribute": {},
-    "contribute_improve_header": "Melhorando",
-    "@contribute_improve_header": {},
-    "contribute_improve_text": "O banco de dados é o núcleo do projeto. Ajudar é fácil e rápido. Você pode baixar o aplicativo para o seu telefone e começar a adicionar ou melhorar os produtos.\n\nPor outro lado, o site Open Food Facts oferece muitas maneiras de contribuir: ",
-    "@contribute_improve_text": {},
-    "contribute_improve_ProductsToBeCompleted": "Produtos a completar",
-    "@contribute_improve_ProductsToBeCompleted": {},
-    "contribute_develop": "Desenvolver",
-    "@contribute_develop": {},
+    "@contribute": {
+        "description": "Button label: Shows multiple ways how users can contribute to OFF"
+    },
+    "contribute_sw_development": "Software development",
+    "@contribute_sw_development": {
+        "description": "Button label + page title: Ways to help"
+    },
     "contribute_develop_text": "O código para cada produto do Open Food Facts está disponível no GitHub. Você é bem-vindo para reutilizar o código (é de código aberto) e nos ajudar a melhorá-lo, para todos, em todo o planeta.",
     "@contribute_develop_text": {},
     "contribute_develop_text_2": "Você pode participar da sala de bate-papo Open Food Facts que é a melhor forma de fazer perguntas.",
     "@contribute_develop_text_2": {},
+    "contribute_donate_header": "Fazer uma doação ao Open Food Facts",
+    "@contribute_donate_header": {},
+    "contribute_improve_ProductsToBeCompleted": "Produtos a completar",
+    "@contribute_improve_ProductsToBeCompleted": {
+        "description": "Button label: Shows a list of products which aren't completed"
+    },
+    "contribute_improve_header": "Melhorando",
+    "@contribute_improve_header": {
+        "description": "Button label + page title: Ways to improve the database"
+    },
+    "contribute_improve_text": "O banco de dados é o núcleo do projeto. Ajudar é fácil e rápido. Você pode baixar o aplicativo para o seu telefone e começar a adicionar ou melhorar os produtos.\n\nPor outro lado, o site Open Food Facts oferece muitas maneiras de contribuir: ",
+    "@contribute_improve_text": {},
     "contribute_translate_header": "Traduzir",
-    "@contribute_translate_header": {},
+    "@contribute_translate_header": {
+        "description": "Button label + pop up window title: Shows information about helping by translating"
+    },
+    "contribute_translate_link_text": "Comece a traduzir",
+    "@contribute_translate_link_text": {
+        "description": "Button label: Opens the Crowdin translation portal"
+    },
     "contribute_translate_text": "Open Food Facts é um projeto global, contendo produtos de mais de 160 países. O Open Food Facts é traduzido para dezenas de linguagens, com conteúdo em constante evolução.",
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "A tradução é uma das principais tarefas do projeto",
     "@contribute_translate_text_2": {},
-    "contribute_translate_link_text": "Comece a traduzir",
-    "@contribute_translate_link_text": {},
-    "contribute_donate_header": "Fazer uma doação ao Open Food Facts",
-    "@contribute_donate_header": {},
-    "support": "Suporte",
-    "@support": {},
-    "error": "Algo correu mal",
-    "@error": {},
-    "darkmode": "Modo escuro",
-    "@darkmode": {},
-    "settingsTitle": "Definições",
-    "@settingsTitle": {},
-    "reset": "Restaurar",
-    "@reset": {},
+    "@Personal preferences": {},
+    "myPreferences": "Minhas Preferências",
+    "@myPreferences": {
+        "description": "Page title: Page where the ranking preferences can be changed"
+    },
+    "confirmResetPreferences": "Redefinir suas preferências?",
+    "@confirmResetPreferences": {
+        "description": "Pop up title: Reassuring if the food preferences should really be reset"
+    },
+    "myPersonalizedRanking": "Classificação Pessoal",
+    "@myPersonalizedRanking": {
+        "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
+    },
+    "reloaded_with_new_preferences": "Recarregado com novas preferências",
+    "@reloaded_with_new_preferences": {
+        "description": "Snackbar title: Shows that the modified settings have been applied"
+    },
+    "@other": {},
+    "profile_navbar_label": "Profile",
+    "@profile_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+    },
+    "scan_navbar_label": "Profile",
+    "@scan_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+    },
+    "history_navbar_label": "Profile",
+    "@history_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+    },
+    "category": "Categoria",
+    "@category": {},
+    "category_search": "(pesquisa de categoria)",
     "filter": "Filtrar",
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "added_product_thanks": "Obrigado por adicionar este produto!",
-    "@added_product_thanks": {},
-    "missing_product": "Este produto está faltando",
-    "@missing_product": {},
-    "add": "Adicione",
-    "@add": {},
-    "nutri_score_unavailable": "Nutri-Score indisponível",
-    "@nutri_score_unavailable": {},
-    "missing_picture": "Foto faltando",
-    "@missing_picture": {},
-    "searching": "Pesquisando…",
-    "@searching": {},
-    "empty_list": "Lista vazia",
-    "@empty_list": {},
-    "nothing_set": "Nada definido no momento",
-    "rename": "Renomear",
-    "@rename": {},
-    "delete": "Eliminar",
-    "@delete": {},
-    "change_icon": "Mudar ícone",
-    "@change_icon": {},
-    "paste": "colar",
-    "@paste": {},
-    "copy": "copiar",
-    "@copy": {},
-    "clear": "limpar",
-    "@clear": {},
-    "grocery": "mercado",
-    "@grocery": {},
-    "add_date": "Adicionar outra data",
-    "@add_date": {},
-    "no_date": "Sem data",
-    "@no_date": {},
-    "already_in_pantry": "Já está na despensa!",
-    "@already_in_pantry": {},
-    "added_to_pantry": "Adicionado à despensa!",
-    "@added_to_pantry": {},
-    "want_to_delete_pantry": "Você quer deletar esta despensa?",
-    "@want_to_delete_pantry": {},
-    "want_to_delete_shopping": "Você quer deletar essa lista de compras?",
-    "@want_to_delete_shopping": {},
-    "want_to_delete_list": "Você quer deletar esta lista de produtos?",
-    "@want_to_delete_list": {},
-    "new_pantry": "Nova despensa",
-    "@new_pantry": {},
-    "new_shopping": "Nova lista de compras",
-    "@new_shopping": {},
-    "new_list": "Nova lista",
-    "@new_list": {},
-    "rename_pantry": "Renomear despensa",
-    "@rename_pantry": {},
-    "rename_shopping": "Renomear lista de compras",
-    "@rename_shopping": {},
-    "rename_list": "Renomear lista",
-    "@rename_list": {},
-    "my_pantry_hint": "Minha própria despensa",
-    "@my_pantry_hint": {},
-    "my_shopping_hint": "Minha lista de compras",
-    "@my_shopping_hint": {},
-    "my_list_hint": "Minha lista personalizada",
-    "@my_list_hint": {},
-    "enter_text": "Por favor insira algum texto",
-    "@enter_text": {},
-    "pantry_name_taken": "Já existe uma despensa com este nome",
-    "@pantry_name_taken": {},
-    "shopping_name_taken": "Já existe uma lista de compras com este nome",
-    "@shopping_name_taken": {},
-    "list_name_taken": "Já existe uma lista com este nome",
-    "@list_name_taken": {},
-    "already_same": "Esse é o mesmo nome!",
-    "@already_same": {},
-    "my_pantrie_lists": "Minhas despensas",
-    "my_shopping_lists": "Minhas listas de compras",
-    "my_lists": "Minhas listas",
-    "food_categories": "Categorias de alimentos",
-    "search_history": "Histórico de busca",
-    "label_preferences": "preferências",
-    "@label_preferences": {},
-    "label_lists": "listas",
-    "@label_lists": {},
-    "label_web": "Visualizar no navegador",
-    "@label_web": {},
+    "scan": "Escanear",
+    "@scan": {
+        "description": "Page title: List type: Scanned products"
+    },
+    "search": "Procurar",
+    "@search": {
+        "description": "Hint text of a search text input field"
+    },
+    "tab_for_more": "Tap to see more info...",
+    "@Product": {},
+    "product": "Produto",
+    "@product": {},
+    "unknownBrand": "Marca desconhecida",
+    "@unknownBrand": {},
+    "unknownProductName": "Produto desconhecido",
+    "@unknownProductName": {},
     "label_refresh": "atualizar",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
-    "label_share": "compartilhar",
-    "@label_share": {},
-    "product_refreshed": "Produto atualizado",
-    "@product_refreshed": {},
-    "food_ranking_parameters": "Parâmetros de classificação de alimentos",
-    "product": "Produto",
-    "@product": {},
-    "packaging_information": "Informação de embalagem",
-    "@packaging_information": {},
-    "more_photos": "Mais fotos interessantes",
-    "@more_photos": {},
     "front_photo": "Foto frontal",
-    "@front_photo": {},
+    "@front_photo": {
+        "description": "Button label: For adding a picture of the front of a product"
+    },
+    "ingredients": "Ingredientes",
+    "@ingredients": {},
     "ingredients_photo": "Foto de ingredientes",
-    "@ingredients_photo": {},
+    "@ingredients_photo": {
+        "description": "Button label: For adding a picture of the Ingredients of a product"
+    },
+    "nutrition": "Nutrição",
+    "@nutrition": {},
     "nutrition_facts_photo": "Foto de informações nutricionais",
-    "@nutrition_facts_photo": {},
+    "@nutrition_facts_photo": {
+        "description": "Button label: For adding a picture of the nutrition facts of a product"
+    },
+    "packaging_information": "Informação de embalagem",
+    "@packaging_information": {
+        "description": "Button label: For adding a picture of the packaging of a product"
+    },
     "packaging_information_photo": "Foto de informações da embalagem",
     "@packaging_information_photo": {},
-    "add_product": "Adicionar um novo produto",
-    "@add_product": {},
-    "similar_food": "Alimentos semelhantes",
-    "@similar_foods": {},
-    "refreshing_product": "Atualizando o produto",
-    "@refreshing_product": {},
-    "looking_for": "Procurando",
-    "@looking_for": {},
-    "could_not_refresh": "Não foi possível atualizar o produto",
-    "@could_not_refresh": {},
+    "missing_product": "Este produto está faltando",
+    "@missing_product": {},
+    "more_photos": "Mais fotos interessantes",
+    "@more_photos": {},
     "no_product_found": "Nenhum produto encontrado",
     "@no_product_found": {},
-    "product_internet_error": "Impossible to fetch information about this product due to a network error.",
-    "product_internet_cancel": "Canceled by user.",
-    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take them into a photo (ingredient list and/or any geographic claim or edit the product so that they can be taken into account. If it is not clear, you can contact the food producer.",
-    "@product_improvement_origins_to_be_completed": {
-        "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
+    "not_found": "não encontrado:",
+    "searchPanelHeader": "Pesquise ou escaneie seu primeiro produto",
+    "@Product query status": {},
+    "refreshing_product": "Atualizando o produto",
+    "@refreshing_product": {
+        "description": "Confirmation, that the product data of a cached product is queried again"
     },
-    "product_improvement_categories_but_no_nutriscore": "We could not compute an Nutri-Score for this product. It might be that the category is an exception. If you believe this is an error, contact us.",
-    "@product_improvement_categories_but_no_nutriscore": {
-        "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
+    "product_refreshed": "Produto atualizado",
+    "@product_refreshed": {
+        "description": "Confirmation, that the product data refresh is done"
+    },
+    "could_not_refresh": "Não foi possível atualizar o produto",
+    "@could_not_refresh": {
+        "description": "The product data couldn't be refreshed"
+    },
+    "product_internet_cancel": "Canceled by user.",
+    "@product_internet_cancel": {
+        "description": "Confirmation, that the product data got canceled by the user"
+    },
+    "product_internet_error": "Impossible to fetch information about this product due to a network error.",
+    "cached_results_from": "Cached results from:",
+    "@cached_results_from": {
+        "description": "Cached results from: x time ago (time ago should not be added to the string)"
+    },
+    "@Product Addition": {},
+    "added_product_thanks": "Obrigado por adicionar este produto!",
+    "@added_product_thanks": {},
+    "product_improvement_add_category": "Add a category to compute the Nutri-Score.",
+    "@product_improvement_add_category": {
+        "description": "Message for ProductImprovement.ADD_CATEGORY"
     },
     "product_improvement_add_nutrition_facts": "Add nutrition facts to compute the Nutri-Score.",
     "@product_improvement_add_nutrition_facts": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
     },
-    "product_improvement_add_category": "Add a category to compute the Nutri-Score.",
-    "@product_improvement_add_category": {
-        "description": "Message for ProductImprovement.ADD_CATEGORY"
-    },
     "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to compute the Nutri-Score.",
     "@product_improvement_add_nutrition_facts_and_category": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
+    },
+    "product_improvement_categories_but_no_nutriscore": "We could not compute an Nutri-Score for this product. It might be that the category is an exception. If you believe this is an error, contact us.",
+    "@product_improvement_categories_but_no_nutriscore": {
+        "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
     "product_improvement_obsolete_nutrition_image": "The nutrition image is obsolete: please refresh it.",
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvements_count": "{count,plural, =1{One possible improvement} other{{count} possible improvements}}",
-    "@product_improvements_count": {
-        "description": "x possible improvements",
-        "placeholders": {
-            "count": {}
-        }
+    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take them into a photo (ingredient list and/or any geographic claim or edit the product so that they can be taken into account. If it is not clear, you can contact the food producer.",
+    "@product_improvement_origins_to_be_completed": {
+        "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
-    "products_pasted": "produtos colados",
-    "@products_pasted": {},
+    "@Lists": {},
     "no_prodcut_in_list": "Não há nenhum produto nesta lista",
-    "@no_product_in_list": {},
-    "error_occurred": "Ocorreu um erro",
-    "@error_occurred": {},
-    "keyword_search": "(pesquisa por palavra-chave)",
-    "category_search": "(pesquisa de categoria)",
-    "my_list": "(minha lista)",
-    "scan": "Escanear",
+    "no_product_in_section": "Não há produto nessa seção",
     "recently_seen_products": "Meus produtos recentemente vistos",
-    "unknown_product_list": "Lista de produto desconhecido:",
-    "not_found": "não encontrado:",
-    "no_product": "nenhum produto",
-    "one_product": "1 produto",
-    "x_products": "produtos",
-    "scan_contribute": "Contribuir",
-    "@scan_contribute": {
-        "description": "Switch on top of the Scanner to choose between to scan or add products"
+    "clear": "Limpar",
+    "@clear": {
+        "description": "Clears a product list"
     },
-    "incompatible": "Incompatível",
+    "really_clear": "Do you really want to clear this list?",
+    "@Plural": {},
     "pct_match": "{pct}% correspondem",
     "@pct_match": {
+        "description": "This product has a x percent match with your preferences",
         "placeholders": {
             "pct": {}
         }
     },
-    "scan_choose": "ESCOLHA",
-    "@scan_choose": {
-        "description": "Switch on top of the Scanner to choose between to scan or add products"
-    },
-    "reloaded_with_new_preferences": "Recarregado com novas preferências",
-    "no_product_in_section": "Não há produto nessa seção",
-    "what_are_you_looking_for": "O que você está procurando?",
-    "chached_results_from": "Resultados armazenados de:",
-    "plural_ago_minutes": "{count,plural, one {} =0{menos de um minuto atrás} =1{um minuto atrás} other{{count} minutos atrás}}",
-    "@plural_ago_minutes": {
-        "description": "Cached results from: x minutes ago",
+    "plural_ago_days": "{count,plural, one {} =1{um dia atrás} other{{count} dias atrás}}",
+    "@plural_ago_days": {
+        "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
@@ -322,9 +287,16 @@
             "count": {}
         }
     },
-    "plural_ago_days": "{count,plural, one {} =1{um dia atrás} other{{count} dias atrás}}",
-    "@plural_ago_days": {
-        "description": "Cached results from: x days ago",
+    "plural_ago_minutes": "{count,plural, one {} =0{menos de um minuto atrás} =1{um minuto atrás} other{{count} minutos atrás}}",
+    "@plural_ago_minutes": {
+        "description": "Cached results from: x minutes ago",
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "plural_ago_months": "{count,plural, one {} =1{um mês atrás} other{{count} meses antes}}",
+    "@plural_ago_months": {
+        "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
@@ -336,9 +308,9 @@
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, one {} =1{um mês atrás} other{{count} meses antes}}",
-    "@plural_ago_months": {
-        "description": "Cached results from: x months ago",
+    "plural_compare_x_products": "{count,plural, =other{Compare {count} Products}",
+    "@plural_compare_x_products": {
+        "description": "Button label",
         "placeholders": {
             "count": {}
         }

@@ -3,13 +3,12 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
+import 'package:smooth_app/pages/user_management/forgot_password_page.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_ui_library/smooth_ui_library.dart';
 import 'package:smooth_ui_library/widgets/smooth_text_form_field.dart';
 
-// TODO(M123-dev): Autofill support
 // TODO(M123-dev): Handle colors better
-// TODO(M123-dev): Better validation
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -19,8 +18,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  static const Color customGrey = Colors.grey;
-  static Color textFieldBackgroundColor =
+  static const Color _customGrey = Colors.grey;
+  static Color _textFieldBackgroundColor =
       const Color.fromARGB(255, 240, 240, 240);
 
   bool _runningQuery = false;
@@ -74,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
 
     // Needs to be changed
     if (themeProvider.darkTheme) {
-      textFieldBackgroundColor = Colors.white10;
+      _textFieldBackgroundColor = Colors.white10;
     }
 
     return Scaffold(
@@ -91,139 +90,97 @@ class _LoginPageState extends State<LoginPage> {
           alignment: Alignment.topCenter,
           child: SizedBox(
             width: size.width * 0.7,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                const Spacer(flex: 4),
+            child: AutofillGroup(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  const Spacer(flex: 4),
 
-                Text(
-                  appLocalizations.sign_in_text,
-                  textAlign: TextAlign.center,
-                  style: theme.textTheme.headline1?.copyWith(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.w700,
-                    color: theme.colorScheme.onSurface,
-                  ),
-                ),
-
-                const Spacer(flex: 8),
-
-                if (_wrongCredentials) ...<Widget>[
-                  SmoothCard(
-                    padding: const EdgeInsets.all(10.0),
-                    color: Colors.red,
-                    child: Text(appLocalizations.incorrect_credentials),
-                  ),
-                  const Spacer(
-                    flex: 1,
-                  )
-                ],
-
-                //Login
-                SmoothTextFormField(
-                  type: TextFieldTypes.PLAIN_TEXT,
-                  controller: userIdController,
-                  hintText: appLocalizations.login,
-                  textColor: customGrey,
-                  backgroundColor: textFieldBackgroundColor,
-                  prefixIcon: const Icon(Icons.person),
-                  enabled: !_runningQuery,
-                  textInputAction: TextInputAction.next, // Moves focus to next.
-                  validator: (String? value) {
-                    if (value == null || value.isEmpty) {
-                      return appLocalizations.enter_some_text;
-                    }
-                    return null;
-                  },
-                ),
-
-                const Spacer(flex: 1),
-
-                //Password
-                SmoothTextFormField(
-                  type: TextFieldTypes.PASSWORD,
-                  controller: passwordController,
-                  hintText: appLocalizations.password,
-                  textColor: customGrey,
-                  backgroundColor: textFieldBackgroundColor,
-                  prefixIcon: const Icon(Icons.vpn_key),
-                  enabled: !_runningQuery,
-                  textInputAction: TextInputAction.done, // Hides the keyboard
-                  validator: (String? value) {
-                    if (value == null || value.isEmpty) {
-                      return appLocalizations.enter_some_text;
-                    }
-                    return null;
-                  },
-                ),
-
-                const Spacer(flex: 6),
-
-                //Sign in button
-                ElevatedButton(
-                  onPressed: () => _login(context),
-                  child: Text(
-                    appLocalizations.sign_in,
-                    style: theme.textTheme.bodyText2?.copyWith(
-                      fontSize: 18.0,
+                  Text(
+                    appLocalizations.sign_in_text,
+                    textAlign: TextAlign.center,
+                    style: theme.textTheme.headline1?.copyWith(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.w700,
                       color: theme.colorScheme.onSurface,
                     ),
                   ),
-                  style: ButtonStyle(
-                    minimumSize: MaterialStateProperty.all<Size>(
-                      Size(size.width * 0.5, theme.buttonTheme.height + 10),
-                    ),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(300.0),
-                      ),
-                    ),
-                  ),
-                ),
 
-                //Forgot password
-                TextButton(
-                  onPressed: () {
-                    final SnackBar snackBar = SnackBar(
-                      content: Text(appLocalizations.featureInProgress),
-                    );
-                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                  },
-                  child: Text(
-                    appLocalizations.forgot_password,
-                    style: theme.textTheme.bodyText2?.copyWith(
-                      fontSize: 18.0,
-                      color: theme.colorScheme.primary,
+                  const Spacer(flex: 8),
+
+                  if (_wrongCredentials) ...<Widget>[
+                    SmoothCard(
+                      padding: const EdgeInsets.all(10.0),
+                      color: Colors.red,
+                      child: Text(appLocalizations.incorrect_credentials),
                     ),
-                  ),
-                ),
+                    const Spacer(
+                      flex: 1,
+                    )
+                  ],
 
-                const Spacer(flex: 4),
-
-                //Open register page
-                SizedBox(
-                  height: size.height * 0.06,
-                  child: OutlinedButton(
-                    onPressed: () {
-                      final SnackBar snackBar = SnackBar(
-                        content: Text(appLocalizations.featureInProgress),
-                      );
-                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                  //Login
+                  SmoothTextFormField(
+                    type: TextFieldTypes.PLAIN_TEXT,
+                    controller: userIdController,
+                    hintText: appLocalizations.login,
+                    textColor: _customGrey,
+                    backgroundColor: _textFieldBackgroundColor,
+                    prefixIcon: const Icon(Icons.person),
+                    enabled: !_runningQuery,
+                    // Moves focus to the next field
+                    textInputAction: TextInputAction.next,
+                    autofillHints: const <String>[
+                      AutofillHints.username,
+                      AutofillHints.email,
+                    ],
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return appLocalizations.enter_some_text;
+                      }
+                      return null;
                     },
+                  ),
+
+                  const Spacer(flex: 1),
+
+                  //Password
+                  SmoothTextFormField(
+                    type: TextFieldTypes.PASSWORD,
+                    controller: passwordController,
+                    hintText: appLocalizations.password,
+                    textColor: _customGrey,
+                    backgroundColor: _textFieldBackgroundColor,
+                    prefixIcon: const Icon(Icons.vpn_key),
+                    enabled: !_runningQuery,
+                    textInputAction: TextInputAction.done, // Hides the keyboard
+                    autofillHints: const <String>[
+                      AutofillHints.password,
+                    ],
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return appLocalizations.enter_some_text;
+                      }
+                      return null;
+                    },
+                  ),
+
+                  const Spacer(flex: 6),
+
+                  //Sign in button
+                  ElevatedButton(
+                    onPressed: () => _login(context),
                     child: Text(
-                      'Create account',
+                      appLocalizations.sign_in,
                       style: theme.textTheme.bodyText2?.copyWith(
                         fontSize: 18.0,
-                        color: theme.colorScheme.primary,
+                        color: theme.colorScheme.surface,
                       ),
                     ),
                     style: ButtonStyle(
-                      side: MaterialStateProperty.all<BorderSide>(
-                        BorderSide(color: theme.primaryColor, width: 2.0),
-                      ),
                       minimumSize: MaterialStateProperty.all<Size>(
-                        Size(size.width * 0.5, theme.buttonTheme.height),
+                        Size(size.width * 0.5, theme.buttonTheme.height + 10),
                       ),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
@@ -232,10 +189,66 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   ),
-                ),
 
-                const Spacer(flex: 4),
-              ],
+                  //Forgot password
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute<Widget>(
+                          builder: (BuildContext context) =>
+                              const ForgotPasswordPage(),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      appLocalizations.forgot_password,
+                      style: theme.textTheme.bodyText2?.copyWith(
+                        fontSize: 18.0,
+                        color: theme.colorScheme.primary,
+                      ),
+                    ),
+                  ),
+
+                  const Spacer(flex: 4),
+
+                  //Open register page
+                  SizedBox(
+                    height: size.height * 0.06,
+                    child: OutlinedButton(
+                      onPressed: () {
+                        final SnackBar snackBar = SnackBar(
+                          content: Text(appLocalizations.featureInProgress),
+                        );
+                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      },
+                      child: Text(
+                        'Create account',
+                        style: theme.textTheme.bodyText2?.copyWith(
+                          fontSize: 18.0,
+                          color: theme.colorScheme.primary,
+                        ),
+                      ),
+                      style: ButtonStyle(
+                        side: MaterialStateProperty.all<BorderSide>(
+                          BorderSide(color: theme.primaryColor, width: 2.0),
+                        ),
+                        minimumSize: MaterialStateProperty.all<Size>(
+                          Size(size.width * 0.5, theme.buttonTheme.height),
+                        ),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(300.0),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  const Spacer(flex: 4),
+                ],
+              ),
             ),
           ),
         ),
