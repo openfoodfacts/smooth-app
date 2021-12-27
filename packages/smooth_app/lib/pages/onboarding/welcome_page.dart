@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/pages/onboarding/country_selector.dart';
 import 'package:smooth_app/pages/onboarding/next_button.dart';
-import 'package:smooth_app/pages/onboarding/onboarding_constants.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
 
@@ -18,6 +17,9 @@ class WelcomePage extends StatelessWidget {
         Theme.of(context).textTheme.headline2!.apply(color: Colors.white);
     final TextStyle bodyTextStyle =
         Theme.of(context).textTheme.bodyText1!.apply(color: Colors.white);
+    // Side padding is 8% of total width.
+    double sidePadding(double screenWidth) => screenWidth * 0.08;
+
     return Scaffold(
       body: Stack(children: <Widget>[
         Padding(

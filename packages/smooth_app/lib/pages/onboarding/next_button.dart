@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/pages/onboarding/onboarding_constants.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
@@ -11,6 +10,10 @@ class NextButton extends StatelessWidget {
   const NextButton(this.currentPage);
 
   final OnboardingPage currentPage;
+
+  // Side padding is 8% of total width.
+  double sidePadding(double screenWidth) => screenWidth * 0.08;
+
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
