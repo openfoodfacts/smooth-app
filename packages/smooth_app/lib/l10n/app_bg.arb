@@ -42,7 +42,7 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Добре дошъл в Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "whatIsOff": "Open Food Facts е глобална организация с нестопанска цел, задвижвана от местни общности.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
@@ -66,13 +66,13 @@
     "@reset_password": {
         "description": "Forgot password page title"
     },
-    "reset_password_explanation_text": "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password. Please also check your spam folder.",
-    "username_or_email": "Username or e-mail address",
+    "reset_password_explanation_text": "Ако си забравил паролата си, попълни твоето потребителско име или имейл адрес, за да получиш инструкции за нулиране на паролата. Моля, провери и папката за спам.",
+    "username_or_email": "Потребителско име или имейл адрес",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
-    "reset_password_done": "An email with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
-    "send_reset_password_mail": "Change password",
+    "reset_password_done": "На имейл адреса, свързан с твоя акаунт, е изпратен имейл с връзка за нулиране на паролата. Провери и папка спам",
+    "send_reset_password_mail": "Смяна на парола",
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset email request"
     },
@@ -193,7 +193,7 @@
     "@unknownBrand": {},
     "unknownProductName": "Неразпознат продукт",
     "@unknownProductName": {},
-    "label_refresh": "Refresh",
+    "label_refresh": "Опресни",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
@@ -276,7 +276,7 @@
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
-    "country_chooser_label": "Please choose a country",
+    "country_chooser_label": "Моля, избери страна",
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },
