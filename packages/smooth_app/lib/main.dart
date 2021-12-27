@@ -86,6 +86,13 @@ class _SmoothAppState extends State<SmoothApp> {
     await _userPreferences.init(_productPreferences);
     _localDatabase = await LocalDatabase.getLocalDatabase();
     _themeProvider = ThemeProvider(_userPreferences);
+
+    final String languageCode = Localizations.localeOf(context).languageCode;
+    await _refreshUserLanguageFromPref(
+      _productPreferences,
+      DefaultAssetBundle.of(context),
+      languageCode,
+    );
   }
 
   @override
@@ -139,53 +146,11 @@ class _SmoothAppState extends State<SmoothApp> {
         themeProvider.colorTag,
       ),
       themeMode: themeProvider.darkTheme ? ThemeMode.dark : ThemeMode.light,
-      home: SmoothAppGetLanguage(appWidget),
+      home: appWidget,
     );
   }
 
-  Widget _buildLoader() {
-    return Container(
-      color: systemDarkmodeOn ? const Color(0xFF181818) : Colors.white,
-      child: const Center(
-        child: CircularProgressIndicator(),
-      ),
-    );
-  }
-
-  Widget _buildError(AsyncSnapshot<void> snapshot) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text(
-            'Fatal Error: ${snapshot.error}',
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-/// Layer needed because we need to know the language
-class SmoothAppGetLanguage extends StatelessWidget {
-  const SmoothAppGetLanguage(this.appWidget);
-
-  final Widget appWidget;
-
-  @override
-  Widget build(BuildContext context) {
-    final ProductPreferences productPreferences =
-        context.watch<ProductPreferences>();
-    final Locale myLocale = Localizations.localeOf(context);
-    final String languageCode = myLocale.languageCode;
-    _refresh(
-      productPreferences,
-      DefaultAssetBundle.of(context),
-      languageCode,
-    );
-    return appWidget;
-  }
-
-  Future<void> _refresh(
+  Future<void> _refreshUserLanguageFromPref(
     final ProductPreferences productPreferences,
     final AssetBundle assetBundle,
     final String languageCode,
@@ -207,5 +172,26 @@ class SmoothAppGetLanguage extends StatelessWidget {
         // no problem, we were just trying
       }
     }
+  }
+
+  Widget _buildLoader() {
+    return Container(
+      color: systemDarkmodeOn ? const Color(0xFF181818) : Colors.white,
+      child: const Center(
+        child: CircularProgressIndicator(),
+      ),
+    );
+  }
+
+  Widget _buildError(AsyncSnapshot<void> snapshot) {
+    return MaterialApp(
+      home: Scaffold(
+        body: Center(
+          child: Text(
+            'Fatal Error: ${snapshot.error}',
+          ),
+        ),
+      ),
+    );
   }
 }
