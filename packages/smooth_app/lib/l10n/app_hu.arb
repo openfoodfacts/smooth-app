@@ -8,6 +8,10 @@
     "@okay": {},
     "applyButtonText": "Alkalmaz",
     "@applyButtonText": {},
+    "next_label": "Következő",
+    "@next_label": {
+        "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
+    },
     "cancel": "Mégse",
     "@cancel": {},
     "close": "Bezár",
@@ -38,14 +42,16 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Az Open Food Facts egy élelmiszeripari termékek adatbázisa, amelyet mindenki készít, mindenki számára. Használhatja jobb ételválasztásra, és mivel nyílt adatról van szó, bárki bármilyen célra felhasználhatja.",
-    "@whatIsOff": {},
+    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "@whatIsOff": {
+        "description": "Description of Open Food Facts organization."
+    },
     "@user_management": {},
     "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
     "incorrect_credentials": "Incorrect user name or password.",
-    "login": "Sötét mód",
+    "login": "Felhasználói név",
     "@login": {
-        "description": "Text field hint: unified name for "
+        "description": "Text field hint: unified name for either username or email address"
     },
     "sign_in": "Bejelentkezés",
     "@sign_in": {
@@ -55,6 +61,20 @@
     "forgot_password": "Forgot password",
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset email can be requested"
+    },
+    "reset_password": "Jelszó visszaállítása",
+    "@reset_password": {
+        "description": "Forgot password page title"
+    },
+    "reset_password_explanation_text": "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password. Please also check your spam folder.",
+    "username_or_email": "Username or e-mail address",
+    "@username_or_email": {
+        "description": "Text field hint for password reset"
+    },
+    "reset_password_done": "An email with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
+    "send_reset_password_mail": "Change password",
+    "@send_reset_password_mail": {
+        "description": "Button label: Submit the password reset email request"
     },
     "enter_some_text": "Please enter some text",
     "@enter_some_text": {
@@ -173,7 +193,7 @@
     "@unknownBrand": {},
     "unknownProductName": "Ismeretlen terméknév",
     "@unknownProductName": {},
-    "label_refresh": "frissítés",
+    "label_refresh": "Refresh",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
@@ -255,6 +275,14 @@
     "product_improvement_origins_to_be_completed": "Az Eco-Score figyelembe veszi az összetevők eredetét. Kérjük, fényképezze le őket (összetevők listája és/vagy bármilyen földrajzi helyadat, vagy módosítsa a terméket úgy, hogy figyelembe lehessen venni azt. Ha ez nem egyértelmű, forduljon az élelmiszergyártóhoz.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
+    },
+    "country_chooser_label": "Please choose a country",
+    "@country_chooser_label": {
+        "description": "Label shown above a selector where the user can select their country"
+    },
+    "country_selection_explanation": "Some environment features depend on your location",
+    "@country_label": {
+        "description": "Explanation as to why users should select their country."
     },
     "@Lists": {},
     "no_prodcut_in_list": "Nincs termék ebben a listában",

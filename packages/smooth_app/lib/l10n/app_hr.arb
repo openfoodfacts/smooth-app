@@ -8,6 +8,10 @@
     "@okay": {},
     "applyButtonText": "Apply",
     "@applyButtonText": {},
+    "next_label": "Next",
+    "@next_label": {
+        "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
+    },
     "cancel": "Otkaži",
     "@cancel": {},
     "close": "Zatvori",
@@ -38,14 +42,16 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a database of food products, made by everyone, for everyone. You can use it to make better food choices, and as it is open data, anyone can re-use it for any purpose.",
-    "@whatIsOff": {},
+    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "@whatIsOff": {
+        "description": "Description of Open Food Facts organization."
+    },
     "@user_management": {},
     "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
     "incorrect_credentials": "Incorrect user name or password.",
-    "login": "Darkmode",
+    "login": "Login",
     "@login": {
-        "description": "Text field hint: unified name for "
+        "description": "Text field hint: unified name for either username or email address"
     },
     "sign_in": "Sign in",
     "@sign_in": {
@@ -55,6 +61,20 @@
     "forgot_password": "Forgot password",
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset email can be requested"
+    },
+    "reset_password": "Reset password",
+    "@reset_password": {
+        "description": "Forgot password page title"
+    },
+    "reset_password_explanation_text": "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password. Please also check your spam folder.",
+    "username_or_email": "Username or e-mail address",
+    "@username_or_email": {
+        "description": "Text field hint for password reset"
+    },
+    "reset_password_done": "An email with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
+    "send_reset_password_mail": "Change password",
+    "@send_reset_password_mail": {
+        "description": "Button label: Submit the password reset email request"
     },
     "enter_some_text": "Please enter some text",
     "@enter_some_text": {
@@ -173,7 +193,7 @@
     "@unknownBrand": {},
     "unknownProductName": "Unknown product name",
     "@unknownProductName": {},
-    "label_refresh": "refresh",
+    "label_refresh": "Refresh",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
@@ -255,6 +275,14 @@
     "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take them into a photo (ingredient list and/or any geographic claim or edit the product so that they can be taken into account. If it is not clear, you can contact the food producer.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
+    },
+    "country_chooser_label": "Please choose a country",
+    "@country_chooser_label": {
+        "description": "Label shown above a selector where the user can select their country"
+    },
+    "country_selection_explanation": "Some environment features depend on your location",
+    "@country_label": {
+        "description": "Explanation as to why users should select their country."
     },
     "@Lists": {},
     "no_prodcut_in_list": "There is no product in this list",
