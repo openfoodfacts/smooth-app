@@ -11,20 +11,19 @@ class WelcomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final TextStyle headlineStyle =
         Theme.of(context).textTheme.headline2!.apply(color: Colors.white);
     final TextStyle bodyTextStyle =
         Theme.of(context).textTheme.bodyText1!.apply(color: Colors.white);
     // Side padding is 8% of total width.
-    double sidePadding(double screenWidth) => screenWidth * 0.08;
+    final double sidePadding = MediaQuery.of(context).size.width * .08;
 
     return Scaffold(
       body: Stack(children: <Widget>[
         Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: sidePadding(screenSize.width),
+            horizontal: sidePadding,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

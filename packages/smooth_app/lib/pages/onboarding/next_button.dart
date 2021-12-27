@@ -12,21 +12,18 @@ class NextButton extends StatelessWidget {
 
   final OnboardingPage currentPage;
 
-  // Side padding is 8% of total width.
-  double sidePadding(double screenWidth) => screenWidth * 0.08;
-
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final UserPreferences userPreferences = context.watch<UserPreferences>();
+    // Side padding is 8% of total width.
+    final double sidePadding = screenSize.width * .08;
     return Container(
       color: Theme.of(context).appBarTheme.backgroundColor,
       padding: EdgeInsets.symmetric(
         vertical: VERY_LARGE_SPACE,
-        horizontal: sidePadding(
-          screenSize.width,
-        ),
+        horizontal: sidePadding,
       ),
       child: Row(children: <Widget>[
         Expanded(
