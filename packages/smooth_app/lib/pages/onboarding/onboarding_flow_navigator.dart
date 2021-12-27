@@ -66,13 +66,16 @@ class OnboardingFlowNavigator {
       BuildContext context, OnboardingPage currentPage, Widget widget) {
     return WillPopScope(
       onWillPop: () async => false,
-      child: Scaffold(
-        body: widget,
-        appBar: AppBar(
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
-            onPressed: () =>
-                navigateToNextPage(context, _getPrevPage(currentPage)),
+      // wrap the widget in [Builder] to allow navigation on the [context].
+      child: Builder(
+        builder: (BuildContext context) => Scaffold(
+          body: widget,
+          appBar: AppBar(
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () =>
+                  navigateToNextPage(context, _getPrevPage(currentPage)),
+            ),
           ),
         ),
       ),
