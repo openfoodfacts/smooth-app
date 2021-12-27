@@ -89,6 +89,7 @@ flutter:
     - assets/metadata/
     - assets/misc/
     - assets/navigation/
+    - assets/onboarding/
     - assets/product/
     - assets/ikonate_thin/
     - assets/ikonate_bold/
