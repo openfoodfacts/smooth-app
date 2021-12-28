@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the onTap method from the AttributeButton class, for the Dart programming language.">
-  <title>onTap method - AttributeButton class - attribute_button library - Dart API</title>
+  <meta name="description" content="API docs for the build method from the AttributeDialog class, for the Dart programming language.">
+  <title>build method - AttributeDialog class - attribute_dialog library - Dart API</title>
 
 
   
@@ -30,11 +30,11 @@
   <button id="sidenav-left-toggle" type="button">&nbsp;</button>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">smooth_app</a></li>
-    <li><a href="../../widgets_attribute_button/widgets_attribute_button-library.html">attribute_button</a></li>
-    <li><a href="../../widgets_attribute_button/AttributeButton-class.html">AttributeButton</a></li>
-    <li class="self-crumb">onTap method</li>
+    <li><a href="../../widgets_attribute_dialog/widgets_attribute_dialog-library.html">attribute_dialog</a></li>
+    <li><a href="../../widgets_attribute_dialog/AttributeDialog-class.html">AttributeDialog</a></li>
+    <li class="self-crumb">build method</li>
   </ol>
-  <div class="self-name">onTap</div>
+  <div class="self-name">build</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,39 +45,72 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">onTap</span> method 
+<h1><span class="kind-method">build</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
       
+<div>
+  <ol class="annotation-list">
+    <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+  </ol>
+</div>
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
-<span class="name ">onTap</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="onTap-param-context">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span></li>
-<li><span class="parameter" id="onTap-param-attributeId"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">attributeId</span>, </span></li>
-<li><span class="parameter" id="onTap-param-productPreferences"><span>required</span> <span class="type-annotation"><a href="../../data_models_product_preferences/ProductPreferences-class.html">ProductPreferences</a></span> <span class="parameter-name">productPreferences</span>, </span></li>
-<li><span class="parameter" id="onTap-param-themeProvider"><span>required</span> <span class="type-annotation"><a href="../../themes_theme_provider/ThemeProvider-class.html">ThemeProvider</a></span> <span class="parameter-name">themeProvider</span>}</span></li>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
+<span class="name ">build</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="build-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span></li>
 </ol>)
 
-      
+      <div class="features">override</div>
 
     </section>
     
+<section class="desc markdown">
+  <p>Describes the part of the user interface represented by this widget.</p>
+<p>The framework calls this method when this widget is inserted into the tree
+in a given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a> and when the dependencies of this widget change
+(e.g., an <a href="https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html">InheritedWidget</a> referenced by this widget changes). This
+method can potentially be called in every frame and should not have any side
+effects beyond building a widget.</p>
+<p>The framework replaces the subtree below this widget with the widget
+returned by this method, either by updating the existing subtree or by
+removing the subtree and inflating a new subtree, depending on whether the
+widget returned by this method can update the root of the existing
+subtree, as determined by calling <a href="https://api.flutter.dev/flutter/widgets/Widget/canUpdate.html">Widget.canUpdate</a>.</p>
+<p>Typically implementations return a newly created constellation of widgets
+that are configured with information from this widget's constructor and
+from the given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a>.</p>
+<p>The given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a> contains information about the location in the
+tree at which this widget is being built. For example, the context
+provides the set of inherited widgets for this location in the tree. A
+given widget might be built with multiple different <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a>
+arguments over time if the widget is moved around the tree or if the
+widget is inserted into the tree in multiple places at once.</p>
+<p>The implementation of this method must only depend on:</p>
+<ul>
+<li>the fields of the widget, which themselves must not change over time,
+and</li>
+<li>any ambient state obtained from the <code>context</code> using
+<a href="https://api.flutter.dev/flutter/widgets/BuildContext/dependOnInheritedWidgetOfExactType.html">BuildContext.dependOnInheritedWidgetOfExactType</a>.</li>
+</ul>
+<p>If a widget's <a href="../../widgets_attribute_dialog/AttributeDialog/build.html">build</a> method is to depend on anything else, use a
+<a href="https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html">StatefulWidget</a> instead.</p>
+<p>See also:</p>
+<ul>
+<li><a href="https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html">StatelessWidget</a>, which contains the discussion on performance considerations.</li>
+</ul>
+</section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; onTap({
-  required final BuildContext context,
-  required final String attributeId,
-  required final ProductPreferences productPreferences,
-  required final ThemeProvider themeProvider,
-}) async {
+  <pre class="language-dart"><code class="language-dart">@override
+Widget build(BuildContext context) {
+  final ThemeProvider themeProvider = context.watch&lt;ThemeProvider&gt;();
   final Attribute? attribute =
       productPreferences.getReferenceAttribute(attributeId);
   final ColorScheme colorScheme = Theme.of(context).colorScheme;
-  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
   final String importanceId =
       productPreferences.getImportanceIdForAttributeId(attributeId);
   final MaterialColor materialColor =
@@ -123,12 +156,13 @@
       ),
     );
   }
+
   for (final String item in _importanceIds) {
     final Color? foregroundColor =
-        _getForegroundColor(strongForegroundColor!, item);
+        getForegroundColor(strongForegroundColor!, item);
     children.add(
       ListTile(
-        tileColor: _getBackgroundColor(strongBackgroundColor!, item),
+        tileColor: getBackgroundColor(strongBackgroundColor!, item),
         leading: importanceId == item
             ? Icon(Icons.radio_button_checked, color: foregroundColor)
             : Icon(Icons.radio_button_unchecked, color: foregroundColor),
@@ -138,31 +172,19 @@
               .name!,
           style: TextStyle(color: foregroundColor),
         ),
-        onTap: () =&gt; Navigator.pop&lt;String&gt;(context, item),
-        trailing: _getIcon(item, foregroundColor),
+        onTap: () {
+          productPreferences.setImportance(attribute.id!, item);
+          Navigator.pop(context);
+        },
+        trailing: getIcon(item, foregroundColor),
       ),
     );
   }
-  final String? result = await showDialog&lt;String&gt;(
-    context: context,
-    builder: (final BuildContext context) =&gt; SmoothAlertDialog(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: children,
-      ),
-      actions: &lt;SmoothSimpleButton&gt;[
-        SmoothSimpleButton(
-          text: appLocalizations.cancel,
-          onPressed: () =&gt; Navigator.pop(context),
-        ),
-      ],
-    ),
+  return Column(
+    mainAxisAlignment: MainAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: children,
   );
-  if (result == null) {
-    return;
-  }
-  productPreferences.setImportance(attributeId, result);
 }</code></pre>
 </section>
 
@@ -178,30 +200,30 @@
 
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
   <li><a href="../../index.html">smooth_app</a></li>
-  <li><a href="../../widgets_attribute_button/widgets_attribute_button-library.html">attribute_button</a></li>
-  <li><a href="../../widgets_attribute_button/AttributeButton-class.html">AttributeButton</a></li>
-  <li class="self-crumb">onTap method</li>
+  <li><a href="../../widgets_attribute_dialog/widgets_attribute_dialog-library.html">attribute_dialog</a></li>
+  <li><a href="../../widgets_attribute_dialog/AttributeDialog-class.html">AttributeDialog</a></li>
+  <li class="self-crumb">build method</li>
 </ol>
 
 
-    <h5>AttributeButton class</h5>
+    <h5>AttributeDialog class</h5>
     <ol>
 
-    <li class="section-title"><a href="../../widgets_attribute_button/AttributeButton-class.html#constructors">Constructors</a></li>
-    <li><a href="../../widgets_attribute_button/AttributeButton/AttributeButton.html">AttributeButton</a></li>
+    <li class="section-title"><a href="../../widgets_attribute_dialog/AttributeDialog-class.html#constructors">Constructors</a></li>
+    <li><a href="../../widgets_attribute_dialog/AttributeDialog/AttributeDialog.html">AttributeDialog</a></li>
 
 
     <li class="section-title">
-      <a href="../../widgets_attribute_button/AttributeButton-class.html#instance-properties">Properties</a>
+      <a href="../../widgets_attribute_dialog/AttributeDialog-class.html#instance-properties">Properties</a>
     </li>
-    <li><a href="../../widgets_attribute_button/AttributeButton/attribute.html">attribute</a></li>
+    <li><a href="../../widgets_attribute_dialog/AttributeDialog/attributeId.html">attributeId</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/hashCode.html">hashCode</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/key.html">key</a></li>
-    <li><a href="../../widgets_attribute_button/AttributeButton/productPreferences.html">productPreferences</a></li>
+    <li><a href="../../widgets_attribute_dialog/AttributeDialog/productPreferences.html">productPreferences</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
-    <li class="section-title"><a href="../../widgets_attribute_button/AttributeButton-class.html#instance-methods">Methods</a></li>
-    <li><a href="../../widgets_attribute_button/AttributeButton/build.html">build</a></li>
+    <li class="section-title"><a href="../../widgets_attribute_dialog/AttributeDialog-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../widgets_attribute_dialog/AttributeDialog/build.html">build</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/StatelessWidget/createElement.html">createElement</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/debugDescribeChildren.html">debugDescribeChildren</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/debugFillProperties.html">debugFillProperties</a></li>
@@ -212,16 +234,12 @@
     <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toStringShallow.html">toStringShallow</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/toStringShort.html">toStringShort</a></li>
 
-    <li class="section-title inherited"><a href="../../widgets_attribute_button/AttributeButton-class.html#operators">Operators</a></li>
+    <li class="section-title inherited"><a href="../../widgets_attribute_dialog/AttributeDialog-class.html#operators">Operators</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/operator_equals.html">operator ==</a></li>
 
 
 
-    <li class="section-title"><a href="../../widgets_attribute_button/AttributeButton-class.html#static-methods">Static methods</a></li>
-    <li><a href="../../widgets_attribute_button/AttributeButton/onTap.html">onTap</a></li>
 
-    <li class="section-title"><a href="../../widgets_attribute_button/AttributeButton-class.html#constants">Constants</a></li>
-    <li><a href="../../widgets_attribute_button/AttributeButton/WARNING_COLOR-constant.html">WARNING_COLOR</a></li>
 </ol>
 
   </div><!--/.sidebar-offcanvas-->

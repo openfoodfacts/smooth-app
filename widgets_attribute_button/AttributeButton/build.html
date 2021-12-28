@@ -128,17 +128,24 @@ Widget build(BuildContext context) {
     ColorDestination.SURFACE_FOREGROUND,
   );
   final Color? foregroundColor =
-      _getForegroundColor(strongForegroundColor!, importanceId);
+      getForegroundColor(strongForegroundColor!, importanceId);
+  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
   return ListTile(
-    tileColor: _getBackgroundColor(strongBackgroundColor!, importanceId),
+    tileColor: getBackgroundColor(strongBackgroundColor!, importanceId),
     title: Text(attribute.name!, style: TextStyle(color: foregroundColor)),
     leading: SvgCache(attribute.iconUrl, width: 40),
-    trailing: _getIcon(importanceId, foregroundColor),
-    onTap: () async =&gt; onTap(
+    trailing: getIcon(importanceId, foregroundColor),
+    onTap: () async =&gt; showDialog&lt;String&gt;(
       context: context,
-      attributeId: attribute.id!,
-      productPreferences: productPreferences,
-      themeProvider: themeProvider,
+      builder: (final BuildContext context) =&gt; SmoothAlertDialog(
+        body: AttributeDialog(attribute.id!, productPreferences),
+        actions: &lt;SmoothSimpleButton&gt;[
+          SmoothSimpleButton(
+            text: appLocalizations.cancel,
+            onPressed: () =&gt; Navigator.pop(context),
+          ),
+        ],
+      ),
     ),
   );
 }</code></pre>
@@ -195,11 +202,7 @@ Widget build(BuildContext context) {
 
 
 
-    <li class="section-title"><a href="../../widgets_attribute_button/AttributeButton-class.html#static-methods">Static methods</a></li>
-    <li><a href="../../widgets_attribute_button/AttributeButton/onTap.html">onTap</a></li>
 
-    <li class="section-title"><a href="../../widgets_attribute_button/AttributeButton-class.html#constants">Constants</a></li>
-    <li><a href="../../widgets_attribute_button/AttributeButton/WARNING_COLOR-constant.html">WARNING_COLOR</a></li>
 </ol>
 
   </div><!--/.sidebar-offcanvas-->
