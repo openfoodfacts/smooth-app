@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
@@ -13,11 +11,8 @@ abstract class ProductQuery {
           final BuildContext context) =>
       LanguageHelper.fromJson(_getCurrentLanguageCode(context));
 
-  /// Returns the country code from the environment - uppercase or empty string
-  static String _getCurrentCountryCode() => window.locale.countryCode ?? '';
-
-  static OpenFoodFactsCountry? getCurrentCountry() =>
-      CountryHelper.fromJson(_getCurrentCountryCode().toLowerCase());
+  static OpenFoodFactsCountry? getCountry(final String? isoCode) =>
+      CountryHelper.fromJson(isoCode?.toLowerCase());
 
   static const User SMOOTH_USER = User(
     userId: 'project-smoothie',

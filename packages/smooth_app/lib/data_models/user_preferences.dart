@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
+import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 
 class UserPreferences extends ChangeNotifier {
@@ -64,8 +66,9 @@ class UserPreferences extends ChangeNotifier {
   Future<void> setUserCountry(final String countryCode) async =>
       _sharedPreferences.setString(_TAG_USER_COUNTRY_CODE, countryCode);
 
-  String? get userCountry =>
-      _sharedPreferences.getString(_TAG_USER_COUNTRY_CODE);
+  OpenFoodFactsCountry? get userCountry => ProductQuery.getCountry(
+        _sharedPreferences.getString(_TAG_USER_COUNTRY_CODE),
+      );
 
   Future<void> setLastVisitedOnboardingPage(final OnboardingPage page) async =>
       _sharedPreferences.setInt(_TAG_LAST_VISITED_ONBOARDING_PAGE, page.index);

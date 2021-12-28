@@ -133,7 +133,7 @@ class _CountrySelectorState extends State<CountrySelector> {
     countries
         .sort((final Country a, final Country b) => a.name.compareTo(b.name));
     final String? mostLikelyUserCountryCode =
-        WidgetsBinding.instance?.window.locale.countryCode;
+        WidgetsBinding.instance?.window.locale.countryCode?.toLowerCase();
     if (mostLikelyUserCountryCode == null) {
       return countries;
     }
