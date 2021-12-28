@@ -42,7 +42,7 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Willkommen bei Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "whatIsOff": "Open Food Facts ist eine globale, gemeinnützige Organisation, die von lokalen Gemeinschaften getragen wird.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
@@ -66,13 +66,13 @@
     "@reset_password": {
         "description": "Forgot password page title"
     },
-    "reset_password_explanation_text": "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password. Please also check your spam folder.",
-    "username_or_email": "Username or e-mail address",
+    "reset_password_explanation_text": "Wenn Sie Ihr Passwort vergessen haben, geben Sie Ihren Benutzernamen oder Ihre E-Mail-Adresse ein, um Anweisungen zum Zurücksetzen Ihres Passworts zu erhalten. Bitte überprüfen Sie auch Ihren Spam-Ordner.",
+    "username_or_email": "Benutzername oder E-Mail-Adresse",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
-    "reset_password_done": "An email with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
-    "send_reset_password_mail": "Change password",
+    "reset_password_done": "Eine E-Mail mit einem Link zum Zurücksetzen Ihres Passworts wurde an die mit Ihrem Konto verknüpfte E-Mail-Adresse gesendet. Prüfen Sie auch Ihren Spam-Ordner.",
+    "send_reset_password_mail": "Passwort ändern",
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset email request"
     },
@@ -193,7 +193,7 @@
     "@unknownBrand": {},
     "unknownProductName": "Unbekannter Produktname",
     "@unknownProductName": {},
-    "label_refresh": "Refresh",
+    "label_refresh": "Aktualisieren",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
@@ -276,7 +276,7 @@
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
-    "country_chooser_label": "Please choose a country",
+    "country_chooser_label": "Bitte ein Land auswählen",
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },

@@ -10,6 +10,7 @@ import 'package:smooth_app/pages/settings_page.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/widgets/attribute_button.dart';
+import 'package:smooth_app/widgets/attribute_helper.dart';
 
 /// Preferences page for attribute importances
 class UserPreferencesPage extends StatelessWidget {
@@ -130,7 +131,7 @@ class UserPreferencesPage extends StatelessWidget {
             Container(
               color: SmoothTheme.getColor(
                 Theme.of(context).colorScheme,
-                AttributeButton.WARNING_COLOR,
+                WARNING_COLOR,
                 ColorDestination.BUTTON_BACKGROUND,
               ),
               width: double.infinity,
@@ -141,7 +142,7 @@ class UserPreferencesPage extends StatelessWidget {
                 style: TextStyle(
                   color: SmoothTheme.getColor(
                     Theme.of(context).colorScheme,
-                    AttributeButton.WARNING_COLOR,
+                    WARNING_COLOR,
                     ColorDestination.BUTTON_FOREGROUND,
                   ),
                 ),

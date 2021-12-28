@@ -42,7 +42,7 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Bienvenue sur Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "whatIsOff": "Open Food Facts est une organisation mondiale à but non lucratif alimentée par les communautés locales.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
@@ -66,13 +66,13 @@
     "@reset_password": {
         "description": "Forgot password page title"
     },
-    "reset_password_explanation_text": "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password. Please also check your spam folder.",
-    "username_or_email": "Username or e-mail address",
+    "reset_password_explanation_text": "Si vous avez oublié votre mot de passe, indiquez votre nom d'utilisateur ou votre adresse e-mail pour recevoir les instructions de réinitialisation de votre mot de passe. Veuillez également vérifier votre dossier courrier indésirable.",
+    "username_or_email": "Nom d'utilisateur ou adresse e-mail",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
     "reset_password_done": "An email with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
-    "send_reset_password_mail": "Change password",
+    "send_reset_password_mail": "Changer le mot de passe",
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset email request"
     },
@@ -193,7 +193,7 @@
     "@unknownBrand": {},
     "unknownProductName": "Produit inconnu",
     "@unknownProductName": {},
-    "label_refresh": "Refresh",
+    "label_refresh": "Actualiser",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
@@ -276,7 +276,7 @@
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
-    "country_chooser_label": "Please choose a country",
+    "country_chooser_label": "Veuillez choisir un pays",
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },
