@@ -12,7 +12,7 @@ abstract class ProductQuery {
       LanguageHelper.fromJson(_getCurrentLanguageCode(context));
 
   static OpenFoodFactsCountry? getCountry(final String? isoCode) =>
-      CountryHelper.fromJson(isoCode?.toLowerCase());
+      CountryHelper.fromJson(isoCode);
 
   static const User SMOOTH_USER = User(
     userId: 'project-smoothie',

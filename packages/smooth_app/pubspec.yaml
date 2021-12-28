@@ -28,7 +28,7 @@ dependencies:
   latlong2: ^0.8.1
   matomo: ^1.1.0
   modal_bottom_sheet: ^2.0.0
-  openfoodfacts: ^1.8.0
+  openfoodfacts: ^1.8.1
   # Uncomment those lines if you want to use a local version of the openfoodfacts package
 #  openfoodfacts:
 #    path: ../../../openfoodfacts-dart
@@ -52,9 +52,6 @@ dev_dependencies:
     sdk: flutter
   mockito: ^5.0.17
   path: ^1.8.0 # careful with 1.8.1 because of https://github.com/flutter/flutter/issues/95478
-
-dependency_overrides:
-  path: ^1.8.0
 
 # 'flutter pub run flutter_launcher_icons:main' to update
 flutter_icons:
