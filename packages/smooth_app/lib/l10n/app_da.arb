@@ -8,6 +8,10 @@
     "@okay": {},
     "applyButtonText": "Anvend",
     "@applyButtonText": {},
+    "next_label": "Næste",
+    "@next_label": {
+        "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
+    },
     "cancel": "Annullér",
     "@cancel": {},
     "close": "Luk",
@@ -38,25 +42,41 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Velkommen til Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts er en fødevaredatabase, lavet af alle, for alle. Den kan bruges til at træffe bedre fødevarevalg, og da det er åbne data, kan alle genbruge dem til ethvert formål.",
-    "@whatIsOff": {},
+    "whatIsOff": "Open Food Facts er en global non-profit drevet af lokalsamfund.",
+    "@whatIsOff": {
+        "description": "Description of Open Food Facts organization."
+    },
     "@user_management": {},
-    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
-    "incorrect_credentials": "Incorrect user name or password.",
-    "login": "Mørk tilstand",
+    "sign_in_text": "Log ind på din Open Food Facts-konto for at gemme dine bidrag",
+    "incorrect_credentials": "Forkert brugernavn eller adgangskode.",
+    "login": "Brugernavn",
     "@login": {
-        "description": "Text field hint: unified name for "
+        "description": "Text field hint: unified name for either username or email address"
     },
     "sign_in": "Log ind",
     "@sign_in": {
         "description": "Button label: For sign in"
     },
     "password": "Adgangskode",
-    "forgot_password": "Forgot password",
+    "forgot_password": "Glemt adgangskode",
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset email can be requested"
     },
-    "enter_some_text": "Please enter some text",
+    "reset_password": "Nulstil adgangskode",
+    "@reset_password": {
+        "description": "Forgot password page title"
+    },
+    "reset_password_explanation_text": "Ved glemt adgangskode, angiv brugernavn eller e-mailadresse for at modtage instruktioner til adgangskodenulstilling. Husk også at tjekke Spam-mappen.",
+    "username_or_email": "Brugernavn eller e-mailadresse",
+    "@username_or_email": {
+        "description": "Text field hint for password reset"
+    },
+    "reset_password_done": "En e-mail indeholdende et link til adgangskodenulstilling er sendt til din kontos tilknyttede e-mailadresse. Tjek også Spam-mappen",
+    "send_reset_password_mail": "Skift adgangskode",
+    "@send_reset_password_mail": {
+        "description": "Button label: Submit the password reset email request"
+    },
+    "enter_some_text": "Angiv noget tekst",
     "@enter_some_text": {
         "description": "Error when text field is empty"
     },
@@ -79,7 +99,7 @@
     },
     "termsOfUse": "Afbenyttelsesvilkår",
     "@termsOfUse": {},
-    "about_this_app": "About this app",
+    "about_this_app": "Om denne app",
     "@about_this_app": {
         "description": "Button label: Opens a popo up window which shows informations about this app"
     },
@@ -88,7 +108,7 @@
     "@contribute": {
         "description": "Button label: Shows multiple ways how users can contribute to OFF"
     },
-    "contribute_sw_development": "Software development",
+    "contribute_sw_development": "Softwareudvikling",
     "@contribute_sw_development": {
         "description": "Button label + page title: Ways to help"
     },
@@ -138,15 +158,15 @@
         "description": "Snackbar title: Shows that the modified settings have been applied"
     },
     "@other": {},
-    "profile_navbar_label": "Profile",
+    "profile_navbar_label": "Profil",
     "@profile_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "scan_navbar_label": "Profile",
+    "scan_navbar_label": "Profil",
     "@scan_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "history_navbar_label": "Profile",
+    "history_navbar_label": "Profil",
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
@@ -165,7 +185,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Tap to see more info...",
+    "tab_for_more": "Tryk for at se flere oplysninger...",
     "@Product": {},
     "product": "Produkt",
     "@product": {},
@@ -173,7 +193,7 @@
     "@unknownBrand": {},
     "unknownProductName": "Ukendt produktnavn",
     "@unknownProductName": {},
-    "label_refresh": "opfrisk",
+    "label_refresh": "Opfrisk",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
@@ -225,7 +245,7 @@
         "description": "Confirmation, that the product data got canceled by the user"
     },
     "product_internet_error": "Ikke muligt at hente disse produktoplysninger grundet netværksfejl.",
-    "cached_results_from": "Cached results from:",
+    "cached_results_from": "Cachelagrede resultater fra:",
     "@cached_results_from": {
         "description": "Cached results from: x time ago (time ago should not be added to the string)"
     },
@@ -256,6 +276,14 @@
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
+    "country_chooser_label": "Vælg land",
+    "@country_chooser_label": {
+        "description": "Label shown above a selector where the user can select their country"
+    },
+    "country_selection_explanation": "Visse miljøfunktioner er placeringsbestemte",
+    "@country_label": {
+        "description": "Explanation as to why users should select their country."
+    },
     "@Lists": {},
     "no_prodcut_in_list": "Der er intet produkt på denne liste",
     "no_product_in_section": "Der er intet produkt i dette afsnit",
@@ -264,7 +292,7 @@
     "@clear": {
         "description": "Clears a product list"
     },
-    "really_clear": "Do you really want to clear this list?",
+    "really_clear": "Sikker på, at denne liste skal ryddes?",
     "@Plural": {},
     "pct_match": "{pct}% match",
     "@pct_match": {
@@ -308,7 +336,7 @@
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, =other{Compare {count} Products}",
+    "plural_compare_x_products": "{count,plural, =other{Sammenlign {count} produkter}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {

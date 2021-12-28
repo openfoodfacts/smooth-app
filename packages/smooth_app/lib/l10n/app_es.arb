@@ -8,6 +8,10 @@
     "@okay": {},
     "applyButtonText": "Aplicar",
     "@applyButtonText": {},
+    "next_label": "Siguiente",
+    "@next_label": {
+        "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
+    },
     "cancel": "Cancelar",
     "@cancel": {},
     "close": "Cerrar",
@@ -38,25 +42,41 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Bienvenido a Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts es una base de datos de productos alimentarios, hecha por para todos. Puedes usarla para elegir mejor los alimentos y, al ser datos abiertos, cualquiera puede reutilizarlos para diferentes propósitos.",
-    "@whatIsOff": {},
+    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "@whatIsOff": {
+        "description": "Description of Open Food Facts organization."
+    },
     "@user_management": {},
-    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
-    "incorrect_credentials": "Incorrect user name or password.",
-    "login": "Modo oscuro",
+    "sign_in_text": "Inicia sesión en tu cuenta de Open Food Facts para guardar tus contribuciones",
+    "incorrect_credentials": "Nombre de usuario o contraseña incorrecta.",
+    "login": "Usuario",
     "@login": {
-        "description": "Text field hint: unified name for "
+        "description": "Text field hint: unified name for either username or email address"
     },
     "sign_in": "Iniciar sesión",
     "@sign_in": {
         "description": "Button label: For sign in"
     },
     "password": "Contraseña",
-    "forgot_password": "Forgot password",
+    "forgot_password": "Contraseña olvidada",
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset email can be requested"
     },
-    "enter_some_text": "Please enter some text",
+    "reset_password": "Restablecer la contraseña",
+    "@reset_password": {
+        "description": "Forgot password page title"
+    },
+    "reset_password_explanation_text": "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password. Please also check your spam folder.",
+    "username_or_email": "Username or e-mail address",
+    "@username_or_email": {
+        "description": "Text field hint for password reset"
+    },
+    "reset_password_done": "An email with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
+    "send_reset_password_mail": "Change password",
+    "@send_reset_password_mail": {
+        "description": "Button label: Submit the password reset email request"
+    },
+    "enter_some_text": "Por favor escriba algún texto",
     "@enter_some_text": {
         "description": "Error when text field is empty"
     },
@@ -79,7 +99,7 @@
     },
     "termsOfUse": "Condiciones de uso",
     "@termsOfUse": {},
-    "about_this_app": "About this app",
+    "about_this_app": "Sobre esta aplicación",
     "@about_this_app": {
         "description": "Button label: Opens a popo up window which shows informations about this app"
     },
@@ -173,7 +193,7 @@
     "@unknownBrand": {},
     "unknownProductName": "Nombre de producto desconocido",
     "@unknownProductName": {},
-    "label_refresh": "actualizar",
+    "label_refresh": "Refresh",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
@@ -255,6 +275,14 @@
     "product_improvement_origins_to_be_completed": "El Eco-Score tiene en cuenta el origen de los ingredientes. Por favor tómele una foto (lista de ingredientes y / o cualquier lugar de proveniencia geográfica o edite el producto para que puedan ser tomados en cuenta. Si no está claro, puede comunicarse con el productor de alimentos).",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
+    },
+    "country_chooser_label": "Please choose a country",
+    "@country_chooser_label": {
+        "description": "Label shown above a selector where the user can select their country"
+    },
+    "country_selection_explanation": "Some environment features depend on your location",
+    "@country_label": {
+        "description": "Explanation as to why users should select their country."
     },
     "@Lists": {},
     "no_prodcut_in_list": "No hay ningún producto en esta lista",
