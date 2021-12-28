@@ -107,85 +107,61 @@ and</li>
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final Size screenSize = MediaQuery.of(context).size;
-  &#47;&#47; Side padding is 8% of total width.
-  final double sidePadding = screenSize.width * 0.08;
-  &#47;&#47; Top padding is 16% of total width.
-  final double topPadding = screenSize.height * 0.016;
-  &#47;&#47; Bottom padding is 4% of total width.
-  final double bottomPadding = screenSize.height * 0.04;
   final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
   final TextStyle headlineStyle =
       Theme.of(context).textTheme.headline2!.apply(color: Colors.white);
-  final TextStyle largeButtonTextStyle =
-      Theme.of(context).textTheme.headline3!.apply(color: Colors.white);
   final TextStyle bodyTextStyle =
       Theme.of(context).textTheme.bodyText1!.apply(color: Colors.white);
+  &#47;&#47; Side padding is 8% of total width.
+  final double sidePadding = MediaQuery.of(context).size.width * .08;
+
   return Scaffold(
-    body: Padding(
-      padding: EdgeInsets.only(
-          top: topPadding,
-          bottom: bottomPadding,
-          left: sidePadding,
-          right: sidePadding),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: &lt;Widget&gt;[
-          Text(appLocalizations.whatIsOff, style: headlineStyle),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: &lt;Widget&gt;[
-              Padding(
-                padding: const EdgeInsets.only(left: SMALL_SPACE),
-                child: Text(
-                  appLocalizations.country_chooser_label,
-                  style: bodyTextStyle,
-                ),
-              ),
-              const CountrySelector(),
-              Padding(
-                padding: const EdgeInsets.only(left: SMALL_SPACE),
-                child: Text(
-                  appLocalizations.country_selection_explanation,
-                  style: bodyTextStyle,
-                ),
-              ),
-            ],
-          ),
-          Row(
-            children: &lt;Widget&gt;[
-              Expanded(
-                child: TextButton(
-                  style: TextButton.styleFrom(
-                    backgroundColor: SmoothTheme.getColor(
-                      Theme.of(context).colorScheme,
-                      SmoothTheme
-                          .MATERIAL_COLORS[SmoothTheme.COLOR_TAG_BLUE]!,
-                      ColorDestination.BUTTON_BACKGROUND,
+    body: Stack(children: &lt;Widget&gt;[
+      Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: sidePadding,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: &lt;Widget&gt;[
+            const Spacer(flex: 1),
+            Flexible(
+              flex: 4,
+              child: Text(appLocalizations.whatIsOff, style: headlineStyle),
+            ),
+            Flexible(
+              flex: 3,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: &lt;Widget&gt;[
+                  Padding(
+                    padding: const EdgeInsets.only(left: SMALL_SPACE),
+                    child: Text(
+                      appLocalizations.country_chooser_label,
+                      style: bodyTextStyle,
                     ),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(SMALL_SPACE)),
-                    primary: Colors.white,
                   ),
-                  onPressed: () {
-                    &#47;&#47; TODO(jasmeet): Navigate to the next onboarding page.
-                    Navigator.push&lt;Widget&gt;(
-                        context,
-                        MaterialPageRoute&lt;Widget&gt;(
-                          builder: (BuildContext context) =&gt; PageManager(),
-                        ));
-                  },
-                  child: Text(
-                    appLocalizations.next_label,
-                    style: largeButtonTextStyle,
+                  const CountrySelector(),
+                  Padding(
+                    padding: const EdgeInsets.only(left: SMALL_SPACE),
+                    child: Text(
+                      appLocalizations.country_selection_explanation,
+                      style: bodyTextStyle,
+                    ),
                   ),
-                ),
+                ],
               ),
-            ],
-          )
-        ],
+            ),
+          ],
+        ),
       ),
-    ),
+      const Positioned(
+        child: Align(
+          alignment: Alignment.bottomCenter,
+          child: NextButton(OnboardingPage.WELCOME),
+        ),
+      ),
+    ]),
     backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
   );
 }</code></pre>
