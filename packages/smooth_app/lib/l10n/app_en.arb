@@ -46,6 +46,10 @@
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
+    "offUtility": "Choose foods that are good for you and the planet.",
+      "@offUtility": {
+        "description": "Description of what a user can use Open Food Facts for."
+      },
     "@user_management": {},
     "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
     "incorrect_credentials": "Incorrect user name or password.",

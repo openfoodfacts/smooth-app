@@ -11,8 +11,7 @@ import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/pages/onboarding/welcome_page.dart';
-import 'package:smooth_app/pages/page_manager.dart';
+import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -55,7 +54,6 @@ class _SmoothAppState extends State<SmoothApp> {
   late ProductPreferences _productPreferences;
   late LocalDatabase _localDatabase;
   late ThemeProvider _themeProvider;
-  late bool _isFirstTimeUser;
   bool systemDarkmodeOn = false;
 
   // We store the argument of FutureBuilder to avoid re-initialization on
@@ -80,7 +78,6 @@ class _SmoothAppState extends State<SmoothApp> {
       getImportance: _userPreferences.getImportance,
       notify: () => _productPreferences.notifyListeners(),
     ));
-    _isFirstTimeUser = _userPreferences.isFirstTimeUser();
     await _productPreferences
         .loadReferenceFromAssets(DefaultAssetBundle.of(context));
     await _userPreferences.init(_productPreferences);
@@ -120,6 +117,8 @@ class _SmoothAppState extends State<SmoothApp> {
 
   Widget _buildApp(BuildContext context, Widget? child) {
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
+    final Widget appWidget = OnboardingFlowNavigator(_userPreferences)
+        .getPageWidget(context, _userPreferences.lastVisitedOnboardingPage);
     return MaterialApp(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
@@ -135,7 +134,7 @@ class _SmoothAppState extends State<SmoothApp> {
         themeProvider.colorTag,
       ),
       themeMode: themeProvider.darkTheme ? ThemeMode.dark : ThemeMode.light,
-      home: SmoothAppGetLanguage(isFirstTimeUser: _isFirstTimeUser),
+      home: SmoothAppGetLanguage(appWidget),
     );
   }
 
@@ -161,11 +160,12 @@ class _SmoothAppState extends State<SmoothApp> {
   }
 }
 
-/// Layer needed because we need to know the language
+/// Layer needed because we need to know the language. Language isn't available
+/// in the [context] in top level widget ([SmoothApp])
 class SmoothAppGetLanguage extends StatelessWidget {
-  const SmoothAppGetLanguage({required this.isFirstTimeUser});
+  const SmoothAppGetLanguage(this.appWidget);
 
-  final bool isFirstTimeUser;
+  final Widget appWidget;
 
   @override
   Widget build(BuildContext context) {
@@ -178,10 +178,7 @@ class SmoothAppGetLanguage extends StatelessWidget {
       DefaultAssetBundle.of(context),
       languageCode,
     );
-    if (isFirstTimeUser) {
-      return const WelcomePage();
-    }
-    return PageManager();
+    return appWidget;
   }
 
   Future<void> _refresh(
