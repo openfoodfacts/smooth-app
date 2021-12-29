@@ -75,6 +75,7 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
     availableProductPreferences = myAvailableProductPreferences;
     _isNetwork = false;
     _languageCode = languageCode;
+    notify();
   }
 
   /// Loads the references of importance and attribute groups from urls.
@@ -104,6 +105,7 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
     availableProductPreferences = myAvailableProductPreferences;
     _isNetwork = true;
     _languageCode = languageCode;
+    notify();
   }
 
   Future<void> resetImportances() async {
