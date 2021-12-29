@@ -8,6 +8,17 @@ class UserManagementHelper {
   static const String _USER_ID = 'user_id';
   static const String _PASSWORD = 'pasword';
 
+  /// cf. https://stackoverflow.com/questions/63292839/how-to-validate-email-in-a-textformfield
+  // TODO(monsieurtanuki): check if we can find something more relevant
+  static const String _emailPattern =
+      r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]"
+      r'{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]'
+      r'{0,253}[a-zA-Z0-9])?)*$';
+  static final RegExp _emailRegex = RegExp(_emailPattern);
+
+  static const String _userPattern = r'^[a-z0-9]$';
+  static final RegExp _userRegex = RegExp(_userPattern);
+
   /// Checks credentials and conditionally saves them
   static Future<bool> login(User user) async {
     final bool rightCredentials;
@@ -79,4 +90,12 @@ class UserManagementHelper {
 
     return userId && password;
   }
+
+  static bool isEmailValid(final String email) =>
+      email.isNotEmpty && _emailRegex.hasMatch(email);
+
+  static bool isUsernameValid(final String username) =>
+      username.isNotEmpty && _userRegex.hasMatch(username);
+
+  static bool isPasswordValid(final String password) => password.length >= 6;
 }

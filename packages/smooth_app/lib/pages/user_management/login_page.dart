@@ -4,6 +4,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/pages/user_management/forgot_password_page.dart';
+import 'package:smooth_app/pages/user_management/sign_up_page.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_ui_library/smooth_ui_library.dart';
 import 'package:smooth_ui_library/widgets/smooth_text_form_field.dart';
@@ -216,12 +217,12 @@ class _LoginPageState extends State<LoginPage> {
                   SizedBox(
                     height: size.height * 0.06,
                     child: OutlinedButton(
-                      onPressed: () {
-                        final SnackBar snackBar = SnackBar(
-                          content: Text(appLocalizations.featureInProgress),
-                        );
-                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                      },
+                      onPressed: () async => Navigator.push(
+                        context,
+                        MaterialPageRoute<Widget>(
+                          builder: (BuildContext context) => const SignUpPage(),
+                        ),
+                      ),
                       child: Text(
                         'Create account',
                         style: theme.textTheme.bodyText2?.copyWith(
