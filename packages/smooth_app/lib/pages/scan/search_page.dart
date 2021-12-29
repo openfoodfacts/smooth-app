@@ -1,25 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
-import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/keywords_product_query.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/new_product_page.dart';
 import 'package:smooth_app/pages/scan/search_history_view.dart';
 
-void _performSearch(
-  BuildContext context,
-  String query,
-  final OpenFoodFactsCountry? country,
-  final OpenFoodFactsLanguage? language,
-) {
+void _performSearch(BuildContext context, String query) {
   if (query.trim().isEmpty) {
     return;
   }
@@ -30,16 +21,12 @@ void _performSearch(
       query,
       context,
       localDatabase,
-      country,
-      language,
     );
   } else {
     _onSubmittedText(
       query,
       context,
       localDatabase,
-      country,
-      language,
     );
   }
 }
@@ -49,16 +36,12 @@ Future<void> _onSubmittedBarcode(
   final String value,
   final BuildContext context,
   final LocalDatabase localDatabase,
-  final OpenFoodFactsCountry? country,
-  final OpenFoodFactsLanguage? language,
 ) async {
   final ProductDialogHelper productDialogHelper = ProductDialogHelper(
     barcode: value,
     context: context,
     localDatabase: localDatabase,
     refresh: false,
-    country: country,
-    language: language,
   );
   final FetchedProduct fetchedProduct =
       await productDialogHelper.openBestChoice();
@@ -79,27 +62,19 @@ Future<void> _onSubmittedText(
   final String value,
   final BuildContext context,
   final LocalDatabase localDatabase,
-  final OpenFoodFactsCountry? country,
-  final OpenFoodFactsLanguage? language,
 ) async =>
     ProductQueryPageHelper().openBestChoice(
       color: Colors.deepPurple,
       heroTag: 'search_bar',
       name: value,
       localDatabase: localDatabase,
-      productQuery: KeywordsProductQuery(
-        keywords: value,
-        language: language,
-        country: country,
-        size: 500,
-      ),
+      productQuery: KeywordsProductQuery(keywords: value, size: 500),
       context: context,
     );
 
 class SearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final UserPreferences userPreferences = context.read<UserPreferences>();
     return Scaffold(
       appBar: AppBar(toolbarHeight: 0.0),
       body: Column(
@@ -110,12 +85,7 @@ class SearchPage extends StatelessWidget {
           ),
           Expanded(
             child: SearchHistoryView(
-              onTap: (String query) => _performSearch(
-                context,
-                query,
-                userPreferences.userCountry,
-                ProductQuery.getCurrentLanguage(context),
-              ),
+              onTap: (String query) => _performSearch(context, query),
             ),
           ),
         ],
@@ -165,18 +135,12 @@ class _SearchFieldState extends State<SearchField> {
     if (widget.autofocus) {
       _focusNode.requestFocus();
     }
-    final UserPreferences userPreferences = context.read<UserPreferences>();
     final AppLocalizations localizations = AppLocalizations.of(context)!;
     return TextField(
       textInputAction: TextInputAction.search,
       controller: _textController,
       focusNode: _focusNode,
-      onSubmitted: (String query) => _performSearch(
-        context,
-        query,
-        userPreferences.userCountry,
-        ProductQuery.getCurrentLanguage(context),
-      ),
+      onSubmitted: (String query) => _performSearch(context, query),
       decoration: InputDecoration(
         filled: true,
         border: OutlineInputBorder(

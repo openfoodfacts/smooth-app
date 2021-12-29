@@ -2,18 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/image_upload_card.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panels_builder.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/knowledge_panels_query.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
@@ -36,8 +33,6 @@ enum ProductPageMenuItem { WEB, REFRESH }
 class _ProductPageState extends State<ProductPage> {
   late Product _product;
   late ProductPreferences _productPreferences;
-  late OpenFoodFactsCountry? _country;
-  late OpenFoodFactsLanguage? _language;
 
   @override
   void initState() {
@@ -51,9 +46,6 @@ class _ProductPageState extends State<ProductPage> {
     // All watchers defined here:
     _productPreferences = context.watch<ProductPreferences>();
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
-    final UserPreferences userPreferences = context.watch<UserPreferences>();
-    _country = userPreferences.userCountry;
-    _language = ProductQuery.getCurrentLanguage(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
@@ -107,8 +99,6 @@ class _ProductPageState extends State<ProductPage> {
       context: context,
       localDatabase: localDatabase,
       refresh: true,
-      language: _language,
-      country: _country,
     );
     final FetchedProduct fetchedProduct =
         await productDialogHelper.openUniqueProductSearch();
@@ -209,8 +199,6 @@ class _ProductPageState extends State<ProductPage> {
     // TODO(jasmeet): Avoid additional requests on rebuilds.
     final Future<KnowledgePanels> knowledgePanels = KnowledgePanelsQuery(
       barcode: _product.barcode!,
-      country: _country,
-      language: _language,
     ).getKnowledgePanels();
     return FutureBuilder<KnowledgePanels>(
         future: knowledgePanels,

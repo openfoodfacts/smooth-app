@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
-import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/pages/scan/continuous_scan_page.dart';
 
 class ScanPage extends StatefulWidget {
@@ -24,12 +22,8 @@ class _ScanPageState extends State<ScanPage> {
 
   Future<void> _updateModel() async {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    final UserPreferences userPreferences = context.watch<UserPreferences>();
     if (_model == null) {
-      _model = await ContinuousScanModel(
-        language: ProductQuery.getCurrentLanguage(context),
-        country: userPreferences.userCountry,
-      ).load(localDatabase);
+      _model = await ContinuousScanModel().load(localDatabase);
     } else {
       await _model?.refresh();
     }
