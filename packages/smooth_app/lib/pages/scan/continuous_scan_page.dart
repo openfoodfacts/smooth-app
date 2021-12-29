@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
+import 'package:smooth_app/widgets/ranking_floating_action_button.dart';
 import 'package:smooth_app/widgets/smooth_product_carousel.dart';
 import 'package:smooth_ui_library/smooth_ui_library.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
@@ -149,7 +150,7 @@ class _ContinuousScanPageState extends State<ContinuousScanPage> {
             ),
             ElevatedButton.icon(
               style: buttonStyle,
-              icon: const Icon(Icons.emoji_events_outlined),
+              icon: const Icon(RankingFloatingActionButton.rankingIconData),
               onPressed: () => _openPersonalizedRankingPage(context),
               label: Text(
                 appLocalizations.plural_compare_x_products(
