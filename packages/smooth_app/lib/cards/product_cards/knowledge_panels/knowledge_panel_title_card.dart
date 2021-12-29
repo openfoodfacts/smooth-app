@@ -14,10 +14,15 @@ class KnowledgePanelTitleCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData themeData = Theme.of(context);
     Color? colorFromEvaluation;
     if (evaluation != null &&
         (knowledgePanelTitleElement.iconColorFromEvaluation ?? false)) {
       colorFromEvaluation = _getColorFromEvaluation(evaluation!);
+    }
+    if (colorFromEvaluation == null &&
+        themeData.brightness == Brightness.dark) {
+      colorFromEvaluation = Colors.white;
     }
     return Padding(
       padding: const EdgeInsets.only(top: SMALL_SPACE),
@@ -42,11 +47,14 @@ class KnowledgePanelTitleCard extends StatelessWidget {
                 return Wrap(
                   direction: Axis.vertical,
                   children: <Widget>[
-                    Text(
-                      knowledgePanelTitleElement.title,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(color: colorFromEvaluation),
+                    SizedBox(
+                      width: constraints.maxWidth,
+                      child: Text(
+                        knowledgePanelTitleElement.title,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(color: colorFromEvaluation),
+                      ),
                     ),
                     if (knowledgePanelTitleElement.subtitle != null)
                       SizedBox(
