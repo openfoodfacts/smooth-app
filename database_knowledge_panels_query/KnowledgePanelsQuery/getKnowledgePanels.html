@@ -52,9 +52,8 @@
     <section class="multi-line-signature">
       
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/1.8.0/model_KnowledgePanels/KnowledgePanels-class.html">KnowledgePanels</a></span>&gt;</span></span>
-<span class="name ">getKnowledgePanels</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getKnowledgePanels-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span></li>
-</ol>)
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/1.8.1/model_KnowledgePanels/KnowledgePanels-class.html">KnowledgePanels</a></span>&gt;</span></span>
+<span class="name ">getKnowledgePanels</span>(<wbr>)
 
       
 
@@ -65,11 +64,11 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;KnowledgePanels&gt; getKnowledgePanels(BuildContext context) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;KnowledgePanels&gt; getKnowledgePanels() async {
   final ProductQueryConfiguration configuration = ProductQueryConfiguration(
     barcode,
-    language: ProductQuery.getCurrentLanguage(context),
-    country: ProductQuery.getCurrentCountry(),
+    language: ProductQuery.getLanguage(),
+    country: ProductQuery.getCountry(),
   );
   return OpenFoodAPIClient.getKnowledgePanels(configuration, QueryType.PROD);
 }</code></pre>

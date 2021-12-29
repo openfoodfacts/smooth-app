@@ -70,8 +70,6 @@
     builder: (BuildContext context) {
       BarcodeProductQuery(
         barcode: barcode,
-        language: ProductQuery.getCurrentLanguage(context),
-        country: ProductQuery.getCurrentCountry(),
         daoProduct: DaoProduct(localDatabase),
       ).getFetchedProduct().then&lt;void&gt;(
             (final FetchedProduct value) =&gt; _popSearchingDialog(value),

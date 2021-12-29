@@ -68,8 +68,8 @@
   final ProductQueryConfiguration configuration = ProductQueryConfiguration(
     barcode,
     fields: ProductQuery.fields,
-    language: language,
-    country: country,
+    language: ProductQuery.getLanguage(),
+    country: ProductQuery.getCountry(),
   );
 
   final ProductResult result;
@@ -119,10 +119,8 @@
       <a href="../../database_barcode_product_query/BarcodeProductQuery-class.html#instance-properties">Properties</a>
     </li>
     <li><a href="../../database_barcode_product_query/BarcodeProductQuery/barcode.html">barcode</a></li>
-    <li><a href="../../database_barcode_product_query/BarcodeProductQuery/country.html">country</a></li>
     <li><a href="../../database_barcode_product_query/BarcodeProductQuery/daoProduct.html">daoProduct</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
-    <li><a href="../../database_barcode_product_query/BarcodeProductQuery/language.html">language</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
     <li class="section-title"><a href="../../database_barcode_product_query/BarcodeProductQuery-class.html#instance-methods">Methods</a></li>

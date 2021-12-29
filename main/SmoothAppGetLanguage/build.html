@@ -111,6 +111,7 @@ Widget build(BuildContext context) {
       context.watch&lt;ProductPreferences&gt;();
   final Locale myLocale = Localizations.localeOf(context);
   final String languageCode = myLocale.languageCode;
+  ProductQuery.setLanguage(languageCode);
   _refresh(
     productPreferences,
     DefaultAssetBundle.of(context),
