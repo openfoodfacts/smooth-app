@@ -13,10 +13,11 @@ abstract class ProductQuery {
           final BuildContext context) =>
       LanguageHelper.fromJson(_getCurrentLanguageCode(context));
 
+  /// Returns the country code from the environment - uppercase or empty string
   static String _getCurrentCountryCode() => window.locale.countryCode ?? '';
 
   static OpenFoodFactsCountry? getCurrentCountry() =>
-      CountryHelper.fromJson(_getCurrentCountryCode());
+      CountryHelper.fromJson(_getCurrentCountryCode().toLowerCase());
 
   static const User SMOOTH_USER = User(
     userId: 'project-smoothie',
@@ -52,6 +53,10 @@ abstract class ProductQuery {
         ProductField.LANGUAGE,
         ProductField.ATTRIBUTE_GROUPS,
         ProductField.STATES_TAGS,
+        ProductField.ECOSCORE_DATA,
+        ProductField.ECOSCORE_GRADE,
+        ProductField.ECOSCORE_SCORE,
+        ProductField.ENVIRONMENT_IMPACT_LEVELS,
       ];
 
   Future<SearchResult> getSearchResult();
