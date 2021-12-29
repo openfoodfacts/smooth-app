@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iso_countries/iso_countries.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 /// A selector for selecting user's country.
@@ -31,7 +32,12 @@ class _CountrySelectorState extends State<CountrySelector> {
     _userPreferences = await UserPreferences.getUserPreferences();
     _countryList = _sanitizeCountriesList(localizedCountries);
     _chosenValue = _countryList[0];
-    _userPreferences.setUserCountry(_chosenValue.countryCode);
+    _setUserCountry(_chosenValue.countryCode);
+  }
+
+  Future<void> _setUserCountry(final String countryCode) async {
+    await _userPreferences.setUserCountry(_chosenValue.countryCode);
+    ProductQuery.setCountry(_userPreferences.userCountryCode);
   }
 
   @override
@@ -68,10 +74,10 @@ class _CountrySelectorState extends State<CountrySelector> {
                 );
               }).toList(),
               onChanged: (Country? value) {
-                setState(() {
+                setState(() async {
                   if (value != null) {
                     _chosenValue = value;
-                    _userPreferences.setUserCountry(_chosenValue.countryCode);
+                    await _setUserCountry(_chosenValue.countryCode);
                   }
                 });
               },
@@ -133,7 +139,7 @@ class _CountrySelectorState extends State<CountrySelector> {
     countries
         .sort((final Country a, final Country b) => a.name.compareTo(b.name));
     final String? mostLikelyUserCountryCode =
-        WidgetsBinding.instance?.window.locale.countryCode;
+        WidgetsBinding.instance?.window.locale.countryCode?.toLowerCase();
     if (mostLikelyUserCountryCode == null) {
       return countries;
     }

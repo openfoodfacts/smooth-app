@@ -46,7 +46,6 @@ class _ProductPageState extends State<ProductPage> {
     // All watchers defined here:
     _productPreferences = context.watch<ProductPreferences>();
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
-
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
@@ -198,9 +197,9 @@ class _ProductPageState extends State<ProductPage> {
   FutureBuilder<KnowledgePanels> _buildKnowledgePanelCards() {
     // Note that this will make a new request on every rebuild.
     // TODO(jasmeet): Avoid additional requests on rebuilds.
-    final Future<KnowledgePanels> knowledgePanels =
-        KnowledgePanelsQuery(barcode: _product.barcode!)
-            .getKnowledgePanels(context);
+    final Future<KnowledgePanels> knowledgePanels = KnowledgePanelsQuery(
+      barcode: _product.barcode!,
+    ).getKnowledgePanels();
     return FutureBuilder<KnowledgePanels>(
         future: knowledgePanels,
         builder:

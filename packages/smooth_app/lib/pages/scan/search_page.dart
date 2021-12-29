@@ -5,7 +5,6 @@ import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/keywords_product_query.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/new_product_page.dart';
@@ -69,12 +68,7 @@ Future<void> _onSubmittedText(
       heroTag: 'search_bar',
       name: value,
       localDatabase: localDatabase,
-      productQuery: KeywordsProductQuery(
-        keywords: value,
-        language: ProductQuery.getCurrentLanguage(context),
-        country: ProductQuery.getCurrentCountry(),
-        size: 500,
-      ),
+      productQuery: KeywordsProductQuery(keywords: value, size: 500),
       context: context,
     );
 

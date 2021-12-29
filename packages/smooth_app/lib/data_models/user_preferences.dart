@@ -64,7 +64,7 @@ class UserPreferences extends ChangeNotifier {
   Future<void> setUserCountry(final String countryCode) async =>
       _sharedPreferences.setString(_TAG_USER_COUNTRY_CODE, countryCode);
 
-  String? get userCountry =>
+  String? get userCountryCode =>
       _sharedPreferences.getString(_TAG_USER_COUNTRY_CODE);
 
   Future<void> setLastVisitedOnboardingPage(final OnboardingPage page) async =>
