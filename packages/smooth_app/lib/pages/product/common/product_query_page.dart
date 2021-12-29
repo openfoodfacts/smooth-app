@@ -68,10 +68,11 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
       value: _model,
       builder: (BuildContext context, Widget? wtf) {
         context.watch<ProductQueryModel>();
+        final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
         final Size screenSize = MediaQuery.of(context).size;
         final ThemeData themeData = Theme.of(context);
         if (_model.loadingStatus == LoadingStatus.LOADED) {
-          _model.process();
+          _model.process(appLocalizations.category_all);
         }
         switch (_model.loadingStatus) {
           case LoadingStatus.POST_LOAD_STARTED:
@@ -96,7 +97,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
               _getEmptyText(
                 themeData,
                 widget.mainColor,
-                AppLocalizations.of(context)!.no_product_found,
+                appLocalizations.no_product_found,
               ),
             );
           case LoadingStatus.ERROR:
@@ -106,7 +107,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
               _getEmptyText(
                 themeData,
                 widget.mainColor,
-                '${AppLocalizations.of(context)!.error_occurred}: ${_model.loadingError}',
+                '${appLocalizations.error_occurred}: ${_model.loadingError}',
               ),
             );
         }
@@ -232,7 +233,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                             builder: (BuildContext context) =>
                                 GroupQueryFilterView(
                               categories: _model.categories,
-                              categoriesList: _model.sortedCategories!,
+                              categoriesList: _model.sortedCategories,
                               callback: (String category) {
                                 _model.selectCategory(category);
                                 setState(() {});

@@ -174,8 +174,14 @@
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "category": "Category",
-    "@category": {},
+    "category": "Filter by category",
+    "@category": {
+        "description": "From a product list, there's a category filter: this is its title"
+    },
+    "category_all": "All",
+    "@category_al": {
+        "description": "Top meta-entry on a category filter"
+    },
     "category_search": "(category search)",
     "filter": "Filter",
     "@filter": {

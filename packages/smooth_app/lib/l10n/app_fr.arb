@@ -170,8 +170,14 @@
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "category": "Catégorie",
-    "@category": {},
+    "category": "Filtre par catégorie",
+    "@category": {
+        "description": "À partir d'une liste de produit, un filtre par catégorie est disponible : c'est le titre"
+    },
+    "category_all": "Tout",
+    "@category_al": {
+        "description": "Meta-catégorie tout en haut d'un filtre par catégorie"
+    },
     "category_search": "(recherche par catégorie)",
     "filter": "Filtre",
     "@filter": {
