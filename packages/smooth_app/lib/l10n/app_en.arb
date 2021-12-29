@@ -311,6 +311,11 @@
             "pct": {}
         }
     },
+    "product_compatibility_unknown": "Product Compatibility Unknown",
+    "product_compatibility_incompatible": "Very poor Match",
+    "product_compatibility_bad": "Poor Match",
+    "product_compatibility_neutral": "Neutral Match",
+    "product_compatibility_good": "Great Match",
     "plural_ago_days": "{count,plural, =1{one day ago} other{{count} days ago}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",

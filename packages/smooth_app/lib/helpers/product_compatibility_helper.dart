@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:openfoodfacts/model/Product.dart';
@@ -50,20 +51,20 @@ Color getProductCompatibilityHeaderBackgroundColor(
 }
 
 String getProductCompatibilityHeaderTextWidget(
-  ProductCompatibility compatibility,
+  final ProductCompatibility compatibility,
+  final AppLocalizations appLocalizations,
 ) {
-  // TODO(jasmeetsingh): This text should be internationalized.
   switch (compatibility) {
     case ProductCompatibility.UNKNOWN:
-      return 'Product Compatibility Unknown';
+      return appLocalizations.product_compatibility_unknown;
     case ProductCompatibility.INCOMPATIBLE:
-      return 'Very poor Match';
+      return appLocalizations.product_compatibility_incompatible;
     case ProductCompatibility.BAD_COMPATIBILITY:
-      return 'Poor Match';
+      return appLocalizations.product_compatibility_bad;
     case ProductCompatibility.NEUTRAL_COMPATIBILITY:
-      return 'Neutral Match';
+      return appLocalizations.product_compatibility_neutral;
     case ProductCompatibility.GOOD_COMPATIBILITY:
-      return 'Great Match';
+      return appLocalizations.product_compatibility_good;
   }
 }
 
@@ -109,4 +110,18 @@ ProductCompatibilityResult getProductCompatibility(
   }
   return ProductCompatibilityResult(
       averageAttributeMatch, ProductCompatibility.GOOD_COMPATIBILITY);
+}
+
+String getSubtitle(
+  final ProductCompatibilityResult compatibility,
+  final AppLocalizations appLocalizations,
+) {
+  if (compatibility.productCompatibility == ProductCompatibility.UNKNOWN) {
+    return appLocalizations.product_compatibility_unknown;
+  }
+  if (compatibility.productCompatibility == ProductCompatibility.INCOMPATIBLE) {
+    return appLocalizations.product_compatibility_incompatible;
+  }
+  return appLocalizations
+      .pct_match(compatibility.averageAttributeMatch.toStringAsFixed(0));
 }
