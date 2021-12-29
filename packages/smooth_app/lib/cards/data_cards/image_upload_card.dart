@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/pages/product/product_image_page.dart';
 
 class ImageUploadCard extends StatefulWidget {
@@ -54,8 +55,7 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
         });
 
         final SendImage image = SendImage(
-          lang: LanguageHelper.fromJson(
-              Localizations.localeOf(context).languageCode),
+          lang: ProductQuery.getLanguage(),
           barcode: widget.product
               .barcode!, //Probably throws an error, but this is not a big problem when we got a product without a barcode
           imageField: widget.imageField,

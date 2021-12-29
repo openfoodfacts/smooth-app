@@ -11,6 +11,7 @@ import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -81,6 +82,7 @@ class _SmoothAppState extends State<SmoothApp> {
     await _productPreferences
         .loadReferenceFromAssets(DefaultAssetBundle.of(context));
     await _userPreferences.init(_productPreferences);
+    ProductQuery.setCountry(_userPreferences.userCountryCode);
     _localDatabase = await LocalDatabase.getLocalDatabase();
     _themeProvider = ThemeProvider(_userPreferences);
   }
@@ -173,6 +175,7 @@ class SmoothAppGetLanguage extends StatelessWidget {
         context.watch<ProductPreferences>();
     final Locale myLocale = Localizations.localeOf(context);
     final String languageCode = myLocale.languageCode;
+    ProductQuery.setLanguage(languageCode);
     _refresh(
       productPreferences,
       DefaultAssetBundle.of(context),
