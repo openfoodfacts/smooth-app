@@ -162,12 +162,13 @@ Widget build(BuildContext context) {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: &lt;Widget&gt;[
                       Text(
-                        product.productName ?? &#39;???&#39;,
+                        product.productName ??
+                            appLocalizations.unknownProductName,
                         overflow: TextOverflow.ellipsis,
                         style: Theme.of(context).textTheme.headline4,
                       ),
                       Text(
-                        product.brands ?? &#39;???&#39;,
+                        product.brands ?? appLocalizations.unknownBrand,
                         overflow: TextOverflow.ellipsis,
                         style: Theme.of(context).textTheme.subtitle1,
                       ),
