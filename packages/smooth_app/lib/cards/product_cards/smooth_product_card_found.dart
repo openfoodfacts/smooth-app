@@ -87,12 +87,13 @@ class SmoothProductCardFound extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          product.productName ?? '???',
+                          product.productName ??
+                              appLocalizations.unknownProductName,
                           overflow: TextOverflow.ellipsis,
                           style: Theme.of(context).textTheme.headline4,
                         ),
                         Text(
-                          product.brands ?? '???',
+                          product.brands ?? appLocalizations.unknownBrand,
                           overflow: TextOverflow.ellipsis,
                           style: Theme.of(context).textTheme.subtitle1,
                         ),
