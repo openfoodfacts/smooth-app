@@ -106,17 +106,28 @@ and</li>
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
-Widget build(BuildContext context) {
-  return Scaffold(
+Widget build(BuildContext context) =&gt; Scaffold(
       appBar: AppBar(
         title: Text(title),
       ),
       body: PhotoView(
+        loadingBuilder:
+            (final BuildContext context, final ImageChunkEvent? event) =&gt;
+                Center(
+          child: SmoothGauge(
+            color: Theme.of(context).colorScheme.onBackground,
+            value: event == null ||
+                    event.expectedTotalBytes == null ||
+                    event.expectedTotalBytes == 0
+                ? 0
+                : event.cumulativeBytesLoaded &#47; event.expectedTotalBytes!,
+          ),
+        ),
         imageProvider: imageProvider,
         minScale: PhotoViewComputedScale
             .contained, &#47;&#47; Makes it easy to dezoom until the photo is contained in the screen
-      ));
-}</code></pre>
+      ),
+    );</code></pre>
 </section>
 
 
