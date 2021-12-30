@@ -122,8 +122,8 @@ Widget build(BuildContext context) {
             value: themeProvider.darkTheme,
             width: 85.0,
             height: 38.0,
-            textRight: &#39;Light&#39;,
-            textLeft: &#39;Dark&#39;,
+            textRight: appLocalizations.darkmode_light,
+            textLeft: appLocalizations.darkmode_dark,
             colorRight: Colors.blue,
             colorLeft: Colors.blueGrey.shade700,
             iconRight: const Icon(Icons.wb_sunny_rounded),
@@ -253,8 +253,7 @@ Widget build(BuildContext context) {
                     ),
                     SmoothSimpleButton(
                       onPressed: () {
-                        Navigator.of(context, rootNavigator: true)
-                            .pop(&#39;dialog&#39;);
+                        Navigator.of(context, rootNavigator: true).pop();
                       },
                       text: appLocalizations.okay,
                       minWidth: 100,

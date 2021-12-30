@@ -107,6 +107,7 @@ and</li>
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
+  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
   return Material(
     elevation: elevation,
     borderRadius: const BorderRadius.all(Radius.circular(15.0)),
@@ -124,7 +125,7 @@ Widget build(BuildContext context) {
             height: 12.0,
           ),
           Text(
-            product.barcode ?? &#39;Unknown&#39;,
+            product.barcode ?? appLocalizations.unknown,
             style: Theme.of(context).textTheme.subtitle1,
           ),
           const SizedBox(
