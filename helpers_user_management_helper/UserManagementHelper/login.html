@@ -77,8 +77,7 @@
   }
 
   if (rightCredentials) {
-    OpenFoodAPIConfiguration.globalUser = user;
-    _putUser(user);
+    await put(user);
   }
 
   return rightCredentials &amp;&amp; await _checkCredentialsInStorage();
@@ -125,8 +124,12 @@
 
     <li class="section-title"><a href="../../helpers_user_management_helper/UserManagementHelper-class.html#static-methods">Static methods</a></li>
     <li><a href="../../helpers_user_management_helper/UserManagementHelper/checkAndReMountCredentials.html">checkAndReMountCredentials</a></li>
+    <li><a href="../../helpers_user_management_helper/UserManagementHelper/isEmailValid.html">isEmailValid</a></li>
+    <li><a href="../../helpers_user_management_helper/UserManagementHelper/isPasswordValid.html">isPasswordValid</a></li>
+    <li><a href="../../helpers_user_management_helper/UserManagementHelper/isUsernameValid.html">isUsernameValid</a></li>
     <li><a href="../../helpers_user_management_helper/UserManagementHelper/login.html">login</a></li>
     <li><a href="../../helpers_user_management_helper/UserManagementHelper/logout.html">logout</a></li>
+    <li><a href="../../helpers_user_management_helper/UserManagementHelper/put.html">put</a></li>
 
 </ol>
 
