@@ -19,6 +19,7 @@ class SmoothTextFormField extends StatefulWidget {
     required this.hintText,
     this.hintTextFontSize,
     this.prefixIcon,
+    this.textInputType,
   }) : super(key: key);
 
   final TextFieldTypes type;
@@ -32,21 +33,28 @@ class SmoothTextFormField extends StatefulWidget {
   final Color? textColor;
   final double? hintTextFontSize;
   final Color? backgroundColor;
+  final TextInputType? textInputType;
 
   @override
   State<SmoothTextFormField> createState() => _SmoothTextFormFieldState();
 }
 
 class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
-  bool isEmpty = true;
+  late bool _obscureText;
+
+  @override
+  void initState() {
+    _obscureText = widget.type == TextFieldTypes.PASSWORD;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    bool _obscureText = widget.type == TextFieldTypes.PASSWORD;
     final bool _enableSuggestions = widget.type == TextFieldTypes.PLAIN_TEXT;
     final bool _autocorrect = widget.type == TextFieldTypes.PLAIN_TEXT;
 
     return TextFormField(
+      keyboardType: widget.textInputType,
       controller: widget.controller,
       enabled: widget.enabled,
       textInputAction: widget.textInputAction,

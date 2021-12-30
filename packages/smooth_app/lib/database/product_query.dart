@@ -1,22 +1,35 @@
-import 'dart:ui';
-
-import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
+import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 
 abstract class ProductQuery {
-  static String _getCurrentLanguageCode(final BuildContext context) =>
-      Localizations.localeOf(context).languageCode;
+  /// Returns the global language for API queries.
+  static OpenFoodFactsLanguage? getLanguage() {
+    final List<OpenFoodFactsLanguage> languages =
+        OpenFoodAPIConfiguration.globalLanguages ?? <OpenFoodFactsLanguage>[];
+    if (languages.isEmpty) {
+      return null;
+    }
+    return languages[0];
+  }
 
-  static OpenFoodFactsLanguage? getCurrentLanguage(
-          final BuildContext context) =>
-      LanguageHelper.fromJson(_getCurrentLanguageCode(context));
+  /// Sets the global language for API queries.
+  static void setLanguage(final String languageCode) {
+    final OpenFoodFactsLanguage language =
+        LanguageHelper.fromJson(languageCode);
+    OpenFoodAPIConfiguration.globalLanguages = <OpenFoodFactsLanguage>[
+      language,
+    ];
+  }
 
-  static String _getCurrentCountryCode() => window.locale.countryCode ?? '';
+  /// Returns the global country for API queries?
+  static OpenFoodFactsCountry? getCountry() =>
+      OpenFoodAPIConfiguration.globalCountry;
 
-  static OpenFoodFactsCountry? getCurrentCountry() =>
-      CountryHelper.fromJson(_getCurrentCountryCode());
+  /// Sets the global country for API queries.
+  static void setCountry(final String? isoCode) =>
+      OpenFoodAPIConfiguration.globalCountry = CountryHelper.fromJson(isoCode);
 
   static const User SMOOTH_USER = User(
     userId: 'project-smoothie',
@@ -47,11 +60,14 @@ abstract class ProductQuery {
         ProductField.LABELS_TAGS,
         ProductField.LABELS_TAGS_IN_LANGUAGES,
         ProductField.ENVIRONMENT_IMPACT_LEVELS,
-        ProductField.CATEGORIES_TAGS,
         ProductField.CATEGORIES_TAGS_IN_LANGUAGES,
         ProductField.LANGUAGE,
         ProductField.ATTRIBUTE_GROUPS,
         ProductField.STATES_TAGS,
+        ProductField.ECOSCORE_DATA,
+        ProductField.ECOSCORE_GRADE,
+        ProductField.ECOSCORE_SCORE,
+        ProductField.ENVIRONMENT_IMPACT_LEVELS,
       ];
 
   Future<SearchResult> getSearchResult();

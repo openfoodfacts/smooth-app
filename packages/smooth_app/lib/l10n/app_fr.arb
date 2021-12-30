@@ -33,6 +33,13 @@
     "learnMore": "En savoir plus",
     "@learnMore": {},
     "incompatible": "Incompatible",
+    "@incompatible": {
+        "description": "Label court pour des listes de produits: ce produit est incompatible avec vos préférences"
+    },
+    "unknown": "Incalculable",
+    "@unknown": {
+        "description": "Label court pour des listes de produits: la compatibilité de ce produit avec vos préférences est incalculable"
+    },
     "licenses": "Licences",
     "@licenses": {},
     "looking_for": "À la recherche de",
@@ -42,7 +49,7 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Bienvenue sur Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "whatIsOff": "Open Food Facts est une organisation mondiale à but non lucratif alimentée par les communautés locales.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
@@ -66,13 +73,13 @@
     "@reset_password": {
         "description": "Forgot password page title"
     },
-    "reset_password_explanation_text": "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password. Please also check your spam folder.",
-    "username_or_email": "Username or e-mail address",
+    "reset_password_explanation_text": "Si vous avez oublié votre mot de passe, indiquez votre nom d'utilisateur ou votre adresse e-mail pour recevoir les instructions de réinitialisation de votre mot de passe. Veuillez également vérifier votre dossier courrier indésirable.",
+    "username_or_email": "Nom d'utilisateur ou adresse e-mail",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
     "reset_password_done": "An email with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
-    "send_reset_password_mail": "Change password",
+    "send_reset_password_mail": "Changer le mot de passe",
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset email request"
     },
@@ -80,6 +87,40 @@
     "@enter_some_text": {
         "description": "Error when text field is empty"
     },
+    "sign_up_page_title": "Créer un compte",
+    "@sign_up_page_title": {
+        "description": "Titre en haut de la page 'Créer un compte'"
+    },
+    "sign_up_page_action_button": "Créer le compte",
+    "@sign_up_page_action_button": {
+        "description": "Bouton pour créer le compte, en bas de l'écran"
+    },
+    "sign_up_page_action_doing_it": "Création en cours...",
+    "@sign_up_page_action_doing_it": {
+        "description": "Fenêtre modale pendant la création du compte"
+    },
+    "sign_up_page_action_ok": "Félicitations ! Votre compte vient d'être créé.",
+    "sign_up_page_display_name_hint": "Nom affiché",
+    "sign_up_page_display_name_error_empty": "Merci d'indiquer le nom que vous souhaitez utiliser",
+    "sign_up_page_email_hint": "E-mail",
+    "sign_up_page_email_error_empty": "Merci de renseigner votre e-mail",
+    "sign_up_page_email_error_invalid": "Cet e-mail n'est pas valide",
+    "sign_up_page_username_hint": "Nom d'utilisateur",
+    "sign_up_page_username_error_empty": "Merci de renseigner votre nom d'utilisateur",
+    "sign_up_page_username_error_invalid": "Ce nom d'utilisateur n'est pas valide",
+    "sign_up_page_username_description": "Un nom d'utilisateur ne peut contenir que des minuscules et des chiffres",
+    "sign_up_page_password_hint": "Mot de passe",
+    "sign_up_page_password_error_empty": "Merci de renseigner un mot de passe",
+    "sign_up_page_password_error_invalid": "Ce mot de passe n'est pas valide (au moins 6 caractères demandés)",
+    "sign_up_page_confirm_password_hint": "Confirmation du mot de passe",
+    "sign_up_page_confirm_password_error_empty": "Merci de confirmer le mot de passe",
+    "sign_up_page_confirm_password_error_invalid": "Les deux mots de passe doivent être identiques",
+    "sign_up_page_agree_url": "https://fr.openfoodfacts.org/mentions-legales",
+    "sign_up_page_agree_error_invalid": "Vous devez accepter si vous voulez créer un compte. Notez que vous pouvez toujours utiliser l'appli et contribuer anonymement.",
+    "sign_up_page_producer_checkbox": "Je suis un producteur",
+    "sign_up_page_producer_hint": "Producteur/marque",
+    "sign_up_page_producer_error_empty": "Merci de renseigner un nom de producteur ou de marque",
+    "sign_up_page_subscribe_checkbox": "Je veux m'abonner à la newsletter d'Open Food Facts (Note: Vous pouvez vous désabonner à tout moment)",
     "@Settings": {},
     "settingsTitle": "Paramètres",
     "@settingsTitle": {
@@ -170,8 +211,14 @@
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "category": "Catégorie",
-    "@category": {},
+    "category": "Filtre par catégorie",
+    "@category": {
+        "description": "À partir d'une liste de produit, un filtre par catégorie est disponible : c'est le titre"
+    },
+    "category_all": "Tout",
+    "@category_al": {
+        "description": "Meta-catégorie tout en haut d'un filtre par catégorie"
+    },
     "category_search": "(recherche par catégorie)",
     "filter": "Filtre",
     "@filter": {
@@ -193,7 +240,7 @@
     "@unknownBrand": {},
     "unknownProductName": "Produit inconnu",
     "@unknownProductName": {},
-    "label_refresh": "Refresh",
+    "label_refresh": "Actualiser",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
@@ -276,7 +323,7 @@
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
-    "country_chooser_label": "Please choose a country",
+    "country_chooser_label": "Veuillez choisir un pays",
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },
@@ -300,6 +347,26 @@
         "placeholders": {
             "pct": {}
         }
+    },
+    "product_compatibility_unknown": "Correspondance inconnue",
+    "@product_compatibility_unknown": {
+        "description": "Titre du sommaire de la compatibilité d'un produit"
+    },
+    "product_compatibility_incompatible": "Très mauvaise correspondance",
+    "@product_compatibility_incompatible": {
+        "description": "Titre du sommaire de la compatibilité d'un produit"
+    },
+    "product_compatibility_bad": "Mauvaise correspondance",
+    "@product_compatibility_bad": {
+        "description": "Titre du sommaire de la compatibilité d'un produit"
+    },
+    "product_compatibility_neutral": "Correspondance neutre",
+    "@product_compatibility_neutral": {
+        "description": "Titre du sommaire de la compatibilité d'un produit"
+    },
+    "product_compatibility_good": "Excellente correspondance",
+    "@product_compatibility_good": {
+        "description": "Titre du sommaire de la compatibilité d'un produit"
     },
     "plural_ago_days": "{count,plural, =1{il y a un jour} other{il y a {count} jours}}",
     "@plural_ago_days": {

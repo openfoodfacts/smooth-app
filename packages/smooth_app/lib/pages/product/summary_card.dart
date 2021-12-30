@@ -211,7 +211,10 @@ class _SummaryCardState extends State<SummaryCard> {
       padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
       child: Center(
         child: Text(
-          getProductCompatibilityHeaderTextWidget(compatibility),
+          getProductCompatibilityHeaderTextWidget(
+            compatibility,
+            AppLocalizations.of(context)!,
+          ),
           style:
               Theme.of(context).textTheme.subtitle1!.apply(color: Colors.white),
         ),

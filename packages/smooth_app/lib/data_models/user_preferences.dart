@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 
 class UserPreferences extends ChangeNotifier {
   UserPreferences._shared(final SharedPreferences sharedPreferences)
@@ -19,13 +20,11 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_THEME_DARK = 'themeDark';
   static const String _TAG_THEME_COLOR_TAG = 'themeColorTag';
   static const String _TAG_USER_COUNTRY_CODE = 'userCountry';
-
-  bool isFirstTimeUser() {
-    return _sharedPreferences.getBool(_TAG_INIT) == null;
-  }
+  static const String _TAG_LAST_VISITED_ONBOARDING_PAGE =
+      'lastVisitedOnboardingPage';
 
   Future<void> init(final ProductPreferences productPreferences) async {
-    if (!isFirstTimeUser()) {
+    if (_sharedPreferences.getBool(_TAG_INIT) != null) {
       return;
     }
     await productPreferences.resetImportances();
@@ -65,6 +64,17 @@ class UserPreferences extends ChangeNotifier {
   Future<void> setUserCountry(final String countryCode) async =>
       _sharedPreferences.setString(_TAG_USER_COUNTRY_CODE, countryCode);
 
-  String? get userCountry =>
+  String? get userCountryCode =>
       _sharedPreferences.getString(_TAG_USER_COUNTRY_CODE);
+
+  Future<void> setLastVisitedOnboardingPage(final OnboardingPage page) async =>
+      _sharedPreferences.setInt(_TAG_LAST_VISITED_ONBOARDING_PAGE, page.index);
+
+  OnboardingPage get lastVisitedOnboardingPage {
+    final int? pageIndex =
+        _sharedPreferences.getInt(_TAG_LAST_VISITED_ONBOARDING_PAGE);
+    return pageIndex == null
+        ? OnboardingPage.NOT_STARTED
+        : OnboardingPage.values[pageIndex];
+  }
 }

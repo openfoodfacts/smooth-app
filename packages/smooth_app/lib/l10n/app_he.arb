@@ -42,7 +42,7 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "ברוך בואך ל־Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "whatIsOff": "Open Food Facts הוא ארגון כלל עולמי ללא מטרות רווח שמופעל על ידי קהילות מקומיות.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
@@ -66,13 +66,13 @@
     "@reset_password": {
         "description": "Forgot password page title"
     },
-    "reset_password_explanation_text": "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password. Please also check your spam folder.",
-    "username_or_email": "Username or e-mail address",
+    "reset_password_explanation_text": "אם שכחת את הססמה שלך, יש למלא את שם המשתמש או את כתובת הדוא״ל שלך לקבלת הנחיות לאיפוס הססמה שלך. נא לבדוק גם את תיקיית הספאם שלך.",
+    "username_or_email": "שם משתמש או כתובת דוא״ל",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
-    "reset_password_done": "An email with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
-    "send_reset_password_mail": "Change password",
+    "reset_password_done": "הודעה עם קישור לאיפוס הססמה שלך נשלחה לכתובת הדוא״ל שמשויכת לחשבון שלך. כמו כן, מומלץ לבדוק את תיקיית הספאם",
+    "send_reset_password_mail": "החלפת ססמה",
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset email request"
     },
@@ -193,7 +193,7 @@
     "@unknownBrand": {},
     "unknownProductName": "שם המוצר אינו ידוע",
     "@unknownProductName": {},
-    "label_refresh": "Refresh",
+    "label_refresh": "רענון",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
@@ -276,11 +276,11 @@
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
-    "country_chooser_label": "Please choose a country",
+    "country_chooser_label": "נא לבחור מדינה",
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },
-    "country_selection_explanation": "Some environment features depend on your location",
+    "country_selection_explanation": "חלק מהמאפיינים הסביבתיים תלויים במיקום שלך",
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
