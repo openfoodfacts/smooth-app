@@ -96,12 +96,12 @@ class UserPreferencesPage extends StatelessWidget {
         children: List<Widget>.generate(
           groups.length,
           (int index) => _generateGroup(
-            context,
-            groups[index],
-            userPreferences,
-            productPreferences,
-            _reorderAttributes(groups[index], orderedImportantAttributeIds),
-          ),
+              context,
+              groups[index],
+              userPreferences,
+              productPreferences,
+              _reorderAttributes(groups[index], orderedImportantAttributeIds),
+              appLocalizations),
         ),
       ),
     );
@@ -113,6 +113,7 @@ class UserPreferencesPage extends StatelessWidget {
     final UserPreferences userPreferences,
     final ProductPreferences productPreferences,
     final List<Attribute> orderedImportantAttributes,
+    final AppLocalizations appLocalizations,
   ) =>
       Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -122,7 +123,7 @@ class UserPreferencesPage extends StatelessWidget {
             padding: const EdgeInsets.all(_TYPICAL_PADDING_OR_MARGIN),
             child: ListTile(
               title: Text(
-                group.name ?? 'Unknown',
+                group.name ?? appLocalizations.unknown,
                 style: Theme.of(context).textTheme.headline3,
               ),
             ),
@@ -138,7 +139,7 @@ class UserPreferencesPage extends StatelessWidget {
               padding: const EdgeInsets.all(_TYPICAL_PADDING_OR_MARGIN),
               margin: const EdgeInsets.all(_TYPICAL_PADDING_OR_MARGIN),
               child: Text(
-                group.warning ?? 'Unknown',
+                group.warning ?? appLocalizations.unknown,
                 style: TextStyle(
                   color: SmoothTheme.getColor(
                     Theme.of(context).colorScheme,

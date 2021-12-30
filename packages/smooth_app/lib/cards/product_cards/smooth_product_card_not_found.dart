@@ -17,6 +17,7 @@ class SmoothProductCardNotFound extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     return Material(
       elevation: elevation,
       borderRadius: const BorderRadius.all(Radius.circular(15.0)),
@@ -34,7 +35,7 @@ class SmoothProductCardNotFound extends StatelessWidget {
               height: 12.0,
             ),
             Text(
-              product.barcode ?? 'Unknown',
+              product.barcode ?? appLocalizations.unknown,
               style: Theme.of(context).textTheme.subtitle1,
             ),
             const SizedBox(
