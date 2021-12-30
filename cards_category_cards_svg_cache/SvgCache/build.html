@@ -123,7 +123,12 @@ Widget build(BuildContext context) {
     height: height,
     fit: BoxFit.contain,
     placeholderBuilder: (BuildContext context) =&gt; displayAssetWhileWaiting
-        ? SvgAsyncAsset(fullFilename, width: width, height: height)
+        ? SvgAsyncAsset(
+            fullFilename,
+            width: width,
+            height: height,
+            color: color,
+          )
         : SizedBox(
             width: width ?? height,
             height: height ?? width,
