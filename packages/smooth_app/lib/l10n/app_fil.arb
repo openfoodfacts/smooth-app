@@ -33,6 +33,13 @@
     "learnMore": "Learn more",
     "@learnMore": {},
     "incompatible": "Incompatible",
+    "@incompatible": {
+        "description": "Short label for product list view: the product is incompatible with your preferences"
+    },
+    "unknown": "Hindi alam",
+    "@unknown": {
+        "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
+    },
     "licenses": "Licences",
     "@licenses": {},
     "looking_for": "Looking for",
@@ -45,6 +52,10 @@
     "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
+    },
+    "offUtility": "Choose foods that are good for you and the planet.",
+    "@offUtility": {
+        "description": "Description of what a user can use Open Food Facts for."
     },
     "@user_management": {},
     "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
@@ -80,6 +91,40 @@
     "@enter_some_text": {
         "description": "Error when text field is empty"
     },
+    "sign_up_page_title": "Sign Up",
+    "@sign_up_page_title": {
+        "description": "On top of the Sign Up page"
+    },
+    "sign_up_page_action_button": "Sign Up",
+    "@sign_up_page_action_button": {
+        "description": "Bottom action button"
+    },
+    "sign_up_page_action_doing_it": "Signing up...",
+    "@sign_up_page_action_doing_it": {
+        "description": "Dialog during the actual signing up process"
+    },
+    "sign_up_page_action_ok": "Congratulations! Your account has just been created.",
+    "sign_up_page_display_name_hint": "Display Name",
+    "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
+    "sign_up_page_email_hint": "E-mail",
+    "sign_up_page_email_error_empty": "Please enter the e-mail",
+    "sign_up_page_email_error_invalid": "Please enter a valid email",
+    "sign_up_page_username_hint": "Username",
+    "sign_up_page_username_error_empty": "Please enter a username",
+    "sign_up_page_username_error_invalid": "Please enter a valid username",
+    "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters",
+    "sign_up_page_password_hint": "Password",
+    "sign_up_page_password_error_empty": "Please enter a password",
+    "sign_up_page_password_error_invalid": "Please enter a valid password (at least 6 characters)",
+    "sign_up_page_confirm_password_hint": "Confirm Password",
+    "sign_up_page_confirm_password_error_empty": "Please confirm the password",
+    "sign_up_page_confirm_password_error_invalid": "The passwords should be identical",
+    "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
+    "sign_up_page_agree_error_invalid": "You have to agree if you'd like to get an account. Note that you can still use the app and contribute anonymously.",
+    "sign_up_page_producer_checkbox": "I am a food producer",
+    "sign_up_page_producer_hint": "Producer/brand",
+    "sign_up_page_producer_error_empty": "Please enter a producer or a brand name",
+    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (Note: You can unsubscribe from it at all time)",
     "@Settings": {},
     "settingsTitle": "Mga setting",
     "@settingsTitle": {
@@ -170,8 +215,14 @@
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "category": "Kategorya",
-    "@category": {},
+    "category": "Filter by category",
+    "@category": {
+        "description": "From a product list, there's a category filter: this is its title"
+    },
+    "category_all": "All",
+    "@category_al": {
+        "description": "Top meta-entry on a category filter"
+    },
     "category_search": "(category search)",
     "filter": "Filter",
     "@filter": {
@@ -300,6 +351,26 @@
         "placeholders": {
             "pct": {}
         }
+    },
+    "product_compatibility_unknown": "Product Compatibility Unknown",
+    "@product_compatibility_unknown": {
+        "description": "Product compatibility summary title"
+    },
+    "product_compatibility_incompatible": "Very poor Match",
+    "@product_compatibility_incompatible": {
+        "description": "Product compatibility summary title"
+    },
+    "product_compatibility_bad": "Poor Match",
+    "@product_compatibility_bad": {
+        "description": "Product compatibility summary title"
+    },
+    "product_compatibility_neutral": "Neutral Match",
+    "@product_compatibility_neutral": {
+        "description": "Product compatibility summary title"
+    },
+    "product_compatibility_good": "Great Match",
+    "@product_compatibility_good": {
+        "description": "Product compatibility summary title"
     },
     "plural_ago_days": "{count,plural, =1{one day ago} other{{count} days ago}}",
     "@plural_ago_days": {
