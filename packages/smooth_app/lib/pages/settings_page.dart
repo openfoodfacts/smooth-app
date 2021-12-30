@@ -38,8 +38,8 @@ class ProfilePage extends StatelessWidget {
               value: themeProvider.darkTheme,
               width: 85.0,
               height: 38.0,
-              textRight: 'Light',
-              textLeft: 'Dark',
+              textRight: appLocalizations.darkmode_light,
+              textLeft: appLocalizations.darkmode_dark,
               colorRight: Colors.blue,
               colorLeft: Colors.blueGrey.shade700,
               iconRight: const Icon(Icons.wb_sunny_rounded),
@@ -169,8 +169,7 @@ class ProfilePage extends StatelessWidget {
                       ),
                       SmoothSimpleButton(
                         onPressed: () {
-                          Navigator.of(context, rootNavigator: true)
-                              .pop('dialog');
+                          Navigator.of(context, rootNavigator: true).pop();
                         },
                         text: appLocalizations.okay,
                         minWidth: 100,

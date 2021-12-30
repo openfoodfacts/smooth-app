@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
-import 'package:smooth_app/cards/category_cards/svg_cache.dart';
+import 'package:smooth_app/cards/category_cards/abstract_cache.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 class KnowledgePanelTitleCard extends StatelessWidget {
@@ -31,11 +31,11 @@ class KnowledgePanelTitleCard extends StatelessWidget {
           Expanded(
             flex: IconWidgetSizer.getIconFlex(),
             child: Center(
-              child: SvgCache(
-                knowledgePanelTitleElement.iconUrl,
-                color: colorFromEvaluation,
+              child: AbstractCache.best(
+                iconUrl: knowledgePanelTitleElement.iconUrl,
                 width: 36,
                 height: 36,
+                color: colorFromEvaluation,
               ),
             ),
           ),
