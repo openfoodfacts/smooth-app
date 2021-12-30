@@ -8,7 +8,7 @@ import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_ui_library/widgets/smooth_text_form_field.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-/// Sign Up Page
+/// Sign Up Page. Pop's true if the sign up was successful.
 class SignUpPage extends StatefulWidget {
   const SignUpPage();
 
@@ -272,7 +272,11 @@ class _SignUpPageState extends State<SignUpPage> {
       return;
     }
     _popEd = false;
-    final Status? status = await _openSigningUpDialog();
+    final User user = User(
+      userId: _userController.text,
+      password: _password1Controller.text,
+    );
+    final Status? status = await _openSigningUpDialog(user);
     if (status == null) {
       // probably the end user stopped the dialog
       return;
@@ -295,6 +299,7 @@ class _SignUpPageState extends State<SignUpPage> {
       );
       return;
     }
+    await UserManagementHelper.put(user);
     await showDialog<void>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
@@ -306,22 +311,15 @@ class _SignUpPageState extends State<SignUpPage> {
         ],
       ),
     );
-    Navigator.of(context).pop<User>(
-      User(
-        userId: _userController.text,
-        password: _password1Controller.text,
-      ),
-    );
+    Navigator.of(context).pop<bool>(true);
   }
 
-  Future<Status?> _openSigningUpDialog() async => showDialog<Status>(
+  Future<Status?> _openSigningUpDialog(final User user) async =>
+      showDialog<Status>(
         context: context,
         builder: (BuildContext context) {
           OpenFoodAPIClient.register(
-            user: User(
-              userId: _userController.text,
-              password: _password1Controller.text,
-            ),
+            user: user,
             name: _displayNameController.text,
             email: _emailController.text,
             newsletter: _subscribe,

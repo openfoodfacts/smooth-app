@@ -218,15 +218,14 @@ class _LoginPageState extends State<LoginPage> {
                     height: size.height * 0.06,
                     child: OutlinedButton(
                       onPressed: () async {
-                        final User? user = await Navigator.push<User>(
+                        final bool? registered = await Navigator.push<bool>(
                           context,
-                          MaterialPageRoute<User>(
+                          MaterialPageRoute<bool>(
                             builder: (BuildContext context) =>
                                 const SignUpPage(),
                           ),
                         );
-                        if (user != null) {
-                          await UserManagementHelper.put(user);
+                        if (registered == true) {
                           Navigator.of(context).pop();
                         }
                       },
