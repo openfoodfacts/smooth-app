@@ -5,7 +5,9 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/pages/product/product_image_page.dart';
 
 class ImageUploadCard extends StatefulWidget {
@@ -69,8 +71,10 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
             User(userId: 'smoothie-app', password: 'strawberrybanana');
 
         // query the OpenFoodFacts API
-        final Status result =
-            await OpenFoodAPIClient.addProductImage(myUser, image);
+        final Status result = await OpenFoodAPIClient.addProductImage(
+          OpenFoodAPIConfiguration.globalUser ?? myUser,
+          image,
+        );
 
         if (result.status != 'status ok') {
           throw Exception(
