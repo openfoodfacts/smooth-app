@@ -227,7 +227,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 },
               ),
               title: Text(
-                  'I\'d like to subscribe to the Open Food Facts newsletter (Note: I can unsubscribe from it at all time)'),
+                  'I\'d like to subscribe to the Open Food Facts newsletter (Note: You can unsubscribe from it at all time)'),
             ),
             const SizedBox(height: space),
             ElevatedButton(
