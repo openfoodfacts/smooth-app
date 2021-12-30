@@ -66,10 +66,10 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;Map&lt;String, Product&gt;&gt; getAll(final Iterable&lt;String&gt; barcodes) async {
-  final Box&lt;Product&gt; box = _getBox();
+  final LazyBox&lt;Product&gt; box = _getBox();
   final Map&lt;String, Product&gt; result = &lt;String, Product&gt;{};
   for (final String barcode in barcodes) {
-    final Product? product = box.get(barcode);
+    final Product? product = await box.get(barcode);
     if (product != null) {
       result[barcode] = product;
     }
@@ -113,7 +113,6 @@
     <li class="section-title"><a href="../../database_dao_product/DaoProduct-class.html#instance-methods">Methods</a></li>
     <li><a href="../../database_dao_product/DaoProduct/get.html">get</a></li>
     <li><a href="../../database_dao_product/DaoProduct/getAll.html">getAll</a></li>
-    <li><a href="../../database_dao_product/DaoProduct/getSuggestions.html">getSuggestions</a></li>
     <li><a href="../../database_dao_product/DaoProduct/init.html">init</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li><a href="../../database_dao_product/DaoProduct/put.html">put</a></li>
