@@ -33,6 +33,13 @@
     "learnMore": "En savoir plus",
     "@learnMore": {},
     "incompatible": "Incompatible",
+    "@incompatible": {
+        "description": "Label court pour des listes de produits: ce produit est incompatible avec vos préférences"
+    },
+    "unknown": "Incalculable",
+    "@unknown": {
+        "description": "Label court pour des listes de produits: la compatibilité de ce produit avec vos préférences est incalculable"
+    },
     "licenses": "Licences",
     "@licenses": {},
     "looking_for": "À la recherche de",
@@ -340,6 +347,26 @@
         "placeholders": {
             "pct": {}
         }
+    },
+    "product_compatibility_unknown": "Correspondance inconnue",
+    "@product_compatibility_unknown": {
+        "description": "Titre du sommaire de la compatibilité d'un produit"
+    },
+    "product_compatibility_incompatible": "Très mauvaise correspondance",
+    "@product_compatibility_incompatible": {
+        "description": "Titre du sommaire de la compatibilité d'un produit"
+    },
+    "product_compatibility_bad": "Mauvaise correspondance",
+    "@product_compatibility_bad": {
+        "description": "Titre du sommaire de la compatibilité d'un produit"
+    },
+    "product_compatibility_neutral": "Correspondance neutre",
+    "@product_compatibility_neutral": {
+        "description": "Titre du sommaire de la compatibilité d'un produit"
+    },
+    "product_compatibility_good": "Excellente correspondance",
+    "@product_compatibility_good": {
+        "description": "Titre du sommaire de la compatibilité d'un produit"
     },
     "plural_ago_days": "{count,plural, =1{il y a un jour} other{il y a {count} jours}}",
     "@plural_ago_days": {
