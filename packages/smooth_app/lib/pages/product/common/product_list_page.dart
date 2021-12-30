@@ -130,9 +130,11 @@ class _ProductListPageState extends State<ProductListPage> {
                       }
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
-                          content: Text(removed
-                              ? 'Product removed'
-                              : 'Could not remove product'),
+                          content: Text(
+                            removed
+                                ? appLocalizations.product_removed
+                                : appLocalizations.product_could_not_remove,
+                          ),
                           duration: const Duration(seconds: 3),
                         ),
                       );

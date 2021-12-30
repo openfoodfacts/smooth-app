@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -84,6 +85,7 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
     // We can already have an _imageProvider for a file that is going to be uploaded
     // or an imageUrl for a network image
     // or no image yet
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
 
     if ((_imageProvider == null) && (widget.imageUrl != null)) {
       _imageProvider = NetworkImage(widget.imageUrl!);
@@ -111,7 +113,7 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
                   product: widget.product,
                   imageField: widget.imageField,
                   imageProvider: _imageFullProvider!,
-                  title: widget.title ?? 'Image',
+                  title: widget.title ?? appLocalizations.image,
                   buttonText: widget.buttonText),
             ),
           );

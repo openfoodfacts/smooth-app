@@ -230,7 +230,7 @@ class _LoginPageState extends State<LoginPage> {
                         }
                       },
                       child: Text(
-                        'Create account',
+                        appLocalizations.create_account,
                         style: theme.textTheme.bodyText2?.copyWith(
                           fontSize: 18.0,
                           color: theme.colorScheme.primary,
