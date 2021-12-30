@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:convert';
-import 'package:diacritic/diacritic.dart';
 import 'package:hive/hive.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
@@ -27,20 +26,20 @@ class DaoProduct extends AbstractDao {
   static const String _hiveBoxName = 'products';
 
   @override
-  Future<void> init() async => Hive.openBox<Product>(_hiveBoxName);
+  Future<void> init() async => Hive.openLazyBox<Product>(_hiveBoxName);
 
   @override
   void registerAdapter() => Hive.registerAdapter(_ProductAdapter());
 
-  Box<Product> _getBox() => Hive.box<Product>(_hiveBoxName);
+  LazyBox<Product> _getBox() => Hive.lazyBox<Product>(_hiveBoxName);
 
   Future<Product?> get(final String barcode) async => _getBox().get(barcode);
 
   Future<Map<String, Product>> getAll(final Iterable<String> barcodes) async {
-    final Box<Product> box = _getBox();
+    final LazyBox<Product> box = _getBox();
     final Map<String, Product> result = <String, Product>{};
     for (final String barcode in barcodes) {
-      final Product? product = box.get(barcode);
+      final Product? product = await box.get(barcode);
       if (product != null) {
         result[barcode] = product;
       }
@@ -55,37 +54,6 @@ class DaoProduct extends AbstractDao {
     for (final Product product in products) {
       upserts[product.barcode!] = product;
     }
-    _getBox().putAll(upserts);
-  }
-
-  /// Returns the products that match a string
-  Future<Iterable<Product>> getSuggestions(
-    final String pattern,
-    final int minLength,
-  ) async {
-    final List<Product> result = <Product>[];
-    if (pattern.trim().length < minLength) {
-      return result;
-    }
-    final Box<Product> box = _getBox();
-    if (int.tryParse(pattern) != null) {
-      for (final dynamic barcode in box.keys) {
-        if (barcode.toString().contains(pattern)) {
-          result.add(box.get(barcode)!);
-        }
-      }
-      return result;
-    }
-    final String betterPattern = removeDiacritics(pattern);
-    for (final Product product in box.values) {
-      // TODO(monsieurtanuki): check other fields
-      if (product.productName != null &&
-          removeDiacritics(product.productName!)
-              .toLowerCase()
-              .contains(betterPattern)) {
-        result.add(product);
-      }
-    }
-    return result;
+    await _getBox().putAll(upserts);
   }
 }
