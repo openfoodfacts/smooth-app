@@ -67,7 +67,7 @@ class _SignUpPageState extends State<SignUpPage> {
               autofillHints: const <String>[AutofillHints.name],
               validator: (String? value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please enter the display name';
+                  return 'Please enter the display name you want to use';
                 }
                 return null;
               },
