@@ -39,7 +39,12 @@ class SvgCache extends StatelessWidget {
       height: height,
       fit: BoxFit.contain,
       placeholderBuilder: (BuildContext context) => displayAssetWhileWaiting
-          ? SvgAsyncAsset(fullFilename, width: width, height: height)
+          ? SvgAsyncAsset(
+              fullFilename,
+              width: width,
+              height: height,
+              color: color,
+            )
           : SizedBox(
               width: width ?? height,
               height: height ?? width,
