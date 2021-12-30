@@ -184,7 +184,7 @@ class _SignUpPageState extends State<SignUpPage> {
               subtitle: !_disagreed
                   ? null
                   : Text(
-                      'You have to agree my friend!',
+                      'You have to agree if you'd like to get an account. Note that you can still use the app and contribute anonymously.',
                       style: TextStyle(color: Theme.of(context).errorColor),
                     ),
             ),
