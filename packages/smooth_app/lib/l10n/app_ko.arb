@@ -91,40 +91,40 @@
     "@enter_some_text": {
         "description": "Error when text field is empty"
     },
-    "sign_up_page_title": "Sign Up",
+    "sign_up_page_title": "회원가입",
     "@sign_up_page_title": {
         "description": "On top of the Sign Up page"
     },
-    "sign_up_page_action_button": "Sign Up",
+    "sign_up_page_action_button": "회원가입",
     "@sign_up_page_action_button": {
         "description": "Bottom action button"
     },
-    "sign_up_page_action_doing_it": "Signing up...",
+    "sign_up_page_action_doing_it": "회원가입을 진행하는 중...",
     "@sign_up_page_action_doing_it": {
         "description": "Dialog during the actual signing up process"
     },
-    "sign_up_page_action_ok": "Congratulations! Your account has just been created.",
-    "sign_up_page_display_name_hint": "Display Name",
-    "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
-    "sign_up_page_email_hint": "E-mail",
-    "sign_up_page_email_error_empty": "Please enter the e-mail",
-    "sign_up_page_email_error_invalid": "Please enter a valid email",
+    "sign_up_page_action_ok": "축하합니다! 귀하의 계정이 방금 생성되었습니다.",
+    "sign_up_page_display_name_hint": "표시할 이름",
+    "sign_up_page_display_name_error_empty": "사용하고자 하는 이름을 입력하십시오",
+    "sign_up_page_email_hint": "이메일",
+    "sign_up_page_email_error_empty": "이메일을 입력하십시오",
+    "sign_up_page_email_error_invalid": "유효한 이메일을 입력하십시오",
     "sign_up_page_username_hint": "사용자 이름",
-    "sign_up_page_username_error_empty": "Please enter a username",
-    "sign_up_page_username_error_invalid": "Please enter a valid username",
-    "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters",
+    "sign_up_page_username_error_empty": "사용자 이름을 입력하십시오",
+    "sign_up_page_username_error_invalid": "유효한 사용자 이름을 입력하십시오",
+    "sign_up_page_username_description": "사용자 이름에는 공백, 대문자, 특수문자를 사용할 수 없습니다",
     "sign_up_page_password_hint": "암호",
-    "sign_up_page_password_error_empty": "Please enter a password",
-    "sign_up_page_password_error_invalid": "Please enter a valid password (at least 6 characters)",
-    "sign_up_page_confirm_password_hint": "Confirm Password",
-    "sign_up_page_confirm_password_error_empty": "Please confirm the password",
-    "sign_up_page_confirm_password_error_invalid": "The passwords should be identical",
+    "sign_up_page_password_error_empty": "비밀번호를 입력하십시오",
+    "sign_up_page_password_error_invalid": "유효한 비밀번호를 입력하십시오 (최소 6자 이상)",
+    "sign_up_page_confirm_password_hint": "비밀번호 확인",
+    "sign_up_page_confirm_password_error_empty": "비밀번호를 확인하십시오",
+    "sign_up_page_confirm_password_error_invalid": "비밀번호가 동일해야 합니다",
     "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-    "sign_up_page_agree_error_invalid": "You have to agree if you'd like to get an account. Note that you can still use the app and contribute anonymously.",
-    "sign_up_page_producer_checkbox": "I am a food producer",
-    "sign_up_page_producer_hint": "Producer/brand",
-    "sign_up_page_producer_error_empty": "Please enter a producer or a brand name",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (Note: You can unsubscribe from it at all time)",
+    "sign_up_page_agree_error_invalid": "계정을 생성하려면 약관에 동의해야 합니다. 참고로 앱을 사용하는 경우 계속 익명으로 기여할 수 있습니다.",
+    "sign_up_page_producer_checkbox": "저는 식품 생산자입니다",
+    "sign_up_page_producer_hint": "생산자/브랜드",
+    "sign_up_page_producer_error_empty": "생산자 또는 브랜드 이름을 입력해주십시오",
+    "sign_up_page_subscribe_checkbox": "Open Food Facts 뉴스레터를 구독하고 싶습니다 (참고: 언제든지 구독을 취소할 수 있습니다)",
     "@Settings": {},
     "settingsTitle": "설정",
     "@settingsTitle": {
@@ -215,7 +215,7 @@
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "category": "Filter by category",
+    "category": "카테고리로 필터",
     "@category": {
         "description": "From a product list, there's a category filter: this is its title"
     },
@@ -352,23 +352,23 @@
             "pct": {}
         }
     },
-    "product_compatibility_unknown": "Product Compatibility Unknown",
+    "product_compatibility_unknown": "상품 호환성 알 수 없음",
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_incompatible": "Very poor Match",
+    "product_compatibility_incompatible": "호환성 매우 낮음",
     "@product_compatibility_incompatible": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_bad": "Poor Match",
+    "product_compatibility_bad": "호환성 낮음",
     "@product_compatibility_bad": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_neutral": "Neutral Match",
+    "product_compatibility_neutral": "호환성 보통",
     "@product_compatibility_neutral": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_good": "Great Match",
+    "product_compatibility_good": "호환성 높음",
     "@product_compatibility_good": {
         "description": "Product compatibility summary title"
     },
