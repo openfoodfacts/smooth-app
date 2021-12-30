@@ -169,7 +169,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       recognizer: TapGestureRecognizer()
                         ..onTap = () async {
                           final String url =
-                              'https://github.com/flutter/gallery/';
+                              'https://world-en.openfoodfacts.org/terms-of-use';
                           if (await canLaunch(url)) {
                             await launch(
                               url,
