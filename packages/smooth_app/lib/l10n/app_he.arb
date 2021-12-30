@@ -53,7 +53,7 @@
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Choose foods that are good for you and the planet.",
+    "offUtility": "מאפשרים לך לבחור מזון שטוב לך ולכדור הארץ.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
@@ -91,30 +91,30 @@
     "@enter_some_text": {
         "description": "Error when text field is empty"
     },
-    "sign_up_page_title": "Sign Up",
+    "sign_up_page_title": "הרשמה",
     "@sign_up_page_title": {
         "description": "On top of the Sign Up page"
     },
-    "sign_up_page_action_button": "Sign Up",
+    "sign_up_page_action_button": "הרשמה",
     "@sign_up_page_action_button": {
         "description": "Bottom action button"
     },
-    "sign_up_page_action_doing_it": "Signing up...",
+    "sign_up_page_action_doing_it": "מתבצעת הרשמה…",
     "@sign_up_page_action_doing_it": {
         "description": "Dialog during the actual signing up process"
     },
-    "sign_up_page_action_ok": "Congratulations! Your account has just been created.",
-    "sign_up_page_display_name_hint": "Display Name",
-    "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
-    "sign_up_page_email_hint": "E-mail",
-    "sign_up_page_email_error_empty": "Please enter the e-mail",
-    "sign_up_page_email_error_invalid": "Please enter a valid email",
+    "sign_up_page_action_ok": "מזל טוב! החשבון שלך נוצר.",
+    "sign_up_page_display_name_hint": "שם תצוגה",
+    "sign_up_page_display_name_error_empty": "נא למלא את שם התצוגה המיועד",
+    "sign_up_page_email_hint": "דוא״ל",
+    "sign_up_page_email_error_empty": "נא למלא כתובת דוא״ל",
+    "sign_up_page_email_error_invalid": "נא למלא כתובת דוא״ל תקנית",
     "sign_up_page_username_hint": "שם משתמש",
-    "sign_up_page_username_error_empty": "Please enter a username",
-    "sign_up_page_username_error_invalid": "Please enter a valid username",
-    "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters",
+    "sign_up_page_username_error_empty": "נא למלא שם משתמש",
+    "sign_up_page_username_error_invalid": "נא למלא שם משתמש תקף",
+    "sign_up_page_username_description": "שם המשתמש לא יכול להכיל רווחים, רישיות או תווים מיוחדים",
     "sign_up_page_password_hint": "ססמה",
-    "sign_up_page_password_error_empty": "Please enter a password",
+    "sign_up_page_password_error_empty": "נא למלא ססמה",
     "sign_up_page_password_error_invalid": "Please enter a valid password (at least 6 characters)",
     "sign_up_page_confirm_password_hint": "Confirm Password",
     "sign_up_page_confirm_password_error_empty": "Please confirm the password",
