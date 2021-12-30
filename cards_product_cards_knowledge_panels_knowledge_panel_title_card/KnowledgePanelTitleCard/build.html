@@ -124,11 +124,11 @@ Widget build(BuildContext context) {
         Expanded(
           flex: IconWidgetSizer.getIconFlex(),
           child: Center(
-            child: SvgCache(
-              knowledgePanelTitleElement.iconUrl,
-              color: colorFromEvaluation,
+            child: AbstractCache.best(
+              iconUrl: knowledgePanelTitleElement.iconUrl,
               width: 36,
               height: 36,
+              color: colorFromEvaluation,
             ),
           ),
         ),

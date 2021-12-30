@@ -117,19 +117,13 @@ Widget build(BuildContext context) =&gt; FutureBuilder&lt;String&gt;(
               height: height,
               color: color,
               fit: BoxFit.contain,
-              placeholderBuilder: (BuildContext context) =&gt; SizedBox(
-                width: width ?? height,
-                height: height ?? width,
-              ),
+              placeholderBuilder: (BuildContext context) =&gt; getEmptySpace(),
             );
           } else {
-            debugPrint(&#39;unexpected case: svg asset not found $fullFilename&#39;);
+            notFound();
           }
         }
-        return SizedBox(
-          width: width ?? height,
-          height: height ?? width,
-        );
+        return getEmptySpace();
       },
     );</code></pre>
 </section>
@@ -163,19 +157,22 @@ Widget build(BuildContext context) =&gt; FutureBuilder&lt;String&gt;(
       <a href="../../cards_category_cards_svg_async_asset/SvgAsyncAsset-class.html#instance-properties">Properties</a>
     </li>
     <li><a href="../../cards_category_cards_svg_async_asset/SvgAsyncAsset/color.html">color</a></li>
-    <li><a href="../../cards_category_cards_svg_async_asset/SvgAsyncAsset/fullFilename.html">fullFilename</a></li>
+    <li class="inherited"><a href="../../cards_category_cards_abstract_async_asset/AbstractAsyncAsset/fullFilename.html">fullFilename</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/hashCode.html">hashCode</a></li>
-    <li><a href="../../cards_category_cards_svg_async_asset/SvgAsyncAsset/height.html">height</a></li>
+    <li class="inherited"><a href="../../cards_category_cards_abstract_async_asset/AbstractAsyncAsset/height.html">height</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/key.html">key</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
-    <li><a href="../../cards_category_cards_svg_async_asset/SvgAsyncAsset/width.html">width</a></li>
+    <li class="inherited"><a href="../../cards_category_cards_abstract_async_asset/AbstractAsyncAsset/url.html">url</a></li>
+    <li class="inherited"><a href="../../cards_category_cards_abstract_async_asset/AbstractAsyncAsset/width.html">width</a></li>
 
     <li class="section-title"><a href="../../cards_category_cards_svg_async_asset/SvgAsyncAsset-class.html#instance-methods">Methods</a></li>
     <li><a href="../../cards_category_cards_svg_async_asset/SvgAsyncAsset/build.html">build</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/StatelessWidget/createElement.html">createElement</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/debugDescribeChildren.html">debugDescribeChildren</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/debugFillProperties.html">debugFillProperties</a></li>
+    <li class="inherited"><a href="../../cards_category_cards_abstract_async_asset/AbstractAsyncAsset/getEmptySpace.html">getEmptySpace</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="../../cards_category_cards_abstract_async_asset/AbstractAsyncAsset/notFound.html">notFound</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toDiagnosticsNode.html">toDiagnosticsNode</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/Diagnosticable/toString.html">toString</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toStringDeep.html">toStringDeep</a></li>
