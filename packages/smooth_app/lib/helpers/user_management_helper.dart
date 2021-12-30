@@ -16,7 +16,7 @@ class UserManagementHelper {
       r'{0,253}[a-zA-Z0-9])?)*$';
   static final RegExp _emailRegex = RegExp(_emailPattern);
 
-  static const String _userPattern = r'^[a-z0-9]$';
+  static const String _userPattern = r'^[a-z0-9]+$';
   static final RegExp _userRegex = RegExp(_userPattern);
 
   /// Checks credentials and conditionally saves them
@@ -29,11 +29,16 @@ class UserManagementHelper {
     }
 
     if (rightCredentials) {
-      OpenFoodAPIConfiguration.globalUser = user;
-      _putUser(user);
+      await put(user);
     }
 
     return rightCredentials && await _checkCredentialsInStorage();
+  }
+
+  /// Puts the [User] in the preferences
+  static Future<void> put(User user) async {
+    OpenFoodAPIConfiguration.globalUser = user;
+    await _putUser(user);
   }
 
   /// Checks if the saved credentials are still valid

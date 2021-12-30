@@ -217,12 +217,19 @@ class _LoginPageState extends State<LoginPage> {
                   SizedBox(
                     height: size.height * 0.06,
                     child: OutlinedButton(
-                      onPressed: () async => Navigator.push(
-                        context,
-                        MaterialPageRoute<Widget>(
-                          builder: (BuildContext context) => const SignUpPage(),
-                        ),
-                      ),
+                      onPressed: () async {
+                        final User? user = await Navigator.push<User>(
+                          context,
+                          MaterialPageRoute<User>(
+                            builder: (BuildContext context) =>
+                                const SignUpPage(),
+                          ),
+                        );
+                        if (user != null) {
+                          await UserManagementHelper.put(user);
+                          Navigator.of(context).pop();
+                        }
+                      },
                       child: Text(
                         'Create account',
                         style: theme.textTheme.bodyText2?.copyWith(
