@@ -96,12 +96,13 @@ class UserPreferencesPage extends StatelessWidget {
         children: List<Widget>.generate(
           groups.length,
           (int index) => _generateGroup(
-              context,
-              groups[index],
-              userPreferences,
-              productPreferences,
-              _reorderAttributes(groups[index], orderedImportantAttributeIds),
-              appLocalizations),
+            context,
+            groups[index],
+            userPreferences,
+            productPreferences,
+            _reorderAttributes(groups[index], orderedImportantAttributeIds),
+            appLocalizations,
+          ),
         ),
       ),
     );
