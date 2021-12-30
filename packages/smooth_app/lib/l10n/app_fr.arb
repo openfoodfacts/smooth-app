@@ -34,11 +34,11 @@
     "@learnMore": {},
     "incompatible": "Incompatible",
     "@incompatible": {
-        "description": "Label court pour des listes de produits: ce produit est incompatible avec vos préférences"
+        "description": "Short label for product list view: the product is incompatible with your preferences"
     },
-    "unknown": "Incalculable",
+    "unknown": "Inconnu",
     "@unknown": {
-        "description": "Label court pour des listes de produits: la compatibilité de ce produit avec vos préférences est incalculable"
+        "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
     },
     "licenses": "Licences",
     "@licenses": {},
@@ -52,6 +52,10 @@
     "whatIsOff": "Open Food Facts est une organisation mondiale à but non lucratif alimentée par les communautés locales.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
+    },
+    "offUtility": "Choose foods that are good for you and the planet.",
+    "@offUtility": {
+        "description": "Description of what a user can use Open Food Facts for."
     },
     "@user_management": {},
     "sign_in_text": "Connectez-vous à votre compte Open Food Facts pour enregistrer vos contributions",
@@ -87,40 +91,40 @@
     "@enter_some_text": {
         "description": "Error when text field is empty"
     },
-    "sign_up_page_title": "Créer un compte",
+    "sign_up_page_title": "Sign Up",
     "@sign_up_page_title": {
-        "description": "Titre en haut de la page 'Créer un compte'"
+        "description": "On top of the Sign Up page"
     },
-    "sign_up_page_action_button": "Créer le compte",
+    "sign_up_page_action_button": "Sign Up",
     "@sign_up_page_action_button": {
-        "description": "Bouton pour créer le compte, en bas de l'écran"
+        "description": "Bottom action button"
     },
-    "sign_up_page_action_doing_it": "Création en cours...",
+    "sign_up_page_action_doing_it": "Signing up...",
     "@sign_up_page_action_doing_it": {
-        "description": "Fenêtre modale pendant la création du compte"
+        "description": "Dialog during the actual signing up process"
     },
-    "sign_up_page_action_ok": "Félicitations ! Votre compte vient d'être créé.",
-    "sign_up_page_display_name_hint": "Nom affiché",
-    "sign_up_page_display_name_error_empty": "Merci d'indiquer le nom que vous souhaitez utiliser",
+    "sign_up_page_action_ok": "Congratulations! Your account has just been created.",
+    "sign_up_page_display_name_hint": "Display Name",
+    "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
     "sign_up_page_email_hint": "E-mail",
-    "sign_up_page_email_error_empty": "Merci de renseigner votre e-mail",
-    "sign_up_page_email_error_invalid": "Cet e-mail n'est pas valide",
+    "sign_up_page_email_error_empty": "Please enter the e-mail",
+    "sign_up_page_email_error_invalid": "Please enter a valid email",
     "sign_up_page_username_hint": "Nom d'utilisateur",
-    "sign_up_page_username_error_empty": "Merci de renseigner votre nom d'utilisateur",
-    "sign_up_page_username_error_invalid": "Ce nom d'utilisateur n'est pas valide",
-    "sign_up_page_username_description": "Un nom d'utilisateur ne peut contenir que des minuscules et des chiffres",
+    "sign_up_page_username_error_empty": "Please enter a username",
+    "sign_up_page_username_error_invalid": "Please enter a valid username",
+    "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters",
     "sign_up_page_password_hint": "Mot de passe",
-    "sign_up_page_password_error_empty": "Merci de renseigner un mot de passe",
-    "sign_up_page_password_error_invalid": "Ce mot de passe n'est pas valide (au moins 6 caractères demandés)",
-    "sign_up_page_confirm_password_hint": "Confirmation du mot de passe",
-    "sign_up_page_confirm_password_error_empty": "Merci de confirmer le mot de passe",
-    "sign_up_page_confirm_password_error_invalid": "Les deux mots de passe doivent être identiques",
-    "sign_up_page_agree_url": "https://fr.openfoodfacts.org/mentions-legales",
-    "sign_up_page_agree_error_invalid": "Vous devez accepter si vous voulez créer un compte. Notez que vous pouvez toujours utiliser l'appli et contribuer anonymement.",
-    "sign_up_page_producer_checkbox": "Je suis un producteur",
-    "sign_up_page_producer_hint": "Producteur/marque",
-    "sign_up_page_producer_error_empty": "Merci de renseigner un nom de producteur ou de marque",
-    "sign_up_page_subscribe_checkbox": "Je veux m'abonner à la newsletter d'Open Food Facts (Note: Vous pouvez vous désabonner à tout moment)",
+    "sign_up_page_password_error_empty": "Please enter a password",
+    "sign_up_page_password_error_invalid": "Please enter a valid password (at least 6 characters)",
+    "sign_up_page_confirm_password_hint": "Confirm Password",
+    "sign_up_page_confirm_password_error_empty": "Please confirm the password",
+    "sign_up_page_confirm_password_error_invalid": "The passwords should be identical",
+    "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
+    "sign_up_page_agree_error_invalid": "You have to agree if you'd like to get an account. Note that you can still use the app and contribute anonymously.",
+    "sign_up_page_producer_checkbox": "I am a food producer",
+    "sign_up_page_producer_hint": "Producer/brand",
+    "sign_up_page_producer_error_empty": "Please enter a producer or a brand name",
+    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (Note: You can unsubscribe from it at all time)",
     "@Settings": {},
     "settingsTitle": "Paramètres",
     "@settingsTitle": {
@@ -211,13 +215,13 @@
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "category": "Filtre par catégorie",
+    "category": "Filter by category",
     "@category": {
-        "description": "À partir d'une liste de produit, un filtre par catégorie est disponible : c'est le titre"
+        "description": "From a product list, there's a category filter: this is its title"
     },
     "category_all": "Tout",
     "@category_al": {
-        "description": "Meta-catégorie tout en haut d'un filtre par catégorie"
+        "description": "Top meta-entry on a category filter"
     },
     "category_search": "(recherche par catégorie)",
     "filter": "Filtre",
@@ -348,25 +352,25 @@
             "pct": {}
         }
     },
-    "product_compatibility_unknown": "Correspondance inconnue",
+    "product_compatibility_unknown": "Product Compatibility Unknown",
     "@product_compatibility_unknown": {
-        "description": "Titre du sommaire de la compatibilité d'un produit"
+        "description": "Product compatibility summary title"
     },
-    "product_compatibility_incompatible": "Très mauvaise correspondance",
+    "product_compatibility_incompatible": "Very poor Match",
     "@product_compatibility_incompatible": {
-        "description": "Titre du sommaire de la compatibilité d'un produit"
+        "description": "Product compatibility summary title"
     },
-    "product_compatibility_bad": "Mauvaise correspondance",
+    "product_compatibility_bad": "Poor Match",
     "@product_compatibility_bad": {
-        "description": "Titre du sommaire de la compatibilité d'un produit"
+        "description": "Product compatibility summary title"
     },
-    "product_compatibility_neutral": "Correspondance neutre",
+    "product_compatibility_neutral": "Neutral Match",
     "@product_compatibility_neutral": {
-        "description": "Titre du sommaire de la compatibilité d'un produit"
+        "description": "Product compatibility summary title"
     },
-    "product_compatibility_good": "Excellente correspondance",
+    "product_compatibility_good": "Great Match",
     "@product_compatibility_good": {
-        "description": "Titre du sommaire de la compatibilité d'un produit"
+        "description": "Product compatibility summary title"
     },
     "plural_ago_days": "{count,plural, =1{il y a un jour} other{il y a {count} jours}}",
     "@plural_ago_days": {
