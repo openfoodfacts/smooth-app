@@ -117,10 +117,10 @@ String getSubtitle(
   final AppLocalizations appLocalizations,
 ) {
   if (compatibility.productCompatibility == ProductCompatibility.UNKNOWN) {
-    return appLocalizations.product_compatibility_unknown;
+    return appLocalizations.unknown;
   }
   if (compatibility.productCompatibility == ProductCompatibility.INCOMPATIBLE) {
-    return appLocalizations.product_compatibility_incompatible;
+    return appLocalizations.incompatible;
   }
   return appLocalizations
       .pct_match(compatibility.averageAttributeMatch.toStringAsFixed(0));
