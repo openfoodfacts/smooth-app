@@ -43,12 +43,13 @@ class _SignUpPageState extends State<SignUpPage> {
     // TODO(monsieurtanuki): translations
     return Scaffold(
       appBar: AppBar(
-        title: Text(appLocalizations.sign_up_page_title),
+        title: Text(
+          appLocalizations.sign_up_page_title,
+          style: TextStyle(color: theme.colorScheme.onBackground),
+        ),
         backgroundColor: Colors.transparent,
         elevation: 0,
-        iconTheme: IconThemeData(
-          color: Theme.of(context).colorScheme.primary,
-        ),
+        iconTheme: IconThemeData(color: theme.colorScheme.primary),
       ),
       body: Form(
         onChanged: () => setState(() {}),
@@ -166,8 +167,9 @@ class _SignUpPageState extends State<SignUpPage> {
                 text: TextSpan(
                   children: <InlineSpan>[
                     // TODO(monsieurtanuki): refactor / translate
-                    const TextSpan(
+                    TextSpan(
                       text: 'I agree to the Open Food Facts ',
+                      style: TextStyle(color: theme.colorScheme.onBackground),
                     ),
                     TextSpan(
                       style: const TextStyle(
@@ -194,7 +196,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   ? null
                   : Text(
                       appLocalizations.sign_up_page_agree_error_invalid,
-                      style: TextStyle(color: Theme.of(context).errorColor),
+                      style: TextStyle(color: theme.errorColor),
                     ),
             ),
             const SizedBox(height: space),
