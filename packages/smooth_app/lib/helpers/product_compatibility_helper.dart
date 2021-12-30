@@ -73,26 +73,32 @@ ProductCompatibilityResult getProductCompatibility(
 ) {
   double averageAttributeMatch = 0.0;
   int numAttributesComputed = 0;
-  for (final AttributeGroup group in product.attributeGroups!) {
-    for (final Attribute attribute in group.attributes!) {
-      final String importanceLevel =
-          productPreferences.getImportanceIdForAttributeId(attribute.id!);
-      // Check whether any mandatory attribute is incompatible
-      if (importanceLevel == PreferenceImportance.ID_MANDATORY &&
-          getAttributeEvaluation(attribute) == AttributeEvaluation.VERY_BAD) {
-        return ProductCompatibilityResult(0, ProductCompatibility.INCOMPATIBLE);
+  if (product.attributeGroups != null) {
+    for (final AttributeGroup group in product.attributeGroups!) {
+      if (group.attributes != null) {
+        for (final Attribute attribute in group.attributes!) {
+          final String importanceLevel =
+              productPreferences.getImportanceIdForAttributeId(attribute.id!);
+          // Check whether any mandatory attribute is incompatible
+          if (importanceLevel == PreferenceImportance.ID_MANDATORY &&
+              getAttributeEvaluation(attribute) ==
+                  AttributeEvaluation.VERY_BAD) {
+            return ProductCompatibilityResult(
+                0, ProductCompatibility.INCOMPATIBLE);
+          }
+          if (!attributeImportanceWeight.containsKey(importanceLevel)) {
+            // Unknown attribute importance level. (This should ideally never happen).
+            // TODO(jasmeetsingh): [importanceLevel] should be an enum not a string.
+            continue;
+          }
+          if (!isMatchAvailable(attribute)) {
+            continue;
+          }
+          averageAttributeMatch +=
+              attribute.match! * attributeImportanceWeight[importanceLevel]!;
+          numAttributesComputed++;
+        }
       }
-      if (!attributeImportanceWeight.containsKey(importanceLevel)) {
-        // Unknown attribute importance level. (This should ideally never happen).
-        // TODO(jasmeetsingh): [importanceLevel] should be an enum not a string.
-        continue;
-      }
-      if (!isMatchAvailable(attribute)) {
-        continue;
-      }
-      averageAttributeMatch +=
-          attribute.match! * attributeImportanceWeight[importanceLevel]!;
-      numAttributesComputed++;
     }
   }
   if (numAttributesComputed == 0) {
