@@ -428,7 +428,7 @@
             "count": {}
         }
     },
-    "plural_compare_x_products": "{suma,plural, =altceva{Comparare {count} Produse}",
+    "plural_compare_x_products": "{count,plural, =other{Comparare {count} Produse}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {
