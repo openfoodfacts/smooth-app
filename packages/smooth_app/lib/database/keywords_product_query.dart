@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:openfoodfacts/model/parameter/SearchTerms.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/product_query.dart';
 
@@ -18,7 +17,7 @@ class KeywordsProductQuery implements ProductQuery {
   @override
   Future<SearchResult> getSearchResult() async =>
       OpenFoodAPIClient.searchProducts(
-        OpenFoodAPIConfiguration.globalUser ?? ProductQuery.SMOOTH_USER,
+        ProductQuery.getUser,
         ProductSearchQueryConfiguration(
           fields: ProductQuery.fields,
           parametersList: <Parameter>[

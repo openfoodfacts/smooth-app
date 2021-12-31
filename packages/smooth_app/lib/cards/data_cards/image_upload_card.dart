@@ -5,7 +5,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/pages/product/product_image_page.dart';
 
@@ -64,14 +63,9 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
           imageUri: croppedImageFile.uri,
         );
 
-        // a registered user login for https://world.openfoodfacts.org/ is required
-        //ToDo: Add user
-        const User myUser =
-            User(userId: 'smoothie-app', password: 'strawberrybanana');
-
         // query the OpenFoodFacts API
         final Status result = await OpenFoodAPIClient.addProductImage(
-          OpenFoodAPIConfiguration.globalUser ?? myUser,
+          ProductQuery.getUser,
           image,
         );
 
