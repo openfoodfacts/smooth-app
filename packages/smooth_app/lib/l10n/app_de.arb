@@ -64,6 +64,10 @@
     "@login": {
         "description": "Text field hint: unified name for either username or email address"
     },
+    "create_account": "Konto erstellen",
+    "@create_account": {
+        "description": "Button label: Opens a page where a new user can register"
+    },
     "sign_in": "Anmelden",
     "@sign_in": {
         "description": "Button label: For sign in"
@@ -133,6 +137,14 @@
     "darkmode": "Nachtmodus",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
+    },
+    "darkmode_dark": "Dunkel",
+    "@darkmode_dark": {
+        "description": "Indicator inside the darkmode switch"
+    },
+    "darkmode_light": "Hell",
+    "@darkmode_light": {
+        "description": "Indicator inside the darkmode switch"
     },
     "contributors": "Mitwirkende",
     "@contributors": {
@@ -248,6 +260,7 @@
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
+    "image": "Grafik",
     "front_photo": "Foto der Vorderseite",
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
@@ -334,6 +347,14 @@
     "country_selection_explanation": "Einige ökologische Eigenschaften sind standortspezifisch",
     "@country_label": {
         "description": "Explanation as to why users should select their country."
+    },
+    "product_removed": "Produkt entfernt",
+    "@product_removed": {
+        "description": "Product got removed from a list"
+    },
+    "product_could_not_remove": "Produkt konnte nicht entfernt werden",
+    "@product_could_not_remove": {
+        "description": "Could not remove product from a list"
     },
     "@Lists": {},
     "no_prodcut_in_list": "Liste enthält noch keine Produkte",
