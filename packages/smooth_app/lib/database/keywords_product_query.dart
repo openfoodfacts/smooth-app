@@ -17,7 +17,7 @@ class KeywordsProductQuery implements ProductQuery {
   @override
   Future<SearchResult> getSearchResult() async =>
       OpenFoodAPIClient.searchProducts(
-        ProductQuery.getUser,
+        ProductQuery.user,
         ProductSearchQueryConfiguration(
           fields: ProductQuery.fields,
           parametersList: <Parameter>[
