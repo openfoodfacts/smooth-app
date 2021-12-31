@@ -64,6 +64,10 @@
     "@login": {
         "description": "Text field hint: unified name for either username or email address"
     },
+    "create_account": "계정 생성",
+    "@create_account": {
+        "description": "Button label: Opens a page where a new user can register"
+    },
     "sign_in": "가입하기",
     "@sign_in": {
         "description": "Button label: For sign in"
@@ -133,6 +137,14 @@
     "darkmode": "다크 모드",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
+    },
+    "darkmode_dark": "어둡게",
+    "@darkmode_dark": {
+        "description": "Indicator inside the darkmode switch"
+    },
+    "darkmode_light": "밝게",
+    "@darkmode_light": {
+        "description": "Indicator inside the darkmode switch"
     },
     "contributors": "기여자",
     "@contributors": {
@@ -248,6 +260,7 @@
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
+    "image": "이미지",
     "front_photo": "전면 사진",
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
@@ -334,6 +347,14 @@
     "country_selection_explanation": "일부 환경 기능은 위치에 따라 달라질 수 있습니다",
     "@country_label": {
         "description": "Explanation as to why users should select their country."
+    },
+    "product_removed": "상품 제거됨",
+    "@product_removed": {
+        "description": "Product got removed from a list"
+    },
+    "product_could_not_remove": "상품을 제거할 수 없음",
+    "@product_could_not_remove": {
+        "description": "Could not remove product from a list"
     },
     "@Lists": {},
     "no_prodcut_in_list": "목록에 상품이 없습니다",

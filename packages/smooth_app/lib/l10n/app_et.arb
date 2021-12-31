@@ -64,6 +64,10 @@
     "@login": {
         "description": "Text field hint: unified name for either username or email address"
     },
+    "create_account": "Create account",
+    "@create_account": {
+        "description": "Button label: Opens a page where a new user can register"
+    },
     "sign_in": "Logi sisse",
     "@sign_in": {
         "description": "Button label: For sign in"
@@ -78,24 +82,24 @@
         "description": "Forgot password page title"
     },
     "reset_password_explanation_text": "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password. Please also check your spam folder.",
-    "username_or_email": "Username or e-mail address",
+    "username_or_email": "Kasutajanimi või e-posti aadress",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
     "reset_password_done": "An email with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
-    "send_reset_password_mail": "Change password",
+    "send_reset_password_mail": "Muuda salasõna",
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset email request"
     },
-    "enter_some_text": "Please enter some text",
+    "enter_some_text": "Palun sisesta natuke teksti",
     "@enter_some_text": {
         "description": "Error when text field is empty"
     },
-    "sign_up_page_title": "Sign Up",
+    "sign_up_page_title": "Liitu",
     "@sign_up_page_title": {
         "description": "On top of the Sign Up page"
     },
-    "sign_up_page_action_button": "Sign Up",
+    "sign_up_page_action_button": "Liitu",
     "@sign_up_page_action_button": {
         "description": "Bottom action button"
     },
@@ -106,25 +110,25 @@
     "sign_up_page_action_ok": "Congratulations! Your account has just been created.",
     "sign_up_page_display_name_hint": "Display Name",
     "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
-    "sign_up_page_email_hint": "E-mail",
-    "sign_up_page_email_error_empty": "Please enter the e-mail",
-    "sign_up_page_email_error_invalid": "Please enter a valid email",
+    "sign_up_page_email_hint": "E-posti aadress",
+    "sign_up_page_email_error_empty": "Palun sisesta enda e-posti aadress",
+    "sign_up_page_email_error_invalid": "Palun sisesta korrektne e-posti aadress",
     "sign_up_page_username_hint": "Username",
-    "sign_up_page_username_error_empty": "Please enter a username",
-    "sign_up_page_username_error_invalid": "Please enter a valid username",
-    "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters",
+    "sign_up_page_username_error_empty": "Palun sisesta kasutajanimi",
+    "sign_up_page_username_error_invalid": "Palun sisesta kehtiv kasutajanimi",
+    "sign_up_page_username_description": "Kasutajanimi ei tohi sisaldada tühikuid, suurtähti ega erimärke",
     "sign_up_page_password_hint": "Password",
-    "sign_up_page_password_error_empty": "Please enter a password",
-    "sign_up_page_password_error_invalid": "Please enter a valid password (at least 6 characters)",
-    "sign_up_page_confirm_password_hint": "Confirm Password",
+    "sign_up_page_password_error_empty": "Palun sisesta salasõna",
+    "sign_up_page_password_error_invalid": "Palun sisesta kehtiv salasõna (vähemalt 6 tähemärki)",
+    "sign_up_page_confirm_password_hint": "Kinnita salasõna",
     "sign_up_page_confirm_password_error_empty": "Please confirm the password",
     "sign_up_page_confirm_password_error_invalid": "The passwords should be identical",
     "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
     "sign_up_page_agree_error_invalid": "You have to agree if you'd like to get an account. Note that you can still use the app and contribute anonymously.",
-    "sign_up_page_producer_checkbox": "I am a food producer",
-    "sign_up_page_producer_hint": "Producer/brand",
-    "sign_up_page_producer_error_empty": "Please enter a producer or a brand name",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (Note: You can unsubscribe from it at all time)",
+    "sign_up_page_producer_checkbox": "Olen toidutootja",
+    "sign_up_page_producer_hint": "Tootja või kaubamärk",
+    "sign_up_page_producer_error_empty": "Palun sisesta tootja või kaubamärgi nimi",
+    "sign_up_page_subscribe_checkbox": "Soovin tellida Open Food Facts uudiskirja (Märkus: saad selle tellimusest igal ajal loobuda)",
     "@Settings": {},
     "settingsTitle": "Seaded",
     "@settingsTitle": {
@@ -133,6 +137,14 @@
     "darkmode": "Tume režiim",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
+    },
+    "darkmode_dark": "Dark",
+    "@darkmode_dark": {
+        "description": "Indicator inside the darkmode switch"
+    },
+    "darkmode_light": "Light",
+    "@darkmode_light": {
+        "description": "Indicator inside the darkmode switch"
     },
     "contributors": "Contributors",
     "@contributors": {
@@ -186,7 +198,7 @@
     "contribute_translate_text_2": "Translations is one of the key tasks of the project",
     "@contribute_translate_text_2": {},
     "@Personal preferences": {},
-    "myPreferences": "My preferences",
+    "myPreferences": "Minu eelistused",
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
@@ -219,7 +231,7 @@
     "@category": {
         "description": "From a product list, there's a category filter: this is its title"
     },
-    "category_all": "All",
+    "category_all": "Kõik",
     "@category_al": {
         "description": "Top meta-entry on a category filter"
     },
@@ -248,6 +260,7 @@
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
+    "image": "Image",
     "front_photo": "Front photo",
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
@@ -334,6 +347,14 @@
     "country_selection_explanation": "Some environment features depend on your location",
     "@country_label": {
         "description": "Explanation as to why users should select their country."
+    },
+    "product_removed": "Product removed",
+    "@product_removed": {
+        "description": "Product got removed from a list"
+    },
+    "product_could_not_remove": "Could not remove product",
+    "@product_could_not_remove": {
+        "description": "Could not remove product from a list"
     },
     "@Lists": {},
     "no_prodcut_in_list": "There is no product in this list",
