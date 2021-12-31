@@ -53,7 +53,7 @@
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Choose foods that are good for you and the planet.",
+    "offUtility": "Vælg fødevarer, som er gode for dig og planeten.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
@@ -63,6 +63,10 @@
     "login": "Brugernavn",
     "@login": {
         "description": "Text field hint: unified name for either username or email address"
+    },
+    "create_account": "Opret konto",
+    "@create_account": {
+        "description": "Button label: Opens a page where a new user can register"
     },
     "sign_in": "Log ind",
     "@sign_in": {
@@ -91,40 +95,40 @@
     "@enter_some_text": {
         "description": "Error when text field is empty"
     },
-    "sign_up_page_title": "Sign Up",
+    "sign_up_page_title": "Tilmeld",
     "@sign_up_page_title": {
         "description": "On top of the Sign Up page"
     },
-    "sign_up_page_action_button": "Sign Up",
+    "sign_up_page_action_button": "Tilmeld",
     "@sign_up_page_action_button": {
         "description": "Bottom action button"
     },
-    "sign_up_page_action_doing_it": "Signing up...",
+    "sign_up_page_action_doing_it": "Tilmelder...",
     "@sign_up_page_action_doing_it": {
         "description": "Dialog during the actual signing up process"
     },
-    "sign_up_page_action_ok": "Congratulations! Your account has just been created.",
-    "sign_up_page_display_name_hint": "Display Name",
-    "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
+    "sign_up_page_action_ok": "Din konto er nu oprettet.",
+    "sign_up_page_display_name_hint": "Visningsnavn",
+    "sign_up_page_display_name_error_empty": "Angiv det navn, der ønskes vist",
     "sign_up_page_email_hint": "E-mail",
-    "sign_up_page_email_error_empty": "Please enter the e-mail",
-    "sign_up_page_email_error_invalid": "Please enter a valid email",
+    "sign_up_page_email_error_empty": "Angiv e-mail",
+    "sign_up_page_email_error_invalid": "Angiv en gyldig e-mailadresse",
     "sign_up_page_username_hint": "Brugernavn",
-    "sign_up_page_username_error_empty": "Please enter a username",
-    "sign_up_page_username_error_invalid": "Please enter a valid username",
-    "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters",
+    "sign_up_page_username_error_empty": "Indtast et brugernavn",
+    "sign_up_page_username_error_invalid": "Angiv et gyldigt brugernavn",
+    "sign_up_page_username_description": "Brugernavn må ikke indeholde mellemrum, versaler eller specialtegn",
     "sign_up_page_password_hint": "Adgangskode",
-    "sign_up_page_password_error_empty": "Please enter a password",
-    "sign_up_page_password_error_invalid": "Please enter a valid password (at least 6 characters)",
-    "sign_up_page_confirm_password_hint": "Confirm Password",
-    "sign_up_page_confirm_password_error_empty": "Please confirm the password",
-    "sign_up_page_confirm_password_error_invalid": "The passwords should be identical",
+    "sign_up_page_password_error_empty": "Angiv adgangskode",
+    "sign_up_page_password_error_invalid": "Angiv en gyldig adgangskode (mindst 6 tegn)",
+    "sign_up_page_confirm_password_hint": "Bekræft adgangskode",
+    "sign_up_page_confirm_password_error_empty": "Bekræft adgangskoden",
+    "sign_up_page_confirm_password_error_invalid": "Adgangskoderne skal være identiske",
     "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
     "sign_up_page_agree_error_invalid": "You have to agree if you'd like to get an account. Note that you can still use the app and contribute anonymously.",
-    "sign_up_page_producer_checkbox": "I am a food producer",
-    "sign_up_page_producer_hint": "Producer/brand",
-    "sign_up_page_producer_error_empty": "Please enter a producer or a brand name",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (Note: You can unsubscribe from it at all time)",
+    "sign_up_page_producer_checkbox": "Jeg er fødevareproducent",
+    "sign_up_page_producer_hint": "Producent/mærke",
+    "sign_up_page_producer_error_empty": "Angiv en producent eller et mærkenavn",
+    "sign_up_page_subscribe_checkbox": "Abonnement ønskes på Open Food Facts-nyhedsbrev (hvilket til enhver tid kan afmeldes)",
     "@Settings": {},
     "settingsTitle": "Indstillinger",
     "@settingsTitle": {
@@ -133,6 +137,14 @@
     "darkmode": "Mørk tilstand",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
+    },
+    "darkmode_dark": "Mørkt",
+    "@darkmode_dark": {
+        "description": "Indicator inside the darkmode switch"
+    },
+    "darkmode_light": "Lyst",
+    "@darkmode_light": {
+        "description": "Indicator inside the darkmode switch"
     },
     "contributors": "Bidragsydere",
     "@contributors": {
@@ -215,7 +227,7 @@
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "category": "Filter by category",
+    "category": "Filtrér efter kategori",
     "@category": {
         "description": "From a product list, there's a category filter: this is its title"
     },
@@ -248,6 +260,7 @@
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
+    "image": "Billed",
     "front_photo": "Forsidefoto",
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
@@ -335,6 +348,14 @@
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
+    "product_removed": "Produkt fjernet",
+    "@product_removed": {
+        "description": "Product got removed from a list"
+    },
+    "product_could_not_remove": "Produkt kunne ikke fjernes",
+    "@product_could_not_remove": {
+        "description": "Could not remove product from a list"
+    },
     "@Lists": {},
     "no_prodcut_in_list": "Der er intet produkt på denne liste",
     "no_product_in_section": "Der er intet produkt i dette afsnit",
@@ -352,23 +373,23 @@
             "pct": {}
         }
     },
-    "product_compatibility_unknown": "Product Compatibility Unknown",
+    "product_compatibility_unknown": "Produktkompatibilitet ukendt",
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_incompatible": "Very poor Match",
+    "product_compatibility_incompatible": "Meget dårlig match",
     "@product_compatibility_incompatible": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_bad": "Poor Match",
+    "product_compatibility_bad": "Dårlig match",
     "@product_compatibility_bad": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_neutral": "Neutral Match",
+    "product_compatibility_neutral": "Neutral match",
     "@product_compatibility_neutral": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_good": "Great Match",
+    "product_compatibility_good": "Fremragende match",
     "@product_compatibility_good": {
         "description": "Product compatibility summary title"
     },

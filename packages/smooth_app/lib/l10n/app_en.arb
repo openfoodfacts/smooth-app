@@ -57,7 +57,6 @@
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
-
     "@user_management": {},
     "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
     "incorrect_credentials": "Incorrect user name or password.",
@@ -357,7 +356,6 @@
     "@product_could_not_remove": {
         "description": "Could not remove product from a list"
     },
-
     "@Lists": {},
     "no_prodcut_in_list": "There is no product in this list",
     "no_product_in_section": "There is no product in this section",
