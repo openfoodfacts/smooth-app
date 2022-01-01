@@ -64,6 +64,10 @@
     "@login": {
         "description": "Text field hint: unified name for either username or email address"
     },
+    "create_account": "יצירת חשבון",
+    "@create_account": {
+        "description": "Button label: Opens a page where a new user can register"
+    },
     "sign_in": "כניסה",
     "@sign_in": {
         "description": "Button label: For sign in"
@@ -116,11 +120,11 @@
     "sign_up_page_password_hint": "ססמה",
     "sign_up_page_password_error_empty": "נא למלא ססמה",
     "sign_up_page_password_error_invalid": "Please enter a valid password (at least 6 characters)",
-    "sign_up_page_confirm_password_hint": "Confirm Password",
+    "sign_up_page_confirm_password_hint": "אימות ססמה",
     "sign_up_page_confirm_password_error_empty": "Please confirm the password",
-    "sign_up_page_confirm_password_error_invalid": "The passwords should be identical",
+    "sign_up_page_confirm_password_error_invalid": "הססמאות צריכות להיות זהות",
     "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-    "sign_up_page_agree_error_invalid": "You have to agree if you'd like to get an account. Note that you can still use the app and contribute anonymously.",
+    "sign_up_page_agree_error_invalid": "עליך להסכים כדי לקבל חשבון. נא לשים לב שעדיין ניתן להשתמש ביישומון ולתרום באלמוניות.",
     "sign_up_page_producer_checkbox": "I am a food producer",
     "sign_up_page_producer_hint": "Producer/brand",
     "sign_up_page_producer_error_empty": "Please enter a producer or a brand name",
@@ -133,6 +137,14 @@
     "darkmode": "מצב כהה",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
+    },
+    "darkmode_dark": "כהה",
+    "@darkmode_dark": {
+        "description": "Indicator inside the darkmode switch"
+    },
+    "darkmode_light": "בהיר",
+    "@darkmode_light": {
+        "description": "Indicator inside the darkmode switch"
     },
     "contributors": "תורמים",
     "@contributors": {
@@ -215,7 +227,7 @@
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "category": "Filter by category",
+    "category": "סינון לפי קטגוריה",
     "@category": {
         "description": "From a product list, there's a category filter: this is its title"
     },
@@ -248,6 +260,7 @@
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
+    "image": "תמונה",
     "front_photo": "תמונת חזית",
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
@@ -335,6 +348,14 @@
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
+    "product_removed": "המוצר הוסר",
+    "@product_removed": {
+        "description": "Product got removed from a list"
+    },
+    "product_could_not_remove": "לא ניתן להסיר מוצר",
+    "@product_could_not_remove": {
+        "description": "Could not remove product from a list"
+    },
     "@Lists": {},
     "no_prodcut_in_list": "אין מוצרים ברשימה הזאת",
     "no_product_in_section": "אין מוצרים בסעיף זה",
@@ -352,23 +373,23 @@
             "pct": {}
         }
     },
-    "product_compatibility_unknown": "Product Compatibility Unknown",
+    "product_compatibility_unknown": "תאימות המוצר לא ידועה",
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_incompatible": "Very poor Match",
+    "product_compatibility_incompatible": "התאמה גרועה מאוד",
     "@product_compatibility_incompatible": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_bad": "Poor Match",
+    "product_compatibility_bad": "התאמה גרועה",
     "@product_compatibility_bad": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_neutral": "Neutral Match",
+    "product_compatibility_neutral": "התאמה נייטרלית",
     "@product_compatibility_neutral": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_good": "Great Match",
+    "product_compatibility_good": "התאמה מעולה",
     "@product_compatibility_good": {
         "description": "Product compatibility summary title"
     },
