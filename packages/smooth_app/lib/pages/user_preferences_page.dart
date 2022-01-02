@@ -86,7 +86,7 @@ class UserPreferencesPage extends StatelessWidget {
             onPressed: () => Navigator.push<Widget>(
               context,
               MaterialPageRoute<Widget>(
-                builder: (BuildContext context) => const ProfilePage(),
+                builder: (BuildContext context) => const SettingsPage(),
               ),
             ),
           ),

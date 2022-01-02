@@ -63,14 +63,11 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
           imageUri: croppedImageFile.uri,
         );
 
-        // a registered user login for https://world.openfoodfacts.org/ is required
-        //ToDo: Add user
-        const User myUser =
-            User(userId: 'smoothie-app', password: 'strawberrybanana');
-
         // query the OpenFoodFacts API
-        final Status result =
-            await OpenFoodAPIClient.addProductImage(myUser, image);
+        final Status result = await OpenFoodAPIClient.addProductImage(
+          ProductQuery.getUser(),
+          image,
+        );
 
         if (result.status != 'status ok') {
           throw Exception(
