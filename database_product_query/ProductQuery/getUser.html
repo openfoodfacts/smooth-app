@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the SMOOTH_USER constant from the ProductQuery class, for the Dart programming language.">
-  <title>SMOOTH_USER constant - ProductQuery class - product_query library - Dart API</title>
+  <meta name="description" content="API docs for the getUser method from the ProductQuery class, for the Dart programming language.">
+  <title>getUser method - ProductQuery class - product_query library - Dart API</title>
 
 
   
@@ -32,9 +32,9 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../database_product_query/database_product_query-library.html">product_query</a></li>
     <li><a href="../../database_product_query/ProductQuery-class.html">ProductQuery</a></li>
-    <li class="self-crumb">SMOOTH_USER constant</li>
+    <li class="self-crumb">getUser method</li>
   </ol>
-  <div class="self-name">SMOOTH_USER</div>
+  <div class="self-name">getUser</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,28 +45,32 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-property">SMOOTH_USER</span> constant 
+<h1><span class="kind-method">getUser</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
-        <section class="multi-line-signature">
-          <a href="https://pub.dev/documentation/openfoodfacts/1.8.1/model_User/User-class.html">User</a>
-          const <span class="name ">SMOOTH_USER</span>
-          
+    <section class="multi-line-signature">
+      
 
-        </section>
-        
+<span class="returntype"><a href="https://pub.dev/documentation/openfoodfacts/1.8.1/model_User/User-class.html">User</a></span>
+<span class="name ">getUser</span>(<wbr>)
 
-        
+      
+
+    </section>
+    
+
+
+    
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static const User SMOOTH_USER = User(
-  userId: &#39;project-smoothie&#39;,
-  password: &#39;smoothie&#39;,
-  comment: &#39;Test user for project smoothie&#39;,
-);
-
-</code></pre>
+  <pre class="language-dart"><code class="language-dart">static User getUser() =&gt;
+    OpenFoodAPIConfiguration.globalUser ??
+    const User(
+      userId: &#39;smoothie-app&#39;,
+      password: &#39;strawberrybanana&#39;,
+      comment: &#39;Test user for project smoothie&#39;,
+    );</code></pre>
 </section>
 
 
@@ -83,7 +87,7 @@
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../database_product_query/database_product_query-library.html">product_query</a></li>
   <li><a href="../../database_product_query/ProductQuery-class.html">ProductQuery</a></li>
-  <li class="self-crumb">SMOOTH_USER constant</li>
+  <li class="self-crumb">getUser method</li>
 </ol>
 
 
@@ -116,11 +120,10 @@
     <li class="section-title"><a href="../../database_product_query/ProductQuery-class.html#static-methods">Static methods</a></li>
     <li><a href="../../database_product_query/ProductQuery/getCountry.html">getCountry</a></li>
     <li><a href="../../database_product_query/ProductQuery/getLanguage.html">getLanguage</a></li>
+    <li><a href="../../database_product_query/ProductQuery/getUser.html">getUser</a></li>
     <li><a href="../../database_product_query/ProductQuery/setCountry.html">setCountry</a></li>
     <li><a href="../../database_product_query/ProductQuery/setLanguage.html">setLanguage</a></li>
 
-    <li class="section-title"><a href="../../database_product_query/ProductQuery-class.html#constants">Constants</a></li>
-    <li><a href="../../database_product_query/ProductQuery/SMOOTH_USER-constant.html">SMOOTH_USER</a></li>
 </ol>
 
   </div><!--/.sidebar-offcanvas-->
