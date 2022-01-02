@@ -65,7 +65,7 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
 
         // query the OpenFoodFacts API
         final Status result = await OpenFoodAPIClient.addProductImage(
-          ProductQuery.user,
+          ProductQuery.getUser(),
           image,
         );
 

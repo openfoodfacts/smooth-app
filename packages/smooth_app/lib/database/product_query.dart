@@ -31,7 +31,7 @@ abstract class ProductQuery {
   static void setCountry(final String? isoCode) =>
       OpenFoodAPIConfiguration.globalCountry = CountryHelper.fromJson(isoCode);
 
-  static User get user =>
+  static User getUser() =>
       OpenFoodAPIConfiguration.globalUser ??
       const User(
         userId: 'smoothie-app',
