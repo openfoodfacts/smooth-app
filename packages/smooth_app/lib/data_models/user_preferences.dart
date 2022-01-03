@@ -23,6 +23,7 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_LAST_VISITED_ONBOARDING_PAGE =
       'lastVisitedOnboardingPage';
   static const String _TAG_PREFIX_FLAG = 'FLAG_PREFIX_';
+  static const String _TAG_DEV_MODE = 'devMode';
 
   Future<void> init(final ProductPreferences productPreferences) async {
     if (_sharedPreferences.getBool(_TAG_INIT) != null) {
@@ -91,4 +92,9 @@ class UserPreferences extends ChangeNotifier {
 
   bool? getFlag(final String key) =>
       _sharedPreferences.getBool(_getFlagTag(key));
+
+  set devMode(final int value) =>
+      _sharedPreferences.setInt(_TAG_DEV_MODE, value);
+
+  int get devMode => _sharedPreferences.getInt(_TAG_DEV_MODE) ?? 0;
 }
