@@ -26,7 +26,7 @@
     "@error": {},
     "error_occurred": "Ein Fehler ist aufgetreten",
     "@error_occurred": {},
-    "featureInProgress": "Wir arbeiten noch an dieser Funktion, bitte gedulden Sie sich",
+    "featureInProgress": "Wir arbeiten noch an dieser Funktion, bitte gedulden Sie sich.",
     "@featureInProgress": {},
     "label_web": "Im Web anzeigen",
     "@label_web": {},
@@ -91,7 +91,7 @@
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset email request"
     },
-    "enter_some_text": "Bitte geben Sie Ihren Text ein",
+    "enter_some_text": "Bitte geben Sie etwas ein",
     "@enter_some_text": {
         "description": "Error when text field is empty"
     },
@@ -107,7 +107,7 @@
     "@sign_up_page_action_doing_it": {
         "description": "Dialog during the actual signing up process"
     },
-    "sign_up_page_action_ok": "Herzlichen Glückwunsch! Ihr Benutzerkonto wurde erstellt.",
+    "sign_up_page_action_ok": "Herzlichen Glückwunsch! Ihr Konto wurde erstellt.",
     "sign_up_page_display_name_hint": "Anzeigename",
     "sign_up_page_display_name_error_empty": "Bitte geben Sie den zu verwendenden Anzeigenamen ein",
     "sign_up_page_email_hint": "E-Mail-Adresse",
@@ -202,6 +202,12 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
+    "myPreferences_profile_title": "Your Profile",
+    "myPreferences_profile_subtitle": "Set app settings and find out advices.",
+    "myPreferences_settings_title": "App Settings",
+    "myPreferences_settings_subtitle": "Dark mode, country, color, ...",
+    "myPreferences_food_title": "Food Preferences",
+    "myPreferences_food_subtitle": "Choose what information about food matters most to you.",
     "confirmResetPreferences": "Eigene Voreinstellungen zurücksetzen?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -309,7 +315,7 @@
         "description": "Confirmation, that the product data got canceled by the user"
     },
     "product_internet_error": "Informationen über dieses Produkt können aufgrund eines Netzwerkfehlers nicht abgerufen werden.",
-    "cached_results_from": "Zwischengespeicherte Ergebnisse von:",
+    "cached_results_from": "Gespeicherte Ergebnisse von vor:",
     "@cached_results_from": {
         "description": "Cached results from: x time ago (time ago should not be added to the string)"
     },
