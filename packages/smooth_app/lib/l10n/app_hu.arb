@@ -49,22 +49,22 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "whatIsOff": "Az Open Food Facts egy globális nonprofit szervezet, amelyet helyi közösségek működtetnek.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Choose foods that are good for you and the planet.",
+    "offUtility": "Válassz olyan ételeket, amelyek jók számodra és a bolygónak is.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
     "@user_management": {},
-    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
-    "incorrect_credentials": "Incorrect user name or password.",
+    "sign_in_text": "Jelentkezz be az Open Food Facts-fiókodba a hozzájárulások mentéséhez",
+    "incorrect_credentials": "Hibás felhasználónév vagy jelszó!",
     "login": "Felhasználói név",
     "@login": {
         "description": "Text field hint: unified name for either username or email address"
     },
-    "create_account": "Create account",
+    "create_account": "Fiók létrehozása",
     "@create_account": {
         "description": "Button label: Opens a page where a new user can register"
     },
@@ -73,7 +73,7 @@
         "description": "Button label: For sign in"
     },
     "password": "Jelszó",
-    "forgot_password": "Forgot password",
+    "forgot_password": "Elfelejtett jelszó",
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset email can be requested"
     },
@@ -202,6 +202,12 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
+    "myPreferences_profile_title": "Your Profile",
+    "myPreferences_profile_subtitle": "Set app settings and find out advices.",
+    "myPreferences_settings_title": "App Settings",
+    "myPreferences_settings_subtitle": "Dark mode, country, color, ...",
+    "myPreferences_food_title": "Food Preferences",
+    "myPreferences_food_subtitle": "Choose what information about food matters most to you.",
     "confirmResetPreferences": "Visszaállítja a beállításokat?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -244,7 +250,7 @@
     "@scan": {
         "description": "Page title: List type: Scanned products"
     },
-    "search": "Keres",
+    "search": "Keresés",
     "@search": {
         "description": "Hint text of a search text input field"
     },
