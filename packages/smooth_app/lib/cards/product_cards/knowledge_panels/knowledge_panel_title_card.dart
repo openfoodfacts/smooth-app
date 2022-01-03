@@ -51,19 +51,13 @@ class KnowledgePanelTitleCard extends StatelessWidget {
                       width: constraints.maxWidth,
                       child: Text(
                         knowledgePanelTitleElement.title,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
                         style: TextStyle(color: colorFromEvaluation),
                       ),
                     ),
                     if (knowledgePanelTitleElement.subtitle != null)
                       SizedBox(
                         width: constraints.maxWidth,
-                        child: Text(
-                          knowledgePanelTitleElement.subtitle!,
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                        ),
+                        child: Text(knowledgePanelTitleElement.subtitle!),
                       ),
                   ],
                 );
