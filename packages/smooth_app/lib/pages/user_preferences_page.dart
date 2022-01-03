@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/pages/abstract_user_preferences.dart';
-import 'package:smooth_app/pages/user_preferences_attribute_group.dart';
+import 'package:smooth_app/pages/user_preferences_food.dart';
 import 'package:smooth_app/pages/user_preferences_profile.dart';
 import 'package:smooth_app/pages/user_preferences_settings.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -29,24 +29,33 @@ class _UserPreferencesPageState extends State<UserPreferencesPage> {
         context.watch<ProductPreferences>();
 
     final List<AbstractUserPreferences> items = <AbstractUserPreferences>[
-      UserPreferencesSettings(setState),
-      UserPreferencesAttributeGroup(
-        setState,
-        productPreferences,
+      UserPreferencesProfile(
+        setState: setState,
+        context: context,
+        userPreferences: userPreferences,
+        appLocalizations: appLocalizations,
+        themeData: themeData,
       ),
-      UserPreferencesProfile(setState),
+      UserPreferencesFood(
+        productPreferences: productPreferences,
+        setState: setState,
+        context: context,
+        userPreferences: userPreferences,
+        appLocalizations: appLocalizations,
+        themeData: themeData,
+      ),
+      UserPreferencesSettings(
+        themeProvider: themeProvider,
+        setState: setState,
+        context: context,
+        userPreferences: userPreferences,
+        appLocalizations: appLocalizations,
+        themeData: themeData,
+      ),
     ];
     final List<Widget> children = <Widget>[];
     for (final AbstractUserPreferences abstractUserPreferences in items) {
-      children.addAll(
-        abstractUserPreferences.getContent(
-          context,
-          userPreferences,
-          themeProvider,
-          appLocalizations,
-          themeData,
-        ),
-      );
+      children.addAll(abstractUserPreferences.getContent());
     }
     return Scaffold(
       appBar: AppBar(title: Text(appLocalizations.myPreferences)),

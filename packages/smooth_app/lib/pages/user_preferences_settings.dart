@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/abstract_user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -14,8 +15,22 @@ import 'package:smooth_ui_library/widgets/smooth_toggle.dart';
 
 /// Collapsed/expanded display of settings for the preferences page.
 class UserPreferencesSettings extends AbstractUserPreferences {
-  UserPreferencesSettings(final Function(Function()) setState)
-      : super(setState);
+  UserPreferencesSettings({
+    required final Function(Function()) setState,
+    required final BuildContext context,
+    required final UserPreferences userPreferences,
+    required final AppLocalizations appLocalizations,
+    required final ThemeData themeData,
+    required this.themeProvider,
+  }) : super(
+          setState: setState,
+          context: context,
+          userPreferences: userPreferences,
+          appLocalizations: appLocalizations,
+          themeData: themeData,
+        );
+
+  final ThemeProvider themeProvider;
 
   static const List<String> _ORDERED_COLOR_TAGS = <String>[
     SmoothTheme.COLOR_TAG_BLUE,
@@ -30,19 +45,17 @@ class UserPreferencesSettings extends AbstractUserPreferences {
   String getPreferenceFlagKey() => 'settings';
 
   @override
-  String getTitle() => 'App Settings';
+  Widget getTitle() => Text(
+        appLocalizations.myPreferences_settings_title,
+        style: themeData.textTheme.headline2,
+      );
 
   @override
-  String getSubtitle() => 'Dark mode, country, color, ...';
+  Widget? getSubtitle() =>
+      Text(appLocalizations.myPreferences_settings_subtitle);
 
   @override
-  List<Widget> getBody(
-    final BuildContext context,
-    final AppLocalizations appLocalizations,
-    final ThemeProvider themeProvider,
-    final ThemeData themeData,
-  ) =>
-      <Widget>[
+  List<Widget> getBody() => <Widget>[
         SmoothListTile(
           text: appLocalizations.darkmode,
           onPressed: null,
