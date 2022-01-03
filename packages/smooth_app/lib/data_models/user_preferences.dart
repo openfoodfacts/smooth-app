@@ -22,6 +22,7 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_USER_COUNTRY_CODE = 'userCountry';
   static const String _TAG_LAST_VISITED_ONBOARDING_PAGE =
       'lastVisitedOnboardingPage';
+  static const String _TAG_PREFIX_FLAG = 'FLAG_PREFIX_';
 
   Future<void> init(final ProductPreferences productPreferences) async {
     if (_sharedPreferences.getBool(_TAG_INIT) != null) {
@@ -77,4 +78,17 @@ class UserPreferences extends ChangeNotifier {
         ? OnboardingPage.NOT_STARTED
         : OnboardingPage.values[pageIndex];
   }
+
+  String _getFlagTag(final String key) => _TAG_PREFIX_FLAG + key;
+
+  Future<void> setFlag(
+    final String key,
+    final bool? value,
+  ) async =>
+      value == null
+          ? await _sharedPreferences.remove(_getFlagTag(key))
+          : await _sharedPreferences.setBool(_getFlagTag(key), value);
+
+  bool? getFlag(final String key) =>
+      _sharedPreferences.getBool(_getFlagTag(key));
 }
