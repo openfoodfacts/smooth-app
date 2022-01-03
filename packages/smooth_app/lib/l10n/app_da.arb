@@ -111,7 +111,7 @@
     "sign_up_page_display_name_hint": "Visningsnavn",
     "sign_up_page_display_name_error_empty": "Angiv det navn, der ønskes vist",
     "sign_up_page_email_hint": "E-mail",
-    "sign_up_page_email_error_empty": "Angiv e-mail",
+    "sign_up_page_email_error_empty": "E-mail er obligatorisk",
     "sign_up_page_email_error_invalid": "Angiv en gyldig e-mailadresse",
     "sign_up_page_username_hint": "Brugernavn",
     "sign_up_page_username_error_empty": "Indtast et brugernavn",
@@ -202,6 +202,12 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
+    "myPreferences_profile_title": "Your Profile",
+    "myPreferences_profile_subtitle": "Set app settings and find out advices.",
+    "myPreferences_settings_title": "App Settings",
+    "myPreferences_settings_subtitle": "Dark mode, country, color, ...",
+    "myPreferences_food_title": "Food Preferences",
+    "myPreferences_food_subtitle": "Choose what information about food matters most to you.",
     "confirmResetPreferences": "Nulstil præferencerne?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"

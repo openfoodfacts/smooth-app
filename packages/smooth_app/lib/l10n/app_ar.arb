@@ -32,7 +32,7 @@
     "@label_web": {},
     "learnMore": "لمعرفة المزيد",
     "@learnMore": {},
-    "incompatible": "Incompatible",
+    "incompatible": "قائمة غير متوافقة",
     "@incompatible": {
         "description": "Short label for product list view: the product is incompatible with your preferences"
     },
@@ -49,17 +49,17 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "whatIsOff": "Open Food Facts هي منظمة عالمية غير ربحية تدعمها المجتمعات المحلية.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Choose foods that are good for you and the planet.",
+    "offUtility": "اختر الأطعمة المفيدة لك وللكوكب.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
     "@user_management": {},
-    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
-    "incorrect_credentials": "Incorrect user name or password.",
+    "sign_in_text": "ادخل حسابك على Open Food Facts لحفظ مساهماتك.",
+    "incorrect_credentials": "خطأ في اسم المستخدم أو كلمة المرور.",
     "login": "اسم المستخدم",
     "@login": {
         "description": "Text field hint: unified name for either username or email address"
@@ -73,7 +73,7 @@
         "description": "Button label: For sign in"
     },
     "password": "كلمة المرور",
-    "forgot_password": "Forgot password",
+    "forgot_password": "نسيت كلمة المرور",
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset email can be requested"
     },
@@ -81,54 +81,54 @@
     "@reset_password": {
         "description": "Forgot password page title"
     },
-    "reset_password_explanation_text": "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password. Please also check your spam folder.",
-    "username_or_email": "Username or e-mail address",
+    "reset_password_explanation_text": "إذا نسيت كلمة المرور الخاصة بك، دون اسمك أو عنوان البريد الإلكتروني لتلقي تعليمات إعادة تعيين كلمة المرور الخاصة بك. يرجى التحقق من مجلد البريد العشوائي.",
+    "username_or_email": "اسم المستخد أو عنوان البريد الإلكتروني",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
-    "reset_password_done": "An email with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
-    "send_reset_password_mail": "Change password",
+    "reset_password_done": "تم إرسال بريد إلكنروني به رابط لإعادة تعيين كلمة المرور الخاصة بك إلى البريد الإلكتروني المرتبط بحسابك. تحقق أيضا من البريد العشوائي",
+    "send_reset_password_mail": "تغيير كلمة المرور",
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset email request"
     },
-    "enter_some_text": "Please enter some text",
+    "enter_some_text": "برجاء إدخال نص",
     "@enter_some_text": {
         "description": "Error when text field is empty"
     },
-    "sign_up_page_title": "Sign Up",
+    "sign_up_page_title": "تسجيل",
     "@sign_up_page_title": {
         "description": "On top of the Sign Up page"
     },
-    "sign_up_page_action_button": "Sign Up",
+    "sign_up_page_action_button": "تسجيل",
     "@sign_up_page_action_button": {
         "description": "Bottom action button"
     },
-    "sign_up_page_action_doing_it": "Signing up...",
+    "sign_up_page_action_doing_it": "تسجيل الدخول...",
     "@sign_up_page_action_doing_it": {
         "description": "Dialog during the actual signing up process"
     },
-    "sign_up_page_action_ok": "Congratulations! Your account has just been created.",
-    "sign_up_page_display_name_hint": "Display Name",
-    "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
-    "sign_up_page_email_hint": "E-mail",
-    "sign_up_page_email_error_empty": "Please enter the e-mail",
-    "sign_up_page_email_error_invalid": "Please enter a valid email",
+    "sign_up_page_action_ok": "تهانينا! تم إنشاء حسابك للتو.",
+    "sign_up_page_display_name_hint": "اسم العرض",
+    "sign_up_page_display_name_error_empty": "يرجاء إدخال الإسم العرض الذي تود استخدامه",
+    "sign_up_page_email_hint": "البريد الإلكتروني",
+    "sign_up_page_email_error_empty": "برجاء إدخال البريد الإلكتروني الخاص بك",
+    "sign_up_page_email_error_invalid": "برجاء إدخال بريدا إلكترونيا صحيحا",
     "sign_up_page_username_hint": "اسم المستخدم",
-    "sign_up_page_username_error_empty": "Please enter a username",
-    "sign_up_page_username_error_invalid": "Please enter a valid username",
-    "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters",
+    "sign_up_page_username_error_empty": "برجاء إدخال اسم المستخدم",
+    "sign_up_page_username_error_invalid": "برجاء إدخال اسم مستخدم صحيح",
+    "sign_up_page_username_description": "لا يمكن أن يحتوي اسم المستخدم على مسافات، أو أحرف استهلالية، أو رموزا خاصة",
     "sign_up_page_password_hint": "كلمة المرور",
-    "sign_up_page_password_error_empty": "Please enter a password",
-    "sign_up_page_password_error_invalid": "Please enter a valid password (at least 6 characters)",
-    "sign_up_page_confirm_password_hint": "Confirm Password",
-    "sign_up_page_confirm_password_error_empty": "Please confirm the password",
-    "sign_up_page_confirm_password_error_invalid": "The passwords should be identical",
-    "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-    "sign_up_page_agree_error_invalid": "You have to agree if you'd like to get an account. Note that you can still use the app and contribute anonymously.",
-    "sign_up_page_producer_checkbox": "I am a food producer",
-    "sign_up_page_producer_hint": "Producer/brand",
-    "sign_up_page_producer_error_empty": "Please enter a producer or a brand name",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (Note: You can unsubscribe from it at all time)",
+    "sign_up_page_password_error_empty": "برجاء إخال كلمة مرور",
+    "sign_up_page_password_error_invalid": "برجاء إدخال كلمة مرور (6 أحرف على الأقل)",
+    "sign_up_page_confirm_password_hint": "تأكيد كلمة المرور",
+    "sign_up_page_confirm_password_error_empty": "برجاء تأكيد كلمة المرور",
+    "sign_up_page_confirm_password_error_invalid": "يجب أن تتطابق كلمتي المرور",
+    "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use\n",
+    "sign_up_page_agree_error_invalid": "يجب أن توافق على شروط الإستخدام إذا ما أردت الحصول على حساب، نذكر أنه ما يزال بإمكانك استخدام التطبيق والمساهمة دون الإفصاح عن هويتك.",
+    "sign_up_page_producer_checkbox": "أنا منتج للغذاء",
+    "sign_up_page_producer_hint": "المنتِج / العلامة التجارية",
+    "sign_up_page_producer_error_empty": "برجاء إدخال اسم منتِج أو اسم علامة تجارية",
+    "sign_up_page_subscribe_checkbox": "أود الإشتراك في النشرة الإخبارية لـ Open Food Facts (ملاحظة: يمكنك إلغاء الإشتراك في أي وقت)",
     "@Settings": {},
     "settingsTitle": "الإعدادات",
     "@settingsTitle": {
@@ -138,11 +138,11 @@
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
-    "darkmode_dark": "Dark",
+    "darkmode_dark": "وضع ليلي",
     "@darkmode_dark": {
         "description": "Indicator inside the darkmode switch"
     },
-    "darkmode_light": "Light",
+    "darkmode_light": "وضع نهاري",
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch"
     },
@@ -156,7 +156,7 @@
     },
     "termsOfUse": "شروط الاستخدام",
     "@termsOfUse": {},
-    "about_this_app": "About this app",
+    "about_this_app": "حول هذا التطبيق",
     "@about_this_app": {
         "description": "Button label: Opens a popo up window which shows informations about this app"
     },
@@ -165,7 +165,7 @@
     "@contribute": {
         "description": "Button label: Shows multiple ways how users can contribute to OFF"
     },
-    "contribute_sw_development": "Software development",
+    "contribute_sw_development": "تطوير البرمجيات",
     "@contribute_sw_development": {
         "description": "Button label + page title: Ways to help"
     },
@@ -202,6 +202,12 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
+    "myPreferences_profile_title": "Your Profile",
+    "myPreferences_profile_subtitle": "Set app settings and find out advices.",
+    "myPreferences_settings_title": "App Settings",
+    "myPreferences_settings_subtitle": "Dark mode, country, color, ...",
+    "myPreferences_food_title": "Food Preferences",
+    "myPreferences_food_subtitle": "Choose what information about food matters most to you.",
     "confirmResetPreferences": "إعادة تعيين تفضيلات التطبيق؟",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -215,19 +221,19 @@
         "description": "Snackbar title: Shows that the modified settings have been applied"
     },
     "@other": {},
-    "profile_navbar_label": "Profile",
+    "profile_navbar_label": "الملف الشخصي",
     "@profile_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "scan_navbar_label": "Profile",
+    "scan_navbar_label": "الملف الشخصي",
     "@scan_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "history_navbar_label": "Profile",
+    "history_navbar_label": "الملف الشخصي",
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "category": "Filter by category",
+    "category": "فرز حسب الفئة",
     "@category": {
         "description": "From a product list, there's a category filter: this is its title"
     },
@@ -248,7 +254,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Tap to see more info...",
+    "tab_for_more": "انقر لعرض المزيد من المعلومات...",
     "@Product": {},
     "product": "نتاج",
     "@product": {},
@@ -256,11 +262,11 @@
     "@unknownBrand": {},
     "unknownProductName": "إسم منتج غير معروف",
     "@unknownProductName": {},
-    "label_refresh": "Refresh",
+    "label_refresh": "تحديث",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
-    "image": "Image",
+    "image": "الصورة",
     "front_photo": "الصورة الأمامية",
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
@@ -304,11 +310,11 @@
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
     },
-    "product_internet_cancel": "Canceled by user.",
+    "product_internet_cancel": "ألغي من قبل المستخدم.",
     "@product_internet_cancel": {
         "description": "Confirmation, that the product data got canceled by the user"
     },
-    "product_internet_error": "Impossible to fetch information about this product due to a network error.",
+    "product_internet_error": "يتعذر جلب معلمومات حول هذا المنتج بسبب خطأ في الشبكة.",
     "cached_results_from": "Cached results from:",
     "@cached_results_from": {
         "description": "Cached results from: x time ago (time ago should not be added to the string)"
