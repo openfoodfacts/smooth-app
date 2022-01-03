@@ -31,11 +31,13 @@ abstract class ProductQuery {
   static void setCountry(final String? isoCode) =>
       OpenFoodAPIConfiguration.globalCountry = CountryHelper.fromJson(isoCode);
 
-  static const User SMOOTH_USER = User(
-    userId: 'project-smoothie',
-    password: 'smoothie',
-    comment: 'Test user for project smoothie',
-  );
+  static User getUser() =>
+      OpenFoodAPIConfiguration.globalUser ??
+      const User(
+        userId: 'smoothie-app',
+        password: 'strawberrybanana',
+        comment: 'Test user for project smoothie',
+      );
 
   static List<ProductField> get fields => <ProductField>[
         ProductField.NAME,
