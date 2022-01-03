@@ -229,10 +229,13 @@ class _ProductPageState extends State<ProductPage> {
             );
           }
           return Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: widgetsWrappedInSmoothCards,
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: SMALL_SPACE),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: widgetsWrappedInSmoothCards,
+              ),
             ),
           );
         });
