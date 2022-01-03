@@ -119,16 +119,16 @@
     "sign_up_page_username_description": "שם המשתמש לא יכול להכיל רווחים, רישיות או תווים מיוחדים",
     "sign_up_page_password_hint": "ססמה",
     "sign_up_page_password_error_empty": "נא למלא ססמה",
-    "sign_up_page_password_error_invalid": "Please enter a valid password (at least 6 characters)",
+    "sign_up_page_password_error_invalid": "נא למלא ססמה תקפה (6 תווים לפחות)",
     "sign_up_page_confirm_password_hint": "אימות ססמה",
-    "sign_up_page_confirm_password_error_empty": "Please confirm the password",
+    "sign_up_page_confirm_password_error_empty": "נא לאשר את הססמה",
     "sign_up_page_confirm_password_error_invalid": "הססמאות צריכות להיות זהות",
     "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
     "sign_up_page_agree_error_invalid": "עליך להסכים כדי לקבל חשבון. נא לשים לב שעדיין ניתן להשתמש ביישומון ולתרום באלמוניות.",
-    "sign_up_page_producer_checkbox": "I am a food producer",
-    "sign_up_page_producer_hint": "Producer/brand",
-    "sign_up_page_producer_error_empty": "Please enter a producer or a brand name",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (Note: You can unsubscribe from it at all time)",
+    "sign_up_page_producer_checkbox": "עיסוקי הוא ייצור מזון",
+    "sign_up_page_producer_hint": "יצרן/מותג",
+    "sign_up_page_producer_error_empty": "נא למלא יצרן או שם מותג",
+    "sign_up_page_subscribe_checkbox": "אשמח להירשם לקבוצת הדיוור של Open Food Facts (לידיעתך: ניתן לצאת ממנה בכל רגע נתון)",
     "@Settings": {},
     "settingsTitle": "הגדרות",
     "@settingsTitle": {
@@ -202,6 +202,12 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
+    "myPreferences_profile_title": "Your Profile",
+    "myPreferences_profile_subtitle": "Set app settings and find out advices.",
+    "myPreferences_settings_title": "App Settings",
+    "myPreferences_settings_subtitle": "Dark mode, country, color, ...",
+    "myPreferences_food_title": "Food Preferences",
+    "myPreferences_food_subtitle": "Choose what information about food matters most to you.",
     "confirmResetPreferences": "לאפס את ההעדפות שלך?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
