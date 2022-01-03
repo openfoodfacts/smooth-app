@@ -49,11 +49,11 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Benvenuti in Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "whatIsOff": "Open Food Facts è una no-profit globale sviluppata dalle comunità locali.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Choose foods that are good for you and the planet.",
+    "offUtility": "Scegli gli alimenti che fanno bene a te e il pianeta.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
@@ -64,7 +64,7 @@
     "@login": {
         "description": "Text field hint: unified name for either username or email address"
     },
-    "create_account": "Create account",
+    "create_account": "Crea il profilo",
     "@create_account": {
         "description": "Button label: Opens a page where a new user can register"
     },
@@ -81,13 +81,13 @@
     "@reset_password": {
         "description": "Forgot password page title"
     },
-    "reset_password_explanation_text": "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password. Please also check your spam folder.",
-    "username_or_email": "Username or e-mail address",
+    "reset_password_explanation_text": "Se hai dimenticato la tua password, compila il tuo nome utente o indirizzo email per ricevere istruzioni per ripristinare la tua password. Sei anche pregato di controllare la tua cartella dello spam.",
+    "username_or_email": "Nome utente o indirizzo email",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
-    "reset_password_done": "An email with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
-    "send_reset_password_mail": "Change password",
+    "reset_password_done": "Un email con un link per ripristinare la tua password è stato inviato all'indirizzo email associato al tuo profilo. Controlla anche il tuo spam",
+    "send_reset_password_mail": "Modifica la password",
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset email request"
     },
@@ -95,40 +95,40 @@
     "@enter_some_text": {
         "description": "Error when text field is empty"
     },
-    "sign_up_page_title": "Sign Up",
+    "sign_up_page_title": "Registrati",
     "@sign_up_page_title": {
         "description": "On top of the Sign Up page"
     },
-    "sign_up_page_action_button": "Sign Up",
+    "sign_up_page_action_button": "Registrati",
     "@sign_up_page_action_button": {
         "description": "Bottom action button"
     },
-    "sign_up_page_action_doing_it": "Signing up...",
+    "sign_up_page_action_doing_it": "Registrazione in corso...",
     "@sign_up_page_action_doing_it": {
         "description": "Dialog during the actual signing up process"
     },
-    "sign_up_page_action_ok": "Congratulations! Your account has just been created.",
-    "sign_up_page_display_name_hint": "Display Name",
-    "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
-    "sign_up_page_email_hint": "E-mail",
-    "sign_up_page_email_error_empty": "Please enter the e-mail",
-    "sign_up_page_email_error_invalid": "Please enter a valid email",
+    "sign_up_page_action_ok": "Congratulazioni! Il tuo profilo è appena stato creato.",
+    "sign_up_page_display_name_hint": "Nome Visualizzato",
+    "sign_up_page_display_name_error_empty": "Sei pregato di inserire il nome visualizzato che desideri usare",
+    "sign_up_page_email_hint": "Email",
+    "sign_up_page_email_error_empty": "Sei pregato di inserire l'email",
+    "sign_up_page_email_error_invalid": "Sei pregato di inserire un'email valida",
     "sign_up_page_username_hint": "Nome utente",
-    "sign_up_page_username_error_empty": "Please enter a username",
-    "sign_up_page_username_error_invalid": "Please enter a valid username",
-    "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters",
+    "sign_up_page_username_error_empty": "Sei pregato di inserire un nome utente",
+    "sign_up_page_username_error_invalid": "Sei pregato di inserire un nome utente valido",
+    "sign_up_page_username_description": "Il nome utente non può contenere spazi, maiuscole o caratteri speciali",
     "sign_up_page_password_hint": "Password",
-    "sign_up_page_password_error_empty": "Please enter a password",
-    "sign_up_page_password_error_invalid": "Please enter a valid password (at least 6 characters)",
-    "sign_up_page_confirm_password_hint": "Confirm Password",
-    "sign_up_page_confirm_password_error_empty": "Please confirm the password",
-    "sign_up_page_confirm_password_error_invalid": "The passwords should be identical",
+    "sign_up_page_password_error_empty": "Sei pregato di inserire una password",
+    "sign_up_page_password_error_invalid": "Sei pregato di inserire una password valida (almeno 6 caratteri)",
+    "sign_up_page_confirm_password_hint": "Conferma la Password",
+    "sign_up_page_confirm_password_error_empty": "Sei pregato di confermare la password",
+    "sign_up_page_confirm_password_error_invalid": "Le password dovrebbero essere identiche",
     "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-    "sign_up_page_agree_error_invalid": "You have to agree if you'd like to get an account. Note that you can still use the app and contribute anonymously.",
-    "sign_up_page_producer_checkbox": "I am a food producer",
-    "sign_up_page_producer_hint": "Producer/brand",
-    "sign_up_page_producer_error_empty": "Please enter a producer or a brand name",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (Note: You can unsubscribe from it at all time)",
+    "sign_up_page_agree_error_invalid": "Devi acconsentire se vorresti ottenere un profilo. Nota che puoi comunque usare l'app e contribuire anonimamente.",
+    "sign_up_page_producer_checkbox": "Sono un produttore alimentare",
+    "sign_up_page_producer_hint": "Produttore/Marchio",
+    "sign_up_page_producer_error_empty": "Sei pregato di inserire il nome di un produttore o marchio",
+    "sign_up_page_subscribe_checkbox": "Vorrei iscrivermi alla newsletter di Open Food Facts (Nota: Puoi disiscriverti in qualsiasi momento)",
     "@Settings": {},
     "settingsTitle": "Impostazioni",
     "@settingsTitle": {
@@ -138,11 +138,11 @@
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
-    "darkmode_dark": "Dark",
+    "darkmode_dark": "Scuro",
     "@darkmode_dark": {
         "description": "Indicator inside the darkmode switch"
     },
-    "darkmode_light": "Light",
+    "darkmode_light": "Chiaro",
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch"
     },
@@ -202,12 +202,12 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
-    "myPreferences_profile_title": "Your Profile",
-    "myPreferences_profile_subtitle": "Set app settings and find out advices.",
-    "myPreferences_settings_title": "App Settings",
-    "myPreferences_settings_subtitle": "Dark mode, country, color, ...",
-    "myPreferences_food_title": "Food Preferences",
-    "myPreferences_food_subtitle": "Choose what information about food matters most to you.",
+    "myPreferences_profile_title": "Il Tuo Profilo",
+    "myPreferences_profile_subtitle": "Configura le impostazioni dell'app e scopri dei consigli.",
+    "myPreferences_settings_title": "Impostazioni dell'App",
+    "myPreferences_settings_subtitle": "Modalità scura, paese, colore...",
+    "myPreferences_food_title": "Preferenze Alimentari",
+    "myPreferences_food_subtitle": "Scegli quali informazioni alimentari sono più importanti per te.",
     "confirmResetPreferences": "Ripristinare le tue preferenze?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -233,7 +233,7 @@
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "category": "Filter by category",
+    "category": "Filtra per categoria",
     "@category": {
         "description": "From a product list, there's a category filter: this is its title"
     },
@@ -262,11 +262,11 @@
     "@unknownBrand": {},
     "unknownProductName": "Nome del prodotto sconosciuto",
     "@unknownProductName": {},
-    "label_refresh": "Refresh",
+    "label_refresh": "Ricarica",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
-    "image": "Image",
+    "image": "Immagine",
     "front_photo": "Foto frontale",
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
@@ -346,19 +346,19 @@
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
-    "country_chooser_label": "Please choose a country",
+    "country_chooser_label": "Sei pregato di scegliere un paese",
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },
-    "country_selection_explanation": "Some environment features depend on your location",
+    "country_selection_explanation": "Alcune funzionalità ambientali dipendono dalla tua posizione",
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
-    "product_removed": "Product removed",
+    "product_removed": "Prodotto rimosso",
     "@product_removed": {
         "description": "Product got removed from a list"
     },
-    "product_could_not_remove": "Could not remove product",
+    "product_could_not_remove": "Impossibile rimuovere il prodotto",
     "@product_could_not_remove": {
         "description": "Could not remove product from a list"
     },
@@ -379,23 +379,23 @@
             "pct": {}
         }
     },
-    "product_compatibility_unknown": "Product Compatibility Unknown",
+    "product_compatibility_unknown": "Compatibilità del Prodotto Sconosciuta",
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_incompatible": "Very poor Match",
+    "product_compatibility_incompatible": "Corrispondenza Molto Debole",
     "@product_compatibility_incompatible": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_bad": "Poor Match",
+    "product_compatibility_bad": "Corrispondenza Debole",
     "@product_compatibility_bad": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_neutral": "Neutral Match",
+    "product_compatibility_neutral": "Corrispondenza Neutrale",
     "@product_compatibility_neutral": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_good": "Great Match",
+    "product_compatibility_good": "Ottima Corrispondenza",
     "@product_compatibility_good": {
         "description": "Product compatibility summary title"
     },
