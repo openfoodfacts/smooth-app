@@ -21,7 +21,6 @@ history:
 - packages/smooth_app/lib/pages/history_page.dart
 
 settings:
-- packages/smooth_app/lib/pages/settings_page.dart
 - packages/smooth_app/lib/pages/user_preferences_page.dart
 
 
