@@ -202,6 +202,12 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
+    "myPreferences_profile_title": "Votre profil",
+    "myPreferences_profile_subtitle": "Paramétrez l'appli pour trouver des conseils judicieux.",
+    "myPreferences_settings_title": "Paramètres d'affichage",
+    "myPreferences_settings_subtitle": "Mode nuit, pays, couleurs, ...",
+    "myPreferences_food_title": "Préférences alimentaires",
+    "myPreferences_food_subtitle": "Choisissez les informations qui comptent le plus pour vous.",
     "confirmResetPreferences": "Réinitialiser vos préférences ?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
