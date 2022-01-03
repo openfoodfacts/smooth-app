@@ -77,7 +77,7 @@ class UserPreferencesFood extends AbstractUserPreferences {
       result.addAll(groups.where((AttributeGroup g) => g.id == id));
     }
     result.addAll(groups.where(
-        (AttributeGroup g) => _ORDERED_ATTRIBUTE_GROUP_IDS.contains(g.id)));
+        (AttributeGroup g) => !_ORDERED_ATTRIBUTE_GROUP_IDS.contains(g.id)));
     return result;
   }
 }
