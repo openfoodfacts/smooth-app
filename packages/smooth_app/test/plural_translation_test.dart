@@ -1,41 +1,54 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-class TextWidget extends StatelessWidget {
-  const TextWidget();
-
-  @override
-  Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-
-    return ListView.builder(
-      itemCount: 999,
-      itemBuilder: (BuildContext context, int index) {
-        return Text(appLocalizations.plural_ago_days(index));
-      },
-    );
-  }
-}
-
 void main() {
-  Widget makeTestableWidget({required Locale locale}) {
-    return MaterialApp(
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      locale: locale,
-      home: const TextWidget(),
-    );
-  }
+  group('Plural test', () {
+    const List<Locale> locales = AppLocalizations.supportedLocales;
 
-  testWidgets('Widget', (WidgetTester tester) async {
-    await tester.pumpWidget(makeTestableWidget(
-      locale: const Locale('en'),
-    ));
-    await tester.pump();
+    for (final Locale locale in locales) {
+      late AppLocalizations? appLocalizations;
 
-    expect(find.textContaining('1'), findsOneWidget);
-    expect(find.textContaining('1'), findsOneWidget);
+      testWidgets('$locale plural test ', (WidgetTester tester) async {
+        await tester.pumpWidget(
+          MaterialApp(
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
+            locale: locale,
+            builder: (BuildContext context, Widget? child) {
+              appLocalizations = AppLocalizations.of(context);
+
+              return const Placeholder();
+            },
+          ),
+        );
+
+        expect(appLocalizations, isNotNull);
+
+        final List<String> minutes = <String>[];
+        final List<String> hours = <String>[];
+        final List<String> days = <String>[];
+        final List<String> weeks = <String>[];
+        final List<String> months = <String>[];
+        final List<String> compare = <String>[];
+
+        for (int i = -1; i < 1001; i++) {
+          minutes.add(appLocalizations!.plural_ago_minutes(i));
+          hours.add(appLocalizations!.plural_ago_hours(i));
+          days.add(appLocalizations!.plural_ago_days(i));
+          weeks.add(appLocalizations!.plural_ago_weeks(i));
+          months.add(appLocalizations!.plural_ago_months(i));
+          compare.add(appLocalizations!.plural_compare_x_products(i));
+        }
+
+        //Check if any translation contains numbers
+        expect(minutes.any((String x) => x.contains(RegExp(r'[0-9]'))), true);
+        expect(hours.any((String x) => x.contains(RegExp(r'[0-9]'))), true);
+        expect(days.any((String x) => x.contains(RegExp(r'[0-9]'))), true);
+        expect(weeks.any((String x) => x.contains(RegExp(r'[0-9]'))), true);
+        expect(months.any((String x) => x.contains(RegExp(r'[0-9]'))), true);
+        expect(compare.any((String x) => x.contains(RegExp(r'[0-9]'))), true);
+      });
+    }
   });
 }
