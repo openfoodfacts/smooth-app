@@ -85,6 +85,7 @@ class _SmoothAppState extends State<SmoothApp> {
     ProductQuery.setCountry(_userPreferences.userCountryCode);
     _localDatabase = await LocalDatabase.getLocalDatabase();
     _themeProvider = ThemeProvider(_userPreferences);
+    ProductQuery.setQueryType(_userPreferences);
   }
 
   @override
