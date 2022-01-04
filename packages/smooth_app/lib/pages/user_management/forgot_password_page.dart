@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_ui_library/widgets/smooth_card.dart';
 import 'package:smooth_ui_library/widgets/smooth_text_form_field.dart';
@@ -14,6 +15,8 @@ class ForgotPasswordPage extends StatefulWidget {
 }
 
 class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
+  int _devModeCounter = 0;
+
   static Color _textFieldBackgroundColor = const Color.fromARGB(
     255,
     240,
@@ -65,6 +68,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     final ThemeData theme = Theme.of(context);
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
     final Size size = MediaQuery.of(context).size;
 
     // Needs to be changed
@@ -136,6 +140,30 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                       ],
                       validator: (String? value) {
                         if (value == null || value.isEmpty) {
+                          _devModeCounter++;
+                          if (_devModeCounter >= 10) {
+                            if (userPreferences.devMode == 0) {
+                              showDialog<void>(
+                                context: context,
+                                builder: (BuildContext context) => AlertDialog(
+                                  title: const Text('Ready for the dev mode?'),
+                                  actions: <Widget>[
+                                    TextButton(
+                                      child: Text(appLocalizations.yes),
+                                      onPressed: () async {
+                                        await userPreferences.setDevMode(1);
+                                        Navigator.pop(context);
+                                      },
+                                    ),
+                                    TextButton(
+                                      child: Text(appLocalizations.no),
+                                      onPressed: () => Navigator.pop(context),
+                                    )
+                                  ],
+                                ),
+                              );
+                            }
+                          }
                           return appLocalizations.enter_some_text;
                         }
                         return null;
