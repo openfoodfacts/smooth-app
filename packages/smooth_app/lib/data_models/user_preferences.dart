@@ -93,7 +93,7 @@ class UserPreferences extends ChangeNotifier {
   bool? getFlag(final String key) =>
       _sharedPreferences.getBool(_getFlagTag(key));
 
-  set devMode(final int value) =>
+  Future<void> setDevMode(final int value) async =>
       _sharedPreferences.setInt(_TAG_DEV_MODE, value);
 
   int get devMode => _sharedPreferences.getInt(_TAG_DEV_MODE) ?? 0;

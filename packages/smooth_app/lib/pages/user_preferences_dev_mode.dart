@@ -51,7 +51,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         ListTile(
           title: const Text('Remove dev mode'),
           onTap: () async {
-            userPreferences.devMode = 0;
+            await userPreferences.setDevMode(0);
             setState(() {});
           },
         ),

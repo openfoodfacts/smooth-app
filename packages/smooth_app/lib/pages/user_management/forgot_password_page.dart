@@ -150,8 +150,8 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                                   actions: <Widget>[
                                     TextButton(
                                       child: Text(appLocalizations.yes),
-                                      onPressed: () {
-                                        userPreferences.devMode = 1;
+                                      onPressed: () async {
+                                        await userPreferences.setDevMode(1);
                                         Navigator.pop(context);
                                       },
                                     ),
