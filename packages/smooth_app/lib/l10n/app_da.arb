@@ -124,7 +124,7 @@
     "sign_up_page_confirm_password_error_empty": "Bekræft adgangskoden",
     "sign_up_page_confirm_password_error_invalid": "Adgangskoderne skal være identiske",
     "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-    "sign_up_page_agree_error_invalid": "You have to agree if you'd like to get an account. Note that you can still use the app and contribute anonymously.",
+    "sign_up_page_agree_error_invalid": "Ifm. en kontooprettelse er accept af Vilkår for Brug obligatorisk. Anonyme bidrag kan dog stadig foretages via appen.",
     "sign_up_page_producer_checkbox": "Jeg er fødevareproducent",
     "sign_up_page_producer_hint": "Producent/mærke",
     "sign_up_page_producer_error_empty": "Angiv en producent eller et mærkenavn",
@@ -202,12 +202,12 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
-    "myPreferences_profile_title": "Your Profile",
-    "myPreferences_profile_subtitle": "Set app settings and find out advices.",
-    "myPreferences_settings_title": "App Settings",
-    "myPreferences_settings_subtitle": "Dark mode, country, color, ...",
-    "myPreferences_food_title": "Food Preferences",
-    "myPreferences_food_subtitle": "Choose what information about food matters most to you.",
+    "myPreferences_profile_title": "Din profil",
+    "myPreferences_profile_subtitle": "Opsæt app-indstillinger og få råd.",
+    "myPreferences_settings_title": "App-indstillinger",
+    "myPreferences_settings_subtitle": "Mørk tilstand, land, farve...",
+    "myPreferences_food_title": "Fødevarepræferencer",
+    "myPreferences_food_subtitle": "Vælg, hvilke oplysninger om fødevarer, som betyder mest.",
     "confirmResetPreferences": "Nulstil præferencerne?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"

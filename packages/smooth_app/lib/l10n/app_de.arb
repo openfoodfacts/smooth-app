@@ -202,7 +202,7 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
-    "myPreferences_profile_title": "Your Profile",
+    "myPreferences_profile_title": "Mein Profil",
     "myPreferences_profile_subtitle": "Set app settings and find out advices.",
     "myPreferences_settings_title": "App Settings",
     "myPreferences_settings_subtitle": "Dark mode, country, color, ...",
