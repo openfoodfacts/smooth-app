@@ -174,9 +174,11 @@ class _SearchFieldState extends State<SearchField> {
   }
 
   void _handleTextChange() {
-    setState(() {
-      _isEmpty = _textController.text.isEmpty;
-    });
+    if (_textController.text.isEmpty || _textController.text.length == 1) {
+      setState(() {
+        _isEmpty = _textController.text.isEmpty;
+      });
+    }
   }
 
   void _handleFocusChange() {
