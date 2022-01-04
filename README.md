@@ -77,6 +77,9 @@ In order to build the application, make sure you are in the packages/smooth_app 
 ### Android & iOS
 - Nothing to report
 
+### Dev Mode
+- We now have a secret in-app dev mode which allows you to debug things faster, or access not-ready-for-primetime features. You can access it by: going to the Food preferences screen, Your Profile, User Management, Forgotten Password and then tapping ten times on the "Change password" button of the Reset Password screen (without typing any email). 
+
 ## Internationalization
 
 - Translations of the interface are managed using the new [Flutter internationalization](https://github.com/openfoodfacts/openfoodfacts-hungergames/blob/master/src/i18n/common.json) introduced in Flutter 1.22.
