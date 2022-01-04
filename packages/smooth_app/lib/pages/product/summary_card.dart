@@ -144,6 +144,9 @@ class _SummaryCardState extends State<SummaryCard> {
     }
     // Then, all groups, each with very important and important attributes
     for (final String groupId in _ATTRIBUTE_GROUP_ORDER) {
+      if (widget._product.attributeGroups == null) {
+        continue;
+      }
       final Iterable<AttributeGroup> groupIterable = widget
           ._product.attributeGroups!
           .where((AttributeGroup group) => group.id == groupId);
