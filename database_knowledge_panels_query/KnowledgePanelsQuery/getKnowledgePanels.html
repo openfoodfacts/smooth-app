@@ -70,7 +70,10 @@
     language: ProductQuery.getLanguage(),
     country: ProductQuery.getCountry(),
   );
-  return OpenFoodAPIClient.getKnowledgePanels(configuration, QueryType.PROD);
+  return OpenFoodAPIClient.getKnowledgePanels(
+    configuration,
+    OpenFoodAPIConfiguration.globalQueryType,
+  );
 }</code></pre>
 </section>
 

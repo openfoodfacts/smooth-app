@@ -77,7 +77,11 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
       ListTile(
         title: const Text(&#39;Remove dev mode&#39;),
         onTap: () async {
+          &#47;&#47; resetting back to &quot;no dev mode&quot;
           await userPreferences.setDevMode(0);
+          &#47;&#47; resetting back to PROD
+          await userPreferences.setFlag(userPreferencesFlagProd, true);
+          ProductQuery.setQueryType(userPreferences);
           setState(() {});
         },
       ),
@@ -87,6 +91,18 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
         onTap: () async {
           userPreferences
               .setLastVisitedOnboardingPage(OnboardingPage.NOT_STARTED);
+          setState(() {});
+        },
+      ),
+      ListTile(
+        title: const Text(&#39;switch query type&#39;),
+        subtitle: Text(
+          &#39;current value is ${OpenFoodAPIConfiguration.globalQueryType}&#39;,
+        ),
+        onTap: () async {
+          await userPreferences.setFlag(userPreferencesFlagProd,
+              !(userPreferences.getFlag(userPreferencesFlagProd) ?? true));
+          ProductQuery.setQueryType(userPreferences);
           setState(() {});
         },
       ),
@@ -145,6 +161,8 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
 
 
 
+    <li class="section-title"><a href="../../pages_user_preferences_dev_mode/UserPreferencesDevMode-class.html#constants">Constants</a></li>
+    <li><a href="../../pages_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagProd-constant.html">userPreferencesFlagProd</a></li>
 </ol>
 
   </div><!--/.sidebar-offcanvas-->
