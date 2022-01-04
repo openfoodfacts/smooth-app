@@ -175,7 +175,7 @@
     "@contribute_develop_text_2": {},
     "contribute_donate_header": "Дари на Open Food Facts",
     "@contribute_donate_header": {},
-    "contribute_improve_ProductsToBeCompleted": "Продукти, които трябва да бъдат завършени",
+    "contribute_improve_ProductsToBeCompleted": "Продукти за завършване",
     "@contribute_improve_ProductsToBeCompleted": {
         "description": "Button label: Shows a list of products which aren't completed"
     },
@@ -202,12 +202,12 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
-    "myPreferences_profile_title": "Your Profile",
-    "myPreferences_profile_subtitle": "Set app settings and find out advices.",
-    "myPreferences_settings_title": "App Settings",
-    "myPreferences_settings_subtitle": "Dark mode, country, color, ...",
-    "myPreferences_food_title": "Food Preferences",
-    "myPreferences_food_subtitle": "Choose what information about food matters most to you.",
+    "myPreferences_profile_title": "Твоят профил",
+    "myPreferences_profile_subtitle": "Задай настройките на приложението и намери съвети.",
+    "myPreferences_settings_title": "Настройки на приложението",
+    "myPreferences_settings_subtitle": "Тъмен режим, страна, цвят ...",
+    "myPreferences_food_title": "Хранителни предпочитания",
+    "myPreferences_food_subtitle": "Избери каква информация за храната е най-важна за теб.",
     "confirmResetPreferences": "Нулиране на предпочитанията?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
