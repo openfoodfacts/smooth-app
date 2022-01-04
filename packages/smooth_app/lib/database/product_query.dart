@@ -1,7 +1,10 @@
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
+import 'package:openfoodfacts/utils/QueryType.dart';
 import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
 
 abstract class ProductQuery {
   /// Returns the global language for API queries.
@@ -38,6 +41,14 @@ abstract class ProductQuery {
         password: 'strawberrybanana',
         comment: 'Test user for project smoothie',
       );
+
+  /// Sets the query type according to the current [UserPreferences]
+  static void setQueryType(final UserPreferences userPreferences) =>
+      OpenFoodAPIConfiguration.globalQueryType = userPreferences
+                  .getFlag(UserPreferencesDevMode.userPreferencesFlagProd) ??
+              true
+          ? QueryType.PROD
+          : QueryType.TEST;
 
   static List<ProductField> get fields => <ProductField>[
         ProductField.NAME,

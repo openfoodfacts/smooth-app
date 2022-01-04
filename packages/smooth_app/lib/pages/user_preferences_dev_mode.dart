@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/pages/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 
@@ -28,6 +30,8 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           themeData: themeData,
         );
 
+  static const String userPreferencesFlagProd = '__devWorkingOnProd';
+
   @override
   bool isCollapsedByDefault() => true;
 
@@ -51,7 +55,11 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         ListTile(
           title: const Text('Remove dev mode'),
           onTap: () async {
+            // resetting back to "no dev mode"
             await userPreferences.setDevMode(0);
+            // resetting back to PROD
+            await userPreferences.setFlag(userPreferencesFlagProd, true);
+            ProductQuery.setQueryType(userPreferences);
             setState(() {});
           },
         ),
@@ -61,6 +69,18 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           onTap: () async {
             userPreferences
                 .setLastVisitedOnboardingPage(OnboardingPage.NOT_STARTED);
+            setState(() {});
+          },
+        ),
+        ListTile(
+          title: const Text('switch query type'),
+          subtitle: Text(
+            'current value is ${OpenFoodAPIConfiguration.globalQueryType}',
+          ),
+          onTap: () async {
+            await userPreferences.setFlag(userPreferencesFlagProd,
+                !(userPreferences.getFlag(userPreferencesFlagProd) ?? true));
+            ProductQuery.setQueryType(userPreferences);
             setState(() {});
           },
         ),
