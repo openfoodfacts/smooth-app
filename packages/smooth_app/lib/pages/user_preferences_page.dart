@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/pages/abstract_user_preferences.dart';
+import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/user_preferences_food.dart';
 import 'package:smooth_app/pages/user_preferences_profile.dart';
 import 'package:smooth_app/pages/user_preferences_settings.dart';
@@ -52,6 +53,17 @@ class _UserPreferencesPageState extends State<UserPreferencesPage> {
         themeData: themeData,
       ),
     ];
+    if (userPreferences.devMode > 0) {
+      items.add(
+        UserPreferencesDevMode(
+          setState: setState,
+          context: context,
+          userPreferences: userPreferences,
+          appLocalizations: appLocalizations,
+          themeData: themeData,
+        ),
+      );
+    }
     final List<Widget> children = <Widget>[];
     for (final AbstractUserPreferences abstractUserPreferences in items) {
       children.addAll(abstractUserPreferences.getContent());
