@@ -87,7 +87,8 @@ class SmoothProductCardFound extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          product.productName ?? appLocalizations.unknownProductName,
+                          product.productName ??
+                              appLocalizations.unknownProductName,
                           overflow: TextOverflow.ellipsis,
                           style: Theme.of(context).textTheme.headline4,
                         ),
@@ -108,20 +109,10 @@ class SmoothProductCardFound extends StatelessWidget {
                             const Padding(
                                 padding:
                                     EdgeInsets.only(left: VERY_SMALL_SPACE)),
-                            if (compatibility.productCompatibility !=
-                                ProductCompatibility.INCOMPATIBLE)
-                              Text(
-                                appLocalizations.pct_match(compatibility
-                                    .averageAttributeMatch
-                                    .toStringAsFixed(0)),
-                                style: Theme.of(context).textTheme.bodyText2,
-                              ),
-                            if (compatibility.productCompatibility ==
-                                ProductCompatibility.INCOMPATIBLE)
-                              Text(
-                                appLocalizations.incompatible,
-                                style: Theme.of(context).textTheme.bodyText2,
-                              ),
+                            Text(
+                              getSubtitle(compatibility, appLocalizations),
+                              style: Theme.of(context).textTheme.bodyText2,
+                            ),
                           ],
                         ),
                       ],

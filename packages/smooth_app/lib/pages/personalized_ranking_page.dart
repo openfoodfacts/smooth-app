@@ -152,6 +152,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
     final MatchedProduct matchedProduct,
     final ColorScheme colorScheme,
     final DaoProductList daoProductList,
+    final AppLocalizations appLocalizations,
   ) =>
       Dismissible(
         key: Key(matchedProduct.product.barcode!),
@@ -165,7 +166,10 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(
-                  removed ? 'Product removed' : 'Could not remove product'),
+                removed
+                    ? appLocalizations.product_removed
+                    : appLocalizations.product_could_not_remove,
+              ),
               duration: const Duration(seconds: 3),
             ),
           );
@@ -203,6 +207,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
                 matchedProducts[index],
                 colorScheme,
                 daoProductList,
+                appLocalizations,
               ),
             );
 }

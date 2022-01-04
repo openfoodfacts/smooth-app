@@ -33,7 +33,14 @@
     "learnMore": "Научи повече",
     "@learnMore": {},
     "incompatible": "Несъвместимо",
-    "licenses": "Licences",
+    "@incompatible": {
+        "description": "Short label for product list view: the product is incompatible with your preferences"
+    },
+    "unknown": "Неизвестно",
+    "@unknown": {
+        "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
+    },
+    "licenses": "Лицензи",
     "@licenses": {},
     "looking_for": "Какво търсиш",
     "@looking_for": {
@@ -46,12 +53,20 @@
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
+    "offUtility": "Избери храни, които са полезни за теб и планетата.",
+    "@offUtility": {
+        "description": "Description of what a user can use Open Food Facts for."
+    },
     "@user_management": {},
     "sign_in_text": "Влез в акаунта си в Open Food Facts, за да запазиш приноса си",
     "incorrect_credentials": "Неправилно потребителско име или парола.",
     "login": "Потребителско име",
     "@login": {
         "description": "Text field hint: unified name for either username or email address"
+    },
+    "create_account": "Създаване на акаунт",
+    "@create_account": {
+        "description": "Button label: Opens a page where a new user can register"
     },
     "sign_in": "Вход",
     "@sign_in": {
@@ -80,6 +95,40 @@
     "@enter_some_text": {
         "description": "Error when text field is empty"
     },
+    "sign_up_page_title": "Регистрация",
+    "@sign_up_page_title": {
+        "description": "On top of the Sign Up page"
+    },
+    "sign_up_page_action_button": "Регистрация",
+    "@sign_up_page_action_button": {
+        "description": "Bottom action button"
+    },
+    "sign_up_page_action_doing_it": "Вписване...",
+    "@sign_up_page_action_doing_it": {
+        "description": "Dialog during the actual signing up process"
+    },
+    "sign_up_page_action_ok": "Честито! Твоят акаунт току-що бе създаден.",
+    "sign_up_page_display_name_hint": "Екранно име",
+    "sign_up_page_display_name_error_empty": "Моля, въведи екранно име, което искаш да използваш",
+    "sign_up_page_email_hint": "Имейл",
+    "sign_up_page_email_error_empty": "Моля, въведи имейла",
+    "sign_up_page_email_error_invalid": "Моля, въведи валиден имейл",
+    "sign_up_page_username_hint": "Потребителско име",
+    "sign_up_page_username_error_empty": "Моля, въведи потребителско име",
+    "sign_up_page_username_error_invalid": "Въведи валидно потребителско име",
+    "sign_up_page_username_description": "Потребителското име не може да съдържа интервали, главни или специални знаци",
+    "sign_up_page_password_hint": "Парола",
+    "sign_up_page_password_error_empty": "Моля, въведи парола",
+    "sign_up_page_password_error_invalid": "Моля, въведи валидна парола (поне 6 знака)",
+    "sign_up_page_confirm_password_hint": "Потвърди паролата",
+    "sign_up_page_confirm_password_error_empty": "Моля, потвърди паролата",
+    "sign_up_page_confirm_password_error_invalid": "Паролите трябва да са идентични",
+    "sign_up_page_agree_url": "https://bg.openfoodfacts.org/terms-of-use",
+    "sign_up_page_agree_error_invalid": "Трябва да се съгласиш, ако искаш да получиш акаунт. Имай предвид, че все още можеш да използваш приложението и да допринасяш анонимно.",
+    "sign_up_page_producer_checkbox": "Аз съм производител на храни",
+    "sign_up_page_producer_hint": "Производител/марка",
+    "sign_up_page_producer_error_empty": "Моля, въведи производител или марка",
+    "sign_up_page_subscribe_checkbox": "Бих искал да се абонирам за бюлетина Open Food Facts (Забележка: Можеш да се отпишеш от него по всяко време)",
     "@Settings": {},
     "settingsTitle": "Настройки",
     "@settingsTitle": {
@@ -89,7 +138,15 @@
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
-    "contributors": "Contributors",
+    "darkmode_dark": "Тъмно",
+    "@darkmode_dark": {
+        "description": "Indicator inside the darkmode switch"
+    },
+    "darkmode_light": "Светло",
+    "@darkmode_light": {
+        "description": "Indicator inside the darkmode switch"
+    },
+    "contributors": "Сътрудници",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
@@ -97,7 +154,7 @@
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
-    "termsOfUse": "Terms of use",
+    "termsOfUse": "Условия за ползване",
     "@termsOfUse": {},
     "about_this_app": "Относно приложението",
     "@about_this_app": {
@@ -118,7 +175,7 @@
     "@contribute_develop_text_2": {},
     "contribute_donate_header": "Дари на Open Food Facts",
     "@contribute_donate_header": {},
-    "contribute_improve_ProductsToBeCompleted": "Продукти, които трябва да бъдат завършени",
+    "contribute_improve_ProductsToBeCompleted": "Продукти за завършване",
     "@contribute_improve_ProductsToBeCompleted": {
         "description": "Button label: Shows a list of products which aren't completed"
     },
@@ -145,6 +202,12 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
+    "myPreferences_profile_title": "Твоят профил",
+    "myPreferences_profile_subtitle": "Задай настройките на приложението и намери съвети.",
+    "myPreferences_settings_title": "Настройки на приложението",
+    "myPreferences_settings_subtitle": "Тъмен режим, страна, цвят ...",
+    "myPreferences_food_title": "Хранителни предпочитания",
+    "myPreferences_food_subtitle": "Избери каква информация за храната е най-важна за теб.",
     "confirmResetPreferences": "Нулиране на предпочитанията?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -170,8 +233,14 @@
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "category": "Категория",
-    "@category": {},
+    "category": "Филтър по категория",
+    "@category": {
+        "description": "From a product list, there's a category filter: this is its title"
+    },
+    "category_all": "Всички",
+    "@category_al": {
+        "description": "Top meta-entry on a category filter"
+    },
     "category_search": "(търсене по категории)",
     "filter": "Филтър",
     "@filter": {
@@ -197,6 +266,7 @@
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
+    "image": "Снимка",
     "front_photo": "Предна снимка",
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
@@ -280,9 +350,17 @@
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },
-    "country_selection_explanation": "Some environment features depend on your location",
+    "country_selection_explanation": "Някои функции, свързани с околната среда, зависят от твоето местоположение",
     "@country_label": {
         "description": "Explanation as to why users should select their country."
+    },
+    "product_removed": "Продуктът е премахнат",
+    "@product_removed": {
+        "description": "Product got removed from a list"
+    },
+    "product_could_not_remove": "Продуктът не можа да бъде премахнат",
+    "@product_could_not_remove": {
+        "description": "Could not remove product from a list"
     },
     "@Lists": {},
     "no_prodcut_in_list": "Няма продукт в този списък",
@@ -300,6 +378,26 @@
         "placeholders": {
             "pct": {}
         }
+    },
+    "product_compatibility_unknown": "Неизвестна съвместимост на продукта",
+    "@product_compatibility_unknown": {
+        "description": "Product compatibility summary title"
+    },
+    "product_compatibility_incompatible": "Много лошо съвпадение",
+    "@product_compatibility_incompatible": {
+        "description": "Product compatibility summary title"
+    },
+    "product_compatibility_bad": "Лошо съвпадение",
+    "@product_compatibility_bad": {
+        "description": "Product compatibility summary title"
+    },
+    "product_compatibility_neutral": "Неутрално съвпадение",
+    "@product_compatibility_neutral": {
+        "description": "Product compatibility summary title"
+    },
+    "product_compatibility_good": "Добро съвпадение",
+    "@product_compatibility_good": {
+        "description": "Product compatibility summary title"
     },
     "plural_ago_days": "{count,plural, one {} =1{преди един ден} other{{count} преди дни}}",
     "@plural_ago_days": {
@@ -336,7 +434,7 @@
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, =other{Compare {count} Products}",
+    "plural_compare_x_products": "{count,plural, =other{Сравни {count} продукти}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {

@@ -1,9 +1,11 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/pages/product/product_image_page.dart';
 
 class ImageUploadCard extends StatefulWidget {
@@ -54,22 +56,18 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
         });
 
         final SendImage image = SendImage(
-          lang: LanguageHelper.fromJson(
-              Localizations.localeOf(context).languageCode),
+          lang: ProductQuery.getLanguage(),
           barcode: widget.product
               .barcode!, //Probably throws an error, but this is not a big problem when we got a product without a barcode
           imageField: widget.imageField,
           imageUri: croppedImageFile.uri,
         );
 
-        // a registered user login for https://world.openfoodfacts.org/ is required
-        //ToDo: Add user
-        const User myUser =
-            User(userId: 'smoothie-app', password: 'strawberrybanana');
-
         // query the OpenFoodFacts API
-        final Status result =
-            await OpenFoodAPIClient.addProductImage(myUser, image);
+        final Status result = await OpenFoodAPIClient.addProductImage(
+          ProductQuery.getUser(),
+          image,
+        );
 
         if (result.status != 'status ok') {
           throw Exception(
@@ -84,6 +82,7 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
     // We can already have an _imageProvider for a file that is going to be uploaded
     // or an imageUrl for a network image
     // or no image yet
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
 
     if ((_imageProvider == null) && (widget.imageUrl != null)) {
       _imageProvider = NetworkImage(widget.imageUrl!);
@@ -111,7 +110,7 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
                   product: widget.product,
                   imageField: widget.imageField,
                   imageProvider: _imageFullProvider!,
-                  title: widget.title ?? 'Image',
+                  title: widget.title ?? appLocalizations.image,
                   buttonText: widget.buttonText),
             ),
           );

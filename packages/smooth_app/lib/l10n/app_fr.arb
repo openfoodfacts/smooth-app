@@ -33,6 +33,13 @@
     "learnMore": "En savoir plus",
     "@learnMore": {},
     "incompatible": "Incompatible",
+    "@incompatible": {
+        "description": "Short label for product list view: the product is incompatible with your preferences"
+    },
+    "unknown": "Inconnu",
+    "@unknown": {
+        "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
+    },
     "licenses": "Licences",
     "@licenses": {},
     "looking_for": "À la recherche de",
@@ -46,12 +53,20 @@
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
+    "offUtility": "Choisissez des aliments qui sont bons pour vous et pour la planète.",
+    "@offUtility": {
+        "description": "Description of what a user can use Open Food Facts for."
+    },
     "@user_management": {},
     "sign_in_text": "Connectez-vous à votre compte Open Food Facts pour enregistrer vos contributions",
     "incorrect_credentials": "Nom d'utilisateur ou mot de passe incorrect.",
     "login": "Nom d'utilisateur",
     "@login": {
         "description": "Text field hint: unified name for either username or email address"
+    },
+    "create_account": "Créer un compte",
+    "@create_account": {
+        "description": "Button label: Opens a page where a new user can register"
     },
     "sign_in": "Se connecter",
     "@sign_in": {
@@ -71,7 +86,7 @@
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
-    "reset_password_done": "An email with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
+    "reset_password_done": "Un e-mail avec un lien pour réinitialiser votre mot de passe a été envoyé à l'adresse e-mail associée à votre compte. Vérifiez également vos spams",
     "send_reset_password_mail": "Changer le mot de passe",
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset email request"
@@ -80,6 +95,40 @@
     "@enter_some_text": {
         "description": "Error when text field is empty"
     },
+    "sign_up_page_title": "S'inscrire",
+    "@sign_up_page_title": {
+        "description": "On top of the Sign Up page"
+    },
+    "sign_up_page_action_button": "S'inscrire",
+    "@sign_up_page_action_button": {
+        "description": "Bottom action button"
+    },
+    "sign_up_page_action_doing_it": "Inscription en cours…",
+    "@sign_up_page_action_doing_it": {
+        "description": "Dialog during the actual signing up process"
+    },
+    "sign_up_page_action_ok": "Toutes nos félicitations! Votre compte vient d'être créé.",
+    "sign_up_page_display_name_hint": "Display Name",
+    "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
+    "sign_up_page_email_hint": "E-mail",
+    "sign_up_page_email_error_empty": "Veuillez saisir l'e-mail",
+    "sign_up_page_email_error_invalid": "Veuillez saisir un email valide",
+    "sign_up_page_username_hint": "Nom d'utilisateur",
+    "sign_up_page_username_error_empty": "Veuillez saisir un nom d'utilisateur",
+    "sign_up_page_username_error_invalid": "Veuillez saisir un nom d'utilisateur valide",
+    "sign_up_page_username_description": "Le nom d'utilisateur ne peut pas contenir d'espaces, de majuscules ou de caractères spéciaux",
+    "sign_up_page_password_hint": "Mot de passe",
+    "sign_up_page_password_error_empty": "Veuillez saisir un mot de passe",
+    "sign_up_page_password_error_invalid": "Veuillez saisir un mot de passe valide (au moins 6 caractères)",
+    "sign_up_page_confirm_password_hint": "Confirmez le mot de passe",
+    "sign_up_page_confirm_password_error_empty": "Veuillez confirmer le mot de passe",
+    "sign_up_page_confirm_password_error_invalid": "Les mots de passe doivent être identiques",
+    "sign_up_page_agree_url": "https://world-fr.openfoodfacts.org/conditions-d-utilisation",
+    "sign_up_page_agree_error_invalid": "Vous devez accepter si vous souhaitez obtenir un compte. Notez que vous pouvez toujours utiliser l'application et contribuer de manière anonyme.",
+    "sign_up_page_producer_checkbox": "Je suis un producteur alimentaire",
+    "sign_up_page_producer_hint": "Producteur/marque",
+    "sign_up_page_producer_error_empty": "Veuillez saisir un nom de producteur ou de marque",
+    "sign_up_page_subscribe_checkbox": "Je souhaite m'inscrire à la newsletter Open Food Facts (Remarque : vous pouvez vous désinscrire à tout moment)",
     "@Settings": {},
     "settingsTitle": "Paramètres",
     "@settingsTitle": {
@@ -88,6 +137,14 @@
     "darkmode": "Mode sombre",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
+    },
+    "darkmode_dark": "Sombre",
+    "@darkmode_dark": {
+        "description": "Indicator inside the darkmode switch"
+    },
+    "darkmode_light": "Clair",
+    "@darkmode_light": {
+        "description": "Indicator inside the darkmode switch"
     },
     "contributors": "Contributeurs",
     "@contributors": {
@@ -145,6 +202,12 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
+    "myPreferences_profile_title": "Votre profil",
+    "myPreferences_profile_subtitle": "Définissez les paramètres de l'application et découvrez des conseils.",
+    "myPreferences_settings_title": "Paramètres de l'application",
+    "myPreferences_settings_subtitle": "Mode sombre, pays, couleur, ...",
+    "myPreferences_food_title": "Préférences alimentaires",
+    "myPreferences_food_subtitle": "Choisissez les informations sur la nourriture qui vous importent le plus.",
     "confirmResetPreferences": "Réinitialiser vos préférences ?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -170,8 +233,14 @@
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "category": "Catégorie",
-    "@category": {},
+    "category": "Filtrer par catégorie",
+    "@category": {
+        "description": "From a product list, there's a category filter: this is its title"
+    },
+    "category_all": "Tout",
+    "@category_al": {
+        "description": "Top meta-entry on a category filter"
+    },
     "category_search": "(recherche par catégorie)",
     "filter": "Filtre",
     "@filter": {
@@ -197,6 +266,7 @@
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
+    "image": "Image",
     "front_photo": "Photo frontale",
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
@@ -280,9 +350,17 @@
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },
-    "country_selection_explanation": "Some environment features depend on your location",
+    "country_selection_explanation": "Certaines fonctionnalités liées à l'environnement dépendent de votre emplacement",
     "@country_label": {
         "description": "Explanation as to why users should select their country."
+    },
+    "product_removed": "Produit supprimé",
+    "@product_removed": {
+        "description": "Product got removed from a list"
+    },
+    "product_could_not_remove": "Impossible de supprimer le produit",
+    "@product_could_not_remove": {
+        "description": "Could not remove product from a list"
     },
     "@Lists": {},
     "no_prodcut_in_list": "Il n'y a pas de produit dans cette liste",
@@ -300,6 +378,26 @@
         "placeholders": {
             "pct": {}
         }
+    },
+    "product_compatibility_unknown": "Compatibilité du produit inconnue",
+    "@product_compatibility_unknown": {
+        "description": "Product compatibility summary title"
+    },
+    "product_compatibility_incompatible": "Très mauvaise concordance",
+    "@product_compatibility_incompatible": {
+        "description": "Product compatibility summary title"
+    },
+    "product_compatibility_bad": "Mauvaise concordance",
+    "@product_compatibility_bad": {
+        "description": "Product compatibility summary title"
+    },
+    "product_compatibility_neutral": "Concordance neutre",
+    "@product_compatibility_neutral": {
+        "description": "Product compatibility summary title"
+    },
+    "product_compatibility_good": "Excellente concordance",
+    "@product_compatibility_good": {
+        "description": "Product compatibility summary title"
     },
     "plural_ago_days": "{count,plural, =1{il y a un jour} other{il y a {count} jours}}",
     "@plural_ago_days": {

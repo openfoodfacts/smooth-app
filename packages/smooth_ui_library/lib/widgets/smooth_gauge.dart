@@ -27,7 +27,7 @@ class SmoothGauge extends StatelessWidget {
             percent: value <= 1.0 ? value : 1.0,
             center: Text(
               '${(value * 100).floor()}%',
-              style: const TextStyle(color: Colors.white),
+              style: TextStyle(color: color),
             ),
             progressColor: color,
             backgroundColor: backgroundColor ?? color.withAlpha(50),

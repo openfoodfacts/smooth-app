@@ -9,6 +9,7 @@ import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
+import 'package:smooth_app/widgets/ranking_floating_action_button.dart';
 
 class ProductListPage extends StatefulWidget {
   const ProductListPage(this.productList);
@@ -90,8 +91,8 @@ class _ProductListPageState extends State<ProductListPage> {
       ),
       floatingActionButton: products.isEmpty
           ? null
-          : FloatingActionButton(
-              child: const Icon(Icons.emoji_events_outlined),
+          : RankingFloatingActionButton(
+              color: Colors.black,
               onPressed: () async {
                 await Navigator.push<Widget>(
                   context,
@@ -129,9 +130,11 @@ class _ProductListPageState extends State<ProductListPage> {
                       }
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
-                          content: Text(removed
-                              ? 'Product removed'
-                              : 'Could not remove product'),
+                          content: Text(
+                            removed
+                                ? appLocalizations.product_removed
+                                : appLocalizations.product_could_not_remove,
+                          ),
                           duration: const Duration(seconds: 3),
                         ),
                       );

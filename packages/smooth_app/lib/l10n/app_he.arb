@@ -33,6 +33,13 @@
     "learnMore": "מידע נוסף",
     "@learnMore": {},
     "incompatible": "אין תאימות",
+    "@incompatible": {
+        "description": "Short label for product list view: the product is incompatible with your preferences"
+    },
+    "unknown": "לא ידוע",
+    "@unknown": {
+        "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
+    },
     "licenses": "רישיונות",
     "@licenses": {},
     "looking_for": "בחיפוש אחר",
@@ -46,12 +53,20 @@
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
+    "offUtility": "מאפשרים לך לבחור מזון שטוב לך ולכדור הארץ.",
+    "@offUtility": {
+        "description": "Description of what a user can use Open Food Facts for."
+    },
     "@user_management": {},
     "sign_in_text": "ניתן להיכנס לחשבונך ב־Open Food Facts כדי לשמור את התרומות שלך",
     "incorrect_credentials": "שם משתמש או סיסמה שגויים.",
     "login": "שם משתמש",
     "@login": {
         "description": "Text field hint: unified name for either username or email address"
+    },
+    "create_account": "יצירת חשבון",
+    "@create_account": {
+        "description": "Button label: Opens a page where a new user can register"
     },
     "sign_in": "כניסה",
     "@sign_in": {
@@ -80,6 +95,40 @@
     "@enter_some_text": {
         "description": "Error when text field is empty"
     },
+    "sign_up_page_title": "הרשמה",
+    "@sign_up_page_title": {
+        "description": "On top of the Sign Up page"
+    },
+    "sign_up_page_action_button": "הרשמה",
+    "@sign_up_page_action_button": {
+        "description": "Bottom action button"
+    },
+    "sign_up_page_action_doing_it": "מתבצעת הרשמה…",
+    "@sign_up_page_action_doing_it": {
+        "description": "Dialog during the actual signing up process"
+    },
+    "sign_up_page_action_ok": "מזל טוב! החשבון שלך נוצר.",
+    "sign_up_page_display_name_hint": "שם תצוגה",
+    "sign_up_page_display_name_error_empty": "נא למלא את שם התצוגה המיועד",
+    "sign_up_page_email_hint": "דוא״ל",
+    "sign_up_page_email_error_empty": "נא למלא כתובת דוא״ל",
+    "sign_up_page_email_error_invalid": "נא למלא כתובת דוא״ל תקנית",
+    "sign_up_page_username_hint": "שם משתמש",
+    "sign_up_page_username_error_empty": "נא למלא שם משתמש",
+    "sign_up_page_username_error_invalid": "נא למלא שם משתמש תקף",
+    "sign_up_page_username_description": "שם המשתמש לא יכול להכיל רווחים, רישיות או תווים מיוחדים",
+    "sign_up_page_password_hint": "ססמה",
+    "sign_up_page_password_error_empty": "נא למלא ססמה",
+    "sign_up_page_password_error_invalid": "נא למלא ססמה תקפה (6 תווים לפחות)",
+    "sign_up_page_confirm_password_hint": "אימות ססמה",
+    "sign_up_page_confirm_password_error_empty": "נא לאשר את הססמה",
+    "sign_up_page_confirm_password_error_invalid": "הססמאות צריכות להיות זהות",
+    "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
+    "sign_up_page_agree_error_invalid": "עליך להסכים כדי לקבל חשבון. נא לשים לב שעדיין ניתן להשתמש ביישומון ולתרום באלמוניות.",
+    "sign_up_page_producer_checkbox": "עיסוקי הוא ייצור מזון",
+    "sign_up_page_producer_hint": "יצרן/מותג",
+    "sign_up_page_producer_error_empty": "נא למלא יצרן או שם מותג",
+    "sign_up_page_subscribe_checkbox": "אשמח להירשם לקבוצת הדיוור של Open Food Facts (לידיעתך: ניתן לצאת ממנה בכל רגע נתון)",
     "@Settings": {},
     "settingsTitle": "הגדרות",
     "@settingsTitle": {
@@ -88,6 +137,14 @@
     "darkmode": "מצב כהה",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
+    },
+    "darkmode_dark": "כהה",
+    "@darkmode_dark": {
+        "description": "Indicator inside the darkmode switch"
+    },
+    "darkmode_light": "בהיר",
+    "@darkmode_light": {
+        "description": "Indicator inside the darkmode switch"
     },
     "contributors": "תורמים",
     "@contributors": {
@@ -145,6 +202,12 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
+    "myPreferences_profile_title": "הפרופיל שלך",
+    "myPreferences_profile_subtitle": "עליך להגדיר את היישומון כדי לקבל כל מיני עצות.",
+    "myPreferences_settings_title": "הגדרות היישומון",
+    "myPreferences_settings_subtitle": "מצב כהה, מדינה, צבע, …",
+    "myPreferences_food_title": "העדפות מזון",
+    "myPreferences_food_subtitle": "נא לבחור איזה מידע על מזון הכי חשוב לך.",
     "confirmResetPreferences": "לאפס את ההעדפות שלך?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -170,8 +233,14 @@
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "category": "קטגוריה",
-    "@category": {},
+    "category": "סינון לפי קטגוריה",
+    "@category": {
+        "description": "From a product list, there's a category filter: this is its title"
+    },
+    "category_all": "הכול",
+    "@category_al": {
+        "description": "Top meta-entry on a category filter"
+    },
     "category_search": "(חיפוש לפי קטגוריות)",
     "filter": "סינון",
     "@filter": {
@@ -197,6 +266,7 @@
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
+    "image": "תמונה",
     "front_photo": "תמונת חזית",
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
@@ -284,6 +354,14 @@
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
+    "product_removed": "המוצר הוסר",
+    "@product_removed": {
+        "description": "Product got removed from a list"
+    },
+    "product_could_not_remove": "לא ניתן להסיר מוצר",
+    "@product_could_not_remove": {
+        "description": "Could not remove product from a list"
+    },
     "@Lists": {},
     "no_prodcut_in_list": "אין מוצרים ברשימה הזאת",
     "no_product_in_section": "אין מוצרים בסעיף זה",
@@ -300,6 +378,26 @@
         "placeholders": {
             "pct": {}
         }
+    },
+    "product_compatibility_unknown": "תאימות המוצר לא ידועה",
+    "@product_compatibility_unknown": {
+        "description": "Product compatibility summary title"
+    },
+    "product_compatibility_incompatible": "התאמה גרועה מאוד",
+    "@product_compatibility_incompatible": {
+        "description": "Product compatibility summary title"
+    },
+    "product_compatibility_bad": "התאמה גרועה",
+    "@product_compatibility_bad": {
+        "description": "Product compatibility summary title"
+    },
+    "product_compatibility_neutral": "התאמה נייטרלית",
+    "@product_compatibility_neutral": {
+        "description": "Product compatibility summary title"
+    },
+    "product_compatibility_good": "התאמה מעולה",
+    "@product_compatibility_good": {
+        "description": "Product compatibility summary title"
     },
     "plural_ago_days": "{count,plural, one {אתמול} two {שלשום} many {לפני {count} ימים} =1{אתמול} other{לפני {count} ימים}}",
     "@plural_ago_days": {

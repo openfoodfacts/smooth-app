@@ -33,6 +33,13 @@
     "learnMore": "더보기",
     "@learnMore": {},
     "incompatible": "미호환",
+    "@incompatible": {
+        "description": "Short label for product list view: the product is incompatible with your preferences"
+    },
+    "unknown": "알 수 없음",
+    "@unknown": {
+        "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
+    },
     "licenses": "라이센스",
     "@licenses": {},
     "looking_for": "찾는 항목",
@@ -42,9 +49,13 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "whatIsOff": "Open Food Facts는 지역사회 커뮤니티의 기여를 바탕으로 하는 글로벌 비영리 활동입니다.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
+    },
+    "offUtility": "Choose foods that are good for you and the planet.",
+    "@offUtility": {
+        "description": "Description of what a user can use Open Food Facts for."
     },
     "@user_management": {},
     "sign_in_text": "기여를 저장하려면 Open Food Facts 계정에 로그인하세요",
@@ -52,6 +63,10 @@
     "login": "Username",
     "@login": {
         "description": "Text field hint: unified name for either username or email address"
+    },
+    "create_account": "계정 생성",
+    "@create_account": {
+        "description": "Button label: Opens a page where a new user can register"
     },
     "sign_in": "가입하기",
     "@sign_in": {
@@ -66,13 +81,13 @@
     "@reset_password": {
         "description": "Forgot password page title"
     },
-    "reset_password_explanation_text": "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password. Please also check your spam folder.",
-    "username_or_email": "Username or e-mail address",
+    "reset_password_explanation_text": "비밀번호를 잊어버렸다면, 비밀번호 초기화 지침을 수신할 사용자 이름이나 이메일 주소를 입력하십시오. 스팸함도 확인하시기 바랍니다.",
+    "username_or_email": "사용자 이름 또는 이메일 주소",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
-    "reset_password_done": "An email with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
-    "send_reset_password_mail": "Change password",
+    "reset_password_done": "계정과 연결된 이메일로 비밀번호를 초기화하는 링크가 전송되었습니다. 스팸함도 확인하시기 바랍니다",
+    "send_reset_password_mail": "비밀번호 변경",
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset email request"
     },
@@ -80,6 +95,40 @@
     "@enter_some_text": {
         "description": "Error when text field is empty"
     },
+    "sign_up_page_title": "회원가입",
+    "@sign_up_page_title": {
+        "description": "On top of the Sign Up page"
+    },
+    "sign_up_page_action_button": "회원가입",
+    "@sign_up_page_action_button": {
+        "description": "Bottom action button"
+    },
+    "sign_up_page_action_doing_it": "회원가입을 진행하는 중...",
+    "@sign_up_page_action_doing_it": {
+        "description": "Dialog during the actual signing up process"
+    },
+    "sign_up_page_action_ok": "축하합니다! 귀하의 계정이 방금 생성되었습니다.",
+    "sign_up_page_display_name_hint": "표시할 이름",
+    "sign_up_page_display_name_error_empty": "사용하고자 하는 이름을 입력하십시오",
+    "sign_up_page_email_hint": "이메일",
+    "sign_up_page_email_error_empty": "이메일을 입력하십시오",
+    "sign_up_page_email_error_invalid": "유효한 이메일을 입력하십시오",
+    "sign_up_page_username_hint": "사용자 이름",
+    "sign_up_page_username_error_empty": "사용자 이름을 입력하십시오",
+    "sign_up_page_username_error_invalid": "유효한 사용자 이름을 입력하십시오",
+    "sign_up_page_username_description": "사용자 이름에는 공백, 대문자, 특수문자를 사용할 수 없습니다",
+    "sign_up_page_password_hint": "암호",
+    "sign_up_page_password_error_empty": "비밀번호를 입력하십시오",
+    "sign_up_page_password_error_invalid": "유효한 비밀번호를 입력하십시오 (최소 6자 이상)",
+    "sign_up_page_confirm_password_hint": "비밀번호 확인",
+    "sign_up_page_confirm_password_error_empty": "비밀번호를 확인하십시오",
+    "sign_up_page_confirm_password_error_invalid": "비밀번호가 동일해야 합니다",
+    "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
+    "sign_up_page_agree_error_invalid": "계정을 생성하려면 약관에 동의해야 합니다. 참고로 앱을 사용하는 경우 계속 익명으로 기여할 수 있습니다.",
+    "sign_up_page_producer_checkbox": "저는 식품 생산자입니다",
+    "sign_up_page_producer_hint": "생산자/브랜드",
+    "sign_up_page_producer_error_empty": "생산자 또는 브랜드 이름을 입력해주십시오",
+    "sign_up_page_subscribe_checkbox": "Open Food Facts 뉴스레터를 구독하고 싶습니다 (참고: 언제든지 구독을 취소할 수 있습니다)",
     "@Settings": {},
     "settingsTitle": "설정",
     "@settingsTitle": {
@@ -88,6 +137,14 @@
     "darkmode": "다크 모드",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
+    },
+    "darkmode_dark": "어둡게",
+    "@darkmode_dark": {
+        "description": "Indicator inside the darkmode switch"
+    },
+    "darkmode_light": "밝게",
+    "@darkmode_light": {
+        "description": "Indicator inside the darkmode switch"
     },
     "contributors": "기여자",
     "@contributors": {
@@ -145,6 +202,12 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
+    "myPreferences_profile_title": "내 프로필",
+    "myPreferences_profile_subtitle": "앱 설정을 지정하고 조언을 찾으십시오.",
+    "myPreferences_settings_title": "앱 설정",
+    "myPreferences_settings_subtitle": "다크 모드, 국가, 색상, ...",
+    "myPreferences_food_title": "식품 설정",
+    "myPreferences_food_subtitle": "당신에게 가장 중요한 음식 정보를 선택하십시오.",
     "confirmResetPreferences": "Reset your preferences?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -170,8 +233,14 @@
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "category": "카테고리",
-    "@category": {},
+    "category": "카테고리로 필터",
+    "@category": {
+        "description": "From a product list, there's a category filter: this is its title"
+    },
+    "category_all": "모두",
+    "@category_al": {
+        "description": "Top meta-entry on a category filter"
+    },
     "category_search": "(카테고리 검색)",
     "filter": "필터",
     "@filter": {
@@ -193,10 +262,11 @@
     "@unknownBrand": {},
     "unknownProductName": "알 수 없는 상품명",
     "@unknownProductName": {},
-    "label_refresh": "Refresh",
+    "label_refresh": "새로고침",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
+    "image": "이미지",
     "front_photo": "전면 사진",
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
@@ -276,13 +346,21 @@
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
-    "country_chooser_label": "Please choose a country",
+    "country_chooser_label": "국가를 선택하십시오",
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },
-    "country_selection_explanation": "Some environment features depend on your location",
+    "country_selection_explanation": "일부 환경 기능은 위치에 따라 달라질 수 있습니다",
     "@country_label": {
         "description": "Explanation as to why users should select their country."
+    },
+    "product_removed": "상품 제거됨",
+    "@product_removed": {
+        "description": "Product got removed from a list"
+    },
+    "product_could_not_remove": "상품을 제거할 수 없음",
+    "@product_could_not_remove": {
+        "description": "Could not remove product from a list"
     },
     "@Lists": {},
     "no_prodcut_in_list": "목록에 상품이 없습니다",
@@ -300,6 +378,26 @@
         "placeholders": {
             "pct": {}
         }
+    },
+    "product_compatibility_unknown": "상품 호환성 알 수 없음",
+    "@product_compatibility_unknown": {
+        "description": "Product compatibility summary title"
+    },
+    "product_compatibility_incompatible": "호환성 매우 낮음",
+    "@product_compatibility_incompatible": {
+        "description": "Product compatibility summary title"
+    },
+    "product_compatibility_bad": "호환성 낮음",
+    "@product_compatibility_bad": {
+        "description": "Product compatibility summary title"
+    },
+    "product_compatibility_neutral": "호환성 보통",
+    "@product_compatibility_neutral": {
+        "description": "Product compatibility summary title"
+    },
+    "product_compatibility_good": "호환성 높음",
+    "@product_compatibility_good": {
+        "description": "Product compatibility summary title"
     },
     "plural_ago_days": "{count,plural, =1{1일 전} other{{count}일 전}}",
     "@plural_ago_days": {

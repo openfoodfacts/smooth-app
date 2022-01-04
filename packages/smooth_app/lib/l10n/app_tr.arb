@@ -28,11 +28,18 @@
     "@error_occurred": {},
     "featureInProgress": "Bu özellik üzerinde halâ çalışıyoruz, takipte kal",
     "@featureInProgress": {},
-    "label_web": "View on the Web",
+    "label_web": "Web üzerinde görüntüle",
     "@label_web": {},
     "learnMore": "Daha fazla bilgi edin",
     "@learnMore": {},
-    "incompatible": "Incompatible",
+    "incompatible": "Uyumsuz",
+    "@incompatible": {
+        "description": "Short label for product list view: the product is incompatible with your preferences"
+    },
+    "unknown": "Bilinmeyen",
+    "@unknown": {
+        "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
+    },
     "licenses": "Lisanslar",
     "@licenses": {},
     "looking_for": "Aranıyor",
@@ -46,6 +53,10 @@
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
+    "offUtility": "Choose foods that are good for you and the planet.",
+    "@offUtility": {
+        "description": "Description of what a user can use Open Food Facts for."
+    },
     "@user_management": {},
     "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
     "incorrect_credentials": "Incorrect user name or password.",
@@ -53,12 +64,16 @@
     "@login": {
         "description": "Text field hint: unified name for either username or email address"
     },
+    "create_account": "Hesap oluştur",
+    "@create_account": {
+        "description": "Button label: Opens a page where a new user can register"
+    },
     "sign_in": "Giriş Yap",
     "@sign_in": {
         "description": "Button label: For sign in"
     },
     "password": "Şifre",
-    "forgot_password": "Forgot password",
+    "forgot_password": "Parolanızı mı unuttunuz",
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset email can be requested"
     },
@@ -66,8 +81,8 @@
     "@reset_password": {
         "description": "Forgot password page title"
     },
-    "reset_password_explanation_text": "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password. Please also check your spam folder.",
-    "username_or_email": "Username or e-mail address",
+    "reset_password_explanation_text": "Şifrenizi unuttuysanız, şifrenizi sıfırlama talimatlarını almak için kullanıcı adınızı veya e-posta adresinizi girin. Lütfen spam klasörünüzü de kontrol edin.",
+    "username_or_email": "Kullanıcı adı veya e-posta adresi",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
@@ -80,6 +95,40 @@
     "@enter_some_text": {
         "description": "Error when text field is empty"
     },
+    "sign_up_page_title": "Kaydol",
+    "@sign_up_page_title": {
+        "description": "On top of the Sign Up page"
+    },
+    "sign_up_page_action_button": "Kaydol",
+    "@sign_up_page_action_button": {
+        "description": "Bottom action button"
+    },
+    "sign_up_page_action_doing_it": "Kaydolunuyor...",
+    "@sign_up_page_action_doing_it": {
+        "description": "Dialog during the actual signing up process"
+    },
+    "sign_up_page_action_ok": "Tebrikler! Hesabınız başarıyla oluşturuldu.",
+    "sign_up_page_display_name_hint": "Görünen Ad",
+    "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
+    "sign_up_page_email_hint": "E-posta",
+    "sign_up_page_email_error_empty": "E-posta adresinizi girin",
+    "sign_up_page_email_error_invalid": "Lütfen Geçerli Bir E-Posta Adresi Girin",
+    "sign_up_page_username_hint": "Kullanıcı adı",
+    "sign_up_page_username_error_empty": "Lütfen bir kullanıcı adı girin",
+    "sign_up_page_username_error_invalid": "Lütfen Geçerli Bir Kullanıcı Adı Girin",
+    "sign_up_page_username_description": "Kullanıcı adı boşluk, büyük harf veya özel karakter içeremez",
+    "sign_up_page_password_hint": "Şifre",
+    "sign_up_page_password_error_empty": "Lütfen bir şifre girin",
+    "sign_up_page_password_error_invalid": "Geçerli bir şifre girin. (en az 6 harf)",
+    "sign_up_page_confirm_password_hint": "Şifreyi Doğrula",
+    "sign_up_page_confirm_password_error_empty": "Lütfen parolayı doğrulayın",
+    "sign_up_page_confirm_password_error_invalid": "The passwords should be identical",
+    "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
+    "sign_up_page_agree_error_invalid": "You have to agree if you'd like to get an account. Note that you can still use the app and contribute anonymously.",
+    "sign_up_page_producer_checkbox": "Ben bir yemek üreticisiyim",
+    "sign_up_page_producer_hint": "Üretici/Marka",
+    "sign_up_page_producer_error_empty": "Lütfen bir üretici veya marka adı girin",
+    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (Note: You can unsubscribe from it at all time)",
     "@Settings": {},
     "settingsTitle": "Ayarlar",
     "@settingsTitle": {
@@ -88,6 +137,14 @@
     "darkmode": "Karanlık Mod",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
+    },
+    "darkmode_dark": "Karanlık",
+    "@darkmode_dark": {
+        "description": "Indicator inside the darkmode switch"
+    },
+    "darkmode_light": "Aydınlık",
+    "@darkmode_light": {
+        "description": "Indicator inside the darkmode switch"
     },
     "contributors": "Katkıda bulunanlar",
     "@contributors": {
@@ -99,7 +156,7 @@
     },
     "termsOfUse": "Kullanım Koşulları",
     "@termsOfUse": {},
-    "about_this_app": "About this app",
+    "about_this_app": "Bu uygulama hakkında",
     "@about_this_app": {
         "description": "Button label: Opens a popo up window which shows informations about this app"
     },
@@ -145,6 +202,12 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
+    "myPreferences_profile_title": "Your Profile",
+    "myPreferences_profile_subtitle": "Set app settings and find out advices.",
+    "myPreferences_settings_title": "App Settings",
+    "myPreferences_settings_subtitle": "Dark mode, country, color, ...",
+    "myPreferences_food_title": "Food Preferences",
+    "myPreferences_food_subtitle": "Choose what information about food matters most to you.",
     "confirmResetPreferences": "Tercihleriniz sıfırlansın mı?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -158,20 +221,26 @@
         "description": "Snackbar title: Shows that the modified settings have been applied"
     },
     "@other": {},
-    "profile_navbar_label": "Profile",
+    "profile_navbar_label": "Profil",
     "@profile_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "scan_navbar_label": "Profile",
+    "scan_navbar_label": "Profil",
     "@scan_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "history_navbar_label": "Profile",
+    "history_navbar_label": "Profil",
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "category": "Kategori",
-    "@category": {},
+    "category": "Kategoriye göre ayır",
+    "@category": {
+        "description": "From a product list, there's a category filter: this is its title"
+    },
+    "category_all": "Hepsi",
+    "@category_al": {
+        "description": "Top meta-entry on a category filter"
+    },
     "category_search": "(kategori arama)",
     "filter": "Filtrele",
     "@filter": {
@@ -185,7 +254,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Tap to see more info...",
+    "tab_for_more": "Daha fazla bilgi görmek için dokunun...",
     "@Product": {},
     "product": "Ürün",
     "@product": {},
@@ -193,10 +262,11 @@
     "@unknownBrand": {},
     "unknownProductName": "Bilinmeyen ürün adı",
     "@unknownProductName": {},
-    "label_refresh": "Refresh",
+    "label_refresh": "Yenile",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
+    "image": "Resim",
     "front_photo": "Ön fotoğraf",
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
@@ -284,6 +354,14 @@
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
+    "product_removed": "Product removed",
+    "@product_removed": {
+        "description": "Product got removed from a list"
+    },
+    "product_could_not_remove": "Ürün kaldırılamadı",
+    "@product_could_not_remove": {
+        "description": "Could not remove product from a list"
+    },
     "@Lists": {},
     "no_prodcut_in_list": "Bu listede ürün yok",
     "no_product_in_section": "Bu bölümde ürün bulunmamaktadır",
@@ -292,7 +370,7 @@
     "@clear": {
         "description": "Clears a product list"
     },
-    "really_clear": "Do you really want to clear this list?",
+    "really_clear": "Bu listeyi gerçekten temizlemek istiyor musunuz?",
     "@Plural": {},
     "pct_match": "{pct}% match",
     "@pct_match": {
@@ -300,6 +378,26 @@
         "placeholders": {
             "pct": {}
         }
+    },
+    "product_compatibility_unknown": "Product Compatibility Unknown",
+    "@product_compatibility_unknown": {
+        "description": "Product compatibility summary title"
+    },
+    "product_compatibility_incompatible": "Very poor Match",
+    "@product_compatibility_incompatible": {
+        "description": "Product compatibility summary title"
+    },
+    "product_compatibility_bad": "Poor Match",
+    "@product_compatibility_bad": {
+        "description": "Product compatibility summary title"
+    },
+    "product_compatibility_neutral": "Neutral Match",
+    "@product_compatibility_neutral": {
+        "description": "Product compatibility summary title"
+    },
+    "product_compatibility_good": "Great Match",
+    "@product_compatibility_good": {
+        "description": "Product compatibility summary title"
     },
     "plural_ago_days": "{count,plural, =1{bir gün önce} other{{count} gün önce}}",
     "@plural_ago_days": {

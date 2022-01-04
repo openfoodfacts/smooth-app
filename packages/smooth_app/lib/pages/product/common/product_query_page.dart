@@ -11,7 +11,7 @@ import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/views/bottom_sheet_views/group_query_filter_view.dart';
-import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
+import 'package:smooth_app/widgets/ranking_floating_action_button.dart';
 
 class ProductQueryPage extends StatefulWidget {
   const ProductQueryPage({
@@ -68,10 +68,11 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
       value: _model,
       builder: (BuildContext context, Widget? wtf) {
         context.watch<ProductQueryModel>();
+        final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
         final Size screenSize = MediaQuery.of(context).size;
         final ThemeData themeData = Theme.of(context);
         if (_model.loadingStatus == LoadingStatus.LOADED) {
-          _model.process();
+          _model.process(appLocalizations.category_all);
         }
         switch (_model.loadingStatus) {
           case LoadingStatus.POST_LOAD_STARTED:
@@ -96,7 +97,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
               _getEmptyText(
                 themeData,
                 widget.mainColor,
-                AppLocalizations.of(context)!.no_product_found,
+                appLocalizations.no_product_found,
               ),
             );
           case LoadingStatus.ERROR:
@@ -106,7 +107,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
               _getEmptyText(
                 themeData,
                 widget.mainColor,
-                '${AppLocalizations.of(context)!.error_occurred}: ${_model.loadingError}',
+                '${appLocalizations.error_occurred}: ${_model.loadingError}',
               ),
             );
         }
@@ -145,38 +146,15 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
   ) =>
       Scaffold(
           key: _scaffoldKeyNotEmpty,
-          floatingActionButton: SmoothRevealAnimation(
-            animationCurve: Curves.easeInOutBack,
-            startOffset: const Offset(0.0, 1.0),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                SizedBox(width: screenSize.width * 0.09),
-                FloatingActionButton.extended(
-                  elevation: 12.0,
-                  icon: Icon(
-                    Icons.emoji_events_outlined,
-                    color: widget.mainColor,
-                  ),
-                  label: Text(
-                    AppLocalizations.of(context)!.myPersonalizedRanking,
-                    style: TextStyle(color: widget.mainColor),
-                  ),
-                  backgroundColor: Colors.white,
-                  onPressed: () {
-                    Navigator.push<Widget>(
-                      context,
-                      MaterialPageRoute<Widget>(
-                        builder: (BuildContext context) =>
-                            PersonalizedRankingPage(
-                          _model.supplier.getProductList(),
-                        ),
-                      ),
-                    );
-                  },
+          floatingActionButton: RankingFloatingActionButton(
+            color: widget.mainColor,
+            onPressed: () => Navigator.push<Widget>(
+              context,
+              MaterialPageRoute<Widget>(
+                builder: (BuildContext context) => PersonalizedRankingPage(
+                  _model.supplier.getProductList(),
                 ),
-              ],
+              ),
             ),
           ),
           body: Stack(
@@ -232,7 +210,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                             builder: (BuildContext context) =>
                                 GroupQueryFilterView(
                               categories: _model.categories,
-                              categoriesList: _model.sortedCategories!,
+                              categoriesList: _model.sortedCategories,
                               callback: (String category) {
                                 _model.selectCategory(category);
                                 setState(() {});

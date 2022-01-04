@@ -113,8 +113,6 @@ class SearchCard extends StatelessWidget {
             Text(
               localizations.welcomeToOpenFoodFacts,
               textAlign: TextAlign.center,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
               style: const TextStyle(
                 fontSize: 36.0,
                 fontWeight: FontWeight.bold,

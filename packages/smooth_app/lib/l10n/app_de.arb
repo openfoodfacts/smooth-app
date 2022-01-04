@@ -26,13 +26,20 @@
     "@error": {},
     "error_occurred": "Ein Fehler ist aufgetreten",
     "@error_occurred": {},
-    "featureInProgress": "Wir arbeiten noch an dieser Funktion, bitte gedulden Sie sich",
+    "featureInProgress": "Wir arbeiten noch an dieser Funktion, bitte gedulden Sie sich.",
     "@featureInProgress": {},
     "label_web": "Im Web anzeigen",
     "@label_web": {},
     "learnMore": "Erfahren Sie mehr",
     "@learnMore": {},
     "incompatible": "Inkompatibel",
+    "@incompatible": {
+        "description": "Short label for product list view: the product is incompatible with your preferences"
+    },
+    "unknown": "Unbekannt",
+    "@unknown": {
+        "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
+    },
     "licenses": "Lizenzen",
     "@licenses": {},
     "looking_for": "Suchen nach",
@@ -46,12 +53,20 @@
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
+    "offUtility": "Wählen Sie die Lebensmittel, die gut für Sie und für den Planeten sind.",
+    "@offUtility": {
+        "description": "Description of what a user can use Open Food Facts for."
+    },
     "@user_management": {},
     "sign_in_text": "Melden Sie sich bei Ihrem Open Food Facts-Konto an, um Ihre Beiträge speichern zu können",
     "incorrect_credentials": "Benutzername oder Passwort ungültig.",
     "login": "Benutzername",
     "@login": {
         "description": "Text field hint: unified name for either username or email address"
+    },
+    "create_account": "Konto erstellen",
+    "@create_account": {
+        "description": "Button label: Opens a page where a new user can register"
     },
     "sign_in": "Anmelden",
     "@sign_in": {
@@ -76,10 +91,44 @@
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset email request"
     },
-    "enter_some_text": "Bitte geben Sie Ihren Text ein",
+    "enter_some_text": "Bitte geben Sie etwas ein",
     "@enter_some_text": {
         "description": "Error when text field is empty"
     },
+    "sign_up_page_title": "Registrieren",
+    "@sign_up_page_title": {
+        "description": "On top of the Sign Up page"
+    },
+    "sign_up_page_action_button": "Registrieren",
+    "@sign_up_page_action_button": {
+        "description": "Bottom action button"
+    },
+    "sign_up_page_action_doing_it": "Registrierung …",
+    "@sign_up_page_action_doing_it": {
+        "description": "Dialog during the actual signing up process"
+    },
+    "sign_up_page_action_ok": "Herzlichen Glückwunsch! Ihr Konto wurde erstellt.",
+    "sign_up_page_display_name_hint": "Anzeigename",
+    "sign_up_page_display_name_error_empty": "Bitte geben Sie den zu verwendenden Anzeigenamen ein",
+    "sign_up_page_email_hint": "E-Mail-Adresse",
+    "sign_up_page_email_error_empty": "Bitte geben Sie Ihre E-Mail-Adresse ein",
+    "sign_up_page_email_error_invalid": "Bitte eine gültige E-Mail Adresse eingeben",
+    "sign_up_page_username_hint": "Benutzername",
+    "sign_up_page_username_error_empty": "Bitte einen Benutzernamen eingeben",
+    "sign_up_page_username_error_invalid": "Bitte einen gültigen Benutzernamen eingeben",
+    "sign_up_page_username_description": "Der Benutzername darf keine Leerzeichen, Großbuchstaben oder Sonderzeichen enthalten",
+    "sign_up_page_password_hint": "Passwort",
+    "sign_up_page_password_error_empty": "Bitte Passwort eingeben",
+    "sign_up_page_password_error_invalid": "Bitte ein gültiges Passwort eingeben (mindestens 6 Zeichen)",
+    "sign_up_page_confirm_password_hint": "Passwort bestätigen",
+    "sign_up_page_confirm_password_error_empty": "Bitte bestätigen Sie das Passwort",
+    "sign_up_page_confirm_password_error_invalid": "Die Passwörter müssen übereinstimmen",
+    "sign_up_page_agree_url": "https://de.openfoodfacts.org/terms-of-use",
+    "sign_up_page_agree_error_invalid": "Sie müssen zustimmen, wenn Sie ein Konto einrichten möchten. Beachten Sie, dass Sie die App weiterhin nutzen und anonym mitwirken können.",
+    "sign_up_page_producer_checkbox": "Ich bin Lebensmittelproduzent",
+    "sign_up_page_producer_hint": "Hersteller/Marke",
+    "sign_up_page_producer_error_empty": "Bitte einen Hersteller oder Markennamen eingeben",
+    "sign_up_page_subscribe_checkbox": "Ich möchte den Newsletter von Open Food Facts abonnieren (Hinweis: Dieser kann jederzeit wieder abbestellt werden)",
     "@Settings": {},
     "settingsTitle": "Einstellungen",
     "@settingsTitle": {
@@ -88,6 +137,14 @@
     "darkmode": "Nachtmodus",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
+    },
+    "darkmode_dark": "Dunkel",
+    "@darkmode_dark": {
+        "description": "Indicator inside the darkmode switch"
+    },
+    "darkmode_light": "Hell",
+    "@darkmode_light": {
+        "description": "Indicator inside the darkmode switch"
     },
     "contributors": "Mitwirkende",
     "@contributors": {
@@ -145,6 +202,12 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
+    "myPreferences_profile_title": "Mein Profil",
+    "myPreferences_profile_subtitle": "Einstellungen der App festlegen und Empfehlungen anzeigen lassen.",
+    "myPreferences_settings_title": "App-Einstellungen",
+    "myPreferences_settings_subtitle": "Dunkeler Modus, Land, Farbe, …",
+    "myPreferences_food_title": "Lebensmittelvorlieben",
+    "myPreferences_food_subtitle": "Wählen Sie aus, welche Informationen über Lebensmittel für Sie am wichtigsten sind.",
     "confirmResetPreferences": "Eigene Voreinstellungen zurücksetzen?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -170,8 +233,14 @@
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "category": "Kategorie",
-    "@category": {},
+    "category": "Nach Kategorie filtern",
+    "@category": {
+        "description": "From a product list, there's a category filter: this is its title"
+    },
+    "category_all": "Alle",
+    "@category_al": {
+        "description": "Top meta-entry on a category filter"
+    },
     "category_search": "(Kategoriesuche)",
     "filter": "Filter",
     "@filter": {
@@ -197,6 +266,7 @@
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
+    "image": "Grafik",
     "front_photo": "Foto der Vorderseite",
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
@@ -245,7 +315,7 @@
         "description": "Confirmation, that the product data got canceled by the user"
     },
     "product_internet_error": "Informationen über dieses Produkt können aufgrund eines Netzwerkfehlers nicht abgerufen werden.",
-    "cached_results_from": "Zwischengespeicherte Ergebnisse von:",
+    "cached_results_from": "Gespeicherte Ergebnisse von vor:",
     "@cached_results_from": {
         "description": "Cached results from: x time ago (time ago should not be added to the string)"
     },
@@ -280,9 +350,17 @@
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },
-    "country_selection_explanation": "Some environment features depend on your location",
+    "country_selection_explanation": "Einige ökologische Eigenschaften sind standortspezifisch",
     "@country_label": {
         "description": "Explanation as to why users should select their country."
+    },
+    "product_removed": "Produkt entfernt",
+    "@product_removed": {
+        "description": "Product got removed from a list"
+    },
+    "product_could_not_remove": "Produkt konnte nicht entfernt werden",
+    "@product_could_not_remove": {
+        "description": "Could not remove product from a list"
     },
     "@Lists": {},
     "no_prodcut_in_list": "Liste enthält noch keine Produkte",
@@ -300,6 +378,26 @@
         "placeholders": {
             "pct": {}
         }
+    },
+    "product_compatibility_unknown": "Produktkompatibilität unbekannt",
+    "@product_compatibility_unknown": {
+        "description": "Product compatibility summary title"
+    },
+    "product_compatibility_incompatible": "Sehr geringe Übereinstimmung",
+    "@product_compatibility_incompatible": {
+        "description": "Product compatibility summary title"
+    },
+    "product_compatibility_bad": "Geringe Übereinstimmung",
+    "@product_compatibility_bad": {
+        "description": "Product compatibility summary title"
+    },
+    "product_compatibility_neutral": "Neutrale Übereinstimmung",
+    "@product_compatibility_neutral": {
+        "description": "Product compatibility summary title"
+    },
+    "product_compatibility_good": "Gute Übereinstimmung",
+    "@product_compatibility_good": {
+        "description": "Product compatibility summary title"
     },
     "plural_ago_days": "{count,plural, =1{einem Tag} other{{count} Tagen}}",
     "@plural_ago_days": {
