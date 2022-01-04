@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/QueryType.dart';
+import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:smooth_app/database/product_query.dart';
 
 class KnowledgePanelsQuery {
@@ -18,6 +18,9 @@ class KnowledgePanelsQuery {
       language: ProductQuery.getLanguage(),
       country: ProductQuery.getCountry(),
     );
-    return OpenFoodAPIClient.getKnowledgePanels(configuration, QueryType.PROD);
+    return OpenFoodAPIClient.getKnowledgePanels(
+      configuration,
+      OpenFoodAPIConfiguration.globalQueryType,
+    );
   }
 }
