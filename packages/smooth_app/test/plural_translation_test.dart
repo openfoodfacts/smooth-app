@@ -3,6 +3,11 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
+  /// When localizing plural messages we allow the translators to put the count
+  /// variable at any point they want so that the strings make sense
+  /// in any language. This test checks if there is a number at any value
+  /// between -1 and 1000, this is to prevent the plural strings in a language
+  /// from breaking by translating the variable name as well.
   group('Plural test', () {
     const List<Locale> locales = AppLocalizations.supportedLocales;
 
