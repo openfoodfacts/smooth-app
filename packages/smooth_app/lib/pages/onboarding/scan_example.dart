@@ -52,7 +52,7 @@ class ScanExample extends StatelessWidget {
               ),
             ),
             Flexible(
-              flex: 2,
+              flex: 3,
               child: Padding(
                 padding: EdgeInsets.only(
                     left: screenSize.width / 10, right: MEDIUM_SPACE),
@@ -65,7 +65,7 @@ class ScanExample extends StatelessWidget {
                 ),
               ),
             ),
-            const Spacer(flex: 2),
+            const Spacer(flex: 1),
             Flexible(
               flex: 1,
               child: Padding(
