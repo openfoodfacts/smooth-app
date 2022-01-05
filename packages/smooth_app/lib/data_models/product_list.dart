@@ -135,7 +135,8 @@ class ProductList {
     for (final String barcode in barcodes) {
       final Product? product = _products[barcode];
       if (product == null) {
-        throw Exception('no product for barcode $barcode');
+        continue;
+        // throw Exception('no product for barcode $barcode');
       }
       result.add(product);
     }

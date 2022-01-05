@@ -28,11 +28,14 @@ const int SUMMARY_CARD_ROW_HEIGHT = 40;
 
 class SummaryCard extends StatefulWidget {
   const SummaryCard(this._product, this._productPreferences,
-      {this.isRenderedInProductPage = false});
+      {this.isFullVersion = false});
 
   final Product _product;
   final ProductPreferences _productPreferences;
-  final bool isRenderedInProductPage;
+
+  /// If false, the card will be clipped to a smaller version so it can fit on
+  /// smaller screens.
+  final bool isFullVersion;
 
   @override
   State<SummaryCard> createState() => _SummaryCardState();
@@ -50,7 +53,7 @@ class _SummaryCardState extends State<SummaryCard> {
   Widget build(BuildContext context) {
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-      if (widget.isRenderedInProductPage) {
+      if (widget.isFullVersion) {
         return buildProductSmoothCard(
           header: _buildProductCompatibilityHeader(context),
           body: Padding(
