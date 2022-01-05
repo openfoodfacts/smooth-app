@@ -141,7 +141,25 @@ Widget build(BuildContext context) {
                       style: bodyTextStyle,
                     ),
                   ),
-                  const CountrySelector(),
+                  CountrySelector(
+                    initialCountryCode: WidgetsBinding
+                        .instance?.window.locale.countryCode
+                        ?.toLowerCase(),
+                    padding: const EdgeInsets.only(
+                      top: MEDIUM_SPACE,
+                      bottom: LARGE_SPACE,
+                    ),
+                    inputDecoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                            color: Color.fromARGB(255, 235, 235, 235)),
+                        borderRadius: BorderRadius.circular(VERY_LARGE_SPACE),
+                      ),
+                      filled: Theme.of(context).colorScheme.brightness ==
+                          Brightness.light,
+                      fillColor: const Color.fromARGB(255, 235, 235, 235),
+                    ),
+                  ),
                   Padding(
                     padding: const EdgeInsets.only(left: SMALL_SPACE),
                     child: Text(
