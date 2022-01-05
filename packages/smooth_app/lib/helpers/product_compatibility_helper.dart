@@ -51,9 +51,9 @@ Color getProductCompatibilityHeaderBackgroundColor(
 }
 
 String getProductCompatibilityHeaderTextWidget(
-  final ProductCompatibility compatibility,
-  final AppLocalizations appLocalizations,
-) {
+    final ProductCompatibility compatibility,
+    final AppLocalizations appLocalizations,
+    ) {
   switch (compatibility) {
     case ProductCompatibility.UNKNOWN:
       return appLocalizations.product_compatibility_unknown;
@@ -69,9 +69,9 @@ String getProductCompatibilityHeaderTextWidget(
 }
 
 ProductCompatibilityResult getProductCompatibility(
-  ProductPreferences productPreferences,
-  Product product,
-) {
+    ProductPreferences productPreferences,
+    Product product,
+    ) {
   double averageAttributeMatch = 0.0;
   int numAttributesComputed = 0;
   if (product.attributeGroups != null) {
@@ -79,7 +79,7 @@ ProductCompatibilityResult getProductCompatibility(
       if (group.attributes != null) {
         for (final Attribute attribute in group.attributes!) {
           final String importanceLevel =
-              productPreferences.getImportanceIdForAttributeId(attribute.id!);
+          productPreferences.getImportanceIdForAttributeId(attribute.id!);
           // Check whether any mandatory attribute is incompatible
           if (importanceLevel == PreferenceImportance.ID_MANDATORY &&
               getAttributeEvaluation(attribute) ==
@@ -90,6 +90,10 @@ ProductCompatibilityResult getProductCompatibility(
           if (!attributeImportanceWeight.containsKey(importanceLevel)) {
             // Unknown attribute importance level. (This should ideally never happen).
             // TODO(jasmeetsingh): [importanceLevel] should be an enum not a string.
+            continue;
+          }
+          if (attributeImportanceWeight[importanceLevel] == 0.0) {
+            // Skip attributes that are not important
             continue;
           }
           if (!isMatchAvailable(attribute)) {
@@ -119,9 +123,9 @@ ProductCompatibilityResult getProductCompatibility(
 }
 
 String getSubtitle(
-  final ProductCompatibilityResult compatibility,
-  final AppLocalizations appLocalizations,
-) {
+    final ProductCompatibilityResult compatibility,
+    final AppLocalizations appLocalizations,
+    ) {
   if (compatibility.productCompatibility == ProductCompatibility.UNKNOWN) {
     return appLocalizations.unknown;
   }
