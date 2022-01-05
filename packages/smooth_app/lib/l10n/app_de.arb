@@ -205,7 +205,7 @@
     "myPreferences_profile_title": "Mein Profil",
     "myPreferences_profile_subtitle": "Einstellungen der App festlegen und Empfehlungen anzeigen lassen.",
     "myPreferences_settings_title": "App-Einstellungen",
-    "myPreferences_settings_subtitle": "Dunkeler Modus, Land, Farbe, …",
+    "myPreferences_settings_subtitle": "Dunkler Modus, Land, Farbe, …",
     "myPreferences_food_title": "Lebensmittelvorlieben",
     "myPreferences_food_subtitle": "Wählen Sie aus, welche Informationen über Lebensmittel für Sie am wichtigsten sind.",
     "confirmResetPreferences": "Eigene Voreinstellungen zurücksetzen?",
@@ -399,42 +399,42 @@
     "@product_compatibility_good": {
         "description": "Product compatibility summary title"
     },
-    "plural_ago_days": "{count,plural, =1{einem Tag} other{{count} Tagen}}",
+    "plural_ago_days": "{=1{one day ago} other{{count} days ago}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural, =1{einer Stunde} other{{count} Stunden }}",
+    "plural_ago_hours": "{=1{one hour ago} other{{count} hours ago}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural, =0{weniger als 1 Minute} =1{einer Minute} other{{count} Minuten}}",
+    "plural_ago_minutes": "{=0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, =1{einem Monat} other{{count} Monaten}}",
+    "plural_ago_months": "{=1{one month ago} other{{count} months ago}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, =1{einer Woche} other{{count} Wochen}}",
+    "plural_ago_weeks": "{=1{one week ago} other{{count} weeks ago}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, =other{{count} Produkte vergleichen}",
+    "plural_compare_x_products": "{other{Compare {count} Products}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {
