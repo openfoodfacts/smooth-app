@@ -92,6 +92,10 @@ ProductCompatibilityResult getProductCompatibility(
             // TODO(jasmeetsingh): [importanceLevel] should be an enum not a string.
             continue;
           }
+          if (attributeImportanceWeight[importanceLevel] == 0.0) {
+            // Skip attributes that are not important
+            continue;
+          }
           if (!isMatchAvailable(attribute)) {
             continue;
           }
