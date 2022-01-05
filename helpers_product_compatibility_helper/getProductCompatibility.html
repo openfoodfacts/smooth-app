@@ -88,6 +88,10 @@
             &#47;&#47; TODO(jasmeetsingh): [importanceLevel] should be an enum not a string.
             continue;
           }
+          if (attributeImportanceWeight[importanceLevel] == 0.0) {
+            &#47;&#47; Skip attributes that are not important
+            continue;
+          }
           if (!isMatchAvailable(attribute)) {
             continue;
           }
