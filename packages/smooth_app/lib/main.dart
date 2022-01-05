@@ -13,8 +13,13 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
+import 'package:smooth_app/pages/user_management/login_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
+import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
+
+import 'helpers/user_management_helper.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -170,8 +175,55 @@ class SmoothAppGetLanguage extends StatelessWidget {
 
   final Widget appWidget;
 
+  Future<void> _initOpenFoodFactsDart(BuildContext context) async {
+    //We can't check the credentials if the user never logged in
+    if (!await UserManagementHelper.checkCredentialsInStorage()) {
+      return;
+    }
+
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final bool stillCorrect = await UserManagementHelper.checkAndReMountCreds();
+
+    if (!stillCorrect) {
+      showDialog<dynamic>(
+        context: context,
+        builder: (final BuildContext context) => SmoothAlertDialog(
+          close: true,
+          title: appLocalizations.automatic_log_out_header,
+          body: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              Text(
+                appLocalizations.automatic_log_out_text,
+              ),
+              TextButton(
+                child: Text(appLocalizations.dont_show_again),
+                onPressed: () {
+                  UserManagementHelper.logout();
+                  Navigator.of(context, rootNavigator: true).pop();
+                },
+              )
+            ],
+          ),
+          actions: <SmoothSimpleButton>[
+            SmoothSimpleButton(
+              text: appLocalizations.sign_in,
+              onPressed: () => Navigator.push<dynamic>(
+                context,
+                MaterialPageRoute<dynamic>(
+                    builder: (BuildContext context) => const LoginPage()),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    _initOpenFoodFactsDart(context);
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
     final Locale myLocale = Localizations.localeOf(context);

@@ -26,6 +26,10 @@
     "@error": {},
     "error_occurred": "An error occurred",
     "@error_occurred": {},
+    "dont_show_again": "Don't show again",
+    "@dont_show_again": {
+        "description": "Button label, for not showing something next time"
+    },
     "featureInProgress": "We're still working on this feature, stay tuned",
     "@featureInProgress": {},
     "label_web": "View on the Web",
@@ -91,6 +95,11 @@
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset e-mail request"
     },
+    "automatic_log_out_header": "Account information",
+    "@automatic_log_out_header": {
+        "description": "Header from a dialog when the password or email are not up to date anymore, so you got logged out"
+    },
+    "automatic_log_out_text": "Your credentials seem to be out of date.",
     "enter_some_text": "Please enter some text",
     "@enter_some_text": {
         "description": "Error when a required text field is empty"
@@ -214,8 +223,12 @@
     "myPreferences_settings_subtitle": "Dark mode, country, color, ...",
     "myPreferences_food_title": "Food Preferences",
     "myPreferences_food_subtitle": "Choose what information about food matters most to you.",
-    "confirmResetPreferences": "Reset your preferences?",
-    "@confirmResetPreferences": {
+    "reset_food_preferences": "Reset Food Preferences",
+    "@reset_food_preferences": {
+        "description": "Button for resetting the food preferences"
+    },
+    "confirm_reset_food_preferences": "Reset your food preferences?",
+    "@confirm_reset_food_preferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
     },
     "myPersonalizedRanking": "My personalized ranking",

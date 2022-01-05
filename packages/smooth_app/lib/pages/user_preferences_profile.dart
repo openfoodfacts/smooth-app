@@ -3,10 +3,11 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/pages/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/onboarding/country_selector.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
+import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
+import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 
 /// Collapsed/expanded display of profile for the preferences page.
 class UserPreferencesProfile extends AbstractUserPreferences {
@@ -43,25 +44,6 @@ class UserPreferencesProfile extends AbstractUserPreferences {
   @override
   List<Widget> getBody() => <Widget>[
         ListTile(
-          leading: const Icon(Icons.threesixty_outlined),
-          title: const Text('Check credentials'),
-          onTap: () async {
-            final bool correct =
-                await UserManagementHelper.checkAndReMountCredentials();
-
-            final SnackBar snackBar = SnackBar(
-              content: Text('It is $correct'),
-              action: SnackBarAction(
-                label: 'Logout',
-                onPressed: () async {
-                  UserManagementHelper.logout();
-                },
-              ),
-            );
-            ScaffoldMessenger.of(context).showSnackBar(snackBar);
-          },
-        ),
-        ListTile(
           leading: const Icon(Icons.supervised_user_circle),
           title: const Text('User management'),
           onTap: () => Navigator.push<Widget>(
@@ -79,7 +61,7 @@ class UserPreferencesProfile extends AbstractUserPreferences {
         ),
         ListTile(
           leading: const Icon(Icons.rotate_left),
-          title: Text(appLocalizations.reset),
+          title: Text(appLocalizations.reset_food_preferences),
           onTap: () => _confirmReset(context),
         ),
       ];
@@ -89,18 +71,18 @@ class UserPreferencesProfile extends AbstractUserPreferences {
     showDialog<void>(
       context: context,
       builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text(localizations.confirmResetPreferences),
-          actions: <Widget>[
-            TextButton(
-              child: Text(localizations.yes),
+        return SmoothAlertDialog(
+          body: Text(localizations.confirm_reset_food_preferences),
+          actions: <SmoothSimpleButton>[
+            SmoothSimpleButton(
+              text: localizations.yes,
               onPressed: () async {
                 await context.read<ProductPreferences>().resetImportances();
                 Navigator.pop(context);
               },
             ),
-            TextButton(
-              child: Text(localizations.no),
+            SmoothSimpleButton(
+              text: localizations.no,
               onPressed: () {
                 Navigator.pop(context);
               },
