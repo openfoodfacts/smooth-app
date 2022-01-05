@@ -49,7 +49,12 @@ abstract class ProductQuery {
               true
           ? QueryType.PROD
           : QueryType.TEST;
-
+  /// Other projects
+  /// QueryType.OPF - OpenFoodAPIConfiguration.uriProdHost = 'world.openproductsfacts.org';
+  /// QueryType.OPFF - OpenFoodAPIConfiguration.uriProdHost = 'world.openpetfoodfacts.org';
+  /// QueryType.OBF - OpenFoodAPIConfiguration.uriProdHost = 'world.openbeautyfacts.org';
+  
+  
   static List<ProductField> get fields => <ProductField>[
         ProductField.NAME,
         ProductField.BRANDS,
