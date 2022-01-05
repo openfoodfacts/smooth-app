@@ -46,6 +46,9 @@ class WelcomePage extends StatelessWidget {
                       ),
                     ),
                     CountrySelector(
+                      initialCountryCode: WidgetsBinding
+                          .instance?.window.locale.countryCode
+                          ?.toLowerCase(),
                       padding: const EdgeInsets.only(
                         top: MEDIUM_SPACE,
                         bottom: LARGE_SPACE,

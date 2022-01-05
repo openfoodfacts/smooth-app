@@ -7,7 +7,7 @@ import 'package:smooth_app/database/product_query.dart';
 /// A selector for selecting user's country.
 class CountrySelector extends StatefulWidget {
   const CountrySelector({
-    this.initialCountryCode,
+    required this.initialCountryCode,
     this.inputDecoration,
     this.padding,
   });
@@ -133,8 +133,7 @@ class _CountrySelectorState extends State<CountrySelector> {
   List<Country> _reorderCountries(List<Country> countries) {
     countries
         .sort((final Country a, final Country b) => a.name.compareTo(b.name));
-    final String? mostLikelyUserCountryCode = widget.initialCountryCode ??
-        WidgetsBinding.instance?.window.locale.countryCode?.toLowerCase();
+    final String? mostLikelyUserCountryCode = widget.initialCountryCode;
     if (mostLikelyUserCountryCode == null) {
       return countries;
     }
