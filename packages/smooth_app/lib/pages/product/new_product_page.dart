@@ -18,6 +18,7 @@ import 'package:smooth_app/pages/product/knowledge_panel_product_cards.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage(this.product);
@@ -189,7 +190,12 @@ class _ProductPageState extends State<ProductPage> {
         alignment: Alignment.topLeft,
         child: _buildProductImagesCarousel(context),
       ),
-      SummaryCard(_product, _productPreferences, isFullVersion: true),
+      Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: SMALL_SPACE,
+        ),
+        child: SummaryCard(_product, _productPreferences, isFullVersion: true),
+      ),
       _buildKnowledgePanelCards(),
     ]);
   }
