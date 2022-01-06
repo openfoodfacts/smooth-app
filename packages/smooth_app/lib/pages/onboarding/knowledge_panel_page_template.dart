@@ -2,29 +2,35 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
-import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panels_builder.dart';
-import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/pages/onboarding/next_button.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/product/knowledge_panel_product_cards.dart';
-import 'package:smooth_app/pages/product/summary_card.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
 
-class SampleProductPage extends StatefulWidget {
+class KnowledgePanelPageTemplate extends StatefulWidget {
+  const KnowledgePanelPageTemplate({
+    required this.assetFile,
+    required this.headerTitle,
+    required this.page,
+  });
+
+  final String assetFile;
+  final String headerTitle;
+  final OnboardingPage page;
+
   @override
-  State<SampleProductPage> createState() => _SampleProductPageState();
+  State<KnowledgePanelPageTemplate> createState() =>
+      _KnowledgePanelPageTemplateState();
 }
 
-class _SampleProductPageState extends State<SampleProductPage> {
+class _KnowledgePanelPageTemplateState
+    extends State<KnowledgePanelPageTemplate> {
   late Future<void> _initFuture;
-  late ProductPreferences _productPreferences;
-  late Product _product;
   late KnowledgePanels _knowledgePanels;
 
   @override
@@ -34,18 +40,8 @@ class _SampleProductPageState extends State<SampleProductPage> {
   }
 
   Future<dynamic> _init() async {
-    _productPreferences = context.read<ProductPreferences>();
-
-    // Load Product
-    final String productResponse = await rootBundle
-        .loadString('assets/onboarding/sample_product_data.json');
-    final Map<String, dynamic> productData =
-        jsonDecode(productResponse) as Map<String, dynamic>;
-    _product = Product.fromJson(productData['product'] as Map<String, dynamic>);
-
     // Load KnowledgePanels
-    final String kpResponse = await rootBundle
-        .loadString('assets/onboarding/sample_product_knowledge_panels.json');
+    final String kpResponse = await rootBundle.loadString(widget.assetFile);
     final Map<String, dynamic> kpData =
         jsonDecode(kpResponse) as Map<String, dynamic>;
     final Map<String, dynamic> kpDataProduct =
@@ -56,7 +52,6 @@ class _SampleProductPageState extends State<SampleProductPage> {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final MaterialColor materialColor =
         SmoothTheme.getMaterialColor(context.read<ThemeProvider>());
     return FutureBuilder<void>(
@@ -74,31 +69,33 @@ class _SampleProductPageState extends State<SampleProductPage> {
             body: Stack(
               children: <Widget>[
                 ListView(
-                  padding: const EdgeInsets.all(LARGE_SPACE),
+                  // bottom padding is very large because the next button is stacked on top of the page.
+                  padding: const EdgeInsets.only(
+                    top: LARGE_SPACE,
+                    right: LARGE_SPACE,
+                    left: LARGE_SPACE,
+                    bottom: VERY_LARGE_SPACE * 5,
+                  ),
                   shrinkWrap: true,
                   children: <Widget>[
                     Padding(
-                      padding: const EdgeInsets.only(
-                        left: LARGE_SPACE,
-                        right: LARGE_SPACE,
-                        bottom: LARGE_SPACE,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: LARGE_SPACE,
                       ),
                       child: Text(
-                        appLocalizations.productDataUtility,
+                        widget.headerTitle,
                         style: Theme.of(context).textTheme.headline2!.apply(
                               color: Colors.black,
                             ),
                       ),
                     ),
-                    SummaryCard(_product, _productPreferences,
-                        isFullVersion: true),
                     KnowledgePanelProductCards(knowledgePanelWidgets),
                   ],
                 ),
-                const Positioned(
+                Positioned(
                   child: Align(
                     alignment: Alignment.bottomCenter,
-                    child: NextButton(OnboardingPage.PRODUCT_EXAMPLE),
+                    child: NextButton(widget.page),
                   ),
                 ),
               ],
