@@ -74,9 +74,12 @@
     case OnboardingPage.SCAN_EXAMPLE:
       return _wrapWidgetInCustomBackNavigator(
           context, page, const ScanExample());
-    case OnboardingPage.PRODUCT_EXAMPLE:
+    case OnboardingPage.HEALTH_CARD_EXAMPLE:
       return _wrapWidgetInCustomBackNavigator(
-          context, page, SampleProductPage());
+          context, page, const SampleHealthCardPage());
+    case OnboardingPage.ECO_CARD_EXAMPLE:
+      return _wrapWidgetInCustomBackNavigator(
+          context, page, const SampleEcoCardPage());
     case OnboardingPage.ONBOARDING_COMPLETE:
       return PageManager();
   }
