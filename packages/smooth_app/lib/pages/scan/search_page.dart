@@ -174,9 +174,13 @@ class _SearchFieldState extends State<SearchField> {
   }
 
   void _handleTextChange() {
-    setState(() {
-      _isEmpty = _textController.text.isEmpty;
-    });
+    //Only rebuild the widget if the text length is 0 or 1 as we only check if
+    //the text length is empty or not
+    if (_textController.text.isEmpty || _textController.text.length == 1) {
+      setState(() {
+        _isEmpty = _textController.text.isEmpty;
+      });
+    }
   }
 
   void _handleFocusChange() {
