@@ -1,0 +1,356 @@
+{
+  "code":"20462123",
+  "product":{
+    "knowledge_panels":{
+      "health_card":{
+        "elements":[
+          {
+            "element_type":"panel_group",
+            "panel_group_element":{
+              "panel_ids":[
+                "nutriscore",
+                "nutriscore_warnings",
+                "physical_activities",
+                "nutrition_facts_table"
+              ],
+              "title":""
+            }
+          }
+        ],
+        "expanded":true,
+        "title_element":{
+          "title":"Health"
+        },
+        "topics":[
+          "health"
+        ],
+        "type":"card"
+      },
+      "nutriscore":{
+        "elements":[
+          {
+            "element_type":"text",
+            "text_element":{
+              "html":"<!-- start templates/web/pages/product/includes/nutriscore_details.tt.html -->\n\n<p>This product is not considered a beverage for the calculation of the Nutri-Score.</p>\n\n\n\n\n\n  <p> \n    <strong>Positive points: 8</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Proteins:\n1&nbsp;</strong>/&nbsp;5\n(value: 1.8, \n        rounded value: 1.8)\n      </li>\n    \n      <li>\n        <strong>Fiber:\n2&nbsp;</strong>/&nbsp;5\n(value: 2.8, \n        rounded value: 2.8)\n      </li>\n    \n      <li>\n        <strong>Fruits, vegetables, nuts, and colza/walnut/olive oils:\n5&nbsp;</strong>/&nbsp;5\n(value: 90, \n        rounded value: 90)\n      </li>\n    \n  </ul>\n\n\n\n  <p> \n    <strong>Negative points: 0</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Energy:\n0&nbsp;</strong>/&nbsp;10\n(value: 76, \n        rounded value: 76)\n      </li>\n    \n      <li>\n        <strong>Sugars:\n0&nbsp;</strong>/&nbsp;10\n(value: 0.1, \n        rounded value: 0.1)\n      </li>\n    \n      <li>\n        <strong>Saturated fat:\n0&nbsp;</strong>/&nbsp;10\n(value: 0.1, \n        rounded value: 0.1)\n      </li>\n    \n      <li>\n        <strong>Sodium:\n0&nbsp;</strong>/&nbsp;10\n(value: 4, \n        rounded value: 4)\n      </li>\n    \n  </ul>\n\n\n\n<p>The points for proteins are counted because the negative points are less than 11.</p>\n\n<p>\n  <strong>Score nutritionnel: -8</strong>\n  (0 - 8)\n</p>\n<p><strong>Nutri-Score: A</strong></p>\n\n<!-- end templates/web/pages/product/includes/nutriscore_details.tt.html -->"
+            }
+          }
+        ],
+        "level":"info",
+        "title_element":{
+          "grade":"a",
+          "icon_url":"https://static.openfoodfacts.dev/images/attributes/nutriscore-a.svg",
+          "title":"Very good nutritional quality",
+          "type":"grade"
+        },
+        "topics":[
+          "health"
+        ]
+      },
+      "nutriscore_warnings":{
+        "elements":[
+          {
+            "element_type":"text",
+            "text_element":{
+              "html":"Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (Mushrooms) of the product: 90%\n                ",
+              "type":"warning"
+            }
+          }
+        ],
+        "level":"info",
+        "topics":[
+          "health"
+        ],
+        "type":"inline"
+      },
+      "nutrition_facts_table":{
+        "elements":[
+          {
+            "element_type":"table",
+            "table_element":{
+              "columns":[
+                {
+                  "style":"max-width:15rem",
+                  "text":"Nutrition facts",
+                  "type":"text"
+                },
+                {
+                  "column_group_id":"product",
+                  "shown_by_default":true,
+                  "text":"As sold<br>for 100 g / 100 ml",
+                  "text_for_small_screens":"100g",
+                  "type":"text"
+                },
+                {
+                  "column_group_id":"product",
+                  "shown_by_default":false,
+                  "text":"As sold<br>per serving (156g)",
+                  "text_for_small_screens":"per serving",
+                  "type":"text"
+                },
+                {
+                  "column_group_id":"comparisons",
+                  "shown_by_default":true,
+                  "text":"Compared to: Fresh plant-based foods",
+                  "type":"text"
+                }
+              ],
+              "id":"nutrition_facts_table",
+              "rows":[
+                {
+                  "values":[
+                    {
+                      "level":0,
+                      "style":"max-width:15rem",
+                      "text":"Energy"
+                    },
+                    {
+                      "text":"76 kj<br>(20 kcal)"
+                    },
+                    {
+                      "text":"119 kj<br>(31 kcal)"
+                    },
+                    {
+                      "evaluation":"good",
+                      "text":"-40%"
+                    }
+                  ]
+                },
+                {
+                  "values":[
+                    {
+                      "level":0,
+                      "style":"max-width:15rem",
+                      "text":"Fat"
+                    },
+                    {
+                      "text":"0.3 g"
+                    },
+                    {
+                      "text":"0.468 g"
+                    },
+                    {
+                      "evaluation":"good",
+                      "text":"-40%"
+                    }
+                  ]
+                },
+                {
+                  "values":[
+                    {
+                      "level":1,
+                      "style":"max-width:15rem",
+                      "text":"Saturated fat"
+                    },
+                    {
+                      "text":"0.1 g"
+                    },
+                    {
+                      "text":"0.156 g"
+                    },
+                    {
+                      "evaluation":"good",
+                      "text":"-21%"
+                    }
+                  ]
+                },
+                {
+                  "values":[
+                    {
+                      "level":0,
+                      "style":"max-width:15rem",
+                      "text":"Carbohydrates"
+                    },
+                    {
+                      "text":"1.4 g"
+                    },
+                    {
+                      "text":"2.18 g"
+                    },
+                    {
+                      "text":"-67%"
+                    }
+                  ]
+                },
+                {
+                  "values":[
+                    {
+                      "level":1,
+                      "style":"max-width:15rem",
+                      "text":"Sugars"
+                    },
+                    {
+                      "text":"0.1 g"
+                    },
+                    {
+                      "text":"0.156 g"
+                    },
+                    {
+                      "evaluation":"good",
+                      "text":"-96%"
+                    }
+                  ]
+                },
+                {
+                  "values":[
+                    {
+                      "level":0,
+                      "style":"max-width:15rem",
+                      "text":"Fiber"
+                    },
+                    {
+                      "text":"2.8 g"
+                    },
+                    {
+                      "text":"4.37 g"
+                    },
+                    {
+                      "evaluation":"good",
+                      "text":"+63%"
+                    }
+                  ]
+                },
+                {
+                  "values":[
+                    {
+                      "level":0,
+                      "style":"max-width:15rem",
+                      "text":"Proteins"
+                    },
+                    {
+                      "text":"1.8 g"
+                    },
+                    {
+                      "text":"2.81 g"
+                    },
+                    {
+                      "evaluation":"good",
+                      "text":"+18%"
+                    }
+                  ]
+                },
+                {
+                  "values":[
+                    {
+                      "level":0,
+                      "style":"max-width:15rem",
+                      "text":"Salt"
+                    },
+                    {
+                      "text":"0.01 g"
+                    },
+                    {
+                      "text":"0.016 g"
+                    },
+                    {
+                      "evaluation":"good",
+                      "text":"-87%"
+                    }
+                  ]
+                },
+                {
+                  "values":[
+                    {
+                      "level":0,
+                      "style":"max-width:15rem",
+                      "text":"Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)"
+                    },
+                    {
+                      "text":"20 %"
+                    },
+                    {
+                      "text":"?"
+                    },
+                    {
+                      "text":""
+                    }
+                  ]
+                }
+              ],
+              "title":"Nutrition facts"
+            }
+          }
+        ],
+        "expanded":true,
+        "level":"info",
+        "topics":[
+          "health"
+        ],
+        "type":"inline"
+      },
+      "physical_activities":{
+        "elements":[
+          {
+            "element_type":"text",
+            "text_element":{
+              "evaluation":"good",
+              "html":"\n                        <strong>Swimming:</strong> 3 min \n                        ",
+              "icon_alt":"Swimming",
+              "icon_color_from_evaluation":true,
+              "icon_url":"https://static.openfoodfacts.dev/images/icons/dist/activity-swimming.svg",
+              "type":"summary",
+              "valign":"middle"
+            }
+          },
+          {
+            "element_type":"text",
+            "text_element":{
+              "evaluation":"good",
+              "html":"\n                        <strong>Bicycling:</strong> 2 min \n                        ",
+              "icon_alt":"Bicycling",
+              "icon_color_from_evaluation":true,
+              "icon_url":"https://static.openfoodfacts.dev/images/icons/dist/activity-bicycling.svg",
+              "type":"summary",
+              "valign":"middle"
+            }
+          },
+          {
+            "element_type":"text",
+            "text_element":{
+              "evaluation":"good",
+              "html":"\n                        <strong>Running:</strong> 2 min \n                        ",
+              "icon_alt":"Running",
+              "icon_color_from_evaluation":true,
+              "icon_url":"https://static.openfoodfacts.dev/images/icons/dist/activity-running.svg",
+              "type":"summary",
+              "valign":"middle"
+            }
+          },
+          {
+            "element_type":"text",
+            "text_element":{
+              "html":"\n                    <p>Energy expenditure for a person weighting 70 kg / 154 lb</p>\n                    ",
+              "icon_color_from_evaluation":true,
+              "type":"summary"
+            }
+          }
+        ],
+        "evaluation":"good",
+        "expanded":false,
+        "level":"info",
+        "title_element":{
+          "icon_color_from_evaluation":true,
+          "icon_url":"https://static.openfoodfacts.dev/images/icons/dist/activity-walking.svg",
+          "subtitle":"Equal to walking 4 minutes or 443 steps",
+          "title":"76 kJ per 100g"
+        },
+        "topics":[
+          "health"
+        ]
+      },
+      "root":{
+        "elements":[
+          {
+            "element_type":"panel",
+            "panel_element":{
+              "panel_id":"health_card"
+            }
+          }
+        ],
+        "expanded":true,
+        "type":"root"
+      }
+    }
+  },
+  "status":1,
+  "status_verbose":"product found"
+}
