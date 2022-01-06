@@ -80,6 +80,9 @@
     case OnboardingPage.ECO_CARD_EXAMPLE:
       return _wrapWidgetInCustomBackNavigator(
           context, page, const SampleEcoCardPage());
+    case OnboardingPage.PREFERENCES_PAGE:
+      return _wrapWidgetInCustomBackNavigator(
+          context, page, PreferencesPage());
     case OnboardingPage.ONBOARDING_COMPLETE:
       return PageManager();
   }
