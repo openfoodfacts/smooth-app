@@ -69,7 +69,7 @@ class _KnowledgePanelPageTemplateState
             body: Stack(
               children: <Widget>[
                 ListView(
-                  // bottom padding is very large because the next button is stacked on top of the page.
+                  // bottom padding is very large because [NextButton] is stacked on top of the page.
                   padding: const EdgeInsets.only(
                     top: LARGE_SPACE,
                     right: LARGE_SPACE,
