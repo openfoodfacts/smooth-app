@@ -74,6 +74,9 @@
     case OnboardingPage.SCAN_EXAMPLE:
       return _wrapWidgetInCustomBackNavigator(
           context, page, const ScanExample());
+    case OnboardingPage.PRODUCT_EXAMPLE:
+      return _wrapWidgetInCustomBackNavigator(
+          context, page, SampleProductPage());
     case OnboardingPage.ONBOARDING_COMPLETE:
       return PageManager();
   }
