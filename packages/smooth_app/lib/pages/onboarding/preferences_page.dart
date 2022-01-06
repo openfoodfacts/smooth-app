@@ -2,20 +2,15 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panels_builder.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/pages/onboarding/next_button.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
-import 'package:smooth_app/pages/product/knowledge_panel_product_cards.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
 import 'package:smooth_app/pages/user_preferences_food.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 class PreferencesPage extends StatefulWidget {
