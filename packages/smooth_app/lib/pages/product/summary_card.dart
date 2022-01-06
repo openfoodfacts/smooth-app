@@ -60,6 +60,7 @@ class _SummaryCardState extends State<SummaryCard> {
             padding: SMOOTH_CARD_PADDING,
             child: _buildSummaryCardContent(context),
           ),
+          margin: EdgeInsets.zero,
         );
       } else {
         return _buildLimitedSizeSummaryCard(constraints.maxHeight);
