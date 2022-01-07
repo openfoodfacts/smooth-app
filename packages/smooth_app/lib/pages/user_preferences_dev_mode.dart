@@ -4,8 +4,7 @@ import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/pages/abstract_user_preferences.dart';
-
-import 'onboarding/onboarding_flow_navigator.dart';
+import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 
 /// Collapsed/expanded display of "dev mode" for the preferences page.
 ///
@@ -88,7 +87,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         SwitchListTile(
-          title: const Text('Use ML-Kit'),
+          title: const Text('Use ML Kit'),
           subtitle: const Text('then you have to restart this app'),
           value: userPreferences.getFlag(userPreferencesFlagUseMLKit) ?? true,
           onChanged: (bool value) async {

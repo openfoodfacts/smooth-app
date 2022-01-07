@@ -1,7 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
-import 'package:google_ml_barcode_scanner/google_ml_barcode_scanner.dart'
-    as ml_kit;
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart' as qr_code_scanner;
 import 'package:smooth_app/data_models/fetched_product.dart';
@@ -34,7 +32,6 @@ class ContinuousScanModel with ChangeNotifier {
   late DaoProduct _daoProduct;
   late DaoProductList _daoProductList;
 
-  //qr_code_scanner
   qr_code_scanner.QRViewController? _qrViewController;
 
   bool get hasMoreThanOneProduct => getBarcodes().length > 1;
@@ -94,40 +91,17 @@ class ContinuousScanModel with ChangeNotifier {
 
   void setupScanner(qr_code_scanner.QRViewController controller) {
     _qrViewController = controller;
-    controller.scannedDataStream.listen(
-        (qr_code_scanner.Barcode barcode) => onScanQRCodeScanner(barcode));
+    controller.scannedDataStream
+        .listen((qr_code_scanner.Barcode barcode) => onScan(barcode.code));
   }
 
   //Used when navigating away from the QRView itself
-  void stopQRView() {
-    _qrViewController?.stopCamera();
-  }
+  void stopQRView() => _qrViewController?.stopCamera();
 
   //Used when navigating back to the QRView
-  void resumeQRView() {
-    _qrViewController?.resumeCamera();
-  }
+  void resumeQRView() => _qrViewController?.resumeCamera();
 
-  Future<void> onScanQRCodeScanner(
-      final qr_code_scanner.Barcode barcode) async {
-    if (barcode.code == null) {
-      return;
-    }
-    final String code = barcode.code!;
-    if (_barcodeTrustCheck != code) {
-      _barcodeTrustCheck = code;
-      return;
-    }
-    if (_latestScannedBarcode == code) {
-      return;
-    }
-    _latestScannedBarcode = code;
-    _addBarcode(code);
-  }
-
-  Future<void> onScanMLKit(final ml_kit.Barcode barcode) async {
-    final String? code = barcode.value.rawValue;
-
+  Future<void> onScan(String? code) async {
     if (code == null) {
       return;
     }

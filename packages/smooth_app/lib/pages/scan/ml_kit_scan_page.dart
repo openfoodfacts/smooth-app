@@ -8,14 +8,13 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_ml_barcode_scanner/google_ml_barcode_scanner.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
+import 'package:smooth_app/main.dart';
 import 'package:smooth_app/pages/scan/scan_page_helper.dart'
     as scan_page_helper;
 import 'package:smooth_app/widgets/smooth_product_carousel.dart';
 import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
 import 'package:smooth_ui_library/widgets/smooth_view_finder.dart';
 import 'package:visibility_detector/visibility_detector.dart';
-
-import '../../main.dart';
 
 class MLKitScannerPage extends StatefulWidget {
   const MLKitScannerPage({Key? key}) : super(key: key);
@@ -70,7 +69,7 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: VisibilityDetector(
-        key: const Key('VisibilityDetector ML-Kit'),
+        key: const Key('VisibilityDetector ML Kit'),
         onVisibilityChanged: (VisibilityInfo visibilityInfo) {
           if (visibilityInfo.visibleFraction == 0.0) {
             _stopLiveFeed();
@@ -268,7 +267,7 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
 
     //ignore: avoid_function_literals_in_foreach_calls
     barcodes.forEach((Barcode barcode) {
-      _model.onScanMLKit(barcode);
+      _model.onScan(barcode.value.rawValue);
     });
 
     isBusy = false;

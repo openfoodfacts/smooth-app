@@ -5,8 +5,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/scan/continuous_scan_page.dart';
 import 'package:smooth_app/pages/scan/ml_kit_scan_page.dart';
-
-import '../user_preferences_dev_mode.dart';
+import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
 
 class ScanPage extends StatefulWidget {
   const ScanPage();
