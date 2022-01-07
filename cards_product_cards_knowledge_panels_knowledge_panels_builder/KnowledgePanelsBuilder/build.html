@@ -53,7 +53,9 @@
       
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>&gt;</span></span>
-<span class="name ">build</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="build-param-knowledgePanels"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/1.8.1/model_KnowledgePanels/KnowledgePanels-class.html">KnowledgePanels</a></span> <span class="parameter-name">knowledgePanels</span></span></li>
+<span class="name ">build</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="build-param-knowledgePanels"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/1.8.1/model_KnowledgePanels/KnowledgePanels-class.html">KnowledgePanels</a></span> <span class="parameter-name">knowledgePanels</span>, </span></li>
+<li><span class="parameter" id="build-param-product">{<span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/1.8.1/model_Product/Product-class.html">Product</a>?</span> <span class="parameter-name">product</span>, </span></li>
+<li><span class="parameter" id="build-param-appLocalizations"><span class="type-annotation">dynamic</span> <span class="parameter-name">appLocalizations</span>}</span></li>
 </ol>)
 
       
@@ -65,7 +67,11 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">List&lt;Widget&gt; build(KnowledgePanels knowledgePanels) {
+  <pre class="language-dart"><code class="language-dart">List&lt;Widget&gt; build(
+  KnowledgePanels knowledgePanels, {
+  final Product? product,
+  final AppLocalizations? appLocalizations,
+}) {
   final List&lt;Widget&gt; rootPanelWidgets = &lt;Widget&gt;[];
   if (knowledgePanels.panelIdToPanelMap[&#39;root&#39;] == null) {
     return rootPanelWidgets;
@@ -78,8 +84,9 @@
     if (panelElement.elementType != KnowledgePanelElementType.PANEL) {
       continue;
     }
-    final KnowledgePanel rootPanel = knowledgePanels
-        .panelIdToPanelMap[panelElement.panelElement!.panelId]!;
+    final String panelId = panelElement.panelElement!.panelId;
+    final KnowledgePanel rootPanel =
+        knowledgePanels.panelIdToPanelMap[panelId]!;
     &#47;&#47; [knowledgePanelElementWidgets] are a set of widgets inside the root panel.
     final List&lt;Widget&gt; knowledgePanelElementWidgets = &lt;Widget&gt;[];
     for (final KnowledgePanelElement knowledgePanelElement
@@ -88,6 +95,27 @@
         knowledgePanelElement: knowledgePanelElement,
         allPanels: knowledgePanels,
       ));
+    }
+    if (product != null &amp;&amp; appLocalizations != null) {
+      if (panelId == &#39;health_card&#39;) {
+        if (product.statesTags
+                ?.contains(&#39;en:nutrition-facts-to-be-completed&#39;) ??
+            false) {
+          knowledgePanelElementWidgets.add(
+            dummyAddButton(
+              appLocalizations.score_add_missing_nutrition_facts,
+            ),
+          );
+        }
+        if (product.statesTags?.contains(&#39;en:ingredients-to-be-completed&#39;) ??
+            false) {
+          knowledgePanelElementWidgets.add(
+            dummyAddButton(
+              appLocalizations.score_add_missing_ingredients,
+            ),
+          );
+        }
+      }
     }
     rootPanelWidgets.add(Column(children: knowledgePanelElementWidgets));
   }
