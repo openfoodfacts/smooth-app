@@ -57,12 +57,24 @@
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
+    "productDataUtility": "See the food data relevant to your preferences.",
+    "@productDataUtility": {
+        "description": "Description of what a user can use the product data for."
+    },
+    "healthCardUtility": "Choose foods that are good for you.",
+    "@healthCardUtility": {
+        "description": "Description of what a user can use the health data in a product for."
+    },
+    "ecoCardUtility": "Choose foods that are good for the planet.",
+    "@ecoCardUtility": {
+        "description": "Description of what a user can use the Eco data in a product for."
+    },
     "@user_management": {},
     "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
-    "incorrect_credentials": "Incorrect user name or password.",
+    "incorrect_credentials": "Incorrect username or password.",
     "login": "Kullanıcı adı",
     "@login": {
-        "description": "Text field hint: unified name for either username or email address"
+        "description": "Text field hint: unified name for either username or e-mail address"
     },
     "create_account": "Hesap oluştur",
     "@create_account": {
@@ -75,44 +87,44 @@
     "password": "Şifre",
     "forgot_password": "Parolanızı mı unuttunuz",
     "@forgot_password": {
-        "description": "Button label: Opens a page where a password reset email can be requested"
+        "description": "Button label: Opens a page where a password reset e-mail can be requested"
     },
     "reset_password": "Parolayı sıfırla",
     "@reset_password": {
         "description": "Forgot password page title"
     },
-    "reset_password_explanation_text": "Şifrenizi unuttuysanız, şifrenizi sıfırlama talimatlarını almak için kullanıcı adınızı veya e-posta adresinizi girin. Lütfen spam klasörünüzü de kontrol edin.",
-    "username_or_email": "Kullanıcı adı veya e-posta adresi",
+    "reset_password_explanation_text": "In case of a forgotten password, enter your username or e-mail address to receive instructions for a password reset. Also, remember to check the Spam folder.",
+    "username_or_email": "Username or e-mail",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
-    "reset_password_done": "An email with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
+    "reset_password_done": "An e-mail with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
     "send_reset_password_mail": "Change password",
     "@send_reset_password_mail": {
-        "description": "Button label: Submit the password reset email request"
+        "description": "Button label: Submit the password reset e-mail request"
     },
     "enter_some_text": "Please enter some text",
     "@enter_some_text": {
-        "description": "Error when text field is empty"
+        "description": "Error when a required text field is empty"
     },
     "sign_up_page_title": "Kaydol",
     "@sign_up_page_title": {
-        "description": "On top of the Sign Up page"
+        "description": "Header"
     },
     "sign_up_page_action_button": "Kaydol",
     "@sign_up_page_action_button": {
-        "description": "Bottom action button"
+        "description": "Button for signing up"
     },
     "sign_up_page_action_doing_it": "Kaydolunuyor...",
     "@sign_up_page_action_doing_it": {
-        "description": "Dialog during the actual signing up process"
+        "description": "Progress indicator dialog during the actual signing up process"
     },
     "sign_up_page_action_ok": "Tebrikler! Hesabınız başarıyla oluşturuldu.",
     "sign_up_page_display_name_hint": "Görünen Ad",
     "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
     "sign_up_page_email_hint": "E-posta",
-    "sign_up_page_email_error_empty": "E-posta adresinizi girin",
-    "sign_up_page_email_error_invalid": "Lütfen Geçerli Bir E-Posta Adresi Girin",
+    "sign_up_page_email_error_empty": "Please enter your e-mail",
+    "sign_up_page_email_error_invalid": "Please enter a valid e-mail",
     "sign_up_page_username_hint": "Kullanıcı adı",
     "sign_up_page_username_error_empty": "Lütfen bir kullanıcı adı girin",
     "sign_up_page_username_error_invalid": "Lütfen Geçerli Bir Kullanıcı Adı Girin",
@@ -122,13 +134,19 @@
     "sign_up_page_password_error_invalid": "Geçerli bir şifre girin. (en az 6 harf)",
     "sign_up_page_confirm_password_hint": "Şifreyi Doğrula",
     "sign_up_page_confirm_password_error_empty": "Lütfen parolayı doğrulayın",
-    "sign_up_page_confirm_password_error_invalid": "The passwords should be identical",
+    "sign_up_page_confirm_password_error_invalid": "The passwords have to be identical",
     "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-    "sign_up_page_agree_error_invalid": "You have to agree if you'd like to get an account. Note that you can still use the app and contribute anonymously.",
+    "@sign_up_page_agree_url": {
+        "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
+    },
+    "sign_up_page_agree_error_invalid": "When creating an account, agreeing to the Terms of Use is mandatory, however, anonymous contributions can still be made through the app",
+    "@sign_up_page_agree_error_invalid": {
+        "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
+    },
     "sign_up_page_producer_checkbox": "Ben bir yemek üreticisiyim",
     "sign_up_page_producer_hint": "Üretici/Marka",
     "sign_up_page_producer_error_empty": "Lütfen bir üretici veya marka adı girin",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (Note: You can unsubscribe from it at all time)",
+    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at all time)",
     "@Settings": {},
     "settingsTitle": "Ayarlar",
     "@settingsTitle": {
@@ -158,7 +176,7 @@
     "@termsOfUse": {},
     "about_this_app": "Bu uygulama hakkında",
     "@about_this_app": {
-        "description": "Button label: Opens a popo up window which shows informations about this app"
+        "description": "Button label: Opens a pop up window which shows information about the app"
     },
     "@About this app section": {},
     "contribute": "Destekleyebilirsiniz",
@@ -322,19 +340,19 @@
     "@Product Addition": {},
     "added_product_thanks": "Bu ürünü eklediğiniz için teşekkürler!",
     "@added_product_thanks": {},
-    "product_improvement_add_category": "Add a category to compute the Nutri-Score.",
+    "product_improvement_add_category": "Add a category to calculate the Nutri-Score.",
     "@product_improvement_add_category": {
         "description": "Message for ProductImprovement.ADD_CATEGORY"
     },
-    "product_improvement_add_nutrition_facts": "Add nutrition facts to compute the Nutri-Score.",
+    "product_improvement_add_nutrition_facts": "Add nutrition facts to calculate the Nutri-Score.",
     "@product_improvement_add_nutrition_facts": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
     },
-    "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to compute the Nutri-Score.",
+    "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to calculate the Nutri-Score.",
     "@product_improvement_add_nutrition_facts_and_category": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
     },
-    "product_improvement_categories_but_no_nutriscore": "We could not compute an Nutri-Score for this product. It might be that the category is an exception. If you believe this is an error, contact us.",
+    "product_improvement_categories_but_no_nutriscore": "The Nutri-Score for this product can't be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.",
     "@product_improvement_categories_but_no_nutriscore": {
         "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
@@ -342,7 +360,7 @@
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take them into a photo (ingredient list and/or any geographic claim or edit the product so that they can be taken into account. If it is not clear, you can contact the food producer.",
+    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take a photo of them (ingredient list and/or any geographic claim or edit the product) so that they can be taken into account.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
@@ -350,7 +368,7 @@
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },
-    "country_selection_explanation": "Some environment features depend on your location",
+    "country_selection_explanation": "Some environmental features are location-specific",
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
