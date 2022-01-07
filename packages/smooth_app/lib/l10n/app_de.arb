@@ -57,12 +57,24 @@
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
+    "productDataUtility": "See the food data relevant to your preferences.",
+    "@productDataUtility": {
+        "description": "Description of what a user can use the product data for."
+    },
+    "healthCardUtility": "Choose foods that are good for you.",
+    "@healthCardUtility": {
+        "description": "Description of what a user can use the health data in a product for."
+    },
+    "ecoCardUtility": "Choose foods that are good for the planet.",
+    "@ecoCardUtility": {
+        "description": "Description of what a user can use the Eco data in a product for."
+    },
     "@user_management": {},
     "sign_in_text": "Melden Sie sich bei Ihrem Open Food Facts-Konto an, um Ihre Beiträge speichern zu können",
-    "incorrect_credentials": "Benutzername oder Passwort ungültig.",
+    "incorrect_credentials": "Incorrect username or password.",
     "login": "Benutzername",
     "@login": {
-        "description": "Text field hint: unified name for either username or email address"
+        "description": "Text field hint: unified name for either username or e-mail address"
     },
     "create_account": "Konto erstellen",
     "@create_account": {
@@ -75,44 +87,44 @@
     "password": "Passwort",
     "forgot_password": "Passwort vergessen",
     "@forgot_password": {
-        "description": "Button label: Opens a page where a password reset email can be requested"
+        "description": "Button label: Opens a page where a password reset e-mail can be requested"
     },
     "reset_password": "Passwort zurücksetzen",
     "@reset_password": {
         "description": "Forgot password page title"
     },
-    "reset_password_explanation_text": "Wenn Sie Ihr Passwort vergessen haben, geben Sie Ihren Benutzernamen oder Ihre E-Mail-Adresse ein, um Anweisungen zum Zurücksetzen Ihres Passworts zu erhalten. Bitte überprüfen Sie auch Ihren Spam-Ordner.",
-    "username_or_email": "Benutzername oder E-Mail-Adresse",
+    "reset_password_explanation_text": "In case of a forgotten password, enter your username or e-mail address to receive instructions for a password reset. Also, remember to check the Spam folder.",
+    "username_or_email": "Username or e-mail",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
-    "reset_password_done": "Eine E-Mail mit einem Link zum Zurücksetzen Ihres Passworts wurde an die mit Ihrem Konto verknüpfte E-Mail-Adresse gesendet. Prüfen Sie auch Ihren Spam-Ordner.",
+    "reset_password_done": "An e-mail with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
     "send_reset_password_mail": "Passwort ändern",
     "@send_reset_password_mail": {
-        "description": "Button label: Submit the password reset email request"
+        "description": "Button label: Submit the password reset e-mail request"
     },
     "enter_some_text": "Bitte geben Sie etwas ein",
     "@enter_some_text": {
-        "description": "Error when text field is empty"
+        "description": "Error when a required text field is empty"
     },
     "sign_up_page_title": "Registrieren",
     "@sign_up_page_title": {
-        "description": "On top of the Sign Up page"
+        "description": "Header"
     },
     "sign_up_page_action_button": "Registrieren",
     "@sign_up_page_action_button": {
-        "description": "Bottom action button"
+        "description": "Button for signing up"
     },
     "sign_up_page_action_doing_it": "Registrierung …",
     "@sign_up_page_action_doing_it": {
-        "description": "Dialog during the actual signing up process"
+        "description": "Progress indicator dialog during the actual signing up process"
     },
     "sign_up_page_action_ok": "Herzlichen Glückwunsch! Ihr Konto wurde erstellt.",
     "sign_up_page_display_name_hint": "Anzeigename",
     "sign_up_page_display_name_error_empty": "Bitte geben Sie den zu verwendenden Anzeigenamen ein",
     "sign_up_page_email_hint": "E-Mail-Adresse",
-    "sign_up_page_email_error_empty": "Bitte geben Sie Ihre E-Mail-Adresse ein",
-    "sign_up_page_email_error_invalid": "Bitte eine gültige E-Mail Adresse eingeben",
+    "sign_up_page_email_error_empty": "Please enter your e-mail",
+    "sign_up_page_email_error_invalid": "Please enter a valid e-mail",
     "sign_up_page_username_hint": "Benutzername",
     "sign_up_page_username_error_empty": "Bitte einen Benutzernamen eingeben",
     "sign_up_page_username_error_invalid": "Bitte einen gültigen Benutzernamen eingeben",
@@ -122,13 +134,19 @@
     "sign_up_page_password_error_invalid": "Bitte ein gültiges Passwort eingeben (mindestens 6 Zeichen)",
     "sign_up_page_confirm_password_hint": "Passwort bestätigen",
     "sign_up_page_confirm_password_error_empty": "Bitte bestätigen Sie das Passwort",
-    "sign_up_page_confirm_password_error_invalid": "Die Passwörter müssen übereinstimmen",
+    "sign_up_page_confirm_password_error_invalid": "The passwords have to be identical",
     "sign_up_page_agree_url": "https://de.openfoodfacts.org/terms-of-use",
-    "sign_up_page_agree_error_invalid": "Sie müssen zustimmen, wenn Sie ein Konto einrichten möchten. Beachten Sie, dass Sie die App weiterhin nutzen und anonym mitwirken können.",
+    "@sign_up_page_agree_url": {
+        "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
+    },
+    "sign_up_page_agree_error_invalid": "When creating an account, agreeing to the Terms of Use is mandatory, however, anonymous contributions can still be made through the app",
+    "@sign_up_page_agree_error_invalid": {
+        "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
+    },
     "sign_up_page_producer_checkbox": "Ich bin Lebensmittelproduzent",
     "sign_up_page_producer_hint": "Hersteller/Marke",
     "sign_up_page_producer_error_empty": "Bitte einen Hersteller oder Markennamen eingeben",
-    "sign_up_page_subscribe_checkbox": "Ich möchte den Newsletter von Open Food Facts abonnieren (Hinweis: Dieser kann jederzeit wieder abbestellt werden)",
+    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at all time)",
     "@Settings": {},
     "settingsTitle": "Einstellungen",
     "@settingsTitle": {
@@ -158,7 +176,7 @@
     "@termsOfUse": {},
     "about_this_app": "Über diese App",
     "@about_this_app": {
-        "description": "Button label: Opens a popo up window which shows informations about this app"
+        "description": "Button label: Opens a pop up window which shows information about the app"
     },
     "@About this app section": {},
     "contribute": "Beitragen",
@@ -322,19 +340,19 @@
     "@Product Addition": {},
     "added_product_thanks": "Danke, dass Sie dieses Produkt hinzugefügt haben!",
     "@added_product_thanks": {},
-    "product_improvement_add_category": "Kategorie hinzufügen, um den Nutri-Score zu berechnen.",
+    "product_improvement_add_category": "Add a category to calculate the Nutri-Score.",
     "@product_improvement_add_category": {
         "description": "Message for ProductImprovement.ADD_CATEGORY"
     },
-    "product_improvement_add_nutrition_facts": "Nährwertangaben hinzufügen, um den Nutri-Score zu berechnen.",
+    "product_improvement_add_nutrition_facts": "Add nutrition facts to calculate the Nutri-Score.",
     "@product_improvement_add_nutrition_facts": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
     },
-    "product_improvement_add_nutrition_facts_and_category": "Fügen Sie eine Kategorie und Nährwertangaben hinzu, um das Produkt zu vervollständigen.",
+    "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to calculate the Nutri-Score.",
     "@product_improvement_add_nutrition_facts_and_category": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
     },
-    "product_improvement_categories_but_no_nutriscore": "Wir konnten keinen Nutri-Score für dieses Produkt berechnen. Möglicherweise ist die Kategorie eine Ausnahme. Wenn Sie glauben, dass dies ein Fehler ist, kontaktieren Sie uns.",
+    "product_improvement_categories_but_no_nutriscore": "The Nutri-Score for this product can't be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.",
     "@product_improvement_categories_but_no_nutriscore": {
         "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
@@ -342,7 +360,7 @@
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "Die Ökobilanz berücksichtigt die Herkunft der Inhaltsstoffe. Bitte machen Sie ein Foto (Zutatenliste und/oder eventuelle geografische Angabe) oder bearbeiten Sie das Produkt so, dass sie berücksichtigt werden können. Falls etwas nicht klar ist, können Sie sich mit dem Erzeuger in Verbindung setzen.",
+    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take a photo of them (ingredient list and/or any geographic claim or edit the product) so that they can be taken into account.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
@@ -350,7 +368,7 @@
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },
-    "country_selection_explanation": "Einige ökologische Eigenschaften sind standortspezifisch",
+    "country_selection_explanation": "Some environmental features are location-specific",
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },

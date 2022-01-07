@@ -12,6 +12,7 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -86,6 +87,8 @@ class _SmoothAppState extends State<SmoothApp> {
     _localDatabase = await LocalDatabase.getLocalDatabase();
     _themeProvider = ThemeProvider(_userPreferences);
     ProductQuery.setQueryType(_userPreferences);
+
+    UserManagementHelper.mountCredentials();
   }
 
   @override
