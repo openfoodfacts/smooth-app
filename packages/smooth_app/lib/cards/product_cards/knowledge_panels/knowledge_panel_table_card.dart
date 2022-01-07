@@ -20,7 +20,7 @@ class ColumnGroup {
   /// The index of the column that is displayed in the [ColumnGroup].
   int? currentColumnIndex;
 
-  /// []KnowledgePanelTableColumn that is displayed in the [ColumnGroup].
+  /// [KnowledgePanelTableColumn] that is displayed in the [ColumnGroup].
   KnowledgePanelTableColumn? currentColumn;
 
   /// List of columns in this [ColumnGroup].
@@ -39,7 +39,7 @@ class TableCell {
   final String text;
   final Color? color;
   final bool isHeader;
-  // [columnGroup] is set only cells that have [isHeader = true]. This is used
+  // [columnGroup] is set only for cells that have [isHeader = true]. This is used
   // to show a dropdown of other column headers in the group for this column.
   final ColumnGroup? columnGroup;
 }
@@ -178,12 +178,12 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
       List<List<TableCell>> rows, BoxConstraints constraints) {
     // [availableWidth] is parent's width - total padding we want in between columns.
     final double availableWidth = constraints.maxWidth - LARGE_SPACE;
-    // [columnMaxLength] contains the length of the largest cells in the columns.
+    // [columnMaxLength] contains the length of the largest cell in the columns.
     // This helps us assign a dynamic width to the column depending upon the
     // largest cell in the column.
     final List<int> columnMaxLength = <int>[];
     // Cells with a lot of text can get very large, we don't want to allocate
-    // the whole width to columns with these cells. So we cap the cell length
+    // most of [availableWidth] to columns with large cells. So we cap the cell length
     // considered for width allocation to [kMaxCellLengthInARow]. Cells with
     // text larger than this limit will be wrapped in multiple rows.
     const int maxCellLengthInARow = 50;
