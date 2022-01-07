@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
-import 'package:smooth_app/pages/personalized_ranking_page.dart';
-import 'package:smooth_app/widgets/ranking_floating_action_button.dart';
+import 'package:smooth_app/pages/scan/scan_page_helper.dart'
+    as scan_page_helper;
 import 'package:smooth_app/widgets/smooth_product_carousel.dart';
 import 'package:smooth_ui_library/smooth_ui_library.dart';
-import 'package:smooth_ui_library/util/ui_helpers.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class ContinuousScanPage extends StatefulWidget {
@@ -43,7 +41,8 @@ class _ContinuousScanPageState extends State<ContinuousScanPage> {
           );
           final double carouselHeight = constraints.maxHeight /
               1.81; // roughly 55% of the available height
-          final double buttonRowHeight = areButtonsRendered(_model!) ? 48 : 0;
+          final double buttonRowHeight =
+              scan_page_helper.areButtonsRendered(_model!) ? 48 : 0;
           final double availableScanHeight =
               constraints.maxHeight - carouselHeight - buttonRowHeight;
           // Padding for the qr code scanner. This ensures the scanner has equal spacing between buttons and carousel.
@@ -107,7 +106,7 @@ class _ContinuousScanPageState extends State<ContinuousScanPage> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
-                      _buildButtonsRow(context, _model!),
+                      scan_page_helper.buildButtonsRow(context, _model!),
                       const Spacer(),
                       SmoothProductCarousel(
                         showSearchCard: true,
@@ -123,61 +122,4 @@ class _ContinuousScanPageState extends State<ContinuousScanPage> {
       ),
     );
   }
-
-  Widget _buildButtonsRow(BuildContext context, ContinuousScanModel model) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-    final ButtonStyle buttonStyle = ButtonStyle(
-      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-        RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(18.0),
-        ),
-      ),
-    );
-    return AnimatedOpacity(
-      opacity: areButtonsRendered(model) ? 0.8 : 0.0,
-      duration: const Duration(milliseconds: 50),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-            vertical: VERY_SMALL_SPACE, horizontal: MEDIUM_SPACE),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            ElevatedButton.icon(
-              style: buttonStyle,
-              icon: const Icon(Icons.cancel_outlined),
-              onPressed: model.clearScanSession,
-              label: Text(appLocalizations.clear),
-            ),
-            ElevatedButton.icon(
-              style: buttonStyle,
-              icon: const Icon(RankingFloatingActionButton.rankingIconData),
-              onPressed: () => _openPersonalizedRankingPage(context),
-              label: Text(
-                appLocalizations.plural_compare_x_products(
-                  model.getBarcodes().length,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Future<void> _openPersonalizedRankingPage(BuildContext context) async {
-    final ContinuousScanModel model = context.read<ContinuousScanModel>();
-    await model.refreshProductList();
-    await Navigator.push<Widget>(
-      context,
-      MaterialPageRoute<Widget>(
-        builder: (BuildContext context) => PersonalizedRankingPage(
-          model.productList,
-        ),
-      ),
-    );
-    await model.refresh();
-  }
-
-  bool areButtonsRendered(ContinuousScanModel model) =>
-      model.hasMoreThanOneProduct;
 }

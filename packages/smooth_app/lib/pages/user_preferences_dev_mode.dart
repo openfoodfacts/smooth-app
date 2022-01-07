@@ -31,6 +31,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         );
 
   static const String userPreferencesFlagProd = '__devWorkingOnProd';
+  static const String userPreferencesFlagMLKit = '__useMLKit';
 
   @override
   bool isCollapsedByDefault() => true;
@@ -81,6 +82,14 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             await userPreferences.setFlag(userPreferencesFlagProd,
                 !(userPreferences.getFlag(userPreferencesFlagProd) ?? true));
             ProductQuery.setQueryType(userPreferences);
+            setState(() {});
+          },
+        ),
+        SwitchListTile(
+          title: const Text('Use ML-Kit'),
+          value: userPreferences.getFlag(userPreferencesFlagMLKit) ?? true,
+          onChanged: (bool value) async {
+            await userPreferences.setFlag(userPreferencesFlagMLKit, value);
             setState(() {});
           },
         ),

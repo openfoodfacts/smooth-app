@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:openfoodfacts/model/Product.dart';
@@ -8,6 +9,8 @@ import 'package:smooth_app/database/barcode_product_query.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+
+import '../main.dart';
 
 enum ScannedProductState {
   FOUND,
@@ -32,7 +35,10 @@ class ContinuousScanModel with ChangeNotifier {
   late DaoProduct _daoProduct;
   late DaoProductList _daoProductList;
 
+  //qr_code_scanner
   QRViewController? _qrViewController;
+  //ML-Kit
+  CameraController? _cameraController;
 
   bool get hasMoreThanOneProduct => getBarcodes().length > 1;
   ProductList get productList => _productList;
@@ -94,11 +100,33 @@ class ContinuousScanModel with ChangeNotifier {
     controller.scannedDataStream.listen((Barcode barcode) => onScan(barcode));
   }
 
+  void setupMLKit(
+      int cameraIndex, bool mounted, Function(Function()) setState) {
+    final CameraDescription camera = cameras[cameraIndex];
+    _cameraController = CameraController(
+      camera,
+      ResolutionPreset.high,
+      enableAudio: false,
+    );
+    _cameraController?.initialize().then((_) {
+      if (!mounted) {
+        return;
+      }
+      //_cameraController?.startImageStream(_processCameraImage);
+      setState(() {});
+    });
+  }
+
   //Used when navigating away from the QRView itself
-  void stopQRView() => _qrViewController?.stopCamera();
+  void stopQRView() {
+    _qrViewController?.stopCamera();
+    _cameraController?.stopImageStream();
+  }
 
   //Used when navigating back to the QRView
-  void resumeQRView() => _qrViewController?.resumeCamera();
+  void resumeQRView() {
+    _qrViewController?.resumeCamera();
+  }
 
   Future<void> onScan(final Barcode barcode) async {
     if (barcode.code == null) {
