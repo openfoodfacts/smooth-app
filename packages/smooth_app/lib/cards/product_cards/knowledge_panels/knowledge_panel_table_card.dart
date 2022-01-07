@@ -186,7 +186,7 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
     // most of [availableWidth] to columns with large cells. So we cap the cell length
     // considered for width allocation to [kMaxCellLengthInARow]. Cells with
     // text larger than this limit will be wrapped in multiple rows.
-    const int maxCellLengthInARow = 50;
+    const int maxCellLengthInARow = 40;
     for (final List<TableCell> row in rows) {
       int index = 0;
       for (final TableCell cell in row) {
