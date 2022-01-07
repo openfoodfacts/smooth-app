@@ -23,7 +23,7 @@ class _ContinuousScanPageState extends State<ContinuousScanPage> {
   @override
   Widget build(BuildContext context) {
     return VisibilityDetector(
-      key: const Key('VisibilityDetector'),
+      key: const Key('VisibilityDetector qr_code_scanner'),
       onVisibilityChanged: (VisibilityInfo visibilityInfo) {
         if (visibilityInfo.visibleFraction == 0.0) {
           _model?.stopQRView();

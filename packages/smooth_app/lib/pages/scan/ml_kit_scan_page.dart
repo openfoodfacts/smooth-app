@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_ml_barcode_scanner/google_ml_barcode_scanner.dart';
 import 'package:provider/provider.dart';
@@ -12,6 +13,7 @@ import 'package:smooth_app/pages/scan/scan_page_helper.dart'
 import 'package:smooth_app/widgets/smooth_product_carousel.dart';
 import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
 import 'package:smooth_ui_library/widgets/smooth_view_finder.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../main.dart';
 
@@ -54,7 +56,6 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
       );
     }
 
-    //_model.setupMLKit(_cameraIndex, mounted, set)
     _startLiveFeed();
   }
 
@@ -68,7 +69,17 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _liveFeedBody(),
+      body: VisibilityDetector(
+        key: const Key('VisibilityDetector ML-Kit'),
+        onVisibilityChanged: (VisibilityInfo visibilityInfo) {
+          if (visibilityInfo.visibleFraction == 0.0) {
+            _stopLiveFeed();
+          } else {
+            _startLiveFeed();
+          }
+        },
+        child: _liveFeedBody(),
+      ),
     );
   }
 
@@ -119,7 +130,7 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
                 child: SvgPicture.asset(
                   'assets/actions/scanner_alt_2.svg',
                   width: 60.0,
-                  height: 60.0,
+                  height: 6,
                   color: Colors.white,
                 ),
               ),
@@ -167,7 +178,7 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
                   ),
                 ],
               ),
-            )
+            ),
           ],
         );
       },
@@ -185,6 +196,8 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
       if (!mounted) {
         return;
       }
+      _controller?.setFocusMode(FocusMode.auto);
+      _controller?.lockCaptureOrientation(DeviceOrientation.portraitUp);
       _controller?.startImageStream(_processCameraImage);
       setState(() {});
     });
@@ -252,9 +265,12 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
 
     final List<Barcode> barcodes =
         await barcodeScanner!.processImage(inputImage);
-    if (kDebugMode) {
-      print('Found ${barcodes.length} barcodes');
-    }
+
+    //ignore: avoid_function_literals_in_foreach_calls
+    barcodes.forEach((Barcode barcode) {
+      _model.onScanMLKit(barcode);
+    });
+
     isBusy = false;
     if (mounted) {
       setState(() {});

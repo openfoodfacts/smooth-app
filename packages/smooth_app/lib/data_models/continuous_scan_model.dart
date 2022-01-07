@@ -1,16 +1,15 @@
-import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_ml_barcode_scanner/google_ml_barcode_scanner.dart'
+    as ml_kit;
 import 'package:openfoodfacts/model/Product.dart';
-import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:qr_code_scanner/qr_code_scanner.dart' as qr_code_scanner;
 import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/barcode_product_query.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
-
-import '../main.dart';
 
 enum ScannedProductState {
   FOUND,
@@ -36,9 +35,7 @@ class ContinuousScanModel with ChangeNotifier {
   late DaoProductList _daoProductList;
 
   //qr_code_scanner
-  QRViewController? _qrViewController;
-  //ML-Kit
-  CameraController? _cameraController;
+  qr_code_scanner.QRViewController? _qrViewController;
 
   bool get hasMoreThanOneProduct => getBarcodes().length > 1;
   ProductList get productList => _productList;
@@ -95,32 +92,15 @@ class ContinuousScanModel with ChangeNotifier {
 
   Product getProduct(final String barcode) => _productList.getProduct(barcode);
 
-  void setupScanner(QRViewController controller) {
+  void setupScanner(qr_code_scanner.QRViewController controller) {
     _qrViewController = controller;
-    controller.scannedDataStream.listen((Barcode barcode) => onScan(barcode));
-  }
-
-  void setupMLKit(
-      int cameraIndex, bool mounted, Function(Function()) setState) {
-    final CameraDescription camera = cameras[cameraIndex];
-    _cameraController = CameraController(
-      camera,
-      ResolutionPreset.high,
-      enableAudio: false,
-    );
-    _cameraController?.initialize().then((_) {
-      if (!mounted) {
-        return;
-      }
-      //_cameraController?.startImageStream(_processCameraImage);
-      setState(() {});
-    });
+    controller.scannedDataStream.listen(
+        (qr_code_scanner.Barcode barcode) => onScanQRCodeScanner(barcode));
   }
 
   //Used when navigating away from the QRView itself
   void stopQRView() {
     _qrViewController?.stopCamera();
-    _cameraController?.stopImageStream();
   }
 
   //Used when navigating back to the QRView
@@ -128,11 +108,30 @@ class ContinuousScanModel with ChangeNotifier {
     _qrViewController?.resumeCamera();
   }
 
-  Future<void> onScan(final Barcode barcode) async {
+  Future<void> onScanQRCodeScanner(
+      final qr_code_scanner.Barcode barcode) async {
     if (barcode.code == null) {
       return;
     }
     final String code = barcode.code!;
+    if (_barcodeTrustCheck != code) {
+      _barcodeTrustCheck = code;
+      return;
+    }
+    if (_latestScannedBarcode == code) {
+      return;
+    }
+    _latestScannedBarcode = code;
+    _addBarcode(code);
+  }
+
+  Future<void> onScanMLKit(final ml_kit.Barcode barcode) async {
+    final String? code = barcode.value.rawValue;
+
+    if (code == null) {
+      return;
+    }
+
     if (_barcodeTrustCheck != code) {
       _barcodeTrustCheck = code;
       return;

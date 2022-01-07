@@ -44,7 +44,7 @@ class _ScanPageState extends State<ScanPage> {
     final Widget child;
 
     if (userPreferences.getFlag(
-          UserPreferencesDevMode.userPreferencesFlagMLKit,
+          UserPreferencesDevMode.userPreferencesFlagUseMLKit,
         ) ??
         true) {
       child = const MLKitScannerPage();

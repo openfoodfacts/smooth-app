@@ -4,7 +4,8 @@ import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/pages/abstract_user_preferences.dart';
-import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
+
+import 'onboarding/onboarding_flow_navigator.dart';
 
 /// Collapsed/expanded display of "dev mode" for the preferences page.
 ///
@@ -31,7 +32,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         );
 
   static const String userPreferencesFlagProd = '__devWorkingOnProd';
-  static const String userPreferencesFlagMLKit = '__useMLKit';
+  static const String userPreferencesFlagUseMLKit = '__useMLKit';
 
   @override
   bool isCollapsedByDefault() => true;
@@ -66,11 +67,12 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         ),
         ListTile(
           title: const Text('restart onboarding'),
-          subtitle: const Text('then you have to restart flutter'),
+          subtitle: const Text('then you have to restart this app'),
           onTap: () async {
             userPreferences
                 .setLastVisitedOnboardingPage(OnboardingPage.NOT_STARTED);
-            setState(() {});
+            ScaffoldMessenger.of(context)
+                .showSnackBar(const SnackBar(content: Text('Ok')));
           },
         ),
         ListTile(
@@ -87,10 +89,12 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         ),
         SwitchListTile(
           title: const Text('Use ML-Kit'),
-          value: userPreferences.getFlag(userPreferencesFlagMLKit) ?? true,
+          subtitle: const Text('then you have to restart this app'),
+          value: userPreferences.getFlag(userPreferencesFlagUseMLKit) ?? true,
           onChanged: (bool value) async {
-            await userPreferences.setFlag(userPreferencesFlagMLKit, value);
-            setState(() {});
+            await userPreferences.setFlag(userPreferencesFlagUseMLKit, value);
+            ScaffoldMessenger.of(context)
+                .showSnackBar(const SnackBar(content: Text('Ok')));
           },
         ),
       ];
