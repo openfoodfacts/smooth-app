@@ -1,8 +1,9 @@
 <img height='175' src="https://static.openfoodfacts.org/images/svg/openfoodfacts-logo-en.svg" align="left" hspace="1" vspace="1">
 
 # Open Food Facts - Codename: "Smooth App"
+[![SmoothApp Post-Submit Tests](https://github.com/openfoodfacts/smooth-app/actions/workflows/postsubmit.yml/badge.svg)](https://github.com/openfoodfacts/smooth-app/actions/workflows/postsubmit.yml)
 
-A new Flutter application by Open Food Facts. You can install it on [Android](https://play.google.com/store/apps/details?id=org.openfoodfacts.app) or [iPhone/iPad](https://apps.apple.com/us/app/smooth-app/id1526747703). Note that a internal development build if you'd like to use the results of your PRs quicker.
+A new Flutter application by Open Food Facts. You can install it on [Android](https://play.google.com/store/apps/details?id=org.openfoodfacts.app) or [iPhone/iPad](https://apps.apple.com/us/app/smooth-app/id1526747703). Note that a internal development build ([Android](https://play.google.com/apps/internaltest/4700279390303733107) or [iPhone/iPad](https://testflight.apple.com/join/dIhF6Gi4) )if you'd like to use the results of your PRs quicker.
 
 Smoothie. We pioneered the collaborative scanning app in 2012. With this experimental app, we’re reinventing it from the ground up, and this time, it’s personal.
 
@@ -75,6 +76,12 @@ In order to build the application, make sure you are in the packages/smooth_app 
  
 ### Android & iOS
 - Nothing to report
+
+### Dev Mode
+- How to activate it: We now have a secret in-app dev mode which allows you to debug things faster, or access not-ready-for-primetime features. You can access it by: going to the Food preferences screen, Your Profile, User Management, Forgotten Password and then tapping ten times on the "Change password" button of the Reset Password screen (without typing any email). 
+- Feel free to file an issue if you'd like new switches in this dev mode. 
+- You can also add new flags for your features.
+  - example: https://github.com/openfoodfacts/smooth-app/pull/834
 
 ## Internationalization
 

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 
@@ -65,11 +64,8 @@ String? getDisplayTitle(final Attribute attribute) {
   return _getNovaDisplayTitle(attribute);
 }
 
-String? _getNovaDisplayTitle(final Attribute attribute) {
-  // Note: This method is temporary, this field will come from Backend and it will be internationalized.
-  return _attributeMatchComparison(attribute, null, 'Ultra processed',
-      'Highly processed', 'Processed', 'Slightly processed', 'Unprocessed');
-}
+String? _getNovaDisplayTitle(final Attribute attribute) =>
+    attribute.descriptionShort;
 
 /// Compares the match score from [attribute] with various thresholds and returns appropriate result.
 T _attributeMatchComparison<T>(

@@ -6,31 +6,32 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/image_upload_card.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panels_builder.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
+import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/database/dao_product_extra.dart';
+import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/knowledge_panels_query.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
+import 'package:smooth_app/pages/product/knowledge_panel_product_cards.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
-import 'package:smooth_app/pages/smooth_bottom_navigation_bar.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
 
-class NewProductPage extends StatefulWidget {
-  const NewProductPage(this.product);
+class ProductPage extends StatefulWidget {
+  const ProductPage(this.product);
 
   final Product product;
 
   @override
-  State<NewProductPage> createState() => _ProductPageState();
+  State<ProductPage> createState() => _ProductPageState();
 }
 
 enum ProductPageMenuItem { WEB, REFRESH }
 
-class _ProductPageState extends State<NewProductPage> {
+class _ProductPageState extends State<ProductPage> {
   late Product _product;
   late ProductPreferences _productPreferences;
 
@@ -46,14 +47,12 @@ class _ProductPageState extends State<NewProductPage> {
     // All watchers defined here:
     _productPreferences = context.watch<ProductPreferences>();
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
-
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
     final MaterialColor materialColor =
         SmoothTheme.getMaterialColor(themeProvider);
     return Scaffold(
-      bottomNavigationBar: const SmoothBottomNavigationBar(),
       backgroundColor: SmoothTheme.getColor(
         colorScheme,
         materialColor,
@@ -121,7 +120,8 @@ class _ProductPageState extends State<NewProductPage> {
   Future<void> _updateLocalDatabaseWithProductHistory(
       BuildContext context, Product product) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    await DaoProductExtra(localDatabase).putLastSeen(product);
+    await DaoProductList(localDatabase)
+        .push(ProductList.history(), product.barcode!);
     localDatabase.notifyListeners();
   }
 
@@ -190,7 +190,12 @@ class _ProductPageState extends State<NewProductPage> {
         alignment: Alignment.topLeft,
         child: _buildProductImagesCarousel(context),
       ),
-      SummaryCard(_product, _productPreferences, isRenderedInProductPage: true),
+      Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: SMALL_SPACE,
+        ),
+        child: SummaryCard(_product, _productPreferences, isFullVersion: true),
+      ),
       _buildKnowledgePanelCards(),
     ]);
   }
@@ -198,9 +203,9 @@ class _ProductPageState extends State<NewProductPage> {
   FutureBuilder<KnowledgePanels> _buildKnowledgePanelCards() {
     // Note that this will make a new request on every rebuild.
     // TODO(jasmeet): Avoid additional requests on rebuilds.
-    final Future<KnowledgePanels> knowledgePanels =
-        KnowledgePanelsQuery(barcode: _product.barcode!)
-            .getKnowledgePanels(context);
+    final Future<KnowledgePanels> knowledgePanels = KnowledgePanelsQuery(
+      barcode: _product.barcode!,
+    ).getKnowledgePanels();
     return FutureBuilder<KnowledgePanels>(
         future: knowledgePanels,
         builder:
@@ -208,8 +213,11 @@ class _ProductPageState extends State<NewProductPage> {
           List<Widget> knowledgePanelWidgets = <Widget>[];
           if (snapshot.hasData) {
             // Render all KnowledgePanels
-            knowledgePanelWidgets =
-                const KnowledgePanelsBuilder().build(snapshot.data!);
+            knowledgePanelWidgets = const KnowledgePanelsBuilder().build(
+              snapshot.data!,
+              product: _product,
+              appLocalizations: AppLocalizations.of(context),
+            );
           } else if (snapshot.hasError) {
             // TODO(jasmeet): Retry the request.
             // Do nothing for now.
@@ -217,25 +225,7 @@ class _ProductPageState extends State<NewProductPage> {
             // Query results not available yet.
             knowledgePanelWidgets = <Widget>[_buildLoadingWidget()];
           }
-          final List<Widget> widgetsWrappedInSmoothCards = <Widget>[];
-          for (final Widget widget in knowledgePanelWidgets) {
-            widgetsWrappedInSmoothCards.add(
-              Padding(
-                padding: const EdgeInsets.only(top: VERY_LARGE_SPACE),
-                child: buildProductSmoothCard(
-                  body: widget,
-                  padding: SMOOTH_CARD_PADDING,
-                ),
-              ),
-            );
-          }
-          return Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: widgetsWrappedInSmoothCards,
-            ),
-          );
+          return KnowledgePanelProductCards(knowledgePanelWidgets);
         });
   }
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Product.dart';
-import 'package:smooth_app/pages/product/product_page.dart';
+import 'package:smooth_app/pages/product/new_product_page.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 
 class SmoothProductCardNotFound extends StatelessWidget {
@@ -17,6 +17,7 @@ class SmoothProductCardNotFound extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     return Material(
       elevation: elevation,
       borderRadius: const BorderRadius.all(Radius.circular(15.0)),
@@ -34,7 +35,7 @@ class SmoothProductCardNotFound extends StatelessWidget {
               height: 12.0,
             ),
             Text(
-              product.barcode ?? 'Unknown',
+              product.barcode ?? appLocalizations.unknown,
               style: Theme.of(context).textTheme.subtitle1,
             ),
             const SizedBox(
@@ -51,10 +52,7 @@ class SmoothProductCardNotFound extends StatelessWidget {
                     Navigator.push<Widget>(
                       context,
                       MaterialPageRoute<Widget>(
-                        builder: (BuildContext context) => ProductPage(
-                          product: product,
-                          newProduct: true,
-                        ),
+                        builder: (BuildContext context) => ProductPage(product),
                       ),
                     );
                     if (callback != null) {

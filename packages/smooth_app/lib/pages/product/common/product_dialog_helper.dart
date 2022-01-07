@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/database/barcode_product_query.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 
@@ -38,8 +37,6 @@ class ProductDialogHelper {
       builder: (BuildContext context) {
         BarcodeProductQuery(
           barcode: barcode,
-          languageCode: ProductQuery.getCurrentLanguageCode(context),
-          countryCode: ProductQuery.getCurrentCountryCode(),
           daoProduct: DaoProduct(localDatabase),
         ).getFetchedProduct().then<void>(
               (final FetchedProduct value) => _popSearchingDialog(value),
@@ -55,7 +52,8 @@ class ProductDialogHelper {
       return;
     }
     _popEd = true;
-    Navigator.pop(context, fetchedProduct);
+    // Here we use the root navigator so that we can pop dialog while using multiple navigators.
+    Navigator.of(context, rootNavigator: true).pop(fetchedProduct);
   }
 
   Widget _getSearchingDialog() => SmoothAlertDialog(

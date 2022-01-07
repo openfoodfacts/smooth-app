@@ -47,7 +47,7 @@ class UserContributionView extends StatelessWidget {
                           //Develop
                           SmoothListTile(
                             text: AppLocalizations.of(context)!
-                                .contribute_develop,
+                                .contribute_sw_development,
                             onPressed: () => _develop(context),
                           ),
 
@@ -131,7 +131,7 @@ class UserContributionView extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return SmoothAlertDialog(
-          title: AppLocalizations.of(context)!.contribute_develop,
+          title: AppLocalizations.of(context)!.contribute_sw_development,
           body: Column(
             children: <Widget>[
               Text(

@@ -24,7 +24,7 @@ class ScanProductCard extends StatelessWidget {
     await Navigator.push<Widget>(
       context,
       MaterialPageRoute<Widget>(
-        builder: (BuildContext context) => NewProductPage(product),
+        builder: (BuildContext context) => ProductPage(product),
       ),
     );
   }

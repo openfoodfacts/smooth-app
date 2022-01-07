@@ -6,7 +6,6 @@ import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
-import 'package:smooth_app/cards/expandables/attribute_list_expandable.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
@@ -14,12 +13,6 @@ import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_ui_library/smooth_ui_library.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
-
-/// Main attributes, to be displayed on top
-const List<String> _SCORE_ATTRIBUTE_IDS = <String>[
-  Attribute.ATTRIBUTE_NUTRISCORE,
-  Attribute.ATTRIBUTE_ECOSCORE,
-];
 
 const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS,
@@ -35,11 +28,14 @@ const int SUMMARY_CARD_ROW_HEIGHT = 40;
 
 class SummaryCard extends StatefulWidget {
   const SummaryCard(this._product, this._productPreferences,
-      {this.isRenderedInProductPage = false});
+      {this.isFullVersion = false});
 
   final Product _product;
   final ProductPreferences _productPreferences;
-  final bool isRenderedInProductPage;
+
+  /// If false, the card will be clipped to a smaller version so it can fit on
+  /// smaller screens.
+  final bool isFullVersion;
 
   @override
   State<SummaryCard> createState() => _SummaryCardState();
@@ -57,13 +53,14 @@ class _SummaryCardState extends State<SummaryCard> {
   Widget build(BuildContext context) {
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-      if (widget.isRenderedInProductPage) {
+      if (widget.isFullVersion) {
         return buildProductSmoothCard(
           header: _buildProductCompatibilityHeader(context),
           body: Padding(
             padding: SMOOTH_CARD_PADDING,
             child: _buildSummaryCardContent(context),
           ),
+          margin: EdgeInsets.zero,
         );
       } else {
         return _buildLimitedSizeSummaryCard(constraints.maxHeight);
@@ -106,9 +103,8 @@ class _SummaryCardState extends State<SummaryCard> {
                     BorderRadius.vertical(bottom: SmoothCard.CIRCULAR_RADIUS),
               ),
               child: Center(
-                // TODO(jasmeet): Internationalize
                 child: Text(
-                  'Tap to see more info...',
+                  AppLocalizations.of(context)!.tab_for_more,
                   style: Theme.of(context)
                       .textTheme
                       .bodyText1!
@@ -124,8 +120,7 @@ class _SummaryCardState extends State<SummaryCard> {
 
   Widget _buildSummaryCardContent(BuildContext context) {
     final List<Attribute> scoreAttributes =
-        AttributeListExpandable.getPopulatedAttributes(
-            widget._product, _SCORE_ATTRIBUTE_IDS);
+        getPopulatedAttributes(widget._product, SCORE_ATTRIBUTE_IDS);
 
     // Header takes 1 row.
     // Product Title Tile takes 2 rows to render.
@@ -153,6 +148,9 @@ class _SummaryCardState extends State<SummaryCard> {
     }
     // Then, all groups, each with very important and important attributes
     for (final String groupId in _ATTRIBUTE_GROUP_ORDER) {
+      if (widget._product.attributeGroups == null) {
+        continue;
+      }
       final Iterable<AttributeGroup> groupIterable = widget
           ._product.attributeGroups!
           .where((AttributeGroup group) => group.id == groupId);
@@ -197,13 +195,20 @@ class _SummaryCardState extends State<SummaryCard> {
             cardEvaluation: getCardEvaluationFromAttribute(attribute),
           ),
         attributesContainer,
+        if (widget._product.statesTags
+                ?.contains('en:categories-to-be-completed') ??
+            false)
+          dummyAddButton(
+            AppLocalizations.of(context)!.score_add_missing_product_category,
+          ),
       ],
     );
   }
 
   Widget _buildProductCompatibilityHeader(BuildContext context) {
     final ProductCompatibility compatibility =
-        getProductCompatibility(widget._productPreferences, widget._product);
+        getProductCompatibility(widget._productPreferences, widget._product)
+            .productCompatibility;
     // NOTE: This is temporary and will be updated once the feature is supported
     // by the server.
     return Container(
@@ -219,7 +224,10 @@ class _SummaryCardState extends State<SummaryCard> {
       padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
       child: Center(
         child: Text(
-          getProductCompatibilityHeaderTextWidget(compatibility),
+          getProductCompatibilityHeaderTextWidget(
+            compatibility,
+            AppLocalizations.of(context)!,
+          ),
           style:
               Theme.of(context).textTheme.subtitle1!.apply(color: Colors.white),
         ),
@@ -356,7 +364,7 @@ class _SummaryCardState extends State<SummaryCard> {
 
   /// Returns the attributes that match the filter
   ///
-  /// [_SCORE_ATTRIBUTE_IDS] attributes are not included, as they are already
+  /// [SCORE_ATTRIBUTE_IDS] attributes are not included, as they are already
   /// dealt with somewhere else.
   List<Attribute> _getFilteredAttributes(
     final AttributeGroup attributeGroup,
@@ -368,7 +376,7 @@ class _SummaryCardState extends State<SummaryCard> {
     }
     for (final Attribute attribute in attributeGroup.attributes!) {
       final String attributeId = attribute.id!;
-      if (_SCORE_ATTRIBUTE_IDS.contains(attributeId)) {
+      if (SCORE_ATTRIBUTE_IDS.contains(attributeId)) {
         continue;
       }
       if (attributeGroup.id == AttributeGroup.ATTRIBUTE_GROUP_LABELS) {
