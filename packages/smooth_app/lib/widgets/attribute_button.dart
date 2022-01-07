@@ -1,16 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
-import 'package:provider/provider.dart';
-import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
-import 'package:smooth_app/widgets/attribute_dialog.dart';
-import 'package:smooth_app/widgets/attribute_helper.dart';
-import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
-import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 /// Colored button for attribute importance, with corresponding action
 class AttributeButton extends StatelessWidget {
@@ -22,47 +14,59 @@ class AttributeButton extends StatelessWidget {
   final Attribute attribute;
   final ProductPreferences productPreferences;
 
+  static const Map<String, String> _nextValues = <String, String>{
+    PreferenceImportance.ID_NOT_IMPORTANT: PreferenceImportance.ID_IMPORTANT,
+    PreferenceImportance.ID_IMPORTANT: PreferenceImportance.ID_MANDATORY,
+    PreferenceImportance.ID_MANDATORY: PreferenceImportance.ID_NOT_IMPORTANT,
+  };
+
+  static const Map<String, Color> _colors = <String, Color>{
+    PreferenceImportance.ID_NOT_IMPORTANT: Color(0xFF666666),
+    PreferenceImportance.ID_IMPORTANT: Colors.blue,
+    PreferenceImportance.ID_MANDATORY: Colors.red,
+  };
+
   @override
   Widget build(BuildContext context) {
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
+    final ThemeData themeData = Theme.of(context);
     String importanceId =
         productPreferences.getImportanceIdForAttributeId(attribute.id!);
     // We switch from 4 to 3 choices: very important is downgraded to important
     if (importanceId == PreferenceImportance.ID_VERY_IMPORTANT) {
       importanceId = PreferenceImportance.ID_IMPORTANT;
     }
-    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
-    final MaterialColor materialColor =
-        SmoothTheme.getMaterialColor(themeProvider);
-    final Color? strongBackgroundColor = SmoothTheme.getColor(
-      colorScheme,
-      materialColor,
-      ColorDestination.SURFACE_BACKGROUND,
-    );
-    final Color? strongForegroundColor = SmoothTheme.getColor(
-      colorScheme,
-      materialColor,
-      ColorDestination.SURFACE_FOREGROUND,
-    );
-    final Color? foregroundColor =
-        getForegroundColor(strongForegroundColor!, importanceId);
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-    return ListTile(
-      tileColor: getBackgroundColor(strongBackgroundColor!, importanceId),
-      title: Text(attribute.name!, style: TextStyle(color: foregroundColor)),
-      leading: SvgCache(attribute.iconUrl, width: 40),
-      trailing: getIcon(importanceId, foregroundColor),
-      onTap: () async => showDialog<String>(
-        context: context,
-        builder: (final BuildContext context) => SmoothAlertDialog(
-          body: AttributeDialog(attribute.id!, productPreferences),
-          actions: <SmoothSimpleButton>[
-            SmoothSimpleButton(
-              text: appLocalizations.cancel,
-              onPressed: () => Navigator.pop(context),
+    const double horizontalPadding = LARGE_SPACE;
+    final double screenWidth =
+        MediaQuery.of(context).size.width - 2 * horizontalPadding;
+    final TextStyle style = themeData.textTheme.headline3!;
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: horizontalPadding),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          SizedBox(
+            width: screenWidth * .45,
+            child: Text(attribute.name!, style: style),
+          ),
+          SizedBox(
+            width: screenWidth * .45,
+            child: ElevatedButton(
+              child: Text(
+                productPreferences
+                    .getPreferenceImportanceFromImportanceId(importanceId)!
+                    .name!,
+                style: style.copyWith(color: Colors.white),
+              ),
+              style: ElevatedButton.styleFrom(
+                primary: _colors[importanceId],
+                onPrimary: Colors.white,
+              ),
+              onPressed: () async => productPreferences.setImportance(
+                  attribute.id!, _nextValues[importanceId]!),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

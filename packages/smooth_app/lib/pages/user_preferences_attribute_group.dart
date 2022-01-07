@@ -8,6 +8,7 @@ import 'package:smooth_app/pages/abstract_user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/widgets/attribute_button.dart';
 import 'package:smooth_app/widgets/attribute_helper.dart';
+import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 /// Collapsed/expanded display of an attribute group for the preferences page.
 class UserPreferencesAttributeGroup extends AbstractUserPreferences {
@@ -30,8 +31,6 @@ class UserPreferencesAttributeGroup extends AbstractUserPreferences {
   final ProductPreferences productPreferences;
   final AttributeGroup group;
 
-  static const double _TYPICAL_PADDING_OR_MARGIN = 12;
-
   @override
   bool isCollapsedByDefault() => false;
 
@@ -41,19 +40,18 @@ class UserPreferencesAttributeGroup extends AbstractUserPreferences {
   @override
   Widget getTitle() => Text(
         group.name ?? appLocalizations.unknown,
-        style: themeData.textTheme.headline3,
+        style: themeData.textTheme.headline6,
       );
 
   @override
   Widget? getSubtitle() => null;
 
   @override
+  bool isCompactTitle() => true;
+
+  @override
   List<Widget> getBody() {
-    final List<String> orderedImportantAttributeIds =
-        productPreferences.getOrderedImportantAttributeIds();
     final List<Widget> result = <Widget>[];
-    final List<Attribute> orderedImportantAttributes =
-        _reorderAttributes(group, orderedImportantAttributeIds);
     if (group.warning != null) {
       result.add(
         Container(
@@ -63,8 +61,8 @@ class UserPreferencesAttributeGroup extends AbstractUserPreferences {
             ColorDestination.BUTTON_BACKGROUND,
           ),
           width: double.infinity,
-          padding: const EdgeInsets.all(_TYPICAL_PADDING_OR_MARGIN),
-          margin: const EdgeInsets.all(_TYPICAL_PADDING_OR_MARGIN),
+          padding: const EdgeInsets.all(LARGE_SPACE),
+          margin: const EdgeInsets.all(LARGE_SPACE),
           child: Text(
             group.warning ?? appLocalizations.unknown,
             style: TextStyle(
@@ -78,51 +76,13 @@ class UserPreferencesAttributeGroup extends AbstractUserPreferences {
         ),
       );
     }
+    final List<Attribute> attributes = group.attributes!;
     result.addAll(
       List<Widget>.generate(
-        orderedImportantAttributes.length,
-        (int index) => Padding(
-          padding: const EdgeInsets.only(left: 8.0),
-          child: AttributeButton(
-            orderedImportantAttributes[index],
-            productPreferences,
-          ),
-        ),
+        attributes.length,
+        (int index) => AttributeButton(attributes[index], productPreferences),
       ),
     );
     return result;
-  }
-
-  /// Returns a list of the attributes in the preferences order.
-  ///
-  /// First, the attributes ordered by id designated by [orderedAttributeIds],
-  /// if they belong to the [group].
-  /// Then, the remaining attributes of the group in the initial group order.
-  List<Attribute> _reorderAttributes(
-    final AttributeGroup group,
-    final List<String> orderedAttributeIds,
-  ) {
-    if (orderedAttributeIds.isEmpty) {
-      return group.attributes!;
-    }
-    final List<Attribute> importantAttributes = <Attribute>[];
-    final List<Attribute> otherAttributes = <Attribute>[];
-    for (final Attribute attribute in group.attributes!) {
-      if (orderedAttributeIds.contains(attribute.id)) {
-        importantAttributes.add(attribute);
-      } else {
-        otherAttributes.add(attribute);
-      }
-    }
-    if (importantAttributes.isEmpty) {
-      return otherAttributes;
-    }
-    importantAttributes.sort(
-      (Attribute a, Attribute b) => orderedAttributeIds
-          .indexOf(a.id!)
-          .compareTo(orderedAttributeIds.indexOf(b.id!)),
-    );
-    importantAttributes.addAll(otherAttributes);
-    return importantAttributes;
   }
 }
