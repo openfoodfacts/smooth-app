@@ -36,10 +36,11 @@ jobs:
           STORE_JKS_DECRYPTKEY: ${{ secrets.STORE_JKS_DECRYPTKEY }}
 
       - name: Setup Flutter
-      - uses: actions/cache@v2
+        uses: actions/cache@v2
         with:
           path: ${{ runner.tool_cache }}/flutter
           key: flutter-2.5.0-stable
+
       - uses: subosito/flutter-action@v2
         with:
           channel: stable

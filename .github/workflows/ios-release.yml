@@ -31,7 +31,7 @@ jobs:
           java-version: "12.x"
 
       - name: Setup Flutter
-      - uses: actions/cache@v2
+        uses: actions/cache@v2
         with:
           path: ${{ runner.tool_cache }}/flutter
           key: flutter-2.5.0-stable
