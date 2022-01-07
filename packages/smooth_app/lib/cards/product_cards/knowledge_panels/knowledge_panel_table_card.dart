@@ -4,20 +4,30 @@ import 'package:flutter/material.dart';
 import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
-import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
 
-const int kMaxCellLengthInARow = 50;
-
+/// ColumnGroup is a group of columns collapsed into a single column. Purpose of
+/// this is to show a dropdown menu which the users can use to select which column
+/// to display. A group can also have a single column, in which case there will
+/// be no dropdown on the UI.
 class ColumnGroup {
-  ColumnGroup(
-      {this.currentColumnIndex, this.currentColumn, required this.columns});
+  ColumnGroup({
+    this.currentColumnIndex,
+    this.currentColumn,
+    required this.columns,
+  });
 
+  /// The index of the column that is displayed in the [ColumnGroup].
   int? currentColumnIndex;
+
+  /// []KnowledgePanelTableColumn that is displayed in the [ColumnGroup].
   KnowledgePanelTableColumn? currentColumn;
+
+  /// List of columns in this [ColumnGroup].
   final List<KnowledgePanelTableColumn> columns;
 }
 
+/// Represents the data in a single cell in this table.
 class TableCell {
   TableCell({
     required this.text,
@@ -29,7 +39,8 @@ class TableCell {
   final String text;
   final Color? color;
   final bool isHeader;
-  // ColumnGroup is set for header cells.
+  // [columnGroup] is set only cells that have [isHeader = true]. This is used
+  // to show a dropdown of other column headers in the group for this column.
   final ColumnGroup? columnGroup;
 }
 
@@ -51,8 +62,9 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
   @override
   void initState() {
     super.initState();
-    // Build columnGroups
+    // Build [columnGroups] for the first time.
     int index = 0;
+    // Used to locate [columnGroup] for a given [column.columnGroupId].
     final Map<String, ColumnGroup> groupIdToColumnGroup =
         <String, ColumnGroup>{};
     for (final KnowledgePanelTableColumn column
@@ -67,17 +79,20 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
           ),
         );
       } else {
+        // Try to find the group if it already exists.
         final bool groupExists =
             groupIdToColumnGroup.containsKey(column.columnGroupId);
         if (!groupExists) {
+          // Create a group since one doesn't exist yet.
           final ColumnGroup newGroup =
               ColumnGroup(columns: <KnowledgePanelTableColumn>[]);
           columnGroups.add(newGroup);
           groupIdToColumnGroup[column.columnGroupId!] = newGroup;
         }
+        // Look up the already existing or newly created group.
         final ColumnGroup group = groupIdToColumnGroup[column.columnGroupId!]!;
-        // If no current column data is set, set it.
-        // If it's set and if [showByDefault] is true for this column, set it with this column's data.
+        // If [showByDefault] is true, set this as the currentColumn on the group.
+        // As a safeguard (in case no column has [showByDefault] as true, also set currentColumn if it isn't set yet.
         if (column.showByDefault ?? false || group.currentColumn == null) {
           group.currentColumnIndex = index;
           group.currentColumn = column;
@@ -90,53 +105,10 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
 
   @override
   Widget build(BuildContext context) {
-    final List<List<TableCell>> rows = <List<TableCell>>[];
-    rows.add(<TableCell>[]);
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-      final List<int> displayableColumnIndices = <int>[];
-      for (final ColumnGroup columnGroup in columnGroups) {
-        final KnowledgePanelTableColumn column = columnGroup.currentColumn!;
-        final String text = column.textForSmallScreens ?? column.text;
-        displayableColumnIndices.add(columnGroup.currentColumnIndex!);
-        switch (column.type) {
-          case null:
-          case KnowledgePanelColumnType.TEXT:
-            rows[0].add(TableCell(
-                text: text,
-                color: Colors.grey,
-                isHeader: true,
-                columnGroup: columnGroup));
-            break;
-          case KnowledgePanelColumnType.PERCENT:
-            // TODO(jasmeet): Implement percent knowledge panels.
-            rows[0].add(TableCell(
-                text: text,
-                color: Colors.grey,
-                isHeader: true,
-                columnGroup: columnGroup));
-            break;
-        }
-      }
-      for (final KnowledgePanelTableRowElement row
-          in widget.tableElement.rows) {
-        rows.add(<TableCell>[]);
-        int index = -1;
-        for (final KnowledgePanelTableCell cell in row.values) {
-          index++;
-          if (!displayableColumnIndices.contains(index)) {
-            // This cell is not displayable.
-            continue;
-          }
-          rows[rows.length - 1].add(TableCell(
-              text: cell.text,
-              color: getTextColorFromKnowledgePanelElementEvaluation(
-                  cell.evaluation ?? Evaluation.UNKNOWN),
-              isHeader: false));
-        }
-      }
       final List<List<Widget>> rowsWidgets =
-          _buildRowWidgets(rows, constraints);
+          _buildRowWidgets(_buildRowCells(), constraints);
       return Column(
         children: <Widget>[
           for (List<Widget> row in rowsWidgets)
@@ -149,14 +121,72 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
     });
   }
 
+  List<List<TableCell>> _buildRowCells() {
+    final List<List<TableCell>> rows = <List<TableCell>>[];
+    rows.add(<TableCell>[]);
+    // Only [displayableColumnIndices] columns will be displayed.
+    final List<int> displayableColumnIndices = <int>[];
+    for (final ColumnGroup columnGroup in columnGroups) {
+      final KnowledgePanelTableColumn column = columnGroup.currentColumn!;
+      final String text = column.textForSmallScreens ?? column.text;
+      displayableColumnIndices.add(columnGroup.currentColumnIndex!);
+      switch (column.type) {
+        case null:
+        case KnowledgePanelColumnType.TEXT:
+          rows[0].add(
+            TableCell(
+                text: text,
+                color: Colors.grey,
+                isHeader: true,
+                columnGroup: columnGroup),
+          );
+          break;
+        case KnowledgePanelColumnType.PERCENT:
+          // TODO(jasmeet): Implement percent knowledge panels.
+          rows[0].add(
+            TableCell(
+                text: text,
+                color: Colors.grey,
+                isHeader: true,
+                columnGroup: columnGroup),
+          );
+          break;
+      }
+    }
+    for (final KnowledgePanelTableRowElement row in widget.tableElement.rows) {
+      rows.add(<TableCell>[]);
+      int index = -1;
+      for (final KnowledgePanelTableCell cell in row.values) {
+        index++;
+        if (!displayableColumnIndices.contains(index)) {
+          // This cell is not displayable.
+          continue;
+        }
+        rows[rows.length - 1].add(
+          TableCell(
+              text: cell.text,
+              color: getTextColorFromKnowledgePanelElementEvaluation(
+                  cell.evaluation ?? Evaluation.UNKNOWN),
+              isHeader: false),
+        );
+      }
+    }
+    return rows;
+  }
+
   List<List<Widget>> _buildRowWidgets(
       List<List<TableCell>> rows, BoxConstraints constraints) {
     // [availableWidth] is parent's width - total padding we want in between columns.
     final double availableWidth = constraints.maxWidth - LARGE_SPACE;
-    // [columnMaxLength] contains the maximum length of the cells in the columns.
+    // [columnMaxLength] contains the length of the largest cells in the columns.
     // This helps us assign a dynamic width to the column depending upon the
-    // length of it's cells.
+    // largest cell in the column.
     final List<int> columnMaxLength = <int>[];
+    // Cells with a lot of text can get very large, we don't want to allocate
+    // the whole width to columns with these cells. So we cap the cell length
+    // considered for width allocation to [kMaxCellLengthInARow]. Cells with
+    // text larger than this limit will be wrapped in multiple rows.
+    const int maxCellLengthInARow = 50;
     for (final List<TableCell> row in rows) {
       int index = 0;
       for (final TableCell cell in row) {
@@ -165,13 +195,14 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
           columnMaxLength.add(cell.text.length);
         } else {
           if (cell.text.length > columnMaxLength[index]) {
-            columnMaxLength[index] =
-                min(kMaxCellLengthInARow, cell.text.length);
+            columnMaxLength[index] = min(maxCellLengthInARow, cell.text.length);
           }
         }
         index++;
       }
     }
+    // We now allocate width to each column as follows:
+    // [availableWidth] / [column's largest cell width] * [totalMaxColumnWidth].
     final int totalMaxColumnWidth =
         columnMaxLength.reduce((int sum, int width) => sum + width);
 
@@ -182,11 +213,13 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
       for (final TableCell cell in row) {
         final double cellWidth =
             availableWidth / totalMaxColumnWidth * columnMaxLength[index++];
-        rowWidgets.add(_buildTableCellWidget(
-          context: context,
-          cell: cell,
-          cellWidth: cellWidth,
-        ));
+        rowWidgets.add(
+          _buildTableCellWidget(
+            context: context,
+            cell: cell,
+            cellWidth: cellWidth,
+          ),
+        );
       }
       rowsWidgets.add(rowWidgets);
     }
@@ -210,6 +243,7 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
     }
     Widget textWidget;
     if (!cell.isHeader || cell.columnGroup!.columns.length == 1) {
+      // non-header cells and columnGroups with a single column are simple html text widgets.
       textWidget = SizedBox(
         width: cellWidth,
         child: HtmlWidget(
@@ -218,6 +252,7 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
         ),
       );
     } else {
+      // Now we finally render [ColumnGroup]s as drop down menus.
       textWidget = SizedBox(
         width: cellWidth,
         child: DropdownButtonHideUnderline(
@@ -229,7 +264,7 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
                 return DropdownMenuItem<KnowledgePanelTableColumn>(
                   value: column,
                   child: Container(
-                    // 24 px buffer is to allow the dropdown arrow.
+                    // 24 px buffer is to allow the dropdown arrow icon.
                     constraints:
                         BoxConstraints(maxWidth: cellWidth - 24).normalize(),
                     child: Text(column.textForSmallScreens ?? column.text),
@@ -243,9 +278,12 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
                     in widget.tableElement.columns) {
                   if (column == selectedColumn) {
                     cell.columnGroup!.currentColumnIndex = i;
+                    break;
                   }
                   i++;
                 }
+                // Since we have modified [currentColumn], re-rendering the
+                // widget will automagically select [selectedColumn].
                 setState(() {});
               },
               style: style,
