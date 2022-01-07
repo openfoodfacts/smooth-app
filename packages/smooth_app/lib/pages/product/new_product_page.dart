@@ -213,8 +213,11 @@ class _ProductPageState extends State<ProductPage> {
           List<Widget> knowledgePanelWidgets = <Widget>[];
           if (snapshot.hasData) {
             // Render all KnowledgePanels
-            knowledgePanelWidgets =
-                const KnowledgePanelsBuilder().build(snapshot.data!);
+            knowledgePanelWidgets = const KnowledgePanelsBuilder().build(
+              snapshot.data!,
+              product: _product,
+              appLocalizations: AppLocalizations.of(context),
+            );
           } else if (snapshot.hasError) {
             // TODO(jasmeet): Retry the request.
             // Do nothing for now.
