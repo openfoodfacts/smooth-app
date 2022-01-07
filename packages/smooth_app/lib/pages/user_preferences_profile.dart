@@ -56,23 +56,19 @@ class UserPreferencesProfile extends AbstractUserPreferences {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            ElevatedButton(
+            ElevatedButton.icon(
               onPressed: () => LaunchUrlHelper.launchURL(
                 'https://openfoodfacts.org/editor/${OpenFoodAPIConfiguration.globalUser!.userId}',
                 true,
               ),
-              child: Row(
-                children: <Widget>[
-                  Text(
-                    appLocalizations.view_profile,
-                    style: theme.textTheme.bodyText2?.copyWith(
-                      fontSize: 18.0,
-                      color: theme.colorScheme.surface,
-                    ),
-                  ),
-                  const Icon(Icons.open_in_new),
-                ],
+              label: Text(
+                appLocalizations.view_profile,
+                style: theme.textTheme.bodyText2?.copyWith(
+                  fontSize: 18.0,
+                  color: theme.colorScheme.surface,
+                ),
               ),
+              icon: const Icon(Icons.open_in_new),
               style: ButtonStyle(
                 minimumSize: MaterialStateProperty.all<Size>(
                   Size(size.width * 0.33, theme.buttonTheme.height + 10),
@@ -115,8 +111,8 @@ class UserPreferencesProfile extends AbstractUserPreferences {
       result.add(
         Center(
           child: ElevatedButton(
-            onPressed: () {
-              Navigator.push<dynamic>(
+            onPressed: () async {
+              await Navigator.push<dynamic>(
                 context,
                 MaterialPageRoute<dynamic>(
                   builder: (BuildContext context) => const LoginPage(),
