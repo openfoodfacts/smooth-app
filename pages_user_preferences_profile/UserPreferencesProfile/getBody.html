@@ -73,36 +73,107 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
-List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
-      ListTile(
-        leading: const Icon(Icons.threesixty_outlined),
-        title: const Text(&#39;Check credentials&#39;),
-        onTap: () async {
-          final bool correct =
-              await UserManagementHelper.checkAndReMountCredentials();
+List&lt;Widget&gt; getBody() {
+  final ThemeData theme = Theme.of(context);
+  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+  final Size size = MediaQuery.of(context).size;
 
-          final SnackBar snackBar = SnackBar(
-            content: Text(&#39;It is $correct&#39;),
-            action: SnackBarAction(
-              label: &#39;Logout&#39;,
-              onPressed: () async {
-                UserManagementHelper.logout();
-              },
+  final List&lt;Widget&gt; result = &lt;Widget&gt;[];
+
+  &#47;&#47;Credentials exist
+  if (OpenFoodAPIConfiguration.globalUser != null) {
+    result.add(
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: &lt;Widget&gt;[
+          ElevatedButton.icon(
+            onPressed: () =&gt; LaunchUrlHelper.launchURL(
+              &#39;https:&#47;&#47;openfoodfacts.org&#47;editor&#47;${OpenFoodAPIConfiguration.globalUser!.userId}&#39;,
+              true,
             ),
-          );
-          ScaffoldMessenger.of(context).showSnackBar(snackBar);
-        },
+            label: Text(
+              appLocalizations.view_profile,
+              style: theme.textTheme.bodyText2?.copyWith(
+                fontSize: 18.0,
+                color: theme.colorScheme.surface,
+              ),
+            ),
+            icon: const Icon(Icons.open_in_new),
+            style: ButtonStyle(
+              minimumSize: MaterialStateProperty.all&lt;Size&gt;(
+                Size(size.width * 0.33, theme.buttonTheme.height + 10),
+              ),
+              shape: MaterialStateProperty.all&lt;RoundedRectangleBorder&gt;(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(300.0),
+                ),
+              ),
+            ),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              UserManagementHelper.logout();
+              setState(() {});
+            },
+            child: Text(
+              appLocalizations.sign_out,
+              style: theme.textTheme.bodyText2?.copyWith(
+                fontSize: 18.0,
+                color: theme.colorScheme.surface,
+              ),
+            ),
+            style: ButtonStyle(
+              minimumSize: MaterialStateProperty.all&lt;Size&gt;(
+                Size(size.width * 0.33, theme.buttonTheme.height + 10),
+              ),
+              shape: MaterialStateProperty.all&lt;RoundedRectangleBorder&gt;(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(300.0),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
-      ListTile(
-        leading: const Icon(Icons.supervised_user_circle),
-        title: const Text(&#39;User management&#39;),
-        onTap: () =&gt; Navigator.push&lt;Widget&gt;(
-          context,
-          MaterialPageRoute&lt;Widget&gt;(
-            builder: (BuildContext context) =&gt; const LoginPage(),
+    );
+  } else {
+    &#47;&#47; No credentials
+    result.add(
+      Center(
+        child: ElevatedButton(
+          onPressed: () async {
+            await Navigator.push&lt;dynamic&gt;(
+              context,
+              MaterialPageRoute&lt;dynamic&gt;(
+                builder: (BuildContext context) =&gt; const LoginPage(),
+              ),
+            );
+            setState(() {});
+          },
+          child: Text(
+            appLocalizations.sign_in,
+            style: theme.textTheme.bodyText2?.copyWith(
+              fontSize: 18.0,
+              color: theme.colorScheme.surface,
+            ),
+          ),
+          style: ButtonStyle(
+            minimumSize: MaterialStateProperty.all&lt;Size&gt;(
+              Size(size.width * 0.5, theme.buttonTheme.height + 10),
+            ),
+            shape: MaterialStateProperty.all&lt;RoundedRectangleBorder&gt;(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(300.0),
+              ),
+            ),
           ),
         ),
       ),
+    );
+  }
+
+  result.addAll(
+    &lt;Widget&gt;[
       ListTile(
         leading: const Icon(Icons.public),
         title: CountrySelector(
@@ -114,7 +185,11 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
         title: Text(appLocalizations.reset),
         onTap: () =&gt; _confirmReset(context),
       ),
-    ];</code></pre>
+    ],
+  );
+
+  return result;
+}</code></pre>
 </section>
 
 

@@ -138,16 +138,15 @@
     <section class="summary offset-anchor" id="static-methods">
       <h2>Static Methods</h2>
       <dl class="callables">
-        <dt id="checkAndReMountCredentials" class="callable">
-  <span class="name"><a href="../helpers_user_management_helper/UserManagementHelper/checkAndReMountCredentials.html">checkAndReMountCredentials</a></span><span class="signature">(<wbr>)
+        <dt id="credentialsInStorage" class="callable">
+  <span class="name"><a href="../helpers_user_management_helper/UserManagementHelper/credentialsInStorage.html">credentialsInStorage</a></span><span class="signature">(<wbr>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>&gt;</span></span>
   </span>
   
 
 </dt>
 <dd>
-  Checks if the saved credentials are still valid
-and mounts credentials for use in queries 
+  Checks if some credentials exist in storage 
   
 
 </dd>
@@ -217,6 +216,19 @@ and mounts credentials for use in queries
 
 </dd>
 
+        <dt id="mountCredentials" class="callable">
+  <span class="name"><a href="../helpers_user_management_helper/UserManagementHelper/mountCredentials.html">mountCredentials</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Mounts stored credentials 
+  
+
+</dd>
+
         <dt id="put" class="callable">
   <span class="name"><a href="../helpers_user_management_helper/UserManagementHelper/put.html">put</a></span><span class="signature">(<wbr><span class="parameter" id="put-param-user"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/1.8.1/model_User/User-class.html">User</a></span> <span class="parameter-name">user</span></span>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
@@ -226,6 +238,19 @@ and mounts credentials for use in queries
 </dt>
 <dd>
   Puts the <a href="https://pub.dev/documentation/openfoodfacts/1.8.1/model_User/User-class.html">User</a> in the preferences 
+  
+
+</dd>
+
+        <dt id="validateCredentials" class="callable">
+  <span class="name"><a href="../helpers_user_management_helper/UserManagementHelper/validateCredentials.html">validateCredentials</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Checks if the saved credentials are still correct 
   
 
 </dd>
@@ -287,13 +312,15 @@ and mounts credentials for use in queries
 
 
     <li class="section-title"><a href="../helpers_user_management_helper/UserManagementHelper-class.html#static-methods">Static methods</a></li>
-    <li><a href="../helpers_user_management_helper/UserManagementHelper/checkAndReMountCredentials.html">checkAndReMountCredentials</a></li>
+    <li><a href="../helpers_user_management_helper/UserManagementHelper/credentialsInStorage.html">credentialsInStorage</a></li>
     <li><a href="../helpers_user_management_helper/UserManagementHelper/isEmailValid.html">isEmailValid</a></li>
     <li><a href="../helpers_user_management_helper/UserManagementHelper/isPasswordValid.html">isPasswordValid</a></li>
     <li><a href="../helpers_user_management_helper/UserManagementHelper/isUsernameValid.html">isUsernameValid</a></li>
     <li><a href="../helpers_user_management_helper/UserManagementHelper/login.html">login</a></li>
     <li><a href="../helpers_user_management_helper/UserManagementHelper/logout.html">logout</a></li>
+    <li><a href="../helpers_user_management_helper/UserManagementHelper/mountCredentials.html">mountCredentials</a></li>
     <li><a href="../helpers_user_management_helper/UserManagementHelper/put.html">put</a></li>
+    <li><a href="../helpers_user_management_helper/UserManagementHelper/validateCredentials.html">validateCredentials</a></li>
 
 </ol>
 
