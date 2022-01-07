@@ -57,7 +57,7 @@ class KnowledgePanelTableCard extends StatefulWidget {
 }
 
 class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
-  List<ColumnGroup> columnGroups = [];
+  List<ColumnGroup> columnGroups = <ColumnGroup>[];
 
   @override
   void initState() {
