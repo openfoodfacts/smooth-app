@@ -215,6 +215,7 @@ class _ProductPageState extends State<ProductPage> {
             // Render all KnowledgePanels
             knowledgePanelWidgets = const KnowledgePanelsBuilder().build(
               snapshot.data!,
+              context: context,
               product: _product,
               appLocalizations: AppLocalizations.of(context),
             );

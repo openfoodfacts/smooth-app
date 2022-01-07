@@ -64,7 +64,10 @@ class _KnowledgePanelPageTemplateState
             return const CircularProgressIndicator();
           }
           final List<Widget> knowledgePanelWidgets =
-              const KnowledgePanelsBuilder().build(_knowledgePanels);
+              const KnowledgePanelsBuilder().build(
+                _knowledgePanels,
+                context: context,
+              );
           return Scaffold(
             body: Stack(
               children: <Widget>[

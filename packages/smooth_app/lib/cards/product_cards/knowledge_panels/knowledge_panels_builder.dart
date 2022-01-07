@@ -6,12 +6,14 @@ import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_element_card.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/product/edit_ingredients_page.dart';
 
 class KnowledgePanelsBuilder {
   const KnowledgePanelsBuilder();
 
   List<Widget> build(
     KnowledgePanels knowledgePanels, {
+    required final BuildContext context,
     final Product? product,
     final AppLocalizations? appLocalizations,
   }) {
@@ -47,14 +49,28 @@ class KnowledgePanelsBuilder {
             knowledgePanelElementWidgets.add(
               dummyAddButton(
                 appLocalizations.score_add_missing_nutrition_facts,
+                // TODO(monsieurtanuki): onPressed to be implemented
               ),
             );
           }
-          if (product.statesTags?.contains('en:ingredients-to-be-completed') ??
-              false) {
+          // TODO(justinmc): Hacking this true to access the ingredient page for
+          // now, even if the ingredients are complete.
+          if (true || (product.statesTags?.contains('en:ingredients-to-be-completed') ??
+              false)) {
             knowledgePanelElementWidgets.add(
               dummyAddButton(
                 appLocalizations.score_add_missing_ingredients,
+                () async => Navigator.push<Widget>(
+                  context,
+                  MaterialPageRoute<Widget>(
+                    builder: (BuildContext context) =>
+                      EditIngredientsPage(
+                        product: product,
+                        imageIngredientsUrl: product.imageIngredientsUrl,
+                        barcode: product.barcode,
+                      ),
+                  ),
+                ),
               ),
             );
           }

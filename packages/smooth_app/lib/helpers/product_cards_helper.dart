@@ -57,11 +57,11 @@ List<Attribute> getPopulatedAttributes(
   return result;
 }
 
-Widget dummyAddButton(final String label) => SizedBox(
+Widget dummyAddButton(final String label, [final VoidCallback? onPressed]) => SizedBox(
       width: double.infinity,
       child: ElevatedButton.icon(
         icon: const Icon(Icons.add),
         label: Text(label),
-        onPressed: () {}, // TODO(monsieurtanuki): to be implemented
+        onPressed: onPressed ?? () {},
       ),
     );
