@@ -14,7 +14,7 @@ jobs:
 
       # Setup flutter 
       - name: "Setup Flutter"
-        uses: subosito/flutter-action@v1
+        uses: subosito/flutter-action@v2.0.3
         with:
           channel: 'stable' 
       

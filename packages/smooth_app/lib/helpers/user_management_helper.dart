@@ -32,7 +32,7 @@ class UserManagementHelper {
       await put(user);
     }
 
-    return rightCredentials && await _checkCredentialsInStorage();
+    return rightCredentials && await credentialsInStorage();
   }
 
   /// Puts the [User] in the preferences
@@ -41,9 +41,22 @@ class UserManagementHelper {
     await _putUser(user);
   }
 
-  /// Checks if the saved credentials are still valid
-  /// and mounts credentials for use in queries
-  static Future<bool> checkAndReMountCredentials() async {
+  /// Mounts stored credentials
+  static Future<void> mountCredentials() async {
+    final String? userId = await DaoSecuredString.get(_USER_ID);
+    final String? password = await DaoSecuredString.get(_PASSWORD);
+
+    if (userId == null || password == null) {
+      return;
+    }
+
+    final User user = User(userId: userId, password: password);
+
+    OpenFoodAPIConfiguration.globalUser = user;
+  }
+
+  /// Checks if the saved credentials are still correct
+  static Future<bool> validateCredentials() async {
     final String? userId = await DaoSecuredString.get(_USER_ID);
     final String? password = await DaoSecuredString.get(_PASSWORD);
 
@@ -72,7 +85,7 @@ class UserManagementHelper {
     OpenFoodAPIConfiguration.globalUser = null;
     DaoSecuredString.remove(key: _USER_ID);
     DaoSecuredString.remove(key: _PASSWORD);
-    final bool contains = await _checkCredentialsInStorage();
+    final bool contains = await credentialsInStorage();
     return !contains;
   }
 
@@ -89,7 +102,7 @@ class UserManagementHelper {
   }
 
   /// Checks if some credentials exist in storage
-  static Future<bool> _checkCredentialsInStorage() async {
+  static Future<bool> credentialsInStorage() async {
     final bool userId = await DaoSecuredString.contains(key: _USER_ID);
     final bool password = await DaoSecuredString.contains(key: _PASSWORD);
 
