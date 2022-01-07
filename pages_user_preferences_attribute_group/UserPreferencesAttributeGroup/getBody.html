@@ -74,11 +74,7 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 List&lt;Widget&gt; getBody() {
-  final List&lt;String&gt; orderedImportantAttributeIds =
-      productPreferences.getOrderedImportantAttributeIds();
   final List&lt;Widget&gt; result = &lt;Widget&gt;[];
-  final List&lt;Attribute&gt; orderedImportantAttributes =
-      _reorderAttributes(group, orderedImportantAttributeIds);
   if (group.warning != null) {
     result.add(
       Container(
@@ -88,8 +84,8 @@ List&lt;Widget&gt; getBody() {
           ColorDestination.BUTTON_BACKGROUND,
         ),
         width: double.infinity,
-        padding: const EdgeInsets.all(_TYPICAL_PADDING_OR_MARGIN),
-        margin: const EdgeInsets.all(_TYPICAL_PADDING_OR_MARGIN),
+        padding: const EdgeInsets.all(LARGE_SPACE),
+        margin: const EdgeInsets.all(LARGE_SPACE),
         child: Text(
           group.warning ?? appLocalizations.unknown,
           style: TextStyle(
@@ -103,16 +99,11 @@ List&lt;Widget&gt; getBody() {
       ),
     );
   }
+  final List&lt;Attribute&gt; attributes = group.attributes!;
   result.addAll(
     List&lt;Widget&gt;.generate(
-      orderedImportantAttributes.length,
-      (int index) =&gt; Padding(
-        padding: const EdgeInsets.only(left: 8.0),
-        child: AttributeButton(
-          orderedImportantAttributes[index],
-          productPreferences,
-        ),
-      ),
+      attributes.length,
+      (int index) =&gt; AttributeButton(attributes[index], productPreferences),
     ),
   );
   return result;
@@ -164,6 +155,7 @@ List&lt;Widget&gt; getBody() {
     <li><a href="../../pages_user_preferences_attribute_group/UserPreferencesAttributeGroup/getSubtitle.html">getSubtitle</a></li>
     <li><a href="../../pages_user_preferences_attribute_group/UserPreferencesAttributeGroup/getTitle.html">getTitle</a></li>
     <li><a href="../../pages_user_preferences_attribute_group/UserPreferencesAttributeGroup/isCollapsedByDefault.html">isCollapsedByDefault</a></li>
+    <li><a href="../../pages_user_preferences_attribute_group/UserPreferencesAttributeGroup/isCompactTitle.html">isCompactTitle</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
