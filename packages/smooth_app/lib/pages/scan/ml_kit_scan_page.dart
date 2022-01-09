@@ -87,7 +87,7 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
   }
 
   Widget _liveFeedBody() {
-    if (_controller?.value.isInitialized == false) {
+    if (_controller?.value.isInitialized == false || _controller == null) {
       return const Center(child: CircularProgressIndicator());
     }
 
