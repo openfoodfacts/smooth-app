@@ -531,7 +531,7 @@ packages:
       name: openfoodfacts
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.8.1"
+    version: "1.9.1"
   package_config:
     dependency: transitive
     description:
@@ -692,7 +692,7 @@ packages:
       name: plugin_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.0"
+    version: "2.1.2"
   positioned_tap_detector_2:
     dependency: transitive
     description:

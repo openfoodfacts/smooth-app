@@ -35,6 +35,9 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
   void initState() {
     super.initState();
 
+    //Find the most relevant camera to use if none of these criteria are met,
+    //the default value of [_cameraIndex] will be used to select the first
+    //camera in the global cameras list.
     if (cameras.any(
       (CameraDescription element) =>
           element.lensDirection == cameraLensDirection &&
@@ -67,6 +70,7 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
 
   @override
   Widget build(BuildContext context) {
+    _model = context.watch<ContinuousScanModel>();
     return Scaffold(
       body: VisibilityDetector(
         key: const Key('VisibilityDetector ML Kit'),
@@ -84,7 +88,7 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
 
   Widget _liveFeedBody() {
     if (_controller?.value.isInitialized == false) {
-      return Container();
+      return const Center(child: CircularProgressIndicator());
     }
 
     final Size size = MediaQuery.of(context).size;
@@ -101,7 +105,6 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
 
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        _model = context.watch<ContinuousScanModel>();
         final Size screenSize = MediaQuery.of(context).size;
         final Size scannerSize = Size(
           screenSize.width * 0.6,
@@ -141,7 +144,9 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
               child: Transform.scale(
                 scale: scale,
                 child: Center(
-                  child: CameraPreview(_controller!),
+                  child: CameraPreview(
+                    _controller!,
+                  ),
                 ),
               ),
             ),
@@ -211,6 +216,7 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
     await _controller?.dispose();
   }
 
+  //Convert the [CameraImage] to a [InputImage]
   Future<void> _processCameraImage(CameraImage image) async {
     final WriteBuffer allBytes = WriteBuffer();
     for (final Plane plane in image.planes) {
@@ -252,10 +258,11 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
     final InputImage inputImage =
         InputImage.fromBytes(bytes: bytes, inputImageData: inputImageData);
 
-    _processImage(inputImage);
+    _scanImage(inputImage);
   }
 
-  Future<void> _processImage(InputImage inputImage) async {
+  //Checking for barcodes in the provided InputImage
+  Future<void> _scanImage(InputImage inputImage) async {
     if (barcodeScanner == null || isBusy) {
       return;
     }

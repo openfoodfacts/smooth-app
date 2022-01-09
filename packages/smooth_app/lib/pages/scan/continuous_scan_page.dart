@@ -17,23 +17,24 @@ class ContinuousScanPage extends StatefulWidget {
 }
 
 class _ContinuousScanPageState extends State<ContinuousScanPage> {
-  final GlobalKey _scannerViewKey = GlobalKey(debugLabel: 'Barcode Scanner');
-  ContinuousScanModel? _model;
+  final GlobalKey _scannerViewKey = GlobalKey(debugLabel: 'qr Barcode Scanner');
+  late ContinuousScanModel _model;
+  QRViewController? _controller;
 
   @override
   Widget build(BuildContext context) {
+    _model = context.watch<ContinuousScanModel>();
     return VisibilityDetector(
       key: const Key('VisibilityDetector qr_code_scanner'),
       onVisibilityChanged: (VisibilityInfo visibilityInfo) {
         if (visibilityInfo.visibleFraction == 0.0) {
-          _model?.stopQRView();
+          _stopLiveFeed();
         } else {
-          _model?.resumeQRView();
+          _resumeLiveFeed();
         }
       },
       child: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-          _model = context.watch<ContinuousScanModel>();
           final Size screenSize = MediaQuery.of(context).size;
           final Size scannerSize = Size(
             screenSize.width * 0.6,
@@ -42,7 +43,7 @@ class _ContinuousScanPageState extends State<ContinuousScanPage> {
           final double carouselHeight = constraints.maxHeight /
               1.81; // roughly 55% of the available height
           final double buttonRowHeight =
-              scan_page_helper.areButtonsRendered(_model!) ? 48 : 0;
+              scan_page_helper.areButtonsRendered(_model) ? 48 : 0;
           final double availableScanHeight =
               constraints.maxHeight - carouselHeight - buttonRowHeight;
           // Padding for the qr code scanner. This ensures the scanner has equal spacing between buttons and carousel.
@@ -79,7 +80,7 @@ class _ContinuousScanPageState extends State<ContinuousScanPage> {
                       cutOutBottomOffset: viewFinderBottomOffset,
                     ),
                     key: _scannerViewKey,
-                    onQRViewCreated: _model!.setupScanner,
+                    onQRViewCreated: setupScanner,
                   ),
                 ),
                 SmoothRevealAnimation(
@@ -106,7 +107,7 @@ class _ContinuousScanPageState extends State<ContinuousScanPage> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
-                      scan_page_helper.buildButtonsRow(context, _model!),
+                      scan_page_helper.buildButtonsRow(context, _model),
                       const Spacer(),
                       SmoothProductCarousel(
                         showSearchCard: true,
@@ -122,4 +123,16 @@ class _ContinuousScanPageState extends State<ContinuousScanPage> {
       ),
     );
   }
+
+  void setupScanner(QRViewController controller) {
+    _controller = controller;
+    _controller?.scannedDataStream
+        .listen((Barcode barcode) => _model.onScan(barcode.code));
+  }
+
+  //Used when navigating away from the QRView itself
+  void _stopLiveFeed() => _controller?.stopCamera();
+
+  //Used when navigating back to the QRView
+  void _resumeLiveFeed() => _controller?.resumeCamera();
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:openfoodfacts/model/Product.dart';
-import 'package:qr_code_scanner/qr_code_scanner.dart' as qr_code_scanner;
 import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/barcode_product_query.dart';
@@ -31,8 +30,6 @@ class ContinuousScanModel with ChangeNotifier {
   String? _barcodeTrustCheck; // TODO(monsieurtanuki): could probably be removed
   late DaoProduct _daoProduct;
   late DaoProductList _daoProductList;
-
-  qr_code_scanner.QRViewController? _qrViewController;
 
   bool get hasMoreThanOneProduct => getBarcodes().length > 1;
   ProductList get productList => _productList;
@@ -88,18 +85,6 @@ class ContinuousScanModel with ChangeNotifier {
       _states[barcode];
 
   Product getProduct(final String barcode) => _productList.getProduct(barcode);
-
-  void setupScanner(qr_code_scanner.QRViewController controller) {
-    _qrViewController = controller;
-    controller.scannedDataStream
-        .listen((qr_code_scanner.Barcode barcode) => onScan(barcode.code));
-  }
-
-  //Used when navigating away from the QRView itself
-  void stopQRView() => _qrViewController?.stopCamera();
-
-  //Used when navigating back to the QRView
-  void resumeQRView() => _qrViewController?.resumeCamera();
 
   Future<void> onScan(String? code) async {
     if (code == null) {
