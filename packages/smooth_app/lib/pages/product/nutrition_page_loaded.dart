@@ -6,7 +6,6 @@ import 'package:openfoodfacts/model/OrderedNutrient.dart';
 import 'package:openfoodfacts/model/OrderedNutrients.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:openfoodfacts/utils/UnitHelper.dart';
 import 'package:smooth_app/database/product_query.dart';
 
@@ -49,11 +48,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     super.initState();
     _populateOrderedNutrientList(widget.orderedNutrients.nutrients);
     _values = widget.product.nutriments!.toJson();
-    final OpenFoodFactsCountry country = ProductQuery.getCountry()!;
-    _numberFormat = NumberFormat(
-      '####0.#####',
-      '${ProductQuery.getLanguage().code}_${country.iso2Code.toUpperCase()}',
-    );
+    _numberFormat = NumberFormat('####0.#####', ProductQuery.getLocaleString());
     _decimalRegExp = _numberFormat.format(1.2).contains('.')
         ? RegExp(r'[0-9\.]') // TODO(monsieurtanuki): check if . or \.
         : RegExp(r'[0-9,]');
@@ -65,7 +60,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     final List<Widget> children = <Widget>[];
     children.add(
       Container(
-        color: Colors.blue,
+        color: Colors.blue, // TODO(monsieurtanuki): change it to app color
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.center,

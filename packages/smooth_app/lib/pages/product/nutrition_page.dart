@@ -3,7 +3,7 @@ import 'package:openfoodfacts/model/OrderedNutrients.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
-import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
+import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
 
 // TODO(monsieurtanuki): load the ordered nutrients somewhere else
@@ -26,14 +26,11 @@ class _NutritionPageState extends State<NutritionPage> {
     _initFuture = _init();
   }
 
-  Future<OrderedNutrients> _init() async {
-    final OpenFoodFactsCountry country =
-        OpenFoodAPIConfiguration.globalCountry!;
-    return OpenFoodAPIClient.getOrderedNutrients(
-      cc: country.iso2Code,
-      language: OpenFoodAPIConfiguration.globalLanguages![0],
-    );
-  }
+  Future<OrderedNutrients> _init() async =>
+      OpenFoodAPIClient.getOrderedNutrients(
+        cc: ProductQuery.getCountry()!.iso2Code,
+        language: ProductQuery.getLanguage()!,
+      );
 
   @override
   Widget build(BuildContext context) => FutureBuilder<OrderedNutrients>(
