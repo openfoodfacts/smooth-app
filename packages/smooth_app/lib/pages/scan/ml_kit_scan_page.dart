@@ -88,6 +88,7 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
     }
 
     final Size size = MediaQuery.of(context).size;
+    // From: https://stackoverflow.com/questions/49946153/flutter-camera-appears-stretched/61487358#61487358:
     // calculate scale depending on screen and camera ratios
     // this is actually size.aspectRatio / (1 / camera.aspectRatio)
     // because camera preview size is received as landscape
