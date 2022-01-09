@@ -71,7 +71,7 @@
     },
     "@user_management": {},
     "sign_in_text": "Connectez-vous à votre compte Open Food Facts pour enregistrer vos contributions",
-    "incorrect_credentials": "Incorrect username or password.",
+    "incorrect_credentials": "Nom d'utilisateur ou mot de passe incorrect.",
     "login": "Nom d'utilisateur",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
@@ -84,7 +84,7 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_out": "Sign out",
+    "sign_out": "Se déconnecter",
     "@sign_out": {
         "description": "Button label: For sign out"
     },
@@ -93,7 +93,7 @@
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset e-mail can be requested"
     },
-    "view_profile": "View profile",
+    "view_profile": "Afficher le profil",
     "@view_profile": {
         "description": "Button label: For to show your account"
     },
@@ -102,7 +102,7 @@
         "description": "Forgot password page title"
     },
     "reset_password_explanation_text": "In case of a forgotten password, enter your username or e-mail address to receive instructions for a password reset. Also, remember to check the Spam folder.",
-    "username_or_email": "Username or e-mail",
+    "username_or_email": "Nom d'utilisateur ou e-mail",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
@@ -427,49 +427,49 @@
         "description": "Product compatibility summary title"
     },
     "@Plural": {},
-    "pct_match": "{percent}% match",
+    "pct_match": "{percent}% de correspondance",
     "@pct_match": {
         "description": "This product has a x percent match with your preferences",
         "placeholders": {
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural, =1{one day ago} other{{count} days ago}}",
+    "plural_ago_days": "{count,plural, =1{il y a un jour} other{il y a {count} jours}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural, =1{one hour ago} other{{count} hours ago}}",
+    "plural_ago_hours": "{count,plural, =1{il y a une heure} other{il y a {count} heures}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural, =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
+    "plural_ago_minutes": "{count,plural,=0{il y a moins d'une minute} =1{il y a une minute} other{il y a {count} minutes}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, =1{one month ago} other{{count} months ago}}",
+    "plural_ago_months": "{count,plural, =1{il y a un mois} other{il y a {count} mois}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, =1{one week ago} other{{count} weeks ago}}",
+    "plural_ago_weeks": "{count,plural, =1{il y a une semaine} other{il y a {count} semaines}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, other{Compare {count} Products}",
+    "plural_compare_x_products": "{count,plural, other{Comparer {count} Produits}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {

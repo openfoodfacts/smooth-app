@@ -84,7 +84,7 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_out": "Sign out",
+    "sign_out": "יציאה",
     "@sign_out": {
         "description": "Button label: For sign out"
     },
@@ -93,7 +93,7 @@
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset e-mail can be requested"
     },
-    "view_profile": "View profile",
+    "view_profile": "הצגת פרופיל",
     "@view_profile": {
         "description": "Button label: For to show your account"
     },
@@ -317,6 +317,9 @@
     "@packaging_information_photo": {},
     "missing_product": "המוצר חסר",
     "@missing_product": {},
+    "score_add_missing_ingredients": "Add missing ingredients",
+    "score_add_missing_nutrition_facts": "Add missing nutrition facts",
+    "score_add_missing_product_category": "Add missing product category",
     "more_photos": "תמונות מעניינות נוספות",
     "@more_photos": {},
     "no_product_found": "לא נמצאו מוצרים",
@@ -418,49 +421,49 @@
         "description": "Product compatibility summary title"
     },
     "@Plural": {},
-    "pct_match": "{percent}% match",
+    "pct_match": "‎{percent}%‎ התאמה",
     "@pct_match": {
         "description": "This product has a x percent match with your preferences",
         "placeholders": {
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural, =1{one day ago} other{{count} days ago}}",
+    "plural_ago_days": "{count,plural, one {} two {יומיים} many {{count} ימים} =1{יום} other{{count} ימים}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural, =1{one hour ago} other{{count} hours ago}}",
+    "plural_ago_hours": "{count,plural, one {} two {שעתיים} many {{count} שעות} =1{שעה} other{{count} שעות}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural, =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
+    "plural_ago_minutes": "{count,plural, one {} two {{count} דקות} many {{count} דקות} =0{פחות מדקה} =1{דקה} other{{count} דקות}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, =1{one month ago} other{{count} months ago}}",
+    "plural_ago_months": "{count,plural, one {} two {חודשיים} many {{count} חודשים} =1{חודש} other{{count} חודשים}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, =1{one week ago} other{{count} weeks ago}}",
+    "plural_ago_weeks": "{count,plural, one {} two {שבועיים} many {{count} weeks ago} =1{שבוע} other{{count} שבועות}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, other{Compare {count} Products}",
+    "plural_compare_x_products": "{count,plural, other{השוואה בין {count} מוצרים}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {
