@@ -31,9 +31,14 @@ jobs:
           java-version: "12.x"
 
       - name: Setup Flutter
-        uses: subosito/flutter-action@v2.0.3
+        uses: actions/cache@v2
         with:
-          channel: 'stable'
+          path: ${{ runner.tool_cache }}/flutter
+          key: flutter-2.5.0-stable
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: 2.5.0
 
       - name: Get dependencies
         run: ci/pub_upgrade.sh

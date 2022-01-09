@@ -56,3 +56,17 @@ List<Attribute> getPopulatedAttributes(
   }
   return result;
 }
+
+Widget dummyAddButton(
+  final String label, {
+  final IconData? iconData,
+  final Function()? onPressed,
+}) =>
+    SizedBox(
+      width: double.infinity,
+      child: ElevatedButton.icon(
+        icon: Icon(iconData ?? Icons.add),
+        label: Text(label),
+        onPressed: onPressed ?? () {},
+      ),
+    );

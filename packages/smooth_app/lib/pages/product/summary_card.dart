@@ -195,6 +195,12 @@ class _SummaryCardState extends State<SummaryCard> {
             cardEvaluation: getCardEvaluationFromAttribute(attribute),
           ),
         attributesContainer,
+        if (widget._product.statesTags
+                ?.contains('en:categories-to-be-completed') ??
+            false)
+          dummyAddButton(
+            AppLocalizations.of(context)!.score_add_missing_product_category,
+          ),
       ],
     );
   }
