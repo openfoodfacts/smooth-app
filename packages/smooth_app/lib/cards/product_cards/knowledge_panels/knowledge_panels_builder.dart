@@ -6,6 +6,7 @@ import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_element_card.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/product/nutrition_page.dart';
 
 class KnowledgePanelsBuilder {
   const KnowledgePanelsBuilder();
@@ -13,7 +14,7 @@ class KnowledgePanelsBuilder {
   List<Widget> build(
     KnowledgePanels knowledgePanels, {
     final Product? product,
-    final AppLocalizations? appLocalizations,
+    final BuildContext? context,
   }) {
     final List<Widget> rootPanelWidgets = <Widget>[];
     if (knowledgePanels.panelIdToPanelMap['root'] == null) {
@@ -39,17 +40,27 @@ class KnowledgePanelsBuilder {
           allPanels: knowledgePanels,
         ));
       }
-      if (product != null && appLocalizations != null) {
+      if (product != null && context != null) {
         if (panelId == 'health_card') {
-          if (product.statesTags
+          final bool nutritionAddOrUpdate = product.statesTags
                   ?.contains('en:nutrition-facts-to-be-completed') ??
-              false) {
-            knowledgePanelElementWidgets.add(
-              dummyAddButton(
-                appLocalizations.score_add_missing_nutrition_facts,
+              false;
+          final AppLocalizations appLocalizations =
+              AppLocalizations.of(context)!;
+          knowledgePanelElementWidgets.add(
+            dummyAddButton(
+              nutritionAddOrUpdate
+                  ? appLocalizations.score_add_missing_nutrition_facts
+                  : appLocalizations.score_update_nutrition_facts,
+              iconData: nutritionAddOrUpdate ? Icons.add : Icons.edit,
+              onPressed: () => Navigator.push<Widget>(
+                context,
+                MaterialPageRoute<Widget>(
+                  builder: (BuildContext context) => NutritionPage(product),
+                ),
               ),
-            );
-          }
+            ),
+          );
           if (product.statesTags?.contains('en:ingredients-to-be-completed') ??
               false) {
             knowledgePanelElementWidgets.add(

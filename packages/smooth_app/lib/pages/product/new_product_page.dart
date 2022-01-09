@@ -216,7 +216,7 @@ class _ProductPageState extends State<ProductPage> {
             knowledgePanelWidgets = const KnowledgePanelsBuilder().build(
               snapshot.data!,
               product: _product,
-              appLocalizations: AppLocalizations.of(context),
+              context: context,
             );
           } else if (snapshot.hasError) {
             // TODO(jasmeet): Retry the request.
