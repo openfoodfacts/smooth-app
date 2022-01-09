@@ -23,6 +23,8 @@ history:
 settings:
 - packages/smooth_app/lib/pages/user_preferences_page.dart
 
+onboarding:
+- packages/smooth_app/lib/pages/onboarding/**/*
 
 scan:
 - packages/smooth_app/lib/pages/scan/**/*
