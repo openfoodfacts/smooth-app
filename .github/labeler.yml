@@ -26,7 +26,7 @@ settings:
 onboarding:
 - packages/smooth_app/lib/pages/onboarding/**/*
 
-nutrition editing:
+nutrition input:
 - packages/smooth_app/lib/pages/product/nutrition_page_loaded.dart
 
 scan:
