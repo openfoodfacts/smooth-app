@@ -212,10 +212,9 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
     final List<Barcode> barcodes =
         await barcodeScanner!.processImage(inputImage);
 
-    //ignore: avoid_function_literals_in_foreach_calls
-    barcodes.forEach((Barcode barcode) {
+    for (final Barcode barcode in barcodes) {
       _model.onScan(barcode.value.rawValue);
-    });
+    }
 
     isBusy = false;
     if (mounted) {
