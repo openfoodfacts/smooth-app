@@ -428,35 +428,35 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural, one {} =1{преди един ден} other{преди {count} дни}}",
+    "plural_ago_days": "{count,plural, =1{преди един ден} other{преди {count} дни}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural, one {} =1{преди един час} other{преди {count} часа}}",
+    "plural_ago_hours": "{count,plural, =1{преди един час} other{преди {count} часа}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural, one {} =0{преди по-малко от една минута} =1{преди една минута} other{преди {count} минути}}",
+    "plural_ago_minutes": "{count,plural, =0{преди по-малко от една минута} =1{преди една минута} other{преди {count} минути}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, one {} =1{преди един месец} other{преди {count} месеца}}",
+    "plural_ago_months": "{count,plural, =1{преди един месец} other{преди {count} месеца}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, one {} =1{преди една седмица} other{преди {count} седмици}}",
+    "plural_ago_weeks": "{count,plural, =1{преди една седмица} other{преди {count} седмици}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
