@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
+import 'package:openfoodfacts/interface/JsonObject.dart';
 import 'package:openfoodfacts/model/OrderedNutrient.dart';
 import 'package:openfoodfacts/model/OrderedNutrients.dart';
 import 'package:openfoodfacts/model/Product.dart';
@@ -37,10 +38,13 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     Unit.MILLI_G: Unit.MICRO_G,
     Unit.MICRO_G: Unit.G,
   };
-  static const Map<Unit, String> _weightUnitLabels = <Unit, String>{
+  static const Map<Unit, String> _unitLabels = <Unit, String>{
     Unit.G: 'g',
     Unit.MILLI_G: 'mg',
     Unit.MICRO_G: 'mcg/µg',
+    Unit.KJ: 'kJ',
+    Unit.KCAL: 'kcal',
+    Unit.PERCENT: '%',
   };
 
   @override
@@ -111,7 +115,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
             final List<OrderedNutrient> availables = <OrderedNutrient>[];
             for (final OrderedNutrient orderedNutrient in _displayableList) {
               final String id = orderedNutrient.id;
-              final dynamic value = _getValue(id);
+              final double? value = _getValue(id);
               final bool addAble = value == null && !orderedNutrient.important;
               if (addAble) {
                 availables.add(orderedNutrient);
@@ -178,12 +182,36 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   }
 
   Widget? _getNutrientWidget(final OrderedNutrient orderedNutrient) {
+    const String energyId = 'energy';
     final String id = orderedNutrient.id;
-    final dynamic value = _getValue(id);
+    if (id == energyId) {
+      // we keep only kj and kcal
+      return null;
+    }
+    double? value = _getValue(id);
     if (value == null && !orderedNutrient.important) {
       return null;
     }
     final TextEditingController controller = TextEditingController();
+    final Unit? defaultNotWeightUnit = _getDefaultNotWeightUnit(id);
+    final bool isWeight = defaultNotWeightUnit == null;
+    final Unit unit = _getUnit(id) ?? defaultNotWeightUnit ?? Unit.G;
+    if (value == null) {
+      if (id == 'energy-kj' || id == 'energy-kcal') {
+        final double? valueEnergy = _getValue(energyId);
+        final Unit? unitEnergy = _getUnit(energyId);
+        if (id == 'energy-kj') {
+          if (unitEnergy == Unit.KJ) {
+            value = valueEnergy;
+          }
+        } else if (id == 'energy-kcal') {
+          if (unitEnergy == Unit.KCAL) {
+            value = valueEnergy;
+          }
+        }
+      }
+    }
+    value = _convertValue(value, unit);
     controller.text = value == null ? '' : _numberFormat.format(value);
     _controllers[id] = controller;
     final List<Widget> rowItems = <Widget>[];
@@ -215,23 +243,6 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         ),
       ),
     );
-    bool isWeight = true;
-    Unit? unit = _getUnit(id);
-    if (id == 'energy-kcal') {
-      unit = Unit.KCAL;
-      isWeight = false;
-    }
-    if (id == 'energy-kj') {
-      unit = Unit.KJ;
-      isWeight = false;
-    }
-    if (id == 'energy') {
-      if (unit == Unit.UNKNOWN || unit == null) {
-        unit = Unit.KJ; // TODO(monsieurtanuki): is that a fact?
-      }
-      isWeight = false;
-    }
-    unit ??= Unit.G;
     rowItems.add(
       SizedBox(
         width:
@@ -242,7 +253,10 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
                     () => _setUnit(id, _nextWeightUnits[unit]!),
                   )
               : null,
-          child: Text(_getUnitLabel(unit)),
+          child: Text(
+            _getUnitLabel(unit),
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          ),
         ),
       ),
     );
@@ -257,8 +271,8 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         _values[_getUnitValueTag(nutrientId)] as String?,
       );
 
-  dynamic _getValue(final String nutrientId) =>
-      _values[_getUnitServingTag(nutrientId)];
+  double? _getValue(final String nutrientId) =>
+      JsonObject.parseDouble(_values[_getUnitServingTag(nutrientId)]);
 
   void _initValue(final String nutrientId) =>
       _values[_getUnitServingTag(nutrientId)] = 0;
@@ -272,5 +286,34 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       '$nutrientId${_perServing ? '_serving' : '_100g'}';
 
   String _getUnitLabel(final Unit unit) =>
-      _weightUnitLabels[unit] ?? UnitHelper.unitToString(unit)!;
+      _unitLabels[unit] ?? UnitHelper.unitToString(unit)!;
+
+  // For the moment we only care about "weight or not weight?"
+  static const Map<String, Unit> _defaultNotWeightUnits = <String, Unit>{
+    'energy-kj': Unit.KJ,
+    'energy-kcal': Unit.KCAL,
+    'alcohol': Unit.PERCENT,
+    'cocoa': Unit.PERCENT,
+    'collagen-meat-protein-ratio': Unit.PERCENT,
+    'fruits-vegetables-nuts': Unit.PERCENT,
+    'fruits-vegetables-nuts-dried': Unit.PERCENT,
+    'fruits-vegetables-nuts-estimate': Unit.PERCENT,
+  };
+
+  // TODO(monsieurtanuki): could be refined with values taken from https://static.openfoodfacts.org/data/taxonomies/nutrients.json
+  Unit? _getDefaultNotWeightUnit(final String nutrientId) =>
+      _defaultNotWeightUnits[nutrientId];
+
+  double? _convertValue(final double? value, final Unit unit) {
+    if (value == null) {
+      return null;
+    }
+    if (unit == Unit.MILLI_G) {
+      return 1E3 * value;
+    }
+    if (unit == Unit.MICRO_G) {
+      return 1E6 * value;
+    }
+    return value;
+  }
 }
