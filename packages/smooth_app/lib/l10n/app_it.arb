@@ -12,6 +12,7 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "save": "Salva",
     "cancel": "Annulla",
     "@cancel": {},
     "close": "Chiudi",
@@ -131,8 +132,8 @@
     "sign_up_page_display_name_hint": "Nome Visualizzato",
     "sign_up_page_display_name_error_empty": "Sei pregato di inserire il nome visualizzato che desideri usare",
     "sign_up_page_email_hint": "Email",
-    "sign_up_page_email_error_empty": "Sei pregato di inserire la tua email",
-    "sign_up_page_email_error_invalid": "Sei pregato di inserire un'email valida",
+    "sign_up_page_email_error_empty": "E-mail is required",
+    "sign_up_page_email_error_invalid": "This e-mail is invalid",
     "sign_up_page_username_hint": "Nome utente",
     "sign_up_page_username_error_empty": "Sei pregato di inserire un nome utente",
     "sign_up_page_username_error_invalid": "Sei pregato di inserire un nome utente valido",
@@ -142,7 +143,7 @@
     "sign_up_page_password_error_invalid": "Sei pregato di inserire una password valida (almeno 6 caratteri)",
     "sign_up_page_confirm_password_hint": "Conferma la Password",
     "sign_up_page_confirm_password_error_empty": "Sei pregato di confermare la password",
-    "sign_up_page_confirm_password_error_invalid": "Le password devono essere identiche",
+    "sign_up_page_confirm_password_error_invalid": "Passwords don't match",
     "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
@@ -234,7 +235,7 @@
     "myPreferences_settings_subtitle": "Modalità scura, paese, colore...",
     "myPreferences_food_title": "Preferenze Alimentari",
     "myPreferences_food_subtitle": "Scegli quali informazioni alimentari sono più importanti per te.",
-    "confirmResetPreferences": "Ripristinare le tue preferenze?",
+    "confirmResetPreferences": "Reset your food preferences?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
     },
@@ -320,6 +321,13 @@
     "score_add_missing_ingredients": "Add missing ingredients",
     "score_add_missing_nutrition_facts": "Add missing nutrition facts",
     "score_add_missing_product_category": "Add missing product category",
+    "score_update_nutrition_facts": "Update nutrition facts",
+    "nutrition_page_title": "Product Nutrition Facts",
+    "nutrition_page_unspecified": "Nutrition facts are not specified on the product",
+    "nutrition_page_per_100g": "per 100g",
+    "nutrition_page_per_serving": "per porzione",
+    "nutrition_page_add_nutrient": "Aggiungi un nutriente",
+    "nutrition_page_serving_size": "Porzione",
     "more_photos": "Altre foto che potrebbero interessarti",
     "@more_photos": {},
     "no_product_found": "Nessun prodotto trovato",
