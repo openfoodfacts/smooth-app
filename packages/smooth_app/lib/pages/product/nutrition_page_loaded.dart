@@ -3,12 +3,16 @@ import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:openfoodfacts/interface/JsonObject.dart';
+import 'package:openfoodfacts/model/Nutriments.dart';
 import 'package:openfoodfacts/model/OrderedNutrient.dart';
 import 'package:openfoodfacts/model/OrderedNutrients.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/UnitHelper.dart';
 import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
+import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 /// Actual nutrition page, with data already loaded.
 class NutritionPageLoaded extends StatefulWidget {
@@ -27,19 +31,22 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   late RegExp _decimalRegExp;
   late NumberFormat _numberFormat;
 
-  bool _perServing = false;
-  bool _unspecified = false;
+  bool _unspecified = false; // TODO(monsieurtanuki): fetch that data from API?
 
-  static const double _columnSize1 =
-      50; // TODO(monsieurtanuki): possible values: < > =
-  static const double _columnSize2 = 150; // TODO(monsieurtanuki): proper size
+  static const double _columnSize1 = 125; // TODO(monsieurtanuki): proper size
+  static const double _columnSize2 = 125; // TODO(monsieurtanuki): proper size
   static const double _columnSize3 =
       100; // TODO(monsieurtanuki): anyway, should fit the largest text, probably 'mcg/µg'
 
   static const String _fakeNutrientIdServingSize = '_servingSize';
+  static const String _energyId = 'energy';
+  static const String _energyKJId = 'energy-kj';
+  static const String _energyKCalId = 'energy-kcal';
 
   final Map<String, TextEditingController> _controllers =
       <String, TextEditingController>{};
+  final Map<String, Unit> _units = <String, Unit>{};
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   static const Map<Unit, Unit> _nextWeightUnits = <Unit, Unit>{
     Unit.G: Unit.MILLI_G,
@@ -67,15 +74,26 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   }
 
   @override
+  void dispose() {
+    for (final TextEditingController controller in _controllers.values) {
+      controller.dispose();
+    }
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final List<Widget> children = <Widget>[];
     children.add(_switchNoNutrition(appLocalizations));
     if (!_unspecified) {
-      children.add(_switch100gServing(appLocalizations));
       children.add(_getServingWidget(appLocalizations));
+      children.add(_getServingHeaders(appLocalizations));
       for (final OrderedNutrient orderedNutrient in _displayableList) {
-        final Widget? item = _getNutrientWidget(orderedNutrient);
+        final Widget? item = _getNutrientWidget(
+          appLocalizations,
+          orderedNutrient,
+        );
         if (item != null) {
           children.add(item);
         }
@@ -88,7 +106,10 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       appBar: AppBar(title: Text(appLocalizations.nutrition_page_title)),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: ListView(children: children),
+        child: Form(
+          key: _formKey,
+          child: ListView(children: children),
+        ),
       ),
     );
   }
@@ -103,152 +124,208 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     }
   }
 
-  Widget? _getNutrientWidget(final OrderedNutrient orderedNutrient) {
-    const String energyId = 'energy';
-    const String energyKJId = 'energy-kj';
-    const String energyKCalId = 'energy-kcal';
+  Widget? _getNutrientWidget(
+    final AppLocalizations appLocalizations,
+    final OrderedNutrient orderedNutrient,
+  ) {
     final String id = orderedNutrient.id;
-    if (id == energyId) {
+    if (id == _energyId) {
       // we keep only kj and kcal
       return null;
     }
-    double? value = _getValue(id);
-    if (value == null && !orderedNutrient.important) {
+    final double? value100g = _getValue(id, false);
+    final double? valueServing = _getValue(id, true);
+    if (value100g == null &&
+        valueServing == null &&
+        !orderedNutrient.important) {
       return null;
     }
-    final TextEditingController controller = TextEditingController();
-    final Unit? defaultNotWeightUnit = _getDefaultNotWeightUnit(id);
-    final bool isWeight = defaultNotWeightUnit == null;
-    final Unit unit = _getUnit(id) ?? defaultNotWeightUnit ?? Unit.G;
-    if (value == null) {
-      if (id == energyKJId || id == energyKCalId) {
-        final double? valueEnergy = _getValue(energyId);
-        final Unit? unitEnergy = _getUnit(energyId);
-        if (id == energyKJId) {
-          if (unitEnergy == Unit.KJ) {
-            value = valueEnergy;
-          }
-        } else if (id == energyKCalId) {
-          if (unitEnergy == Unit.KCAL) {
-            value = valueEnergy;
-          }
-        }
-      }
-    }
-    value = _convertValue(value, unit);
-    controller.text = value == null ? '' : _numberFormat.format(value);
-    _controllers[id] = controller;
-    final List<Widget> rowItems = <Widget>[];
-    rowItems.add(
-      SizedBox(
-        width: _columnSize1,
-        child: id == energyKCalId || id == energyKJId
-            ? null
-            : const ElevatedButton(
-                onPressed: null, // TODO(monsieurtanuki): put different values?
-                child: Text('='),
-              ),
-      ),
-    );
-    rowItems.add(
-      SizedBox(
-        width: _columnSize2,
-        child: TextFormField(
-          controller: _controllers[id],
-          decoration: InputDecoration(
-            border: const UnderlineInputBorder(),
-            labelText: orderedNutrient.name,
-          ),
-          keyboardType: const TextInputType.numberWithOptions(
-            signed: false,
-            decimal: true,
-          ),
-          textInputAction: TextInputAction.next,
-          autofillHints: const <String>[AutofillHints.transactionAmount],
-          inputFormatters: <TextInputFormatter>[
-            FilteringTextInputFormatter.allow(_decimalRegExp),
-          ],
-          validator: (String? value) => null,
-        ),
-      ),
-    );
-    rowItems.add(
-      SizedBox(
-        width: _columnSize3,
-        child: ElevatedButton(
-          onPressed: isWeight
-              ? () => setState(
-                    () => _setUnit(id, _nextWeightUnits[unit]!),
-                  )
-              : null,
-          child: Text(
-            _getUnitLabel(unit),
-            style: const TextStyle(fontWeight: FontWeight.bold),
-          ),
-        ),
-      ),
-    );
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
-      children: rowItems,
+      children: <Widget>[
+        SizedBox(
+          width: _columnSize1,
+          child: _getNutrientCell(appLocalizations, orderedNutrient, false),
+        ),
+        SizedBox(
+          width: _columnSize2,
+          child: _getNutrientCell(appLocalizations, orderedNutrient, true),
+        ),
+        SizedBox(
+          width: _columnSize3,
+          child: _getUnitCell(id),
+        ),
+      ],
+    );
+  }
+
+  Widget _getNutrientCell(
+    final AppLocalizations appLocalizations,
+    final OrderedNutrient orderedNutrient,
+    final bool perServing,
+  ) {
+    final String id = orderedNutrient.id;
+    final String tag = _getNutrientServingTag(id, perServing);
+    final TextEditingController controller;
+    if (_controllers[tag] != null) {
+      controller = _controllers[tag]!;
+    } else {
+      double? value = _getValue(id, perServing);
+      final Unit? defaultNotWeightUnit = _getDefaultNotWeightUnit(id);
+      final Unit unit = _getUnit(id) ?? defaultNotWeightUnit ?? Unit.G;
+      if (value == null) {
+        if (id == _energyKJId || id == _energyKCalId) {
+          final double? valueEnergy = _getValue(_energyId, perServing);
+          final Unit? unitEnergy = _getUnit(_energyId);
+          if (id == _energyKJId) {
+            if (unitEnergy == Unit.KJ) {
+              value = valueEnergy;
+            }
+          } else if (id == _energyKCalId) {
+            if (unitEnergy == Unit.KCAL) {
+              value = valueEnergy;
+            }
+          }
+        }
+      }
+      value = _convertValueFromG(value, unit);
+      controller = TextEditingController();
+      controller.text = value == null ? '' : _numberFormat.format(value);
+      _controllers[tag] = controller;
+    }
+    return TextFormField(
+      controller: controller,
+      decoration: InputDecoration(
+        border: const UnderlineInputBorder(),
+        labelText: orderedNutrient.name,
+      ),
+      keyboardType: const TextInputType.numberWithOptions(
+        signed: false,
+        decimal: true,
+      ),
+      textInputAction: TextInputAction.next,
+      autofillHints: const <String>[AutofillHints.transactionAmount],
+      inputFormatters: <TextInputFormatter>[
+        FilteringTextInputFormatter.allow(_decimalRegExp),
+      ],
+      validator: (String? value) {
+        if (value == null || value.trim().isEmpty) {
+          return null;
+        }
+        try {
+          _numberFormat.parse(value);
+          return null;
+        } catch (e) {
+          return appLocalizations.nutrition_page_invalid_number;
+        }
+      },
+    );
+  }
+
+  Widget _getUnitCell(final String nutrientId) {
+    final Unit? defaultNotWeightUnit = _getDefaultNotWeightUnit(nutrientId);
+    final bool isWeight = defaultNotWeightUnit == null;
+    final Unit unit;
+    final String tag = _getNutrientIdFromServingTag(nutrientId);
+    if (_units[tag] != null) {
+      unit = _units[tag]!;
+    } else {
+      unit = _getUnit(nutrientId) ?? defaultNotWeightUnit ?? Unit.G;
+      _units[tag] = unit;
+    }
+    return ElevatedButton(
+      onPressed: isWeight
+          ? () => setState(
+                () => _setUnit(
+                  nutrientId,
+                  _units[nutrientId] = _nextWeightUnits[unit]!,
+                ),
+              )
+          : null,
+      child: Text(
+        _getUnitLabel(unit),
+        style: const TextStyle(fontWeight: FontWeight.bold),
+      ),
     );
   }
 
   Widget _getServingWidget(final AppLocalizations appLocalizations) {
-    const String id = _fakeNutrientIdServingSize;
     final TextEditingController controller = TextEditingController();
     controller.text = widget.product.servingSize ?? '';
-    _controllers[id] = controller;
-    final List<Widget> rowItems = <Widget>[];
-    rowItems.add(const SizedBox(width: _columnSize1));
-    rowItems.add(
-      SizedBox(
-        width: _columnSize2,
-        child: TextFormField(
-          controller: _controllers[id],
-          decoration: InputDecoration(
-            border: const UnderlineInputBorder(),
-            labelText: appLocalizations.nutrition_page_serving_size,
-          ),
-          textInputAction: TextInputAction.next,
-          validator: (String? value) => null,
+    _controllers[_fakeNutrientIdServingSize] = controller;
+    return Padding(
+      padding: const EdgeInsets.only(bottom: VERY_LARGE_SPACE),
+      child: TextFormField(
+        controller: controller,
+        decoration: InputDecoration(
+          border: const UnderlineInputBorder(),
+          labelText: appLocalizations.nutrition_page_serving_size,
         ),
+        textInputAction: TextInputAction.next,
+        validator: (String? value) => null, // free text
       ),
     );
-    rowItems.add(const SizedBox(width: _columnSize3));
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: rowItems,
-    );
   }
+
+  Widget _getServingHeaders(final AppLocalizations appLocalizations) => Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          SizedBox(
+            width: _columnSize1,
+            child: Text(
+              appLocalizations.nutrition_page_per_100g,
+              style: Theme.of(context).textTheme.headline4,
+            ),
+          ),
+          SizedBox(
+            width: _columnSize1,
+            child: Text(
+              appLocalizations.nutrition_page_per_serving,
+              style: Theme.of(context).textTheme.headline4,
+            ),
+          ),
+          const SizedBox(width: _columnSize3),
+        ],
+      );
 
   Unit? _getUnit(final String nutrientId) => UnitHelper.stringToUnit(
         _values[_getUnitValueTag(nutrientId)] as String?,
       );
 
-  double? _getValue(final String nutrientId) =>
-      JsonObject.parseDouble(_values[_getUnitServingTag(nutrientId)]);
+  double? _getValue(final String nutrientId, final bool perServing) =>
+      JsonObject.parseDouble(
+          _values[_getNutrientServingTag(nutrientId, perServing)]);
 
-  void _initValue(final String nutrientId) =>
-      _values[_getUnitServingTag(nutrientId)] = 0;
+  void _initValues(final String nutrientId) =>
+      _values[_getNutrientServingTag(nutrientId, true)] =
+          _values[_getNutrientServingTag(nutrientId, false)] = 0;
 
   void _setUnit(final String nutrientId, final Unit unit) =>
       _values[_getUnitValueTag(nutrientId)] = UnitHelper.unitToString(unit);
 
   String _getUnitValueTag(final String nutrientId) => '${nutrientId}_unit';
 
-  String _getUnitServingTag(final String nutrientId) =>
-      '$nutrientId${_perServing ? '_serving' : '_100g'}';
+  // note: 'energy-kcal' is directly for serving (no 'energy-kcal_serving')
+  String _getNutrientServingTag(
+    final String nutrientId,
+    final bool perServing,
+  ) =>
+      nutrientId == _energyKCalId && perServing
+          ? _energyKCalId
+          : '$nutrientId${perServing ? '_serving' : '_100g'}';
+
+  String _getNutrientIdFromServingTag(final String key) =>
+      key.replaceAll('_100g', '').replaceAll('_serving', '');
 
   String _getUnitLabel(final Unit unit) =>
       _unitLabels[unit] ?? UnitHelper.unitToString(unit)!;
 
   // For the moment we only care about "weight or not weight?"
   static const Map<String, Unit> _defaultNotWeightUnits = <String, Unit>{
-    'energy-kj': Unit.KJ,
-    'energy-kcal': Unit.KCAL,
+    _energyKJId: Unit.KJ,
+    _energyKCalId: Unit.KCAL,
     'alcohol': Unit.PERCENT,
     'cocoa': Unit.PERCENT,
     'collagen-meat-protein-ratio': Unit.PERCENT,
@@ -261,15 +338,28 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   Unit? _getDefaultNotWeightUnit(final String nutrientId) =>
       _defaultNotWeightUnits[nutrientId];
 
-  double? _convertValue(final double? value, final Unit unit) {
+  double? _convertValueFromG(final double? value, final Unit unit) {
     if (value == null) {
       return null;
     }
     if (unit == Unit.MILLI_G) {
-      return 1E3 * value;
+      return value * 1E3;
     }
     if (unit == Unit.MICRO_G) {
-      return 1E6 * value;
+      return value * 1E6;
+    }
+    return value;
+  }
+
+  double? _convertValueToG(final double? value, final Unit unit) {
+    if (value == null) {
+      return null;
+    }
+    if (unit == Unit.MILLI_G) {
+      return value / 1E3;
+    }
+    if (unit == Unit.MICRO_G) {
+      return value / 1E6;
     }
     return value;
   }
@@ -299,28 +389,17 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         ),
       );
 
-  Widget _switch100gServing(final AppLocalizations appLocalizations) => Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Text(appLocalizations.nutrition_page_per_100g),
-          Switch(
-            value: _perServing,
-            onChanged: (final bool value) =>
-                setState(() => _perServing = !_perServing),
-          ),
-          Text(appLocalizations.nutrition_page_per_serving),
-        ],
-      );
-
   Widget _addNutrientButton(final AppLocalizations appLocalizations) =>
       ElevatedButton.icon(
         onPressed: () async {
           final List<OrderedNutrient> availables = <OrderedNutrient>[];
           for (final OrderedNutrient orderedNutrient in _displayableList) {
             final String id = orderedNutrient.id;
-            final double? value = _getValue(id);
-            final bool addAble = value == null && !orderedNutrient.important;
+            final double? value100g = _getValue(id, false);
+            final double? valueServing = _getValue(id, true);
+            final bool addAble = value100g == null &&
+                valueServing == null &&
+                !orderedNutrient.important;
             if (addAble) {
               availables.add(orderedNutrient);
             }
@@ -356,7 +435,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
                 );
               });
           if (selected != null) {
-            setState(() => _initValue(selected.id));
+            setState(() => _initValues(selected.id));
           }
         },
         icon: const Icon(Icons.add),
@@ -372,8 +451,113 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
             child: Text(appLocalizations.cancel),
           ),
           ElevatedButton(
-            onPressed: () {}, // TODO(monsieurtanuki): actually save
+            onPressed: () async {
+              if (!_formKey.currentState!.validate()) {
+                return;
+              }
+              await _save();
+            },
             child: Text(appLocalizations.save),
+          ),
+        ],
+      );
+
+  Future<void> _save() async {
+    final Map<String, dynamic> map = <String, dynamic>{};
+    String? servingSize;
+    for (final String key in _controllers.keys) {
+      final TextEditingController controller = _controllers[key]!;
+      final String text = controller.text;
+      if (key == _fakeNutrientIdServingSize) {
+        servingSize = text;
+      } else {
+        if (text.isNotEmpty) {
+          final String nutrientId = _getNutrientIdFromServingTag(key);
+          final Unit unit = _units[nutrientId]!;
+          map[_getUnitValueTag(nutrientId)] = UnitHelper.unitToString(unit);
+          map[key] = _convertValueToG(
+              _numberFormat.parse(text).toDouble(), unit); // careful with comma
+        }
+      }
+    }
+    final Nutriments nutriments = Nutriments.fromJson(map);
+    widget.product.nutriments =
+        nutriments; // TODO(monsieurtanuki): here we impact directly the product share with the previous screen, not nice!
+    widget.product.servingSize = servingSize;
+
+    _popEd = false;
+    final Status? status = await _openUpdateDialog();
+    if (status == null) {
+      // probably the end user stopped the dialog
+      return;
+    }
+    if (status.error != null) {
+      await showDialog<void>(
+        context: context,
+        builder: (BuildContext context) => SmoothAlertDialog(
+          body: ListTile(
+            leading: const Icon(Icons.error),
+            title: Text(status.error!),
+          ),
+          actions: <SmoothSimpleButton>[
+            SmoothSimpleButton(
+              text: AppLocalizations.of(context)!.okay,
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+          ],
+        ),
+      );
+      return;
+    }
+    await showDialog<void>(
+      context: context,
+      builder: (BuildContext context) => SmoothAlertDialog(
+        body: Text(AppLocalizations.of(context)!.nutrition_page_update_done),
+        actions: <SmoothSimpleButton>[
+          SmoothSimpleButton(
+              text: AppLocalizations.of(context)!.okay,
+              onPressed: () => Navigator.of(context).pop()),
+        ],
+      ),
+    );
+  }
+
+  late bool _popEd;
+
+  Future<Status?> _openUpdateDialog() async => showDialog<Status>(
+        context: context,
+        builder: (BuildContext context) {
+          OpenFoodAPIClient.saveProduct(
+            ProductQuery.getUser(),
+            widget.product,
+          ).then<void>(
+            (final Status status) => _popUpdatingDialog(status),
+          );
+          return _getUpdatingDialog();
+        },
+      );
+
+  void _popUpdatingDialog(final Status? status) {
+    // TODO(monsieurtanuki): make a class of that process (Future, open dialog, close, error, result)
+    if (_popEd) {
+      return;
+    }
+    _popEd = true;
+    // Here we use the root navigator so that we can pop dialog while using multiple navigators.
+    Navigator.of(context, rootNavigator: true).pop(status);
+  }
+
+  Widget _getUpdatingDialog() => SmoothAlertDialog(
+        close: false,
+        body: ListTile(
+          leading: const CircularProgressIndicator(),
+          title:
+              Text(AppLocalizations.of(context)!.nutrition_page_update_running),
+        ),
+        actions: <SmoothSimpleButton>[
+          SmoothSimpleButton(
+            text: AppLocalizations.of(context)!.stop,
+            onPressed: () => _popUpdatingDialog(null),
           ),
         ],
       );
