@@ -30,6 +30,14 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   bool _perServing = false;
   bool _unspecified = false;
 
+  static const double _columnSize1 =
+      50; // TODO(monsieurtanuki): possible values: < > =
+  static const double _columnSize2 = 150; // TODO(monsieurtanuki): proper size
+  static const double _columnSize3 =
+      100; // TODO(monsieurtanuki): anyway, should fit the largest text, probably 'mcg/µg'
+
+  static const String _fakeNutrientIdServingSize = '_servingSize';
+
   final Map<String, TextEditingController> _controllers =
       <String, TextEditingController>{};
 
@@ -62,105 +70,19 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final List<Widget> children = <Widget>[];
-    children.add(
-      Container(
-        color: Colors.blue, // TODO(monsieurtanuki): change it to app color
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Switch(
-              value: _unspecified,
-              onChanged: (final bool value) =>
-                  setState(() => _unspecified = !_unspecified),
-            ),
-            SizedBox(
-              width: 300, // TODO(monsieurtanuki): proper size
-              child: Text(
-                appLocalizations.nutrition_page_unspecified,
-                style: const TextStyle(color: Colors.white),
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
+    children.add(_switchNoNutrition(appLocalizations));
     if (!_unspecified) {
-      children.add(
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Text(appLocalizations.nutrition_page_per_100g),
-            Switch(
-              value: _perServing,
-              onChanged: (final bool value) =>
-                  setState(() => _perServing = !_perServing),
-            ),
-            Text(appLocalizations.nutrition_page_per_serving),
-          ],
-        ),
-      );
+      children.add(_switch100gServing(appLocalizations));
+      children.add(_getServingWidget(appLocalizations));
       for (final OrderedNutrient orderedNutrient in _displayableList) {
         final Widget? item = _getNutrientWidget(orderedNutrient);
         if (item != null) {
           children.add(item);
         }
       }
-      children.add(
-        ElevatedButton.icon(
-          onPressed: () async {
-            final List<OrderedNutrient> availables = <OrderedNutrient>[];
-            for (final OrderedNutrient orderedNutrient in _displayableList) {
-              final String id = orderedNutrient.id;
-              final double? value = _getValue(id);
-              final bool addAble = value == null && !orderedNutrient.important;
-              if (addAble) {
-                availables.add(orderedNutrient);
-              }
-            }
-            availables.sort(
-                (final OrderedNutrient a, final OrderedNutrient b) =>
-                    a.name!.compareTo(b.name!));
-            final OrderedNutrient? selected = await showDialog<OrderedNutrient>(
-                context: context,
-                builder: (BuildContext context) {
-                  final List<Widget> children = <Widget>[];
-                  for (final OrderedNutrient nutrient in availables) {
-                    children.add(
-                      ListTile(
-                        title: Text(nutrient.name!),
-                        onTap: () => Navigator.pop(context, nutrient),
-                      ),
-                    );
-                  }
-                  return AlertDialog(
-                    title: Text(appLocalizations.nutrition_page_add_nutrient),
-                    content: SizedBox(
-                      // TODO(monsieurtanuki): proper sizes
-                      width: 300,
-                      height: 400,
-                      child: ListView(children: children),
-                    ),
-                    actions: <Widget>[
-                      ElevatedButton(
-                        onPressed: () => Navigator.pop(context),
-                        child: Text(appLocalizations.cancel),
-                      ),
-                    ],
-                  );
-                });
-            if (selected != null) {
-              setState(() => _initValue(selected.id));
-            }
-          },
-          icon: const Icon(Icons.add),
-          label: Text(appLocalizations.nutrition_page_add_nutrient),
-        ),
-      );
+      children.add(_addNutrientButton(appLocalizations));
     }
+    children.add(_addCancelSaveButtons(appLocalizations));
 
     return Scaffold(
       appBar: AppBar(title: Text(appLocalizations.nutrition_page_title)),
@@ -183,6 +105,8 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
 
   Widget? _getNutrientWidget(final OrderedNutrient orderedNutrient) {
     const String energyId = 'energy';
+    const String energyKJId = 'energy-kj';
+    const String energyKCalId = 'energy-kcal';
     final String id = orderedNutrient.id;
     if (id == energyId) {
       // we keep only kj and kcal
@@ -197,14 +121,14 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     final bool isWeight = defaultNotWeightUnit == null;
     final Unit unit = _getUnit(id) ?? defaultNotWeightUnit ?? Unit.G;
     if (value == null) {
-      if (id == 'energy-kj' || id == 'energy-kcal') {
+      if (id == energyKJId || id == energyKCalId) {
         final double? valueEnergy = _getValue(energyId);
         final Unit? unitEnergy = _getUnit(energyId);
-        if (id == 'energy-kj') {
+        if (id == energyKJId) {
           if (unitEnergy == Unit.KJ) {
             value = valueEnergy;
           }
-        } else if (id == 'energy-kcal') {
+        } else if (id == energyKCalId) {
           if (unitEnergy == Unit.KCAL) {
             value = valueEnergy;
           }
@@ -216,14 +140,19 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     _controllers[id] = controller;
     final List<Widget> rowItems = <Widget>[];
     rowItems.add(
-      const ElevatedButton(
-        onPressed: null, // TODO(monsieurtanuki): put different values?
-        child: Text('='),
+      SizedBox(
+        width: _columnSize1,
+        child: id == energyKCalId || id == energyKJId
+            ? null
+            : const ElevatedButton(
+                onPressed: null, // TODO(monsieurtanuki): put different values?
+                child: Text('='),
+              ),
       ),
     );
     rowItems.add(
       SizedBox(
-        width: 150, // TODO(monsieurtanuki): proper size
+        width: _columnSize2,
         child: TextFormField(
           controller: _controllers[id],
           decoration: InputDecoration(
@@ -245,8 +174,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     );
     rowItems.add(
       SizedBox(
-        width:
-            100, // TODO(monsieurtanuki): anyway, should fit the largest text, probably 'mcg/µg'
+        width: _columnSize3,
         child: ElevatedButton(
           onPressed: isWeight
               ? () => setState(
@@ -260,6 +188,35 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         ),
       ),
     );
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: rowItems,
+    );
+  }
+
+  Widget _getServingWidget(final AppLocalizations appLocalizations) {
+    const String id = _fakeNutrientIdServingSize;
+    final TextEditingController controller = TextEditingController();
+    controller.text = widget.product.servingSize ?? '';
+    _controllers[id] = controller;
+    final List<Widget> rowItems = <Widget>[];
+    rowItems.add(const SizedBox(width: _columnSize1));
+    rowItems.add(
+      SizedBox(
+        width: _columnSize2,
+        child: TextFormField(
+          controller: _controllers[id],
+          decoration: InputDecoration(
+            border: const UnderlineInputBorder(),
+            labelText: appLocalizations.nutrition_page_serving_size,
+          ),
+          textInputAction: TextInputAction.next,
+          validator: (String? value) => null,
+        ),
+      ),
+    );
+    rowItems.add(const SizedBox(width: _columnSize3));
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -316,4 +273,108 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     }
     return value;
   }
+
+  Widget _switchNoNutrition(final AppLocalizations appLocalizations) =>
+      Container(
+        color: Theme.of(context).colorScheme.primary,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Switch(
+              value: _unspecified,
+              onChanged: (final bool value) =>
+                  setState(() => _unspecified = !_unspecified),
+            ),
+            SizedBox(
+              width: 300, // TODO(monsieurtanuki): proper size
+              child: Text(
+                appLocalizations.nutrition_page_unspecified,
+                style: const TextStyle(color: Colors.white),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+          ],
+        ),
+      );
+
+  Widget _switch100gServing(final AppLocalizations appLocalizations) => Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Text(appLocalizations.nutrition_page_per_100g),
+          Switch(
+            value: _perServing,
+            onChanged: (final bool value) =>
+                setState(() => _perServing = !_perServing),
+          ),
+          Text(appLocalizations.nutrition_page_per_serving),
+        ],
+      );
+
+  Widget _addNutrientButton(final AppLocalizations appLocalizations) =>
+      ElevatedButton.icon(
+        onPressed: () async {
+          final List<OrderedNutrient> availables = <OrderedNutrient>[];
+          for (final OrderedNutrient orderedNutrient in _displayableList) {
+            final String id = orderedNutrient.id;
+            final double? value = _getValue(id);
+            final bool addAble = value == null && !orderedNutrient.important;
+            if (addAble) {
+              availables.add(orderedNutrient);
+            }
+          }
+          availables.sort((final OrderedNutrient a, final OrderedNutrient b) =>
+              a.name!.compareTo(b.name!));
+          final OrderedNutrient? selected = await showDialog<OrderedNutrient>(
+              context: context,
+              builder: (BuildContext context) {
+                final List<Widget> children = <Widget>[];
+                for (final OrderedNutrient nutrient in availables) {
+                  children.add(
+                    ListTile(
+                      title: Text(nutrient.name!),
+                      onTap: () => Navigator.pop(context, nutrient),
+                    ),
+                  );
+                }
+                return AlertDialog(
+                  title: Text(appLocalizations.nutrition_page_add_nutrient),
+                  content: SizedBox(
+                    // TODO(monsieurtanuki): proper sizes
+                    width: 300,
+                    height: 400,
+                    child: ListView(children: children),
+                  ),
+                  actions: <Widget>[
+                    ElevatedButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: Text(appLocalizations.cancel),
+                    ),
+                  ],
+                );
+              });
+          if (selected != null) {
+            setState(() => _initValue(selected.id));
+          }
+        },
+        icon: const Icon(Icons.add),
+        label: Text(appLocalizations.nutrition_page_add_nutrient),
+      );
+
+  Widget _addCancelSaveButtons(final AppLocalizations appLocalizations) => Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          ElevatedButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text(appLocalizations.cancel),
+          ),
+          ElevatedButton(
+            onPressed: () {}, // TODO(monsieurtanuki): actually save
+            child: Text(appLocalizations.save),
+          ),
+        ],
+      );
 }
