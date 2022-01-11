@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the build method from the KnowledgePanelTableCard class, for the Dart programming language.">
-  <title>build method - KnowledgePanelTableCard class - knowledge_panel_table_card library - Dart API</title>
+  <meta name="description" content="API docs for the createState method from the KnowledgePanelTableCard class, for the Dart programming language.">
+  <title>createState method - KnowledgePanelTableCard class - knowledge_panel_table_card library - Dart API</title>
 
 
   
@@ -32,9 +32,9 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../cards_product_cards_knowledge_panels_knowledge_panel_table_card/cards_product_cards_knowledge_panels_knowledge_panel_table_card-library.html">knowledge_panel_table_card</a></li>
     <li><a href="../../cards_product_cards_knowledge_panels_knowledge_panel_table_card/KnowledgePanelTableCard-class.html">KnowledgePanelTableCard</a></li>
-    <li class="self-crumb">build method</li>
+    <li class="self-crumb">createState method</li>
   </ol>
-  <div class="self-name">build</div>
+  <div class="self-name">createState</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,7 +45,7 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">build</span> method 
+<h1><span class="kind-method">createState</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
@@ -57,48 +57,27 @@
   </ol>
 </div>
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
-<span class="name ">build</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="build-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span></li>
-</ol>)
+<span class="returntype"><a href="https://api.flutter.dev/flutter/widgets/State-class.html">State</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../cards_product_cards_knowledge_panels_knowledge_panel_table_card/KnowledgePanelTableCard-class.html">KnowledgePanelTableCard</a></span>&gt;</span></span>
+<span class="name ">createState</span>(<wbr>)
 
       <div class="features">override</div>
 
     </section>
     
 <section class="desc markdown">
-  <p>Describes the part of the user interface represented by this widget.</p>
-<p>The framework calls this method when this widget is inserted into the tree
-in a given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a> and when the dependencies of this widget change
-(e.g., an <a href="https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html">InheritedWidget</a> referenced by this widget changes). This
-method can potentially be called in every frame and should not have any side
-effects beyond building a widget.</p>
-<p>The framework replaces the subtree below this widget with the widget
-returned by this method, either by updating the existing subtree or by
-removing the subtree and inflating a new subtree, depending on whether the
-widget returned by this method can update the root of the existing
-subtree, as determined by calling <a href="https://api.flutter.dev/flutter/widgets/Widget/canUpdate.html">Widget.canUpdate</a>.</p>
-<p>Typically implementations return a newly created constellation of widgets
-that are configured with information from this widget's constructor and
-from the given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a>.</p>
-<p>The given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a> contains information about the location in the
-tree at which this widget is being built. For example, the context
-provides the set of inherited widgets for this location in the tree. A
-given widget might be built with multiple different <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a>
-arguments over time if the widget is moved around the tree or if the
-widget is inserted into the tree in multiple places at once.</p>
-<p>The implementation of this method must only depend on:</p>
-<ul>
-<li>the fields of the widget, which themselves must not change over time,
-and</li>
-<li>any ambient state obtained from the <code>context</code> using
-<a href="https://api.flutter.dev/flutter/widgets/BuildContext/dependOnInheritedWidgetOfExactType.html">BuildContext.dependOnInheritedWidgetOfExactType</a>.</li>
-</ul>
-<p>If a widget's <a href="../../cards_product_cards_knowledge_panels_knowledge_panel_table_card/KnowledgePanelTableCard/build.html">build</a> method is to depend on anything else, use a
-<a href="https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html">StatefulWidget</a> instead.</p>
-<p>See also:</p>
-<ul>
-<li><a href="https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html">StatelessWidget</a>, which contains the discussion on performance considerations.</li>
-</ul>
+  <p>Creates the mutable state for this widget at a given location in the tree.</p>
+<p>Subclasses should override this method to return a newly created
+instance of their associated <a href="https://api.flutter.dev/flutter/widgets/State-class.html">State</a> subclass:</p>
+<pre class="language-dart"><code class="language-dart">@override
+State&lt;MyWidget&gt; createState() =&gt; _MyWidgetState();
+</code></pre>
+<p>The framework can call this method multiple times over the lifetime of
+a <code>StatefulWidget</code>. For example, if the widget is inserted into the tree
+in multiple locations, the framework will create a separate <a href="https://api.flutter.dev/flutter/widgets/State-class.html">State</a> object
+for each location. Similarly, if the widget is removed from the tree and
+later inserted into the tree again, the framework will call <a href="../../cards_product_cards_knowledge_panels_knowledge_panel_table_card/KnowledgePanelTableCard/createState.html">createState</a>
+again to create a fresh <a href="https://api.flutter.dev/flutter/widgets/State-class.html">State</a> object, simplifying the lifecycle of
+<a href="https://api.flutter.dev/flutter/widgets/State-class.html">State</a> objects.</p>
 </section>
 
 
@@ -106,70 +85,8 @@ and</li>
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
-Widget build(BuildContext context) {
-  final List&lt;List&lt;Widget&gt;&gt; rows = &lt;List&lt;Widget&gt;&gt;[];
-  rows.add(&lt;Widget&gt;[]);
-  return LayoutBuilder(
-      builder: (BuildContext context, BoxConstraints constraints) {
-    &#47;&#47; Dynamically calculate the width of each cell = Available space &#47; total columns.
-    final double parentWidgetPadding =
-        SMOOTH_CARD_PADDING.left + SMOOTH_CARD_PADDING.right;
-    final double cellWidth = (constraints.maxWidth - parentWidgetPadding) &#47;
-        tableElement.columns.length;
-    for (final KnowledgePanelTableColumn column in tableElement.columns) {
-      switch (column.type) {
-        case null:
-        case KnowledgePanelColumnType.TEXT:
-          rows[0].add(
-            _buildTableCell(
-              context: context,
-              text: column.text,
-              cellWidth: cellWidth,
-              textColor: Colors.grey,
-              isHeader: true,
-            ),
-          );
-          break;
-        case KnowledgePanelColumnType.PERCENT:
-          &#47;&#47; TODO(jasmeet): Implement percent knowledge panels.
-          rows[0].add(
-            _buildTableCell(
-              context: context,
-              text: column.text,
-              cellWidth: cellWidth,
-              textColor: Colors.grey,
-              isHeader: true,
-            ),
-          );
-          break;
-      }
-    }
-    for (final KnowledgePanelTableRowElement row in tableElement.rows) {
-      rows.add(&lt;Widget&gt;[]);
-      for (final KnowledgePanelTableCell cell in row.values) {
-        rows[rows.length - 1].add(
-          _buildTableCell(
-            context: context,
-            text: cell.text,
-            cellWidth: cellWidth,
-            textColor: getTextColorFromKnowledgePanelElementEvaluation(
-                cell.evaluation ?? Evaluation.UNKNOWN),
-          ),
-        );
-      }
-    }
-    return Column(
-      children: &lt;Widget&gt;[
-        for (List&lt;Widget&gt; row in rows)
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: row,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          )
-      ],
-    );
-  });
-}</code></pre>
+State&lt;KnowledgePanelTableCard&gt; createState() =&gt;
+    _KnowledgePanelTableCardState();</code></pre>
 </section>
 
 
@@ -186,7 +103,7 @@ Widget build(BuildContext context) {
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../cards_product_cards_knowledge_panels_knowledge_panel_table_card/cards_product_cards_knowledge_panels_knowledge_panel_table_card-library.html">knowledge_panel_table_card</a></li>
   <li><a href="../../cards_product_cards_knowledge_panels_knowledge_panel_table_card/KnowledgePanelTableCard-class.html">KnowledgePanelTableCard</a></li>
-  <li class="self-crumb">build method</li>
+  <li class="self-crumb">createState method</li>
 </ol>
 
 
@@ -206,8 +123,8 @@ Widget build(BuildContext context) {
     <li><a href="../../cards_product_cards_knowledge_panels_knowledge_panel_table_card/KnowledgePanelTableCard/tableElement.html">tableElement</a></li>
 
     <li class="section-title"><a href="../../cards_product_cards_knowledge_panels_knowledge_panel_table_card/KnowledgePanelTableCard-class.html#instance-methods">Methods</a></li>
-    <li><a href="../../cards_product_cards_knowledge_panels_knowledge_panel_table_card/KnowledgePanelTableCard/build.html">build</a></li>
-    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/StatelessWidget/createElement.html">createElement</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/StatefulWidget/createElement.html">createElement</a></li>
+    <li><a href="../../cards_product_cards_knowledge_panels_knowledge_panel_table_card/KnowledgePanelTableCard/createState.html">createState</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/debugDescribeChildren.html">debugDescribeChildren</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/debugFillProperties.html">debugFillProperties</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
