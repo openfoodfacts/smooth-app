@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
@@ -6,6 +7,8 @@ import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
+import 'package:smooth_app/cards/product_cards/product_title_card.dart';
+import 'package:smooth_app/cards/product_cards/question_card.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
@@ -28,7 +31,7 @@ const int SUMMARY_CARD_ROW_HEIGHT = 40;
 
 class SummaryCard extends StatefulWidget {
   const SummaryCard(this._product, this._productPreferences,
-      {this.isFullVersion = false});
+      {this.isFullVersion = false, this.productQuestions});
 
   final Product _product;
   final ProductPreferences _productPreferences;
@@ -36,6 +39,8 @@ class SummaryCard extends StatefulWidget {
   /// If false, the card will be clipped to a smaller version so it can fit on
   /// smaller screens.
   final bool isFullVersion;
+
+  final Future<List<RobotoffQuestion>>? productQuestions;
 
   @override
   State<SummaryCard> createState() => _SummaryCardState();
@@ -186,7 +191,7 @@ class _SummaryCardState extends State<SummaryCard> {
     );
     return Column(
       children: <Widget>[
-        _buildProductTitleTile(context),
+        ProductTitleCard(widget._product),
         for (final Attribute attribute in scoreAttributes)
           ScoreCard(
             iconUrl: attribute.iconUrl!,
@@ -194,6 +199,7 @@ class _SummaryCardState extends State<SummaryCard> {
                 attribute.descriptionShort ?? attribute.description ?? '',
             cardEvaluation: getCardEvaluationFromAttribute(attribute),
           ),
+        _buildProductQuestionsWidget(),
         attributesContainer,
         if (widget._product.statesTags
                 ?.contains('en:categories-to-be-completed') ??
@@ -230,26 +236,6 @@ class _SummaryCardState extends State<SummaryCard> {
           ),
           style:
               Theme.of(context).textTheme.subtitle1!.apply(color: Colors.white),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildProductTitleTile(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-    final ThemeData themeData = Theme.of(context);
-    return Align(
-      alignment: Alignment.topLeft,
-      child: ListTile(
-        contentPadding: EdgeInsets.zero,
-        title: Text(
-          getProductName(widget._product, appLocalizations),
-          style: themeData.textTheme.headline4,
-        ),
-        subtitle: Text(widget._product.brands ?? appLocalizations.unknownBrand),
-        trailing: Text(
-          widget._product.quantity ?? '',
-          style: themeData.textTheme.headline3,
         ),
       ),
     );
@@ -389,5 +375,55 @@ class _SummaryCardState extends State<SummaryCard> {
       }
     }
     return result;
+  }
+
+  Widget _buildProductQuestionsWidget() {
+    if (widget.productQuestions == null) {
+      return EMPTY_WIDGET;
+    }
+    return FutureBuilder<List<RobotoffQuestion>>(
+        future: widget.productQuestions,
+        builder: (BuildContext context,
+            AsyncSnapshot<List<RobotoffQuestion>> snapshot) {
+          final List<RobotoffQuestion> questions =
+              snapshot.data ?? <RobotoffQuestion>[];
+          if (questions.isNotEmpty) {
+            return InkWell(
+              onTap: () {
+                Navigator.push<Widget>(
+                  context,
+                  MaterialPageRoute<Widget>(
+                    builder: (BuildContext context) => QuestionCard(
+                      product: widget._product,
+                      questions: questions,
+                    ),
+                  ),
+                );
+              },
+              child: SmoothCard(
+                margin: EdgeInsets.zero,
+                color: const Color(0xfff5f6fa),
+                elevation: 0,
+                padding: const EdgeInsets.all(
+                  SMALL_SPACE,
+                ),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: Column(
+                    children: <Widget>[
+                      const Text('🏅 Tap here to answer questions'),
+                      Container(
+                        padding: const EdgeInsets.only(top: SMALL_SPACE),
+                        child: const Text(
+                            'Help food transparency and get reward badges'),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            );
+          }
+          return EMPTY_WIDGET;
+        });
   }
 }
