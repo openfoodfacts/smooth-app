@@ -1,10 +1,17 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
+
+// Cells with a lot of text can get very large, we don't want to allocate
+// most of [availableWidth] to columns with large cells. So we cap the cell length
+// considered for width allocation to [kMaxCellLengthInARow]. Cells with
+// text larger than this limit will be wrapped in multiple rows.
+const int kMaxCellLengthInARow = 40;
 
 /// ColumnGroup is a group of columns collapsed into a single column. Purpose of
 /// this is to show a dropdown menu which the users can use to select which column
@@ -57,50 +64,14 @@ class KnowledgePanelTableCard extends StatefulWidget {
 }
 
 class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
-  List<ColumnGroup> columnGroups = <ColumnGroup>[];
+  final List<ColumnGroup> _columnGroups = <ColumnGroup>[];
+  final List<int> _columnsMaxLength = <int>[];
 
   @override
   void initState() {
     super.initState();
-    // Build [columnGroups] for the first time.
-    int index = 0;
-    // Used to locate [columnGroup] for a given [column.columnGroupId].
-    final Map<String, ColumnGroup> groupIdToColumnGroup =
-        <String, ColumnGroup>{};
-    for (final KnowledgePanelTableColumn column
-        in widget.tableElement.columns) {
-      if (column.columnGroupId == null) {
-        // Doesn't belong to a group, create a group with just this column.
-        columnGroups.add(
-          ColumnGroup(
-            currentColumnIndex: index,
-            currentColumn: column,
-            columns: <KnowledgePanelTableColumn>[column],
-          ),
-        );
-      } else {
-        // Try to find the group if it already exists.
-        final bool groupExists =
-            groupIdToColumnGroup.containsKey(column.columnGroupId);
-        if (!groupExists) {
-          // Create a group since one doesn't exist yet.
-          final ColumnGroup newGroup =
-              ColumnGroup(columns: <KnowledgePanelTableColumn>[]);
-          columnGroups.add(newGroup);
-          groupIdToColumnGroup[column.columnGroupId!] = newGroup;
-        }
-        // Look up the already existing or newly created group.
-        final ColumnGroup group = groupIdToColumnGroup[column.columnGroupId!]!;
-        // If [showByDefault] is true, set this as the currentColumn on the group.
-        // As a safeguard (in case no column has [showByDefault] as true, also set currentColumn if it isn't set yet.
-        if (column.showByDefault ?? false || group.currentColumn == null) {
-          group.currentColumnIndex = index;
-          group.currentColumn = column;
-        }
-        group.columns.add(column);
-      }
-      index++;
-    }
+    _initColumnGroups();
+    _initColumnsMaxLength();
   }
 
   @override
@@ -126,7 +97,7 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
     rows.add(<TableCell>[]);
     // Only [displayableColumnIndices] columns will be displayed.
     final List<int> displayableColumnIndices = <int>[];
-    for (final ColumnGroup columnGroup in columnGroups) {
+    for (final ColumnGroup columnGroup in _columnGroups) {
       final KnowledgePanelTableColumn column = columnGroup.currentColumn!;
       final String text = column.textForSmallScreens ?? column.text;
       displayableColumnIndices.add(columnGroup.currentColumnIndex!);
@@ -164,10 +135,11 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
         }
         rows[rows.length - 1].add(
           TableCell(
-              text: cell.text,
-              color: getTextColorFromKnowledgePanelElementEvaluation(
-                  cell.evaluation ?? Evaluation.UNKNOWN),
-              isHeader: false),
+            text: cell.text,
+            color: getTextColorFromKnowledgePanelElementEvaluation(
+                cell.evaluation ?? Evaluation.UNKNOWN),
+            isHeader: false,
+          ),
         );
       }
     }
@@ -178,33 +150,10 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
       List<List<TableCell>> rows, BoxConstraints constraints) {
     // [availableWidth] is parent's width - total padding we want in between columns.
     final double availableWidth = constraints.maxWidth - LARGE_SPACE;
-    // [columnMaxLength] contains the length of the largest cell in the columns.
-    // This helps us assign a dynamic width to the column depending upon the
-    // largest cell in the column.
-    final List<int> columnMaxLength = <int>[];
-    // Cells with a lot of text can get very large, we don't want to allocate
-    // most of [availableWidth] to columns with large cells. So we cap the cell length
-    // considered for width allocation to [kMaxCellLengthInARow]. Cells with
-    // text larger than this limit will be wrapped in multiple rows.
-    const int maxCellLengthInARow = 40;
-    for (final List<TableCell> row in rows) {
-      int index = 0;
-      for (final TableCell cell in row) {
-        if (cell.isHeader) {
-          // Set value for the header row.
-          columnMaxLength.add(cell.text.length);
-        } else {
-          if (cell.text.length > columnMaxLength[index]) {
-            columnMaxLength[index] = min(maxCellLengthInARow, cell.text.length);
-          }
-        }
-        index++;
-      }
-    }
     // We now allocate width to each column as follows:
     // [availableWidth] / [column's largest cell width] * [totalMaxColumnWidth].
     final int totalMaxColumnWidth =
-        columnMaxLength.reduce((int sum, int width) => sum + width);
+        _columnsMaxLength.reduce((int sum, int width) => sum + width);
 
     final List<List<Widget>> rowsWidgets = <List<Widget>>[];
     for (final List<TableCell> row in rows) {
@@ -212,13 +161,13 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
       int index = 0;
       for (final TableCell cell in row) {
         final double cellWidth =
-            availableWidth / totalMaxColumnWidth * columnMaxLength[index++];
+            availableWidth / totalMaxColumnWidth * _columnsMaxLength[index++];
         rowWidgets.add(
-          _buildTableCellWidget(
-            context: context,
-            cell: cell,
-            cellWidth: cellWidth,
-          ),
+          TableCellWidget(
+              cell: cell,
+              cellWidth: cellWidth,
+              tableElement: widget.tableElement,
+              rebuildTable: setState),
         );
       }
       rowsWidgets.add(rowWidgets);
@@ -226,75 +175,176 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
     return rowsWidgets;
   }
 
-  Widget _buildTableCellWidget({
-    required BuildContext context,
-    required TableCell cell,
-    required double cellWidth,
-  }) {
-    EdgeInsetsGeometry padding =
-        const EdgeInsets.only(bottom: VERY_SMALL_SPACE);
+  void _initColumnGroups() {
+    int index = 0;
+    // Used to locate [columnGroup] for a given [column.columnGroupId].
+    final Map<String, ColumnGroup> groupIdToColumnGroup =
+        <String, ColumnGroup>{};
+    for (final KnowledgePanelTableColumn column
+        in widget.tableElement.columns) {
+      if (column.columnGroupId == null) {
+        // Doesn't belong to a group, create a group with just this column.
+        _columnGroups.add(
+          ColumnGroup(
+            currentColumnIndex: index,
+            currentColumn: column,
+            columns: <KnowledgePanelTableColumn>[column],
+          ),
+        );
+      } else {
+        // Try to find the group if it already exists.
+        final bool groupExists =
+            groupIdToColumnGroup.containsKey(column.columnGroupId);
+        if (!groupExists) {
+          // Create a group since one doesn't exist yet.
+          final ColumnGroup newGroup =
+              ColumnGroup(columns: <KnowledgePanelTableColumn>[]);
+          _columnGroups.add(newGroup);
+          groupIdToColumnGroup[column.columnGroupId!] = newGroup;
+        }
+        // Look up the already existing or newly created group.
+        final ColumnGroup group = groupIdToColumnGroup[column.columnGroupId!]!;
+        // If [showByDefault] is true, set this as the currentColumn on the group.
+        // As a safeguard (in case no column has [showByDefault] as true, also set currentColumn if it isn't set yet.
+        if (column.showByDefault ?? false || group.currentColumn == null) {
+          group.currentColumnIndex = index;
+          group.currentColumn = column;
+        }
+        group.columns.add(column);
+      }
+      index++;
+    }
+  }
+
+  void _initColumnsMaxLength() {
+    final List<List<TableCell>> rows = _buildRowCells();
+    // [columnMaxLength] contains the length of the largest cell in the columns.
+    // This helps us assign a dynamic width to the column depending upon the
+    // largest cell in the column.
+    for (final List<TableCell> row in rows) {
+      int index = 0;
+      for (final TableCell cell in row) {
+        if (cell.isHeader) {
+          // Set value for the header row.
+          _columnsMaxLength.add(cell.text.length);
+        } else {
+          if (cell.text.length > _columnsMaxLength[index]) {
+            _columnsMaxLength[index] =
+                min(kMaxCellLengthInARow, cell.text.length);
+          }
+        }
+        index++;
+      }
+    }
+  }
+}
+
+class TableCellWidget extends StatefulWidget {
+  const TableCellWidget({
+    required this.cell,
+    required this.cellWidth,
+    required this.tableElement,
+    required this.rebuildTable,
+  });
+
+  final TableCell cell;
+  final double cellWidth;
+  final KnowledgePanelTableElement tableElement;
+  final void Function(VoidCallback fn) rebuildTable;
+
+  @override
+  State<TableCellWidget> createState() => _TableCellWidgetState();
+}
+
+class _TableCellWidgetState extends State<TableCellWidget> {
+  bool _isExpanded = false;
+
+  @override
+  Widget build(BuildContext context) {
+    EdgeInsets padding = const EdgeInsets.only(bottom: VERY_SMALL_SPACE);
     // header cells get a bigger vertical padding.
-    if (cell.isHeader) {
+    if (widget.cell.isHeader) {
       padding = const EdgeInsets.symmetric(vertical: SMALL_SPACE);
     }
     TextStyle style = Theme.of(context).textTheme.bodyText2!;
-    if (cell.color != null) {
-      style = style.apply(color: cell.color);
+    if (widget.cell.color != null) {
+      style = style.apply(color: widget.cell.color);
     }
-    Widget textWidget;
-    if (!cell.isHeader || cell.columnGroup!.columns.length == 1) {
-      // non-header cells and columnGroups with a single column are simple html text widgets.
-      textWidget = SizedBox(
-        width: cellWidth,
-        child: HtmlWidget(
-          cell.text,
-          textStyle: style,
+    if (!widget.cell.isHeader || widget.cell.columnGroup!.columns.length == 1) {
+      return _buildHtmlCell(padding, style);
+    }
+    return _buildDropDownColumnHeader(padding, style);
+  }
+
+  Widget _buildHtmlCell(EdgeInsets padding, TextStyle style) {
+    String cellText = widget.cell.text;
+    if (!_isExpanded) {
+      const String htmlStyle = '''
+        "text-overflow: ellipsis;
+         overflow: hidden;
+         max-lines: 2;"
+        ''';
+      cellText = '<div style=$htmlStyle>${widget.cell.text}</div>';
+    }
+    return InkWell(
+      onTap: () => setState(() {
+        _isExpanded = true;
+      }),
+      child: Padding(
+        padding: padding,
+        child: SizedBox(
+          width: widget.cellWidth,
+          child: HtmlWidget(
+            cellText,
+            textStyle: style,
+          ),
         ),
-      );
-    } else {
-      // Now we finally render [ColumnGroup]s as drop down menus.
-      textWidget = SizedBox(
-        width: cellWidth,
+      ),
+    );
+  }
+
+  Widget _buildDropDownColumnHeader(EdgeInsets padding, TextStyle style) {
+    // Now we finally render [ColumnGroup]s as drop down menus.
+    return Padding(
+      padding: padding,
+      child: SizedBox(
+        width: widget.cellWidth,
         child: DropdownButtonHideUnderline(
           child: ButtonTheme(
             child: DropdownButton<KnowledgePanelTableColumn>(
-              value: cell.columnGroup!.currentColumn,
-              items: cell.columnGroup!.columns
+              value: widget.cell.columnGroup!.currentColumn,
+              items: widget.cell.columnGroup!.columns
                   .map((KnowledgePanelTableColumn column) {
                 return DropdownMenuItem<KnowledgePanelTableColumn>(
                   value: column,
                   child: Container(
-                    // 24 px buffer is to allow the dropdown arrow icon.
-                    constraints:
-                        BoxConstraints(maxWidth: cellWidth - 24).normalize(),
+                    // 24 dp buffer is to allow the dropdown arrow icon to be displayed.
+                    constraints: BoxConstraints(maxWidth: widget.cellWidth - 24)
+                        .normalize(),
                     child: Text(column.textForSmallScreens ?? column.text),
                   ),
                 );
               }).toList(),
               onChanged: (KnowledgePanelTableColumn? selectedColumn) {
-                cell.columnGroup!.currentColumn = selectedColumn;
+                widget.cell.columnGroup!.currentColumn = selectedColumn;
                 int i = 0;
                 for (final KnowledgePanelTableColumn column
                     in widget.tableElement.columns) {
                   if (column == selectedColumn) {
-                    cell.columnGroup!.currentColumnIndex = i;
-                    break;
+                    widget.cell.columnGroup!.currentColumnIndex = i;
+                    // Since we have modified [currentColumn], re-rendering the
+                    // table will automagically select [selectedColumn].
+                    widget.rebuildTable(() {});
+                    return;
                   }
                   i++;
                 }
-                // Since we have modified [currentColumn], re-rendering the
-                // widget will automagically select [selectedColumn].
-                setState(() {});
               },
               style: style,
             ),
           ),
         ),
-      );
-    }
-    return Padding(
-      padding: padding,
-      child: textWidget,
+      ),
     );
   }
 }
