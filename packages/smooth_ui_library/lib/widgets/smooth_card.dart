@@ -20,6 +20,7 @@ class SmoothCard extends StatelessWidget {
       bottom: VERY_SMALL_SPACE,
     ),
     this.padding = const EdgeInsets.all(5.0),
+    this.elevation = 8,
   });
 
   final Widget child;
@@ -27,13 +28,14 @@ class SmoothCard extends StatelessWidget {
   final Widget? header;
   final EdgeInsets? margin;
   final EdgeInsets? padding;
+  final double elevation;
 
   static const Radius CIRCULAR_RADIUS = Radius.circular(10.0);
 
   @override
   Widget build(BuildContext context) {
     final Widget result = Material(
-      elevation: SMALL_SPACE,
+      elevation: elevation,
       shadowColor: Colors.black45,
       borderRadius: const BorderRadius.all(CIRCULAR_RADIUS),
       color: color ?? Theme.of(context).colorScheme.surface,

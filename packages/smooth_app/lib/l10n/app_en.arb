@@ -13,6 +13,7 @@
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
     "save": "Save",
+    "skip": "Skip",
     "cancel": "Cancel",
     "@cancel": {},
     "close": "Close",
@@ -172,6 +173,10 @@
     "darkmode_light": "Light",
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch"
+    },
+    "thanks_for_contributing": "Thanks for contributing",
+    "@contributors": {
+        "description": "Text shown to the user after they have contributed to the project."
     },
     "contributors": "Contributors",
     "@contributors": {
