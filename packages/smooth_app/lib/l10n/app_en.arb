@@ -107,6 +107,7 @@
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
+
     "reset_password_done": "An e-mail with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
     "send_reset_password_mail": "Change password",
     "@send_reset_password_mail": {
@@ -181,6 +182,8 @@
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
+    "support_join_slack": "Ask for help in our Slack channel",
+    "support_via_email": "Send us a e-mail",
     "termsOfUse": "Terms of use",
     "@termsOfUse": {},
     "about_this_app": "About this app",
