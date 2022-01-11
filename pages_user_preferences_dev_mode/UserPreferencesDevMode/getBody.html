@@ -86,8 +86,8 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
         },
       ),
       ListTile(
-        title: const Text(&#39;restart onboarding&#39;),
-        subtitle: const Text(&#39;then you have to restart flutter&#39;),
+        title: const Text(&#39;Restart onboarding&#39;),
+        subtitle: const Text(&#39;You then have to restart Flutter to see it again.&#39;),
         onTap: () async {
           userPreferences
               .setLastVisitedOnboardingPage(OnboardingPage.NOT_STARTED);
@@ -95,9 +95,9 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
         },
       ),
       ListTile(
-        title: const Text(&#39;switch query type&#39;),
+        title: const Text(&#39;Switch between openfoodfacts.org and .net&#39;),
         subtitle: Text(
-          &#39;current value is ${OpenFoodAPIConfiguration.globalQueryType}&#39;,
+          &#39;Current query type is ${OpenFoodAPIConfiguration.globalQueryType}&#39;,
         ),
         onTap: () async {
           await userPreferences.setFlag(userPreferencesFlagProd,
