@@ -32,10 +32,10 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   late NumberFormat _numberFormat;
 
   bool _unspecified = false; // TODO(monsieurtanuki): fetch that data from API?
+  bool _servingOr100g = false;
 
-  static const double _columnSize1 = 125; // TODO(monsieurtanuki): proper size
-  static const double _columnSize2 = 125; // TODO(monsieurtanuki): proper size
-  static const double _columnSize3 =
+  static const double _columnSize1 = 250; // TODO(monsieurtanuki): proper size
+  static const double _columnSize2 =
       100; // TODO(monsieurtanuki): anyway, should fit the largest text, probably 'mcg/µg'
 
   static const String _fakeNutrientIdServingSize = '_servingSize';
@@ -87,8 +87,8 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     final List<Widget> children = <Widget>[];
     children.add(_switchNoNutrition(appLocalizations));
     if (!_unspecified) {
-      children.add(_getServingWidget(appLocalizations));
-      children.add(_getServingHeaders(appLocalizations));
+      children.add(_getServingField(appLocalizations));
+      children.add(_getServingSwitch(appLocalizations));
       for (final OrderedNutrient orderedNutrient in _displayableList) {
         final Widget? item = _getNutrientWidget(
           appLocalizations,
@@ -146,14 +146,14 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       children: <Widget>[
         SizedBox(
           width: _columnSize1,
-          child: _getNutrientCell(appLocalizations, orderedNutrient, false),
+          child: _getNutrientCell(
+            appLocalizations,
+            orderedNutrient,
+            _servingOr100g,
+          ),
         ),
         SizedBox(
           width: _columnSize2,
-          child: _getNutrientCell(appLocalizations, orderedNutrient, true),
-        ),
-        SizedBox(
-          width: _columnSize3,
           child: _getUnitCell(id),
         ),
       ],
@@ -250,7 +250,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     );
   }
 
-  Widget _getServingWidget(final AppLocalizations appLocalizations) {
+  Widget _getServingField(final AppLocalizations appLocalizations) {
     final TextEditingController controller = TextEditingController();
     controller.text = widget.product.servingSize ?? '';
     _controllers[_fakeNutrientIdServingSize] = controller;
@@ -268,25 +268,17 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     );
   }
 
-  Widget _getServingHeaders(final AppLocalizations appLocalizations) => Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  Widget _getServingSwitch(final AppLocalizations appLocalizations) => Row(
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          SizedBox(
-            width: _columnSize1,
-            child: Text(
-              appLocalizations.nutrition_page_per_100g,
-              style: Theme.of(context).textTheme.headline4,
-            ),
+          Text(appLocalizations.nutrition_page_per_100g),
+          Switch(
+            value: _servingOr100g,
+            onChanged: (final bool value) =>
+                setState(() => _servingOr100g = !_servingOr100g),
           ),
-          SizedBox(
-            width: _columnSize1,
-            child: Text(
-              appLocalizations.nutrition_page_per_serving,
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ),
-          const SizedBox(width: _columnSize3),
+          Text(appLocalizations.nutrition_page_per_serving)
         ],
       );
 
@@ -527,11 +519,14 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   Future<Status?> _openUpdateDialog() async => showDialog<Status>(
         context: context,
         builder: (BuildContext context) {
+          Future<Status?>.delayed(const Duration(seconds: 2), () => Status()
+              /* TODO(monsieurtanuki): put back the actual call
           OpenFoodAPIClient.saveProduct(
             ProductQuery.getUser(),
             widget.product,
-          ).then<void>(
-            (final Status status) => _popUpdatingDialog(status),
+           */
+              ).then<void>(
+            (final Status? status) => _popUpdatingDialog(status),
           );
           return _getUpdatingDialog();
         },
@@ -551,8 +546,9 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         close: false,
         body: ListTile(
           leading: const CircularProgressIndicator(),
-          title:
-              Text(AppLocalizations.of(context)!.nutrition_page_update_running),
+          title: Text(
+              '${AppLocalizations.of(context)!.nutrition_page_update_running}'
+              ' (in fact just waiting 2 seconds)'),
         ),
         actions: <SmoothSimpleButton>[
           SmoothSimpleButton(
