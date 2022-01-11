@@ -64,8 +64,8 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         ListTile(
-          title: const Text('restart onboarding'),
-          subtitle: const Text('then you have to restart flutter'),
+          title: const Text('Restart onboarding'),
+          subtitle: const Text('You then have to restart Flutter to see it again.'),
           onTap: () async {
             userPreferences
                 .setLastVisitedOnboardingPage(OnboardingPage.NOT_STARTED);
@@ -73,9 +73,9 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         ListTile(
-          title: const Text('switch query type'),
+          title: const Text('Switch between openfoodfacts.org and .net'),
           subtitle: Text(
-            'current value is ${OpenFoodAPIConfiguration.globalQueryType}',
+            'Current query type is ${OpenFoodAPIConfiguration.globalQueryType}',
           ),
           onTap: () async {
             await userPreferences.setFlag(userPreferencesFlagProd,
