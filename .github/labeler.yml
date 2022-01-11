@@ -23,6 +23,11 @@ history:
 settings:
 - packages/smooth_app/lib/pages/user_preferences_page.dart
 
+onboarding:
+- packages/smooth_app/lib/pages/onboarding/**/*
+
+nutrition input:
+- packages/smooth_app/lib/pages/product/nutrition_page_loaded.dart
 
 scan:
 - packages/smooth_app/lib/pages/scan/**/*

@@ -57,12 +57,24 @@
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
+    "productDataUtility": "Visualizza i dati alimentari rilevanti alle tue preferenze.",
+    "@productDataUtility": {
+        "description": "Description of what a user can use the product data for."
+    },
+    "healthCardUtility": "Scegli gli alimenti che ti fanno bene.",
+    "@healthCardUtility": {
+        "description": "Description of what a user can use the health data in a product for."
+    },
+    "ecoCardUtility": "Scegli alimenti che fanno bene al pianeta.",
+    "@ecoCardUtility": {
+        "description": "Description of what a user can use the Eco data in a product for."
+    },
     "@user_management": {},
     "sign_in_text": "Accedi al tuo profilo di Open Food facts per salvare i tuoi contributi",
     "incorrect_credentials": "Nome utente o password errati.",
     "login": "Nome utente",
     "@login": {
-        "description": "Text field hint: unified name for either username or email address"
+        "description": "Text field hint: unified name for either username or e-mail address"
     },
     "create_account": "Crea il profilo",
     "@create_account": {
@@ -72,46 +84,54 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
+    "sign_out": "Sign out",
+    "@sign_out": {
+        "description": "Button label: For sign out"
+    },
     "password": "Password",
     "forgot_password": "Password dimenticata",
     "@forgot_password": {
-        "description": "Button label: Opens a page where a password reset email can be requested"
+        "description": "Button label: Opens a page where a password reset e-mail can be requested"
+    },
+    "view_profile": "View profile",
+    "@view_profile": {
+        "description": "Button label: For to show your account"
     },
     "reset_password": "Reimposta password",
     "@reset_password": {
         "description": "Forgot password page title"
     },
-    "reset_password_explanation_text": "Se hai dimenticato la tua password, compila il tuo nome utente o indirizzo email per ricevere istruzioni per ripristinare la tua password. Sei anche pregato di controllare la tua cartella dello spam.",
-    "username_or_email": "Nome utente o indirizzo email",
+    "reset_password_explanation_text": "Nel caso di una password dimenticata, inserisci il tuo nome utente o indirizzo email per ricevere istruzioni per un ripristino della password. Inoltre, ricorda di controllare la cartella dello Spam.",
+    "username_or_email": "Nome utente o email",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
-    "reset_password_done": "Un email con un link per ripristinare la tua password è stato inviato all'indirizzo email associato al tuo profilo. Controlla anche il tuo spam",
+    "reset_password_done": "Un'email con un link per ripristinare la tua password è stata inviata all'indirizzo email associato al tuo profilo. Inoltre, controlla il tuo spam",
     "send_reset_password_mail": "Modifica la password",
     "@send_reset_password_mail": {
-        "description": "Button label: Submit the password reset email request"
+        "description": "Button label: Submit the password reset e-mail request"
     },
     "enter_some_text": "Sei pregato di inserire del testo",
     "@enter_some_text": {
-        "description": "Error when text field is empty"
+        "description": "Error when a required text field is empty"
     },
     "sign_up_page_title": "Registrati",
     "@sign_up_page_title": {
-        "description": "On top of the Sign Up page"
+        "description": "Header"
     },
     "sign_up_page_action_button": "Registrati",
     "@sign_up_page_action_button": {
-        "description": "Bottom action button"
+        "description": "Button for signing up"
     },
     "sign_up_page_action_doing_it": "Registrazione in corso...",
     "@sign_up_page_action_doing_it": {
-        "description": "Dialog during the actual signing up process"
+        "description": "Progress indicator dialog during the actual signing up process"
     },
     "sign_up_page_action_ok": "Congratulazioni! Il tuo profilo è appena stato creato.",
     "sign_up_page_display_name_hint": "Nome Visualizzato",
     "sign_up_page_display_name_error_empty": "Sei pregato di inserire il nome visualizzato che desideri usare",
     "sign_up_page_email_hint": "Email",
-    "sign_up_page_email_error_empty": "Sei pregato di inserire l'email",
+    "sign_up_page_email_error_empty": "Sei pregato di inserire la tua email",
     "sign_up_page_email_error_invalid": "Sei pregato di inserire un'email valida",
     "sign_up_page_username_hint": "Nome utente",
     "sign_up_page_username_error_empty": "Sei pregato di inserire un nome utente",
@@ -122,13 +142,19 @@
     "sign_up_page_password_error_invalid": "Sei pregato di inserire una password valida (almeno 6 caratteri)",
     "sign_up_page_confirm_password_hint": "Conferma la Password",
     "sign_up_page_confirm_password_error_empty": "Sei pregato di confermare la password",
-    "sign_up_page_confirm_password_error_invalid": "Le password dovrebbero essere identiche",
+    "sign_up_page_confirm_password_error_invalid": "Le password devono essere identiche",
     "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
-    "sign_up_page_agree_error_invalid": "Devi acconsentire se vorresti ottenere un profilo. Nota che puoi comunque usare l'app e contribuire anonimamente.",
+    "@sign_up_page_agree_url": {
+        "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
+    },
+    "sign_up_page_agree_error_invalid": "Creando un profilo, acconsentire ai Termini d'Uso è obbligatorio, tuttavia, i contributi anonimi possono ancora esser eseguiti tramite l'app",
+    "@sign_up_page_agree_error_invalid": {
+        "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
+    },
     "sign_up_page_producer_checkbox": "Sono un produttore alimentare",
     "sign_up_page_producer_hint": "Produttore/Marchio",
     "sign_up_page_producer_error_empty": "Sei pregato di inserire il nome di un produttore o marchio",
-    "sign_up_page_subscribe_checkbox": "Vorrei iscrivermi alla newsletter di Open Food Facts (Nota: Puoi disiscriverti in qualsiasi momento)",
+    "sign_up_page_subscribe_checkbox": "Vorrei iscrivermi alla newsletter di Open Food Facts (Puoi disiscriverti in qualsiasi momento)",
     "@Settings": {},
     "settingsTitle": "Impostazioni",
     "@settingsTitle": {
@@ -158,7 +184,7 @@
     "@termsOfUse": {},
     "about_this_app": "Su quest'app",
     "@about_this_app": {
-        "description": "Button label: Opens a popo up window which shows informations about this app"
+        "description": "Button label: Opens a pop up window which shows information about the app"
     },
     "@About this app section": {},
     "contribute": "Contribuire",
@@ -291,6 +317,9 @@
     "@packaging_information_photo": {},
     "missing_product": "Questo prodotto è mancante",
     "@missing_product": {},
+    "score_add_missing_ingredients": "Add missing ingredients",
+    "score_add_missing_nutrition_facts": "Add missing nutrition facts",
+    "score_add_missing_product_category": "Add missing product category",
     "more_photos": "Altre foto che potrebbero interessarti",
     "@more_photos": {},
     "no_product_found": "Nessun prodotto trovato",
@@ -334,7 +363,7 @@
     "@product_improvement_add_nutrition_facts_and_category": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
     },
-    "product_improvement_categories_but_no_nutriscore": "Non siamo riusciti a calcolare un Nutri-Score per questo prodotto. Potrebbe essere che la categoria sia un'eccezione. Se credi che questo sia un errore, contattaci.",
+    "product_improvement_categories_but_no_nutriscore": "Il Nutri-Score per questo prodotto non è calcolabile, il che potrebbe dipendere da, es. una categoria non standard. Se ciò è considerato un errore, sei pregato di contattarci.",
     "@product_improvement_categories_but_no_nutriscore": {
         "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
@@ -342,7 +371,7 @@
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "L'Eco-Score tiene in considerazione le origini degli ingredienti. Sei pregato di inserire una foto (elenco degli ingredienti e/o ogni indicazione geografica) o di modificare il prodotto così che siano presi in considerazione. Se non è chiaro, puoi contattare il produttore dell'alimento.",
+    "product_improvement_origins_to_be_completed": "L'Eco-Score tiene in considerazione le origini degli ingredienti. Sei pregato di scattare loro una foto (elenco degli ingredienti e/o ogni rivendicazione geografica o modifica il prodotto), così che possano esser presi in considerazione.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
@@ -350,7 +379,7 @@
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },
-    "country_selection_explanation": "Alcune funzionalità ambientali dipendono dalla tua posizione",
+    "country_selection_explanation": "Alcune caratteristiche ambientali sono specifiche alla posizione",
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
@@ -371,14 +400,6 @@
         "description": "Clears a product list"
     },
     "really_clear": "Desideri davvero cancellare questo elenco?",
-    "@Plural": {},
-    "pct_match": "Corrispondenza all'{pct}%",
-    "@pct_match": {
-        "description": "This product has a x percent match with your preferences",
-        "placeholders": {
-            "pct": {}
-        }
-    },
     "product_compatibility_unknown": "Compatibilità del Prodotto Sconosciuta",
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
@@ -399,42 +420,50 @@
     "@product_compatibility_good": {
         "description": "Product compatibility summary title"
     },
-    "plural_ago_days": "{=1{one day ago} other{{count} days ago}}",
+    "@Plural": {},
+    "pct_match": "{percent}% match",
+    "@pct_match": {
+        "description": "This product has a x percent match with your preferences",
+        "placeholders": {
+            "percent": {}
+        }
+    },
+    "plural_ago_days": "{count,plural, =1{one day ago} other{{count} days ago}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{=1{one hour ago} other{{count} hours ago}}",
+    "plural_ago_hours": "{count,plural, =1{one hour ago} other{{count} hours ago}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{=0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
+    "plural_ago_minutes": "{count,plural, =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{=1{one month ago} other{{count} months ago}}",
+    "plural_ago_months": "{count,plural, =1{one month ago} other{{count} months ago}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{=1{one week ago} other{{count} weeks ago}}",
+    "plural_ago_weeks": "{count,plural, =1{one week ago} other{{count} weeks ago}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_compare_x_products": "{other{Compare {count} Products}",
+    "plural_compare_x_products": "{count,plural, other{Compare {count} Products}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {

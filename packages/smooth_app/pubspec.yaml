@@ -4,7 +4,7 @@ version: 0.0.1+6
 publish_to: "none"
 
 environment:
-  sdk: ">=2.14.4 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   flutter_lints: ^1.0.4
@@ -27,7 +27,7 @@ dependencies:
   latlong2: ^0.8.1
   matomo: ^1.1.0
   modal_bottom_sheet: ^2.0.0
-  openfoodfacts: ^1.8.1
+  openfoodfacts: ^1.9.1
   # Uncomment those lines if you want to use a local version of the openfoodfacts package
 #  openfoodfacts:
 #    path: ../../../openfoodfacts-dart

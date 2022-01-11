@@ -16,16 +16,21 @@
             - name: Chekout code
               uses: actions/checkout@v2
 
-            - name: "Setup Flutter"
-              uses: subosito/flutter-action@v2.0.3
+            - name: Setup Flutter
+              uses: actions/cache@v2
               with:
-                channel: 'stable' 
+                path: ${{ runner.tool_cache }}/flutter
+                key: flutter-2.5.0-stable
+            - uses: subosito/flutter-action@v2
+              with:
+                channel: stable
+                flutter-version: 2.5.0
 
             - name: Run Dartdoc
               run: pub global activate dartdoc && dartdoc
               
             - name: Deploy API documentation to Github Pages
-              uses: JamesIves/github-pages-deploy-action@4.2.0
+              uses: JamesIves/github-pages-deploy-action@v4.2.2
               with:
                 BRANCH: gh-pages
                 FOLDER: packages/smooth_app/doc/api/
