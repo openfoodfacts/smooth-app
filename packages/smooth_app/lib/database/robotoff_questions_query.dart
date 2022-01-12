@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/QueryType.dart';
 import 'package:smooth_app/database/product_query.dart';
 
 class RobotoffQuestionsQuery {
@@ -13,7 +12,6 @@ class RobotoffQuestionsQuery {
       barcode,
       ProductQuery.getLanguage().code,
       count: 3,
-      queryType: QueryType.PROD,
     );
     return result.questions ?? <RobotoffQuestion>[];
   }
