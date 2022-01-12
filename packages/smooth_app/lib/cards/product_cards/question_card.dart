@@ -263,7 +263,9 @@ class _QuestionCardState extends State<QuestionCard>
     return GestureDetector(
       onTap: () async {
         await saveAnswer(
-            insightId: insightId, insightAnnotation: insightAnnotation);
+          insightId: insightId,
+          insightAnnotation: insightAnnotation,
+        );
         setState(() {
           _lastAnswer = insightAnnotation;
           _currentQuestionIndex++;
