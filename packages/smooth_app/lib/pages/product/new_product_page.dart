@@ -141,6 +141,7 @@ class _ProductPageState extends State<ProductPage> {
           _product,
           _productPreferences,
           isFullVersion: true,
+          showUnansweredQuestions: true,
         ),
       ),
       _buildKnowledgePanelCards(),

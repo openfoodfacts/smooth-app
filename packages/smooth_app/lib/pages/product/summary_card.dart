@@ -35,6 +35,7 @@ class SummaryCard extends StatefulWidget {
     this._product,
     this._productPreferences, {
     this.isFullVersion = false,
+    this.showUnansweredQuestions = false,
   });
 
   final Product _product;
@@ -43,6 +44,10 @@ class SummaryCard extends StatefulWidget {
   /// If false, the card will be clipped to a smaller version so it can fit on
   /// smaller screens.
   final bool isFullVersion;
+
+  /// If true, the summary card will try to load unanswered questions about this
+  /// product and give a prompt to answer those questions.
+  final bool showUnansweredQuestions;
 
   @override
   State<SummaryCard> createState() => _SummaryCardState();
@@ -60,7 +65,7 @@ class _SummaryCardState extends State<SummaryCard> {
   @override
   void initState() {
     super.initState();
-    if (widget.isFullVersion) {
+    if (widget.showUnansweredQuestions) {
       loadProductQuestions();
     }
   }
