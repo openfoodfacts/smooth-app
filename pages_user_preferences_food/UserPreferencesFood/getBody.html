@@ -76,7 +76,13 @@
 List&lt;Widget&gt; getBody() {
   final List&lt;AttributeGroup&gt; groups =
       _reorderGroups(productPreferences.attributeGroups!);
-  final List&lt;Widget&gt; result = &lt;Widget&gt;[];
+  final List&lt;Widget&gt; result = &lt;Widget&gt;[
+    ListTile(
+      leading: const Icon(Icons.rotate_left),
+      title: Text(appLocalizations.reset_food_prefs),
+      onTap: () =&gt; _confirmReset(context),
+    ),
+  ];
   for (final AttributeGroup group in groups) {
     final AbstractUserPreferences abstractUserPreferences =
         UserPreferencesAttributeGroup(
