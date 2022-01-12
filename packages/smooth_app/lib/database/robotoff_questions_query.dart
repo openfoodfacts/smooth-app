@@ -13,7 +13,6 @@ class RobotoffQuestionsQuery {
       barcode,
       ProductQuery.getLanguage().code,
       count: 3,
-      queryType: QueryType.PROD,
     );
     return result.questions ?? <RobotoffQuestion>[];
   }
