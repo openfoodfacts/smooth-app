@@ -261,11 +261,8 @@ class _QuestionCardState extends State<QuestionCard>
         buttonText = appLocalizations.skip;
     }
     return GestureDetector(
-      onTap: () async {
-        await saveAnswer(
-          insightId: insightId,
-          insightAnnotation: insightAnnotation,
-        );
+      onTap: () {
+        saveAnswer(insightId: insightId, insightAnnotation: insightAnnotation);
         setState(() {
           _lastAnswer = insightAnnotation;
           _currentQuestionIndex++;
