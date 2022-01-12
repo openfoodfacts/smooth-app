@@ -12,6 +12,7 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "save": "Spara",
     "cancel": "Annulera",
     "@cancel": {},
     "close": "Stäng",
@@ -71,7 +72,7 @@
     },
     "@user_management": {},
     "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
-    "incorrect_credentials": "Incorrect username or password.",
+    "incorrect_credentials": "Felaktigt användarnamn eller lösenord.",
     "login": "Användarnamn",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
@@ -89,7 +90,7 @@
         "description": "Button label: For sign out"
     },
     "password": "Lösenord",
-    "forgot_password": "Forgot password",
+    "forgot_password": "Glömt lösenord",
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset e-mail can be requested"
     },
@@ -102,12 +103,12 @@
         "description": "Forgot password page title"
     },
     "reset_password_explanation_text": "In case of a forgotten password, enter your username or e-mail address to receive instructions for a password reset. Also, remember to check the Spam folder.",
-    "username_or_email": "Username or e-mail",
+    "username_or_email": "Användarnamn eller e-postadress",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
     "reset_password_done": "An e-mail with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
-    "send_reset_password_mail": "Change password",
+    "send_reset_password_mail": "Ändra lösenord",
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset e-mail request"
     },
@@ -131,8 +132,8 @@
     "sign_up_page_display_name_hint": "Visningsnamn",
     "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
     "sign_up_page_email_hint": "E-mail",
-    "sign_up_page_email_error_empty": "Please enter your e-mail",
-    "sign_up_page_email_error_invalid": "Please enter a valid e-mail",
+    "sign_up_page_email_error_empty": "E-mail is required",
+    "sign_up_page_email_error_invalid": "This e-mail is invalid",
     "sign_up_page_username_hint": "Användarnamn",
     "sign_up_page_username_error_empty": "Please enter a username",
     "sign_up_page_username_error_invalid": "Please enter a valid username",
@@ -142,8 +143,8 @@
     "sign_up_page_password_error_invalid": "Please enter a valid password (at least 6 characters)",
     "sign_up_page_confirm_password_hint": "Confirm Password",
     "sign_up_page_confirm_password_error_empty": "Please confirm the password",
-    "sign_up_page_confirm_password_error_invalid": "The passwords have to be identical",
-    "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
+    "sign_up_page_confirm_password_error_invalid": "Passwords don't match",
+    "sign_up_page_agree_url": "https://se.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
@@ -154,7 +155,7 @@
     "sign_up_page_producer_checkbox": "I am a food producer",
     "sign_up_page_producer_hint": "Producer/brand",
     "sign_up_page_producer_error_empty": "Please enter a producer or a brand name",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at all time)",
+    "sign_up_page_subscribe_checkbox": "Jag vill prenumerera på Open Food Facts nyhetsbrev (Du kan avregistrera dig när som helst)",
     "@Settings": {},
     "settingsTitle": "Inställningar",
     "@settingsTitle": {
@@ -234,7 +235,7 @@
     "myPreferences_settings_subtitle": "Dark mode, country, color, ...",
     "myPreferences_food_title": "Food Preferences",
     "myPreferences_food_subtitle": "Choose what information about food matters most to you.",
-    "confirmResetPreferences": "Återställ dina preferenser?",
+    "confirmResetPreferences": "Reset your food preferences?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
     },
@@ -247,15 +248,15 @@
         "description": "Snackbar title: Shows that the modified settings have been applied"
     },
     "@other": {},
-    "profile_navbar_label": "Profile",
+    "profile_navbar_label": "Profil",
     "@profile_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "scan_navbar_label": "Profile",
+    "scan_navbar_label": "Profil",
     "@scan_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "history_navbar_label": "Profile",
+    "history_navbar_label": "Profil",
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
@@ -288,7 +289,7 @@
     "@unknownBrand": {},
     "unknownProductName": "Okänt produktnamn",
     "@unknownProductName": {},
-    "label_refresh": "Refresh",
+    "label_refresh": "Uppdatera",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
@@ -317,9 +318,16 @@
     "@packaging_information_photo": {},
     "missing_product": "Denna produkt saknas",
     "@missing_product": {},
-    "score_add_missing_ingredients": "Add missing ingredients",
+    "score_add_missing_ingredients": "Lägg till saknade ingredienser",
     "score_add_missing_nutrition_facts": "Add missing nutrition facts",
-    "score_add_missing_product_category": "Add missing product category",
+    "score_add_missing_product_category": "Lägg till saknad produktkategori",
+    "score_update_nutrition_facts": "Update nutrition facts",
+    "nutrition_page_title": "Product Nutrition Facts",
+    "nutrition_page_unspecified": "Nutrition facts are not specified on the product",
+    "nutrition_page_per_100g": "per 100g",
+    "nutrition_page_per_serving": "per portion",
+    "nutrition_page_add_nutrient": "Lägg till ett näringsämne",
+    "nutrition_page_serving_size": "Portionsstorlek",
     "more_photos": "Fler intressanta bilder",
     "@more_photos": {},
     "no_product_found": "Ingen produkt hittades",
@@ -421,49 +429,49 @@
         "description": "Product compatibility summary title"
     },
     "@Plural": {},
-    "pct_match": "{percent}% match",
+    "pct_match": "{percent}% matchning",
     "@pct_match": {
         "description": "This product has a x percent match with your preferences",
         "placeholders": {
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural, =1{one day ago} other{{count} days ago}}",
+    "plural_ago_days": "{count,plural, =1{en dag sedan} other{{count} dagar sedan}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural, =1{one hour ago} other{{count} hours ago}}",
+    "plural_ago_hours": "{count,plural, =1{en timme sedan} other{{count} timmar sedan}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural, =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
+    "plural_ago_minutes": "{count,plural, =0{mindre än en minut sedan} =1{en minut sedan} other{{count} minuter sedan}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, =1{one month ago} other{{count} months ago}}",
+    "plural_ago_months": "{count,plural, =1{en månad sedan} other{{count} månader sedan}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, =1{one week ago} other{{count} weeks ago}}",
+    "plural_ago_weeks": "{count,plural, =1{en vecka sedan} other{{count} veckor sedan}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, other{Compare {count} Products}",
+    "plural_compare_x_products": "{count,plural, other{Jämför {count} produkter}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {

@@ -12,6 +12,7 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "save": "Gem",
     "cancel": "Annullér",
     "@cancel": {},
     "close": "Luk",
@@ -131,8 +132,8 @@
     "sign_up_page_display_name_hint": "Visningsnavn",
     "sign_up_page_display_name_error_empty": "Angiv det navn, der ønskes vist",
     "sign_up_page_email_hint": "E-mail",
-    "sign_up_page_email_error_empty": "E-mail er obligatorisk",
-    "sign_up_page_email_error_invalid": "Gyldig e-mail er obligatorisk",
+    "sign_up_page_email_error_empty": "E-mail is required",
+    "sign_up_page_email_error_invalid": "This e-mail is invalid",
     "sign_up_page_username_hint": "Brugernavn",
     "sign_up_page_username_error_empty": "Indtast et brugernavn",
     "sign_up_page_username_error_invalid": "Angiv et gyldigt brugernavn",
@@ -142,7 +143,7 @@
     "sign_up_page_password_error_invalid": "Angiv en gyldig adgangskode (mindst 6 tegn)",
     "sign_up_page_confirm_password_hint": "Bekræft adgangskode",
     "sign_up_page_confirm_password_error_empty": "Bekræft adgangskoden",
-    "sign_up_page_confirm_password_error_invalid": "Adgangskoder matcher ikke",
+    "sign_up_page_confirm_password_error_invalid": "Passwords don't match",
     "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
@@ -234,7 +235,7 @@
     "myPreferences_settings_subtitle": "Mørk tilstand, land, farve...",
     "myPreferences_food_title": "Fødevarepræferencer",
     "myPreferences_food_subtitle": "Vælg, hvilke oplysninger om fødevarer, som betyder mest.",
-    "confirmResetPreferences": "Nulstil præferencerne?",
+    "confirmResetPreferences": "Reset your food preferences?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
     },
@@ -317,9 +318,16 @@
     "@packaging_information_photo": {},
     "missing_product": "Dette produkt mangler",
     "@missing_product": {},
-    "score_add_missing_ingredients": "Add missing ingredients",
-    "score_add_missing_nutrition_facts": "Add missing nutrition facts",
-    "score_add_missing_product_category": "Add missing product category",
+    "score_add_missing_ingredients": "Tilføj manglende ingredienser",
+    "score_add_missing_nutrition_facts": "Tilføj manglende ernæringsfakta",
+    "score_add_missing_product_category": "Tilføj manglende produktkategori",
+    "score_update_nutrition_facts": "Update nutrition facts",
+    "nutrition_page_title": "Product Nutrition Facts",
+    "nutrition_page_unspecified": "Nutrition facts are not specified on the product",
+    "nutrition_page_per_100g": "per 100g",
+    "nutrition_page_per_serving": "per portion",
+    "nutrition_page_add_nutrient": "Tilføj et næringsstof",
+    "nutrition_page_serving_size": "Portionsstørrelse",
     "more_photos": "Flere interessante fotos",
     "@more_photos": {},
     "no_product_found": "Intet produkt fundet",

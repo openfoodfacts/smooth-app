@@ -12,6 +12,7 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "save": "שמירה",
     "cancel": "ביטול",
     "@cancel": {},
     "close": "סגירה",
@@ -131,8 +132,8 @@
     "sign_up_page_display_name_hint": "שם תצוגה",
     "sign_up_page_display_name_error_empty": "נא למלא את שם התצוגה המיועד",
     "sign_up_page_email_hint": "דוא״ל",
-    "sign_up_page_email_error_empty": "נא למלא את כתובת הדוא״ל שלך",
-    "sign_up_page_email_error_invalid": "נא למלא כתובת דוא״ל תקנית",
+    "sign_up_page_email_error_empty": "E-mail is required",
+    "sign_up_page_email_error_invalid": "This e-mail is invalid",
     "sign_up_page_username_hint": "שם משתמש",
     "sign_up_page_username_error_empty": "נא למלא שם משתמש",
     "sign_up_page_username_error_invalid": "נא למלא שם משתמש תקף",
@@ -142,7 +143,7 @@
     "sign_up_page_password_error_invalid": "נא למלא סיסמה תקפה (6 תווים לפחות)",
     "sign_up_page_confirm_password_hint": "אימות סיסמה",
     "sign_up_page_confirm_password_error_empty": "נא לאשר את הסיסמה",
-    "sign_up_page_confirm_password_error_invalid": "הסיסמאות חייבות להיות זהות",
+    "sign_up_page_confirm_password_error_invalid": "Passwords don't match",
     "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
@@ -234,7 +235,7 @@
     "myPreferences_settings_subtitle": "מצב כהה, מדינה, צבע, …",
     "myPreferences_food_title": "העדפות מזון",
     "myPreferences_food_subtitle": "נא לבחור איזה מידע על מזון הכי חשוב לך.",
-    "confirmResetPreferences": "לאפס את ההעדפות שלך?",
+    "confirmResetPreferences": "Reset your food preferences?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
     },
@@ -317,9 +318,16 @@
     "@packaging_information_photo": {},
     "missing_product": "המוצר חסר",
     "@missing_product": {},
-    "score_add_missing_ingredients": "Add missing ingredients",
-    "score_add_missing_nutrition_facts": "Add missing nutrition facts",
-    "score_add_missing_product_category": "Add missing product category",
+    "score_add_missing_ingredients": "הוספת רכיבים חסרים",
+    "score_add_missing_nutrition_facts": "הוספת עובדות תזונתיות חסרות",
+    "score_add_missing_product_category": "הוספת קטגוריית מוצר חסרה",
+    "score_update_nutrition_facts": "Update nutrition facts",
+    "nutrition_page_title": "Product Nutrition Facts",
+    "nutrition_page_unspecified": "Nutrition facts are not specified on the product",
+    "nutrition_page_per_100g": "per 100g",
+    "nutrition_page_per_serving": "לכל הגשה",
+    "nutrition_page_add_nutrient": "הוספת רכיב תזונתי",
+    "nutrition_page_serving_size": "גודל ההגשה",
     "more_photos": "תמונות מעניינות נוספות",
     "@more_photos": {},
     "no_product_found": "לא נמצאו מוצרים",
@@ -428,35 +436,35 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural, one {} two {יומיים} many {{count} ימים} =1{יום} other{{count} ימים}}",
+    "plural_ago_days": "{count,plural, two {יומיים} many {{count} ימים} =1{יום} other{{count} ימים}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural, one {} two {שעתיים} many {{count} שעות} =1{שעה} other{{count} שעות}}",
+    "plural_ago_hours": "{count,plural, two {שעתיים} many {{count} שעות} =1{שעה} other{{count} שעות}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural, one {} two {{count} דקות} many {{count} דקות} =0{פחות מדקה} =1{דקה} other{{count} דקות}}",
+    "plural_ago_minutes": "{count,plural, two {{count} דקות} many {{count} דקות} =0{פחות מדקה} =1{דקה} other{{count} דקות}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, one {} two {חודשיים} many {{count} חודשים} =1{חודש} other{{count} חודשים}}",
+    "plural_ago_months": "{count,plural, two {חודשיים} many {{count} חודשים} =1{חודש} other{{count} חודשים}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, one {} two {שבועיים} many {{count} weeks ago} =1{שבוע} other{{count} שבועות}}",
+    "plural_ago_weeks": "{count,plural, two {שבועיים} many {{count} weeks ago} =1{שבוע} other{{count} שבועות}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
