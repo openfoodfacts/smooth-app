@@ -22,8 +22,10 @@
     "@no": {},
     "stop": "Stop",
     "@stop": {},
-    "reset": "Reset",
-    "@reset": {},
+    "reset_food_prefs": "Reset food preferences",
+    "@reset": {
+        "description": "Button label, clicking on the button will reset user's food preferences."
+    },
     "error": "Something went wrong",
     "@error": {},
     "error_occurred": "An error occurred",
