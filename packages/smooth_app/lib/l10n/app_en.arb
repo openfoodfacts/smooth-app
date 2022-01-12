@@ -12,6 +12,7 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "save": "Save",
     "cancel": "Cancel",
     "@cancel": {},
     "close": "Close",
@@ -326,6 +327,7 @@
     "nutrition_page_per_100g": "per 100g",
     "nutrition_page_per_serving": "per serving",
     "nutrition_page_add_nutrient": "Add a nutrient",
+    "nutrition_page_serving_size": "Serving size",
     "more_photos": "More interesting photos",
     "@more_photos": {},
     "no_product_found": "No product found",

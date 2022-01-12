@@ -84,7 +84,7 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_out": "Sign out",
+    "sign_out": "Logga ut",
     "@sign_out": {
         "description": "Button label: For sign out"
     },
@@ -93,7 +93,7 @@
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset e-mail can be requested"
     },
-    "view_profile": "View profile",
+    "view_profile": "Visa profil",
     "@view_profile": {
         "description": "Button label: For to show your account"
     },
@@ -317,6 +317,9 @@
     "@packaging_information_photo": {},
     "missing_product": "Denna produkt saknas",
     "@missing_product": {},
+    "score_add_missing_ingredients": "Add missing ingredients",
+    "score_add_missing_nutrition_facts": "Add missing nutrition facts",
+    "score_add_missing_product_category": "Add missing product category",
     "more_photos": "Fler intressanta bilder",
     "@more_photos": {},
     "no_product_found": "Ingen produkt hittades",

@@ -6,7 +6,7 @@
     "@add": {},
     "okay": "Добре",
     "@okay": {},
-    "applyButtonText": "Потвърди",
+    "applyButtonText": "Приложи",
     "@applyButtonText": {},
     "next_label": "Next",
     "@next_label": {
@@ -65,13 +65,13 @@
     "@healthCardUtility": {
         "description": "Description of what a user can use the health data in a product for."
     },
-    "ecoCardUtility": "Choose foods that are good for the planet.",
+    "ecoCardUtility": "Избери храни, които са полезни за планетата.",
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
     "sign_in_text": "Влез в акаунта си в Open Food Facts, за да запазиш приноса си",
-    "incorrect_credentials": "Incorrect username or password.",
+    "incorrect_credentials": "Грешно потребителско име или парола.",
     "login": "Потребителско име",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
@@ -84,7 +84,7 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_out": "Sign out",
+    "sign_out": "Отписване",
     "@sign_out": {
         "description": "Button label: For sign out"
     },
@@ -93,7 +93,7 @@
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset e-mail can be requested"
     },
-    "view_profile": "View profile",
+    "view_profile": "Преглед на профила",
     "@view_profile": {
         "description": "Button label: For to show your account"
     },
@@ -101,12 +101,12 @@
     "@reset_password": {
         "description": "Forgot password page title"
     },
-    "reset_password_explanation_text": "In case of a forgotten password, enter your username or e-mail address to receive instructions for a password reset. Also, remember to check the Spam folder.",
-    "username_or_email": "Username or e-mail",
+    "reset_password_explanation_text": "В случай на забравена парола, въведете Вашето потребителско име или емайл адрес, за да получите инструкции за нулиране на паролата. Също така, не забравяйте да проверите папката Спам.",
+    "username_or_email": "Потребителско име или е-мейл адрес",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
-    "reset_password_done": "An e-mail with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
+    "reset_password_done": "Имейл с линк за нулиране на паролата е изшратен на имейл адреса, свързан с твоя акаунт. Също така, провери и папка спам",
     "send_reset_password_mail": "Смяна на парола",
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset e-mail request"
@@ -147,14 +147,14 @@
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
-    "sign_up_page_agree_error_invalid": "When creating an account, agreeing to the Terms of Use is mandatory, however, anonymous contributions can still be made through the app",
+    "sign_up_page_agree_error_invalid": "Когато създавате нов профил, приемането на Условията за ползване е задължително, въпреки това, анонимни приноси могат да се правят чрез приложението",
     "@sign_up_page_agree_error_invalid": {
         "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
     },
     "sign_up_page_producer_checkbox": "Аз съм производител на храни",
     "sign_up_page_producer_hint": "Производител/марка",
     "sign_up_page_producer_error_empty": "Моля, въведи производител или марка",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at all time)",
+    "sign_up_page_subscribe_checkbox": "Бих искал да се абонирам за бюлетина Open Food Facts (Забележка: Можеш да се отпишеш от него по всяко време)",
     "@Settings": {},
     "settingsTitle": "Настройки",
     "@settingsTitle": {
@@ -317,6 +317,9 @@
     "@packaging_information_photo": {},
     "missing_product": "Този продукт липсва",
     "@missing_product": {},
+    "score_add_missing_ingredients": "Add missing ingredients",
+    "score_add_missing_nutrition_facts": "Add missing nutrition facts",
+    "score_add_missing_product_category": "Add missing product category",
     "more_photos": "Още интересни снимки",
     "@more_photos": {},
     "no_product_found": "Няма намерен продукт",
@@ -348,19 +351,19 @@
     "@Product Addition": {},
     "added_product_thanks": "Благодарим, че добави този продукт!",
     "@added_product_thanks": {},
-    "product_improvement_add_category": "Add a category to calculate the Nutri-Score.",
+    "product_improvement_add_category": "Добави категория, за да изчислиш Nutri-Score.",
     "@product_improvement_add_category": {
         "description": "Message for ProductImprovement.ADD_CATEGORY"
     },
-    "product_improvement_add_nutrition_facts": "Add nutrition facts to calculate the Nutri-Score.",
+    "product_improvement_add_nutrition_facts": "Добави хранителни стойности, за да изчислиш Nutri-Score.",
     "@product_improvement_add_nutrition_facts": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
     },
-    "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to calculate the Nutri-Score.",
+    "product_improvement_add_nutrition_facts_and_category": "Добави хранителни стойности и категория, за да изчислиш Nutri-Score.",
     "@product_improvement_add_nutrition_facts_and_category": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
     },
-    "product_improvement_categories_but_no_nutriscore": "The Nutri-Score for this product can't be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.",
+    "product_improvement_categories_but_no_nutriscore": "Nutri-Score за този продукт не може да бъде изчислен, това може да се дължи например на нестандартна категория. Ако това се счита за грешка, моля, свържете се с нас.",
     "@product_improvement_categories_but_no_nutriscore": {
         "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
@@ -368,7 +371,7 @@
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take a photo of them (ingredient list and/or any geographic claim or edit the product) so that they can be taken into account.",
+    "product_improvement_origins_to_be_completed": "Eco-Score взема предвид произхода на съставките. Моля, снимай ги (списък на съставките и/или всякакви географски обозначения или редактирай продукта), за да могат да бъдат взети предвид.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
@@ -376,7 +379,7 @@
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },
-    "country_selection_explanation": "Some environmental features are location-specific",
+    "country_selection_explanation": "Някои характеристики на околната среда са специфични за местоположението",
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
@@ -418,49 +421,49 @@
         "description": "Product compatibility summary title"
     },
     "@Plural": {},
-    "pct_match": "{percent}% match",
+    "pct_match": "{percent}% съвпадение",
     "@pct_match": {
         "description": "This product has a x percent match with your preferences",
         "placeholders": {
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural, =1{one day ago} other{{count} days ago}}",
+    "plural_ago_days": "{count,plural, =1{преди един ден} other{преди {count} дни}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural, =1{one hour ago} other{{count} hours ago}}",
+    "plural_ago_hours": "{count,plural, =1{преди един час} other{преди {count} часа}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural, =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
+    "plural_ago_minutes": "{count,plural, =0{преди по-малко от една минута} =1{преди една минута} other{преди {count} минути}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, =1{one month ago} other{{count} months ago}}",
+    "plural_ago_months": "{count,plural, =1{преди един месец} other{преди {count} месеца}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, =1{one week ago} other{{count} weeks ago}}",
+    "plural_ago_weeks": "{count,plural, =1{преди една седмица} other{преди {count} седмици}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, other{Compare {count} Products}",
+    "plural_compare_x_products": "{count,plural, =other{Сравни {count} продукта}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {

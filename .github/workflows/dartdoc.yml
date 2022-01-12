@@ -30,7 +30,7 @@
               run: pub global activate dartdoc && dartdoc
               
             - name: Deploy API documentation to Github Pages
-              uses: JamesIves/github-pages-deploy-action@4.2.0
+              uses: JamesIves/github-pages-deploy-action@v4.2.2
               with:
                 BRANCH: gh-pages
                 FOLDER: packages/smooth_app/doc/api/
