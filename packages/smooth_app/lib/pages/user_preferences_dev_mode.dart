@@ -65,7 +65,8 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         ),
         ListTile(
           title: const Text('Restart onboarding'),
-          subtitle: const Text('You then have to restart Flutter to see it again.'),
+          subtitle:
+              const Text('You then have to restart Flutter to see it again.'),
           onTap: () async {
             userPreferences
                 .setLastVisitedOnboardingPage(OnboardingPage.NOT_STARTED);
