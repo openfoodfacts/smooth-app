@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
-import 'package:provider/provider.dart';
-import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
@@ -150,41 +148,9 @@ class UserPreferencesProfile extends AbstractUserPreferences {
             initialCountryCode: userPreferences.userCountryCode,
           ),
         ),
-        ListTile(
-          leading: const Icon(Icons.rotate_left),
-          title: Text(appLocalizations.reset),
-          onTap: () => _confirmReset(context),
-        ),
       ],
     );
 
     return result;
-  }
-
-  void _confirmReset(BuildContext context) {
-    final AppLocalizations localizations = AppLocalizations.of(context)!;
-    showDialog<void>(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text(localizations.confirmResetPreferences),
-          actions: <Widget>[
-            TextButton(
-              child: Text(localizations.yes),
-              onPressed: () async {
-                await context.read<ProductPreferences>().resetImportances();
-                Navigator.pop(context);
-              },
-            ),
-            TextButton(
-              child: Text(localizations.no),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            )
-          ],
-        );
-      },
-    );
   }
 }
