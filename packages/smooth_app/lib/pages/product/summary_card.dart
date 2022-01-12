@@ -31,8 +31,11 @@ const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
 const int SUMMARY_CARD_ROW_HEIGHT = 40;
 
 class SummaryCard extends StatefulWidget {
-  const SummaryCard(this._product, this._productPreferences,
-      {this.isFullVersion = false});
+  const SummaryCard(
+    this._product,
+    this._productPreferences, {
+    this.isFullVersion = false,
+  });
 
   final Product _product;
   final ProductPreferences _productPreferences;
