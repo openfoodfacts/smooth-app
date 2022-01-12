@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/scan/continuous_scan_page.dart';
+import 'package:smooth_app/pages/scan/ml_kit_scan_page.dart';
+import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
 
 class ScanPage extends StatefulWidget {
   const ScanPage();
@@ -32,13 +35,25 @@ class _ScanPageState extends State<ScanPage> {
 
   @override
   Widget build(BuildContext context) {
+    final UserPreferences userPreferences = context.read<UserPreferences>();
     if (_model == null) {
       return const Center(child: CircularProgressIndicator());
     }
 
+    final Widget child;
+
+    if (userPreferences.getFlag(
+          UserPreferencesDevMode.userPreferencesFlagUseMLKit,
+        ) ??
+        true) {
+      child = const MLKitScannerPage();
+    } else {
+      child = const ContinuousScanPage();
+    }
+
     return ChangeNotifierProvider<ContinuousScanModel>(
       create: (BuildContext context) => _model!,
-      child: const ContinuousScanPage(),
+      child: child,
     );
   }
 }

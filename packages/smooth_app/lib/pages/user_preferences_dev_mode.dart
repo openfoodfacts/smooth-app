@@ -31,6 +31,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         );
 
   static const String userPreferencesFlagProd = '__devWorkingOnProd';
+  static const String userPreferencesFlagUseMLKit = '__useMLKit';
 
   @override
   bool isCollapsedByDefault() => true;
@@ -70,7 +71,8 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           onTap: () async {
             userPreferences
                 .setLastVisitedOnboardingPage(OnboardingPage.NOT_STARTED);
-            setState(() {});
+            ScaffoldMessenger.of(context)
+                .showSnackBar(const SnackBar(content: Text('Ok')));
           },
         ),
         ListTile(
@@ -83,6 +85,16 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
                 !(userPreferences.getFlag(userPreferencesFlagProd) ?? true));
             ProductQuery.setQueryType(userPreferences);
             setState(() {});
+          },
+        ),
+        SwitchListTile(
+          title: const Text('Use ML Kit'),
+          subtitle: const Text('then you have to restart this app'),
+          value: userPreferences.getFlag(userPreferencesFlagUseMLKit) ?? true,
+          onChanged: (bool value) async {
+            await userPreferences.setFlag(userPreferencesFlagUseMLKit, value);
+            ScaffoldMessenger.of(context)
+                .showSnackBar(const SnackBar(content: Text('Ok')));
           },
         ),
       ];
