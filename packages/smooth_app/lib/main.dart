@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -39,7 +40,7 @@ Future<void> main() async {
     );
     */
   } else {
-    runApp(const SmoothApp());
+    runApp(DevicePreview(enabled: true, builder: (_) => const SmoothApp()));
   }
 }
 
