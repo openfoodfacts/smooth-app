@@ -1,6 +1,10 @@
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
@@ -257,8 +261,9 @@ class _QuestionCardState extends State<QuestionCard>
         buttonText = appLocalizations.skip;
     }
     return GestureDetector(
-      onTap: () {
-        saveAnswer(insightId: insightId, insightAnnotation: insightAnnotation);
+      onTap: () async {
+        await saveAnswer(
+            insightId: insightId, insightAnnotation: insightAnnotation);
         setState(() {
           _lastAnswer = insightAnnotation;
           _currentQuestionIndex++;
@@ -377,14 +382,16 @@ Future<void> saveAnswer({
   required String? insightId,
   required InsightAnnotation insightAnnotation,
 }) async {
-  // TODO(jasmeet): Send answer to the Backend.
-  // TODO(jasmeet): Fix for iOS. https://pub.dev/packages/device_info
-  // DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
-  // AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
-  //
-  // final Status status = await OpenFoodAPIClient.postInsightAnnotation(
-  //   insightId,
-  //   insightAnnotation,
-  //   deviceId: androidInfo.id,
-  // );
+  final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
+  String? deviceId;
+  if (Platform.isAndroid) {
+    deviceId = (await deviceInfoPlugin.androidInfo).androidId;
+  } else if (Platform.isIOS) {
+    deviceId = (await deviceInfoPlugin.iosInfo).identifierForVendor;
+  }
+  await OpenFoodAPIClient.postInsightAnnotation(
+    insightId,
+    insightAnnotation,
+    deviceId: deviceId,
+  );
 }

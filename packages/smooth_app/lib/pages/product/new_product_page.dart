@@ -35,14 +35,11 @@ enum ProductPageMenuItem { WEB, REFRESH }
 class _ProductPageState extends State<ProductPage> {
   late Product _product;
   late ProductPreferences _productPreferences;
-  late Future<List<RobotoffQuestion>> _productQuestions;
 
   @override
   void initState() {
     super.initState();
     _product = widget.product;
-    _productQuestions = RobotoffQuestionsQuery(_product.barcode!)
-        .getRobotoffQuestionsForProduct();
     _updateLocalDatabaseWithProductHistory(context, _product);
   }
 
@@ -144,7 +141,6 @@ class _ProductPageState extends State<ProductPage> {
           _product,
           _productPreferences,
           isFullVersion: true,
-          productQuestions: _productQuestions,
         ),
       ),
       _buildKnowledgePanelCards(),

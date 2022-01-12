@@ -10,6 +10,7 @@ import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
 import 'package:smooth_app/cards/product_cards/question_card.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/database/robotoff_questions_query.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
@@ -31,7 +32,7 @@ const int SUMMARY_CARD_ROW_HEIGHT = 40;
 
 class SummaryCard extends StatefulWidget {
   const SummaryCard(this._product, this._productPreferences,
-      {this.isFullVersion = false, this.productQuestions});
+      {this.isFullVersion = false});
 
   final Product _product;
   final ProductPreferences _productPreferences;
@@ -39,8 +40,6 @@ class SummaryCard extends StatefulWidget {
   /// If false, the card will be clipped to a smaller version so it can fit on
   /// smaller screens.
   final bool isFullVersion;
-
-  final Future<List<RobotoffQuestion>>? productQuestions;
 
   @override
   State<SummaryCard> createState() => _SummaryCardState();
@@ -53,6 +52,20 @@ class _SummaryCardState extends State<SummaryCard> {
 
   // For some reason, special case for "label" attributes
   final Set<String> _attributesToExcludeIfStatusIsUnknown = <String>{};
+  Future<List<RobotoffQuestion>>? _productQuestions;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.isFullVersion) {
+      loadProductQuestions();
+    }
+  }
+
+  Future<void> loadProductQuestions() async {
+    _productQuestions = RobotoffQuestionsQuery(widget._product.barcode!)
+        .getRobotoffQuestionsForProduct();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -379,11 +392,11 @@ class _SummaryCardState extends State<SummaryCard> {
 
   Widget _buildProductQuestionsWidget() {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-    if (widget.productQuestions == null) {
+    if (_productQuestions == null) {
       return EMPTY_WIDGET;
     }
     return FutureBuilder<List<RobotoffQuestion>>(
-        future: widget.productQuestions,
+        future: _productQuestions,
         builder: (
           BuildContext context,
           AsyncSnapshot<List<RobotoffQuestion>> snapshot,
@@ -392,8 +405,8 @@ class _SummaryCardState extends State<SummaryCard> {
               snapshot.data ?? <RobotoffQuestion>[];
           if (questions.isNotEmpty) {
             return InkWell(
-              onTap: () {
-                Navigator.push<Widget>(
+              onTap: () async {
+                await Navigator.push<Widget>(
                   context,
                   MaterialPageRoute<Widget>(
                     builder: (BuildContext context) => QuestionCard(
@@ -402,6 +415,11 @@ class _SummaryCardState extends State<SummaryCard> {
                     ),
                   ),
                 );
+                // Reload the product questions, they might have been answered.
+                // Or the backend may have new ones.
+                await loadProductQuestions();
+                // Rebuild as the questions may have changed.
+                setState(() {});
               },
               child: SmoothCard(
                 margin: EdgeInsets.zero,
