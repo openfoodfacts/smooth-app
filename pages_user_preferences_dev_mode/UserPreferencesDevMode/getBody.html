@@ -92,7 +92,8 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
         onTap: () async {
           userPreferences
               .setLastVisitedOnboardingPage(OnboardingPage.NOT_STARTED);
-          setState(() {});
+          ScaffoldMessenger.of(context)
+              .showSnackBar(const SnackBar(content: Text(&#39;Ok&#39;)));
         },
       ),
       ListTile(
@@ -105,6 +106,16 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
               !(userPreferences.getFlag(userPreferencesFlagProd) ?? true));
           ProductQuery.setQueryType(userPreferences);
           setState(() {});
+        },
+      ),
+      SwitchListTile(
+        title: const Text(&#39;Use ML Kit&#39;),
+        subtitle: const Text(&#39;then you have to restart this app&#39;),
+        value: userPreferences.getFlag(userPreferencesFlagUseMLKit) ?? true,
+        onChanged: (bool value) async {
+          await userPreferences.setFlag(userPreferencesFlagUseMLKit, value);
+          ScaffoldMessenger.of(context)
+              .showSnackBar(const SnackBar(content: Text(&#39;Ok&#39;)));
         },
       ),
     ];</code></pre>
@@ -165,6 +176,7 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
 
     <li class="section-title"><a href="../../pages_user_preferences_dev_mode/UserPreferencesDevMode-class.html#constants">Constants</a></li>
     <li><a href="../../pages_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagProd-constant.html">userPreferencesFlagProd</a></li>
+    <li><a href="../../pages_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagUseMLKit-constant.html">userPreferencesFlagUseMLKit</a></li>
 </ol>
 
   </div><!--/.sidebar-offcanvas-->
