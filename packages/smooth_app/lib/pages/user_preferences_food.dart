@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/pages/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/user_preferences_attribute_group.dart';
 
@@ -53,7 +54,13 @@ class UserPreferencesFood extends AbstractUserPreferences {
   List<Widget> getBody() {
     final List<AttributeGroup> groups =
         _reorderGroups(productPreferences.attributeGroups!);
-    final List<Widget> result = <Widget>[];
+    final List<Widget> result = <Widget>[
+      ListTile(
+        leading: const Icon(Icons.rotate_left),
+        title: Text(appLocalizations.reset_food_prefs),
+        onTap: () => _confirmReset(context),
+      ),
+    ];
     for (final AttributeGroup group in groups) {
       final AbstractUserPreferences abstractUserPreferences =
           UserPreferencesAttributeGroup(
@@ -79,5 +86,32 @@ class UserPreferencesFood extends AbstractUserPreferences {
     result.addAll(groups.where(
         (AttributeGroup g) => !_ORDERED_ATTRIBUTE_GROUP_IDS.contains(g.id)));
     return result;
+  }
+
+  void _confirmReset(BuildContext context) {
+    final AppLocalizations localizations = AppLocalizations.of(context)!;
+    showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(localizations.confirmResetPreferences),
+          actions: <Widget>[
+            TextButton(
+              child: Text(localizations.yes),
+              onPressed: () async {
+                await context.read<ProductPreferences>().resetImportances();
+                Navigator.pop(context);
+              },
+            ),
+            TextButton(
+              child: Text(localizations.no),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            )
+          ],
+        );
+      },
+    );
   }
 }
