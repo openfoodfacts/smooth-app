@@ -378,13 +378,16 @@ class _SummaryCardState extends State<SummaryCard> {
   }
 
   Widget _buildProductQuestionsWidget() {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     if (widget.productQuestions == null) {
       return EMPTY_WIDGET;
     }
     return FutureBuilder<List<RobotoffQuestion>>(
         future: widget.productQuestions,
-        builder: (BuildContext context,
-            AsyncSnapshot<List<RobotoffQuestion>> snapshot) {
+        builder: (
+          BuildContext context,
+          AsyncSnapshot<List<RobotoffQuestion>> snapshot,
+        ) {
           final List<RobotoffQuestion> questions =
               snapshot.data ?? <RobotoffQuestion>[];
           if (questions.isNotEmpty) {
@@ -411,11 +414,11 @@ class _SummaryCardState extends State<SummaryCard> {
                   width: double.infinity,
                   child: Column(
                     children: <Widget>[
-                      const Text('🏅 Tap here to answer questions'),
+                      // TODO(jasmeet): Use Material icon or SVG (after consulting UX).
+                      Text('🏅 ${appLocalizations.tap_to_answer}'),
                       Container(
                         padding: const EdgeInsets.only(top: SMALL_SPACE),
-                        child: const Text(
-                            'Help food transparency and get reward badges'),
+                        child: Text(appLocalizations.contribute_to_get_rewards),
                       ),
                     ],
                   ),

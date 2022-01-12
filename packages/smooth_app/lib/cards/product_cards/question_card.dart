@@ -57,6 +57,7 @@ class _QuestionCardState extends State<QuestionCard>
         ).animate(animation);
 
         if (child.key == ValueKey<int>(_currentQuestionIndex)) {
+          // Animate in the new question card.
           return ClipRect(
             child: SlideTransition(
               position: inAnimation,
@@ -67,6 +68,7 @@ class _QuestionCardState extends State<QuestionCard>
             ),
           );
         } else {
+          // Animate out the old question card.
           return ClipRect(
             child: SlideTransition(
               position: outAnimation,
@@ -86,21 +88,18 @@ class _QuestionCardState extends State<QuestionCard>
   }
 
   Offset _getAnimationStartOffset() {
-    Offset animationStartOffset;
     switch (_lastAnswer) {
       case InsightAnnotation.YES:
-        // For [InsightAnnotation.YES]: Animation starts from bottom left.
-        animationStartOffset = const Offset(-1.0, 0);
-        break;
+        // For [InsightAnnotation.YES]: Animation starts from left side and goes right.
+        return const Offset(-1.0, 0);
       case InsightAnnotation.NO:
-        // For [InsightAnnotation.YES]: Animation starts from bottom right.
-        animationStartOffset = const Offset(1.0, 0);
-        break;
+        // For [InsightAnnotation.NO]: Animation starts from right side and goes left.
+        return const Offset(1.0, 0);
       case InsightAnnotation.MAYBE:
       case null:
-        animationStartOffset = const Offset(0, 1);
+        // For [InsightAnnotation.MAYBE]: Animation starts from bottom and goes up.
+        return const Offset(0, 1);
     }
-    return animationStartOffset;
   }
 
   Widget _buildWidget(BuildContext context, int currentQuestionIndex) {
@@ -111,7 +110,10 @@ class _QuestionCardState extends State<QuestionCard>
     return Column(
       children: <Widget>[
         _buildQuestionCard(
-            context, widget.product, questions[currentQuestionIndex]),
+          context,
+          widget.product,
+          questions[currentQuestionIndex],
+        ),
         _buildAnswerOptions(
           context,
           questions,
@@ -187,8 +189,7 @@ class _QuestionCardState extends State<QuestionCard>
   Widget _buildAnswerOptions(
       BuildContext context, List<RobotoffQuestion> questions,
       {required int currentQuestionIndex}) {
-    final Size screenSize = MediaQuery.of(context).size;
-    final double yesNoButtonWidth = screenSize.width / 3;
+    final double yesNoButtonWidth = MediaQuery.of(context).size.width / 3;
     final RobotoffQuestion question = questions[currentQuestionIndex];
     return Column(
       children: <Widget>[
@@ -198,7 +199,7 @@ class _QuestionCardState extends State<QuestionCard>
             SizedBox(
               width: yesNoButtonWidth,
               height: yesNoButtonWidth / 1.25,
-              child: _buildInsightAnnotationButton(
+              child: _buildAnswerButton(
                 insightId: question.insightId,
                 insightAnnotation: InsightAnnotation.NO,
                 backgroundColor: Colors.redAccent,
@@ -209,7 +210,7 @@ class _QuestionCardState extends State<QuestionCard>
             SizedBox(
               width: yesNoButtonWidth,
               height: yesNoButtonWidth / 1.25,
-              child: _buildInsightAnnotationButton(
+              child: _buildAnswerButton(
                 insightId: question.insightId,
                 insightAnnotation: InsightAnnotation.YES,
                 backgroundColor: Colors.lightGreen,
@@ -221,7 +222,7 @@ class _QuestionCardState extends State<QuestionCard>
         ),
         AspectRatio(
           aspectRatio: 8,
-          child: _buildInsightAnnotationButton(
+          child: _buildAnswerButton(
             insightId: question.insightId,
             insightAnnotation: InsightAnnotation.MAYBE,
             backgroundColor: Colors.white,
@@ -233,12 +234,13 @@ class _QuestionCardState extends State<QuestionCard>
     );
   }
 
-  Widget _buildInsightAnnotationButton(
-      {required String? insightId,
-      required InsightAnnotation insightAnnotation,
-      required Color backgroundColor,
-      required Color contentColor,
-      required int currentQuestionIndex}) {
+  Widget _buildAnswerButton({
+    required String? insightId,
+    required InsightAnnotation insightAnnotation,
+    required Color backgroundColor,
+    required Color contentColor,
+    required int currentQuestionIndex,
+  }) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     String buttonText;
     IconData? icon;
@@ -266,7 +268,9 @@ class _QuestionCardState extends State<QuestionCard>
         elevation: 4,
         color: backgroundColor,
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(VERY_LARGE_SPACE)),
+          borderRadius: BorderRadius.all(
+            Radius.circular(VERY_LARGE_SPACE),
+          ),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
