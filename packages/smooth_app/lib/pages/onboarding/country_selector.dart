@@ -137,19 +137,14 @@ class _CountrySelectorState extends State<CountrySelector> {
     if (mostLikelyUserCountryCode == null) {
       return countries;
     }
-    Country? mostLikelyUserCountry;
     // Bring the most likely user country to top.
     for (final Country country in countries) {
-      if (country.countryCode == mostLikelyUserCountryCode) {
-        mostLikelyUserCountry = country;
-        break;
+      if (country.countryCode.toLowerCase() == mostLikelyUserCountryCode) {
+        countries.remove(country);
+        countries.insert(0, country);
+        return countries;
       }
     }
-    if (mostLikelyUserCountry == null) {
-      return countries;
-    }
-    countries.remove(mostLikelyUserCountry);
-    countries.insert(0, mostLikelyUserCountry);
     return countries;
   }
 }
