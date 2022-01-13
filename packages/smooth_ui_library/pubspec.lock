@@ -82,7 +82,7 @@ packages:
       name: flutter_svg
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0"
+    version: "1.0.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -143,7 +143,7 @@ packages:
       name: openfoodfacts
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.9.1"
+    version: "1.10.0"
   path:
     dependency: transitive
     description:
@@ -249,4 +249,4 @@ packages:
     version: "5.3.1"
 sdks:
   dart: ">=2.14.0 <3.0.0"
-  flutter: ">=1.24.0-7.0"
+  flutter: ">=2.4.0-0.0.pre"
