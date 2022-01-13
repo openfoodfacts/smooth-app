@@ -70,8 +70,8 @@ class _CountrySelectorState extends State<CountrySelector> {
                   return DropdownMenuItem<Country>(
                     value: country,
                     child: Container(
-                      // Set the maxWidth so the dropdown arrow doesn't overflow.
-                      // 48 dp is needed to account for dropdown icon and padding.
+                      // Set the maxWidth so the dropdown arrow icon doesn't overflow.
+                      // 48 dp is needed to account for dropdown arrow icon and padding.
                       constraints: BoxConstraints(maxWidth: parentWidth - 48)
                           .normalize(),
                       child: Text(country.name),
