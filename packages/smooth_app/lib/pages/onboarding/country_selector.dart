@@ -139,7 +139,8 @@ class _CountrySelectorState extends State<CountrySelector> {
     }
     // Bring the most likely user country to top.
     for (final Country country in countries) {
-      if (country.countryCode.toLowerCase() == mostLikelyUserCountryCode) {
+      if (country.countryCode.toLowerCase() ==
+          mostLikelyUserCountryCode.toLowerCase()) {
         countries.remove(country);
         countries.insert(0, country);
         return countries;
