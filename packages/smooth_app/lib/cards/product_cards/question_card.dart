@@ -280,6 +280,7 @@ class _QuestionCardState extends State<QuestionCard>
         } catch (e) {
           await showErrorDialog(context);
           Navigator.of(context).pop();
+          return;
         }
         setState(() {
           _lastAnswer = insightAnnotation;
@@ -405,6 +406,8 @@ Future<void> saveAnswer({
     deviceId = (await deviceInfoPlugin.androidInfo).androidId;
   } else if (Platform.isIOS) {
     deviceId = (await deviceInfoPlugin.iosInfo).identifierForVendor;
+  } else {
+    debugPrint('Platform is neither iOS nor Android');
   }
   await OpenFoodAPIClient.postInsightAnnotation(
     insightId,
