@@ -105,11 +105,6 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
         return Stack(
           fit: StackFit.expand,
           children: <Widget>[
-            ...getScannerWidgets(
-              context,
-              constraints,
-              _model,
-            ),
             SmoothRevealAnimation(
               delay: 400,
               startOffset: Offset.zero,
@@ -122,6 +117,11 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
                   ),
                 ),
               ),
+            ),
+            ...getScannerWidgets(
+              context,
+              constraints,
+              _model,
             ),
           ],
         );

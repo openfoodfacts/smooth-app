@@ -39,11 +39,6 @@ class _ContinuousScanPageState extends State<ContinuousScanPage> {
             appBar: AppBar(toolbarHeight: 0.0),
             body: Stack(
               children: <Widget>[
-                ...getScannerWidgets(
-                  context,
-                  constraints,
-                  _model,
-                ),
                 SmoothRevealAnimation(
                   delay: 400,
                   startOffset: Offset.zero,
@@ -58,6 +53,11 @@ class _ContinuousScanPageState extends State<ContinuousScanPage> {
                     key: _scannerViewKey,
                     onQRViewCreated: setupScanner,
                   ),
+                ),
+                ...getScannerWidgets(
+                  context,
+                  constraints,
+                  _model,
                 ),
               ],
             ),
