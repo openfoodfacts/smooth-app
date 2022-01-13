@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
+import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/database/dao_product_list.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/pages/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
@@ -22,6 +25,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
     required final UserPreferences userPreferences,
     required final AppLocalizations appLocalizations,
     required final ThemeData themeData,
+    required this.localDatabase,
   }) : super(
           setState: setState,
           context: context,
@@ -29,6 +33,8 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           appLocalizations: appLocalizations,
           themeData: themeData,
         );
+
+  final LocalDatabase localDatabase;
 
   static const String userPreferencesFlagProd = '__devWorkingOnProd';
   static const String userPreferencesFlagUseMLKit = '__useMLKit';
@@ -95,6 +101,16 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             await userPreferences.setFlag(userPreferencesFlagUseMLKit, value);
             ScaffoldMessenger.of(context)
                 .showSnackBar(const SnackBar(content: Text('Ok')));
+          },
+        ),
+        ListTile(
+          title: const Text('export history'),
+          onTap: () async {
+            final Map<String, dynamic> export =
+                await DaoProductList(localDatabase).export(
+              ProductList.history(),
+            );
+            debugPrint('exported history: $export', wrapWidth: 80);
           },
         ),
       ];
