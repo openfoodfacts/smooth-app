@@ -114,7 +114,9 @@
               MaterialPageRoute&lt;Widget&gt;(
                 builder: (BuildContext context) =&gt; NutritionPage(product),
               ),
-            ),
+            )
+            &#47;&#47; TODO(monsieurtanuki): refresh the data if changed
+            ,
           ),
         );
         if (product.statesTags?.contains(&#39;en:ingredients-to-be-completed&#39;) ??
