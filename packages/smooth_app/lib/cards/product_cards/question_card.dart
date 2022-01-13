@@ -1,3 +1,7 @@
+import 'dart:io';
+
+import 'package:device_info_plus/device_info_plus.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -11,10 +15,12 @@ class QuestionCard extends StatefulWidget {
   const QuestionCard({
     required this.product,
     required this.questions,
+    required this.updateProductUponAnswers,
   });
 
   final Product product;
   final List<RobotoffQuestion> questions;
+  final Function() updateProductUponAnswers;
 
   @override
   State<QuestionCard> createState() => _QuestionCardState();
@@ -34,10 +40,18 @@ class _QuestionCardState extends State<QuestionCard>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xff4f4f4f),
-      appBar: AppBar(),
-      body: _buildAnimationSwitcher(),
+    return WillPopScope(
+      onWillPop: () async {
+        if (_lastAnswer != null) {
+          await widget.updateProductUponAnswers();
+        }
+        return true;
+      },
+      child: Scaffold(
+        backgroundColor: const Color(0xff4f4f4f),
+        appBar: AppBar(),
+        body: _buildAnimationSwitcher(),
+      ),
     );
   }
 
@@ -256,8 +270,17 @@ class _QuestionCardState extends State<QuestionCard>
         buttonText = appLocalizations.skip;
     }
     return GestureDetector(
-      onTap: () {
-        saveAnswer(insightId: insightId, insightAnnotation: insightAnnotation);
+      onTap: () async {
+        try {
+          await saveAnswer(
+            insightId: insightId,
+            insightAnnotation: insightAnnotation,
+          );
+        } catch (e) {
+          await showErrorDialog(context);
+          Navigator.of(context).pop();
+          return;
+        }
         setState(() {
           _lastAnswer = insightAnnotation;
           _currentQuestionIndex++;
@@ -376,14 +399,40 @@ Future<void> saveAnswer({
   required String? insightId,
   required InsightAnnotation insightAnnotation,
 }) async {
-  // TODO(jasmeet): Send answer to the Backend.
-  // TODO(jasmeet): Fix for iOS. https://pub.dev/packages/device_info
-  // DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
-  // AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
-  //
-  // final Status status = await OpenFoodAPIClient.postInsightAnnotation(
-  //   insightId,
-  //   insightAnnotation,
-  //   deviceId: androidInfo.id,
-  // );
+  final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
+  String? deviceId;
+  if (Platform.isAndroid) {
+    deviceId = (await deviceInfoPlugin.androidInfo).androidId;
+  } else if (Platform.isIOS) {
+    deviceId = (await deviceInfoPlugin.iosInfo).identifierForVendor;
+  } else {
+    debugPrint('Platform is neither iOS nor Android');
+  }
+  await OpenFoodAPIClient.postInsightAnnotation(
+    insightId,
+    insightAnnotation,
+    deviceId: deviceId,
+  );
+}
+
+Future<void> showErrorDialog(BuildContext context) {
+  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+  return showDialog<void>(
+    context: context,
+    barrierDismissible: false, // user must tap button!
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text(appLocalizations.error),
+        content: Text(appLocalizations.error_occurred),
+        actions: <Widget>[
+          TextButton(
+            child: Text(appLocalizations.okay),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      );
+    },
+  );
 }
