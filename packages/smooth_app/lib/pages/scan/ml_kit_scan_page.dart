@@ -20,11 +20,13 @@ class MLKitScannerPage extends StatefulWidget {
 class MLKitScannerPageState extends State<MLKitScannerPage> {
   BarcodeScanner? barcodeScanner = GoogleMlKit.vision.barcodeScanner();
   late ContinuousScanModel _model;
-  late CameraController _controller;
+  CameraController? _controller;
   int _cameraIndex = 0;
   CameraLensDirection cameraLensDirection = CameraLensDirection.back;
   bool isBusy = false;
   bool imageStreamActive = false;
+
+  void hallo() {}
 
   @override
   void initState() {
@@ -66,7 +68,7 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
   @override
   Widget build(BuildContext context) {
     _model = context.watch<ContinuousScanModel>();
-    if (_controller.value.isInitialized == false) {
+    if (_controller == null || _controller!.value.isInitialized == false) {
       return const Center(child: CircularProgressIndicator());
     }
 
@@ -76,7 +78,7 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
     // this is actually size.aspectRatio / (1 / camera.aspectRatio)
     // because camera preview size is received as landscape
     // but we're calculating for portrait orientation
-    double scale = size.aspectRatio * _controller.value.aspectRatio;
+    double scale = size.aspectRatio * _controller!.value.aspectRatio;
 
     // to prevent scaling down, invert the value
     if (scale < 1) {
@@ -92,7 +94,7 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
           scale: scale,
           child: Center(
             child: CameraPreview(
-              _controller,
+              _controller!,
             ),
           ),
         ),
@@ -107,34 +109,38 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
       ResolutionPreset.high,
       enableAudio: false,
     );
-    _controller.setFocusMode(FocusMode.auto);
-    _controller.lockCaptureOrientation(DeviceOrientation.portraitUp);
+    _controller!.setFocusMode(FocusMode.auto);
+    _controller!.lockCaptureOrientation(DeviceOrientation.portraitUp);
 
-    _controller.initialize().then((_) {
+    _controller!.initialize().then((_) {
       if (!mounted) {
         return;
       }
-      _controller.startImageStream(_processCameraImage);
+      _controller!.startImageStream(_processCameraImage);
       imageStreamActive = true;
       setState(() {});
     });
   }
 
   void _resumeImageStream() {
-    if (!imageStreamActive) {
-      _controller.startImageStream(_processCameraImage);
+    if (_controller != null && !imageStreamActive) {
+      _controller!.startImageStream(_processCameraImage);
       imageStreamActive = true;
     }
   }
 
   void _stopImageStream() {
-    _controller.stopImageStream();
-    imageStreamActive = false;
+    if (_controller != null) {
+      _controller!.stopImageStream();
+      imageStreamActive = false;
+    }
   }
 
   void _disposeCamera() {
-    imageStreamActive = false;
-    _controller.dispose();
+    if (_controller != null) {
+      _controller!.dispose();
+      imageStreamActive = false;
+    }
   }
 
   //Convert the [CameraImage] to a [InputImage]
