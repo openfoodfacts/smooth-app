@@ -36,6 +36,7 @@ class SummaryCard extends StatefulWidget {
     this._productPreferences, {
     this.isFullVersion = false,
     this.showUnansweredQuestions = false,
+    this.refreshProductCallback,
   });
 
   final Product _product;
@@ -48,6 +49,9 @@ class SummaryCard extends StatefulWidget {
   /// If true, the summary card will try to load unanswered questions about this
   /// product and give a prompt to answer those questions.
   final bool showUnansweredQuestions;
+
+  /// Callback to refresh the product when necessary.
+  final Function(BuildContext)? refreshProductCallback;
 
   @override
   State<SummaryCard> createState() => _SummaryCardState();
@@ -420,14 +424,10 @@ class _SummaryCardState extends State<SummaryCard> {
                     builder: (BuildContext context) => QuestionCard(
                       product: widget._product,
                       questions: questions,
+                      updateProductUponAnswers: updateProductUponAnswers,
                     ),
                   ),
                 );
-                // Reload the product questions, they might have been answered.
-                // Or the backend may have new ones.
-                await loadProductQuestions();
-                // Rebuild as the questions may have changed.
-                setState(() {});
               },
               child: SmoothCard(
                 margin: EdgeInsets.zero,
@@ -454,5 +454,16 @@ class _SummaryCardState extends State<SummaryCard> {
           }
           return EMPTY_WIDGET;
         });
+  }
+
+  Future<void> updateProductUponAnswers() async {
+    // Reload the product questions, they might have been answered.
+    // Or the backend may have new ones.
+    await loadProductQuestions();
+    // Reload the product as it may have been updated because of the
+    // new answers.
+    if (widget.refreshProductCallback != null) {
+      widget.refreshProductCallback!(context);
+    }
   }
 }

@@ -16,10 +16,12 @@ class QuestionCard extends StatefulWidget {
   const QuestionCard({
     required this.product,
     required this.questions,
+    required this.updateProductUponAnswers,
   });
 
   final Product product;
   final List<RobotoffQuestion> questions;
+  final Function() updateProductUponAnswers;
 
   @override
   State<QuestionCard> createState() => _QuestionCardState();
@@ -39,10 +41,18 @@ class _QuestionCardState extends State<QuestionCard>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xff4f4f4f),
-      appBar: AppBar(),
-      body: _buildAnimationSwitcher(),
+    return WillPopScope(
+      onWillPop: () async {
+        if (_lastAnswer != null) {
+          await widget.updateProductUponAnswers();
+        }
+        return true;
+      },
+      child: Scaffold(
+        backgroundColor: const Color(0xff4f4f4f),
+        appBar: AppBar(),
+        body: _buildAnimationSwitcher(),
+      ),
     );
   }
 
@@ -261,8 +271,16 @@ class _QuestionCardState extends State<QuestionCard>
         buttonText = appLocalizations.skip;
     }
     return GestureDetector(
-      onTap: () {
-        saveAnswer(insightId: insightId, insightAnnotation: insightAnnotation);
+      onTap: () async {
+        try {
+          await saveAnswer(
+            insightId: insightId,
+            insightAnnotation: insightAnnotation,
+          );
+        } catch (e) {
+          await genericErrorDialog(context);
+          Navigator.of(context).pop();
+        }
         setState(() {
           _lastAnswer = insightAnnotation;
           _currentQuestionIndex++;

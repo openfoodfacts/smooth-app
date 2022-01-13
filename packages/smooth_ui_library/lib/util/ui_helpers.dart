@@ -1,5 +1,6 @@
 /// Contains UI related constant that are shared across the entire app.
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
 
@@ -51,4 +52,26 @@ Color? getTextColorFromKnowledgePanelElementEvaluation(Evaluation evaluation) {
     case Evaluation.GOOD:
       return Colors.green;
   }
+}
+
+Future<void> genericErrorDialog(BuildContext context) {
+  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+  return showDialog<void>(
+    context: context,
+    barrierDismissible: false, // user must tap button!
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text(appLocalizations.error),
+        content: Text(appLocalizations.error_occurred),
+        actions: <Widget>[
+          TextButton(
+            child: Text(appLocalizations.okay),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      );
+    },
+  );
 }
