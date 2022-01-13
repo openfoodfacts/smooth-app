@@ -8,9 +8,7 @@ import 'package:google_ml_barcode_scanner/google_ml_barcode_scanner.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/main.dart';
-import 'package:smooth_app/pages/scan/scan_page_helper.dart';
-import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
-import 'package:visibility_detector/visibility_detector.dart';
+import 'package:smooth_app/pages/scan/scanner_overlay.dart';
 
 class MLKitScannerPage extends StatefulWidget {
   const MLKitScannerPage({Key? key}) : super(key: key);
@@ -22,10 +20,11 @@ class MLKitScannerPage extends StatefulWidget {
 class MLKitScannerPageState extends State<MLKitScannerPage> {
   BarcodeScanner? barcodeScanner = GoogleMlKit.vision.barcodeScanner();
   late ContinuousScanModel _model;
-  CameraController? _controller;
+  late CameraController _controller;
   int _cameraIndex = 0;
   CameraLensDirection cameraLensDirection = CameraLensDirection.back;
   bool isBusy = false;
+  bool imageStreamActive = false;
 
   @override
   void initState() {
@@ -59,31 +58,15 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
 
   @override
   void dispose() {
-    _stopLiveFeed();
-    _disposeLiveFeed();
+    _stopImageStream();
+    _disposeCamera();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     _model = context.watch<ContinuousScanModel>();
-    return Scaffold(
-      body: VisibilityDetector(
-        key: const Key('VisibilityDetector ML Kit'),
-        onVisibilityChanged: (VisibilityInfo visibilityInfo) {
-          if (visibilityInfo.visibleFraction == 0.0) {
-            _stopLiveFeed();
-          } else {
-            _startLiveFeed();
-          }
-        },
-        child: _liveFeedBody(),
-      ),
-    );
-  }
-
-  Widget _liveFeedBody() {
-    if (_controller?.value.isInitialized == false || _controller == null) {
+    if (_controller.value.isInitialized == false) {
       return const Center(child: CircularProgressIndicator());
     }
 
@@ -93,44 +76,27 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
     // this is actually size.aspectRatio / (1 / camera.aspectRatio)
     // because camera preview size is received as landscape
     // but we're calculating for portrait orientation
-    double scale = size.aspectRatio * _controller!.value.aspectRatio;
+    double scale = size.aspectRatio * _controller.value.aspectRatio;
 
     // to prevent scaling down, invert the value
     if (scale < 1) {
       scale = 1 / scale;
     }
 
-    return LayoutBuilder(
-      builder: (BuildContext context, BoxConstraints constraints) {
-        final List<Widget> children = getScannerWidgets(
-          context,
-          constraints,
-          _model,
-        );
-
-        //Inserting the scanner at the right position
-        children.insert(
-          1,
-          SmoothRevealAnimation(
-            delay: 400,
-            startOffset: Offset.zero,
-            animationCurve: Curves.easeInOutBack,
-            child: Transform.scale(
-              scale: scale,
-              child: Center(
-                child: CameraPreview(
-                  _controller!,
-                ),
-              ),
+    return Scaffold(
+      body: ScannerOverlay(
+        restartCamera: _resumeImageStream,
+        stopCamera: _stopImageStream,
+        model: _model,
+        scannerWidget: Transform.scale(
+          scale: scale,
+          child: Center(
+            child: CameraPreview(
+              _controller,
             ),
           ),
-        );
-
-        return Stack(
-          fit: StackFit.expand,
-          children: children,
-        );
-      },
+        ),
+      ),
     );
   }
 
@@ -141,24 +107,34 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
       ResolutionPreset.high,
       enableAudio: false,
     );
-    _controller?.initialize().then((_) {
+    _controller.setFocusMode(FocusMode.auto);
+    _controller.lockCaptureOrientation(DeviceOrientation.portraitUp);
+
+    _controller.initialize().then((_) {
       if (!mounted) {
         return;
       }
-      _controller?.setFocusMode(FocusMode.auto);
-      _controller?.lockCaptureOrientation(DeviceOrientation.portraitUp);
-      _controller?.startImageStream(_processCameraImage);
+      _controller.startImageStream(_processCameraImage);
+      imageStreamActive = true;
       setState(() {});
     });
   }
 
-  Future<void> _stopLiveFeed() async {
-    await _controller?.stopImageStream();
-    _controller = null;
+  void _resumeImageStream() {
+    if (!imageStreamActive) {
+      _controller.startImageStream(_processCameraImage);
+      imageStreamActive = true;
+    }
   }
 
-  Future<void> _disposeLiveFeed() async {
-    await _controller?.dispose();
+  void _stopImageStream() {
+    _controller.stopImageStream();
+    imageStreamActive = false;
+  }
+
+  void _disposeCamera() {
+    imageStreamActive = false;
+    _controller.dispose();
   }
 
   //Convert the [CameraImage] to a [InputImage]
