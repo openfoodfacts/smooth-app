@@ -24,6 +24,7 @@ class UserPreferences extends ChangeNotifier {
       'lastVisitedOnboardingPage';
   static const String _TAG_PREFIX_FLAG = 'FLAG_PREFIX_';
   static const String _TAG_DEV_MODE = 'devMode';
+  static const String _TAG_CAMERA_DECLINE = 'declined_camera_use_once';
 
   Future<void> init(final ProductPreferences productPreferences) async {
     if (_sharedPreferences.getBool(_TAG_INIT) != null) {
@@ -79,6 +80,13 @@ class UserPreferences extends ChangeNotifier {
         ? OnboardingPage.NOT_STARTED
         : OnboardingPage.values[pageIndex];
   }
+
+  Future<void> setCameraDecline(final bool declined) async {
+    _sharedPreferences.setBool(_TAG_CAMERA_DECLINE, declined);
+  }
+
+  bool get cameraDeclinedOnce =>
+      _sharedPreferences.getBool(_TAG_CAMERA_DECLINE) ?? false;
 
   String _getFlagTag(final String key) => _TAG_PREFIX_FLAG + key;
 
