@@ -58,7 +58,9 @@ class KnowledgePanelsBuilder {
                 MaterialPageRoute<Widget>(
                   builder: (BuildContext context) => NutritionPage(product),
                 ),
-              ),
+              )
+              // TODO(monsieurtanuki): refresh the data if changed
+              ,
             ),
           );
           if (product.statesTags?.contains('en:ingredients-to-be-completed') ??
