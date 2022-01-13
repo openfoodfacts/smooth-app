@@ -57,7 +57,8 @@
 <li><span class="parameter" id="-param-context"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span></li>
 <li><span class="parameter" id="-param-userPreferences"><span>required</span> <span class="type-annotation"><a href="../../data_models_user_preferences/UserPreferences-class.html">UserPreferences</a></span> <span class="parameter-name">userPreferences</span>, </span></li>
 <li><span class="parameter" id="-param-appLocalizations"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">appLocalizations</span>, </span></li>
-<li><span class="parameter" id="-param-themeData"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/material/ThemeData-class.html">ThemeData</a></span> <span class="parameter-name">themeData</span>}</span></li>
+<li><span class="parameter" id="-param-themeData"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/material/ThemeData-class.html">ThemeData</a></span> <span class="parameter-name">themeData</span>, </span></li>
+<li><span class="parameter" id="-param-localDatabase"><span>required</span> <span class="type-annotation"><a href="../../database_local_database/LocalDatabase-class.html">LocalDatabase</a></span> <span class="parameter-name">localDatabase</span>}</span></li>
 </ol>)
     </section>
 
@@ -73,6 +74,7 @@
   required final UserPreferences userPreferences,
   required final AppLocalizations appLocalizations,
   required final ThemeData themeData,
+  required this.localDatabase,
 }) : super(
         setState: setState,
         context: context,
@@ -107,12 +109,13 @@
     <li><a href="../../pages_user_preferences_dev_mode/UserPreferencesDevMode/UserPreferencesDevMode.html">UserPreferencesDevMode</a></li>
 
 
-    <li class="section-title inherited">
+    <li class="section-title">
       <a href="../../pages_user_preferences_dev_mode/UserPreferencesDevMode-class.html#instance-properties">Properties</a>
     </li>
     <li class="inherited"><a href="../../pages_abstract_user_preferences/AbstractUserPreferences/appLocalizations.html">appLocalizations</a></li>
     <li class="inherited"><a href="../../pages_abstract_user_preferences/AbstractUserPreferences/context.html">context</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li><a href="../../pages_user_preferences_dev_mode/UserPreferencesDevMode/localDatabase.html">localDatabase</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
     <li class="inherited"><a href="../../pages_abstract_user_preferences/AbstractUserPreferences/setState.html">setState</a></li>
     <li class="inherited"><a href="../../pages_abstract_user_preferences/AbstractUserPreferences/themeData.html">themeData</a></li>

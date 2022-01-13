@@ -70,13 +70,26 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; get(final ProductList productList) async {
   final _BarcodeList? list = await _get(productList);
-  if (list == null) {
-    productList.set(&lt;String&gt;[], &lt;String, Product&gt;{});
+  final List&lt;String&gt; barcodes = &lt;String&gt;[];
+  final Map&lt;String, Product&gt; products = &lt;String, Product&gt;{};
+  if (list == null || list.barcodes.isEmpty) {
+    productList.set(barcodes, products);
     return;
   }
-  final List&lt;String&gt; barcodes = list.barcodes;
-  final Map&lt;String, Product&gt; products =
-      await DaoProduct(localDatabase).getAll(barcodes);
+  final DaoProduct daoProduct = DaoProduct(localDatabase);
+  for (final String barcode in list.barcodes) {
+    try {
+      final Product? product = await daoProduct.get(barcode);
+      if (product != null) {
+        barcodes.add(barcode);
+        products[barcode] = product;
+      } else {
+        debugPrint(&#39;unexpected: unknown product for $barcode&#39;);
+      }
+    } catch (e) {
+      debugPrint(&#39;unexpected: exception for product $barcode&#39;);
+    }
+  }
   productList.set(barcodes, products);
 }</code></pre>
 </section>
@@ -116,6 +129,7 @@
     <li class="section-title"><a href="../../database_dao_product_list/DaoProductList-class.html#instance-methods">Methods</a></li>
     <li><a href="../../database_dao_product_list/DaoProductList/clear.html">clear</a></li>
     <li><a href="../../database_dao_product_list/DaoProductList/delete.html">delete</a></li>
+    <li><a href="../../database_dao_product_list/DaoProductList/export.html">export</a></li>
     <li><a href="../../database_dao_product_list/DaoProductList/get.html">get</a></li>
     <li><a href="../../database_dao_product_list/DaoProductList/getTimestamp.html">getTimestamp</a></li>
     <li><a href="../../database_dao_product_list/DaoProductList/init.html">init</a></li>

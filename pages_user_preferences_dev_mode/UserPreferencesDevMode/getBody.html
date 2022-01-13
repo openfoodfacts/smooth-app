@@ -118,6 +118,16 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
               .showSnackBar(const SnackBar(content: Text(&#39;Ok&#39;)));
         },
       ),
+      ListTile(
+        title: const Text(&#39;export history&#39;),
+        onTap: () async {
+          final Map&lt;String, dynamic&gt; export =
+              await DaoProductList(localDatabase).export(
+            ProductList.history(),
+          );
+          debugPrint(&#39;exported history: $export&#39;, wrapWidth: 80);
+        },
+      ),
     ];</code></pre>
 </section>
 
@@ -146,12 +156,13 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
     <li><a href="../../pages_user_preferences_dev_mode/UserPreferencesDevMode/UserPreferencesDevMode.html">UserPreferencesDevMode</a></li>
 
 
-    <li class="section-title inherited">
+    <li class="section-title">
       <a href="../../pages_user_preferences_dev_mode/UserPreferencesDevMode-class.html#instance-properties">Properties</a>
     </li>
     <li class="inherited"><a href="../../pages_abstract_user_preferences/AbstractUserPreferences/appLocalizations.html">appLocalizations</a></li>
     <li class="inherited"><a href="../../pages_abstract_user_preferences/AbstractUserPreferences/context.html">context</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li><a href="../../pages_user_preferences_dev_mode/UserPreferencesDevMode/localDatabase.html">localDatabase</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
     <li class="inherited"><a href="../../pages_abstract_user_preferences/AbstractUserPreferences/setState.html">setState</a></li>
     <li class="inherited"><a href="../../pages_abstract_user_preferences/AbstractUserPreferences/themeData.html">themeData</a></li>
