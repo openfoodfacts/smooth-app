@@ -35,31 +35,37 @@ class _ContinuousScanPageState extends State<ContinuousScanPage> {
           final double carouselHeight = constraints.maxHeight /
               1.81; // roughly 55% of the available height
           final double viewFinderBottomOffset = carouselHeight / 2.0;
+
+          final List<Widget> children = getScannerWidgets(
+            context,
+            constraints,
+            _model,
+          );
+
+          //Insert scanner at the right position
+          children.insert(
+            1,
+            SmoothRevealAnimation(
+              delay: 400,
+              startOffset: Offset.zero,
+              animationCurve: Curves.easeInOutBack,
+              child: QRView(
+                overlay: QrScannerOverlayShape(
+                  // We use [SmoothViewFinder] instead of the overlay.
+                  overlayColor: Colors.transparent,
+                  // This offset adjusts the scanning area on iOS.
+                  cutOutBottomOffset: viewFinderBottomOffset,
+                ),
+                key: _scannerViewKey,
+                onQRViewCreated: setupScanner,
+              ),
+            ),
+          );
+
           return Scaffold(
             appBar: AppBar(toolbarHeight: 0.0),
             body: Stack(
-              children: <Widget>[
-                SmoothRevealAnimation(
-                  delay: 400,
-                  startOffset: Offset.zero,
-                  animationCurve: Curves.easeInOutBack,
-                  child: QRView(
-                    overlay: QrScannerOverlayShape(
-                      // We use [SmoothViewFinder] instead of the overlay.
-                      overlayColor: Colors.transparent,
-                      // This offset adjusts the scanning area on iOS.
-                      cutOutBottomOffset: viewFinderBottomOffset,
-                    ),
-                    key: _scannerViewKey,
-                    onQRViewCreated: setupScanner,
-                  ),
-                ),
-                ...getScannerWidgets(
-                  context,
-                  constraints,
-                  _model,
-                ),
-              ],
+              children: children,
             ),
           );
         },
