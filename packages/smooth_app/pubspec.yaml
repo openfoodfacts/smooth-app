@@ -15,7 +15,7 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  flutter_svg: ^1.0.0
+  flutter_svg: ^1.0.1
   flutter_map: ^0.14.0
   flutter_widget_from_html_core: ^0.8.4
   flutter_secure_storage: ^5.0.2
@@ -28,7 +28,7 @@ dependencies:
   latlong2: ^0.8.1
   matomo: ^1.1.0
   modal_bottom_sheet: ^2.0.0
-  openfoodfacts: ^1.9.1
+  openfoodfacts: ^1.10.0
   # Uncomment those lines if you want to use a local version of the openfoodfacts package
 #  openfoodfacts:
 #    path: ../../../openfoodfacts-dart
@@ -40,7 +40,7 @@ dependencies:
   sentry_flutter: ^6.2.2
   smooth_ui_library:
     path: ../smooth_ui_library
-  url_launcher: ^6.0.17
+  url_launcher: ^6.0.18
   visibility_detector: ^0.2.2
   google_ml_barcode_scanner: ^0.0.2
   camera: ^0.9.4+5
