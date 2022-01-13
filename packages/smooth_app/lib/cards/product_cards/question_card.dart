@@ -278,7 +278,7 @@ class _QuestionCardState extends State<QuestionCard>
             insightAnnotation: insightAnnotation,
           );
         } catch (e) {
-          await genericErrorDialog(context);
+          await showErrorDialog(context);
           Navigator.of(context).pop();
         }
         setState(() {
@@ -410,5 +410,27 @@ Future<void> saveAnswer({
     insightId,
     insightAnnotation,
     deviceId: deviceId,
+  );
+}
+
+Future<void> showErrorDialog(BuildContext context) {
+  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+  return showDialog<void>(
+    context: context,
+    barrierDismissible: false, // user must tap button!
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text(appLocalizations.error),
+        content: Text(appLocalizations.error_occurred),
+        actions: <Widget>[
+          TextButton(
+            child: Text(appLocalizations.okay),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      );
+    },
   );
 }
