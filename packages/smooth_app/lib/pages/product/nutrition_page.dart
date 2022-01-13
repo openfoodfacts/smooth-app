@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/OrderedNutrients.dart';
-import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:smooth_app/database/product_query.dart';

@@ -102,28 +102,33 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
 
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        return Stack(
-          fit: StackFit.expand,
-          children: <Widget>[
-            SmoothRevealAnimation(
-              delay: 400,
-              startOffset: Offset.zero,
-              animationCurve: Curves.easeInOutBack,
-              child: Transform.scale(
-                scale: scale,
-                child: Center(
-                  child: CameraPreview(
-                    _controller!,
-                  ),
+        final List<Widget> children = getScannerWidgets(
+          context,
+          constraints,
+          _model,
+        );
+
+        //Inserting the scanner at the right position
+        children.insert(
+          1,
+          SmoothRevealAnimation(
+            delay: 400,
+            startOffset: Offset.zero,
+            animationCurve: Curves.easeInOutBack,
+            child: Transform.scale(
+              scale: scale,
+              child: Center(
+                child: CameraPreview(
+                  _controller!,
                 ),
               ),
             ),
-            ...getScannerWidgets(
-              context,
-              constraints,
-              _model,
-            ),
-          ],
+          ),
+        );
+
+        return Stack(
+          fit: StackFit.expand,
+          children: children,
         );
       },
     );
