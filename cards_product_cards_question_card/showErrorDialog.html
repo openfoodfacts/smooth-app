@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the saveAnswer function from the question_card library, for the Dart programming language.">
-  <title>saveAnswer function - question_card library - Dart API</title>
+  <meta name="description" content="API docs for the showErrorDialog function from the question_card library, for the Dart programming language.">
+  <title>showErrorDialog function - question_card library - Dart API</title>
 
 
   
@@ -31,9 +31,9 @@
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../index.html">smooth_app</a></li>
     <li><a href="../cards_product_cards_question_card/cards_product_cards_question_card-library.html">question_card</a></li>
-    <li class="self-crumb">saveAnswer function</li>
+    <li class="self-crumb">showErrorDialog function</li>
   </ol>
-  <div class="self-name">saveAnswer</div>
+  <div class="self-name">showErrorDialog</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -44,7 +44,7 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-function">saveAnswer</span> function 
+<h1><span class="kind-function">showErrorDialog</span> function 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
  
 </h1></div>
@@ -53,8 +53,7 @@
         
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
-<span class="name ">saveAnswer</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="saveAnswer-param-insightId">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">insightId</span>, </span></li>
-<li><span class="parameter" id="saveAnswer-param-insightAnnotation"><span>required</span> <span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/1.10.0/model_Insight/InsightAnnotation.html">InsightAnnotation</a></span> <span class="parameter-name">insightAnnotation</span>}</span></li>
+<span class="name ">showErrorDialog</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="showErrorDialog-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span></li>
 </ol>)
 
     </section>
@@ -64,23 +63,25 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; saveAnswer({
-  required String? insightId,
-  required InsightAnnotation insightAnnotation,
-}) async {
-  final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
-  String? deviceId;
-  if (Platform.isAndroid) {
-    deviceId = (await deviceInfoPlugin.androidInfo).androidId;
-  } else if (Platform.isIOS) {
-    deviceId = (await deviceInfoPlugin.iosInfo).identifierForVendor;
-  } else {
-    debugPrint(&#39;Platform is neither iOS nor Android&#39;);
-  }
-  await OpenFoodAPIClient.postInsightAnnotation(
-    insightId,
-    insightAnnotation,
-    deviceId: deviceId,
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; showErrorDialog(BuildContext context) {
+  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+  return showDialog&lt;void&gt;(
+    context: context,
+    barrierDismissible: false, &#47;&#47; user must tap button!
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text(appLocalizations.error),
+        content: Text(appLocalizations.error_occurred),
+        actions: &lt;Widget&gt;[
+          TextButton(
+            child: Text(appLocalizations.okay),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      );
+    },
   );
 }</code></pre>
 </section>
@@ -98,7 +99,7 @@
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
   <li><a href="../index.html">smooth_app</a></li>
   <li><a href="../cards_product_cards_question_card/cards_product_cards_question_card-library.html">question_card</a></li>
-  <li class="self-crumb">saveAnswer function</li>
+  <li class="self-crumb">showErrorDialog function</li>
 </ol>
 
 
