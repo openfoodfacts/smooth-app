@@ -10,6 +10,7 @@ dependencies:
   flutter_lints: ^1.0.4
   carousel_slider: ^4.0.0
   cupertino_icons: ^1.0.4
+  device_preview: ^1.0.0
   flutter:
     sdk: flutter
   flutter_localizations:
@@ -41,6 +42,8 @@ dependencies:
     path: ../smooth_ui_library
   url_launcher: ^6.0.17
   visibility_detector: ^0.2.2
+  google_ml_barcode_scanner: ^0.0.2
+  camera: ^0.9.4+5
 
 
   

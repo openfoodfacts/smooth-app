@@ -31,6 +31,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         );
 
   static const String userPreferencesFlagProd = '__devWorkingOnProd';
+  static const String userPreferencesFlagUseMLKit = '__useMLKit';
 
   @override
   bool isCollapsedByDefault() => true;
@@ -64,24 +65,36 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         ListTile(
-          title: const Text('restart onboarding'),
-          subtitle: const Text('then you have to restart flutter'),
+          title: const Text('Restart onboarding'),
+          subtitle:
+              const Text('You then have to restart Flutter to see it again.'),
           onTap: () async {
             userPreferences
                 .setLastVisitedOnboardingPage(OnboardingPage.NOT_STARTED);
-            setState(() {});
+            ScaffoldMessenger.of(context)
+                .showSnackBar(const SnackBar(content: Text('Ok')));
           },
         ),
         ListTile(
-          title: const Text('switch query type'),
+          title: const Text('Switch between openfoodfacts.org and .net'),
           subtitle: Text(
-            'current value is ${OpenFoodAPIConfiguration.globalQueryType}',
+            'Current query type is ${OpenFoodAPIConfiguration.globalQueryType}',
           ),
           onTap: () async {
             await userPreferences.setFlag(userPreferencesFlagProd,
                 !(userPreferences.getFlag(userPreferencesFlagProd) ?? true));
             ProductQuery.setQueryType(userPreferences);
             setState(() {});
+          },
+        ),
+        SwitchListTile(
+          title: const Text('Use ML Kit'),
+          subtitle: const Text('then you have to restart this app'),
+          value: userPreferences.getFlag(userPreferencesFlagUseMLKit) ?? true,
+          onChanged: (bool value) async {
+            await userPreferences.setFlag(userPreferencesFlagUseMLKit, value);
+            ScaffoldMessenger.of(context)
+                .showSnackBar(const SnackBar(content: Text('Ok')));
           },
         ),
       ];
