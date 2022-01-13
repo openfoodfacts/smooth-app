@@ -8,6 +8,7 @@ import 'package:smooth_app/pages/abstract_user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/views/bottom_sheet_views/user_contribution_view.dart';
+import 'package:smooth_ui_library/buttons/smooth_main_button.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_ui_library/widgets/smooth_list_tile.dart';
@@ -102,9 +103,42 @@ class UserPreferencesSettings extends AbstractUserPreferences {
         ),
         SmoothListTile(
           text: appLocalizations.support,
-          leadingWidget: const Icon(Icons.launch),
-          onPressed: () => LaunchUrlHelper.launchURL(
-              'https://slack.openfoodfacts.org/', false),
+          onPressed: () {
+            showDialog<void>(
+              context: context,
+              builder: (BuildContext context) => SmoothAlertDialog(
+                close: false,
+                body: Column(
+                  children: <Widget>[
+                    SmoothMainButton(
+                      important: false,
+                      text: appLocalizations.support_join_slack,
+                      onPressed: () {
+                        LaunchUrlHelper.launchURL(
+                          'https://slack.openfoodfacts.org/',
+                          false,
+                        );
+                      },
+                    ),
+                    const SizedBox(height: 20),
+                    SmoothMainButton(
+                      important: false,
+                      text: appLocalizations.support_via_email,
+                      onPressed: () async {
+                        final PackageInfo packageInfo =
+                            await PackageInfo.fromPlatform();
+                        LaunchUrlHelper.launchURL(
+                          // TODO(M123): Change subject name when we have a different app name
+                          'mailto:contact@openfoodfacts.org?subject=Smoothie%20help&body=Version:${packageInfo.version}',
+                          false,
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
         ),
         SmoothListTile(
           text: appLocalizations.about_this_app,
