@@ -26,8 +26,6 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
   bool isBusy = false;
   bool imageStreamActive = false;
 
-  void hallo() {}
-
   @override
   void initState() {
     super.initState();
