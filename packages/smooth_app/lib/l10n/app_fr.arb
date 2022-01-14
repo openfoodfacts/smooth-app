@@ -8,11 +8,11 @@
     "@okay": {},
     "applyButtonText": "Appliquer",
     "@applyButtonText": {},
-    "next_label": "Suivante",
+    "next_label": "Suivant",
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
-    "save": "Sauver",
+    "save": "Enregistrer",
     "cancel": "Annuler",
     "@cancel": {},
     "close": "Fermer",
@@ -62,11 +62,11 @@
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."
     },
-    "healthCardUtility": "Choose foods that are good for you.",
+    "healthCardUtility": "Choisissez des aliments qui sont bons pour vous.",
     "@healthCardUtility": {
         "description": "Description of what a user can use the health data in a product for."
     },
-    "ecoCardUtility": "Choose foods that are good for the planet.",
+    "ecoCardUtility": "Choisissez des aliments qui sont bons pour la planète.",
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
@@ -102,12 +102,12 @@
     "@reset_password": {
         "description": "Forgot password page title"
     },
-    "reset_password_explanation_text": "In case of a forgotten password, enter your username or e-mail address to receive instructions for a password reset. Also, remember to check the Spam folder.",
+    "reset_password_explanation_text": "En cas d'oubli du mot de passe, saisissez votre nom d'utilisateur ou votre adresse e-mail pour recevoir les instructions de réinitialisation du mot de passe. N'oubliez pas non plus de vérifier le dossier Spam.",
     "username_or_email": "Nom d'utilisateur ou e-mail",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
-    "reset_password_done": "An e-mail with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
+    "reset_password_done": "Un e-mail avec un lien pour réinitialiser votre mot de passe a été envoyé à l'adresse e-mail associée à votre compte. Vérifiez également vos spams",
     "send_reset_password_mail": "Changer le mot de passe",
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset e-mail request"
@@ -132,8 +132,8 @@
     "sign_up_page_display_name_hint": "Nom d’affichage",
     "sign_up_page_display_name_error_empty": "Veuillez saisir le nom d'affichage que vous souhaitez utiliser",
     "sign_up_page_email_hint": "E-mail",
-    "sign_up_page_email_error_empty": "Please enter your e-mail",
-    "sign_up_page_email_error_invalid": "Please enter a valid e-mail",
+    "sign_up_page_email_error_empty": "E-mail is required",
+    "sign_up_page_email_error_invalid": "This e-mail is invalid",
     "sign_up_page_username_hint": "Nom d'utilisateur",
     "sign_up_page_username_error_empty": "Veuillez saisir un nom d'utilisateur",
     "sign_up_page_username_error_invalid": "Veuillez saisir un nom d'utilisateur valide",
@@ -143,7 +143,7 @@
     "sign_up_page_password_error_invalid": "Veuillez saisir un mot de passe valide (au moins 6 caractères)",
     "sign_up_page_confirm_password_hint": "Confirmez le mot de passe",
     "sign_up_page_confirm_password_error_empty": "Veuillez confirmer le mot de passe",
-    "sign_up_page_confirm_password_error_invalid": "The passwords have to be identical",
+    "sign_up_page_confirm_password_error_invalid": "Passwords don't match",
     "sign_up_page_agree_url": "https://world-fr.openfoodfacts.org/conditions-d-utilisation",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
@@ -235,7 +235,7 @@
     "myPreferences_settings_subtitle": "Mode sombre, pays, couleur, ...",
     "myPreferences_food_title": "Préférences alimentaires",
     "myPreferences_food_subtitle": "Choisissez les informations sur la nourriture qui vous importent le plus.",
-    "confirmResetPreferences": "Réinitialiser vos préférences ?",
+    "confirmResetPreferences": "Reset your food preferences?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
     },
@@ -318,16 +318,19 @@
     "@packaging_information_photo": {},
     "missing_product": "Ce produit est manquant",
     "@missing_product": {},
-    "score_add_missing_ingredients": "Ajouter les ingrédients",
-    "score_add_missing_nutrition_facts": "Ajouter les données nutritionnelles",
-    "score_add_missing_product_category": "Ajouter une catégorie de produit",
-    "score_update_nutrition_facts": "Mettre à jour les données nutritionnelles",
-    "nutrition_page_title": "Information nutritionnelles du produit",
-    "nutrition_page_unspecified": "Pas d'informations nutritionnelles pour ce produit",
-    "nutrition_page_per_100g": "pour 100g",
+    "score_add_missing_ingredients": "Ajouter les ingrédients manquants",
+    "score_add_missing_nutrition_facts": "Ajouter les informations nutritionnelles manquantes",
+    "score_add_missing_product_category": "Ajouter une catégorie de produit manquante",
+    "score_update_nutrition_facts": "Update nutrition facts",
+    "nutrition_page_title": "Product Nutrition Facts",
+    "nutrition_page_unspecified": "Nutrition facts are not specified on the product",
+    "nutrition_page_per_100g": "per 100g",
     "nutrition_page_per_serving": "par portion",
     "nutrition_page_add_nutrient": "Ajouter un nutriment",
     "nutrition_page_serving_size": "Taille d'une portion",
+    "nutrition_page_invalid_number": "Nombre invalide",
+    "nutrition_page_update_running": "Mise à jour du produit sur le serveur...",
+    "nutrition_page_update_done": "Produit mis à jour !",
     "more_photos": "Plus de photos intéressantes",
     "@more_photos": {},
     "no_product_found": "Aucun produit trouvé",
@@ -359,19 +362,19 @@
     "@Product Addition": {},
     "added_product_thanks": "Merci d'avoir ajouté ce produit !",
     "@added_product_thanks": {},
-    "product_improvement_add_category": "Add a category to calculate the Nutri-Score.",
+    "product_improvement_add_category": "Ajoutez une catégorie pour calculer le Nutri-Score.",
     "@product_improvement_add_category": {
         "description": "Message for ProductImprovement.ADD_CATEGORY"
     },
-    "product_improvement_add_nutrition_facts": "Add nutrition facts to calculate the Nutri-Score.",
+    "product_improvement_add_nutrition_facts": "Ajoutez des informations nutritionnelles pour calculer le Nutri-Score.",
     "@product_improvement_add_nutrition_facts": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
     },
-    "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to calculate the Nutri-Score.",
+    "product_improvement_add_nutrition_facts_and_category": "Ajoutez des informations nutritionnelles et une catégorie pour calculer le Nutri-Score.",
     "@product_improvement_add_nutrition_facts_and_category": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
     },
-    "product_improvement_categories_but_no_nutriscore": "The Nutri-Score for this product can't be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.",
+    "product_improvement_categories_but_no_nutriscore": "Le Nutri-Score de ce produit ne peut pas être calculé, ce qui peut être dû, par exemple, à une catégorie non standard. Si cela est considéré comme une erreur, veuillez nous contacter.",
     "@product_improvement_categories_but_no_nutriscore": {
         "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
@@ -379,7 +382,7 @@
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take a photo of them (ingredient list and/or any geographic claim or edit the product) so that they can be taken into account.",
+    "product_improvement_origins_to_be_completed": "L'Eco-Score prend en compte l'origine des ingrédients. Veuillez les prendre en photo (liste d'ingrédients et/ou toute allégation géographique) ou modifiez le produit afin qu'elles puissent être prises en compte.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
@@ -387,7 +390,7 @@
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },
-    "country_selection_explanation": "Some environmental features are location-specific",
+    "country_selection_explanation": "Certaines fonctionnalités environnementales nécessitent un emplacement.",
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },

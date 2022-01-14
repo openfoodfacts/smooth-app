@@ -3,8 +3,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/cards/data_cards/image_upload_card.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panels_builder.dart';
+import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
@@ -125,76 +125,24 @@ class _ProductPageState extends State<ProductPage> {
     localDatabase.notifyListeners();
   }
 
-  Widget _buildProductImagesCarousel(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-    final List<ImageUploadCard> carouselItems = <ImageUploadCard>[
-      ImageUploadCard(
-        product: _product,
-        imageField: ImageField.FRONT,
-        imageUrl: _product.imageFrontUrl,
-        title: appLocalizations.product,
-        buttonText: appLocalizations.front_photo,
-      ),
-      ImageUploadCard(
-        product: _product,
-        imageField: ImageField.INGREDIENTS,
-        imageUrl: _product.imageIngredientsUrl,
-        title: appLocalizations.ingredients,
-        buttonText: appLocalizations.ingredients_photo,
-      ),
-      ImageUploadCard(
-        product: _product,
-        imageField: ImageField.NUTRITION,
-        imageUrl: _product.imageNutritionUrl,
-        title: appLocalizations.nutrition,
-        buttonText: appLocalizations.nutrition_facts_photo,
-      ),
-      ImageUploadCard(
-        product: _product,
-        imageField: ImageField.PACKAGING,
-        imageUrl: _product.imagePackagingUrl,
-        title: appLocalizations.packaging_information,
-        buttonText: appLocalizations.packaging_information_photo,
-      ),
-      ImageUploadCard(
-        product: _product,
-        imageField: ImageField.OTHER,
-        imageUrl: null,
-        title: appLocalizations.more_photos,
-        buttonText: appLocalizations.more_photos,
-      ),
-    ];
-
-    return SizedBox(
-      height: 200,
-      child: ListView(
-        // This next line does the trick.
-        scrollDirection: Axis.horizontal,
-        children: carouselItems
-            .map(
-              (ImageUploadCard item) => Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 5, 0),
-                decoration: const BoxDecoration(color: Colors.black12),
-                child: item,
-              ),
-            )
-            .toList(),
-      ),
-    );
-  }
-
   Widget _buildProductBody(BuildContext context) {
     return ListView(children: <Widget>[
       Align(
         heightFactor: 0.7,
         alignment: Alignment.topLeft,
-        child: _buildProductImagesCarousel(context),
+        child: ProductImageCarousel(_product, height: 200),
       ),
       Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: SMALL_SPACE,
         ),
-        child: SummaryCard(_product, _productPreferences, isFullVersion: true),
+        child: SummaryCard(
+          _product,
+          _productPreferences,
+          isFullVersion: true,
+          showUnansweredQuestions: true,
+          refreshProductCallback: _refreshProduct,
+        ),
       ),
       _buildKnowledgePanelCards(),
     ]);

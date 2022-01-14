@@ -12,6 +12,7 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "save": "ಉಳಿಸು",
     "cancel": "Cancel",
     "@cancel": {},
     "close": "Close",
@@ -131,8 +132,8 @@
     "sign_up_page_display_name_hint": "Display Name",
     "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
     "sign_up_page_email_hint": "E-mail",
-    "sign_up_page_email_error_empty": "Please enter your e-mail",
-    "sign_up_page_email_error_invalid": "Please enter a valid e-mail",
+    "sign_up_page_email_error_empty": "E-mail is required",
+    "sign_up_page_email_error_invalid": "This e-mail is invalid",
     "sign_up_page_username_hint": "ಬಳಕೆದಾರನ ಹೆಸರು",
     "sign_up_page_username_error_empty": "Please enter a username",
     "sign_up_page_username_error_invalid": "Please enter a valid username",
@@ -142,7 +143,7 @@
     "sign_up_page_password_error_invalid": "Please enter a valid password (at least 6 characters)",
     "sign_up_page_confirm_password_hint": "Confirm Password",
     "sign_up_page_confirm_password_error_empty": "Please confirm the password",
-    "sign_up_page_confirm_password_error_invalid": "The passwords have to be identical",
+    "sign_up_page_confirm_password_error_invalid": "Passwords don't match",
     "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
@@ -234,7 +235,7 @@
     "myPreferences_settings_subtitle": "Dark mode, country, color, ...",
     "myPreferences_food_title": "Food Preferences",
     "myPreferences_food_subtitle": "Choose what information about food matters most to you.",
-    "confirmResetPreferences": "Reset your preferences?",
+    "confirmResetPreferences": "Reset your food preferences?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
     },
@@ -320,6 +321,13 @@
     "score_add_missing_ingredients": "Add missing ingredients",
     "score_add_missing_nutrition_facts": "Add missing nutrition facts",
     "score_add_missing_product_category": "Add missing product category",
+    "score_update_nutrition_facts": "Update nutrition facts",
+    "nutrition_page_title": "Product Nutrition Facts",
+    "nutrition_page_unspecified": "Nutrition facts are not specified on the product",
+    "nutrition_page_per_100g": "per 100g",
+    "nutrition_page_per_serving": "per serving",
+    "nutrition_page_add_nutrient": "Add a nutrient",
+    "nutrition_page_serving_size": "ವಿತರಣೆಯ ಗಾತ್ರ",
     "more_photos": "More interesting photos",
     "@more_photos": {},
     "no_product_found": "No product found",
