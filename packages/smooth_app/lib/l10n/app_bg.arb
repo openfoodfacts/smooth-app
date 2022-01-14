@@ -13,6 +13,7 @@
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
     "save": "Запис",
+    "skip": "Пропусни",
     "cancel": "Отмени",
     "@cancel": {},
     "close": "Затвори",
@@ -21,8 +22,10 @@
     "@no": {},
     "stop": "Спри",
     "@stop": {},
-    "reset": "Нулиране",
-    "@reset": {},
+    "reset_food_prefs": "Reset food preferences",
+    "@reset": {
+        "description": "Button label, clicking on the button will reset user's food preferences."
+    },
     "error": "Нещо се обърка",
     "@error": {},
     "error_occurred": "Възникна грешка",
@@ -132,8 +135,8 @@
     "sign_up_page_display_name_hint": "Екранно име",
     "sign_up_page_display_name_error_empty": "Моля, въведи екранно име, което искаш да използваш",
     "sign_up_page_email_hint": "Имейл",
-    "sign_up_page_email_error_empty": "E-mail is required",
-    "sign_up_page_email_error_invalid": "This e-mail is invalid",
+    "sign_up_page_email_error_empty": "Изисква се имейл",
+    "sign_up_page_email_error_invalid": "Невалиден имейл",
     "sign_up_page_username_hint": "Потребителско име",
     "sign_up_page_username_error_empty": "Моля, въведи потребителско име",
     "sign_up_page_username_error_invalid": "Въведи валидно потребителско име",
@@ -143,7 +146,7 @@
     "sign_up_page_password_error_invalid": "Моля, въведи валидна парола (поне 6 знака)",
     "sign_up_page_confirm_password_hint": "Потвърди паролата",
     "sign_up_page_confirm_password_error_empty": "Моля, потвърди паролата",
-    "sign_up_page_confirm_password_error_invalid": "Passwords don't match",
+    "sign_up_page_confirm_password_error_invalid": "Паролите не съвпадат",
     "sign_up_page_agree_url": "https://bg.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
@@ -173,14 +176,17 @@
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch"
     },
-    "contributors": "Сътрудници",
+    "thanks_for_contributing": "Thanks for contributing",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
+    "contributors": "Сътрудници",
     "support": "Поддръжка",
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
+    "support_join_slack": "Ask for help in our Slack channel",
+    "support_via_email": "Send us a e-mail",
     "termsOfUse": "Условия за ползване",
     "@termsOfUse": {},
     "about_this_app": "Относно приложението",
@@ -188,7 +194,7 @@
         "description": "Button label: Opens a pop up window which shows information about the app"
     },
     "@About this app section": {},
-    "contribute": "Contribute",
+    "contribute": "Допринеси",
     "@contribute": {
         "description": "Button label: Shows multiple ways how users can contribute to OFF"
     },
@@ -224,6 +230,14 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Преводите са една от ключовите задачи на проекта",
     "@contribute_translate_text_2": {},
+    "tap_to_answer": "Tap here to answer questions",
+    "@tap_to_answer": {
+        "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
+    },
+    "contribute_to_get_rewards": "Help food transparency and get reward badges",
+    "@contribute_to_get_rewards": {
+        "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
+    },
     "@Personal preferences": {},
     "myPreferences": "Моите настройки",
     "@myPreferences": {
@@ -235,7 +249,7 @@
     "myPreferences_settings_subtitle": "Тъмен режим, страна, цвят ...",
     "myPreferences_food_title": "Хранителни предпочитания",
     "myPreferences_food_subtitle": "Избери каква информация за храната е най-важна за теб.",
-    "confirmResetPreferences": "Reset your food preferences?",
+    "confirmResetPreferences": "Нулирай твоите хранителни предпочитания?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
     },
@@ -318,16 +332,19 @@
     "@packaging_information_photo": {},
     "missing_product": "Този продукт липсва",
     "@missing_product": {},
-    "score_add_missing_ingredients": "Add missing ingredients",
-    "score_add_missing_nutrition_facts": "Add missing nutrition facts",
-    "score_add_missing_product_category": "Add missing product category",
-    "score_update_nutrition_facts": "Update nutrition facts",
-    "nutrition_page_title": "Product Nutrition Facts",
-    "nutrition_page_unspecified": "Nutrition facts are not specified on the product",
-    "nutrition_page_per_100g": "per 100g",
+    "score_add_missing_ingredients": "Добави липсващите съставки",
+    "score_add_missing_nutrition_facts": "Добави липсващи хранителни стойности",
+    "score_add_missing_product_category": "Добави липсваща продуктова категория",
+    "score_update_nutrition_facts": "Актуализирай хранителните стойности",
+    "nutrition_page_title": "Хранителни стойности за продукта",
+    "nutrition_page_unspecified": "Хранителните стойности не са споменати на продукта",
+    "nutrition_page_per_100g": "на 100 г",
     "nutrition_page_per_serving": "на порция",
     "nutrition_page_add_nutrient": "Добави хранително вещество",
     "nutrition_page_serving_size": "Размер на порция",
+    "nutrition_page_invalid_number": "Invalid number",
+    "nutrition_page_update_running": "Updating the product on the server...",
+    "nutrition_page_update_done": "Product updated!",
     "more_photos": "Още интересни снимки",
     "@more_photos": {},
     "no_product_found": "Няма намерен продукт",

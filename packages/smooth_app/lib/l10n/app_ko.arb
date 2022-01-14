@@ -13,6 +13,7 @@
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
     "save": "저장",
+    "skip": "건너뛰기",
     "cancel": "취소",
     "@cancel": {},
     "close": "닫기",
@@ -21,8 +22,10 @@
     "@no": {},
     "stop": "중지",
     "@stop": {},
-    "reset": "초기화",
-    "@reset": {},
+    "reset_food_prefs": "Reset food preferences",
+    "@reset": {
+        "description": "Button label, clicking on the button will reset user's food preferences."
+    },
     "error": "문제가 발생했습니다",
     "@error": {},
     "error_occurred": "오류가 발생했습니다",
@@ -132,8 +135,8 @@
     "sign_up_page_display_name_hint": "표시할 이름",
     "sign_up_page_display_name_error_empty": "사용하고자 하는 이름을 입력하십시오",
     "sign_up_page_email_hint": "이메일",
-    "sign_up_page_email_error_empty": "E-mail is required",
-    "sign_up_page_email_error_invalid": "This e-mail is invalid",
+    "sign_up_page_email_error_empty": "이메일이 필요합니다",
+    "sign_up_page_email_error_invalid": "잘못된 이메일입니다",
     "sign_up_page_username_hint": "사용자 이름",
     "sign_up_page_username_error_empty": "사용자 이름을 입력하십시오",
     "sign_up_page_username_error_invalid": "유효한 사용자 이름을 입력하십시오",
@@ -143,7 +146,7 @@
     "sign_up_page_password_error_invalid": "유효한 비밀번호를 입력하십시오 (최소 6자 이상)",
     "sign_up_page_confirm_password_hint": "비밀번호 확인",
     "sign_up_page_confirm_password_error_empty": "비밀번호를 확인하십시오",
-    "sign_up_page_confirm_password_error_invalid": "Passwords don't match",
+    "sign_up_page_confirm_password_error_invalid": "비밀번호가 일치하지 않습니다",
     "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
@@ -173,14 +176,17 @@
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch"
     },
-    "contributors": "기여자",
+    "thanks_for_contributing": "Thanks for contributing",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
+    "contributors": "기여자",
     "support": "Support",
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
+    "support_join_slack": "Ask for help in our Slack channel",
+    "support_via_email": "Send us a e-mail",
     "termsOfUse": "이용 약관",
     "@termsOfUse": {},
     "about_this_app": "앱 정보",
@@ -224,6 +230,14 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "번역은 프로젝트의 핵심 작업 중 하나입니다",
     "@contribute_translate_text_2": {},
+    "tap_to_answer": "Tap here to answer questions",
+    "@tap_to_answer": {
+        "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
+    },
+    "contribute_to_get_rewards": "Help food transparency and get reward badges",
+    "@contribute_to_get_rewards": {
+        "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
+    },
     "@Personal preferences": {},
     "myPreferences": "내 설정",
     "@myPreferences": {
@@ -235,7 +249,7 @@
     "myPreferences_settings_subtitle": "다크 모드, 국가, 색상, ...",
     "myPreferences_food_title": "식품 설정",
     "myPreferences_food_subtitle": "당신에게 가장 중요한 음식 정보를 선택하십시오.",
-    "confirmResetPreferences": "Reset your food preferences?",
+    "confirmResetPreferences": "식품 설정을 초기화하시겠습니까?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
     },
@@ -321,13 +335,16 @@
     "score_add_missing_ingredients": "누락된 재료 추가",
     "score_add_missing_nutrition_facts": "누락된 영양성분 추가",
     "score_add_missing_product_category": "누락된 상품 카테고리 추가",
-    "score_update_nutrition_facts": "Update nutrition facts",
-    "nutrition_page_title": "Product Nutrition Facts",
-    "nutrition_page_unspecified": "Nutrition facts are not specified on the product",
-    "nutrition_page_per_100g": "per 100g",
+    "score_update_nutrition_facts": "영양 성분 갱신",
+    "nutrition_page_title": "상품 영양 성분",
+    "nutrition_page_unspecified": "영양성분표가 상품에 명시되어 있지 않습니다",
+    "nutrition_page_per_100g": "100g 당",
     "nutrition_page_per_serving": "인분",
     "nutrition_page_add_nutrient": "영양소 추가하기",
     "nutrition_page_serving_size": "서빙 사이즈",
+    "nutrition_page_invalid_number": "Invalid number",
+    "nutrition_page_update_running": "Updating the product on the server...",
+    "nutrition_page_update_done": "Product updated!",
     "more_photos": "기타 흥미로운 사진",
     "@more_photos": {},
     "no_product_found": "상품 없음",

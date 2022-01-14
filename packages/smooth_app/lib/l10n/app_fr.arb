@@ -13,6 +13,7 @@
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
     "save": "Enregistrer",
+    "skip": "Ignorer",
     "cancel": "Annuler",
     "@cancel": {},
     "close": "Fermer",
@@ -21,8 +22,10 @@
     "@no": {},
     "stop": "Arrêter",
     "@stop": {},
-    "reset": "Réinitialiser",
-    "@reset": {},
+    "reset_food_prefs": "Réinitialiser les préférences alimentaires",
+    "@reset": {
+        "description": "Button label, clicking on the button will reset user's food preferences."
+    },
     "error": "Quelque chose ne va pas",
     "@error": {},
     "error_occurred": "Une erreur s’est produite",
@@ -132,8 +135,8 @@
     "sign_up_page_display_name_hint": "Nom d’affichage",
     "sign_up_page_display_name_error_empty": "Veuillez saisir le nom d'affichage que vous souhaitez utiliser",
     "sign_up_page_email_hint": "E-mail",
-    "sign_up_page_email_error_empty": "E-mail is required",
-    "sign_up_page_email_error_invalid": "This e-mail is invalid",
+    "sign_up_page_email_error_empty": "Un e-mail est requis",
+    "sign_up_page_email_error_invalid": "Cette adresse email est invalide",
     "sign_up_page_username_hint": "Nom d'utilisateur",
     "sign_up_page_username_error_empty": "Veuillez saisir un nom d'utilisateur",
     "sign_up_page_username_error_invalid": "Veuillez saisir un nom d'utilisateur valide",
@@ -143,12 +146,12 @@
     "sign_up_page_password_error_invalid": "Veuillez saisir un mot de passe valide (au moins 6 caractères)",
     "sign_up_page_confirm_password_hint": "Confirmez le mot de passe",
     "sign_up_page_confirm_password_error_empty": "Veuillez confirmer le mot de passe",
-    "sign_up_page_confirm_password_error_invalid": "Passwords don't match",
+    "sign_up_page_confirm_password_error_invalid": "Les mots de passe ne correspondent pas",
     "sign_up_page_agree_url": "https://world-fr.openfoodfacts.org/conditions-d-utilisation",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
-    "sign_up_page_agree_error_invalid": "When creating an account, agreeing to the Terms of Use is mandatory, however, anonymous contributions can still be made through the app",
+    "sign_up_page_agree_error_invalid": "Lors de la création d'un compte, l'acceptation des conditions d'utilisation est obligatoire, cependant, des contributions anonymes peuvent toujours être effectuées via l'application",
     "@sign_up_page_agree_error_invalid": {
         "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
     },
@@ -173,14 +176,17 @@
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch"
     },
-    "contributors": "Contributeurs",
+    "thanks_for_contributing": "Thanks for contributing",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
+    "contributors": "Contributeurs",
     "support": "Support",
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
+    "support_join_slack": "Ask for help in our Slack channel",
+    "support_via_email": "Send us a e-mail",
     "termsOfUse": "Conditions d'utilisation",
     "@termsOfUse": {},
     "about_this_app": "À propos de cette appli",
@@ -224,6 +230,14 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Les traductions sont l'une des tâches clés du projet",
     "@contribute_translate_text_2": {},
+    "tap_to_answer": "Tap here to answer questions",
+    "@tap_to_answer": {
+        "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
+    },
+    "contribute_to_get_rewards": "Help food transparency and get reward badges",
+    "@contribute_to_get_rewards": {
+        "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
+    },
     "@Personal preferences": {},
     "myPreferences": "Mes préférences",
     "@myPreferences": {
@@ -328,9 +342,9 @@
     "nutrition_page_per_serving": "par portion",
     "nutrition_page_add_nutrient": "Ajouter un nutriment",
     "nutrition_page_serving_size": "Taille d'une portion",
-    "nutrition_page_invalid_number": "Nombre invalide",
-    "nutrition_page_update_running": "Mise à jour du produit sur le serveur...",
-    "nutrition_page_update_done": "Produit mis à jour !",
+    "nutrition_page_invalid_number": "Invalid number",
+    "nutrition_page_update_running": "Updating the product on the server...",
+    "nutrition_page_update_done": "Product updated!",
     "more_photos": "Plus de photos intéressantes",
     "@more_photos": {},
     "no_product_found": "Aucun produit trouvé",
