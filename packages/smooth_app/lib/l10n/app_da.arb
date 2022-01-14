@@ -22,7 +22,7 @@
     "@no": {},
     "stop": "Stop",
     "@stop": {},
-    "reset_food_prefs": "Reset food preferences",
+    "reset_food_prefs": "Nulstil fødevarepræferencer",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
     },
@@ -176,7 +176,7 @@
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch"
     },
-    "thanks_for_contributing": "Thanks for contributing",
+    "thanks_for_contributing": "Tak for at bidrage",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
@@ -185,8 +185,8 @@
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
-    "support_join_slack": "Ask for help in our Slack channel",
-    "support_via_email": "Send us a e-mail",
+    "support_join_slack": "Bed om hjælp i vores Slack-kanal",
+    "support_via_email": "Send os en e-mail",
     "termsOfUse": "Afbenyttelsesvilkår",
     "@termsOfUse": {},
     "about_this_app": "Om denne app",
@@ -230,11 +230,11 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Oversættelser er en af projektets nøgleopgaver",
     "@contribute_translate_text_2": {},
-    "tap_to_answer": "Tap here to answer questions",
+    "tap_to_answer": "Tryk her for at besvare spørgsmål",
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "contribute_to_get_rewards": "Help food transparency and get reward badges",
+    "contribute_to_get_rewards": "Hjælp med madgennemsigtighed og få belønningsmærker",
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
@@ -343,8 +343,8 @@
     "nutrition_page_add_nutrient": "Tilføj et næringsstof",
     "nutrition_page_serving_size": "Portionsstørrelse",
     "nutrition_page_invalid_number": "Invalid number",
-    "nutrition_page_update_running": "Updating the product on the server...",
-    "nutrition_page_update_done": "Product updated!",
+    "nutrition_page_update_running": "Opdaterer produktet på serveren...",
+    "nutrition_page_update_done": "Produkt opdateret!",
     "more_photos": "Flere interessante fotos",
     "@more_photos": {},
     "no_product_found": "Intet produkt fundet",
