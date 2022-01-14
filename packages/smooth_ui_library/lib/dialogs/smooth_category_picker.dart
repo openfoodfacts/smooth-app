@@ -18,8 +18,7 @@ typedef CategoryPathSelector<T extends Comparable<T>>
 
 /// A callback used to notify that the visible path in the [SmoothCategoryPicker]
 /// has changed to the given path.
-typedef CategoryPathChangedCallback<T extends Object> = void Function(
-    Iterable<T> categoryPath);
+typedef CategoryPathChangedCallback<T extends Object> = void Function(Iterable<T> categoryPath);
 
 /// A callback used to notify that the [SmoothCategoryPicker] has requested a new
 /// category to be added at the given path.
@@ -27,8 +26,7 @@ typedef AddCategoryCallback<T extends Object> = void Function(List<T> path);
 
 /// A callback used by the [SmoothCategoryPicker] to notify that the set of selected
 /// categories has changed.
-typedef CategoriesChangedCallback<T extends Object> = void Function(
-    Set<T> categories);
+typedef CategoriesChangedCallback<T extends Object> = void Function(Set<T> categories);
 
 /// A Picker for hierarchical categories or other hierarchical data.
 ///
@@ -86,12 +84,10 @@ class SmoothCategoryPicker<T extends Comparable<T>> extends StatefulWidget {
   final CategoryPathChangedCallback<T> onPathChanged;
 
   @override
-  State<SmoothCategoryPicker<T>> createState() =>
-      _SmoothCategoryPickerState<T>();
+  State<SmoothCategoryPicker<T>> createState() => _SmoothCategoryPickerState<T>();
 }
 
-class _SmoothCategoryPickerState<T extends Comparable<T>>
-    extends State<SmoothCategoryPicker<T>> {
+class _SmoothCategoryPickerState<T extends Comparable<T>> extends State<SmoothCategoryPicker<T>> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<SmoothCategory<T>?>(
@@ -234,6 +230,15 @@ abstract class SmoothCategory<T extends Comparable<T>> {
     return results.single;
   }
 
+  Category<T>? findInDescendants(T value) {
+    final Iterable<Category<T>> results =
+        descendants.where((Category<T> child) => child.value == value);
+    if (results.isEmpty) {
+      return null;
+    }
+    return results.single;
+  }
+
   /// Returns a human-readable label that will be displayed in the UI
   String getLabel(OpenFoodFactsLanguage language);
 
@@ -263,8 +268,7 @@ class _CategoryView<T extends Comparable<T>> extends StatefulWidget {
   State<_CategoryView<T>> createState() => _CategoryViewState<T>();
 }
 
-class _CategoryViewState<T extends Comparable<T>>
-    extends State<_CategoryView<T>> {
+class _CategoryViewState<T extends Comparable<T>> extends State<_CategoryView<T>> {
   late PageController controller;
 
   @override
@@ -459,8 +463,7 @@ class _CategoryItem<T extends SmoothCategory<dynamic>> extends StatelessWidget {
 /// If [onDeleted] is supplied, chips can be deleted, and [onDeleted] will be called
 /// when they are.
 class SmoothCategoryDisplay<T extends Object> extends StatefulWidget {
-  SmoothCategoryDisplay({Set<T>? categories, this.onDeleted})
-      : categories = categories ?? <T>{};
+  SmoothCategoryDisplay({Set<T>? categories, this.onDeleted}) : categories = categories ?? <T>{};
 
   /// The set of categories to display.
   ///
@@ -473,8 +476,7 @@ class SmoothCategoryDisplay<T extends Object> extends StatefulWidget {
   final ValueChanged<T>? onDeleted;
 
   @override
-  State<SmoothCategoryDisplay<T>> createState() =>
-      _SmoothCategoryDisplayState<T>();
+  State<SmoothCategoryDisplay<T>> createState() => _SmoothCategoryDisplayState<T>();
 }
 
 class _SmoothCategoryDisplayState<T extends Object>

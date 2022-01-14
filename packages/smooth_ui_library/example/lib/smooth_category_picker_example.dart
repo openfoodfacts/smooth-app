@@ -102,12 +102,14 @@ Future<FruitCategory?> getCategory(Iterable<Fruit> path) async {
   if (path.isEmpty) {
     return null;
   }
+  debugPrint('Looking at path $path');
   FruitCategory? result = categories.value == path.first ? categories : null;
   final List<Fruit> followPath = path.skip(1).toList();
   while (result != null && followPath.isNotEmpty) {
     result = await result.getChild(followPath.first);
     followPath.removeAt(0);
   }
+  debugPrint('Found $result');
   return result;
 }
 
@@ -188,11 +190,13 @@ class _ExampleAppState extends State<ExampleApp> {
           onCategoriesChanged: (Set<Fruit> value) {
             setState(() {
               currentCategories = value;
+              debugPrint('Categories: ${currentCategories.join(', ')}');
             });
           },
           onPathChanged: (Iterable<Fruit> path) {
             setState(() {
               currentCategoryPath = path.toList();
+              debugPrint('Path changed: ${currentCategoryPath.join(' > ')}');
             });
           },
           onAddCategory: (Iterable<Fruit> path) {
