@@ -110,7 +110,6 @@
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
-
     "reset_password_done": "An e-mail with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
     "send_reset_password_mail": "Change password",
     "@send_reset_password_mail": {
@@ -179,12 +178,9 @@
     },
     "thanks_for_contributing": "Thanks for contributing",
     "@contributors": {
-        "description": "Text shown to the user after they have contributed to Open food facts."
-    },
-    "contributors": "Contributors",
-    "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
+    "contributors": "Contributors",
     "support": "Support",
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
