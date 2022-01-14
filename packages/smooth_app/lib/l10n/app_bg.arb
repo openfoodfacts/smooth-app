@@ -186,7 +186,7 @@
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
     "support_join_slack": "Ask for help in our Slack channel",
-    "support_via_email": "Send us a e-mail",
+    "support_via_email": "Изпрати ни имейл",
     "termsOfUse": "Условия за ползване",
     "@termsOfUse": {},
     "about_this_app": "Относно приложението",
@@ -344,7 +344,7 @@
     "nutrition_page_serving_size": "Размер на порция",
     "nutrition_page_invalid_number": "Invalid number",
     "nutrition_page_update_running": "Updating the product on the server...",
-    "nutrition_page_update_done": "Product updated!",
+    "nutrition_page_update_done": "Продуктът е актуализиран!",
     "more_photos": "Още интересни снимки",
     "@more_photos": {},
     "no_product_found": "Няма намерен продукт",
