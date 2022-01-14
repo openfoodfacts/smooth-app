@@ -13,6 +13,7 @@
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
     "save": "Speichern",
+    "skip": "Überspringen",
     "cancel": "Abbrechen",
     "@cancel": {},
     "close": "Schließen",
@@ -21,8 +22,10 @@
     "@no": {},
     "stop": "Stopp",
     "@stop": {},
-    "reset": "Zurücksetzten",
-    "@reset": {},
+    "reset_food_prefs": "Reset food preferences",
+    "@reset": {
+        "description": "Button label, clicking on the button will reset user's food preferences."
+    },
     "error": "Etwas ist schiefgegangen",
     "@error": {},
     "error_occurred": "Ein Fehler ist aufgetreten",
@@ -132,8 +135,8 @@
     "sign_up_page_display_name_hint": "Anzeigename",
     "sign_up_page_display_name_error_empty": "Bitte geben Sie den zu verwendenden Anzeigenamen ein",
     "sign_up_page_email_hint": "E-Mail-Adresse",
-    "sign_up_page_email_error_empty": "E-mail is required",
-    "sign_up_page_email_error_invalid": "This e-mail is invalid",
+    "sign_up_page_email_error_empty": "E-Mail-Adresse erforderlich",
+    "sign_up_page_email_error_invalid": "Ungültige E-Mail Adresse",
     "sign_up_page_username_hint": "Benutzername",
     "sign_up_page_username_error_empty": "Bitte einen Benutzernamen eingeben",
     "sign_up_page_username_error_invalid": "Bitte einen gültigen Benutzernamen eingeben",
@@ -143,7 +146,7 @@
     "sign_up_page_password_error_invalid": "Bitte ein gültiges Passwort eingeben (mindestens 6 Zeichen)",
     "sign_up_page_confirm_password_hint": "Passwort bestätigen",
     "sign_up_page_confirm_password_error_empty": "Bitte bestätigen Sie das Passwort",
-    "sign_up_page_confirm_password_error_invalid": "Passwords don't match",
+    "sign_up_page_confirm_password_error_invalid": "Passwörter stimmen nicht überein",
     "sign_up_page_agree_url": "https://de.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
@@ -173,14 +176,17 @@
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch"
     },
-    "contributors": "Mitwirkende",
+    "thanks_for_contributing": "Thanks for contributing",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
+    "contributors": "Mitwirkende",
     "support": "Support",
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
+    "support_join_slack": "Ask for help in our Slack channel",
+    "support_via_email": "Send us a e-mail",
     "termsOfUse": "Nutzungsbedingungen",
     "@termsOfUse": {},
     "about_this_app": "Über diese App",
@@ -224,6 +230,14 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Übersetzungen sind eine der Hauptaufgaben des Projekts",
     "@contribute_translate_text_2": {},
+    "tap_to_answer": "Tap here to answer questions",
+    "@tap_to_answer": {
+        "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
+    },
+    "contribute_to_get_rewards": "Help food transparency and get reward badges",
+    "@contribute_to_get_rewards": {
+        "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
+    },
     "@Personal preferences": {},
     "myPreferences": "Meine Einstellungen",
     "@myPreferences": {
@@ -235,7 +249,7 @@
     "myPreferences_settings_subtitle": "Dunkler Modus, Land, Farbe, …",
     "myPreferences_food_title": "Lebensmittelvorlieben",
     "myPreferences_food_subtitle": "Wählen Sie aus, welche Informationen über Lebensmittel für Sie am wichtigsten sind.",
-    "confirmResetPreferences": "Reset your food preferences?",
+    "confirmResetPreferences": "Lebensmittelvorlieben zurücksetzen?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
     },
@@ -321,13 +335,16 @@
     "score_add_missing_ingredients": "Fehlende Zutaten hinzufügen",
     "score_add_missing_nutrition_facts": "Fehlende Nährwertangaben hinzufügen",
     "score_add_missing_product_category": "Fehlende Produktkategorie hinzufügen",
-    "score_update_nutrition_facts": "Update nutrition facts",
-    "nutrition_page_title": "Product Nutrition Facts",
-    "nutrition_page_unspecified": "Nutrition facts are not specified on the product",
-    "nutrition_page_per_100g": "per 100g",
+    "score_update_nutrition_facts": "Nährwertangaben aktualisieren",
+    "nutrition_page_title": "Nährwertangaben des Produkts",
+    "nutrition_page_unspecified": "Auf dem Produkt sind keine Nährwertangaben angegeben",
+    "nutrition_page_per_100g": "je 100g",
     "nutrition_page_per_serving": "pro Portion",
     "nutrition_page_add_nutrient": "Nährstoff hinzufügen",
     "nutrition_page_serving_size": "Portionsgröße",
+    "nutrition_page_invalid_number": "Invalid number",
+    "nutrition_page_update_running": "Updating the product on the server...",
+    "nutrition_page_update_done": "Product updated!",
     "more_photos": "Weitere interessante Fotos",
     "@more_photos": {},
     "no_product_found": "Keine Produkte gefunden",
