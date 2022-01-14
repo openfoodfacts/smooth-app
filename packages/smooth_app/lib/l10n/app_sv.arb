@@ -13,6 +13,7 @@
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
     "save": "Spara",
+    "skip": "Hoppa over",
     "cancel": "Annulera",
     "@cancel": {},
     "close": "Stäng",
@@ -21,8 +22,10 @@
     "@no": {},
     "stop": "Stopp",
     "@stop": {},
-    "reset": "Återställ",
-    "@reset": {},
+    "reset_food_prefs": "Reset food preferences",
+    "@reset": {
+        "description": "Button label, clicking on the button will reset user's food preferences."
+    },
     "error": "Någonting gick fel",
     "@error": {},
     "error_occurred": "Ett fel uppstod",
@@ -131,7 +134,7 @@
     "sign_up_page_action_ok": "Congratulations! Your account has just been created.",
     "sign_up_page_display_name_hint": "Visningsnamn",
     "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
-    "sign_up_page_email_hint": "E-mail",
+    "sign_up_page_email_hint": "E-post",
     "sign_up_page_email_error_empty": "E-mail is required",
     "sign_up_page_email_error_invalid": "This e-mail is invalid",
     "sign_up_page_username_hint": "Användarnamn",
@@ -153,7 +156,7 @@
         "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
     },
     "sign_up_page_producer_checkbox": "I am a food producer",
-    "sign_up_page_producer_hint": "Producer/brand",
+    "sign_up_page_producer_hint": "Producent/märke",
     "sign_up_page_producer_error_empty": "Please enter a producer or a brand name",
     "sign_up_page_subscribe_checkbox": "Jag vill prenumerera på Open Food Facts nyhetsbrev (Du kan avregistrera dig när som helst)",
     "@Settings": {},
@@ -173,14 +176,17 @@
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch"
     },
-    "contributors": "Medverkande",
+    "thanks_for_contributing": "Thanks for contributing",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
+    "contributors": "Medverkande",
     "support": "Stod",
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
+    "support_join_slack": "Ask for help in our Slack channel",
+    "support_via_email": "Send us a e-mail",
     "termsOfUse": "Användningsvillkor",
     "@termsOfUse": {},
     "about_this_app": "About this app",
@@ -224,6 +230,14 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Översättningar är ett av projektets viktigaste uppgifter",
     "@contribute_translate_text_2": {},
+    "tap_to_answer": "Tap here to answer questions",
+    "@tap_to_answer": {
+        "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
+    },
+    "contribute_to_get_rewards": "Help food transparency and get reward badges",
+    "@contribute_to_get_rewards": {
+        "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
+    },
     "@Personal preferences": {},
     "myPreferences": "Mina preferenser",
     "@myPreferences": {
@@ -231,7 +245,7 @@
     },
     "myPreferences_profile_title": "Your Profile",
     "myPreferences_profile_subtitle": "Set app settings and find out advices.",
-    "myPreferences_settings_title": "App Settings",
+    "myPreferences_settings_title": "Appinställningar",
     "myPreferences_settings_subtitle": "Dark mode, country, color, ...",
     "myPreferences_food_title": "Food Preferences",
     "myPreferences_food_subtitle": "Choose what information about food matters most to you.",
@@ -293,7 +307,7 @@
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
-    "image": "Image",
+    "image": "Bild",
     "front_photo": "Framsidans foto",
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
@@ -328,6 +342,9 @@
     "nutrition_page_per_serving": "per portion",
     "nutrition_page_add_nutrient": "Lägg till ett näringsämne",
     "nutrition_page_serving_size": "Portionsstorlek",
+    "nutrition_page_invalid_number": "Invalid number",
+    "nutrition_page_update_running": "Updating the product on the server...",
+    "nutrition_page_update_done": "Product updated!",
     "more_photos": "Fler intressanta bilder",
     "@more_photos": {},
     "no_product_found": "Ingen produkt hittades",
