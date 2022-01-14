@@ -3,7 +3,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/user_preferences_food.dart';
@@ -24,7 +23,6 @@ class _UserPreferencesPageState extends State<UserPreferencesPage> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final UserPreferences userPreferences = context.watch<UserPreferences>();
-    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final ThemeData themeData = Theme.of(context);
     final ProductPreferences productPreferences =
@@ -63,7 +61,6 @@ class _UserPreferencesPageState extends State<UserPreferencesPage> {
           userPreferences: userPreferences,
           appLocalizations: appLocalizations,
           themeData: themeData,
-          localDatabase: localDatabase,
         ),
       );
     }
