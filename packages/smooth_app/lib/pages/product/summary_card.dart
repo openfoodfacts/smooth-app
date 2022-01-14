@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
-import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
 import 'package:smooth_app/cards/product_cards/question_card.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/database/robotoff_questions_query.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
@@ -34,7 +33,8 @@ class SummaryCard extends StatefulWidget {
     this._product,
     this._productPreferences, {
     this.isFullVersion = false,
-    this.productQuestions,
+    this.showUnansweredQuestions = false,
+    this.refreshProductCallback,
   });
 
   final Product _product;
@@ -44,7 +44,12 @@ class SummaryCard extends StatefulWidget {
   /// smaller screens.
   final bool isFullVersion;
 
-  final Future<List<RobotoffQuestion>>? productQuestions;
+  /// If true, the summary card will try to load unanswered questions about this
+  /// product and give a prompt to answer those questions.
+  final bool showUnansweredQuestions;
+
+  /// Callback to refresh the product when necessary.
+  final Function(BuildContext)? refreshProductCallback;
 
   @override
   State<SummaryCard> createState() => _SummaryCardState();
@@ -57,6 +62,20 @@ class _SummaryCardState extends State<SummaryCard> {
 
   // For some reason, special case for "label" attributes
   final Set<String> _attributesToExcludeIfStatusIsUnknown = <String>{};
+  Future<List<RobotoffQuestion>>? _productQuestions;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.showUnansweredQuestions) {
+      loadProductQuestions();
+    }
+  }
+
+  Future<void> loadProductQuestions() async {
+    _productQuestions = RobotoffQuestionsQuery(widget._product.barcode!)
+        .getRobotoffQuestionsForProduct();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -383,11 +402,11 @@ class _SummaryCardState extends State<SummaryCard> {
 
   Widget _buildProductQuestionsWidget() {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-    if (widget.productQuestions == null) {
+    if (_productQuestions == null) {
       return EMPTY_WIDGET;
     }
     return FutureBuilder<List<RobotoffQuestion>>(
-        future: widget.productQuestions,
+        future: _productQuestions,
         builder: (
           BuildContext context,
           AsyncSnapshot<List<RobotoffQuestion>> snapshot,
@@ -396,13 +415,14 @@ class _SummaryCardState extends State<SummaryCard> {
               snapshot.data ?? <RobotoffQuestion>[];
           if (questions.isNotEmpty) {
             return InkWell(
-              onTap: () {
-                Navigator.push<Widget>(
+              onTap: () async {
+                await Navigator.push<Widget>(
                   context,
                   MaterialPageRoute<Widget>(
                     builder: (BuildContext context) => QuestionCard(
                       product: widget._product,
                       questions: questions,
+                      updateProductUponAnswers: updateProductUponAnswers,
                     ),
                   ),
                 );
@@ -432,5 +452,16 @@ class _SummaryCardState extends State<SummaryCard> {
           }
           return EMPTY_WIDGET;
         });
+  }
+
+  Future<void> updateProductUponAnswers() async {
+    // Reload the product questions, they might have been answered.
+    // Or the backend may have new ones.
+    await loadProductQuestions();
+    // Reload the product as it may have been updated because of the
+    // new answers.
+    if (widget.refreshProductCallback != null) {
+      widget.refreshProductCallback!(context);
+    }
   }
 }

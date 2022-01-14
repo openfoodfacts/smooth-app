@@ -96,8 +96,8 @@ List<Widget> getScannerWidgets(
         padding: qrScannerPadding,
         child: SvgPicture.asset(
           'assets/actions/scanner_alt_2.svg',
-          width: 60.0,
-          height: 6,
+          width: scannerSize.width,
+          height: scannerSize.height,
           color: Colors.white,
         ),
       ),
