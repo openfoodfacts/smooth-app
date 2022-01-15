@@ -176,7 +176,7 @@
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch"
     },
-    "thanks_for_contributing": "Thanks for contributing",
+    "thanks_for_contributing": "Благодаря за приноса",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
@@ -185,7 +185,7 @@
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
-    "support_join_slack": "Ask for help in our Slack channel",
+    "support_join_slack": "Помоли за помощ в нашият Slack канал",
     "support_via_email": "Изпрати ни имейл",
     "termsOfUse": "Условия за ползване",
     "@termsOfUse": {},
@@ -230,7 +230,7 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Преводите са една от ключовите задачи на проекта",
     "@contribute_translate_text_2": {},
-    "tap_to_answer": "Tap here to answer questions",
+    "tap_to_answer": "Натисни тук, за да отговориш на въпроси",
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
@@ -342,8 +342,8 @@
     "nutrition_page_per_serving": "на порция",
     "nutrition_page_add_nutrient": "Добави хранително вещество",
     "nutrition_page_serving_size": "Размер на порция",
-    "nutrition_page_invalid_number": "Invalid number",
-    "nutrition_page_update_running": "Updating the product on the server...",
+    "nutrition_page_invalid_number": "Невалидно число",
+    "nutrition_page_update_running": "Актуализиране на продукта на сървърът...",
     "nutrition_page_update_done": "Продуктът е актуализиран!",
     "more_photos": "Още интересни снимки",
     "@more_photos": {},
