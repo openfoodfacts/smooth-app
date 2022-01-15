@@ -158,7 +158,7 @@ class UserPreferencesSettings extends AbstractUserPreferences {
                         style: themeData.textTheme.headline1,
                       ),
                       subtitle: Text(
-                        packageInfo.version,
+                        '${packageInfo.version}+${packageInfo.buildNumber}',
                         style: themeData.textTheme.subtitle2,
                       ),
                     ),
