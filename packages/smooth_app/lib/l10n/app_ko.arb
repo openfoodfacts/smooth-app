@@ -151,6 +151,10 @@
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
+    "donate_url": "https://donate.openfoodfacts.org/",
+    "@donate_url": {
+        "description": "Please insert the right url from the website here."
+    },
     "sign_up_page_agree_error_invalid": "When creating an account, agreeing to the Terms of Use is mandatory, however, anonymous contributions can still be made through the app",
     "@sign_up_page_agree_error_invalid": {
         "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
@@ -246,7 +250,7 @@
     "myPreferences_profile_title": "내 프로필",
     "myPreferences_profile_subtitle": "앱 설정을 지정하고 조언을 찾으십시오.",
     "myPreferences_settings_title": "앱 설정",
-    "myPreferences_settings_subtitle": "다크 모드, 국가, 색상, ...",
+    "myPreferences_settings_subtitle": "Dark mode, Theme, ...",
     "myPreferences_food_title": "식품 설정",
     "myPreferences_food_subtitle": "당신에게 가장 중요한 음식 정보를 선택하십시오.",
     "confirmResetPreferences": "식품 설정을 초기화하시겠습니까?",
