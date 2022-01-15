@@ -62,6 +62,7 @@ class UserContributionView extends StatelessWidget {
                           SmoothListTile(
                             text: AppLocalizations.of(context)!
                                 .contribute_donate_header,
+                            leadingWidget: const Icon(Icons.open_in_new),
                             onPressed: () => _donate(context),
                           ),
 
@@ -215,28 +216,10 @@ class UserContributionView extends StatelessWidget {
     );
   }
 
-  Future<void> _donate(BuildContext context) {
-    return showDialog<void>(
-      context: context,
-      builder: (BuildContext context) {
-        return SmoothAlertDialog(
-          body: Column(
-            children: <Widget>[
-              Text(
-                AppLocalizations.of(context)!.featureInProgress,
-              ),
-            ],
-          ),
-          actions: <SmoothSimpleButton>[
-            SmoothSimpleButton(
-              text: AppLocalizations.of(context)!.okay,
-              onPressed: () =>
-                  Navigator.of(context, rootNavigator: true).pop('dialog'),
-              minWidth: 150,
-            )
-          ],
-        );
-      },
+  Future<void> _donate(BuildContext context) async {
+    await LaunchUrlHelper.launchURL(
+      AppLocalizations.of(context)!.donate_url,
+      false,
     );
   }
 
