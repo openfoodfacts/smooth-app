@@ -21,8 +21,8 @@ class CategoryTreeNode extends SmoothCategory<Category> {
   String getLabel(OpenFoodFactsLanguage language) => value.getName(language);
 
   // These overrides are just to provide more type convenience when working with the
-  // categories, so we don't have to use "Category<CategoryInfo>" instead of
-  // "SmoothCategory".
+  // categories, so we don't have to use SmoothCategory<Category>" instead of
+  // "CategoryTreeNode".
   @override
   Stream<CategoryTreeNode> getDescendants() {
     return super.getDescendants() as Stream<CategoryTreeNode>;
@@ -40,6 +40,7 @@ class CategoryTreeNode extends SmoothCategory<Category> {
 
   @override
   Stream<SmoothCategory<Category>> getChildren() async* {
+
   }
 
   @override

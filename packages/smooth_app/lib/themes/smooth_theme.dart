@@ -109,7 +109,6 @@ class SmoothTheme {
           MATERIAL_COLORS[colorTag] ?? MATERIAL_COLORS[COLOR_TAG_BLUE]!;
       myColorScheme = ColorScheme.light(
         primary: materialColor[600]!,
-        primaryVariant: materialColor[900]!,
       );
     }
 

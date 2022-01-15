@@ -3,6 +3,8 @@ import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
+import 'package:smooth_app/data_models/smooth_category.dart';
+import 'package:smooth_app/database/category_query.dart';
 import 'package:smooth_app/database/product_query.dart';
 
 enum LoadingStatus {
@@ -20,22 +22,32 @@ class ProductQueryModel with ChangeNotifier {
 
   final ProductListSupplier supplier;
 
-  static const String _CATEGORY_ALL = 'all';
-
   LoadingStatus _loadingStatus = LoadingStatus.LOADING;
+  final CategoryQuery _categoryQuery = CategoryQuery();
   String? _loadingError;
   List<Product>? _products;
   List<Product>? displayProducts;
   bool isNotEmpty() => _products != null && _products!.isNotEmpty;
 
-  /// <Label, Label (count)> [Map]
-  final Map<String, String> categories = <String, String>{};
+  /// The currently selected filter categories.
+  Set<Category> selectedCategories = <Category>{};
+  /// The currently selected category path.
+  List<Category> categoryPath = <Category>[];
 
-  /// <Label, count> [Map]
-  final Map<String, int> _categoriesCounter = <String, int>{};
+  Future<CategoryTreeNode?> getCategory(Iterable<Category> categoryPath) async {
+    debugPrint('Getting category for path $categoryPath');
+    if (categoryPath.isEmpty) {
+      debugPrint('Getting root category');
+      return _categoryQuery.getCategoryTreeRoot();
+    }
+    debugPrint('Getting category ${categoryPath.last.tag}');
+    return _categoryQuery.getCategory(categoryPath.last.tag);
+  }
 
-  /// Sorted labels
-  final List<String> sortedCategories = <String>[];
+  void setCategoryPath(Iterable<Category> value) {
+    categoryPath = value.toList();
+    notifyListeners();
+  }
 
   String? get loadingError => _loadingError;
   LoadingStatus get loadingStatus => _loadingStatus;
@@ -52,8 +64,6 @@ class ProductQueryModel with ChangeNotifier {
   }
 
   /// Sorts the products by category.
-  ///
-  /// [translationForAll] is the displayed translation for meta category "All".
   void process(final String translationForAll) {
     if (_loadingStatus != LoadingStatus.LOADED) {
       return;
@@ -64,57 +74,23 @@ class ProductQueryModel with ChangeNotifier {
     _products = productList.getList();
 
     displayProducts = _products;
-
-    categories[_CATEGORY_ALL] = translationForAll;
-
-    for (final Product product in _products!) {
-      if (product.categoriesTagsInLanguages != null) {
-        final List<String>? translatedCategories =
-            product.categoriesTagsInLanguages![ProductQuery.getLanguage()];
-        if (translatedCategories != null) {
-          for (final String category in translatedCategories) {
-            categories[category] = '';
-            _categoriesCounter[category] =
-                (_categoriesCounter[category] ?? 0) + 1;
-          }
-        }
-      }
-    }
-
-    final List<String> tempCategories = categories.keys.toList();
-
-    for (final String category in tempCategories) {
-      if (category != _CATEGORY_ALL) {
-        if (_categoriesCounter[category]! <= 1) {
-          categories.remove(category);
-        } else {
-          categories[category] = '$category (${_categoriesCounter[category]})';
-        }
-      }
-    }
-
-    sortedCategories.clear();
-    sortedCategories.addAll(categories.keys);
-    sortedCategories.sort((String a, String b) {
-      if (a == _CATEGORY_ALL) {
-        return -1;
-      } else if (b == _CATEGORY_ALL) {
-        return 1;
-      }
-      return _categoriesCounter[b]!.compareTo(_categoriesCounter[a]!);
-    });
-
     _loadingStatus = LoadingStatus.COMPLETE;
   }
 
-  void selectCategory(String category) {
-    if (category == _CATEGORY_ALL) {
+  void selectCategories(Set<Category> categories) {
+    if (categories.isEmpty) {
       displayProducts = _products;
     } else {
+      selectedCategories = categories;
+      final Set<String> categoryNames = categories.map<String>(
+        (Category category) => category.getName(ProductQuery.getLanguage()!),
+      ).toSet();
       displayProducts = _products!
           .where((Product product) =>
               product.categoriesTagsInLanguages?[ProductQuery.getLanguage()]
-                  ?.contains(category) ??
+                  ?.toSet()
+                  .intersection(categoryNames)
+                  .isNotEmpty ??
               false)
           .toList();
     }
