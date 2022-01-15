@@ -13,6 +13,7 @@
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
     "save": "Зберегти",
+    "skip": "Skip",
     "cancel": "Відмінити",
     "@cancel": {},
     "close": "Закрити",
@@ -21,8 +22,10 @@
     "@no": {},
     "stop": "Зупинити",
     "@stop": {},
-    "reset": "Повернути налаштування",
-    "@reset": {},
+    "reset_food_prefs": "Reset food preferences",
+    "@reset": {
+        "description": "Button label, clicking on the button will reset user's food preferences."
+    },
     "error": "Сталась помилка",
     "@error": {},
     "error_occurred": "Виникла помилка",
@@ -148,6 +151,10 @@
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
+    "donate_url": "https://donate.openfoodfacts.org/",
+    "@donate_url": {
+        "description": "Please insert the right url from the website here."
+    },
     "sign_up_page_agree_error_invalid": "When creating an account, agreeing to the Terms of Use is mandatory, however, anonymous contributions can still be made through the app",
     "@sign_up_page_agree_error_invalid": {
         "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
@@ -173,14 +180,17 @@
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch"
     },
-    "contributors": "Співучасники",
+    "thanks_for_contributing": "Thanks for contributing",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
+    "contributors": "Співучасники",
     "support": "Support",
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
+    "support_join_slack": "Ask for help in our Slack channel",
+    "support_via_email": "Send us a e-mail",
     "termsOfUse": "Умови використання",
     "@termsOfUse": {},
     "about_this_app": "About this app",
@@ -224,6 +234,14 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Переклади - одне з ключових завдань проекту",
     "@contribute_translate_text_2": {},
+    "tap_to_answer": "Tap here to answer questions",
+    "@tap_to_answer": {
+        "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
+    },
+    "contribute_to_get_rewards": "Help food transparency and get reward badges",
+    "@contribute_to_get_rewards": {
+        "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
+    },
     "@Personal preferences": {},
     "myPreferences": "Мої вподобання",
     "@myPreferences": {
@@ -232,7 +250,7 @@
     "myPreferences_profile_title": "Your Profile",
     "myPreferences_profile_subtitle": "Set app settings and find out advices.",
     "myPreferences_settings_title": "App Settings",
-    "myPreferences_settings_subtitle": "Dark mode, country, color, ...",
+    "myPreferences_settings_subtitle": "Dark mode, Theme, ...",
     "myPreferences_food_title": "Food Preferences",
     "myPreferences_food_subtitle": "Choose what information about food matters most to you.",
     "confirmResetPreferences": "Reset your food preferences?",
@@ -328,6 +346,9 @@
     "nutrition_page_per_serving": "в одній порції",
     "nutrition_page_add_nutrient": "Додати поживну речовину",
     "nutrition_page_serving_size": "Розмір порції",
+    "nutrition_page_invalid_number": "Invalid number",
+    "nutrition_page_update_running": "Updating the product on the server...",
+    "nutrition_page_update_done": "Product updated!",
     "more_photos": "Більше цікавих фото",
     "@more_photos": {},
     "no_product_found": "Продукт не знайдено",

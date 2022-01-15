@@ -8,9 +8,7 @@ import 'package:google_ml_barcode_scanner/google_ml_barcode_scanner.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/main.dart';
-import 'package:smooth_app/pages/scan/scan_page_helper.dart';
-import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
-import 'package:visibility_detector/visibility_detector.dart';
+import 'package:smooth_app/pages/scan/scanner_overlay.dart';
 
 class MLKitScannerPage extends StatefulWidget {
   const MLKitScannerPage({Key? key}) : super(key: key);
@@ -26,6 +24,7 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
   int _cameraIndex = 0;
   CameraLensDirection cameraLensDirection = CameraLensDirection.back;
   bool isBusy = false;
+  bool imageStreamActive = false;
 
   @override
   void initState() {
@@ -59,31 +58,16 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
 
   @override
   void dispose() {
-    _stopLiveFeed();
-    _disposeLiveFeed();
+    _stopImageStream().then(
+      (_) => _controller?.dispose(),
+    );
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     _model = context.watch<ContinuousScanModel>();
-    return Scaffold(
-      body: VisibilityDetector(
-        key: const Key('VisibilityDetector ML Kit'),
-        onVisibilityChanged: (VisibilityInfo visibilityInfo) {
-          if (visibilityInfo.visibleFraction == 0.0) {
-            _stopLiveFeed();
-          } else {
-            _startLiveFeed();
-          }
-        },
-        child: _liveFeedBody(),
-      ),
-    );
-  }
-
-  Widget _liveFeedBody() {
-    if (_controller?.value.isInitialized == false || _controller == null) {
+    if (_controller == null || _controller!.value.isInitialized == false) {
       return const Center(child: CircularProgressIndicator());
     }
 
@@ -100,32 +84,20 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
       scale = 1 / scale;
     }
 
-    return LayoutBuilder(
-      builder: (BuildContext context, BoxConstraints constraints) {
-        return Stack(
-          fit: StackFit.expand,
-          children: <Widget>[
-            ...getScannerWidgets(
-              context,
-              constraints,
-              _model,
+    return Scaffold(
+      body: ScannerOverlay(
+        restartCamera: _resumeImageStream,
+        stopCamera: _stopImageStream,
+        model: _model,
+        scannerWidget: Transform.scale(
+          scale: scale,
+          child: Center(
+            child: CameraPreview(
+              _controller!,
             ),
-            SmoothRevealAnimation(
-              delay: 400,
-              startOffset: Offset.zero,
-              animationCurve: Curves.easeInOutBack,
-              child: Transform.scale(
-                scale: scale,
-                child: Center(
-                  child: CameraPreview(
-                    _controller!,
-                  ),
-                ),
-              ),
-            ),
-          ],
-        );
-      },
+          ),
+        ),
+      ),
     );
   }
 
@@ -136,24 +108,31 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
       ResolutionPreset.high,
       enableAudio: false,
     );
-    _controller?.initialize().then((_) {
+    _controller!.setFocusMode(FocusMode.auto);
+    _controller!.lockCaptureOrientation(DeviceOrientation.portraitUp);
+
+    _controller!.initialize().then((_) {
       if (!mounted) {
         return;
       }
-      _controller?.setFocusMode(FocusMode.auto);
-      _controller?.lockCaptureOrientation(DeviceOrientation.portraitUp);
-      _controller?.startImageStream(_processCameraImage);
+      _controller!.startImageStream(_processCameraImage);
+      imageStreamActive = true;
       setState(() {});
     });
   }
 
-  Future<void> _stopLiveFeed() async {
-    await _controller?.stopImageStream();
-    _controller = null;
+  void _resumeImageStream() {
+    if (_controller != null && !imageStreamActive) {
+      _controller!.startImageStream(_processCameraImage);
+      imageStreamActive = true;
+    }
   }
 
-  Future<void> _disposeLiveFeed() async {
-    await _controller?.dispose();
+  Future<void> _stopImageStream() async {
+    if (_controller != null) {
+      await _controller!.stopImageStream();
+      imageStreamActive = false;
+    }
   }
 
   //Convert the [CameraImage] to a [InputImage]
