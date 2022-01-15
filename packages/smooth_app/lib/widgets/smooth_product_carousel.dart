@@ -37,7 +37,9 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
     setState(() {
       barcodes = model.getBarcodes();
     });
-    _controller.animateToPage(barcodes.length - 1 + _searchCardAdjustment);
+    if (_controller.ready) {
+      _controller.animateToPage(barcodes.length - 1 + _searchCardAdjustment);
+    }
   }
 
   @override
