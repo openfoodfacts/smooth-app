@@ -58,8 +58,9 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
 
   @override
   void dispose() {
-    _stopImageStream();
-    _disposeCamera();
+    _stopImageStream().then(
+      (_) => _controller?.dispose(),
+    );
     super.dispose();
   }
 
@@ -127,16 +128,9 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
     }
   }
 
-  void _stopImageStream() {
+  Future<void> _stopImageStream() async {
     if (_controller != null) {
-      _controller!.stopImageStream();
-      imageStreamActive = false;
-    }
-  }
-
-  void _disposeCamera() {
-    if (_controller != null) {
-      _controller!.dispose();
+      await _controller!.stopImageStream();
       imageStreamActive = false;
     }
   }
