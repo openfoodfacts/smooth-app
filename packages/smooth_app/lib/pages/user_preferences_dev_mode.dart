@@ -102,7 +102,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         ListTile(
-          title: const Text('export history'),
+          title: const Text('Export History'),
           onTap: () async {
             final LocalDatabase localDatabase = context.read<LocalDatabase>();
             final Map<String, dynamic> export =

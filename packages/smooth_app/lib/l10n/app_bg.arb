@@ -151,6 +151,10 @@
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
+    "donate_url": "https://donate.openfoodfacts.org/",
+    "@donate_url": {
+        "description": "Please insert the right url from the website here."
+    },
     "sign_up_page_agree_error_invalid": "Когато създавате нов профил, приемането на Условията за ползване е задължително, въпреки това, анонимни приноси могат да се правят чрез приложението",
     "@sign_up_page_agree_error_invalid": {
         "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
@@ -246,7 +250,7 @@
     "myPreferences_profile_title": "Твоят профил",
     "myPreferences_profile_subtitle": "Задай настройките на приложението и намери съвети.",
     "myPreferences_settings_title": "Настройки на приложението",
-    "myPreferences_settings_subtitle": "Тъмен режим, страна, цвят ...",
+    "myPreferences_settings_subtitle": "Dark mode, Theme, ...",
     "myPreferences_food_title": "Хранителни предпочитания",
     "myPreferences_food_subtitle": "Избери каква информация за храната е най-важна за теб.",
     "confirmResetPreferences": "Нулирай твоите хранителни предпочитания?",
