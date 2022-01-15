@@ -13,6 +13,7 @@
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
     "save": "Gem",
+    "skip": "Spring over",
     "cancel": "Annullér",
     "@cancel": {},
     "close": "Luk",
@@ -21,8 +22,10 @@
     "@no": {},
     "stop": "Stop",
     "@stop": {},
-    "reset": "Nulstil",
-    "@reset": {},
+    "reset_food_prefs": "Nulstil fødevarepræferencer",
+    "@reset": {
+        "description": "Button label, clicking on the button will reset user's food preferences."
+    },
     "error": "Noget gik galt",
     "@error": {},
     "error_occurred": "En fejl opstod",
@@ -132,8 +135,8 @@
     "sign_up_page_display_name_hint": "Visningsnavn",
     "sign_up_page_display_name_error_empty": "Angiv det navn, der ønskes vist",
     "sign_up_page_email_hint": "E-mail",
-    "sign_up_page_email_error_empty": "E-mail is required",
-    "sign_up_page_email_error_invalid": "This e-mail is invalid",
+    "sign_up_page_email_error_empty": "E-mail er obligatorisk",
+    "sign_up_page_email_error_invalid": "Ugyldig e-mail",
     "sign_up_page_username_hint": "Brugernavn",
     "sign_up_page_username_error_empty": "Indtast et brugernavn",
     "sign_up_page_username_error_invalid": "Angiv et gyldigt brugernavn",
@@ -143,7 +146,7 @@
     "sign_up_page_password_error_invalid": "Angiv en gyldig adgangskode (mindst 6 tegn)",
     "sign_up_page_confirm_password_hint": "Bekræft adgangskode",
     "sign_up_page_confirm_password_error_empty": "Bekræft adgangskoden",
-    "sign_up_page_confirm_password_error_invalid": "Passwords don't match",
+    "sign_up_page_confirm_password_error_invalid": "Adgangskoder matcher ikke",
     "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
@@ -173,14 +176,17 @@
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch"
     },
-    "contributors": "Bidragsydere",
+    "thanks_for_contributing": "Tak for at bidrage",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
+    "contributors": "Bidragsydere",
     "support": "Support",
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
+    "support_join_slack": "Bed om hjælp i vores Slack-kanal",
+    "support_via_email": "Send os en e-mail",
     "termsOfUse": "Afbenyttelsesvilkår",
     "@termsOfUse": {},
     "about_this_app": "Om denne app",
@@ -224,6 +230,14 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Oversættelser er en af projektets nøgleopgaver",
     "@contribute_translate_text_2": {},
+    "tap_to_answer": "Tryk her for at besvare spørgsmål",
+    "@tap_to_answer": {
+        "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
+    },
+    "contribute_to_get_rewards": "Hjælp med madgennemsigtighed og få belønningsmærker",
+    "@contribute_to_get_rewards": {
+        "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
+    },
     "@Personal preferences": {},
     "myPreferences": "Mine præferencer",
     "@myPreferences": {
@@ -235,7 +249,7 @@
     "myPreferences_settings_subtitle": "Mørk tilstand, land, farve...",
     "myPreferences_food_title": "Fødevarepræferencer",
     "myPreferences_food_subtitle": "Vælg, hvilke oplysninger om fødevarer, som betyder mest.",
-    "confirmResetPreferences": "Reset your food preferences?",
+    "confirmResetPreferences": "Nulstil dine fødevarepræferencer?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
     },
@@ -321,13 +335,16 @@
     "score_add_missing_ingredients": "Tilføj manglende ingredienser",
     "score_add_missing_nutrition_facts": "Tilføj manglende ernæringsfakta",
     "score_add_missing_product_category": "Tilføj manglende produktkategori",
-    "score_update_nutrition_facts": "Update nutrition facts",
-    "nutrition_page_title": "Product Nutrition Facts",
-    "nutrition_page_unspecified": "Nutrition facts are not specified on the product",
-    "nutrition_page_per_100g": "per 100g",
+    "score_update_nutrition_facts": "Opdatér ernæringsfakta",
+    "nutrition_page_title": "Produkternæringsfakta",
+    "nutrition_page_unspecified": "Ernæringsfakta ikke angivet på produktet",
+    "nutrition_page_per_100g": "pr. 100g",
     "nutrition_page_per_serving": "per portion",
     "nutrition_page_add_nutrient": "Tilføj et næringsstof",
     "nutrition_page_serving_size": "Portionsstørrelse",
+    "nutrition_page_invalid_number": "Invalid number",
+    "nutrition_page_update_running": "Opdaterer produktet på serveren...",
+    "nutrition_page_update_done": "Produkt opdateret!",
     "more_photos": "Flere interessante fotos",
     "@more_photos": {},
     "no_product_found": "Intet produkt fundet",

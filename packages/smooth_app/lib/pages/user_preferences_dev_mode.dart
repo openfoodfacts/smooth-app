@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
@@ -25,7 +26,6 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
     required final UserPreferences userPreferences,
     required final AppLocalizations appLocalizations,
     required final ThemeData themeData,
-    required this.localDatabase,
   }) : super(
           setState: setState,
           context: context,
@@ -33,8 +33,6 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           appLocalizations: appLocalizations,
           themeData: themeData,
         );
-
-  final LocalDatabase localDatabase;
 
   static const String userPreferencesFlagProd = '__devWorkingOnProd';
   static const String userPreferencesFlagUseMLKit = '__useMLKit';
@@ -106,6 +104,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         ListTile(
           title: const Text('export history'),
           onTap: () async {
+            final LocalDatabase localDatabase = context.read<LocalDatabase>();
             final Map<String, dynamic> export =
                 await DaoProductList(localDatabase).export(
               ProductList.history(),
