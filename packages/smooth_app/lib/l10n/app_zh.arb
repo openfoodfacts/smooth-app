@@ -88,12 +88,12 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_out": "Sign out",
+    "sign_out": "登出",
     "@sign_out": {
         "description": "Button label: For sign out"
     },
     "password": "密碼",
-    "forgot_password": "Forgot password",
+    "forgot_password": "忘記密碼",
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset e-mail can be requested"
     },
@@ -119,11 +119,11 @@
     "@enter_some_text": {
         "description": "Error when a required text field is empty"
     },
-    "sign_up_page_title": "Sign Up",
+    "sign_up_page_title": "註冊",
     "@sign_up_page_title": {
         "description": "Header"
     },
-    "sign_up_page_action_button": "Sign Up",
+    "sign_up_page_action_button": "註冊",
     "@sign_up_page_action_button": {
         "description": "Button for signing up"
     },
