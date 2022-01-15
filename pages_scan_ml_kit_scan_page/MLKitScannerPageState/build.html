@@ -161,17 +161,36 @@ prints green, as expected.</p>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   _model = context.watch&lt;ContinuousScanModel&gt;();
+  if (_controller == null || _controller!.value.isInitialized == false) {
+    return const Center(child: CircularProgressIndicator());
+  }
+
+  final Size size = MediaQuery.of(context).size;
+  &#47;&#47; From: https:&#47;&#47;stackoverflow.com&#47;questions&#47;49946153&#47;flutter-camera-appears-stretched&#47;61487358#61487358:
+  &#47;&#47; calculate scale depending on screen and camera ratios
+  &#47;&#47; this is actually size.aspectRatio &#47; (1 &#47; camera.aspectRatio)
+  &#47;&#47; because camera preview size is received as landscape
+  &#47;&#47; but we&#39;re calculating for portrait orientation
+  double scale = size.aspectRatio * _controller!.value.aspectRatio;
+
+  &#47;&#47; to prevent scaling down, invert the value
+  if (scale &lt; 1) {
+    scale = 1 &#47; scale;
+  }
+
   return Scaffold(
-    body: VisibilityDetector(
-      key: const Key(&#39;VisibilityDetector ML Kit&#39;),
-      onVisibilityChanged: (VisibilityInfo visibilityInfo) {
-        if (visibilityInfo.visibleFraction == 0.0) {
-          _stopLiveFeed();
-        } else {
-          _startLiveFeed();
-        }
-      },
-      child: _liveFeedBody(),
+    body: ScannerOverlay(
+      restartCamera: _resumeImageStream,
+      stopCamera: _stopImageStream,
+      model: _model,
+      scannerWidget: Transform.scale(
+        scale: scale,
+        child: Center(
+          child: CameraPreview(
+            _controller!,
+          ),
+        ),
+      ),
     ),
   );
 }</code></pre>
@@ -209,6 +228,7 @@ Widget build(BuildContext context) {
     <li><a href="../../pages_scan_ml_kit_scan_page/MLKitScannerPageState/cameraLensDirection.html">cameraLensDirection</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/context.html">context</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li><a href="../../pages_scan_ml_kit_scan_page/MLKitScannerPageState/imageStreamActive.html">imageStreamActive</a></li>
     <li><a href="../../pages_scan_ml_kit_scan_page/MLKitScannerPageState/isBusy.html">isBusy</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/State/mounted.html">mounted</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
