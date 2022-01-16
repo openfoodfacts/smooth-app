@@ -1,23 +1,24 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/personalized_search/matched_product.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_error.dart';
+import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_loading.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_not_found.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_thanks.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
-import 'package:smooth_app/pages/scan/scan_product_card.dart';
-import 'package:smooth_app/pages/scan/search_page.dart';
+import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/data_models/smooth_it_model.dart';
+import 'package:smooth_app/pages/personalized_ranking_page.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
 
 class SmoothProductCarousel extends StatefulWidget {
   const SmoothProductCarousel({
-    this.showSearchCard = false,
-    required this.height,
+    this.height = 220.0,
   });
 
-  final bool showSearchCard;
   final double height;
 
   @override
@@ -26,34 +27,31 @@ class SmoothProductCarousel extends StatefulWidget {
 
 class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
   final CarouselController _controller = CarouselController();
-  List<String> barcodes = <String>[];
-
-  int get _searchCardAdjustment => widget.showSearchCard ? 1 : 0;
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    final ContinuousScanModel model = context.watch<ContinuousScanModel>();
-    setState(() {
-      barcodes = model.getBarcodes();
-    });
-    if (_controller.ready) {
-      _controller.animateToPage(barcodes.length - 1 + _searchCardAdjustment);
-    }
-  }
+  int _length = 0;
 
   @override
   Widget build(BuildContext context) {
-    return CarouselSlider.builder(
-      itemCount: barcodes.length + _searchCardAdjustment,
-      itemBuilder: (BuildContext context, int itemIndex, int itemRealIndex) {
-        return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 2.0),
-          child: widget.showSearchCard && itemIndex == 0
-              ? SearchCard()
-              : _getWidget(itemIndex - _searchCardAdjustment),
+    final ProductPreferences productPreferences =
+        context.watch<ProductPreferences>();
+    final ContinuousScanModel model = context.watch<ContinuousScanModel>();
+    final List<String> barcodes = model.getBarcodes();
+    final int barcodesLength = barcodes.length;
+    if (_length != barcodesLength) {
+      _length = barcodesLength;
+      if (_length > 1) {
+        Future<void>.delayed(
+          Duration.zero,
+          () => _controller.animateToPage(_length - 1),
         );
-      },
+      }
+    }
+    return CarouselSlider.builder(
+      itemCount: _length,
+      itemBuilder: (BuildContext context, int itemIndex, int itemRealIndex) =>
+          Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 4.0),
+        child: _getWidget(barcodes, itemIndex, productPreferences),
+      ),
       carouselController: _controller,
       options: CarouselOptions(
         enlargeCenterPage: false,
@@ -70,17 +68,32 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
   /// after the product disappeared and before the whole carousel is refreshed.
   /// In those cases, we don't want the app to crash and display a Container
   /// instead in the meanwhile.
-  Widget _getWidget(final int index) {
+  Widget _getWidget(
+    final List<String> barcodes,
+    final int index,
+    final ProductPreferences productPreferences,
+  ) {
     if (index >= barcodes.length) {
       return Container();
     }
-    final String barcode = barcodes[index];
     final ContinuousScanModel model = context.watch<ContinuousScanModel>();
+    final String barcode = barcodes[index];
     switch (model.getBarcodeState(barcode)!) {
       case ScannedProductState.FOUND:
       case ScannedProductState.CACHED:
         final Product product = model.getProduct(barcode);
-        return ScanProductCard(product);
+        final MatchedProduct matchedProduct =
+            MatchedProduct(product, productPreferences);
+        return SmoothProductCardFound(
+          heroTag: barcode,
+          product: product,
+          robotoffQuestions: model.getRobotoffQuestions(barcode),
+          backgroundColor: PersonalizedRankingPage.getColor(
+            colorScheme: Theme.of(context).colorScheme,
+            matchIndex: SmoothItModel.getMatchIndex(matchedProduct),
+            colorDestination: ColorDestination.SURFACE_BACKGROUND,
+          ),
+        );
       case ScannedProductState.LOADING:
         return SmoothProductCardLoading(barcode: barcode);
       case ScannedProductState.NOT_FOUND:
@@ -94,53 +107,5 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
       case ScannedProductState.ERROR:
         return SmoothProductCardError(barcode: barcode);
     }
-  }
-}
-
-class SearchCard extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final AppLocalizations localizations = AppLocalizations.of(context)!;
-    return Card(
-      color: Theme.of(context).colorScheme.background.withOpacity(0.85),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20.0),
-      ),
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Text(
-              localizations.welcomeToOpenFoodFacts,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 36.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Text(
-              localizations.searchPanelHeader,
-              textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 18.0),
-            ),
-            SearchField(
-              onFocus: () => _openSearchPage(context),
-              showClearButton: false,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  void _openSearchPage(BuildContext context) {
-    Navigator.push<Widget>(
-      context,
-      MaterialPageRoute<Widget>(
-        builder: (BuildContext context) => SearchPage(),
-      ),
-    );
   }
 }
