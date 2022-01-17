@@ -151,6 +151,10 @@
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
+    "donate_url": "https://donate.openfoodfacts.org/",
+    "@donate_url": {
+        "description": "Please insert the right url from the website here."
+    },
     "sign_up_page_agree_error_invalid": "Ved oprettelse af en konto er det obligatorisk at acceptere Vilkår for Brug, dog kan anonyme bidrag stadig foretages via appen",
     "@sign_up_page_agree_error_invalid": {
         "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
@@ -246,7 +250,7 @@
     "myPreferences_profile_title": "Din profil",
     "myPreferences_profile_subtitle": "Opsæt app-indstillinger og få råd.",
     "myPreferences_settings_title": "App-indstillinger",
-    "myPreferences_settings_subtitle": "Mørk tilstand, land, farve...",
+    "myPreferences_settings_subtitle": "Dark mode, Theme, ...",
     "myPreferences_food_title": "Fødevarepræferencer",
     "myPreferences_food_subtitle": "Vælg, hvilke oplysninger om fødevarer, som betyder mest.",
     "confirmResetPreferences": "Nulstil dine fødevarepræferencer?",

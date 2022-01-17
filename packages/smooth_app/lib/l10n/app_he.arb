@@ -151,6 +151,10 @@
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
+    "donate_url": "https://donate.openfoodfacts.org/",
+    "@donate_url": {
+        "description": "Please insert the right url from the website here."
+    },
     "sign_up_page_agree_error_invalid": "בעת יצירת חשבון, חובה להסכים לתנאי השימוש, עם זאת, עדיין ניתן לתרום בעילום שם דרך היישומון",
     "@sign_up_page_agree_error_invalid": {
         "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
@@ -246,7 +250,7 @@
     "myPreferences_profile_title": "הפרופיל שלך",
     "myPreferences_profile_subtitle": "עליך להגדיר את היישומון כדי לקבל כל מיני עצות.",
     "myPreferences_settings_title": "הגדרות היישומון",
-    "myPreferences_settings_subtitle": "מצב כהה, מדינה, צבע, …",
+    "myPreferences_settings_subtitle": "Dark mode, Theme, ...",
     "myPreferences_food_title": "העדפות מזון",
     "myPreferences_food_subtitle": "נא לבחור איזה מידע על מזון הכי חשוב לך.",
     "confirmResetPreferences": "לאפס את העדפות המזון שלך?",

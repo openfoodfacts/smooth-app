@@ -151,6 +151,10 @@
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
+    "donate_url": "https://donate.openfoodfacts.org/",
+    "@donate_url": {
+        "description": "Please insert the right url from the website here."
+    },
     "sign_up_page_agree_error_invalid": "La crearea unui cont, acceptarea Termenilor de utilizare este obligatorie, cu toate acestea, contribuțiile anonime pot fi făcute în continuare prin intermediul aplicației",
     "@sign_up_page_agree_error_invalid": {
         "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
@@ -246,7 +250,7 @@
     "myPreferences_profile_title": "Profilul tău",
     "myPreferences_profile_subtitle": "Setați setările aplicației și primiți sfaturile.",
     "myPreferences_settings_title": "Setările aplicației",
-    "myPreferences_settings_subtitle": "Mod întunecat, țară, culoare, ...",
+    "myPreferences_settings_subtitle": "Dark mode, Theme, ...",
     "myPreferences_food_title": "Preferințe alimentare",
     "myPreferences_food_subtitle": "Alegeți ce informații despre alimente contează cel mai mult pentru dvs.",
     "confirmResetPreferences": "Resetați preferințele alimentare?",
