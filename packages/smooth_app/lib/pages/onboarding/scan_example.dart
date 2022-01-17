@@ -75,11 +75,11 @@ class ScanExample extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     SvgPicture.asset(
-                      'assets/onboarding/ecoscore-a-no-bg.svg',
+                      'assets/onboarding/nutriscore-a-no-bg.svg',
                       width: 80,
                     ),
                     SvgPicture.asset(
-                      'assets/onboarding/nutriscore-a-no-bg.svg',
+                      'assets/onboarding/ecoscore-a-no-bg.svg',
                       width: 80,
                     ),
                   ],
