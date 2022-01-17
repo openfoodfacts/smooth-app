@@ -88,12 +88,12 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_out": "Sign out",
+    "sign_out": "登出",
     "@sign_out": {
         "description": "Button label: For sign out"
     },
     "password": "密碼",
-    "forgot_password": "Forgot password",
+    "forgot_password": "忘記密碼",
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset e-mail can be requested"
     },
@@ -119,11 +119,11 @@
     "@enter_some_text": {
         "description": "Error when a required text field is empty"
     },
-    "sign_up_page_title": "Sign Up",
+    "sign_up_page_title": "註冊",
     "@sign_up_page_title": {
         "description": "Header"
     },
-    "sign_up_page_action_button": "Sign Up",
+    "sign_up_page_action_button": "註冊",
     "@sign_up_page_action_button": {
         "description": "Button for signing up"
     },
@@ -150,6 +150,10 @@
     "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
+    },
+    "donate_url": "https://donate.openfoodfacts.org/",
+    "@donate_url": {
+        "description": "Please insert the right url from the website here."
     },
     "sign_up_page_agree_error_invalid": "When creating an account, agreeing to the Terms of Use is mandatory, however, anonymous contributions can still be made through the app",
     "@sign_up_page_agree_error_invalid": {
@@ -246,7 +250,7 @@
     "myPreferences_profile_title": "Your Profile",
     "myPreferences_profile_subtitle": "Set app settings and find out advices.",
     "myPreferences_settings_title": "App Settings",
-    "myPreferences_settings_subtitle": "Dark mode, country, color, ...",
+    "myPreferences_settings_subtitle": "Dark mode, Theme, ...",
     "myPreferences_food_title": "Food Preferences",
     "myPreferences_food_subtitle": "Choose what information about food matters most to you.",
     "confirmResetPreferences": "Reset your food preferences?",

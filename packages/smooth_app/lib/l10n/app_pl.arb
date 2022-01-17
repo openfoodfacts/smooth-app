@@ -151,6 +151,10 @@
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
+    "donate_url": "https://donate.openfoodfacts.org/",
+    "@donate_url": {
+        "description": "Please insert the right url from the website here."
+    },
     "sign_up_page_agree_error_invalid": "Przy zakładaniu konta zgoda na Warunki Użytkowania jest obowiązkowa; anonimowe wpisy mogą być nadal dokonywane za pośrednictwem aplikacji mobilnej",
     "@sign_up_page_agree_error_invalid": {
         "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
@@ -246,7 +250,7 @@
     "myPreferences_profile_title": "Profil",
     "myPreferences_profile_subtitle": "Zmień ustawienia aplikacji i zapoznaj się z poradami.",
     "myPreferences_settings_title": "Ustawienia",
-    "myPreferences_settings_subtitle": "Tryb ciemny, państwo, kolor...",
+    "myPreferences_settings_subtitle": "Dark mode, Theme, ...",
     "myPreferences_food_title": "Preferencje żywieniowe",
     "myPreferences_food_subtitle": "Wybierz, które preferencje żywieniowe są dla Ciebie najważniejsze.",
     "confirmResetPreferences": "Zresetować preferencje żywieniowe?",

@@ -121,6 +121,9 @@ class _SearchFieldState extends State<SearchField> {
     super.initState();
     _textController.addListener(_handleTextChange);
     _focusNode.addListener(_handleFocusChange);
+    if (widget.autofocus) {
+      _focusNode.requestFocus();
+    }
   }
 
   @override
@@ -132,9 +135,6 @@ class _SearchFieldState extends State<SearchField> {
 
   @override
   Widget build(BuildContext context) {
-    if (widget.autofocus) {
-      _focusNode.requestFocus();
-    }
     final AppLocalizations localizations = AppLocalizations.of(context)!;
     return TextField(
       textInputAction: TextInputAction.search,

@@ -22,7 +22,7 @@
     "@no": {},
     "stop": "Parar",
     "@stop": {},
-    "reset_food_prefs": "Reset food preferences",
+    "reset_food_prefs": "Restablecer preferencias de alimentos",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
     },
@@ -151,6 +151,10 @@
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
+    "donate_url": "https://donate.openfoodfacts.org/",
+    "@donate_url": {
+        "description": "Please insert the right url from the website here."
+    },
     "sign_up_page_agree_error_invalid": "Al crear una cuenta, aceptar los Términos de uso es obligatorio, sin embargo, aún se pueden hacer contribuciones anónimas a través de la aplicación",
     "@sign_up_page_agree_error_invalid": {
         "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
@@ -176,7 +180,7 @@
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch"
     },
-    "thanks_for_contributing": "Thanks for contributing",
+    "thanks_for_contributing": "Gracias por contribuir",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
@@ -185,8 +189,8 @@
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
-    "support_join_slack": "Ask for help in our Slack channel",
-    "support_via_email": "Send us a e-mail",
+    "support_join_slack": "Pide ayuda en nuestro canal de Slack",
+    "support_via_email": "Envíenos un e-mail",
     "termsOfUse": "Condiciones de uso",
     "@termsOfUse": {},
     "about_this_app": "Sobre esta aplicación",
@@ -230,11 +234,11 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "La traducción es una de las tareas clave del proyecto",
     "@contribute_translate_text_2": {},
-    "tap_to_answer": "Tap here to answer questions",
+    "tap_to_answer": "Toque aquí para responder unas preguntas",
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "contribute_to_get_rewards": "Help food transparency and get reward badges",
+    "contribute_to_get_rewards": "Ayude a la transparencia alimentaria y obtenga insignias de recompensa",
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
@@ -246,7 +250,7 @@
     "myPreferences_profile_title": "Tu perfil",
     "myPreferences_profile_subtitle": "Configurar ajustes de la aplicación y descubre consejos.",
     "myPreferences_settings_title": "Ajustes de aplicación",
-    "myPreferences_settings_subtitle": "Modo oscuro, país, color, ...",
+    "myPreferences_settings_subtitle": "Dark mode, Theme, ...",
     "myPreferences_food_title": "Preferencias de comida",
     "myPreferences_food_subtitle": "Elija la información que más le importa acerca de los alimentos.",
     "confirmResetPreferences": "¿Restablecer tus preferencias de alimentos?",
@@ -342,9 +346,9 @@
     "nutrition_page_per_serving": "por porción",
     "nutrition_page_add_nutrient": "Añade un nutriente",
     "nutrition_page_serving_size": "Tamaño de la porción",
-    "nutrition_page_invalid_number": "Invalid number",
-    "nutrition_page_update_running": "Updating the product on the server...",
-    "nutrition_page_update_done": "Product updated!",
+    "nutrition_page_invalid_number": "Número inválido",
+    "nutrition_page_update_running": "Actualizando el producto en el servidor...",
+    "nutrition_page_update_done": "¡Producto Actualizado!",
     "more_photos": "Más fotos interesantes",
     "@more_photos": {},
     "no_product_found": "No se ha encontrado ningún producto",
