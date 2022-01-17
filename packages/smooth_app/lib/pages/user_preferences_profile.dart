@@ -79,10 +79,7 @@ class UserPreferencesProfile extends AbstractUserPreferences {
               ),
             ),
             ElevatedButton(
-              onPressed: () {
-                UserManagementHelper.logout();
-                setState(() {});
-              },
+              onPressed: () => _confirmLogout(context),
               child: Text(
                 appLocalizations.sign_out,
                 style: theme.textTheme.bodyText2?.copyWith(
@@ -152,5 +149,33 @@ class UserPreferencesProfile extends AbstractUserPreferences {
     );
 
     return result;
+  }
+
+  void _confirmLogout(BuildContext context) {
+    final AppLocalizations localizations = AppLocalizations.of(context)!;
+    showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(localizations.sign_out_confirmation),
+          actions: <Widget>[
+            TextButton(
+              child: Text(localizations.yes),
+              onPressed: () async {
+                UserManagementHelper.logout();
+                Navigator.pop(context);
+                setState(() {});
+              },
+            ),
+            TextButton(
+              child: Text(localizations.no),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            )
+          ],
+        );
+      },
+    );
   }
 }

@@ -92,6 +92,10 @@
     "@sign_out": {
         "description": "Button label: For sign out"
     },
+    "sign_out_confirmation": "Are you sure you want to log out?",
+    "@sign_out_confirmation": {
+        "description": "Pop up title: Reassuring if the user really want to log out"
+    },
     "password": "Password",
     "forgot_password": "Forgot password",
     "@forgot_password": {
