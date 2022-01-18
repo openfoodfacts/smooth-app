@@ -109,7 +109,42 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
                 await DaoProductList(localDatabase).export(
               ProductList.history(),
             );
-            debugPrint('exported history: $export', wrapWidth: 80);
+            final List<Widget> children = <Widget>[];
+            for (final String barcode in export.keys) {
+              final bool? exists = export[barcode] as bool?;
+              children.add(
+                ListTile(
+                  leading: Icon(exists == null
+                      ? Icons.error
+                      : exists
+                          ? Icons.check
+                          : Icons.help_outline),
+                  title: Text(barcode),
+                  subtitle: Text(exists == null
+                      ? 'exception'
+                      : exists
+                          ? 'product found'
+                          : 'product NOT found'),
+                ),
+              );
+            }
+            showDialog<void>(
+              context: context,
+              builder: (BuildContext context) => AlertDialog(
+                title: const Text('export history'),
+                content: SizedBox(
+                  height: 400,
+                  width: 300,
+                  child: ListView(children: children),
+                ),
+                actions: <Widget>[
+                  ElevatedButton(
+                    child: Text(AppLocalizations.of(context)!.okay),
+                    onPressed: () => Navigator.pop(context),
+                  ),
+                ],
+              ),
+            );
           },
         ),
       ];
