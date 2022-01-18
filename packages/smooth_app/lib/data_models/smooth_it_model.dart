@@ -12,16 +12,11 @@ class SmoothItModel {
   final Map<int, List<MatchedProduct>> _categorizedProducts =
       <int, List<MatchedProduct>>{};
   late List<MatchedProduct> _allProducts;
-  bool _nextRefreshIsJustChangingTabs = false;
 
   void refresh(
     final ProductList productList,
     final ProductPreferences productPreferences,
   ) {
-    if (_nextRefreshIsJustChangingTabs) {
-      _nextRefreshIsJustChangingTabs = false;
-      return;
-    }
     final List<Product> unprocessedProducts = productList.getList();
     _allProducts = MatchedProduct.sort(unprocessedProducts, productPreferences);
     _categorizedProducts.clear();
@@ -33,9 +28,6 @@ class SmoothItModel {
       _categorizedProducts[index]!.add(matchededProduct);
     }
   }
-
-  void setNextRefreshAsJustChangingTabs() =>
-      _nextRefreshIsJustChangingTabs = true;
 
   List<MatchedProduct> getMatchedProducts(final int matchIndex) =>
       matchIndex == MATCH_INDEX_ALL
