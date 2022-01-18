@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
+import 'package:smooth_app/generic_lib/animations/smooth_reveal_animation.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_view_finder.dart';
 import 'package:smooth_app/pages/scan/scan_page_helper.dart';
-import 'package:smooth_app/smooth_ui_library/animations/smooth_reveal_animation.dart';
-import 'package:smooth_app/smooth_ui_library/widgets/smooth_view_finder.dart';
 import 'package:smooth_app/widgets/smooth_product_carousel.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 

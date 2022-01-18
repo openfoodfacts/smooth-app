@@ -9,12 +9,12 @@ import 'package:smooth_app/cards/product_cards/product_title_card.dart';
 import 'package:smooth_app/cards/product_cards/question_card.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/database/robotoff_questions_query.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
-import 'package:smooth_app/smooth_ui_library/util/ui_helpers.dart';
-import 'package:smooth_app/smooth_ui_library/widgets/smooth_card.dart';
+import 'package:smooth_app/helpers/ui_helpers.dart';
 
 const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS,

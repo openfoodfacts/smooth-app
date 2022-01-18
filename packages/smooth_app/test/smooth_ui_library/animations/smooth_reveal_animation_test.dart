@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:smooth_app/smooth_ui_library/animations/smooth_reveal_animation.dart';
+import 'package:smooth_app/generic_lib/animations/smooth_reveal_animation.dart';
 
 class _SwitchablePage extends StatefulWidget {
   const _SwitchablePage({

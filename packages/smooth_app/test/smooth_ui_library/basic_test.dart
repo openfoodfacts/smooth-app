@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:smooth_app/smooth_ui_library/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 
 void main() {
   testWidgets('Alert dialog can be created', (WidgetTester tester) async {

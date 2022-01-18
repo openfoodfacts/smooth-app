@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/smooth_ui_library/util/ui_helpers.dart';
+import 'package:smooth_app/helpers/ui_helpers.dart';
 
 /// Colored button for attribute importance, with corresponding action
 class AttributeButton extends StatelessWidget {

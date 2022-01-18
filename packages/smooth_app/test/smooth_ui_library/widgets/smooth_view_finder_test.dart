@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:smooth_app/smooth_ui_library/widgets/smooth_view_finder.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_view_finder.dart';
 
 void main() {
   group('SmoothViewFinder', () {

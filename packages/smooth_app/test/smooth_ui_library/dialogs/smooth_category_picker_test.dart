@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:smooth_app/smooth_ui_library/dialogs/smooth_category_picker.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_category_picker.dart';
 
 class TestCategory extends SmoothCategory<String> {
   TestCategory(String value, [Iterable<TestCategory>? children])

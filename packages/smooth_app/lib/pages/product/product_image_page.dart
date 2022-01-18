@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:photo_view/photo_view.dart';
-import 'package:smooth_app/smooth_ui_library/widgets/smooth_gauge.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_gauge.dart';
 
 class ProductImagePage extends StatelessWidget {
   const ProductImagePage({

@@ -3,7 +3,7 @@ import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_title_card.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
-import 'package:smooth_app/smooth_ui_library/util/ui_helpers.dart';
+import 'package:smooth_app/helpers/ui_helpers.dart';
 
 class KnowledgePanelSummaryCard extends StatelessWidget {
   const KnowledgePanelSummaryCard(this.knowledgePanel);
