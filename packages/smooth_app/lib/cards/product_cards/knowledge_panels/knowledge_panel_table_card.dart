@@ -12,6 +12,10 @@ import 'package:smooth_ui_library/util/ui_helpers.dart';
 // text larger than this limit will be wrapped in multiple rows.
 const int kMaxCellLengthInARow = 40;
 
+// Minimum length of a cell, without this a column may look unnaturally small
+// when put next to larger columns.
+const int kMinCellLengthInARow = 20;
+
 /// ColumnGroup is a group of columns collapsed into a single column. Purpose of
 /// this is to show a dropdown menu which the users can use to select which column
 /// to display. A group can also have a single column, in which case there will
@@ -229,7 +233,7 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
         } else {
           if (cell.text.length > _columnsMaxLength[index]) {
             _columnsMaxLength[index] =
-                min(kMaxCellLengthInARow, cell.text.length);
+                max(kMinCellLengthInARow, min(kMaxCellLengthInARow, cell.text.length));
           }
         }
         index++;
