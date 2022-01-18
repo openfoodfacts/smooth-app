@@ -165,7 +165,7 @@ class UserPreferencesProfile extends AbstractUserPreferences {
           body: Text(
             localizations.sign_out_confirmation,
           ),
-          actions: [
+          actions: <SmoothSimpleButton>[
             SmoothSimpleButton(
               text: localizations.yes,
               onPressed: () async {
