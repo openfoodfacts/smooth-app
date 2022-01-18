@@ -232,8 +232,8 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
           _columnsMaxLength.add(cell.text.length);
         } else {
           if (cell.text.length > _columnsMaxLength[index]) {
-            _columnsMaxLength[index] =
-                max(kMinCellLengthInARow, min(kMaxCellLengthInARow, cell.text.length));
+            _columnsMaxLength[index] = max(kMinCellLengthInARow,
+                min(kMaxCellLengthInARow, cell.text.length));
           }
         }
         index++;
