@@ -261,6 +261,9 @@
     "@myPersonalizedRanking": {
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
+    "ranking_tab_all": "Tout",
+    "ranking_subtitle_match_yes": "Très bonne correspondance",
+    "ranking_subtitle_match_no": "Très mauvaise correspondance",
     "reloaded_with_new_preferences": "Rechargé avec de nouvelles préférences",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
