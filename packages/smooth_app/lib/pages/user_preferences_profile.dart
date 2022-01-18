@@ -155,7 +155,7 @@ class UserPreferencesProfile extends AbstractUserPreferences {
 
   void _confirmLogout(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context)!;
-    final ThemeData theme = Theme.of(context);
+
     showDialog<void>(
       context: context,
       builder: (BuildContext context) {
