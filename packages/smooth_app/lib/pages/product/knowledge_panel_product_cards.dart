@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
-import 'package:smooth_ui_library/util/ui_helpers.dart';
+import 'package:smooth_app/smooth_ui_library/util/ui_helpers.dart';
 
 class KnowledgePanelProductCards extends StatelessWidget {
   const KnowledgePanelProductCards(this.knowledgePanelWidgets);

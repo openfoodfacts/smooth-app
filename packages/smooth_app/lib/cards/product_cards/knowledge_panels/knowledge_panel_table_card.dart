@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
-import 'package:smooth_ui_library/util/ui_helpers.dart';
+import 'package:smooth_app/smooth_ui_library/util/ui_helpers.dart';
 
 // Cells with a lot of text can get very large, we don't want to allocate
 // most of [availableWidth] to columns with large cells. So we cap the cell length

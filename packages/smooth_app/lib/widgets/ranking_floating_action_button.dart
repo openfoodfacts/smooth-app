@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
+import 'package:smooth_app/smooth_ui_library/animations/smooth_reveal_animation.dart';
 
 /// Floating Action Button dedicated to Personal Ranking
 class RankingFloatingActionButton extends StatelessWidget {

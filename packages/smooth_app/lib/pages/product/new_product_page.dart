@@ -16,9 +16,9 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/knowledge_panel_product_cards.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
+import 'package:smooth_app/smooth_ui_library/util/ui_helpers.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
-import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage(this.product);

@@ -8,8 +8,8 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/pages/product/new_product_page.dart';
-import 'package:smooth_ui_library/util/ui_helpers.dart';
-import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
+import 'package:smooth_app/smooth_ui_library/util/ui_helpers.dart';
+import 'package:smooth_app/smooth_ui_library/widgets/smooth_product_image.dart';
 
 class SmoothProductCardFound extends StatelessWidget {
   const SmoothProductCardFound({
