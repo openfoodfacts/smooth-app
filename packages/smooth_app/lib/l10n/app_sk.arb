@@ -136,7 +136,7 @@
     "sign_up_page_display_name_error_empty": "Zadajte zobrazované meno, ktoré chcete použiť",
     "sign_up_page_email_hint": "Emailová adresa",
     "sign_up_page_email_error_empty": "E-mail je povinný",
-    "sign_up_page_email_error_invalid": "Neplatný e-mail",
+    "sign_up_page_email_error_invalid": "Tento e-mail je neplatný",
     "sign_up_page_username_hint": "Username",
     "sign_up_page_username_error_empty": "Prosím, zadajte užívateľské meno",
     "sign_up_page_username_error_invalid": "Zadajte platné užívateľské meno",
@@ -250,10 +250,10 @@
     "myPreferences_profile_title": "Váš profil",
     "myPreferences_profile_subtitle": "Nastavte nastavenia aplikácie a zistite rady.",
     "myPreferences_settings_title": "Nastavenia aplikácie",
-    "myPreferences_settings_subtitle": "Dark mode, Theme, ...",
+    "myPreferences_settings_subtitle": "Tmavý režim, motív,...",
     "myPreferences_food_title": "Potravinové preferencie",
-    "myPreferences_food_subtitle": "Choose what information about food matters most to you.",
-    "confirmResetPreferences": "Reset your food preferences?",
+    "myPreferences_food_subtitle": "Vyberte si, ktoré informácie o jedle sú pre vás najdôležitejšie.",
+    "confirmResetPreferences": "Obnoviť predvoľby jedla?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
     },
@@ -261,24 +261,27 @@
     "@myPersonalizedRanking": {
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
-    "reloaded_with_new_preferences": "Reloaded with new preferences",
+    "ranking_tab_all": "All",
+    "ranking_subtitle_match_yes": "A great match for you",
+    "ranking_subtitle_match_no": "Very poor match",
+    "reloaded_with_new_preferences": "Znova načítané s novými predvoľbami",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
     },
     "@other": {},
-    "profile_navbar_label": "Profile",
+    "profile_navbar_label": "Profil",
     "@profile_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "scan_navbar_label": "Profile",
+    "scan_navbar_label": "Profil",
     "@scan_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "history_navbar_label": "Profile",
+    "history_navbar_label": "Profil",
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "category": "Filter by category",
+    "category": "Filtrovať podľa kategórie",
     "@category": {
         "description": "From a product list, there's a category filter: this is its title"
     },
@@ -286,7 +289,7 @@
     "@category_al": {
         "description": "Top meta-entry on a category filter"
     },
-    "category_search": "(category search)",
+    "category_search": "(vyhľadávanie podľa kategórií)",
     "filter": "Filtrovať",
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
@@ -299,7 +302,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Tap to see more info...",
+    "tab_for_more": "Klepnutím zobrazíte ďalšie informácie...",
     "@Product": {},
     "product": "Product",
     "@product": {},
@@ -307,137 +310,137 @@
     "@unknownBrand": {},
     "unknownProductName": "Neznámy názov výrobku",
     "@unknownProductName": {},
-    "label_refresh": "Refresh",
+    "label_refresh": "Obnoviť",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
-    "image": "Image",
-    "front_photo": "Front photo",
+    "image": "Obrázok",
+    "front_photo": "Obrázok spredu",
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
     },
     "ingredients": "Ingrediencie",
     "@ingredients": {},
-    "ingredients_photo": "Ingredients photo",
+    "ingredients_photo": "Fotografia ingrediencií",
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
     "nutrition": "Nutričné hodnoty",
     "@nutrition": {},
-    "nutrition_facts_photo": "Nutrition facts photo",
+    "nutrition_facts_photo": "Foto výživových údajov",
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
     },
-    "packaging_information": "Packaging information",
+    "packaging_information": "Informácie o balení",
     "@packaging_information": {
         "description": "Button label: For adding a picture of the packaging of a product"
     },
-    "packaging_information_photo": "Packaging information photo",
+    "packaging_information_photo": "Informačná fotografia balenia",
     "@packaging_information_photo": {},
     "missing_product": "Tento produkt chýba",
     "@missing_product": {},
-    "score_add_missing_ingredients": "Add missing ingredients",
-    "score_add_missing_nutrition_facts": "Add missing nutrition facts",
-    "score_add_missing_product_category": "Add missing product category",
-    "score_update_nutrition_facts": "Update nutrition facts",
-    "nutrition_page_title": "Product Nutrition Facts",
-    "nutrition_page_unspecified": "Nutrition facts are not specified on the product",
-    "nutrition_page_per_100g": "per 100g",
+    "score_add_missing_ingredients": "Pridajte chýbajúce ingrediencie",
+    "score_add_missing_nutrition_facts": "Pridajte chýbajúce výživové údaje",
+    "score_add_missing_product_category": "Pridajte chýbajúcu kategóriu produktu",
+    "score_update_nutrition_facts": "Aktualizujte fakty o výžive",
+    "nutrition_page_title": "Výživové fakty produktu",
+    "nutrition_page_unspecified": "Na produkte nie sú uvedené výživové údaje",
+    "nutrition_page_per_100g": "na 100 g",
     "nutrition_page_per_serving": "per serving",
     "nutrition_page_add_nutrient": "Add a nutrient",
     "nutrition_page_serving_size": "Serving size",
-    "nutrition_page_invalid_number": "Invalid number",
-    "nutrition_page_update_running": "Updating the product on the server...",
-    "nutrition_page_update_done": "Product updated!",
-    "more_photos": "More interesting photos",
+    "nutrition_page_invalid_number": "Neplatné číslo",
+    "nutrition_page_update_running": "Aktualizácia produktu na serveri...",
+    "nutrition_page_update_done": "Produkt bol aktualizovaný!",
+    "more_photos": "Viac zaujímavých fotiek",
     "@more_photos": {},
-    "no_product_found": "No product found",
+    "no_product_found": "Neboli nájdené žiadne výrobky",
     "@no_product_found": {},
-    "not_found": "not found:",
+    "not_found": "nenájdené:",
     "searchPanelHeader": "Vyhľadajte alebo naskenujte svoj prvý produkt",
     "@Product query status": {},
-    "refreshing_product": "Refreshing product",
+    "refreshing_product": "Obnovuje sa produkt",
     "@refreshing_product": {
         "description": "Confirmation, that the product data of a cached product is queried again"
     },
-    "product_refreshed": "Product refreshed",
+    "product_refreshed": "Produkt bol obnovený",
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "could_not_refresh": "Could not refresh product",
+    "could_not_refresh": "Produkt sa nepodarilo obnoviť",
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
     },
-    "product_internet_cancel": "Canceled by user.",
+    "product_internet_cancel": "Zrušené používateľom.",
     "@product_internet_cancel": {
         "description": "Confirmation, that the product data got canceled by the user"
     },
-    "product_internet_error": "Impossible to fetch information about this product due to a network error.",
-    "cached_results_from": "Cached results from:",
+    "product_internet_error": "Nie je možné získať informácie o tomto produkte kvôli chybe siete.",
+    "cached_results_from": "Výsledky vo vyrovnávacej pamäti od:",
     "@cached_results_from": {
         "description": "Cached results from: x time ago (time ago should not be added to the string)"
     },
     "@Product Addition": {},
     "added_product_thanks": "Ďakujeme za pridanie tohto produktu!",
     "@added_product_thanks": {},
-    "product_improvement_add_category": "Add a category to calculate the Nutri-Score.",
+    "product_improvement_add_category": "Pridajte kategóriu na výpočet Nutri-Score.",
     "@product_improvement_add_category": {
         "description": "Message for ProductImprovement.ADD_CATEGORY"
     },
-    "product_improvement_add_nutrition_facts": "Add nutrition facts to calculate the Nutri-Score.",
+    "product_improvement_add_nutrition_facts": "Pridajte výživové údaje na výpočet Nutri-Score.",
     "@product_improvement_add_nutrition_facts": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
     },
-    "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to calculate the Nutri-Score.",
+    "product_improvement_add_nutrition_facts_and_category": "Pridajte výživové údaje a kategóriu na výpočet Nutri-Score.",
     "@product_improvement_add_nutrition_facts_and_category": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
     },
-    "product_improvement_categories_but_no_nutriscore": "The Nutri-Score for this product can't be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.",
+    "product_improvement_categories_but_no_nutriscore": "Nutri-score pre tento produkt sa nedá vypočítať, čo môže byť spôsobené napr. neštandardnou kategóriou. Ak to považujete za chybu, kontaktujte nás.",
     "@product_improvement_categories_but_no_nutriscore": {
         "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
-    "product_improvement_obsolete_nutrition_image": "The nutrition image is obsolete: please refresh it.",
+    "product_improvement_obsolete_nutrition_image": "Výživový obrázok je zastaraný: obnovte ho.",
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take a photo of them (ingredient list and/or any geographic claim or edit the product) so that they can be taken into account.",
+    "product_improvement_origins_to_be_completed": "Eko-skóre zohľadňuje pôvod zložiek. Odfoťte ich (zoznam zložiek a/alebo akékoľvek geografické tvrdenie alebo upravte produkt), aby ich bolo možné vziať do úvahy.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
-    "country_chooser_label": "Please choose a country",
+    "country_chooser_label": "Prosím vyberte si krajinu",
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },
-    "country_selection_explanation": "Some environmental features are location-specific",
+    "country_selection_explanation": "Niektoré vlastnosti prostredia sú špecifické pre danú lokalitu",
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
-    "product_removed": "Product removed",
+    "product_removed": "Produkt bol odstránený",
     "@product_removed": {
         "description": "Product got removed from a list"
     },
-    "product_could_not_remove": "Could not remove product",
+    "product_could_not_remove": "Produkt sa nepodarilo odstrániť",
     "@product_could_not_remove": {
         "description": "Could not remove product from a list"
     },
     "@Lists": {},
-    "no_prodcut_in_list": "There is no product in this list",
-    "no_product_in_section": "There is no product in this section",
-    "recently_seen_products": "My recently seen products",
+    "no_prodcut_in_list": "V tomto zozname nie je žiadny produkt",
+    "no_product_in_section": "V tejto sekcii nie je žiadny produkt",
+    "recently_seen_products": "Moje nedávno videné produkty",
     "clear": "Vymazať",
     "@clear": {
         "description": "Clears a product list"
     },
-    "really_clear": "Do you really want to clear this list?",
-    "product_compatibility_unknown": "Product Compatibility Unknown",
+    "really_clear": "Naozaj chcete vymazať tento zoznam?",
+    "product_compatibility_unknown": "Kompatibilita produktu neznáma",
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_incompatible": "Very poor Match",
+    "product_compatibility_incompatible": "Veľmi slabá zhoda",
     "@product_compatibility_incompatible": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_bad": "Poor Match",
+    "product_compatibility_bad": "Slabá zhoda",
     "@product_compatibility_bad": {
         "description": "Product compatibility summary title"
     },
