@@ -151,7 +151,7 @@
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
-    "donate_url": "https://donate.openfoodfacts.org/",
+    "donate_url": "https://donate.openfoodfacts.org",
     "@donate_url": {
         "description": "Please insert the right url from the website here."
     },
@@ -250,7 +250,7 @@
     "myPreferences_profile_title": "Tu perfil",
     "myPreferences_profile_subtitle": "Configurar ajustes de la aplicación y descubre consejos.",
     "myPreferences_settings_title": "Ajustes de aplicación",
-    "myPreferences_settings_subtitle": "Dark mode, Theme, ...",
+    "myPreferences_settings_subtitle": "Modo oscuro, Tema de pantalla , ...",
     "myPreferences_food_title": "Preferencias de comida",
     "myPreferences_food_subtitle": "Elija la información que más le importa acerca de los alimentos.",
     "confirmResetPreferences": "¿Restablecer tus preferencias de alimentos?",
@@ -261,6 +261,9 @@
     "@myPersonalizedRanking": {
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
+    "ranking_tab_all": "Todo",
+    "ranking_subtitle_match_yes": "A great match for you",
+    "ranking_subtitle_match_no": "Very poor match",
     "reloaded_with_new_preferences": "Recargado con nuevas preferencias",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"

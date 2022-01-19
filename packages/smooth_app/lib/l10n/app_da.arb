@@ -250,7 +250,7 @@
     "myPreferences_profile_title": "Din profil",
     "myPreferences_profile_subtitle": "Opsæt app-indstillinger og få råd.",
     "myPreferences_settings_title": "App-indstillinger",
-    "myPreferences_settings_subtitle": "Dark mode, Theme, ...",
+    "myPreferences_settings_subtitle": "Mørk tilstand, tema,...",
     "myPreferences_food_title": "Fødevarepræferencer",
     "myPreferences_food_subtitle": "Vælg, hvilke oplysninger om fødevarer, som betyder mest.",
     "confirmResetPreferences": "Nulstil dine fødevarepræferencer?",
@@ -261,6 +261,9 @@
     "@myPersonalizedRanking": {
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
+    "ranking_tab_all": "Alle",
+    "ranking_subtitle_match_yes": "A great match for you",
+    "ranking_subtitle_match_no": "Very poor match",
     "reloaded_with_new_preferences": "Genindlæst med nye præferencer",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"

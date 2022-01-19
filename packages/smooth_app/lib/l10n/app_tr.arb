@@ -88,7 +88,7 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_out": "Sign out",
+    "sign_out": "Çıkış yap",
     "@sign_out": {
         "description": "Button label: For sign out"
     },
@@ -97,7 +97,7 @@
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset e-mail can be requested"
     },
-    "view_profile": "View profile",
+    "view_profile": "Profili görüntüle",
     "@view_profile": {
         "description": "Button label: For to show your account"
     },
@@ -106,16 +106,16 @@
         "description": "Forgot password page title"
     },
     "reset_password_explanation_text": "In case of a forgotten password, enter your username or e-mail address to receive instructions for a password reset. Also, remember to check the Spam folder.",
-    "username_or_email": "Username or e-mail",
+    "username_or_email": "Kullanıcı adı veya e-mail",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
     "reset_password_done": "An e-mail with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
-    "send_reset_password_mail": "Change password",
+    "send_reset_password_mail": "Parolayı değiştir",
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset e-mail request"
     },
-    "enter_some_text": "Please enter some text",
+    "enter_some_text": "Lütfen bir metin girin",
     "@enter_some_text": {
         "description": "Error when a required text field is empty"
     },
@@ -135,8 +135,8 @@
     "sign_up_page_display_name_hint": "Görünen Ad",
     "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
     "sign_up_page_email_hint": "E-posta",
-    "sign_up_page_email_error_empty": "E-mail is required",
-    "sign_up_page_email_error_invalid": "This e-mail is invalid",
+    "sign_up_page_email_error_empty": "E-mail gereklidir",
+    "sign_up_page_email_error_invalid": "Bu e-posta geçersiz",
     "sign_up_page_username_hint": "Kullanıcı adı",
     "sign_up_page_username_error_empty": "Lütfen bir kullanıcı adı girin",
     "sign_up_page_username_error_invalid": "Lütfen Geçerli Bir Kullanıcı Adı Girin",
@@ -146,7 +146,7 @@
     "sign_up_page_password_error_invalid": "Geçerli bir şifre girin. (en az 6 harf)",
     "sign_up_page_confirm_password_hint": "Şifreyi Doğrula",
     "sign_up_page_confirm_password_error_empty": "Lütfen parolayı doğrulayın",
-    "sign_up_page_confirm_password_error_invalid": "Passwords don't match",
+    "sign_up_page_confirm_password_error_invalid": "Parolalar eşleşmiyor",
     "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
@@ -261,6 +261,9 @@
     "@myPersonalizedRanking": {
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
+    "ranking_tab_all": "Hepsi",
+    "ranking_subtitle_match_yes": "A great match for you",
+    "ranking_subtitle_match_no": "Very poor match",
     "reloaded_with_new_preferences": "Yeni tercihlerle yeniden yüklendi",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
@@ -348,7 +351,7 @@
     "nutrition_page_serving_size": "Porsiyon ölçüsü",
     "nutrition_page_invalid_number": "Invalid number",
     "nutrition_page_update_running": "Updating the product on the server...",
-    "nutrition_page_update_done": "Product updated!",
+    "nutrition_page_update_done": "Ürün güncellendi!",
     "more_photos": "Daha ilginç fotoğraflar",
     "@more_photos": {},
     "no_product_found": "Ürün bulunamadı",
@@ -368,7 +371,7 @@
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
     },
-    "product_internet_cancel": "Canceled by user.",
+    "product_internet_cancel": "Kullanıcı tarafından iptal edildi.",
     "@product_internet_cancel": {
         "description": "Confirmation, that the product data got canceled by the user"
     },
@@ -437,7 +440,7 @@
     "@product_compatibility_incompatible": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_bad": "Poor Match",
+    "product_compatibility_bad": "Zayıf eşleşme",
     "@product_compatibility_bad": {
         "description": "Product compatibility summary title"
     },
@@ -450,7 +453,7 @@
         "description": "Product compatibility summary title"
     },
     "@Plural": {},
-    "pct_match": "{percent}% match",
+    "pct_match": "{percent}% eşleşme",
     "@pct_match": {
         "description": "This product has a x percent match with your preferences",
         "placeholders": {

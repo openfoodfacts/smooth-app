@@ -22,7 +22,7 @@
     "@no": {},
     "stop": "Спри",
     "@stop": {},
-    "reset_food_prefs": "Reset food preferences",
+    "reset_food_prefs": "Нулиране на хранителните предпочитания",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
     },
@@ -238,7 +238,7 @@
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "contribute_to_get_rewards": "Help food transparency and get reward badges",
+    "contribute_to_get_rewards": "Помогни за прозрачността на храните и вземи значки",
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
@@ -250,7 +250,7 @@
     "myPreferences_profile_title": "Твоят профил",
     "myPreferences_profile_subtitle": "Задай настройките на приложението и намери съвети.",
     "myPreferences_settings_title": "Настройки на приложението",
-    "myPreferences_settings_subtitle": "Dark mode, Theme, ...",
+    "myPreferences_settings_subtitle": "Тъмен режим, Тема, ...",
     "myPreferences_food_title": "Хранителни предпочитания",
     "myPreferences_food_subtitle": "Избери каква информация за храната е най-важна за теб.",
     "confirmResetPreferences": "Нулирай твоите хранителни предпочитания?",
@@ -261,6 +261,9 @@
     "@myPersonalizedRanking": {
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
+    "ranking_tab_all": "Всички",
+    "ranking_subtitle_match_yes": "A great match for you",
+    "ranking_subtitle_match_no": "Very poor match",
     "reloaded_with_new_preferences": "Презаредено с нови предпочитания",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
