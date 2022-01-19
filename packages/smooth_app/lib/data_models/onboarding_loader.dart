@@ -3,8 +3,7 @@ import 'package:smooth_app/data_models/onboarding_data_knowledge_panels.dart';
 import 'package:smooth_app/data_models/onboarding_data_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
-import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
-import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/widgets/loading_dialog.dart';
 
 /// Helper around data we download, store and reuse at onboarding.
 class OnboardingLoader {
@@ -19,7 +18,11 @@ class OnboardingLoader {
   ) async {
     switch (page) {
       case OnboardingPage.WELCOME:
-        await _loadDialog(context);
+        await LoadingDialog.run<void>(
+          context: context,
+          future: _downloadData(),
+          title: 'Loading internet data', // TODO(monsieurtanuki): localize
+        );
         return;
       case OnboardingPage.NOT_STARTED:
       case OnboardingPage.SCAN_EXAMPLE:
@@ -32,47 +35,6 @@ class OnboardingLoader {
         return;
     }
   }
-
-  /// Displays "downloading" dialog while actually downloading
-  Future<void> _loadDialog(final BuildContext context) async {
-    await showDialog<bool>(
-      context: context,
-      builder: (BuildContext context) {
-        _downloadData().then<void>(
-          (_) => _popDialog(context),
-        );
-        return _getDialog(context);
-      },
-    );
-  }
-
-  /// Is the dialog already pop'ed?
-  bool _popEd = false;
-
-  void _popDialog(final BuildContext context) {
-    if (_popEd) {
-      return;
-    }
-    _popEd = true;
-    // Here we use the root navigator so that we can pop dialog while using multiple navigators.
-    Navigator.of(context, rootNavigator: true).pop();
-  }
-
-  /// Displayed dialog during download.
-  Widget _getDialog(final BuildContext context) => SmoothAlertDialog(
-        close: false,
-        body: const ListTile(
-          leading: CircularProgressIndicator(),
-          title:
-              Text('Loading internet data'), // TODO(monsieurtanuki): localize
-        ),
-        actions: <SmoothSimpleButton>[
-          SmoothSimpleButton(
-            text: 'stop',
-            onPressed: () => _popDialog(context),
-          ),
-        ],
-      );
 
   /// Actual download of all data.
   Future<void> _downloadData() async {
