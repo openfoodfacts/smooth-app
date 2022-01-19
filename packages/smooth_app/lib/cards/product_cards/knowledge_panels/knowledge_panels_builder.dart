@@ -15,6 +15,7 @@ class KnowledgePanelsBuilder {
     KnowledgePanels knowledgePanels, {
     final Product? product,
     final BuildContext? context,
+    final List<String>? panelIds,
   }) {
     final List<Widget> rootPanelWidgets = <Widget>[];
     if (knowledgePanels.panelIdToPanelMap['root'] == null) {
@@ -29,6 +30,9 @@ class KnowledgePanelsBuilder {
         continue;
       }
       final String panelId = panelElement.panelElement!.panelId;
+      if (panelIds != null && !panelIds.contains(panelId)) {
+        continue;
+      }
       final KnowledgePanel rootPanel =
           knowledgePanels.panelIdToPanelMap[panelId]!;
       // [knowledgePanelElementWidgets] are a set of widgets inside the root panel.
