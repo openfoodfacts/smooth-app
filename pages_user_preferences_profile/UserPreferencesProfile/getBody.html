@@ -111,10 +111,7 @@ List&lt;Widget&gt; getBody() {
             ),
           ),
           ElevatedButton(
-            onPressed: () {
-              UserManagementHelper.logout();
-              setState(() {});
-            },
+            onPressed: () =&gt; _confirmLogout(context),
             child: Text(
               appLocalizations.sign_out,
               style: theme.textTheme.bodyText2?.copyWith(
