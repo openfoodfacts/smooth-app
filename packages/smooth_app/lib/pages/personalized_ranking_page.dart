@@ -68,6 +68,13 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
           backgroundColor: Colors.white,
           foregroundColor: Colors.black,
           bottom: TabBar(
+            unselectedLabelStyle: const TextStyle(
+              fontSize: 15,
+            ),
+            labelStyle: const TextStyle(
+              fontSize: 20,
+              decoration: TextDecoration.underline,
+            ),
             indicator: const BoxDecoration(
               border: Border(
                 left: BorderSide(color: Colors.grey), // provides to left side
@@ -159,27 +166,29 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
     final DaoProductList daoProductList,
   ) {
     final List<MatchedProduct> matchedProducts = _matchedProducts[matchIndex];
+    final Widget? subtitleWidget = _getSubtitleWidget(
+      _COLORS[matchIndex],
+      _getSubtitle(matchIndex, appLocalizations),
+    );
     if (matchedProducts.isEmpty) {
-      return Center(
-        child: Text(appLocalizations.no_product_in_section,
-            style: Theme.of(context).textTheme.subtitle1),
+      return Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          subtitleWidget ?? Container(),
+          Text(
+            appLocalizations.no_product_in_section,
+            style: Theme.of(context).textTheme.subtitle1,
+          ),
+          Container(),
+        ],
       );
     }
-    final String? subtitle = _getSubtitle(matchIndex, appLocalizations);
-    final int additional = subtitle == null ? 0 : 1;
+    final int additional = subtitleWidget == null ? 0 : 1;
     return ListView.builder(
       itemCount: matchedProducts.length + additional,
       itemBuilder: (BuildContext context, int index) => index < additional
-          ? Container(
-              padding: const EdgeInsets.all(8),
-              child: Center(
-                child: Text(
-                  subtitle!,
-                  style: const TextStyle(color: Colors.white),
-                ),
-              ),
-              color: _COLORS[matchIndex],
-            )
+          ? subtitleWidget!
           : _buildSmoothProductCard(
               matchedProducts[index - additional],
               daoProductList,
@@ -188,14 +197,32 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
     );
   }
 
+  Widget? _getSubtitleWidget(
+    final Color? color,
+    final String? subtitle,
+  ) =>
+      subtitle == null
+          ? null
+          : Container(
+              padding: const EdgeInsets.all(8),
+              child: Center(
+                child: Text(
+                  subtitle,
+                  style: const TextStyle(color: Colors.white),
+                ),
+              ),
+              color: color,
+            );
+
   String? _getSubtitle(
     final int matchIndex,
     final AppLocalizations appLocalizations,
   ) {
     switch (matchIndex) {
       case SmoothItModel.MATCH_INDEX_ALL:
-      case SmoothItModel.MATCH_INDEX_MAYBE:
         return null;
+      case SmoothItModel.MATCH_INDEX_MAYBE:
+        return appLocalizations.ranking_subtitle_match_maybe;
       case SmoothItModel.MATCH_INDEX_YES:
         return appLocalizations.ranking_subtitle_match_yes;
       case SmoothItModel.MATCH_INDEX_NO:
