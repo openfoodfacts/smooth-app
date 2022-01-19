@@ -264,6 +264,7 @@
     "ranking_tab_all": "Tout",
     "ranking_subtitle_match_yes": "Très bonne correspondance",
     "ranking_subtitle_match_no": "Très mauvaise correspondance",
+    "ranking_subtitle_match_maybe": "Correspondance inconnue",
     "reloaded_with_new_preferences": "Rechargé avec de nouvelles préférences",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
