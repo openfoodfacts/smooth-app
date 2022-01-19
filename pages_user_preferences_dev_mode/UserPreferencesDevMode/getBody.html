@@ -126,7 +126,42 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
               await DaoProductList(localDatabase).export(
             ProductList.history(),
           );
-          debugPrint(&#39;exported history: $export&#39;, wrapWidth: 80);
+          final List&lt;Widget&gt; children = &lt;Widget&gt;[];
+          for (final String barcode in export.keys) {
+            final bool? exists = export[barcode] as bool?;
+            children.add(
+              ListTile(
+                leading: Icon(exists == null
+                    ? Icons.error
+                    : exists
+                        ? Icons.check
+                        : Icons.help_outline),
+                title: Text(barcode),
+                subtitle: Text(exists == null
+                    ? &#39;exception&#39;
+                    : exists
+                        ? &#39;product found&#39;
+                        : &#39;product NOT found&#39;),
+              ),
+            );
+          }
+          showDialog&lt;void&gt;(
+            context: context,
+            builder: (BuildContext context) =&gt; AlertDialog(
+              title: const Text(&#39;export history&#39;),
+              content: SizedBox(
+                height: 400,
+                width: 300,
+                child: ListView(children: children),
+              ),
+              actions: &lt;Widget&gt;[
+                ElevatedButton(
+                  child: Text(AppLocalizations.of(context)!.okay),
+                  onPressed: () =&gt; Navigator.pop(context),
+                ),
+              ],
+            ),
+          );
         },
       ),
     ];</code></pre>
