@@ -18,10 +18,10 @@ class CategoryQueryModel with ChangeNotifier {
   bool isNotEmpty() => _categories != null && _categories!.isNotEmpty;
 
   /// The currently selected filter categories.
-  Set<Category> selectedCategories = <Category>{};
+  final Set<Category> selectedCategories = <Category>{};
 
   /// The currently selected category path.
-  List<Category> categoryPath = <Category>[];
+  final List<Category> categoryPath = <Category>[];
 
   Future<CategoryTreeNode?> getCategory(Iterable<Category> categoryPath) async {
     if (categoryPath.isEmpty) {
@@ -46,14 +46,16 @@ class CategoryQueryModel with ChangeNotifier {
   }
 
   void setCategoryPath(Iterable<Category> value) {
-    categoryPath = value.toList();
+    categoryPath.clear();
+    categoryPath.addAll(value);
     debugPrint('New category path: $categoryPath');
     notifyListeners();
   }
 
   void setCategories(Set<Category> value) {
     if (selectedCategories != value) {
-      selectedCategories = value.toSet();
+      selectedCategories.clear();
+      selectedCategories.addAll(value);
       notifyListeners();
     }
   }
@@ -70,7 +72,8 @@ class CategoryQueryModel with ChangeNotifier {
       _categories = <String, CategoryTreeNode>{
         _categoryRoot.value.tag: _categoryRoot
       };
-      categoryPath = <Category>[_categoryRoot.value];
+      categoryPath.clear();
+      categoryPath.add(_categoryRoot.value);
       _loadingStatus = LoadingStatus.LOADED;
     }
     notifyListeners();

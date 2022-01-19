@@ -102,11 +102,14 @@ class _SmoothCategoryPickerState<T extends Comparable<T>>
       initialData: null,
       builder:
           (BuildContext context, AsyncSnapshot<SmoothCategory<T>?> snapshot) {
+        debugPrint('Rebuilding picker because future returned');
         final SmoothCategory<T>? category = snapshot.data;
         if (category == null) {
-          return Container(
-            alignment: Alignment.center,
-            child: const CircularProgressIndicator.adaptive(),
+          return Scaffold(
+            body: Container(
+              alignment: Alignment.center,
+              child: const CircularProgressIndicator.adaptive(),
+            ),
           );
         }
         return Scaffold(
@@ -265,6 +268,7 @@ class _CategoryView<T extends Comparable<T>> extends StatefulWidget {
 class _CategoryViewState<T extends Comparable<T>>
     extends State<_CategoryView<T>> {
   late PageController controller;
+  int _pendingDesiredPage = -1;
 
   @override
   void initState() {
@@ -273,6 +277,8 @@ class _CategoryViewState<T extends Comparable<T>>
   }
 
   void animateToPage(int page) {
+    debugPrint(
+        'Animating to page $page, for path of length ${widget.currentPath.length}');
     controller.animateToPage(
       page,
       curve: Curves.easeInOut,
@@ -283,13 +289,16 @@ class _CategoryViewState<T extends Comparable<T>>
   @override
   void didUpdateWidget(_CategoryView<T> oldWidget) {
     super.didUpdateWidget(oldWidget);
+    debugPrint('Comparing ${widget.currentPath} to ${oldWidget.currentPath}');
     if (!listEquals<T>(widget.currentPath, oldWidget.currentPath)) {
-      animateToPage(widget.currentPath.length - 1);
+      _pendingDesiredPage = widget.currentPath.length - 1;
     }
   }
 
   void onDescend(SmoothCategory<T> childCategory) {
-    widget.onPathChanged(<T>[...widget.currentPath, childCategory.value]);
+    setState(() {
+      widget.onPathChanged(<T>[...widget.currentPath, childCategory.value]);
+    });
   }
 
   Future<List<_CategoryPage<T>>> _generatePages(List<T> path) async {
@@ -331,8 +340,19 @@ class _CategoryViewState<T extends Comparable<T>>
       }),
       builder: (BuildContext context,
           AsyncSnapshot<List<_CategoryPage<T>>> snapshot) {
+        scheduleMicrotask(() {
+          if (_pendingDesiredPage != -1 &&
+              snapshot.data != null &&
+              snapshot.data!.length >= _pendingDesiredPage + 1) {
+            animateToPage(_pendingDesiredPage);
+            _pendingDesiredPage = -1;
+          }
+        });
+        debugPrint('Rebuilding pages for ${snapshot.data?.length} pages.');
         if (snapshot.data == null) {
-          return const SizedBox();
+          return const Center(
+            child: CircularProgressIndicator.adaptive(),
+          );
         }
         return PageView(
           onPageChanged: _onPageChanged,
@@ -371,6 +391,7 @@ class _CategoryPage<T extends Comparable<T>> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('Rebuilding $runtimeType with $currentPath');
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[

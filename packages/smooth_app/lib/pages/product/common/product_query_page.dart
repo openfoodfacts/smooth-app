@@ -208,38 +208,23 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                           color: widget.mainColor,
                         ),
                       ),
-                      onPressed: () {
-                        showCupertinoModalBottomSheet<Widget>(
-                          expand: false,
-                          context: context,
-                          backgroundColor: Colors.transparent,
-                          bounce: true,
-                          builder: (BuildContext context) {
-                            return ChangeNotifierProvider<
-                                CategoryQueryModel>.value(
-                              value: _categoryModel,
-                              builder: (BuildContext context, Widget? wtf) {
-                                return SmoothCategoryPicker<Category>(
-                                  categoryFinder: _categoryModel.getCategory,
-                                  currentCategories:
-                                      _categoryModel.selectedCategories,
-                                  currentPath: _categoryModel.categoryPath,
-                                  onPathChanged: _categoryModel.setCategoryPath,
-                                  onCategoriesChanged:
-                                      (Set<Category> categories) {
-                                    _productModel.selectCategories(categories
-                                        .map<String>((Category category) =>
-                                            category.getLabel(
-                                                ProductQuery.getLanguage()!))
-                                        .toSet());
-                                    _categoryModel.setCategories(categories);
-                                  },
-                                  language: ProductQuery.getLanguage()!,
-                                );
-                              },
-                            );
-                          },
+                      onPressed: () async {
+                        final Set<Category>? categories =
+                            await Navigator.of(context).push<Set<Category>>(
+                          ModalBottomSheetRoute<Set<Category>>(
+                            expanded: false,
+                            builder: (BuildContext context) =>
+                                ProductCategoryPicker(
+                              categoryModel: _categoryModel,
+                            ),
+                          ),
                         );
+                        if (categories != null) {
+                          _productModel.selectCategories(categories
+                              .map<String>((Category category) => category
+                                  .getLabel(ProductQuery.getLanguage()!))
+                              .toSet());
+                        }
                       },
                     ),
                   ),
@@ -352,4 +337,49 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
           onPressed: () => Navigator.pop(context),
         ),
       );
+}
+
+class ProductCategoryPicker extends StatefulWidget {
+  const ProductCategoryPicker({
+    Key? key,
+    required this.categoryModel,
+  }) : super(key: key);
+
+  final CategoryQueryModel categoryModel;
+
+  @override
+  State<ProductCategoryPicker> createState() => _ProductCategoryPickerState();
+}
+
+class _ProductCategoryPickerState extends State<ProductCategoryPicker> {
+  @override
+  void initState() {
+    super.initState();
+    widget.categoryModel.addListener(_handleStateChange);
+  }
+
+  @override
+  void dispose() {
+    widget.categoryModel.removeListener(_handleStateChange);
+    super.dispose();
+  }
+
+  void _handleStateChange() {
+    setState(() {
+      // Nothing
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    print('Rebuilding Picker');
+    return SmoothCategoryPicker<Category>(
+      categoryFinder: widget.categoryModel.getCategory,
+      currentCategories: widget.categoryModel.selectedCategories.toSet(),
+      currentPath: widget.categoryModel.categoryPath.toList(),
+      onPathChanged: widget.categoryModel.setCategoryPath,
+      onCategoriesChanged: widget.categoryModel.setCategories,
+      language: ProductQuery.getLanguage()!,
+    );
+  }
 }
