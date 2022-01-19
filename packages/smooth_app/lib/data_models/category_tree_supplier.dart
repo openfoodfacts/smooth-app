@@ -25,9 +25,7 @@ abstract class CategoryTreeSupplier {
   CategoryTreeNode getCategoryTree() => root;
 
   /// Returns a helper supplier in order to refresh the data
-  CategoryTreeSupplier? getRefreshSupplier() {
-    return QueryCategoryTreeSupplier(categoryQuery, localDatabase);
-  }
+  CategoryTreeSupplier? getRefreshSupplier() => null;
 
   /// Returns the fastest data supplier: database if possible, or server query
   static Future<CategoryTreeSupplier> getBestSupplier(

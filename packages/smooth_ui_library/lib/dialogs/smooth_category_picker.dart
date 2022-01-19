@@ -52,9 +52,13 @@ class SmoothCategoryPicker<T extends Comparable<T>> extends StatefulWidget {
     required this.onCategoriesChanged,
     required this.onPathChanged,
     this.onAddCategory,
+    required this.language,
     Key? key,
   })  : currentCategories = currentCategories ?? <T>{},
         super(key: key);
+
+  /// The language currently in use.
+  final OpenFoodFactsLanguage language;
 
   /// The current set of selected categories.
   ///
@@ -102,25 +106,7 @@ class _SmoothCategoryPickerState<T extends Comparable<T>>
         if (category == null) {
           return Container(
             alignment: Alignment.center,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  // TODO(gspencergoog): Internationalize this.
-                  'No Category Found for ${widget.currentPath.map<String>((T item) => item.toString()).join(' > ')}',
-                ),
-                TextButton(
-                    child: const Text('BACK'),
-                    onPressed: () {
-                      setState(() {
-                        if (widget.currentPath.isNotEmpty) {
-                          widget.onPathChanged(widget.currentPath
-                              .sublist(0, widget.currentPath.length - 1));
-                        }
-                      });
-                    }),
-              ],
-            ),
+            child: const CircularProgressIndicator.adaptive(),
           );
         }
         return Scaffold(
@@ -138,9 +124,12 @@ class _SmoothCategoryPickerState<T extends Comparable<T>>
                 child: SmoothCategoryDisplay<T>(
                   categories: widget.currentCategories,
                   onDeleted: (T item) {
-                    widget.onCategoriesChanged(
-                        widget.currentCategories.difference(<T>{item}));
+                    setState(() {
+                      widget.onCategoriesChanged(
+                          widget.currentCategories.difference(<T>{item}));
+                    });
                   },
+                  language: widget.language,
                 ),
               ),
               const Divider(),
@@ -159,7 +148,12 @@ class _SmoothCategoryPickerState<T extends Comparable<T>>
                           }
                         : null,
                   ),
-                  Text(widget.currentPath.join(' > ')),
+                  Text(widget.currentPath.map<String>((T item) {
+                    if (item is LabeledObject) {
+                      return (item as LabeledObject).getLabel(widget.language);
+                    }
+                    return item.toString();
+                  }).join(' > ')),
                 ],
               ),
               const Divider(),
@@ -171,6 +165,7 @@ class _SmoothCategoryPickerState<T extends Comparable<T>>
                   onPathChanged: widget.onPathChanged,
                   onChanged: widget.onCategoriesChanged,
                   allowEmpty: widget.onAddCategory != null,
+                  language: widget.language,
                 ),
               ),
             ],
@@ -251,6 +246,7 @@ class _CategoryView<T extends Comparable<T>> extends StatefulWidget {
     required this.onPathChanged,
     required this.onChanged,
     required this.categoryFinder,
+    required this.language,
     this.allowEmpty = false,
   }) : super(key: key);
 
@@ -260,6 +256,7 @@ class _CategoryView<T extends Comparable<T>> extends StatefulWidget {
   final CategoryPathChangedCallback<T> onPathChanged;
   final CategoryPathSelector<T> categoryFinder;
   final bool allowEmpty;
+  final OpenFoodFactsLanguage language;
 
   @override
   State<_CategoryView<T>> createState() => _CategoryViewState<T>();
@@ -292,9 +289,7 @@ class _CategoryViewState<T extends Comparable<T>>
   }
 
   void onDescend(SmoothCategory<T> childCategory) {
-    setState(() {
-      widget.onPathChanged(<T>[...widget.currentPath, childCategory.value]);
-    });
+    widget.onPathChanged(<T>[...widget.currentPath, childCategory.value]);
   }
 
   Future<List<_CategoryPage<T>>> _generatePages(List<T> path) async {
@@ -311,6 +306,7 @@ class _CategoryViewState<T extends Comparable<T>>
           childCategories: await category.getChildren().toSet(),
           onDescend: onDescend,
           onSelect: widget.onChanged,
+          language: widget.language,
           allowEmpty: widget.allowEmpty,
         ));
       }
@@ -361,6 +357,7 @@ class _CategoryPage<T extends Comparable<T>> extends StatelessWidget {
     required this.childCategories,
     required this.onDescend,
     required this.onSelect,
+    required this.language,
     this.allowEmpty = false,
   }) : super(key: key);
 
@@ -370,6 +367,7 @@ class _CategoryPage<T extends Comparable<T>> extends StatelessWidget {
   final CategoriesChangedCallback<T> onSelect;
   final _DescendCategoryCallback<SmoothCategory<T>> onDescend;
   final bool allowEmpty;
+  final OpenFoodFactsLanguage language;
 
   @override
   Widget build(BuildContext context) {
@@ -382,6 +380,7 @@ class _CategoryPage<T extends Comparable<T>> extends StatelessWidget {
               category: category,
               onDescend: onDescend,
               allowEmpty: allowEmpty,
+              language: language,
               onSelect: (bool? value) {
                 if (value == true) {
                   onSelect(currentCategories.union(<T>{category.value}));
@@ -405,6 +404,7 @@ class _CategoryItem<T extends SmoothCategory<dynamic>> extends StatelessWidget {
     required this.category,
     required this.onDescend,
     required this.onSelect,
+    required this.language,
     this.allowEmpty = false,
   }) : super(key: key);
 
@@ -413,6 +413,7 @@ class _CategoryItem<T extends SmoothCategory<dynamic>> extends StatelessWidget {
   final _DescendCategoryCallback<T> onDescend;
   final ValueChanged<bool?> onSelect;
   final bool allowEmpty;
+  final OpenFoodFactsLanguage language;
 
   @override
   Widget build(BuildContext context) {
@@ -439,7 +440,9 @@ class _CategoryItem<T extends SmoothCategory<dynamic>> extends StatelessWidget {
                       onSelect(!selected);
                     }
                   },
-                  child: Text(category.toString()),
+                  child: Text(category is LabeledObject
+                      ? category.getLabel(language)
+                      : category.toString()),
                 ),
               ),
               if (allowEmpty || hasChildren)
@@ -455,14 +458,22 @@ class _CategoryItem<T extends SmoothCategory<dynamic>> extends StatelessWidget {
   }
 }
 
+mixin LabeledObject {
+  String getLabel(OpenFoodFactsLanguage language);
+}
+
 /// A widget used to display a list of categories (or other items) as a wrapped list
 /// of chips.
 ///
 /// If [onDeleted] is supplied, chips can be deleted, and [onDeleted] will be called
 /// when they are.
 class SmoothCategoryDisplay<T extends Object> extends StatefulWidget {
-  SmoothCategoryDisplay({Set<T>? categories, this.onDeleted})
+  SmoothCategoryDisplay(
+      {Set<T>? categories, this.onDeleted, required this.language})
       : categories = categories ?? <T>{};
+
+  /// The language currently in use.
+  final OpenFoodFactsLanguage language;
 
   /// The set of categories to display.
   ///
@@ -562,7 +573,9 @@ class _SmoothCategoryDisplayState<T extends Object>
           AnimatedInputChip(
             key: ValueKey<T>(category),
             visible: displayed[category]!,
-            label: Text(category.toString()),
+            label: Text(category is LabeledObject
+                ? category.getLabel(widget.language)
+                : category.toString()),
             onDeleted: widget.onDeleted != null
                 ? () {
                     widget.onDeleted!.call(category);

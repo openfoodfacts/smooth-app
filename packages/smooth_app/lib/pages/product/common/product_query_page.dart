@@ -5,9 +5,12 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
+import 'package:smooth_app/data_models/category_query_model.dart';
+import 'package:smooth_app/data_models/category_tree_supplier.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
 import 'package:smooth_app/data_models/product_query_model.dart';
 import 'package:smooth_app/data_models/smooth_category.dart';
+import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
@@ -17,6 +20,7 @@ import 'package:smooth_ui_library/dialogs/smooth_category_picker.dart';
 class ProductQueryPage extends StatefulWidget {
   const ProductQueryPage({
     required this.productListSupplier,
+    required this.categoryTreeSupplier,
     required this.heroTag,
     required this.mainColor,
     required this.name,
@@ -24,6 +28,7 @@ class ProductQueryPage extends StatefulWidget {
   });
 
   final ProductListSupplier productListSupplier;
+  final CategoryTreeSupplier categoryTreeSupplier;
   final String heroTag;
   final Color mainColor;
   final String name;
@@ -38,7 +43,8 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
   final GlobalKey<ScaffoldState> _scaffoldKeyNotEmpty =
       GlobalKey<ScaffoldState>();
 
-  late ProductQueryModel _model;
+  late ProductQueryModel _productModel;
+  late CategoryQueryModel _categoryModel;
   int? _lastUpdate;
   final ScrollController _scrollController = ScrollController();
   bool _showTitle = true;
@@ -47,7 +53,8 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
   void initState() {
     super.initState();
     _lastUpdate = widget.lastUpdate;
-    _model = ProductQueryModel(widget.productListSupplier);
+    _productModel = ProductQueryModel(widget.productListSupplier);
+    _categoryModel = CategoryQueryModel(widget.categoryTreeSupplier);
     _scrollController.addListener(() {
       if (_scrollController.offset <=
               _scrollController.position.minScrollExtent &&
@@ -66,16 +73,16 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<ProductQueryModel>.value(
-      value: _model,
+      value: _productModel,
       builder: (BuildContext context, Widget? wtf) {
         context.watch<ProductQueryModel>();
         final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
         final Size screenSize = MediaQuery.of(context).size;
         final ThemeData themeData = Theme.of(context);
-        if (_model.loadingStatus == LoadingStatus.LOADED) {
-          _model.process(appLocalizations.category_all);
+        if (_productModel.loadingStatus == LoadingStatus.LOADED) {
+          _productModel.process(appLocalizations.category_all);
         }
-        switch (_model.loadingStatus) {
+        switch (_productModel.loadingStatus) {
           case LoadingStatus.POST_LOAD_STARTED:
           case LoadingStatus.LOADING:
           case LoadingStatus.LOADED:
@@ -87,7 +94,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
               ),
             );
           case LoadingStatus.COMPLETE:
-            if (_model.isNotEmpty()) {
+            if (_productModel.isNotEmpty()) {
               _showRefreshSnackBar(_scaffoldKeyNotEmpty);
               return _getNotEmptyScreen(screenSize, themeData);
             }
@@ -108,7 +115,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
               _getEmptyText(
                 themeData,
                 widget.mainColor,
-                '${appLocalizations.error_occurred}: ${_model.loadingError}',
+                '${appLocalizations.error_occurred}: ${_productModel.loadingError}',
               ),
             );
         }
@@ -146,89 +153,102 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
     final ThemeData themeData,
   ) =>
       Scaffold(
-          key: _scaffoldKeyNotEmpty,
-          floatingActionButton: RankingFloatingActionButton(
-            color: widget.mainColor,
-            onPressed: () => Navigator.push<Widget>(
-              context,
-              MaterialPageRoute<Widget>(
-                builder: (BuildContext context) => PersonalizedRankingPage(
-                  _model.supplier.getProductList(),
-                ),
+        key: _scaffoldKeyNotEmpty,
+        floatingActionButton: RankingFloatingActionButton(
+          color: widget.mainColor,
+          onPressed: () => Navigator.push<Widget>(
+            context,
+            MaterialPageRoute<Widget>(
+              builder: (BuildContext context) => PersonalizedRankingPage(
+                _productModel.supplier.getProductList(),
               ),
             ),
           ),
-          body: Stack(
-            children: <Widget>[
-              _getHero(screenSize, themeData),
-              ListView.builder(
-                itemCount: _model.displayProducts!.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 12.0, vertical: 8.0),
-                    child: SmoothProductCardFound(
-                      heroTag: _model.displayProducts![index].barcode!,
-                      product: _model.displayProducts![index],
-                      elevation:
-                          Theme.of(context).brightness == Brightness.light
-                              ? 0.0
-                              : 4.0,
-                    ).build(context),
-                  );
-                },
-                padding: EdgeInsets.only(
-                    top: screenSize.height * 0.25, bottom: 80.0),
-                controller: _scrollController,
-              ),
-              AnimatedOpacity(
-                opacity: _showTitle ? 1.0 : 0.0,
-                duration: const Duration(milliseconds: 250),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    getBackArrow(context, widget.mainColor),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 24.0),
-                      child: TextButton.icon(
-                        icon: Icon(
-                          Icons.filter_list,
+        ),
+        body: Stack(
+          children: <Widget>[
+            _getHero(screenSize, themeData),
+            ListView.builder(
+              itemCount: _productModel.displayProducts!.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 12.0, vertical: 8.0),
+                  child: SmoothProductCardFound(
+                    heroTag: _productModel.displayProducts![index].barcode!,
+                    product: _productModel.displayProducts![index],
+                    elevation: Theme.of(context).brightness == Brightness.light
+                        ? 0.0
+                        : 4.0,
+                  ).build(context),
+                );
+              },
+              padding:
+                  EdgeInsets.only(top: screenSize.height * 0.25, bottom: 80.0),
+              controller: _scrollController,
+            ),
+            AnimatedOpacity(
+              opacity: _showTitle ? 1.0 : 0.0,
+              duration: const Duration(milliseconds: 250),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  getBackArrow(context, widget.mainColor),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 24.0),
+                    child: TextButton.icon(
+                      icon: Icon(
+                        Icons.filter_list,
+                        color: widget.mainColor,
+                      ),
+                      label: Text(AppLocalizations.of(context)!.filter),
+                      style: TextButton.styleFrom(
+                        textStyle: TextStyle(
                           color: widget.mainColor,
                         ),
-                        label: Text(AppLocalizations.of(context)!.filter),
-                        style: TextButton.styleFrom(
-                          textStyle: TextStyle(
-                            color: widget.mainColor,
-                          ),
-                        ),
-                        onPressed: () {
-                          showCupertinoModalBottomSheet<Widget>(
-                            expand: false,
-                            context: context,
-                            backgroundColor: Colors.transparent,
-                            bounce: true,
-                            builder: (BuildContext context) {
-                              return SmoothCategoryPicker<Category>(
-                                categoryFinder: _model.getCategory,
-                                currentCategories: _model.selectedCategories,
-                                currentPath: _model.categoryPath,
-                                onPathChanged: _model.setCategoryPath,
-                                onCategoriesChanged: (Set<Category> categories) {
-                                  _model.selectCategories(categories);
-                                  setState(() {});
-                                },
-                              );
-                            },
-                          );
-                        },
                       ),
+                      onPressed: () {
+                        showCupertinoModalBottomSheet<Widget>(
+                          expand: false,
+                          context: context,
+                          backgroundColor: Colors.transparent,
+                          bounce: true,
+                          builder: (BuildContext context) {
+                            return ChangeNotifierProvider<
+                                CategoryQueryModel>.value(
+                              value: _categoryModel,
+                              builder: (BuildContext context, Widget? wtf) {
+                                return SmoothCategoryPicker<Category>(
+                                  categoryFinder: _categoryModel.getCategory,
+                                  currentCategories:
+                                      _categoryModel.selectedCategories,
+                                  currentPath: _categoryModel.categoryPath,
+                                  onPathChanged: _categoryModel.setCategoryPath,
+                                  onCategoriesChanged:
+                                      (Set<Category> categories) {
+                                    _productModel.selectCategories(categories
+                                        .map<String>((Category category) =>
+                                            category.getLabel(
+                                                ProductQuery.getLanguage()!))
+                                        .toSet());
+                                    _categoryModel.setCategories(categories);
+                                  },
+                                  language: ProductQuery.getLanguage()!,
+                                );
+                              },
+                            );
+                          },
+                        );
+                      },
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
-          ));
+            ),
+          ],
+        ),
+      );
 
   Widget _getHero(final Size screenSize, final ThemeData themeData) => Hero(
         tag: widget.heroTag,
@@ -312,7 +332,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
           action: SnackBarAction(
             label: AppLocalizations.of(context)!.label_refresh,
             onPressed: () => setState(
-              () => _model = ProductQueryModel(refreshSupplier),
+              () => _productModel = ProductQueryModel(refreshSupplier),
             ),
           ),
         ),

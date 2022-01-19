@@ -187,6 +187,7 @@ class _ExampleAppState extends State<ExampleApp> {
           categoryFinder: getCategory,
           currentPath: currentCategoryPath,
           currentCategories: currentCategories,
+          language: OpenFoodFactsLanguage.ENGLISH,
           onCategoriesChanged: (Set<Fruit> value) {
             setState(() {
               currentCategories = value;

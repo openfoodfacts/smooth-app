@@ -106,6 +106,7 @@ void main() {
             onAddCategory: (List<String> path) {
               requestedNewCategory = true;
             },
+            language: OpenFoodFactsLanguage.ENGLISH,
           ),
         ),
       );
@@ -133,6 +134,7 @@ void main() {
             onAddCategory: (List<String> path) {
               requestedNewCategory = true;
             },
+            language: OpenFoodFactsLanguage.ENGLISH,
           ),
         ),
       );
@@ -165,6 +167,7 @@ void main() {
             onAddCategory: (List<String> path) {
               requestedNewCategory = true;
             },
+            language: OpenFoodFactsLanguage.ENGLISH,
           ),
         ),
       );
@@ -194,6 +197,7 @@ void main() {
             onAddCategory: (List<String> path) {
               newCategoryPath = path;
             },
+            language: OpenFoodFactsLanguage.ENGLISH,
           ),
         ),
       );
@@ -222,6 +226,7 @@ void main() {
             onAddCategory: (List<String> path) {
               newCategoryPath = path;
             },
+            language: OpenFoodFactsLanguage.ENGLISH,
           ),
         ),
       );
@@ -245,6 +250,7 @@ void main() {
             body: SmoothCategoryDisplay<String>(
               categories: currentCategories,
               onDeleted: null,
+              language: OpenFoodFactsLanguage.ENGLISH,
             ),
           ),
         ),
@@ -257,6 +263,7 @@ void main() {
             body: SmoothCategoryDisplay<String>(
               categories: currentCategories,
               onDeleted: (String value) {},
+              language: OpenFoodFactsLanguage.ENGLISH,
             ),
           ),
         ),
@@ -278,6 +285,7 @@ void main() {
               onDeleted: (String value) {
                 currentCategories.remove(value);
               },
+              language: OpenFoodFactsLanguage.ENGLISH,
             ),
           ),
         ),

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/utils/PnnsGroups.dart';
+import 'package:smooth_app/data_models/category_tree_supplier.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
+import 'package:smooth_app/database/category_query.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/pages/product/common/product_query_page.dart';
@@ -21,11 +23,15 @@ class ProductQueryPageHelper {
       productQuery,
       localDatabase,
     );
+    final CategoryTreeSupplier categorySupplier =
+        await CategoryTreeSupplier.getBestSupplier(
+            CategoryQuery(), localDatabase);
     Navigator.push<Widget>(
       context,
       MaterialPageRoute<Widget>(
         builder: (BuildContext context) => ProductQueryPage(
           productListSupplier: supplier,
+          categoryTreeSupplier: categorySupplier,
           heroTag: heroTag,
           mainColor: color,
           name: name,
