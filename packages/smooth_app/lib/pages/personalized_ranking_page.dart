@@ -21,23 +21,21 @@ class PersonalizedRankingPage extends StatefulWidget {
 }
 
 class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
-  static const Map<int, Color> _COLORS = <int, Color>{
-    SmoothItModel.MATCH_INDEX_YES: Colors.green,
-    SmoothItModel.MATCH_INDEX_MAYBE: Colors.grey,
-    SmoothItModel.MATCH_INDEX_NO: Colors.red,
-    SmoothItModel.MATCH_INDEX_ALL: Colors.black,
+  static const Map<MatchTab, Color> _COLORS = <MatchTab, Color>{
+    MatchTab.YES: Colors.green,
+    MatchTab.MAYBE: Colors.grey,
+    MatchTab.NO: Colors.red,
+    MatchTab.ALL: Colors.black,
   };
 
-  static const List<int> _ORDERED_MATCH_INDEXES = <int>[
-    SmoothItModel.MATCH_INDEX_ALL,
-    SmoothItModel.MATCH_INDEX_YES,
-    SmoothItModel.MATCH_INDEX_NO,
-    SmoothItModel.MATCH_INDEX_MAYBE,
+  static const List<MatchTab> _ORDERED_MATCH_TABS = <MatchTab>[
+    MatchTab.ALL,
+    MatchTab.YES,
+    MatchTab.NO,
+    MatchTab.MAYBE,
   ];
 
   final SmoothItModel _model = SmoothItModel();
-  final List<List<MatchedProduct>> _matchedProducts = <List<MatchedProduct>>[];
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
@@ -47,23 +45,23 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
     final DaoProductList daoProductList = DaoProductList(localDatabase);
     _model.refresh(widget.productList, productPreferences);
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final List<Color> colors = <Color>[];
     final List<String> titles = <String>[];
-    _matchedProducts.clear();
-    for (int i = 0; i < _ORDERED_MATCH_INDEXES.length; i++) {
-      final int matchIndex = _ORDERED_MATCH_INDEXES[i];
-      final List<MatchedProduct> products =
-          _model.getMatchedProducts(matchIndex);
-      _matchedProducts.add(products);
+    final List<List<MatchedProduct>> matchedProductsList =
+        <List<MatchedProduct>>[];
+    for (final MatchTab matchTab in _ORDERED_MATCH_TABS) {
+      final List<MatchedProduct> products = _model.getMatchedProducts(matchTab);
+      matchedProductsList.add(products);
       titles.add(
-        matchIndex == SmoothItModel.MATCH_INDEX_ALL
+        matchTab == MatchTab.ALL
             ? appLocalizations.ranking_tab_all
             : products.length.toString(),
       );
+      colors.add(_COLORS[matchTab]!);
     }
     return DefaultTabController(
-      length: _ORDERED_MATCH_INDEXES.length,
+      length: _ORDERED_MATCH_TABS.length,
       child: Scaffold(
-        key: _scaffoldKey,
         appBar: AppBar(
           backgroundColor: Colors.white,
           foregroundColor: Colors.black,
@@ -84,13 +82,11 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
             isScrollable: false,
             tabs: <Tab>[
               ...List<Tab>.generate(
-                _ORDERED_MATCH_INDEXES.length,
+                _ORDERED_MATCH_TABS.length,
                 (final int index) => Tab(
                   child: Text(
                     titles[index],
-                    style: TextStyle(
-                      color: _COLORS[_ORDERED_MATCH_INDEXES[index]],
-                    ),
+                    style: TextStyle(color: colors[index]),
                   ),
                 ),
               ),
@@ -113,9 +109,10 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
         ),
         body: TabBarView(
           children: List<Widget>.generate(
-            _ORDERED_MATCH_INDEXES.length,
+            _ORDERED_MATCH_TABS.length,
             (final int index) => _getStickyHeader(
-              _ORDERED_MATCH_INDEXES[index],
+              _ORDERED_MATCH_TABS[index],
+              matchedProductsList[index],
               appLocalizations,
               daoProductList,
             ),
@@ -161,14 +158,14 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
       );
 
   Widget _getStickyHeader(
-    final int matchIndex,
+    final MatchTab matchTab,
+    final List<MatchedProduct> matchedProducts,
     final AppLocalizations appLocalizations,
     final DaoProductList daoProductList,
   ) {
-    final List<MatchedProduct> matchedProducts = _matchedProducts[matchIndex];
     final Widget? subtitleWidget = _getSubtitleWidget(
-      _COLORS[matchIndex],
-      _getSubtitle(matchIndex, appLocalizations),
+      _COLORS[matchTab],
+      _getSubtitle(matchTab, appLocalizations),
     );
     if (matchedProducts.isEmpty) {
       return Column(
@@ -215,17 +212,17 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
             );
 
   String? _getSubtitle(
-    final int matchIndex,
+    final MatchTab matchTab,
     final AppLocalizations appLocalizations,
   ) {
-    switch (matchIndex) {
-      case SmoothItModel.MATCH_INDEX_ALL:
+    switch (matchTab) {
+      case MatchTab.ALL:
         return null;
-      case SmoothItModel.MATCH_INDEX_MAYBE:
+      case MatchTab.MAYBE:
         return appLocalizations.ranking_subtitle_match_maybe;
-      case SmoothItModel.MATCH_INDEX_YES:
+      case MatchTab.YES:
         return appLocalizations.ranking_subtitle_match_yes;
-      case SmoothItModel.MATCH_INDEX_NO:
+      case MatchTab.NO:
         return appLocalizations.ranking_subtitle_match_no;
     }
   }
