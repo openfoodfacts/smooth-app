@@ -5,6 +5,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
+import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
 
 class LocalDatabase extends ChangeNotifier {
@@ -24,6 +25,7 @@ class LocalDatabase extends ChangeNotifier {
       DaoProduct(localDatabase),
       DaoProductList(localDatabase),
       DaoStringList(localDatabase),
+      DaoString(localDatabase),
     ];
     for (final AbstractDao dao in daos) {
       dao.registerAdapter();

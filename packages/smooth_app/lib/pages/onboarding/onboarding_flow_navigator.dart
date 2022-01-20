@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/onboarding/preferences_page.dart';
 import 'package:smooth_app/pages/onboarding/sample_eco_card_page.dart';
 import 'package:smooth_app/pages/onboarding/sample_health_card_page.dart';
@@ -71,6 +73,7 @@ class OnboardingFlowNavigator {
   }
 
   Widget getPageWidget(BuildContext context, OnboardingPage page) {
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
     switch (page) {
       case OnboardingPage.NOT_STARTED:
       case OnboardingPage.WELCOME:
@@ -80,13 +83,13 @@ class OnboardingFlowNavigator {
             context, page, const ScanExample());
       case OnboardingPage.HEALTH_CARD_EXAMPLE:
         return _wrapWidgetInCustomBackNavigator(
-            context, page, const SampleHealthCardPage());
+            context, page, SampleHealthCardPage(localDatabase));
       case OnboardingPage.ECO_CARD_EXAMPLE:
         return _wrapWidgetInCustomBackNavigator(
-            context, page, const SampleEcoCardPage());
+            context, page, SampleEcoCardPage(localDatabase));
       case OnboardingPage.PREFERENCES_PAGE:
         return _wrapWidgetInCustomBackNavigator(
-            context, page, PreferencesPage());
+            context, page, PreferencesPage(localDatabase));
       case OnboardingPage.ONBOARDING_COMPLETE:
         return PageManager();
     }
