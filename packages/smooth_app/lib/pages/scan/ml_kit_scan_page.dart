@@ -19,20 +19,23 @@ class MLKitScannerPage extends StatefulWidget {
 
 class MLKitScannerPageState extends State<MLKitScannerPage> {
   BarcodeScanner? barcodeScanner = GoogleMlKit.vision.barcodeScanner();
+  CameraLensDirection cameraLensDirection = CameraLensDirection.back;
   late ContinuousScanModel _model;
   CameraController? _controller;
   int _cameraIndex = 0;
-  CameraLensDirection cameraLensDirection = CameraLensDirection.back;
   bool isBusy = false;
-  bool imageStreamActive = false;
+  //Used when rebuilding to stop the camera
+  bool stoppingCamera = false;
 
   @override
   void initState() {
     super.initState();
 
-    //Find the most relevant camera to use if none of these criteria are met,
-    //the default value of [_cameraIndex] will be used to select the first
-    //camera in the global cameras list.
+    // Find the most relevant camera to use if none of these criteria are met,
+    // the default value of [_cameraIndex] will be used to select the first
+    // camera in the global cameras list.
+    // if non matching is found we fall back to the first in the list
+    // initValue of [_cameraIndex]
     if (cameras.any(
       (CameraDescription element) =>
           element.lensDirection == cameraLensDirection &&
@@ -53,22 +56,36 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
       );
     }
 
-    _startLiveFeed();
+    startLiveFeed();
   }
 
   @override
   void dispose() {
-    _stopImageStream().then(
-      (_) => _controller?.dispose(),
-    );
+    _controller?.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     _model = context.watch<ContinuousScanModel>();
-    if (_controller == null || _controller!.value.isInitialized == false) {
-      return const Center(child: CircularProgressIndicator());
+
+    return Scaffold(
+      body: ScannerOverlay(
+        restartCamera: startLiveFeed,
+        stopCamera: _stopImageStream,
+        model: _model,
+        scannerWidget: _buildScannerWidget(),
+      ),
+    );
+  }
+
+  Widget _buildScannerWidget() {
+    // Showing the black scanner background + the icon when the scanner is
+    // loading or stopped
+    if (_controller == null ||
+        _controller!.value.isInitialized == false ||
+        stoppingCamera) {
+      return Container();
     }
 
     final Size size = MediaQuery.of(context).size;
@@ -84,55 +101,63 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
       scale = 1 / scale;
     }
 
-    return Scaffold(
-      body: ScannerOverlay(
-        restartCamera: _resumeImageStream,
-        stopCamera: _stopImageStream,
-        model: _model,
-        scannerWidget: Transform.scale(
-          scale: scale,
-          child: Center(
-            child: CameraPreview(
-              _controller!,
-            ),
-          ),
+    return Transform.scale(
+      scale: scale,
+      child: Center(
+        key: ValueKey<bool>(stoppingCamera),
+        child: CameraPreview(
+          _controller!,
         ),
       ),
     );
   }
 
-  Future<void> _startLiveFeed() async {
+  Future<void> startLiveFeed() async {
+    stoppingCamera = false;
     final CameraDescription camera = cameras[_cameraIndex];
-    _controller = CameraController(
+
+    final CameraController cameraController = CameraController(
       camera,
       ResolutionPreset.high,
       enableAudio: false,
     );
-    _controller!.setFocusMode(FocusMode.auto);
-    _controller!.lockCaptureOrientation(DeviceOrientation.portraitUp);
+    cameraController.setFocusMode(FocusMode.auto);
+    cameraController.lockCaptureOrientation(DeviceOrientation.portraitUp);
 
-    _controller!.initialize().then((_) {
-      if (!mounted) {
-        return;
+    _controller = cameraController;
+
+    // If the controller is updated then update the UI.
+    cameraController.addListener(() {
+      if (mounted) {
+        setState(() {});
       }
-      _controller!.startImageStream(_processCameraImage);
-      imageStreamActive = true;
-      setState(() {});
+      if (cameraController.value.hasError) {
+        if (kDebugMode) {
+          print(cameraController.value.errorDescription);
+        }
+      }
     });
-  }
 
-  void _resumeImageStream() {
-    if (_controller != null && !imageStreamActive) {
-      _controller!.startImageStream(_processCameraImage);
-      imageStreamActive = true;
+    try {
+      await cameraController.initialize();
+      _controller?.startImageStream(_processCameraImage);
+    } on CameraException catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
+    }
+
+    if (mounted) {
+      setState(() {});
     }
   }
 
   Future<void> _stopImageStream() async {
-    if (_controller != null) {
-      await _controller!.stopImageStream();
-      imageStreamActive = false;
+    stoppingCamera = true;
+    if (mounted) {
+      setState(() {});
     }
+    await _controller?.dispose();
   }
 
   //Convert the [CameraImage] to a [InputImage]
