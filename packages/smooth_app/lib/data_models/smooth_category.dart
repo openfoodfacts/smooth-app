@@ -33,7 +33,8 @@ class Category
   }
 }
 
-class CategoryTreeNode extends SmoothCategory<Category> implements LabeledObject {
+class CategoryTreeNode extends SmoothCategory<Category>
+    implements LabeledObject {
   CategoryTreeNode(Category value) : super(value);
 
   @override
@@ -87,7 +88,7 @@ class CategoryTreeNode extends SmoothCategory<Category> implements LabeledObject
     if (_parents == null) {
       final CategoryQuery categoryQuery = CategoryQuery();
       final Iterable<CategoryTreeNode>? parentCategories =
-      await categoryQuery.getCategories(value.parents);
+          await categoryQuery.getCategories(value.parents);
       if (parentCategories == null) {
         return;
       }

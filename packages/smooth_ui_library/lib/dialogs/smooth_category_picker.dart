@@ -51,6 +51,7 @@ class SmoothCategoryPicker<T extends Comparable<T>> extends StatefulWidget {
     required this.currentPath,
     required this.onCategoriesChanged,
     required this.onPathChanged,
+    required this.onApply,
     this.onAddCategory,
     required this.language,
     Key? key,
@@ -88,6 +89,9 @@ class SmoothCategoryPicker<T extends Comparable<T>> extends StatefulWidget {
   /// A callback called when the selected path changes.
   final CategoryPathChangedCallback<T> onPathChanged;
 
+  /// A callback called when the "Save" button is pressed.
+  final CategoriesChangedCallback<T> onApply;
+
   @override
   State<SmoothCategoryPicker<T>> createState() =>
       _SmoothCategoryPickerState<T>();
@@ -124,6 +128,26 @@ class _SmoothCategoryPickerState<T extends Comparable<T>>
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: <Widget>[
+                    TextButton(
+                      child: const Text('APPLY'), // TODO(gspencergoog): i18n
+                      onPressed: () {
+                        widget.onApply(widget.currentCategories);
+                      },
+                    ),
+                    TextButton(
+                      child: const Text('CLEAR'), // TODO(gspencergoog): i18n
+                      onPressed: () {
+                        widget.onCategoriesChanged(<T>{});
+                        widget.onApply(<T>{});
+                      },
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
                 child: SmoothCategoryDisplay<T>(
                   categories: widget.currentCategories,
                   onDeleted: (T item) {
@@ -151,12 +175,21 @@ class _SmoothCategoryPickerState<T extends Comparable<T>>
                           }
                         : null,
                   ),
-                  Text(widget.currentPath.map<String>((T item) {
-                    if (item is LabeledObject) {
-                      return (item as LabeledObject).getLabel(widget.language);
-                    }
-                    return item.toString();
-                  }).join(' > ')),
+                  Expanded(
+                    child: Text(
+                      widget.currentPath.map<String>((T item) {
+                        if (item is LabeledObject) {
+                          return (item as LabeledObject)
+                              .getLabel(widget.language);
+                        }
+                        return item.toString();
+                      }).join(' > '),
+                      style: Theme.of(context)
+                          .textTheme
+                          .subtitle1!
+                          .copyWith(overflow: TextOverflow.ellipsis),
+                    ),
+                  ),
                 ],
               ),
               const Divider(),
@@ -289,9 +322,9 @@ class _CategoryViewState<T extends Comparable<T>>
   @override
   void didUpdateWidget(_CategoryView<T> oldWidget) {
     super.didUpdateWidget(oldWidget);
-    debugPrint('Comparing ${widget.currentPath} to ${oldWidget.currentPath}');
     if (!listEquals<T>(widget.currentPath, oldWidget.currentPath)) {
       _pendingDesiredPage = widget.currentPath.length - 1;
+      scheduleMicrotask(() => animateToPage(_pendingDesiredPage));
     }
   }
 
@@ -344,7 +377,6 @@ class _CategoryViewState<T extends Comparable<T>>
           if (_pendingDesiredPage != -1 &&
               snapshot.data != null &&
               snapshot.data!.length >= _pendingDesiredPage + 1) {
-            animateToPage(_pendingDesiredPage);
             _pendingDesiredPage = -1;
           }
         });
@@ -354,10 +386,27 @@ class _CategoryViewState<T extends Comparable<T>>
             child: CircularProgressIndicator.adaptive(),
           );
         }
+        final List<_CategoryPage<T>> pages = snapshot.data!.toList();
+        if (_pendingDesiredPage != -1 &&
+            snapshot.data!.length < _pendingDesiredPage + 1) {
+          pages.add(
+            _CategoryPage<T>(
+              currentCategories: widget.currentCategories,
+              currentPath: widget.currentPath,
+              // ignore: prefer_const_literals_to_create_immutables
+              childCategories: <SmoothCategory<T>>{},
+              onDescend: onDescend,
+              onSelect: widget.onChanged,
+              language: widget.language,
+              allowEmpty: widget.allowEmpty,
+              isPlaceholder: true,
+            ),
+          );
+        }
         return PageView(
           onPageChanged: _onPageChanged,
           controller: controller,
-          children: snapshot.data!,
+          children: pages,
         );
       },
     );
@@ -379,6 +428,7 @@ class _CategoryPage<T extends Comparable<T>> extends StatelessWidget {
     required this.onSelect,
     required this.language,
     this.allowEmpty = false,
+    this.isPlaceholder = false,
   }) : super(key: key);
 
   final Set<T> currentCategories;
@@ -387,11 +437,15 @@ class _CategoryPage<T extends Comparable<T>> extends StatelessWidget {
   final CategoriesChangedCallback<T> onSelect;
   final _DescendCategoryCallback<SmoothCategory<T>> onDescend;
   final bool allowEmpty;
+  final bool isPlaceholder;
   final OpenFoodFactsLanguage language;
 
   @override
   Widget build(BuildContext context) {
     debugPrint('Rebuilding $runtimeType with $currentPath');
+    if (isPlaceholder) {
+      return const Center(child: CircularProgressIndicator.adaptive());
+    }
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[
@@ -446,7 +500,7 @@ class _CategoryItem<T extends SmoothCategory<dynamic>> extends StatelessWidget {
           final bool hasChildren = snapshot.data ?? false;
           return Row(
             children: <Widget>[
-              if (!hasChildren)
+              if (!hasChildren && snapshot.data != null)
                 Checkbox(value: selected, onChanged: onSelect)
               else
                 const SizedBox(

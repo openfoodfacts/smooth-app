@@ -4,9 +4,9 @@ import 'package:smooth_app/data_models/product_query_model.dart'
     show LoadingStatus;
 import 'package:smooth_app/data_models/smooth_category.dart';
 
-class CategoryQueryModel with ChangeNotifier {
-  CategoryQueryModel(this.supplier) {
-   _asyncLoad();
+class CategoryFilterModel with ChangeNotifier {
+  CategoryFilterModel(this.supplier) {
+    _asyncLoad();
   }
 
   final CategoryTreeSupplier supplier;

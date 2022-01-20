@@ -56,5 +56,6 @@ class ProductQueryModel with ChangeNotifier {
         return translatedCategories.intersection(categories).isNotEmpty;
       }).toList();
     }
+    notifyListeners();
   }
 }

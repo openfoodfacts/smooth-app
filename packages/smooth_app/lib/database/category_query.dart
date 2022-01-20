@@ -6,7 +6,8 @@ class CategoryQuery {
   static String getCurrentLanguageCode(final BuildContext context) =>
       Localizations.localeOf(context).languageCode;
 
-  static String getCurrentCountryCode(final BuildContext context) => Localizations.localeOf(context).countryCode ?? '';
+  static String getCurrentCountryCode(final BuildContext context) =>
+      Localizations.localeOf(context).countryCode ?? '';
 
   static List<TaxonomyCategoryField> get fields => TaxonomyCategoryField.values;
 
@@ -18,7 +19,8 @@ class CategoryQuery {
 
   Future<CategoryTreeNode?> getCategoryTreeRoot() async {
     final TaxonomyCategoryQueryConfiguration queryConfiguration =
-        TaxonomyCategoryQueryConfiguration.roots(fields: fields, includeChildren: false);
+        TaxonomyCategoryQueryConfiguration.roots(
+            fields: fields, includeChildren: false);
     final Map<String, TaxonomyCategory>? tree =
         await OpenFoodAPIClient.getTaxonomyCategories(queryConfiguration);
     if (tree == null) {
@@ -27,7 +29,7 @@ class CategoryQuery {
     }
     debugPrint('Received tree for ${queryConfiguration.runtimeType}: $tree');
     final TaxonomyCategory root = TaxonomyCategory.fromJson(<String, dynamic>{
-      'name': <String, String>{ OpenFoodFactsLanguage.ENGLISH.code: 'Root' },
+      'name': <String, String>{OpenFoodFactsLanguage.ENGLISH.code: 'Root'},
       'children': tree.keys.toList(),
     });
     return CategoryTreeNode(Category('en:root', root));
@@ -44,7 +46,8 @@ class CategoryQuery {
     return CategoryTreeNode(Category(tag, result[tag]!));
   }
 
-  Future<Iterable<CategoryTreeNode>?> getCategories(Iterable<String> tags) async {
+  Future<Iterable<CategoryTreeNode>?> getCategories(
+      Iterable<String> tags) async {
     final TaxonomyCategoryQueryConfiguration queryConfiguration =
         TaxonomyCategoryQueryConfiguration(tags: tags.toList(), fields: fields);
     final Map<String, TaxonomyCategory>? result =
