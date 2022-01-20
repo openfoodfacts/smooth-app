@@ -8,7 +8,7 @@ import 'package:google_ml_barcode_scanner/google_ml_barcode_scanner.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/main.dart';
-import 'package:smooth_app/pages/scan/scanner_overlay.dart';
+import 'package:smooth_app/pages/scan/scanner_state_manager.dart';
 
 class MLKitScannerPage extends StatefulWidget {
   const MLKitScannerPage({Key? key}) : super(key: key);
@@ -69,13 +69,10 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
   Widget build(BuildContext context) {
     _model = context.watch<ContinuousScanModel>();
 
-    return Scaffold(
-      body: ScannerOverlay(
-        restartCamera: startLiveFeed,
-        stopCamera: _stopImageStream,
-        model: _model,
-        scannerWidget: _buildScannerWidget(),
-      ),
+    return ScannerStateManager(
+      restartCamera: startLiveFeed,
+      stopCamera: _stopImageStream,
+      child: _buildScannerWidget(),
     );
   }
 

@@ -6,6 +6,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/scan/continuous_scan_page.dart';
 import 'package:smooth_app/pages/scan/ml_kit_scan_page.dart';
+import 'package:smooth_app/pages/scan/scanner_overlay.dart';
 import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
 
 class ScanPage extends StatefulWidget {
@@ -35,10 +36,12 @@ class _ScanPageState extends State<ScanPage> {
   }
 
   Future<PermissionStatus> _permissionCheck(
-      UserPreferences userPreferences) async {
+    UserPreferences userPreferences,
+  ) async {
     final PermissionStatus status = await Permission.camera.status;
 
-    //If is denied, is not restricted by for example parental control and is not already declined once
+    // If is denied, is not restricted by for example parental control and is
+    // not already declined once
     if (status.isDenied &&
         !status.isRestricted &&
         !userPreferences.cameraDeclinedOnce) {
@@ -93,7 +96,12 @@ class _ScanPageState extends State<ScanPage> {
 
         return ChangeNotifierProvider<ContinuousScanModel>(
           create: (BuildContext context) => _model!,
-          child: child,
+          child: Scaffold(
+            body: ScannerOverlay(
+              child: child,
+              model: _model!,
+            ),
+          ),
         );
       },
     );
