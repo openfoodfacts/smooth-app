@@ -61,11 +61,11 @@ class _KnowledgePanelPageTemplateState
           if (snapshot.connectionState != ConnectionState.done) {
             return const CircularProgressIndicator();
           }
-          final List<Widget> knowledgePanelWidgets =
-              const KnowledgePanelsBuilder().build(
+          final Widget knowledgePanelWidget =
+              const KnowledgePanelsBuilder().buildSingle(
             _knowledgePanels,
-            panelIds: <String>[widget.panelId],
-          );
+            widget.panelId,
+          )!;
           return Scaffold(
             body: Stack(
               children: <Widget>[
@@ -90,7 +90,7 @@ class _KnowledgePanelPageTemplateState
                             ),
                       ),
                     ),
-                    KnowledgePanelProductCards(knowledgePanelWidgets),
+                    KnowledgePanelProductCards(<Widget>[knowledgePanelWidget]),
                   ],
                 ),
                 Positioned(
