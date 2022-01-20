@@ -110,6 +110,7 @@ Widget build(BuildContext context) {
   final Size screenSize = MediaQuery.of(context).size;
   final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
   final UserPreferences userPreferences = context.watch&lt;UserPreferences&gt;();
+  final LocalDatabase localDatabase = context.watch&lt;LocalDatabase&gt;();
   &#47;&#47; Side padding is 8% of total width.
   final double sidePadding = screenSize.width * .08;
   return Container(
@@ -132,7 +133,9 @@ Widget build(BuildContext context) {
             ),
             primary: Colors.white,
           ),
-          onPressed: () {
+          onPressed: () async {
+            await OnboardingLoader(localDatabase)
+                .runAtNextTime(currentPage, context);
             OnboardingFlowNavigator(userPreferences).navigateToPage(
                 context, OnboardingFlowNavigator.getNextPage(currentPage));
           },

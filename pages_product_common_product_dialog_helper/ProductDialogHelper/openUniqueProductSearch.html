@@ -64,21 +64,17 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;FetchedProduct&gt; openUniqueProductSearch() async {
-  final FetchedProduct? result = await showDialog&lt;FetchedProduct&gt;(
-    context: context,
-    builder: (BuildContext context) {
-      BarcodeProductQuery(
-        barcode: barcode,
-        daoProduct: DaoProduct(localDatabase),
-      ).getFetchedProduct().then&lt;void&gt;(
-            (final FetchedProduct value) =&gt; _popSearchingDialog(value),
-          );
-      return _getSearchingDialog();
-    },
-  );
-  return result ?? FetchedProduct.error(FetchedProductStatus.userCancelled);
-}</code></pre>
+  <pre class="language-dart"><code class="language-dart">Future&lt;FetchedProduct&gt; openUniqueProductSearch() async =&gt;
+    await LoadingDialog.run&lt;FetchedProduct&gt;(
+        context: context,
+        future: BarcodeProductQuery(
+          barcode: barcode,
+          daoProduct: DaoProduct(localDatabase),
+        ).getFetchedProduct(),
+        title: refresh
+            ? AppLocalizations.of(context)!.refreshing_product
+            : &#39;${AppLocalizations.of(context)!.looking_for}: $barcode&#39;) ??
+    FetchedProduct.error(FetchedProductStatus.userCancelled);</code></pre>
 </section>
 
 

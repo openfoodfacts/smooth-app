@@ -67,6 +67,7 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Widget getPageWidget(BuildContext context, OnboardingPage page) {
+  final LocalDatabase localDatabase = context.read&lt;LocalDatabase&gt;();
   switch (page) {
     case OnboardingPage.NOT_STARTED:
     case OnboardingPage.WELCOME:
@@ -76,13 +77,13 @@
           context, page, const ScanExample());
     case OnboardingPage.HEALTH_CARD_EXAMPLE:
       return _wrapWidgetInCustomBackNavigator(
-          context, page, const SampleHealthCardPage());
+          context, page, SampleHealthCardPage(localDatabase));
     case OnboardingPage.ECO_CARD_EXAMPLE:
       return _wrapWidgetInCustomBackNavigator(
-          context, page, const SampleEcoCardPage());
+          context, page, SampleEcoCardPage(localDatabase));
     case OnboardingPage.PREFERENCES_PAGE:
       return _wrapWidgetInCustomBackNavigator(
-          context, page, PreferencesPage());
+          context, page, PreferencesPage(localDatabase));
     case OnboardingPage.ONBOARDING_COMPLETE:
       return PageManager();
   }

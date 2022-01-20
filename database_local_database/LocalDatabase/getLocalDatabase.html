@@ -71,6 +71,7 @@
     DaoProduct(localDatabase),
     DaoProductList(localDatabase),
     DaoStringList(localDatabase),
+    DaoString(localDatabase),
   ];
   for (final AbstractDao dao in daos) {
     dao.registerAdapter();

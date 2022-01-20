@@ -106,14 +106,12 @@ and</li>
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
-Widget build(BuildContext context) {
-  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-  return KnowledgePanelPageTemplate(
-    assetFile: &#39;assets&#47;onboarding&#47;sample_eco_knowledge_panels.json&#39;,
-    headerTitle: appLocalizations.ecoCardUtility,
-    page: OnboardingPage.ECO_CARD_EXAMPLE,
-  );
-}</code></pre>
+Widget build(BuildContext context) =&gt; KnowledgePanelPageTemplate(
+      headerTitle: AppLocalizations.of(context)!.ecoCardUtility,
+      page: OnboardingPage.ECO_CARD_EXAMPLE,
+      panelId: &#39;environment_card&#39;,
+      localDatabase: _localDatabase,
+    );</code></pre>
 </section>
 
 
