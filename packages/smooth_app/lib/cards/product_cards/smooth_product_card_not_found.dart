@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:openfoodfacts/model/Product.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/pages/product/add_new_product_page.dart';
-import 'package:smooth_app/pages/product/new_product_page.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
 
-import 'package:provider/provider.dart';
-
 class SmoothProductCardNotFound extends StatelessWidget {
   const SmoothProductCardNotFound({
-    required this.product,
+    required this.barcode,
     this.callback,
     this.elevation = 0.0,
   });
 
   final VoidCallback? callback;
   final double elevation;
-  final Product product;
+  final String barcode;
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +75,7 @@ class SmoothProductCardNotFound extends StatelessWidget {
                         context,
                         MaterialPageRoute<Widget>(
                           builder: (BuildContext context) =>
-                              const AddNewProductPage('barcode'),
+                              AddNewProductPage(barcode),
                         ),
                       );
                       if (callback != null) {

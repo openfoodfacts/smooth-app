@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
-
-import 'package:provider/provider.dart';
 
 class AddNewProductPage extends StatelessWidget {
   const AddNewProductPage(
@@ -31,7 +30,7 @@ class AddNewProductPage extends StatelessWidget {
                 .apply(color: themeData.colorScheme.onSurface),
           ),
           const Padding(
-            padding: const EdgeInsets.only(top: VERY_LARGE_SPACE),
+            padding: EdgeInsets.only(top: VERY_LARGE_SPACE),
           ),
           Text(
             appLocalizations.add_product_take_photos_descriptive,
@@ -72,8 +71,7 @@ class AddNewProductPage extends StatelessWidget {
           Navigator.push<Widget>(
             context,
             MaterialPageRoute<Widget>(
-              builder: (BuildContext context) =>
-                  const AddNewProductPage('barcode'),
+              builder: (BuildContext context) => AddNewProductPage(barcode),
             ),
           );
         },
