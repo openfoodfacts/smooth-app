@@ -129,9 +129,7 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
         setState(() {});
       }
       if (cameraController.value.hasError) {
-        if (kDebugMode) {
-          print(cameraController.value.errorDescription);
-        }
+        debugPrint(cameraController.value.errorDescription);
       }
     });
 
@@ -140,7 +138,7 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
       _controller?.startImageStream(_processCameraImage);
     } on CameraException catch (e) {
       if (kDebugMode) {
-        print(e);
+        debugPrint(e.toString());
       }
     }
 
