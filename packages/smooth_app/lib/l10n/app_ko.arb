@@ -250,7 +250,7 @@
     "myPreferences_profile_title": "내 프로필",
     "myPreferences_profile_subtitle": "앱 설정을 지정하고 조언을 찾으십시오.",
     "myPreferences_settings_title": "앱 설정",
-    "myPreferences_settings_subtitle": "Dark mode, Theme, ...",
+    "myPreferences_settings_subtitle": "다크 모드, 테마, ...",
     "myPreferences_food_title": "식품 설정",
     "myPreferences_food_subtitle": "당신에게 가장 중요한 음식 정보를 선택하십시오.",
     "confirmResetPreferences": "식품 설정을 초기화하시겠습니까?",
@@ -261,6 +261,9 @@
     "@myPersonalizedRanking": {
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
+    "ranking_tab_all": "모두",
+    "ranking_subtitle_match_yes": "A great match for you",
+    "ranking_subtitle_match_no": "Very poor match",
     "reloaded_with_new_preferences": "새 설정으로 다시 불러옴",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
