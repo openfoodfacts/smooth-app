@@ -118,6 +118,6 @@ class SmoothAlertDialog extends StatelessWidget {
 ///   final String title;
 ///   final bool close;
 ///   final Widget body;
-///   final List<SmoothSimpleButton> actions;
+///   final List<SmoothActionButton> actions;
 ///   final double height;
 ///
