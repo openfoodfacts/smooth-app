@@ -3,23 +3,23 @@ import 'package:visibility_detector/visibility_detector.dart';
 
 /// This Widgets tracks if the scanner is currently visible and if the app
 /// is currently open/idle/closed and controls the camera depending
-class ScannerStateManager extends StatefulWidget {
-  const ScannerStateManager({
-    required this.restartCamera,
-    required this.stopCamera,
+class LifeCycleManager extends StatefulWidget {
+  const LifeCycleManager({
+    required this.onResume,
+    required this.onStop,
     required this.child,
     Key? key,
   }) : super(key: key);
 
-  final Function() restartCamera;
-  final Function() stopCamera;
+  final Function() onResume;
+  final Function() onStop;
   final Widget child;
 
   @override
-  ScannerStateManagerState createState() => ScannerStateManagerState();
+  LifeCycleManagerState createState() => LifeCycleManagerState();
 }
 
-class ScannerStateManagerState extends State<ScannerStateManager>
+class LifeCycleManagerState extends State<LifeCycleManager>
     with WidgetsBindingObserver {
   @override
   void initState() {
@@ -41,9 +41,9 @@ class ScannerStateManagerState extends State<ScannerStateManager>
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.inactive) {
-      widget.stopCamera.call();
+      widget.onStop.call();
     } else if (state == AppLifecycleState.resumed) {
-      widget.restartCamera.call();
+      widget.onResume.call();
     }
   }
 
@@ -53,9 +53,9 @@ class ScannerStateManagerState extends State<ScannerStateManager>
       key: const ValueKey<String>('VisibilityDetector'),
       onVisibilityChanged: (VisibilityInfo info) {
         if (info.visibleFraction == 0.0) {
-          widget.stopCamera.call();
+          widget.onStop.call();
         } else {
-          widget.restartCamera.call();
+          widget.onResume.call();
         }
       },
       child: widget.child,

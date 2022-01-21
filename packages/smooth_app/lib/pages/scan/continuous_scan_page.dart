@@ -25,9 +25,9 @@ class _ContinuousScanPageState extends State<ContinuousScanPage> {
             constraints.maxHeight / 1.81; // roughly 55% of the available height
         final double viewFinderBottomOffset = carouselHeight / 2.0;
 
-        return ScannerStateManager(
-          restartCamera: _resumeLiveFeed,
-          stopCamera: _stopLiveFeed,
+        return LifeCycleManager(
+          onResume: _resumeLiveFeed,
+          onStop: _stopLiveFeed,
           child: QRView(
             overlay: QrScannerOverlayShape(
               // We use [SmoothViewFinder] instead of the overlay.

@@ -56,7 +56,7 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
       );
     }
 
-    startLiveFeed();
+    _startLiveFeed();
   }
 
   @override
@@ -69,9 +69,9 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
   Widget build(BuildContext context) {
     _model = context.watch<ContinuousScanModel>();
 
-    return ScannerStateManager(
-      restartCamera: startLiveFeed,
-      stopCamera: _stopImageStream,
+    return LifeCycleManager(
+      onResume: _startLiveFeed,
+      onStop: _stopImageStream,
       child: _buildScannerWidget(),
     );
   }
@@ -109,7 +109,7 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
     );
   }
 
-  Future<void> startLiveFeed() async {
+  Future<void> _startLiveFeed() async {
     stoppingCamera = false;
     final CameraDescription camera = cameras[_cameraIndex];
 
@@ -138,6 +138,7 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
       _controller?.startImageStream(_processCameraImage);
     } on CameraException catch (e) {
       if (kDebugMode) {
+        // TODO(M123): Show error message
         debugPrint(e.toString());
       }
     }
