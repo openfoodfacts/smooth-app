@@ -4,7 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/widgets/loading_dialog.dart';
-import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
+import 'package:smooth_ui_library/buttons/smoot_action_button.dart';
 import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_ui_library/widgets/smooth_text_form_field.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -300,8 +300,8 @@ class _SignUpPageState extends State<SignUpPage> {
             leading: const Icon(Icons.error),
             title: Text(status.error!),
           ),
-          actions: <SmoothSimpleButton>[
-            SmoothSimpleButton(
+          actions: <SmoothActionButton>[
+            SmoothActionButton(
               text: AppLocalizations.of(context)!.okay,
               onPressed: () => Navigator.of(context).pop(),
             ),
@@ -315,8 +315,8 @@ class _SignUpPageState extends State<SignUpPage> {
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
         body: Text(AppLocalizations.of(context)!.sign_up_page_action_ok),
-        actions: <SmoothSimpleButton>[
-          SmoothSimpleButton(
+        actions: <SmoothActionButton>[
+          SmoothActionButton(
               text: AppLocalizations.of(context)!.okay,
               onPressed: () => Navigator.of(context).pop()),
         ],

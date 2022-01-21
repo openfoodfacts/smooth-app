@@ -5,7 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:http/http.dart' as http;
 import 'package:smooth_app/data_models/github_contributors_model.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
-import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
+import 'package:smooth_ui_library/buttons/smoot_action_button.dart';
 import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_ui_library/widgets/smooth_list_tile.dart';
 
@@ -113,8 +113,8 @@ class UserContributionView extends StatelessWidget {
               ),
             ],
           ),
-          actions: <SmoothSimpleButton>[
-            SmoothSimpleButton(
+          actions: <SmoothActionButton>[
+            SmoothActionButton(
               onPressed: () {
                 Navigator.of(context, rootNavigator: true).pop('dialog');
               },
@@ -174,8 +174,8 @@ class UserContributionView extends StatelessWidget {
               )
             ],
           ),
-          actions: <SmoothSimpleButton>[
-            SmoothSimpleButton(
+          actions: <SmoothActionButton>[
+            SmoothActionButton(
               onPressed: () => Navigator.pop(context),
               text: AppLocalizations.of(context)!.okay,
               minWidth: 100,
@@ -202,8 +202,8 @@ class UserContributionView extends StatelessWidget {
               ),
             ],
           ),
-          actions: <SmoothSimpleButton>[
-            SmoothSimpleButton(
+          actions: <SmoothActionButton>[
+            SmoothActionButton(
               onPressed: () => LaunchUrlHelper.launchURL(
                   'https://translate.openfoodfacts.org/', false),
               text:
@@ -272,8 +272,8 @@ class UserContributionView extends StatelessWidget {
               return const CircularProgressIndicator();
             },
           ),
-          actions: <SmoothSimpleButton>[
-            SmoothSimpleButton(
+          actions: <SmoothActionButton>[
+            SmoothActionButton(
               onPressed: () => LaunchUrlHelper.launchURL(
                   'https://github.com/openfoodfacts/smooth-app', false),
               text: AppLocalizations.of(context)!.contribute,

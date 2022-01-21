@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:smooth_ui_library/buttons/smoot_action_button.dart';
 import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 
@@ -62,8 +63,8 @@ class LoadingDialog<T> {
           leading: const CircularProgressIndicator(),
           title: Text(title),
         ),
-        actions: <SmoothSimpleButton>[
-          SmoothSimpleButton(
+        actions: <SmoothActionButton>[
+          SmoothActionButton(
             text: AppLocalizations.of(context)!.stop,
             onPressed: () => _popDialog(context, null),
           ),
