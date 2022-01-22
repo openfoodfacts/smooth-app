@@ -11,5 +11,7 @@ jobs:
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
         configuration-path: .github/issue-labeler.yml
-        not-before: 2020-01-15T02:54:32Z
-        enable-versioned-regex: 0
+        #not-before: 2020-01-15T02:54:32Z
+        enable-versioned-regex: 1
+        versioned-regex: 'issue_labeler_regex_version=(\d+)'
+        body-missing-regex-label: 'broken-template'
