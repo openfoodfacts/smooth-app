@@ -10,7 +10,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/UnitHelper.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/widgets/loading_dialog.dart';
-import 'package:smooth_ui_library/buttons/smoot_action_button.dart';
+import 'package:smooth_ui_library/buttons/smooth_action_button.dart';
 import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
 
