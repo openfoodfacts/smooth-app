@@ -13,3 +13,15 @@ database:
     
 mlkit:
     - '(mlkit)'
+
+android:
+    - '(android)'
+    
+ios:
+    - '(iphone|ipad|ios)'
+    
+scan:
+    - '(scan)'
+    
+tests:
+    - '(test)'
