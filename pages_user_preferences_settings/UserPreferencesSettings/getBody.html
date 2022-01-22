@@ -209,8 +209,8 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
                   )
                 ],
               ),
-              actions: &lt;SmoothSimpleButton&gt;[
-                SmoothSimpleButton(
+              actions: &lt;SmoothActionButton&gt;[
+                SmoothActionButton(
                   onPressed: () async {
                     showLicensePage(
                       context: context,
@@ -225,7 +225,7 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
                   text: appLocalizations.licenses,
                   minWidth: 100,
                 ),
-                SmoothSimpleButton(
+                SmoothActionButton(
                   onPressed: () =&gt;
                       Navigator.of(context, rootNavigator: true).pop(),
                   text: appLocalizations.okay,

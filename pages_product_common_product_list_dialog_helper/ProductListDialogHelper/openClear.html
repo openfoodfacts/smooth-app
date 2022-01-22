@@ -77,12 +77,12 @@
       builder: (BuildContext context) =&gt; SmoothAlertDialog(
         close: false,
         body: Text(AppLocalizations.of(context)!.really_clear),
-        actions: &lt;SmoothSimpleButton&gt;[
-          SmoothSimpleButton(
+        actions: &lt;SmoothActionButton&gt;[
+          SmoothActionButton(
             text: AppLocalizations.of(context)!.no,
             onPressed: () =&gt; Navigator.pop(context, false),
           ),
-          SmoothSimpleButton(
+          SmoothActionButton(
             text: AppLocalizations.of(context)!.yes,
             onPressed: () async {
               await daoProductList.clear(productList);
