@@ -61,21 +61,21 @@
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
-    "productDataUtility": "See the food data relevant to your preferences.",
+    "productDataUtility": "Lihat data makanan yang berkaitan dengan pilihan anda.",
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."
     },
-    "healthCardUtility": "Choose foods that are good for you.",
+    "healthCardUtility": "Pilih makanan yang baik untuk anda.",
     "@healthCardUtility": {
         "description": "Description of what a user can use the health data in a product for."
     },
-    "ecoCardUtility": "Choose foods that are good for the planet.",
+    "ecoCardUtility": "Pilih makanan yang baik untuk planet.",
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
     "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
-    "incorrect_credentials": "Incorrect username or password.",
+    "incorrect_credentials": "Nama pengguna atau kata laluan salah.",
     "login": "Login",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
@@ -88,11 +88,11 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_out": "Sign out",
+    "sign_out": "Daftar keluar",
     "@sign_out": {
         "description": "Button label: For sign out"
     },
-    "sign_out_confirmation": "Are you sure you want to sign out?",
+    "sign_out_confirmation": "Adakah anda pasti untuk log keluar?",
     "@sign_out_confirmation": {
         "description": "Pop up title: Reassuring if the user really want to sign out"
     },
@@ -101,7 +101,7 @@
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset e-mail can be requested"
     },
-    "view_profile": "View profile",
+    "view_profile": "Lihat profil",
     "@view_profile": {
         "description": "Button label: For to show your account"
     },
@@ -109,12 +109,12 @@
     "@reset_password": {
         "description": "Forgot password page title"
     },
-    "reset_password_explanation_text": "In case of a forgotten password, enter your username or e-mail address to receive instructions for a password reset. Also, remember to check the Spam folder.",
-    "username_or_email": "Username or e-mail",
+    "reset_password_explanation_text": "Dalam kes telah terlupa kata laluan, masukkan nama pengguna atau alamat e-mel anda untuk menerima arahan untuk menetapkan semula kata laluan. Juga, ingat supaya menyemak folder Spam.",
+    "username_or_email": "Nama pengguna atau e-mel",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
-    "reset_password_done": "An e-mail with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
+    "reset_password_done": "E-mel dengan pautan untuk menetapkan semula kata laluan anda telah dihantar ke alamat e-mel yang dikaitkan dengan akaun anda. Semak juga spam anda",
     "send_reset_password_mail": "Change password",
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset e-mail request"
@@ -159,14 +159,14 @@
     "@donate_url": {
         "description": "Please insert the right url from the website here."
     },
-    "sign_up_page_agree_error_invalid": "When creating an account, agreeing to the Terms of Use is mandatory, however, anonymous contributions can still be made through the app",
+    "sign_up_page_agree_error_invalid": "Semasa membuat akaun, bersetuju dengan Syarat Penggunaan adalah wajib, namun, sumbangan tanpa nama masih boleh dibuat melalui aplikasi",
     "@sign_up_page_agree_error_invalid": {
         "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
     },
     "sign_up_page_producer_checkbox": "I am a food producer",
     "sign_up_page_producer_hint": "Producer/brand",
     "sign_up_page_producer_error_empty": "Please enter a producer or a brand name",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at all time)",
+    "sign_up_page_subscribe_checkbox": "Saya ingin melanggan surat berita Fakta Makanan Terbuka (Anda boleh berhenti melanggannya pada bila-bila masa)",
     "@Settings": {},
     "settingsTitle": "Tetapan",
     "@settingsTitle": {
@@ -268,7 +268,7 @@
     "ranking_tab_all": "Semua",
     "ranking_subtitle_match_yes": "A great match for you",
     "ranking_subtitle_match_no": "Very poor match",
-    "ranking_subtitle_match_maybe": "Unknown match",
+    "ranking_subtitle_match_maybe": "Padanan yang tidak diketahui",
     "reloaded_with_new_preferences": "Muat semula dengan pilihan baharu",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
@@ -342,25 +342,25 @@
     },
     "packaging_information_photo": "Foto maklumat pembungkusan",
     "@packaging_information_photo": {},
-    "missing_product": "You found a new product!",
+    "missing_product": "Anda telah menemui produk baharu!",
     "@missing_product": {},
-    "add_product_take_photos": "Take photos of the packaging to add this product to our database.",
+    "add_product_take_photos": "Ambil gambar pembungkusan untuk menambah produk ini ke pangkalan data kami.",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Please take the following photos and the Open Food Facts engine can work out the rest!",
+    "add_product_take_photos_descriptive": "Sila ambil gambar berikut dan enjin Fakta Makanan Terbuka boleh menyelesaikan selebihnya!",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Add product information",
     "@add_product_information_button_label": {},
-    "new_product": "New Product",
+    "new_product": "Produk Baharu",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Front packaging photo",
+    "front_packaging_photo_button_label": "Foto pembungkusan hadapan",
     "@front_packaging_photo_button_label": {},
     "ingredients_photo_button_label": "Foto ramuan",
     "@ingredients_photo_button_label": {},
-    "nutritional_facts_photo_button_label": "Nutritional facts photo",
+    "nutritional_facts_photo_button_label": "Foto fakta pemakanan",
     "@nutritional_facts_photo_button_label": {},
-    "score_add_missing_ingredients": "Add missing ingredients",
-    "score_add_missing_nutrition_facts": "Add missing nutrition facts",
-    "score_add_missing_product_category": "Add missing product category",
+    "score_add_missing_ingredients": "Tambahkan ramuan yang hilang",
+    "score_add_missing_nutrition_facts": "Tambahkan fakta pemakanan yang tiada",
+    "score_add_missing_product_category": "Tambahkan kategori produk yang tiada",
     "score_update_nutrition_facts": "Update nutrition facts",
     "nutrition_page_title": "Product Nutrition Facts",
     "nutrition_page_unspecified": "Nutrition facts are not specified on the product",
@@ -402,19 +402,19 @@
     "@Product Addition": {},
     "added_product_thanks": "Terima kasih kerana menambah produk ini!",
     "@added_product_thanks": {},
-    "product_improvement_add_category": "Add a category to calculate the Nutri-Score.",
+    "product_improvement_add_category": "Tambahkan kategori untuk mengira Nutri-Score.",
     "@product_improvement_add_category": {
         "description": "Message for ProductImprovement.ADD_CATEGORY"
     },
-    "product_improvement_add_nutrition_facts": "Add nutrition facts to calculate the Nutri-Score.",
+    "product_improvement_add_nutrition_facts": "Tambahkan fakta pemakanan untuk mengira Nutri-Score.",
     "@product_improvement_add_nutrition_facts": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
     },
-    "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to calculate the Nutri-Score.",
+    "product_improvement_add_nutrition_facts_and_category": "Tambahkan fakta pemakanan dan kategori untuk mengira Nutri-Score.",
     "@product_improvement_add_nutrition_facts_and_category": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
     },
-    "product_improvement_categories_but_no_nutriscore": "The Nutri-Score for this product can't be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.",
+    "product_improvement_categories_but_no_nutriscore": "Nutri-Score untuk produk ini tidak boleh dikira, yang mungkin disebabkan oleh contohnya kategori bukan standard. Jika ini dianggap ralat, sila hubungi kami.",
     "@product_improvement_categories_but_no_nutriscore": {
         "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
@@ -422,7 +422,7 @@
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take a photo of them (ingredient list and/or any geographic claim or edit the product) so that they can be taken into account.",
+    "product_improvement_origins_to_be_completed": "Eco-Score mengambil kira asal usul ramuan. Sila ambil foto-fotonya (senarai ramuan dan/atau sebarang tuntutan geografi atau edit produk) supaya ia boleh diambil kira.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
@@ -430,7 +430,7 @@
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },
-    "country_selection_explanation": "Some environmental features are location-specific",
+    "country_selection_explanation": "Sesetengah ciri persekitaran adalah khusus lokasi",
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
@@ -472,21 +472,21 @@
         "description": "Product compatibility summary title"
     },
     "@Plural": {},
-    "pct_match": "{percent}% match",
+    "pct_match": "{percent}% padan",
     "@pct_match": {
         "description": "This product has a x percent match with your preferences",
         "placeholders": {
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural, =1{one day ago} other{{count} days ago}}",
+    "plural_ago_days": "{count,plural, =1{satu hari lepas} other{{count} hari lepas}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural, =1{one hour ago} other{{count} hours ago}}",
+    "plural_ago_hours": "{count,plural, =1{satu jam lepas} other{{count} jam lepas}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
@@ -500,21 +500,21 @@
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, =1{one month ago} other{{count} months ago}}",
+    "plural_ago_months": "{count,plural, =1{satu bulan lepas} other{{count} bulan lepas}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, =1{one week ago} other{{count} weeks ago}}",
+    "plural_ago_weeks": "{count,plural, =1{satu minggu lepas} other{{count} minggu lepas}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, other{Compare {count} Products}",
+    "plural_compare_x_products": "{count,plural, other{Bandingkan {count} Produk}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {
