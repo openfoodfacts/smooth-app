@@ -25,3 +25,6 @@ scan:
     
 tests:
     - '(test)'
+
+darkmode:
+    - '(darkmode|Dark mode)'
