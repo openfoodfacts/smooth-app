@@ -110,7 +110,6 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
   }
 
   Future<void> _startLiveFeed() async {
-    print('startLiveFeed');
     stoppingCamera = false;
     final CameraDescription camera = cameras[_cameraIndex];
 
@@ -126,7 +125,6 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
 
     // If the controller is updated then update the UI.
     cameraController.addListener(() {
-      print('cameraController');
       if (mounted) {
         setState(() {});
       }
