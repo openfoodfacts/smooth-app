@@ -24,6 +24,8 @@ class SmoothActionButton extends StatelessWidget {
             .copyWith(color: themeData.colorScheme.onPrimary),
       ),
       onPressed: onPressed,
+      height: height,
+      minWidth: minWidth,
     );
   }
 }
