@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
-import 'package:smooth_app/pages/scan/scanner_overlay.dart';
+import 'package:smooth_app/pages/scan/scanner_state_manager.dart';
 
 class ContinuousScanPage extends StatefulWidget {
   const ContinuousScanPage();
@@ -25,21 +25,18 @@ class _ContinuousScanPageState extends State<ContinuousScanPage> {
             constraints.maxHeight / 1.81; // roughly 55% of the available height
         final double viewFinderBottomOffset = carouselHeight / 2.0;
 
-        return Scaffold(
-          body: ScannerOverlay(
-            model: _model,
-            restartCamera: _resumeLiveFeed,
-            stopCamera: _stopLiveFeed,
-            scannerWidget: QRView(
-              overlay: QrScannerOverlayShape(
-                // We use [SmoothViewFinder] instead of the overlay.
-                overlayColor: Colors.transparent,
-                // This offset adjusts the scanning area on iOS.
-                cutOutBottomOffset: viewFinderBottomOffset,
-              ),
-              key: _scannerViewKey,
-              onQRViewCreated: setupScanner,
+        return LifeCycleManager(
+          onResume: _resumeLiveFeed,
+          onStop: _stopLiveFeed,
+          child: QRView(
+            overlay: QrScannerOverlayShape(
+              // We use [SmoothViewFinder] instead of the overlay.
+              overlayColor: Colors.transparent,
+              // This offset adjusts the scanning area on iOS.
+              cutOutBottomOffset: viewFinderBottomOffset,
             ),
+            key: _scannerViewKey,
+            onQRViewCreated: setupScanner,
           ),
         );
       },
