@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
-import 'package:smooth_app/pages/scan/scanner_state_manager.dart';
+import 'package:smooth_app/pages/scan/lifecycle_manager.dart';
 
 class ContinuousScanPage extends StatefulWidget {
   const ContinuousScanPage();
@@ -27,7 +27,7 @@ class _ContinuousScanPageState extends State<ContinuousScanPage> {
 
         return LifeCycleManager(
           onResume: _resumeLiveFeed,
-          onStop: _stopLiveFeed,
+          onPause: _stopLiveFeed,
           child: QRView(
             overlay: QrScannerOverlayShape(
               // We use [SmoothViewFinder] instead of the overlay.

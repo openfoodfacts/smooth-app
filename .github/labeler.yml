@@ -34,7 +34,7 @@ scan:
 - packages/smooth_app/lib/pages/scan/continuous_scan_page.dart
 - packages/smooth_app/lib/pages/scan/scan_page.dart
 - packages/smooth_app/lib/pages/scan/scanner_overlay.dart
-- packages/smooth_app/lib/pages/scan/scanner_state_manager.dart
+- packages/smooth_app/lib/pages/scan/lifecycle_manager.dart
 
 mlkit:
 - packages/smooth_app/lib/pages/scan/ml_kit_scan_page.dart

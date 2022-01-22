@@ -6,13 +6,13 @@ import 'package:visibility_detector/visibility_detector.dart';
 class LifeCycleManager extends StatefulWidget {
   const LifeCycleManager({
     required this.onResume,
-    required this.onStop,
+    required this.onPause,
     required this.child,
     Key? key,
   }) : super(key: key);
 
   final Function() onResume;
-  final Function() onStop;
+  final Function() onPause;
   final Widget child;
 
   @override
@@ -41,7 +41,7 @@ class LifeCycleManagerState extends State<LifeCycleManager>
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.inactive) {
-      widget.onStop.call();
+      widget.onPause.call();
     } else if (state == AppLifecycleState.resumed) {
       widget.onResume.call();
     }
@@ -53,7 +53,7 @@ class LifeCycleManagerState extends State<LifeCycleManager>
       key: const ValueKey<String>('VisibilityDetector'),
       onVisibilityChanged: (VisibilityInfo info) {
         if (info.visibleFraction == 0.0) {
-          widget.onStop.call();
+          widget.onPause.call();
         } else {
           widget.onResume.call();
         }
