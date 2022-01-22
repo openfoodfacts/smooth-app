@@ -21,34 +21,32 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
     return SmoothSimpleButton(
-      child:
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            Icon(
-              icon,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          Icon(
+            icon,
+            color: isDarkMode
+                ? Theme.of(context).colorScheme.onPrimary
+                : Colors.blue,
+          ),
+          const Spacer(),
+          Text(
+            text,
+            textAlign: TextAlign.center,
+            style: themeData.textTheme.bodyText2!.copyWith(
               color: isDarkMode
                   ? Theme.of(context).colorScheme.onPrimary
                   : Colors.blue,
             ),
-            const Spacer(),
-            Text(
-              text,
-              textAlign: TextAlign.center,
-              style: themeData.textTheme.bodyText2!.copyWith(
-                color: isDarkMode ? Theme.of(context).colorScheme.onPrimary
-                    : Colors.blue,
-              ),
-            ),
-            const Spacer(),
-          ],
-        ),
+          ),
+          const Spacer(),
+        ],
+      ),
       minWidth: double.infinity,
       borderRadius: const BorderRadius.all(Radius.circular(SMALL_SPACE)),
       padding: padding ?? const EdgeInsets.all(10),
-      buttonColor: isDarkMode
-          ? Colors.grey
-          : const Color(0xffeaf5fb),
+      buttonColor: isDarkMode ? Colors.grey : const Color(0xffeaf5fb),
       onPressed: onPressed,
     );
   }

@@ -17,10 +17,13 @@ class SmoothActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
-    return SmoothSimpleButton(child: Text(
-      text,
-      style: themeData.textTheme.bodyText2!
-          .copyWith(color: themeData.colorScheme.onPrimary),
-    ), onPressed: onPressed);
+    return SmoothSimpleButton(
+      child: Text(
+        text,
+        style: themeData.textTheme.bodyText2!
+            .copyWith(color: themeData.colorScheme.onPrimary),
+      ),
+      onPressed: onPressed,
+    );
   }
 }
