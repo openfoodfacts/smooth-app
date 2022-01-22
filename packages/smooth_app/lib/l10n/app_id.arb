@@ -92,6 +92,10 @@
     "@sign_out": {
         "description": "Button label: For sign out"
     },
+    "sign_out_confirmation": "Are you sure you want to sign out?",
+    "@sign_out_confirmation": {
+        "description": "Pop up title: Reassuring if the user really want to sign out"
+    },
     "password": "Kata sandi",
     "forgot_password": "Forgot password",
     "@forgot_password": {
@@ -264,6 +268,7 @@
     "ranking_tab_all": "Semua",
     "ranking_subtitle_match_yes": "A great match for you",
     "ranking_subtitle_match_no": "Very poor match",
+    "ranking_subtitle_match_maybe": "Unknown match",
     "reloaded_with_new_preferences": "Muat ulang dengan semua preferensi baru",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
@@ -337,8 +342,22 @@
     },
     "packaging_information_photo": "Foto informasi kemasan",
     "@packaging_information_photo": {},
-    "missing_product": "Produk ini tidak tersedia",
+    "missing_product": "You found a new product!",
     "@missing_product": {},
+    "add_product_take_photos": "Take photos of the packaging to add this product to our database.",
+    "@add_product_take_photos": {},
+    "add_product_take_photos_descriptive": "Please take the following photos and the Open Food Facts engine can work out the rest!",
+    "@add_product_take_photos_descriptive": {},
+    "add_product_information_button_label": "Tambahkan informasi produk",
+    "@add_product_information_button_label": {},
+    "new_product": "New Product",
+    "@new_product": {},
+    "front_packaging_photo_button_label": "Front packaging photo",
+    "@front_packaging_photo_button_label": {},
+    "ingredients_photo_button_label": "Foto kandungan bahan",
+    "@ingredients_photo_button_label": {},
+    "nutritional_facts_photo_button_label": "Nutritional facts photo",
+    "@nutritional_facts_photo_button_label": {},
     "score_add_missing_ingredients": "Add missing ingredients",
     "score_add_missing_nutrition_facts": "Add missing nutrition facts",
     "score_add_missing_product_category": "Add missing product category",
