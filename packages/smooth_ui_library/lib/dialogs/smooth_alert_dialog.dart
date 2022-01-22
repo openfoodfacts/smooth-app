@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_ui_library/buttons/smoot_action_button.dart';
+import 'package:smooth_ui_library/buttons/smooth_action_button.dart';
 
 ///
 ///	Open by calling
