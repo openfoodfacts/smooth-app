@@ -164,7 +164,7 @@ Widget build(BuildContext context) {
 
   return LifeCycleManager(
     onResume: _startLiveFeed,
-    onStop: _stopImageStream,
+    onPause: _stopImageStream,
     child: _buildScannerWidget(),
   );
 }</code></pre>
