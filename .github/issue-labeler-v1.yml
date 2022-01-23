@@ -28,3 +28,6 @@ tests:
 
 darkmode:
     - '(darkmode|Dark mode)'
+
+refactoring:
+    - '(Refactoring)'
