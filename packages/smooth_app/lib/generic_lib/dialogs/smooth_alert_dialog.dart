@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
+import 'package:smooth_ui_library/buttons/smooth_action_button.dart';
 
 ///
 ///	Open by calling
@@ -25,7 +25,7 @@ class SmoothAlertDialog extends StatelessWidget {
   final bool close;
   final double? height;
   final Widget body;
-  final List<SmoothSimpleButton>? actions;
+  final List<SmoothActionButton>? actions;
 
   @override
   Widget build(BuildContext context) {
@@ -118,6 +118,6 @@ class SmoothAlertDialog extends StatelessWidget {
 ///   final String title;
 ///   final bool close;
 ///   final Widget body;
-///   final List<SmoothSimpleButton> actions;
+///   final List<SmoothActionButton> actions;
 ///   final double height;
 ///

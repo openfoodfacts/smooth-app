@@ -7,11 +7,11 @@ import 'package:smooth_app/data_models/onboarding_data_product.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/onboarding/next_button.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
 import 'package:smooth_app/pages/user_preferences_food.dart';
+import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 class PreferencesPage extends StatefulWidget {
   const PreferencesPage(this._localDatabase) : super();

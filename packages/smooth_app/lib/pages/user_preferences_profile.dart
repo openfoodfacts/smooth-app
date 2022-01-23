@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
-import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/pages/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/onboarding/country_selector.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
+import 'package:smooth_ui_library/buttons/smooth_action_button.dart';
+import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 
 /// Collapsed/expanded display of profile for the preferences page.
 class UserPreferencesProfile extends AbstractUserPreferences {
@@ -165,8 +165,8 @@ class UserPreferencesProfile extends AbstractUserPreferences {
           body: Text(
             localizations.sign_out_confirmation,
           ),
-          actions: <SmoothSimpleButton>[
-            SmoothSimpleButton(
+          actions: <SmoothActionButton>[
+            SmoothActionButton(
               text: localizations.yes,
               onPressed: () async {
                 UserManagementHelper.logout();
@@ -174,7 +174,7 @@ class UserPreferencesProfile extends AbstractUserPreferences {
                 setState(() {});
               },
             ),
-            SmoothSimpleButton(
+            SmoothActionButton(
               text: localizations.no,
               onPressed: () {
                 Navigator.pop(context);

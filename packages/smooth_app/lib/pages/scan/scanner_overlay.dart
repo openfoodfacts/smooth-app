@@ -1,66 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
-import 'package:smooth_app/generic_lib/animations/smooth_reveal_animation.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_view_finder.dart';
 import 'package:smooth_app/pages/scan/scan_page_helper.dart';
 import 'package:smooth_app/widgets/smooth_product_carousel.dart';
-import 'package:visibility_detector/visibility_detector.dart';
+import 'package:smooth_ui_library/animations/smooth_reveal_animation.dart';
+import 'package:smooth_ui_library/widgets/smooth_view_finder.dart';
 
 /// This builds all the essential widgets which are displayed above the camera
 /// preview, like the [SmoothProductCarousel], the [SmoothViewFinder] and the
-/// clear and compare buttons row. It takes the camera preview widget to display
-/// and functions to stop and restart the camera, to only activate the camera
-/// when the screen is currently visible.
-class ScannerOverlay extends StatefulWidget {
+/// clear and compare buttons row.
+class ScannerOverlay extends StatelessWidget {
   const ScannerOverlay({
-    required this.scannerWidget,
+    required this.child,
     required this.model,
-    required this.restartCamera,
-    required this.stopCamera,
   });
 
-  final Widget scannerWidget;
+  final Widget child;
   final ContinuousScanModel model;
-  final Function() restartCamera;
-  final Function() stopCamera;
 
   static const double carouselHeightPct = 0.55;
   static const double scannerWidthPct = 0.6;
   static const double scannerHeightPct = 0.33;
   static const double buttonRowHeightPx = 48;
-
-  @override
-  State<ScannerOverlay> createState() => _ScannerOverlayState();
-}
-
-class _ScannerOverlayState extends State<ScannerOverlay>
-    with WidgetsBindingObserver {
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance!.addObserver(this);
-  }
-
-  @override
-  void dispose() {
-    WidgetsBinding.instance!.removeObserver(this);
-    super.dispose();
-  }
-
-  // Lifecycle changes are not handled by either of the used plugin. This means
-  // we are responsible to control camera resources when the lifecycle state is
-  // updated. Failure to do so might lead to unexpected behavior
-  // didChangeAppLifecycleState is called when the system puts the app in the
-  // background or returns the app to the foreground.
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    if (state == AppLifecycleState.inactive) {
-      widget.stopCamera.call();
-    } else if (state == AppLifecycleState.resumed) {
-      widget.restartCamera.call();
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -76,9 +36,8 @@ class _ScannerOverlayState extends State<ScannerOverlay>
         );
         final double carouselHeight =
             constraints.maxHeight * ScannerOverlay.carouselHeightPct;
-        final double buttonRowHeight = areButtonsRendered(widget.model)
-            ? ScannerOverlay.buttonRowHeightPx
-            : 0;
+        final double buttonRowHeight =
+            areButtonsRendered(model) ? ScannerOverlay.buttonRowHeightPx : 0;
         final double availableScanHeight =
             constraints.maxHeight - carouselHeight - buttonRowHeight;
 
@@ -87,35 +46,15 @@ class _ScannerOverlayState extends State<ScannerOverlay>
             top: (availableScanHeight - scannerSize.height) / 2 +
                 buttonRowHeight);
 
-        return VisibilityDetector(
-          key: const ValueKey<String>('VisibilityDetector'),
-          onVisibilityChanged: (VisibilityInfo info) {
-            if (info.visibleFraction == 0.0) {
-              widget.stopCamera.call();
-            } else {
-              widget.restartCamera.call();
-            }
-          },
+        return Container(
+          color: Colors.black,
           child: Stack(
             children: <Widget>[
-              Container(
-                alignment: Alignment.center,
-                color: Colors.black,
-                child: Padding(
-                  padding: qrScannerPadding,
-                  child: SvgPicture.asset(
-                    'assets/actions/scanner_alt_2.svg',
-                    width: scannerSize.width * 0.8,
-                    height: scannerSize.height * 0.8,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
               SmoothRevealAnimation(
                 delay: 400,
                 startOffset: Offset.zero,
                 animationCurve: Curves.easeInOutBack,
-                child: widget.scannerWidget,
+                child: child,
               ),
               SmoothRevealAnimation(
                 delay: 400,
@@ -141,7 +80,7 @@ class _ScannerOverlayState extends State<ScannerOverlay>
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
-                    buildButtonsRow(context, widget.model),
+                    buildButtonsRow(context, model),
                     const Spacer(),
                     SmoothProductCarousel(
                       showSearchCard: true,

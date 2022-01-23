@@ -9,10 +9,10 @@ import 'package:openfoodfacts/model/OrderedNutrients.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/UnitHelper.dart';
 import 'package:smooth_app/database/product_query.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
-import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
-import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/widgets/loading_dialog.dart';
+import 'package:smooth_ui_library/buttons/smooth_action_button.dart';
+import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 /// Actual nutrition page, with data already loaded.
 class NutritionPageLoaded extends StatefulWidget {
@@ -501,8 +501,8 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
             leading: const Icon(Icons.error),
             title: Text(status.error!),
           ),
-          actions: <SmoothSimpleButton>[
-            SmoothSimpleButton(
+          actions: <SmoothActionButton>[
+            SmoothActionButton(
               text: AppLocalizations.of(context)!.okay,
               onPressed: () => Navigator.of(context).pop(),
             ),
@@ -515,8 +515,8 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
         body: Text(AppLocalizations.of(context)!.nutrition_page_update_done),
-        actions: <SmoothSimpleButton>[
-          SmoothSimpleButton(
+        actions: <SmoothActionButton>[
+          SmoothActionButton(
               text: AppLocalizations.of(context)!.okay,
               onPressed: () => Navigator.of(context).pop()),
         ],

@@ -722,12 +722,12 @@ packages:
     source: hosted
     version: "1.11.1"
   percent_indicator:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: percent_indicator
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.0.0"
+    version: "3.4.0"
   permission_handler:
     dependency: "direct main"
     description:
@@ -901,6 +901,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
+  smooth_ui_library:
+    dependency: "direct main"
+    description:
+      path: "../smooth_ui_library"
+      relative: true
+    source: path
+    version: "0.0.1"
   source_gen:
     dependency: transitive
     description:

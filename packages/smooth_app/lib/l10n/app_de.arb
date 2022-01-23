@@ -92,6 +92,10 @@
     "@sign_out": {
         "description": "Button label: For sign out"
     },
+    "sign_out_confirmation": "Möchten Sie sich wirklich abmelden?",
+    "@sign_out_confirmation": {
+        "description": "Pop up title: Reassuring if the user really want to sign out"
+    },
     "password": "Passwort",
     "forgot_password": "Passwort vergessen",
     "@forgot_password": {
@@ -262,8 +266,9 @@
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
     "ranking_tab_all": "Alle",
-    "ranking_subtitle_match_yes": "A great match for you",
-    "ranking_subtitle_match_no": "Very poor match",
+    "ranking_subtitle_match_yes": "Eine gute Entscheidung für Sie",
+    "ranking_subtitle_match_no": "Sehr schlechte Übereinstimmung",
+    "ranking_subtitle_match_maybe": "Unbekannte Übereinstimmung",
     "reloaded_with_new_preferences": "Mit neuen Einstellungen neu geladen",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
@@ -337,8 +342,22 @@
     },
     "packaging_information_photo": "Foto der Verpackungsinformation",
     "@packaging_information_photo": {},
-    "missing_product": "Dieses Produkt fehlt",
+    "missing_product": "Sie haben eine neues Produkt gefunden!",
     "@missing_product": {},
+    "add_product_take_photos": "Fotografieren Sie die Verpackung, um dieses Produkt in unsere Datenbank aufzunehmen.",
+    "@add_product_take_photos": {},
+    "add_product_take_photos_descriptive": "Bitte fotografieren Sie das Folgende und die Open Food Facts Engine erledigt den Rest!",
+    "@add_product_take_photos_descriptive": {},
+    "add_product_information_button_label": "Produktinformation hinzufügen",
+    "@add_product_information_button_label": {},
+    "new_product": "Neues Produkt",
+    "@new_product": {},
+    "front_packaging_photo_button_label": "Foto der Vorderseite der Verpackung",
+    "@front_packaging_photo_button_label": {},
+    "ingredients_photo_button_label": "Foto der Zutatenliste",
+    "@ingredients_photo_button_label": {},
+    "nutritional_facts_photo_button_label": "Foto der Nährwertangaben",
+    "@nutritional_facts_photo_button_label": {},
     "score_add_missing_ingredients": "Fehlende Zutaten hinzufügen",
     "score_add_missing_nutrition_facts": "Fehlende Nährwertangaben hinzufügen",
     "score_add_missing_product_category": "Fehlende Produktkategorie hinzufügen",

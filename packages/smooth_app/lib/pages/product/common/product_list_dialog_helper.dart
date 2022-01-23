@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
-import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_ui_library/buttons/smooth_action_button.dart';
+import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 
 class ProductListDialogHelper {
   @visibleForTesting
@@ -28,12 +28,12 @@ class ProductListDialogHelper {
         builder: (BuildContext context) => SmoothAlertDialog(
           close: false,
           body: Text(AppLocalizations.of(context)!.really_clear),
-          actions: <SmoothSimpleButton>[
-            SmoothSimpleButton(
+          actions: <SmoothActionButton>[
+            SmoothActionButton(
               text: AppLocalizations.of(context)!.no,
               onPressed: () => Navigator.pop(context, false),
             ),
-            SmoothSimpleButton(
+            SmoothActionButton(
               text: AppLocalizations.of(context)!.yes,
               onPressed: () async {
                 await daoProductList.clear(productList);
