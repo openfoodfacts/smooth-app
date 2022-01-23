@@ -4,6 +4,7 @@ import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/product/add_new_product_page.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SmoothProductCardNotFound extends StatelessWidget {
   const SmoothProductCardNotFound({
