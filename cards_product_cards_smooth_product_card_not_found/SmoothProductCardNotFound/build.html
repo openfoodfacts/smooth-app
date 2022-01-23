@@ -140,24 +140,11 @@ Widget build(BuildContext context) {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: LARGE_SPACE),
-                child: SmoothSimpleButton(
+                child: SmoothLargeButtonWithIcon(
                   text: appLocalizations.add_product_information_button_label,
-                  minWidth: double.infinity,
-                  borderRadius:
-                      const BorderRadius.all(Radius.circular(SMALL_SPACE)),
+                  icon: Icons.add,
                   padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
-                  buttonColor: themeProvider.darkTheme
-                      ? Colors.grey
-                      : const Color(0xffeaf5fb),
-                  textColor: themeProvider.darkTheme
-                      ? Theme.of(context).colorScheme.onPrimary
-                      : Colors.blue,
-                  icon: Icon(
-                    Icons.add,
-                    color: themeProvider.darkTheme
-                        ? Theme.of(context).colorScheme.onPrimary
-                        : Colors.blue,
-                  ),
+                  isDarkMode: themeProvider.darkTheme,
                   onPressed: () {
                     Navigator.push&lt;Widget&gt;(
                       context,
