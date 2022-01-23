@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 
 class SmoothActionButton extends StatelessWidget {
   const SmoothActionButton({
@@ -16,22 +17,15 @@ class SmoothActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
-    return MaterialButton(
-      color: themeData.colorScheme.primary,
-      child: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Text(
-          text,
-          style: themeData.textTheme.bodyText2!
-              .copyWith(color: themeData.colorScheme.onPrimary),
-        ),
+    return SmoothSimpleButton(
+      child: Text(
+        text,
+        style: themeData.textTheme.bodyText2!
+            .copyWith(color: themeData.colorScheme.onPrimary),
       ),
+      onPressed: onPressed,
       height: height,
       minWidth: minWidth,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(15.0)),
-      ),
-      onPressed: () => onPressed(),
     );
   }
 }
