@@ -74,12 +74,15 @@ User management:
 
 category picker:
 - packages/smooth_app/lib/data_models/category_tree_supplier.dart
-- packages/smooth_ui_library/example/lib/smooth_category_picker_example.dart
-- packages/smooth_ui_library/lib/dialogs/smooth_category_picker.dart
-- packages/smooth_ui_library/test/dialogs/smooth_category_picker_test.dart
+- packages/smooth_app/example/smooth_category_picker_example.dart
+- packages/smooth_app/generic_lib/dialogs/smooth_category_picker.dart
+- packages/smooth_app/test/dialogs/smooth_category_picker_test.dart
 - packages/smooth_app/lib/data_models/category_query_model.dart
 - packages/smooth_app/lib/data_models/query_category_tree_supplier.dart
 - packages/smooth_app/lib/data_models/smooth_category.dart
 
 ranking:
 - packages/smooth_app/lib/helpers/product_compatibility_helper.dart
+
+generic lib:
+- packages/smooth_app/lib/generic_lib
