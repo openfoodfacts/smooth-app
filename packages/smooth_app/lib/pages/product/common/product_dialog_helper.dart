@@ -7,6 +7,7 @@ import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/widgets/loading_dialog.dart';
 
 /// Dialog helper for product barcode search
 class ProductDialogHelper {

@@ -43,6 +43,7 @@ dependencies:
   visibility_detector: ^0.2.2
   google_ml_barcode_scanner: ^0.0.2
   camera: ^0.9.4+5
+  percent_indicator: ^4.0.0
 
 
   
