@@ -21,7 +21,6 @@ class ProductDialogHelper {
   final BuildContext context;
   final LocalDatabase localDatabase;
   final bool refresh;
-  bool _popEd = false;
 
   Future<FetchedProduct> openBestChoice() async {
     final Product? product = await DaoProduct(localDatabase).get(barcode);
@@ -31,50 +30,17 @@ class ProductDialogHelper {
     return openUniqueProductSearch();
   }
 
-  Future<FetchedProduct> openUniqueProductSearch() async {
-    final FetchedProduct? result = await showDialog<FetchedProduct>(
-      context: context,
-      builder: (BuildContext context) {
-        BarcodeProductQuery(
-          barcode: barcode,
-          daoProduct: DaoProduct(localDatabase),
-        ).getFetchedProduct().then<void>(
-              (final FetchedProduct value) => _popSearchingDialog(value),
-            );
-        return _getSearchingDialog();
-      },
-    );
-    return result ?? FetchedProduct.error(FetchedProductStatus.userCancelled);
-  }
-
-  void _popSearchingDialog(final FetchedProduct fetchedProduct) {
-    if (_popEd) {
-      return;
-    }
-    _popEd = true;
-    // Here we use the root navigator so that we can pop dialog while using multiple navigators.
-    Navigator.of(context, rootNavigator: true).pop(fetchedProduct);
-  }
-
-  Widget _getSearchingDialog() => SmoothAlertDialog(
-        close: false,
-        body: ListTile(
-          leading: const CircularProgressIndicator(),
-          title: Text(
-            refresh
-                ? AppLocalizations.of(context)!.refreshing_product
-                : '${AppLocalizations.of(context)!.looking_for}: $barcode',
-          ),
-        ),
-        actions: <SmoothSimpleButton>[
-          SmoothSimpleButton(
-            text: AppLocalizations.of(context)!.stop,
-            onPressed: () => _popSearchingDialog(
-              FetchedProduct.error(FetchedProductStatus.userCancelled),
-            ),
-          ),
-        ],
-      );
+  Future<FetchedProduct> openUniqueProductSearch() async =>
+      await LoadingDialog.run<FetchedProduct>(
+          context: context,
+          future: BarcodeProductQuery(
+            barcode: barcode,
+            daoProduct: DaoProduct(localDatabase),
+          ).getFetchedProduct(),
+          title: refresh
+              ? AppLocalizations.of(context)!.refreshing_product
+              : '${AppLocalizations.of(context)!.looking_for}: $barcode') ??
+      FetchedProduct.error(FetchedProductStatus.userCancelled);
 
   void _openProductNotFoundDialog() => showDialog<Widget>(
         context: context,

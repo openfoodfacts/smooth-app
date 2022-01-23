@@ -1,10 +1,9 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/onboarding_data_product.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
@@ -14,6 +13,10 @@ import 'package:smooth_app/pages/product/summary_card.dart';
 import 'package:smooth_app/pages/user_preferences_food.dart';
 
 class PreferencesPage extends StatefulWidget {
+  const PreferencesPage(this._localDatabase) : super();
+
+  final LocalDatabase _localDatabase;
+
   @override
   State<PreferencesPage> createState() => _PreferencesPageState();
 }
@@ -29,14 +32,8 @@ class _PreferencesPageState extends State<PreferencesPage> {
     _initFuture = _init();
   }
 
-  Future<dynamic> _init() async {
-    // Load Product
-    final String productResponse = await rootBundle
-        .loadString('assets/onboarding/sample_product_data.json');
-    final Map<String, dynamic> productData =
-        jsonDecode(productResponse) as Map<String, dynamic>;
-    _product = Product.fromJson(productData['product'] as Map<String, dynamic>);
-  }
+  Future<dynamic> _init() async => _product =
+      await OnboardingDataProduct(widget._localDatabase).getData(rootBundle);
 
   @override
   Widget build(BuildContext context) => FutureBuilder<void>(

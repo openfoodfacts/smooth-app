@@ -32,7 +32,6 @@ class _SignUpPageState extends State<SignUpPage> {
   bool _agree = false;
   bool _subscribe = false;
   bool _disagreed = false;
-  late bool _popEd;
 
   @override
   Widget build(BuildContext context) {
@@ -273,12 +272,21 @@ class _SignUpPageState extends State<SignUpPage> {
     if (!_formKey.currentState!.validate() || _disagreed) {
       return;
     }
-    _popEd = false;
     final User user = User(
       userId: _userController.text,
       password: _password1Controller.text,
     );
-    final Status? status = await _openSigningUpDialog(user);
+    final Status? status = await LoadingDialog.run<Status>(
+      context: context,
+      future: OpenFoodAPIClient.register(
+        user: user,
+        name: _displayNameController.text,
+        email: _emailController.text,
+        newsletter: _subscribe,
+        orgName: _foodProducer ? _brandController.text : null,
+      ),
+      title: AppLocalizations.of(context)!.sign_up_page_action_doing_it,
+    );
     if (status == null) {
       // probably the end user stopped the dialog
       return;
@@ -315,45 +323,4 @@ class _SignUpPageState extends State<SignUpPage> {
     );
     Navigator.of(context).pop<bool>(true);
   }
-
-  Future<Status?> _openSigningUpDialog(final User user) async =>
-      showDialog<Status>(
-        context: context,
-        builder: (BuildContext context) {
-          OpenFoodAPIClient.register(
-            user: user,
-            name: _displayNameController.text,
-            email: _emailController.text,
-            newsletter: _subscribe,
-            orgName: _foodProducer ? _brandController.text : null,
-          ).then<void>(
-            (final Status status) => _popSigningUpDialog(status),
-          );
-          return _getSigningUpDialog();
-        },
-      );
-
-  void _popSigningUpDialog(final Status? status) {
-    if (_popEd) {
-      return;
-    }
-    _popEd = true;
-    // Here we use the root navigator so that we can pop dialog while using multiple navigators.
-    Navigator.of(context, rootNavigator: true).pop(status);
-  }
-
-  Widget _getSigningUpDialog() => SmoothAlertDialog(
-        close: false,
-        body: ListTile(
-          leading: const CircularProgressIndicator(),
-          title:
-              Text(AppLocalizations.of(context)!.sign_up_page_action_doing_it),
-        ),
-        actions: <SmoothSimpleButton>[
-          SmoothSimpleButton(
-            text: AppLocalizations.of(context)!.stop,
-            onPressed: () => _popSigningUpDialog(null),
-          ),
-        ],
-      );
 }

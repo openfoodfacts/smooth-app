@@ -6,65 +6,87 @@ import 'package:smooth_app/pages/product/new_product_page.dart';
 
 class SmoothProductCardNotFound extends StatelessWidget {
   const SmoothProductCardNotFound({
-    required this.product,
+    required this.barcode,
     this.callback,
     this.elevation = 0.0,
   });
 
   final VoidCallback? callback;
   final double elevation;
-  final Product product;
+  final String barcode;
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-    return Material(
-      elevation: elevation,
-      borderRadius: const BorderRadius.all(Radius.circular(15.0)),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.surface,
-          borderRadius: const BorderRadius.all(Radius.circular(15.0)),
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(AppLocalizations.of(context)!.missing_product),
-            const SizedBox(
-              height: 12.0,
+    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
+    return LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+      return Material(
+        elevation: elevation,
+        borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+        child: Container(
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.surface,
+            borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+          ),
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+              vertical: constraints.maxHeight * 0.25,
+              horizontal: constraints.maxWidth * 0.05,
             ),
-            Text(
-              product.barcode ?? appLocalizations.unknown,
-              style: Theme.of(context).textTheme.subtitle1,
-            ),
-            const SizedBox(
-              height: 12.0,
-            ),
-            Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                SmoothSimpleButton(
-                  text: AppLocalizations.of(context)!.add,
-                  minWidth: 100.0,
-                  onPressed: () {
-                    Navigator.push<Widget>(
-                      context,
-                      MaterialPageRoute<Widget>(
-                        builder: (BuildContext context) => ProductPage(product),
-                      ),
-                    );
-                    if (callback != null) {
-                      callback!();
-                    }
-                  },
+                Text(
+                  appLocalizations.missing_product,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.headline2,
+                ),
+                Text(
+                  appLocalizations.add_product_take_photos,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.bodyText2,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: LARGE_SPACE),
+                  child: SmoothSimpleButton(
+                    text: appLocalizations.add_product_information_button_label,
+                    minWidth: double.infinity,
+                    borderRadius:
+                        const BorderRadius.all(Radius.circular(SMALL_SPACE)),
+                    padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
+                    buttonColor: themeProvider.darkTheme
+                        ? Colors.grey
+                        : const Color(0xffeaf5fb),
+                    textColor: themeProvider.darkTheme
+                        ? Theme.of(context).colorScheme.onPrimary
+                        : Colors.blue,
+                    icon: Icon(
+                      Icons.add,
+                      color: themeProvider.darkTheme
+                          ? Theme.of(context).colorScheme.onPrimary
+                          : Colors.blue,
+                    ),
+                    onPressed: () {
+                      Navigator.push<Widget>(
+                        context,
+                        MaterialPageRoute<Widget>(
+                          builder: (BuildContext context) =>
+                              AddNewProductPage(barcode),
+                        ),
+                      );
+                      if (callback != null) {
+                        callback!();
+                      }
+                    },
+                  ),
                 ),
               ],
             ),
-          ],
+          ),
         ),
-      ),
-    );
+      );
+    });
   }
 }

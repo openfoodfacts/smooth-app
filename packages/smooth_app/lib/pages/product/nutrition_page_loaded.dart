@@ -476,8 +476,18 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         nutriments; // TODO(monsieurtanuki): here we impact directly the product share with the previous screen, not nice!
     widget.product.servingSize = servingSize;
 
-    _popEd = false;
-    final Status? status = await _openUpdateDialog();
+    final Status? status = await LoadingDialog.run<Status>(
+      future: Future<Status>.delayed(const Duration(seconds: 2), () => Status()
+          /* TODO(monsieurtanuki): put back the actual call
+          OpenFoodAPIClient.saveProduct(
+            ProductQuery.getUser(),
+            widget.product,
+           */
+          ),
+      context: context,
+      title: '${AppLocalizations.of(context)!.nutrition_page_update_running}'
+          ' (in fact just waiting 2 seconds)',
+    );
     if (status == null) {
       // probably the end user stopped the dialog
       return;
@@ -512,48 +522,4 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       ),
     );
   }
-
-  late bool _popEd;
-
-  Future<Status?> _openUpdateDialog() async => showDialog<Status>(
-        context: context,
-        builder: (BuildContext context) {
-          Future<Status?>.delayed(const Duration(seconds: 2), () => Status()
-              /* TODO(monsieurtanuki): put back the actual call
-          OpenFoodAPIClient.saveProduct(
-            ProductQuery.getUser(),
-            widget.product,
-           */
-              ).then<void>(
-            (final Status? status) => _popUpdatingDialog(status),
-          );
-          return _getUpdatingDialog();
-        },
-      );
-
-  void _popUpdatingDialog(final Status? status) {
-    // TODO(monsieurtanuki): make a class of that process (Future, open dialog, close, error, result)
-    if (_popEd) {
-      return;
-    }
-    _popEd = true;
-    // Here we use the root navigator so that we can pop dialog while using multiple navigators.
-    Navigator.of(context, rootNavigator: true).pop(status);
-  }
-
-  Widget _getUpdatingDialog() => SmoothAlertDialog(
-        close: false,
-        body: ListTile(
-          leading: const CircularProgressIndicator(),
-          title: Text(
-              '${AppLocalizations.of(context)!.nutrition_page_update_running}'
-              ' (in fact just waiting 2 seconds)'),
-        ),
-        actions: <SmoothSimpleButton>[
-          SmoothSimpleButton(
-            text: AppLocalizations.of(context)!.stop,
-            onPressed: () => _popUpdatingDialog(null),
-          ),
-        ],
-      );
 }

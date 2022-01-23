@@ -161,7 +161,7 @@ class _ProductPageState extends State<ProductPage> {
           List<Widget> knowledgePanelWidgets = <Widget>[];
           if (snapshot.hasData) {
             // Render all KnowledgePanels
-            knowledgePanelWidgets = const KnowledgePanelsBuilder().build(
+            knowledgePanelWidgets = const KnowledgePanelsBuilder().buildAll(
               snapshot.data!,
               product: _product,
               context: context,

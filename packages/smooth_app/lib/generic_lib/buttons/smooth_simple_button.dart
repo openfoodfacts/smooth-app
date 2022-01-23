@@ -6,30 +6,50 @@ class SmoothSimpleButton extends StatelessWidget {
     required this.onPressed,
     this.minWidth = 15,
     this.height = 20,
+    this.borderRadius = const BorderRadius.all(Radius.circular(15.0)),
+    this.padding = const EdgeInsets.all(10),
+    this.buttonColor,
+    this.textColor,
+    this.icon,
   });
 
   final String text;
   final VoidCallback onPressed;
   final double minWidth;
   final double height;
+  final BorderRadius borderRadius;
+  final EdgeInsets padding;
+  final Color? buttonColor;
+  final Color? textColor;
+  final Widget? icon;
 
   @override
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
     return MaterialButton(
-      color: themeData.colorScheme.primary,
+      color: buttonColor ?? themeData.colorScheme.primary,
       child: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Text(
-          text,
-          style: themeData.textTheme.bodyText2!
-              .copyWith(color: themeData.colorScheme.onPrimary),
+        padding: padding,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            if (icon != null) icon!,
+            const Spacer(),
+            Text(
+              text,
+              textAlign: TextAlign.center,
+              style: themeData.textTheme.bodyText2!.copyWith(
+                color: textColor ?? themeData.colorScheme.onPrimary,
+              ),
+            ),
+            const Spacer(),
+          ],
         ),
       ),
       height: height,
       minWidth: minWidth,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(15.0)),
+      shape: RoundedRectangleBorder(
+        borderRadius: borderRadius,
       ),
       onPressed: () => onPressed(),
     );
