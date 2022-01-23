@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/LanguageHelper.dart';
-import 'package:smooth_ui_library/smooth_ui_library.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_category_picker.dart';
 
 void main() {
   timeDilation = 1.0;
