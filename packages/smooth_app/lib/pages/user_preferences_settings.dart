@@ -8,8 +8,8 @@ import 'package:smooth_app/pages/abstract_user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/views/bottom_sheet_views/user_contribution_view.dart';
+import 'package:smooth_ui_library/buttons/smooth_action_button.dart';
 import 'package:smooth_ui_library/buttons/smooth_main_button.dart';
-import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
 import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_ui_library/widgets/smooth_list_tile.dart';
 import 'package:smooth_ui_library/widgets/smooth_toggle.dart';
@@ -192,8 +192,8 @@ class UserPreferencesSettings extends AbstractUserPreferences {
                     )
                   ],
                 ),
-                actions: <SmoothSimpleButton>[
-                  SmoothSimpleButton(
+                actions: <SmoothActionButton>[
+                  SmoothActionButton(
                     onPressed: () async {
                       showLicensePage(
                         context: context,
@@ -208,7 +208,7 @@ class UserPreferencesSettings extends AbstractUserPreferences {
                     text: appLocalizations.licenses,
                     minWidth: 100,
                   ),
-                  SmoothSimpleButton(
+                  SmoothActionButton(
                     onPressed: () =>
                         Navigator.of(context, rootNavigator: true).pop(),
                     text: appLocalizations.okay,
