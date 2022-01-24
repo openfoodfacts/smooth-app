@@ -37,7 +37,7 @@ class OnboardingDataKnowledgePanels
 
   /// Was computed from [downloadDataString] in en_US
   ///
-  /// Something like https://world.openfoodfacts.net/api/v2/product/example/?fields=knowledge_panels&lc=en&cc=US
+  /// Something like https://world.openfoodfacts.org/api/v2/product/093270067481501/?fields=knowledge_panels&lc=en&cc=US
   @override
   String getAssetPath() => 'assets/onboarding/sample_knowledge_panels.json';
 }
