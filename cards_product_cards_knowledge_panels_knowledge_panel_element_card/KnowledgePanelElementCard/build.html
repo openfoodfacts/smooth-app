@@ -109,7 +109,9 @@ and</li>
 Widget build(BuildContext context) {
   switch (knowledgePanelElement.elementType) {
     case KnowledgePanelElementType.TEXT:
-      return HtmlWidget(knowledgePanelElement.textElement!.html);
+      return SmoothHtmlWidget(
+        knowledgePanelElement.textElement!.html,
+      );
     case KnowledgePanelElementType.IMAGE:
       return Image.network(
         knowledgePanelElement.imageElement!.url,
