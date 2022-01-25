@@ -50,9 +50,9 @@
 </h1></div>
 
     <section class="multi-line-signature">const
-      <span class="name ">ScoreCard</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-iconUrl">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">iconUrl</span>, </span></li>
-<li><span class="parameter" id="-param-description"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">description</span>, </span></li>
-<li><span class="parameter" id="-param-cardEvaluation"><span>required</span> <span class="type-annotation"><a href="../../cards_data_cards_score_card/CardEvaluation.html">CardEvaluation</a></span> <span class="parameter-name">cardEvaluation</span>}</span></li>
+      <span class="name ">ScoreCard</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-description">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">description</span>, </span></li>
+<li><span class="parameter" id="-param-cardEvaluation"><span>required</span> <span class="type-annotation"><a href="../../cards_data_cards_score_card/CardEvaluation.html">CardEvaluation</a></span> <span class="parameter-name">cardEvaluation</span>, </span></li>
+<li><span class="parameter" id="-param-iconUrl"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">iconUrl</span>}</span></li>
 </ol>)
     </section>
 
@@ -63,9 +63,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">const ScoreCard({
-  required this.iconUrl,
   required this.description,
   required this.cardEvaluation,
+  this.iconUrl,
 });</code></pre>
 </section>
 

@@ -107,6 +107,8 @@ and</li>
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
+  final ThemeProvider themeProvider = context.watch&lt;ThemeProvider&gt;();
+  final ThemeData themeData = Theme.of(context);
   &#47;&#47; If [expanded] = true, render all panel elements (including summary), otherwise just renders panel summary.
   if (panel.expanded ?? false) {
     final List&lt;Widget&gt; elementWidgets = &lt;Widget&gt;[];
@@ -122,12 +124,39 @@ Widget build(BuildContext context) {
         ),
       );
     }
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: elementWidgets,
+    return KnowledgePanelExpandedCard(
+      panel: panel,
+      allPanels: allPanels,
     );
   }
-  return KnowledgePanelSummaryCard(panel);
+  return InkWell(
+    child: KnowledgePanelSummaryCard(panel),
+    onTap: () =&gt; Navigator.push&lt;Widget&gt;(
+      context,
+      MaterialPageRoute&lt;Widget&gt;(
+        builder: (BuildContext context) =&gt; Scaffold(
+          backgroundColor: SmoothTheme.getColor(
+            themeData.colorScheme,
+            SmoothTheme.getMaterialColor(themeProvider),
+            ColorDestination.SURFACE_BACKGROUND,
+          ),
+          appBar: AppBar(),
+          body: SingleChildScrollView(
+            child: SmoothCard(
+              color: const Color(0xfff5f6fa),
+              padding: const EdgeInsets.all(
+                SMALL_SPACE,
+              ),
+              child: KnowledgePanelExpandedCard(
+                panel: panel,
+                allPanels: allPanels,
+              ),
+            ),
+          ),
+        ),
+      ),
+    ),
+  );
 }</code></pre>
 </section>
 
