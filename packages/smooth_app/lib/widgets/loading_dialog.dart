@@ -16,12 +16,37 @@ class LoadingDialog<T> {
   static Future<T?> run<T>({
     required final BuildContext context,
     required final Future<T> future,
-    required final String title,
+    final String? title,
   }) async =>
       LoadingDialog<T>._()._run(
         context: context,
         future: future,
-        title: title,
+        title: title ?? 'Downloading data', // TODO(monsieurtanuki): localize
+      );
+
+  /// Shows an loading error dialog.
+  ///
+  /// Typical use-case: when the [run] call failed.
+  static Future<void> error({
+    required final BuildContext context,
+    final String? title,
+  }) async =>
+      showDialog<void>(
+        context: context,
+        builder: (BuildContext context) => SmoothAlertDialog(
+          close: false,
+          body: ListTile(
+            leading: const Icon(Icons.error),
+            title: Text(title ??
+                'Could not download data'), // TODO(monsieurtanuki): localize
+          ),
+          actions: <SmoothActionButton>[
+            SmoothActionButton(
+              text: AppLocalizations.of(context)!.close,
+              onPressed: () => Navigator.pop(context),
+            ),
+          ],
+        ),
       );
 
   /// Displays "downloading" dialog while actually downloading

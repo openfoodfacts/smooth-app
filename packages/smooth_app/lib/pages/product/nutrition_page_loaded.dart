@@ -494,21 +494,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       return;
     }
     if (status.error != null) {
-      await showDialog<void>(
-        context: context,
-        builder: (BuildContext context) => SmoothAlertDialog(
-          body: ListTile(
-            leading: const Icon(Icons.error),
-            title: Text(status.error!),
-          ),
-          actions: <SmoothActionButton>[
-            SmoothActionButton(
-              text: AppLocalizations.of(context)!.okay,
-              onPressed: () => Navigator.of(context).pop(),
-            ),
-          ],
-        ),
-      );
+      await LoadingDialog.error(context: context, title: status.error);
       return;
     }
     await showDialog<void>(
