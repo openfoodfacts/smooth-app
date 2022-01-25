@@ -10,9 +10,13 @@ class SmoothHtmlWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return HtmlWidget(html, textStyle: textStyle, onTapUrl: (String url) async {
-      await LaunchUrlHelper.launchURL(url, false);
-      return true;
-    });
+    return HtmlWidget(
+      html,
+      textStyle: textStyle,
+      onTapUrl: (String url) async {
+        await LaunchUrlHelper.launchURL(url, false);
+        return true;
+      },
+    );
   }
 }
