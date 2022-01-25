@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
-import 'package:smooth_app/widgets/html_widget.dart';
+import 'package:smooth_app/widgets/smooth_html_widget.dart';
 import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 // Cells with a lot of text can get very large, we don't want to allocate
