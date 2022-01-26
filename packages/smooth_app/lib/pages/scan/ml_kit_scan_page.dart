@@ -115,7 +115,7 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
 
     final CameraController cameraController = CameraController(
       camera,
-      ResolutionPreset.high,
+      ResolutionPreset.low,
       enableAudio: false,
     );
     cameraController.setFocusMode(FocusMode.auto);
