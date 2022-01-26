@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
-import 'package:smooth_ui_library/util/ui_helpers.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
+import 'package:smooth_app/helpers/ui_helpers.dart';
 
 class SmoothLargeButtonWithIcon extends StatelessWidget {
   const SmoothLargeButtonWithIcon({

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 
 class SmoothActionButton extends StatelessWidget {
   const SmoothActionButton({
