@@ -55,7 +55,7 @@
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T?</span>&gt;</span></span>
 <span class="name ">run</span>&lt;<wbr><span class="type-parameter">T</span>&gt;(<wbr><ol class="parameter-list"><li><span class="parameter" id="run-param-context">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span></li>
 <li><span class="parameter" id="run-param-future"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">future</span>, </span></li>
-<li><span class="parameter" id="run-param-title"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">title</span>}</span></li>
+<li><span class="parameter" id="run-param-title"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">title</span>}</span></li>
 </ol>)
 
       
@@ -73,12 +73,12 @@
   <pre class="language-dart"><code class="language-dart">static Future&lt;T?&gt; run&lt;T&gt;({
   required final BuildContext context,
   required final Future&lt;T&gt; future,
-  required final String title,
+  final String? title,
 }) async =&gt;
     LoadingDialog&lt;T&gt;._()._run(
       context: context,
       future: future,
-      title: title,
+      title: title ?? &#39;Downloading data&#39;, &#47;&#47; TODO(monsieurtanuki): localize
     );</code></pre>
 </section>
 
@@ -121,6 +121,7 @@
 
 
     <li class="section-title"><a href="../../widgets_loading_dialog/LoadingDialog-class.html#static-methods">Static methods</a></li>
+    <li><a href="../../widgets_loading_dialog/LoadingDialog/error.html">error</a></li>
     <li><a href="../../widgets_loading_dialog/LoadingDialog/run.html">run</a></li>
 
 </ol>
