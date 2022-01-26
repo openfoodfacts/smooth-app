@@ -12,6 +12,7 @@ import 'package:provider/provider.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
@@ -79,16 +80,18 @@ class _SmoothAppState extends State<SmoothApp> {
             Brightness.light;
     systemDarkmodeOn = brightness == Brightness.dark;
     _userPreferences = await UserPreferences.getUserPreferences();
-    _productPreferences = ProductPreferences(ProductPreferencesSelection(
-      setImportance: _userPreferences.setImportance,
-      getImportance: _userPreferences.getImportance,
-      notify: () => _productPreferences.notifyListeners(),
-    ));
-    await _productPreferences
-        .loadReferenceFromAssets(DefaultAssetBundle.of(context));
+    _localDatabase = await LocalDatabase.getLocalDatabase();
+    _productPreferences = ProductPreferences(
+      ProductPreferencesSelection(
+        setImportance: _userPreferences.setImportance,
+        getImportance: _userPreferences.getImportance,
+        notify: () => _productPreferences.notifyListeners(),
+      ),
+      daoString: DaoString(_localDatabase),
+    );
+    await _productPreferences.init(DefaultAssetBundle.of(context));
     await _userPreferences.init(_productPreferences);
     ProductQuery.setCountry(_userPreferences.userCountryCode);
-    _localDatabase = await LocalDatabase.getLocalDatabase();
     _themeProvider = ThemeProvider(_userPreferences);
     ProductQuery.setQueryType(_userPreferences);
 
@@ -185,35 +188,7 @@ class SmoothAppGetLanguage extends StatelessWidget {
     final Locale myLocale = Localizations.localeOf(context);
     final String languageCode = myLocale.languageCode;
     ProductQuery.setLanguage(languageCode);
-    _refresh(
-      productPreferences,
-      DefaultAssetBundle.of(context),
-      languageCode,
-    );
+    productPreferences.refresh(languageCode);
     return appWidget;
-  }
-
-  Future<void> _refresh(
-    final ProductPreferences productPreferences,
-    final AssetBundle assetBundle,
-    final String languageCode,
-  ) async {
-    if (productPreferences.languageCode != languageCode) {
-      try {
-        await productPreferences.loadReferenceFromAssets(
-          assetBundle,
-          languageCode: languageCode,
-        );
-      } catch (e) {
-        // no problem, we were just trying
-      }
-    }
-    if (!productPreferences.isNetwork) {
-      try {
-        await productPreferences.loadReferenceFromNetwork(languageCode);
-      } catch (e) {
-        // no problem, we were just trying
-      }
-    }
   }
 }

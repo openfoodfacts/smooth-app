@@ -15,12 +15,12 @@ enum CardEvaluation {
 
 class ScoreCard extends StatelessWidget {
   const ScoreCard({
-    required this.iconUrl,
     required this.description,
     required this.cardEvaluation,
+    this.iconUrl,
   });
 
-  final String iconUrl;
+  final String? iconUrl;
   final String description;
   final CardEvaluation cardEvaluation;
 
@@ -36,20 +36,22 @@ class ScoreCard extends StatelessWidget {
     final Color textColor = themeData.brightness == Brightness.dark
         ? Colors.white
         : getTextColor(cardEvaluation).withOpacity(opacity);
-    final SvgIconChip iconChip = SvgIconChip(iconUrl, height: iconHeight);
+    final SvgIconChip? iconChip =
+        iconUrl == null ? null : SvgIconChip(iconUrl!, height: iconHeight);
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 8.0),
       padding: const EdgeInsets.all(8.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(right: 8.0),
-              child: iconChip,
+          if (iconChip != null)
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                child: iconChip,
+              ),
+              flex: 1,
             ),
-            flex: 1,
-          ),
           Expanded(
             child: Center(
               child: Text(

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
-import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_ui_library/buttons/smooth_large_button_with_icon.dart';
+import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 class AddNewProductPage extends StatelessWidget {
   const AddNewProductPage(
@@ -52,21 +52,10 @@ class AddNewProductPage extends StatelessWidget {
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     return Padding(
       padding: const EdgeInsets.only(top: VERY_LARGE_SPACE),
-      child: SmoothSimpleButton(
+      child: SmoothLargeButtonWithIcon(
         text: text,
-        minWidth: double.infinity,
-        borderRadius: const BorderRadius.all(Radius.circular(SMALL_SPACE)),
-        buttonColor:
-            themeProvider.darkTheme ? Colors.grey : const Color(0xffeaf5fb),
-        textColor: themeProvider.darkTheme
-            ? Theme.of(context).colorScheme.onPrimary
-            : Colors.blue,
-        icon: Icon(
-          Icons.camera_alt,
-          color: themeProvider.darkTheme
-              ? Theme.of(context).colorScheme.onPrimary
-              : Colors.blue,
-        ),
+        icon: Icons.camera_alt,
+        isDarkMode: themeProvider.darkTheme,
         onPressed: () {
           Navigator.push<Widget>(
             context,

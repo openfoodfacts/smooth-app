@@ -38,8 +38,7 @@ void main() {
             getImportance: _userPreferences.getImportance,
             notify: () => _productPreferences.notifyListeners(),
           ));
-          await _productPreferences
-              .loadReferenceFromAssets(PlatformAssetBundle());
+          await _productPreferences.init(PlatformAssetBundle());
           await _userPreferences.init(_productPreferences);
           _themeProvider = ThemeProvider(_userPreferences);
 
