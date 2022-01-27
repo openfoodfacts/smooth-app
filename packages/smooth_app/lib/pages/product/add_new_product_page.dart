@@ -58,15 +58,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
                     style: themeData.textTheme.bodyText1!
                         .apply(color: themeData.colorScheme.onSurface),
                   ),
-                  _buildImageCaptureRow(context, ImageField.FRONT),
-                  _buildImageCaptureRow(context, ImageField.NUTRITION),
-                  _buildImageCaptureRow(context, ImageField.INGREDIENTS),
-                  _buildImageCaptureRow(context, ImageField.PACKAGING),
-                  // More than 1 [ImageField.OTHER] can be uploaded.
-                  for (File image
-                      in _uploadedImages[ImageField.OTHER] ?? <File>[])
-                    _buildImageUploadedRow(context, ImageField.OTHER, image),
-                  _buildAddImageButton(context, ImageField.OTHER),
+                  ..._buildImageCaptureRows(context),
                 ],
               ),
             ),
@@ -86,13 +78,29 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
   }
 
   // This method only works for [imageType] that allows max 1 photo upload.
-  Widget _buildImageCaptureRow(BuildContext context, ImageField imageType) {
-    if ((_uploadedImages[imageType] ?? <File>[]).isEmpty) {
-      return _buildAddImageButton(context, imageType);
+  List<Widget> _buildImageCaptureRows(BuildContext context) {
+    final List<Widget> imageCaptureRows = <Widget>[];
+    // First build rows for buttons to ask user to upload images.
+    for (final ImageField imageType in ImageField.values) {
+      // Always add a button to "Add other photos" because there can be multiple of them.
+      if (imageType == ImageField.OTHER) {
+        imageCaptureRows.add(_buildAddImageButton(context, imageType));
+        continue;
+      }
+      if (!_isImageUploadedForType(imageType)) {
+        imageCaptureRows.add(_buildAddImageButton(context, imageType));
+      }
     }
-    // An image has already been uploaded.
-    return _buildImageUploadedRow(
-        context, imageType, _uploadedImages[imageType]![0]);
+    // Then build rows for images that are already uploaded.
+    for (final ImageField imageType in ImageField.values) {
+      if (_isImageUploadedForType(imageType)) {
+        for (final File image in _uploadedImages[imageType]!) {
+          imageCaptureRows
+              .add(_buildImageUploadedRow(context, imageType, image));
+        }
+      }
+    }
+    return imageCaptureRows;
   }
 
   Widget _buildAddImageButton(BuildContext context, ImageField imageType) {
@@ -171,5 +179,9 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
       case ImageField.OTHER:
         return appLocalizations.other_photo_uploaded;
     }
+  }
+
+  bool _isImageUploadedForType(ImageField imageType) {
+    return (_uploadedImages[imageType] ?? <File>[]).isNotEmpty;
   }
 }
