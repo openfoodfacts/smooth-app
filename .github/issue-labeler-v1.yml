@@ -1,7 +1,6 @@
 # Add/remove 'critical' label if issue contains the words 'urgent' or 'critical'
 critical:
     - '(critical|urgent)'
-
 knowledge panels:
     - '(kp|knowledge panels)'
 
