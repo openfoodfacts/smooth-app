@@ -382,7 +382,7 @@
     "@recycling_photo_button_label": {},
     "confirm_recycling_photo_button_label": "Confirm Recycling information photo",
     "@confirm_recycling_photo_button_label": {
-      "description": "Button clicking on which confirms the picture of recycling information facts that user just took."
+      "description": "Button clicking on which confirms the picture of recycling information that user just took."
     },
     "recycling_photo_uploaded": "Recycling photo uploaded",
     "@recycling_photo_uploaded": {},
@@ -392,7 +392,7 @@
     "@confirm_other_interesting_photo_button_label": {
       "description": "Button clicking on which confirms a miscellaneous photo of the product."
     },
-    "other_photo_uploaded": "Other photo uploaded",
+    "other_photo_uploaded": "Miscellaneous photo uploaded",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "Retake",
     "@retake_photo_button_label": {

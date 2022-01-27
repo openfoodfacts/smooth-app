@@ -10,6 +10,8 @@ import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/product/picture_capturer.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
+
+const EdgeInsets _ROW_PADDING_TOP = EdgeInsets.only(top: VERY_LARGE_SPACE);
 class AddNewProductPage extends StatefulWidget {
   const AddNewProductPage(
     this.barcode,
@@ -35,7 +37,8 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
         padding: const EdgeInsets.only(
             top: VERY_LARGE_SPACE,
             left: VERY_LARGE_SPACE,
-            right: VERY_LARGE_SPACE),
+            right: VERY_LARGE_SPACE,
+        ),
         child: Stack(
           children: <Widget>[
             SingleChildScrollView(
@@ -59,6 +62,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
                   _buildImageCaptureRow(context, ImageField.NUTRITION),
                   _buildImageCaptureRow(context, ImageField.INGREDIENTS),
                   _buildImageCaptureRow(context, ImageField.PACKAGING),
+                  // More than 1 [ImageField.OTHER] can be uploaded.
                   for (File image
                       in _uploadedImages[ImageField.OTHER] ?? <File>[])
                     _buildImageUploadedRow(context, ImageField.OTHER, image),
@@ -81,19 +85,20 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
     );
   }
 
+  // This method only works for [imageType] that allows max 1 photo upload.
   Widget _buildImageCaptureRow(BuildContext context, ImageField imageType) {
-    if ((_uploadedImages[imageType] ?? <File>[]).isNotEmpty) {
-      // An image has already been uploaded.
-      return _buildImageUploadedRow(
-          context, imageType, _uploadedImages[imageType]![0]);
+    if ((_uploadedImages[imageType] ?? <File>[]).isEmpty) {
+      return _buildAddImageButton(context, imageType);
     }
-    return _buildAddImageButton(context, imageType);
+    // An image has already been uploaded.
+    return _buildImageUploadedRow(
+        context, imageType, _uploadedImages[imageType]![0]);
   }
 
   Widget _buildAddImageButton(BuildContext context, ImageField imageType) {
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     return Padding(
-      padding: const EdgeInsets.only(top: VERY_LARGE_SPACE),
+      padding: _ROW_PADDING_TOP,
       child: SmoothLargeButtonWithIcon(
         text: _getAddPhotoButtonText(context, imageType),
         icon: Icons.camera_alt,
@@ -121,7 +126,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
   Widget _buildImageUploadedRow(
       BuildContext context, ImageField imageType, File image) {
     return Padding(
-      padding: const EdgeInsets.only(top: VERY_LARGE_SPACE),
+      padding: _ROW_PADDING_TOP,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[

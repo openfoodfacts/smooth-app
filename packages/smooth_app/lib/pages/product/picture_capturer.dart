@@ -13,7 +13,6 @@ import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 
-// Use same code as imageUploadCard in product page
 class PictureCapturer extends StatefulWidget {
   const PictureCapturer({required this.barcode, required this.imageType});
 
@@ -60,16 +59,21 @@ class _PictureCapturerState extends State<PictureCapturer> {
     return FutureBuilder<void>(
         future: photoPicker,
         builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
+          // We are still waiting for user to capture a picture.
           if (snapshot.hasError ||
               snapshot.connectionState != ConnectionState.done) {
             return EMPTY_WIDGET;
           }
+          // User decided not to capture the picture. Take them back to [AddNewProductPage].
           if (picture == null) {
             WidgetsBinding.instance!.addPostFrameCallback((_) {
-              Navigator.pop(context, null);
+              Navigator.pop(context);
             });
             return EMPTY_WIDGET;
           }
+          // Picture is captured, show it to the user one last time and ask for
+          // confirmation before uploading. Also present an option to retake the
+          // picture as sometimes the picture can be blurry.
           return Scaffold(
             backgroundColor: Colors.black,
             appBar: AppBar(),
@@ -132,15 +136,9 @@ class _PictureCapturerState extends State<PictureCapturer> {
 
   Future<void> _uploadPicture() async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-    if (picture == null) {
-      Navigator.pop(context, null);
-      return;
-    }
-    // Upload image to the server.
     final SendImage image = SendImage(
       lang: ProductQuery.getLanguage(),
-      barcode: widget
-          .barcode, //Probably throws an error, but this is not a big problem when we got a product without a barcode
+      barcode: widget.barcode,
       imageField: widget.imageType,
       imageUri: picture!.uri,
     );
@@ -149,6 +147,7 @@ class _PictureCapturerState extends State<PictureCapturer> {
       image,
     );
     if (result.error != null) {
+      // Image upload failed :( Show an error and go back to [AddNewProductPage].
       await showDialog<void>(
         context: context,
         builder: (BuildContext context) => SmoothAlertDialog(
@@ -156,12 +155,12 @@ class _PictureCapturerState extends State<PictureCapturer> {
           actions: <SmoothActionButton>[
             SmoothActionButton(
               text: AppLocalizations.of(context)!.okay,
-              onPressed: () => Navigator.pop(context, picture),
+              onPressed: () => Navigator.pop(context),
             ),
           ],
         ),
       );
-      Navigator.pop(context, null);
+      Navigator.pop(context);
       return;
     }
     Navigator.pop(context, picture);
