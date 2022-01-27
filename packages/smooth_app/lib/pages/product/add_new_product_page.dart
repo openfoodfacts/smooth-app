@@ -12,6 +12,7 @@ import 'package:smooth_app/themes/theme_provider.dart';
 
 const EdgeInsets _ROW_PADDING_TOP = EdgeInsets.only(top: VERY_LARGE_SPACE);
 
+// Buttons to add images will appear in this order.
 const List<ImageField> _SORTED_IMAGE_FIELD_LIST = [
   ImageField.FRONT,
   ImageField.NUTRITION,
