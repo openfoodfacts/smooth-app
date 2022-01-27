@@ -10,8 +10,8 @@ import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/product/picture_capturer.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
-
 const EdgeInsets _ROW_PADDING_TOP = EdgeInsets.only(top: VERY_LARGE_SPACE);
+
 class AddNewProductPage extends StatefulWidget {
   const AddNewProductPage(
     this.barcode,
@@ -35,9 +35,9 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
       appBar: AppBar(),
       body: Padding(
         padding: const EdgeInsets.only(
-            top: VERY_LARGE_SPACE,
-            left: VERY_LARGE_SPACE,
-            right: VERY_LARGE_SPACE,
+          top: VERY_LARGE_SPACE,
+          left: VERY_LARGE_SPACE,
+          right: VERY_LARGE_SPACE,
         ),
         child: Stack(
           children: <Widget>[
