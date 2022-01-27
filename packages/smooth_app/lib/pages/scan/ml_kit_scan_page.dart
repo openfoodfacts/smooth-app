@@ -157,8 +157,14 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
     _controller = null;
   }
 
-  //Convert the [CameraImage] to a [InputImage]
+  // Convert the [CameraImage] to a [InputImage] and checking this for barcodes
+  // with help from ML Kit
   Future<void> _processCameraImage(CameraImage image) async {
+    if (isBusy || barcodeScanner == null) {
+      return;
+    }
+    isBusy = true;
+
     final WriteBuffer allBytes = WriteBuffer();
     for (final Plane plane in image.planes) {
       allBytes.putUint8List(plane.bytes);
@@ -199,17 +205,6 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
     final InputImage inputImage =
         InputImage.fromBytes(bytes: bytes, inputImageData: inputImageData);
 
-    _scanImage(inputImage);
-  }
-
-  //Checking for barcodes in the provided InputImage
-  Future<void> _scanImage(InputImage inputImage) async {
-    if (barcodeScanner == null || isBusy) {
-      return;
-    }
-
-    isBusy = true;
-
     final List<Barcode> barcodes =
         await barcodeScanner!.processImage(inputImage);
 
@@ -218,8 +213,5 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
     }
 
     isBusy = false;
-    if (mounted) {
-      setState(() {});
-    }
   }
 }
