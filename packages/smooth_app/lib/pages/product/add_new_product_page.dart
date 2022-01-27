@@ -12,6 +12,14 @@ import 'package:smooth_app/themes/theme_provider.dart';
 
 const EdgeInsets _ROW_PADDING_TOP = EdgeInsets.only(top: VERY_LARGE_SPACE);
 
+const List<ImageField> _SORTED_IMAGE_FIELD_LIST = [
+  ImageField.FRONT,
+  ImageField.NUTRITION,
+  ImageField.INGREDIENTS,
+  ImageField.PACKAGING,
+  ImageField.OTHER,
+];
+
 class AddNewProductPage extends StatefulWidget {
   const AddNewProductPage(
     this.barcode,
@@ -77,30 +85,31 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
     );
   }
 
-  // This method only works for [imageType] that allows max 1 photo upload.
   List<Widget> _buildImageCaptureRows(BuildContext context) {
-    final List<Widget> imageCaptureRows = <Widget>[];
+    final List<Widget> rows = <Widget>[];
     // First build rows for buttons to ask user to upload images.
-    for (final ImageField imageType in ImageField.values) {
-      // Always add a button to "Add other photos" because there can be multiple of them.
+    for (final ImageField imageType in _SORTED_IMAGE_FIELD_LIST) {
+      // Always add a button to "Add other photos" because there can be multiple
+      // "other photos" uploaded by the user.
       if (imageType == ImageField.OTHER) {
-        imageCaptureRows.add(_buildAddImageButton(context, imageType));
+        rows.add(_buildAddImageButton(context, imageType));
         continue;
       }
+      // Everything else can only be uploaded once, so if it's already uploaded
+      // skip.
       if (!_isImageUploadedForType(imageType)) {
-        imageCaptureRows.add(_buildAddImageButton(context, imageType));
+        rows.add(_buildAddImageButton(context, imageType));
       }
     }
-    // Then build rows for images that are already uploaded.
+    // Now build rows for images that are already uploaded.
     for (final ImageField imageType in ImageField.values) {
       if (_isImageUploadedForType(imageType)) {
         for (final File image in _uploadedImages[imageType]!) {
-          imageCaptureRows
-              .add(_buildImageUploadedRow(context, imageType, image));
+          rows.add(_buildImageUploadedRow(context, imageType, image));
         }
       }
     }
-    return imageCaptureRows;
+    return rows;
   }
 
   Widget _buildAddImageButton(BuildContext context, ImageField imageType) {
