@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the dispose method from the LifeCycleManagerState class, for the Dart programming language.">
-  <title>dispose method - LifeCycleManagerState class - lifecycle_manager library - Dart API</title>
+  <meta name="description" content="API docs for the checkLifeCycle method from the LifeCycleManagerState class, for the Dart programming language.">
+  <title>checkLifeCycle method - LifeCycleManagerState class - lifecycle_manager library - Dart API</title>
 
 
   
@@ -32,9 +32,9 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../pages_scan_lifecycle_manager/pages_scan_lifecycle_manager-library.html">lifecycle_manager</a></li>
     <li><a href="../../pages_scan_lifecycle_manager/LifeCycleManagerState-class.html">LifeCycleManagerState</a></li>
-    <li class="self-crumb">dispose method</li>
+    <li class="self-crumb">checkLifeCycle method</li>
   </ol>
-  <div class="self-name">dispose</div>
+  <div class="self-name">checkLifeCycle</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,62 +45,33 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">dispose</span> method 
+<h1><span class="kind-method">checkLifeCycle</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
       
-<div>
-  <ol class="annotation-list">
-    <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
-  </ol>
-</div>
 
 <span class="returntype">void</span>
-<span class="name ">dispose</span>(<wbr>)
+<span class="name ">checkLifeCycle</span>(<wbr>)
 
-      <div class="features">override</div>
+      
 
     </section>
     
-<section class="desc markdown">
-  <p>Called when this object is removed from the tree permanently.</p>
-<p>The framework calls this method when this <a href="https://api.flutter.dev/flutter/widgets/State-class.html">State</a> object will never
-build again. After the framework calls <a href="../../pages_scan_lifecycle_manager/LifeCycleManagerState/dispose.html">dispose</a>, the <a href="https://api.flutter.dev/flutter/widgets/State-class.html">State</a> object is
-considered unmounted and the <a href="https://api.flutter.dev/flutter/widgets/State/mounted.html">mounted</a> property is false. It is an error
-to call <a href="https://api.flutter.dev/flutter/widgets/State/setState.html">setState</a> at this point. This stage of the lifecycle is terminal:
-there is no way to remount a <a href="https://api.flutter.dev/flutter/widgets/State-class.html">State</a> object that has been disposed.</p>
-<p>Subclasses should override this method to release any resources retained
-by this object (e.g., stop any active animations).</p>
-<p>If a <a href="https://api.flutter.dev/flutter/widgets/State-class.html">State</a>'s <a href="../../pages_scan_lifecycle_manager/LifeCycleManagerState/build.html">build</a> method depends on an object that can itself
-change state, for example a <a href="https://api.flutter.dev/flutter/foundation/ChangeNotifier-class.html">ChangeNotifier</a> or <a href="https://api.flutter.dev/flutter/dart-async/Stream-class.html">Stream</a>, or some
-other object to which one can subscribe to receive notifications, then
-be sure to subscribe and unsubscribe properly in <a href="../../pages_scan_lifecycle_manager/LifeCycleManagerState/initState.html">initState</a>,
-<a href="https://api.flutter.dev/flutter/widgets/State/didUpdateWidget.html">didUpdateWidget</a>, and <a href="../../pages_scan_lifecycle_manager/LifeCycleManagerState/dispose.html">dispose</a>:</p>
-<ul>
-<li>In <a href="../../pages_scan_lifecycle_manager/LifeCycleManagerState/initState.html">initState</a>, subscribe to the object.</li>
-<li>In <a href="https://api.flutter.dev/flutter/widgets/State/didUpdateWidget.html">didUpdateWidget</a> unsubscribe from the old object and subscribe
-to the new one if the updated widget configuration requires
-replacing the object.</li>
-<li>In <a href="../../pages_scan_lifecycle_manager/LifeCycleManagerState/dispose.html">dispose</a>, unsubscribe from the object.</li>
-</ul>
-<p>Implementations of this method should end with a call to the inherited
-method, as in <code>super.dispose()</code>.</p>
-<p>See also:</p>
-<ul>
-<li><a href="https://api.flutter.dev/flutter/widgets/State/deactivate.html">deactivate</a>, which is called prior to <a href="../../pages_scan_lifecycle_manager/LifeCycleManagerState/dispose.html">dispose</a>.</li>
-</ul>
-</section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">@override
-void dispose() {
-  WidgetsBinding.instance!.removeObserver(this);
-  super.dispose();
+  <pre class="language-dart"><code class="language-dart">void checkLifeCycle() {
+  if (appLifecycleState == AppLifecycleState.inactive ||
+      visibleFraction == 0.0) {
+    widget.onPause.call();
+  } else if (appLifecycleState == AppLifecycleState.resumed &amp;&amp;
+      visibleFraction &gt; 0.0) {
+    widget.onResume.call();
+  }
 }</code></pre>
 </section>
 
@@ -118,7 +89,7 @@ void dispose() {
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../pages_scan_lifecycle_manager/pages_scan_lifecycle_manager-library.html">lifecycle_manager</a></li>
   <li><a href="../../pages_scan_lifecycle_manager/LifeCycleManagerState-class.html">LifeCycleManagerState</a></li>
-  <li class="self-crumb">dispose method</li>
+  <li class="self-crumb">checkLifeCycle method</li>
 </ol>
 
 
