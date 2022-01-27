@@ -110,31 +110,31 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
   }
 
   Future<void> _startLiveFeed() async {
+    if (_controller != null) {
+      return;
+    }
+
     stoppingCamera = false;
     final CameraDescription camera = cameras[_cameraIndex];
 
-    final CameraController cameraController = CameraController(
+    _controller = CameraController(
       camera,
       ResolutionPreset.high,
       enableAudio: false,
     );
-    cameraController.setFocusMode(FocusMode.auto);
-    cameraController.lockCaptureOrientation(DeviceOrientation.portraitUp);
+    _controller?.setFocusMode(FocusMode.auto);
+    _controller?.lockCaptureOrientation(DeviceOrientation.portraitUp);
 
-    _controller = cameraController;
+    _controller = _controller;
 
-    // If the controller is updated then update the UI.
-    cameraController.addListener(() {
+    try {
+      await _controller!.initialize();
       if (mounted) {
         setState(() {});
       }
-      if (cameraController.value.hasError) {
-        debugPrint(cameraController.value.errorDescription);
+      if (_controller!.value.hasError) {
+        debugPrint(_controller!.value.errorDescription);
       }
-    });
-
-    try {
-      await cameraController.initialize();
       _controller?.startImageStream(_processCameraImage);
     } on CameraException catch (e) {
       if (kDebugMode) {
@@ -154,6 +154,7 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
       setState(() {});
     }
     await _controller?.dispose();
+    _controller = null;
   }
 
   //Convert the [CameraImage] to a [InputImage]
