@@ -51,7 +51,7 @@ Future<void> main() async {
 class SmoothApp extends StatefulWidget {
   const SmoothApp();
 
-  // This widget is the root of your application.
+  // This widget is the root of your application
   @override
   State<SmoothApp> createState() => _SmoothAppState();
 }

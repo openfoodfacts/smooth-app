@@ -5,12 +5,12 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panels_builder.dart';
 import 'package:smooth_app/data_models/onboarding_data_knowledge_panels.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/onboarding/next_button.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/product/knowledge_panel_product_cards.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
-import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 class KnowledgePanelPageTemplate extends StatefulWidget {
   const KnowledgePanelPageTemplate({
