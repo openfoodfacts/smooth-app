@@ -4,9 +4,9 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/onboarding_loader.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
-import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 /// Next button showed at the bottom of the onboarding flow.
 class NextButton extends StatelessWidget {
@@ -20,7 +20,7 @@ class NextButton extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    // Side padding is 8% of total width.
+    // Side padding is 8% of total widtha.
     final double sidePadding = screenSize.width * .08;
     return Container(
       color: Theme.of(context).appBarTheme.backgroundColor,

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
+import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/widgets/ranking_floating_action_button.dart';
-import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 bool areButtonsRendered(ContinuousScanModel model) =>
     model.hasMoreThanOneProduct;

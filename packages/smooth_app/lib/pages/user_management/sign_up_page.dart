@@ -2,11 +2,11 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/widgets/loading_dialog.dart';
-import 'package:smooth_ui_library/buttons/smooth_action_button.dart';
-import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
-import 'package:smooth_ui_library/widgets/smooth_text_form_field.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 /// Sign Up Page. Pop's true if the sign up was successful.
@@ -293,21 +293,7 @@ class _SignUpPageState extends State<SignUpPage> {
       return;
     }
     if (status.error != null) {
-      await showDialog<void>(
-        context: context,
-        builder: (BuildContext context) => SmoothAlertDialog(
-          body: ListTile(
-            leading: const Icon(Icons.error),
-            title: Text(status.error!),
-          ),
-          actions: <SmoothActionButton>[
-            SmoothActionButton(
-              text: AppLocalizations.of(context)!.okay,
-              onPressed: () => Navigator.of(context).pop(),
-            ),
-          ],
-        ),
-      );
+      await LoadingDialog.error(context: context, title: status.error);
       return;
     }
     await UserManagementHelper.put(user);

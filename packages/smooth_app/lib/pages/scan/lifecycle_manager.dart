@@ -1,8 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
-/// This Widgets tracks if the scanner is currently visible and if the app
-/// is currently open/idle/closed and controls the camera depending
+/// This Widgets tracks if the child is currently visible on screen and if the
+/// app gets minimized/resumed by the system
 class LifeCycleManager extends StatefulWidget {
   const LifeCycleManager({
     required this.onResume,
@@ -21,6 +22,19 @@ class LifeCycleManager extends StatefulWidget {
 
 class LifeCycleManagerState extends State<LifeCycleManager>
     with WidgetsBindingObserver {
+  double visibleFraction = 100.0;
+  AppLifecycleState appLifecycleState = AppLifecycleState.resumed;
+
+  void checkLifeCycle() {
+    if (appLifecycleState == AppLifecycleState.inactive ||
+        visibleFraction == 0.0) {
+      widget.onPause.call();
+    } else if (appLifecycleState == AppLifecycleState.resumed &&
+        visibleFraction > 0.0) {
+      widget.onResume.call();
+    }
+  }
+
   @override
   void initState() {
     super.initState();
@@ -40,11 +54,8 @@ class LifeCycleManagerState extends State<LifeCycleManager>
   // background or returns the app to the foreground.
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    if (state == AppLifecycleState.inactive) {
-      widget.onPause.call();
-    } else if (state == AppLifecycleState.resumed) {
-      widget.onResume.call();
-    }
+    appLifecycleState = state;
+    checkLifeCycle();
   }
 
   @override
@@ -52,11 +63,8 @@ class LifeCycleManagerState extends State<LifeCycleManager>
     return VisibilityDetector(
       key: const ValueKey<String>('VisibilityDetector'),
       onVisibilityChanged: (VisibilityInfo info) {
-        if (info.visibleFraction == 0.0) {
-          widget.onPause.call();
-        } else {
-          widget.onResume.call();
-        }
+        visibleFraction = info.visibleFraction;
+        checkLifeCycle();
       },
       child: widget.child,
     );
