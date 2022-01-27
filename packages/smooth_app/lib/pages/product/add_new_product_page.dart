@@ -95,8 +95,8 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
         rows.add(_buildAddImageButton(context, imageType));
         continue;
       }
-      // Everything else can only be uploaded once, so if it's already uploaded
-      // skip.
+      // Everything else can only be uploaded once, skip building the
+      // "Add Image button" if an image for this type is already uploaded.
       if (!_isImageUploadedForType(imageType)) {
         rows.add(_buildAddImageButton(context, imageType));
       }
