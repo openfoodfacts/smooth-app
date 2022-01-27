@@ -40,6 +40,7 @@ class LifeCycleManagerState extends State<LifeCycleManager>
   // background or returns the app to the foreground.
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
+    print(state);
     if (state == AppLifecycleState.inactive) {
       widget.onPause.call();
     } else if (state == AppLifecycleState.resumed) {
