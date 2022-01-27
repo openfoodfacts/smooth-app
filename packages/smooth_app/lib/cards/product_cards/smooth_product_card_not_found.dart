@@ -57,8 +57,8 @@ class SmoothProductCardNotFound extends StatelessWidget {
                     icon: Icons.add,
                     padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
                     isDarkMode: themeProvider.darkTheme,
-                    onPressed: () async {
-                      await Navigator.push<Widget>(
+                    onPressed: () {
+                      Navigator.push<Widget>(
                         context,
                         MaterialPageRoute<Widget>(
                           builder: (BuildContext context) =>
