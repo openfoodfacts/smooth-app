@@ -79,11 +79,6 @@ class _ProductListPageState extends State<ProductListPage> {
               icon: const Icon(Icons.check_box),
               onPressed: () => setState(() => _populateAll(products)),
             ),
-          if (_selectionMode)
-            IconButton(
-              icon: const Icon(Icons.cancel),
-              onPressed: () => setState(() => _selectionMode = false),
-            ),
           if (dismissible && !_selectionMode)
             PopupMenuButton<String>(
               itemBuilder: (final BuildContext context) =>
