@@ -152,7 +152,11 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
               context,
               MaterialPageRoute<Widget>(
                 builder: (BuildContext context) => PersonalizedRankingPage(
-                  _model.supplier.getProductList(),
+                  productList: _model.supplier.getProductList(),
+                  title: ProductQueryPageHelper.getProductListLabel(
+                    _model.supplier.getProductList(),
+                    context,
+                  ),
                 ),
               ),
             ),

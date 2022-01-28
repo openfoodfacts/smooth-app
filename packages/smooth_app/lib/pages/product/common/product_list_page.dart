@@ -23,6 +23,8 @@ class ProductListPage extends StatefulWidget {
 class _ProductListPageState extends State<ProductListPage> {
   late ProductList productList;
   bool first = true;
+  final Set<String> _selectedBarcodes = <String>{};
+  bool _selectionMode = false;
 
   @override
   Widget build(BuildContext context) {
@@ -48,62 +50,107 @@ class _ProductListPageState extends State<ProductListPage> {
     }
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          children: <Widget>[
-            Flexible(
-              child: Text(
-                ProductQueryPageHelper.getProductListLabel(
-                  productList,
-                  context,
-                  verbose: false,
-                ),
+        title: _selectionMode
+            ? Text(
+                '${_selectedBarcodes.length}/${products.length} products', // TODO(monsieurtanuki): localize
                 overflow: TextOverflow.fade,
-              ),
-            ),
-          ],
-        ),
-        actions: !dismissible
-            ? null
-            : <Widget>[
-                PopupMenuButton<String>(
-                  itemBuilder: (final BuildContext context) =>
-                      <PopupMenuEntry<String>>[
-                    PopupMenuItem<String>(
-                      value: 'clear',
-                      child: Text(appLocalizations.clear),
-                      enabled: true,
+              )
+            : Row(
+                children: <Widget>[
+                  Flexible(
+                    child: Text(
+                      ProductQueryPageHelper.getProductListLabel(
+                        productList,
+                        context,
+                        verbose: false,
+                      ),
+                      overflow: TextOverflow.fade,
                     ),
-                  ],
-                  onSelected: (final String value) async {
-                    switch (value) {
-                      case 'clear':
-                        if (await ProductListDialogHelper.instance
-                            .openClear(context, daoProductList, productList)) {
-                          localDatabase.notifyListeners();
-                        }
-                        break;
-                      default:
-                        throw Exception('Unknown value: $value');
-                    }
-                  },
+                  ),
+                ],
+              ),
+        actions: <Widget>[
+          if (_selectionMode && _selectedBarcodes.isNotEmpty)
+            IconButton(
+              icon: const Icon(Icons.check_box_outline_blank),
+              onPressed: () => setState(() => _selectedBarcodes.clear()),
+            ),
+          if (_selectionMode && _selectedBarcodes.length < products.length)
+            IconButton(
+              icon: const Icon(Icons.check_box),
+              onPressed: () => setState(() => _populateAll(products)),
+            ),
+          if (_selectionMode)
+            IconButton(
+              icon: const Icon(Icons.cancel),
+              onPressed: () => setState(() => _selectionMode = false),
+            ),
+          if (dismissible && !_selectionMode)
+            PopupMenuButton<String>(
+              itemBuilder: (final BuildContext context) =>
+                  <PopupMenuEntry<String>>[
+                PopupMenuItem<String>(
+                  value: 'clear',
+                  child: Text(appLocalizations.clear),
+                  enabled: true,
                 ),
               ],
+              onSelected: (final String value) async {
+                switch (value) {
+                  case 'clear':
+                    if (await ProductListDialogHelper.instance.openClear(
+                      context,
+                      daoProductList,
+                      productList,
+                    )) {
+                      localDatabase.notifyListeners();
+                    }
+                    break;
+                  default:
+                    throw Exception('Unknown value: $value');
+                }
+              },
+            ),
+        ],
       ),
       floatingActionButton: products.isEmpty
           ? null
-          : RankingFloatingActionButton(
-              color: Colors.black,
-              onPressed: () async {
-                await Navigator.push<Widget>(
-                  context,
-                  MaterialPageRoute<Widget>(
-                    builder: (BuildContext context) =>
-                        PersonalizedRankingPage(productList),
+          : !_selectionMode
+              ? FloatingActionButton(
+                  child: const Icon(Icons.checklist),
+                  onPressed: () => setState(
+                    () {
+                      _selectionMode = true;
+                      _populateAll(products);
+                    },
                   ),
-                );
-                setState(() {});
-              },
-            ),
+                )
+              : _selectedBarcodes.isEmpty
+                  ? null
+                  : FloatingActionButton(
+                      child: const Icon(
+                          RankingFloatingActionButton.rankingIconData),
+                      onPressed: () async {
+                        final List<Product> list = <Product>[];
+                        for (final Product product in products) {
+                          if (_selectedBarcodes.contains(product.barcode)) {
+                            list.add(product);
+                          }
+                        }
+                        await Navigator.push<Widget>(
+                          context,
+                          MaterialPageRoute<Widget>(
+                            builder: (BuildContext context) =>
+                                PersonalizedRankingPage.fromItems(
+                              products: list,
+                              title:
+                                  '', // TODO(monsieurtanuki): find inspiration
+                            ),
+                          ),
+                        );
+                        setState(() => _selectionMode = false);
+                      },
+                    ),
       body: products.isEmpty
           ? Center(
               child: Text(appLocalizations.no_prodcut_in_list,
@@ -113,10 +160,41 @@ class _ProductListPageState extends State<ProductListPage> {
               itemCount: products.length,
               itemBuilder: (BuildContext context, int index) {
                 final Product product = products[index];
-                final Widget child = Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 12.0, vertical: 8.0),
-                  child: ProductListItemSimple(product: product),
+                final String barcode = product.barcode!;
+                final bool selected = _selectedBarcodes.contains(barcode);
+                void onTap() => setState(
+                      () {
+                        if (selected) {
+                          _selectedBarcodes.remove(barcode);
+                        } else {
+                          _selectedBarcodes.add(barcode);
+                        }
+                      },
+                    );
+                final Widget child = GestureDetector(
+                  onTap: _selectionMode ? onTap : null,
+                  child: Container(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: _selectionMode ? 0 : 12.0,
+                      vertical: 8.0,
+                    ),
+                    child: Row(
+                      children: <Widget>[
+                        if (_selectionMode)
+                          Icon(
+                            selected
+                                ? Icons.check_box
+                                : Icons.check_box_outline_blank,
+                          ),
+                        Expanded(
+                          child: ProductListItemSimple(
+                            product: product,
+                            onTap: _selectionMode ? onTap : null,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 );
                 if (dismissible) {
                   return Dismissible(
@@ -126,6 +204,7 @@ class _ProductListPageState extends State<ProductListPage> {
                       final bool removed = productList.remove(product.barcode!);
                       if (removed) {
                         await daoProductList.put(productList);
+                        _selectedBarcodes.remove(product.barcode);
                         setState(() => products.removeAt(index));
                       }
                       ScaffoldMessenger.of(context).showSnackBar(
@@ -150,5 +229,12 @@ class _ProductListPageState extends State<ProductListPage> {
               },
             ),
     );
+  }
+
+  void _populateAll(final List<Product> products) {
+    _selectedBarcodes.clear();
+    for (final Product product in products) {
+      _selectedBarcodes.add(product.barcode!);
+    }
   }
 }
