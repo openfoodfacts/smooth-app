@@ -76,7 +76,8 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                           widget.imageType,
                         ),
                         onPressed: () async {
-                          final bool isPhotoUploaded = await uploadCapturedPicture(
+                          final bool isPhotoUploaded =
+                              await uploadCapturedPicture(
                             context,
                             barcode: widget.barcode,
                             imageField: widget.imageType,
