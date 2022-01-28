@@ -6,8 +6,9 @@ import 'package:openfoodfacts/model/ProductImage.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
+import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
-import 'package:smooth_app/pages/product/picture_capturer.dart';
+import 'package:smooth_app/pages/product/confirm_and_upload_picture.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 const EdgeInsets _ROW_PADDING_TOP = EdgeInsets.only(top: VERY_LARGE_SPACE);
@@ -122,18 +123,25 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
         icon: Icons.camera_alt,
         isDarkMode: themeProvider.darkTheme,
         onPressed: () async {
-          final File? photo = await Navigator.push<File?>(
+          final File? initialPhoto = await pickImageAndCrop();
+          if (initialPhoto == null) {
+            return;
+          }
+          // Photo can change in the ConfirmAndUploadPicture widget, the user
+          // may choose to retake the image.
+          final File? finalPhoto = await Navigator.push<File?>(
             context,
             MaterialPageRoute<File?>(
-              builder: (BuildContext context) => PictureCapturer(
+              builder: (BuildContext context) => ConfirmAndUploadPicture(
                 barcode: widget.barcode,
                 imageType: imageType,
+                initialPhoto: initialPhoto,
               ),
             ),
           );
-          if (photo != null) {
+          if (finalPhoto != null) {
             _uploadedImages[imageType] = _uploadedImages[imageType] ?? <File>[];
-            _uploadedImages[imageType]!.add(photo);
+            _uploadedImages[imageType]!.add(initialPhoto);
             setState(() {});
           }
         },

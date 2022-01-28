@@ -6,6 +6,7 @@ import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/pages/product/product_image_page.dart';
 
 class ImageUploadCard extends StatefulWidget {
@@ -33,47 +34,23 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
       _imageFullProvider; // Full resolution image to display in image page
 
   Future<void> _getImage() async {
-    final ImagePicker picker = ImagePicker();
+    final File? croppedImageFile = await pickImageAndCrop();
 
-    final XFile? pickedFile =
-        await picker.pickImage(source: ImageSource.camera);
+    if (croppedImageFile != null) {
+      setState(() {
+        // Update the image to load the new image file
+        // The same full resolution image is used for both the carousel and the image page
+        _imageProvider = FileImage(croppedImageFile);
+        _imageFullProvider = _imageProvider;
+      });
 
-    if (pickedFile != null) {
-      final File? croppedImageFile = await ImageCropper.cropImage(
-        sourcePath: pickedFile.path,
-        androidUiSettings: const AndroidUiSettings(
-          lockAspectRatio: false,
-          hideBottomControls: true,
-        ),
+      await uploadPicture(
+        context,
+        barcode: widget.product
+            .barcode!, //Probably throws an error, but this is not a big problem when we got a product without a barcode
+        imageField: widget.imageField,
+        imageUri: croppedImageFile.uri,
       );
-
-      if (croppedImageFile != null) {
-        setState(() {
-          // Update the image to load the new image file
-          // The same full resolution image is used for both the carousel and the image page
-          _imageProvider = FileImage(croppedImageFile);
-          _imageFullProvider = _imageProvider;
-        });
-
-        final SendImage image = SendImage(
-          lang: ProductQuery.getLanguage(),
-          barcode: widget.product
-              .barcode!, //Probably throws an error, but this is not a big problem when we got a product without a barcode
-          imageField: widget.imageField,
-          imageUri: croppedImageFile.uri,
-        );
-
-        // query the OpenFoodFacts API
-        final Status result = await OpenFoodAPIClient.addProductImage(
-          ProductQuery.getUser(),
-          image,
-        );
-
-        if (result.status != 'status ok') {
-          throw Exception(
-              'image could not be uploaded: ${result.error} ${result.imageId.toString()}');
-        }
-      }
     }
   }
 
