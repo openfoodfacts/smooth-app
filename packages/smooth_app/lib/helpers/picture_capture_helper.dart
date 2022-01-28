@@ -51,7 +51,9 @@ Future<bool> uploadCapturedPicture(
   );
   if (result == null || result.error != null || result.status != 'status ok') {
     await LoadingDialog.error(
-        context: context, title: appLocalizations.error_occurred);
+      context: context,
+      title: appLocalizations.error_occurred,
+    );
     return false;
   }
   return true;
