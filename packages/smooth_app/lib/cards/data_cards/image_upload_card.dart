@@ -15,6 +15,7 @@ class ImageUploadCard extends StatefulWidget {
     this.imageUrl,
     this.title,
     required this.buttonText,
+    required this.onUpload,
   });
 
   final Product product;
@@ -22,6 +23,7 @@ class ImageUploadCard extends StatefulWidget {
   final String? imageUrl;
   final String? title;
   final String buttonText;
+  final Function(BuildContext) onUpload;
 
   @override
   State<ImageUploadCard> createState() => _ImageUploadCardState();
@@ -73,6 +75,7 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
           throw Exception(
               'image could not be uploaded: ${result.error} ${result.imageId.toString()}');
         }
+        widget.onUpload(context);
       }
     }
   }
