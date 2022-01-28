@@ -6,7 +6,6 @@ import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
-import 'package:smooth_app/pages/product/common/product_list_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 
@@ -49,63 +48,61 @@ class _ProductListPageState extends State<ProductListPage> {
     }
     return Scaffold(
       appBar: AppBar(
-        title: _selectionMode
-            ? Text(
-                '${_selectedBarcodes.length}/${products.length} products', // TODO(monsieurtanuki): localize
-                overflow: TextOverflow.fade,
-              )
-            : Row(
-                children: <Widget>[
-                  Flexible(
-                    child: Text(
-                      ProductQueryPageHelper.getProductListLabel(
-                        productList,
-                        context,
-                        verbose: false,
-                      ),
-                      overflow: TextOverflow.fade,
-                    ),
-                  ),
-                ],
-              ),
-        actions: <Widget>[
-          if (_selectionMode && _selectedBarcodes.isNotEmpty)
-            IconButton(
-              icon: const Icon(Icons.check_box_outline_blank),
-              onPressed: () => setState(() => _selectedBarcodes.clear()),
-            ),
-          if (_selectionMode && _selectedBarcodes.length < products.length)
-            IconButton(
-              icon: const Icon(Icons.check_box),
-              onPressed: () => setState(() => _populateAll(products)),
-            ),
-          if (dismissible && !_selectionMode)
-            PopupMenuButton<String>(
-              itemBuilder: (final BuildContext context) =>
-                  <PopupMenuEntry<String>>[
-                PopupMenuItem<String>(
-                  value: 'clear',
-                  child: Text(appLocalizations.clear),
-                  enabled: true,
-                ),
-              ],
-              onSelected: (final String value) async {
-                switch (value) {
-                  case 'clear':
-                    if (await ProductListDialogHelper.instance.openClear(
-                      context,
-                      daoProductList,
-                      productList,
-                    )) {
-                      localDatabase.notifyListeners();
+        backgroundColor: Colors.white, // TODO(monsieurtanuki): night mode
+        foregroundColor: Colors.black,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            if (_selectionMode && _selectedBarcodes.isNotEmpty)
+              ElevatedButton(
+                child: Text(
+                    'Compare ${_selectedBarcodes.length} products'), // TODO(monsieurtanuki): localize
+                onPressed: () async {
+                  final List<Product> list = <Product>[];
+                  for (final Product product in products) {
+                    if (_selectedBarcodes.contains(product.barcode)) {
+                      list.add(product);
                     }
-                    break;
-                  default:
-                    throw Exception('Unknown value: $value');
-                }
-              },
-            ),
-        ],
+                  }
+                  await Navigator.push<Widget>(
+                    context,
+                    MaterialPageRoute<Widget>(
+                      builder: (BuildContext context) =>
+                          PersonalizedRankingPage.fromItems(
+                        products: list,
+                        title: 'Your ranking',
+                      ),
+                    ),
+                  );
+                  setState(() => _selectionMode = false);
+                },
+              ),
+            if (_selectionMode)
+              ElevatedButton(
+                onPressed: () => setState(() => _selectionMode = false),
+                child: Text(appLocalizations.cancel),
+              ),
+            if (!_selectionMode)
+              Flexible(
+                child: Text(
+                  ProductQueryPageHelper.getProductListLabel(
+                    productList,
+                    context,
+                    verbose: false,
+                  ),
+                  overflow: TextOverflow.fade,
+                ),
+              ),
+            if ((!_selectionMode) && products.isNotEmpty)
+              Flexible(
+                child: ElevatedButton(
+                  child: const Text(
+                      'Compare Mode'), // TODO(monsieurtanuki): localize
+                  onPressed: () => setState(() => _selectionMode = true),
+                ),
+              ),
+          ],
+        ),
       ),
       body: products.isEmpty
           ? Center(
@@ -113,59 +110,8 @@ class _ProductListPageState extends State<ProductListPage> {
                   style: Theme.of(context).textTheme.subtitle1),
             )
           : ListView.builder(
-              itemCount: products.length + 1,
+              itemCount: products.length,
               itemBuilder: (BuildContext context, int index) {
-                if (index == 0) {
-                  // header
-                  return Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: <Widget>[
-                      if (_selectionMode && _selectedBarcodes.isNotEmpty)
-                        ElevatedButton(
-                          child: const Text(
-                              'Compare'), // TODO(monsieurtanuki): localize
-                          onPressed: () async {
-                            final List<Product> list = <Product>[];
-                            for (final Product product in products) {
-                              if (_selectedBarcodes.contains(product.barcode)) {
-                                list.add(product);
-                              }
-                            }
-                            await Navigator.push<Widget>(
-                              context,
-                              MaterialPageRoute<Widget>(
-                                builder: (BuildContext context) =>
-                                    PersonalizedRankingPage.fromItems(
-                                  products: list,
-                                  title:
-                                      '', // TODO(monsieurtanuki): find inspiration
-                                ),
-                              ),
-                            );
-                            setState(() => _selectionMode = false);
-                          },
-                        ),
-                      if (_selectionMode)
-                        ElevatedButton(
-                          onPressed: () =>
-                              setState(() => _selectionMode = false),
-                          child: Text(AppLocalizations.of(context)!.cancel),
-                        ),
-                      if (!_selectionMode)
-                        ElevatedButton(
-                          onPressed: () => setState(
-                            () {
-                              _selectionMode = true;
-                              _populateAll(products);
-                            },
-                          ),
-                          child: const Text(
-                              'Compare Mode'), // TODO(monsieurtanuki): localize
-                        ),
-                    ],
-                  );
-                }
-                index--;
                 final Product product = products[index];
                 final String barcode = product.barcode!;
                 final bool selected = _selectedBarcodes.contains(barcode);
@@ -236,12 +182,5 @@ class _ProductListPageState extends State<ProductListPage> {
               },
             ),
     );
-  }
-
-  void _populateAll(final List<Product> products) {
-    _selectedBarcodes.clear();
-    for (final Product product in products) {
-      _selectedBarcodes.add(product.barcode!);
-    }
   }
 }
