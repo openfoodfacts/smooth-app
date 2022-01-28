@@ -84,7 +84,9 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                             imageUri: photo.uri,
                           );
                           Navigator.pop(
-                              context, isPhotoUploaded ? photo : null);
+                            context,
+                            isPhotoUploaded ? photo : null,
+                          );
                         }),
                   ],
                 ),
