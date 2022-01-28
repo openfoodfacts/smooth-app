@@ -9,6 +9,7 @@ import 'package:smooth_app/cards/product_cards/product_title_card.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
+import 'package:smooth_app/widgets/loading_dialog.dart';
 
 class QuestionCard extends StatefulWidget {
   const QuestionCard({
@@ -272,6 +273,7 @@ class _QuestionCardState extends State<QuestionCard>
       onTap: () async {
         try {
           await saveAnswer(
+            context,
             insightId: insightId,
             insightAnnotation: insightAnnotation,
           );
@@ -394,10 +396,12 @@ class _QuestionCardState extends State<QuestionCard>
   }
 }
 
-Future<void> saveAnswer({
+Future<void> saveAnswer(
+  BuildContext context, {
   required String? insightId,
   required InsightAnnotation insightAnnotation,
 }) async {
+  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
   final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
   String? deviceId;
   if (Platform.isAndroid) {
@@ -407,10 +411,14 @@ Future<void> saveAnswer({
   } else {
     debugPrint('Platform is neither iOS nor Android');
   }
-  await OpenFoodAPIClient.postInsightAnnotation(
-    insightId,
-    insightAnnotation,
-    deviceId: deviceId,
+  await LoadingDialog.run<Status>(
+    context: context,
+    future: OpenFoodAPIClient.postInsightAnnotation(
+      insightId,
+      insightAnnotation,
+      deviceId: deviceId,
+    ),
+    title: appLocalizations.saving_answer,
   );
 }
 
