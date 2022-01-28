@@ -30,7 +30,7 @@ Future<File?> pickImageAndCrop() async {
   );
 }
 
-Future<bool> uploadPicture(
+Future<bool> uploadCapturedPicture(
   BuildContext context, {
   required String barcode,
   required ImageField imageField,
@@ -43,11 +43,15 @@ Future<bool> uploadPicture(
     imageField: imageField,
     imageUri: imageUri,
   );
-  final Status result = await OpenFoodAPIClient.addProductImage(
-    ProductQuery.getUser(),
-    image,
+  final Status? result = await LoadingDialog.run<Status>(
+    context: context,
+    future: OpenFoodAPIClient.addProductImage(
+      ProductQuery.getUser(),
+      image,
+    ),
+    title: appLocalizations.uploading_image,
   );
-  if (result.error != null || result.status != 'status ok') {
+  if (result == null || result.error != null || result.status != 'status ok') {
     // Image upload failed :( Show an error and go back to [AddNewProductPage].
     await LoadingDialog.error(
         context: context, title: appLocalizations.error_occurred);

@@ -44,7 +44,7 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
         _imageFullProvider = _imageProvider;
       });
 
-      await uploadPicture(
+      await uploadCapturedPicture(
         context,
         barcode: widget.product
             .barcode!, //Probably throws an error, but this is not a big problem when we got a product without a barcode
