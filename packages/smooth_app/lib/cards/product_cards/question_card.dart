@@ -278,7 +278,10 @@ class _QuestionCardState extends State<QuestionCard>
             insightAnnotation: insightAnnotation,
           );
         } catch (e) {
-          await showErrorDialog(context);
+          await LoadingDialog.error(
+            context: context,
+            title: appLocalizations.error_occurred,
+          );
           Navigator.of(context).pop();
           return;
         }
@@ -419,27 +422,5 @@ Future<void> saveAnswer(
       deviceId: deviceId,
     ),
     title: appLocalizations.saving_answer,
-  );
-}
-
-Future<void> showErrorDialog(BuildContext context) {
-  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-  return showDialog<void>(
-    context: context,
-    barrierDismissible: false, // user must tap button!
-    builder: (BuildContext context) {
-      return AlertDialog(
-        title: Text(appLocalizations.error),
-        content: Text(appLocalizations.error_occurred),
-        actions: <Widget>[
-          TextButton(
-            child: Text(appLocalizations.okay),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
-        ],
-      );
-    },
   );
 }
