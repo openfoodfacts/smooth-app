@@ -2,10 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:image_cropper/image_cropper.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/pages/product/product_image_page.dart';
 
