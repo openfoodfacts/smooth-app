@@ -130,7 +130,11 @@ class _ProductPageState extends State<ProductPage> {
       Align(
         heightFactor: 0.7,
         alignment: Alignment.topLeft,
-        child: ProductImageCarousel(_product, height: 200),
+        child: ProductImageCarousel(
+          _product,
+          height: 200,
+          onUpload: _refreshProduct,
+        ),
       ),
       Padding(
         padding: const EdgeInsets.symmetric(
