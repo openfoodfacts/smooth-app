@@ -13,6 +13,7 @@ class ImageUploadCard extends StatefulWidget {
     this.imageUrl,
     this.title,
     required this.buttonText,
+    required this.onUpload,
   });
 
   final Product product;
@@ -20,6 +21,7 @@ class ImageUploadCard extends StatefulWidget {
   final String? imageUrl;
   final String? title;
   final String buttonText;
+  final Function(BuildContext) onUpload;
 
   @override
   State<ImageUploadCard> createState() => _ImageUploadCardState();
@@ -41,13 +43,16 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
         _imageFullProvider = _imageProvider;
       });
 
-      await uploadCapturedPicture(
+      final bool isUploaded = await uploadCapturedPicture(
         context,
         barcode: widget.product
             .barcode!, //Probably throws an error, but this is not a big problem when we got a product without a barcode
         imageField: widget.imageField,
         imageUri: croppedImageFile.uri,
       );
+      if(isUploaded) {
+        widget.onUpload(context);
+      }
     }
   }
 

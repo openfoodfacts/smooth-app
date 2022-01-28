@@ -148,7 +148,11 @@ class _QuestionCardState extends State<QuestionCard>
       ),
       child: Column(
         children: <Widget>[
-          ProductImageCarousel(widget.product, height: screenSize.height / 6),
+          ProductImageCarousel(
+            widget.product,
+            height: screenSize.height / 6,
+            onUpload: (_) {},
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
             child: Column(
