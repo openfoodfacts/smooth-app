@@ -50,7 +50,6 @@ Future<bool> uploadCapturedPicture(
     title: appLocalizations.uploading_image,
   );
   if (result == null || result.error != null || result.status != 'status ok') {
-    // Image upload failed :( Show an error and go back to [AddNewProductPage].
     await LoadingDialog.error(
         context: context, title: appLocalizations.error_occurred);
     return false;
