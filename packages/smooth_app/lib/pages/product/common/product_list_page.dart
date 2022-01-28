@@ -9,7 +9,6 @@ import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
-import 'package:smooth_app/widgets/ranking_floating_action_button.dart';
 
 class ProductListPage extends StatefulWidget {
   const ProductListPage(this.productList);
@@ -113,52 +112,65 @@ class _ProductListPageState extends State<ProductListPage> {
             ),
         ],
       ),
-      floatingActionButton: products.isEmpty
-          ? null
-          : !_selectionMode
-              ? FloatingActionButton(
-                  child: const Icon(Icons.checklist),
-                  onPressed: () => setState(
-                    () {
-                      _selectionMode = true;
-                      _populateAll(products);
-                    },
-                  ),
-                )
-              : _selectedBarcodes.isEmpty
-                  ? null
-                  : FloatingActionButton(
-                      child: const Icon(
-                          RankingFloatingActionButton.rankingIconData),
-                      onPressed: () async {
-                        final List<Product> list = <Product>[];
-                        for (final Product product in products) {
-                          if (_selectedBarcodes.contains(product.barcode)) {
-                            list.add(product);
-                          }
-                        }
-                        await Navigator.push<Widget>(
-                          context,
-                          MaterialPageRoute<Widget>(
-                            builder: (BuildContext context) =>
-                                PersonalizedRankingPage.fromItems(
-                              products: list,
-                              title:
-                                  '', // TODO(monsieurtanuki): find inspiration
-                            ),
-                          ),
-                        );
-                        setState(() => _selectionMode = false);
-                      },
-                    ),
       body: products.isEmpty
           ? Center(
               child: Text(appLocalizations.no_prodcut_in_list,
                   style: Theme.of(context).textTheme.subtitle1),
             )
           : ListView.builder(
-              itemCount: products.length,
+              itemCount: products.length + 1,
               itemBuilder: (BuildContext context, int index) {
+                if (index == 0) {
+                  // header
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+                      if (_selectionMode && _selectedBarcodes.isNotEmpty)
+                        ElevatedButton(
+                          child: const Text(
+                              'Compare'), // TODO(monsieurtanuki): localize
+                          onPressed: () async {
+                            final List<Product> list = <Product>[];
+                            for (final Product product in products) {
+                              if (_selectedBarcodes.contains(product.barcode)) {
+                                list.add(product);
+                              }
+                            }
+                            await Navigator.push<Widget>(
+                              context,
+                              MaterialPageRoute<Widget>(
+                                builder: (BuildContext context) =>
+                                    PersonalizedRankingPage.fromItems(
+                                  products: list,
+                                  title:
+                                      '', // TODO(monsieurtanuki): find inspiration
+                                ),
+                              ),
+                            );
+                            setState(() => _selectionMode = false);
+                          },
+                        ),
+                      if (_selectionMode)
+                        ElevatedButton(
+                          onPressed: () =>
+                              setState(() => _selectionMode = false),
+                          child: Text(AppLocalizations.of(context)!.cancel),
+                        ),
+                      if (!_selectionMode)
+                        ElevatedButton(
+                          onPressed: () => setState(
+                            () {
+                              _selectionMode = true;
+                              _populateAll(products);
+                            },
+                          ),
+                          child: const Text(
+                              'Compare Mode'), // TODO(monsieurtanuki): localize
+                        ),
+                    ],
+                  );
+                }
+                index--;
                 final Product product = products[index];
                 final String barcode = product.barcode!;
                 final bool selected = _selectedBarcodes.contains(barcode);
