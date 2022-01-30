@@ -39,12 +39,11 @@ dependencies:
   qr_code_scanner: ^0.6.1
   rubber: ^1.0.1
   sentry_flutter: ^6.2.2
-  smooth_ui_library:
-    path: ../smooth_ui_library
   url_launcher: ^6.0.18
   visibility_detector: ^0.2.2
   google_ml_barcode_scanner: ^0.0.2
   camera: ^0.9.4+5
+  percent_indicator: ^4.0.0
 
 
   

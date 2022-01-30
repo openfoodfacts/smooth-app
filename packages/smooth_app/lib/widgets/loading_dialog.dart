@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
-import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 
 /// Dialog with a stop button, while a future is running.
 ///
@@ -16,12 +16,37 @@ class LoadingDialog<T> {
   static Future<T?> run<T>({
     required final BuildContext context,
     required final Future<T> future,
-    required final String title,
+    final String? title,
   }) async =>
       LoadingDialog<T>._()._run(
         context: context,
         future: future,
-        title: title,
+        title: title ?? 'Downloading data', // TODO(monsieurtanuki): localize
+      );
+
+  /// Shows an loading error dialog.
+  ///
+  /// Typical use-case: when the [run] call failed.
+  static Future<void> error({
+    required final BuildContext context,
+    final String? title,
+  }) async =>
+      showDialog<void>(
+        context: context,
+        builder: (BuildContext context) => SmoothAlertDialog(
+          close: false,
+          body: ListTile(
+            leading: const Icon(Icons.error),
+            title: Text(title ??
+                'Could not download data'), // TODO(monsieurtanuki): localize
+          ),
+          actions: <SmoothActionButton>[
+            SmoothActionButton(
+              text: AppLocalizations.of(context)!.close,
+              onPressed: () => Navigator.pop(context),
+            ),
+          ],
+        ),
       );
 
   /// Displays "downloading" dialog while actually downloading
@@ -62,8 +87,8 @@ class LoadingDialog<T> {
           leading: const CircularProgressIndicator(),
           title: Text(title),
         ),
-        actions: <SmoothSimpleButton>[
-          SmoothSimpleButton(
+        actions: <SmoothActionButton>[
+          SmoothActionButton(
             text: AppLocalizations.of(context)!.stop,
             onPressed: () => _popDialog(context, null),
           ),

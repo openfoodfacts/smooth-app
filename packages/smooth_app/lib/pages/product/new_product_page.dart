@@ -13,12 +13,12 @@ import 'package:smooth_app/database/knowledge_panels_query.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/knowledge_panel_product_cards.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
-import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage(this.product);
@@ -130,7 +130,11 @@ class _ProductPageState extends State<ProductPage> {
       Align(
         heightFactor: 0.7,
         alignment: Alignment.topLeft,
-        child: ProductImageCarousel(_product, height: 200),
+        child: ProductImageCarousel(
+          _product,
+          height: 200,
+          onUpload: _refreshProduct,
+        ),
       ),
       Padding(
         padding: const EdgeInsets.symmetric(

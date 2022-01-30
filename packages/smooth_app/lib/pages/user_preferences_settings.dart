@@ -3,16 +3,16 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_main_button.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_list_tile.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_toggle.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/abstract_user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/views/bottom_sheet_views/user_contribution_view.dart';
-import 'package:smooth_ui_library/buttons/smooth_main_button.dart';
-import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
-import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
-import 'package:smooth_ui_library/widgets/smooth_list_tile.dart';
-import 'package:smooth_ui_library/widgets/smooth_toggle.dart';
 
 /// Collapsed/expanded display of settings for the preferences page.
 class UserPreferencesSettings extends AbstractUserPreferences {
@@ -192,8 +192,8 @@ class UserPreferencesSettings extends AbstractUserPreferences {
                     )
                   ],
                 ),
-                actions: <SmoothSimpleButton>[
-                  SmoothSimpleButton(
+                actions: <SmoothActionButton>[
+                  SmoothActionButton(
                     onPressed: () async {
                       showLicensePage(
                         context: context,
@@ -208,7 +208,7 @@ class UserPreferencesSettings extends AbstractUserPreferences {
                     text: appLocalizations.licenses,
                     minWidth: 100,
                   ),
-                  SmoothSimpleButton(
+                  SmoothActionButton(
                     onPressed: () =>
                         Navigator.of(context, rootNavigator: true).pop(),
                     text: appLocalizations.okay,

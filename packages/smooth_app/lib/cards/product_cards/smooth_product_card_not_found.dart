@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
+import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/product/add_new_product_page.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
-import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
-import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 class SmoothProductCardNotFound extends StatelessWidget {
   const SmoothProductCardNotFound({
@@ -52,24 +52,11 @@ class SmoothProductCardNotFound extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: LARGE_SPACE),
-                  child: SmoothSimpleButton(
+                  child: SmoothLargeButtonWithIcon(
                     text: appLocalizations.add_product_information_button_label,
-                    minWidth: double.infinity,
-                    borderRadius:
-                        const BorderRadius.all(Radius.circular(SMALL_SPACE)),
+                    icon: Icons.add,
                     padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
-                    buttonColor: themeProvider.darkTheme
-                        ? Colors.grey
-                        : const Color(0xffeaf5fb),
-                    textColor: themeProvider.darkTheme
-                        ? Theme.of(context).colorScheme.onPrimary
-                        : Colors.blue,
-                    icon: Icon(
-                      Icons.add,
-                      color: themeProvider.darkTheme
-                          ? Theme.of(context).colorScheme.onPrimary
-                          : Colors.blue,
-                    ),
+                    isDarkMode: themeProvider.darkTheme,
                     onPressed: () {
                       Navigator.push<Widget>(
                         context,
