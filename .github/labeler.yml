@@ -43,6 +43,9 @@ scan:
 mlkit:
 - packages/smooth_app/lib/pages/scan/ml_kit_scan_page.dart
 
+product addition:
+- packages/smooth_app/lib/pages/product/add_new_product_page.dart
+
 product page:
 - packages/smooth_app/lib/pages/product/**/*
 
