@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/personalized_search/matched_product.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/svg_icon_chip.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
@@ -44,8 +45,12 @@ class SmoothProductCardFound extends StatelessWidget {
     for (final Attribute attribute in attributes) {
       scores.add(SvgIconChip(attribute.iconUrl!, height: iconSize));
     }
-    final ProductCompatibilityResult compatibility =
-        getProductCompatibility(context.watch<ProductPreferences>(), product);
+    final MatchedProduct matchedProduct = MatchedProduct(
+      product,
+      context.watch<ProductPreferences>(),
+    );
+    final ProductCompatibilityHelper helper =
+        ProductCompatibilityHelper(matchedProduct);
     return GestureDetector(
       onTap: () async {
         await Navigator.push<Widget>(
@@ -102,15 +107,13 @@ class SmoothProductCardFound extends StatelessWidget {
                             Icon(
                               Icons.circle,
                               size: 15,
-                              color:
-                                  getProductCompatibilityHeaderBackgroundColor(
-                                      compatibility.productCompatibility),
+                              color: helper.getBackgroundColor(),
                             ),
                             const Padding(
                                 padding:
                                     EdgeInsets.only(left: VERY_SMALL_SPACE)),
                             Text(
-                              getSubtitle(compatibility, appLocalizations),
+                              helper.getSubtitle(appLocalizations),
                               style: Theme.of(context).textTheme.bodyText2,
                             ),
                           ],
