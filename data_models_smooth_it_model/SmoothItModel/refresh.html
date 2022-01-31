@@ -53,7 +53,7 @@
       
 
 <span class="returntype">void</span>
-<span class="name ">refresh</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="refresh-param-productList"><span class="type-annotation"><a href="../../data_models_product_list/ProductList-class.html">ProductList</a></span> <span class="parameter-name">productList</span>, </span></li>
+<span class="name ">refresh</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="refresh-param-products"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/1.11.1/model_Product/Product-class.html">Product</a></span>&gt;</span></span> <span class="parameter-name">products</span>, </span></li>
 <li><span class="parameter" id="refresh-param-productPreferences"><span class="type-annotation"><a href="../../data_models_product_preferences/ProductPreferences-class.html">ProductPreferences</a></span> <span class="parameter-name">productPreferences</span></span></li>
 </ol>)
 
@@ -67,12 +67,11 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void refresh(
-  final ProductList productList,
+  final List&lt;Product&gt; products,
   final ProductPreferences productPreferences,
 ) {
-  final List&lt;Product&gt; unprocessedProducts = productList.getList();
   final List&lt;MatchedProduct&gt; allProducts =
-      MatchedProduct.sort(unprocessedProducts, productPreferences);
+      MatchedProduct.sort(products, productPreferences);
   _categorizedProducts.clear();
   _categorizedProducts[MatchTab.ALL] = allProducts;
   for (final MatchedProduct matchedProduct in allProducts) {

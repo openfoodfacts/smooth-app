@@ -70,7 +70,11 @@
     context,
     MaterialPageRoute&lt;Widget&gt;(
       builder: (BuildContext context) =&gt; PersonalizedRankingPage(
-        model.productList,
+        productList: model.productList,
+        title: ProductQueryPageHelper.getProductListLabel(
+          model.productList,
+          context,
+        ),
       ),
     ),
   );

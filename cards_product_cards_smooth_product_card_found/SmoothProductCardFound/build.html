@@ -122,15 +122,16 @@ Widget build(BuildContext context) {
   final ProductCompatibilityResult compatibility =
       getProductCompatibility(context.watch&lt;ProductPreferences&gt;(), product);
   return GestureDetector(
-    onTap: () async {
-      await Navigator.push&lt;Widget&gt;(
-        context,
-        MaterialPageRoute&lt;Widget&gt;(
-          builder: (BuildContext context) =&gt; ProductPage(product),
-        ),
-      );
-      refresh?.call();
-    },
+    onTap: onTap ??
+        () async {
+          await Navigator.push&lt;Widget&gt;(
+            context,
+            MaterialPageRoute&lt;Widget&gt;(
+              builder: (BuildContext context) =&gt; ProductPage(product),
+            ),
+          );
+          refresh?.call();
+        },
     onLongPress: () {
       onLongPress?.call();
     },
@@ -242,6 +243,7 @@ Widget build(BuildContext context) {
     <li><a href="../../cards_product_cards_smooth_product_card_found/SmoothProductCardFound/heroTag.html">heroTag</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/key.html">key</a></li>
     <li><a href="../../cards_product_cards_smooth_product_card_found/SmoothProductCardFound/onLongPress.html">onLongPress</a></li>
+    <li><a href="../../cards_product_cards_smooth_product_card_found/SmoothProductCardFound/onTap.html">onTap</a></li>
     <li><a href="../../cards_product_cards_smooth_product_card_found/SmoothProductCardFound/product.html">product</a></li>
     <li><a href="../../cards_product_cards_smooth_product_card_found/SmoothProductCardFound/refresh.html">refresh</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
