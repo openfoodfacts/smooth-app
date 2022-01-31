@@ -51,12 +51,17 @@ class _ProductListPageState extends State<ProductListPage> {
         backgroundColor: Colors.white, // TODO(monsieurtanuki): night mode
         foregroundColor: Colors.black,
         title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: _selectionMode && _selectedBarcodes.isEmpty
+              ? MainAxisAlignment.end // just the cancel button, at the end
+              : MainAxisAlignment.spaceBetween,
           children: <Widget>[
             if (_selectionMode && _selectedBarcodes.isNotEmpty)
               ElevatedButton(
                 child: Text(
-                    'Compare ${_selectedBarcodes.length} products'), // TODO(monsieurtanuki): localize
+                  appLocalizations.plural_compare_x_products(
+                    _selectedBarcodes.length,
+                  ),
+                ),
                 onPressed: () async {
                   final List<Product> list = <Product>[];
                   for (final Product product in products) {
@@ -96,8 +101,7 @@ class _ProductListPageState extends State<ProductListPage> {
             if ((!_selectionMode) && products.isNotEmpty)
               Flexible(
                 child: ElevatedButton(
-                  child: const Text(
-                      'Compare Mode'), // TODO(monsieurtanuki): localize
+                  child: Text(appLocalizations.compare_products_mode),
                   onPressed: () => setState(() => _selectionMode = true),
                 ),
               ),
@@ -143,6 +147,9 @@ class _ProductListPageState extends State<ProductListPage> {
                           child: ProductListItemSimple(
                             product: product,
                             onTap: _selectionMode ? onTap : null,
+                            onLongPress: !_selectionMode
+                                ? () => setState(() => _selectionMode = true)
+                                : null,
                           ),
                         ),
                       ],
