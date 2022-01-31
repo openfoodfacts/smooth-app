@@ -111,19 +111,6 @@ Widget build(BuildContext context) {
   final ThemeData themeData = Theme.of(context);
   &#47;&#47; If [expanded] = true, render all panel elements (including summary), otherwise just renders panel summary.
   if (panel.expanded ?? false) {
-    final List&lt;Widget&gt; elementWidgets = &lt;Widget&gt;[];
-    elementWidgets.add(KnowledgePanelSummaryCard(panel));
-    for (final KnowledgePanelElement element in panel.elements!) {
-      elementWidgets.add(
-        Padding(
-          padding: const EdgeInsets.only(top: VERY_SMALL_SPACE),
-          child: KnowledgePanelElementCard(
-            knowledgePanelElement: element,
-            allPanels: allPanels,
-          ),
-        ),
-      );
-    }
     return KnowledgePanelExpandedCard(
       panel: panel,
       allPanels: allPanels,

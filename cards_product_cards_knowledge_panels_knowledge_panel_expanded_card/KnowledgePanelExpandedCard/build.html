@@ -109,7 +109,8 @@ and</li>
 Widget build(BuildContext context) {
   final List&lt;Widget&gt; elementWidgets = &lt;Widget&gt;[];
   elementWidgets.add(KnowledgePanelSummaryCard(panel));
-  for (final KnowledgePanelElement element in panel.elements!) {
+  for (final KnowledgePanelElement element
+      in panel.elements ?? &lt;KnowledgePanelElement&gt;[]) {
     elementWidgets.add(
       Padding(
         padding: const EdgeInsets.only(top: VERY_SMALL_SPACE),
