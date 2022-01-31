@@ -19,7 +19,8 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Widget> elementWidgets = <Widget>[];
     elementWidgets.add(KnowledgePanelSummaryCard(panel));
-    for (final KnowledgePanelElement element in panel.elements!) {
+    for (final KnowledgePanelElement element
+        in panel.elements ?? <KnowledgePanelElement>[]) {
       elementWidgets.add(
         Padding(
           padding: const EdgeInsets.only(top: VERY_SMALL_SPACE),

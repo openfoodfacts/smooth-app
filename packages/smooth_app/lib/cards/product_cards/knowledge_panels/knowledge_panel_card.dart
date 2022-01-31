@@ -26,19 +26,6 @@ class KnowledgePanelCard extends StatelessWidget {
     final ThemeData themeData = Theme.of(context);
     // If [expanded] = true, render all panel elements (including summary), otherwise just renders panel summary.
     if (panel.expanded ?? false) {
-      final List<Widget> elementWidgets = <Widget>[];
-      elementWidgets.add(KnowledgePanelSummaryCard(panel));
-      for (final KnowledgePanelElement element in panel.elements!) {
-        elementWidgets.add(
-          Padding(
-            padding: const EdgeInsets.only(top: VERY_SMALL_SPACE),
-            child: KnowledgePanelElementCard(
-              knowledgePanelElement: element,
-              allPanels: allPanels,
-            ),
-          ),
-        );
-      }
       return KnowledgePanelExpandedCard(
         panel: panel,
         allPanels: allPanels,
