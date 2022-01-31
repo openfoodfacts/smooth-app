@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/animations/smooth_reveal_animation.dart';
 
+// TODO(monsieurtanuki): we should probably remove that class to avoid confusion with the "compare" button
 /// Floating Action Button dedicated to Personal Ranking
 class RankingFloatingActionButton extends StatelessWidget {
   const RankingFloatingActionButton({
