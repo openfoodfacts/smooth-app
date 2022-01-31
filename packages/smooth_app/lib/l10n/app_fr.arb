@@ -520,5 +520,9 @@
         "placeholders": {
             "count": {}
         }
+    },
+    "compare_products_mode": "Comparer",
+    "@compare_products_mode": {
+        "description": "Bouton qui permet de rentrer en mode 'comparer les produits'"
     }
 }
