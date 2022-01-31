@@ -85,7 +85,6 @@ abstract class ProductQuery {
         ProductField.ECOSCORE_DATA,
         ProductField.ECOSCORE_GRADE,
         ProductField.ECOSCORE_SCORE,
-        ProductField.ENVIRONMENT_IMPACT_LEVELS,
       ];
 
   Future<SearchResult> getSearchResult();
