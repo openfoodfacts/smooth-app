@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
-import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_element_card.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_expanded_card.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_summary_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
