@@ -24,6 +24,7 @@ class ContinuousScanModel with ChangeNotifier {
       <String, ScannedProductState>{};
   final List<String> _barcodes = <String>[];
   final ProductList _productList = ProductList.scanSession();
+  final ProductList _history = ProductList.history();
 
   String? _latestScannedBarcode;
   String? _latestFoundBarcode;
@@ -197,6 +198,7 @@ class ContinuousScanModel with ChangeNotifier {
     if (_latestFoundBarcode != product.barcode!) {
       _latestFoundBarcode = product.barcode;
       await _daoProductList.push(productList, _latestFoundBarcode!);
+      await _daoProductList.push(_history, _latestFoundBarcode!);
     }
     setBarcodeState(product.barcode!, state);
   }
