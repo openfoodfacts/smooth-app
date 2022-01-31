@@ -20,6 +20,7 @@ class SmoothProductCardFound extends StatelessWidget {
     this.handle,
     this.onLongPress,
     this.refresh,
+    this.onTap,
   });
 
   final Product product;
@@ -29,6 +30,7 @@ class SmoothProductCardFound extends StatelessWidget {
   final Widget? handle;
   final VoidCallback? onLongPress;
   final VoidCallback? refresh;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -47,15 +49,16 @@ class SmoothProductCardFound extends StatelessWidget {
     final ProductCompatibilityResult compatibility =
         getProductCompatibility(context.watch<ProductPreferences>(), product);
     return GestureDetector(
-      onTap: () async {
-        await Navigator.push<Widget>(
-          context,
-          MaterialPageRoute<Widget>(
-            builder: (BuildContext context) => ProductPage(product),
-          ),
-        );
-        refresh?.call();
-      },
+      onTap: onTap ??
+          () async {
+            await Navigator.push<Widget>(
+              context,
+              MaterialPageRoute<Widget>(
+                builder: (BuildContext context) => ProductPage(product),
+              ),
+            );
+            refresh?.call();
+          },
       onLongPress: () {
         onLongPress?.call();
       },

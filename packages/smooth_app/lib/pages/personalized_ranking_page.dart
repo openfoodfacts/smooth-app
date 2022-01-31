@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/personalized_search/matched_product.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
@@ -8,12 +9,20 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/smooth_it_model.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 
 class PersonalizedRankingPage extends StatefulWidget {
-  const PersonalizedRankingPage(this.productList);
+  PersonalizedRankingPage({
+    required final ProductList productList,
+    required this.title,
+  }) : products = productList.getList();
 
-  final ProductList productList;
+  const PersonalizedRankingPage.fromItems({
+    required this.products,
+    required this.title,
+  });
+
+  final List<Product> products;
+  final String title;
 
   @override
   State<PersonalizedRankingPage> createState() =>
@@ -43,7 +52,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
         context.watch<ProductPreferences>();
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
-    _model.refresh(widget.productList, productPreferences);
+    _model.refresh(widget.products, productPreferences);
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final List<Color> colors = <Color>[];
     final List<String> titles = <String>[];
@@ -96,13 +105,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               Flexible(
-                child: Text(
-                  ProductQueryPageHelper.getProductListLabel(
-                    widget.productList,
-                    context,
-                  ),
-                  overflow: TextOverflow.fade,
-                ),
+                child: Text(widget.title, overflow: TextOverflow.fade),
               ),
             ],
           ),
@@ -130,10 +133,8 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
       Dismissible(
         key: Key(matchedProduct.product.barcode!),
         onDismissed: (final DismissDirection direction) async {
-          final bool removed =
-              widget.productList.remove(matchedProduct.product.barcode!);
+          final bool removed = widget.products.remove(matchedProduct.product);
           if (removed) {
-            await daoProductList.put(widget.productList);
             setState(() {});
           }
           ScaffoldMessenger.of(context).showSnackBar(
