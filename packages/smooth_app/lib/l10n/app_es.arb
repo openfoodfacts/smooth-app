@@ -22,6 +22,8 @@
     "@no": {},
     "stop": "Parar",
     "@stop": {},
+    "finish": "Finalizar",
+    "@finish": {},
     "reset_food_prefs": "Restablecer preferencias de alimentos",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
@@ -242,6 +244,10 @@
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
+    "saving_answer": "Guardando tu respuesta",
+    "@saving_answer": {
+        "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
+    },
     "contribute_to_get_rewards": "Ayude a la transparencia alimentaria y obtenga insignias de recompensa",
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
@@ -354,10 +360,50 @@
     "@new_product": {},
     "front_packaging_photo_button_label": "Foto frontal del embalaje",
     "@front_packaging_photo_button_label": {},
+    "confirm_front_packaging_photo_button_label": "Confirmar foto frontal del embalaje",
+    "@confirm_front_packaging_photo_button_label": {
+        "description": "Button clicking on which confirms the picture of the front packaging that user just took."
+    },
+    "front_photo_uploaded": "Foto delantera cargada",
+    "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Foto de ingredientes",
     "@ingredients_photo_button_label": {},
+    "confirm_ingredients_photo_button_label": "Confirmar foto de ingredientes",
+    "@confirm_ingredients_photo_button_label": {
+        "description": "Button clicking on which confirms the picture of ingredients that user just took."
+    },
+    "ingredients_photo_uploaded": "Foto de ingredientes cargada",
+    "@ingredients_photo_uploaded": {},
     "nutritional_facts_photo_button_label": "Foto de información nutricional",
     "@nutritional_facts_photo_button_label": {},
+    "confirm_nutritional_facts_photo_button_label": "Confirmar foto de datos nutricionales",
+    "@confirm_nutritional_facts_photo_button_label": {
+        "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
+    },
+    "nutritional_facts_photo_uploaded": "Foto de información nutricional cargada",
+    "@nutritional_facts_photo_uploaded": {},
+    "recycling_photo_button_label": "Foto de información de reciclaje",
+    "@recycling_photo_button_label": {},
+    "confirm_recycling_photo_button_label": "Confirmar foto de información de reciclaje",
+    "@confirm_recycling_photo_button_label": {
+        "description": "Button clicking on which confirms the picture of recycling information that user just took."
+    },
+    "recycling_photo_uploaded": "Foto de reciclaje subida",
+    "@recycling_photo_uploaded": {},
+    "other_interesting_photo_button_label": "Otras fotos interesantes",
+    "@other_interesting_photo_button_label": {},
+    "confirm_other_interesting_photo_button_label": "Confirmar foto",
+    "@confirm_other_interesting_photo_button_label": {
+        "description": "Button clicking on which confirms a miscellaneous photo of the product."
+    },
+    "other_photo_uploaded": "Foto miscelánea cargada",
+    "@other_photo_uploaded": {},
+    "retake_photo_button_label": "Repetir foto",
+    "@retake_photo_button_label": {
+        "description": "Button clicking on which allows users to retake the last photo they took."
+    },
+    "uploading_image": "Subiendo imagen al servidor",
+    "@uploading_image": {},
     "score_add_missing_ingredients": "Añadir los ingredientes que faltan",
     "score_add_missing_nutrition_facts": "Agregar datos nutricionales faltantes",
     "score_add_missing_product_category": "Agregar categoría de producto faltante",
@@ -520,5 +566,9 @@
         "placeholders": {
             "count": {}
         }
+    },
+    "compare_products_mode": "Compare Mode",
+    "@compare_products_mode": {
+        "description": "Button to switch to 'compare products mode'"
     }
 }
