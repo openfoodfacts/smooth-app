@@ -52,10 +52,10 @@
 		<key>NSCameraUsageDescription</key>
 		<string>This app needs Camera Usage for scanning barcodes and cropping photos</string>
 		<key>LSApplicationQueriesSchemes</key>
-        <array>
-          <string>https</string>
-          <string>http</string>
-          <string>mailto</string>
-        </array>
+		<array>
+			<string>https</string>
+			<string>http</string>
+			<string>mailto</string>
+		</array>
 	</dict>
 </plist>
