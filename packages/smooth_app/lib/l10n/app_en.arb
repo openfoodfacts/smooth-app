@@ -362,7 +362,7 @@
     "@front_packaging_photo_button_label": {},
     "confirm_front_packaging_photo_button_label": "Confirm Front packaging photo",
     "@confirm_front_packaging_photo_button_label": {
-      "description": "Button clicking on which confirms the picture of the front packaging that user just took."
+        "description": "Button clicking on which confirms the picture of the front packaging that user just took."
     },
     "front_photo_uploaded": "Front photo uploaded",
     "@front_photo_uploaded": {},
@@ -370,7 +370,7 @@
     "@ingredients_photo_button_label": {},
     "confirm_ingredients_photo_button_label": "Confirm Ingredients photo",
     "@confirm_ingredients_photo_button_label": {
-      "description": "Button clicking on which confirms the picture of ingredients that user just took."
+        "description": "Button clicking on which confirms the picture of ingredients that user just took."
     },
     "ingredients_photo_uploaded": "Ingredients photo uploaded",
     "@ingredients_photo_uploaded": {},
@@ -378,7 +378,7 @@
     "@nutritional_facts_photo_button_label": {},
     "confirm_nutritional_facts_photo_button_label": "Confirm Nutritional facts photo",
     "@confirm_nutritional_facts_photo_button_label": {
-      "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
+        "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
     },
     "nutritional_facts_photo_uploaded": "Nutritional facts photo uploaded",
     "@nutritional_facts_photo_uploaded": {},
@@ -386,7 +386,7 @@
     "@recycling_photo_button_label": {},
     "confirm_recycling_photo_button_label": "Confirm Recycling information photo",
     "@confirm_recycling_photo_button_label": {
-      "description": "Button clicking on which confirms the picture of recycling information that user just took."
+        "description": "Button clicking on which confirms the picture of recycling information that user just took."
     },
     "recycling_photo_uploaded": "Recycling photo uploaded",
     "@recycling_photo_uploaded": {},
@@ -394,7 +394,7 @@
     "@other_interesting_photo_button_label": {},
     "confirm_other_interesting_photo_button_label": "Confirm photo",
     "@confirm_other_interesting_photo_button_label": {
-      "description": "Button clicking on which confirms a miscellaneous photo of the product."
+        "description": "Button clicking on which confirms a miscellaneous photo of the product."
     },
     "other_photo_uploaded": "Miscellaneous photo uploaded",
     "@other_photo_uploaded": {},
