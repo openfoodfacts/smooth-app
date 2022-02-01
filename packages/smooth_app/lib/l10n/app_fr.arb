@@ -402,6 +402,10 @@
     "@Product Addition": {},
     "added_product_thanks": "Merci d'avoir ajouté ce produit !",
     "@added_product_thanks": {},
+    "product_search_same_category": "Comparer dans la catégorie",
+    "@product_search_same_category": {
+        "description": "Bouton qui cherchent les autres produits dans la même catégorie. Moins de 30 caractères."
+    },
     "product_improvement_add_category": "Ajoutez une catégorie pour calculer le Nutri-Score.",
     "@product_improvement_add_category": {
         "description": "Message for ProductImprovement.ADD_CATEGORY"

@@ -153,6 +153,7 @@ class _SummaryCardState extends State<SummaryCard> {
 
   Widget _buildSummaryCardContent(BuildContext context) {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final List<Attribute> scoreAttributes =
         getPopulatedAttributes(widget._product, SCORE_ATTRIBUTE_IDS);
 
@@ -236,12 +237,11 @@ class _SummaryCardState extends State<SummaryCard> {
         if (widget._product.statesTags
                 ?.contains('en:categories-to-be-completed') ??
             false)
-          addPanelButton(
-              AppLocalizations.of(context)!.score_add_missing_product_category,
+          addPanelButton(appLocalizations.score_add_missing_product_category,
               onPressed: () {}),
         if (categoryTag != null && categoryLabel != null)
           addPanelButton(
-            'Compare to category', // TODO(monsieurtanuki): localize
+            appLocalizations.product_search_same_category,
             iconData: Icons.leaderboard,
             onPressed: () async => ProductQueryPageHelper().openBestChoice(
               color: Colors.deepPurple,
