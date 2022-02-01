@@ -445,7 +445,7 @@
     "@Lists": {},
     "no_prodcut_in_list": "Il n'y a pas de produit dans cette liste",
     "no_product_in_section": "Il n'y a pas de produit dans cette section",
-    "recently_seen_products": "Mes produits récemment vus",
+    "recently_seen_products": "Historique",
     "clear": "Effacer",
     "@clear": {
         "description": "Clears a product list"
