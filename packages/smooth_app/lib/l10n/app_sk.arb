@@ -448,6 +448,10 @@
     "@Product Addition": {},
     "added_product_thanks": "Ďakujeme za pridanie tohto produktu!",
     "@added_product_thanks": {},
+    "product_search_same_category": "Compare to Category",
+    "@product_search_same_category": {
+        "description": "Button looking for the other products within the same category. Less than 30 characters"
+    },
     "product_improvement_add_category": "Pridajte kategóriu na výpočet Nutri-Score.",
     "@product_improvement_add_category": {
         "description": "Message for ProductImprovement.ADD_CATEGORY"
@@ -491,7 +495,7 @@
     "@Lists": {},
     "no_prodcut_in_list": "V tomto zozname nie je žiadny produkt",
     "no_product_in_section": "V tejto sekcii nie je žiadny produkt",
-    "recently_seen_products": "Moje nedávno videné produkty",
+    "recently_seen_products": "História",
     "clear": "Vymazať",
     "@clear": {
         "description": "Clears a product list"

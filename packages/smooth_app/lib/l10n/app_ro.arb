@@ -94,7 +94,7 @@
     "@sign_out": {
         "description": "Button label: For sign out"
     },
-    "sign_out_confirmation": "Are you sure you want to sign out?",
+    "sign_out_confirmation": "Sigur doriți să vă deconectați?",
     "@sign_out_confirmation": {
         "description": "Pop up title: Reassuring if the user really want to sign out"
     },
@@ -448,6 +448,10 @@
     "@Product Addition": {},
     "added_product_thanks": "Vă mulțumim că ați adăugat acest produs!",
     "@added_product_thanks": {},
+    "product_search_same_category": "Compare to Category",
+    "@product_search_same_category": {
+        "description": "Button looking for the other products within the same category. Less than 30 characters"
+    },
     "product_improvement_add_category": "Adăugați o categorie pentru a calcula Nutri-Score.",
     "@product_improvement_add_category": {
         "description": "Message for ProductImprovement.ADD_CATEGORY"
@@ -491,7 +495,7 @@
     "@Lists": {},
     "no_prodcut_in_list": "Nu există niciun produs în această listă",
     "no_product_in_section": "Nu există niciun produs în această secțiune",
-    "recently_seen_products": "Produsele mele văzute recent",
+    "recently_seen_products": "Istoric",
     "clear": "Ștergeți",
     "@clear": {
         "description": "Clears a product list"
