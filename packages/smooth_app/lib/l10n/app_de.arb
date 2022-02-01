@@ -22,6 +22,8 @@
     "@no": {},
     "stop": "Stopp",
     "@stop": {},
+    "finish": "Fertig",
+    "@finish": {},
     "reset_food_prefs": "Lebensmittelvorlieben zurücksetzen",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
@@ -242,6 +244,10 @@
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
+    "saving_answer": "Ihre Antwort wird gespeichert",
+    "@saving_answer": {
+        "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
+    },
     "contribute_to_get_rewards": "Helfen Sie der Lebensmitteltransparenz und holen Sie sich Belohnungsabzeichen",
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
@@ -354,10 +360,50 @@
     "@new_product": {},
     "front_packaging_photo_button_label": "Foto der Vorderseite der Verpackung",
     "@front_packaging_photo_button_label": {},
+    "confirm_front_packaging_photo_button_label": "Bestätigen Sie das Foto der Vorderseite der Verpackung",
+    "@confirm_front_packaging_photo_button_label": {
+        "description": "Button clicking on which confirms the picture of the front packaging that user just took."
+    },
+    "front_photo_uploaded": "Foto der Vorderseite der Verpackung hochgeladen",
+    "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Foto der Zutatenliste",
     "@ingredients_photo_button_label": {},
+    "confirm_ingredients_photo_button_label": "Bestätigen Sie das Foto der Zutatenliste",
+    "@confirm_ingredients_photo_button_label": {
+        "description": "Button clicking on which confirms the picture of ingredients that user just took."
+    },
+    "ingredients_photo_uploaded": "Foto der Zutatenliste hochgeladen",
+    "@ingredients_photo_uploaded": {},
     "nutritional_facts_photo_button_label": "Foto der Nährwertangaben",
     "@nutritional_facts_photo_button_label": {},
+    "confirm_nutritional_facts_photo_button_label": "Bestätigen Sie das Foto der Nährwertangaben",
+    "@confirm_nutritional_facts_photo_button_label": {
+        "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
+    },
+    "nutritional_facts_photo_uploaded": "Foto der Nährwertangaben hochgeladen",
+    "@nutritional_facts_photo_uploaded": {},
+    "recycling_photo_button_label": "Foto mit Informationen zum Recycling",
+    "@recycling_photo_button_label": {},
+    "confirm_recycling_photo_button_label": "Bestätigen Sie das Foto mit Informationen zum Recycling",
+    "@confirm_recycling_photo_button_label": {
+        "description": "Button clicking on which confirms the picture of recycling information that user just took."
+    },
+    "recycling_photo_uploaded": "Foto mit Informationen zum Recycling hochgeladen",
+    "@recycling_photo_uploaded": {},
+    "other_interesting_photo_button_label": "Weitere interessante Fotos",
+    "@other_interesting_photo_button_label": {},
+    "confirm_other_interesting_photo_button_label": "Foto bestätigen",
+    "@confirm_other_interesting_photo_button_label": {
+        "description": "Button clicking on which confirms a miscellaneous photo of the product."
+    },
+    "other_photo_uploaded": "Sonstiges Foto hochgeladen",
+    "@other_photo_uploaded": {},
+    "retake_photo_button_label": "Erneut aufnehmen",
+    "@retake_photo_button_label": {
+        "description": "Button clicking on which allows users to retake the last photo they took."
+    },
+    "uploading_image": "Abbildungen werden zum Server hochgeladen",
+    "@uploading_image": {},
     "score_add_missing_ingredients": "Fehlende Zutaten hinzufügen",
     "score_add_missing_nutrition_facts": "Fehlende Nährwertangaben hinzufügen",
     "score_add_missing_product_category": "Fehlende Produktkategorie hinzufügen",
@@ -520,5 +566,9 @@
         "placeholders": {
             "count": {}
         }
+    },
+    "compare_products_mode": "Compare Mode",
+    "@compare_products_mode": {
+        "description": "Button to switch to 'compare products mode'"
     }
 }
