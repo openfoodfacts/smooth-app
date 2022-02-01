@@ -448,6 +448,10 @@
     "@Product Addition": {},
     "added_product_thanks": "Tak for at du tilføjede dette produkt!",
     "@added_product_thanks": {},
+    "product_search_same_category": "Compare to Category",
+    "@product_search_same_category": {
+        "description": "Button looking for the other products within the same category. Less than 30 characters"
+    },
     "product_improvement_add_category": "Tilføj en kategori for at beregne Nutri-Score.",
     "@product_improvement_add_category": {
         "description": "Message for ProductImprovement.ADD_CATEGORY"
@@ -491,7 +495,7 @@
     "@Lists": {},
     "no_prodcut_in_list": "Der er intet produkt på denne liste",
     "no_product_in_section": "Der er intet produkt i dette afsnit",
-    "recently_seen_products": "Mine nyligt sete produkter",
+    "recently_seen_products": "Historik",
     "clear": "Ryd",
     "@clear": {
         "description": "Clears a product list"
@@ -567,7 +571,7 @@
             "count": {}
         }
     },
-    "compare_products_mode": "Compare Mode",
+    "compare_products_mode": "Sammenligningstilstand",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     }

@@ -448,6 +448,10 @@
     "@Product Addition": {},
     "added_product_thanks": "Gràcies per afegir aquest producte!",
     "@added_product_thanks": {},
+    "product_search_same_category": "Compare to Category",
+    "@product_search_same_category": {
+        "description": "Button looking for the other products within the same category. Less than 30 characters"
+    },
     "product_improvement_add_category": "Add a category to calculate the Nutri-Score.",
     "@product_improvement_add_category": {
         "description": "Message for ProductImprovement.ADD_CATEGORY"
@@ -491,7 +495,7 @@
     "@Lists": {},
     "no_prodcut_in_list": "No hi ha cap producte en aquesta llista",
     "no_product_in_section": "No hi ha cap producte en aquesta secció",
-    "recently_seen_products": "Productes consultats fa poc",
+    "recently_seen_products": "Historial",
     "clear": "Esborra",
     "@clear": {
         "description": "Clears a product list"
