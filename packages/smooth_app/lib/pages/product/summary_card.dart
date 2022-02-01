@@ -4,10 +4,14 @@ import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
 import 'package:smooth_app/cards/product_cards/question_card.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/database/category_product_query.dart';
+import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/database/robotoff_questions_query.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
@@ -15,6 +19,7 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 
 const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS,
@@ -147,6 +152,7 @@ class _SummaryCardState extends State<SummaryCard> {
   }
 
   Widget _buildSummaryCardContent(BuildContext context) {
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final List<Attribute> scoreAttributes =
         getPopulatedAttributes(widget._product, SCORE_ATTRIBUTE_IDS);
 
@@ -212,6 +218,9 @@ class _SummaryCardState extends State<SummaryCard> {
       margin: const EdgeInsets.only(bottom: 16),
       child: Column(children: displayedGroups),
     );
+    final String? categoryTag = widget._product.categoriesTags?.last;
+    final String? categoryLabel = widget
+        ._product.categoriesTagsInLanguages?[ProductQuery.getLanguage()!]?.last;
     return Column(
       children: <Widget>[
         ProductTitleCard(widget._product),
@@ -227,8 +236,23 @@ class _SummaryCardState extends State<SummaryCard> {
         if (widget._product.statesTags
                 ?.contains('en:categories-to-be-completed') ??
             false)
-          dummyAddButton(
-            AppLocalizations.of(context)!.score_add_missing_product_category,
+          addPanelButton(
+              AppLocalizations.of(context)!.score_add_missing_product_category,
+              onPressed: () {}),
+        if (categoryTag != null && categoryLabel != null)
+          addPanelButton(
+            'Autres produits "$categoryLabel"', // TODO(monsieurtanuki): localize
+            onPressed: () async => ProductQueryPageHelper().openBestChoice(
+              color: Colors.deepPurple,
+              heroTag: 'search_bar',
+              name: categoryLabel,
+              localDatabase: localDatabase,
+              productQuery: CategoryProductQuery(
+                categoryTag: widget._product.categoriesTags!.last,
+                size: 500,
+              ),
+              context: context,
+            ),
           ),
       ],
     );
