@@ -241,7 +241,8 @@ class _SummaryCardState extends State<SummaryCard> {
               onPressed: () {}),
         if (categoryTag != null && categoryLabel != null)
           addPanelButton(
-            'Autres produits "$categoryLabel"', // TODO(monsieurtanuki): localize
+            'Compare to category', // TODO(monsieurtanuki): localize
+            iconData: Icons.leaderboard,
             onPressed: () async => ProductQueryPageHelper().openBestChoice(
               color: Colors.deepPurple,
               heroTag: 'search_bar',
