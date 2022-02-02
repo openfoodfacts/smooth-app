@@ -102,7 +102,7 @@ class KnowledgePanelsBuilder {
             false;
         final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
         knowledgePanelElementWidgets.add(
-          dummyAddButton(
+          addPanelButton(
             nutritionAddOrUpdate
                 ? appLocalizations.score_add_missing_nutrition_facts
                 : appLocalizations.score_update_nutrition_facts,
@@ -136,8 +136,9 @@ class KnowledgePanelsBuilder {
         if (product.statesTags?.contains('en:ingredients-to-be-completed') ??
             false) {
           knowledgePanelElementWidgets.add(
-            dummyAddButton(
+            addPanelButton(
               appLocalizations.score_add_missing_ingredients,
+              onPressed: () {},
             ),
           );
         }
