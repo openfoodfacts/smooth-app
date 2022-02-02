@@ -26,6 +26,8 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
   bool isBusy = false;
   //Used when rebuilding to stop the camera
   bool stoppingCamera = false;
+  //We don't scan every image for performance reasons
+  int frameCounter = 0;
 
   @override
   void initState() {
@@ -80,7 +82,9 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
     // loading or stopped
     if (_controller == null ||
         _controller!.value.isInitialized == false ||
-        stoppingCamera) {
+        stoppingCamera ||
+        _controller!.value.isPreviewPaused ||
+        !_controller!.value.isStreamingImages) {
       return Container();
     }
 
@@ -149,10 +153,7 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
 
   Future<void> _stopImageStream() async {
     stoppingCamera = true;
-    _controller?.pausePreview();
-    if (mounted) {
-      setState(() {});
-    }
+    setState(() {});
     await _controller?.dispose();
     _controller = null;
   }
@@ -160,10 +161,19 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
   // Convert the [CameraImage] to a [InputImage] and checking this for barcodes
   // with help from ML Kit
   Future<void> _processCameraImage(CameraImage image) async {
+    //Only scanning every 10th image, but not resetting until the current one
+    //is done, so that we don't have idle time when the scanning takes longer
+    //than the 10 frames (approx. 1/3 second when 30fps)
+    if (frameCounter < 10) {
+      frameCounter++;
+      return;
+    }
+
     if (isBusy || barcodeScanner == null) {
       return;
     }
     isBusy = true;
+    frameCounter = 0;
 
     final WriteBuffer allBytes = WriteBuffer();
     for (final Plane plane in image.planes) {
