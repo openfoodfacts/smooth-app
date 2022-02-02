@@ -407,7 +407,9 @@
         "description": "Button clicking on which allows users to retake the last photo they took."
     },
     "uploading_image": "Uploading Image to the server",
-    "@uploading_image": {},
+    "@uploading_image": {
+        "description": "Message when a new picture is uploading to the server"
+    },
     "score_add_missing_ingredients": "Add missing ingredients",
     "score_add_missing_nutrition_facts": "Add missing nutrition facts",
     "score_add_missing_product_category": "Add missing product category",
