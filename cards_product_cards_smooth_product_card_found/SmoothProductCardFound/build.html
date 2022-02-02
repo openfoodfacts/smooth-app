@@ -119,8 +119,12 @@ Widget build(BuildContext context) {
   for (final Attribute attribute in attributes) {
     scores.add(SvgIconChip(attribute.iconUrl!, height: iconSize));
   }
-  final ProductCompatibilityResult compatibility =
-      getProductCompatibility(context.watch&lt;ProductPreferences&gt;(), product);
+  final MatchedProduct matchedProduct = MatchedProduct(
+    product,
+    context.watch&lt;ProductPreferences&gt;(),
+  );
+  final ProductCompatibilityHelper helper =
+      ProductCompatibilityHelper(matchedProduct);
   return GestureDetector(
     onTap: onTap ??
         () async {
@@ -178,15 +182,13 @@ Widget build(BuildContext context) {
                           Icon(
                             Icons.circle,
                             size: 15,
-                            color:
-                                getProductCompatibilityHeaderBackgroundColor(
-                                    compatibility.productCompatibility),
+                            color: helper.getBackgroundColor(),
                           ),
                           const Padding(
                               padding:
                                   EdgeInsets.only(left: VERY_SMALL_SPACE)),
                           Text(
-                            getSubtitle(compatibility, appLocalizations),
+                            helper.getSubtitle(appLocalizations),
                             style: Theme.of(context).textTheme.bodyText2,
                           ),
                         ],
