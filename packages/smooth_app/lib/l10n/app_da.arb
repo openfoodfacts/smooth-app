@@ -22,6 +22,8 @@
     "@no": {},
     "stop": "Stop",
     "@stop": {},
+    "finish": "Afslut",
+    "@finish": {},
     "reset_food_prefs": "Nulstil fødevarepræferencer",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
@@ -92,7 +94,7 @@
     "@sign_out": {
         "description": "Button label: For sign out"
     },
-    "sign_out_confirmation": "Are you sure you want to sign out?",
+    "sign_out_confirmation": "Sikker på, at du vil logge ud?",
     "@sign_out_confirmation": {
         "description": "Pop up title: Reassuring if the user really want to sign out"
     },
@@ -242,6 +244,10 @@
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
+    "saving_answer": "Gemmer svaret",
+    "@saving_answer": {
+        "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
+    },
     "contribute_to_get_rewards": "Hjælp med madgennemsigtighed og få belønningsmærker",
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
@@ -268,7 +274,7 @@
     "ranking_tab_all": "Alle",
     "ranking_subtitle_match_yes": "Et godt match til dig",
     "ranking_subtitle_match_no": "Meget dårligt match",
-    "ranking_subtitle_match_maybe": "Unknown match",
+    "ranking_subtitle_match_maybe": "Ukendt match",
     "reloaded_with_new_preferences": "Genindlæst med nye præferencer",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
@@ -342,22 +348,62 @@
     },
     "packaging_information_photo": "Emballageoplysningsfoto",
     "@packaging_information_photo": {},
-    "missing_product": "You found a new product!",
+    "missing_product": "Nyt produkt blev fundet!",
     "@missing_product": {},
-    "add_product_take_photos": "Take photos of the packaging to add this product to our database.",
+    "add_product_take_photos": "Tag fotos af emballagen for at føje produktet til OFF-databasen.",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Please take the following photos and the Open Food Facts engine can work out the rest!",
+    "add_product_take_photos_descriptive": "Tag flg. fotos, hvorefter OFF-motoren klarer resten!",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Tilføj produkt eller oplysning",
     "@add_product_information_button_label": {},
-    "new_product": "New Product",
+    "new_product": "Nyt produkt",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Front packaging photo",
+    "front_packaging_photo_button_label": "Emballageforsidefoto",
     "@front_packaging_photo_button_label": {},
+    "confirm_front_packaging_photo_button_label": "Bekræft Emballageforsidefoto",
+    "@confirm_front_packaging_photo_button_label": {
+        "description": "Button clicking on which confirms the picture of the front packaging that user just took."
+    },
+    "front_photo_uploaded": "Forsidefoto uploadet",
+    "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Ingrediensfoto",
     "@ingredients_photo_button_label": {},
-    "nutritional_facts_photo_button_label": "Nutritional facts photo",
+    "confirm_ingredients_photo_button_label": "Bekræft Ingrediensfoto",
+    "@confirm_ingredients_photo_button_label": {
+        "description": "Button clicking on which confirms the picture of ingredients that user just took."
+    },
+    "ingredients_photo_uploaded": "Ingrediensfoto uploadet",
+    "@ingredients_photo_uploaded": {},
+    "nutritional_facts_photo_button_label": "Næringsfaktafoto",
     "@nutritional_facts_photo_button_label": {},
+    "confirm_nutritional_facts_photo_button_label": "Bekræft Næringsfaktafoto",
+    "@confirm_nutritional_facts_photo_button_label": {
+        "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
+    },
+    "nutritional_facts_photo_uploaded": "Næringsfaktafoto uploadet",
+    "@nutritional_facts_photo_uploaded": {},
+    "recycling_photo_button_label": "Genbrugsoplysningsfoto",
+    "@recycling_photo_button_label": {},
+    "confirm_recycling_photo_button_label": "Bekræft Genbrugsoplysningsfoto",
+    "@confirm_recycling_photo_button_label": {
+        "description": "Button clicking on which confirms the picture of recycling information that user just took."
+    },
+    "recycling_photo_uploaded": "Genbrugsoplysningsfoto uploadet",
+    "@recycling_photo_uploaded": {},
+    "other_interesting_photo_button_label": "Andre interessante fotos",
+    "@other_interesting_photo_button_label": {},
+    "confirm_other_interesting_photo_button_label": "Bekræft foto",
+    "@confirm_other_interesting_photo_button_label": {
+        "description": "Button clicking on which confirms a miscellaneous photo of the product."
+    },
+    "other_photo_uploaded": "Div. foto uploadet",
+    "@other_photo_uploaded": {},
+    "retake_photo_button_label": "Tag igen",
+    "@retake_photo_button_label": {
+        "description": "Button clicking on which allows users to retake the last photo they took."
+    },
+    "uploading_image": "Uploader billede til server",
+    "@uploading_image": {},
     "score_add_missing_ingredients": "Tilføj manglende ingredienser",
     "score_add_missing_nutrition_facts": "Tilføj manglende ernæringsfakta",
     "score_add_missing_product_category": "Tilføj manglende produktkategori",
@@ -402,6 +448,10 @@
     "@Product Addition": {},
     "added_product_thanks": "Tak for at du tilføjede dette produkt!",
     "@added_product_thanks": {},
+    "product_search_same_category": "Compare to Category",
+    "@product_search_same_category": {
+        "description": "Button looking for the other products within the same category. Less than 30 characters"
+    },
     "product_improvement_add_category": "Tilføj en kategori for at beregne Nutri-Score.",
     "@product_improvement_add_category": {
         "description": "Message for ProductImprovement.ADD_CATEGORY"
@@ -445,7 +495,7 @@
     "@Lists": {},
     "no_prodcut_in_list": "Der er intet produkt på denne liste",
     "no_product_in_section": "Der er intet produkt i dette afsnit",
-    "recently_seen_products": "Mine nyligt sete produkter",
+    "recently_seen_products": "Historik",
     "clear": "Ryd",
     "@clear": {
         "description": "Clears a product list"
@@ -520,5 +570,9 @@
         "placeholders": {
             "count": {}
         }
+    },
+    "compare_products_mode": "Sammenligningstilstand",
+    "@compare_products_mode": {
+        "description": "Button to switch to 'compare products mode'"
     }
 }

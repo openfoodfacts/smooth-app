@@ -22,6 +22,8 @@
     "@no": {},
     "stop": "Спри",
     "@stop": {},
+    "finish": "Край",
+    "@finish": {},
     "reset_food_prefs": "Нулиране на хранителните предпочитания",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
@@ -88,11 +90,11 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_out": "Отписване",
+    "sign_out": "Изход",
     "@sign_out": {
         "description": "Button label: For sign out"
     },
-    "sign_out_confirmation": "Are you sure you want to sign out?",
+    "sign_out_confirmation": "Сигурен ли си, че искаш да излезеш от профила си?",
     "@sign_out_confirmation": {
         "description": "Pop up title: Reassuring if the user really want to sign out"
     },
@@ -242,6 +244,10 @@
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
+    "saving_answer": "Запазване на твоят отговор",
+    "@saving_answer": {
+        "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
+    },
     "contribute_to_get_rewards": "Помогни за прозрачността на храните и вземи значки",
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
@@ -268,7 +274,7 @@
     "ranking_tab_all": "Всички",
     "ranking_subtitle_match_yes": "Добро съвпадение за теб",
     "ranking_subtitle_match_no": "Много лошо съвпадение",
-    "ranking_subtitle_match_maybe": "Unknown match",
+    "ranking_subtitle_match_maybe": "Неизвестно съвпадение",
     "reloaded_with_new_preferences": "Презаредено с нови предпочитания",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
@@ -330,7 +336,7 @@
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
-    "nutrition": "Хранене",
+    "nutrition": "Хранителни стойности",
     "@nutrition": {},
     "nutrition_facts_photo": "Снимка на хранителните стойности",
     "@nutrition_facts_photo": {
@@ -344,20 +350,60 @@
     "@packaging_information_photo": {},
     "missing_product": "Откри нов продукт!",
     "@missing_product": {},
-    "add_product_take_photos": "Take photos of the packaging to add this product to our database.",
+    "add_product_take_photos": "Направи снимки на опаковката, за да добавиш този продукт към нашата база данни.",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Please take the following photos and the Open Food Facts engine can work out the rest!",
+    "add_product_take_photos_descriptive": "Моля, направи следните снимки и Open Food Facts ще направи останалото!",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Добави информация за продукта",
     "@add_product_information_button_label": {},
     "new_product": "Нов продукт",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Front packaging photo",
+    "front_packaging_photo_button_label": "Снимка на предната част на опаковката",
     "@front_packaging_photo_button_label": {},
+    "confirm_front_packaging_photo_button_label": "Потвърди снимката на предната страна на опаковката",
+    "@confirm_front_packaging_photo_button_label": {
+        "description": "Button clicking on which confirms the picture of the front packaging that user just took."
+    },
+    "front_photo_uploaded": "Снимката на предната страна е качена",
+    "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Снимка на съставките",
     "@ingredients_photo_button_label": {},
-    "nutritional_facts_photo_button_label": "Nutritional facts photo",
+    "confirm_ingredients_photo_button_label": "Потвърди снимката на съставките",
+    "@confirm_ingredients_photo_button_label": {
+        "description": "Button clicking on which confirms the picture of ingredients that user just took."
+    },
+    "ingredients_photo_uploaded": "Снимката на съставките е качена",
+    "@ingredients_photo_uploaded": {},
+    "nutritional_facts_photo_button_label": "Снимка на хранителните стойности",
     "@nutritional_facts_photo_button_label": {},
+    "confirm_nutritional_facts_photo_button_label": "Confirm Nutritional facts photo",
+    "@confirm_nutritional_facts_photo_button_label": {
+        "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
+    },
+    "nutritional_facts_photo_uploaded": "Nutritional facts photo uploaded",
+    "@nutritional_facts_photo_uploaded": {},
+    "recycling_photo_button_label": "Снимка с информацията за рециклиране",
+    "@recycling_photo_button_label": {},
+    "confirm_recycling_photo_button_label": "Потвърди снимкатата с информацията за рециклиране",
+    "@confirm_recycling_photo_button_label": {
+        "description": "Button clicking on which confirms the picture of recycling information that user just took."
+    },
+    "recycling_photo_uploaded": "Recycling photo uploaded",
+    "@recycling_photo_uploaded": {},
+    "other_interesting_photo_button_label": "Други интересни снимки",
+    "@other_interesting_photo_button_label": {},
+    "confirm_other_interesting_photo_button_label": "Потвърди снимката",
+    "@confirm_other_interesting_photo_button_label": {
+        "description": "Button clicking on which confirms a miscellaneous photo of the product."
+    },
+    "other_photo_uploaded": "Miscellaneous photo uploaded",
+    "@other_photo_uploaded": {},
+    "retake_photo_button_label": "Направи отново",
+    "@retake_photo_button_label": {
+        "description": "Button clicking on which allows users to retake the last photo they took."
+    },
+    "uploading_image": "Качване на снимката на сървъра",
+    "@uploading_image": {},
     "score_add_missing_ingredients": "Добави липсващите съставки",
     "score_add_missing_nutrition_facts": "Добави липсващи хранителни стойности",
     "score_add_missing_product_category": "Добави липсваща продуктова категория",
@@ -402,6 +448,10 @@
     "@Product Addition": {},
     "added_product_thanks": "Благодарим, че добави този продукт!",
     "@added_product_thanks": {},
+    "product_search_same_category": "Compare to Category",
+    "@product_search_same_category": {
+        "description": "Button looking for the other products within the same category. Less than 30 characters"
+    },
     "product_improvement_add_category": "Добави категория, за да изчислиш Nutri-Score.",
     "@product_improvement_add_category": {
         "description": "Message for ProductImprovement.ADD_CATEGORY"
@@ -418,7 +468,7 @@
     "@product_improvement_categories_but_no_nutriscore": {
         "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
-    "product_improvement_obsolete_nutrition_image": "Снимката за хранене е остаряла: моля, актуализирай го.",
+    "product_improvement_obsolete_nutrition_image": "Снимката на хранителните стойности е остаряла: моля, актуализирай я.",
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
@@ -445,7 +495,7 @@
     "@Lists": {},
     "no_prodcut_in_list": "Няма продукт в този списък",
     "no_product_in_section": "Няма продукт в този раздел",
-    "recently_seen_products": "Наскоро видяни продукти",
+    "recently_seen_products": "История",
     "clear": "Изчисти",
     "@clear": {
         "description": "Clears a product list"
@@ -520,5 +570,9 @@
         "placeholders": {
             "count": {}
         }
+    },
+    "compare_products_mode": "Режим Сравняване",
+    "@compare_products_mode": {
+        "description": "Button to switch to 'compare products mode'"
     }
 }
