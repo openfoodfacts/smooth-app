@@ -53,8 +53,9 @@ class ImageCropPage extends StatelessWidget {
               final Directory tempDir = await getTemporaryDirectory();
               final String tempPath = tempDir.path;
               final String filePath = '$tempPath/upload_img_file_01.tmp';
+              final File file = await File(filePath).writeAsBytes(image);
 
-              Navigator.pop(context, File(filePath).writeAsBytes(image));
+              Navigator.pop(context, file);
             },
             initialSize: 0.5,
             baseColor: theme.colorScheme.primary,
