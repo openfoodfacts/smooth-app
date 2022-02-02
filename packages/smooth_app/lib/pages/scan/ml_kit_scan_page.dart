@@ -68,7 +68,6 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
   @override
   Widget build(BuildContext context) {
     _model = context.watch<ContinuousScanModel>();
-
     return LifeCycleManager(
       onResume: _startLiveFeed,
       onPause: _stopImageStream,
@@ -150,6 +149,7 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
 
   Future<void> _stopImageStream() async {
     stoppingCamera = true;
+    _controller?.pausePreview();
     if (mounted) {
       setState(() {});
     }

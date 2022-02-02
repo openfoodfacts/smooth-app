@@ -448,6 +448,10 @@
     "@Product Addition": {},
     "added_product_thanks": "Dziękujemy za dodanie tego produktu!",
     "@added_product_thanks": {},
+    "product_search_same_category": "Compare to Category",
+    "@product_search_same_category": {
+        "description": "Button looking for the other products within the same category. Less than 30 characters"
+    },
     "product_improvement_add_category": "Dodaj kategorię, aby obliczyć Nutri-Score.",
     "@product_improvement_add_category": {
         "description": "Message for ProductImprovement.ADD_CATEGORY"
@@ -491,7 +495,7 @@
     "@Lists": {},
     "no_prodcut_in_list": "Na tej liście nie ma produktu",
     "no_product_in_section": "W tej sekcji nie ma produktu",
-    "recently_seen_products": "Moje ostatnio oglądane produkty",
+    "recently_seen_products": "Historia",
     "clear": "Wyczyść",
     "@clear": {
         "description": "Clears a product list"
