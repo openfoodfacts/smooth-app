@@ -7,6 +7,8 @@ import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 
+import '../image_crop_page.dart';
+
 class ConfirmAndUploadPicture extends StatefulWidget {
   const ConfirmAndUploadPicture({
     required this.barcode,
@@ -61,7 +63,13 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                         text: appLocalizations.retake_photo_button_label,
                         onPressed: () async {
                           final File? retakenPhoto =
-                              await pickImageAndCrop(context);
+                              await Navigator.push<File?>(
+                            context,
+                            MaterialPageRoute<File?>(
+                              builder: (BuildContext context) =>
+                                  ImageCropPage(),
+                            ),
+                          );
                           if (retakenPhoto == null) {
                             // User chose not to upload the image.
                             Navigator.pop(context);

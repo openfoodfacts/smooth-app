@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/helpers/picture_capture_helper.dart';
+import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/product_image_page.dart';
 
 class ImageUploadCard extends StatefulWidget {
@@ -33,7 +34,12 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
       _imageFullProvider; // Full resolution image to display in image page
 
   Future<void> _getImage() async {
-    final File? croppedImageFile = await pickImageAndCrop(context);
+    final File? croppedImageFile = await Navigator.push<File?>(
+      context,
+      MaterialPageRoute<File?>(
+        builder: (BuildContext context) => ImageCropPage(),
+      ),
+    );
 
     if (croppedImageFile != null) {
       setState(() {
