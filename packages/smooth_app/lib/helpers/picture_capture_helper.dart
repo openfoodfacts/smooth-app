@@ -30,14 +30,13 @@ Future<File?> pickImageAndCrop(BuildContext context) async {
     context,
     MaterialPageRoute<Widget>(
       builder: (BuildContext context) {
-        final ThemeProvider themeProvider = context.watch<ThemeProvider>();
+        context.watch<ThemeProvider>();
         final ThemeData theme = Theme.of(context);
         return Scaffold(
           body: Crop(
             image: bytes!,
             controller: _controller,
             onCropped: (Uint8List image) {
-              print('M123 $image');
               bytes = image;
               Navigator.pop(context);
             },
