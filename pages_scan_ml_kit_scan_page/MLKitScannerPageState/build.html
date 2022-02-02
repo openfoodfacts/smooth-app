@@ -161,7 +161,6 @@ prints green, as expected.</p>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   _model = context.watch&lt;ContinuousScanModel&gt;();
-
   return LifeCycleManager(
     onResume: _startLiveFeed,
     onPause: _stopImageStream,
