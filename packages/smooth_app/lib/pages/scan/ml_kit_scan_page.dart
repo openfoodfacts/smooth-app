@@ -110,7 +110,6 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
   }
 
   Future<void> _startLiveFeed() async {
-    return;
     if (_controller != null) {
       return;
     }
