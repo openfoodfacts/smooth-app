@@ -123,7 +123,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
         icon: Icons.camera_alt,
         isDarkMode: themeProvider.darkTheme,
         onPressed: () async {
-          final File? initialPhoto = await pickImageAndCrop();
+          final File? initialPhoto = await pickImageAndCrop(context);
           if (initialPhoto == null) {
             return;
           }

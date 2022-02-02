@@ -148,6 +148,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.1"
+  crop_your_image:
+    dependency: "direct main"
+    description:
+      name: crop_your_image
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.6.0+1"
   cross_file:
     dependency: transitive
     description:
@@ -455,13 +462,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.1"
-  image_cropper:
-    dependency: "direct main"
-    description:
-      name: image_cropper
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.4.1"
   image_picker:
     dependency: "direct main"
     description:
@@ -594,7 +594,7 @@ packages:
       name: openfoodfacts
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.11.1"
+    version: "1.12.0"
   package_config:
     dependency: transitive
     description:
@@ -1089,7 +1089,7 @@ packages:
       name: win32
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.3.9"
+    version: "2.3.10"
   wkt_parser:
     dependency: transitive
     description:

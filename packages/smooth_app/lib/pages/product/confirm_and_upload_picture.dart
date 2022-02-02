@@ -60,7 +60,8 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                     SmoothActionButton(
                         text: appLocalizations.retake_photo_button_label,
                         onPressed: () async {
-                          final File? retakenPhoto = await pickImageAndCrop();
+                          final File? retakenPhoto =
+                              await pickImageAndCrop(context);
                           if (retakenPhoto == null) {
                             // User chose not to upload the image.
                             Navigator.pop(context);

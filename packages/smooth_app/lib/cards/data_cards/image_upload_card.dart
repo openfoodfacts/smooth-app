@@ -33,7 +33,7 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
       _imageFullProvider; // Full resolution image to display in image page
 
   Future<void> _getImage() async {
-    final File? croppedImageFile = await pickImageAndCrop();
+    final File? croppedImageFile = await pickImageAndCrop(context);
 
     if (croppedImageFile != null) {
       setState(() {
