@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/personalized_search/matched_product.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
@@ -260,14 +261,13 @@ class _SummaryCardState extends State<SummaryCard> {
   }
 
   Widget _buildProductCompatibilityHeader(BuildContext context) {
-    final ProductCompatibility compatibility =
-        getProductCompatibility(widget._productPreferences, widget._product)
-            .productCompatibility;
-    // NOTE: This is temporary and will be updated once the feature is supported
-    // by the server.
+    final MatchedProduct matchedProduct =
+        MatchedProduct(widget._product, widget._productPreferences);
+    final ProductCompatibilityHelper helper =
+        ProductCompatibilityHelper(matchedProduct);
     return Container(
       decoration: BoxDecoration(
-        color: getProductCompatibilityHeaderBackgroundColor(compatibility),
+        color: helper.getBackgroundColor(),
         // Ensure that the header has the same circular radius as the SmoothCard.
         borderRadius: const BorderRadius.only(
           topLeft: SmoothCard.CIRCULAR_RADIUS,
@@ -278,10 +278,7 @@ class _SummaryCardState extends State<SummaryCard> {
       padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
       child: Center(
         child: Text(
-          getProductCompatibilityHeaderTextWidget(
-            compatibility,
-            AppLocalizations.of(context)!,
-          ),
+          helper.getHeaderText(AppLocalizations.of(context)!),
           style:
               Theme.of(context).textTheme.subtitle1!.apply(color: Colors.white),
         ),
