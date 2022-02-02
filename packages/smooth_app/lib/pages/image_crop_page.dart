@@ -52,7 +52,7 @@ class ImageCropPage extends StatelessWidget {
             onCropped: (Uint8List image) async {
               final Directory tempDir = await getTemporaryDirectory();
               final String tempPath = tempDir.path;
-              final String filePath = '$tempPath/upload_img_file_01.tmp';
+              final String filePath = '$tempPath/upload_img_file.tmp';
               final File file = await File(filePath).writeAsBytes(image);
 
               Navigator.pop(context, file);
