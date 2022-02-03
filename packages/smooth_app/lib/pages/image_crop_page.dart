@@ -31,59 +31,58 @@ class ImageCropPage extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
     context.watch<ThemeProvider>();
 
-    return FutureBuilder<Uint8List?>(
-      future: pickImage(),
-      builder: (
-        BuildContext context,
-        AsyncSnapshot<Uint8List?> snap,
-      ) {
-        if (snap.connectionState != ConnectionState.done) {
-          return const Center(child: CircularProgressIndicator());
-        }
+    return Scaffold(
+        body: FutureBuilder<Uint8List?>(
+          future: pickImage(),
+          builder: (
+            BuildContext context,
+            AsyncSnapshot<Uint8List?> snap,
+          ) {
+            if (snap.connectionState != ConnectionState.done) {
+              return const Center(child: CircularProgressIndicator());
+            }
 
-        if (snap.data == null) {
-          Navigator.pop(context);
-        }
+            if (snap.data == null) {
+              Navigator.pop(context);
+            }
 
-        return Scaffold(
-          body: Crop(
-            image: snap.data!,
-            controller: _controller,
-            onCropped: (Uint8List image) async {
-              final Directory tempDir = await getTemporaryDirectory();
-              final String tempPath = tempDir.path;
-              final String filePath = '$tempPath/upload_img_file.tmp';
-              final File file = await File(filePath).writeAsBytes(image);
+            return Crop(
+              image: snap.data!,
+              controller: _controller,
+              onCropped: (Uint8List image) async {
+                final Directory tempDir = await getTemporaryDirectory();
+                final String tempPath = tempDir.path;
+                final String filePath = '$tempPath/upload_img_file.tmp';
+                final File file = await File(filePath).writeAsBytes(image);
 
-              Navigator.pop(context, file);
-            },
-            initialSize: 0.5,
-            baseColor: theme.colorScheme.primary,
-            maskColor: Colors.white.withAlpha(100),
-            cornerDotBuilder: (double size, EdgeAlignment edgeAlignment) =>
-                DotControl(color: theme.colorScheme.primary),
+                Navigator.pop(context, file);
+              },
+              initialSize: 0.5,
+              baseColor: theme.colorScheme.primary,
+              maskColor: Colors.white.withAlpha(100),
+              cornerDotBuilder: (double size, EdgeAlignment edgeAlignment) =>
+                  DotControl(color: theme.colorScheme.primary),
+            );
+          },
+        ),
+        bottomNavigationBar: BottomAppBar(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              IconButton(
+                icon: const Icon(Icons.cancel_outlined),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+              IconButton(
+                icon: const Icon(Icons.done),
+                onPressed: () {
+                  _controller.crop();
+                },
+              )
+            ],
           ),
-          bottomNavigationBar: BottomAppBar(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                IconButton(
-                  icon: const Icon(Icons.cancel_outlined),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                ),
-                IconButton(
-                  icon: const Icon(Icons.done),
-                  onPressed: () {
-                    _controller.crop();
-                  },
-                )
-              ],
-            ),
-          ),
-        );
-      },
-    );
+        ));
   }
 }
