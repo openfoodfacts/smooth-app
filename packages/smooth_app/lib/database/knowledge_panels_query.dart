@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:smooth_app/database/product_query.dart';
 
 class KnowledgePanelsQuery {
@@ -17,10 +16,18 @@ class KnowledgePanelsQuery {
       barcode,
       language: ProductQuery.getLanguage(),
       country: ProductQuery.getCountry(),
+      fields: <ProductField>[ProductField.KNOWLEDGE_PANELS],
+      version: ProductQueryVersion.v2,
     );
-    return OpenFoodAPIClient.getKnowledgePanels(
-      configuration,
-      OpenFoodAPIConfiguration.globalQueryType,
-    );
+
+    try {
+      final ProductResult productResult = await OpenFoodAPIClient.getProduct(
+        configuration,
+      );
+      return productResult.product!.knowledgePanels!;
+    } catch (exception) {
+      // TODO(jasmeetsingh): Capture the exception in Sentry and don't log it here.
+      return KnowledgePanels.empty();
+    }
   }
 }

@@ -6,8 +6,8 @@ import 'package:openfoodfacts/model/ProductImage.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
-import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/confirm_and_upload_picture.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -123,7 +123,12 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
         icon: Icons.camera_alt,
         isDarkMode: themeProvider.darkTheme,
         onPressed: () async {
-          final File? initialPhoto = await pickImageAndCrop();
+          final File? initialPhoto = await Navigator.push<File?>(
+            context,
+            MaterialPageRoute<File?>(
+              builder: (BuildContext context) => ImageCropPage(),
+            ),
+          );
           if (initialPhoto == null) {
             return;
           }
@@ -144,6 +149,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
             _uploadedImages[imageType]!.add(initialPhoto);
             setState(() {});
           }
+          initialPhoto.delete();
         },
       ),
     );
