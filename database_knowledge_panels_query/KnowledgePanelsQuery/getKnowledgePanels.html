@@ -69,11 +69,19 @@
     barcode,
     language: ProductQuery.getLanguage(),
     country: ProductQuery.getCountry(),
+    fields: &lt;ProductField&gt;[ProductField.KNOWLEDGE_PANELS],
+    version: ProductQueryVersion.v2,
   );
-  return OpenFoodAPIClient.getKnowledgePanels(
-    configuration,
-    OpenFoodAPIConfiguration.globalQueryType,
-  );
+
+  try {
+    final ProductResult productResult = await OpenFoodAPIClient.getProduct(
+      configuration,
+    );
+    return productResult.product!.knowledgePanels!;
+  } catch (exception) {
+    &#47;&#47; TODO(jasmeetsingh): Capture the exception in Sentry and don&#39;t log it here.
+    return KnowledgePanels.empty();
+  }
 }</code></pre>
 </section>
 
