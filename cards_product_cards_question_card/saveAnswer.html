@@ -55,7 +55,7 @@
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
 <span class="name ">saveAnswer</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="saveAnswer-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span></li>
 <li><span class="parameter" id="saveAnswer-param-insightId">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">insightId</span>, </span></li>
-<li><span class="parameter" id="saveAnswer-param-insightAnnotation"><span>required</span> <span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/1.11.1/model_Insight/InsightAnnotation.html">InsightAnnotation</a></span> <span class="parameter-name">insightAnnotation</span>}</span></li>
+<li><span class="parameter" id="saveAnswer-param-insightAnnotation"><span>required</span> <span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/1.12.0/model_Insight/InsightAnnotation.html">InsightAnnotation</a></span> <span class="parameter-name">insightAnnotation</span>}</span></li>
 </ol>)
 
     </section>
@@ -71,21 +71,12 @@
   required InsightAnnotation insightAnnotation,
 }) async {
   final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-  final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
-  String? deviceId;
-  if (Platform.isAndroid) {
-    deviceId = (await deviceInfoPlugin.androidInfo).androidId;
-  } else if (Platform.isIOS) {
-    deviceId = (await deviceInfoPlugin.iosInfo).identifierForVendor;
-  } else {
-    debugPrint(&#39;Platform is neither iOS nor Android&#39;);
-  }
   await LoadingDialog.run&lt;Status&gt;(
     context: context,
     future: OpenFoodAPIClient.postInsightAnnotation(
       insightId,
       insightAnnotation,
-      deviceId: deviceId,
+      deviceId: ProductQuery.deviceId,
     ),
     title: appLocalizations.saving_answer,
   );

@@ -127,7 +127,7 @@
 
         <dt id="getSearchResult" class="callable">
   <span class="name"><a href="../database_product_query/ProductQuery/getSearchResult.html">getSearchResult</a></span><span class="signature">(<wbr>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/1.11.1/model_SearchResult/SearchResult-class.html">SearchResult</a></span>&gt;</span></span>
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/1.12.0/model_SearchResult/SearchResult-class.html">SearchResult</a></span>&gt;</span></span>
   </span>
   
 
@@ -190,9 +190,20 @@
       <h2>Static Properties</h2>
 
       <dl class="properties">
+        <dt id="deviceId" class="property">
+  <span class="name"><a href="../database_product_query/ProductQuery/deviceId.html">deviceId</a></span>
+  <span class="signature">&#8596; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> 
+
+</dt>
+<dd>
+  Device Id, potentially used as API uuid. 
+  <div class="features">read / write</div>
+
+</dd>
+
         <dt id="fields" class="property">
   <span class="name"><a href="../database_product_query/ProductQuery/fields.html">fields</a></span>
-  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/1.11.1/utils_ProductFields/ProductField.html">ProductField</a></span>&gt;</span></span> 
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/1.12.0/utils_ProductFields/ProductField.html">ProductField</a></span>&gt;</span></span> 
 
 </dt>
 <dd>
@@ -209,7 +220,7 @@
       <dl class="callables">
         <dt id="getCountry" class="callable">
   <span class="name"><a href="../database_product_query/ProductQuery/getCountry.html">getCountry</a></span><span class="signature">(<wbr>)
-    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/openfoodfacts/1.11.1/utils_CountryHelper/OpenFoodFactsCountry.html">OpenFoodFactsCountry</a>?</span>
+    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/openfoodfacts/1.12.0/utils_CountryHelper/OpenFoodFactsCountry.html">OpenFoodFactsCountry</a>?</span>
   </span>
   
 
@@ -222,7 +233,7 @@
 
         <dt id="getLanguage" class="callable">
   <span class="name"><a href="../database_product_query/ProductQuery/getLanguage.html">getLanguage</a></span><span class="signature">(<wbr>)
-    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/openfoodfacts/1.11.1/utils_LanguageHelper/OpenFoodFactsLanguage.html">OpenFoodFactsLanguage</a>?</span>
+    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/openfoodfacts/1.12.0/utils_LanguageHelper/OpenFoodFactsLanguage.html">OpenFoodFactsLanguage</a>?</span>
   </span>
   
 
@@ -248,7 +259,7 @@
 
         <dt id="getUser" class="callable">
   <span class="name"><a href="../database_product_query/ProductQuery/getUser.html">getUser</a></span><span class="signature">(<wbr>)
-    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/openfoodfacts/1.11.1/model_User/User-class.html">User</a></span>
+    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/openfoodfacts/1.12.0/model_User/User-class.html">User</a></span>
   </span>
   
 
@@ -268,6 +279,19 @@
 </dt>
 <dd>
   Sets the global country for API queries. 
+  
+
+</dd>
+
+        <dt id="setDeviceId" class="callable">
+  <span class="name"><a href="../database_product_query/ProductQuery/setDeviceId.html">setDeviceId</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Sets the device id as "final variable", for instance for API queries. <a href="../database_product_query/ProductQuery/setDeviceId.html">[...]</a>
   
 
 </dd>
@@ -358,6 +382,7 @@
 
 
     <li class="section-title"><a href="../database_product_query/ProductQuery-class.html#static-properties">Static properties</a></li>
+    <li><a href="../database_product_query/ProductQuery/deviceId.html">deviceId</a></li>
     <li><a href="../database_product_query/ProductQuery/fields.html">fields</a></li>
 
     <li class="section-title"><a href="../database_product_query/ProductQuery-class.html#static-methods">Static methods</a></li>
@@ -366,6 +391,7 @@
     <li><a href="../database_product_query/ProductQuery/getLocaleString.html">getLocaleString</a></li>
     <li><a href="../database_product_query/ProductQuery/getUser.html">getUser</a></li>
     <li><a href="../database_product_query/ProductQuery/setCountry.html">setCountry</a></li>
+    <li><a href="../database_product_query/ProductQuery/setDeviceId.html">setDeviceId</a></li>
     <li><a href="../database_product_query/ProductQuery/setLanguage.html">setLanguage</a></li>
     <li><a href="../database_product_query/ProductQuery/setQueryType.html">setQueryType</a></li>
 
