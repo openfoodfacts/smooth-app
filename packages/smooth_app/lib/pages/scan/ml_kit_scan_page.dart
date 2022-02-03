@@ -164,6 +164,8 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
   Future<void> _processCameraImage(CameraImage image) async {
     //Only scanning every xth image, but not resetting until the current one
     //is done, so that we don't have idle time when the scanning takes longer
+    // TODO(M123): Can probably be merged with isBusy + checking if we should
+    // Count when ML Kit is busy
     if (frameCounter < _SKIPPED_FRAMES) {
       frameCounter++;
       return;
