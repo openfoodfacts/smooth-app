@@ -18,6 +18,7 @@ class MLKitScannerPage extends StatefulWidget {
 }
 
 class MLKitScannerPageState extends State<MLKitScannerPage> {
+  static const int _SKIPPED_FRAMES = 10;
   BarcodeScanner? barcodeScanner = GoogleMlKit.vision.barcodeScanner();
   CameraLensDirection cameraLensDirection = CameraLensDirection.back;
   late ContinuousScanModel _model;
@@ -161,10 +162,9 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
   // Convert the [CameraImage] to a [InputImage] and checking this for barcodes
   // with help from ML Kit
   Future<void> _processCameraImage(CameraImage image) async {
-    //Only scanning every 10th image, but not resetting until the current one
+    //Only scanning every xth image, but not resetting until the current one
     //is done, so that we don't have idle time when the scanning takes longer
-    //than the 10 frames (approx. 1/3 second when 30fps)
-    if (frameCounter < 10) {
+    if (frameCounter < _SKIPPED_FRAMES) {
       frameCounter++;
       return;
     }
