@@ -594,7 +594,7 @@ packages:
       name: openfoodfacts
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.11.1"
+    version: "1.12.0"
   package_config:
     dependency: transitive
     description:
@@ -1089,7 +1089,7 @@ packages:
       name: win32
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.3.9"
+    version: "2.3.10"
   wkt_parser:
     dependency: transitive
     description:
