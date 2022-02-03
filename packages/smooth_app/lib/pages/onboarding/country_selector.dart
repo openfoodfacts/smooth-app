@@ -57,27 +57,37 @@ class _CountrySelectorState extends State<CountrySelector> {
           if (snapshot.connectionState != ConnectionState.done) {
             return const CircularProgressIndicator();
           }
-          return Container(
-            padding: widget.padding,
-            child: DropdownButtonFormField<Country>(
-              value: _chosenValue,
-              decoration: widget.inputDecoration,
-              items: _countryList
-                  .map<DropdownMenuItem<Country>>((Country country) {
-                return DropdownMenuItem<Country>(
-                  value: country,
-                  child: Text(country.name),
-                );
-              }).toList(),
-              onChanged: (Country? value) async {
-                if (value != null) {
-                  _chosenValue = value;
-                  await _setUserCountry(_chosenValue.countryCode);
-                  setState(() {});
-                }
-              },
-            ),
-          );
+          return LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints constraints) {
+            final double parentWidth = constraints.maxWidth;
+            return Container(
+              padding: widget.padding,
+              child: DropdownButtonFormField<Country>(
+                value: _chosenValue,
+                decoration: widget.inputDecoration,
+                items: _countryList
+                    .map<DropdownMenuItem<Country>>((Country country) {
+                  return DropdownMenuItem<Country>(
+                    value: country,
+                    child: Container(
+                      // Set the maxWidth so the dropdown arrow icon doesn't overflow.
+                      // 48 dp is needed to account for dropdown arrow icon and padding.
+                      constraints: BoxConstraints(maxWidth: parentWidth - 48)
+                          .normalize(),
+                      child: Text(country.name),
+                    ),
+                  );
+                }).toList(),
+                onChanged: (Country? value) async {
+                  if (value != null) {
+                    _chosenValue = value;
+                    await _setUserCountry(_chosenValue.countryCode);
+                    setState(() {});
+                  }
+                },
+              ),
+            );
+          });
         },
       );
 
@@ -137,19 +147,15 @@ class _CountrySelectorState extends State<CountrySelector> {
     if (mostLikelyUserCountryCode == null) {
       return countries;
     }
-    Country? mostLikelyUserCountry;
     // Bring the most likely user country to top.
     for (final Country country in countries) {
-      if (country.countryCode == mostLikelyUserCountryCode) {
-        mostLikelyUserCountry = country;
-        break;
+      if (country.countryCode.toLowerCase() ==
+          mostLikelyUserCountryCode.toLowerCase()) {
+        countries.remove(country);
+        countries.insert(0, country);
+        return countries;
       }
     }
-    if (mostLikelyUserCountry == null) {
-      return countries;
-    }
-    countries.remove(mostLikelyUserCountry);
-    countries.insert(0, mostLikelyUserCountry);
     return countries;
   }
 }

@@ -12,6 +12,8 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "save": "Gem",
+    "skip": "Spring over",
     "cancel": "Annullér",
     "@cancel": {},
     "close": "Luk",
@@ -20,8 +22,12 @@
     "@no": {},
     "stop": "Stop",
     "@stop": {},
-    "reset": "Nulstil",
-    "@reset": {},
+    "finish": "Afslut",
+    "@finish": {},
+    "reset_food_prefs": "Nulstil fødevarepræferencer",
+    "@reset": {
+        "description": "Button label, clicking on the button will reset user's food preferences."
+    },
     "error": "Noget gik galt",
     "@error": {},
     "error_occurred": "En fejl opstod",
@@ -57,21 +63,21 @@
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
-    "productDataUtility": "See the food data relevant to your preferences.",
+    "productDataUtility": "Se fødevaredata relevante for dine præferencer.",
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."
     },
-    "healthCardUtility": "Choose foods that are good for you.",
+    "healthCardUtility": "Vælge fødevarer, som er gode for dig.",
     "@healthCardUtility": {
         "description": "Description of what a user can use the health data in a product for."
     },
-    "ecoCardUtility": "Choose foods that are good for the planet.",
+    "ecoCardUtility": "Vælge fødevarer, som er gode for planeten.",
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
     "sign_in_text": "Log ind på din Open Food Facts-konto for at gemme dine bidrag",
-    "incorrect_credentials": "Incorrect username or password.",
+    "incorrect_credentials": "Forkert brugernavn eller adgangskode.",
     "login": "Brugernavn",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
@@ -84,21 +90,33 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
+    "sign_out": "Log ud",
+    "@sign_out": {
+        "description": "Button label: For sign out"
+    },
+    "sign_out_confirmation": "Sikker på, at du vil logge ud?",
+    "@sign_out_confirmation": {
+        "description": "Pop up title: Reassuring if the user really want to sign out"
+    },
     "password": "Adgangskode",
     "forgot_password": "Glemt adgangskode",
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset e-mail can be requested"
     },
+    "view_profile": "Se profil",
+    "@view_profile": {
+        "description": "Button label: For to show your account"
+    },
     "reset_password": "Nulstil adgangskode",
     "@reset_password": {
         "description": "Forgot password page title"
     },
-    "reset_password_explanation_text": "In case of a forgotten password, enter your username or e-mail address to receive instructions for a password reset. Also, remember to check the Spam folder.",
-    "username_or_email": "Username or e-mail",
+    "reset_password_explanation_text": "Er adgangskoden glemt, så angiv dit brugernavn eller din e-mailadresse for at modtage en vejledning til adgangskodenulstilling. Tjek evt. også Spam-mappen.",
+    "username_or_email": "Brugernavn eller e-mail",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
-    "reset_password_done": "An e-mail with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
+    "reset_password_done": "En e-mail indeholdende et link til adgangskodenulstilling er sendt til e-mailadressen tilknyttet din konto. Tjek også Spam-mappen",
     "send_reset_password_mail": "Skift adgangskode",
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset e-mail request"
@@ -123,8 +141,8 @@
     "sign_up_page_display_name_hint": "Visningsnavn",
     "sign_up_page_display_name_error_empty": "Angiv det navn, der ønskes vist",
     "sign_up_page_email_hint": "E-mail",
-    "sign_up_page_email_error_empty": "Please enter your e-mail",
-    "sign_up_page_email_error_invalid": "Please enter a valid e-mail",
+    "sign_up_page_email_error_empty": "E-mail er obligatorisk",
+    "sign_up_page_email_error_invalid": "Ugyldig e-mail",
     "sign_up_page_username_hint": "Brugernavn",
     "sign_up_page_username_error_empty": "Indtast et brugernavn",
     "sign_up_page_username_error_invalid": "Angiv et gyldigt brugernavn",
@@ -134,19 +152,23 @@
     "sign_up_page_password_error_invalid": "Angiv en gyldig adgangskode (mindst 6 tegn)",
     "sign_up_page_confirm_password_hint": "Bekræft adgangskode",
     "sign_up_page_confirm_password_error_empty": "Bekræft adgangskoden",
-    "sign_up_page_confirm_password_error_invalid": "The passwords have to be identical",
+    "sign_up_page_confirm_password_error_invalid": "Adgangskoder matcher ikke",
     "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
-    "sign_up_page_agree_error_invalid": "When creating an account, agreeing to the Terms of Use is mandatory, however, anonymous contributions can still be made through the app",
+    "donate_url": "https://donate.openfoodfacts.org/",
+    "@donate_url": {
+        "description": "Please insert the right url from the website here."
+    },
+    "sign_up_page_agree_error_invalid": "Ved oprettelse af en konto er det obligatorisk at acceptere Vilkår for Brug, dog kan anonyme bidrag stadig foretages via appen",
     "@sign_up_page_agree_error_invalid": {
         "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
     },
     "sign_up_page_producer_checkbox": "Jeg er fødevareproducent",
     "sign_up_page_producer_hint": "Producent/mærke",
     "sign_up_page_producer_error_empty": "Angiv en producent eller et mærkenavn",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at all time)",
+    "sign_up_page_subscribe_checkbox": "Abonnement ønskes på Open Food Facts-nyhedsbrevet (hvilket til enhver tid kan afmeldes)",
     "@Settings": {},
     "settingsTitle": "Indstillinger",
     "@settingsTitle": {
@@ -164,14 +186,17 @@
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch"
     },
-    "contributors": "Bidragsydere",
+    "thanks_for_contributing": "Tak for at bidrage",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
+    "contributors": "Bidragsydere",
     "support": "Support",
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
+    "support_join_slack": "Bed om hjælp i vores Slack-kanal",
+    "support_via_email": "Send os en e-mail",
     "termsOfUse": "Afbenyttelsesvilkår",
     "@termsOfUse": {},
     "about_this_app": "Om denne app",
@@ -215,6 +240,18 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Oversættelser er en af projektets nøgleopgaver",
     "@contribute_translate_text_2": {},
+    "tap_to_answer": "Tryk her for at besvare spørgsmål",
+    "@tap_to_answer": {
+        "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
+    },
+    "saving_answer": "Gemmer svaret",
+    "@saving_answer": {
+        "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
+    },
+    "contribute_to_get_rewards": "Hjælp med madgennemsigtighed og få belønningsmærker",
+    "@contribute_to_get_rewards": {
+        "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
+    },
     "@Personal preferences": {},
     "myPreferences": "Mine præferencer",
     "@myPreferences": {
@@ -223,10 +260,10 @@
     "myPreferences_profile_title": "Din profil",
     "myPreferences_profile_subtitle": "Opsæt app-indstillinger og få råd.",
     "myPreferences_settings_title": "App-indstillinger",
-    "myPreferences_settings_subtitle": "Mørk tilstand, land, farve...",
+    "myPreferences_settings_subtitle": "Mørk tilstand, tema,...",
     "myPreferences_food_title": "Fødevarepræferencer",
     "myPreferences_food_subtitle": "Vælg, hvilke oplysninger om fødevarer, som betyder mest.",
-    "confirmResetPreferences": "Nulstil præferencerne?",
+    "confirmResetPreferences": "Nulstil dine fødevarepræferencer?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
     },
@@ -234,6 +271,10 @@
     "@myPersonalizedRanking": {
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
+    "ranking_tab_all": "Alle",
+    "ranking_subtitle_match_yes": "Et godt match til dig",
+    "ranking_subtitle_match_no": "Meget dårligt match",
+    "ranking_subtitle_match_maybe": "Ukendt match",
     "reloaded_with_new_preferences": "Genindlæst med nye præferencer",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
@@ -307,8 +348,75 @@
     },
     "packaging_information_photo": "Emballageoplysningsfoto",
     "@packaging_information_photo": {},
-    "missing_product": "Dette produkt mangler",
+    "missing_product": "Nyt produkt blev fundet!",
     "@missing_product": {},
+    "add_product_take_photos": "Tag fotos af emballagen for at føje produktet til OFF-databasen.",
+    "@add_product_take_photos": {},
+    "add_product_take_photos_descriptive": "Tag flg. fotos, hvorefter OFF-motoren klarer resten!",
+    "@add_product_take_photos_descriptive": {},
+    "add_product_information_button_label": "Tilføj produkt eller oplysning",
+    "@add_product_information_button_label": {},
+    "new_product": "Nyt produkt",
+    "@new_product": {},
+    "front_packaging_photo_button_label": "Emballageforsidefoto",
+    "@front_packaging_photo_button_label": {},
+    "confirm_front_packaging_photo_button_label": "Bekræft Emballageforsidefoto",
+    "@confirm_front_packaging_photo_button_label": {
+        "description": "Button clicking on which confirms the picture of the front packaging that user just took."
+    },
+    "front_photo_uploaded": "Forsidefoto uploadet",
+    "@front_photo_uploaded": {},
+    "ingredients_photo_button_label": "Ingrediensfoto",
+    "@ingredients_photo_button_label": {},
+    "confirm_ingredients_photo_button_label": "Bekræft Ingrediensfoto",
+    "@confirm_ingredients_photo_button_label": {
+        "description": "Button clicking on which confirms the picture of ingredients that user just took."
+    },
+    "ingredients_photo_uploaded": "Ingrediensfoto uploadet",
+    "@ingredients_photo_uploaded": {},
+    "nutritional_facts_photo_button_label": "Næringsfaktafoto",
+    "@nutritional_facts_photo_button_label": {},
+    "confirm_nutritional_facts_photo_button_label": "Bekræft Næringsfaktafoto",
+    "@confirm_nutritional_facts_photo_button_label": {
+        "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
+    },
+    "nutritional_facts_photo_uploaded": "Næringsfaktafoto uploadet",
+    "@nutritional_facts_photo_uploaded": {},
+    "recycling_photo_button_label": "Genbrugsoplysningsfoto",
+    "@recycling_photo_button_label": {},
+    "confirm_recycling_photo_button_label": "Bekræft Genbrugsoplysningsfoto",
+    "@confirm_recycling_photo_button_label": {
+        "description": "Button clicking on which confirms the picture of recycling information that user just took."
+    },
+    "recycling_photo_uploaded": "Genbrugsoplysningsfoto uploadet",
+    "@recycling_photo_uploaded": {},
+    "other_interesting_photo_button_label": "Andre interessante fotos",
+    "@other_interesting_photo_button_label": {},
+    "confirm_other_interesting_photo_button_label": "Bekræft foto",
+    "@confirm_other_interesting_photo_button_label": {
+        "description": "Button clicking on which confirms a miscellaneous photo of the product."
+    },
+    "other_photo_uploaded": "Div. foto uploadet",
+    "@other_photo_uploaded": {},
+    "retake_photo_button_label": "Tag igen",
+    "@retake_photo_button_label": {
+        "description": "Button clicking on which allows users to retake the last photo they took."
+    },
+    "uploading_image": "Uploader billede til server",
+    "@uploading_image": {},
+    "score_add_missing_ingredients": "Tilføj manglende ingredienser",
+    "score_add_missing_nutrition_facts": "Tilføj manglende ernæringsfakta",
+    "score_add_missing_product_category": "Tilføj manglende produktkategori",
+    "score_update_nutrition_facts": "Opdatér ernæringsfakta",
+    "nutrition_page_title": "Produkternæringsfakta",
+    "nutrition_page_unspecified": "Ernæringsfakta ikke angivet på produktet",
+    "nutrition_page_per_100g": "pr. 100g",
+    "nutrition_page_per_serving": "per portion",
+    "nutrition_page_add_nutrient": "Tilføj et næringsstof",
+    "nutrition_page_serving_size": "Portionsstørrelse",
+    "nutrition_page_invalid_number": "Invalid number",
+    "nutrition_page_update_running": "Opdaterer produktet på serveren...",
+    "nutrition_page_update_done": "Produkt opdateret!",
     "more_photos": "Flere interessante fotos",
     "@more_photos": {},
     "no_product_found": "Intet produkt fundet",
@@ -340,19 +448,23 @@
     "@Product Addition": {},
     "added_product_thanks": "Tak for at du tilføjede dette produkt!",
     "@added_product_thanks": {},
-    "product_improvement_add_category": "Add a category to calculate the Nutri-Score.",
+    "product_search_same_category": "Compare to Category",
+    "@product_search_same_category": {
+        "description": "Button looking for the other products within the same category. Less than 30 characters"
+    },
+    "product_improvement_add_category": "Tilføj en kategori for at beregne Nutri-Score.",
     "@product_improvement_add_category": {
         "description": "Message for ProductImprovement.ADD_CATEGORY"
     },
-    "product_improvement_add_nutrition_facts": "Add nutrition facts to calculate the Nutri-Score.",
+    "product_improvement_add_nutrition_facts": "Tilføj ernæringsfakta for at beregne Nutri-Score.",
     "@product_improvement_add_nutrition_facts": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
     },
-    "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to calculate the Nutri-Score.",
+    "product_improvement_add_nutrition_facts_and_category": "Tilføj ernæringsfakta og en kategori for at beregne Nutri-Score.",
     "@product_improvement_add_nutrition_facts_and_category": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
     },
-    "product_improvement_categories_but_no_nutriscore": "The Nutri-Score for this product can't be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.",
+    "product_improvement_categories_but_no_nutriscore": "Nutri-Score for dette produkt kan ikke beregnes, hvilket kan skyldes f.eks. en ikke-standard kategori. Betragtes dette som en fejl, kontakte os venligst.",
     "@product_improvement_categories_but_no_nutriscore": {
         "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
@@ -360,7 +472,7 @@
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take a photo of them (ingredient list and/or any geographic claim or edit the product) so that they can be taken into account.",
+    "product_improvement_origins_to_be_completed": "Øko-Score tager hensyn til ingredientsoprindelserne, så medtag disse på fotoet (ingrediensovesigt og/eller enhver geografisk angivelse) eller redigér produktet, så de kan indgå i beregningen.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
@@ -368,7 +480,7 @@
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },
-    "country_selection_explanation": "Some environmental features are location-specific",
+    "country_selection_explanation": "Visse miljømæssige egenskaber er stedbestemte",
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
@@ -383,20 +495,12 @@
     "@Lists": {},
     "no_prodcut_in_list": "Der er intet produkt på denne liste",
     "no_product_in_section": "Der er intet produkt i dette afsnit",
-    "recently_seen_products": "Mine nyligt sete produkter",
+    "recently_seen_products": "Historik",
     "clear": "Ryd",
     "@clear": {
         "description": "Clears a product list"
     },
     "really_clear": "Sikker på, at denne liste skal ryddes?",
-    "@Plural": {},
-    "pct_match": "{pct}% match",
-    "@pct_match": {
-        "description": "This product has a x percent match with your preferences",
-        "placeholders": {
-            "pct": {}
-        }
-    },
     "product_compatibility_unknown": "Produktkompatibilitet ukendt",
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
@@ -417,46 +521,58 @@
     "@product_compatibility_good": {
         "description": "Product compatibility summary title"
     },
-    "plural_ago_days": "{=1{one day ago} other{{count} days ago}}",
+    "@Plural": {},
+    "pct_match": "{percent}% match",
+    "@pct_match": {
+        "description": "This product has a x percent match with your preferences",
+        "placeholders": {
+            "percent": {}
+        }
+    },
+    "plural_ago_days": "{count,plural, =1{én dag siden} other{{count} dage siden}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{=1{one hour ago} other{{count} hours ago}}",
+    "plural_ago_hours": "{count,plural, =1{ én time siden} other{{count} timer siden}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{=0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
+    "plural_ago_minutes": "{count,plural, =0{under ét minut siden} =1{one minute ago} other{{count} minutter siden}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{=1{one month ago} other{{count} months ago}}",
+    "plural_ago_months": "{count,plural, =1{én måned siden} other{{count} måneder siden}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{=1{one week ago} other{{count} weeks ago}}",
+    "plural_ago_weeks": "{count,plural, =1{én uge siden} other{{count} uger siden}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_compare_x_products": "{other{Sammenlign {count} produkter}",
+    "plural_compare_x_products": "{count,plural, other{Sammenlign {count} produkter}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {
             "count": {}
         }
+    },
+    "compare_products_mode": "Sammenligningstilstand",
+    "@compare_products_mode": {
+        "description": "Button to switch to 'compare products mode'"
     }
 }

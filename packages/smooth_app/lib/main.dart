@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:camera/camera.dart';
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -10,12 +12,15 @@ import 'package:provider/provider.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+
+List<CameraDescription> cameras = <CameraDescription>[];
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,14 +44,14 @@ Future<void> main() async {
     );
     */
   } else {
-    runApp(const SmoothApp());
+    runApp(DevicePreview(enabled: true, builder: (_) => const SmoothApp()));
   }
 }
 
 class SmoothApp extends StatefulWidget {
   const SmoothApp();
 
-  // This widget is the root of your application.
+  // This widget is the root of your application
   @override
   State<SmoothApp> createState() => _SmoothAppState();
 }
@@ -75,20 +80,24 @@ class _SmoothAppState extends State<SmoothApp> {
             Brightness.light;
     systemDarkmodeOn = brightness == Brightness.dark;
     _userPreferences = await UserPreferences.getUserPreferences();
-    _productPreferences = ProductPreferences(ProductPreferencesSelection(
-      setImportance: _userPreferences.setImportance,
-      getImportance: _userPreferences.getImportance,
-      notify: () => _productPreferences.notifyListeners(),
-    ));
-    await _productPreferences
-        .loadReferenceFromAssets(DefaultAssetBundle.of(context));
+    _localDatabase = await LocalDatabase.getLocalDatabase();
+    _productPreferences = ProductPreferences(
+      ProductPreferencesSelection(
+        setImportance: _userPreferences.setImportance,
+        getImportance: _userPreferences.getImportance,
+        notify: () => _productPreferences.notifyListeners(),
+      ),
+      daoString: DaoString(_localDatabase),
+    );
+    await _productPreferences.init(DefaultAssetBundle.of(context));
     await _userPreferences.init(_productPreferences);
     ProductQuery.setCountry(_userPreferences.userCountryCode);
-    _localDatabase = await LocalDatabase.getLocalDatabase();
     _themeProvider = ThemeProvider(_userPreferences);
     ProductQuery.setQueryType(_userPreferences);
 
     UserManagementHelper.mountCredentials();
+    cameras = await availableCameras();
+    await ProductQuery.setDeviceId();
   }
 
   @override
@@ -180,35 +189,7 @@ class SmoothAppGetLanguage extends StatelessWidget {
     final Locale myLocale = Localizations.localeOf(context);
     final String languageCode = myLocale.languageCode;
     ProductQuery.setLanguage(languageCode);
-    _refresh(
-      productPreferences,
-      DefaultAssetBundle.of(context),
-      languageCode,
-    );
+    productPreferences.refresh(languageCode);
     return appWidget;
-  }
-
-  Future<void> _refresh(
-    final ProductPreferences productPreferences,
-    final AssetBundle assetBundle,
-    final String languageCode,
-  ) async {
-    if (productPreferences.languageCode != languageCode) {
-      try {
-        await productPreferences.loadReferenceFromAssets(
-          assetBundle,
-          languageCode: languageCode,
-        );
-      } catch (e) {
-        // no problem, we were just trying
-      }
-    }
-    if (!productPreferences.isNetwork) {
-      try {
-        await productPreferences.loadReferenceFromNetwork(languageCode);
-      } catch (e) {
-        // no problem, we were just trying
-      }
-    }
   }
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:openfoodfacts/model/Product.dart';
-import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/barcode_product_query.dart';
@@ -25,14 +24,13 @@ class ContinuousScanModel with ChangeNotifier {
       <String, ScannedProductState>{};
   final List<String> _barcodes = <String>[];
   final ProductList _productList = ProductList.scanSession();
+  final ProductList _history = ProductList.history();
 
   String? _latestScannedBarcode;
   String? _latestFoundBarcode;
   String? _barcodeTrustCheck; // TODO(monsieurtanuki): could probably be removed
   late DaoProduct _daoProduct;
   late DaoProductList _daoProductList;
-
-  QRViewController? _qrViewController;
 
   bool get hasMoreThanOneProduct => getBarcodes().length > 1;
   ProductList get productList => _productList;
@@ -89,22 +87,11 @@ class ContinuousScanModel with ChangeNotifier {
 
   Product getProduct(final String barcode) => _productList.getProduct(barcode);
 
-  void setupScanner(QRViewController controller) {
-    _qrViewController = controller;
-    controller.scannedDataStream.listen((Barcode barcode) => onScan(barcode));
-  }
-
-  //Used when navigating away from the QRView itself
-  void stopQRView() => _qrViewController?.stopCamera();
-
-  //Used when navigating back to the QRView
-  void resumeQRView() => _qrViewController?.resumeCamera();
-
-  Future<void> onScan(final Barcode barcode) async {
-    if (barcode.code == null) {
+  Future<void> onScan(String? code) async {
+    if (code == null) {
       return;
     }
-    final String code = barcode.code!;
+
     if (_barcodeTrustCheck != code) {
       _barcodeTrustCheck = code;
       return;
@@ -211,6 +198,7 @@ class ContinuousScanModel with ChangeNotifier {
     if (_latestFoundBarcode != product.barcode!) {
       _latestFoundBarcode = product.barcode;
       await _daoProductList.push(productList, _latestFoundBarcode!);
+      await _daoProductList.push(_history, _latestFoundBarcode!);
     }
     setBarcodeState(product.barcode!, state);
   }

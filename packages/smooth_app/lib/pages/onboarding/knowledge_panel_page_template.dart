@@ -1,27 +1,32 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panels_builder.dart';
+import 'package:smooth_app/data_models/onboarding_data_knowledge_panels.dart';
+import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/onboarding/next_button.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/product/knowledge_panel_product_cards.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
-import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 class KnowledgePanelPageTemplate extends StatefulWidget {
   const KnowledgePanelPageTemplate({
-    required this.assetFile,
     required this.headerTitle,
     required this.page,
+    required this.panelId,
+    required this.localDatabase,
   });
 
-  final String assetFile;
   final String headerTitle;
   final OnboardingPage page;
+
+  /// We will only display this panel
+  final String panelId;
+
+  final LocalDatabase localDatabase;
 
   @override
   State<KnowledgePanelPageTemplate> createState() =>
@@ -39,16 +44,9 @@ class _KnowledgePanelPageTemplateState
     _initFuture = _init();
   }
 
-  Future<dynamic> _init() async {
-    // Load KnowledgePanels
-    final String kpResponse = await rootBundle.loadString(widget.assetFile);
-    final Map<String, dynamic> kpData =
-        jsonDecode(kpResponse) as Map<String, dynamic>;
-    final Map<String, dynamic> kpDataProduct =
-        kpData['product'] as Map<String, dynamic>;
-    _knowledgePanels = KnowledgePanels.fromJson(
-        kpDataProduct['knowledge_panels'] as Map<String, dynamic>);
-  }
+  Future<dynamic> _init() async => _knowledgePanels =
+      await OnboardingDataKnowledgePanels(widget.localDatabase)
+          .getData(rootBundle);
 
   @override
   Widget build(BuildContext context) {
@@ -63,11 +61,11 @@ class _KnowledgePanelPageTemplateState
           if (snapshot.connectionState != ConnectionState.done) {
             return const CircularProgressIndicator();
           }
-          final List<Widget> knowledgePanelWidgets =
-              const KnowledgePanelsBuilder().build(
-                _knowledgePanels,
-                context: context,
-              );
+          final Widget knowledgePanelWidget =
+              const KnowledgePanelsBuilder().buildSingle(
+            _knowledgePanels,
+            widget.panelId,
+          )!;
           return Scaffold(
             body: Stack(
               children: <Widget>[
@@ -92,7 +90,7 @@ class _KnowledgePanelPageTemplateState
                             ),
                       ),
                     ),
-                    KnowledgePanelProductCards(knowledgePanelWidgets),
+                    KnowledgePanelProductCards(<Widget>[knowledgePanelWidget]),
                   ],
                 ),
                 Positioned(

@@ -4,7 +4,7 @@
     "@yes": {},
     "add": "Pridať",
     "@add": {},
-    "okay": "Okej",
+    "okay": "V poriadku",
     "@okay": {},
     "applyButtonText": "Potvrdiť",
     "@applyButtonText": {},
@@ -12,6 +12,8 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "save": "Uložiť",
+    "skip": "Skip",
     "cancel": "Zrušiť",
     "@cancel": {},
     "close": "Zatvoriť",
@@ -20,19 +22,23 @@
     "@no": {},
     "stop": "Zastaviť",
     "@stop": {},
-    "reset": "Resetovať",
-    "@reset": {},
+    "finish": "Dokončiť",
+    "@finish": {},
+    "reset_food_prefs": "Obnoviť predvoľby jedla?",
+    "@reset": {
+        "description": "Button label, clicking on the button will reset user's food preferences."
+    },
     "error": "Niečo sa pokazilo",
     "@error": {},
-    "error_occurred": "An error occurred",
+    "error_occurred": "Vyskytla sa chyba",
     "@error_occurred": {},
     "featureInProgress": "Na tejto funkcii ešte pracujeme, zostaňte s nami",
     "@featureInProgress": {},
-    "label_web": "View on the Web",
+    "label_web": "Zobraziť na webe",
     "@label_web": {},
     "learnMore": "Zistiť viac",
     "@learnMore": {},
-    "incompatible": "Incompatible",
+    "incompatible": "Nekompatibilné",
     "@incompatible": {
         "description": "Short label for product list view: the product is incompatible with your preferences"
     },
@@ -42,41 +48,41 @@
     },
     "licenses": "Licences",
     "@licenses": {},
-    "looking_for": "Looking for",
+    "looking_for": "Hľadám",
     "@looking_for": {
         "description": "Looking for: ${BARCODE}"
     },
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "whatIsOff": "Open Food Facts je globálna nezisková organizácia založená na miestnych komunitách.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Choose foods that are good for you and the planet.",
+    "offUtility": "Vyberte si potraviny, ktoré sú dobré pre vás a vašu planétu.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
-    "productDataUtility": "See the food data relevant to your preferences.",
+    "productDataUtility": "Zobraziť údaje o potravinách, ktoré zodpovedajú vašim preferenciám.",
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."
     },
-    "healthCardUtility": "Choose foods that are good for you.",
+    "healthCardUtility": "Vyberte si potraviny, ktoré sú dobré pre vás a vašu planétu.",
     "@healthCardUtility": {
         "description": "Description of what a user can use the health data in a product for."
     },
-    "ecoCardUtility": "Choose foods that are good for the planet.",
+    "ecoCardUtility": "Vyberajte potraviny, ktoré sú dobré pre vás a vašu planétu.",
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
-    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
-    "incorrect_credentials": "Incorrect username or password.",
+    "sign_in_text": "Prihláste sa do svojho účtu Open Food Facts a uložte svoje príspevky",
+    "incorrect_credentials": "Nesprávne meno alebo heslo.",
     "login": "Login",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
-    "create_account": "Create account",
+    "create_account": "Vytvoriť účet",
     "@create_account": {
         "description": "Button label: Opens a page where a new user can register"
     },
@@ -84,69 +90,85 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
+    "sign_out": "Odhlásiť sa",
+    "@sign_out": {
+        "description": "Button label: For sign out"
+    },
+    "sign_out_confirmation": "Are you sure you want to sign out?",
+    "@sign_out_confirmation": {
+        "description": "Pop up title: Reassuring if the user really want to sign out"
+    },
     "password": "Heslo",
-    "forgot_password": "Forgot password",
+    "forgot_password": "Zabudnuté heslo",
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset e-mail can be requested"
+    },
+    "view_profile": "Zobraziť profil",
+    "@view_profile": {
+        "description": "Button label: For to show your account"
     },
     "reset_password": "Reset password",
     "@reset_password": {
         "description": "Forgot password page title"
     },
-    "reset_password_explanation_text": "In case of a forgotten password, enter your username or e-mail address to receive instructions for a password reset. Also, remember to check the Spam folder.",
-    "username_or_email": "Username or e-mail",
+    "reset_password_explanation_text": "V prípade zabudnutého hesla zadajte svoje používateľské meno alebo e-mailovú adresu, aby ste dostali pokyny na obnovenie hesla. Nezabudnite tiež skontrolovať priečinok Spam.",
+    "username_or_email": "Používateľské meno alebo e-mail",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
-    "reset_password_done": "An e-mail with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
-    "send_reset_password_mail": "Change password",
+    "reset_password_done": "Na e-mailovú adresu priradenú k vášmu účtu bol odoslaný e-mail s odkazom na obnovenie hesla. Skontrolujte si aj spam",
+    "send_reset_password_mail": "Zmeniť heslo",
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset e-mail request"
     },
-    "enter_some_text": "Please enter some text",
+    "enter_some_text": "Prosím, zadajte nejaký text",
     "@enter_some_text": {
         "description": "Error when a required text field is empty"
     },
-    "sign_up_page_title": "Sign Up",
+    "sign_up_page_title": "Zaregistrovať sa",
     "@sign_up_page_title": {
         "description": "Header"
     },
-    "sign_up_page_action_button": "Sign Up",
+    "sign_up_page_action_button": "Zaregistrovať sa",
     "@sign_up_page_action_button": {
         "description": "Button for signing up"
     },
-    "sign_up_page_action_doing_it": "Signing up...",
+    "sign_up_page_action_doing_it": "Prihlasovanie...",
     "@sign_up_page_action_doing_it": {
         "description": "Progress indicator dialog during the actual signing up process"
     },
-    "sign_up_page_action_ok": "Congratulations! Your account has just been created.",
-    "sign_up_page_display_name_hint": "Display Name",
-    "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
-    "sign_up_page_email_hint": "E-mail",
-    "sign_up_page_email_error_empty": "Please enter your e-mail",
-    "sign_up_page_email_error_invalid": "Please enter a valid e-mail",
+    "sign_up_page_action_ok": "Gratulujeme! Váš účet bol práve vytvorený.",
+    "sign_up_page_display_name_hint": "Zobrazované meno",
+    "sign_up_page_display_name_error_empty": "Zadajte zobrazované meno, ktoré chcete použiť",
+    "sign_up_page_email_hint": "Emailová adresa",
+    "sign_up_page_email_error_empty": "E-mail je povinný",
+    "sign_up_page_email_error_invalid": "Tento e-mail je neplatný",
     "sign_up_page_username_hint": "Username",
-    "sign_up_page_username_error_empty": "Please enter a username",
-    "sign_up_page_username_error_invalid": "Please enter a valid username",
-    "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters",
+    "sign_up_page_username_error_empty": "Prosím, zadajte užívateľské meno",
+    "sign_up_page_username_error_invalid": "Zadajte platné užívateľské meno",
+    "sign_up_page_username_description": "Používateľské meno nemôže obsahovať medzery, veľké písmená ani špeciálne znaky",
     "sign_up_page_password_hint": "Heslo",
-    "sign_up_page_password_error_empty": "Please enter a password",
-    "sign_up_page_password_error_invalid": "Please enter a valid password (at least 6 characters)",
-    "sign_up_page_confirm_password_hint": "Confirm Password",
-    "sign_up_page_confirm_password_error_empty": "Please confirm the password",
-    "sign_up_page_confirm_password_error_invalid": "The passwords have to be identical",
-    "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
+    "sign_up_page_password_error_empty": "Prosím, zadajte heslo",
+    "sign_up_page_password_error_invalid": "Prosím, zadajte heslo s najmenej 6-imi znakmi.",
+    "sign_up_page_confirm_password_hint": "Potvrdiť heslo",
+    "sign_up_page_confirm_password_error_empty": "Prosím potvrďte heslo",
+    "sign_up_page_confirm_password_error_invalid": "Heslá sa nezhodujú",
+    "sign_up_page_agree_url": "https://sk.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
-    "sign_up_page_agree_error_invalid": "When creating an account, agreeing to the Terms of Use is mandatory, however, anonymous contributions can still be made through the app",
+    "donate_url": "https://donate.openfoodfacts.org/",
+    "@donate_url": {
+        "description": "Please insert the right url from the website here."
+    },
+    "sign_up_page_agree_error_invalid": "Pri vytváraní účtu je súhlas s Podmienkami používania povinný, napriek tomu je však možné prostredníctvom aplikácie prispievať anonymne",
     "@sign_up_page_agree_error_invalid": {
         "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
     },
-    "sign_up_page_producer_checkbox": "I am a food producer",
-    "sign_up_page_producer_hint": "Producer/brand",
-    "sign_up_page_producer_error_empty": "Please enter a producer or a brand name",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at all time)",
+    "sign_up_page_producer_checkbox": "Som výrobca potravín",
+    "sign_up_page_producer_hint": "Výrobca/značka",
+    "sign_up_page_producer_error_empty": "Zadajte výrobcu alebo názov značky",
+    "sign_up_page_subscribe_checkbox": "Chcel by som sa prihlásiť na odber noviniek Open Food Facts (z odberu sa môžete kedykoľvek odhlásiť)",
     "@Settings": {},
     "settingsTitle": "Nastavenia",
     "@settingsTitle": {
@@ -156,25 +178,28 @@
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
-    "darkmode_dark": "Dark",
+    "darkmode_dark": "Tmavý",
     "@darkmode_dark": {
         "description": "Indicator inside the darkmode switch"
     },
-    "darkmode_light": "Light",
+    "darkmode_light": "Svetlý",
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch"
     },
-    "contributors": "Contributors",
+    "thanks_for_contributing": "Ďakujem za príspevok",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
+    "contributors": "Contributors",
     "support": "Podpora",
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
+    "support_join_slack": "Požiadajte o pomoc na našom kanáli Slack",
+    "support_via_email": "Pošlite nám e-mail",
     "termsOfUse": "Podmienky používania",
     "@termsOfUse": {},
-    "about_this_app": "About this app",
+    "about_this_app": "O tejto aplikácii",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
     },
@@ -183,7 +208,7 @@
     "@contribute": {
         "description": "Button label: Shows multiple ways how users can contribute to OFF"
     },
-    "contribute_sw_development": "Software development",
+    "contribute_sw_development": "Vývoj softvéru",
     "@contribute_sw_development": {
         "description": "Button label + page title: Ways to help"
     },
@@ -215,18 +240,30 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Preklady sú jednou z kľúčových úloh projektu",
     "@contribute_translate_text_2": {},
+    "tap_to_answer": "Klepnutím sem odpovedzte na otázky",
+    "@tap_to_answer": {
+        "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
+    },
+    "saving_answer": "Saving your answer",
+    "@saving_answer": {
+        "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
+    },
+    "contribute_to_get_rewards": "Pomôžte transparentnosti potravín a získajte odznaky za odmenu",
+    "@contribute_to_get_rewards": {
+        "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
+    },
     "@Personal preferences": {},
     "myPreferences": "My preferences",
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
-    "myPreferences_profile_title": "Your Profile",
-    "myPreferences_profile_subtitle": "Set app settings and find out advices.",
-    "myPreferences_settings_title": "App Settings",
-    "myPreferences_settings_subtitle": "Dark mode, country, color, ...",
-    "myPreferences_food_title": "Food Preferences",
-    "myPreferences_food_subtitle": "Choose what information about food matters most to you.",
-    "confirmResetPreferences": "Obnoviť vaše predvoľby?",
+    "myPreferences_profile_title": "Váš profil",
+    "myPreferences_profile_subtitle": "Nastavte nastavenia aplikácie a zistite rady.",
+    "myPreferences_settings_title": "Nastavenia aplikácie",
+    "myPreferences_settings_subtitle": "Tmavý režim, motív,...",
+    "myPreferences_food_title": "Potravinové preferencie",
+    "myPreferences_food_subtitle": "Vyberte si, ktoré informácie o jedle sú pre vás najdôležitejšie.",
+    "confirmResetPreferences": "Obnoviť predvoľby jedla?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
     },
@@ -234,24 +271,28 @@
     "@myPersonalizedRanking": {
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
-    "reloaded_with_new_preferences": "Reloaded with new preferences",
+    "ranking_tab_all": "All",
+    "ranking_subtitle_match_yes": "A great match for you",
+    "ranking_subtitle_match_no": "Very poor match",
+    "ranking_subtitle_match_maybe": "Unknown match",
+    "reloaded_with_new_preferences": "Znova načítané s novými predvoľbami",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
     },
     "@other": {},
-    "profile_navbar_label": "Profile",
+    "profile_navbar_label": "Profil",
     "@profile_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "scan_navbar_label": "Profile",
+    "scan_navbar_label": "Profil",
     "@scan_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "history_navbar_label": "Profile",
+    "history_navbar_label": "Profil",
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "category": "Filter by category",
+    "category": "Filtrovať podľa kategórie",
     "@category": {
         "description": "From a product list, there's a category filter: this is its title"
     },
@@ -259,7 +300,7 @@
     "@category_al": {
         "description": "Top meta-entry on a category filter"
     },
-    "category_search": "(category search)",
+    "category_search": "(vyhľadávanie podľa kategórií)",
     "filter": "Filtrovať",
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
@@ -272,7 +313,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Tap to see more info...",
+    "tab_for_more": "Klepnutím zobrazíte ďalšie informácie...",
     "@Product": {},
     "product": "Product",
     "@product": {},
@@ -280,183 +321,258 @@
     "@unknownBrand": {},
     "unknownProductName": "Neznámy názov výrobku",
     "@unknownProductName": {},
-    "label_refresh": "Refresh",
+    "label_refresh": "Obnoviť",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
-    "image": "Image",
-    "front_photo": "Front photo",
+    "image": "Obrázok",
+    "front_photo": "Obrázok spredu",
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
     },
     "ingredients": "Ingrediencie",
     "@ingredients": {},
-    "ingredients_photo": "Ingredients photo",
+    "ingredients_photo": "Fotografia ingrediencií",
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
     "nutrition": "Nutričné hodnoty",
     "@nutrition": {},
-    "nutrition_facts_photo": "Nutrition facts photo",
+    "nutrition_facts_photo": "Foto výživových údajov",
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
     },
-    "packaging_information": "Packaging information",
+    "packaging_information": "Informácie o balení",
     "@packaging_information": {
         "description": "Button label: For adding a picture of the packaging of a product"
     },
-    "packaging_information_photo": "Packaging information photo",
+    "packaging_information_photo": "Informačná fotografia balenia",
     "@packaging_information_photo": {},
-    "missing_product": "Tento produkt chýba",
+    "missing_product": "You found a new product!",
     "@missing_product": {},
-    "more_photos": "More interesting photos",
+    "add_product_take_photos": "Take photos of the packaging to add this product to our database.",
+    "@add_product_take_photos": {},
+    "add_product_take_photos_descriptive": "Please take the following photos and the Open Food Facts engine can work out the rest!",
+    "@add_product_take_photos_descriptive": {},
+    "add_product_information_button_label": "Add product information",
+    "@add_product_information_button_label": {},
+    "new_product": "New Product",
+    "@new_product": {},
+    "front_packaging_photo_button_label": "Front packaging photo",
+    "@front_packaging_photo_button_label": {},
+    "confirm_front_packaging_photo_button_label": "Confirm Front packaging photo",
+    "@confirm_front_packaging_photo_button_label": {
+        "description": "Button clicking on which confirms the picture of the front packaging that user just took."
+    },
+    "front_photo_uploaded": "Front photo uploaded",
+    "@front_photo_uploaded": {},
+    "ingredients_photo_button_label": "Fotografia ingrediencií",
+    "@ingredients_photo_button_label": {},
+    "confirm_ingredients_photo_button_label": "Confirm Ingredients photo",
+    "@confirm_ingredients_photo_button_label": {
+        "description": "Button clicking on which confirms the picture of ingredients that user just took."
+    },
+    "ingredients_photo_uploaded": "Ingredients photo uploaded",
+    "@ingredients_photo_uploaded": {},
+    "nutritional_facts_photo_button_label": "Nutritional facts photo",
+    "@nutritional_facts_photo_button_label": {},
+    "confirm_nutritional_facts_photo_button_label": "Confirm Nutritional facts photo",
+    "@confirm_nutritional_facts_photo_button_label": {
+        "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
+    },
+    "nutritional_facts_photo_uploaded": "Nutritional facts photo uploaded",
+    "@nutritional_facts_photo_uploaded": {},
+    "recycling_photo_button_label": "Recycling information photo",
+    "@recycling_photo_button_label": {},
+    "confirm_recycling_photo_button_label": "Confirm Recycling information photo",
+    "@confirm_recycling_photo_button_label": {
+        "description": "Button clicking on which confirms the picture of recycling information that user just took."
+    },
+    "recycling_photo_uploaded": "Recycling photo uploaded",
+    "@recycling_photo_uploaded": {},
+    "other_interesting_photo_button_label": "Other interesting photos",
+    "@other_interesting_photo_button_label": {},
+    "confirm_other_interesting_photo_button_label": "Confirm photo",
+    "@confirm_other_interesting_photo_button_label": {
+        "description": "Button clicking on which confirms a miscellaneous photo of the product."
+    },
+    "other_photo_uploaded": "Miscellaneous photo uploaded",
+    "@other_photo_uploaded": {},
+    "retake_photo_button_label": "Retake",
+    "@retake_photo_button_label": {
+        "description": "Button clicking on which allows users to retake the last photo they took."
+    },
+    "uploading_image": "Uploading Image to the server",
+    "@uploading_image": {},
+    "score_add_missing_ingredients": "Pridajte chýbajúce ingrediencie",
+    "score_add_missing_nutrition_facts": "Pridajte chýbajúce výživové údaje",
+    "score_add_missing_product_category": "Pridajte chýbajúcu kategóriu produktu",
+    "score_update_nutrition_facts": "Aktualizujte fakty o výžive",
+    "nutrition_page_title": "Výživové fakty produktu",
+    "nutrition_page_unspecified": "Na produkte nie sú uvedené výživové údaje",
+    "nutrition_page_per_100g": "na 100 g",
+    "nutrition_page_per_serving": "per serving",
+    "nutrition_page_add_nutrient": "Add a nutrient",
+    "nutrition_page_serving_size": "Serving size",
+    "nutrition_page_invalid_number": "Neplatné číslo",
+    "nutrition_page_update_running": "Aktualizácia produktu na serveri...",
+    "nutrition_page_update_done": "Produkt bol aktualizovaný!",
+    "more_photos": "Viac zaujímavých fotiek",
     "@more_photos": {},
-    "no_product_found": "No product found",
+    "no_product_found": "Neboli nájdené žiadne výrobky",
     "@no_product_found": {},
-    "not_found": "not found:",
+    "not_found": "nenájdené:",
     "searchPanelHeader": "Vyhľadajte alebo naskenujte svoj prvý produkt",
     "@Product query status": {},
-    "refreshing_product": "Refreshing product",
+    "refreshing_product": "Obnovuje sa produkt",
     "@refreshing_product": {
         "description": "Confirmation, that the product data of a cached product is queried again"
     },
-    "product_refreshed": "Product refreshed",
+    "product_refreshed": "Produkt bol obnovený",
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "could_not_refresh": "Could not refresh product",
+    "could_not_refresh": "Produkt sa nepodarilo obnoviť",
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
     },
-    "product_internet_cancel": "Canceled by user.",
+    "product_internet_cancel": "Zrušené používateľom.",
     "@product_internet_cancel": {
         "description": "Confirmation, that the product data got canceled by the user"
     },
-    "product_internet_error": "Impossible to fetch information about this product due to a network error.",
-    "cached_results_from": "Cached results from:",
+    "product_internet_error": "Nie je možné získať informácie o tomto produkte kvôli chybe siete.",
+    "cached_results_from": "Výsledky vo vyrovnávacej pamäti od:",
     "@cached_results_from": {
         "description": "Cached results from: x time ago (time ago should not be added to the string)"
     },
     "@Product Addition": {},
     "added_product_thanks": "Ďakujeme za pridanie tohto produktu!",
     "@added_product_thanks": {},
-    "product_improvement_add_category": "Add a category to calculate the Nutri-Score.",
+    "product_search_same_category": "Compare to Category",
+    "@product_search_same_category": {
+        "description": "Button looking for the other products within the same category. Less than 30 characters"
+    },
+    "product_improvement_add_category": "Pridajte kategóriu na výpočet Nutri-Score.",
     "@product_improvement_add_category": {
         "description": "Message for ProductImprovement.ADD_CATEGORY"
     },
-    "product_improvement_add_nutrition_facts": "Add nutrition facts to calculate the Nutri-Score.",
+    "product_improvement_add_nutrition_facts": "Pridajte výživové údaje na výpočet Nutri-Score.",
     "@product_improvement_add_nutrition_facts": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
     },
-    "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to calculate the Nutri-Score.",
+    "product_improvement_add_nutrition_facts_and_category": "Pridajte výživové údaje a kategóriu na výpočet Nutri-Score.",
     "@product_improvement_add_nutrition_facts_and_category": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
     },
-    "product_improvement_categories_but_no_nutriscore": "The Nutri-Score for this product can't be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.",
+    "product_improvement_categories_but_no_nutriscore": "Nutri-score pre tento produkt sa nedá vypočítať, čo môže byť spôsobené napr. neštandardnou kategóriou. Ak to považujete za chybu, kontaktujte nás.",
     "@product_improvement_categories_but_no_nutriscore": {
         "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
-    "product_improvement_obsolete_nutrition_image": "The nutrition image is obsolete: please refresh it.",
+    "product_improvement_obsolete_nutrition_image": "Výživový obrázok je zastaraný: obnovte ho.",
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take a photo of them (ingredient list and/or any geographic claim or edit the product) so that they can be taken into account.",
+    "product_improvement_origins_to_be_completed": "Eko-skóre zohľadňuje pôvod zložiek. Odfoťte ich (zoznam zložiek a/alebo akékoľvek geografické tvrdenie alebo upravte produkt), aby ich bolo možné vziať do úvahy.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
-    "country_chooser_label": "Please choose a country",
+    "country_chooser_label": "Prosím vyberte si krajinu",
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },
-    "country_selection_explanation": "Some environmental features are location-specific",
+    "country_selection_explanation": "Niektoré vlastnosti prostredia sú špecifické pre danú lokalitu",
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
-    "product_removed": "Product removed",
+    "product_removed": "Produkt bol odstránený",
     "@product_removed": {
         "description": "Product got removed from a list"
     },
-    "product_could_not_remove": "Could not remove product",
+    "product_could_not_remove": "Produkt sa nepodarilo odstrániť",
     "@product_could_not_remove": {
         "description": "Could not remove product from a list"
     },
     "@Lists": {},
-    "no_prodcut_in_list": "There is no product in this list",
-    "no_product_in_section": "There is no product in this section",
-    "recently_seen_products": "My recently seen products",
+    "no_prodcut_in_list": "V tomto zozname nie je žiadny produkt",
+    "no_product_in_section": "V tejto sekcii nie je žiadny produkt",
+    "recently_seen_products": "História",
     "clear": "Vymazať",
     "@clear": {
         "description": "Clears a product list"
     },
-    "really_clear": "Do you really want to clear this list?",
-    "@Plural": {},
-    "pct_match": "{pct}% match",
-    "@pct_match": {
-        "description": "This product has a x percent match with your preferences",
-        "placeholders": {
-            "pct": {}
-        }
-    },
-    "product_compatibility_unknown": "Product Compatibility Unknown",
+    "really_clear": "Naozaj chcete vymazať tento zoznam?",
+    "product_compatibility_unknown": "Kompatibilita produktu neznáma",
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_incompatible": "Very poor Match",
+    "product_compatibility_incompatible": "Veľmi slabá zhoda",
     "@product_compatibility_incompatible": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_bad": "Poor Match",
+    "product_compatibility_bad": "Slabá zhoda",
     "@product_compatibility_bad": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_neutral": "Neutral Match",
+    "product_compatibility_neutral": "Neutrálna zhoda",
     "@product_compatibility_neutral": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_good": "Great Match",
+    "product_compatibility_good": "Skvelá zhoda",
     "@product_compatibility_good": {
         "description": "Product compatibility summary title"
     },
-    "plural_ago_days": "{=1{one day ago} other{{count} days ago}}",
+    "@Plural": {},
+    "pct_match": "{percent}% zhoda",
+    "@pct_match": {
+        "description": "This product has a x percent match with your preferences",
+        "placeholders": {
+            "percent": {}
+        }
+    },
+    "plural_ago_days": "{count,plural, =1{včera} other{pred {count} dňami}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{=1{one hour ago} other{{count} hours ago}}",
+    "plural_ago_hours": "{count,plural, =1{pred hodinou} other{pred {count} hodinami}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{=0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
+    "plural_ago_minutes": "{count,plural, =0{pred menej ako minútou} =1{pred jednou minútou} other{pred {count} minútami}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{=1{one month ago} other{{count} months ago}}",
+    "plural_ago_months": "{count,plural, =1{pred mesiacom} other{pred {count} mesiacmi}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{=1{one week ago} other{{count} weeks ago}}",
+    "plural_ago_weeks": "{count,plural, =1{pred týždňom} other{pred {count} týždňami}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_compare_x_products": "{other{Compare {count} Products}",
+    "plural_compare_x_products": "{count,plural, other{Porovnať {count} produktov}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {
             "count": {}
         }
+    },
+    "compare_products_mode": "Compare Mode",
+    "@compare_products_mode": {
+        "description": "Button to switch to 'compare products mode'"
     }
 }

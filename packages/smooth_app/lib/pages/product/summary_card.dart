@@ -2,17 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
-import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/personalized_search/matched_product.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
+import 'package:smooth_app/cards/product_cards/product_title_card.dart';
+import 'package:smooth_app/cards/product_cards/question_card.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/database/category_product_query.dart';
+import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/database/robotoff_questions_query.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
-import 'package:smooth_ui_library/smooth_ui_library.dart';
-import 'package:smooth_ui_library/util/ui_helpers.dart';
+import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 
 const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS,
@@ -27,8 +35,13 @@ const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
 const int SUMMARY_CARD_ROW_HEIGHT = 40;
 
 class SummaryCard extends StatefulWidget {
-  const SummaryCard(this._product, this._productPreferences,
-      {this.isFullVersion = false});
+  const SummaryCard(
+    this._product,
+    this._productPreferences, {
+    this.isFullVersion = false,
+    this.showUnansweredQuestions = false,
+    this.refreshProductCallback,
+  });
 
   final Product _product;
   final ProductPreferences _productPreferences;
@@ -36,6 +49,13 @@ class SummaryCard extends StatefulWidget {
   /// If false, the card will be clipped to a smaller version so it can fit on
   /// smaller screens.
   final bool isFullVersion;
+
+  /// If true, the summary card will try to load unanswered questions about this
+  /// product and give a prompt to answer those questions.
+  final bool showUnansweredQuestions;
+
+  /// Callback to refresh the product when necessary.
+  final Function(BuildContext)? refreshProductCallback;
 
   @override
   State<SummaryCard> createState() => _SummaryCardState();
@@ -48,6 +68,20 @@ class _SummaryCardState extends State<SummaryCard> {
 
   // For some reason, special case for "label" attributes
   final Set<String> _attributesToExcludeIfStatusIsUnknown = <String>{};
+  Future<List<RobotoffQuestion>>? _productQuestions;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.showUnansweredQuestions) {
+      loadProductQuestions();
+    }
+  }
+
+  Future<void> loadProductQuestions() async {
+    _productQuestions = RobotoffQuestionsQuery(widget._product.barcode!)
+        .getRobotoffQuestionsForProduct();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -119,6 +153,8 @@ class _SummaryCardState extends State<SummaryCard> {
   }
 
   Widget _buildSummaryCardContent(BuildContext context) {
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final List<Attribute> scoreAttributes =
         getPopulatedAttributes(widget._product, SCORE_ATTRIBUTE_IDS);
 
@@ -184,36 +220,54 @@ class _SummaryCardState extends State<SummaryCard> {
       margin: const EdgeInsets.only(bottom: 16),
       child: Column(children: displayedGroups),
     );
+    final String? categoryTag = widget._product.categoriesTags?.last;
+    final String? categoryLabel = widget
+        ._product.categoriesTagsInLanguages?[ProductQuery.getLanguage()!]?.last;
     return Column(
       children: <Widget>[
-        _buildProductTitleTile(context),
+        ProductTitleCard(widget._product),
         for (final Attribute attribute in scoreAttributes)
           ScoreCard(
-            iconUrl: attribute.iconUrl!,
+            iconUrl: attribute.iconUrl,
             description:
                 attribute.descriptionShort ?? attribute.description ?? '',
             cardEvaluation: getCardEvaluationFromAttribute(attribute),
           ),
+        _buildProductQuestionsWidget(),
         attributesContainer,
         if (widget._product.statesTags
                 ?.contains('en:categories-to-be-completed') ??
             false)
-          dummyAddButton(
-            AppLocalizations.of(context)!.score_add_missing_product_category,
+          addPanelButton(appLocalizations.score_add_missing_product_category,
+              onPressed: () {}),
+        if (categoryTag != null && categoryLabel != null)
+          addPanelButton(
+            appLocalizations.product_search_same_category,
+            iconData: Icons.leaderboard,
+            onPressed: () async => ProductQueryPageHelper().openBestChoice(
+              color: Colors.deepPurple,
+              heroTag: 'search_bar',
+              name: categoryLabel,
+              localDatabase: localDatabase,
+              productQuery: CategoryProductQuery(
+                categoryTag: widget._product.categoriesTags!.last,
+                size: 500,
+              ),
+              context: context,
+            ),
           ),
       ],
     );
   }
 
   Widget _buildProductCompatibilityHeader(BuildContext context) {
-    final ProductCompatibility compatibility =
-        getProductCompatibility(widget._productPreferences, widget._product)
-            .productCompatibility;
-    // NOTE: This is temporary and will be updated once the feature is supported
-    // by the server.
+    final MatchedProduct matchedProduct =
+        MatchedProduct(widget._product, widget._productPreferences);
+    final ProductCompatibilityHelper helper =
+        ProductCompatibilityHelper(matchedProduct);
     return Container(
       decoration: BoxDecoration(
-        color: getProductCompatibilityHeaderBackgroundColor(compatibility),
+        color: helper.getBackgroundColor(),
         // Ensure that the header has the same circular radius as the SmoothCard.
         borderRadius: const BorderRadius.only(
           topLeft: SmoothCard.CIRCULAR_RADIUS,
@@ -224,32 +278,9 @@ class _SummaryCardState extends State<SummaryCard> {
       padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
       child: Center(
         child: Text(
-          getProductCompatibilityHeaderTextWidget(
-            compatibility,
-            AppLocalizations.of(context)!,
-          ),
+          helper.getHeaderText(AppLocalizations.of(context)!),
           style:
               Theme.of(context).textTheme.subtitle1!.apply(color: Colors.white),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildProductTitleTile(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-    final ThemeData themeData = Theme.of(context);
-    return Align(
-      alignment: Alignment.topLeft,
-      child: ListTile(
-        contentPadding: EdgeInsets.zero,
-        title: Text(
-          getProductName(widget._product, appLocalizations),
-          style: themeData.textTheme.headline4,
-        ),
-        subtitle: Text(widget._product.brands ?? appLocalizations.unknownBrand),
-        trailing: Text(
-          widget._product.quantity ?? '',
-          style: themeData.textTheme.headline3,
         ),
       ),
     );
@@ -389,5 +420,70 @@ class _SummaryCardState extends State<SummaryCard> {
       }
     }
     return result;
+  }
+
+  Widget _buildProductQuestionsWidget() {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    if (_productQuestions == null) {
+      return EMPTY_WIDGET;
+    }
+    return FutureBuilder<List<RobotoffQuestion>>(
+        future: _productQuestions,
+        builder: (
+          BuildContext context,
+          AsyncSnapshot<List<RobotoffQuestion>> snapshot,
+        ) {
+          final List<RobotoffQuestion> questions =
+              snapshot.data ?? <RobotoffQuestion>[];
+          if (questions.isNotEmpty) {
+            return InkWell(
+              onTap: () async {
+                await Navigator.push<Widget>(
+                  context,
+                  MaterialPageRoute<Widget>(
+                    builder: (BuildContext context) => QuestionCard(
+                      product: widget._product,
+                      questions: questions,
+                      updateProductUponAnswers: updateProductUponAnswers,
+                    ),
+                  ),
+                );
+              },
+              child: SmoothCard(
+                margin: EdgeInsets.zero,
+                color: const Color(0xfff5f6fa),
+                elevation: 0,
+                padding: const EdgeInsets.all(
+                  SMALL_SPACE,
+                ),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: Column(
+                    children: <Widget>[
+                      // TODO(jasmeet): Use Material icon or SVG (after consulting UX).
+                      Text('🏅 ${appLocalizations.tap_to_answer}'),
+                      Container(
+                        padding: const EdgeInsets.only(top: SMALL_SPACE),
+                        child: Text(appLocalizations.contribute_to_get_rewards),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            );
+          }
+          return EMPTY_WIDGET;
+        });
+  }
+
+  Future<void> updateProductUponAnswers() async {
+    // Reload the product questions, they might have been answered.
+    // Or the backend may have new ones.
+    await loadProductQuestions();
+    // Reload the product as it may have been updated because of the
+    // new answers.
+    if (widget.refreshProductCallback != null) {
+      widget.refreshProductCallback!(context);
+    }
   }
 }

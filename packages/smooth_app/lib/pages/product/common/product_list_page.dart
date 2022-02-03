@@ -6,10 +6,8 @@ import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
-import 'package:smooth_app/pages/product/common/product_list_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
-import 'package:smooth_app/widgets/ranking_floating_action_button.dart';
 
 class ProductListPage extends StatefulWidget {
   const ProductListPage(this.productList);
@@ -23,6 +21,8 @@ class ProductListPage extends StatefulWidget {
 class _ProductListPageState extends State<ProductListPage> {
   late ProductList productList;
   bool first = true;
+  final Set<String> _selectedBarcodes = <String>{};
+  bool _selectionMode = false;
 
   @override
   Widget build(BuildContext context) {
@@ -48,62 +48,66 @@ class _ProductListPageState extends State<ProductListPage> {
     }
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white, // TODO(monsieurtanuki): night mode
+        foregroundColor: Colors.black,
         title: Row(
+          mainAxisAlignment: _selectionMode && _selectedBarcodes.isEmpty
+              ? MainAxisAlignment.end // just the cancel button, at the end
+              : MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Flexible(
-              child: Text(
-                ProductQueryPageHelper.getProductListLabel(
-                  productList,
-                  context,
-                  verbose: false,
+            if (_selectionMode && _selectedBarcodes.isNotEmpty)
+              ElevatedButton(
+                child: Text(
+                  appLocalizations.plural_compare_x_products(
+                    _selectedBarcodes.length,
+                  ),
                 ),
-                overflow: TextOverflow.fade,
+                onPressed: () async {
+                  final List<Product> list = <Product>[];
+                  for (final Product product in products) {
+                    if (_selectedBarcodes.contains(product.barcode)) {
+                      list.add(product);
+                    }
+                  }
+                  await Navigator.push<Widget>(
+                    context,
+                    MaterialPageRoute<Widget>(
+                      builder: (BuildContext context) =>
+                          PersonalizedRankingPage.fromItems(
+                        products: list,
+                        title: 'Your ranking',
+                      ),
+                    ),
+                  );
+                  setState(() => _selectionMode = false);
+                },
               ),
-            ),
+            if (_selectionMode)
+              ElevatedButton(
+                onPressed: () => setState(() => _selectionMode = false),
+                child: Text(appLocalizations.cancel),
+              ),
+            if (!_selectionMode)
+              Flexible(
+                child: Text(
+                  ProductQueryPageHelper.getProductListLabel(
+                    productList,
+                    context,
+                    verbose: false,
+                  ),
+                  overflow: TextOverflow.fade,
+                ),
+              ),
+            if ((!_selectionMode) && products.isNotEmpty)
+              Flexible(
+                child: ElevatedButton(
+                  child: Text(appLocalizations.compare_products_mode),
+                  onPressed: () => setState(() => _selectionMode = true),
+                ),
+              ),
           ],
         ),
-        actions: !dismissible
-            ? null
-            : <Widget>[
-                PopupMenuButton<String>(
-                  itemBuilder: (final BuildContext context) =>
-                      <PopupMenuEntry<String>>[
-                    PopupMenuItem<String>(
-                      value: 'clear',
-                      child: Text(appLocalizations.clear),
-                      enabled: true,
-                    ),
-                  ],
-                  onSelected: (final String value) async {
-                    switch (value) {
-                      case 'clear':
-                        if (await ProductListDialogHelper.instance
-                            .openClear(context, daoProductList, productList)) {
-                          localDatabase.notifyListeners();
-                        }
-                        break;
-                      default:
-                        throw Exception('Unknown value: $value');
-                    }
-                  },
-                ),
-              ],
       ),
-      floatingActionButton: products.isEmpty
-          ? null
-          : RankingFloatingActionButton(
-              color: Colors.black,
-              onPressed: () async {
-                await Navigator.push<Widget>(
-                  context,
-                  MaterialPageRoute<Widget>(
-                    builder: (BuildContext context) =>
-                        PersonalizedRankingPage(productList),
-                  ),
-                );
-                setState(() {});
-              },
-            ),
       body: products.isEmpty
           ? Center(
               child: Text(appLocalizations.no_prodcut_in_list,
@@ -113,10 +117,44 @@ class _ProductListPageState extends State<ProductListPage> {
               itemCount: products.length,
               itemBuilder: (BuildContext context, int index) {
                 final Product product = products[index];
-                final Widget child = Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 12.0, vertical: 8.0),
-                  child: ProductListItemSimple(product: product),
+                final String barcode = product.barcode!;
+                final bool selected = _selectedBarcodes.contains(barcode);
+                void onTap() => setState(
+                      () {
+                        if (selected) {
+                          _selectedBarcodes.remove(barcode);
+                        } else {
+                          _selectedBarcodes.add(barcode);
+                        }
+                      },
+                    );
+                final Widget child = GestureDetector(
+                  onTap: _selectionMode ? onTap : null,
+                  child: Container(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: _selectionMode ? 0 : 12.0,
+                      vertical: 8.0,
+                    ),
+                    child: Row(
+                      children: <Widget>[
+                        if (_selectionMode)
+                          Icon(
+                            selected
+                                ? Icons.check_box
+                                : Icons.check_box_outline_blank,
+                          ),
+                        Expanded(
+                          child: ProductListItemSimple(
+                            product: product,
+                            onTap: _selectionMode ? onTap : null,
+                            onLongPress: !_selectionMode
+                                ? () => setState(() => _selectionMode = true)
+                                : null,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 );
                 if (dismissible) {
                   return Dismissible(
@@ -126,6 +164,7 @@ class _ProductListPageState extends State<ProductListPage> {
                       final bool removed = productList.remove(product.barcode!);
                       if (removed) {
                         await daoProductList.put(productList);
+                        _selectedBarcodes.remove(product.barcode);
                         setState(() => products.removeAt(index));
                       }
                       ScaffoldMessenger.of(context).showSnackBar(

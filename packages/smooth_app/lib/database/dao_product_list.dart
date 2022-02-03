@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/data_models/product_list.dart';
@@ -84,13 +85,26 @@ class DaoProductList extends AbstractDao {
   /// Loads the barcodes AND all the products.
   Future<void> get(final ProductList productList) async {
     final _BarcodeList? list = await _get(productList);
-    if (list == null) {
-      productList.set(<String>[], <String, Product>{});
+    final List<String> barcodes = <String>[];
+    final Map<String, Product> products = <String, Product>{};
+    if (list == null || list.barcodes.isEmpty) {
+      productList.set(barcodes, products);
       return;
     }
-    final List<String> barcodes = list.barcodes;
-    final Map<String, Product> products =
-        await DaoProduct(localDatabase).getAll(barcodes);
+    final DaoProduct daoProduct = DaoProduct(localDatabase);
+    for (final String barcode in list.barcodes) {
+      try {
+        final Product? product = await daoProduct.get(barcode);
+        if (product != null) {
+          barcodes.add(barcode);
+          products[barcode] = product;
+        } else {
+          debugPrint('unexpected: unknown product for $barcode');
+        }
+      } catch (e) {
+        debugPrint('unexpected: exception for product $barcode');
+      }
+    }
     productList.set(barcodes, products);
   }
 
@@ -115,4 +129,26 @@ class DaoProductList extends AbstractDao {
 
   Future<void> clear(final ProductList productList) async =>
       _getBox().delete(_getKey(productList));
+
+  /// Exports a list - typically for debug purposes
+  Future<Map<String, dynamic>> export(final ProductList productList) async {
+    final Map<String, dynamic> result = <String, dynamic>{};
+    final _BarcodeList? list = await _get(productList);
+    if (list == null) {
+      return result;
+    }
+    final List<String> barcodes = list.barcodes;
+    final DaoProduct daoProduct = DaoProduct(localDatabase);
+    for (final String barcode in barcodes) {
+      late bool? present;
+      try {
+        final Product? product = await daoProduct.get(barcode);
+        present = product != null;
+      } catch (e) {
+        present = null;
+      }
+      result[barcode] = present;
+    }
+    return result;
+  }
 }

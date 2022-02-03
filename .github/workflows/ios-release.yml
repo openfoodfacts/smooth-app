@@ -30,15 +30,14 @@ jobs:
           distribution: 'zulu'
           java-version: "12.x"
 
+      - uses: actions/checkout@v2
       - name: Setup Flutter
-        uses: actions/cache@v2
-        with:
-          path: ${{ runner.tool_cache }}/flutter
-          key: flutter-2.5.0-stable
-      - uses: subosito/flutter-action@v2
+        uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 2.5.0
+          cache: true
+          cache-key: flutter #change this to force refresh cache
+      - run: flutter --version
 
       - name: Get dependencies
         run: ci/pub_upgrade.sh

@@ -8,6 +8,7 @@ import 'package:smooth_app/cards/product_cards/smooth_product_card_loading.dart'
 import 'package:smooth_app/cards/product_cards/smooth_product_card_not_found.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_thanks.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/scan/scan_product_card.dart';
 import 'package:smooth_app/pages/scan/search_page.dart';
 
@@ -37,7 +38,9 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
     setState(() {
       barcodes = model.getBarcodes();
     });
-    _controller.animateToPage(barcodes.length - 1 + _searchCardAdjustment);
+    if (_controller.ready) {
+      _controller.animateToPage(barcodes.length - 1 + _searchCardAdjustment);
+    }
   }
 
   @override
@@ -48,14 +51,14 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 2.0),
           child: widget.showSearchCard && itemIndex == 0
-              ? SearchCard()
+              ? SearchCard(height: widget.height)
               : _getWidget(itemIndex - _searchCardAdjustment),
         );
       },
       carouselController: _controller,
       options: CarouselOptions(
         enlargeCenterPage: false,
-        viewportFraction: 0.95,
+        viewportFraction: 0.91,
         height: widget.height,
         enableInfiniteScroll: false,
       ),
@@ -83,9 +86,13 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
         return SmoothProductCardLoading(barcode: barcode);
       case ScannedProductState.NOT_FOUND:
         return SmoothProductCardNotFound(
-          product: Product(barcode: barcode),
-          callback: () =>
-              model.setBarcodeState(barcode, ScannedProductState.THANKS),
+          barcode: barcode,
+          callback: () {
+            // Remove the "Add New Product" card. The user may have added it
+            // already.
+            model.getBarcodes().remove(barcode);
+            setState(() {});
+          },
         );
       case ScannedProductState.THANKS:
         return const SmoothProductCardThanks();
@@ -96,16 +103,19 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
 }
 
 class SearchCard extends StatelessWidget {
+  const SearchCard({required this.height});
+
+  final double height;
   @override
   Widget build(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context)!;
-    return Card(
+    return SmoothCard(
       color: Theme.of(context).colorScheme.background.withOpacity(0.85),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20.0),
-      ),
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      margin: EdgeInsets.zero,
+      elevation: 0,
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      child: SizedBox(
+        height: height,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.stretch,

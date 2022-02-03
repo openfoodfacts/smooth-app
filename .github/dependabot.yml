@@ -10,10 +10,15 @@ updates:
       interval: "daily"
     labels:
       - "dependencies"
-
+    commit-message:
+      prefix: "chore"
+      include: "scope"
   - package-ecosystem: "bundler"
     directory: "/"
     schedule:
       interval: "daily"
     labels:
       - "dependencies"
+    commit-message:
+      prefix: "chore"
+      include: "scope"

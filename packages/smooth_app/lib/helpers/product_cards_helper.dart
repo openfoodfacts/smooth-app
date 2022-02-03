@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/Product.dart';
-import 'package:smooth_ui_library/smooth_ui_library.dart';
-import 'package:smooth_ui_library/util/ui_helpers.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/helpers/ui_helpers.dart';
 
 String getProductName(Product product, AppLocalizations appLocalizations) =>
     product.productName ?? appLocalizations.unknownProductName;
@@ -57,11 +56,16 @@ List<Attribute> getPopulatedAttributes(
   return result;
 }
 
-Widget dummyAddButton(final String label, [final VoidCallback? onPressed]) => SizedBox(
+Widget addPanelButton(
+  final String label, {
+  final IconData? iconData,
+  required final Function() onPressed,
+}) =>
+    SizedBox(
       width: double.infinity,
       child: ElevatedButton.icon(
-        icon: const Icon(Icons.add),
+        icon: Icon(iconData ?? Icons.add),
         label: Text(label),
-        onPressed: onPressed ?? () {},
+        onPressed: onPressed,
       ),
     );

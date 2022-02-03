@@ -2,6 +2,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:openfoodfacts/utils/QueryType.dart';
+import 'package:platform_device_id/platform_device_id.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
@@ -33,6 +34,20 @@ abstract class ProductQuery {
   /// Sets the global country for API queries.
   static void setCountry(final String? isoCode) =>
       OpenFoodAPIConfiguration.globalCountry = CountryHelper.fromJson(isoCode);
+
+  /// Returns the global locale string (e.g. 'pt_BR')
+  static String getLocaleString() => '${getLanguage()!.code}'
+      '_'
+      '${getCountry()!.iso2Code.toUpperCase()}';
+
+  /// Device Id, potentially used as API uuid.
+  static String? deviceId;
+
+  /// Sets the device id as "final variable", for instance for API queries.
+  ///
+  /// To be called at main / init.
+  static Future<void> setDeviceId() async => OpenFoodAPIConfiguration.uuid =
+      deviceId = await PlatformDeviceId.getDeviceId;
 
   static User getUser() =>
       OpenFoodAPIConfiguration.globalUser ??
@@ -73,6 +88,7 @@ abstract class ProductQuery {
         ProductField.LABELS_TAGS,
         ProductField.LABELS_TAGS_IN_LANGUAGES,
         ProductField.ENVIRONMENT_IMPACT_LEVELS,
+        ProductField.CATEGORIES_TAGS,
         ProductField.CATEGORIES_TAGS_IN_LANGUAGES,
         ProductField.LANGUAGE,
         ProductField.ATTRIBUTE_GROUPS,
@@ -80,7 +96,6 @@ abstract class ProductQuery {
         ProductField.ECOSCORE_DATA,
         ProductField.ECOSCORE_GRADE,
         ProductField.ECOSCORE_SCORE,
-        ProductField.ENVIRONMENT_IMPACT_LEVELS,
       ];
 
   Future<SearchResult> getSearchResult();

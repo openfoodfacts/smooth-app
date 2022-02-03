@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
+import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/database/dao_product_list.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/pages/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
@@ -31,6 +35,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         );
 
   static const String userPreferencesFlagProd = '__devWorkingOnProd';
+  static const String userPreferencesFlagUseMLKit = '__useMLKit';
 
   @override
   bool isCollapsedByDefault() => true;
@@ -64,24 +69,82 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         ListTile(
-          title: const Text('restart onboarding'),
-          subtitle: const Text('then you have to restart flutter'),
+          title: const Text('Restart onboarding'),
+          subtitle:
+              const Text('You then have to restart Flutter to see it again.'),
           onTap: () async {
             userPreferences
                 .setLastVisitedOnboardingPage(OnboardingPage.NOT_STARTED);
-            setState(() {});
+            ScaffoldMessenger.of(context)
+                .showSnackBar(const SnackBar(content: Text('Ok')));
           },
         ),
         ListTile(
-          title: const Text('switch query type'),
+          title: const Text('Switch between openfoodfacts.org and .net'),
           subtitle: Text(
-            'current value is ${OpenFoodAPIConfiguration.globalQueryType}',
+            'Current query type is ${OpenFoodAPIConfiguration.globalQueryType}',
           ),
           onTap: () async {
             await userPreferences.setFlag(userPreferencesFlagProd,
                 !(userPreferences.getFlag(userPreferencesFlagProd) ?? true));
             ProductQuery.setQueryType(userPreferences);
             setState(() {});
+          },
+        ),
+        SwitchListTile(
+          title: const Text('Use ML Kit'),
+          subtitle: const Text('then you have to restart this app'),
+          value: userPreferences.getFlag(userPreferencesFlagUseMLKit) ?? true,
+          onChanged: (bool value) async {
+            await userPreferences.setFlag(userPreferencesFlagUseMLKit, value);
+            ScaffoldMessenger.of(context)
+                .showSnackBar(const SnackBar(content: Text('Ok')));
+          },
+        ),
+        ListTile(
+          title: const Text('Export History'),
+          onTap: () async {
+            final LocalDatabase localDatabase = context.read<LocalDatabase>();
+            final Map<String, dynamic> export =
+                await DaoProductList(localDatabase).export(
+              ProductList.history(),
+            );
+            final List<Widget> children = <Widget>[];
+            for (final String barcode in export.keys) {
+              final bool? exists = export[barcode] as bool?;
+              children.add(
+                ListTile(
+                  leading: Icon(exists == null
+                      ? Icons.error
+                      : exists
+                          ? Icons.check
+                          : Icons.help_outline),
+                  title: Text(barcode),
+                  subtitle: Text(exists == null
+                      ? 'exception'
+                      : exists
+                          ? 'product found'
+                          : 'product NOT found'),
+                ),
+              );
+            }
+            showDialog<void>(
+              context: context,
+              builder: (BuildContext context) => AlertDialog(
+                title: const Text('export history'),
+                content: SizedBox(
+                  height: 400,
+                  width: 300,
+                  child: ListView(children: children),
+                ),
+                actions: <Widget>[
+                  ElevatedButton(
+                    child: Text(AppLocalizations.of(context)!.okay),
+                    onPressed: () => Navigator.pop(context),
+                  ),
+                ],
+              ),
+            );
           },
         ),
       ];

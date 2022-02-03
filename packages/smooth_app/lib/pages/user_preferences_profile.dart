@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
-import 'package:provider/provider.dart';
-import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/pages/abstract_user_preferences.dart';
@@ -81,10 +81,7 @@ class UserPreferencesProfile extends AbstractUserPreferences {
               ),
             ),
             ElevatedButton(
-              onPressed: () {
-                UserManagementHelper.logout();
-                setState(() {});
-              },
+              onPressed: () => _confirmLogout(context),
               child: Text(
                 appLocalizations.sign_out,
                 style: theme.textTheme.bodyText2?.copyWith(
@@ -150,38 +147,39 @@ class UserPreferencesProfile extends AbstractUserPreferences {
             initialCountryCode: userPreferences.userCountryCode,
           ),
         ),
-        ListTile(
-          leading: const Icon(Icons.rotate_left),
-          title: Text(appLocalizations.reset),
-          onTap: () => _confirmReset(context),
-        ),
       ],
     );
 
     return result;
   }
 
-  void _confirmReset(BuildContext context) {
+  void _confirmLogout(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context)!;
+
     showDialog<void>(
       context: context,
       builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text(localizations.confirmResetPreferences),
-          actions: <Widget>[
-            TextButton(
-              child: Text(localizations.yes),
+        return SmoothAlertDialog(
+          close: false,
+          title: localizations.sign_out,
+          body: Text(
+            localizations.sign_out_confirmation,
+          ),
+          actions: <SmoothActionButton>[
+            SmoothActionButton(
+              text: localizations.yes,
               onPressed: () async {
-                await context.read<ProductPreferences>().resetImportances();
+                UserManagementHelper.logout();
                 Navigator.pop(context);
+                setState(() {});
               },
             ),
-            TextButton(
-              child: Text(localizations.no),
+            SmoothActionButton(
+              text: localizations.no,
               onPressed: () {
                 Navigator.pop(context);
               },
-            )
+            ),
           ],
         );
       },

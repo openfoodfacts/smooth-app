@@ -6,12 +6,14 @@
     "@add": {},
     "okay": "Добре",
     "@okay": {},
-    "applyButtonText": "Потвърди",
+    "applyButtonText": "Приложи",
     "@applyButtonText": {},
     "next_label": "Next",
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "save": "Запис",
+    "skip": "Пропусни",
     "cancel": "Отмени",
     "@cancel": {},
     "close": "Затвори",
@@ -20,8 +22,12 @@
     "@no": {},
     "stop": "Спри",
     "@stop": {},
-    "reset": "Нулиране",
-    "@reset": {},
+    "finish": "Край",
+    "@finish": {},
+    "reset_food_prefs": "Нулиране на хранителните предпочитания",
+    "@reset": {
+        "description": "Button label, clicking on the button will reset user's food preferences."
+    },
     "error": "Нещо се обърка",
     "@error": {},
     "error_occurred": "Възникна грешка",
@@ -57,21 +63,21 @@
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
-    "productDataUtility": "See the food data relevant to your preferences.",
+    "productDataUtility": "Виж информация за храната, които отговаря на твоите предпочитания.",
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."
     },
-    "healthCardUtility": "Choose foods that are good for you.",
+    "healthCardUtility": "Избери храни, които са полезни за теб.",
     "@healthCardUtility": {
         "description": "Description of what a user can use the health data in a product for."
     },
-    "ecoCardUtility": "Choose foods that are good for the planet.",
+    "ecoCardUtility": "Избери храни, които са полезни за планетата.",
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
     "sign_in_text": "Влез в акаунта си в Open Food Facts, за да запазиш приноса си",
-    "incorrect_credentials": "Incorrect username or password.",
+    "incorrect_credentials": "Грешно потребителско име или парола.",
     "login": "Потребителско име",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
@@ -84,21 +90,33 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
+    "sign_out": "Изход",
+    "@sign_out": {
+        "description": "Button label: For sign out"
+    },
+    "sign_out_confirmation": "Сигурен ли си, че искаш да излезеш от профила си?",
+    "@sign_out_confirmation": {
+        "description": "Pop up title: Reassuring if the user really want to sign out"
+    },
     "password": "Парола",
     "forgot_password": "Забравена парола",
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset e-mail can be requested"
     },
+    "view_profile": "Преглед на профила",
+    "@view_profile": {
+        "description": "Button label: For to show your account"
+    },
     "reset_password": "Нулиране на паролата",
     "@reset_password": {
         "description": "Forgot password page title"
     },
-    "reset_password_explanation_text": "In case of a forgotten password, enter your username or e-mail address to receive instructions for a password reset. Also, remember to check the Spam folder.",
-    "username_or_email": "Username or e-mail",
+    "reset_password_explanation_text": "В случай на забравена парола, въведете Вашето потребителско име или емайл адрес, за да получите инструкции за нулиране на паролата. Също така, не забравяйте да проверите папката Спам.",
+    "username_or_email": "Потребителско име или е-мейл адрес",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
-    "reset_password_done": "An e-mail with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
+    "reset_password_done": "Имейл с линк за нулиране на паролата е изшратен на имейл адреса, свързан с твоя акаунт. Също така, провери и папка спам",
     "send_reset_password_mail": "Смяна на парола",
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset e-mail request"
@@ -123,8 +141,8 @@
     "sign_up_page_display_name_hint": "Екранно име",
     "sign_up_page_display_name_error_empty": "Моля, въведи екранно име, което искаш да използваш",
     "sign_up_page_email_hint": "Имейл",
-    "sign_up_page_email_error_empty": "Please enter your e-mail",
-    "sign_up_page_email_error_invalid": "Please enter a valid e-mail",
+    "sign_up_page_email_error_empty": "Изисква се имейл",
+    "sign_up_page_email_error_invalid": "Невалиден имейл",
     "sign_up_page_username_hint": "Потребителско име",
     "sign_up_page_username_error_empty": "Моля, въведи потребителско име",
     "sign_up_page_username_error_invalid": "Въведи валидно потребителско име",
@@ -134,19 +152,23 @@
     "sign_up_page_password_error_invalid": "Моля, въведи валидна парола (поне 6 знака)",
     "sign_up_page_confirm_password_hint": "Потвърди паролата",
     "sign_up_page_confirm_password_error_empty": "Моля, потвърди паролата",
-    "sign_up_page_confirm_password_error_invalid": "The passwords have to be identical",
+    "sign_up_page_confirm_password_error_invalid": "Паролите не съвпадат",
     "sign_up_page_agree_url": "https://bg.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
-    "sign_up_page_agree_error_invalid": "When creating an account, agreeing to the Terms of Use is mandatory, however, anonymous contributions can still be made through the app",
+    "donate_url": "https://donate.openfoodfacts.org/",
+    "@donate_url": {
+        "description": "Please insert the right url from the website here."
+    },
+    "sign_up_page_agree_error_invalid": "Когато създавате нов профил, приемането на Условията за ползване е задължително, въпреки това, анонимни приноси могат да се правят чрез приложението",
     "@sign_up_page_agree_error_invalid": {
         "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
     },
     "sign_up_page_producer_checkbox": "Аз съм производител на храни",
     "sign_up_page_producer_hint": "Производител/марка",
     "sign_up_page_producer_error_empty": "Моля, въведи производител или марка",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at all time)",
+    "sign_up_page_subscribe_checkbox": "Бих искал да се абонирам за бюлетина Open Food Facts (Забележка: Можеш да се отпишеш от него по всяко време)",
     "@Settings": {},
     "settingsTitle": "Настройки",
     "@settingsTitle": {
@@ -164,14 +186,17 @@
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch"
     },
-    "contributors": "Сътрудници",
+    "thanks_for_contributing": "Благодаря за приноса",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
+    "contributors": "Сътрудници",
     "support": "Поддръжка",
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
+    "support_join_slack": "Помоли за помощ в нашият Slack канал",
+    "support_via_email": "Изпрати ни имейл",
     "termsOfUse": "Условия за ползване",
     "@termsOfUse": {},
     "about_this_app": "Относно приложението",
@@ -179,7 +204,7 @@
         "description": "Button label: Opens a pop up window which shows information about the app"
     },
     "@About this app section": {},
-    "contribute": "Contribute",
+    "contribute": "Допринеси",
     "@contribute": {
         "description": "Button label: Shows multiple ways how users can contribute to OFF"
     },
@@ -215,6 +240,18 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Преводите са една от ключовите задачи на проекта",
     "@contribute_translate_text_2": {},
+    "tap_to_answer": "Натисни тук, за да отговориш на въпроси",
+    "@tap_to_answer": {
+        "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
+    },
+    "saving_answer": "Запазване на твоят отговор",
+    "@saving_answer": {
+        "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
+    },
+    "contribute_to_get_rewards": "Помогни за прозрачността на храните и вземи значки",
+    "@contribute_to_get_rewards": {
+        "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
+    },
     "@Personal preferences": {},
     "myPreferences": "Моите настройки",
     "@myPreferences": {
@@ -223,10 +260,10 @@
     "myPreferences_profile_title": "Твоят профил",
     "myPreferences_profile_subtitle": "Задай настройките на приложението и намери съвети.",
     "myPreferences_settings_title": "Настройки на приложението",
-    "myPreferences_settings_subtitle": "Тъмен режим, страна, цвят ...",
+    "myPreferences_settings_subtitle": "Тъмен режим, Тема, ...",
     "myPreferences_food_title": "Хранителни предпочитания",
     "myPreferences_food_subtitle": "Избери каква информация за храната е най-важна за теб.",
-    "confirmResetPreferences": "Нулиране на предпочитанията?",
+    "confirmResetPreferences": "Нулирай твоите хранителни предпочитания?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
     },
@@ -234,6 +271,10 @@
     "@myPersonalizedRanking": {
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
+    "ranking_tab_all": "Всички",
+    "ranking_subtitle_match_yes": "Добро съвпадение за теб",
+    "ranking_subtitle_match_no": "Много лошо съвпадение",
+    "ranking_subtitle_match_maybe": "Неизвестно съвпадение",
     "reloaded_with_new_preferences": "Презаредено с нови предпочитания",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
@@ -295,7 +336,7 @@
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
-    "nutrition": "Хранене",
+    "nutrition": "Хранителни стойности",
     "@nutrition": {},
     "nutrition_facts_photo": "Снимка на хранителните стойности",
     "@nutrition_facts_photo": {
@@ -307,8 +348,75 @@
     },
     "packaging_information_photo": "Снимка с информация за опаковката",
     "@packaging_information_photo": {},
-    "missing_product": "Този продукт липсва",
+    "missing_product": "Откри нов продукт!",
     "@missing_product": {},
+    "add_product_take_photos": "Направи снимки на опаковката, за да добавиш този продукт към нашата база данни.",
+    "@add_product_take_photos": {},
+    "add_product_take_photos_descriptive": "Моля, направи следните снимки и Open Food Facts ще направи останалото!",
+    "@add_product_take_photos_descriptive": {},
+    "add_product_information_button_label": "Добави информация за продукта",
+    "@add_product_information_button_label": {},
+    "new_product": "Нов продукт",
+    "@new_product": {},
+    "front_packaging_photo_button_label": "Снимка на предната част на опаковката",
+    "@front_packaging_photo_button_label": {},
+    "confirm_front_packaging_photo_button_label": "Потвърди снимката на предната страна на опаковката",
+    "@confirm_front_packaging_photo_button_label": {
+        "description": "Button clicking on which confirms the picture of the front packaging that user just took."
+    },
+    "front_photo_uploaded": "Снимката на предната страна е качена",
+    "@front_photo_uploaded": {},
+    "ingredients_photo_button_label": "Снимка на съставките",
+    "@ingredients_photo_button_label": {},
+    "confirm_ingredients_photo_button_label": "Потвърди снимката на съставките",
+    "@confirm_ingredients_photo_button_label": {
+        "description": "Button clicking on which confirms the picture of ingredients that user just took."
+    },
+    "ingredients_photo_uploaded": "Снимката на съставките е качена",
+    "@ingredients_photo_uploaded": {},
+    "nutritional_facts_photo_button_label": "Снимка на хранителните стойности",
+    "@nutritional_facts_photo_button_label": {},
+    "confirm_nutritional_facts_photo_button_label": "Confirm Nutritional facts photo",
+    "@confirm_nutritional_facts_photo_button_label": {
+        "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
+    },
+    "nutritional_facts_photo_uploaded": "Nutritional facts photo uploaded",
+    "@nutritional_facts_photo_uploaded": {},
+    "recycling_photo_button_label": "Снимка с информацията за рециклиране",
+    "@recycling_photo_button_label": {},
+    "confirm_recycling_photo_button_label": "Потвърди снимкатата с информацията за рециклиране",
+    "@confirm_recycling_photo_button_label": {
+        "description": "Button clicking on which confirms the picture of recycling information that user just took."
+    },
+    "recycling_photo_uploaded": "Recycling photo uploaded",
+    "@recycling_photo_uploaded": {},
+    "other_interesting_photo_button_label": "Други интересни снимки",
+    "@other_interesting_photo_button_label": {},
+    "confirm_other_interesting_photo_button_label": "Потвърди снимката",
+    "@confirm_other_interesting_photo_button_label": {
+        "description": "Button clicking on which confirms a miscellaneous photo of the product."
+    },
+    "other_photo_uploaded": "Miscellaneous photo uploaded",
+    "@other_photo_uploaded": {},
+    "retake_photo_button_label": "Направи отново",
+    "@retake_photo_button_label": {
+        "description": "Button clicking on which allows users to retake the last photo they took."
+    },
+    "uploading_image": "Качване на снимката на сървъра",
+    "@uploading_image": {},
+    "score_add_missing_ingredients": "Добави липсващите съставки",
+    "score_add_missing_nutrition_facts": "Добави липсващи хранителни стойности",
+    "score_add_missing_product_category": "Добави липсваща продуктова категория",
+    "score_update_nutrition_facts": "Актуализирай хранителните стойности",
+    "nutrition_page_title": "Хранителни стойности за продукта",
+    "nutrition_page_unspecified": "Хранителните стойности не са споменати на продукта",
+    "nutrition_page_per_100g": "на 100 г",
+    "nutrition_page_per_serving": "на порция",
+    "nutrition_page_add_nutrient": "Добави хранително вещество",
+    "nutrition_page_serving_size": "Размер на порция",
+    "nutrition_page_invalid_number": "Невалидно число",
+    "nutrition_page_update_running": "Актуализиране на продукта на сървърът...",
+    "nutrition_page_update_done": "Продуктът е актуализиран!",
     "more_photos": "Още интересни снимки",
     "@more_photos": {},
     "no_product_found": "Няма намерен продукт",
@@ -340,27 +448,31 @@
     "@Product Addition": {},
     "added_product_thanks": "Благодарим, че добави този продукт!",
     "@added_product_thanks": {},
-    "product_improvement_add_category": "Add a category to calculate the Nutri-Score.",
+    "product_search_same_category": "Compare to Category",
+    "@product_search_same_category": {
+        "description": "Button looking for the other products within the same category. Less than 30 characters"
+    },
+    "product_improvement_add_category": "Добави категория, за да изчислиш Nutri-Score.",
     "@product_improvement_add_category": {
         "description": "Message for ProductImprovement.ADD_CATEGORY"
     },
-    "product_improvement_add_nutrition_facts": "Add nutrition facts to calculate the Nutri-Score.",
+    "product_improvement_add_nutrition_facts": "Добави хранителни стойности, за да изчислиш Nutri-Score.",
     "@product_improvement_add_nutrition_facts": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
     },
-    "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to calculate the Nutri-Score.",
+    "product_improvement_add_nutrition_facts_and_category": "Добави хранителни стойности и категория, за да изчислиш Nutri-Score.",
     "@product_improvement_add_nutrition_facts_and_category": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
     },
-    "product_improvement_categories_but_no_nutriscore": "The Nutri-Score for this product can't be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.",
+    "product_improvement_categories_but_no_nutriscore": "Nutri-Score за този продукт не може да бъде изчислен, това може да се дължи например на нестандартна категория. Ако това се счита за грешка, моля, свържете се с нас.",
     "@product_improvement_categories_but_no_nutriscore": {
         "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
-    "product_improvement_obsolete_nutrition_image": "Снимката за хранене е остаряла: моля, актуализирай го.",
+    "product_improvement_obsolete_nutrition_image": "Снимката на хранителните стойности е остаряла: моля, актуализирай я.",
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take a photo of them (ingredient list and/or any geographic claim or edit the product) so that they can be taken into account.",
+    "product_improvement_origins_to_be_completed": "Eco-Score взема предвид произхода на съставките. Моля, снимай ги (списък на съставките и/или всякакви географски обозначения или редактирай продукта), за да могат да бъдат взети предвид.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
@@ -368,7 +480,7 @@
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },
-    "country_selection_explanation": "Some environmental features are location-specific",
+    "country_selection_explanation": "Някои характеристики на околната среда са специфични за местоположението",
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
@@ -383,20 +495,12 @@
     "@Lists": {},
     "no_prodcut_in_list": "Няма продукт в този списък",
     "no_product_in_section": "Няма продукт в този раздел",
-    "recently_seen_products": "Наскоро видяни продукти",
+    "recently_seen_products": "История",
     "clear": "Изчисти",
     "@clear": {
         "description": "Clears a product list"
     },
     "really_clear": "Наистина ли искаш да изчистиш този списък?",
-    "@Plural": {},
-    "pct_match": "{pct}% съвпадение",
-    "@pct_match": {
-        "description": "This product has a x percent match with your preferences",
-        "placeholders": {
-            "pct": {}
-        }
-    },
     "product_compatibility_unknown": "Неизвестна съвместимост на продукта",
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
@@ -417,46 +521,58 @@
     "@product_compatibility_good": {
         "description": "Product compatibility summary title"
     },
-    "plural_ago_days": "{=1{one day ago} other{{count} days ago}}",
+    "@Plural": {},
+    "pct_match": "{percent}% съвпадение",
+    "@pct_match": {
+        "description": "This product has a x percent match with your preferences",
+        "placeholders": {
+            "percent": {}
+        }
+    },
+    "plural_ago_days": "{count,plural, =1{преди един ден} other{преди {count} дни}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{=1{one hour ago} other{{count} hours ago}}",
+    "plural_ago_hours": "{count,plural, =1{преди един час} other{преди {count} часа}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{=0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
+    "plural_ago_minutes": "{count,plural, =0{преди по-малко от една минута} =1{преди една минута} other{преди {count} минути}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{=1{one month ago} other{{count} months ago}}",
+    "plural_ago_months": "{count,plural, =1{преди един месец} other{преди {count} месеца}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{=1{one week ago} other{{count} weeks ago}}",
+    "plural_ago_weeks": "{count,plural, =1{преди една седмица} other{преди {count} седмици}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_compare_x_products": "{other{Compare {count} Products}",
+    "plural_compare_x_products": "{count,plural, =other{Сравни {count} продукта}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {
             "count": {}
         }
+    },
+    "compare_products_mode": "Режим Сравняване",
+    "@compare_products_mode": {
+        "description": "Button to switch to 'compare products mode'"
     }
 }

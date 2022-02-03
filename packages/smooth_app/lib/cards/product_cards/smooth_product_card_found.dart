@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/personalized_search/matched_product.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/svg_icon_chip.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_product_image.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
+import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/product/new_product_page.dart';
-import 'package:smooth_ui_library/util/ui_helpers.dart';
-import 'package:smooth_ui_library/widgets/smooth_product_image.dart';
 
 class SmoothProductCardFound extends StatelessWidget {
   const SmoothProductCardFound({
@@ -20,6 +21,7 @@ class SmoothProductCardFound extends StatelessWidget {
     this.handle,
     this.onLongPress,
     this.refresh,
+    this.onTap,
   });
 
   final Product product;
@@ -29,6 +31,7 @@ class SmoothProductCardFound extends StatelessWidget {
   final Widget? handle;
   final VoidCallback? onLongPress;
   final VoidCallback? refresh;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -44,18 +47,23 @@ class SmoothProductCardFound extends StatelessWidget {
     for (final Attribute attribute in attributes) {
       scores.add(SvgIconChip(attribute.iconUrl!, height: iconSize));
     }
-    final ProductCompatibilityResult compatibility =
-        getProductCompatibility(context.watch<ProductPreferences>(), product);
+    final MatchedProduct matchedProduct = MatchedProduct(
+      product,
+      context.watch<ProductPreferences>(),
+    );
+    final ProductCompatibilityHelper helper =
+        ProductCompatibilityHelper(matchedProduct);
     return GestureDetector(
-      onTap: () async {
-        await Navigator.push<Widget>(
-          context,
-          MaterialPageRoute<Widget>(
-            builder: (BuildContext context) => ProductPage(product),
-          ),
-        );
-        refresh?.call();
-      },
+      onTap: onTap ??
+          () async {
+            await Navigator.push<Widget>(
+              context,
+              MaterialPageRoute<Widget>(
+                builder: (BuildContext context) => ProductPage(product),
+              ),
+            );
+            refresh?.call();
+          },
       onLongPress: () {
         onLongPress?.call();
       },
@@ -102,15 +110,13 @@ class SmoothProductCardFound extends StatelessWidget {
                             Icon(
                               Icons.circle,
                               size: 15,
-                              color:
-                                  getProductCompatibilityHeaderBackgroundColor(
-                                      compatibility.productCompatibility),
+                              color: helper.getBackgroundColor(),
                             ),
                             const Padding(
                                 padding:
                                     EdgeInsets.only(left: VERY_SMALL_SPACE)),
                             Text(
-                              getSubtitle(compatibility, appLocalizations),
+                              helper.getSubtitle(appLocalizations),
                               style: Theme.of(context).textTheme.bodyText2,
                             ),
                           ],

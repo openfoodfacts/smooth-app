@@ -1,0 +1,770 @@
+{
+  "code": "093270067481501",
+  "product": {
+    "knowledge_panels": {
+      "carbon_footprint": {
+        "elements": [{
+          "element_type": "text",
+          "text_element": {
+            "html": "\n                    <p>The carbon emission figure comes from ADEME's Agribalyse database, for the category: \n                    <a href=\"https://agribalyse.ademe.fr/app/aliments/25903\">Soup, mixed vegetables, prepacked, to be reheated</a>\n                    (Source: ADEME Agribalyse Database\n                    </p>\n                    ",
+            "text_type": "summary"
+          }
+        }, {
+          "element_type": "table",
+          "table_element": {
+            "columns": [{
+              "text": "Stage",
+              "type": "text"
+            }, {
+              "text": "Impact",
+              "type": "percent"
+            }],
+            "id": "ecoscore_carbon_impact_by_stages_table",
+            "rows": [{
+              "id": "agriculture",
+              "values": [{
+                "icon_url": "https://static.openfoodfacts.org/images/icons/dist/agriculture.svg",
+                "text": "Agriculture"
+              }, {
+                "percent": 19.9102452652909,
+                "text": "19.9 %"
+              }]
+            }, {
+              "id": "processing",
+              "values": [{
+                "icon_url": "https://static.openfoodfacts.org/images/icons/dist/processing.svg",
+                "text": "Processing"
+              }, {
+                "percent": 27.1491161600647,
+                "text": "27.1 %"
+              }]
+            }, {
+              "id": "packaging",
+              "values": [{
+                "icon_url": "https://static.openfoodfacts.org/images/icons/dist/packaging.svg",
+                "text": "Packaging"
+              }, {
+                "percent": 19.8346135618205,
+                "text": "19.8 %"
+              }]
+            }, {
+              "id": "transportation",
+              "values": [{
+                "icon_url": "https://static.openfoodfacts.org/images/icons/dist/transportation.svg",
+                "text": "Transportation"
+              }, {
+                "percent": 26.4266128826942,
+                "text": "26.4 %"
+              }]
+            }, {
+              "id": "distribution",
+              "values": [{
+                "icon_url": "https://static.openfoodfacts.org/images/icons/dist/distribution.svg",
+                "text": "Distribution"
+              }, {
+                "percent": 5.08785774296693,
+                "text": "5.1 %"
+              }]
+            }, {
+              "id": "consumption",
+              "values": [{
+                "icon_url": "https://static.openfoodfacts.org/images/icons/dist/consumption.svg",
+                "text": "Consumption"
+              }, {
+                "percent": 1.59155663592528,
+                "text": "1.6 %"
+              }]
+            }],
+            "table_type": "percents",
+            "title": "Details of the impacts by stages of the life cycle"
+          }
+        }],
+        "evaluation": "good",
+        "expanded": false,
+        "level": "info",
+        "title_element": {
+          "icon_color_from_evaluation": true,
+          "icon_url": "https://static.openfoodfacts.org/images/icons/dist/car.svg",
+          "subtitle": "50 g CO² per 100g of product",
+          "title": "Equal to driving 0.3 km in a petrol car"
+        },
+        "topics": ["environment"]
+      },
+      "ecoscore": {
+        "elements": [{
+          "element_type": "text",
+          "text_element": {
+            "html": "The <a href=\"/ecoscore\">Eco-Score</a> is an experimental score that summarizes the environmental impacts of food products."
+          }
+        }, {
+          "element_type": "text",
+          "text_element": {
+            "html": "\n                    \n                        The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country.\n                                    \n                ",
+            "type": "note"
+          }
+        }, {
+          "element_type": "panel_group",
+          "panel_group_element": {
+            "panel_ids": ["ecoscore_agribalyse"],
+            "title": "Life cycle analysis"
+          }
+        }, {
+          "element_type": "panel_group",
+          "panel_group_element": {
+            "panel_ids": ["ecoscore_production_system", "ecoscore_origins_of_ingredients", "ecoscore_threatened_species", "ecoscore_packaging"],
+            "title": "Bonuses and maluses"
+          }
+        }, {
+          "element_type": "panel_group",
+          "panel_group_element": {
+            "panel_ids": ["ecoscore_total"],
+            "title": "Eco-Score for this product"
+          }
+        }],
+        "level": "info",
+        "title_element": {
+          "grade": "a",
+          "icon_url": "https://static.openfoodfacts.org/images/attributes/ecoscore-a.svg",
+          "title": "Eco-Score A - Very low environmental impact",
+          "type": "grade"
+        },
+        "topics": ["environment"]
+      },
+      "ecoscore_agribalyse": {
+        "elements": [{
+          "element_type": "text",
+          "text_element": {
+            "html": "\n                    <p>Category: \n                    <a href=\"https://agribalyse.ademe.fr/app/aliments/25903\">Soup, mixed vegetables, prepacked, to be reheated</a>\n                    </p>\n                    <ul>\n                        <li>\n                            PEF environmental score: 0.09\n                            (the lower the score, the lower the impact)\n                        </li>\n                        <li>\n                            including impact on climate change: 0.50\n                            kg CO2 eq/kg of product\n                        </li>\n                    </ul>\n                    ",
+            "text_type": "summary"
+          }
+        }, {
+          "element_type": "table",
+          "table_element": {
+            "columns": [{
+              "text": "Stage",
+              "type": "text"
+            }, {
+              "text": "Impact",
+              "type": "percent"
+            }],
+            "id": "ecoscore_lca_impacts_by_stages_table",
+            "rows": [{
+              "id": "agriculture",
+              "values": [{
+                "icon_url": "https://static.openfoodfacts.org/images/icons/dist/agriculture.svg",
+                "text": "Agriculture"
+              }, {
+                "percent": 25.5002680709173,
+                "text": "25.5 %"
+              }]
+            }, {
+              "id": "processing",
+              "values": [{
+                "icon_url": "https://static.openfoodfacts.org/images/icons/dist/processing.svg",
+                "text": "Processing"
+              }, {
+                "percent": 33.0290288957563,
+                "text": "33.0 %"
+              }]
+            }, {
+              "id": "packaging",
+              "values": [{
+                "icon_url": "https://static.openfoodfacts.org/images/icons/dist/packaging.svg",
+                "text": "Packaging"
+              }, {
+                "percent": 16.0209089644945,
+                "text": "16.0 %"
+              }]
+            }, {
+              "id": "transportation",
+              "values": [{
+                "icon_url": "https://static.openfoodfacts.org/images/icons/dist/transportation.svg",
+                "text": "Transportation"
+              }, {
+                "percent": 10.9532564584838,
+                "text": "11.0 %"
+              }]
+            }, {
+              "id": "distribution",
+              "values": [{
+                "icon_url": "https://static.openfoodfacts.org/images/icons/dist/distribution.svg",
+                "text": "Distribution"
+              }, {
+                "percent": 10.2036132114395,
+                "text": "10.2 %"
+              }]
+            }, {
+              "id": "consumption",
+              "values": [{
+                "icon_url": "https://static.openfoodfacts.org/images/icons/dist/consumption.svg",
+                "text": "Consumption"
+              }, {
+                "percent": 4.29292536182619,
+                "text": "4.3 %"
+              }]
+            }],
+            "table_type": "percents",
+            "title": "Details of the impacts by stages of the life cycle"
+          }
+        }],
+        "level": "info",
+        "title_element": {
+          "grade": "a",
+          "subtitle": "Category: Soup, mixed vegetables, prepacked, to be reheated",
+          "title": "Average impact of products of the same category: A (Score: 97/100)",
+          "type": "grade"
+        },
+        "topics": ["environment"]
+      },
+      "ecoscore_origins_of_ingredients": {
+        "elements": [{
+          "element_type": "text",
+          "text_element": {
+            "html": "\n                <strong>Environmental policy: +4</strong><br>\n                <strong>Transportation: 0</strong><br>\n                ",
+            "type": "default"
+          }
+        }, {
+          "element_type": "table",
+          "table_element": {
+            "columns": [{
+              "text": "Origin of the product and/or its ingredients",
+              "type": "text"
+            }, {
+              "text": "% of ingredients",
+              "type": "percent"
+            }, {
+              "text": "Impact",
+              "type": "text"
+            }],
+            "id": "ecoscore_origins_of_ingredients_table",
+            "rows": [{
+              "values": [{
+                "text": "France"
+              }, {
+                "evaluation": "neutral",
+                "percent": 100,
+                "text": "100 %"
+              }, {
+                "evaluation": "neutral",
+                "text": "Medium"
+              }]
+            }],
+            "title": "Origins of ingredients"
+          }
+        }],
+        "evaluation": "average",
+        "level": "info",
+        "title_element": {
+          "icon_color_from_evaluation": true,
+          "icon_size": "small",
+          "icon_url": "https://static.openfoodfacts.org/images/icons/dist/public.svg",
+          "subtitle": "Bonus: +4",
+          "title": "Origins of ingredients with a medium impact"
+        },
+        "topics": ["environment"]
+      },
+      "ecoscore_packaging": {
+        "elements": [{
+          "element_type": "table",
+          "table_element": {
+            "columns": [{
+              "text": "Shape",
+              "type": "text"
+            }, {
+              "text": "Material",
+              "type": "text"
+            }, {
+              "text": "Recycling",
+              "type": "text"
+            }, {
+              "text": "Impact",
+              "type": "text"
+            }],
+            "id": "ecoscore_packaging_components",
+            "rows": [{
+              "values": [{
+                "text": "Bottle"
+              }, {
+                "text": "Glass"
+              }, {
+                "evaluation": "good",
+                "text": "Recycle"
+              }, {
+                "evaluation": "good",
+                "text": "Low"
+              }]
+            }, {
+              "values": [{
+                "text": "Bottle cap"
+              }, {
+                "text": "Steel"
+              }, {
+                "evaluation": "good",
+                "text": "Recycle"
+              }, {
+                "evaluation": "good",
+                "text": "Low"
+              }]
+            }],
+            "title": "Packaging parts"
+          }
+        }],
+        "evaluation": "good",
+        "level": "info",
+        "title_element": {
+          "icon_color_from_evaluation": true,
+          "icon_size": "small",
+          "icon_url": "https://static.openfoodfacts.org/images/icons/dist/packaging.svg",
+          "subtitle": "Malus: -2",
+          "title": "Packaging with a low impact"
+        },
+        "topics": ["environment"]
+      },
+      "ecoscore_production_system": {
+        "elements": [{
+          "element_type": "panel",
+          "panel_element": {
+            "panel_id": "environment_label_en:eu-organic"
+          }
+        }],
+        "evaluation": "good",
+        "level": "info",
+        "title_element": {
+          "icon_color_from_evaluation": true,
+          "icon_size": "small",
+          "icon_url": "https://static.openfoodfacts.org/images/icons/dist/agriculture.svg",
+          "subtitle": "Bonus: +15",
+          "title": "Labels with high environmental benefits"
+        },
+        "topics": ["environment"]
+      },
+      "ecoscore_threatened_species": {
+        "evaluation": "good",
+        "level": "info",
+        "title_element": {
+          "icon_color_from_evaluation": true,
+          "icon_size": "small",
+          "icon_url": "https://static.openfoodfacts.org/images/icons/dist/monkey_happy.svg",
+          "title": "No ingredients that threaten species"
+        },
+        "topics": ["environment"]
+      },
+      "ecoscore_total": {
+        "elements": [{
+          "element_type": "text",
+          "text_element": {
+            "html": "\n                Life cycle analysis score: 97<br>\n                Sum of bonuses and maluses:\n                    \n                        +17\n                    <br><br>\n                Final score: 114/100\n                \n                ",
+            "type": "summary"
+          }
+        }],
+        "level": "info",
+        "title_element": {
+          "grade": "a",
+          "subtitle": "Product: A good product for you - Open Food Facts - 200 g",
+          "title": "Impact for this product: A (Score: 114/100)",
+          "type": "grade"
+        },
+        "topics": ["environment"]
+      },
+      "environment_card": {
+        "elements": [{
+          "element_type": "panel",
+          "panel_element": {
+            "panel_id": "ecoscore"
+          }
+        }, {
+          "element_type": "panel_group",
+          "panel_group_element": {
+            "panel_ids": ["carbon_footprint"],
+            "title": "Carbon footprint"
+          }
+        }, {
+          "element_type": "panel_group",
+          "panel_group_element": {
+            "panel_ids": ["packaging_recycling"],
+            "title": "Packaging"
+          }
+        }, {
+          "element_type": "panel_group",
+          "panel_group_element": {
+            "panel_ids": ["manufacturing_place", "origins_of_ingredients"],
+            "title": "Transportation"
+          }
+        }, {
+          "element_type": "panel_group",
+          "panel_group_element": {
+            "panel_ids": ["environment_label_en:eu-organic"],
+            "title": "Labels"
+          }
+        }],
+        "expanded": true,
+        "title_element": {
+          "title": ""
+        },
+        "topics": ["environment"],
+        "type": "card"
+      },
+      "environment_label_en:eu-organic": {
+        "elements": [{
+          "element_type": "text",
+          "text_element": {
+            "html": "\n                    Organic food is food produced by methods complying with the standards of organic farming and features practices that cycle resources, promote ecological balance, and conserve biodiversity.\n                    ",
+            "type": "default"
+          }
+        }],
+        "evaluation": "good",
+        "level": "info",
+        "title_element": {
+          "icon_url": "https://static.openfoodfacts.org/images/lang/en/labels/eu-organic.135x90.svg",
+          "subtitle": "Organic agriculture contributes to preserve biodiversity, climate, water quality and soil fertility.",
+          "title": "EU Organic"
+        },
+        "topics": ["environment"]
+      },
+      "health_card": {
+        "elements": [{
+          "element_type": "panel_group",
+          "panel_group_element": {
+            "panel_ids": ["nutriscore", "physical_activities", "nutrition_facts_table"],
+            "title": ""
+          }
+        }, {
+          "element_type": "panel_group",
+          "panel_group_element": {
+            "panel_ids": ["ingredients"],
+            "title": "Ingredients"
+          }
+        }],
+        "expanded": true,
+        "title_element": {
+          "title": "Health"
+        },
+        "topics": ["health"],
+        "type": "card"
+      },
+      "ingredients": {
+        "elements": [{
+          "element_type": "text",
+          "text_element": {
+            "edit_field_id": "ingredients_text_en",
+            "edit_field_type": "ingredients_text",
+            "edit_field_value": "Butternut squash 50%, water, carrots 10%, sweet potato, leeks, potatoes, salt.",
+            "html": "Butternut squash 50%, water, carrots 10%, sweet potato, leeks, potatoes, salt.",
+            "language": "English",
+            "lc": "en"
+          }
+        }],
+        "expanded": true,
+        "level": "info",
+        "topics": ["health"],
+        "type": "inline"
+      },
+      "manufacturing_place": {
+        "elements": [{
+          "element_type": "map",
+          "map_element": {
+            "pointers": [{
+              "geo": {
+                "lat": 48.7951886,
+                "lng": 2.4871653
+              }
+            }]
+          }
+        }],
+        "evaluation": "neutral",
+        "expanded": true,
+        "level": "info",
+        "title_element": {
+          "icon_color_from_evaluation": true,
+          "icon_url": "https://static.openfoodfacts.org/images/icons/dist/transportation.svg",
+          "subtitle": "SAINT-MAUR-DES-FOSSES - France",
+          "title": "Manufacturing or processing place"
+        },
+        "topics": ["environment"]
+      },
+      "nutriscore": {
+        "elements": [{
+          "element_type": "text",
+          "text_element": {
+            "html": "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: 60%\n                    ",
+            "type": "warning"
+          }
+        }, {
+          "element_type": "text",
+          "text_element": {
+            "html": "<!-- start templates/web/pages/product/includes/nutriscore_details.tt.html -->\n\n<p>This product is not considered a beverage for the calculation of the Nutri-Score.</p>\n\n\n\n\n\n  <p> \n    <strong>Positive points: 4</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Proteins:\n0&nbsp;</strong>/&nbsp;5\n(value: 1, \n        rounded value: 1)\n      </li>\n    \n      <li>\n        <strong>Fiber:\n3&nbsp;</strong>/&nbsp;5\n(value: 3, \n        rounded value: 3)\n      </li>\n    \n      <li>\n        <strong>Fruits, vegetables, nuts, and colza/walnut/olive oils:\n1&nbsp;</strong>/&nbsp;5\n(value: 60, \n        rounded value: 60)\n      </li>\n    \n  </ul>\n\n\n\n  <p> \n    <strong>Negative points: 1</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Energy:\n0&nbsp;</strong>/&nbsp;10\n(value: 120, \n        rounded value: 120)\n      </li>\n    \n      <li>\n        <strong>Sugars:\n0&nbsp;</strong>/&nbsp;10\n(value: 0.5, \n        rounded value: 0.5)\n      </li>\n    \n      <li>\n        <strong>Saturated fat:\n0&nbsp;</strong>/&nbsp;10\n(value: 0.2, \n        rounded value: 0.2)\n      </li>\n    \n      <li>\n        <strong>Sodium:\n1&nbsp;</strong>/&nbsp;10\n(value: 160, \n        rounded value: 160)\n      </li>\n    \n  </ul>\n\n\n\n<p>The points for proteins are counted because the negative points are less than 11.</p>\n\n<p>\n  <strong>Score nutritionnel: -3</strong>\n  (1 - 4)\n</p>\n<p><strong>Nutri-Score: A</strong></p>\n\n<!-- end templates/web/pages/product/includes/nutriscore_details.tt.html -->"
+          }
+        }],
+        "level": "info",
+        "title_element": {
+          "grade": "a",
+          "icon_url": "https://static.openfoodfacts.org/images/attributes/nutriscore-a.svg",
+          "title": "Very good nutritional quality",
+          "type": "grade"
+        },
+        "topics": ["health"]
+      },
+      "nutrition_facts_table": {
+        "elements": [{
+          "element_type": "table",
+          "table_element": {
+            "columns": [{
+              "style": "max-width:15rem",
+              "text": "Nutrition facts",
+              "type": "text"
+            }, {
+              "column_group_id": "product",
+              "shown_by_default": true,
+              "text": "As sold<br>for 100 g / 100 ml",
+              "text_for_small_screens": "100g",
+              "type": "text"
+            }, {
+              "column_group_id": "comparisons",
+              "shown_by_default": true,
+              "text": "Compared to: Vegetable soups",
+              "type": "text"
+            }],
+            "id": "nutrition_facts_table",
+            "rows": [{
+              "values": [{
+                "level": 0,
+                "style": "max-width:15rem",
+                "text": "Energy"
+              }, {
+                "text": "120 kj<br>(29 kcal)"
+              }, {
+                "evaluation": "good",
+                "text": "-55%"
+              }]
+            }, {
+              "values": [{
+                "level": 0,
+                "style": "max-width:15rem",
+                "text": "Fat"
+              }, {
+                "text": "0.5 g"
+              }, {
+                "evaluation": "good",
+                "text": "-70%"
+              }]
+            }, {
+              "values": [{
+                "level": 1,
+                "style": "max-width:15rem",
+                "text": "Saturated fat"
+              }, {
+                "text": "0.2 g"
+              }, {
+                "evaluation": "good",
+                "text": "-42%"
+              }]
+            }, {
+              "values": [{
+                "level": 0,
+                "style": "max-width:15rem",
+                "text": "Salt"
+              }, {
+                "text": "0.4 g"
+              }, {
+                "evaluation": "good",
+                "text": "-33%"
+              }]
+            }, {
+              "values": [{
+                "level": 0,
+                "style": "max-width:15rem",
+                "text": "Carbohydrates"
+              }, {
+                "text": "4 g"
+              }, {
+                "text": "-60%"
+              }]
+            }, {
+              "values": [{
+                "level": 1,
+                "style": "max-width:15rem",
+                "text": "Fiber"
+              }, {
+                "text": "3 g"
+              }, {
+                "evaluation": "good",
+                "text": "+122%"
+              }]
+            }, {
+              "values": [{
+                "level": 1,
+                "style": "max-width:15rem",
+                "text": "Sugars"
+              }, {
+                "text": "0.5 g"
+              }, {
+                "evaluation": "good",
+                "text": "-85%"
+              }]
+            }, {
+              "values": [{
+                "level": 0,
+                "style": "max-width:15rem",
+                "text": "Proteins"
+              }, {
+                "text": "1 g"
+              }, {
+                "evaluation": "bad",
+                "text": "-47%"
+              }]
+            }, {
+              "values": [{
+                "level": 0,
+                "style": "max-width:15rem",
+                "text": "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)"
+              }, {
+                "text": "60 %"
+              }, {
+                "text": ""
+              }]
+            }],
+            "title": "Nutrition facts"
+          }
+        }],
+        "expanded": true,
+        "level": "info",
+        "topics": ["health"],
+        "type": "inline"
+      },
+      "origins_of_ingredients": {
+        "elements": [{
+          "element_type": "table",
+          "table_element": {
+            "columns": [{
+              "text": "Origin of the product and/or its ingredients",
+              "type": "text"
+            }, {
+              "text": "% of ingredients",
+              "type": "percent"
+            }, {
+              "text": "Impact",
+              "type": "text"
+            }],
+            "id": "ecoscore_origins_of_ingredients_table",
+            "rows": [{
+              "values": [{
+                "text": "France"
+              }, {
+                "evaluation": "neutral",
+                "percent": 100,
+                "text": "100 %"
+              }, {
+                "evaluation": "neutral",
+                "text": "Medium"
+              }]
+            }],
+            "table_type": "percents",
+            "title": "Origins of ingredients"
+          }
+        }],
+        "evaluation": "average",
+        "expanded": false,
+        "level": "info",
+        "title_element": {
+          "icon_color_from_evaluation": true,
+          "icon_url": "https://static.openfoodfacts.org/images/icons/dist/public.svg",
+          "subtitle": "Origins of ingredients with a medium impact",
+          "title": "Origins of ingredients"
+        },
+        "topics": ["environment"]
+      },
+      "packaging_recycling": {
+        "elements": [{
+          "element_type": "text",
+          "text_element": {
+            "evaluation": "good",
+            "html": "\n                        \n                            \n                                <strong>Bottle</strong>\n                                    \n                                        (Glass)\n                                    \n                                    <br>\n                            \n                        \n                            \n                                <strong>Bottle cap</strong>\n                                    \n                                        (Steel)\n                                    \n                                    <br>\n                            \n                        \n                        ",
+            "icon_alt": "Recycle",
+            "icon_color_from_evaluation": true,
+            "icon_url": "https://static.openfoodfacts.org/images/icons/dist/recycle-variant.svg",
+            "type": "summary"
+          }
+        }],
+        "evaluation": "good",
+        "expanded": true,
+        "level": "info",
+        "title_element": {
+          "icon_color_from_evaluation": true,
+          "icon_url": "https://static.openfoodfacts.org/images/icons/dist/packaging.svg",
+          "title": "Packaging with a low impact"
+        },
+        "topics": ["environment"]
+      },
+      "physical_activities": {
+        "elements": [{
+          "element_type": "text",
+          "text_element": {
+            "evaluation": "good",
+            "html": "\n                        <strong>Swimming:</strong> 4 min \n                        ",
+            "icon_alt": "Swimming",
+            "icon_color_from_evaluation": true,
+            "icon_url": "https://static.openfoodfacts.org/images/icons/dist/activity-swimming.svg",
+            "type": "summary",
+            "valign": "middle"
+          }
+        }, {
+          "element_type": "text",
+          "text_element": {
+            "evaluation": "good",
+            "html": "\n                        <strong>Bicycling:</strong> 3 min \n                        ",
+            "icon_alt": "Bicycling",
+            "icon_color_from_evaluation": true,
+            "icon_url": "https://static.openfoodfacts.org/images/icons/dist/activity-bicycling.svg",
+            "type": "summary",
+            "valign": "middle"
+          }
+        }, {
+          "element_type": "text",
+          "text_element": {
+            "evaluation": "good",
+            "html": "\n                        <strong>Running:</strong> 2 min \n                        ",
+            "icon_alt": "Running",
+            "icon_color_from_evaluation": true,
+            "icon_url": "https://static.openfoodfacts.org/images/icons/dist/activity-running.svg",
+            "type": "summary",
+            "valign": "middle"
+          }
+        }, {
+          "element_type": "text",
+          "text_element": {
+            "html": "\n                    <p>Energy expenditure for a person weighting 70 kg / 154 lb</p>\n                    ",
+            "icon_color_from_evaluation": true,
+            "type": "summary"
+          }
+        }],
+        "evaluation": "good",
+        "expanded": false,
+        "level": "info",
+        "title_element": {
+          "icon_color_from_evaluation": true,
+          "icon_url": "https://static.openfoodfacts.org/images/icons/dist/activity-walking.svg",
+          "subtitle": "Equal to walking 7 minutes or 700 steps",
+          "title": "120 kJ per 100g"
+        },
+        "topics": ["health"]
+      },
+      "root": {
+        "elements": [{
+          "element_type": "panel",
+          "panel_element": {
+            "panel_id": "health_card"
+          }
+        }, {
+          "element_type": "panel",
+          "panel_element": {
+            "panel_id": "environment_card"
+          }
+        }],
+        "expanded": true,
+        "type": "root"
+      }
+    }
+  },
+  "status": 1,
+  "status_verbose": "product found"
+}

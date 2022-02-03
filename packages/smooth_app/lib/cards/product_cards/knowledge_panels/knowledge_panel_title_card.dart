@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:smooth_app/cards/category_cards/abstract_cache.dart';
-import 'package:smooth_ui_library/util/ui_helpers.dart';
+import 'package:smooth_app/helpers/ui_helpers.dart';
 
 class KnowledgePanelTitleCard extends StatelessWidget {
   const KnowledgePanelTitleCard({
@@ -24,22 +24,30 @@ class KnowledgePanelTitleCard extends StatelessWidget {
         themeData.brightness == Brightness.dark) {
       colorFromEvaluation = Colors.white;
     }
+    List<Widget> iconWidget;
+    if (knowledgePanelTitleElement.iconUrl != null) {
+      iconWidget = <Widget>[
+        Expanded(
+          flex: IconWidgetSizer.getIconFlex(),
+          child: Center(
+            child: AbstractCache.best(
+              iconUrl: knowledgePanelTitleElement.iconUrl,
+              width: 36,
+              height: 36,
+              color: colorFromEvaluation,
+            ),
+          ),
+        ),
+        const Padding(padding: EdgeInsets.only(left: SMALL_SPACE)),
+      ];
+    } else {
+      iconWidget = <Widget>[];
+    }
     return Padding(
       padding: const EdgeInsets.only(top: SMALL_SPACE),
       child: Row(
         children: <Widget>[
-          Expanded(
-            flex: IconWidgetSizer.getIconFlex(),
-            child: Center(
-              child: AbstractCache.best(
-                iconUrl: knowledgePanelTitleElement.iconUrl,
-                width: 36,
-                height: 36,
-                color: colorFromEvaluation,
-              ),
-            ),
-          ),
-          const Padding(padding: EdgeInsets.only(left: SMALL_SPACE)),
+          ...iconWidget,
           Expanded(
               flex: IconWidgetSizer.getRemainingWidgetFlex(),
               child: LayoutBuilder(
