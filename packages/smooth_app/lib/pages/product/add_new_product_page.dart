@@ -149,6 +149,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
             _uploadedImages[imageType]!.add(initialPhoto);
             setState(() {});
           }
+          initialPhoto.delete();
         },
       ),
     );

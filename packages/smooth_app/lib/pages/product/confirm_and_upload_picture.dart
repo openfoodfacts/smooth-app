@@ -78,6 +78,7 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                           setState(() {
                             photo = retakenPhoto;
                           });
+                          retakenPhoto.delete();
                         }),
                     SmoothActionButton(
                         text: _getConfirmButtonText(

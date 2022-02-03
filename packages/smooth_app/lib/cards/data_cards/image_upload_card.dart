@@ -56,6 +56,7 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
         imageField: widget.imageField,
         imageUri: croppedImageFile.uri,
       );
+      croppedImageFile.delete();
       if (isUploaded) {
         widget.onUpload(context);
       }
