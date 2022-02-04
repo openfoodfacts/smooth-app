@@ -127,6 +127,16 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
         // TODO(justinmc): How do I update the product's ingredients? Lots of
         // ingredient-related fields on Product. I only see the saveProduct API
         // method, is that for editing too?
+        /*
+        Product product = Product(
+          barcode: '4250752200784',
+          lang: OpenFoodFactsLanguage.GERMAN,
+          ingredientsText: 'Johanneskraut, Maisöl, Phospholipide (Sojabohnen, Ponceau 4R)'
+        );
+        */
+        widget.product.ingredientsText = nextIngredients;
+        // TODO(justinmc): Get the actual user here.
+        Status status = await OpenFoodAPIClient.saveProduct(TestConstants.TEST_USER, widget.product);
       }
     }
   }
