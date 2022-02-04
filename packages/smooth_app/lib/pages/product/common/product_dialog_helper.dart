@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/database/barcode_product_query.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/database/product_query.dart';
-import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
-import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/widgets/loading_dialog.dart';
 
 /// Dialog helper for product barcode search
 class ProductDialogHelper {
@@ -22,7 +22,6 @@ class ProductDialogHelper {
   final BuildContext context;
   final LocalDatabase localDatabase;
   final bool refresh;
-  bool _popEd = false;
 
   Future<FetchedProduct> openBestChoice() async {
     final Product? product = await DaoProduct(localDatabase).get(barcode);
@@ -32,51 +31,17 @@ class ProductDialogHelper {
     return openUniqueProductSearch();
   }
 
-  Future<FetchedProduct> openUniqueProductSearch() async {
-    final FetchedProduct? result = await showDialog<FetchedProduct>(
-      context: context,
-      builder: (BuildContext context) {
-        BarcodeProductQuery(
-          barcode: barcode,
-          languageCode: ProductQuery.getCurrentLanguageCode(context),
-          countryCode: ProductQuery.getCurrentCountryCode(),
-          daoProduct: DaoProduct(localDatabase),
-        ).getFetchedProduct().then<void>(
-              (final FetchedProduct value) => _popSearchingDialog(value),
-            );
-        return _getSearchingDialog();
-      },
-    );
-    return result ?? FetchedProduct.error(FetchedProductStatus.userCancelled);
-  }
-
-  void _popSearchingDialog(final FetchedProduct fetchedProduct) {
-    if (_popEd) {
-      return;
-    }
-    _popEd = true;
-    Navigator.pop(context, fetchedProduct);
-  }
-
-  Widget _getSearchingDialog() => SmoothAlertDialog(
-        close: false,
-        body: ListTile(
-          leading: const CircularProgressIndicator(),
-          title: Text(
-            refresh
-                ? AppLocalizations.of(context)!.refreshing_product
-                : '${AppLocalizations.of(context)!.looking_for}: $barcode',
-          ),
-        ),
-        actions: <SmoothSimpleButton>[
-          SmoothSimpleButton(
-            text: AppLocalizations.of(context)!.stop,
-            onPressed: () => _popSearchingDialog(
-              FetchedProduct.error(FetchedProductStatus.userCancelled),
-            ),
-          ),
-        ],
-      );
+  Future<FetchedProduct> openUniqueProductSearch() async =>
+      await LoadingDialog.run<FetchedProduct>(
+          context: context,
+          future: BarcodeProductQuery(
+            barcode: barcode,
+            daoProduct: DaoProduct(localDatabase),
+          ).getFetchedProduct(),
+          title: refresh
+              ? AppLocalizations.of(context)!.refreshing_product
+              : '${AppLocalizations.of(context)!.looking_for}: $barcode') ??
+      FetchedProduct.error(FetchedProductStatus.userCancelled);
 
   void _openProductNotFoundDialog() => showDialog<Widget>(
         context: context,
@@ -88,12 +53,12 @@ class ProductDialogHelper {
                   ? AppLocalizations.of(context)!.could_not_refresh
                   : '${AppLocalizations.of(context)!.no_product_found}: $barcode',
             ),
-            actions: <SmoothSimpleButton>[
-              SmoothSimpleButton(
+            actions: <SmoothActionButton>[
+              SmoothActionButton(
                 text: AppLocalizations.of(context)!.close,
                 onPressed: () => Navigator.pop(context),
               ),
-              SmoothSimpleButton(
+              SmoothActionButton(
                 text: AppLocalizations.of(context)!.contribute,
 
                 onPressed: () => Navigator.pop(
@@ -114,8 +79,8 @@ class ProductDialogHelper {
         builder: (BuildContext context) => SmoothAlertDialog(
           close: false,
           body: getErrorMessage(message),
-          actions: <SmoothSimpleButton>[
-            SmoothSimpleButton(
+          actions: <SmoothActionButton>[
+            SmoothActionButton(
               text: AppLocalizations.of(context)!.close,
               onPressed: () => Navigator.pop(context),
             ),

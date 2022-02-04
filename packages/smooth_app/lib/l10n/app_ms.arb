@@ -1,302 +1,578 @@
 {
-    "searchTitle": "Cari.\nDapatkan produk yang sempurna",
-    "@searchTitle": {
-        "description": "Temporary title for the app main page"
-    },
-    "search": "Gelintar",
-    "@search": {},
-    "searchPanelHeader": "Cari atau imbas produk pertama anda",
-    "@searchPanelHeader": {},
-    "searchHintText": "Masukkan kod bar atau kata kunci",
-    "@searchHintText": {},
-    "categories": "Kategori-kategori",
-    "@categories": {},
-    "category": "Category",
-    "@category": {},
-    "showAll": "Tunjukkan semua",
-    "@showAll": {},
-    "scanProductTitle": "Imbas produk",
-    "@scanProductTitle": {},
-    "organizationPage": "Halaman Organisasi",
-    "@organizationPage": {},
-    "contributionPage": "Halaman Sumbangan",
-    "@contributionPage": {},
-    "trackingPage": "Halaman Penjejakan",
-    "@trackingPage": {},
-    "preferencesText": "Keutamaan Saya",
-    "@preferencesText": {},
-    "saveButtonText": "Simpan",
-    "@saveButtonText": {},
-    "applyButtonText": "Memohon",
-    "@applyButtonText": {},
-    "myPersonalizedRanking": "Kedudukan saya yang diperibadikan",
-    "@myPersonalizedRanking": {
-        "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
-    },
-    "scannerProductsEmpty": "Produk yang anda imbas akan muncul di sini",
-    "@scannerProductsEmpty": {},
-    "myPreferences": "Keutamaan Saya",
-    "@myPreferences": {},
-    "featureInProgress": "Kami masih mengusahakan ciri ini, nantikan",
-    "@featureInProgress": {},
-    "configurePreferences": "Konfigurasikan keutamaan saya",
-    "@configurePreferences": {},
-    "confirmResetPreferences": "Tetapkan semula keutamaan anda?",
-    "@confirmResetPreferences": {},
+    "@Utils": {},
     "yes": "Ya",
     "@yes": {},
-    "no": "Tidak",
-    "@no": {},
+    "add": "Tambah",
+    "@add": {},
     "okay": "Okey",
     "@okay": {},
-    "undo": "BUAT ASAL",
-    "@undo": {},
+    "applyButtonText": "Memohon",
+    "@applyButtonText": {},
+    "next_label": "Seterusnya",
+    "@next_label": {
+        "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
+    },
+    "save": "Simpan",
+    "skip": "Skip",
     "cancel": "Cancel",
     "@cancel": {},
-    "stop": "Berhenti",
-    "@stop": {},
     "close": "Tutup",
     "@close": {},
-    "empty": "Kosong!",
-    "@empty": {
-        "description": "Example: A preview of your search history, if you haven't searched for anything yet, it will show 'Empty!"
+    "no": "Tidak",
+    "@no": {},
+    "stop": "Berhenti",
+    "@stop": {},
+    "finish": "Finish",
+    "@finish": {},
+    "reset_food_prefs": "Reset food preferences",
+    "@reset": {
+        "description": "Button label, clicking on the button will reset user's food preferences."
     },
-    "unknownBrand": "Jenama tidak diketahui",
-    "@unknownBrand": {},
-    "unknownProductName": "Nama produk yang tidak diketahui",
-    "@unknownProductName": {},
-    "nutrition": "Pemakanan",
-    "@nutrition": {},
-    "ingredients": "Bahan-bahan",
-    "@ingredients": {},
-    "ecology": "Ekologi",
-    "@ecology": {},
-    "about": "Tentang aplikasi ini",
-    "@about": {},
-    "licenses": "Licences",
-    "@licenses": {},
-    "whatIsOff": "Open Food Facts adalah pangkalan data produk makanan, yang dibuat oleh semua orang, untuk semua orang. Anda dapat menggunakannya untuk membuat pilihan makanan yang lebih baik, dan oleh sebab ia data terbuka, sesiapa pun boleh menggunakannya semula untuk sebarang tujuan.",
-    "@whatIsOff": {},
+    "error": "Something went wrong",
+    "@error": {},
+    "error_occurred": "Ralat berlaku",
+    "@error_occurred": {},
+    "featureInProgress": "Kami masih mengusahakan ciri ini, nantikan",
+    "@featureInProgress": {},
+    "label_web": "View on the Web",
+    "@label_web": {},
     "learnMore": "Ketahui lebih lanjut",
     "@learnMore": {},
+    "incompatible": "Incompatible",
+    "@incompatible": {
+        "description": "Short label for product list view: the product is incompatible with your preferences"
+    },
+    "unknown": "Tidak diketahui",
+    "@unknown": {
+        "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
+    },
+    "licenses": "Licences",
+    "@licenses": {},
+    "looking_for": "Sedang mencari",
+    "@looking_for": {
+        "description": "Looking for: ${BARCODE}"
+    },
+    "@Introduction screen": {},
+    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
+    "@welcomeToOpenFoodFacts": {},
+    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "@whatIsOff": {
+        "description": "Description of Open Food Facts organization."
+    },
+    "offUtility": "Choose foods that are good for you and the planet.",
+    "@offUtility": {
+        "description": "Description of what a user can use Open Food Facts for."
+    },
+    "productDataUtility": "Lihat data makanan yang berkaitan dengan pilihan anda.",
+    "@productDataUtility": {
+        "description": "Description of what a user can use the product data for."
+    },
+    "healthCardUtility": "Pilih makanan yang baik untuk anda.",
+    "@healthCardUtility": {
+        "description": "Description of what a user can use the health data in a product for."
+    },
+    "ecoCardUtility": "Pilih makanan yang baik untuk planet.",
+    "@ecoCardUtility": {
+        "description": "Description of what a user can use the Eco data in a product for."
+    },
+    "@user_management": {},
+    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
+    "incorrect_credentials": "Nama pengguna atau kata laluan salah.",
+    "login": "Login",
+    "@login": {
+        "description": "Text field hint: unified name for either username or e-mail address"
+    },
+    "create_account": "Create account",
+    "@create_account": {
+        "description": "Button label: Opens a page where a new user can register"
+    },
+    "sign_in": "Sign in",
+    "@sign_in": {
+        "description": "Button label: For sign in"
+    },
+    "sign_out": "Daftar keluar",
+    "@sign_out": {
+        "description": "Button label: For sign out"
+    },
+    "sign_out_confirmation": "Adakah anda pasti untuk log keluar?",
+    "@sign_out_confirmation": {
+        "description": "Pop up title: Reassuring if the user really want to sign out"
+    },
+    "password": "Kata laluan",
+    "forgot_password": "Forgot password",
+    "@forgot_password": {
+        "description": "Button label: Opens a page where a password reset e-mail can be requested"
+    },
+    "view_profile": "Lihat profil",
+    "@view_profile": {
+        "description": "Button label: For to show your account"
+    },
+    "reset_password": "Tetapkan semula kata laluan",
+    "@reset_password": {
+        "description": "Forgot password page title"
+    },
+    "reset_password_explanation_text": "Dalam kes telah terlupa kata laluan, masukkan nama pengguna atau alamat e-mel anda untuk menerima arahan untuk menetapkan semula kata laluan. Juga, ingat supaya menyemak folder Spam.",
+    "username_or_email": "Nama pengguna atau e-mel",
+    "@username_or_email": {
+        "description": "Text field hint for password reset"
+    },
+    "reset_password_done": "E-mel dengan pautan untuk menetapkan semula kata laluan anda telah dihantar ke alamat e-mel yang dikaitkan dengan akaun anda. Semak juga spam anda",
+    "send_reset_password_mail": "Change password",
+    "@send_reset_password_mail": {
+        "description": "Button label: Submit the password reset e-mail request"
+    },
+    "enter_some_text": "Please enter some text",
+    "@enter_some_text": {
+        "description": "Error when a required text field is empty"
+    },
+    "sign_up_page_title": "Sign Up",
+    "@sign_up_page_title": {
+        "description": "Header"
+    },
+    "sign_up_page_action_button": "Sign Up",
+    "@sign_up_page_action_button": {
+        "description": "Button for signing up"
+    },
+    "sign_up_page_action_doing_it": "Signing up...",
+    "@sign_up_page_action_doing_it": {
+        "description": "Progress indicator dialog during the actual signing up process"
+    },
+    "sign_up_page_action_ok": "Congratulations! Your account has just been created.",
+    "sign_up_page_display_name_hint": "Display Name",
+    "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
+    "sign_up_page_email_hint": "E-mail",
+    "sign_up_page_email_error_empty": "E-mail is required",
+    "sign_up_page_email_error_invalid": "This e-mail is invalid",
+    "sign_up_page_username_hint": "Username",
+    "sign_up_page_username_error_empty": "Please enter a username",
+    "sign_up_page_username_error_invalid": "Please enter a valid username",
+    "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters",
+    "sign_up_page_password_hint": "Kata laluan",
+    "sign_up_page_password_error_empty": "Please enter a password",
+    "sign_up_page_password_error_invalid": "Please enter a valid password (at least 6 characters)",
+    "sign_up_page_confirm_password_hint": "Confirm Password",
+    "sign_up_page_confirm_password_error_empty": "Please confirm the password",
+    "sign_up_page_confirm_password_error_invalid": "Passwords don't match",
+    "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
+    "@sign_up_page_agree_url": {
+        "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
+    },
+    "donate_url": "https://donate.openfoodfacts.org/",
+    "@donate_url": {
+        "description": "Please insert the right url from the website here."
+    },
+    "sign_up_page_agree_error_invalid": "Semasa membuat akaun, bersetuju dengan Syarat Penggunaan adalah wajib, namun, sumbangan tanpa nama masih boleh dibuat melalui aplikasi",
+    "@sign_up_page_agree_error_invalid": {
+        "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
+    },
+    "sign_up_page_producer_checkbox": "I am a food producer",
+    "sign_up_page_producer_hint": "Producer/brand",
+    "sign_up_page_producer_error_empty": "Please enter a producer or a brand name",
+    "sign_up_page_subscribe_checkbox": "Saya ingin melanggan surat berita Fakta Makanan Terbuka (Anda boleh berhenti melanggannya pada bila-bila masa)",
+    "@Settings": {},
+    "settingsTitle": "Tetapan",
+    "@settingsTitle": {
+        "description": "The title of the Settings page"
+    },
+    "darkmode": "Mod Gelap",
+    "@darkmode": {
+        "description": "The name of the darkmode on off switch"
+    },
+    "darkmode_dark": "Dark",
+    "@darkmode_dark": {
+        "description": "Indicator inside the darkmode switch"
+    },
+    "darkmode_light": "Light",
+    "@darkmode_light": {
+        "description": "Indicator inside the darkmode switch"
+    },
+    "thanks_for_contributing": "Thanks for contributing",
+    "@contributors": {
+        "description": "Button label: Opens a pop up window where all contributors of this app are shown"
+    },
+    "contributors": "Contributors",
+    "support": "Support",
+    "@support": {
+        "description": "Button label: Opens a pop up window where all ways to get support are shown"
+    },
+    "support_join_slack": "Ask for help in our Slack channel",
+    "support_via_email": "Send us a e-mail",
     "termsOfUse": "Syarat-syarat penggunaan",
     "@termsOfUse": {},
+    "about_this_app": "About this app",
+    "@about_this_app": {
+        "description": "Button label: Opens a pop up window which shows information about the app"
+    },
+    "@About this app section": {},
     "contribute": "Sumbang",
-    "@contribute": {},
-    "contribute_improve_header": "Menambah baik",
-    "@contribute_improve_header": {},
-    "contribute_improve_text": "Pangkalan data adalah teras projek. Ia sangat mudah dan cepat untuk membantu. Anda boleh memuat turun aplikasi mudah alih ini untuk telefon anda, dan mula menambah atau menambah baik produk.\n\nManakala, laman web Fakta Makanan Terbuka menawarkan banyak cara untuk menyumbang: ",
-    "@contribute_improve_text": {},
-    "contribute_improve_ProductsToBeCompleted": "Products to be completed",
-    "@contribute_improve_ProductsToBeCompleted": {},
-    "contribute_develop": "Bangunkan",
-    "@contribute_develop": {},
+    "@contribute": {
+        "description": "Button label: Shows multiple ways how users can contribute to OFF"
+    },
+    "contribute_sw_development": "Software development",
+    "@contribute_sw_development": {
+        "description": "Button label + page title: Ways to help"
+    },
     "contribute_develop_text": "Kod untuk setiap produk Open Food Facts ada terdapat di GitHub. Anda dialu-alukan untuk menggunakan semula kod tersebut (sumber terbukanya) dan bantu kami menambah baiknya, untuk semua orang, di seluruh planet.",
     "@contribute_develop_text": {},
     "contribute_develop_text_2": "Anda boleh menyertai ruang sembang Open Food Facts Slack yang merupakan cara yang digemari untuk mengajukan pertanyaan.",
     "@contribute_develop_text_2": {},
+    "contribute_donate_header": "Dermalah kepada Open Food Facts",
+    "@contribute_donate_header": {},
+    "contribute_improve_ProductsToBeCompleted": "Products to be completed",
+    "@contribute_improve_ProductsToBeCompleted": {
+        "description": "Button label: Shows a list of products which aren't completed"
+    },
+    "contribute_improve_header": "Menambah baik",
+    "@contribute_improve_header": {
+        "description": "Button label + page title: Ways to improve the database"
+    },
+    "contribute_improve_text": "Pangkalan data adalah teras projek. Ia sangat mudah dan cepat untuk membantu. Anda boleh memuat turun aplikasi mudah alih ini untuk telefon anda, dan mula menambah atau menambah baik produk.\n\nManakala, laman web Fakta Makanan Terbuka menawarkan banyak cara untuk menyumbang: ",
+    "@contribute_improve_text": {},
     "contribute_translate_header": "Terjemahkan",
-    "@contribute_translate_header": {},
+    "@contribute_translate_header": {
+        "description": "Button label + pop up window title: Shows information about helping by translating"
+    },
+    "contribute_translate_link_text": "Mula Terjemahkan",
+    "@contribute_translate_link_text": {
+        "description": "Button label: Opens the Crowdin translation portal"
+    },
     "contribute_translate_text": "Fakta Makanan Terbuka adalah projek global, yang mengandungi produk dari lebih 160 negara. Fakta Makanan Terbuka diterjemahkan ke dalam berdozen bahasa, dengan kandungan yang terus berkembang.",
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Terjemahan adalah satu daripada tugas utama projek",
     "@contribute_translate_text_2": {},
-    "contribute_translate_link_text": "Mula Terjemahkan",
-    "@contribute_translate_link_text": {},
-    "contribute_donate_header": "Dermalah kepada Open Food Facts",
-    "@contribute_donate_header": {},
-    "support": "Support",
-    "@support": {},
-    "error": "Something went wrong",
-    "@error": {},
-    "darkmode": "Mod Gelap",
-    "@darkmode": {},
-    "settingsTitle": "Tetapan",
-    "@settingsTitle": {},
-    "reset": "Tetapkan semula",
-    "@reset": {},
+    "tap_to_answer": "Tap here to answer questions",
+    "@tap_to_answer": {
+        "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
+    },
+    "saving_answer": "Saving your answer",
+    "@saving_answer": {
+        "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
+    },
+    "contribute_to_get_rewards": "Help food transparency and get reward badges",
+    "@contribute_to_get_rewards": {
+        "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
+    },
+    "@Personal preferences": {},
+    "myPreferences": "Keutamaan Saya",
+    "@myPreferences": {
+        "description": "Page title: Page where the ranking preferences can be changed"
+    },
+    "myPreferences_profile_title": "Your Profile",
+    "myPreferences_profile_subtitle": "Set app settings and find out advices.",
+    "myPreferences_settings_title": "App Settings",
+    "myPreferences_settings_subtitle": "Dark mode, Theme, ...",
+    "myPreferences_food_title": "Food Preferences",
+    "myPreferences_food_subtitle": "Choose what information about food matters most to you.",
+    "confirmResetPreferences": "Reset your food preferences?",
+    "@confirmResetPreferences": {
+        "description": "Pop up title: Reassuring if the food preferences should really be reset"
+    },
+    "myPersonalizedRanking": "Kedudukan saya yang diperibadikan",
+    "@myPersonalizedRanking": {
+        "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
+    },
+    "ranking_tab_all": "Semua",
+    "ranking_subtitle_match_yes": "A great match for you",
+    "ranking_subtitle_match_no": "Very poor match",
+    "ranking_subtitle_match_maybe": "Padanan yang tidak diketahui",
+    "reloaded_with_new_preferences": "Muat semula dengan pilihan baharu",
+    "@reloaded_with_new_preferences": {
+        "description": "Snackbar title: Shows that the modified settings have been applied"
+    },
+    "@other": {},
+    "profile_navbar_label": "Profile",
+    "@profile_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+    },
+    "scan_navbar_label": "Profile",
+    "@scan_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+    },
+    "history_navbar_label": "Profile",
+    "@history_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+    },
+    "category": "Filter by category",
+    "@category": {
+        "description": "From a product list, there's a category filter: this is its title"
+    },
+    "category_all": "Semua",
+    "@category_al": {
+        "description": "Top meta-entry on a category filter"
+    },
+    "category_search": "(carian kategori)",
     "filter": "Tapis",
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "added_product_thanks": "Terima kasih kerana menambah produk ini!",
-    "@added_product_thanks": {},
-    "missing_product": "Produk ini tiada",
-    "@missing_product": {},
-    "add": "Tambah",
-    "@add": {},
-    "nutri_score_unavailable": "Skor Nutri tiada terdapat",
-    "@nutri_score_unavailable": {},
-    "missing_picture": "Gambar tiada",
-    "@missing_picture": {},
-    "searching": "Mencari...",
-    "@searching": {},
-    "empty_list": "Senarai kosong",
-    "@empty_list": {},
-    "nothing_set": "Tiada yang ditetapkan buat masa ini",
-    "rename": "Namakan Semula",
-    "@rename": {},
-    "delete": "Delete",
-    "@delete": {},
-    "change_icon": "Tukar ikon",
-    "@change_icon": {},
-    "paste": "tampal",
-    "@paste": {},
-    "copy": "salin",
-    "@copy": {},
-    "clear": "padam",
-    "@clear": {},
-    "grocery": "barangan runcit",
-    "@grocery": {},
-    "add_date": "Tambahkan tarikh lain",
-    "@add_date": {},
-    "no_date": "Tiada tarikh",
-    "@no_date": {},
-    "already_in_pantry": "Sudah berada di pantri!",
-    "@already_in_pantry": {},
-    "added_to_pantry": "Ditambah kepada pantri!",
-    "@added_to_pantry": {},
-    "want_to_delete_pantry": "Adakah anda mahu hapuskan pantri ini?",
-    "@want_to_delete_pantry": {},
-    "want_to_delete_shopping": "Adakah anda mahu hapuskan senarai membeli-belah ini?",
-    "@want_to_delete_shopping": {},
-    "want_to_delete_list": "Adakah anda mahu hapuskan senarai produk ini?",
-    "@want_to_delete_list": {},
-    "new_pantry": "Pantri baharu",
-    "@new_pantry": {},
-    "new_shopping": "Senarai membeli-belah baharu",
-    "@new_shopping": {},
-    "new_list": "Senarai baharu",
-    "@new_list": {},
-    "rename_pantry": "Namakan semula pantri",
-    "@rename_pantry": {},
-    "rename_shopping": "Namakan semula senarai membeli-belah",
-    "@rename_shopping": {},
-    "rename_list": "Namakan semula senarai",
-    "@rename_list": {},
-    "my_pantry_hint": "Pantri saya sendiri",
-    "@my_pantry_hint": {},
-    "my_shopping_hint": "Senarai membeli-belah saya",
-    "@my_shopping_hint": {},
-    "my_list_hint": "Senarai lazim saya",
-    "@my_list_hint": {},
-    "enter_text": "Sila masukkan beberapa teks",
-    "@enter_text": {},
-    "pantry_name_taken": "Sudah terdapat pantri dengan nama itu",
-    "@pantry_name_taken": {},
-    "shopping_name_taken": "Sudah terdapat senarai membeli-belah dengan nama itu",
-    "@shopping_name_taken": {},
-    "list_name_taken": "Sudah terdapat senarai dengan nama itu",
-    "@list_name_taken": {},
-    "already_same": "Itu adalah nama yang sama!",
-    "@already_same": {},
-    "my_pantrie_lists": "Pantri-pantri saya",
-    "my_shopping_lists": "Senarai membeli-belah saya",
-    "my_lists": "Senarai Saya",
-    "food_categories": "Kategori makanan",
-    "search_history": "Search history",
-    "label_preferences": "keutamaan",
-    "@label_preferences": {},
-    "label_lists": "senarai",
-    "@label_lists": {},
-    "label_web": "Sesawang",
-    "@label_web": {},
-    "label_refresh": "diperbaharui",
+    "scan": "Imbas",
+    "@scan": {
+        "description": "Page title: List type: Scanned products"
+    },
+    "search": "Gelintar",
+    "@search": {
+        "description": "Hint text of a search text input field"
+    },
+    "tab_for_more": "Tap to see more info...",
+    "@Product": {},
+    "product": "Produk",
+    "@product": {},
+    "unknownBrand": "Jenama tidak diketahui",
+    "@unknownBrand": {},
+    "unknownProductName": "Nama produk yang tidak diketahui",
+    "@unknownProductName": {},
+    "label_refresh": "Refresh",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
-    "label_share": "kongsi",
-    "@label_share": {},
-    "product_refreshed": "Produk diperbaharui",
-    "@product_refreshed": {},
-    "food_ranking_parameters": "Parameter kedudukan makanan",
-    "product": "Produk",
-    "@product": {},
-    "packaging_information": "Maklumat pembungkusan",
-    "@packaging_information": {},
-    "more_photos": "Foto yang lebih menarik",
-    "@more_photos": {},
+    "image": "Image",
     "front_photo": "Foto depan",
-    "@front_photo": {},
+    "@front_photo": {
+        "description": "Button label: For adding a picture of the front of a product"
+    },
+    "ingredients": "Bahan-bahan",
+    "@ingredients": {},
     "ingredients_photo": "Foto ramuan",
-    "@ingredients_photo": {},
+    "@ingredients_photo": {
+        "description": "Button label: For adding a picture of the Ingredients of a product"
+    },
+    "nutrition": "Pemakanan",
+    "@nutrition": {},
     "nutrition_facts_photo": "Foto fakta pemakanan",
-    "@nutrition_facts_photo": {},
+    "@nutrition_facts_photo": {
+        "description": "Button label: For adding a picture of the nutrition facts of a product"
+    },
+    "packaging_information": "Maklumat pembungkusan",
+    "@packaging_information": {
+        "description": "Button label: For adding a picture of the packaging of a product"
+    },
     "packaging_information_photo": "Foto maklumat pembungkusan",
     "@packaging_information_photo": {},
-    "add_product": "Add a new product",
-    "@add_product": {},
-    "similar_food": "Makanan yang serupa",
-    "@similar_foods": {},
-    "refreshing_product": "Produk yang diperbaharui",
-    "@refreshing_product": {},
-    "looking_for": "Sedang mencari",
-    "@looking_for": {},
-    "could_not_refresh": "Tidak dapat memperbaharui produk",
-    "@could_not_refresh": {},
+    "missing_product": "Anda telah menemui produk baharu!",
+    "@missing_product": {},
+    "add_product_take_photos": "Ambil gambar pembungkusan untuk menambah produk ini ke pangkalan data kami.",
+    "@add_product_take_photos": {},
+    "add_product_take_photos_descriptive": "Sila ambil gambar berikut dan enjin Fakta Makanan Terbuka boleh menyelesaikan selebihnya!",
+    "@add_product_take_photos_descriptive": {},
+    "add_product_information_button_label": "Add product information",
+    "@add_product_information_button_label": {},
+    "new_product": "Produk Baharu",
+    "@new_product": {},
+    "front_packaging_photo_button_label": "Foto pembungkusan hadapan",
+    "@front_packaging_photo_button_label": {},
+    "confirm_front_packaging_photo_button_label": "Confirm Front packaging photo",
+    "@confirm_front_packaging_photo_button_label": {
+        "description": "Button clicking on which confirms the picture of the front packaging that user just took."
+    },
+    "front_photo_uploaded": "Front photo uploaded",
+    "@front_photo_uploaded": {},
+    "ingredients_photo_button_label": "Foto ramuan",
+    "@ingredients_photo_button_label": {},
+    "confirm_ingredients_photo_button_label": "Confirm Ingredients photo",
+    "@confirm_ingredients_photo_button_label": {
+        "description": "Button clicking on which confirms the picture of ingredients that user just took."
+    },
+    "ingredients_photo_uploaded": "Ingredients photo uploaded",
+    "@ingredients_photo_uploaded": {},
+    "nutritional_facts_photo_button_label": "Foto fakta pemakanan",
+    "@nutritional_facts_photo_button_label": {},
+    "confirm_nutritional_facts_photo_button_label": "Confirm Nutritional facts photo",
+    "@confirm_nutritional_facts_photo_button_label": {
+        "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
+    },
+    "nutritional_facts_photo_uploaded": "Nutritional facts photo uploaded",
+    "@nutritional_facts_photo_uploaded": {},
+    "recycling_photo_button_label": "Recycling information photo",
+    "@recycling_photo_button_label": {},
+    "confirm_recycling_photo_button_label": "Confirm Recycling information photo",
+    "@confirm_recycling_photo_button_label": {
+        "description": "Button clicking on which confirms the picture of recycling information that user just took."
+    },
+    "recycling_photo_uploaded": "Recycling photo uploaded",
+    "@recycling_photo_uploaded": {},
+    "other_interesting_photo_button_label": "Other interesting photos",
+    "@other_interesting_photo_button_label": {},
+    "confirm_other_interesting_photo_button_label": "Confirm photo",
+    "@confirm_other_interesting_photo_button_label": {
+        "description": "Button clicking on which confirms a miscellaneous photo of the product."
+    },
+    "other_photo_uploaded": "Miscellaneous photo uploaded",
+    "@other_photo_uploaded": {},
+    "retake_photo_button_label": "Retake",
+    "@retake_photo_button_label": {
+        "description": "Button clicking on which allows users to retake the last photo they took."
+    },
+    "uploading_image": "Uploading Image to the server",
+    "@uploading_image": {},
+    "score_add_missing_ingredients": "Tambahkan ramuan yang hilang",
+    "score_add_missing_nutrition_facts": "Tambahkan fakta pemakanan yang tiada",
+    "score_add_missing_product_category": "Tambahkan kategori produk yang tiada",
+    "score_update_nutrition_facts": "Update nutrition facts",
+    "nutrition_page_title": "Product Nutrition Facts",
+    "nutrition_page_unspecified": "Nutrition facts are not specified on the product",
+    "nutrition_page_per_100g": "per 100g",
+    "nutrition_page_per_serving": "setiap hidangan",
+    "nutrition_page_add_nutrient": "Tambah nutrien",
+    "nutrition_page_serving_size": "Saiz hidangan",
+    "nutrition_page_invalid_number": "Invalid number",
+    "nutrition_page_update_running": "Updating the product on the server...",
+    "nutrition_page_update_done": "Product updated!",
+    "more_photos": "Foto yang lebih menarik",
+    "@more_photos": {},
     "no_product_found": "Tiada Produk Ditemui",
     "@no_product_found": {},
-    "products_pasted": "produk ditampal",
-    "@products_pasted": {},
-    "no_prodcut_in_list": "Tiada terdapat produk dalam senarai ini",
-    "@no_product_in_list": {},
-    "error_occurred": "Ralat berlaku",
-    "@error_occurred": {},
-    "keyword_search": "(carian kata kunci)",
-    "category_search": "(carian kategori)",
-    "my_list": "(senarai saya)",
-    "scan": "Imbas",
-    "recently_seen_products": "Produk saya yang baru dilihat",
-    "unknown_product_list": "Senarai produk yang tidak diketahui:",
     "not_found": "tidak ditemui:",
-    "no_product": "tiada produk",
-    "one_product": "1 produk",
-    "x_products": "produk",
-    "scan_contribute": "SUMBANG",
-    "@scan_contribute": {
-        "description": "Switch on top of the Scanner to choose between to scan or add products"
+    "searchPanelHeader": "Cari atau imbas produk pertama anda",
+    "@Product query status": {},
+    "refreshing_product": "Produk yang diperbaharui",
+    "@refreshing_product": {
+        "description": "Confirmation, that the product data of a cached product is queried again"
     },
-    "scan_choose": "PILIH",
-    "@scan_choose": {
-        "description": "Switch on top of the Scanner to choose between to scan or add products"
+    "product_refreshed": "Produk diperbaharui",
+    "@product_refreshed": {
+        "description": "Confirmation, that the product data refresh is done"
     },
-    "reloaded_with_new_preferences": "Muat semula dengan pilihan baharu",
+    "could_not_refresh": "Tidak dapat memperbaharui produk",
+    "@could_not_refresh": {
+        "description": "The product data couldn't be refreshed"
+    },
+    "product_internet_cancel": "Canceled by user.",
+    "@product_internet_cancel": {
+        "description": "Confirmation, that the product data got canceled by the user"
+    },
+    "product_internet_error": "Impossible to fetch information about this product due to a network error.",
+    "cached_results_from": "Cached results from:",
+    "@cached_results_from": {
+        "description": "Cached results from: x time ago (time ago should not be added to the string)"
+    },
+    "@Product Addition": {},
+    "added_product_thanks": "Terima kasih kerana menambah produk ini!",
+    "@added_product_thanks": {},
+    "product_search_same_category": "Compare to Category",
+    "@product_search_same_category": {
+        "description": "Button looking for the other products within the same category. Less than 30 characters"
+    },
+    "product_improvement_add_category": "Tambahkan kategori untuk mengira Nutri-Score.",
+    "@product_improvement_add_category": {
+        "description": "Message for ProductImprovement.ADD_CATEGORY"
+    },
+    "product_improvement_add_nutrition_facts": "Tambahkan fakta pemakanan untuk mengira Nutri-Score.",
+    "@product_improvement_add_nutrition_facts": {
+        "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
+    },
+    "product_improvement_add_nutrition_facts_and_category": "Tambahkan fakta pemakanan dan kategori untuk mengira Nutri-Score.",
+    "@product_improvement_add_nutrition_facts_and_category": {
+        "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
+    },
+    "product_improvement_categories_but_no_nutriscore": "Nutri-Score untuk produk ini tidak boleh dikira, yang mungkin disebabkan oleh contohnya kategori bukan standard. Jika ini dianggap ralat, sila hubungi kami.",
+    "@product_improvement_categories_but_no_nutriscore": {
+        "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
+    },
+    "product_improvement_obsolete_nutrition_image": "The nutrition image is obsolete: please refresh it.",
+    "@product_improvement_obsolete_nutrition_image": {
+        "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
+    },
+    "product_improvement_origins_to_be_completed": "Eco-Score mengambil kira asal usul ramuan. Sila ambil foto-fotonya (senarai ramuan dan/atau sebarang tuntutan geografi atau edit produk) supaya ia boleh diambil kira.",
+    "@product_improvement_origins_to_be_completed": {
+        "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
+    },
+    "country_chooser_label": "Please choose a country",
+    "@country_chooser_label": {
+        "description": "Label shown above a selector where the user can select their country"
+    },
+    "country_selection_explanation": "Sesetengah ciri persekitaran adalah khusus lokasi",
+    "@country_label": {
+        "description": "Explanation as to why users should select their country."
+    },
+    "product_removed": "Product removed",
+    "@product_removed": {
+        "description": "Product got removed from a list"
+    },
+    "product_could_not_remove": "Could not remove product",
+    "@product_could_not_remove": {
+        "description": "Could not remove product from a list"
+    },
+    "@Lists": {},
+    "no_prodcut_in_list": "Tiada terdapat produk dalam senarai ini",
     "no_product_in_section": "Tiada terdapat produk di seksyen ini",
-    "what_are_you_looking_for": "Apakah yang anda cari?",
-    "chached_results_from": "Hasil cache dari:",
-    "plural_ago_minutes": "{count,plural, =0{kurang daripada satu minit yang lalu} =1{satu minit yang lalu} other{{count} beberapa minit yang lalu}}",
-    "@plural_ago_minutes": {
-        "description": "Cached results from: x minutes ago",
+    "recently_seen_products": "History",
+    "clear": "Clear",
+    "@clear": {
+        "description": "Clears a product list"
+    },
+    "really_clear": "Do you really want to clear this list?",
+    "product_compatibility_unknown": "Product Compatibility Unknown",
+    "@product_compatibility_unknown": {
+        "description": "Product compatibility summary title"
+    },
+    "product_compatibility_incompatible": "Very poor Match",
+    "@product_compatibility_incompatible": {
+        "description": "Product compatibility summary title"
+    },
+    "product_compatibility_bad": "Poor Match",
+    "@product_compatibility_bad": {
+        "description": "Product compatibility summary title"
+    },
+    "product_compatibility_neutral": "Neutral Match",
+    "@product_compatibility_neutral": {
+        "description": "Product compatibility summary title"
+    },
+    "product_compatibility_good": "Great Match",
+    "@product_compatibility_good": {
+        "description": "Product compatibility summary title"
+    },
+    "@Plural": {},
+    "pct_match": "{percent}% padan",
+    "@pct_match": {
+        "description": "This product has a x percent match with your preferences",
         "placeholders": {
-            "count": {}
+            "percent": {}
         }
     },
-    "plural_ago_hours": "{count,plural, =1{satu jam yang lalu} other{{count} beberapa jam yang lalu}}",
-    "@plural_ago_hours": {
-        "description": "Cached results from: x hours ago",
-        "placeholders": {
-            "count": {}
-        }
-    },
-    "plural_ago_days": "{count,plural, =1{satu hari yang lalu} other{{count} beberapa hari yang lalu}}",
+    "plural_ago_days": "{count,plural, =1{satu hari lepas} other{{count} hari lepas}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, =1{seminggu yang lalu} other{{count} beberapa minggu yang lalu}}",
+    "plural_ago_hours": "{count,plural, =1{satu jam lepas} other{{count} jam lepas}}",
+    "@plural_ago_hours": {
+        "description": "Cached results from: x hours ago",
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "plural_ago_minutes": "{count,plural, =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
+    "@plural_ago_minutes": {
+        "description": "Cached results from: x minutes ago",
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "plural_ago_months": "{count,plural, =1{satu bulan lepas} other{{count} bulan lepas}}",
+    "@plural_ago_months": {
+        "description": "Cached results from: x months ago",
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "plural_ago_weeks": "{count,plural, =1{satu minggu lepas} other{{count} minggu lepas}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, =1{sebulan yang lalu} other{{count} beberapa bulan yang lalu}}",
-    "@plural_ago_months": {
-        "description": "Cached results from: x months ago",
+    "plural_compare_x_products": "{count,plural, other{Bandingkan {count} Produk}",
+    "@plural_compare_x_products": {
+        "description": "Button label",
         "placeholders": {
             "count": {}
         }
+    },
+    "compare_products_mode": "Bandingkan Mod",
+    "@compare_products_mode": {
+        "description": "Button to switch to 'compare products mode'"
     }
 }

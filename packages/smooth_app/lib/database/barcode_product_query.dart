@@ -8,22 +8,18 @@ import 'package:smooth_app/database/product_query.dart';
 class BarcodeProductQuery {
   BarcodeProductQuery({
     required this.barcode,
-    required this.languageCode,
-    required this.countryCode,
     required this.daoProduct,
   });
 
   final String barcode;
-  final String languageCode;
-  final String countryCode;
   final DaoProduct daoProduct;
 
   Future<FetchedProduct> getFetchedProduct() async {
     final ProductQueryConfiguration configuration = ProductQueryConfiguration(
       barcode,
       fields: ProductQuery.fields,
-      language: LanguageHelper.fromJson(languageCode),
-      cc: countryCode,
+      language: ProductQuery.getLanguage(),
+      country: ProductQuery.getCountry(),
     );
 
     final ProductResult result;
@@ -36,7 +32,7 @@ class BarcodeProductQuery {
     if (result.status == 1) {
       final Product? product = result.product;
       if (product != null) {
-        await daoProduct.put(<Product>[product]);
+        await daoProduct.put(product);
         return FetchedProduct(product);
       }
     }

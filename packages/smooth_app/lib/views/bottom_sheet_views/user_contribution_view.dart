@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:http/http.dart' as http;
 import 'package:smooth_app/data_models/github_contributors_model.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_list_tile.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
-import 'package:smooth_ui_library/buttons/smooth_simple_button.dart';
-import 'package:smooth_ui_library/dialogs/smooth_alert_dialog.dart';
-import 'package:smooth_ui_library/widgets/smooth_list_tile.dart';
 
 class UserContributionView extends StatelessWidget {
   @override
@@ -47,7 +47,7 @@ class UserContributionView extends StatelessWidget {
                           //Develop
                           SmoothListTile(
                             text: AppLocalizations.of(context)!
-                                .contribute_develop,
+                                .contribute_sw_development,
                             onPressed: () => _develop(context),
                           ),
 
@@ -62,6 +62,7 @@ class UserContributionView extends StatelessWidget {
                           SmoothListTile(
                             text: AppLocalizations.of(context)!
                                 .contribute_donate_header,
+                            leadingWidget: const Icon(Icons.open_in_new),
                             onPressed: () => _donate(context),
                           ),
 
@@ -112,8 +113,8 @@ class UserContributionView extends StatelessWidget {
               ),
             ],
           ),
-          actions: <SmoothSimpleButton>[
-            SmoothSimpleButton(
+          actions: <SmoothActionButton>[
+            SmoothActionButton(
               onPressed: () {
                 Navigator.of(context, rootNavigator: true).pop('dialog');
               },
@@ -131,7 +132,7 @@ class UserContributionView extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return SmoothAlertDialog(
-          title: AppLocalizations.of(context)!.contribute_develop,
+          title: AppLocalizations.of(context)!.contribute_sw_development,
           body: Column(
             children: <Widget>[
               Text(
@@ -173,8 +174,8 @@ class UserContributionView extends StatelessWidget {
               )
             ],
           ),
-          actions: <SmoothSimpleButton>[
-            SmoothSimpleButton(
+          actions: <SmoothActionButton>[
+            SmoothActionButton(
               onPressed: () => Navigator.pop(context),
               text: AppLocalizations.of(context)!.okay,
               minWidth: 100,
@@ -201,8 +202,8 @@ class UserContributionView extends StatelessWidget {
               ),
             ],
           ),
-          actions: <SmoothSimpleButton>[
-            SmoothSimpleButton(
+          actions: <SmoothActionButton>[
+            SmoothActionButton(
               onPressed: () => LaunchUrlHelper.launchURL(
                   'https://translate.openfoodfacts.org/', false),
               text:
@@ -215,28 +216,10 @@ class UserContributionView extends StatelessWidget {
     );
   }
 
-  Future<void> _donate(BuildContext context) {
-    return showDialog<void>(
-      context: context,
-      builder: (BuildContext context) {
-        return SmoothAlertDialog(
-          body: Column(
-            children: <Widget>[
-              Text(
-                AppLocalizations.of(context)!.featureInProgress,
-              ),
-            ],
-          ),
-          actions: <SmoothSimpleButton>[
-            SmoothSimpleButton(
-              text: AppLocalizations.of(context)!.okay,
-              onPressed: () =>
-                  Navigator.of(context, rootNavigator: true).pop('dialog'),
-              minWidth: 150,
-            )
-          ],
-        );
-      },
+  Future<void> _donate(BuildContext context) async {
+    await LaunchUrlHelper.launchURL(
+      AppLocalizations.of(context)!.donate_url,
+      false,
     );
   }
 
@@ -289,8 +272,8 @@ class UserContributionView extends StatelessWidget {
               return const CircularProgressIndicator();
             },
           ),
-          actions: <SmoothSimpleButton>[
-            SmoothSimpleButton(
+          actions: <SmoothActionButton>[
+            SmoothActionButton(
               onPressed: () => LaunchUrlHelper.launchURL(
                   'https://github.com/openfoodfacts/smooth-app', false),
               text: AppLocalizations.of(context)!.contribute,

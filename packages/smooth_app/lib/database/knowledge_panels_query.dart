@@ -1,9 +1,7 @@
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/QueryType.dart';
 import 'package:smooth_app/database/product_query.dart';
 
 class KnowledgePanelsQuery {
@@ -13,13 +11,23 @@ class KnowledgePanelsQuery {
 
   final String barcode;
 
-  Future<KnowledgePanels> getKnowledgePanels(BuildContext context) async {
+  Future<KnowledgePanels> getKnowledgePanels() async {
     final ProductQueryConfiguration configuration = ProductQueryConfiguration(
       barcode,
-      language:
-          LanguageHelper.fromJson(ProductQuery.getCurrentLanguageCode(context)),
-      cc: ProductQuery.getCurrentCountryCode(),
+      language: ProductQuery.getLanguage(),
+      country: ProductQuery.getCountry(),
+      fields: <ProductField>[ProductField.KNOWLEDGE_PANELS],
+      version: ProductQueryVersion.v2,
     );
-    return OpenFoodAPIClient.getKnowledgePanels(configuration, QueryType.PROD);
+
+    try {
+      final ProductResult productResult = await OpenFoodAPIClient.getProduct(
+        configuration,
+      );
+      return productResult.product!.knowledgePanels!;
+    } catch (exception) {
+      // TODO(jasmeetsingh): Capture the exception in Sentry and don't log it here.
+      return KnowledgePanels.empty();
+    }
   }
 }

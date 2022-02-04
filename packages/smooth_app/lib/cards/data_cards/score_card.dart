@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/cards/data_cards/svg_icon_chip.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
+import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
-import 'package:smooth_ui_library/util/ui_helpers.dart';
 
 enum CardEvaluation {
   UNKNOWN,
@@ -15,12 +15,12 @@ enum CardEvaluation {
 
 class ScoreCard extends StatelessWidget {
   const ScoreCard({
-    required this.iconUrl,
     required this.description,
     required this.cardEvaluation,
+    this.iconUrl,
   });
 
-  final String iconUrl;
+  final String? iconUrl;
   final String description;
   final CardEvaluation cardEvaluation;
 
@@ -33,21 +33,25 @@ class ScoreCard extends StatelessWidget {
         : SmoothTheme.ADDITIONAL_OPACITY_FOR_DARK;
     final Color backgroundColor =
         getBackgroundColor(cardEvaluation).withOpacity(opacity);
-    final Color textColor = getTextColor(cardEvaluation).withOpacity(opacity);
-    final SvgIconChip iconChip = SvgIconChip(iconUrl, height: iconHeight);
+    final Color textColor = themeData.brightness == Brightness.dark
+        ? Colors.white
+        : getTextColor(cardEvaluation).withOpacity(opacity);
+    final SvgIconChip? iconChip =
+        iconUrl == null ? null : SvgIconChip(iconUrl!, height: iconHeight);
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 8.0),
       padding: const EdgeInsets.all(8.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(right: 8.0),
-              child: iconChip,
+          if (iconChip != null)
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                child: iconChip,
+              ),
+              flex: 1,
             ),
-            flex: 1,
-          ),
           Expanded(
             child: Center(
               child: Text(

@@ -18,7 +18,7 @@ jobs:
         run: echo ${{ env.RELEASE_VERSION }}
 
       - name: Setup Java jdk
-        uses: actions/setup-java@v2.3.1
+        uses: actions/setup-java@v2.5.0
         with:
           distribution: 'zulu'
           java-version: 12.x
@@ -35,10 +35,14 @@ jobs:
           API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
           STORE_JKS_DECRYPTKEY: ${{ secrets.STORE_JKS_DECRYPTKEY }}
 
+      - uses: actions/checkout@v2
       - name: Setup Flutter
-        uses: subosito/flutter-action@v1
+        uses: subosito/flutter-action@v2
         with:
-          channel: 'stable'
+          channel: stable
+          cache: true
+          cache-key: flutter #change this to force refresh cache
+      - run: flutter --version
 
       - name: Get dependencies
         run: ci/pub_upgrade.sh

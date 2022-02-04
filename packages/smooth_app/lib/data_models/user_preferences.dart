@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 
 class UserPreferences extends ChangeNotifier {
   UserPreferences._shared(final SharedPreferences sharedPreferences)
@@ -18,10 +19,15 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_INIT = 'init';
   static const String _TAG_THEME_DARK = 'themeDark';
   static const String _TAG_THEME_COLOR_TAG = 'themeColorTag';
+  static const String _TAG_USER_COUNTRY_CODE = 'userCountry';
+  static const String _TAG_LAST_VISITED_ONBOARDING_PAGE =
+      'lastVisitedOnboardingPage';
+  static const String _TAG_PREFIX_FLAG = 'FLAG_PREFIX_';
+  static const String _TAG_DEV_MODE = 'devMode';
+  static const String _TAG_CAMERA_DECLINE = 'declined_camera_use_once';
 
   Future<void> init(final ProductPreferences productPreferences) async {
-    final bool? alreadyDone = _sharedPreferences.getBool(_TAG_INIT);
-    if (alreadyDone != null) {
+    if (_sharedPreferences.getBool(_TAG_INIT) != null) {
       return;
     }
     await productPreferences.resetImportances();
@@ -57,4 +63,46 @@ class UserPreferences extends ChangeNotifier {
 
   String get themeColorTag =>
       _sharedPreferences.getString(_TAG_THEME_COLOR_TAG) ?? 'COLOR_TAG_BLUE';
+
+  Future<void> setUserCountry(final String countryCode) async =>
+      _sharedPreferences.setString(_TAG_USER_COUNTRY_CODE, countryCode);
+
+  String? get userCountryCode =>
+      _sharedPreferences.getString(_TAG_USER_COUNTRY_CODE);
+
+  Future<void> setLastVisitedOnboardingPage(final OnboardingPage page) async =>
+      _sharedPreferences.setInt(_TAG_LAST_VISITED_ONBOARDING_PAGE, page.index);
+
+  OnboardingPage get lastVisitedOnboardingPage {
+    final int? pageIndex =
+        _sharedPreferences.getInt(_TAG_LAST_VISITED_ONBOARDING_PAGE);
+    return pageIndex == null
+        ? OnboardingPage.NOT_STARTED
+        : OnboardingPage.values[pageIndex];
+  }
+
+  Future<void> setCameraDecline(final bool declined) async {
+    _sharedPreferences.setBool(_TAG_CAMERA_DECLINE, declined);
+  }
+
+  bool get cameraDeclinedOnce =>
+      _sharedPreferences.getBool(_TAG_CAMERA_DECLINE) ?? false;
+
+  String _getFlagTag(final String key) => _TAG_PREFIX_FLAG + key;
+
+  Future<void> setFlag(
+    final String key,
+    final bool? value,
+  ) async =>
+      value == null
+          ? await _sharedPreferences.remove(_getFlagTag(key))
+          : await _sharedPreferences.setBool(_getFlagTag(key), value);
+
+  bool? getFlag(final String key) =>
+      _sharedPreferences.getBool(_getFlagTag(key));
+
+  Future<void> setDevMode(final int value) async =>
+      _sharedPreferences.setInt(_TAG_DEV_MODE, value);
+
+  int get devMode => _sharedPreferences.getInt(_TAG_DEV_MODE) ?? 0;
 }
