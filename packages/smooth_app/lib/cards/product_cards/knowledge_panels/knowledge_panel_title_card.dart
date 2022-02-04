@@ -86,6 +86,7 @@ class KnowledgePanelTitleCard extends StatelessWidget {
       case Evaluation.GOOD:
         return Colors.green;
       case Evaluation.UNKNOWN:
+        return null;
     }
   }
 }
