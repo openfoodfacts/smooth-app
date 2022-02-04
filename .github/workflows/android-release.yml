@@ -52,7 +52,7 @@ jobs:
         uses: maierj/fastlane-action@v2.1.0
         with:
           lane: setVersion
-          subdirectory: packages/smooth_app/android
+          subdirectory: ./packages/smooth_app/android
         env:
           VERSION_NAME: ${{ env.RELEASE_VERSION }}
 
