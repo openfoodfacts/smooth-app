@@ -2,10 +2,13 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:openfoodfacts/utils/QueryType.dart';
-import 'package:platform_device_id/platform_device_id.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
+import 'package:uuid/uuid.dart';
+
+import 'local_database.dart';
 
 abstract class ProductQuery {
   /// Returns the global language for API queries.
@@ -42,12 +45,23 @@ abstract class ProductQuery {
 
   /// Device Id, potentially used as API uuid.
   static String? deviceId;
+  static const String UUID_NAME = 'UUID_NAME';
 
   /// Sets the device id as "final variable", for instance for API queries.
   ///
   /// To be called at main / init.
-  static Future<void> setDeviceId() async => OpenFoodAPIConfiguration.uuid =
-      deviceId = await PlatformDeviceId.getDeviceId;
+  static Future<void> setDeviceId(final LocalDatabase _localDatabase) async {
+    final DaoString uuidString = DaoString(_localDatabase);
+    String? uuid = await uuidString.get(UUID_NAME);
+
+    if (uuid == null) {
+      uuid = const Uuid().v4();
+      uuidString.put(UUID_NAME, uuid);
+    }
+    print('M123: ${uuid}');
+    OpenFoodAPIConfiguration.uuid = uuid;
+    deviceId = uuid;
+  }
 
   static User getUser() =>
       OpenFoodAPIConfiguration.globalUser ??
