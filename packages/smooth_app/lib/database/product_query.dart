@@ -42,18 +42,18 @@ abstract class ProductQuery {
       '_'
       '${getCountry()!.iso2Code.toUpperCase()}';
 
-  static const String UUID_NAME = 'UUID_NAME';
+  static const String _UUID_NAME = 'UUID_NAME';
 
-  /// Sets the device id as "final variable", for instance for API queries.
+  /// Sets the uuid id as "final variable", for instance for API queries.
   ///
   /// To be called at main / init.
   static Future<void> setUuid(final LocalDatabase _localDatabase) async {
     final DaoString uuidString = DaoString(_localDatabase);
-    String? uuid = await uuidString.get(UUID_NAME);
+    String? uuid = await uuidString.get(_UUID_NAME);
 
     if (uuid == null) {
       uuid = const Uuid().v4();
-      uuidString.put(UUID_NAME, uuid);
+      uuidString.put(_UUID_NAME, uuid);
     }
     OpenFoodAPIConfiguration.uuid = uuid;
   }
