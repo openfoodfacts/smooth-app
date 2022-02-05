@@ -58,7 +58,6 @@ abstract class ProductQuery {
       uuid = const Uuid().v4();
       uuidString.put(UUID_NAME, uuid);
     }
-    print('M123: ${uuid}');
     OpenFoodAPIConfiguration.uuid = uuid;
     deviceId = uuid;
   }
