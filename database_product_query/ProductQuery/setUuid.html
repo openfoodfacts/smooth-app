@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the deviceId property from the ProductQuery class, for the Dart programming language.">
-  <title>deviceId property - ProductQuery class - product_query library - Dart API</title>
+  <meta name="description" content="API docs for the setUuid method from the ProductQuery class, for the Dart programming language.">
+  <title>setUuid method - ProductQuery class - product_query library - Dart API</title>
 
 
   
@@ -32,9 +32,9 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../database_product_query/database_product_query-library.html">product_query</a></li>
     <li><a href="../../database_product_query/ProductQuery-class.html">ProductQuery</a></li>
-    <li class="self-crumb">deviceId property</li>
+    <li class="self-crumb">setUuid method</li>
   </ol>
-  <div class="self-name">deviceId</div>
+  <div class="self-name">setUuid</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,27 +45,40 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-property">deviceId</span> property 
+<h1><span class="kind-method">setUuid</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
-        <section class="multi-line-signature">
-          <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?
-          <span class="name ">deviceId</span>
-          <div class="features">read / write</div>
+    <section class="multi-line-signature">
+      
 
-        </section>
-        
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+<span class="name ">setUuid</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="setUuid-param-_localDatabase"><span class="type-annotation"><a href="../../database_local_database/LocalDatabase-class.html">LocalDatabase</a></span> <span class="parameter-name">_localDatabase</span></span></li>
+</ol>)
+
+      
+
+    </section>
+    
 <section class="desc markdown">
-  <p>Device Id, potentially used as API uuid.</p>
+  <p>Sets the uuid id as "final variable", for instance for API queries.</p>
+<p>To be called at main / init.</p>
 </section>
 
-        
+
+    
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static String? deviceId;
+  <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; setUuid(final LocalDatabase _localDatabase) async {
+  final DaoString uuidString = DaoString(_localDatabase);
+  String? uuid = await uuidString.get(_UUID_NAME);
 
-</code></pre>
+  if (uuid == null) {
+    uuid = const Uuid().v4();
+    uuidString.put(_UUID_NAME, uuid);
+  }
+  OpenFoodAPIConfiguration.uuid = uuid;
+}</code></pre>
 </section>
 
 
@@ -82,7 +95,7 @@
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../database_product_query/database_product_query-library.html">product_query</a></li>
   <li><a href="../../database_product_query/ProductQuery-class.html">ProductQuery</a></li>
-  <li class="self-crumb">deviceId property</li>
+  <li class="self-crumb">setUuid method</li>
 </ol>
 
 
@@ -110,7 +123,6 @@
 
 
     <li class="section-title"><a href="../../database_product_query/ProductQuery-class.html#static-properties">Static properties</a></li>
-    <li><a href="../../database_product_query/ProductQuery/deviceId.html">deviceId</a></li>
     <li><a href="../../database_product_query/ProductQuery/fields.html">fields</a></li>
 
     <li class="section-title"><a href="../../database_product_query/ProductQuery-class.html#static-methods">Static methods</a></li>
@@ -119,9 +131,9 @@
     <li><a href="../../database_product_query/ProductQuery/getLocaleString.html">getLocaleString</a></li>
     <li><a href="../../database_product_query/ProductQuery/getUser.html">getUser</a></li>
     <li><a href="../../database_product_query/ProductQuery/setCountry.html">setCountry</a></li>
-    <li><a href="../../database_product_query/ProductQuery/setDeviceId.html">setDeviceId</a></li>
     <li><a href="../../database_product_query/ProductQuery/setLanguage.html">setLanguage</a></li>
     <li><a href="../../database_product_query/ProductQuery/setQueryType.html">setQueryType</a></li>
+    <li><a href="../../database_product_query/ProductQuery/setUuid.html">setUuid</a></li>
 
 </ol>
 

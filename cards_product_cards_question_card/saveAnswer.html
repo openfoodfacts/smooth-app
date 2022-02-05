@@ -76,7 +76,7 @@
     future: OpenFoodAPIClient.postInsightAnnotation(
       insightId,
       insightAnnotation,
-      deviceId: ProductQuery.deviceId,
+      deviceId: OpenFoodAPIConfiguration.uuid,
     ),
     title: appLocalizations.saving_answer,
   );
