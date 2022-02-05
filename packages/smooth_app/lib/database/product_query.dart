@@ -5,10 +5,9 @@ import 'package:openfoodfacts/utils/QueryType.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_string.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
 import 'package:uuid/uuid.dart';
-
-import 'local_database.dart';
 
 abstract class ProductQuery {
   /// Returns the global language for API queries.
@@ -43,14 +42,12 @@ abstract class ProductQuery {
       '_'
       '${getCountry()!.iso2Code.toUpperCase()}';
 
-  /// Device Id, potentially used as API uuid.
-  static String? deviceId;
   static const String UUID_NAME = 'UUID_NAME';
 
   /// Sets the device id as "final variable", for instance for API queries.
   ///
   /// To be called at main / init.
-  static Future<void> setDeviceId(final LocalDatabase _localDatabase) async {
+  static Future<void> setUuid(final LocalDatabase _localDatabase) async {
     final DaoString uuidString = DaoString(_localDatabase);
     String? uuid = await uuidString.get(UUID_NAME);
 
@@ -59,7 +56,6 @@ abstract class ProductQuery {
       uuidString.put(UUID_NAME, uuid);
     }
     OpenFoodAPIConfiguration.uuid = uuid;
-    deviceId = uuid;
   }
 
   static User getUser() =>
