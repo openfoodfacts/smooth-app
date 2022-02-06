@@ -1,6 +1,6 @@
-on:
-  schedule:
-    - cron: 0 2 * * *
+on: push
+ # schedule:
+  #  - cron: 0 2 * * *
 jobs:
   test:
     name: example Flutter package updater
