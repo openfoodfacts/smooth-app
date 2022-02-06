@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
-import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
@@ -412,7 +412,7 @@ Future<void> saveAnswer(
     future: OpenFoodAPIClient.postInsightAnnotation(
       insightId,
       insightAnnotation,
-      deviceId: ProductQuery.deviceId,
+      deviceId: OpenFoodAPIConfiguration.uuid,
     ),
     title: appLocalizations.saving_answer,
   );
