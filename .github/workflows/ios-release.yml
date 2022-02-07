@@ -31,7 +31,6 @@ jobs:
           distribution: 'zulu'
           java-version: "12.x"
 
-      - uses: actions/checkout@v2
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
