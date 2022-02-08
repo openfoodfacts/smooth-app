@@ -46,7 +46,7 @@ jobs:
         run: cd ./packages/smooth_app/ios && gem install bundler:1.17.3 && bundle install
 
       - name: Decrypt AuthKey file
-        run: pwd && ls && cd ./packages/smooth_app/ios/fastlane/envfiles && ./decrypt_secrets.sh && ls
+        run: pwd && ls && cd ./packages/smooth_app/ios/fastlane/envfiles && chmod -x ./decrypt_secrets.sh && ./decrypt_secrets.sh && ls
         env:
           AUTH_KEY_FILE_DECRYPTKEY: ${{ secrets.AUTH_KEY_FILE_DECRYPTKEY }}
 
