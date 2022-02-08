@@ -1,4 +1,4 @@
-package org.openfoodfacts.smooth_app
+package org.openfoodfacts.app.smooth_app
 
 import io.flutter.embedding.android.FlutterActivity
 

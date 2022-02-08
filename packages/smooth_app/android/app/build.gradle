@@ -8,7 +8,7 @@ if (localPropertiesFile.exists()) {
 
 def flutterRoot = localProperties.getProperty('flutter.sdk')
 if (flutterRoot == null) {
-    throw new FileNotFoundException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
+    throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
 }
 
 def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
@@ -41,43 +41,23 @@ android {
         main.java.srcDirs += 'src/main/kotlin'
     }
 
-    lintOptions {
-        disable 'InvalidPackage'
-    }
-
     defaultConfig {
-        applicationId "org.openfoodfacts.app"
+        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        applicationId "org.openfoodfacts.app.smooth_app"
         minSdkVersion 21
-        targetSdkVersion 31
+        targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
-        multiDexEnabled true
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-
-
-
-    signingConfigs {
-        release {
-            storeFile System.getenv('SIGN_STORE_PATH') ? file(System.getenv('SIGN_STORE_PATH')) : null
-            storePassword System.getenv('SIGN_STORE_PASSWORD')
-            keyAlias System.getenv('SIGN_KEY_ALIAS')
-            keyPassword System.getenv('SIGN_KEY_PASSWORD')
-        }
-    }
     buildTypes {
         release {
-            signingConfig signingConfigs.release
-        }
-        debug{
+            // TODO: Add your own signing config for the release build.
+            // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug
         }
     }
 }
-
-
-
 
 flutter {
     source '../..'
@@ -85,5 +65,4 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.multidex:multidex:2.0.1'
 }
