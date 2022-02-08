@@ -22,7 +22,7 @@ dependencies:
   hive: ^2.0.5
   hive_flutter: ^1.1.0
   http: ^0.13.4
-  image_picker: ^0.8.4+6
+  image_picker: ^0.8.4+7
   iso_countries: 2.1.0
   latlong2: ^0.8.1
   matomo: ^1.1.0
@@ -41,7 +41,7 @@ dependencies:
   url_launcher: ^6.0.18
   visibility_detector: ^0.2.2
   google_ml_barcode_scanner: ^0.0.2
-  camera: ^0.9.4+10
+  camera: ^0.9.4+11
   percent_indicator: ^4.0.0
   crop_your_image: ^0.6.0+1
 
