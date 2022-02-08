@@ -86,7 +86,8 @@ jobs:
           SPACESHIP_CONNECT_API_KEY_FILEPATH: ./fastlane/envfiles/AuthKey_KDAUTTM76R.p8
           CI_RELEASE: true
 
-
+      - name: Build app
+        run: cd ./packages/smooth_app/ios && cat Podfile
  
       - name: Release ipa
         run: cd ./packages/smooth_app/ios && bundle exec fastlane beta
