@@ -51,5 +51,7 @@
 			<string>http</string>
 			<string>mailto</string>
 		</array>
+		<key>UIRequiresFullScreen</key>
+		<true/>
 	</dict>
 </plist>
