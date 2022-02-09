@@ -1,4 +1,3 @@
-# Uncomment this line to define a global platform for your project
 platform :ios, '10.0'
 
 # CocoaPods analytics sends network stats synchronously affecting flutter build latency.
@@ -28,20 +27,15 @@ require File.expand_path(File.join('packages', 'flutter_tools', 'bin', 'podhelpe
 flutter_ios_podfile_setup
 
 target 'Runner' do
-  use_frameworks!
-  use_modular_headers!
-
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
 end
-
 
 $iOSVersion = '10.0'
 
 post_install do |installer|
-
   installer.pods_project.build_configurations.each do |config|
-      config.build_settings["EXCLUDED_ARCHS[sdk=*]"] = "armv7"
-      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = $iOSVersion
+    config.build_settings["EXCLUDED_ARCHS[sdk=*]"] = "armv7"
+    config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = $iOSVersion
   end
 
   installer.pods_project.targets.each do |target|
