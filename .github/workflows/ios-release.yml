@@ -1,8 +1,9 @@
 name: App Store release
 
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - 'release/*'
 
 jobs:
   testflight-release:
@@ -69,7 +70,7 @@ jobs:
           VERSION_NAME: ${{ env.RELEASE_VERSION }}
 
       - name: Build app
-        run: pwd && cd ./packages/smooth_app/ios && pwd && flutter pub get && flutter build ios --release --no-codesign
+        run: cd ./packages/smooth_app && flutter build ios --release --no-codesign
         env:
           GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
@@ -85,7 +86,8 @@ jobs:
           SPACESHIP_CONNECT_API_KEY_FILEPATH: ./fastlane/envfiles/AuthKey_KDAUTTM76R.p8
           CI_RELEASE: true
 
-
+      - name: cat Podfile
+        run: cd ./packages/smooth_app/ios && cat Podfile
  
       - name: Release ipa
         run: cd ./packages/smooth_app/ios && bundle exec fastlane beta
