@@ -70,7 +70,7 @@ jobs:
           VERSION_NAME: ${{ env.RELEASE_VERSION }}
 
       - name: Build app
-        run: cd ./packages/smooth_app/ios && flutter pub get && flutter build ios --release --no-codesign
+        run: cd ./packages/smooth_app && flutter build ios --release --no-codesign
         env:
           GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
@@ -86,7 +86,7 @@ jobs:
           SPACESHIP_CONNECT_API_KEY_FILEPATH: ./fastlane/envfiles/AuthKey_KDAUTTM76R.p8
           CI_RELEASE: true
 
-      - name: Build app
+      - name: cat Podfile
         run: cd ./packages/smooth_app/ios && cat Podfile
  
       - name: Release ipa
