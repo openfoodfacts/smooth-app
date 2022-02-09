@@ -22,7 +22,7 @@ A clear and concise description of what you expected to happen.
 - (optional, delete if empty) Why it's important
 
 ### Part of
-- Add the issue number preceded by # (that also allows searching by name for similar issues): eg #4169
+- Add the issue number preceded by # (that also allows searching by name for similar issues): eg #525
 
 ### Screenshot/Mockup/Before-After
 (optional, delete if empty)
