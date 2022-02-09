@@ -1,9 +1,7 @@
-import 'dart:io';
-
-import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
@@ -409,21 +407,12 @@ Future<void> saveAnswer(
   required InsightAnnotation insightAnnotation,
 }) async {
   final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-  final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
-  String? deviceId;
-  if (Platform.isAndroid) {
-    deviceId = (await deviceInfoPlugin.androidInfo).androidId;
-  } else if (Platform.isIOS) {
-    deviceId = (await deviceInfoPlugin.iosInfo).identifierForVendor;
-  } else {
-    debugPrint('Platform is neither iOS nor Android');
-  }
   await LoadingDialog.run<Status>(
     context: context,
     future: OpenFoodAPIClient.postInsightAnnotation(
       insightId,
       insightAnnotation,
-      deviceId: deviceId,
+      deviceId: OpenFoodAPIConfiguration.uuid,
     ),
     title: appLocalizations.saving_answer,
   );

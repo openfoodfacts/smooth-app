@@ -35,13 +35,12 @@ jobs:
           API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
           STORE_JKS_DECRYPTKEY: ${{ secrets.STORE_JKS_DECRYPTKEY }}
 
-      - uses: actions/checkout@v2
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: stable
           cache: true
-          cache-key: flutter #change this to force refresh cache
+          cache-key: flutter2.10 #change this to force refresh cache
       - run: flutter --version
 
       - name: Get dependencies

@@ -30,13 +30,12 @@ jobs:
           distribution: 'zulu'
           java-version: "12.x"
 
-      - uses: actions/checkout@v2
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: stable
           cache: true
-          cache-key: flutter #change this to force refresh cache
+          cache-key: flutter2.10 #change this to force refresh cache
       - run: flutter --version
 
       - name: Get dependencies

@@ -1,32 +1,8 @@
-import 'dart:io';
-
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:image_cropper/image_cropper.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/widgets/loading_dialog.dart';
-
-Future<File?> pickImageAndCrop() async {
-  final ImagePicker picker = ImagePicker();
-
-  final XFile? pickedXFile = await picker.pickImage(
-    source: ImageSource.camera,
-  );
-  if (pickedXFile == null) {
-    // User didn't pick any image.
-    return null;
-  }
-
-  return ImageCropper.cropImage(
-    sourcePath: pickedXFile.path,
-    androidUiSettings: const AndroidUiSettings(
-      lockAspectRatio: false,
-      hideBottomControls: true,
-    ),
-  );
-}
 
 Future<bool> uploadCapturedPicture(
   BuildContext context, {

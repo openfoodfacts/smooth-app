@@ -18,6 +18,7 @@ class MLKitScannerPage extends StatefulWidget {
 }
 
 class MLKitScannerPageState extends State<MLKitScannerPage> {
+  static const int _SKIPPED_FRAMES = 10;
   BarcodeScanner? barcodeScanner = GoogleMlKit.vision.barcodeScanner();
   CameraLensDirection cameraLensDirection = CameraLensDirection.back;
   late ContinuousScanModel _model;
@@ -26,6 +27,8 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
   bool isBusy = false;
   //Used when rebuilding to stop the camera
   bool stoppingCamera = false;
+  //We don't scan every image for performance reasons
+  int frameCounter = 0;
 
   @override
   void initState() {
@@ -68,7 +71,6 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
   @override
   Widget build(BuildContext context) {
     _model = context.watch<ContinuousScanModel>();
-
     return LifeCycleManager(
       onResume: _startLiveFeed,
       onPause: _stopImageStream,
@@ -81,7 +83,9 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
     // loading or stopped
     if (_controller == null ||
         _controller!.value.isInitialized == false ||
-        stoppingCamera) {
+        stoppingCamera ||
+        _controller!.value.isPreviewPaused ||
+        !_controller!.value.isStreamingImages) {
       return Container();
     }
 
@@ -150,9 +154,7 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
 
   Future<void> _stopImageStream() async {
     stoppingCamera = true;
-    if (mounted) {
-      setState(() {});
-    }
+    setState(() {});
     await _controller?.dispose();
     _controller = null;
   }
@@ -160,10 +162,20 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
   // Convert the [CameraImage] to a [InputImage] and checking this for barcodes
   // with help from ML Kit
   Future<void> _processCameraImage(CameraImage image) async {
+    //Only scanning every xth image, but not resetting until the current one
+    //is done, so that we don't have idle time when the scanning takes longer
+    // TODO(M123): Can probably be merged with isBusy + checking if we should
+    // Count when ML Kit is busy
+    if (frameCounter < _SKIPPED_FRAMES) {
+      frameCounter++;
+      return;
+    }
+
     if (isBusy || barcodeScanner == null) {
       return;
     }
     isBusy = true;
+    frameCounter = 0;
 
     final WriteBuffer allBytes = WriteBuffer();
     for (final Plane plane in image.planes) {

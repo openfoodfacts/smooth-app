@@ -42,6 +42,10 @@
     "@incompatible": {
         "description": "Short label for product list view: the product is incompatible with your preferences"
     },
+    "compatible": "Compatible",
+    "@compatible": {
+        "description": "Short label for product list view: the product is compatible with your preferences"
+    },
     "unknown": "Inconnu",
     "@unknown": {
         "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
@@ -448,9 +452,9 @@
     "@Product Addition": {},
     "added_product_thanks": "Merci d'avoir ajouté ce produit !",
     "@added_product_thanks": {},
-    "product_search_same_category": "Comparer dans la catégorie",
+    "product_search_same_category": "Compare to Category",
     "@product_search_same_category": {
-        "description": "Bouton qui cherchent les autres produits dans la même catégorie. Moins de 30 caractères."
+        "description": "Button looking for the other products within the same category. Less than 30 characters"
     },
     "product_improvement_add_category": "Ajoutez une catégorie pour calculer le Nutri-Score.",
     "@product_improvement_add_category": {
@@ -505,19 +509,11 @@
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_incompatible": "Très mauvaise concordance",
+    "product_compatibility_incompatible": "Incompatible",
     "@product_compatibility_incompatible": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_bad": "Mauvaise concordance",
-    "@product_compatibility_bad": {
-        "description": "Product compatibility summary title"
-    },
-    "product_compatibility_neutral": "Concordance neutre",
-    "@product_compatibility_neutral": {
-        "description": "Product compatibility summary title"
-    },
-    "product_compatibility_good": "Excellente concordance",
+    "product_compatibility_good": "Compatible",
     "@product_compatibility_good": {
         "description": "Product compatibility summary title"
     },
@@ -571,7 +567,7 @@
             "count": {}
         }
     },
-    "compare_products_mode": "Compare Mode",
+    "compare_products_mode": "Mode Comparaison",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     }
