@@ -1,4 +1,4 @@
-name: App Store release
+name: IOS 10 TEST
 
 on:
   push:
