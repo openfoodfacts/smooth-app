@@ -63,16 +63,18 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Widget getAttributeDisplayIcon(final Attribute attribute) {
-  return _attributeMatchComparison(
-      attribute,
-      const Text(&#39;❓  &#39;),
-      const Text(&#39;🔴  &#39;),
-      const Text(&#39;🟡  &#39;),
-      const Text(&#39;🟡  &#39;),
-      const Text(&#39;🟢  &#39;),
-      const Text(&#39;🟢  &#39;));
-}</code></pre>
+  <pre class="language-dart"><code class="language-dart">Widget getAttributeDisplayIcon(final Attribute attribute) =&gt; Padding(
+      padding: const EdgeInsets.only(right: VERY_SMALL_SPACE),
+      child: _attributeMatchComparison(
+        attribute,
+        const Icon(CupertinoIcons.question, color: Colors.red),
+        const Icon(Icons.lens, color: Colors.red),
+        const Icon(Icons.lens, color: Colors.orange),
+        const Icon(Icons.lens, color: Colors.orange),
+        const Icon(Icons.lens, color: Colors.green),
+        const Icon(Icons.lens, color: Colors.green),
+      ),
+    );</code></pre>
 </section>
 
 
