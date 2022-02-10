@@ -103,6 +103,11 @@ class ContinuousScanModel with ChangeNotifier {
     _addBarcode(code);
   }
 
+  Future<void> retryBarcodeFetch(String barcode) async {
+    setBarcodeState(barcode, ScannedProductState.LOADING);
+    await _updateBarcode(barcode);
+  }
+
   Future<bool> _addBarcode(final String barcode) async {
     final ScannedProductState? state = getBarcodeState(barcode);
     if (state == null) {
