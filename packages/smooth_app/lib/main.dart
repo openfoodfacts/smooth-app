@@ -97,7 +97,7 @@ class _SmoothAppState extends State<SmoothApp> {
 
     UserManagementHelper.mountCredentials();
     cameras = await availableCameras();
-    await ProductQuery.setDeviceId();
+    await ProductQuery.setUuid(_localDatabase);
   }
 
   @override

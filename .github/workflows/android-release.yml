@@ -1,8 +1,9 @@
 name: Google Play release
 
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - 'release/*'
     
 jobs:
   deploy_android:
@@ -30,18 +31,17 @@ jobs:
           ruby-version: 3.0.2
 
       - name: Decrypt API JSON file
-        run: cd ./packages/smooth_app/android/fastlane/envfiles && chmod +x ./decrypt_secrets.sh && ./decrypt_secrets.sh
+        run: cd ./packages/smooth_app/android/fastlane/envfiles && chmod +x ./decrypt_secrets.sh && ./decrypt_secrets.sh && ls
         env:
           API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
           STORE_JKS_DECRYPTKEY: ${{ secrets.STORE_JKS_DECRYPTKEY }}
 
-      - uses: actions/checkout@v2
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: stable
           cache: true
-          cache-key: flutter #change this to force refresh cache
+          cache-key: flutter2.10 #change this to force refresh cache
       - run: flutter --version
 
       - name: Get dependencies
@@ -73,4 +73,3 @@ jobs:
          SIGN_STORE_PASSWORD: ${{ secrets.SIGN_STORE_PASSWORD }}
          SIGN_KEY_ALIAS: ${{ secrets.SIGN_KEY_ALIAS }}
          SIGN_KEY_PASSWORD: ${{ secrets.SIGN_KEY_PASSWORD }}
-

@@ -1,31 +1,36 @@
 ---
 name: Bug report
-about: Create a report to help us improve
+about: Create a report to help us improve Project Smoothie
 title: ""
 labels: ""
 assignees: ""
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+### What
+- Describe the issue clearly
 
-**To Reproduce**
-Steps to reproduce the behavior:
-
+### Steps to reproduce the behavior
 1. Go to '...'
 2. Click on '....'
-3. Scroll down to '....'
+3. …
 4. See error
 
-**Expected behavior**
+### Expected behavior
 A clear and concise description of what you expected to happen.
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+### Why
+- (optional, delete if empty) Why it's important
 
-**Smartphone (please complete the following information):**
+### Part of
+- Add the issue number preceded by # (that also allows searching by name for similar issues): eg #525
 
-- Device: [e.g. iPhone6]
-- OS: [e.g. iOS8.1]
-- Browser [e.g. stock browser, safari]
-- Version [e.g. 22]
+### Screenshot/Mockup/Before-After
+(optional, delete if empty)
+
+### Smartphone model
+ - Device: [e.g. Pixel6]
+ - OS: [e.g. Android 10]
+ - App Version [e.g. 22] - you can see that either in the About Smoothie dialog in the settings or using https://nerdschalk.com/how-to-find-version-number-of-an-app-installed-on-your-device/
+
+### Additional context
+(optional, delete if empty)
