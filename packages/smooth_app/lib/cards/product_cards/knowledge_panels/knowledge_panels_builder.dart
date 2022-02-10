@@ -136,20 +136,20 @@ class KnowledgePanelsBuilder {
         );
         // TODO(justinmc): Hacking this true to access the ingredient page for
         // now, even if the ingredients are complete.
-        if (true || (product.statesTags?.contains('en:ingredients-to-be-completed') ??
-            false)) {
+        if (true ||
+            (product.statesTags?.contains('en:ingredients-to-be-completed') ??
+                false)) {
           knowledgePanelElementWidgets.add(
             addPanelButton(
               appLocalizations.score_add_missing_ingredients,
               onPressed: () async => Navigator.push<Widget>(
                 context,
                 MaterialPageRoute<Widget>(
-                  builder: (BuildContext context) =>
-                    EditIngredientsPage(
-                      product: product,
-                      imageIngredientsUrl: product.imageIngredientsUrl,
-                      barcode: product.barcode,
-                    ),
+                  builder: (BuildContext context) => EditIngredientsPage(
+                    product: product,
+                    imageIngredientsUrl: product.imageIngredientsUrl,
+                    barcode: product.barcode,
+                  ),
                 ),
               ),
             ),

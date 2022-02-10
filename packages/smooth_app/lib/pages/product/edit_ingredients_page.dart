@@ -59,7 +59,8 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
   @override
   void didUpdateWidget(EditIngredientsPage oldWidget) {
     super.didUpdateWidget(oldWidget);
-    final String productIngredients = _getIngredientsString(widget.product.ingredients);
+    final String productIngredients =
+        _getIngredientsString(widget.product.ingredients);
     if (productIngredients != _controller.text) {
       _controller.text = productIngredients;
     }
@@ -85,11 +86,12 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
         return;
       }
 
-      final OpenFoodFactsLanguage language = LanguageHelper.fromJson(
-          Localizations.localeOf(context).languageCode);
+      final OpenFoodFactsLanguage language =
+          LanguageHelper.fromJson(Localizations.localeOf(context).languageCode);
       final SendImage image = SendImage(
         lang: language,
-        barcode: widget.barcode!, //Probably throws an error, but this is not a big problem when we got a product without a barcode
+        barcode: widget
+            .barcode!, //Probably throws an error, but this is not a big problem when we got a product without a barcode
         imageField: ImageField.INGREDIENTS,
         imageUri: croppedImageFile.uri,
       );
@@ -113,13 +115,16 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
       }
 
       // Get the ingredients from the image.
-      final OcrIngredientsResult ingredientsResult = await OpenFoodAPIClient
-          .extractIngredients(myUser, widget.barcode!, language);
+      final OcrIngredientsResult ingredientsResult =
+          await OpenFoodAPIClient.extractIngredients(
+              myUser, widget.barcode!, language);
 
-      final String? nextIngredients = ingredientsResult.ingredientsTextFromImage;
+      final String? nextIngredients =
+          ingredientsResult.ingredientsTextFromImage;
       // Save the product's ingredients if needed.
-      if (nextIngredients != null
-          && _getIngredientsString(widget.product.ingredients) != nextIngredients) {
+      if (nextIngredients != null &&
+          _getIngredientsString(widget.product.ingredients) !=
+              nextIngredients) {
         setState(() {
           print('justin ingredients $nextIngredients');
           _controller.text = nextIngredients;
@@ -136,7 +141,8 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
         */
         widget.product.ingredientsText = nextIngredients;
         // TODO(justinmc): Get the actual user here.
-        Status status = await OpenFoodAPIClient.saveProduct(TestConstants.TEST_USER, widget.product);
+        Status status = await OpenFoodAPIClient.saveProduct(
+            TestConstants.TEST_USER, widget.product);
       }
     }
   }
@@ -250,7 +256,6 @@ class _ActionButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
-      
       children: <Widget>[
         if (!hasImage)
           FloatingActionButton.small(
@@ -272,15 +277,13 @@ class _ActionButtons extends StatelessWidget {
             onPressed: getImage,
             child: const Icon(Icons.refresh),
           ),
-        if (hasImage)
-          const SizedBox(width: 12.0),
+        if (hasImage) const SizedBox(width: 12.0),
         if (hasImage)
           FloatingActionButton.small(
             tooltip: 'Confirm',
             backgroundColor: Colors.blue,
             foregroundColor: Colors.white,
-            onPressed: () {
-            },
+            onPressed: () {},
             child: const Icon(Icons.check),
           ),
       ],
