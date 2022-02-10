@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
+import 'ui_helpers.dart';
 
 // TODO(Stephane): Evaluation should come directly from the BE.
 enum AttributeEvaluation {
@@ -11,16 +13,18 @@ enum AttributeEvaluation {
   VERY_GOOD,
 }
 
-Widget getAttributeDisplayIcon(final Attribute attribute) {
-  return _attributeMatchComparison(
-      attribute,
-      const Text('❓  '),
-      const Text('🔴  '),
-      const Text('🟡  '),
-      const Text('🟡  '),
-      const Text('🟢  '),
-      const Text('🟢  '));
-}
+Widget getAttributeDisplayIcon(final Attribute attribute) => Padding(
+      padding: const EdgeInsets.only(right: VERY_SMALL_SPACE),
+      child: _attributeMatchComparison(
+        attribute,
+        const Icon(CupertinoIcons.question, color: Colors.red),
+        const Icon(Icons.lens, color: Colors.red),
+        const Icon(Icons.lens, color: Colors.orange),
+        const Icon(Icons.lens, color: Colors.orange),
+        const Icon(Icons.lens, color: Colors.green),
+        const Icon(Icons.lens, color: Colors.green),
+      ),
+    );
 
 bool isMatchAvailable(Attribute attribute) {
   return attribute.status == Attribute.STATUS_KNOWN && attribute.match != null;
