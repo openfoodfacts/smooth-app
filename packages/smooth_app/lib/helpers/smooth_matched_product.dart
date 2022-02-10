@@ -19,8 +19,6 @@ enum MatchedProductStatus {
 }
 
 abstract class MatchedProduct {
-  MatchedProduct(this.product);
-
   static MatchedProduct getMatchedProduct(
     final Product product,
     final ProductPreferencesManager productPreferencesManager,
@@ -31,6 +29,8 @@ abstract class MatchedProduct {
               false
           ? _StrongMatchedProduct(product, productPreferencesManager)
           : _LenientMatchedProduct(product, productPreferencesManager);
+
+  MatchedProduct(this.product);
 
   final Product product;
   double get score;
