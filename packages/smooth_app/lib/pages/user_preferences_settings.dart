@@ -2,6 +2,7 @@ import 'dart:io' show Platform;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:mailto/mailto.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
@@ -15,6 +16,7 @@ import 'package:smooth_app/pages/abstract_user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/views/bottom_sheet_views/user_contribution_view.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 /// Collapsed/expanded display of settings for the preferences page.
 class UserPreferencesSettings extends AbstractUserPreferences {
@@ -129,11 +131,14 @@ class UserPreferencesSettings extends AbstractUserPreferences {
                       onPressed: () async {
                         final PackageInfo packageInfo =
                             await PackageInfo.fromPlatform();
-                        LaunchUrlHelper.launchURL(
-                          // TODO(M123): Change subject name when we have a different app name
-                          'mailto:contact@openfoodfacts.org?subject=Smoothie%20help&body=Version:${packageInfo.version}+${packageInfo.buildNumber}%20running%20on%20${Platform.operatingSystem}(${Platform.operatingSystemVersion})',
-                          false,
+                        // TODO(M123): Change subject name when we have a different app name
+                        final Mailto mailtoLink = Mailto(
+                          to: <String>['contact@openfoodfacts.org'],
+                          subject: 'Smoothie help',
+                          body:
+                              'Version:${packageInfo.version}+${packageInfo.buildNumber} running on ${Platform.operatingSystem}(${Platform.operatingSystemVersion})',
                         );
+                        await launch('$mailtoLink');
                       },
                     ),
                   ],
