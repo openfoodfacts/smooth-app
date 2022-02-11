@@ -50,12 +50,14 @@ class ScannerOverlay extends StatelessWidget {
           color: Colors.black,
           child: Stack(
             children: <Widget>[
+              //Scanner
               SmoothRevealAnimation(
                 delay: 400,
                 startOffset: Offset.zero,
                 animationCurve: Curves.easeInOutBack,
                 child: child,
               ),
+              // Scanning area overlay
               SmoothRevealAnimation(
                 delay: 400,
                 startOffset: const Offset(0.0, 0.1),
@@ -73,6 +75,7 @@ class ScannerOverlay extends StatelessWidget {
                   ],
                 ),
               ),
+              // Product carousel
               SmoothRevealAnimation(
                 delay: 400,
                 startOffset: const Offset(0.0, -0.1),
