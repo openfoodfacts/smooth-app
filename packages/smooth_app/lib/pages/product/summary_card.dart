@@ -221,19 +221,17 @@ class _SummaryCardState extends State<SummaryCard> {
       child: Column(children: displayedGroups),
     );
     String? categoryTag;
-    if (widget._product.categoriesTags != null &&
-        widget._product.categoriesTags!.isNotEmpty) {
-      categoryTag = widget._product.categoriesTags?.last;
-    }
     String? categoryLabel;
-    if (widget._product.categoriesTagsInLanguages != null &&
-        widget._product
-                .categoriesTagsInLanguages![ProductQuery.getLanguage()!] !=
-            null &&
-        widget._product.categoriesTagsInLanguages![ProductQuery.getLanguage()!]!
-            .isNotEmpty) {
-      categoryLabel = widget._product
-          .categoriesTagsInLanguages?[ProductQuery.getLanguage()!]?.last;
+    if (widget._product.categoriesTags?.isNotEmpty ?? false) {
+      categoryTag = widget._product.categoriesTags!.last;
+      if (widget
+              ._product
+              .categoriesTagsInLanguages?[ProductQuery.getLanguage()!]
+              ?.isNotEmpty ??
+          false) {
+        categoryLabel = widget._product
+            .categoriesTagsInLanguages![ProductQuery.getLanguage()!]!.last;
+      }
     }
     return Column(
       children: <Widget>[
