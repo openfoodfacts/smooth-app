@@ -2,14 +2,15 @@ import 'dart:io';
 import 'dart:ui' show ImageFilter;
 
 import 'package:flutter/material.dart';
-import 'package:image_cropper/image_cropper.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:openfoodfacts/model/OcrIngredientsResult.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 //import 'package:openfoodfacts/model/Product.dart';
 //import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 //import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/helpers/picture_capture_helper.dart';
+import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -68,82 +69,79 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
 
   // TODO(justinmc): Deduplicate this with image_upload_card.dart.
   Future<void> _getImage() async {
-    final ImagePicker picker = ImagePicker();
+    final File? croppedImageFile = await Navigator.push<File?>(
+      context,
+      MaterialPageRoute<File?>(
+        builder: (BuildContext context) => ImageCropPage(),
+      ),
+    );
 
-    final XFile? pickedFile =
-        await picker.pickImage(source: ImageSource.camera);
+    ImageProvider? _imageProvider;
+    ImageProvider? _imageFullProvider;
+    if (croppedImageFile == null) {
+      return;
+    }
+    // Update the image to load the new image file
+    _imageProvider = FileImage(croppedImageFile);
+    _imageFullProvider = _imageProvider;
 
-    if (pickedFile != null) {
-      final File? croppedImageFile = await ImageCropper.cropImage(
-        sourcePath: pickedFile.path,
-        androidUiSettings: const AndroidUiSettings(
-          lockAspectRatio: false,
-          hideBottomControls: true,
-        ),
+    final bool isUploaded = await uploadCapturedPicture(
+      context,
+      barcode: widget.product
+          .barcode!, //Probably throws an error, but this is not a big problem when we got a product without a barcode
+      imageField: ImageField.INGREDIENTS,
+      imageUri: croppedImageFile.uri,
+    );
+    croppedImageFile.delete();
+    /*
+    if (isUploaded) {
+      widget.onUpload(context);
+    }
+    */
+
+    // TODO(justinmc): Refetch the product, if that's how addProductImage works.
+    // Doesn't seem to work in image_upload_card either.
+
+    if (!isUploaded) {
+      throw Exception('Image could not be uploaded.');
+    }
+
+    final OpenFoodFactsLanguage? language = ProductQuery.getLanguage();
+    if (language == null) {
+      throw Exception("Couldn't find language.");
+    }
+
+    final User user = ProductQuery.getUser();
+
+    // Get the ingredients from the image.
+    final OcrIngredientsResult ingredientsResult =
+        await OpenFoodAPIClient.extractIngredients(
+            user, widget.barcode!, ProductQuery.getLanguage()!);
+
+    final String? nextIngredients =
+        ingredientsResult.ingredientsTextFromImage;
+    // Save the product's ingredients if needed.
+    if (nextIngredients != null &&
+        _getIngredientsString(widget.product.ingredients) !=
+            nextIngredients) {
+      setState(() {
+        print('justin ingredients $nextIngredients');
+        _controller.text = nextIngredients;
+      });
+      // TODO(justinmc): How do I update the product's ingredients? Lots of
+      // ingredient-related fields on Product. I only see the saveProduct API
+      // method, is that for editing too?
+      /*
+      Product product = Product(
+        barcode: '4250752200784',
+        lang: OpenFoodFactsLanguage.GERMAN,
+        ingredientsText: 'Johanneskraut, Maisöl, Phospholipide (Sojabohnen, Ponceau 4R)'
       );
-
-      if (croppedImageFile == null) {
-        return;
-      }
-
-      final OpenFoodFactsLanguage language =
-          LanguageHelper.fromJson(Localizations.localeOf(context).languageCode);
-      final SendImage image = SendImage(
-        lang: language,
-        barcode: widget
-            .barcode!, //Probably throws an error, but this is not a big problem when we got a product without a barcode
-        imageField: ImageField.INGREDIENTS,
-        imageUri: croppedImageFile.uri,
-      );
-
-      // a registered user login for https://world.openfoodfacts.org/ is required
-      //ToDo: Add user
-      const User myUser =
-          User(userId: 'smoothie-app', password: 'strawberrybanana');
-
-      // TODO(justinmc): This doesn't seem to update the product if I refetch it.
-      // query the OpenFoodFacts API
-      final Status result =
-          await OpenFoodAPIClient.addProductImage(myUser, image);
-
-      // TODO(justinmc): Refetch the product, if that's how addProductImage works.
-      // Doesn't seem to work in image_upload_card either.
-
-      if (result.status != 'status ok') {
-        throw Exception(
-            'image could not be uploaded: ${result.error} ${result.imageId.toString()}');
-      }
-
-      // Get the ingredients from the image.
-      final OcrIngredientsResult ingredientsResult =
-          await OpenFoodAPIClient.extractIngredients(
-              myUser, widget.barcode!, language);
-
-      final String? nextIngredients =
-          ingredientsResult.ingredientsTextFromImage;
-      // Save the product's ingredients if needed.
-      if (nextIngredients != null &&
-          _getIngredientsString(widget.product.ingredients) !=
-              nextIngredients) {
-        setState(() {
-          print('justin ingredients $nextIngredients');
-          _controller.text = nextIngredients;
-        });
-        // TODO(justinmc): How do I update the product's ingredients? Lots of
-        // ingredient-related fields on Product. I only see the saveProduct API
-        // method, is that for editing too?
-        /*
-        Product product = Product(
-          barcode: '4250752200784',
-          lang: OpenFoodFactsLanguage.GERMAN,
-          ingredientsText: 'Johanneskraut, Maisöl, Phospholipide (Sojabohnen, Ponceau 4R)'
-        );
-        */
-        widget.product.ingredientsText = nextIngredients;
-        // TODO(justinmc): Get the actual user here.
-        Status status = await OpenFoodAPIClient.saveProduct(
-            TestConstants.TEST_USER, widget.product);
-      }
+      */
+      widget.product.ingredientsText = nextIngredients;
+      // TODO(justinmc): Get the actual user here.
+      Status status = await OpenFoodAPIClient.saveProduct(
+          user, widget.product);
     }
   }
 

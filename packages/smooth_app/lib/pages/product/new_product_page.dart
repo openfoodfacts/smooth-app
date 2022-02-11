@@ -169,7 +169,6 @@ class _ProductPageState extends State<ProductPage> {
               snapshot.data!,
               context: context,
               product: _product,
-              context: context,
             );
           } else if (snapshot.hasError) {
             // TODO(jasmeet): Retry the request.
