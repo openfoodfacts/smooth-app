@@ -98,12 +98,14 @@ Widget build(BuildContext context) {
         color: Colors.black,
         child: Stack(
           children: &lt;Widget&gt;[
+            &#47;&#47;Scanner
             SmoothRevealAnimation(
               delay: 400,
               startOffset: Offset.zero,
               animationCurve: Curves.easeInOutBack,
               child: child,
             ),
+            &#47;&#47; Scanning area overlay
             SmoothRevealAnimation(
               delay: 400,
               startOffset: const Offset(0.0, 0.1),
@@ -121,6 +123,7 @@ Widget build(BuildContext context) {
                 ],
               ),
             ),
+            &#47;&#47; Product carousel
             SmoothRevealAnimation(
               delay: 400,
               startOffset: const Offset(0.0, -0.1),

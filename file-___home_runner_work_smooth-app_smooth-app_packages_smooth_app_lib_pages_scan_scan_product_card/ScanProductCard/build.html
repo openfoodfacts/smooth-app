@@ -76,6 +76,14 @@ Widget build(BuildContext context) {
       context.watch&lt;ProductPreferences&gt;();
   return GestureDetector(
     onTap: () =&gt; _openProductPage(context),
+    onVerticalDragEnd: (DragEndDetails details) {
+      if (details.primaryVelocity == null) {
+        return;
+      }
+      if (details.primaryVelocity! &lt; 0) {
+        _openProductPage(context);
+      }
+    },
     child: SummaryCard(product, productPreferences),
   );
 }</code></pre>
