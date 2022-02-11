@@ -26,7 +26,7 @@ apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    compileSdkVersion flutter.compileSdkVersion
+    compileSdkVersion 31
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -41,10 +41,6 @@ android {
         main.java.srcDirs += 'src/main/kotlin'
     }
 
-    lintOptions {
-        disable 'InvalidPackage'
-    }
-
     defaultConfig {
         applicationId "org.openfoodfacts.app"
         minSdkVersion 21
@@ -52,11 +48,7 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         multiDexEnabled true
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
-
-
 
     signingConfigs {
         release {
@@ -66,6 +58,7 @@ android {
             keyPassword System.getenv('SIGN_KEY_PASSWORD')
         }
     }
+
     buildTypes {
         release {
             signingConfig signingConfigs.release
@@ -75,9 +68,6 @@ android {
         }
     }
 }
-
-
-
 
 flutter {
     source '../..'
