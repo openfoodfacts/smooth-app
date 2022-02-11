@@ -1,3 +1,5 @@
+import 'dart:io' show Platform;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
@@ -129,7 +131,7 @@ class UserPreferencesSettings extends AbstractUserPreferences {
                             await PackageInfo.fromPlatform();
                         LaunchUrlHelper.launchURL(
                           // TODO(M123): Change subject name when we have a different app name
-                          'mailto:contact@openfoodfacts.org?subject=Smoothie%20help&body=Version:${packageInfo.version}',
+                          'mailto:contact@openfoodfacts.org?subject=Smoothie%20help&body=Version:${packageInfo.version}+${packageInfo.buildNumber}%20running%20on%20${Platform.operatingSystem}(${Platform.operatingSystemVersion})',
                           false,
                         );
                       },
