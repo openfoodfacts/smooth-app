@@ -121,24 +121,29 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
     stoppingCamera = false;
     final CameraDescription camera = cameras[_cameraIndex];
 
-    _controller = CameraController(
+    final CameraController cameraController = CameraController(
       camera,
       ResolutionPreset.high,
       enableAudio: false,
     );
-    _controller?.setFocusMode(FocusMode.auto);
-    _controller?.lockCaptureOrientation(DeviceOrientation.portraitUp);
+    cameraController.setFocusMode(FocusMode.auto);
+    cameraController.lockCaptureOrientation(DeviceOrientation.portraitUp);
 
-    _controller = _controller;
+    _controller = cameraController;
 
-    try {
-      await _controller!.initialize();
+    // If the controller is initialized update the UI.
+    cameraController.addListener(() {
       if (mounted) {
         setState(() {});
       }
-      if (_controller!.value.hasError) {
-        debugPrint(_controller!.value.errorDescription);
+      if (cameraController.value.hasError) {
+        // TODO(M123): Handle errors better
+        debugPrint(cameraController.value.errorDescription);
       }
+    });
+
+    try {
+      await _controller!.initialize();
       _controller?.startImageStream(_processCameraImage);
     } on CameraException catch (e) {
       if (kDebugMode) {
@@ -154,7 +159,9 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
 
   Future<void> _stopImageStream() async {
     stoppingCamera = true;
-    setState(() {});
+    if (mounted) {
+      setState(() {});
+    }
     await _controller?.dispose();
     _controller = null;
   }
