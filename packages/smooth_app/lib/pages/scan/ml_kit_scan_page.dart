@@ -136,7 +136,7 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
       }
       if (_controller!.value.hasError) {
         // TODO(M123): Handle errors better
-        debugPrint(_controller?.value.errorDescription);
+        debugPrint(_controller!.value.errorDescription);
       }
     });
 
