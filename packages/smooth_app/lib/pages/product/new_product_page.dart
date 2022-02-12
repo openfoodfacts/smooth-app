@@ -8,6 +8,7 @@ import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/knowledge_panels_query.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -17,6 +18,7 @@ import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/knowledge_panel_product_cards.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
+import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -149,6 +151,13 @@ class _ProductPageState extends State<ProductPage> {
         ),
       ),
       _buildKnowledgePanelCards(),
+      if (context.read<UserPreferences>().getFlag(
+              UserPreferencesDevMode.userPreferencesFlagAdditionalButton) ??
+          false)
+        ElevatedButton(
+          onPressed: () {},
+          child: const Text('Additional Button'),
+        ),
     ]);
   }
 
