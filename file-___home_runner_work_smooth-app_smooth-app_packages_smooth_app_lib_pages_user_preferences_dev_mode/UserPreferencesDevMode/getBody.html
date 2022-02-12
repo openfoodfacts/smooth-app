@@ -115,6 +115,17 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
               .showSnackBar(const SnackBar(content: Text(&#39;Ok&#39;)));
         },
       ),
+      SwitchListTile(
+        title: const Text(&#39;Additional button on product page&#39;),
+        value: userPreferences.getFlag(userPreferencesFlagAdditionalButton) ??
+            false,
+        onChanged: (bool value) async {
+          await userPreferences.setFlag(
+              userPreferencesFlagAdditionalButton, value);
+          ScaffoldMessenger.of(context)
+              .showSnackBar(const SnackBar(content: Text(&#39;Ok&#39;)));
+        },
+      ),
       ListTile(
         title: const Text(&#39;Export History&#39;),
         onTap: () async {
@@ -211,6 +222,7 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
 
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_user_preferences_dev_mode/UserPreferencesDevMode-class.html#constants">Constants</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagAdditionalButton-constant.html">userPreferencesFlagAdditionalButton</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagProd-constant.html">userPreferencesFlagProd</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagUseMLKit-constant.html">userPreferencesFlagUseMLKit</a></li>
 </ol>
