@@ -73,46 +73,36 @@
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-  final List&lt;ImageUploadCard&gt; carouselItems = &lt;ImageUploadCard&gt;[
-    ImageUploadCard(
-      product: product,
+  final List&lt;ProductImageData&gt; allProductImagesData = &lt;ProductImageData&gt;[
+    ProductImageData(
       imageField: ImageField.FRONT,
       imageUrl: product.imageFrontUrl,
       title: appLocalizations.product,
       buttonText: appLocalizations.front_photo,
-      onUpload: onUpload,
     ),
-    ImageUploadCard(
-      product: product,
+    ProductImageData(
       imageField: ImageField.INGREDIENTS,
       imageUrl: product.imageIngredientsUrl,
       title: appLocalizations.ingredients,
       buttonText: appLocalizations.ingredients_photo,
-      onUpload: onUpload,
     ),
-    ImageUploadCard(
-      product: product,
+    ProductImageData(
       imageField: ImageField.NUTRITION,
       imageUrl: product.imageNutritionUrl,
       title: appLocalizations.nutrition,
       buttonText: appLocalizations.nutrition_facts_photo,
-      onUpload: onUpload,
     ),
-    ImageUploadCard(
-      product: product,
+    ProductImageData(
       imageField: ImageField.PACKAGING,
       imageUrl: product.imagePackagingUrl,
       title: appLocalizations.packaging_information,
       buttonText: appLocalizations.packaging_information_photo,
-      onUpload: onUpload,
     ),
-    ImageUploadCard(
-      product: product,
+    ProductImageData(
       imageField: ImageField.OTHER,
       imageUrl: null,
       title: appLocalizations.more_photos,
       buttonText: appLocalizations.more_photos,
-      onUpload: onUpload,
     ),
   ];
 
@@ -121,12 +111,17 @@ Widget build(BuildContext context) {
     child: ListView(
       &#47;&#47; This next line does the trick.
       scrollDirection: Axis.horizontal,
-      children: carouselItems
+      children: allProductImagesData
           .map(
-            (ImageUploadCard item) =&gt; Container(
+            (ProductImageData item) =&gt; Container(
               margin: const EdgeInsets.fromLTRB(0, 0, 5, 0),
               decoration: const BoxDecoration(color: Colors.black12),
-              child: item,
+              child: ImageUploadCard(
+                product: product,
+                productImageData: item,
+                allProductImagesData: allProductImagesData,
+                onUpload: onUpload,
+              ),
             ),
           )
           .toList(),
