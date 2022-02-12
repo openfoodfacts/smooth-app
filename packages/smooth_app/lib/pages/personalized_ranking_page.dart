@@ -70,6 +70,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
     }
     return DefaultTabController(
       length: _ORDERED_MATCH_TABS.length,
+      initialIndex: _ORDERED_MATCH_TABS.indexOf(MatchTab.YES),
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,

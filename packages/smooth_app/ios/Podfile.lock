@@ -184,7 +184,7 @@ SPEC CHECKSUMS:
   qr_code_scanner: bb67d64904c3b9658ada8c402e8b4d406d5d796e
   Sentry: 2f7e91f247cfb05b05bd01e0b5d0692557a7687b
   sentry_flutter: 7c3cb050dc23563a4ea5db438c83afdb460a2ae6
-  shared_preferences_ios: aef470a42dc4675a1cdd50e3158b42e3d1232b32
+  shared_preferences_ios: 548a61f8053b9b8a49ac19c1ffbc8b92c50d68ad
   url_launcher_ios: 839c58cdb4279282219f5e248c3321761ff3c4de
 
 PODFILE CHECKSUM: e1ffd3daa5042cd516081f94f61b857c0deb822d
