@@ -62,7 +62,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Text(widget.title),
+        title: Text(title),
       ),
       backgroundColor: Colors.black,
       body: PhotoViewGallery.builder(
