@@ -19,7 +19,7 @@ class ProductImageCarousel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-    final List<ProductImageData> carouselItems = <ProductImageData>[
+    final List<ProductImageData> allProductImagesData = <ProductImageData>[
       ProductImageData(
         imageField: ImageField.FRONT,
         imageUrl: product.imageFrontUrl,
@@ -57,14 +57,15 @@ class ProductImageCarousel extends StatelessWidget {
       child: ListView(
         // This next line does the trick.
         scrollDirection: Axis.horizontal,
-        children: carouselItems
+        children: allProductImagesData
             .map(
               (ProductImageData item) => Container(
                 margin: const EdgeInsets.fromLTRB(0, 0, 5, 0),
                 decoration: const BoxDecoration(color: Colors.black12),
                 child: ImageUploadCard(
-                  productImageData: item,
                   product: product,
+                  productImageData: item,
+                  allProductImagesData: allProductImagesData,
                   onUpload: onUpload,
                 ),
               ),

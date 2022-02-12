@@ -3,13 +3,13 @@ import 'package:openfoodfacts/model/ProductImage.dart';
 class ProductImageData {
   const ProductImageData({
     required this.imageField,
-    this.imageUrl,
-    this.title,
+    required this.title,
     required this.buttonText,
+    this.imageUrl,
   });
 
   final ImageField imageField;
-  final String? imageUrl;
-  final String? title;
+  final String title;
   final String buttonText;
+  final String? imageUrl;
 }

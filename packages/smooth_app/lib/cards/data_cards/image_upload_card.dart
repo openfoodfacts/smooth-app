@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/helpers/picture_capture_helper.dart';
@@ -12,11 +11,13 @@ class ImageUploadCard extends StatefulWidget {
   const ImageUploadCard({
     required this.product,
     required this.productImageData,
+    required this.allProductImagesData,
     required this.onUpload,
   });
 
   final Product product;
   final ProductImageData productImageData;
+  final List<ProductImageData> allProductImagesData;
   final Function(BuildContext) onUpload;
 
   @override
@@ -63,8 +64,6 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
     // We can already have an _imageProvider for a file that is going to be uploaded
     // or an imageUrl for a network image
     // or no image yet
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-
     if ((_imageProvider == null) &&
         (widget.productImageData.imageUrl != null)) {
       _imageProvider = NetworkImage(widget.productImageData.imageUrl!);
@@ -89,9 +88,9 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
             context,
             MaterialPageRoute<Widget>(
               builder: (BuildContext context) => ProductImageGalleryView(
-                product: widget.product,
-                currenImageUrl: widget.productImageData.imageUrl!,
-                title: widget.productImageData.title ?? appLocalizations.image,
+                productImageData: widget.productImageData,
+                allProductImagesData: widget.allProductImagesData,
+                title: widget.productImageData.title,
               ),
             ),
           );
