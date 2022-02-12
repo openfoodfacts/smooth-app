@@ -36,6 +36,8 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
 
   static const String userPreferencesFlagProd = '__devWorkingOnProd';
   static const String userPreferencesFlagUseMLKit = '__useMLKit';
+  static const String userPreferencesFlagAdditionalButton =
+      '__additionalButtonOnProductPage';
 
   @override
   bool isCollapsedByDefault() => true;
@@ -97,6 +99,17 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           value: userPreferences.getFlag(userPreferencesFlagUseMLKit) ?? true,
           onChanged: (bool value) async {
             await userPreferences.setFlag(userPreferencesFlagUseMLKit, value);
+            ScaffoldMessenger.of(context)
+                .showSnackBar(const SnackBar(content: Text('Ok')));
+          },
+        ),
+        SwitchListTile(
+          title: const Text('Additional button on product page'),
+          value: userPreferences.getFlag(userPreferencesFlagAdditionalButton) ??
+              false,
+          onChanged: (bool value) async {
+            await userPreferences.setFlag(
+                userPreferencesFlagAdditionalButton, value);
             ScaffoldMessenger.of(context)
                 .showSnackBar(const SnackBar(content: Text('Ok')));
           },
