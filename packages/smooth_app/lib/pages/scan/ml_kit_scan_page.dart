@@ -126,11 +126,11 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
       ResolutionPreset.high,
       enableAudio: false,
     );
-    _controller!.setFocusMode(FocusMode.auto);
-    _controller!.lockCaptureOrientation(DeviceOrientation.portraitUp);
+    _controller?.setFocusMode(FocusMode.auto);
+    _controller?.lockCaptureOrientation(DeviceOrientation.portraitUp);
 
     // If the controller is initialized update the UI.
-    _controller!.addListener(() {
+    _controller?.addListener(() {
       if (mounted) {
         setState(() {});
       }
@@ -141,7 +141,7 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
     });
 
     try {
-      await _controller!.initialize();
+      await _controller?.initialize();
       _controller?.startImageStream(_processCameraImage);
     } on CameraException catch (e) {
       if (kDebugMode) {
