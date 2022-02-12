@@ -8,6 +8,9 @@ import 'package:openfoodfacts/model/OrderedNutrient.dart';
 import 'package:openfoodfacts/model/OrderedNutrients.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/UnitHelper.dart';
+import 'package:provider/provider.dart';
+import 'package:smooth_app/database/dao_product.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -84,6 +87,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final List<Widget> children = <Widget>[];
     children.add(_switchNoNutrition(appLocalizations));
     if (!_unspecified) {
@@ -100,7 +104,10 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       }
       children.add(_addNutrientButton(appLocalizations));
     }
-    children.add(_addCancelSaveButtons(appLocalizations));
+    children.add(_addCancelSaveButtons(
+      appLocalizations,
+      localDatabase,
+    ));
 
     return Scaffold(
       appBar: AppBar(title: Text(appLocalizations.nutrition_page_title)),
@@ -434,7 +441,11 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         label: Text(appLocalizations.nutrition_page_add_nutrient),
       );
 
-  Widget _addCancelSaveButtons(final AppLocalizations appLocalizations) => Row(
+  Widget _addCancelSaveButtons(
+    final AppLocalizations appLocalizations,
+    final LocalDatabase localDatabase,
+  ) =>
+      Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
@@ -447,14 +458,14 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
               if (!_formKey.currentState!.validate()) {
                 return;
               }
-              await _save();
+              await _save(localDatabase);
             },
             child: Text(appLocalizations.save),
           ),
         ],
       );
 
-  Future<void> _save() async {
+  Future<void> _save(final LocalDatabase localDatabase) async {
     final Map<String, dynamic> map = <String, dynamic>{};
     String? servingSize;
     for (final String key in _controllers.keys) {
@@ -473,28 +484,24 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       }
     }
     final Nutriments nutriments = Nutriments.fromJson(map);
-    widget.product.nutriments =
-        nutriments; // TODO(monsieurtanuki): here we impact directly the product share with the previous screen, not nice!
-    widget.product.servingSize = servingSize;
-
-    final Status? status = await LoadingDialog.run<Status>(
-      future: Future<Status>.delayed(const Duration(seconds: 2), () => Status()
-          /* TODO(monsieurtanuki): put back the actual call
-          OpenFoodAPIClient.saveProduct(
-            ProductQuery.getUser(),
-            widget.product,
-           */
-          ),
-      context: context,
-      title: '${AppLocalizations.of(context)!.nutrition_page_update_running}'
-          ' (in fact just waiting 2 seconds)',
+    // minimal product: we only want to save the nutrients
+    final Product inputProduct = Product(
+      barcode: widget.product.barcode,
+      nutriments: nutriments,
+      servingSize: servingSize,
     );
-    if (status == null) {
+
+    final bool? savedAndRefreshed = await LoadingDialog.run<bool>(
+      future: _saveAndRefresh(inputProduct, localDatabase),
+      context: context,
+      title: AppLocalizations.of(context)!.nutrition_page_update_running,
+    );
+    if (savedAndRefreshed == null) {
       // probably the end user stopped the dialog
       return;
     }
-    if (status.error != null) {
-      await LoadingDialog.error(context: context, title: status.error);
+    if (!savedAndRefreshed) {
+      await LoadingDialog.error(context: context);
       return;
     }
     await showDialog<void>(
@@ -508,6 +515,37 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         ],
       ),
     );
-    Navigator.of(context).pop();
+    Navigator.of(context).pop(true);
+  }
+
+  /// Saves a product on the BE and refreshes the local database
+  Future<bool> _saveAndRefresh(
+    final Product inputProduct,
+    final LocalDatabase localDatabase,
+  ) async {
+    try {
+      final Status status = await OpenFoodAPIClient.saveProduct(
+        ProductQuery.getUser(),
+        inputProduct,
+      );
+      if (status.error != null) {
+        return false;
+      }
+      final ProductQueryConfiguration configuration = ProductQueryConfiguration(
+        inputProduct.barcode!,
+        fields: ProductQuery.fields,
+        language: ProductQuery.getLanguage(),
+        country: ProductQuery.getCountry(),
+      );
+      final ProductResult result =
+          await OpenFoodAPIClient.getProduct(configuration);
+      if (result.product != null) {
+        await DaoProduct(context.read<LocalDatabase>()).put(result.product!);
+        return true;
+      }
+    } catch (e) {
+      //
+    }
+    return false;
   }
 }
