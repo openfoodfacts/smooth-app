@@ -508,5 +508,6 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         ],
       ),
     );
+    Navigator.of(context).pop();
   }
 }
