@@ -121,24 +121,22 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
     stoppingCamera = false;
     final CameraDescription camera = cameras[_cameraIndex];
 
-    final CameraController cameraController = CameraController(
+    _controller = CameraController(
       camera,
       ResolutionPreset.high,
       enableAudio: false,
     );
-    cameraController.setFocusMode(FocusMode.auto);
-    cameraController.lockCaptureOrientation(DeviceOrientation.portraitUp);
-
-    _controller = cameraController;
+    _controller!.setFocusMode(FocusMode.auto);
+    _controller!.lockCaptureOrientation(DeviceOrientation.portraitUp);
 
     // If the controller is initialized update the UI.
-    cameraController.addListener(() {
+    _controller!.addListener(() {
       if (mounted) {
         setState(() {});
       }
-      if (cameraController.value.hasError) {
+      if (_controller!.value.hasError) {
         // TODO(M123): Handle errors better
-        debugPrint(cameraController.value.errorDescription);
+        debugPrint(_controller?.value.errorDescription);
       }
     });
 
@@ -151,7 +149,6 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
         debugPrint(e.toString());
       }
     }
-
     if (mounted) {
       setState(() {});
     }
