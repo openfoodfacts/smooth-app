@@ -83,7 +83,7 @@ class ScannerOverlay extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
-                    buildButtonsRow(context, model),
+                    SafeArea(top: true, child: buildButtonsRow(context, model)),
                     const Spacer(),
                     SmoothProductCarousel(
                       showSearchCard: true,
