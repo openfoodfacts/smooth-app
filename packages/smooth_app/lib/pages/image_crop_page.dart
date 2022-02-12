@@ -26,6 +26,14 @@ class ImageCropPage extends StatelessWidget {
     return pickedXFile.readAsBytes();
   }
 
+  // We need this callback to stop flutter from complaining that we pop while
+  // returning a placeholder container
+  void popCallback(Function() callback) {
+    WidgetsBinding.instance?.addPostFrameCallback((_) {
+      callback.call();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
@@ -43,7 +51,10 @@ class ImageCropPage extends StatelessWidget {
             }
 
             if (snap.data == null) {
-              Navigator.pop(context);
+              popCallback(() {
+                Navigator.pop(context);
+              });
+              return Container();
             }
 
             return Crop(
