@@ -36,6 +36,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
 
   static const String userPreferencesFlagProd = '__devWorkingOnProd';
   static const String userPreferencesFlagUseMLKit = '__useMLKit';
+  static const String userPreferencesFlagLenientMatching = '__lenientMatching';
   static const String userPreferencesFlagAdditionalButton =
       '__additionalButtonOnProductPage';
 
@@ -158,6 +159,20 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
                 ],
               ),
             );
+          },
+        ),
+        ListTile(
+          title: const Text('Switch between strong and lenient matching'),
+          subtitle: Text(
+            'Current matching level is '
+            '${(userPreferences.getFlag(userPreferencesFlagLenientMatching) ?? false) ? 'strong' : 'lenient'}',
+          ),
+          onTap: () async {
+            await userPreferences.setFlag(
+                userPreferencesFlagLenientMatching,
+                !(userPreferences.getFlag(userPreferencesFlagLenientMatching) ??
+                    false));
+            setState(() {});
           },
         ),
       ];
