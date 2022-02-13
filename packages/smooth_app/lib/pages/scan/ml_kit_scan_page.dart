@@ -160,6 +160,7 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
       setState(() {});
     }
     await _controller?.dispose();
+    _controller?.removeListener(() {});
     _controller = null;
   }
 
