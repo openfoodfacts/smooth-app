@@ -32,8 +32,6 @@ class ContinuousScanModel with ChangeNotifier {
   late DaoProduct _daoProduct;
   late DaoProductList _daoProductList;
 
-  int get productsCount => getBarcodes().length;
-
   ProductList get productList => _productList;
 
   List<String> getBarcodes() => _barcodes;

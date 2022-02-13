@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/generic_lib/animations/smooth_reveal_animation.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_view_finder.dart';
-import 'package:smooth_app/pages/scan/scan_page_helper.dart';
+import 'package:smooth_app/pages/scan/scan_header.dart';
 import 'package:smooth_app/widgets/smooth_product_carousel.dart';
 
 /// This builds all the essential widgets which are displayed above the camera
@@ -36,8 +36,9 @@ class ScannerOverlay extends StatelessWidget {
         );
         final double carouselHeight =
             constraints.maxHeight * ScannerOverlay.carouselHeightPct;
-        final double buttonRowHeight =
-            areButtonsRendered(model) ? ScannerOverlay.buttonRowHeightPx : 0;
+        final double buttonRowHeight = model.getBarcodes().isNotEmpty
+            ? ScannerOverlay.buttonRowHeightPx
+            : 0;
         final double availableScanHeight =
             constraints.maxHeight - carouselHeight - buttonRowHeight;
 
@@ -83,7 +84,7 @@ class ScannerOverlay extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
-                    const SafeArea(top: true, child: ButtonsRow()),
+                    const SafeArea(top: true, child: ScanHeader()),
                     const Spacer(),
                     SmoothProductCarousel(
                       showSearchCard: true,
