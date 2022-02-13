@@ -54,7 +54,8 @@
 
 <span class="returntype">void</span>
 <span class="name ">refresh</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="refresh-param-products"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a></span> <span class="parameter-name">products</span>, </span></li>
-<li><span class="parameter" id="refresh-param-productPreferences"><span class="type-annotation">dynamic</span> <span class="parameter-name">productPreferences</span></span></li>
+<li><span class="parameter" id="refresh-param-productPreferences"><span class="type-annotation">dynamic</span> <span class="parameter-name">productPreferences</span>, </span></li>
+<li><span class="parameter" id="refresh-param-userPreferences"><span class="type-annotation">dynamic</span> <span class="parameter-name">userPreferences</span></span></li>
 </ol>)
 
       
@@ -69,9 +70,13 @@
   <pre class="language-dart"><code class="language-dart">void refresh(
   final List&lt;Product&gt; products,
   final ProductPreferences productPreferences,
+  final UserPreferences userPreferences,
 ) {
-  final List&lt;MatchedProduct&gt; allProducts =
-      MatchedProduct.sort(products, productPreferences);
+  final List&lt;MatchedProduct&gt; allProducts = MatchedProduct.sort(
+    products,
+    productPreferences,
+    userPreferences,
+  );
   _categorizedProducts.clear();
   _categorizedProducts[MatchTab.ALL] = allProducts;
   for (final MatchedProduct matchedProduct in allProducts) {

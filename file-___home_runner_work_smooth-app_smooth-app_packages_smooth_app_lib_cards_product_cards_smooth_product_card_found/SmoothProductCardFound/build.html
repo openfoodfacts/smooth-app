@@ -84,9 +84,10 @@ Widget build(BuildContext context) {
   for (final Attribute attribute in attributes) {
     scores.add(SvgIconChip(attribute.iconUrl!, height: iconSize));
   }
-  final MatchedProduct matchedProduct = MatchedProduct(
+  final MatchedProduct matchedProduct = MatchedProduct.getMatchedProduct(
     product,
     context.watch&lt;ProductPreferences&gt;(),
+    context.watch&lt;UserPreferences&gt;(),
   );
   final ProductCompatibilityHelper helper =
       ProductCompatibilityHelper(matchedProduct);
