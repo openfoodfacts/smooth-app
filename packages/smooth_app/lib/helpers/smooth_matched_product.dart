@@ -122,7 +122,7 @@ const Map<String, int> _attributeImportanceWeight = <String, int>{
   PreferenceImportance.ID_NOT_IMPORTANT: 0,
 };
 
-/// Lenient version (monsieurtanuki) (found back in #1046)
+/// Lenient version (jasmeet0817) (found back in #1046)
 class _LenientMatchedProduct extends MatchedProduct {
   _LenientMatchedProduct(
     final Product product,
