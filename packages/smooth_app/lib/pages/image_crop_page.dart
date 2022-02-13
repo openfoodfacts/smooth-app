@@ -3,20 +3,13 @@ import 'dart:typed_data';
 
 import 'package:crop_your_image/crop_your_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
-import 'package:smooth_app/widgets/loading_dialog.dart';
 
 Future<File?> startImageCropping(BuildContext context) async {
-  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-  final Uint8List? bytes = await LoadingDialog.run<Uint8List?>(
-    context: context,
-    future: pickImage(),
-    title: appLocalizations.selecting_photo,
-  );
+  final Uint8List? bytes = await pickImage();
 
   if (bytes == null) {
     return null;
@@ -45,16 +38,13 @@ Future<Uint8List?> pickImage() async {
 }
 
 class ImageCropPage extends StatelessWidget {
-  ImageCropPage({Key? key, required this.imageBytes}) : super(key: key);
+  const ImageCropPage({Key? key, required this.imageBytes}) : super(key: key);
 
   final Uint8List imageBytes;
-  final CropController _controller = CropController();
-
-  // We need this callback to stop flutter from complaining that we pop while
-  // returning a placeholder container
 
   @override
   Widget build(BuildContext context) {
+    final CropController _controller = CropController();
     final ThemeData theme = Theme.of(context);
     context.watch<ThemeProvider>();
 
