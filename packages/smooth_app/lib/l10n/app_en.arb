@@ -406,6 +406,10 @@
     "@retake_photo_button_label": {
         "description": "Button clicking on which allows users to retake the last photo they took."
     },
+    "selecting_photo": "Selecting photo",
+    "@selecting_photo": {
+        "description": "Progress indicator when the users takes a photo"
+    },
     "uploading_image": "Uploading Image to the server",
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
