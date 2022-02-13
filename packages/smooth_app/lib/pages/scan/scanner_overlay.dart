@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/generic_lib/animations/smooth_reveal_animation.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_view_finder.dart';
@@ -11,11 +12,9 @@ import 'package:smooth_app/widgets/smooth_product_carousel.dart';
 class ScannerOverlay extends StatelessWidget {
   const ScannerOverlay({
     required this.child,
-    required this.model,
   });
 
   final Widget child;
-  final ContinuousScanModel model;
 
   static const double carouselHeightPct = 0.55;
   static const double scannerWidthPct = 0.6;
@@ -24,6 +23,7 @@ class ScannerOverlay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ContinuousScanModel model = context.watch<ContinuousScanModel>();
     return LayoutBuilder(
       builder: (
         BuildContext context,
@@ -83,7 +83,7 @@ class ScannerOverlay extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
-                    SafeArea(top: true, child: buildButtonsRow(context, model)),
+                    const SafeArea(top: true, child: ButtonsRow()),
                     const Spacer(),
                     SmoothProductCarousel(
                       showSearchCard: true,

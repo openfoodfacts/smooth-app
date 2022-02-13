@@ -99,7 +99,6 @@ class _ScanPageState extends State<ScanPage> {
           child: Scaffold(
             body: ScannerOverlay(
               child: child,
-              model: _model!,
             ),
           ),
         );
