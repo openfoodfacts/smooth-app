@@ -74,7 +74,7 @@ class ContinuousScanModel with ChangeNotifier {
 
   Future<void> refreshProductList() async => _daoProductList.get(_productList);
 
-  void setBarcodeState(
+  void _setBarcodeState(
     final String barcode,
     final ScannedProductState state,
   ) {
@@ -103,11 +103,16 @@ class ContinuousScanModel with ChangeNotifier {
     _addBarcode(code);
   }
 
+  Future<void> retryBarcodeFetch(String barcode) async {
+    _setBarcodeState(barcode, ScannedProductState.LOADING);
+    await _updateBarcode(barcode);
+  }
+
   Future<bool> _addBarcode(final String barcode) async {
     final ScannedProductState? state = getBarcodeState(barcode);
     if (state == null) {
       _barcodes.add(barcode);
-      setBarcodeState(barcode, ScannedProductState.LOADING);
+      _setBarcodeState(barcode, ScannedProductState.LOADING);
       _cacheOrLoadBarcode(barcode);
       return true;
     }
@@ -159,10 +164,10 @@ class ContinuousScanModel with ChangeNotifier {
         _addProduct(fetchedProduct.product!, ScannedProductState.FOUND);
         return;
       case FetchedProductStatus.internetNotFound:
-        setBarcodeState(barcode, ScannedProductState.NOT_FOUND);
+        _setBarcodeState(barcode, ScannedProductState.NOT_FOUND);
         return;
       case FetchedProductStatus.internetError:
-        setBarcodeState(barcode, ScannedProductState.ERROR);
+        _setBarcodeState(barcode, ScannedProductState.ERROR);
         return;
       case FetchedProductStatus.userCancelled:
         // we do nothing
@@ -179,10 +184,10 @@ class ContinuousScanModel with ChangeNotifier {
         _addProduct(fetchedProduct.product!, ScannedProductState.FOUND);
         return;
       case FetchedProductStatus.internetNotFound:
-        setBarcodeState(barcode, ScannedProductState.NOT_FOUND);
+        _setBarcodeState(barcode, ScannedProductState.NOT_FOUND);
         return;
       case FetchedProductStatus.internetError:
-        setBarcodeState(barcode, ScannedProductState.ERROR);
+        _setBarcodeState(barcode, ScannedProductState.ERROR);
         return;
       case FetchedProductStatus.userCancelled:
         // we do nothing
@@ -200,7 +205,7 @@ class ContinuousScanModel with ChangeNotifier {
       await _daoProductList.push(productList, _latestFoundBarcode!);
       await _daoProductList.push(_history, _latestFoundBarcode!);
     }
-    setBarcodeState(product.barcode!, state);
+    _setBarcodeState(product.barcode!, state);
   }
 
   Future<void> clearScanSession() async {

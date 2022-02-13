@@ -63,13 +63,7 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                         text: appLocalizations.retake_photo_button_label,
                         onPressed: () async {
                           final File? retakenPhoto =
-                              await Navigator.push<File?>(
-                            context,
-                            MaterialPageRoute<File?>(
-                              builder: (BuildContext context) =>
-                                  ImageCropPage(),
-                            ),
-                          );
+                              await startImageCropping(context);
                           if (retakenPhoto == null) {
                             // User chose not to upload the image.
                             Navigator.pop(context);
@@ -81,23 +75,24 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                           retakenPhoto.delete();
                         }),
                     SmoothActionButton(
-                        text: _getConfirmButtonText(
+                      text: _getConfirmButtonText(
+                        context,
+                        widget.imageType,
+                      ),
+                      onPressed: () async {
+                        final bool isPhotoUploaded =
+                            await uploadCapturedPicture(
                           context,
-                          widget.imageType,
-                        ),
-                        onPressed: () async {
-                          final bool isPhotoUploaded =
-                              await uploadCapturedPicture(
-                            context,
-                            barcode: widget.barcode,
-                            imageField: widget.imageType,
-                            imageUri: photo.uri,
-                          );
-                          Navigator.pop(
-                            context,
-                            isPhotoUploaded ? photo : null,
-                          );
-                        }),
+                          barcode: widget.barcode,
+                          imageField: widget.imageType,
+                          imageUri: photo.uri,
+                        );
+                        Navigator.pop(
+                          context,
+                          isPhotoUploaded ? photo : null,
+                        );
+                      },
+                    ),
                   ],
                 ),
               ),

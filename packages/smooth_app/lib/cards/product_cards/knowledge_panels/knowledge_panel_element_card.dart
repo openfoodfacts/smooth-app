@@ -27,8 +27,8 @@ class KnowledgePanelElementCard extends StatelessWidget {
       case KnowledgePanelElementType.IMAGE:
         return Image.network(
           knowledgePanelElement.imageElement!.url,
-          width: knowledgePanelElement.imageElement!.width!.toDouble(),
-          height: knowledgePanelElement.imageElement!.height!.toDouble(),
+          width: knowledgePanelElement.imageElement!.width?.toDouble(),
+          height: knowledgePanelElement.imageElement!.height?.toDouble(),
         );
       case KnowledgePanelElementType.PANEL:
         return KnowledgePanelCard(

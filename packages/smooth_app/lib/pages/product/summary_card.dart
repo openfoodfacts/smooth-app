@@ -221,9 +221,19 @@ class _SummaryCardState extends State<SummaryCard> {
       margin: const EdgeInsets.only(bottom: 16),
       child: Column(children: displayedGroups),
     );
-    final String? categoryTag = widget._product.categoriesTags?.last;
-    final String? categoryLabel = widget
-        ._product.categoriesTagsInLanguages?[ProductQuery.getLanguage()!]?.last;
+    String? categoryTag;
+    String? categoryLabel;
+    if (widget._product.categoriesTags?.isNotEmpty ?? false) {
+      categoryTag = widget._product.categoriesTags!.last;
+      if (widget
+              ._product
+              .categoriesTagsInLanguages?[ProductQuery.getLanguage()!]
+              ?.isNotEmpty ??
+          false) {
+        categoryLabel = widget._product
+            .categoriesTagsInLanguages![ProductQuery.getLanguage()!]!.last;
+      }
+    }
     return Column(
       children: <Widget>[
         ProductTitleCard(widget._product),
@@ -248,7 +258,7 @@ class _SummaryCardState extends State<SummaryCard> {
             onPressed: () async => ProductQueryPageHelper().openBestChoice(
               color: Colors.deepPurple,
               heroTag: 'search_bar',
-              name: categoryLabel,
+              name: categoryLabel!,
               localDatabase: localDatabase,
               productQuery: CategoryProductQuery(
                 categoryTag: widget._product.categoriesTags!.last,
