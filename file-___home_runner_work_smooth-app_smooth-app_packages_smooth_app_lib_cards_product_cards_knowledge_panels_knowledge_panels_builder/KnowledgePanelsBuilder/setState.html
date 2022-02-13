@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the buildAll method from the KnowledgePanelsBuilder class, for the Dart programming language.">
-  <title>buildAll method - KnowledgePanelsBuilder class - knowledge_panels_builder library - Dart API</title>
+  <meta name="description" content="API docs for the setState property from the KnowledgePanelsBuilder class, for the Dart programming language.">
+  <title>setState property - KnowledgePanelsBuilder class - knowledge_panels_builder library - Dart API</title>
 
 
   
@@ -32,9 +32,9 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_knowledge_panels_knowledge_panels_builder/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_knowledge_panels_knowledge_panels_builder-library.html">knowledge_panels_builder</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_knowledge_panels_knowledge_panels_builder/KnowledgePanelsBuilder-class.html">KnowledgePanelsBuilder</a></li>
-    <li class="self-crumb">buildAll method</li>
+    <li class="self-crumb">setState property</li>
   </ol>
-  <div class="self-name">buildAll</div>
+  <div class="self-name">setState</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,60 +45,27 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">buildAll</span> method 
+<h1><span class="kind-property">setState</span> property 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
-    <section class="multi-line-signature">
-      
+        <section class="multi-line-signature">
+          dynamic
+          <span class="name ">setState</span>
+          <div class="features">final</div>
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a></span>
-<span class="name ">buildAll</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="buildAll-param-knowledgePanels"><span class="type-annotation">dynamic</span> <span class="parameter-name">knowledgePanels</span>, </span></li>
-<li><span class="parameter" id="buildAll-param-product">{<span class="type-annotation">dynamic</span> <span class="parameter-name">product</span>, </span></li>
-<li><span class="parameter" id="buildAll-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span>}</span></li>
-</ol>)
-
-      
-
-    </section>
-    
+        </section>
+        
 <section class="desc markdown">
-  <p>Builds all panels.</p>
-<p>Typical use case: product page.</p>
+  <p>Would for instance refresh the product page.</p>
 </section>
 
-
-    
+        
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">List&lt;Widget&gt; buildAll(
-  KnowledgePanels knowledgePanels, {
-  final Product? product,
-  final BuildContext? context,
-}) {
-  final List&lt;Widget&gt; rootPanelWidgets = &lt;Widget&gt;[];
-  if (knowledgePanels.panelIdToPanelMap[&#39;root&#39;] == null) {
-    return rootPanelWidgets;
-  }
-  if (knowledgePanels.panelIdToPanelMap[&#39;root&#39;]!.elements == null) {
-    return rootPanelWidgets;
-  }
-  for (final KnowledgePanelElement panelElement
-      in knowledgePanels.panelIdToPanelMap[&#39;root&#39;]!.elements!) {
-    if (panelElement.elementType != KnowledgePanelElementType.PANEL) {
-      continue;
-    }
-    rootPanelWidgets.add(
-      _buildPanel(
-        panelElement,
-        knowledgePanels,
-        context: context,
-        product: product,
-      ),
-    );
-  }
-  return rootPanelWidgets;
-}</code></pre>
+  <pre class="language-dart"><code class="language-dart">final VoidCallback? setState;
+
+</code></pre>
 </section>
 
 
@@ -115,7 +82,7 @@
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_knowledge_panels_knowledge_panels_builder/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_knowledge_panels_knowledge_panels_builder-library.html">knowledge_panels_builder</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_knowledge_panels_knowledge_panels_builder/KnowledgePanelsBuilder-class.html">KnowledgePanelsBuilder</a></li>
-  <li class="self-crumb">buildAll method</li>
+  <li class="self-crumb">setState property</li>
 </ol>
 
 
