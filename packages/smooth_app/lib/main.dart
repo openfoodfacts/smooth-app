@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/personalized_search/product_preferences_selection.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
@@ -20,31 +19,22 @@ import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
+import 'helpers/analytics_helper.dart';
+
 List<CameraDescription> cameras = <CameraDescription>[];
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final PackageInfo packageInfo = await PackageInfo.fromPlatform();
 
   if (kReleaseMode) {
-    await SentryFlutter.init(
-      (SentryOptions options) {
-        options.dsn =
-            'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745';
-        options.sentryClientName =
-            'sentry.dart.smoothie/${packageInfo.version}';
-      },
-      appRunner: () => runApp(const SmoothApp()),
+    await initSentry(
+      appRunner: () => const SmoothApp(),
     );
-
-    /* TODO: put back when we have clearer ideas about analytics
-    await MatomoTracker().initialize(
-      siteId: 2,
-      url: 'https://analytics.openfoodfacts.org/',
-    );
-    */
   } else {
-    runApp(DevicePreview(enabled: true, builder: (_) => const SmoothApp()));
+    runApp(DevicePreview(
+      enabled: true,
+      builder: (_) => const SmoothApp(),
+    ));
   }
 }
 
@@ -95,9 +85,11 @@ class _SmoothAppState extends State<SmoothApp> {
     _themeProvider = ThemeProvider(_userPreferences);
     ProductQuery.setQueryType(_userPreferences);
 
-    UserManagementHelper.mountCredentials();
     cameras = await availableCameras();
+
+    UserManagementHelper.mountCredentials();
     await ProductQuery.setUuid(_localDatabase);
+    initMatomo(_localDatabase);
   }
 
   @override
