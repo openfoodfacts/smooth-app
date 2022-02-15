@@ -4,9 +4,9 @@
     "@yes": {},
     "add": "加入產品",
     "@add": {},
-    "okay": "Okay",
+    "okay": "好的",
     "@okay": {},
-    "applyButtonText": "Apply",
+    "applyButtonText": "應用",
     "@applyButtonText": {},
     "next_label": "下一個",
     "@next_label": {
@@ -20,17 +20,17 @@
     "@close": {},
     "no": "否",
     "@no": {},
-    "stop": "Stop",
+    "stop": "停止",
     "@stop": {},
     "finish": "Finish",
     "@finish": {},
-    "reset_food_prefs": "Reset food preferences",
+    "reset_food_prefs": "重設食物偏好",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
     },
     "error": "出現錯誤",
     "@error": {},
-    "error_occurred": "An error occurred",
+    "error_occurred": "發生錯誤",
     "@error_occurred": {},
     "featureInProgress": "We're still working on this feature, stay tuned",
     "@featureInProgress": {},
@@ -41,6 +41,10 @@
     "incompatible": "Incompatible",
     "@incompatible": {
         "description": "Short label for product list view: the product is incompatible with your preferences"
+    },
+    "compatible": "Compatible",
+    "@compatible": {
+        "description": "Short label for product list view: the product is compatible with your preferences"
     },
     "unknown": "不明",
     "@unknown": {
@@ -403,7 +407,9 @@
         "description": "Button clicking on which allows users to retake the last photo they took."
     },
     "uploading_image": "Uploading Image to the server",
-    "@uploading_image": {},
+    "@uploading_image": {
+        "description": "Message when a new picture is uploading to the server"
+    },
     "score_add_missing_ingredients": "Add missing ingredients",
     "score_add_missing_nutrition_facts": "Add missing nutrition facts",
     "score_add_missing_product_category": "Add missing product category",
@@ -505,19 +511,11 @@
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_incompatible": "Very poor Match",
+    "product_compatibility_incompatible": "Does not match",
     "@product_compatibility_incompatible": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_bad": "Poor Match",
-    "@product_compatibility_bad": {
-        "description": "Product compatibility summary title"
-    },
-    "product_compatibility_neutral": "Neutral Match",
-    "@product_compatibility_neutral": {
-        "description": "Product compatibility summary title"
-    },
-    "product_compatibility_good": "Great Match",
+    "product_compatibility_good": "Good Match",
     "@product_compatibility_good": {
         "description": "Product compatibility summary title"
     },
