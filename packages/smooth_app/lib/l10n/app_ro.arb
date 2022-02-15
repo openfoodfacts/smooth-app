@@ -42,6 +42,10 @@
     "@incompatible": {
         "description": "Short label for product list view: the product is incompatible with your preferences"
     },
+    "compatible": "Compatible",
+    "@compatible": {
+        "description": "Short label for product list view: the product is compatible with your preferences"
+    },
     "unknown": "Necunoscut",
     "@unknown": {
         "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
@@ -55,11 +59,11 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Bun venit la Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts este o organizație non-profit globală susținută de comunitățile locale.",
+    "whatIsOff": "Open Food Facto este o organizație non-profit globală susținută de comunitățile locale.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Alege alimentele care sunt bune pentru tine şi pentru planetă.",
+    "offUtility": "Alege produsele care sunt bune pentru tine și pentru 🌍 planetă.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
@@ -76,7 +80,7 @@
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
-    "sign_in_text": "Conectați-vă la contul Open Food Facts pentru a vă salva contribuțiile",
+    "sign_in_text": "Conectați-vă la contul Open Food Facto pentru a vă salva contribuțiile",
     "incorrect_credentials": "Numele de utilizator sau parola incorectă.",
     "login": "Nume de utilizator",
     "@login": {
@@ -99,7 +103,7 @@
         "description": "Pop up title: Reassuring if the user really want to sign out"
     },
     "password": "Parolă",
-    "forgot_password": "Ați uitat parola?",
+    "forgot_password": "Ați uitat parola",
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset e-mail can be requested"
     },
@@ -111,12 +115,12 @@
     "@reset_password": {
         "description": "Forgot password page title"
     },
-    "reset_password_explanation_text": "În cazul în care ați uitat parola, introduceți numele de utilizator sau adresa de e-mail pentru a primi instrucțiuni pentru resetarea parolei. De asemenea, nu uitaţi să verificaţi folderul Spam.",
+    "reset_password_explanation_text": "În cazul în care ați uitat parola, introduceți numele de utilizator sau adresa de e-mail pentru a primi instrucțiuni pentru resetarea parolei. De asemenea, nu uitați să verificați folderul Spam.",
     "username_or_email": "Nume de utilizator sau email",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
-    "reset_password_done": "Un e-mail cu un link pentru resetarea parolei v-a fost trimis la adresa de e-mail asociată contului dumneavoastră. De asemenea, verificaţi spam-ul",
+    "reset_password_done": "Un e-mail cu un link pentru resetarea parolei v-a fost trimis la adresa de e-mail asociată contului dumneavoastră. De asemenea, verificați spam-ul",
     "send_reset_password_mail": "Schimbați parola",
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset e-mail request"
@@ -138,20 +142,20 @@
         "description": "Progress indicator dialog during the actual signing up process"
     },
     "sign_up_page_action_ok": "Felicitări! Contul dvs. tocmai a fost creat.",
-    "sign_up_page_display_name_hint": "Nume afişat",
+    "sign_up_page_display_name_hint": "Nume afișat",
     "sign_up_page_display_name_error_empty": "Vă rugăm să introduceți numele afișat pe care doriți să îl utilizați",
     "sign_up_page_email_hint": "E-mail",
     "sign_up_page_email_error_empty": "E-mailul este necesar",
     "sign_up_page_email_error_invalid": "Acest e-mail este invalid",
     "sign_up_page_username_hint": "Nume de utilizator",
-    "sign_up_page_username_error_empty": "Vă rugăm să introduceţi un nume de utilizator",
+    "sign_up_page_username_error_empty": "Vă rugăm să introduceți un nume de utilizator",
     "sign_up_page_username_error_invalid": "Vă rugăm să introduceți un nume de utilizator valid",
     "sign_up_page_username_description": "Numele de utilizator nu poate conține spații, majuscule sau caractere speciale",
     "sign_up_page_password_hint": "Parolă",
-    "sign_up_page_password_error_empty": "Vă rugăm să introduceţi o parolă",
+    "sign_up_page_password_error_empty": "Vă rugăm să introduceți o parolă",
     "sign_up_page_password_error_invalid": "Vă rugăm să introduceți o parolă validă (cel puțin 6 caractere)",
     "sign_up_page_confirm_password_hint": "Confirmați parola",
-    "sign_up_page_confirm_password_error_empty": "Vă rugăm să confirmaţi parola dvs",
+    "sign_up_page_confirm_password_error_empty": "Vă rugăm să confirmați parola dvs",
     "sign_up_page_confirm_password_error_invalid": "Parolele nu se potrivesc",
     "sign_up_page_agree_url": "https://world-ro.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
@@ -244,7 +248,7 @@
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "saving_answer": "Saving your answer",
+    "saving_answer": "Se salvează răspunsul",
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
     },
@@ -403,7 +407,9 @@
         "description": "Button clicking on which allows users to retake the last photo they took."
     },
     "uploading_image": "Uploading Image to the server",
-    "@uploading_image": {},
+    "@uploading_image": {
+        "description": "Message when a new picture is uploading to the server"
+    },
     "score_add_missing_ingredients": "Adăugați ingredientele lipsă",
     "score_add_missing_nutrition_facts": "Adăugați informațiile nutriționale care lipsesc",
     "score_add_missing_product_category": "Adăugați categoria de produse lipsă",
@@ -448,7 +454,7 @@
     "@Product Addition": {},
     "added_product_thanks": "Vă mulțumim că ați adăugat acest produs!",
     "@added_product_thanks": {},
-    "product_search_same_category": "Compare to Category",
+    "product_search_same_category": "Comparați cu categoria",
     "@product_search_same_category": {
         "description": "Button looking for the other products within the same category. Less than 30 characters"
     },
@@ -505,19 +511,11 @@
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_incompatible": "Potrivire foarte proastă",
+    "product_compatibility_incompatible": "Does not match",
     "@product_compatibility_incompatible": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_bad": "Potrivire slabă",
-    "@product_compatibility_bad": {
-        "description": "Product compatibility summary title"
-    },
-    "product_compatibility_neutral": "Potrivire neutră",
-    "@product_compatibility_neutral": {
-        "description": "Product compatibility summary title"
-    },
-    "product_compatibility_good": "Potrivire grozava",
+    "product_compatibility_good": "Good Match",
     "@product_compatibility_good": {
         "description": "Product compatibility summary title"
     },

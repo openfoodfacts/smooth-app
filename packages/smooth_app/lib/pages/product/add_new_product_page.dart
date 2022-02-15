@@ -123,12 +123,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
         icon: Icons.camera_alt,
         isDarkMode: themeProvider.darkTheme,
         onPressed: () async {
-          final File? initialPhoto = await Navigator.push<File?>(
-            context,
-            MaterialPageRoute<File?>(
-              builder: (BuildContext context) => ImageCropPage(),
-            ),
-          );
+          final File? initialPhoto = await startImageCropping(context);
           if (initialPhoto == null) {
             return;
           }
