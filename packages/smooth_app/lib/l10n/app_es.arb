@@ -406,6 +406,10 @@
     "@retake_photo_button_label": {
         "description": "Button clicking on which allows users to retake the last photo they took."
     },
+    "selecting_photo": "Selecting photo",
+    "@selecting_photo": {
+        "description": "Progress indicator when the users takes a photo"
+    },
     "uploading_image": "Subiendo imagen al servidor",
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
@@ -511,11 +515,11 @@
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_incompatible": "Does not match",
+    "product_compatibility_incompatible": "No coincide",
     "@product_compatibility_incompatible": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_good": "Good Match",
+    "product_compatibility_good": "Buena coincidencia",
     "@product_compatibility_good": {
         "description": "Product compatibility summary title"
     },
@@ -534,28 +538,28 @@
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural, =1{hace una hora} other{{count} horas atrás}}",
+    "plural_ago_hours": "{count,plural, one {} =1{hace una hora} other{{count} horas atrás}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural, =0{hace menos de un minuto} =1{hace un minuto} other{{count} minutos atrás}}",
+    "plural_ago_minutes": "{count,plural, one {} =0{hace menos de un minuto} =1{hace un minuto} other{{count} minutos atrás}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, =1{hace un mes} other{{count} hace meses}}",
+    "plural_ago_months": "{count,plural, one {} =1{hace un mes} other{{count} hace meses}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, =1{hace una semana} other{{count} semans atrás}}",
+    "plural_ago_weeks": "{count,plural, one {} =1{hace una semana} other{{count} semans atrás}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
@@ -572,5 +576,6 @@
     "compare_products_mode": "Modo Comparar",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
-    }
+    },
+    "retry_button_label": "Reintentar"
 }
