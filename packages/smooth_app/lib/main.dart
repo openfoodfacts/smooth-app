@@ -27,7 +27,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   if (kReleaseMode) {
-    await initSentry(
+    await AnalyticsHelper.initSentry(
       appRunner: () => const SmoothApp(),
     );
   } else {
@@ -89,7 +89,7 @@ class _SmoothAppState extends State<SmoothApp> {
 
     UserManagementHelper.mountCredentials();
     await ProductQuery.setUuid(_localDatabase);
-    initMatomo(context, _localDatabase);
+    AnalyticsHelper.initMatomo(context, _localDatabase);
   }
 
   @override

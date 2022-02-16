@@ -22,6 +22,8 @@ import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
+import '../../helpers/analytics_helper.dart';
+
 class ProductPage extends StatefulWidget {
   const ProductPage(this.product);
 
@@ -42,6 +44,10 @@ class _ProductPageState extends State<ProductPage> {
     super.initState();
     _product = widget.product;
     _updateLocalDatabaseWithProductHistory(context, _product);
+    AnalyticsHelper.trackProductPageOpen(
+      barcode: widget.product.barcode!,
+      productName: widget.product.productName,
+    );
   }
 
   @override

@@ -12,37 +12,6 @@ import 'package:smooth_app/database/local_database.dart';
 
 import '../database/dao_int.dart';
 
-Future<void> initSentry({Function()? appRunner}) async {
-  final PackageInfo packageInfo = await PackageInfo.fromPlatform();
-
-  await SentryFlutter.init(
-    (SentryOptions options) {
-      options.dsn =
-          'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745';
-      options.sentryClientName = 'sentry.dart.smoothie/${packageInfo.version}';
-    },
-    appRunner: appRunner,
-  );
-}
-
-Future<void> initMatomo(
-  final BuildContext context,
-  final LocalDatabase _localDatabase,
-) async {
-  MatomoForever.init(
-    'https://analytics.openfoodfacts.org/matomo.php',
-    2,
-    id: AnalyticsHelper._getId(),
-    // If we track or not, should be decidable later
-    rec: true,
-    method: MatomoForeverMethod.post,
-    sendImage: false,
-    // 32 character authorization key used to authenticate the API request
-    // only needed for request which are more then 24h old
-    // tokenAuth: 'xxx',
-  );
-}
-
 // TODO(m123): Check for user consent
 // TODO(m123): handle debug mode
 
@@ -54,33 +23,73 @@ class AnalyticsHelper {
   static const String _productPageAction = 'opened product page';
   static const String _knowledgePanelAction = 'opened knowledge panel page';
 
-  static Future<bool> trackStart(
-      LocalDatabase _localDatabase, BuildContext context) async {
-    return _trackConstructor(
-      _initAction,
-      idVc: await _getAppVisits(_localDatabase),
-      viewTs: await _getPreviousVisitUnix(_localDatabase),
-      idTs: await _getFirstVisitUnix(_localDatabase),
-      res: MediaQuery.of(context).size.toString(),
-      lang: Localizations.localeOf(context).languageCode,
-      country: Localizations.localeOf(context).countryCode,
+  static Future<void> initSentry({Function()? appRunner}) async {
+    final PackageInfo packageInfo = await PackageInfo.fromPlatform();
+
+    await SentryFlutter.init(
+      (SentryOptions options) {
+        options.dsn =
+            'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745';
+        options.sentryClientName =
+            'sentry.dart.smoothie/${packageInfo.version}';
+      },
+      appRunner: appRunner,
     );
   }
+
+  static Future<void> initMatomo(
+    final BuildContext context,
+    final LocalDatabase _localDatabase,
+  ) async {
+    MatomoForever.init(
+      'https://analytics.openfoodfacts.org/matomo.php',
+      2,
+      id: AnalyticsHelper._getId(),
+      // If we track or not, should be decidable later
+      rec: true,
+      method: MatomoForeverMethod.post,
+      sendImage: false,
+      // 32 character authorization key used to authenticate the API request
+      // only needed for request which are more then 24h old
+      // tokenAuth: 'xxx',
+    );
+  }
+
+  static Future<bool> trackStart(
+          LocalDatabase _localDatabase, BuildContext context) async =>
+      _trackConstructor(
+        _initAction,
+        idVc: await _getAppVisits(_localDatabase),
+        viewTs: await _getPreviousVisitUnix(_localDatabase),
+        idTs: await _getFirstVisitUnix(_localDatabase),
+        res: MediaQuery.of(context).size.toString(),
+        lang: Localizations.localeOf(context).languageCode,
+        country: Localizations.localeOf(context).countryCode,
+      );
 
   // TODO(m123): Add eN event name, the product name
   // TODO(m123): Matomo removed leading 0 from the barcode
   static Future<bool> trackScannedProduct({required String barcode}) =>
       _trackConstructor(
         _scanAction,
-        eC: 'scan',
+        eC: 'Scanner',
         eA: 'scanned',
         eV: barcode,
       );
 
-  /*
-  Future<bool> trackProductPageOpen({required String barcode}) =>
-      _trackAction(action: TrackingAction.PRODUCT_PAGE, barcode: barcode);
+  static Future<bool> trackProductPageOpen({
+    required String barcode,
+    String? productName,
+  }) =>
+      _trackConstructor(
+        _productPageAction,
+        eC: 'Product page',
+        eA: 'opened',
+        eV: barcode,
+        eN: productName,
+      );
 
+  /*
   Future<bool> trackKnowledgePanelOpen({
     required String barcode,
     required String knowledgePanelName,
