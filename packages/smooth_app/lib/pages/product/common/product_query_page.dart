@@ -13,6 +13,8 @@ import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/views/bottom_sheet_views/group_query_filter_view.dart';
 import 'package:smooth_app/widgets/ranking_floating_action_button.dart';
 
+import '../../../helpers/analytics_helper.dart';
+
 class ProductQueryPage extends StatefulWidget {
   const ProductQueryPage({
     required this.productListSupplier,
@@ -88,6 +90,11 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
           case LoadingStatus.COMPLETE:
             if (_model.isNotEmpty()) {
               _showRefreshSnackBar(_scaffoldKeyNotEmpty);
+              AnalyticsHelper.trackSearch(
+                search: widget.name,
+                searchCategory: _model.categories.toString(),
+                searchCount: _model.displayProducts?.length,
+              );
               return _getNotEmptyScreen(screenSize, themeData);
             }
             _showRefreshSnackBar(_scaffoldKeyEmpty);

@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/pages/TEMP_PAGE.dart';
 import 'package:smooth_app/pages/onboarding/preferences_page.dart';
 import 'package:smooth_app/pages/onboarding/sample_eco_card_page.dart';
 import 'package:smooth_app/pages/onboarding/sample_health_card_page.dart';
 import 'package:smooth_app/pages/onboarding/scan_example.dart';
 import 'package:smooth_app/pages/onboarding/welcome_page.dart';
+import 'package:smooth_app/pages/page_manager.dart';
 
 enum OnboardingPage {
   NOT_STARTED,
@@ -91,7 +91,7 @@ class OnboardingFlowNavigator {
         return _wrapWidgetInCustomBackNavigator(
             context, page, PreferencesPage(localDatabase));
       case OnboardingPage.ONBOARDING_COMPLETE:
-        return const TempTestingPage();
+        return PageManager();
     }
   }
 

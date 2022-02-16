@@ -22,6 +22,7 @@ class AnalyticsHelper {
   static const String _productPageAction = 'opened product page';
   static const String _knowledgePanelAction = 'opened knowledge panel page';
   static const String _personalizedRankingAction = 'personalized ranking';
+  static const String _searchAction = 'search';
   static const String _linkAction = 'opened link';
 
   static Future<void> initSentry({Function()? appRunner}) async {
@@ -103,36 +104,32 @@ class AnalyticsHelper {
       );
 
   static Future<bool> trackPersonalizedRanking({
+    required String title,
     required int products,
     required int goodProducts,
     required int badProducts,
-    required int unkownProducts,
+    required int unknownProducts,
   }) =>
       _trackConstructor(_personalizedRankingAction,
           customData: <String, String>{
+            'title': title,
             'productsCount': '$products',
             'goodProducts': '$goodProducts',
             'badProducts': '$badProducts',
-            'unkownProducts': '$unkownProducts',
+            'unkownProducts': '$unknownProducts',
           });
 
-  /*
-  Future<bool> trackPersonalSearch({
-    required String parameter,
-    required int products,
-    required int goodProducts,
-    required int badProducts,
-    required int unkownProducts,
-  }) {}
-*/
-
-  /*
-  Future<bool> trackSearch({
-    required String parameter,
-    required SearchAction action,
-    String? data,
-  }) {}
-*/
+  static Future<bool> trackSearch({
+    required String search,
+    String? searchCategory,
+    int? searchCount,
+  }) =>
+      _trackConstructor(
+        _searchAction,
+        search: search,
+        searchCat: searchCategory,
+        searchCount: searchCount,
+      );
 
   static Future<bool> trackOpenLink({required String url}) =>
       _trackConstructor(_linkAction, url: url, link: url);

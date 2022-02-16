@@ -76,10 +76,11 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
     }
 
     AnalyticsHelper.trackPersonalizedRanking(
+      title: widget.title,
       products: matchedProductsList[0].length,
       goodProducts: matchedProductsList[1].length,
       badProducts: matchedProductsList[2].length,
-      unkownProducts: matchedProductsList[3].length,
+      unknownProducts: matchedProductsList[3].length,
     );
 
     return DefaultTabController(
