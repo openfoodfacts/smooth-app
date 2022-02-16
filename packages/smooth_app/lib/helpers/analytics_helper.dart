@@ -89,17 +89,19 @@ class AnalyticsHelper {
         eN: productName,
       );
 
-  /*
-  Future<bool> trackKnowledgePanelOpen({
+  // TODO(m123): Check where to call
+  static Future<bool> trackKnowledgePanelOpen({
     required String barcode,
-    required String knowledgePanelName,
+    String? knowledgePanelName,
   }) =>
-      _trackAction(
-        action: TrackingAction.KNOWLEDGE_PANEL,
-        barcode: barcode,
-        knowledgePanelName: knowledgePanelName,
+      _trackConstructor(
+        _productPageAction,
+        eC: 'Knowledge panel',
+        eA: 'opened',
+        eV: barcode,
+        eN: knowledgePanelName,
       );
-*/
+
   /*  Future<bool> trackPersonalRanking({
       required int products,
       required int goodProducts,
