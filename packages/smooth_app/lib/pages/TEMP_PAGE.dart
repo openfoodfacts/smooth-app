@@ -9,10 +9,10 @@ class TempTestingPage extends StatefulWidget {
   const TempTestingPage({Key? key}) : super(key: key);
 
   @override
-  _TempTestingPageState createState() => _TempTestingPageState();
+  TempTestingPageState createState() => TempTestingPageState();
 }
 
-class _TempTestingPageState extends State<TempTestingPage> {
+class TempTestingPageState extends State<TempTestingPage> {
   @override
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();

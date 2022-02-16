@@ -7,10 +7,9 @@ import 'package:matomo_forever/matomo_forever.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
+import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/local_database.dart';
-
-import '../database/dao_int.dart';
 
 // TODO(m123): Check for user consent
 // TODO(m123): handle debug mode
@@ -22,6 +21,7 @@ class AnalyticsHelper {
   static const String _scanAction = 'scanned product';
   static const String _productPageAction = 'opened product page';
   static const String _knowledgePanelAction = 'opened knowledge panel page';
+  static const String _personalizedRankingAction = 'personalized ranking';
   static const String _linkAction = 'opened link';
 
   static Future<void> initSentry({Function()? appRunner}) async {
@@ -68,8 +68,7 @@ class AnalyticsHelper {
         country: Localizations.localeOf(context).countryCode,
       );
 
-  // TODO(m123): Add eN event name, the product name
-  // TODO(m123): Matomo removed leading 0 from the barcode
+  // TODO(m123): Matomo removes leading 0 from the barcode
   static Future<bool> trackScannedProduct({required String barcode}) =>
       _trackConstructor(
         _scanAction,
@@ -96,28 +95,27 @@ class AnalyticsHelper {
     String? knowledgePanelName,
   }) =>
       _trackConstructor(
-        _productPageAction,
+        _knowledgePanelAction,
         eC: 'Knowledge panel',
         eA: 'opened',
         eV: barcode,
         eN: knowledgePanelName,
       );
 
-  /*  Future<bool> trackPersonalRanking({
-      required int products,
-      required int goodProducts,
-      required int badProducts,
-      required int unkownProducts,
-    }) => _trackAction(action: TrackingAction.RANKING, );
-  */
+  static Future<bool> trackPersonalizedRanking({
+    required int products,
+    required int goodProducts,
+    required int badProducts,
+    required int unkownProducts,
+  }) =>
+      _trackConstructor(_personalizedRankingAction,
+          customData: <String, String>{
+            'productsCount': '$products',
+            'goodProducts': '$goodProducts',
+            'badProducts': '$badProducts',
+            'unkownProducts': '$unkownProducts',
+          });
 
-  /*
-  Future<bool> trackSearch({
-    required String parameter,
-    required SearchAction action,
-    String? data,
-  }) {}
-*/
   /*
   Future<bool> trackPersonalSearch({
     required String parameter,
@@ -128,9 +126,23 @@ class AnalyticsHelper {
   }) {}
 */
 
+  /*
+  Future<bool> trackSearch({
+    required String parameter,
+    required SearchAction action,
+    String? data,
+  }) {}
+*/
+
   static Future<bool> trackOpenLink({required String url}) =>
       _trackConstructor(_linkAction, url: url, link: url);
 
+  // This is a copy of  a part of package:matomo_forever's source code,
+  // with added comments and some boilerplate things added so that we don't
+  // have to pass it to every call ourselves.
+  //
+  // + Removed some parameters are unlikely to be ever used,
+  // such as ecommerce related things.
   static Future<bool> _trackConstructor(
     String actionName, {
 
@@ -179,7 +191,8 @@ class AnalyticsHelper {
     String? dimension8,
     String? dimension9,
     String? dimension10,
-         */
+    */
+
     /// An external URL the user has opened. Used for tracking outlink clicks.
     /// We recommend to also set the url parameter to this same value.
     String? link,

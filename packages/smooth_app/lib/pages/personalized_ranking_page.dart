@@ -9,6 +9,7 @@ import 'package:smooth_app/data_models/smooth_it_model.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/smooth_matched_product.dart';
 
 class PersonalizedRankingPage extends StatefulWidget {
@@ -73,6 +74,14 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
       );
       colors.add(_COLORS[matchTab]!);
     }
+
+    AnalyticsHelper.trackPersonalizedRanking(
+      products: matchedProductsList[0].length,
+      goodProducts: matchedProductsList[1].length,
+      badProducts: matchedProductsList[2].length,
+      unkownProducts: matchedProductsList[3].length,
+    );
+
     return DefaultTabController(
       length: _ORDERED_MATCH_TABS.length,
       initialIndex: _ORDERED_MATCH_TABS.indexOf(MatchTab.YES),
