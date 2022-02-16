@@ -2,12 +2,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
 import 'package:smooth_app/database/local_database.dart';
 
-/// Where we store strings.
-///
-/// Typical use case: large strings used for onboarding.
-/// That's why we use lazy boxes, and not boxes, and not sharedpreferences:
-/// we're talking about large data (several 10Kb) that we almost never need,
-/// and that should not make the app boot slower.
+/// Where we store ints.
 class DaoInt extends AbstractDao {
   DaoInt(final LocalDatabase localDatabase) : super(localDatabase);
 

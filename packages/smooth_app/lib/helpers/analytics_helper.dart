@@ -14,6 +14,16 @@ import 'package:smooth_app/database/local_database.dart';
 // TODO(m123): Check for user consent
 // TODO(m123): handle debug mode
 
+/// Helper for logging usage of core features and exceptions
+/// Logging:
+/// - Errors and Problems (sentry)
+/// - App start
+/// - Product scan
+/// - Product page open
+/// - Knowledge panel open
+/// - personalized ranking (without sharing the preferences)
+/// - search
+/// - external links
 class AnalyticsHelper {
   const AnalyticsHelper();
 
@@ -393,15 +403,15 @@ class AnalyticsHelper {
 
     final DaoString daoString = DaoString(_localDatabase);
 
-    final String? latestVisit = await daoString.get(_firstVisit);
+    final String? firstVisit = await daoString.get(_firstVisit);
 
-    if (latestVisit == null) {
+    if (firstVisit == null) {
       daoString.put(
         _firstVisit,
         DateTime.now().millisecondsSinceEpoch.toString(),
       );
     }
 
-    return latestVisit;
+    return firstVisit;
   }
 }
