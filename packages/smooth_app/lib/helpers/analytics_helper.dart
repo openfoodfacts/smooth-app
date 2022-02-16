@@ -7,8 +7,11 @@ import 'package:matomo_forever/matomo_forever.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
+import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
+
+import '../database/dao_int.dart';
 
 Future<void> initSentry({Function()? appRunner}) async {
   final PackageInfo packageInfo = await PackageInfo.fromPlatform();
@@ -37,7 +40,7 @@ Future<void> initMatomo(
     // only needed for request which are more then 24h old
     // tokenAuth: 'xxx',
   );
-  AnalyticsHelper(context).trackStart();
+  AnalyticsHelper(context).trackStart(_localDatabase);
 }
 
 // TODO(m123): Check for user consent
@@ -48,12 +51,19 @@ class AnalyticsHelper {
 
   final BuildContext context;
 
-  static const String initAction = 'started app';
-  static const String scanAction = 'scanned product';
-  static const String productPageAction = 'opened product page';
-  static const String knowledgePanelAction = 'opened knowledge panel page';
+  static const String _initAction = 'started app';
+  static const String _scanAction = 'scanned product';
+  static const String _productPageAction = 'opened product page';
+  static const String _knowledgePanelAction = 'opened knowledge panel page';
 
-  Future<bool> trackStart() => _trackConstructor(initAction);
+  Future<bool> trackStart(LocalDatabase _localDatabase) async {
+    return _trackConstructor(
+      _initAction,
+      idVc: await _getAppVisits(_localDatabase),
+      viewTs: await _getPreviousVisitUnix(_localDatabase),
+      idTs: await _getFirstVisitUnix(_localDatabase),
+    );
+  }
 
   /*
   Future<bool> trackScannedProduct({required String barcode}) =>
@@ -115,10 +125,10 @@ class AnalyticsHelper {
     int? idVc,
 
     /// The UNIX timestamp of this visitor's previous visit.
-    DateTime? viewTs,
+    String? viewTs,
 
     /// The UNIX timestamp of this visitor's first visit.
-    DateTime? idTs,
+    String? idTs,
 
     /// The Campaign name
     String? rcn,
@@ -242,9 +252,8 @@ class AnalyticsHelper {
 
     addedData.addIfVAndNew('_cvar', cvar);
     addedData.addIfVAndNew('_idvc', idVc?.toString());
-    addedData.addIfVAndNew(
-        '_viewts', viewTs?.millisecondsSinceEpoch.toString());
-    addedData.addIfVAndNew('_idts', idTs?.millisecondsSinceEpoch.toString());
+    addedData.addIfVAndNew('_viewts', viewTs);
+    addedData.addIfVAndNew('_idts', idTs);
     addedData.addIfVAndNew('_rcn', rcn);
     addedData.addIfVAndNew('_rck', rck);
     addedData.addIfVAndNew('res', mediaQuery.size.toString());
@@ -312,5 +321,50 @@ class AnalyticsHelper {
       addedData.addAll(customData);
     }
     return MatomoForever.sendDataOrBulk(addedData);
+  }
+
+  /// Returns the amount the user has opened the app
+  Future<int> _getAppVisits(LocalDatabase _localDatabase) async {
+    const String _userVisits = 'appVisits';
+
+    final DaoInt daoInt = DaoInt(_localDatabase);
+
+    int visits = await daoInt.get(_userVisits) ?? 0;
+    visits++;
+    daoInt.put(_userVisits, visits);
+
+    return visits;
+  }
+
+  Future<String?> _getPreviousVisitUnix(LocalDatabase _localDatabase) async {
+    const String _latestVisit = 'previousVisitUnix';
+
+    final DaoString daoString = DaoString(_localDatabase);
+
+    final String? latestVisit = await daoString.get(_latestVisit);
+
+    daoString.put(
+      _latestVisit,
+      DateTime.now().millisecondsSinceEpoch.toString(),
+    );
+
+    return latestVisit;
+  }
+
+  Future<String?> _getFirstVisitUnix(LocalDatabase _localDatabase) async {
+    const String _firstVisit = 'firstVisitUnix';
+
+    final DaoString daoString = DaoString(_localDatabase);
+
+    final String? latestVisit = await daoString.get(_firstVisit);
+
+    if (latestVisit == null) {
+      daoString.put(
+        _firstVisit,
+        DateTime.now().millisecondsSinceEpoch.toString(),
+      );
+    }
+
+    return latestVisit;
   }
 }
