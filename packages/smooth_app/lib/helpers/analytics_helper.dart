@@ -9,7 +9,6 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/database/product_query.dart';
 
 import '../database/dao_int.dart';
 
@@ -27,12 +26,13 @@ Future<void> initSentry({Function()? appRunner}) async {
 }
 
 Future<void> initMatomo(
-    final BuildContext context, final LocalDatabase _localDatabase) async {
-  AnalyticsHelper analyticsHelper = AnalyticsHelper(context);
+  final BuildContext context,
+  final LocalDatabase _localDatabase,
+) async {
   MatomoForever.init(
     'https://analytics.openfoodfacts.org/matomo.php',
     2,
-    id: analyticsHelper._getId(),
+    id: AnalyticsHelper._getId(),
     // If we track or not, should be decidable later
     rec: true,
     method: MatomoForeverMethod.post,
@@ -47,28 +47,37 @@ Future<void> initMatomo(
 // TODO(m123): handle debug mode
 
 class AnalyticsHelper {
-  AnalyticsHelper(this.context);
-
-  final BuildContext context;
+  const AnalyticsHelper();
 
   static const String _initAction = 'started app';
   static const String _scanAction = 'scanned product';
   static const String _productPageAction = 'opened product page';
   static const String _knowledgePanelAction = 'opened knowledge panel page';
 
-  Future<bool> trackStart(LocalDatabase _localDatabase) async {
+  static Future<bool> trackStart(
+      LocalDatabase _localDatabase, BuildContext context) async {
     return _trackConstructor(
       _initAction,
       idVc: await _getAppVisits(_localDatabase),
       viewTs: await _getPreviousVisitUnix(_localDatabase),
       idTs: await _getFirstVisitUnix(_localDatabase),
+      res: MediaQuery.of(context).size.toString(),
+      lang: Localizations.localeOf(context).languageCode,
+      country: Localizations.localeOf(context).countryCode,
     );
   }
 
-  /*
-  Future<bool> trackScannedProduct({required String barcode}) =>
-      _trackAction(action: TrackingAction.SCAN, barcode: barcode);
+  // TODO(m123): Add eN event name, the product name
+  // TODO(m123): Matomo removed leading 0 from the barcode
+  static Future<bool> trackScannedProduct({required String barcode}) =>
+      _trackConstructor(
+        _scanAction,
+        eC: 'scan',
+        eA: 'scanned',
+        eV: barcode,
+      );
 
+  /*
   Future<bool> trackProductPageOpen({required String barcode}) =>
       _trackAction(action: TrackingAction.PRODUCT_PAGE, barcode: barcode);
 
@@ -110,15 +119,11 @@ class AnalyticsHelper {
       _trackAction(action: TrackingAction.LINK, url: url);
 */
 
-  Future<bool> _trackConstructor(
+  static Future<bool> _trackConstructor(
     String actionName, {
 
     ///The full URL for the current action
     String? url,
-
-    /// cvar Visit or page scope custom variables.
-    /// This is a JSON encoded string of the custom variable array
-    String? cvar,
 
     /// The current count of visits for this visitor,
     /// needs to be manually stored in local storage
@@ -136,9 +141,16 @@ class AnalyticsHelper {
     /// The Campaign Keyword
     String? rck,
 
+    /// The resolution of the device the visitor is using, eg 1280x1024.
+    String? res,
+
     /// An override value for the User-Agent HTTP header field. The user agent
     /// is used to detect the operating system and browser used.
     String? ua,
+
+    /// An override value for the Accept-Language HTTP header field. This
+    /// value is used to detect the visitor's country if GeoIP is not enabled.
+    String? lang,
 
     /// will force a new visit to be created for this action
     bool? newVisit,
@@ -205,7 +217,7 @@ class AnalyticsHelper {
     String? eN,
 
     /// The event value. Must be a float or integer value (numeric)
-    double? eV,
+    String? eV,
 
     /// The name of the content. For instance 'Ad Foo Bar'.
     /// Required for content tracking.
@@ -229,6 +241,10 @@ class AnalyticsHelper {
     ///  If you set cdt with a datetime in the last 24 hours then you don't need to pass token_auth.
     DateTime? cdt,
 
+    /// An override value for the country. Should be set to the two
+    /// letter country code of the visitor (lowercase), eg fr, de, us.
+    String? country,
+
     /// An override value for the region. Should be set to a ISO 3166-2
     /// region code, which are used by MaxMind's and DB-IP's GeoIP2 databases.
     /// See here for a list of them for every country.
@@ -241,7 +257,6 @@ class AnalyticsHelper {
     Map<String, String>? customData,
   }) async {
     final DateTime date = DateTime.now();
-    final MediaQueryData mediaQuery = MediaQuery.of(context);
 
     final Map<String, String> addedData = <String, String>{
       'action_name': actionName
@@ -250,23 +265,18 @@ class AnalyticsHelper {
     addedData.addIfVAndNew('url', url);
     addedData.addIfVAndNew('rand', Random().toString());
 
-    addedData.addIfVAndNew('_cvar', cvar);
     addedData.addIfVAndNew('_idvc', idVc?.toString());
     addedData.addIfVAndNew('_viewts', viewTs);
     addedData.addIfVAndNew('_idts', idTs);
     addedData.addIfVAndNew('_rcn', rcn);
     addedData.addIfVAndNew('_rck', rck);
-    addedData.addIfVAndNew('res', mediaQuery.size.toString());
+    addedData.addIfVAndNew('res', res);
     addedData.addIfVAndNew('h', date.hour.toString());
     addedData.addIfVAndNew('m', date.minute.toString());
     addedData.addIfVAndNew('s', date.second.toString());
 
     addedData.addIfVAndNew('ua', ua);
-    addedData.addIfVAndNew(
-      'lang',
-      ProductQuery.getLanguage()?.toString() ??
-          Localizations.localeOf(context).languageCode,
-    );
+    addedData.addIfVAndNew('lang', addedData.addIfVAndNew('lang', lang));
     addedData.addIfVAndNew('uid', _getId());
     addedData.addIfVAndNew(
       'new_visit',
@@ -306,30 +316,28 @@ class AnalyticsHelper {
     addedData.addIfVAndNew('e_c', eC);
     addedData.addIfVAndNew('e_a', eA);
     addedData.addIfVAndNew('e_n', eN);
-    addedData.addIfVAndNew('e_v', eV?.toString());
+    addedData.addIfVAndNew('e_v', eV);
     addedData.addIfVAndNew('c_n', cN);
     addedData.addIfVAndNew('c_p', cP);
 
     addedData.addIfVAndNew('c_i', cId);
     addedData.addIfVAndNew('cdt', cdt?.millisecondsSinceEpoch.toString());
-    addedData.addIfVAndNew(
-      'country',
-      Localizations.localeOf(context).countryCode,
-    );
+    addedData.addIfVAndNew('country', country);
     addedData.addIfVAndNew('region', region);
     addedData.addIfVAndNew('city', city);
     if (customData != null) {
       addedData.addAll(customData);
     }
+
     return MatomoForever.sendDataOrBulk(addedData);
   }
 
-  String? _getId() {
+  static String? _getId() {
     return kDebugMode ? 'smoothie-debug' : OpenFoodAPIConfiguration.uuid;
   }
 
   /// Returns the amount the user has opened the app
-  Future<int> _getAppVisits(LocalDatabase _localDatabase) async {
+  static Future<int> _getAppVisits(LocalDatabase _localDatabase) async {
     const String _userVisits = 'appVisits';
 
     final DaoInt daoInt = DaoInt(_localDatabase);
@@ -341,7 +349,8 @@ class AnalyticsHelper {
     return visits;
   }
 
-  Future<String?> _getPreviousVisitUnix(LocalDatabase _localDatabase) async {
+  static Future<String?> _getPreviousVisitUnix(
+      LocalDatabase _localDatabase) async {
     const String _latestVisit = 'previousVisitUnix';
 
     final DaoString daoString = DaoString(_localDatabase);
@@ -356,7 +365,8 @@ class AnalyticsHelper {
     return latestVisit;
   }
 
-  Future<String?> _getFirstVisitUnix(LocalDatabase _localDatabase) async {
+  static Future<String?> _getFirstVisitUnix(
+      LocalDatabase _localDatabase) async {
     const String _firstVisit = 'firstVisitUnix';
 
     final DaoString daoString = DaoString(_localDatabase);

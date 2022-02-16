@@ -22,7 +22,8 @@ class _TempTestingPageState extends State<TempTestingPage> {
         child: TextButton(
           child: const Text('CLICK'),
           onPressed: () async {
-            print(await AnalyticsHelper(context).trackStart(localDatabase));
+            print(await AnalyticsHelper.trackScannedProduct(
+                barcode: '0000070000'));
           },
         ),
       ),

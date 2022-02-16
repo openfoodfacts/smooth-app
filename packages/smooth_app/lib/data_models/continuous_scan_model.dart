@@ -7,6 +7,7 @@ import 'package:smooth_app/database/barcode_product_query.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 
 enum ScannedProductState {
   FOUND,
@@ -99,6 +100,7 @@ class ContinuousScanModel with ChangeNotifier {
     if (_latestScannedBarcode == code) {
       return;
     }
+    AnalyticsHelper.trackScannedProduct(barcode: code);
     _latestScannedBarcode = code;
     _addBarcode(code);
   }
