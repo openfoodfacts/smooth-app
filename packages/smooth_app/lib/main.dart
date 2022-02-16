@@ -89,7 +89,7 @@ class _SmoothAppState extends State<SmoothApp> {
 
     UserManagementHelper.mountCredentials();
     await ProductQuery.setUuid(_localDatabase);
-    await initMatomo(context, _localDatabase);
+    initMatomo(context, _localDatabase);
   }
 
   @override
@@ -182,6 +182,8 @@ class SmoothAppGetLanguage extends StatelessWidget {
     final String languageCode = myLocale.languageCode;
     ProductQuery.setLanguage(languageCode);
     productPreferences.refresh(languageCode);
+    final LocalDatabase _localDatabase = context.read<LocalDatabase>();
+    AnalyticsHelper(context).trackStart(_localDatabase);
     return appWidget;
   }
 }

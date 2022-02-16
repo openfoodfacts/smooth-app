@@ -28,10 +28,11 @@ Future<void> initSentry({Function()? appRunner}) async {
 
 Future<void> initMatomo(
     final BuildContext context, final LocalDatabase _localDatabase) async {
+  AnalyticsHelper analyticsHelper = AnalyticsHelper(context);
   MatomoForever.init(
     'https://analytics.openfoodfacts.org/matomo.php',
     2,
-    id: kDebugMode ? 'smoothie-debug' : OpenFoodAPIConfiguration.uuid,
+    id: analyticsHelper._getId(),
     // If we track or not, should be decidable later
     rec: true,
     method: MatomoForeverMethod.post,
@@ -40,7 +41,6 @@ Future<void> initMatomo(
     // only needed for request which are more then 24h old
     // tokenAuth: 'xxx',
   );
-  AnalyticsHelper(context).trackStart(_localDatabase);
 }
 
 // TODO(m123): Check for user consent
@@ -267,14 +267,15 @@ class AnalyticsHelper {
       ProductQuery.getLanguage()?.toString() ??
           Localizations.localeOf(context).languageCode,
     );
-    addedData.addIfVAndNew('uid', OpenFoodAPIConfiguration.uuid);
+    addedData.addIfVAndNew('uid', _getId());
     addedData.addIfVAndNew(
-        'new_visit',
-        newVisit != null
-            ? newVisit
-                ? '1'
-                : '0'
-            : null);
+      'new_visit',
+      newVisit != null
+          ? newVisit
+              ? '1'
+              : '0'
+          : null,
+    );
     /*
     addedData.addIfVAndNew('dimension0', dimension0);
     addedData.addIfVAndNew('dimension1', dimension1);
@@ -321,6 +322,10 @@ class AnalyticsHelper {
       addedData.addAll(customData);
     }
     return MatomoForever.sendDataOrBulk(addedData);
+  }
+
+  String? _getId() {
+    return kDebugMode ? 'smoothie-debug' : OpenFoodAPIConfiguration.uuid;
   }
 
   /// Returns the amount the user has opened the app
