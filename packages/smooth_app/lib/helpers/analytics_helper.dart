@@ -8,8 +8,7 @@ import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/database/local_database.dart';
-
-import '../database/product_query.dart';
+import 'package:smooth_app/database/product_query.dart';
 
 Future<void> initSentry({Function()? appRunner}) async {
   final PackageInfo packageInfo = await PackageInfo.fromPlatform();
@@ -29,14 +28,14 @@ Future<void> initMatomo(
   MatomoForever.init(
     'https://analytics.openfoodfacts.org/matomo.php',
     2,
-    // Personal identifyer
     id: kDebugMode ? 'smoothie-debug' : OpenFoodAPIConfiguration.uuid,
     // If we track or not, should be decidable later
     rec: true,
     method: MatomoForeverMethod.post,
     sendImage: false,
     // 32 character authorization key used to authenticate the API request
-    tokenAuth: '',
+    // only needed for request which are more then 24h old
+    // tokenAuth: 'xxx',
   );
   AnalyticsHelper(context).trackStart();
 }
@@ -73,14 +72,13 @@ class AnalyticsHelper {
         knowledgePanelName: knowledgePanelName,
       );
 */
-/*  Future<bool> trackPersonalRanking({
-    required int products,
-    required int goodProducts,
-    required int badProducts,
-    required int unkownProducts,
-  }) => _trackAction(action: TrackingAction.RANKING, );
-*/
-
+  /*  Future<bool> trackPersonalRanking({
+      required int products,
+      required int goodProducts,
+      required int badProducts,
+      required int unkownProducts,
+    }) => _trackAction(action: TrackingAction.RANKING, );
+  */
   /*
   Future<bool> trackSearch({
     required String parameter,
@@ -88,7 +86,6 @@ class AnalyticsHelper {
     String? data,
   }) {}
 */
-
   /*
   Future<bool> trackPersonalSearch({
     required String parameter,
@@ -98,7 +95,6 @@ class AnalyticsHelper {
     required int unkownProducts,
   }) {}
 */
-
   /*
   Future<bool> trackOpenLink({required String url}) =>
       _trackAction(action: TrackingAction.LINK, url: url);
@@ -106,27 +102,38 @@ class AnalyticsHelper {
 
   Future<bool> _trackConstructor(
     String actionName, {
+
+    ///The full URL for the current action
     String? url,
-    String? urlRef,
+
+    /// cvar Visit or page scope custom variables.
+    /// This is a JSON encoded string of the custom variable array
     String? cvar,
+
+    /// The current count of visits for this visitor,
+    /// needs to be manually stored in local storage
     int? idVc,
+
+    /// The UNIX timestamp of this visitor's previous visit.
     DateTime? viewTs,
+
+    /// The UNIX timestamp of this visitor's first visit.
     DateTime? idTs,
+
+    /// The Campaign name
     String? rcn,
+
+    /// The Campaign Keyword
     String? rck,
-    bool? fla,
-    bool? java,
-    bool? dir,
-    bool? qt,
-    bool? realp,
-    bool? pdf,
-    bool? wma,
-    bool? gears,
-    bool? ag,
-    bool? cookie,
+
+    /// An override value for the User-Agent HTTP header field. The user agent
+    /// is used to detect the operating system and browser used.
     String? ua,
-    String? cid,
+
+    /// will force a new visit to be created for this action
     bool? newVisit,
+
+    /*
     String? dimension0,
     String? dimension1,
     String? dimension2,
@@ -138,57 +145,89 @@ class AnalyticsHelper {
     String? dimension8,
     String? dimension9,
     String? dimension10,
+         */
+    /// An external URL the user has opened. Used for tracking outlink clicks.
+    /// We recommend to also set the url parameter to this same value.
     String? link,
+
+    /// URL of a file the user has downloaded.
     String? download,
+
+    /// The Site Search keyword. When specified, the request will not be tracked
+    /// as a normal pageview but will instead be tracked as a Site Search request.
     String? search,
+
+    /// optionally specify a search category
     String? searchCat,
+
+    /// the number of search results displayed on the results page
     int? searchCount,
+
+    /// Accepts a six character unique ID that identifies which actions were
+    /// performed on a specific page view. When a page was viewed, all following
+    /// tracking requests (such as events) during that page view should use the
+    /// same pageview ID. Once another page was viewed a new unique ID should be
+    /// generated. Use 0-9a-Z as possible characters for the unique ID.
     String? pvId,
+
+    /// If specified, the tracking request will trigger a conversion for the
+    /// goal of the website being tracked with this ID.
     String? idGoal,
-    String? revenue,
-    int? gtMs,
-    String? cs,
+
+    /// Stands for custom action. &ca=1 can be optionally sent along any
+    /// tracking request that isn't a page view. For example it can be sent
+    /// together with an event tracking request e_a=Action&e_c=Category&ca=1.
+    /// The advantage being that should you ever disable the event plugin, then
+    /// the event tracking requests will be ignored vs if the parameter is not
+    /// set, a page view would be tracked even though it isn't a page view.
+    /// For more background information check out #16570. Do not use this
+    /// parameter together with a ping=1 tracking request.
     bool? ca,
-    int? pfNet,
-    int? pfSrv,
-    int? pfTfr,
-    int? pfDm1,
-    int? pfDm2,
-    int? pfOnl,
+
+    /// The event category. Must not be empty. (eg. Videos, Music, Games...)
     String? eC,
+
+    /// The event action. Must not be empty. (eg. Play, Pause, Duration,
+    /// Add Playlist, Downloaded, Clicked...)
     String? eA,
+
+    /// The event name. (eg. a Movie name, or Song name, or File name...)
     String? eN,
+
+    /// The event value. Must be a float or integer value (numeric)
     double? eV,
+
+    /// The name of the content. For instance 'Ad Foo Bar'.
+    /// Required for content tracking.
     String? cN,
+
+    /// The actual content piece. For instance the path to an image,
+    /// video, audio, any text
     String? cP,
-    String? cT,
+
+    /// The name of the interaction with the content. For instance a 'click'
     String? cId,
-    String? ecId,
-    String? ecItems,
-    String? ecSt,
-    String? ecTx,
-    String? ecSh,
-    String? ecDt,
-    DateTime? ects,
-    String? cip,
+
+    ///  Override for the datetime of the request
+    ///  (normally the current time is used). This can be used to record visits
+    ///  and page views in the past. The expected format is either a datetime
+    ///  such as: 2011-04-05 00:11:42 (remember to URL encode the value!),
+    ///  or a valid UNIX timestamp such as 1301919102. The datetime must be
+    ///  sent in UTC timezone. Note: if you record data in the past, you will
+    ///  need to force Matomo to re-process reports for the past dates. If you
+    ///  set cdt to a datetime older than 24 hours then token_auth must be set.
+    ///  If you set cdt with a datetime in the last 24 hours then you don't need to pass token_auth.
     DateTime? cdt,
+
+    /// An override value for the region. Should be set to a ISO 3166-2
+    /// region code, which are used by MaxMind's and DB-IP's GeoIP2 databases.
+    /// See here for a list of them for every country.
     String? region,
+
+    /// The name of the city the visitor is located in, eg, Tokyo.
     String? city,
-    String? lat,
-    String? long,
-    String? maId,
-    String? maRe,
-    String? maMt,
-    String? maTi,
-    String? maPn,
-    int? maSt,
-    int? maLe,
-    int? maPs,
-    int? maTtp,
-    int? maW,
-    int? maH,
-    bool? maFs,
-    String? maSe,
+
+    /// Additional data to send to the Matomo server.
     Map<String, String>? customData,
   }) async {
     final DateTime date = DateTime.now();
@@ -200,7 +239,7 @@ class AnalyticsHelper {
 
     addedData.addIfVAndNew('url', url);
     addedData.addIfVAndNew('rand', Random().toString());
-    addedData.addIfVAndNew('urlref', urlRef);
+
     addedData.addIfVAndNew('_cvar', cvar);
     addedData.addIfVAndNew('_idvc', idVc?.toString());
     addedData.addIfVAndNew(
@@ -212,76 +251,7 @@ class AnalyticsHelper {
     addedData.addIfVAndNew('h', date.hour.toString());
     addedData.addIfVAndNew('m', date.minute.toString());
     addedData.addIfVAndNew('s', date.second.toString());
-    addedData.addIfVAndNew(
-        'fla',
-        fla != null
-            ? fla
-                ? '1'
-                : '0'
-            : null);
-    addedData.addIfVAndNew(
-        'java',
-        java != null
-            ? java
-                ? '1'
-                : '0'
-            : null);
-    addedData.addIfVAndNew(
-        'dir',
-        dir != null
-            ? dir
-                ? '1'
-                : '0'
-            : null);
-    addedData.addIfVAndNew(
-        'qt',
-        qt != null
-            ? qt
-                ? '1'
-                : '0'
-            : null);
-    addedData.addIfVAndNew(
-        'realp',
-        realp != null
-            ? realp
-                ? '1'
-                : '0'
-            : null);
-    addedData.addIfVAndNew(
-        'pdf',
-        pdf != null
-            ? pdf
-                ? '1'
-                : '0'
-            : null);
-    addedData.addIfVAndNew(
-        'wma',
-        wma != null
-            ? wma
-                ? '1'
-                : '0'
-            : null);
-    addedData.addIfVAndNew(
-        'gears',
-        gears != null
-            ? gears
-                ? '1'
-                : '0'
-            : null);
-    addedData.addIfVAndNew(
-        'ag',
-        ag != null
-            ? ag
-                ? '1'
-                : '0'
-            : null);
-    addedData.addIfVAndNew(
-        'cookie',
-        cookie != null
-            ? cookie
-                ? '1'
-                : '0'
-            : null);
+
     addedData.addIfVAndNew('ua', ua);
     addedData.addIfVAndNew(
       'lang',
@@ -289,7 +259,6 @@ class AnalyticsHelper {
           Localizations.localeOf(context).languageCode,
     );
     addedData.addIfVAndNew('uid', OpenFoodAPIConfiguration.uuid);
-    addedData.addIfVAndNew('cid', cid);
     addedData.addIfVAndNew(
         'new_visit',
         newVisit != null
@@ -297,6 +266,7 @@ class AnalyticsHelper {
                 ? '1'
                 : '0'
             : null);
+    /*
     addedData.addIfVAndNew('dimension0', dimension0);
     addedData.addIfVAndNew('dimension1', dimension1);
     addedData.addIfVAndNew('dimension2', dimension2);
@@ -308,6 +278,7 @@ class AnalyticsHelper {
     addedData.addIfVAndNew('dimension8', dimension8);
     addedData.addIfVAndNew('dimension9', dimension9);
     addedData.addIfVAndNew('dimension10', dimension10);
+    */
     addedData.addIfVAndNew('link', link);
     addedData.addIfVAndNew('download', download);
     addedData.addIfVAndNew('search', search);
@@ -315,9 +286,6 @@ class AnalyticsHelper {
     addedData.addIfVAndNew('search_count', searchCount?.toString());
     addedData.addIfVAndNew('pv_id', pvId);
     addedData.addIfVAndNew('idgoal', idGoal);
-    addedData.addIfVAndNew('revenue', revenue);
-    addedData.addIfVAndNew('gt_ms', gtMs?.toString());
-    addedData.addIfVAndNew('cs', cs);
     addedData.addIfVAndNew(
         'ca',
         ca != null
@@ -325,28 +293,14 @@ class AnalyticsHelper {
                 ? '1'
                 : '0'
             : null);
-    addedData.addIfVAndNew('pf_net', pfNet?.toString());
-    addedData.addIfVAndNew('pf_srv', pfSrv?.toString());
-    addedData.addIfVAndNew('pf_tfr', pfTfr?.toString());
-    addedData.addIfVAndNew('pf_dm1', pfDm1?.toString());
-    addedData.addIfVAndNew('pf_dm2', pfDm2?.toString());
-    addedData.addIfVAndNew('pf_onl', pfOnl?.toString());
     addedData.addIfVAndNew('e_c', eC);
     addedData.addIfVAndNew('e_a', eA);
     addedData.addIfVAndNew('e_n', eN);
     addedData.addIfVAndNew('e_v', eV?.toString());
     addedData.addIfVAndNew('c_n', cN);
     addedData.addIfVAndNew('c_p', cP);
-    addedData.addIfVAndNew('c_t', cT);
+
     addedData.addIfVAndNew('c_i', cId);
-    addedData.addIfVAndNew('ec_id', ecId);
-    addedData.addIfVAndNew('ec_items', ecItems);
-    addedData.addIfVAndNew('ec_st', ecSt);
-    addedData.addIfVAndNew('ec_tx', ecTx);
-    addedData.addIfVAndNew('ec_sh', ecSh);
-    addedData.addIfVAndNew('ec_dt', ecDt);
-    addedData.addIfVAndNew('_ects', ects?.millisecondsSinceEpoch.toString());
-    addedData.addIfVAndNew('cip', cip);
     addedData.addIfVAndNew('cdt', cdt?.millisecondsSinceEpoch.toString());
     addedData.addIfVAndNew(
       'country',
@@ -354,27 +308,6 @@ class AnalyticsHelper {
     );
     addedData.addIfVAndNew('region', region);
     addedData.addIfVAndNew('city', city);
-    addedData.addIfVAndNew('lat', lat);
-    addedData.addIfVAndNew('long', long);
-    addedData.addIfVAndNew('ma_id', maId);
-    addedData.addIfVAndNew('ma_re', maRe);
-    addedData.addIfVAndNew('ma_mt', maMt);
-    addedData.addIfVAndNew('ma_ti', maTi);
-    addedData.addIfVAndNew('ma_pn', maPn);
-    addedData.addIfVAndNew('ma_st', maSt?.toString());
-    addedData.addIfVAndNew('ma_le', maLe?.toString());
-    addedData.addIfVAndNew('ma_ps', maPs?.toString());
-    addedData.addIfVAndNew('ma_ttp', maTtp?.toString());
-    addedData.addIfVAndNew('ma_w', maW?.toString());
-    addedData.addIfVAndNew('ma_h', maH?.toString());
-    addedData.addIfVAndNew(
-        'ma_fs',
-        maFs != null
-            ? maFs
-                ? '1'
-                : '0'
-            : null);
-    addedData.addIfVAndNew('ma_se', maSe);
     if (customData != null) {
       addedData.addAll(customData);
     }
