@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class LaunchUrlHelper {
@@ -28,6 +29,8 @@ class LaunchUrlHelper {
       url = url.replaceAll(
           'https://openfoodfacts.', 'https://${countryCode}openfoodfacts.');
     }
+
+    AnalyticsHelper.trackOpenLink(url: url);
 
     if (await canLaunch(url)) {
       await launch(url);

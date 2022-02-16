@@ -22,6 +22,7 @@ class AnalyticsHelper {
   static const String _scanAction = 'scanned product';
   static const String _productPageAction = 'opened product page';
   static const String _knowledgePanelAction = 'opened knowledge panel page';
+  static const String _linkAction = 'opened link';
 
   static Future<void> initSentry({Function()? appRunner}) async {
     final PackageInfo packageInfo = await PackageInfo.fromPlatform();
@@ -109,6 +110,7 @@ class AnalyticsHelper {
       required int unkownProducts,
     }) => _trackAction(action: TrackingAction.RANKING, );
   */
+
   /*
   Future<bool> trackSearch({
     required String parameter,
@@ -125,10 +127,9 @@ class AnalyticsHelper {
     required int unkownProducts,
   }) {}
 */
-  /*
-  Future<bool> trackOpenLink({required String url}) =>
-      _trackAction(action: TrackingAction.LINK, url: url);
-*/
+
+  static Future<bool> trackOpenLink({required String url}) =>
+      _trackConstructor(_linkAction, url: url, link: url);
 
   static Future<bool> _trackConstructor(
     String actionName, {
