@@ -131,13 +131,11 @@ Future<bool> trackProductPageOpen({
 
 // TODO(m123): Check where to call
 Future<bool> trackKnowledgePanelOpen({
-  required String barcode,
   String? knowledgePanelName,
 }) {
   final Map<String, String> data = <String, String>{
     eventCategory: 'Knowledge panel',
     eventAction: 'opened',
-    eventValue: barcode,
   };
   data.addIfVAndNew(eventName, knowledgePanelName);
 
@@ -199,7 +197,7 @@ Future<bool> _track(String actionName, Map<String, String> data) {
   final DateTime date = DateTime.now();
   final Map<String, String> addedData = <String, String>{
     'action_name': actionName,
-    'rand': Random().toString(),
+    'rand': Random().nextInt(1000).toString(),
     'h': date.hour.toString(),
     'm': date.minute.toString(),
     's': date.second.toString(),
