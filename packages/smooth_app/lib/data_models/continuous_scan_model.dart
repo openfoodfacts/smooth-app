@@ -100,7 +100,8 @@ class ContinuousScanModel with ChangeNotifier {
     if (_latestScannedBarcode == code) {
       return;
     }
-    AnalyticsHelper.trackScannedProduct(barcode: code);
+    trackScannedProduct(barcode: code);
+
     _latestScannedBarcode = code;
     _addBarcode(code);
   }

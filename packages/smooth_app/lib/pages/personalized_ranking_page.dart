@@ -75,7 +75,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
       colors.add(_COLORS[matchTab]!);
     }
 
-    AnalyticsHelper.trackPersonalizedRanking(
+    trackPersonalizedRanking(
       title: widget.title,
       products: matchedProductsList[0].length,
       goodProducts: matchedProductsList[1].length,

@@ -18,7 +18,7 @@ class LaunchUrlHelper {
 
       String? countryCode = WidgetsBinding.instance == null
           ? null
-          : WidgetsBinding.instance!.window.locale.countryCode;
+          : WidgetsBinding.instance!.window.locale.countryCode?.toLowerCase();
 
       if (countryCode == null) {
         countryCode = 'world.';
@@ -30,7 +30,7 @@ class LaunchUrlHelper {
           'https://openfoodfacts.', 'https://${countryCode}openfoodfacts.');
     }
 
-    AnalyticsHelper.trackOpenLink(url: url);
+    trackOpenLink(url: url);
 
     if (await canLaunch(url)) {
       await launch(url);

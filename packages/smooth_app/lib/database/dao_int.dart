@@ -9,14 +9,14 @@ class DaoInt extends AbstractDao {
   static const String _hiveBoxName = 'int';
 
   @override
-  Future<void> init() async => Hive.openLazyBox<int>(_hiveBoxName);
+  Future<void> init() async => Hive.openBox<int>(_hiveBoxName);
 
   @override
   void registerAdapter() {}
 
-  LazyBox<int> _getBox() => Hive.lazyBox<int>(_hiveBoxName);
+  Box<int> _getBox() => Hive.box<int>(_hiveBoxName);
 
-  Future<int?> get(final String key) async => _getBox().get(key);
+  int? get(final String key) => _getBox().get(key);
 
   Future<void> put(final String key, final int? value) async =>
       value == null ? _getBox().delete(key) : _getBox().put(key, value);

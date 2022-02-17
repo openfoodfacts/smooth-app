@@ -89,9 +89,9 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
           case LoadingStatus.COMPLETE:
             if (_model.isNotEmpty()) {
               _showRefreshSnackBar(_scaffoldKeyNotEmpty);
-              AnalyticsHelper.trackSearch(
+              trackSearch(
                 search: widget.name,
-                searchCategory: _model.categories.toString(),
+                searchCategory: _model.currentCategory,
                 searchCount: _model.displayProducts?.length,
               );
               return _getNotEmptyScreen(screenSize, themeData);

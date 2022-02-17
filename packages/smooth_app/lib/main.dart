@@ -26,7 +26,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   if (kReleaseMode) {
-    await AnalyticsHelper.initSentry(
+    await initSentry(
       appRunner: () => const SmoothApp(),
     );
   } else {
@@ -88,7 +88,7 @@ class _SmoothAppState extends State<SmoothApp> {
 
     UserManagementHelper.mountCredentials();
     await ProductQuery.setUuid(_localDatabase);
-    AnalyticsHelper.initMatomo(context, _localDatabase);
+    await initMatomo(context, _localDatabase);
   }
 
   @override
@@ -168,10 +168,22 @@ class _SmoothAppState extends State<SmoothApp> {
 
 /// Layer needed because we need to know the language. Language isn't available
 /// in the [context] in top level widget ([SmoothApp])
-class SmoothAppGetLanguage extends StatelessWidget {
+class SmoothAppGetLanguage extends StatefulWidget {
   const SmoothAppGetLanguage(this.appWidget);
 
   final Widget appWidget;
+
+  @override
+  State<SmoothAppGetLanguage> createState() => _SmoothAppGetLanguageState();
+}
+
+class _SmoothAppGetLanguageState extends State<SmoothAppGetLanguage> {
+  @override
+  void initState() {
+    final LocalDatabase _localDatabase = context.read<LocalDatabase>();
+    trackStart(_localDatabase, context);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -181,8 +193,7 @@ class SmoothAppGetLanguage extends StatelessWidget {
     final String languageCode = myLocale.languageCode;
     ProductQuery.setLanguage(languageCode);
     productPreferences.refresh(languageCode);
-    final LocalDatabase _localDatabase = context.read<LocalDatabase>();
-    AnalyticsHelper.trackStart(_localDatabase, context);
-    return appWidget;
+
+    return widget.appWidget;
   }
 }
