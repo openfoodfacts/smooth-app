@@ -9,13 +9,10 @@ import 'package:openfoodfacts/model/OrderedNutrients.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/UnitHelper.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
-import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
-import 'package:smooth_app/widgets/loading_dialog.dart';
+import 'package:smooth_app/pages/product/common/product_refresher.dart';
 
 /// Actual nutrition page, with data already loaded.
 class NutritionPageLoaded extends StatefulWidget {
@@ -491,61 +488,13 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       servingSize: servingSize,
     );
 
-    final bool? savedAndRefreshed = await LoadingDialog.run<bool>(
-      future: _saveAndRefresh(inputProduct, localDatabase),
+    final bool savedAndRefreshed = await ProductRefresher().saveAndRefresh(
       context: context,
-      title: AppLocalizations.of(context)!.nutrition_page_update_running,
+      localDatabase: localDatabase,
+      product: inputProduct,
     );
-    if (savedAndRefreshed == null) {
-      // probably the end user stopped the dialog
-      return;
+    if (savedAndRefreshed) {
+      Navigator.of(context).pop(true);
     }
-    if (!savedAndRefreshed) {
-      await LoadingDialog.error(context: context);
-      return;
-    }
-    await showDialog<void>(
-      context: context,
-      builder: (BuildContext context) => SmoothAlertDialog(
-        body: Text(AppLocalizations.of(context)!.nutrition_page_update_done),
-        actions: <SmoothActionButton>[
-          SmoothActionButton(
-              text: AppLocalizations.of(context)!.okay,
-              onPressed: () => Navigator.of(context).pop()),
-        ],
-      ),
-    );
-    Navigator.of(context).pop(true);
-  }
-
-  /// Saves a product on the BE and refreshes the local database
-  Future<bool> _saveAndRefresh(
-    final Product inputProduct,
-    final LocalDatabase localDatabase,
-  ) async {
-    try {
-      final Status status = await OpenFoodAPIClient.saveProduct(
-        ProductQuery.getUser(),
-        inputProduct,
-      );
-      if (status.error != null) {
-        return false;
-      }
-      final ProductQueryConfiguration configuration = ProductQueryConfiguration(
-        inputProduct.barcode!,
-        fields: ProductQuery.fields,
-        language: ProductQuery.getLanguage(),
-        country: ProductQuery.getCountry(),
-      );
-      final ProductResult result =
-          await OpenFoodAPIClient.getProduct(configuration);
-      if (result.product != null) {
-        await DaoProduct(context.read<LocalDatabase>()).put(result.product!);
-        return true;
-      }
-    } catch (e) {
-      //
-    }
-    return false;
   }
 }
