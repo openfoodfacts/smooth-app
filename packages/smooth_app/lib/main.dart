@@ -177,6 +177,9 @@ class SmoothAppGetLanguage extends StatefulWidget {
   State<SmoothAppGetLanguage> createState() => _SmoothAppGetLanguageState();
 }
 
+// Currently converted into a StatefulWidget to call trackStart in initState
+// since this widget got rebuild multiple time which it shouldn't
+// TODO(open): Fix unnecessary rebuilds
 class _SmoothAppGetLanguageState extends State<SmoothAppGetLanguage> {
   @override
   void initState() {
