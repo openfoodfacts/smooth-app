@@ -63,10 +63,7 @@ class AnalyticsHelper {
     );
   }
 
-  static Future<void> initMatomo(
-    final BuildContext context,
-    final LocalDatabase _localDatabase,
-  ) async {
+  static void initMatomo(final BuildContext context) {
     MatomoForever.init(
       'https://analytics.openfoodfacts.org/matomo.php',
       2,
@@ -90,7 +87,9 @@ class AnalyticsHelper {
 
     // The current count of visits for this visitor
     data.addIfVAndNew(
-        '_idvc', trackingDatabaseHelper.getAppVisits().toString());
+      '_idvc',
+      trackingDatabaseHelper.getAppVisits().toString(),
+    );
     // The UNIX timestamp of this visitor's previous visit
     data.addIfVAndNew(
       '_viewts',

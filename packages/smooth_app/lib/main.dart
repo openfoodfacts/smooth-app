@@ -88,7 +88,7 @@ class _SmoothAppState extends State<SmoothApp> {
 
     UserManagementHelper.mountCredentials();
     await ProductQuery.setUuid(_localDatabase);
-    await AnalyticsHelper.initMatomo(context, _localDatabase);
+    AnalyticsHelper.initMatomo(context);
   }
 
   @override
