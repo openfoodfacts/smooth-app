@@ -75,7 +75,9 @@
 
   &#47;&#47; The current count of visits for this visitor
   data.addIfVAndNew(
-      &#39;_idvc&#39;, trackingDatabaseHelper.getAppVisits().toString());
+    &#39;_idvc&#39;,
+    trackingDatabaseHelper.getAppVisits().toString(),
+  );
   &#47;&#47; The UNIX timestamp of this visitor&#39;s previous visit
   data.addIfVAndNew(
     &#39;_viewts&#39;,

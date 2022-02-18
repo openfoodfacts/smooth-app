@@ -52,9 +52,8 @@
     <section class="multi-line-signature">
       
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
-<span class="name ">initMatomo</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="initMatomo-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span>, </span></li>
-<li><span class="parameter" id="initMatomo-param-_localDatabase"><span class="type-annotation">dynamic</span> <span class="parameter-name">_localDatabase</span></span></li>
+<span class="returntype">void</span>
+<span class="name ">initMatomo</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="initMatomo-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span></span></li>
 </ol>)
 
       
@@ -66,10 +65,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; initMatomo(
-  final BuildContext context,
-  final LocalDatabase _localDatabase,
-) async {
+  <pre class="language-dart"><code class="language-dart">static void initMatomo(final BuildContext context) {
   MatomoForever.init(
     &#39;https:&#47;&#47;analytics.openfoodfacts.org&#47;matomo.php&#39;,
     2,
