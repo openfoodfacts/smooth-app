@@ -13,6 +13,7 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/knowledge_panels_query.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
@@ -45,6 +46,9 @@ class _ProductPageState extends State<ProductPage> {
     super.initState();
     _product = widget.product;
     _updateLocalDatabaseWithProductHistory(context, _product);
+    AnalyticsHelper.trackProductPageOpen(
+      product: _product,
+    );
   }
 
   @override
