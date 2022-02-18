@@ -72,6 +72,7 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
+  final ContinuousScanModel model = context.watch&lt;ContinuousScanModel&gt;();
   return LayoutBuilder(
     builder: (
       BuildContext context,
@@ -84,8 +85,9 @@ Widget build(BuildContext context) {
       );
       final double carouselHeight =
           constraints.maxHeight * ScannerOverlay.carouselHeightPct;
-      final double buttonRowHeight =
-          areButtonsRendered(model) ? ScannerOverlay.buttonRowHeightPx : 0;
+      final double buttonRowHeight = model.getBarcodes().isNotEmpty
+          ? ScannerOverlay.buttonRowHeightPx
+          : 0;
       final double availableScanHeight =
           constraints.maxHeight - carouselHeight - buttonRowHeight;
 
@@ -131,7 +133,7 @@ Widget build(BuildContext context) {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: &lt;Widget&gt;[
-                  SafeArea(top: true, child: buildButtonsRow(context, model)),
+                  const SafeArea(top: true, child: ScanHeader()),
                   const Spacer(),
                   SmoothProductCarousel(
                     showSearchCard: true,
@@ -178,7 +180,6 @@ Widget build(BuildContext context) {
     </li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_scanner_overlay/ScannerOverlay/child.html">child</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_scanner_overlay/ScannerOverlay/model.html">model</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_scanner_overlay/ScannerOverlay-class.html#instance-methods">Methods</a></li>
