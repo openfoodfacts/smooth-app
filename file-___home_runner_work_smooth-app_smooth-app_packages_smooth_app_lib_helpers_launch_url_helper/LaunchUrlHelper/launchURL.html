@@ -74,23 +74,10 @@ NO  <a href="https://de.openfoodfacts.org/">https://de.openfoodfacts.org/</a>...
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; launchURL(String url, bool isOFF) async {
   if (isOFF) {
-    if (!url.contains(&#39;https:&#47;&#47;openfoodfacts.&#39;)) {
-      throw &#39;Error do not use local identifier in url&#39;;
-    }
-
-    String? countryCode = WidgetsBinding.instance == null
-        ? null
-        : WidgetsBinding.instance!.window.locale.countryCode;
-
-    if (countryCode == null) {
-      countryCode = &#39;world.&#39;;
-    } else {
-      countryCode = &#39;$countryCode.&#39;;
-    }
-
-    url = url.replaceAll(
-        &#39;https:&#47;&#47;openfoodfacts.&#39;, &#39;https:&#47;&#47;${countryCode}openfoodfacts.&#39;);
+    url = _replaceSubdomainWithCodes(url);
   }
+
+  AnalyticsHelper.trackOpenLink(url: url);
 
   if (await canLaunch(url)) {
     await launch(url);

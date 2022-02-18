@@ -77,6 +77,8 @@
   if (_latestScannedBarcode == code) {
     return;
   }
+  AnalyticsHelper.trackScannedProduct(barcode: code);
+
   _latestScannedBarcode = code;
   _addBarcode(code);
 }</code></pre>
