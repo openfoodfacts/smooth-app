@@ -327,11 +327,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       _nutritionContainer.setControllerText(key, controller.text);
     }
     // minimal product: we only want to save the nutrients
-    final Product inputProduct = Product(
-      barcode: widget.product.barcode,
-      nutriments: nutriments,
-      servingSize: servingSize,
-    );
+    final Product inputProduct = _nutritionContainer.getProduct();
 
     final bool savedAndRefreshed = await ProductRefresher().saveAndRefresh(
       context: context,
