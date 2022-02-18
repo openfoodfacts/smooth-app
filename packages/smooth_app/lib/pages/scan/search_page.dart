@@ -47,7 +47,7 @@ Future<void> _onSubmittedBarcode(
   final FetchedProduct fetchedProduct =
       await productDialogHelper.openBestChoice();
   if (fetchedProduct.status == FetchedProductStatus.ok) {
-    trackSearch(
+    AnalyticsHelper.trackSearch(
       search: value,
       searchCategory: 'barcode',
       searchCount: 1,
@@ -60,7 +60,7 @@ Future<void> _onSubmittedBarcode(
       ),
     );
   } else {
-    trackSearch(
+    AnalyticsHelper.trackSearch(
       search: value,
       searchCategory: 'barcode',
       searchCount: 0,

@@ -43,7 +43,7 @@ class _ProductPageState extends State<ProductPage> {
     super.initState();
     _product = widget.product;
     _updateLocalDatabaseWithProductHistory(context, _product);
-    trackProductPageOpen(
+    AnalyticsHelper.trackProductPageOpen(
       product: _product,
     );
   }

@@ -12,30 +12,36 @@ class LaunchUrlHelper {
   ///
   static Future<void> launchURL(String url, bool isOFF) async {
     if (isOFF) {
-      if (!url.contains('https://openfoodfacts.')) {
-        throw 'Error do not use local identifier in url';
-      }
-
-      String? countryCode = WidgetsBinding.instance == null
-          ? null
-          : WidgetsBinding.instance!.window.locale.countryCode?.toLowerCase();
-
-      if (countryCode == null) {
-        countryCode = 'world.';
-      } else {
-        countryCode = '$countryCode.';
-      }
-
-      url = url.replaceAll(
-          'https://openfoodfacts.', 'https://${countryCode}openfoodfacts.');
+      url = _replaceSubdomainWithCodes(url);
     }
 
-    trackOpenLink(url: url);
+    AnalyticsHelper.trackOpenLink(url: url);
 
     if (await canLaunch(url)) {
       await launch(url);
     } else {
       throw 'Could not launch $url';
     }
+  }
+
+  static String _replaceSubdomainWithCodes(String url) {
+    if (!url.contains('https://openfoodfacts.')) {
+      throw 'Error do not use local identifier in url';
+    }
+
+    String? countryCode = WidgetsBinding.instance == null
+        ? null
+        : WidgetsBinding.instance!.window.locale.countryCode?.toLowerCase();
+
+    if (countryCode == null) {
+      countryCode = 'world.';
+    } else {
+      countryCode = '$countryCode.';
+    }
+
+    url = url.replaceAll(
+        'https://openfoodfacts.', 'https://${countryCode}openfoodfacts.');
+
+    return url;
   }
 }

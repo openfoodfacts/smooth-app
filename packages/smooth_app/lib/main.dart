@@ -26,7 +26,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   if (kReleaseMode) {
-    await initSentry(
+    await AnalyticsHelper.initSentry(
       appRunner: () => const SmoothApp(),
     );
   } else {
@@ -88,7 +88,7 @@ class _SmoothAppState extends State<SmoothApp> {
 
     UserManagementHelper.mountCredentials();
     await ProductQuery.setUuid(_localDatabase);
-    await initMatomo(context, _localDatabase);
+    await AnalyticsHelper.initMatomo(context, _localDatabase);
   }
 
   @override
@@ -181,7 +181,7 @@ class _SmoothAppGetLanguageState extends State<SmoothAppGetLanguage> {
   @override
   void initState() {
     final LocalDatabase _localDatabase = context.read<LocalDatabase>();
-    trackStart(_localDatabase, context);
+    AnalyticsHelper.trackStart(_localDatabase, context);
     super.initState();
   }
 
