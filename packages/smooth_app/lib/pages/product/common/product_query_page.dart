@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
 import 'package:smooth_app/data_models/product_query_model.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
@@ -88,6 +89,11 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
           case LoadingStatus.COMPLETE:
             if (_model.isNotEmpty()) {
               _showRefreshSnackBar(_scaffoldKeyNotEmpty);
+              AnalyticsHelper.trackSearch(
+                search: widget.name,
+                searchCategory: _model.currentCategory,
+                searchCount: _model.displayProducts?.length,
+              );
               return _getNotEmptyScreen(screenSize, themeData);
             }
             _showRefreshSnackBar(_scaffoldKeyEmpty);
