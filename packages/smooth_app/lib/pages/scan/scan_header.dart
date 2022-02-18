@@ -9,9 +9,9 @@ import 'package:smooth_app/widgets/ranking_floating_action_button.dart';
 class ScanHeader extends StatelessWidget {
   const ScanHeader({Key? key}) : super(key: key);
 
-  static const Duration duration = Duration(milliseconds: 50);
-  static const double visibleOpacity = 0.8;
-  static const double invisibleOpacity = 0.0;
+  static const Duration _duration = Duration(milliseconds: 50);
+  static const double _visibleOpacity = 0.8;
+  static const double _invisibleOpacity = 0.0;
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +28,8 @@ class ScanHeader extends StatelessWidget {
 
     return AnimatedOpacity(
       opacity:
-          model.getBarcodes().isNotEmpty ? visibleOpacity : invisibleOpacity,
-      duration: duration,
+          model.getBarcodes().isNotEmpty ? _visibleOpacity : _invisibleOpacity,
+      duration: _duration,
       child: Padding(
         padding: const EdgeInsets.symmetric(
           vertical: VERY_SMALL_SPACE,
