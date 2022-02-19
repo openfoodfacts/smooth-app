@@ -67,7 +67,7 @@
 
   if (kReleaseMode) {
     await AnalyticsHelper.initSentry(
-      appRunner: () =&gt; const SmoothApp(),
+      appRunner: () =&gt; runApp(const SmoothApp()),
     );
   } else {
     runApp(DevicePreview(
