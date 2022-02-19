@@ -27,7 +27,7 @@ Future<void> main() async {
 
   if (kReleaseMode) {
     await AnalyticsHelper.initSentry(
-      appRunner: () => const SmoothApp(),
+      appRunner: () => runApp(const SmoothApp()),
     );
   } else {
     runApp(DevicePreview(
@@ -177,15 +177,21 @@ class SmoothAppGetLanguage extends StatefulWidget {
   State<SmoothAppGetLanguage> createState() => _SmoothAppGetLanguageState();
 }
 
-// Currently converted into a StatefulWidget to call trackStart in initState
-// since this widget got rebuild multiple time which it shouldn't
-// TODO(open): Fix unnecessary rebuilds
 class _SmoothAppGetLanguageState extends State<SmoothAppGetLanguage> {
   @override
   void initState() {
-    final LocalDatabase _localDatabase = context.read<LocalDatabase>();
-    AnalyticsHelper.trackStart(_localDatabase, context);
     super.initState();
+
+    // Currently converted into a StatefulWidget to call trackStart in initState
+    // since this widget got rebuild multiple time which it shouldn't
+    // TODO(open): Fix unnecessary rebuilds
+    WidgetsBinding.instance?.addPostFrameCallback((_) {
+      final LocalDatabase _localDatabase = Provider.of<LocalDatabase>(
+        context,
+        listen: false,
+      );
+      AnalyticsHelper.trackStart(_localDatabase, context);
+    });
   }
 
   @override
