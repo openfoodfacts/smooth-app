@@ -248,7 +248,7 @@
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "saving_answer": "Saving your answer",
+    "saving_answer": "Сохранение вашего ответа",
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
     },
@@ -405,6 +405,10 @@
     "retake_photo_button_label": "Переснять",
     "@retake_photo_button_label": {
         "description": "Button clicking on which allows users to retake the last photo they took."
+    },
+    "selecting_photo": "Selecting photo",
+    "@selecting_photo": {
+        "description": "Progress indicator when the users takes a photo"
     },
     "uploading_image": "Uploading Image to the server",
     "@uploading_image": {
@@ -569,8 +573,9 @@
             "count": {}
         }
     },
-    "compare_products_mode": "Compare Mode",
+    "compare_products_mode": "Режим сравнения",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
-    }
+    },
+    "retry_button_label": "Повтор"
 }
