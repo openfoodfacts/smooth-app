@@ -8,81 +8,83 @@ import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
-class ImageCropPage extends StatelessWidget {
-  ImageCropPage({Key? key}) : super(key: key);
+Future<File?> startImageCropping(BuildContext context) async {
+  final Uint8List? bytes = await pickImage();
 
-  final CropController _controller = CropController();
+  if (bytes == null) {
+    return null;
+  }
+
+  return Navigator.push<File?>(
+    context,
+    MaterialPageRoute<File?>(
+      builder: (BuildContext context) => ImageCropPage(imageBytes: bytes),
+    ),
+  );
+}
+
+Future<Uint8List?> pickImage() async {
   final ImagePicker picker = ImagePicker();
 
-  Future<Uint8List?> pickImage() async {
-    final XFile? pickedXFile = await picker.pickImage(
-      source: ImageSource.camera,
-    );
-    if (pickedXFile == null) {
-      // User didn't pick any image.
-      return null;
-    }
-
-    return pickedXFile.readAsBytes();
+  final XFile? pickedXFile = await picker.pickImage(
+    source: ImageSource.camera,
+  );
+  if (pickedXFile == null) {
+    // User didn't pick any image.
+    return null;
   }
+
+  return pickedXFile.readAsBytes();
+}
+
+class ImageCropPage extends StatelessWidget {
+  const ImageCropPage({Key? key, required this.imageBytes}) : super(key: key);
+
+  final Uint8List imageBytes;
 
   @override
   Widget build(BuildContext context) {
+    final CropController _controller = CropController();
     final ThemeData theme = Theme.of(context);
     context.watch<ThemeProvider>();
 
     return Scaffold(
-        body: FutureBuilder<Uint8List?>(
-          future: pickImage(),
-          builder: (
-            BuildContext context,
-            AsyncSnapshot<Uint8List?> snap,
-          ) {
-            if (snap.connectionState != ConnectionState.done) {
-              return const Center(child: CircularProgressIndicator());
-            }
+      body: Crop(
+        image: imageBytes,
+        controller: _controller,
+        onCropped: (Uint8List image) async {
+          final Directory tempDir = await getTemporaryDirectory();
+          final String tempPath = tempDir.path;
+          final String filePath = '$tempPath/upload_img_file.tmp';
+          final File file = await File(filePath).writeAsBytes(image);
 
-            if (snap.data == null) {
-              Navigator.pop(context);
-            }
-
-            return Crop(
-              image: snap.data!,
-              controller: _controller,
-              onCropped: (Uint8List image) async {
-                final Directory tempDir = await getTemporaryDirectory();
-                final String tempPath = tempDir.path;
-                final String filePath = '$tempPath/upload_img_file.tmp';
-                final File file = await File(filePath).writeAsBytes(image);
-
-                Navigator.pop(context, file);
+          Navigator.pop(context, file);
+        },
+        initialSize: 0.5,
+        baseColor: theme.colorScheme.primary,
+        maskColor: Colors.white.withAlpha(100),
+        cornerDotBuilder: (double size, EdgeAlignment edgeAlignment) =>
+            DotControl(color: theme.colorScheme.primary),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            IconButton(
+              icon: const Icon(Icons.cancel_outlined),
+              onPressed: () {
+                Navigator.pop(context);
               },
-              initialSize: 0.5,
-              baseColor: theme.colorScheme.primary,
-              maskColor: Colors.white.withAlpha(100),
-              cornerDotBuilder: (double size, EdgeAlignment edgeAlignment) =>
-                  DotControl(color: theme.colorScheme.primary),
-            );
-          },
+            ),
+            IconButton(
+              icon: const Icon(Icons.done),
+              onPressed: () {
+                _controller.crop();
+              },
+            )
+          ],
         ),
-        bottomNavigationBar: BottomAppBar(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              IconButton(
-                icon: const Icon(Icons.cancel_outlined),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
-              IconButton(
-                icon: const Icon(Icons.done),
-                onPressed: () {
-                  _controller.crop();
-                },
-              )
-            ],
-          ),
-        ));
+      ),
+    );
   }
 }

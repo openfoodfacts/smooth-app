@@ -16,6 +16,14 @@ class ScanProductCard extends StatelessWidget {
         context.watch<ProductPreferences>();
     return GestureDetector(
       onTap: () => _openProductPage(context),
+      onVerticalDragEnd: (DragEndDetails details) {
+        if (details.primaryVelocity == null) {
+          return;
+        }
+        if (details.primaryVelocity! < 0) {
+          _openProductPage(context);
+        }
+      },
       child: SummaryCard(product, productPreferences),
     );
   }

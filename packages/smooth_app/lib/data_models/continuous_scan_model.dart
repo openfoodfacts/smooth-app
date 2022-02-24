@@ -7,6 +7,7 @@ import 'package:smooth_app/database/barcode_product_query.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 
 enum ScannedProductState {
   FOUND,
@@ -32,7 +33,6 @@ class ContinuousScanModel with ChangeNotifier {
   late DaoProduct _daoProduct;
   late DaoProductList _daoProductList;
 
-  bool get hasMoreThanOneProduct => getBarcodes().length > 1;
   ProductList get productList => _productList;
 
   List<String> getBarcodes() => _barcodes;
@@ -74,7 +74,7 @@ class ContinuousScanModel with ChangeNotifier {
 
   Future<void> refreshProductList() async => _daoProductList.get(_productList);
 
-  void setBarcodeState(
+  void _setBarcodeState(
     final String barcode,
     final ScannedProductState state,
   ) {
@@ -99,15 +99,22 @@ class ContinuousScanModel with ChangeNotifier {
     if (_latestScannedBarcode == code) {
       return;
     }
+    AnalyticsHelper.trackScannedProduct(barcode: code);
+
     _latestScannedBarcode = code;
     _addBarcode(code);
+  }
+
+  Future<void> retryBarcodeFetch(String barcode) async {
+    _setBarcodeState(barcode, ScannedProductState.LOADING);
+    await _updateBarcode(barcode);
   }
 
   Future<bool> _addBarcode(final String barcode) async {
     final ScannedProductState? state = getBarcodeState(barcode);
     if (state == null) {
       _barcodes.add(barcode);
-      setBarcodeState(barcode, ScannedProductState.LOADING);
+      _setBarcodeState(barcode, ScannedProductState.LOADING);
       _cacheOrLoadBarcode(barcode);
       return true;
     }
@@ -159,10 +166,10 @@ class ContinuousScanModel with ChangeNotifier {
         _addProduct(fetchedProduct.product!, ScannedProductState.FOUND);
         return;
       case FetchedProductStatus.internetNotFound:
-        setBarcodeState(barcode, ScannedProductState.NOT_FOUND);
+        _setBarcodeState(barcode, ScannedProductState.NOT_FOUND);
         return;
       case FetchedProductStatus.internetError:
-        setBarcodeState(barcode, ScannedProductState.ERROR);
+        _setBarcodeState(barcode, ScannedProductState.ERROR);
         return;
       case FetchedProductStatus.userCancelled:
         // we do nothing
@@ -179,10 +186,10 @@ class ContinuousScanModel with ChangeNotifier {
         _addProduct(fetchedProduct.product!, ScannedProductState.FOUND);
         return;
       case FetchedProductStatus.internetNotFound:
-        setBarcodeState(barcode, ScannedProductState.NOT_FOUND);
+        _setBarcodeState(barcode, ScannedProductState.NOT_FOUND);
         return;
       case FetchedProductStatus.internetError:
-        setBarcodeState(barcode, ScannedProductState.ERROR);
+        _setBarcodeState(barcode, ScannedProductState.ERROR);
         return;
       case FetchedProductStatus.userCancelled:
         // we do nothing
@@ -200,7 +207,7 @@ class ContinuousScanModel with ChangeNotifier {
       await _daoProductList.push(productList, _latestFoundBarcode!);
       await _daoProductList.push(_history, _latestFoundBarcode!);
     }
-    setBarcodeState(product.barcode!, state);
+    _setBarcodeState(product.barcode!, state);
   }
 
   Future<void> clearScanSession() async {

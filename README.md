@@ -3,7 +3,7 @@
 # Open Food Facts - Codename: "Smooth App"
 [![SmoothApp Post-Submit Tests](https://github.com/openfoodfacts/smooth-app/actions/workflows/postsubmit.yml/badge.svg)](https://github.com/openfoodfacts/smooth-app/actions/workflows/postsubmit.yml)
 
-A new Flutter application by Open Food Facts. You can install it on [Android](https://play.google.com/store/apps/details?id=org.openfoodfacts.app) or [iPhone/iPad](https://apps.apple.com/us/app/smooth-app/id1526747703). Note that a internal development build ([Android](https://play.google.com/apps/internaltest/4700279390303733107) or [iPhone/iPad](https://testflight.apple.com/join/dIhF6Gi4) )if you'd like to use the results of your PRs quicker.
+A new Flutter application by [Open Food Facts](https://github.com/openfoodfacts). You can install it on [Android](https://play.google.com/store/apps/details?id=org.openfoodfacts.app) or [iPhone/iPad](https://apps.apple.com/us/app/smooth-app/id1526747703). Note that a internal development build ([Android](https://play.google.com/apps/internaltest/4700279390303733107) or [iPhone/iPad](https://testflight.apple.com/join/dIhF6Gi4) )if you'd like to use the results of your PRs quicker.
 
 Smoothie. We pioneered the collaborative scanning app in 2012. With this experimental app, we’re reinventing it from the ground up, and this time, it’s personal.
 
@@ -42,30 +42,17 @@ We are always looking for new contributors, if you're willing to help please let
 - [Smoothie GitHub wiki](https://github.com/openfoodfacts/smooth-app/wiki)
 
 ## V1 Roadmap
-- [ ] Revamped and knowledgeable product page (Jasmeet)
-- [ ] Minimal editing/addition value proposition, including by deep linking to the classic Android/iOS apps. (up for grabs)
-- [ ] [Automation of marketing texts](https://github.com/openfoodfacts/fastlane-descriptions-smoothie) (mostly done)
+- [ ] Minimal editing/addition value proposition
+- [ ] [V1 tracking](https://github.com/orgs/openfoodfacts/projects/7)
 
 ## V2 - Later Roadmap
 ### Screenshot automation (High priority)
 - [ ] [Add multilingual screenshot generation using Fastlane (Scan screen, settings screen, personalized ranking screen, home screen)](https://github.com/openfoodfacts/smooth-app/issues/217)
 
-### Navigation
-- [ ] [Fix navigation for the iOS build (iOS does not have a back button, and gestures are not intuitive for most people)](https://github.com/openfoodfacts/smooth-app/issues/17)
-
-### Debt removal
-- [ ] [Remove the hack on the category explorer](https://github.com/openfoodfacts/smooth-app/issues/19)
-
-### Personalized results
-- [ ] [Allow to filter results by country and by store](https://github.com/openfoodfacts/smooth-app/issues/99)
-
 ### Gamification
 - [ ] User management + Small point system for contributions
 
-### Product page
-
 ### Scanning
-- [ ] [Allow the user to find alternatives products on a scan even if (s)he has scanned only 1 product](https://github.com/openfoodfacts/smooth-app/issues/23)
 - [ ] [Add offline scanning to ensure results in all conditions](https://github.com/openfoodfacts/smooth-app/issues/18)
 
 ## Building
@@ -73,9 +60,6 @@ We are always looking for new contributors, if you're willing to help please let
 In order to build the application, make sure you are in the packages/smooth_app directory and run these commands :
  - flutter pub get
  - flutter run
- 
-### Android & iOS
-- Nothing to report
 
 ### Dev Mode
 - How to activate it: We now have a secret in-app dev mode which allows you to debug things faster, or access not-ready-for-primetime features. You can access it by: going to the Food preferences screen, Your Profile, User Management, Forgotten Password and then tapping ten times on the "Change password" button of the Reset Password screen (without typing any email). 

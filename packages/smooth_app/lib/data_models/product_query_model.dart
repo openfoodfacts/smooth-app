@@ -21,6 +21,7 @@ class ProductQueryModel with ChangeNotifier {
   final ProductListSupplier supplier;
 
   static const String _CATEGORY_ALL = 'all';
+  String currentCategory = _CATEGORY_ALL;
 
   LoadingStatus _loadingStatus = LoadingStatus.LOADING;
   String? _loadingError;
@@ -108,6 +109,7 @@ class ProductQueryModel with ChangeNotifier {
   }
 
   void selectCategory(String category) {
+    currentCategory = category;
     if (category == _CATEGORY_ALL) {
       displayProducts = _products;
     } else {

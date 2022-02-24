@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/personalized_search/matched_product.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/smooth_it_model.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/smooth_matched_product.dart';
 
 class PersonalizedRankingPage extends StatefulWidget {
   PersonalizedRankingPage({
@@ -52,7 +54,11 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
         context.watch<ProductPreferences>();
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
-    _model.refresh(widget.products, productPreferences);
+    _model.refresh(
+      widget.products,
+      productPreferences,
+      context.watch<UserPreferences>(),
+    );
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final List<Color> colors = <Color>[];
     final List<String> titles = <String>[];
@@ -68,8 +74,18 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
       );
       colors.add(_COLORS[matchTab]!);
     }
+
+    AnalyticsHelper.trackPersonalizedRanking(
+      title: widget.title,
+      products: matchedProductsList[0].length,
+      goodProducts: matchedProductsList[1].length,
+      badProducts: matchedProductsList[2].length,
+      unknownProducts: matchedProductsList[3].length,
+    );
+
     return DefaultTabController(
       length: _ORDERED_MATCH_TABS.length,
+      initialIndex: _ORDERED_MATCH_TABS.indexOf(MatchTab.YES),
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,

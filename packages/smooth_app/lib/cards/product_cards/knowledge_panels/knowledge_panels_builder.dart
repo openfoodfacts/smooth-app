@@ -18,7 +18,10 @@ import 'package:smooth_app/widgets/loading_dialog.dart';
 ///
 /// Panels display large data like all health data or environment data.
 class KnowledgePanelsBuilder {
-  const KnowledgePanelsBuilder();
+  const KnowledgePanelsBuilder({this.setState});
+
+  /// Would for instance refresh the product page.
+  final VoidCallback? setState;
 
   /// Builds all panels.
   ///
@@ -121,15 +124,18 @@ class KnowledgePanelsBuilder {
                 await LoadingDialog.error(context: context);
                 return;
               }
-              await Navigator.push<Widget>(
+              final bool? refreshed = await Navigator.push<bool>(
                 context,
-                MaterialPageRoute<Widget>(
+                MaterialPageRoute<bool>(
                   builder: (BuildContext context) => NutritionPageLoaded(
                     product,
                     orderedNutrients,
                   ),
                 ),
               );
+              if (refreshed ?? false) {
+                setState?.call();
+              }
               // TODO(monsieurtanuki): refresh the data if changed
             },
           ),

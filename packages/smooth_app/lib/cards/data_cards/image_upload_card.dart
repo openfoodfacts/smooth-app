@@ -1,27 +1,23 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
-import 'package:smooth_app/pages/product/product_image_page.dart';
+import 'package:smooth_app/pages/product/product_image_gallery_view.dart';
 
 class ImageUploadCard extends StatefulWidget {
   const ImageUploadCard({
     required this.product,
-    required this.imageField,
-    this.imageUrl,
-    this.title,
-    required this.buttonText,
+    required this.productImageData,
+    required this.allProductImagesData,
     required this.onUpload,
   });
 
   final Product product;
-  final ImageField imageField;
-  final String? imageUrl;
-  final String? title;
-  final String buttonText;
+  final ProductImageData productImageData;
+  final List<ProductImageData> allProductImagesData;
   final Function(BuildContext) onUpload;
 
   @override
@@ -34,12 +30,7 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
       _imageFullProvider; // Full resolution image to display in image page
 
   Future<void> _getImage() async {
-    final File? croppedImageFile = await Navigator.push<File?>(
-      context,
-      MaterialPageRoute<File?>(
-        builder: (BuildContext context) => ImageCropPage(),
-      ),
-    );
+    final File? croppedImageFile = await startImageCropping(context);
 
     if (croppedImageFile != null) {
       setState(() {
@@ -53,7 +44,7 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
         context,
         barcode: widget.product
             .barcode!, //Probably throws an error, but this is not a big problem when we got a product without a barcode
-        imageField: widget.imageField,
+        imageField: widget.productImageData.imageField,
         imageUri: croppedImageFile.uri,
       );
       croppedImageFile.delete();
@@ -68,10 +59,9 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
     // We can already have an _imageProvider for a file that is going to be uploaded
     // or an imageUrl for a network image
     // or no image yet
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-
-    if ((_imageProvider == null) && (widget.imageUrl != null)) {
-      _imageProvider = NetworkImage(widget.imageUrl!);
+    if ((_imageProvider == null) &&
+        (widget.productImageData.imageUrl != null)) {
+      _imageProvider = NetworkImage(widget.productImageData.imageUrl!);
     }
 
     if (_imageProvider != null) {
@@ -85,19 +75,18 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
 
           if (_imageFullProvider == null) {
             final String _imageFullUrl =
-                widget.imageUrl!.replaceAll('.400.', '.full.');
+                widget.productImageData.imageUrl!.replaceAll('.400.', '.full.');
             _imageFullProvider = NetworkImage(_imageFullUrl);
           }
 
           Navigator.push<Widget>(
             context,
             MaterialPageRoute<Widget>(
-              builder: (BuildContext context) => ProductImagePage(
-                  product: widget.product,
-                  imageField: widget.imageField,
-                  imageProvider: _imageFullProvider!,
-                  title: widget.title ?? appLocalizations.image,
-                  buttonText: widget.buttonText),
+              builder: (BuildContext context) => ProductImageGalleryView(
+                productImageData: widget.productImageData,
+                allProductImagesData: widget.allProductImagesData,
+                title: widget.productImageData.title,
+              ),
             ),
           );
         },
@@ -106,7 +95,7 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
       return ElevatedButton.icon(
         onPressed: _getImage,
         icon: const Icon(Icons.add_a_photo),
-        label: Text(widget.buttonText),
+        label: Text(widget.productImageData.buttonText),
       );
     }
   }

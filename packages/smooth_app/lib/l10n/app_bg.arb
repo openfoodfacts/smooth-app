@@ -42,6 +42,10 @@
     "@incompatible": {
         "description": "Short label for product list view: the product is incompatible with your preferences"
     },
+    "compatible": "Съвместим",
+    "@compatible": {
+        "description": "Short label for product list view: the product is compatible with your preferences"
+    },
     "unknown": "Неизвестно",
     "@unknown": {
         "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
@@ -376,11 +380,11 @@
     "@ingredients_photo_uploaded": {},
     "nutritional_facts_photo_button_label": "Снимка на хранителните стойности",
     "@nutritional_facts_photo_button_label": {},
-    "confirm_nutritional_facts_photo_button_label": "Confirm Nutritional facts photo",
+    "confirm_nutritional_facts_photo_button_label": "Потвърди снимката на хранителните стойности",
     "@confirm_nutritional_facts_photo_button_label": {
         "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
     },
-    "nutritional_facts_photo_uploaded": "Nutritional facts photo uploaded",
+    "nutritional_facts_photo_uploaded": "Снимката с хранителните стойности е качена",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Снимка с информацията за рециклиране",
     "@recycling_photo_button_label": {},
@@ -388,7 +392,7 @@
     "@confirm_recycling_photo_button_label": {
         "description": "Button clicking on which confirms the picture of recycling information that user just took."
     },
-    "recycling_photo_uploaded": "Recycling photo uploaded",
+    "recycling_photo_uploaded": "Снимката за рециклиране е качена",
     "@recycling_photo_uploaded": {},
     "other_interesting_photo_button_label": "Други интересни снимки",
     "@other_interesting_photo_button_label": {},
@@ -402,8 +406,14 @@
     "@retake_photo_button_label": {
         "description": "Button clicking on which allows users to retake the last photo they took."
     },
+    "selecting_photo": "Selecting photo",
+    "@selecting_photo": {
+        "description": "Progress indicator when the users takes a photo"
+    },
     "uploading_image": "Качване на снимката на сървъра",
-    "@uploading_image": {},
+    "@uploading_image": {
+        "description": "Message when a new picture is uploading to the server"
+    },
     "score_add_missing_ingredients": "Добави липсващите съставки",
     "score_add_missing_nutrition_facts": "Добави липсващи хранителни стойности",
     "score_add_missing_product_category": "Добави липсваща продуктова категория",
@@ -505,16 +515,8 @@
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_incompatible": "Много лошо съвпадение",
+    "product_compatibility_incompatible": "Не съответства",
     "@product_compatibility_incompatible": {
-        "description": "Product compatibility summary title"
-    },
-    "product_compatibility_bad": "Лошо съвпадение",
-    "@product_compatibility_bad": {
-        "description": "Product compatibility summary title"
-    },
-    "product_compatibility_neutral": "Неутрално съвпадение",
-    "@product_compatibility_neutral": {
         "description": "Product compatibility summary title"
     },
     "product_compatibility_good": "Добро съвпадение",
@@ -574,5 +576,6 @@
     "compare_products_mode": "Режим Сравняване",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
-    }
+    },
+    "retry_button_label": "Повторен опит"
 }

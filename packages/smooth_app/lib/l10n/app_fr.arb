@@ -406,8 +406,14 @@
     "@retake_photo_button_label": {
         "description": "Button clicking on which allows users to retake the last photo they took."
     },
+    "selecting_photo": "Selecting photo",
+    "@selecting_photo": {
+        "description": "Progress indicator when the users takes a photo"
+    },
     "uploading_image": "Uploading Image to the server",
-    "@uploading_image": {},
+    "@uploading_image": {
+        "description": "Message when a new picture is uploading to the server"
+    },
     "score_add_missing_ingredients": "Ajouter les ingrédients manquants",
     "score_add_missing_nutrition_facts": "Ajouter les informations nutritionnelles manquantes",
     "score_add_missing_product_category": "Ajouter une catégorie de produit manquante",
@@ -509,11 +515,11 @@
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_incompatible": "Incompatible",
+    "product_compatibility_incompatible": "Ne correspond pas",
     "@product_compatibility_incompatible": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_good": "Compatible",
+    "product_compatibility_good": "Bonne concordance",
     "@product_compatibility_good": {
         "description": "Product compatibility summary title"
     },
@@ -570,5 +576,6 @@
     "compare_products_mode": "Mode Comparaison",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
-    }
+    },
+    "retry_button_label": "Réessayer"
 }

@@ -42,6 +42,10 @@
     "@incompatible": {
         "description": "Short label for product list view: the product is incompatible with your preferences"
     },
+    "compatible": "Serasi",
+    "@compatible": {
+        "description": "Short label for product list view: the product is compatible with your preferences"
+    },
     "unknown": "Tidak diketahui",
     "@unknown": {
         "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
@@ -402,8 +406,14 @@
     "@retake_photo_button_label": {
         "description": "Button clicking on which allows users to retake the last photo they took."
     },
+    "selecting_photo": "Selecting photo",
+    "@selecting_photo": {
+        "description": "Progress indicator when the users takes a photo"
+    },
     "uploading_image": "Uploading Image to the server",
-    "@uploading_image": {},
+    "@uploading_image": {
+        "description": "Message when a new picture is uploading to the server"
+    },
     "score_add_missing_ingredients": "Tambahkan ramuan yang hilang",
     "score_add_missing_nutrition_facts": "Tambahkan fakta pemakanan yang tiada",
     "score_add_missing_product_category": "Tambahkan kategori produk yang tiada",
@@ -448,7 +458,7 @@
     "@Product Addition": {},
     "added_product_thanks": "Terima kasih kerana menambah produk ini!",
     "@added_product_thanks": {},
-    "product_search_same_category": "Compare to Category",
+    "product_search_same_category": "Bandingkan dengan Kategori",
     "@product_search_same_category": {
         "description": "Button looking for the other products within the same category. Less than 30 characters"
     },
@@ -505,19 +515,11 @@
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_incompatible": "Very poor Match",
+    "product_compatibility_incompatible": "Tidak sepadan",
     "@product_compatibility_incompatible": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_bad": "Poor Match",
-    "@product_compatibility_bad": {
-        "description": "Product compatibility summary title"
-    },
-    "product_compatibility_neutral": "Neutral Match",
-    "@product_compatibility_neutral": {
-        "description": "Product compatibility summary title"
-    },
-    "product_compatibility_good": "Great Match",
+    "product_compatibility_good": "Padanan Baik",
     "@product_compatibility_good": {
         "description": "Product compatibility summary title"
     },
@@ -574,5 +576,6 @@
     "compare_products_mode": "Bandingkan Mod",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
-    }
+    },
+    "retry_button_label": "Cuba lagi"
 }

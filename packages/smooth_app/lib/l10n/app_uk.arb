@@ -24,7 +24,7 @@
     "@stop": {},
     "finish": "Finish",
     "@finish": {},
-    "reset_food_prefs": "Reset food preferences",
+    "reset_food_prefs": "Скинути налаштування харчових переваг",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
     },
@@ -42,11 +42,15 @@
     "@incompatible": {
         "description": "Short label for product list view: the product is incompatible with your preferences"
     },
+    "compatible": "Сумісний",
+    "@compatible": {
+        "description": "Short label for product list view: the product is compatible with your preferences"
+    },
     "unknown": "Невідомий",
     "@unknown": {
         "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
     },
-    "licenses": "Licences",
+    "licenses": "Ліцензії",
     "@licenses": {},
     "looking_for": "Шукаю",
     "@looking_for": {
@@ -55,34 +59,34 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "whatIsOff": "Open Food Facts - це світова некомерційна організація, що заснована місцевими спільнотами.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Choose foods that are good for you and the planet.",
+    "offUtility": "Обирайте продукти, що є корисними як для вас, так і для планети.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
-    "productDataUtility": "See the food data relevant to your preferences.",
+    "productDataUtility": "Продивіться дані про харчові продукти, що відповідають вашим вподобанням.",
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."
     },
-    "healthCardUtility": "Choose foods that are good for you.",
+    "healthCardUtility": "Обирайте продукти, що є корисними для вас.",
     "@healthCardUtility": {
         "description": "Description of what a user can use the health data in a product for."
     },
-    "ecoCardUtility": "Choose foods that are good for the planet.",
+    "ecoCardUtility": "Обирайте продукти, що є корисними для планети.",
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
-    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
-    "incorrect_credentials": "Incorrect username or password.",
+    "sign_in_text": "Увійдіть у свій обліковий запис Open Food Facts, щоб зберегти свої матеріали",
+    "incorrect_credentials": "Неправильне ім'я користувача або пароль.",
     "login": "Ім'я користувача",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
-    "create_account": "Create account",
+    "create_account": "Створіть обліковий запис",
     "@create_account": {
         "description": "Button label: Opens a page where a new user can register"
     },
@@ -90,20 +94,20 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_out": "Sign out",
+    "sign_out": "Вийти",
     "@sign_out": {
         "description": "Button label: For sign out"
     },
-    "sign_out_confirmation": "Are you sure you want to sign out?",
+    "sign_out_confirmation": "Ви дійсно хочете вийти з облікового запису?",
     "@sign_out_confirmation": {
         "description": "Pop up title: Reassuring if the user really want to sign out"
     },
     "password": "Пароль",
-    "forgot_password": "Forgot password",
+    "forgot_password": "Забули пароль",
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset e-mail can be requested"
     },
-    "view_profile": "View profile",
+    "view_profile": "Переглянути сторінку",
     "@view_profile": {
         "description": "Button label: For to show your account"
     },
@@ -111,48 +115,48 @@
     "@reset_password": {
         "description": "Forgot password page title"
     },
-    "reset_password_explanation_text": "In case of a forgotten password, enter your username or e-mail address to receive instructions for a password reset. Also, remember to check the Spam folder.",
-    "username_or_email": "Username or e-mail",
+    "reset_password_explanation_text": "Якщо ви забули пароль, введіть своє ім'я користувача та адресу електронної пошти, щоб отримати інструкції для відновлення паролю. Також не забудьте перевірити папку \"Спам\".",
+    "username_or_email": "Ім'я користувача або електронна пошта",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
-    "reset_password_done": "An e-mail with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
-    "send_reset_password_mail": "Change password",
+    "reset_password_done": "На адресу електронної пошти, прив'язану до вашого облікового запису було надіслано лист із посиланням для відновлення паролю. Також перевіряйте папку \"Спам\"",
+    "send_reset_password_mail": "Змінити пароль",
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset e-mail request"
     },
-    "enter_some_text": "Please enter some text",
+    "enter_some_text": "Будь ласка, введіть текст",
     "@enter_some_text": {
         "description": "Error when a required text field is empty"
     },
-    "sign_up_page_title": "Sign Up",
+    "sign_up_page_title": "Зареєструватися",
     "@sign_up_page_title": {
         "description": "Header"
     },
-    "sign_up_page_action_button": "Sign Up",
+    "sign_up_page_action_button": "Зареєструватися",
     "@sign_up_page_action_button": {
         "description": "Button for signing up"
     },
-    "sign_up_page_action_doing_it": "Signing up...",
+    "sign_up_page_action_doing_it": "Реєстрація...",
     "@sign_up_page_action_doing_it": {
         "description": "Progress indicator dialog during the actual signing up process"
     },
-    "sign_up_page_action_ok": "Congratulations! Your account has just been created.",
-    "sign_up_page_display_name_hint": "Display Name",
-    "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
-    "sign_up_page_email_hint": "E-mail",
-    "sign_up_page_email_error_empty": "E-mail is required",
-    "sign_up_page_email_error_invalid": "This e-mail is invalid",
+    "sign_up_page_action_ok": "Вітаємо! Ваш обліковий створено.",
+    "sign_up_page_display_name_hint": "Показувати ім'я",
+    "sign_up_page_display_name_error_empty": "Будь ласка, введіть відображуване ім'я, яке ви хочете використовувати.",
+    "sign_up_page_email_hint": "Електронна пошта",
+    "sign_up_page_email_error_empty": "Необхідно заповнити поле електронної адреси",
+    "sign_up_page_email_error_invalid": "Ця електрона адреса недійсна",
     "sign_up_page_username_hint": "Ім'я користувача",
-    "sign_up_page_username_error_empty": "Please enter a username",
-    "sign_up_page_username_error_invalid": "Please enter a valid username",
-    "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters",
+    "sign_up_page_username_error_empty": "Будь ласка, введіть ім'я користувача",
+    "sign_up_page_username_error_invalid": "Будь ласка, введіть коректне ім'я",
+    "sign_up_page_username_description": "Ім'я користувача не може містити пробіли, великі літери або спеціальні символи",
     "sign_up_page_password_hint": "Пароль",
-    "sign_up_page_password_error_empty": "Please enter a password",
-    "sign_up_page_password_error_invalid": "Please enter a valid password (at least 6 characters)",
-    "sign_up_page_confirm_password_hint": "Confirm Password",
-    "sign_up_page_confirm_password_error_empty": "Please confirm the password",
-    "sign_up_page_confirm_password_error_invalid": "Passwords don't match",
+    "sign_up_page_password_error_empty": "Будь ласка, введіть пароль",
+    "sign_up_page_password_error_invalid": "Будь ласка, введіть дійсний пароль (принаймні 6 символів)",
+    "sign_up_page_confirm_password_hint": "Підтвердіть пароль",
+    "sign_up_page_confirm_password_error_empty": "Будь ласка, підтвердіть пароль",
+    "sign_up_page_confirm_password_error_invalid": "Паролі відрізняються",
     "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
@@ -161,14 +165,14 @@
     "@donate_url": {
         "description": "Please insert the right url from the website here."
     },
-    "sign_up_page_agree_error_invalid": "When creating an account, agreeing to the Terms of Use is mandatory, however, anonymous contributions can still be made through the app",
+    "sign_up_page_agree_error_invalid": "При створенні облікового запису, згода з Умовами використання є обов'язковою, проте анонімні пропозиції, як і раніше, можна робити через додаток",
     "@sign_up_page_agree_error_invalid": {
         "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
     },
-    "sign_up_page_producer_checkbox": "I am a food producer",
-    "sign_up_page_producer_hint": "Producer/brand",
-    "sign_up_page_producer_error_empty": "Please enter a producer or a brand name",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at all time)",
+    "sign_up_page_producer_checkbox": "Я виробник продуктів харчування",
+    "sign_up_page_producer_hint": "Виробник/бренд",
+    "sign_up_page_producer_error_empty": "Будь ласка, введіть виробника або торгову марку",
+    "sign_up_page_subscribe_checkbox": "Я хотів би підписатися на розсилку від Open Food Facts (Ви завжди можете відписатися від розсилки)",
     "@Settings": {},
     "settingsTitle": "Налаштування",
     "@settingsTitle": {
@@ -178,15 +182,15 @@
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
-    "darkmode_dark": "Dark",
+    "darkmode_dark": "Темна тема",
     "@darkmode_dark": {
         "description": "Indicator inside the darkmode switch"
     },
-    "darkmode_light": "Light",
+    "darkmode_light": "Світла тема",
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch"
     },
-    "thanks_for_contributing": "Thanks for contributing",
+    "thanks_for_contributing": "Дякуємо за внесок",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
@@ -195,11 +199,11 @@
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
-    "support_join_slack": "Ask for help in our Slack channel",
-    "support_via_email": "Send us a e-mail",
+    "support_join_slack": "Зверніться за допомогою на нашому каналі Slack",
+    "support_via_email": "Надішліть нам електронний лист",
     "termsOfUse": "Умови використання",
     "@termsOfUse": {},
-    "about_this_app": "About this app",
+    "about_this_app": "Про додаток",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
     },
@@ -208,7 +212,7 @@
     "@contribute": {
         "description": "Button label: Shows multiple ways how users can contribute to OFF"
     },
-    "contribute_sw_development": "Software development",
+    "contribute_sw_development": "Розробка програмного забезпечення",
     "@contribute_sw_development": {
         "description": "Button label + page title: Ways to help"
     },
@@ -240,15 +244,15 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Переклади - одне з ключових завдань проекту",
     "@contribute_translate_text_2": {},
-    "tap_to_answer": "Tap here to answer questions",
+    "tap_to_answer": "Натисніть тут, що відповісти на запитання",
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "saving_answer": "Saving your answer",
+    "saving_answer": "Збереження відповіді",
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
     },
-    "contribute_to_get_rewards": "Help food transparency and get reward badges",
+    "contribute_to_get_rewards": "Допомагайте у забезпеченні доступності інформації про харчові продукти та отримуйте заохочувальні нагороди",
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
@@ -257,13 +261,13 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
-    "myPreferences_profile_title": "Your Profile",
-    "myPreferences_profile_subtitle": "Set app settings and find out advices.",
-    "myPreferences_settings_title": "App Settings",
-    "myPreferences_settings_subtitle": "Dark mode, Theme, ...",
-    "myPreferences_food_title": "Food Preferences",
-    "myPreferences_food_subtitle": "Choose what information about food matters most to you.",
-    "confirmResetPreferences": "Reset your food preferences?",
+    "myPreferences_profile_title": "Ваш Профіль",
+    "myPreferences_profile_subtitle": "Встановіть налаштування додатка та отримайте поради.",
+    "myPreferences_settings_title": "Налаштування Додатку",
+    "myPreferences_settings_subtitle": "Темний режим, Тема, ...",
+    "myPreferences_food_title": "Харчові вподобання",
+    "myPreferences_food_subtitle": "Виберіть інформацію про їжу, яка цікавить Вас понад усе.",
+    "confirmResetPreferences": "Змінити свої харчові вподобання?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
     },
@@ -272,27 +276,27 @@
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
     "ranking_tab_all": "Усі",
-    "ranking_subtitle_match_yes": "A great match for you",
-    "ranking_subtitle_match_no": "Very poor match",
-    "ranking_subtitle_match_maybe": "Unknown match",
+    "ranking_subtitle_match_yes": "Гарне поєднання для Вас",
+    "ranking_subtitle_match_no": "Дуже погане поєднання",
+    "ranking_subtitle_match_maybe": "Невідоме поєднання",
     "reloaded_with_new_preferences": "Перезавантажено з новими уподобаннями",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
     },
     "@other": {},
-    "profile_navbar_label": "Profile",
+    "profile_navbar_label": "Профіль",
     "@profile_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "scan_navbar_label": "Profile",
+    "scan_navbar_label": "Профіль",
     "@scan_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "history_navbar_label": "Profile",
+    "history_navbar_label": "Профіль",
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "category": "Filter by category",
+    "category": "Фільтр за категорією",
     "@category": {
         "description": "From a product list, there's a category filter: this is its title"
     },
@@ -313,7 +317,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Tap to see more info...",
+    "tab_for_more": "Натисніть, щоб побачити більше...",
     "@Product": {},
     "product": "Продукт",
     "@product": {},
@@ -321,11 +325,11 @@
     "@unknownBrand": {},
     "unknownProductName": "Невідомий продукт",
     "@unknownProductName": {},
-    "label_refresh": "Refresh",
+    "label_refresh": "Оновлення",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
-    "image": "Image",
+    "image": "Зображення",
     "front_photo": "Фото переднього плану",
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
@@ -348,15 +352,15 @@
     },
     "packaging_information_photo": "Фото з інформацією про упакування",
     "@packaging_information_photo": {},
-    "missing_product": "You found a new product!",
+    "missing_product": "Ви знайшли новий продукт!",
     "@missing_product": {},
-    "add_product_take_photos": "Take photos of the packaging to add this product to our database.",
+    "add_product_take_photos": "Зробіть фотографії пакування, щоб додати цей продукт до Вашої бази даних.",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Please take the following photos and the Open Food Facts engine can work out the rest!",
+    "add_product_take_photos_descriptive": "Будь ласка, зробіть наступні фотографії та система Open Food Facts допрацює те, що залишилось!",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Додайте інформацію про продукт",
     "@add_product_information_button_label": {},
-    "new_product": "New Product",
+    "new_product": "Новий Продукт",
     "@new_product": {},
     "front_packaging_photo_button_label": "Front packaging photo",
     "@front_packaging_photo_button_label": {},
@@ -364,23 +368,23 @@
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front packaging that user just took."
     },
-    "front_photo_uploaded": "Front photo uploaded",
+    "front_photo_uploaded": "Попереднє фото завантажено",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Фото інгредієнтів",
     "@ingredients_photo_button_label": {},
-    "confirm_ingredients_photo_button_label": "Confirm Ingredients photo",
+    "confirm_ingredients_photo_button_label": "Підтвердити фото Інгредієнтів",
     "@confirm_ingredients_photo_button_label": {
         "description": "Button clicking on which confirms the picture of ingredients that user just took."
     },
-    "ingredients_photo_uploaded": "Ingredients photo uploaded",
+    "ingredients_photo_uploaded": "Фото Інгредієнтів завантажено",
     "@ingredients_photo_uploaded": {},
-    "nutritional_facts_photo_button_label": "Nutritional facts photo",
+    "nutritional_facts_photo_button_label": "Поживні факти фото кнопки етикетки",
     "@nutritional_facts_photo_button_label": {},
-    "confirm_nutritional_facts_photo_button_label": "Confirm Nutritional facts photo",
+    "confirm_nutritional_facts_photo_button_label": "Підтвердить фото фактів поживної їжі",
     "@confirm_nutritional_facts_photo_button_label": {
         "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
     },
-    "nutritional_facts_photo_uploaded": "Nutritional facts photo uploaded",
+    "nutritional_facts_photo_uploaded": "Завантаження фотографій харчових фактів",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Recycling information photo",
     "@recycling_photo_button_label": {},
@@ -390,33 +394,39 @@
     },
     "recycling_photo_uploaded": "Recycling photo uploaded",
     "@recycling_photo_uploaded": {},
-    "other_interesting_photo_button_label": "Other interesting photos",
+    "other_interesting_photo_button_label": "Інші цікаві фотографії",
     "@other_interesting_photo_button_label": {},
-    "confirm_other_interesting_photo_button_label": "Confirm photo",
+    "confirm_other_interesting_photo_button_label": "Підтвердіть фотографію",
     "@confirm_other_interesting_photo_button_label": {
         "description": "Button clicking on which confirms a miscellaneous photo of the product."
     },
-    "other_photo_uploaded": "Miscellaneous photo uploaded",
+    "other_photo_uploaded": "Різні фото завантажено",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "Перезняти",
     "@retake_photo_button_label": {
         "description": "Button clicking on which allows users to retake the last photo they took."
     },
-    "uploading_image": "Uploading Image to the server",
-    "@uploading_image": {},
-    "score_add_missing_ingredients": "Add missing ingredients",
+    "selecting_photo": "Selecting photo",
+    "@selecting_photo": {
+        "description": "Progress indicator when the users takes a photo"
+    },
+    "uploading_image": "Завантаження зображення на сервер",
+    "@uploading_image": {
+        "description": "Message when a new picture is uploading to the server"
+    },
+    "score_add_missing_ingredients": "Додати відсутні інгредієнти",
     "score_add_missing_nutrition_facts": "Add missing nutrition facts",
-    "score_add_missing_product_category": "Add missing product category",
+    "score_add_missing_product_category": "Додати відсутню категорію продукту",
     "score_update_nutrition_facts": "Update nutrition facts",
     "nutrition_page_title": "Product Nutrition Facts",
     "nutrition_page_unspecified": "Nutrition facts are not specified on the product",
-    "nutrition_page_per_100g": "per 100g",
+    "nutrition_page_per_100g": "на 100 г.",
     "nutrition_page_per_serving": "в одній порції",
     "nutrition_page_add_nutrient": "Додати поживну речовину",
     "nutrition_page_serving_size": "Розмір порції",
-    "nutrition_page_invalid_number": "Invalid number",
-    "nutrition_page_update_running": "Updating the product on the server...",
-    "nutrition_page_update_done": "Product updated!",
+    "nutrition_page_invalid_number": "Недійсний номер",
+    "nutrition_page_update_running": "Оновлення продукту на сервері...",
+    "nutrition_page_update_done": "Продукт оновлено!",
     "more_photos": "Більше цікавих фото",
     "@more_photos": {},
     "no_product_found": "Продукт не знайдено",
@@ -441,18 +451,18 @@
         "description": "Confirmation, that the product data got canceled by the user"
     },
     "product_internet_error": "Неможливо отримати інформацію про цей продукт через помилку мережі.",
-    "cached_results_from": "Cached results from:",
+    "cached_results_from": "Результати з кеш-пам'яті:",
     "@cached_results_from": {
         "description": "Cached results from: x time ago (time ago should not be added to the string)"
     },
     "@Product Addition": {},
     "added_product_thanks": "Дякуємо Вам за додавання цього продукту!",
     "@added_product_thanks": {},
-    "product_search_same_category": "Compare to Category",
+    "product_search_same_category": "Порівняти з Категорією",
     "@product_search_same_category": {
         "description": "Button looking for the other products within the same category. Less than 30 characters"
     },
-    "product_improvement_add_category": "Add a category to calculate the Nutri-Score.",
+    "product_improvement_add_category": "Додати категорію для розрахунку харчової цінності Nutri-Score.",
     "@product_improvement_add_category": {
         "description": "Message for ProductImprovement.ADD_CATEGORY"
     },
@@ -464,7 +474,7 @@
     "@product_improvement_add_nutrition_facts_and_category": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
     },
-    "product_improvement_categories_but_no_nutriscore": "The Nutri-Score for this product can't be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.",
+    "product_improvement_categories_but_no_nutriscore": "Показник харчової цінності Nutri-Score для цього продукту не може бути розрахований через нестандартну категорію. Якщо Ви вважаєте, що сталося помилка, зв'яжіться з нами.",
     "@product_improvement_categories_but_no_nutriscore": {
         "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
@@ -472,23 +482,23 @@
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take a photo of them (ingredient list and/or any geographic claim or edit the product) so that they can be taken into account.",
+    "product_improvement_origins_to_be_completed": "Показник впливу на дозвілля Eco-Score враховує походження інгредієнтів. Будь ласка, зробіть фото інгредієнтів (перелік інгредієнтів та/або географічну характеристику або відредагуйте продукт) так, щоб вони були враховані.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
-    "country_chooser_label": "Please choose a country",
+    "country_chooser_label": "Будь ласка, виберіть країну",
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },
-    "country_selection_explanation": "Some environmental features are location-specific",
+    "country_selection_explanation": "Деякі особливості навколишнього середовища залежать від місця розташування",
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
-    "product_removed": "Product removed",
+    "product_removed": "Продукт видалено",
     "@product_removed": {
         "description": "Product got removed from a list"
     },
-    "product_could_not_remove": "Could not remove product",
+    "product_could_not_remove": "Неможливо видалити продукт",
     "@product_could_not_remove": {
         "description": "Could not remove product from a list"
     },
@@ -500,29 +510,21 @@
     "@clear": {
         "description": "Clears a product list"
     },
-    "really_clear": "Do you really want to clear this list?",
-    "product_compatibility_unknown": "Product Compatibility Unknown",
+    "really_clear": "Ви дійсно хочете очистити список?",
+    "product_compatibility_unknown": "Невідоме Поєднання Продукту",
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_incompatible": "Very poor Match",
+    "product_compatibility_incompatible": "Не співпадає",
     "@product_compatibility_incompatible": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_bad": "Poor Match",
-    "@product_compatibility_bad": {
-        "description": "Product compatibility summary title"
-    },
-    "product_compatibility_neutral": "Neutral Match",
-    "@product_compatibility_neutral": {
-        "description": "Product compatibility summary title"
-    },
-    "product_compatibility_good": "Great Match",
+    "product_compatibility_good": "Добре підходить",
     "@product_compatibility_good": {
         "description": "Product compatibility summary title"
     },
     "@Plural": {},
-    "pct_match": "{percent}% match",
+    "pct_match": "процентне співвідношення",
     "@pct_match": {
         "description": "This product has a x percent match with your preferences",
         "placeholders": {
@@ -571,8 +573,9 @@
             "count": {}
         }
     },
-    "compare_products_mode": "Compare Mode",
+    "compare_products_mode": "Режим Порівняння",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
-    }
+    },
+    "retry_button_label": "Повторити спробу"
 }

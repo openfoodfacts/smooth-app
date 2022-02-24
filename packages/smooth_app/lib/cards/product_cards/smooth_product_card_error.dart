@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+
+import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 
 /// Product Card when an exception is caught
@@ -10,6 +13,8 @@ class SmoothProductCardError extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+
     return Container(
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.surface,
@@ -30,7 +35,18 @@ class SmoothProductCardError extends StatelessWidget {
             height: 12.0,
           ),
           ProductDialogHelper.getErrorMessage(
-            AppLocalizations.of(context)!.product_internet_error,
+            appLocalizations.product_internet_error,
+          ),
+          const SizedBox(
+            height: 12.0,
+          ),
+          ElevatedButton(
+            onPressed: () async {
+              await context
+                  .read<ContinuousScanModel>()
+                  .retryBarcodeFetch(barcode);
+            },
+            child: Text(appLocalizations.retry_button_label),
           ),
         ],
       ),

@@ -38,9 +38,13 @@
     "@label_web": {},
     "learnMore": "더보기",
     "@learnMore": {},
-    "incompatible": "미호환",
+    "incompatible": "부적합",
     "@incompatible": {
         "description": "Short label for product list view: the product is incompatible with your preferences"
+    },
+    "compatible": "적합",
+    "@compatible": {
+        "description": "Short label for product list view: the product is compatible with your preferences"
     },
     "unknown": "알 수 없음",
     "@unknown": {
@@ -402,8 +406,14 @@
     "@retake_photo_button_label": {
         "description": "Button clicking on which allows users to retake the last photo they took."
     },
+    "selecting_photo": "Selecting photo",
+    "@selecting_photo": {
+        "description": "Progress indicator when the users takes a photo"
+    },
     "uploading_image": "사진을 서버에 올리는 중",
-    "@uploading_image": {},
+    "@uploading_image": {
+        "description": "Message when a new picture is uploading to the server"
+    },
     "score_add_missing_ingredients": "누락된 재료 추가",
     "score_add_missing_nutrition_facts": "누락된 영양성분 추가",
     "score_add_missing_product_category": "누락된 상품 카테고리 추가",
@@ -505,19 +515,11 @@
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_incompatible": "호환성 매우 낮음",
+    "product_compatibility_incompatible": "부적합함",
     "@product_compatibility_incompatible": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_bad": "호환성 낮음",
-    "@product_compatibility_bad": {
-        "description": "Product compatibility summary title"
-    },
-    "product_compatibility_neutral": "호환성 보통",
-    "@product_compatibility_neutral": {
-        "description": "Product compatibility summary title"
-    },
-    "product_compatibility_good": "호환성 높음",
+    "product_compatibility_good": "적합",
     "@product_compatibility_good": {
         "description": "Product compatibility summary title"
     },
@@ -574,5 +576,6 @@
     "compare_products_mode": "비교 모드",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
-    }
+    },
+    "retry_button_label": "다시 시도"
 }
