@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:typed_data' show Uint8List;
 import 'dart:ui' show ImageFilter;
 
 import 'package:flutter/material.dart';
@@ -69,21 +70,14 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
 
   // TODO(justinmc): Deduplicate this with image_upload_card.dart.
   Future<void> _getImage() async {
-    final File? croppedImageFile = await Navigator.push<File?>(
-      context,
-      MaterialPageRoute<File?>(
-        builder: (BuildContext context) => ImageCropPage(),
-      ),
-    );
+    final File? croppedImageFile = await startImageCropping(context);
 
-    ImageProvider? _imageProvider;
-    ImageProvider? _imageFullProvider;
     if (croppedImageFile == null) {
       return;
     }
     // Update the image to load the new image file
-    _imageProvider = FileImage(croppedImageFile);
-    _imageFullProvider = _imageProvider;
+    //final ImageProvider _imageProvider = FileImage(croppedImageFile);
+    //final ImageProvider? _imageFullProvider = _imageProvider;
 
     final bool isUploaded = await uploadCapturedPicture(
       context,
@@ -237,6 +231,22 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
       ),
     );
   }
+}
+
+// TODO(justinmc): Deduplicate this with image_crop_page too.
+Future<File?> startImageCropping(BuildContext context) async {
+  final Uint8List? bytes = await pickImage();
+
+  if (bytes == null) {
+    return null;
+  }
+
+  return Navigator.push<File?>(
+    context,
+    MaterialPageRoute<File?>(
+      builder: (BuildContext context) => ImageCropPage(imageBytes: bytes),
+    ),
+  );
 }
 
 // The actions for the page in a row of FloatingActionButtons.
