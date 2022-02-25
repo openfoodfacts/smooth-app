@@ -283,7 +283,8 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
                                     textInputAction: TextInputAction.done,
                                     onSubmitted: _onSubmitField,
                                   ),
-                                  const Text('TODO text here'),
+                                  // TODO(justinmc): Get this real localized text.
+                                  const Text('TODO localized text from the mock here'),
                                 ],
                               ),
                             ),
