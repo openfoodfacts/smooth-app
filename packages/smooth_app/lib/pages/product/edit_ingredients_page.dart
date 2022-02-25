@@ -37,6 +37,7 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
   final TextEditingController _controller = TextEditingController();
   ImageProvider? _imageProvider;
   bool _updatingImage = false;
+  bool _updatingIngredients = false;
 
   static String _getIngredientsString(List<Ingredient>? ingredients) {
     if (ingredients == null) {
@@ -71,6 +72,30 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
     if (productIngredients != _controller.text) {
       _controller.text = productIngredients;
     }
+  }
+
+  Future<void> _onSubmitField(String string) async {
+    final User user = ProductQuery.getUser();
+
+    setState(() {
+      _updatingIngredients = true;
+    });
+
+    try {
+      await _updateIngredientsText(string, user);
+    } catch(error) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          // TODO(justinmc): Localize.
+          content: Text('Failed to save the ingredients.'),
+          duration: Duration(seconds: 3),
+        ),
+      );
+    }
+
+    setState(() {
+      _updatingIngredients = false;
+    });
   }
 
   Future<void> _onTapGetImage() async {
@@ -145,14 +170,17 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
         _controller.text = nextIngredients;
       });
 
-      // TODO(justinmc): Is this the right way to save the ingredients?
-      widget.product.ingredientsText = nextIngredients;
-      final Status status = await OpenFoodAPIClient.saveProduct(
-          user, widget.product);
+      await _updateIngredientsText(nextIngredients, user);
+    }
+  }
 
-      if (status.error != null) {
-        throw Exception("Couldn't save the product. ${status.error}");
-      }
+  Future<void> _updateIngredientsText(String ingredientsText, User user) async {
+    // TODO(justinmc): What is the right way to save the ingredients?
+    widget.product.ingredientsText = ingredientsText;
+    final Status status = await OpenFoodAPIClient.saveProduct(
+        user, widget.product);
+    if (status.error != null) {
+      throw Exception("Couldn't save the product. ${status.error}");
     }
   }
 
@@ -244,6 +272,7 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
                                 children: <Widget>[
                                   // TODO(justinmc): Implement editing of ingredients text.
                                   TextField(
+                                    enabled: !_updatingIngredients,
                                     controller: _controller,
                                     decoration: InputDecoration(
                                       border: OutlineInputBorder(
@@ -251,6 +280,8 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
                                       ),
                                     ),
                                     maxLines: null,
+                                    textInputAction: TextInputAction.done,
+                                    onSubmitted: _onSubmitField,
                                   ),
                                   const Text('TODO text here'),
                                 ],
