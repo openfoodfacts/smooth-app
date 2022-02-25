@@ -73,19 +73,40 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
     }
   }
 
-  // TODO(justinmc): Deduplicate this with image_upload_card.dart.
-  Future<void> _getImage() async {
+  Future<void> _onTapGetImage() async {
     setState(() {
       _updatingImage = true;
     });
 
+    try {
+      await _getImage();
+    } catch (error) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          // TODO(justinmc): Localize.
+          content: Text('Failed to get a new ingredients image.'),
+          duration: Duration(seconds: 3),
+        ),
+      );
+    }
+
+    setState(() {
+      _updatingImage = false;
+    });
+  }
+
+  Future<void> _getImage() async {
     final File? croppedImageFile = await startImageCropping(context);
 
+    // If the user cancels.
     if (croppedImageFile == null) {
       return;
     }
+
     // Update the image to load the new image file.
-    _imageProvider = FileImage(croppedImageFile);
+    setState(() {
+      _imageProvider = FileImage(croppedImageFile);
+    });
 
     final bool isUploaded = await uploadCapturedPicture(
       context,
@@ -114,10 +135,11 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
 
     final String? nextIngredients =
         ingredientsResult.ingredientsTextFromImage;
-    // Save the product's ingredients if needed.
     if (nextIngredients == null || nextIngredients.isEmpty) {
       throw Exception('Failed to detect ingredients text in image.');
     }
+
+    // Save the product's ingredients if needed.
     if (_controller.text != nextIngredients) {
       setState(() {
         _controller.text = nextIngredients;
@@ -132,11 +154,6 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
         throw Exception("Couldn't save the product. ${status.error}");
       }
     }
-
-    // TODO(justinmc): This should get reset even if an error is thrown.
-    setState(() {
-      _updatingImage = false;
-    });
   }
 
   @override
@@ -170,11 +187,8 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
             ConstrainedBox(
               constraints: const BoxConstraints.expand(),
               child: Image(
-                // TODO(justinmc): This doesn't seem to work. This comes from
-                // startImageCropping, same as in ImageUploadCard...
                 image: _imageProvider!,
                 fit: BoxFit.cover,
-                //height: 1000.0,
               ),
             ),
           if (_imageProvider == null && widget.imageIngredientsUrl != null)
@@ -199,41 +213,48 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
-                    Align(
-                      alignment: Alignment.bottomRight,
-                      child: Padding(
-                        padding: const EdgeInsets.only(bottom: 16.0),
-                        child: _ActionButtons(
-                          getImage: _getImage,
-                          hasImage: widget.imageIngredientsUrl != null,
+                    Flexible(
+                      flex: 1,
+                      child: Align(
+                        alignment: Alignment.bottomRight,
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom: 16.0),
+                          child: _ActionButtons(
+                            getImage: _onTapGetImage,
+                            hasImage: widget.imageIngredientsUrl != null,
+                          ),
                         ),
                       ),
                     ),
-                    Container(
-                      // TODO(justinmc): Rather than hardcoded height, percentage of screen?
-                      height: 400.0,
-                      color: Colors.black,
-                      child: Theme(
-                        // TODO(justinmc): Do we have a theme like this somewhere?
-                        data: darkTheme,
-                        child: DefaultTextStyle(
-                          style: const TextStyle(color: Colors.white),
-                          child: Padding(
-                            padding: const EdgeInsets.all(16.0),
-                            child: Column(
-                              children: <Widget>[
-                                // TODO(justinmc): Implement editing of ingredients text.
-                                TextField(
-                                  controller: _controller,
-                                  decoration: InputDecoration(
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(3.0),
+                    Flexible(
+                      flex: 1,
+                      child: Container(
+                        // TODO(justinmc): Any media query stuff to do here for
+                        // different screen sizes?
+                        height: 400.0,
+                        color: Colors.black,
+                        child: Theme(
+                          // TODO(justinmc): Do we have a theme like this somewhere?
+                          data: darkTheme,
+                          child: DefaultTextStyle(
+                            style: const TextStyle(color: Colors.white),
+                            child: Padding(
+                              padding: const EdgeInsets.all(16.0),
+                              child: Column(
+                                children: <Widget>[
+                                  // TODO(justinmc): Implement editing of ingredients text.
+                                  TextField(
+                                    controller: _controller,
+                                    decoration: InputDecoration(
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(3.0),
+                                      ),
                                     ),
+                                    maxLines: null,
                                   ),
-                                  maxLines: null,
-                                ),
-                                const Text('TODO text here'),
-                              ],
+                                  const Text('TODO text here'),
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -247,22 +268,6 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
       ),
     );
   }
-}
-
-// TODO(justinmc): Deduplicate this with image_crop_page too.
-Future<File?> startImageCropping(BuildContext context) async {
-  final Uint8List? bytes = await pickImage();
-
-  if (bytes == null) {
-    return null;
-  }
-
-  return Navigator.push<File?>(
-    context,
-    MaterialPageRoute<File?>(
-      builder: (BuildContext context) => ImageCropPage(imageBytes: bytes),
-    ),
-  );
 }
 
 // The actions for the page in a row of FloatingActionButtons.
@@ -296,8 +301,6 @@ class _ActionButtons extends StatelessWidget {
             tooltip: 'Retake photo',
             backgroundColor: Colors.white,
             foregroundColor: Colors.grey,
-            // TODO(justinmc): Is editing the product image the same API call
-            // to addProductImage?
             onPressed: getImage,
             child: const Icon(Icons.refresh),
           ),
