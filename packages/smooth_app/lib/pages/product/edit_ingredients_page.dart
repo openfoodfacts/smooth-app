@@ -83,7 +83,7 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
 
     try {
       await _updateIngredientsText(string, user);
-    } catch(error) {
+    } catch (error) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           // TODO(justinmc): Localize.
@@ -158,8 +158,7 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
         await OpenFoodAPIClient.extractIngredients(
             user, widget.barcode!, ProductQuery.getLanguage()!);
 
-    final String? nextIngredients =
-        ingredientsResult.ingredientsTextFromImage;
+    final String? nextIngredients = ingredientsResult.ingredientsTextFromImage;
     if (nextIngredients == null || nextIngredients.isEmpty) {
       throw Exception('Failed to detect ingredients text in image.');
     }
@@ -177,8 +176,8 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
   Future<void> _updateIngredientsText(String ingredientsText, User user) async {
     // TODO(justinmc): What is the right way to save the ingredients?
     widget.product.ingredientsText = ingredientsText;
-    final Status status = await OpenFoodAPIClient.saveProduct(
-        user, widget.product);
+    final Status status =
+        await OpenFoodAPIClient.saveProduct(user, widget.product);
     if (status.error != null) {
       throw Exception("Couldn't save the product. ${status.error}");
     }
@@ -198,7 +197,8 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text('Log Food'),
+        // TODO(justinmc): Localize.
+        title: const Text('Check the ingredients'),
         backgroundColor: Colors.transparent,
         flexibleSpace: ClipRect(
           child: BackdropFilter(
@@ -276,7 +276,8 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
                                     controller: _controller,
                                     decoration: InputDecoration(
                                       border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(3.0),
+                                        borderRadius:
+                                            BorderRadius.circular(3.0),
                                       ),
                                     ),
                                     maxLines: null,
@@ -284,7 +285,8 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
                                     onSubmitted: _onSubmitField,
                                   ),
                                   // TODO(justinmc): Get this real localized text.
-                                  const Text('TODO localized text from the mock here'),
+                                  const Text(
+                                      'TODO localized text from the mock here'),
                                 ],
                               ),
                             ),
