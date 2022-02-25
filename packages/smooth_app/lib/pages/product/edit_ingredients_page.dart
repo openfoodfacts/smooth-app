@@ -35,6 +35,8 @@ class EditIngredientsPage extends StatefulWidget {
 
 class _EditIngredientsPageState extends State<EditIngredientsPage> {
   final TextEditingController _controller = TextEditingController();
+  ImageProvider? _imageProvider;
+  bool _updatingImage = false;
 
   static String _getIngredientsString(List<Ingredient>? ingredients) {
     if (ingredients == null) {
@@ -55,6 +57,9 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
   @override
   void initState() {
     super.initState();
+    // TODO(justinmc): This doesn't work because ingredients is always null
+    // (same with ingredientsText). Even when the knowledge panel for this
+    // product shows ingredients.
     _controller.text = _getIngredientsString(widget.product.ingredients);
   }
 
@@ -70,14 +75,17 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
 
   // TODO(justinmc): Deduplicate this with image_upload_card.dart.
   Future<void> _getImage() async {
+    setState(() {
+      _updatingImage = true;
+    });
+
     final File? croppedImageFile = await startImageCropping(context);
 
     if (croppedImageFile == null) {
       return;
     }
-    // Update the image to load the new image file
-    //final ImageProvider _imageProvider = FileImage(croppedImageFile);
-    //final ImageProvider? _imageFullProvider = _imageProvider;
+    // Update the image to load the new image file.
+    _imageProvider = FileImage(croppedImageFile);
 
     final bool isUploaded = await uploadCapturedPicture(
       context,
@@ -87,14 +95,6 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
       imageUri: croppedImageFile.uri,
     );
     croppedImageFile.delete();
-    /*
-    if (isUploaded) {
-      widget.onUpload(context);
-    }
-    */
-
-    // TODO(justinmc): Refetch the product, if that's how addProductImage works.
-    // Doesn't seem to work in image_upload_card either.
 
     if (!isUploaded) {
       throw Exception('Image could not be uploaded.');
@@ -115,28 +115,28 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
     final String? nextIngredients =
         ingredientsResult.ingredientsTextFromImage;
     // Save the product's ingredients if needed.
-    if (nextIngredients != null &&
-        _getIngredientsString(widget.product.ingredients) !=
-            nextIngredients) {
+    if (nextIngredients == null || nextIngredients.isEmpty) {
+      throw Exception('Failed to detect ingredients text in image.');
+    }
+    if (_controller.text != nextIngredients) {
       setState(() {
-        print('justin ingredients $nextIngredients');
         _controller.text = nextIngredients;
       });
-      // TODO(justinmc): How do I update the product's ingredients? Lots of
-      // ingredient-related fields on Product. I only see the saveProduct API
-      // method, is that for editing too?
-      /*
-      Product product = Product(
-        barcode: '4250752200784',
-        lang: OpenFoodFactsLanguage.GERMAN,
-        ingredientsText: 'Johanneskraut, Maisöl, Phospholipide (Sojabohnen, Ponceau 4R)'
-      );
-      */
+
+      // TODO(justinmc): Is this the right way to save the ingredients?
       widget.product.ingredientsText = nextIngredients;
-      // TODO(justinmc): Get the actual user here.
-      Status status = await OpenFoodAPIClient.saveProduct(
+      final Status status = await OpenFoodAPIClient.saveProduct(
           user, widget.product);
+
+      if (status.error != null) {
+        throw Exception("Couldn't save the product. ${status.error}");
+      }
     }
+
+    // TODO(justinmc): This should get reset even if an error is thrown.
+    setState(() {
+      _updatingImage = false;
+    });
   }
 
   @override
@@ -166,9 +166,18 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
       ),
       body: Stack(
         children: <Widget>[
-          if (widget.imageIngredientsUrl == null)
-            Container(color: Colors.white),
-          if (widget.imageIngredientsUrl != null)
+          if (_imageProvider != null)
+            ConstrainedBox(
+              constraints: const BoxConstraints.expand(),
+              child: Image(
+                // TODO(justinmc): This doesn't seem to work. This comes from
+                // startImageCropping, same as in ImageUploadCard...
+                image: _imageProvider!,
+                fit: BoxFit.cover,
+                //height: 1000.0,
+              ),
+            ),
+          if (_imageProvider == null && widget.imageIngredientsUrl != null)
             ConstrainedBox(
               constraints: const BoxConstraints.expand(),
               child: Image(
@@ -176,57 +185,64 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
                 image: NetworkImage(widget.imageIngredientsUrl!),
               ),
             ),
-          Align(
-            alignment: Alignment.bottomLeft,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  Align(
-                    alignment: Alignment.bottomRight,
-                    child: Padding(
-                      padding: const EdgeInsets.only(bottom: 16.0),
-                      child: _ActionButtons(
-                        getImage: _getImage,
-                        hasImage: widget.imageIngredientsUrl != null,
+          if (_imageProvider == null && widget.imageIngredientsUrl == null)
+            Container(color: Colors.white),
+          if (_updatingImage)
+            const Center(
+              child: CircularProgressIndicator(),
+            ),
+          if (!_updatingImage)
+            Align(
+              alignment: Alignment.bottomLeft,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 16.0),
+                        child: _ActionButtons(
+                          getImage: _getImage,
+                          hasImage: widget.imageIngredientsUrl != null,
+                        ),
                       ),
                     ),
-                  ),
-                  Container(
-                    // TODO(justinmc): Rather than hardcoded height, percentage of screen?
-                    height: 400.0,
-                    color: Colors.black,
-                    child: Theme(
-                      // TODO(justinmc): Do we have a theme like this somewhere?
-                      data: darkTheme,
-                      child: DefaultTextStyle(
-                        style: const TextStyle(color: Colors.white),
-                        child: Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Column(
-                            children: <Widget>[
-                              // TODO(justinmc): Implement editing of ingredients.
-                              TextField(
-                                controller: _controller,
-                                decoration: InputDecoration(
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(3.0),
+                    Container(
+                      // TODO(justinmc): Rather than hardcoded height, percentage of screen?
+                      height: 400.0,
+                      color: Colors.black,
+                      child: Theme(
+                        // TODO(justinmc): Do we have a theme like this somewhere?
+                        data: darkTheme,
+                        child: DefaultTextStyle(
+                          style: const TextStyle(color: Colors.white),
+                          child: Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Column(
+                              children: <Widget>[
+                                // TODO(justinmc): Implement editing of ingredients text.
+                                TextField(
+                                  controller: _controller,
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(3.0),
+                                    ),
                                   ),
+                                  maxLines: null,
                                 ),
-                                maxLines: null,
-                              ),
-                              const Text('TODO text here'),
-                            ],
+                                const Text('TODO text here'),
+                              ],
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
         ],
       ),
     );
