@@ -165,12 +165,15 @@ class _ProductPageState extends State<ProductPage> {
         child: SmoothActionButton(
           text: 'Edit product', // TODO(monsieurtanuki): translations
           onPressed: () async {
-            await Navigator.push<Widget>(
+            final bool? refreshed = await Navigator.push<bool>(
               context,
-              MaterialPageRoute<Widget>(
+              MaterialPageRoute<bool>(
                 builder: (BuildContext context) => EditProductPage(_product),
               ),
             );
+            if (refreshed ?? false) {
+              setState(() {});
+            }
           },
         ),
       ),
