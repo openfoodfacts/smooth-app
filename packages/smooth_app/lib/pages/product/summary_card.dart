@@ -109,7 +109,7 @@ class _SummaryCardState extends State<SummaryCard> {
     return Stack(
       children: <Widget>[
         ClipRRect(
-          borderRadius: const BorderRadius.all(ROUNDED_RADIUS),
+          borderRadius: ROUNDED_BORDER_RADIUS,
           child: OverflowBox(
             alignment: AlignmentDirectional.topStart,
             minHeight: parentHeight,

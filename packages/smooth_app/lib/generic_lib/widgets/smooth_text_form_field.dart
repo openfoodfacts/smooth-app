@@ -83,12 +83,12 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
         ),
         hintText: widget.hintText,
         fillColor: widget.backgroundColor,
-        border: OutlineInputBorder(
+        border: const OutlineInputBorder(
           borderRadius: CIRCULAR_BORDER_RADIUS,
         ),
-        enabledBorder: OutlineInputBorder(
+        enabledBorder: const OutlineInputBorder(
           borderRadius: CIRCULAR_BORDER_RADIUS,
-          borderSide: const BorderSide(
+          borderSide: BorderSide(
             color: Colors.transparent,
             width: 5.0,
           ),

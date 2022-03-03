@@ -18,7 +18,7 @@ class SmoothProductCardError extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.surface,
-        borderRadius: const BorderRadius.all(ROUNDED_RADIUS),
+        borderRadius: ROUNDED_BORDER_RADIUS,
       ),
       child: Column(
         mainAxisSize: MainAxisSize.max,

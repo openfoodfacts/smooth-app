@@ -66,7 +66,7 @@ class ScoreCard extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         color: backgroundColor,
-        borderRadius: const BorderRadius.all(ROUNDED_RADIUS),
+        borderRadius: ROUNDED_BORDER_RADIUS,
       ),
     );
   }

@@ -28,13 +28,13 @@ class SmoothProductImage extends StatelessWidget {
       return result;
     }
     return ClipRRect(
-      borderRadius: const BorderRadius.all(ROUNDED_RADIUS),
+      borderRadius: ROUNDED_BORDER_RADIUS,
       child: FittedBox(
         child: Container(
           width: width,
           height: height,
           decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(ROUNDED_RADIUS),
+            borderRadius: ROUNDED_BORDER_RADIUS,
           ),
           child: Center(
             child: SvgPicture.asset(
@@ -50,13 +50,13 @@ class SmoothProductImage extends StatelessWidget {
   Widget? _buildFromUrl(final String? url) => url == null || url.isEmpty
       ? null
       : ClipRRect(
-          borderRadius: const BorderRadius.all(ROUNDED_RADIUS),
+          borderRadius: ROUNDED_BORDER_RADIUS,
           child: FittedBox(
             child: Container(
               width: width,
               height: height,
               decoration: BoxDecoration(
-                borderRadius: const BorderRadius.all(ROUNDED_RADIUS),
+                borderRadius: ROUNDED_BORDER_RADIUS,
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   image: NetworkImage(url, scale: 1.0),

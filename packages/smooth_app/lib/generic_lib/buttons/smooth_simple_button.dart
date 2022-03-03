@@ -7,7 +7,7 @@ class SmoothSimpleButton extends StatelessWidget {
     required this.onPressed,
     this.minWidth = 15,
     this.height = 20,
-    this.borderRadius = const BorderRadius.all(ROUNDED_RADIUS),
+    this.borderRadius = ROUNDED_BORDER_RADIUS,
     this.padding = const EdgeInsets.all(10),
     this.buttonColor,
   });

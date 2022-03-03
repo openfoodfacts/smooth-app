@@ -141,9 +141,7 @@ class _QuestionCardState extends State<QuestionCard>
       elevation: 4,
       clipBehavior: Clip.antiAlias,
       shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(
-          ROUNDED_RADIUS,
-        ),
+        borderRadius: ROUNDED_BORDER_RADIUS,
       ),
       child: Column(
         children: <Widget>[
@@ -294,9 +292,7 @@ class _QuestionCardState extends State<QuestionCard>
         elevation: 4,
         color: backgroundColor,
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(
-            ROUNDED_RADIUS,
-          ),
+          borderRadius: ROUNDED_BORDER_RADIUS,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

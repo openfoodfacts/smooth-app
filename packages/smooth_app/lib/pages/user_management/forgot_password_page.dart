@@ -193,7 +193,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                         Size(size.width * 0.5, theme.buttonTheme.height + 10),
                       ),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
+                        const RoundedRectangleBorder(
                           borderRadius: CIRCULAR_BORDER_RADIUS,
                         ),
                       ),

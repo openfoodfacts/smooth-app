@@ -32,7 +32,7 @@ class SmoothAlertDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlertDialog(
       elevation: 4,
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
         borderRadius: ROUNDED_BORDER_RADIUS,
       ),
       content: Column(

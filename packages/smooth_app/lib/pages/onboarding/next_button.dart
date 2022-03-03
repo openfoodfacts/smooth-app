@@ -37,8 +37,8 @@ class NextButton extends StatelessWidget {
                 SmoothTheme.MATERIAL_COLORS[SmoothTheme.COLOR_TAG_BLUE]!,
                 ColorDestination.BUTTON_BACKGROUND,
               ),
-              shape:
-                  RoundedRectangleBorder(borderRadius: ANGULAR_BORDER_RADIUS),
+              shape: const RoundedRectangleBorder(
+                  borderRadius: ANGULAR_BORDER_RADIUS),
               primary: Colors.white,
             ),
             onPressed: () async {

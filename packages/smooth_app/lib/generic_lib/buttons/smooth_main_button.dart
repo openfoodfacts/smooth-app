@@ -23,7 +23,7 @@ class SmoothMainButton extends StatelessWidget {
               important ? Colors.black : Colors.white),
           shape: MaterialStateProperty.all(
             const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(ROUNDED_RADIUS),
+              borderRadius: ROUNDED_BORDER_RADIUS,
             ),
           ),
           minimumSize: MaterialStateProperty.all(

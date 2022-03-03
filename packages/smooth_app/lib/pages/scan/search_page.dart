@@ -156,7 +156,7 @@ class _SearchFieldState extends State<SearchField> {
       onSubmitted: (String query) => _performSearch(context, query),
       decoration: InputDecoration(
         filled: true,
-        border: OutlineInputBorder(
+        border: const OutlineInputBorder(
           borderRadius: CIRCULAR_BORDER_RADIUS,
           borderSide: BorderSide.none,
         ),

@@ -75,7 +75,7 @@ class UserPreferencesProfile extends AbstractUserPreferences {
                   Size(size.width * 0.33, theme.buttonTheme.height + 10),
                 ),
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                  RoundedRectangleBorder(
+                  const RoundedRectangleBorder(
                     borderRadius: CIRCULAR_BORDER_RADIUS,
                   ),
                 ),
@@ -95,7 +95,7 @@ class UserPreferencesProfile extends AbstractUserPreferences {
                   Size(size.width * 0.33, theme.buttonTheme.height + 10),
                 ),
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                  RoundedRectangleBorder(
+                  const RoundedRectangleBorder(
                     borderRadius: CIRCULAR_BORDER_RADIUS,
                   ),
                 ),
@@ -130,7 +130,7 @@ class UserPreferencesProfile extends AbstractUserPreferences {
                 Size(size.width * 0.5, theme.buttonTheme.height + 10),
               ),
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                RoundedRectangleBorder(
+                const RoundedRectangleBorder(
                   borderRadius: CIRCULAR_BORDER_RADIUS,
                 ),
               ),
