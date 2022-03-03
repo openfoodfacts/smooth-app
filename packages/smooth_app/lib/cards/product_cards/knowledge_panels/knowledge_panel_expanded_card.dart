@@ -4,7 +4,7 @@ import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_element_card.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_summary_card.dart';
-import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 
 class KnowledgePanelExpandedCard extends StatelessWidget {
   const KnowledgePanelExpandedCard({

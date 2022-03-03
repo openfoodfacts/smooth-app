@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_app/cards/data_cards/svg_icon_chip.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/svg_icon_chip.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -65,7 +66,7 @@ class ScoreCard extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         color: backgroundColor,
-        borderRadius: const BorderRadius.all(Radius.circular(16)),
+        borderRadius: ROUNDED_BORDER_RADIUS,
       ),
     );
   }
