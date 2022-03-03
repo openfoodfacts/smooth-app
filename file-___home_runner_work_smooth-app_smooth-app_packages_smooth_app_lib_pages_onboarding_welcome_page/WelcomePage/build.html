@@ -115,10 +115,10 @@ Widget build(BuildContext context) {
                       bottom: LARGE_SPACE,
                     ),
                     inputDecoration: InputDecoration(
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
+                      enabledBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
                             color: Color.fromARGB(255, 235, 235, 235)),
-                        borderRadius: BorderRadius.circular(VERY_LARGE_SPACE),
+                        borderRadius: ROUNDED_BORDER_RADIUS,
                       ),
                       filled: Theme.of(context).colorScheme.brightness ==
                           Brightness.light,

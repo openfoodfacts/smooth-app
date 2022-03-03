@@ -73,9 +73,7 @@
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-
   final Size screenSize = MediaQuery.of(context).size;
-  final ThemeData themeData = Theme.of(context);
 
   final List&lt;Widget&gt; scores = &lt;Widget&gt;[];
   final double iconSize = IconWidgetSizer.getIconSizeFromContext(context);
@@ -107,68 +105,60 @@ Widget build(BuildContext context) {
     },
     child: Hero(
       tag: heroTag,
-      child: Material(
+      child: SmoothCard(
         elevation: elevation,
-        borderRadius: const BorderRadius.all(Radius.circular(15.0)),
-        color: Colors.transparent,
-        child: Container(
-          decoration: BoxDecoration(
-            color: backgroundColor ?? themeData.colorScheme.surface,
-            borderRadius: const BorderRadius.all(Radius.circular(15.0)),
-          ),
-          padding: const EdgeInsets.all(VERY_SMALL_SPACE),
-          child: Row(
-            children: &lt;Widget&gt;[
-              SmoothProductImage(
-                product: product,
-                width: screenSize.width * 0.20,
-                height: screenSize.width * 0.20,
-              ),
-              const Padding(padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
-              Expanded(
-                child: SizedBox(
-                  height: screenSize.width * 0.2,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: &lt;Widget&gt;[
-                      Text(
-                        product.productName ??
-                            appLocalizations.unknownProductName,
-                        overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context).textTheme.headline4,
-                      ),
-                      Text(
-                        product.brands ?? appLocalizations.unknownBrand,
-                        overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context).textTheme.subtitle1,
-                      ),
-                      Row(
-                        children: &lt;Widget&gt;[
-                          Icon(
-                            Icons.circle,
-                            size: 15,
-                            color: helper.getBackgroundColor(),
-                          ),
-                          const Padding(
-                              padding:
-                                  EdgeInsets.only(left: VERY_SMALL_SPACE)),
-                          Text(
-                            helper.getSubtitle(appLocalizations),
-                            style: Theme.of(context).textTheme.bodyText2,
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+        color: backgroundColor,
+        padding: const EdgeInsets.all(VERY_SMALL_SPACE),
+        child: Row(
+          children: &lt;Widget&gt;[
+            SmoothProductImage(
+              product: product,
+              width: screenSize.width * 0.20,
+              height: screenSize.width * 0.20,
+            ),
+            const Padding(padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
+            Expanded(
+              child: SizedBox(
+                height: screenSize.width * 0.2,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: &lt;Widget&gt;[
+                    Text(
+                      product.productName ??
+                          appLocalizations.unknownProductName,
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.headline4,
+                    ),
+                    Text(
+                      product.brands ?? appLocalizations.unknownBrand,
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.subtitle1,
+                    ),
+                    Row(
+                      children: &lt;Widget&gt;[
+                        Icon(
+                          Icons.circle,
+                          size: 15,
+                          color: helper.getBackgroundColor(),
+                        ),
+                        const Padding(
+                            padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
+                        Text(
+                          helper.getSubtitle(appLocalizations),
+                          style: Theme.of(context).textTheme.bodyText2,
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
-              const Padding(padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
-              Column(
-                children: scores,
-              ),
-            ],
-          ),
+            ),
+            const Padding(padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
+            Column(
+              children: scores,
+            ),
+          ],
         ),
       ),
     ),

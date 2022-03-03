@@ -76,56 +76,49 @@ Widget build(BuildContext context) {
   final ThemeProvider themeProvider = context.watch&lt;ThemeProvider&gt;();
   return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-    return Material(
+    return SmoothCard(
       elevation: elevation,
-      borderRadius: const BorderRadius.all(Radius.circular(15.0)),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.surface,
-          borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+          vertical: constraints.maxHeight * 0.25,
+          horizontal: constraints.maxWidth * 0.05,
         ),
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-            vertical: constraints.maxHeight * 0.25,
-            horizontal: constraints.maxWidth * 0.05,
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: &lt;Widget&gt;[
-              Text(
-                appLocalizations.missing_product,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headline2,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: &lt;Widget&gt;[
+            Text(
+              appLocalizations.missing_product,
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.headline2,
+            ),
+            Text(
+              appLocalizations.add_product_take_photos,
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.bodyText2,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: LARGE_SPACE),
+              child: SmoothLargeButtonWithIcon(
+                text: appLocalizations.add_product_information_button_label,
+                icon: Icons.add,
+                padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
+                isDarkMode: themeProvider.darkTheme,
+                onPressed: () {
+                  Navigator.push&lt;Widget&gt;(
+                    context,
+                    MaterialPageRoute&lt;Widget&gt;(
+                      builder: (BuildContext context) =&gt;
+                          AddNewProductPage(barcode),
+                    ),
+                  );
+                  if (callback != null) {
+                    callback!();
+                  }
+                },
               ),
-              Text(
-                appLocalizations.add_product_take_photos,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyText2,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: LARGE_SPACE),
-                child: SmoothLargeButtonWithIcon(
-                  text: appLocalizations.add_product_information_button_label,
-                  icon: Icons.add,
-                  padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
-                  isDarkMode: themeProvider.darkTheme,
-                  onPressed: () {
-                    Navigator.push&lt;Widget&gt;(
-                      context,
-                      MaterialPageRoute&lt;Widget&gt;(
-                        builder: (BuildContext context) =&gt;
-                            AddNewProductPage(barcode),
-                      ),
-                    );
-                    if (callback != null) {
-                      callback!();
-                    }
-                  },
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

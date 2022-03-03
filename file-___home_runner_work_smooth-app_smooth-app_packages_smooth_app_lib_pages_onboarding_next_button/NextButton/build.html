@@ -93,9 +93,8 @@ Widget build(BuildContext context) {
               SmoothTheme.MATERIAL_COLORS[SmoothTheme.COLOR_TAG_BLUE]!,
               ColorDestination.BUTTON_BACKGROUND,
             ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(SMALL_SPACE),
-            ),
+            shape: const RoundedRectangleBorder(
+                borderRadius: ANGULAR_BORDER_RADIUS),
             primary: Colors.white,
           ),
           onPressed: () async {

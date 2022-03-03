@@ -77,9 +77,7 @@ Widget build(BuildContext context) =&gt; ElevatedButton(
             important ? Colors.black : Colors.white),
         shape: MaterialStateProperty.all(
           const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(15.0),
-            ),
+            borderRadius: ROUNDED_BORDER_RADIUS,
           ),
         ),
         minimumSize: MaterialStateProperty.all(

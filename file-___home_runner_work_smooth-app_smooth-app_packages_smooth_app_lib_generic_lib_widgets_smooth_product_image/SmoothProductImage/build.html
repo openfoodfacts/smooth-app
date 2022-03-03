@@ -82,13 +82,13 @@ Widget build(BuildContext context) {
     return result;
   }
   return ClipRRect(
-    borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+    borderRadius: ROUNDED_BORDER_RADIUS,
     child: FittedBox(
       child: Container(
         width: width,
         height: height,
         decoration: const BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(15.0)),
+          borderRadius: ROUNDED_BORDER_RADIUS,
         ),
         child: Center(
           child: SvgPicture.asset(
