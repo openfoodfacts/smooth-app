@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 
-
 class SmoothMainButton extends StatelessWidget {
   const SmoothMainButton({
     required this.text,
