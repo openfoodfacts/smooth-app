@@ -68,10 +68,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; clear() async {
-  final DaoString daoString = DaoString(localDatabase);
-  daoString.put(_getKey(), null);
-}</code></pre>
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; clear() async =&gt; _daoString.put(_getKey(), null);</code></pre>
 </section>
 
 
@@ -95,21 +92,17 @@
     <h5>OrderedNutrientsCache class</h5>
     <ol>
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_ordered_nutrients_cache/OrderedNutrientsCache-class.html#constructors">Constructors</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_ordered_nutrients_cache/OrderedNutrientsCache/OrderedNutrientsCache.html">OrderedNutrientsCache</a></li>
 
 
     <li class="section-title">
       <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_ordered_nutrients_cache/OrderedNutrientsCache-class.html#instance-properties">Properties</a>
     </li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_ordered_nutrients_cache/OrderedNutrientsCache/localDatabase.html">localDatabase</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_ordered_nutrients_cache/OrderedNutrientsCache/orderedNutrients.html">orderedNutrients</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_ordered_nutrients_cache/OrderedNutrientsCache-class.html#instance-methods">Methods</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_ordered_nutrients_cache/OrderedNutrientsCache/clear.html">clear</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_ordered_nutrients_cache/OrderedNutrientsCache/download.html">download</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_ordered_nutrients_cache/OrderedNutrientsCache/get.html">get</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
@@ -118,6 +111,8 @@
 
 
 
+    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_ordered_nutrients_cache/OrderedNutrientsCache-class.html#static-methods">Static methods</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_ordered_nutrients_cache/OrderedNutrientsCache/getCache.html">getCache</a></li>
 
 </ol>
 
