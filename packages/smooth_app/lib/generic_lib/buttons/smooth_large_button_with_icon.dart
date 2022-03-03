@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
-import 'package:smooth_app/helpers/ui_helpers.dart';
 
 class SmoothLargeButtonWithIcon extends StatelessWidget {
   const SmoothLargeButtonWithIcon({
@@ -44,7 +43,6 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
         ],
       ),
       minWidth: double.infinity,
-      borderRadius: const BorderRadius.all(Radius.circular(SMALL_SPACE)),
       padding: padding ?? const EdgeInsets.all(10),
       buttonColor: isDarkMode ? Colors.grey : const Color(0xffeaf5fb),
       onPressed: onPressed,

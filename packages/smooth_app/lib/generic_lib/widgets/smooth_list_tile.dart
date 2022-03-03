@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 
 class SmoothListTile extends StatelessWidget {
   const SmoothListTile({
@@ -20,11 +21,7 @@ class SmoothListTile extends StatelessWidget {
         onTap: () => onPressed != null ? onPressed!() : null,
         child: Padding(
           padding: const EdgeInsets.fromLTRB(0, 5.0, 0, 5.0),
-          child: Card(
-            color: Theme.of(context).colorScheme.surface,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0),
-            ),
+          child: SmoothCard(
             elevation: 10,
             child: ConstrainedBox(
               constraints: const BoxConstraints(
