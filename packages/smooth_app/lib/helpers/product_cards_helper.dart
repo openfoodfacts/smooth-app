@@ -24,8 +24,13 @@ Widget buildProductSmoothCard({
   return SmoothCard(
     margin: margin,
     padding: padding,
-    header: header,
-    child: body,
+    child: Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        if (header != null) header,
+        body,
+      ],
+    ),
   );
 }
 

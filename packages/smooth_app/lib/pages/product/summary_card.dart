@@ -109,8 +109,7 @@ class _SummaryCardState extends State<SummaryCard> {
     return Stack(
       children: <Widget>[
         ClipRRect(
-          borderRadius:
-              const BorderRadius.vertical(bottom: SmoothCard.CIRCULAR_RADIUS),
+          borderRadius: const BorderRadius.all(ROUNDED_RADIUS),
           child: OverflowBox(
             alignment: AlignmentDirectional.topStart,
             minHeight: parentHeight,
@@ -135,8 +134,7 @@ class _SummaryCardState extends State<SummaryCard> {
               ),
               decoration: const BoxDecoration(
                 color: Colors.white,
-                borderRadius:
-                    BorderRadius.vertical(bottom: SmoothCard.CIRCULAR_RADIUS),
+                borderRadius: BorderRadius.vertical(bottom: ROUNDED_RADIUS),
               ),
               child: Center(
                 child: Text(
@@ -285,8 +283,8 @@ class _SummaryCardState extends State<SummaryCard> {
         color: helper.getBackgroundColor(),
         // Ensure that the header has the same circular radius as the SmoothCard.
         borderRadius: const BorderRadius.only(
-          topLeft: SmoothCard.CIRCULAR_RADIUS,
-          topRight: SmoothCard.CIRCULAR_RADIUS,
+          topLeft: ROUNDED_RADIUS,
+          topRight: ROUNDED_RADIUS,
         ),
       ),
       alignment: Alignment.topLeft,
