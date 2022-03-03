@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
+
 
 class SmoothMainButton extends StatelessWidget {
   const SmoothMainButton({
@@ -22,9 +24,7 @@ class SmoothMainButton extends StatelessWidget {
               important ? Colors.black : Colors.white),
           shape: MaterialStateProperty.all(
             const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(
-                Radius.circular(15.0),
-              ),
+              borderRadius: BorderRadius.all(ROUNDED_RADIUS),
             ),
           ),
           minimumSize: MaterialStateProperty.all(

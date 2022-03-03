@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 
 class SmoothProductCardLoading extends StatelessWidget {
   const SmoothProductCardLoading({required this.barcode});
@@ -10,7 +11,7 @@ class SmoothProductCardLoading extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.surface,
-        borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+        borderRadius: const BorderRadius.all(ROUNDED_RADIUS),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.max,

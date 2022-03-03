@@ -22,6 +22,19 @@ class SmoothCard extends StatelessWidget {
     this.elevation = 8,
   });
 
+  const SmoothCard.flat({
+    required this.child,
+    this.color,
+    this.margin = const EdgeInsets.only(
+      right: SMALL_SPACE,
+      left: SMALL_SPACE,
+      top: VERY_SMALL_SPACE,
+      bottom: VERY_SMALL_SPACE,
+    ),
+    this.padding = const EdgeInsets.all(5.0),
+    this.elevation = 0,
+  });
+
   final Widget child;
   final Color? color;
   final EdgeInsets? margin;
@@ -32,7 +45,7 @@ class SmoothCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final Widget result = Material(
       elevation: elevation,
-      shadowColor: Colors.black45,
+      shadowColor: const Color.fromARGB(25, 0, 0, 0),
       borderRadius: const BorderRadius.all(ROUNDED_RADIUS),
       color: color ?? Theme.of(context).colorScheme.surface,
       child: Container(

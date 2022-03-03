@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
@@ -75,7 +76,7 @@ class UserPreferencesProfile extends AbstractUserPreferences {
                 ),
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(300.0),
+                    borderRadius: CIRCULAR_BORDER_RADIUS,
                   ),
                 ),
               ),
@@ -95,7 +96,7 @@ class UserPreferencesProfile extends AbstractUserPreferences {
                 ),
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(300.0),
+                    borderRadius: CIRCULAR_BORDER_RADIUS,
                   ),
                 ),
               ),
@@ -130,7 +131,7 @@ class UserPreferencesProfile extends AbstractUserPreferences {
               ),
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(300.0),
+                  borderRadius: CIRCULAR_BORDER_RADIUS,
                 ),
               ),
             ),

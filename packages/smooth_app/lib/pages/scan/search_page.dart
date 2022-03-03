@@ -5,6 +5,7 @@ import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/keywords_product_query.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
@@ -156,7 +157,7 @@ class _SearchFieldState extends State<SearchField> {
       decoration: InputDecoration(
         filled: true,
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(40.0),
+          borderRadius: CIRCULAR_BORDER_RADIUS,
           borderSide: BorderSide.none,
         ),
         contentPadding: const EdgeInsets.all(20.0),

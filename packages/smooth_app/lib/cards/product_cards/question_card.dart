@@ -142,7 +142,7 @@ class _QuestionCardState extends State<QuestionCard>
       clipBehavior: Clip.antiAlias,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
-          Radius.circular(VERY_LARGE_SPACE),
+          ROUNDED_RADIUS,
         ),
       ),
       child: Column(
@@ -182,9 +182,7 @@ class _QuestionCardState extends State<QuestionCard>
           ),
           Container(
             decoration: const BoxDecoration(
-              borderRadius: BorderRadius.all(
-                Radius.circular(SMALL_SPACE),
-              ),
+              borderRadius: BorderRadius.all(ANGULAR_RADIUS),
               color: Colors.black,
             ),
             padding: const EdgeInsets.all(SMALL_SPACE),
@@ -297,7 +295,7 @@ class _QuestionCardState extends State<QuestionCard>
         color: backgroundColor,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(
-            Radius.circular(VERY_LARGE_SPACE),
+            ROUNDED_RADIUS,
           ),
         ),
         child: Column(
@@ -366,9 +364,7 @@ class _QuestionCardState extends State<QuestionCard>
                         },
                         child: Container(
                           decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(SMALL_SPACE),
-                            ),
+                            borderRadius: BorderRadius.all(ANGULAR_RADIUS),
                             color: Colors.grey,
                           ),
                           width: 150,

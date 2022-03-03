@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 
 class SmoothProductImage extends StatelessWidget {
   const SmoothProductImage({
@@ -27,13 +28,13 @@ class SmoothProductImage extends StatelessWidget {
       return result;
     }
     return ClipRRect(
-      borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+      borderRadius: const BorderRadius.all(ROUNDED_RADIUS),
       child: FittedBox(
         child: Container(
           width: width,
           height: height,
           decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(15.0)),
+            borderRadius: BorderRadius.all(ROUNDED_RADIUS),
           ),
           child: Center(
             child: SvgPicture.asset(
@@ -49,13 +50,13 @@ class SmoothProductImage extends StatelessWidget {
   Widget? _buildFromUrl(final String? url) => url == null || url.isEmpty
       ? null
       : ClipRRect(
-          borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+          borderRadius: const BorderRadius.all(ROUNDED_RADIUS),
           child: FittedBox(
             child: Container(
               width: width,
               height: height,
               decoration: BoxDecoration(
-                borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+                borderRadius: const BorderRadius.all(ROUNDED_RADIUS),
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   image: NetworkImage(url, scale: 1.0),

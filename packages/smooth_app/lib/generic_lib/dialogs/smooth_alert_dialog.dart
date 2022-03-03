@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 
 ///
 ///	Open by calling
@@ -32,8 +33,8 @@ class SmoothAlertDialog extends StatelessWidget {
     return AlertDialog(
       elevation: 4,
       shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.0)), //this right here
-
+        borderRadius: ROUNDED_BORDER_RADIUS,
+      ),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
@@ -41,7 +42,6 @@ class SmoothAlertDialog extends StatelessWidget {
           SizedBox(height: height, child: body),
         ],
       ),
-
       actions: actions == null
           ? null
           : <Widget>[

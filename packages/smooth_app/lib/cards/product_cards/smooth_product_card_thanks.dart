@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 
 class SmoothProductCardThanks extends StatelessWidget {
   const SmoothProductCardThanks();
@@ -11,7 +11,7 @@ class SmoothProductCardThanks extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.surface,
-        borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+        borderRadius: const BorderRadius.all(ROUNDED_RADIUS),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.max,
