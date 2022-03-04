@@ -41,7 +41,7 @@ dependencies:
   url_launcher: ^6.0.20
   visibility_detector: ^0.2.2
   google_ml_barcode_scanner: ^0.0.2
-  camera: ^0.9.4+11
+  camera: ^0.9.4+14
   percent_indicator: ^4.0.0
   crop_your_image: ^0.6.0+1
   mailto: ^2.0.0
