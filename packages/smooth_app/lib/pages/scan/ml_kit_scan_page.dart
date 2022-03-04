@@ -160,6 +160,8 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
       setState(() {});
     }
     await _controller?.dispose();
+    // The barcode scanner gets initialized on the first call to process image
+    // there is no way and need to manually start it.
     barcodeScanner?.close();
     _controller?.removeListener(() {});
     _controller = null;
