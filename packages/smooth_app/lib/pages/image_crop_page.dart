@@ -15,14 +15,12 @@ Future<File?> startImageCropping(BuildContext context) async {
     return null;
   }
 
-  final File? file = await Navigator.push<File?>(
+  return Navigator.push<File?>(
     context,
     MaterialPageRoute<File?>(
       builder: (BuildContext context) => ImageCropPage(imageBytes: bytes),
     ),
   );
-
-  return file;
 }
 
 Future<Uint8List?> pickImage() async {
