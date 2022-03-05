@@ -1,5 +1,3 @@
-import 'dart:typed_data';
-
 import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +6,8 @@ import 'package:google_ml_barcode_scanner/google_ml_barcode_scanner.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/main.dart';
+import 'package:smooth_app/pages/scan/abstract_camera_image_getter.dart';
+import 'package:smooth_app/pages/scan/camera_image_full_getter.dart';
 import 'package:smooth_app/pages/scan/lifecycle_manager.dart';
 
 class MLKitScannerPage extends StatefulWidget {
@@ -125,6 +125,7 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
       camera,
       ResolutionPreset.high,
       enableAudio: false,
+      imageFormatGroup: ImageFormatGroup.yuv420,
     );
 
     // If the controller is initialized update the UI.
@@ -182,45 +183,12 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
     isBusy = true;
     frameCounter = 0;
 
-    final WriteBuffer allBytes = WriteBuffer();
-    for (final Plane plane in image.planes) {
-      allBytes.putUint8List(plane.bytes);
-    }
-    final Uint8List bytes = allBytes.done().buffer.asUint8List();
-
-    final Size imageSize =
-        Size(image.width.toDouble(), image.height.toDouble());
-
-    final CameraDescription camera = cameras[_cameraIndex];
-    final InputImageRotation imageRotation =
-        InputImageRotationMethods.fromRawValue(camera.sensorOrientation) ??
-            InputImageRotation.Rotation_0deg;
-
-    final InputImageFormat inputImageFormat =
-        InputImageFormatMethods.fromRawValue(
-              int.parse(image.format.raw.toString()),
-            ) ??
-            InputImageFormat.NV21;
-
-    final List<InputImagePlaneMetadata> planeData = image.planes.map(
-      (Plane plane) {
-        return InputImagePlaneMetadata(
-          bytesPerRow: plane.bytesPerRow,
-          height: plane.height,
-          width: plane.width,
-        );
-      },
-    ).toList();
-
-    final InputImageData inputImageData = InputImageData(
-      size: imageSize,
-      imageRotation: imageRotation,
-      inputImageFormat: inputImageFormat,
-      planeData: planeData,
+    final AbstractCameraImageGetter getter = CameraImageFullGetter(
+      image,
+      cameras[_cameraIndex],
     );
 
-    final InputImage inputImage =
-        InputImage.fromBytes(bytes: bytes, inputImageData: inputImageData);
+    final InputImage inputImage = getter.getInputImage();
 
     final List<Barcode> barcodes =
         await barcodeScanner!.processImage(inputImage);
