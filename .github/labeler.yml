@@ -91,4 +91,4 @@ generic lib:
 - packages/smooth_app/lib/generic_lib
 
 photo cropping:
-packages/smooth_app/lib/pages/image_crop_page.dart
+- packages/smooth_app/lib/pages/image_crop_page.dart
