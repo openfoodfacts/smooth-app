@@ -3,7 +3,7 @@ critical:
     - '(critical|urgent)'
 
 knowledge panels:
-    - '(kp|knowledge panels)'
+    - '(kp|knowledge panels|knowledge panel)'
     
 folksonomy engine:
     - '(folksonomy engine)'
@@ -52,10 +52,161 @@ refactoring:
     
 open beauty facts:
     - '(open beauty facts)'
+    
+###
 
-# contribution, road to scores, knowledge panels, product page, scanning, settings, scan, help wanted, low priority, high priority, local cache
-# onboarding, personal search, search, tag picker, category picker, image upload, photo upload, editing,  robotoff
-# preferences, enhancement, ui/ux, launch, translations, summary card, screenshot-generation, personal scoring, performance, ingredients
-# image carousel, history, ecoscore, category explorer, tests, speed, sentry, privacy, permissions, packaging input, open beauty facts
-# offline, nutrition facts, mockups available, lists, gamification, folksonomy engine, dev mode, deeplinking, analytics, attributes, splashscree
-# svg, security, ranking, health card, 
+contribution:
+    - '(contribution)'
+
+road to scores:
+    - '(road to scores)'
+
+knowledge panels:
+    - '(knowledge panels)'
+
+product page:
+    - '(product page)'
+ 
+scanning:
+    - '(scanning)'
+ 
+settings:
+    - '(settings)'
+ 
+scan:
+    - '(scan)'
+ 
+help wanted:
+    - '(help wanted)'
+ 
+low priority:
+    - '(low priority)'
+ 
+high priority:
+    - '(high priority)'
+ 
+local cache:
+    - '(local cache)'
+
+onboarding:
+    - '(onboarding)'
+
+personal search:
+    - '(personal search)'
+ 
+search:
+    - '(search)'
+ 
+tag picker:
+    - '(tag picker)'
+ 
+category picker:
+    - '(category picker)'
+ 
+image upload:
+    - '(image upload)'
+ 
+photo upload:
+    - '(photo upload)'
+ 
+editing:
+    - '(editing)'
+  
+robotoff:
+    - '(robotoff)'
+
+preferences:
+    - '(preferences)'
+ 
+enhancement:
+    - '(enhancement)'
+ 
+ui/ux:
+    - '(ui/ux)'
+ 
+launch:
+    - '(launch)'
+ 
+translations:
+    - '(translations)'
+ 
+screenshot-generation:
+    - '(screenshot-generation)'
+ 
+personal scoring:
+    - '(personal scoring)'
+ 
+performance:
+    - '(performance)'
+ 
+ingredients:
+    - '(ingredients)'
+
+image carousel:
+    - '(image carousel)'
+ 
+history:
+    - '(history)'
+ 
+ecoscore:
+    - '(ecoscore)'
+ 
+category explorer:
+    - '(category explorer)'
+ 
+tests:
+    - '(tests)'
+ 
+speed:
+    - '(speed)'
+ 
+sentry:
+    - '(sentry)'
+ 
+privacy:
+    - '(privacy)'
+ 
+permissions:
+    - '(permissions)'
+ 
+packaging input:
+    - '(packaging input)'
+
+offline:
+    - '(offline)'
+
+nutrition facts:
+    - '(nutrition facts)'
+
+mockups available:
+    - '(mockups available)'
+
+lists:
+    - '(lists)'
+
+gamification:
+    - '(gamification)'
+
+dev mode:
+    - '(dev mode)'
+
+deeplinking:
+    - '(deeplinking)'
+
+analytics:
+    - '(analytics)'
+
+attributes:
+    - '(attributes)'
+
+splashscreen:
+    - '(splashscreen)'
+
+svg:
+    - '(svg)'
+
+security:
+    - '(security)'
+
+ranking:
+    - '(ranking)'
