@@ -149,9 +149,6 @@ refactoring:
 ranking:
     - '(ranking)'
     
-scan:
-    - '(scan)'
-    
 sentry:
     - '(sentry)'
     
@@ -176,14 +173,11 @@ security:
 speed:
     - '(speed)'
     
-scanning:
-    - '(scanning)'
+scan:
+    - '(scanning|scan)'
  
 settings:
     - '(settings)'
- 
-scan:
-    - '(scan)'
 
 translations:
     - '(translations)'
