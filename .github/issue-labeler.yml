@@ -175,9 +175,6 @@ security:
 
 speed:
     - '(speed)'
- 
-sentry:
-    - '(sentry)'
     
 scanning:
     - '(scanning)'
