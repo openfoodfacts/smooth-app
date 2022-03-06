@@ -39,6 +39,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   static const String userPreferencesFlagLenientMatching = '__lenientMatching';
   static const String userPreferencesFlagAdditionalButton =
       '__additionalButtonOnProductPage';
+  static const String userPreferencesEnumScanMode = '__scanMode';
 
   @override
   bool isCollapsedByDefault() => true;
@@ -175,5 +176,96 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             setState(() {});
           },
         ),
+        ListTile(
+          title: const Text('Scan Mode'),
+          subtitle: Text(
+            'Current scan mode is :"'
+            '${DevModeScanModeExtension.fromIndex(userPreferences.getDevModeIndex(userPreferencesEnumScanMode)).label}'
+            '"',
+          ),
+          onTap: () async {
+            final DevModeScanMode? scanMode = await showDialog<DevModeScanMode>(
+              context: context,
+              builder: (BuildContext context) => AlertDialog(
+                title: const Text('Scan Mode'),
+                content: SizedBox(
+                  height: 400,
+                  width: 300,
+                  child: ListView.builder(
+                    itemCount: DevModeScanMode.values.length,
+                    itemBuilder: (final BuildContext context, final int index) {
+                      final DevModeScanMode scanMode =
+                          DevModeScanMode.values[index];
+                      return ListTile(
+                        title: Text(scanMode.label),
+                        onTap: () => Navigator.pop(context, scanMode),
+                      );
+                    },
+                  ),
+                ),
+                actions: <Widget>[
+                  ElevatedButton(
+                    child: const Text('cancel'),
+                    onPressed: () => Navigator.pop(context),
+                  ),
+                ],
+              ),
+            );
+            if (scanMode != null) {
+              await userPreferences.setDevModeIndex(
+                userPreferencesEnumScanMode,
+                scanMode.index,
+              );
+              setState(() {});
+            }
+          },
+        ),
       ];
+}
+
+enum DevModeScanMode {
+  CAMERA_ONLY,
+  PREPROCESS_FULL_IMAGE,
+  PREPROCESS_HALF_IMAGE,
+  SCAN_FULL_IMAGE,
+  SCAN_HALF_IMAGE,
+}
+
+extension DevModeScanModeExtension on DevModeScanMode {
+  static const DevModeScanMode defaultScanMode =
+      DevModeScanMode.SCAN_FULL_IMAGE;
+
+  static const Map<DevModeScanMode, String> _labels = <DevModeScanMode, String>{
+    DevModeScanMode.CAMERA_ONLY: 'Only camera stream, no scanning',
+    DevModeScanMode.PREPROCESS_FULL_IMAGE:
+        'Camera stream and full image preprocessing, no scanning',
+    DevModeScanMode.PREPROCESS_HALF_IMAGE:
+        'Camera stream and half image preprocessing, no scanning',
+    DevModeScanMode.SCAN_FULL_IMAGE: 'Full image scanning',
+    DevModeScanMode.SCAN_HALF_IMAGE: 'Half image scanning',
+  };
+
+  static const Map<DevModeScanMode, int> _indices = <DevModeScanMode, int>{
+    DevModeScanMode.CAMERA_ONLY: 4,
+    DevModeScanMode.PREPROCESS_FULL_IMAGE: 3,
+    DevModeScanMode.PREPROCESS_HALF_IMAGE: 2,
+    DevModeScanMode.SCAN_FULL_IMAGE: 0,
+    DevModeScanMode.SCAN_HALF_IMAGE: 1,
+  };
+
+  String get label => _labels[this]!;
+
+  int get index => _indices[this]!;
+
+  static DevModeScanMode fromIndex(final int? index) {
+    if (index == null) {
+      return defaultScanMode;
+    }
+    for (final DevModeScanMode scanMode in DevModeScanMode.values) {
+      if (scanMode.index == index) {
+        return scanMode;
+      }
+    }
+    throw Exception('Unknown index $index');
+  }
 }
