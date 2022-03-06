@@ -186,6 +186,50 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
           setState(() {});
         },
       ),
+      ListTile(
+        title: const Text(&#39;Scan Mode&#39;),
+        subtitle: Text(
+          &#39;Current scan mode is :&quot;&#39;
+          &#39;${DevModeScanModeExtension.fromIndex(userPreferences.getDevModeIndex(userPreferencesEnumScanMode)).label}&#39;
+          &#39;&quot;&#39;,
+        ),
+        onTap: () async {
+          final DevModeScanMode? scanMode = await showDialog&lt;DevModeScanMode&gt;(
+            context: context,
+            builder: (BuildContext context) =&gt; AlertDialog(
+              title: const Text(&#39;Scan Mode&#39;),
+              content: SizedBox(
+                height: 400,
+                width: 300,
+                child: ListView.builder(
+                  itemCount: DevModeScanMode.values.length,
+                  itemBuilder: (final BuildContext context, final int index) {
+                    final DevModeScanMode scanMode =
+                        DevModeScanMode.values[index];
+                    return ListTile(
+                      title: Text(scanMode.label),
+                      onTap: () =&gt; Navigator.pop(context, scanMode),
+                    );
+                  },
+                ),
+              ),
+              actions: &lt;Widget&gt;[
+                ElevatedButton(
+                  child: const Text(&#39;cancel&#39;),
+                  onPressed: () =&gt; Navigator.pop(context),
+                ),
+              ],
+            ),
+          );
+          if (scanMode != null) {
+            await userPreferences.setDevModeIndex(
+              userPreferencesEnumScanMode,
+              scanMode.index,
+            );
+            setState(() {});
+          }
+        },
+      ),
     ];</code></pre>
 </section>
 
@@ -236,6 +280,7 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
 
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_user_preferences_dev_mode/UserPreferencesDevMode-class.html#constants">Constants</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesEnumScanMode-constant.html">userPreferencesEnumScanMode</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagAdditionalButton-constant.html">userPreferencesFlagAdditionalButton</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagLenientMatching-constant.html">userPreferencesFlagLenientMatching</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagProd-constant.html">userPreferencesFlagProd</a></li>
