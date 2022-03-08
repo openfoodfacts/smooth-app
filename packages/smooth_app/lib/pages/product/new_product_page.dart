@@ -13,13 +13,15 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/knowledge_panels_query.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
-import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/product/category_cache.dart';
 import 'package:smooth_app/pages/product/category_picker_page.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
+import 'package:smooth_app/pages/product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/knowledge_panel_product_cards.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
 import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
@@ -158,6 +160,23 @@ class _ProductPageState extends State<ProductPage> {
         ),
       ),
       _buildKnowledgePanelCards(),
+      Padding(
+        padding: const EdgeInsets.all(SMALL_SPACE),
+        child: SmoothActionButton(
+          text: 'Edit product', // TODO(monsieurtanuki): translations
+          onPressed: () async {
+            final bool? refreshed = await Navigator.push<bool>(
+              context,
+              MaterialPageRoute<bool>(
+                builder: (BuildContext context) => EditProductPage(_product),
+              ),
+            );
+            if (refreshed ?? false) {
+              setState(() {});
+            }
+          },
+        ),
+      ),
       if (context.read<UserPreferences>().getFlag(
               UserPreferencesDevMode.userPreferencesFlagAdditionalButton) ??
           false)

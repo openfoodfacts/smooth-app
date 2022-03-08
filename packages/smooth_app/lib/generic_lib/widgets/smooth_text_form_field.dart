@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 
 enum TextFieldTypes {
   PLAIN_TEXT,
@@ -82,12 +83,12 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
         ),
         hintText: widget.hintText,
         fillColor: widget.backgroundColor,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(40.0),
+        border: const OutlineInputBorder(
+          borderRadius: CIRCULAR_BORDER_RADIUS,
         ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(40.0),
-          borderSide: const BorderSide(
+        enabledBorder: const OutlineInputBorder(
+          borderRadius: CIRCULAR_BORDER_RADIUS,
+          borderSide: BorderSide(
             color: Colors.transparent,
             width: 5.0,
           ),

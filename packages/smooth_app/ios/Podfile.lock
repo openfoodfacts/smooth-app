@@ -1,8 +1,6 @@
 PODS:
   - camera (0.0.1):
     - Flutter
-  - fk_user_agent (2.0.0):
-    - Flutter
   - Flutter (1.0.0)
   - flutter_secure_storage (3.3.1):
     - Flutter
@@ -42,6 +40,8 @@ PODS:
   - image_picker (0.0.1):
     - Flutter
   - iso_countries (0.0.1):
+    - Flutter
+  - matomo_forever (0.0.1):
     - Flutter
   - MLImage (1.0.0-beta1)
   - MLKitBarcodeScanning (1.3.0):
@@ -94,12 +94,12 @@ PODS:
 
 DEPENDENCIES:
   - camera (from `.symlinks/plugins/camera/ios`)
-  - fk_user_agent (from `.symlinks/plugins/fk_user_agent/ios`)
   - Flutter (from `Flutter`)
   - flutter_secure_storage (from `.symlinks/plugins/flutter_secure_storage/ios`)
   - google_ml_barcode_scanner (from `.symlinks/plugins/google_ml_barcode_scanner/ios`)
   - image_picker (from `.symlinks/plugins/image_picker/ios`)
   - iso_countries (from `.symlinks/plugins/iso_countries/ios`)
+  - matomo_forever (from `.symlinks/plugins/matomo_forever/ios`)
   - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
   - path_provider_ios (from `.symlinks/plugins/path_provider_ios/ios`)
   - permission_handler (from `.symlinks/plugins/permission_handler/ios`)
@@ -129,8 +129,6 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   camera:
     :path: ".symlinks/plugins/camera/ios"
-  fk_user_agent:
-    :path: ".symlinks/plugins/fk_user_agent/ios"
   Flutter:
     :path: Flutter
   flutter_secure_storage:
@@ -141,6 +139,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/image_picker/ios"
   iso_countries:
     :path: ".symlinks/plugins/iso_countries/ios"
+  matomo_forever:
+    :path: ".symlinks/plugins/matomo_forever/ios"
   package_info_plus:
     :path: ".symlinks/plugins/package_info_plus/ios"
   path_provider_ios:
@@ -158,7 +158,6 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   camera: 9993f92f2c793e87b65e35f3a23c70582afb05b1
-  fk_user_agent: 1f47ec39291e8372b1d692b50084b0d54103c545
   Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
   flutter_secure_storage: 7953c38a04c3fdbb00571bcd87d8e3b5ceb9daec
   google_ml_barcode_scanner: 469be1279c5ab275846f0957c85015b7b30d0c16
@@ -170,6 +169,7 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 43748f93435c2aa068b1cbe39655aaf600652e91
   image_picker: 541dcbb3b9cf32d87eacbd957845d8651d6c62c3
   iso_countries: eb09d40f388e4c65e291e0bb36a701dfe7de6c74
+  matomo_forever: 7e5e5fd8f355f64979591282cad4e858fa4c9fae
   MLImage: 647f3d580c10b3c9a3f6154f5d7baead60c42a0c
   MLKitBarcodeScanning: 6b998bd1cfe471ae407a7f647d649494617787c0
   MLKitCommon: 6d6be0a2e9a6340aad1c1f2b9449c11dee8af70f

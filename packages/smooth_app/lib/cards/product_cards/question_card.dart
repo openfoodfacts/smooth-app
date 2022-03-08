@@ -4,10 +4,10 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
-import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
-import 'package:smooth_app/widgets/loading_dialog.dart';
 
 class QuestionCard extends StatefulWidget {
   const QuestionCard({
@@ -141,9 +141,7 @@ class _QuestionCardState extends State<QuestionCard>
       elevation: 4,
       clipBehavior: Clip.antiAlias,
       shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(
-          Radius.circular(VERY_LARGE_SPACE),
-        ),
+        borderRadius: ROUNDED_BORDER_RADIUS,
       ),
       child: Column(
         children: <Widget>[
@@ -182,9 +180,7 @@ class _QuestionCardState extends State<QuestionCard>
           ),
           Container(
             decoration: const BoxDecoration(
-              borderRadius: BorderRadius.all(
-                Radius.circular(SMALL_SPACE),
-              ),
+              borderRadius: BorderRadius.all(ANGULAR_RADIUS),
               color: Colors.black,
             ),
             padding: const EdgeInsets.all(SMALL_SPACE),
@@ -296,9 +292,7 @@ class _QuestionCardState extends State<QuestionCard>
         elevation: 4,
         color: backgroundColor,
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(VERY_LARGE_SPACE),
-          ),
+          borderRadius: ROUNDED_BORDER_RADIUS,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -366,9 +360,7 @@ class _QuestionCardState extends State<QuestionCard>
                         },
                         child: Container(
                           decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(SMALL_SPACE),
-                            ),
+                            borderRadius: BorderRadius.all(ANGULAR_RADIUS),
                             color: Colors.grey,
                           ),
                           width: 150,

@@ -14,6 +14,7 @@ import 'package:smooth_app/database/category_product_query.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/database/robotoff_questions_query.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
@@ -108,8 +109,7 @@ class _SummaryCardState extends State<SummaryCard> {
     return Stack(
       children: <Widget>[
         ClipRRect(
-          borderRadius:
-              const BorderRadius.vertical(bottom: SmoothCard.CIRCULAR_RADIUS),
+          borderRadius: ROUNDED_BORDER_RADIUS,
           child: OverflowBox(
             alignment: AlignmentDirectional.topStart,
             minHeight: parentHeight,
@@ -134,8 +134,7 @@ class _SummaryCardState extends State<SummaryCard> {
               ),
               decoration: const BoxDecoration(
                 color: Colors.white,
-                borderRadius:
-                    BorderRadius.vertical(bottom: SmoothCard.CIRCULAR_RADIUS),
+                borderRadius: BorderRadius.vertical(bottom: ROUNDED_RADIUS),
               ),
               child: Center(
                 child: Text(
@@ -284,8 +283,8 @@ class _SummaryCardState extends State<SummaryCard> {
         color: helper.getBackgroundColor(),
         // Ensure that the header has the same circular radius as the SmoothCard.
         borderRadius: const BorderRadius.only(
-          topLeft: SmoothCard.CIRCULAR_RADIUS,
-          topRight: SmoothCard.CIRCULAR_RADIUS,
+          topLeft: ROUNDED_RADIUS,
+          topRight: ROUNDED_RADIUS,
         ),
       ),
       alignment: Alignment.topLeft,
