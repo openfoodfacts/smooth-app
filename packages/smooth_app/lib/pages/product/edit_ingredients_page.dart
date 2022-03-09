@@ -1,12 +1,11 @@
 import 'dart:io';
-import 'dart:typed_data' show Uint8List;
 import 'dart:ui' show ImageFilter;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/OcrIngredientsResult.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 //import 'package:openfoodfacts/model/Product.dart';
-//import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 //import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/product_query.dart';
@@ -192,7 +191,7 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
     );
 
     // TODO(justinmc): Localize text.
-    //final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -284,9 +283,8 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
                                     textInputAction: TextInputAction.done,
                                     onSubmitted: _onSubmitField,
                                   ),
-                                  // TODO(justinmc): Get this real localized text.
-                                  const Text(
-                                      'TODO localized text from the mock here'),
+                                  Text(
+                                      appLocalizations.ingredients_editing_instructions),
                                 ],
                               ),
                             ),

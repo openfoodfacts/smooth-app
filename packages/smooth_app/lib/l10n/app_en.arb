@@ -336,6 +336,7 @@
     },
     "ingredients": "Ingredients",
     "@ingredients": {},
+    "ingredients_editing_instructions": "Conserver l'ordre, indiquer le % lorsqu'il est précisé, séparer par une virgule ou -, utiliser les () pour les ingrédients d’un ingrédient, indiquer les allergènes entre _.",
     "ingredients_photo": "Ingredients photo",
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
