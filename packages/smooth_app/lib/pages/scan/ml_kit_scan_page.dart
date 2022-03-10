@@ -22,7 +22,7 @@ class MLKitScannerPage extends StatefulWidget {
 
 class MLKitScannerPageState extends State<MLKitScannerPage> {
   static const int _SKIPPED_FRAMES = 10;
-  BarcodeScanner? barcodeScanner = GoogleMlKit.vision.barcodeScanner();
+  BarcodeScanner? barcodeScanner;
   CameraLensDirection cameraLensDirection = CameraLensDirection.back;
   late ContinuousScanModel _model;
   late UserPreferences _userPreferences;
@@ -123,6 +123,8 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
       return;
     }
 
+    barcodeScanner = GoogleMlKit.vision.barcodeScanner();
+
     stoppingCamera = false;
     final CameraDescription camera = cameras[_cameraIndex];
 
@@ -166,6 +168,8 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
       setState(() {});
     }
     await _controller?.dispose();
+    barcodeScanner?.close();
+    barcodeScanner = null;
     _controller?.removeListener(() {});
     _controller = null;
   }
