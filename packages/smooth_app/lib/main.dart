@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:openfoodfacts/personalized_search/product_preferences_selection.dart';
 import 'package:provider/provider.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
@@ -23,7 +24,9 @@ import 'package:smooth_app/themes/theme_provider.dart';
 List<CameraDescription> cameras = <CameraDescription>[];
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  final WidgetsBinding widgetsBinding =
+      WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   if (kReleaseMode) {
     await AnalyticsHelper.initSentry(
@@ -97,6 +100,7 @@ class _SmoothAppState extends State<SmoothApp> {
       future: _initFuture,
       builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
         if (snapshot.hasError) {
+          FlutterNativeSplash.remove();
           return _buildError(snapshot);
         }
         if (snapshot.connectionState != ConnectionState.done) {
@@ -108,6 +112,7 @@ class _SmoothAppState extends State<SmoothApp> {
         ChangeNotifierProvider<T> provide<T extends ChangeNotifier>(T value) =>
             ChangeNotifierProvider<T>(create: (BuildContext context) => value);
 
+        FlutterNativeSplash.remove();
         return MultiProvider(
           providers: <ChangeNotifierProvider<ChangeNotifier>>[
             provide<UserPreferences>(_userPreferences),
