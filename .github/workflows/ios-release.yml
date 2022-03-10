@@ -56,7 +56,7 @@ jobs:
           API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
           STORE_JKS_DECRYPTKEY: ${{ secrets.STORE_JKS_DECRYPTKEY }}
 
-      # We are using the android version code here to have the version codes fro iOS and android in sync 
+      # We are using the android version code here to have the version codes from iOS and android in sync 
       # in order for Sentry and other tools to work properly
       - name: Bump version
         uses: maierj/fastlane-action@v2.2.0
