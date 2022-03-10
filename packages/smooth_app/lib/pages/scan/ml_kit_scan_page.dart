@@ -118,6 +118,8 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
       return;
     }
 
+    barcodeScanner = GoogleMlKit.vision.barcodeScanner();
+
     stoppingCamera = false;
     final CameraDescription camera = cameras[_cameraIndex];
 
@@ -160,9 +162,8 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
       setState(() {});
     }
     await _controller?.dispose();
-    // The barcode scanner gets initialized on the first call to processImage()
-    // there is no way and need to manually start it.
     barcodeScanner?.close();
+    barcodeScanner = null;
     _controller?.removeListener(() {});
     _controller = null;
   }
