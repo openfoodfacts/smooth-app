@@ -1,5 +1,3 @@
-import 'dart:typed_data';
-
 import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -7,8 +5,13 @@ import 'package:flutter/services.dart';
 import 'package:google_ml_barcode_scanner/google_ml_barcode_scanner.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/main.dart';
+import 'package:smooth_app/pages/scan/abstract_camera_image_getter.dart';
+import 'package:smooth_app/pages/scan/camera_image_cropper.dart';
+import 'package:smooth_app/pages/scan/camera_image_full_getter.dart';
 import 'package:smooth_app/pages/scan/lifecycle_manager.dart';
+import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
 
 class MLKitScannerPage extends StatefulWidget {
   const MLKitScannerPage({Key? key}) : super(key: key);
@@ -22,6 +25,7 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
   BarcodeScanner? barcodeScanner = GoogleMlKit.vision.barcodeScanner();
   CameraLensDirection cameraLensDirection = CameraLensDirection.back;
   late ContinuousScanModel _model;
+  late UserPreferences _userPreferences;
   CameraController? _controller;
   int _cameraIndex = 0;
   bool isBusy = false;
@@ -71,6 +75,7 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
   @override
   Widget build(BuildContext context) {
     _model = context.watch<ContinuousScanModel>();
+    _userPreferences = context.watch<UserPreferences>();
     return LifeCycleManager(
       onResume: _startLiveFeed,
       onPause: _stopImageStream,
@@ -127,6 +132,7 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
       camera,
       ResolutionPreset.high,
       enableAudio: false,
+      imageFormatGroup: ImageFormatGroup.yuv420,
     );
 
     // If the controller is initialized update the UI.
@@ -186,53 +192,54 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
     isBusy = true;
     frameCounter = 0;
 
-    final WriteBuffer allBytes = WriteBuffer();
-    for (final Plane plane in image.planes) {
-      allBytes.putUint8List(plane.bytes);
-    }
-    final Uint8List bytes = allBytes.done().buffer.asUint8List();
+    await _scan(image);
 
-    final Size imageSize =
-        Size(image.width.toDouble(), image.height.toDouble());
+    isBusy = false;
+  }
 
-    final CameraDescription camera = cameras[_cameraIndex];
-    final InputImageRotation imageRotation =
-        InputImageRotationMethods.fromRawValue(camera.sensorOrientation) ??
-            InputImageRotation.Rotation_0deg;
-
-    final InputImageFormat inputImageFormat =
-        InputImageFormatMethods.fromRawValue(
-              int.parse(image.format.raw.toString()),
-            ) ??
-            InputImageFormat.NV21;
-
-    final List<InputImagePlaneMetadata> planeData = image.planes.map(
-      (Plane plane) {
-        return InputImagePlaneMetadata(
-          bytesPerRow: plane.bytesPerRow,
-          height: plane.height,
-          width: plane.width,
-        );
-      },
-    ).toList();
-
-    final InputImageData inputImageData = InputImageData(
-      size: imageSize,
-      imageRotation: imageRotation,
-      inputImageFormat: inputImageFormat,
-      planeData: planeData,
+  Future<void> _scan(final CameraImage image) async {
+    final DevModeScanMode scanMode = DevModeScanModeExtension.fromIndex(
+      _userPreferences
+          .getDevModeIndex(UserPreferencesDevMode.userPreferencesEnumScanMode),
     );
 
-    final InputImage inputImage =
-        InputImage.fromBytes(bytes: bytes, inputImageData: inputImageData);
+    final AbstractCameraImageGetter getter;
+    switch (scanMode) {
+      case DevModeScanMode.CAMERA_ONLY:
+        return;
+      case DevModeScanMode.PREPROCESS_FULL_IMAGE:
+      case DevModeScanMode.SCAN_FULL_IMAGE:
+        getter = CameraImageFullGetter(image, cameras[_cameraIndex]);
+        break;
+      case DevModeScanMode.PREPROCESS_HALF_IMAGE:
+      case DevModeScanMode.SCAN_HALF_IMAGE:
+        getter = CameraImageCropper(
+          image,
+          cameras[_cameraIndex],
+          left01: 0,
+          top01: 0,
+          width01: 1,
+          height01: .5,
+        );
+        break;
+    }
+    final InputImage inputImage = getter.getInputImage();
 
+    switch (scanMode) {
+      case DevModeScanMode.CAMERA_ONLY:
+      case DevModeScanMode.PREPROCESS_FULL_IMAGE:
+      case DevModeScanMode.PREPROCESS_HALF_IMAGE:
+        return;
+      case DevModeScanMode.SCAN_FULL_IMAGE:
+      case DevModeScanMode.SCAN_HALF_IMAGE:
+        break;
+    }
     final List<Barcode> barcodes =
         await barcodeScanner!.processImage(inputImage);
 
     for (final Barcode barcode in barcodes) {
-      _model.onScan(barcode.value.rawValue);
+      _model
+          .onScan(barcode.value.rawValue); // TODO(monsieurtanuki): add "await"?
     }
-
-    isBusy = false;
   }
 }

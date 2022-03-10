@@ -4,7 +4,6 @@ import 'package:openfoodfacts/model/OrderedNutrient.dart';
 import 'package:openfoodfacts/model/OrderedNutrients.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/utils/UnitHelper.dart';
-import 'package:smooth_app/pages/product/tmp_to_off_nutriments.dart';
 
 /// Nutrition data, for nutrient order and conversions.
 class NutritionContainer {
@@ -226,7 +225,7 @@ class NutritionContainer {
     void _populateOrderedNutrientList(final List<OrderedNutrient> list) {
       for (final OrderedNutrient nutrient in list) {
         if (nutrient.id != _energyKJId &&
-            !TmpToOffNutriments.supportedNutrientIds.contains(nutrient.id)) {
+            !Nutriments.supportedNutrientIds.contains(nutrient.id)) {
           continue;
         }
         final bool nowEnergy =

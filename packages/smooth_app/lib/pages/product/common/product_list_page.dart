@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/utils/ProductListQueryConfiguration.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
@@ -99,6 +103,14 @@ class _ProductListPageState extends State<ProductListPage> {
                 ),
               ),
             if ((!_selectionMode) && products.isNotEmpty)
+              IconButton(
+                icon: const Icon(Icons.refresh),
+                onPressed: () async => _refreshListProducts(
+                  products,
+                  localDatabase,
+                ),
+              ),
+            if ((!_selectionMode) && products.isNotEmpty)
               Flexible(
                 child: ElevatedButton(
                   child: Text(appLocalizations.compare_products_mode),
@@ -189,5 +201,61 @@ class _ProductListPageState extends State<ProductListPage> {
               },
             ),
     );
+  }
+
+  /// Calls the "refresh products" part with dialogs on top.
+  Future<void> _refreshListProducts(
+    final List<Product> products,
+    final LocalDatabase localDatabase,
+  ) async {
+    final bool? done = await LoadingDialog.run<bool>(
+      context: context,
+      title:
+          'refreshing the history products', // TODO(monsieurtanuki): localize
+      future: _reloadProducts(products, localDatabase),
+    );
+    switch (done) {
+      case null: // user clicked on "stop"
+        return;
+      case true:
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Just refreshed'), // TODO(monsieurtanuki): localize
+            duration: Duration(seconds: 2),
+          ),
+        );
+        setState(() {});
+        return;
+      case false:
+        LoadingDialog.error(context: context);
+        return;
+    }
+  }
+
+  /// Fetches the products from the API and refreshes the local database
+  Future<bool> _reloadProducts(
+    final List<Product> products,
+    final LocalDatabase localDatabase,
+  ) async {
+    try {
+      final List<String> barcodes = <String>[];
+      for (final Product product in products) {
+        barcodes.add(product.barcode!);
+      }
+      final SearchResult searchResult = await OpenFoodAPIClient.getProductList(
+        ProductQuery.getUser(),
+        ProductListQueryConfiguration(barcodes),
+      );
+      final List<Product>? freshProducts = searchResult.products;
+      if (freshProducts == null) {
+        return false;
+      }
+      await DaoProduct(localDatabase).putAll(freshProducts);
+      freshProducts.forEach(productList.refresh);
+      return true;
+    } catch (e) {
+      //
+    }
+    return false;
   }
 }
