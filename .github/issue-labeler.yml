@@ -1,0 +1,192 @@
+# Add/remove 'critical' label if issue contains the words 'urgent' or 'critical'
+analytics:
+    - '(analytics)'
+
+android:
+    - '(android)'
+
+attributes:
+    - '(attributes)'
+    
+category explorer:
+    - '(category explorer)'
+    
+category picker:
+    - '(category picker)'
+
+critical:
+    - '(critical|urgent)'
+    
+contribution:
+    - '(contribution)'
+    
+darkmode:
+    - '(darkmode|Dark mode)'
+    
+database:
+    - '(database)'
+    
+dev mode:
+    - '(dev mode)'
+
+deeplinking:
+    - '(deeplinking)'
+    
+ecoscore:
+    - '(ecoscore)'
+
+editing:
+    - '(editing)'
+    
+enhancement:
+    - '(enhancement)'
+
+fastlane:
+    - '(fastlane)'
+    
+folksonomy engine:
+    - '(folksonomy engine)'
+
+gamification:
+    - '(gamification)'
+    
+health card:
+    - '(health card)'
+    
+history:
+    - '(history)'
+ 
+help wanted:
+    - '(help wanted)'
+    
+ios:
+    - '(iphone|ipad|ios)'
+    
+knowledge panels:
+    - '(kp|knowledge panels|knowledge panel)'
+    
+mlkit:
+    - '(mlkit)'
+    
+matomo:
+    - '(matomo)'
+    
+offline:
+    - '(offline)'
+    
+open beauty facts:
+    - '(open beauty facts)'
+ 
+high priority:
+    - '(high priority)'
+    
+ingredients:
+    - '(ingredients)'
+
+image carousel:
+    - '(image carousel)'
+    
+image upload:
+    - '(image upload|photo upload)'
+ 
+local cache:
+    - '(local cache)'
+    
+lists:
+    - '(lists)'
+    
+launch:
+    - '(launch)'
+
+layout:
+    - '(layout)'
+    
+low priority:
+    - '(low priority)'
+
+mockups available:
+    - '(mockups available)'
+
+nutrition facts:
+    - '(nutrition facts)'
+
+onboarding:
+    - '(onboarding)'
+
+preferences:
+    - '(preferences)'
+ 
+personal scoring:
+    - '(personal scoring)'
+ 
+performance:
+    - '(performance)'
+ 
+privacy:
+    - '(privacy)'
+ 
+permissions:
+    - '(permissions)'
+ 
+packaging input:
+    - '(packaging input)'
+    
+personal search:
+    - '(personal search)'
+
+product page:
+    - '(product page)'
+    
+road to scores:
+    - '(road to scores)'
+  
+robotoff:
+    - '(robotoff)'
+    
+refactoring:
+    - '(Refactoring)'
+    
+ranking:
+    - '(ranking)'
+    
+sentry:
+    - '(sentry)'
+    
+summary card:
+    - '(summary card)'
+    
+splashscreen:
+    - '(splashscreen|splash screen)' 
+
+search:
+    - '(search)'
+
+screenshot-generation:
+    - '(screenshot-generation)'
+
+svg:
+    - '(svg)'
+
+security:
+    - '(security)'
+
+speed:
+    - '(speed)'
+    
+scan:
+    - '(scanning|scan)'
+ 
+settings:
+    - '(settings)'
+
+translations:
+    - '(translations)'
+
+tests:
+    - '(tests|test)'
+
+tag picker:
+    - '(tag picker)'
+
+ui/ux:
+    - '(ui/ux|user interface|user experience)'
