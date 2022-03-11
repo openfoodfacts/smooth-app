@@ -8,6 +8,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_main_button.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_toggle.dart';
@@ -62,7 +63,10 @@ class UserPreferencesSettings extends AbstractUserPreferences {
   @override
   List<Widget> getBody() => <Widget>[
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
+          padding: const EdgeInsets.symmetric(
+            horizontal: LARGE_SPACE,
+            vertical: MEDIUM_SPACE,
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
@@ -90,7 +94,7 @@ class UserPreferencesSettings extends AbstractUserPreferences {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
           child: Text(
             appLocalizations.main_app_color,
             style: themeData.textTheme.headline4,
@@ -98,8 +102,8 @@ class UserPreferencesSettings extends AbstractUserPreferences {
         ),
         Padding(
           padding: const EdgeInsets.symmetric(
-            horizontal: 20.0,
-            vertical: 5,
+            horizontal: LARGE_SPACE,
+            vertical: VERY_SMALL_SPACE,
           ),
           child: Wrap(
             spacing: 8.0,
