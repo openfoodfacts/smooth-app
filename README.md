@@ -40,6 +40,7 @@ We are always looking for new contributors, if you're willing to help please let
 - [Project Smoothie - Open Food Facts wiki](https://wiki.openfoodfacts.org/Project_Smoothie)
 - [Documentation (from code), on GitHub Pages](https://openfoodfacts.github.io/smooth-app/)
 - [Smoothie GitHub wiki](https://github.com/openfoodfacts/smooth-app/wiki)
+- [Smoothie marketing automation repository](https://github.com/openfoodfacts/fastlane-descriptions-smoothie/pulls)
 
 ## V1 Roadmap
 - [ ] Minimal editing/addition value proposition
