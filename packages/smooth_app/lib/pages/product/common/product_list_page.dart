@@ -52,6 +52,7 @@ class _ProductListPageState extends State<ProductListPage> {
     }
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         backgroundColor: Colors.white, // TODO(monsieurtanuki): night mode
         foregroundColor: Colors.black,
         title: Row(
