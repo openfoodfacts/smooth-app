@@ -65,7 +65,7 @@ class UserPreferencesSettings extends AbstractUserPreferences {
           padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
+            children: <Widget>[
               Text(
                 appLocalizations.darkmode,
                 style: themeData.textTheme.headline4,
