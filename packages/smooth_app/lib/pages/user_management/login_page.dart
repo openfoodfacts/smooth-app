@@ -239,7 +239,8 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       style: ButtonStyle(
                         side: MaterialStateProperty.all<BorderSide>(
-                          BorderSide(color: theme.colorScheme.primary, width: 2.0),
+                          BorderSide(
+                              color: theme.colorScheme.primary, width: 2.0),
                         ),
                         minimumSize: MaterialStateProperty.all<Size>(
                           Size(size.width * 0.5, theme.buttonTheme.height),
