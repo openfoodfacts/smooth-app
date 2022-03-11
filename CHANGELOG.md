@@ -12,6 +12,7 @@
 * [#671](https://www.github.com/openfoodfacts/smooth-app/issues/671) - removed the "very important" attribute importance ([#672](https://www.github.com/openfoodfacts/smooth-app/issues/672)) ([69bdefb](https://www.github.com/openfoodfacts/smooth-app/commit/69bdefbaab9b9379c16ef94ec038d51df70f27d5))
 * [#678](https://www.github.com/openfoodfacts/smooth-app/issues/678) - added bottom navigation bar to product page ([#679](https://www.github.com/openfoodfacts/smooth-app/issues/679)) ([212dd31](https://www.github.com/openfoodfacts/smooth-app/commit/212dd31d9171af22a412287091a920db2bba271a))
 * [#682](https://www.github.com/openfoodfacts/smooth-app/issues/682) - add a "Clear all" menu item in the product history page ([#683](https://www.github.com/openfoodfacts/smooth-app/issues/683)) ([b672d2a](https://www.github.com/openfoodfacts/smooth-app/commit/b672d2a1108cb1966c21498df7b3c61475825e40))
+* [#919](https://www.github.com/openfoodfacts/smooth-app/issues/919) - removed the shadow of the widgets for changing darkmode and color theme of the app in the user preferences screen
 
 
 ### Bug Fixes
