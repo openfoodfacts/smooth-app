@@ -57,9 +57,6 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
   @override
   void initState() {
     super.initState();
-    // TODO(justinmc): This doesn't work because ingredients is always null
-    // (same with ingredientsText). Even when the knowledge panel for this
-    // product shows ingredients.
     _controller.text = _getIngredientsString(widget.product.ingredients);
   }
 
@@ -83,11 +80,11 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
     try {
       await _updateIngredientsText(string, user);
     } catch (error) {
+      final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          // TODO(justinmc): Localize.
-          content: Text('Failed to save the ingredients.'),
-          duration: Duration(seconds: 3),
+        SnackBar(
+          content: Text(appLocalizations.ingredients_editing_error),
+          duration: const Duration(seconds: 3),
         ),
       );
     }
@@ -105,11 +102,11 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
     try {
       await _getImage();
     } catch (error) {
+      final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          // TODO(justinmc): Localize.
-          content: Text('Failed to get a new ingredients image.'),
-          duration: Duration(seconds: 3),
+        SnackBar(
+          content: Text(appLocalizations.ingredients_editing_image_error),
+          duration: const Duration(seconds: 3),
         ),
       );
     }
@@ -173,7 +170,6 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
   }
 
   Future<void> _updateIngredientsText(String ingredientsText, User user) async {
-    // TODO(justinmc): What is the right way to save the ingredients?
     widget.product.ingredientsText = ingredientsText;
     final Status status =
         await OpenFoodAPIClient.saveProduct(user, widget.product);
@@ -190,14 +186,12 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
       themeProvider.colorTag,
     );
 
-    // TODO(justinmc): Localize text.
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
 
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        // TODO(justinmc): Localize.
-        title: const Text('Check the ingredients'),
+        title: Text(appLocalizations.ingredients_editing_title),
         backgroundColor: Colors.transparent,
         flexibleSpace: ClipRect(
           child: BackdropFilter(
@@ -256,12 +250,9 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
                     Flexible(
                       flex: 1,
                       child: Container(
-                        // TODO(justinmc): Any media query stuff to do here for
-                        // different screen sizes?
                         height: 400.0,
                         color: Colors.black,
                         child: Theme(
-                          // TODO(justinmc): Do we have a theme like this somewhere?
                           data: darkTheme,
                           child: DefaultTextStyle(
                             style: const TextStyle(color: Colors.white),
@@ -269,7 +260,6 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
                               padding: const EdgeInsets.all(16.0),
                               child: Column(
                                 children: <Widget>[
-                                  // TODO(justinmc): Implement editing of ingredients text.
                                   TextField(
                                     enabled: !_updatingIngredients,
                                     controller: _controller,
@@ -321,8 +311,6 @@ class _ActionButtons extends StatelessWidget {
         if (!hasImage)
           FloatingActionButton.small(
             tooltip: 'Take photo',
-            // TODO(justinmc): Standardized/nicer way to style these buttons?
-            // At least don't duplicate the colors.
             backgroundColor: Colors.white,
             foregroundColor: Colors.grey,
             onPressed: getImage,

@@ -337,6 +337,9 @@
     "ingredients": "Ingredients",
     "@ingredients": {},
     "ingredients_editing_instructions": "Conserver l'ordre, indiquer le % lorsqu'il est précisé, séparer par une virgule ou -, utiliser les () pour les ingrédients d’un ingrédient, indiquer les allergènes entre _.",
+    "ingredients_editing_error": "Failed to save the ingredients.",
+    "ingredients_editing_image_error": "Failed to get a new ingredients image.",
+    "ingredients_editing_title": "Failed to get a new ingredients image.",
     "ingredients_photo": "Ingredients photo",
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
