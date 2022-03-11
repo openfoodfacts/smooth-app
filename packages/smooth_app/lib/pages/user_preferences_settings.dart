@@ -61,29 +61,47 @@ class UserPreferencesSettings extends AbstractUserPreferences {
 
   @override
   List<Widget> getBody() => <Widget>[
-        SmoothListTile(
-          text: appLocalizations.darkmode,
-          onPressed: null,
-          leadingWidget: SmoothToggle(
-            value: themeProvider.darkTheme,
-            width: 85.0,
-            height: 38.0,
-            textRight: appLocalizations.darkmode_light,
-            textLeft: appLocalizations.darkmode_dark,
-            colorRight: Colors.blue,
-            colorLeft: Colors.blueGrey.shade700,
-            iconRight: const Icon(Icons.wb_sunny_rounded),
-            iconLeft: const Icon(
-              Icons.nightlight_round,
-              color: Colors.black,
-            ),
-            onChanged: (bool newValue) async =>
-                themeProvider.setDarkTheme(newValue),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                appLocalizations.darkmode,
+                style: themeData.textTheme.headline4,
+              ),
+              SmoothToggle(
+                value: themeProvider.darkTheme,
+                width: 85.0,
+                height: 38.0,
+                textRight: appLocalizations.darkmode_light,
+                textLeft: appLocalizations.darkmode_dark,
+                colorRight: Colors.blue,
+                colorLeft: Colors.blueGrey.shade700,
+                iconRight: const Icon(Icons.wb_sunny_rounded),
+                iconLeft: const Icon(
+                  Icons.nightlight_round,
+                  color: Colors.black,
+                ),
+                onChanged: (bool newValue) async =>
+                    themeProvider.setDarkTheme(newValue),
+              ),
+            ],
           ),
         ),
-        SmoothListTile(
-          leadingWidget: Container(),
-          title: Wrap(
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: Text(
+            appLocalizations.main_app_color,
+            style: themeData.textTheme.headline4,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 20.0,
+            vertical: 5,
+          ),
+          child: Wrap(
             spacing: 8.0,
             children: List<Widget>.generate(
               _ORDERED_COLOR_TAGS.length,
