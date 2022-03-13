@@ -11,11 +11,12 @@ on: [pull_request]
 jobs:
   label:
     runs-on: ubuntu-latest
-    if: ${{ github.repository_owner == 'openfoodfacts' }}
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    #if: ${{ github.repository_owner == 'openfoodfacts' }}
     permissions:
       contents: read
       pull-requests: write
     steps:
-    - uses: actions/labeler@v3.0.2
+    - uses: actions/labeler@v4
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"

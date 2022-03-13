@@ -12,10 +12,16 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/knowledge_panels_query.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
-import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/pages/product/category_cache.dart';
+import 'package:smooth_app/pages/product/category_picker_page.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
+import 'package:smooth_app/pages/product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/knowledge_panel_product_cards.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
 import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
@@ -42,6 +48,9 @@ class _ProductPageState extends State<ProductPage> {
     super.initState();
     _product = widget.product;
     _updateLocalDatabaseWithProductHistory(context, _product);
+    AnalyticsHelper.trackProductPageOpen(
+      product: _product,
+    );
   }
 
   @override
@@ -151,11 +160,65 @@ class _ProductPageState extends State<ProductPage> {
         ),
       ),
       _buildKnowledgePanelCards(),
+      Padding(
+        padding: const EdgeInsets.all(SMALL_SPACE),
+        child: SmoothActionButton(
+          text: 'Edit product', // TODO(monsieurtanuki): translations
+          onPressed: () async {
+            final bool? refreshed = await Navigator.push<bool>(
+              context,
+              MaterialPageRoute<bool>(
+                builder: (BuildContext context) => EditProductPage(_product),
+              ),
+            );
+            if (refreshed ?? false) {
+              setState(() {});
+            }
+          },
+        ),
+      ),
       if (context.read<UserPreferences>().getFlag(
               UserPreferencesDevMode.userPreferencesFlagAdditionalButton) ??
           false)
         ElevatedButton(
-          onPressed: () {},
+          onPressed: () async {
+            if (_product.categoriesTags == null) {
+              // TODO(monsieurtanuki): that's another story: how to set an initial category?
+              return;
+            }
+            if (_product.categoriesTags!.length < 2) {
+              // TODO(monsieurtanuki): no father, we need to do something with roots
+              return;
+            }
+            final String currentTag =
+                _product.categoriesTags![_product.categoriesTags!.length - 1];
+            final String fatherTag =
+                _product.categoriesTags![_product.categoriesTags!.length - 2];
+            final CategoryCache categoryCache =
+                CategoryCache(ProductQuery.getLanguage()!);
+            final Map<String, TaxonomyCategory>? siblingsData =
+                await categoryCache.getCategorySiblingsAndFather(
+              fatherTag: fatherTag,
+            );
+            if (siblingsData == null) {
+              // TODO(monsieurtanuki): what shall we do?
+              return;
+            }
+            final String? newTag = await Navigator.push<String>(
+              context,
+              MaterialPageRoute<String>(
+                builder: (BuildContext context) => CategoryPickerPage(
+                  barcode: _product.barcode!,
+                  initialMap: siblingsData,
+                  initialTree: _product.categoriesTags!,
+                  categoryCache: categoryCache,
+                ),
+              ),
+            );
+            if (newTag != null && newTag != currentTag) {
+              setState(() {});
+            }
+          },
           child: const Text('Additional Button'),
         ),
     ]);

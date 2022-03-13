@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/onboarding/country_selector.dart';
 import 'package:smooth_app/pages/onboarding/next_button.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
@@ -54,10 +54,10 @@ class WelcomePage extends StatelessWidget {
                         bottom: LARGE_SPACE,
                       ),
                       inputDecoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
+                        enabledBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(
                               color: Color.fromARGB(255, 235, 235, 235)),
-                          borderRadius: BorderRadius.circular(VERY_LARGE_SPACE),
+                          borderRadius: ROUNDED_BORDER_RADIUS,
                         ),
                         filled: Theme.of(context).colorScheme.brightness ==
                             Brightness.light,

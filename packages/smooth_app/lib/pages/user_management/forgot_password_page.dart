@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -192,8 +193,8 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                         Size(size.width * 0.5, theme.buttonTheme.height + 10),
                       ),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(300.0),
+                        const RoundedRectangleBorder(
+                          borderRadius: CIRCULAR_BORDER_RADIUS,
                         ),
                       ),
                     ),

@@ -3,15 +3,11 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
-import 'package:openfoodfacts/model/OrderedNutrients.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_element_card.dart';
-import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
-import 'package:smooth_app/widgets/loading_dialog.dart';
 
 /// Builds "knowledge panels" panels.
 ///
@@ -111,16 +107,9 @@ class KnowledgePanelsBuilder {
                 : appLocalizations.score_update_nutrition_facts,
             iconData: nutritionAddOrUpdate ? Icons.add : Icons.edit,
             onPressed: () async {
-              final LocalDatabase localDatabase = context.read<LocalDatabase>();
-              final OrderedNutrientsCache cache =
-                  OrderedNutrientsCache(localDatabase);
-              final OrderedNutrients? orderedNutrients = await cache.get() ??
-                  await LoadingDialog.run<OrderedNutrients>(
-                    context: context,
-                    future: cache.download(),
-                  );
-              if (orderedNutrients == null) {
-                await LoadingDialog.error(context: context);
+              final OrderedNutrientsCache? cache =
+                  await OrderedNutrientsCache.getCache(context);
+              if (cache == null) {
                 return;
               }
               final bool? refreshed = await Navigator.push<bool>(
@@ -128,7 +117,7 @@ class KnowledgePanelsBuilder {
                 MaterialPageRoute<bool>(
                   builder: (BuildContext context) => NutritionPageLoaded(
                     product,
-                    orderedNutrients,
+                    cache.orderedNutrients,
                   ),
                 ),
               );

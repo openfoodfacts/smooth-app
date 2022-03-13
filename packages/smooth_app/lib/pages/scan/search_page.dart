@@ -5,6 +5,8 @@ import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/keywords_product_query.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/new_product_page.dart';
@@ -46,6 +48,12 @@ Future<void> _onSubmittedBarcode(
   final FetchedProduct fetchedProduct =
       await productDialogHelper.openBestChoice();
   if (fetchedProduct.status == FetchedProductStatus.ok) {
+    AnalyticsHelper.trackSearch(
+      search: value,
+      searchCategory: 'barcode',
+      searchCount: 1,
+    );
+
     Navigator.push<Widget>(
       context,
       MaterialPageRoute<Widget>(
@@ -53,6 +61,11 @@ Future<void> _onSubmittedBarcode(
       ),
     );
   } else {
+    AnalyticsHelper.trackSearch(
+      search: value,
+      searchCategory: 'barcode',
+      searchCount: 0,
+    );
     productDialogHelper.openError(fetchedProduct);
   }
 }
@@ -143,8 +156,8 @@ class _SearchFieldState extends State<SearchField> {
       onSubmitted: (String query) => _performSearch(context, query),
       decoration: InputDecoration(
         filled: true,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(40.0),
+        border: const OutlineInputBorder(
+          borderRadius: CIRCULAR_BORDER_RADIUS,
           borderSide: BorderSide.none,
         ),
         contentPadding: const EdgeInsets.all(20.0),

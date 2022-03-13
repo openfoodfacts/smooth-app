@@ -5,8 +5,8 @@ import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_group_card.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_table_card.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_world_map_card.dart';
-import 'package:smooth_app/helpers/ui_helpers.dart';
-import 'package:smooth_app/widgets/smooth_html_widget.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/smooth_html_widget.dart';
 
 class KnowledgePanelElementCard extends StatelessWidget {
   const KnowledgePanelElementCard({

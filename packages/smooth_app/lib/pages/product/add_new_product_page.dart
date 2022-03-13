@@ -6,7 +6,7 @@ import 'package:openfoodfacts/model/ProductImage.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
-import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/confirm_and_upload_picture.dart';
 import 'package:smooth_app/themes/theme_provider.dart';

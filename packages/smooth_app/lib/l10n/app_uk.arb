@@ -42,7 +42,7 @@
     "@incompatible": {
         "description": "Short label for product list view: the product is incompatible with your preferences"
     },
-    "compatible": "Compatible",
+    "compatible": "Сумісний",
     "@compatible": {
         "description": "Short label for product list view: the product is compatible with your preferences"
     },
@@ -262,7 +262,7 @@
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "Ваш Профіль",
-    "myPreferences_profile_subtitle": "Встановіть налаштування додатку та отримайте поради.",
+    "myPreferences_profile_subtitle": "Встановіть налаштування додатка та отримайте поради.",
     "myPreferences_settings_title": "Налаштування Додатку",
     "myPreferences_settings_subtitle": "Темний режим, Тема, ...",
     "myPreferences_food_title": "Харчові вподобання",
@@ -368,7 +368,7 @@
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front packaging that user just took."
     },
-    "front_photo_uploaded": "Front photo uploaded",
+    "front_photo_uploaded": "Попереднє фото завантажено",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Фото інгредієнтів",
     "@ingredients_photo_button_label": {},
@@ -378,13 +378,13 @@
     },
     "ingredients_photo_uploaded": "Фото Інгредієнтів завантажено",
     "@ingredients_photo_uploaded": {},
-    "nutritional_facts_photo_button_label": "Nutritional facts photo",
+    "nutritional_facts_photo_button_label": "Поживні факти фото кнопки етикетки",
     "@nutritional_facts_photo_button_label": {},
-    "confirm_nutritional_facts_photo_button_label": "Confirm Nutritional facts photo",
+    "confirm_nutritional_facts_photo_button_label": "Підтвердить фото фактів поживної їжі",
     "@confirm_nutritional_facts_photo_button_label": {
         "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
     },
-    "nutritional_facts_photo_uploaded": "Nutritional facts photo uploaded",
+    "nutritional_facts_photo_uploaded": "Завантаження фотографій харчових фактів",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Recycling information photo",
     "@recycling_photo_button_label": {},
@@ -405,6 +405,10 @@
     "retake_photo_button_label": "Перезняти",
     "@retake_photo_button_label": {
         "description": "Button clicking on which allows users to retake the last photo they took."
+    },
+    "selecting_photo": "Selecting photo",
+    "@selecting_photo": {
+        "description": "Progress indicator when the users takes a photo"
     },
     "uploading_image": "Завантаження зображення на сервер",
     "@uploading_image": {
@@ -511,11 +515,11 @@
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_incompatible": "Does not match",
+    "product_compatibility_incompatible": "Не співпадає",
     "@product_compatibility_incompatible": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_good": "Good Match",
+    "product_compatibility_good": "Добре підходить",
     "@product_compatibility_good": {
         "description": "Product compatibility summary title"
     },
@@ -572,5 +576,6 @@
     "compare_products_mode": "Режим Порівняння",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
-    }
+    },
+    "retry_button_label": "Повторити спробу"
 }

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:smooth_app/data_models/onboarding_data_knowledge_panels.dart';
 import 'package:smooth_app/data_models/onboarding_data_product.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
-import 'package:smooth_app/widgets/loading_dialog.dart';
 
 /// Helper around data we download, store and reuse at onboarding.
 class OnboardingLoader {

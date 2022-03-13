@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
-import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 
 class KnowledgePanelWorldMapCard extends StatelessWidget {
   const KnowledgePanelWorldMapCard(this.mapElement);

@@ -14,7 +14,7 @@
             steps:
 
             - name: Chekout code
-              uses: actions/checkout@v2
+              uses: actions/checkout@v3
 
             - name: Setup Flutter
               uses: actions/cache@v2
@@ -30,7 +30,7 @@
               run: pub global activate dartdoc && dartdoc
               
             - name: Deploy API documentation to Github Pages
-              uses: JamesIves/github-pages-deploy-action@v4.2.3
+              uses: JamesIves/github-pages-deploy-action@v4.2.5
               with:
                 BRANCH: gh-pages
                 FOLDER: packages/smooth_app/doc/api/
