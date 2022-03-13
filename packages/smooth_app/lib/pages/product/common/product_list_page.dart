@@ -56,36 +56,37 @@ class _ProductListPageState extends State<ProductListPage> {
         backgroundColor: Colors.white, // TODO(monsieurtanuki): night mode
         foregroundColor: Colors.black,
         title: Row(
-          mainAxisAlignment: _selectionMode && _selectedBarcodes.isEmpty
-              ? MainAxisAlignment.end // just the cancel button, at the end
-              : MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            if (_selectionMode && _selectedBarcodes.isNotEmpty)
+            if (_selectionMode)
               ElevatedButton(
                 child: Text(
                   appLocalizations.plural_compare_x_products(
                     _selectedBarcodes.length,
                   ),
                 ),
-                onPressed: () async {
-                  final List<Product> list = <Product>[];
-                  for (final Product product in products) {
-                    if (_selectedBarcodes.contains(product.barcode)) {
-                      list.add(product);
-                    }
-                  }
-                  await Navigator.push<Widget>(
-                    context,
-                    MaterialPageRoute<Widget>(
-                      builder: (BuildContext context) =>
-                          PersonalizedRankingPage.fromItems(
-                        products: list,
-                        title: 'Your ranking',
-                      ),
-                    ),
-                  );
-                  setState(() => _selectionMode = false);
-                },
+                onPressed: _selectedBarcodes.length >=
+                        2 // compare button is enabled only if 2 or more products have been selected
+                    ? () async {
+                        final List<Product> list = <Product>[];
+                        for (final Product product in products) {
+                          if (_selectedBarcodes.contains(product.barcode)) {
+                            list.add(product);
+                          }
+                        }
+                        await Navigator.push<Widget>(
+                          context,
+                          MaterialPageRoute<Widget>(
+                            builder: (BuildContext context) =>
+                                PersonalizedRankingPage.fromItems(
+                              products: list,
+                              title: 'Your ranking', // TODO(X): Translate
+                            ),
+                          ),
+                        );
+                        setState(() => _selectionMode = false);
+                      }
+                    : null,
               ),
             if (_selectionMode)
               ElevatedButton(
