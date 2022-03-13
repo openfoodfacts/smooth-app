@@ -80,7 +80,7 @@ class _ProductListPageState extends State<ProductListPage> {
                             builder: (BuildContext context) =>
                                 PersonalizedRankingPage.fromItems(
                               products: list,
-                              title: 'Your ranking',
+                              title: 'Your ranking', // TODO(X): Translate
                             ),
                           ),
                         );
