@@ -155,6 +155,32 @@ List&lt;Widget&gt; getBody() {
           initialCountryCode: userPreferences.userCountryCode,
         ),
       ),
+      SwitchListTile(
+        title:
+            const Text(&#39;Crash reporting&#39;), &#47;&#47; TODO(monsieurtanuki): localize
+        subtitle: const Text(
+            &#39;When enabled, crash reports will be sent to the Open Food Facts server automatically, so that we can fix bugs and improve the app.&#39;),
+        isThreeLine: true,
+        value: userPreferences.crashReports,
+        onChanged: (final bool value) async {
+          await userPreferences.setCrashReports(value);
+          AnalyticsHelper.setCrashReports(value);
+          setState(() {});
+        },
+      ),
+      SwitchListTile(
+        title: const Text(
+            &#39;Send anonymous data&#39;), &#47;&#47; TODO(monsieurtanuki): localize
+        subtitle: const Text(
+            &#39;When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.&#39;),
+        isThreeLine: true,
+        value: userPreferences.analyticsReports,
+        onChanged: (final bool value) async {
+          await userPreferences.setAnalyticsReports(value);
+          AnalyticsHelper.setAnalyticsReports(value);
+          setState(() {});
+        },
+      ),
     ],
   );
 
