@@ -79,55 +79,36 @@ List&lt;Widget&gt; getBody() {
 
   &#47;&#47;Credentials exist
   if (OpenFoodAPIConfiguration.globalUser != null) {
+    final String userId = OpenFoodAPIConfiguration.globalUser!.userId;
     result.add(
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: &lt;Widget&gt;[
-          ElevatedButton.icon(
-            onPressed: () =&gt; LaunchUrlHelper.launchURL(
-              &#39;https:&#47;&#47;openfoodfacts.org&#47;editor&#47;${OpenFoodAPIConfiguration.globalUser!.userId}&#39;,
-              true,
-            ),
-            label: Text(
-              appLocalizations.view_profile,
-              style: theme.textTheme.bodyText2?.copyWith(
-                fontSize: 18.0,
-                color: theme.colorScheme.surface,
-              ),
-            ),
-            icon: const Icon(Icons.open_in_new),
-            style: ButtonStyle(
-              minimumSize: MaterialStateProperty.all&lt;Size&gt;(
-                Size(size.width * 0.33, theme.buttonTheme.height + 10),
-              ),
-              shape: MaterialStateProperty.all&lt;RoundedRectangleBorder&gt;(
-                const RoundedRectangleBorder(
-                  borderRadius: CIRCULAR_BORDER_RADIUS,
-                ),
-              ),
-            ),
-          ),
-          ElevatedButton(
-            onPressed: () =&gt; _confirmLogout(context),
-            child: Text(
-              appLocalizations.sign_out,
-              style: theme.textTheme.bodyText2?.copyWith(
-                fontSize: 18.0,
-                color: theme.colorScheme.surface,
-              ),
-            ),
-            style: ButtonStyle(
-              minimumSize: MaterialStateProperty.all&lt;Size&gt;(
-                Size(size.width * 0.33, theme.buttonTheme.height + 10),
-              ),
-              shape: MaterialStateProperty.all&lt;RoundedRectangleBorder&gt;(
-                const RoundedRectangleBorder(
-                  borderRadius: CIRCULAR_BORDER_RADIUS,
-                ),
-              ),
-            ),
-          ),
-        ],
+      ListTile(
+        onTap: () async =&gt; LaunchUrlHelper.launchURL(
+          &#39;https:&#47;&#47;openfoodfacts.org&#47;editor&#47;$userId&#39;,
+          true,
+        ),
+        title: Text(appLocalizations.view_profile),
+        leading: const Icon(Icons.open_in_new),
+      ),
+    );
+    result.add(
+      ListTile(
+        onTap: () =&gt; _confirmLogout(context),
+        title: Text(appLocalizations.sign_out),
+        leading: const Icon(Icons.clear),
+      ),
+    );
+    result.add(
+      ListTile(
+        onTap: () async {
+          final Mailto mailtoLink = Mailto(
+            to: &lt;String&gt;[&#39;contact@openfoodfacts.org&#39;],
+            subject: &#39;Delete account&#39;, &#47;&#47; TODO(monsieurtanuki): localize
+            body: &#39;Hi there, please delete my openfoodfacts account: $userId&#39;,
+          );
+          await launch(&#39;$mailtoLink&#39;);
+        },
+        title: const Text(&#39;Delete account&#39;),
+        leading: const Icon(Icons.delete),
       ),
     );
   } else {
