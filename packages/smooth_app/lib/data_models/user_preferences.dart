@@ -110,4 +110,10 @@ class UserPreferences extends ChangeNotifier {
       _sharedPreferences.setInt(tag, index);
 
   int? getDevModeIndex(final String tag) => _sharedPreferences.getInt(tag);
+
+  Future<void> setDevModeString(final String tag, final String value) async =>
+      _sharedPreferences.setString(tag, value);
+
+  String? getDevModeString(final String tag) =>
+      _sharedPreferences.getString(tag);
 }
