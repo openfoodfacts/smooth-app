@@ -6,6 +6,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/pages/abstract_user_preferences.dart';
@@ -130,6 +131,32 @@ class UserPreferencesProfile extends AbstractUserPreferences {
           title: CountrySelector(
             initialCountryCode: userPreferences.userCountryCode,
           ),
+        ),
+        SwitchListTile(
+          title:
+              const Text('Crash reporting'), // TODO(monsieurtanuki): localize
+          subtitle: const Text(
+              'When enabled, crash reports will be sent to the Open Food Facts server automatically, so that we can fix bugs and improve the app.'),
+          isThreeLine: true,
+          value: userPreferences.crashReports,
+          onChanged: (final bool value) async {
+            await userPreferences.setCrashReports(value);
+            AnalyticsHelper.setCrashReports(value);
+            setState(() {});
+          },
+        ),
+        SwitchListTile(
+          title: const Text(
+              'Send anonymous data'), // TODO(monsieurtanuki): localize
+          subtitle: const Text(
+              'When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.'),
+          isThreeLine: true,
+          value: userPreferences.analyticsReports,
+          onChanged: (final bool value) async {
+            await userPreferences.setAnalyticsReports(value);
+            AnalyticsHelper.setAnalyticsReports(value);
+            setState(() {});
+          },
         ),
       ],
     );

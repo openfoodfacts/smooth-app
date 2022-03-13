@@ -25,6 +25,8 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_PREFIX_FLAG = 'FLAG_PREFIX_';
   static const String _TAG_DEV_MODE = 'devMode';
   static const String _TAG_CAMERA_DECLINE = 'declined_camera_use_once';
+  static const String _TAG_CRASH_REPORTS = 'crash_reports';
+  static const String _TAG_ANALYTICS_REPORTS = 'analytics_reports';
 
   Future<void> init(final ProductPreferences productPreferences) async {
     if (_sharedPreferences.getBool(_TAG_INIT) != null) {
@@ -57,6 +59,18 @@ class UserPreferences extends ChangeNotifier {
       _sharedPreferences.setBool(_TAG_THEME_DARK, state);
 
   bool get isThemeDark => _sharedPreferences.getBool(_TAG_THEME_DARK) ?? false;
+
+  Future<void> setCrashReports(final bool state) async =>
+      _sharedPreferences.setBool(_TAG_CRASH_REPORTS, state);
+
+  bool get crashReports =>
+      _sharedPreferences.getBool(_TAG_CRASH_REPORTS) ?? true;
+
+  Future<void> setAnalyticsReports(final bool state) async =>
+      _sharedPreferences.setBool(_TAG_ANALYTICS_REPORTS, state);
+
+  bool get analyticsReports =>
+      _sharedPreferences.getBool(_TAG_ANALYTICS_REPORTS) ?? true;
 
   Future<void> setThemeColorTag(final String colorTag) async =>
       _sharedPreferences.setString(_TAG_THEME_COLOR_TAG, colorTag);
