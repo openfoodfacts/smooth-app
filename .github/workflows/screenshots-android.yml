@@ -1,4 +1,4 @@
-name: Screenshot automation
+name: Generate screenshots for Android
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   screenshots:
-    name: Generate screenshots
+    name: Generate screenshots for Android
     runs-on: macos-latest
 
     steps:
