@@ -1,4 +1,4 @@
-name: Screenshot automation
+name: Generate screenshots for iOS
 on:
   push:
     branches:
@@ -6,7 +6,7 @@ on:
 
 jobs:
   screenshot-automation:
-    name: Screenshot automation
+    name: Generate screenshots for iOS
     runs-on: macos-latest
     steps:
       - name: Checkout sources
