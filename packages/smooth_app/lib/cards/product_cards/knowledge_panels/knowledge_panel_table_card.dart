@@ -290,7 +290,7 @@ class _TableCellWidgetState extends State<TableCellWidget> {
         ''';
       cellText = '<div style=$htmlStyle>${widget.cell.text}</div>';
     }
-    return InkWell(
+    return GestureDetector(
       onTap: () => setState(() {
         _isExpanded = true;
       }),
