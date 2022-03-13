@@ -24,25 +24,25 @@
     "@stop": {},
     "finish": "Finish",
     "@finish": {},
-    "reset_food_prefs": "Reset food preferences",
+    "reset_food_prefs": "Επαναφ. προτιμ. φαγητού",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
     },
     "error": "Κάτι πήγε στραβά",
     "@error": {},
-    "error_occurred": "An error occurred",
+    "error_occurred": "Παρουσιάστηκε ένα σφάλμα",
     "@error_occurred": {},
-    "featureInProgress": "We're still working on this feature, stay tuned",
+    "featureInProgress": "Εξακολουθούμε να εργαζόμαστε σε αυτήν τη λειτουργία, μείνετε συντονισμένοι",
     "@featureInProgress": {},
-    "label_web": "View on the Web",
+    "label_web": "Προβολή στο Διαδίκτυο",
     "@label_web": {},
-    "learnMore": "Learn more",
+    "learnMore": "Μάθετε περισσότερα",
     "@learnMore": {},
-    "incompatible": "Incompatible",
+    "incompatible": "Ασύμβατο",
     "@incompatible": {
         "description": "Short label for product list view: the product is incompatible with your preferences"
     },
-    "compatible": "Compatible",
+    "compatible": "Συμβατό",
     "@compatible": {
         "description": "Short label for product list view: the product is compatible with your preferences"
     },
@@ -52,18 +52,18 @@
     },
     "licenses": "Licences",
     "@licenses": {},
-    "looking_for": "Looking for",
+    "looking_for": "Ψάχνω για",
     "@looking_for": {
         "description": "Looking for: ${BARCODE}"
     },
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "whatIsOff": "Το Open Food Facts είναι ένας παγκόσμιος μη κερδοσκοπικός οργανισμός που υποστηρίζεται από τις τοπικές κοινότητες.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Choose foods that are good for you and the planet.",
+    "offUtility": "Επιλέξτε τροφές που είναι καλές για εσάς και τον πλανήτη.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
@@ -71,22 +71,22 @@
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."
     },
-    "healthCardUtility": "Choose foods that are good for you.",
+    "healthCardUtility": "Επιλέξτε τροφές που είναι καλές για εσάς.",
     "@healthCardUtility": {
         "description": "Description of what a user can use the health data in a product for."
     },
-    "ecoCardUtility": "Choose foods that are good for the planet.",
+    "ecoCardUtility": "Επιλέξτε τροφές που είναι καλές για τον πλανήτη.",
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
-    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
-    "incorrect_credentials": "Incorrect username or password.",
+    "sign_in_text": "Συνδεθείτε στον λογαριασμό σας Open Food Facts για να αποθηκεύσετε τις συνεισφορές σας",
+    "incorrect_credentials": "Λάθος όνομα χρήστη ή κωδικός πρόσβασης.",
     "login": "Όνομα χρήστη",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
-    "create_account": "Create account",
+    "create_account": "Δημιουργήστε λογαριασμό",
     "@create_account": {
         "description": "Button label: Opens a page where a new user can register"
     },
@@ -94,20 +94,20 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_out": "Sign out",
+    "sign_out": "Αποσύνδεση",
     "@sign_out": {
         "description": "Button label: For sign out"
     },
-    "sign_out_confirmation": "Are you sure you want to sign out?",
+    "sign_out_confirmation": "Είστε βέβαιοι ότι θέλετε να αποσυνδεθείτε;",
     "@sign_out_confirmation": {
         "description": "Pop up title: Reassuring if the user really want to sign out"
     },
     "password": "Κωδικός χρήστη",
-    "forgot_password": "Forgot password",
+    "forgot_password": "Ξέχασα τον κωδικό",
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset e-mail can be requested"
     },
-    "view_profile": "View profile",
+    "view_profile": "Προβολή προφίλ",
     "@view_profile": {
         "description": "Button label: For to show your account"
     },
@@ -115,48 +115,48 @@
     "@reset_password": {
         "description": "Forgot password page title"
     },
-    "reset_password_explanation_text": "In case of a forgotten password, enter your username or e-mail address to receive instructions for a password reset. Also, remember to check the Spam folder.",
-    "username_or_email": "Username or e-mail",
+    "reset_password_explanation_text": "Σε περίπτωση που ξεχάσατε τον κωδικό πρόσβασης, εισαγάγετε το όνομα χρήστη ή τη διεύθυνση e-mail σας για να λάβετε οδηγίες για την επαναφορά του κωδικού πρόσβασης. Επίσης, θυμηθείτε να ελέγξετε τον φάκελο Ανεπιθύμητα (Spam).",
+    "username_or_email": "Όνομα χρήστη ή e-mail",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
     "reset_password_done": "An e-mail with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
-    "send_reset_password_mail": "Change password",
+    "send_reset_password_mail": "Αλλαγή κωδικού",
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset e-mail request"
     },
-    "enter_some_text": "Please enter some text",
+    "enter_some_text": "Παρακαλούμε εισάγετε κάποιο κείμενο",
     "@enter_some_text": {
         "description": "Error when a required text field is empty"
     },
-    "sign_up_page_title": "Sign Up",
+    "sign_up_page_title": "Εγγραφή",
     "@sign_up_page_title": {
         "description": "Header"
     },
-    "sign_up_page_action_button": "Sign Up",
+    "sign_up_page_action_button": "Εγγραφή",
     "@sign_up_page_action_button": {
         "description": "Button for signing up"
     },
-    "sign_up_page_action_doing_it": "Signing up...",
+    "sign_up_page_action_doing_it": "Γίνεται εγγραφή...",
     "@sign_up_page_action_doing_it": {
         "description": "Progress indicator dialog during the actual signing up process"
     },
-    "sign_up_page_action_ok": "Congratulations! Your account has just been created.",
-    "sign_up_page_display_name_hint": "Display Name",
-    "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
+    "sign_up_page_action_ok": "Συγχαρητήρια! Ο λογαριασμός σας μόλις δημιουργήθηκε.",
+    "sign_up_page_display_name_hint": "Εμφανιζόμενο Όνομα",
+    "sign_up_page_display_name_error_empty": "Παρακαλώ εισάγετε το όνομα εμφάνισης που θέλετε να χρησιμοποιήσετε",
     "sign_up_page_email_hint": "E-mail",
-    "sign_up_page_email_error_empty": "E-mail is required",
-    "sign_up_page_email_error_invalid": "This e-mail is invalid",
+    "sign_up_page_email_error_empty": "Απαιτείται e-mail",
+    "sign_up_page_email_error_invalid": "Μη έγκυρο e-mail",
     "sign_up_page_username_hint": "Όνομα χρήστη",
-    "sign_up_page_username_error_empty": "Please enter a username",
-    "sign_up_page_username_error_invalid": "Please enter a valid username",
-    "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters",
+    "sign_up_page_username_error_empty": "Παρακαλώ εισάγετε ένα όνομα χρήστη",
+    "sign_up_page_username_error_invalid": "Παρακαλώ εισάγετε ένα έγκυρο όνομα χρήστη",
+    "sign_up_page_username_description": "Το όνομα χρήστη δεν μπορεί να περιέχει κενά, κεφαλαία ή ειδικούς χαρακτήρες",
     "sign_up_page_password_hint": "Κωδικός χρήστη",
-    "sign_up_page_password_error_empty": "Please enter a password",
-    "sign_up_page_password_error_invalid": "Please enter a valid password (at least 6 characters)",
-    "sign_up_page_confirm_password_hint": "Confirm Password",
-    "sign_up_page_confirm_password_error_empty": "Please confirm the password",
-    "sign_up_page_confirm_password_error_invalid": "Passwords don't match",
+    "sign_up_page_password_error_empty": "Πληκτρολογήστε τον κωδικό σας",
+    "sign_up_page_password_error_invalid": "Παρακαλούμε εισάγετε έναν έγκυρο κωδικό πρόσβασης (τουλάχιστον 6 χαρακτήρες)",
+    "sign_up_page_confirm_password_hint": "Επιβεβαίωση Κωδικού Πρόσβασης",
+    "sign_up_page_confirm_password_error_empty": "Επιβεβαιώστε τον κωδικό πρόσβασης",
+    "sign_up_page_confirm_password_error_invalid": "Οι κωδικοί πρόσβασης δεν ταιριάζουν",
     "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
@@ -165,24 +165,24 @@
     "@donate_url": {
         "description": "Please insert the right url from the website here."
     },
-    "sign_up_page_agree_error_invalid": "When creating an account, agreeing to the Terms of Use is mandatory, however, anonymous contributions can still be made through the app",
+    "sign_up_page_agree_error_invalid": "Δημιουργώντας έναν λογαριασμό, η αποδοχή των Όρων Χρήσης είναι υποχρεωτική. Παρόλα αυτά, οι ανώνυμες συνεισφορές μπορούν ακόμα να γίνουν μέσω της εφαρμογής",
     "@sign_up_page_agree_error_invalid": {
         "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
     },
-    "sign_up_page_producer_checkbox": "I am a food producer",
-    "sign_up_page_producer_hint": "Producer/brand",
-    "sign_up_page_producer_error_empty": "Please enter a producer or a brand name",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at all time)",
+    "sign_up_page_producer_checkbox": "Είμαι παραγωγός τροφίμων",
+    "sign_up_page_producer_hint": "Παραγωγός/επωνυμία",
+    "sign_up_page_producer_error_empty": "Εισαγάγετε έναν παραγωγό ή μια επωνυμία",
+    "sign_up_page_subscribe_checkbox": "Θα ήθελα να εγγραφώ στο newsletter του Open Food Facts (Μπορείτε να απεγγραφείτε από αυτό ανά πάσα στιγμή)",
     "@Settings": {},
     "settingsTitle": "Ρυθμίσεις",
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
-    "darkmode": "Darkmode",
+    "darkmode": "Σκοτεινή Λειτουργία",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
-    "darkmode_dark": "Dark",
+    "darkmode_dark": "Σκούρο",
     "@darkmode_dark": {
         "description": "Indicator inside the darkmode switch"
     },
@@ -360,23 +360,23 @@
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Add product information",
     "@add_product_information_button_label": {},
-    "new_product": "New Product",
+    "new_product": "Νέο Προϊόν",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Front packaging photo",
+    "front_packaging_photo_button_label": "Μπροστινή φωτογραφία συσκευασίας",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Confirm Front packaging photo",
+    "confirm_front_packaging_photo_button_label": "Επιβεβαίωση φωτογραφίας μπροστινής συσκευασίας",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front packaging that user just took."
     },
-    "front_photo_uploaded": "Front photo uploaded",
+    "front_photo_uploaded": "Η μπροστινή φωτογραφία μεταφορτώθηκε",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Ingredients photo",
     "@ingredients_photo_button_label": {},
-    "confirm_ingredients_photo_button_label": "Confirm Ingredients photo",
+    "confirm_ingredients_photo_button_label": "Επιβεβαίωση φωτογραφίας συστατικών",
     "@confirm_ingredients_photo_button_label": {
         "description": "Button clicking on which confirms the picture of ingredients that user just took."
     },
-    "ingredients_photo_uploaded": "Ingredients photo uploaded",
+    "ingredients_photo_uploaded": "Η φωτογραφία των συστατικών μεταφορτώθηκε",
     "@ingredients_photo_uploaded": {},
     "nutritional_facts_photo_button_label": "Nutritional facts photo",
     "@nutritional_facts_photo_button_label": {},
@@ -577,5 +577,9 @@
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },
-    "retry_button_label": "Προσπαθήστε ξανά"
+    "retry_button_label": "Προσπαθήστε ξανά",
+    "main_app_color": "Main color of the app",
+    "@main_app_color": {
+        "description": "Heading for the section to pick the main app color"
+    }
 }

@@ -13,7 +13,7 @@
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
     "save": "Зберегти",
-    "skip": "Skip",
+    "skip": "Пропустити",
     "cancel": "Відмінити",
     "@cancel": {},
     "close": "Закрити",
@@ -22,7 +22,7 @@
     "@no": {},
     "stop": "Зупинити",
     "@stop": {},
-    "finish": "Finish",
+    "finish": "Завершити",
     "@finish": {},
     "reset_food_prefs": "Скинути налаштування харчових переваг",
     "@reset": {
@@ -57,7 +57,7 @@
         "description": "Looking for: ${BARCODE}"
     },
     "@Introduction screen": {},
-    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
+    "welcomeToOpenFoodFacts": "Ласкаво просимо в Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
     "whatIsOff": "Open Food Facts - це світова некомерційна організація, що заснована місцевими спільнотами.",
     "@whatIsOff": {
@@ -161,7 +161,7 @@
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
-    "donate_url": "https://donate.openfoodfacts.org/",
+    "donate_url": "url:https://donate.openfoodfacts.org/",
     "@donate_url": {
         "description": "Please insert the right url from the website here."
     },
@@ -195,7 +195,7 @@
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
     "contributors": "Співучасники",
-    "support": "Support",
+    "support": "Підтримка",
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
@@ -362,9 +362,9 @@
     "@add_product_information_button_label": {},
     "new_product": "Новий Продукт",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Front packaging photo",
+    "front_packaging_photo_button_label": "Фотографія переднього пакування",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Confirm Front packaging photo",
+    "confirm_front_packaging_photo_button_label": "Підтвердити фотографію переднього пакування",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front packaging that user just took."
     },
@@ -386,13 +386,13 @@
     },
     "nutritional_facts_photo_uploaded": "Завантаження фотографій харчових фактів",
     "@nutritional_facts_photo_uploaded": {},
-    "recycling_photo_button_label": "Recycling information photo",
+    "recycling_photo_button_label": "Фотографія з інформацією щодо перероблювання",
     "@recycling_photo_button_label": {},
-    "confirm_recycling_photo_button_label": "Confirm Recycling information photo",
+    "confirm_recycling_photo_button_label": "Підтвердити фотографію з інформацією щодо перероблювання",
     "@confirm_recycling_photo_button_label": {
         "description": "Button clicking on which confirms the picture of recycling information that user just took."
     },
-    "recycling_photo_uploaded": "Recycling photo uploaded",
+    "recycling_photo_uploaded": "Фотографію перероблення завантажено",
     "@recycling_photo_uploaded": {},
     "other_interesting_photo_button_label": "Інші цікаві фотографії",
     "@other_interesting_photo_button_label": {},
@@ -406,7 +406,7 @@
     "@retake_photo_button_label": {
         "description": "Button clicking on which allows users to retake the last photo they took."
     },
-    "selecting_photo": "Selecting photo",
+    "selecting_photo": "Вибрати фото",
     "@selecting_photo": {
         "description": "Progress indicator when the users takes a photo"
     },
@@ -415,11 +415,11 @@
         "description": "Message when a new picture is uploading to the server"
     },
     "score_add_missing_ingredients": "Додати відсутні інгредієнти",
-    "score_add_missing_nutrition_facts": "Add missing nutrition facts",
+    "score_add_missing_nutrition_facts": "Додати відсутні поживні речовини",
     "score_add_missing_product_category": "Додати відсутню категорію продукту",
-    "score_update_nutrition_facts": "Update nutrition facts",
-    "nutrition_page_title": "Product Nutrition Facts",
-    "nutrition_page_unspecified": "Nutrition facts are not specified on the product",
+    "score_update_nutrition_facts": "Оновити поживні речовини",
+    "nutrition_page_title": "Поживні речовини продукту",
+    "nutrition_page_unspecified": "На продукті не вказані поживні речовини",
     "nutrition_page_per_100g": "на 100 г.",
     "nutrition_page_per_serving": "в одній порції",
     "nutrition_page_add_nutrient": "Додати поживну речовину",
@@ -466,11 +466,11 @@
     "@product_improvement_add_category": {
         "description": "Message for ProductImprovement.ADD_CATEGORY"
     },
-    "product_improvement_add_nutrition_facts": "Add nutrition facts to calculate the Nutri-Score.",
+    "product_improvement_add_nutrition_facts": "Додати поживні речовини задля вирахування Nutri-Score.",
     "@product_improvement_add_nutrition_facts": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
     },
-    "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to calculate the Nutri-Score.",
+    "product_improvement_add_nutrition_facts_and_category": "Додати поживні речовини та категорію для вирахування Nutri-Score.",
     "@product_improvement_add_nutrition_facts_and_category": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
     },
@@ -577,5 +577,9 @@
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },
-    "retry_button_label": "Повторити спробу"
+    "retry_button_label": "Повторити спробу",
+    "main_app_color": "Main color of the app",
+    "@main_app_color": {
+        "description": "Heading for the section to pick the main app color"
+    }
 }
