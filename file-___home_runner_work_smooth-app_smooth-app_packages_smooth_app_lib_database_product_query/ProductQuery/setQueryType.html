@@ -68,12 +68,18 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static void setQueryType(final UserPreferences userPreferences) =&gt;
-    OpenFoodAPIConfiguration.globalQueryType = userPreferences
-                .getFlag(UserPreferencesDevMode.userPreferencesFlagProd) ??
-            true
-        ? QueryType.PROD
-        : QueryType.TEST;</code></pre>
+  <pre class="language-dart"><code class="language-dart">static void setQueryType(final UserPreferences userPreferences) {
+  OpenFoodAPIConfiguration.globalQueryType = userPreferences
+              .getFlag(UserPreferencesDevMode.userPreferencesFlagProd) ??
+          true
+      ? QueryType.PROD
+      : QueryType.TEST;
+  final String? testEnvHost = userPreferences
+      .getDevModeString(UserPreferencesDevMode.userPreferencesTestEnvHost);
+  if (testEnvHost != null) {
+    OpenFoodAPIConfiguration.uriTestHost = testEnvHost;
+  }
+}</code></pre>
 </section>
 
 
