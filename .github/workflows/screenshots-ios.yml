@@ -1,0 +1,57 @@
+name: Screenshot automation
+on:
+  push:
+    branches:
+      - 'screenshots/*'
+
+jobs:
+  screenshot-automation:
+    name: Screenshot automation
+    runs-on: macos-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v3
+
+      - name: Decrypt AuthKey file
+        run: cd ./fastlane/envfiles && ./decrypt_secrets.sh
+        env:
+          AUTH_KEY_FILE_DECRYPTKEY: ${{ secrets.AUTH_KEY_FILE_DECRYPTKEY }}
+
+      - uses: actions/cache@v2
+        id: cache-carthage
+        with:
+          path: ~/Carthage
+          key: ${{ runner.os }}-carthage-${{ hashFiles('Cartfile.resolved') }}
+        env: 
+          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install sentry-cli
+        run: curl -sL https://sentry.io/get-cli/ | bash
+
+      - name: Install Dependencies
+        run: gem install bundler:1.17.3 && bundle install
+
+      - name: Prepare xcodeproj
+        run: sh scripts/setup.sh
+        env: 
+          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run Fastlane snapshot
+        run: bundle exec fastlane perform_snapshots
+        env:  
+          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
+          FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
+          MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
+          MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL }}
+          MATCH_KEYCHAIN_PASSWORD: ${{ secrets.MATCH_KEYCHAIN_PASSWORD }}
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          PILOT_APPLE_ID: ${{ secrets.PILOT_APPLE_ID }}
+          SPACESHIP_CONNECT_API_ISSUER_ID: ${{ secrets.SPACESHIP_CONNECT_API_ISSUER_ID }}
+          SPACESHIP_CONNECT_API_KEY_ID: ${{ secrets.SPACESHIP_CONNECT_API_KEY_ID }}
+          SPACESHIP_CONNECT_API_KEY_FILEPATH: envfiles/AuthKey_KDAUTTM76R.p8
+          CI_RELEASE: true
+      - uses: actions/upload-artifact@v2
+        with:
+          name: screenshots
+          path: fastlane/screenshots/ # or path/to/artifact
