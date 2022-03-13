@@ -1,0 +1,10 @@
+app_package_name 'org.openfoodfacts.app.screenshots'
+#tests_apk_path 'app/build/outputs/apk/off/debug/app-off-debug.apk'
+
+app_apk_path './app/build/outputs/apk/offPlayStore/screenshots/app-off-playstore-screenshots.apk'
+tests_apk_path './app/build/outputs/apk/androidTest/offPlaystore/screenshots/app-off-playstore-screenshots-androidTest.apk'
+
+test_instrumentation_runner 'org.openfoodfacts.app.CustomTestRunner'
+clear_previous_screenshots true
+
+locales ['en-US']
