@@ -67,12 +67,18 @@ abstract class ProductQuery {
       );
 
   /// Sets the query type according to the current [UserPreferences]
-  static void setQueryType(final UserPreferences userPreferences) =>
-      OpenFoodAPIConfiguration.globalQueryType = userPreferences
-                  .getFlag(UserPreferencesDevMode.userPreferencesFlagProd) ??
-              true
-          ? QueryType.PROD
-          : QueryType.TEST;
+  static void setQueryType(final UserPreferences userPreferences) {
+    OpenFoodAPIConfiguration.globalQueryType = userPreferences
+                .getFlag(UserPreferencesDevMode.userPreferencesFlagProd) ??
+            true
+        ? QueryType.PROD
+        : QueryType.TEST;
+    final String? testEnvHost = userPreferences
+        .getDevModeString(UserPreferencesDevMode.userPreferencesTestEnvHost);
+    if (testEnvHost != null) {
+      OpenFoodAPIConfiguration.uriTestHost = testEnvHost;
+    }
+  }
 
   static List<ProductField> get fields => <ProductField>[
         ProductField.NAME,
