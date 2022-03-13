@@ -1,0 +1,61 @@
+name: Screenshot automation
+
+on:
+  push:
+    branches:
+      - 'screenshots/*'
+
+jobs:
+  screenshots:
+    name: Generate screenshots
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+
+      - name: Decrypt API JSON file
+        run: cd ./fastlane/envfiles && ./decrypt_secrets.sh
+        env:
+          API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
+          STORE_JKS_DECRYPTKEY: ${{ secrets.STORE_JKS_DECRYPTKEY }}
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Workaround for Android Gradle plugin issue
+        run: "echo \"ndk.dir=${ANDROID_HOME}/ndk-bundle\" > local.properties"
+
+      - name: Set up Ruby 2.6
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6.0
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+          
+      - name: Install Dependencies
+        run: gem install bundler && bundle install
+
+      - name: Build Screenshots APK
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          script: pwd && bundle exec fastlane build_for_screengrab && find . -type f -name '*.apk' && bundle exec fastlane screengrab
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          CI_RELEASE: true
+          SIGN_STORE_PATH: ../fastlane/envfiles/keystore.jks
+          SIGN_STORE_PASSWORD: ${{ secrets.SIGN_STORE_PASSWORD }}
+          SIGN_KEY_ALIAS: ${{ secrets.SIGN_KEY_ALIAS }}
+          SIGN_KEY_PASSWORD: ${{ secrets.SIGN_KEY_PASSWORD }}
+
+      - name: Upload screenshots
+        uses: actions/upload-artifact@v2
+        with:
+          name: screenshots
+          path: fastlane/screenshots/ # or path/to/artifact
