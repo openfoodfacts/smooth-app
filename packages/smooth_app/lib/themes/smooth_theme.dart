@@ -127,6 +127,7 @@ class SmoothTheme {
       appBarTheme: AppBarTheme(
         color: brightness == Brightness.dark ? null : myColorScheme.primary,
       ),
+      toggleableActiveColor: myColorScheme.primary,
     );
   }
 
