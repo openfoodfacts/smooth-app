@@ -122,10 +122,42 @@ class _ProductListPageState extends State<ProductListPage> {
         ),
       ),
       body: products.isEmpty
-          ? Center(
-              child: Text(appLocalizations.no_prodcut_in_list,
-                  style: Theme.of(context).textTheme.subtitle1),
+          ? Column(
+              children: [
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.3,
+                  child: LayoutBuilder(builder: (context, constraint) {
+                    return Icon(
+                      Icons.find_in_page_rounded,
+                      color: Colors.blue,
+                      size: constraint.biggest.height,
+                      semanticLabel: 'History not available',
+                    );
+                  }),
+                ),
+                Text(
+                  'Start scanning!',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 36.0,
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(20.0),
+                  child: Text(
+                    'Product you scan in will appear here and you can check detailed information about them',
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
+                )
+              ],
             )
+          // ? Center(
+          //     child: Text(appLocalizations.no_prodcut_in_list,
+          //         style: Theme.of(context).textTheme.subtitle1),
+          //   )
           : ListView.builder(
               itemCount: products.length,
               itemBuilder: (BuildContext context, int index) {
