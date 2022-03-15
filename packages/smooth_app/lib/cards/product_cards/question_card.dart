@@ -389,10 +389,10 @@ class _QuestionCardState extends State<QuestionCard>
                   return EMPTY_WIDGET;
                 }
               }),
-              SmoothActionButton(
-                text: appLocalizations.close,
-                onPressed: () => Navigator.pop<Widget>(context),
-              )
+          SmoothActionButton(
+            text: appLocalizations.close,
+            onPressed: () => Navigator.pop<Widget>(context),
+          ),
         ],
       ),
     );
