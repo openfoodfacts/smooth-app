@@ -83,6 +83,8 @@ class _SmoothAppState extends State<SmoothApp> {
     );
     await _productPreferences.init(DefaultAssetBundle.of(context));
     await _userPreferences.init(_productPreferences);
+    AnalyticsHelper.setCrashReports(_userPreferences.crashReports);
+    AnalyticsHelper.setAnalyticsReports(_userPreferences.analyticsReports);
     ProductQuery.setCountry(_userPreferences.userCountryCode);
     _themeProvider = ThemeProvider(_userPreferences);
     ProductQuery.setQueryType(_userPreferences);

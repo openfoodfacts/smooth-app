@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:mailto/mailto.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/pages/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/onboarding/country_selector.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 /// Collapsed/expanded display of profile for the preferences page.
 class UserPreferencesProfile extends AbstractUserPreferences {
@@ -53,55 +56,36 @@ class UserPreferencesProfile extends AbstractUserPreferences {
 
     //Credentials exist
     if (OpenFoodAPIConfiguration.globalUser != null) {
+      final String userId = OpenFoodAPIConfiguration.globalUser!.userId;
       result.add(
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            ElevatedButton.icon(
-              onPressed: () => LaunchUrlHelper.launchURL(
-                'https://openfoodfacts.org/editor/${OpenFoodAPIConfiguration.globalUser!.userId}',
-                true,
-              ),
-              label: Text(
-                appLocalizations.view_profile,
-                style: theme.textTheme.bodyText2?.copyWith(
-                  fontSize: 18.0,
-                  color: theme.colorScheme.surface,
-                ),
-              ),
-              icon: const Icon(Icons.open_in_new),
-              style: ButtonStyle(
-                minimumSize: MaterialStateProperty.all<Size>(
-                  Size(size.width * 0.33, theme.buttonTheme.height + 10),
-                ),
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                  const RoundedRectangleBorder(
-                    borderRadius: CIRCULAR_BORDER_RADIUS,
-                  ),
-                ),
-              ),
-            ),
-            ElevatedButton(
-              onPressed: () => _confirmLogout(context),
-              child: Text(
-                appLocalizations.sign_out,
-                style: theme.textTheme.bodyText2?.copyWith(
-                  fontSize: 18.0,
-                  color: theme.colorScheme.surface,
-                ),
-              ),
-              style: ButtonStyle(
-                minimumSize: MaterialStateProperty.all<Size>(
-                  Size(size.width * 0.33, theme.buttonTheme.height + 10),
-                ),
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                  const RoundedRectangleBorder(
-                    borderRadius: CIRCULAR_BORDER_RADIUS,
-                  ),
-                ),
-              ),
-            ),
-          ],
+        ListTile(
+          onTap: () async => LaunchUrlHelper.launchURL(
+            'https://openfoodfacts.org/editor/$userId',
+            true,
+          ),
+          title: Text(appLocalizations.view_profile),
+          leading: const Icon(Icons.open_in_new),
+        ),
+      );
+      result.add(
+        ListTile(
+          onTap: () => _confirmLogout(context),
+          title: Text(appLocalizations.sign_out),
+          leading: const Icon(Icons.clear),
+        ),
+      );
+      result.add(
+        ListTile(
+          onTap: () async {
+            final Mailto mailtoLink = Mailto(
+              to: <String>['contact@openfoodfacts.org'],
+              subject: 'Delete account', // TODO(monsieurtanuki): localize
+              body: 'Hi there, please delete my openfoodfacts account: $userId',
+            );
+            await launch('$mailtoLink');
+          },
+          title: const Text('Delete account'),
+          leading: const Icon(Icons.delete),
         ),
       );
     } else {
@@ -147,6 +131,32 @@ class UserPreferencesProfile extends AbstractUserPreferences {
           title: CountrySelector(
             initialCountryCode: userPreferences.userCountryCode,
           ),
+        ),
+        SwitchListTile(
+          title:
+              const Text('Crash reporting'), // TODO(monsieurtanuki): localize
+          subtitle: const Text(
+              'When enabled, crash reports will be sent to the Open Food Facts server automatically, so that we can fix bugs and improve the app.'),
+          isThreeLine: true,
+          value: userPreferences.crashReports,
+          onChanged: (final bool value) async {
+            await userPreferences.setCrashReports(value);
+            AnalyticsHelper.setCrashReports(value);
+            setState(() {});
+          },
+        ),
+        SwitchListTile(
+          title: const Text(
+              'Send anonymous data'), // TODO(monsieurtanuki): localize
+          subtitle: const Text(
+              'When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.'),
+          isThreeLine: true,
+          value: userPreferences.analyticsReports,
+          onChanged: (final bool value) async {
+            await userPreferences.setAnalyticsReports(value);
+            AnalyticsHelper.setAnalyticsReports(value);
+            setState(() {});
+          },
         ),
       ],
     );
