@@ -13,6 +13,8 @@ import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 
+import '../../../generic_lib/design_constants.dart';
+
 class ProductListPage extends StatefulWidget {
   const ProductListPage(this.productList);
 
@@ -32,6 +34,7 @@ class _ProductListPageState extends State<ProductListPage> {
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
+    final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     if (first) {
@@ -123,41 +126,33 @@ class _ProductListPageState extends State<ProductListPage> {
       ),
       body: products.isEmpty
           ? Column(
-              children: [
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.3,
-                  child: LayoutBuilder(builder: (context, constraint) {
-                    return Icon(
-                      Icons.find_in_page_rounded,
-                      color: Colors.blue,
-                      size: constraint.biggest.height,
-                      semanticLabel: 'History not available',
-                    );
-                  }),
-                ),
-                Text(
-                  'Start scanning!',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 36.0,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.30,
+                  child: Icon(
+                    Icons.find_in_page_rounded,
+                    color: colorScheme.primary,
+                    size: VERY_LARGE_SPACE * 10,
+                    semanticLabel: 'History not available',
                   ),
                 ),
+                Text(
+                  'Start scanning !', // TODO: localization
+                  style: themeData.textTheme.headlineLarge
+                      ?.apply(color: colorScheme.onBackground),
+                ),
                 Padding(
-                  padding: EdgeInsets.all(20.0),
+                  padding: EdgeInsets.all(VERY_LARGE_SPACE),
                   child: Text(
-                    'Product you scan in will appear here and you can check detailed information about them',
+                    'Product you scan in will appear here and you can check detailed information about them', // TODO: localization
                     style: TextStyle(
-                      color: Colors.black,
+                      color: colorScheme.onBackground,
                     ),
                   ),
                 )
               ],
             )
-          // ? Center(
-          //     child: Text(appLocalizations.no_prodcut_in_list,
-          //         style: Theme.of(context).textTheme.subtitle1),
-          //   )
           : ListView.builder(
               itemCount: products.length,
               itemBuilder: (BuildContext context, int index) {
