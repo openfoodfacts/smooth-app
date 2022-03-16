@@ -531,42 +531,42 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural, one {} few {{count} prieš dienas} many {{count} prieš dienas} =1{prieš vieną dieną} other{{count} prieš dienas}}",
+    "plural_ago_days": "{count,plural, =1{one day ago} other{{count} days ago}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural, one {} few {{count} prieš valandas} many {{count} prieš valandas} =1{prieš valandą} other{{count} prieš valandas}}",
+    "plural_ago_hours": "{count,plural, =1{one hour ago} other{{count} hours ago}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural, one {} few {{count} Prieš minutę} many {{count} Prieš minutę} =0{mažiau nei prieš minutę} =1{prieš minutę} other{{count} Prieš minutę}}",
+    "plural_ago_minutes": "{count,plural, =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, one {} few {{count} prieš kelis mėnesius} many {{count} prieš kelis mėnesius} =1{prieš vieną mėnesį} other{{count} prieš kelis mėnesius}}",
+    "plural_ago_months": "{count,plural, =1{one month ago} other{{count} months ago}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, one {} few {{count} prieš kelias savaites} many {{count} prieš kelias savaites} =1{prieš savaitę} other{{count} prieš kelias savaites}}",
+    "plural_ago_weeks": "{count,plural, =1{one week ago} other{{count} weeks ago}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,daugiskaita, kita{Palyginkite {count} Produktai}",
+    "plural_compare_x_products": "{count,plural, other{Compare {count} Products}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {
