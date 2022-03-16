@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mailto/mailto.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
+import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
-import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/pages/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/onboarding/country_selector.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
@@ -94,13 +95,12 @@ class UserPreferencesProfile extends AbstractUserPreferences {
         Center(
           child: ElevatedButton(
             onPressed: () async {
-              await Navigator.push<dynamic>(
+              Navigator.push<dynamic>(
                 context,
                 MaterialPageRoute<dynamic>(
                   builder: (BuildContext context) => const LoginPage(),
                 ),
               );
-              setState(() {});
             },
             child: Text(
               appLocalizations.sign_in,
@@ -180,9 +180,8 @@ class UserPreferencesProfile extends AbstractUserPreferences {
             SmoothActionButton(
               text: localizations.yes,
               onPressed: () async {
-                UserManagementHelper.logout();
+                context.read<UserManagementProvider>().logout();
                 Navigator.pop(context);
-                setState(() {});
               },
             ),
             SmoothActionButton(

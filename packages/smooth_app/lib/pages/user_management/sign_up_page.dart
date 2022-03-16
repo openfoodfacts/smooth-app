@@ -2,13 +2,16 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
-import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../../helpers/user_management_helper.dart';
 
 /// Sign Up Page. Pop's true if the sign up was successful.
 class SignUpPage extends StatefulWidget {
@@ -297,7 +300,7 @@ class _SignUpPageState extends State<SignUpPage> {
       await LoadingDialog.error(context: context, title: status.error);
       return;
     }
-    await UserManagementHelper.put(user);
+    await context.read<UserManagementProvider>().putUser(user);
     await showDialog<void>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
