@@ -8,6 +8,7 @@ import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
@@ -32,6 +33,7 @@ class _ProductListPageState extends State<ProductListPage> {
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
+    final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     if (first) {
@@ -123,9 +125,30 @@ class _ProductListPageState extends State<ProductListPage> {
         ),
       ),
       body: products.isEmpty
-          ? Center(
-              child: Text(appLocalizations.no_prodcut_in_list,
-                  style: Theme.of(context).textTheme.subtitle1),
+          ? Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Icon(
+                  Icons.find_in_page_rounded,
+                  color: colorScheme.primary,
+                  size: VERY_LARGE_SPACE * 10,
+                  semanticLabel: 'History not available',
+                ),
+                Text(
+                  'Start scanning !', // TODO(bhattabhi013): localization
+                  style: themeData.textTheme.headlineLarge
+                      ?.apply(color: colorScheme.onBackground),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(VERY_LARGE_SPACE),
+                  child: Text(
+                    'Product you scan in will appear here and you can check detailed information about them', // TODO(bhattabhi013): localization
+                    style: TextStyle(
+                      color: colorScheme.onBackground,
+                    ),
+                  ),
+                )
+              ],
             )
           : ListView.builder(
               itemCount: products.length,
