@@ -8,12 +8,11 @@ import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
-
-import '../../../generic_lib/design_constants.dart';
 
 class ProductListPage extends StatefulWidget {
   const ProductListPage(this.productList);
@@ -59,36 +58,37 @@ class _ProductListPageState extends State<ProductListPage> {
         backgroundColor: Colors.white, // TODO(monsieurtanuki): night mode
         foregroundColor: Colors.black,
         title: Row(
-          mainAxisAlignment: _selectionMode && _selectedBarcodes.isEmpty
-              ? MainAxisAlignment.end // just the cancel button, at the end
-              : MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            if (_selectionMode && _selectedBarcodes.isNotEmpty)
+            if (_selectionMode)
               ElevatedButton(
                 child: Text(
                   appLocalizations.plural_compare_x_products(
                     _selectedBarcodes.length,
                   ),
                 ),
-                onPressed: () async {
-                  final List<Product> list = <Product>[];
-                  for (final Product product in products) {
-                    if (_selectedBarcodes.contains(product.barcode)) {
-                      list.add(product);
-                    }
-                  }
-                  await Navigator.push<Widget>(
-                    context,
-                    MaterialPageRoute<Widget>(
-                      builder: (BuildContext context) =>
-                          PersonalizedRankingPage.fromItems(
-                        products: list,
-                        title: 'Your ranking',
-                      ),
-                    ),
-                  );
-                  setState(() => _selectionMode = false);
-                },
+                onPressed: _selectedBarcodes.length >=
+                        2 // compare button is enabled only if 2 or more products have been selected
+                    ? () async {
+                        final List<Product> list = <Product>[];
+                        for (final Product product in products) {
+                          if (_selectedBarcodes.contains(product.barcode)) {
+                            list.add(product);
+                          }
+                        }
+                        await Navigator.push<Widget>(
+                          context,
+                          MaterialPageRoute<Widget>(
+                            builder: (BuildContext context) =>
+                                PersonalizedRankingPage.fromItems(
+                              products: list,
+                              title: 'Your ranking', // TODO(X): Translate
+                            ),
+                          ),
+                        );
+                        setState(() => _selectionMode = false);
+                      }
+                    : null,
               ),
             if (_selectionMode)
               ElevatedButton(
@@ -128,24 +128,21 @@ class _ProductListPageState extends State<ProductListPage> {
           ? Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.30,
-                  child: Icon(
-                    Icons.find_in_page_rounded,
-                    color: colorScheme.primary,
-                    size: VERY_LARGE_SPACE * 10,
-                    semanticLabel: 'History not available',
-                  ),
+                Icon(
+                  Icons.find_in_page_rounded,
+                  color: colorScheme.primary,
+                  size: VERY_LARGE_SPACE * 10,
+                  semanticLabel: 'History not available',
                 ),
                 Text(
-                  'Start scanning !', // TODO: localization
+                  'Start scanning !', // TODO(bhattabhi013): localization
                   style: themeData.textTheme.headlineLarge
                       ?.apply(color: colorScheme.onBackground),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(VERY_LARGE_SPACE),
+                  padding: const EdgeInsets.all(VERY_LARGE_SPACE),
                   child: Text(
-                    'Product you scan in will appear here and you can check detailed information about them', // TODO: localization
+                    'Product you scan in will appear here and you can check detailed information about them', // TODO(bhattabhi013): localization
                     style: TextStyle(
                       color: colorScheme.onBackground,
                     ),
