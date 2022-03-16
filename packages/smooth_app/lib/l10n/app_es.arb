@@ -157,7 +157,7 @@
     "sign_up_page_confirm_password_hint": "Confirmar Contraseña",
     "sign_up_page_confirm_password_error_empty": "Por favor confirme la contraseña",
     "sign_up_page_confirm_password_error_invalid": "Las contraseñas no coinciden",
-    "sign_up_page_agree_url": "https://ar.openfoodfacts.org/terms-of-use",
+    "sign_up_page_agree_url": "https://es.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
