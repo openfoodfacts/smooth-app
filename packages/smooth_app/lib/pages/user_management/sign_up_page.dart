@@ -9,9 +9,8 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
+import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import '../../helpers/user_management_helper.dart';
 
 /// Sign Up Page. Pop's true if the sign up was successful.
 class SignUpPage extends StatefulWidget {
