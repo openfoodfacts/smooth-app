@@ -157,7 +157,7 @@
     "sign_up_page_confirm_password_hint": "تأكيد كلمة المرور",
     "sign_up_page_confirm_password_error_empty": "برجاء تأكيد كلمة المرور",
     "sign_up_page_confirm_password_error_invalid": "كلمة السر غير مطابقة",
-    "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use\n",
+    "sign_up_page_agree_url": "https://world-ar.openfoodfacts.org/terms-of-use\n",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
@@ -276,7 +276,7 @@
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
     "ranking_tab_all": "الكل",
-    "ranking_subtitle_match_yes": "Food",
+    "ranking_subtitle_match_yes": "",
     "ranking_subtitle_match_no": "تطابُق ضعيف جداً",
     "ranking_subtitle_match_maybe": "تطابق غير معروف",
     "reloaded_with_new_preferences": "تم التحميل مع تفضيلات جديدة",
@@ -356,7 +356,7 @@
     "@missing_product": {},
     "add_product_take_photos": "التقط صورًا للعبوة لإضافة هذا المنتج إلى قاعدة بياناتنا.",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "يرجى التقاط الصور التالية ويمكن لمحرك \"الحقائق الغذائية المفتوحة\" أن يعمل على الباقي!",
+    "add_product_take_photos_descriptive": "يرجى التقاط الصور التالية ويمكن لمحرك الحقائق الغذائية المفتوحة أن يعمل على الباقي!",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "إضافة معلومات عن المنتج",
     "@add_product_information_button_label": {},
