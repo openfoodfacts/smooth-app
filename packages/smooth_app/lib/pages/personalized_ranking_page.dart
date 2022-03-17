@@ -54,6 +54,8 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
         context.watch<ProductPreferences>();
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
+    final ThemeData themeData = Theme.of(context);
+    final ColorScheme colorScheme = Theme.of(context).colorScheme;
     _model.refresh(
       widget.products,
       productPreferences,
@@ -88,8 +90,8 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
       initialIndex: _ORDERED_MATCH_TABS.indexOf(MatchTab.YES),
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.white,
-          foregroundColor: Colors.black,
+          backgroundColor: colorScheme.background,
+          foregroundColor: colorScheme.onBackground,
           bottom: TabBar(
             unselectedLabelStyle: const TextStyle(
               fontSize: 15,
@@ -111,7 +113,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
                 (final int index) => Tab(
                   child: Text(
                     titles[index],
-                    style: TextStyle(color: colors[index]),
+                    style: index==0?TextStyle(color:themeData.hintColor ):TextStyle(color: colors[index]),
                   ),
                 ),
               ),
@@ -121,8 +123,10 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               Flexible(
-                child: Text(widget.title, overflow: TextOverflow.fade),
-              ),
+                  child: Text(
+                widget.title,
+                overflow: TextOverflow.fade,
+              )),
             ],
           ),
         ),
