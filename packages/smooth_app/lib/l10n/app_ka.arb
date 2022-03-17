@@ -278,7 +278,7 @@
     "ranking_tab_all": "All",
     "ranking_subtitle_match_yes": "A great match for you",
     "ranking_subtitle_match_no": "Very poor match",
-    "ranking_subtitle_match_maybe": "Unknown match",
+    "ranking_subtitle_match_maybe": "Ვერ ვნახულობ",
     "reloaded_with_new_preferences": "Reloaded with new preferences",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
@@ -577,5 +577,9 @@
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },
-    "retry_button_label": "Retry"
+    "retry_button_label": "Retry",
+    "main_app_color": "Main color of the app",
+    "@main_app_color": {
+        "description": "Heading for the section to pick the main app color"
+    }
 }
