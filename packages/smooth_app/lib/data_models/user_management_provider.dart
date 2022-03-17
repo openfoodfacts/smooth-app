@@ -7,7 +7,9 @@ class UserManagementProvider extends ChangeNotifier {
   static const String _USER_ID = 'user_id';
   static const String _PASSWORD = 'pasword';
 
-  bool finishedLoading = false;
+  bool _finishedLoading = false;
+
+  bool get isLoading => !_finishedLoading;
 
   /// Checks credentials and conditionally saves them
   Future<bool> login(User user) async {
@@ -41,14 +43,14 @@ class UserManagementProvider extends ChangeNotifier {
     final String? password = await DaoSecuredString.get(_PASSWORD);
 
     if (userId == null || password == null) {
-      finishedLoading = true;
+      _finishedLoading = true;
       notifyListeners();
       return;
     }
 
     final User user = User(userId: userId, password: password);
     OpenFoodAPIConfiguration.globalUser = user;
-    finishedLoading = true;
+    _finishedLoading = true;
     notifyListeners();
   }
 

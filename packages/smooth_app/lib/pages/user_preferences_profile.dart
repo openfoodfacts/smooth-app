@@ -50,7 +50,7 @@ class UserPreferencesProfile extends AbstractUserPreferences {
   @override
   List<Widget> getBody() {
     return <Widget>[
-      UserPreferencesPage(
+      UserPreferencesSection(
         userPreferences: userPreferences,
         appLocalizations: appLocalizations,
         themeData: themeData,
@@ -60,8 +60,8 @@ class UserPreferencesProfile extends AbstractUserPreferences {
 }
 
 // Put into it's own widget in order for provider.watch() to work
-class UserPreferencesPage extends StatefulWidget {
-  const UserPreferencesPage({
+class UserPreferencesSection extends StatefulWidget {
+  const UserPreferencesSection({
     Key? key,
     required this.userPreferences,
     required this.appLocalizations,
@@ -73,10 +73,10 @@ class UserPreferencesPage extends StatefulWidget {
   final ThemeData themeData;
 
   @override
-  State<UserPreferencesPage> createState() => _UserPreferencesPageState();
+  State<UserPreferencesSection> createState() => _UserPreferencesPageState();
 }
 
-class _UserPreferencesPageState extends State<UserPreferencesPage> {
+class _UserPreferencesPageState extends State<UserPreferencesSection> {
   void _confirmLogout(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context)!;
 
@@ -120,7 +120,7 @@ class _UserPreferencesPageState extends State<UserPreferencesPage> {
 
     final List<Widget> result = <Widget>[];
 
-    if (!userManagementProvider.finishedLoading) {
+    if (userManagementProvider.isLoading) {
       //Loading
       result.add(const Center(child: CircularProgressIndicator()));
     } else if (OpenFoodAPIConfiguration.globalUser != null) {

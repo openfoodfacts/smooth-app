@@ -53,7 +53,8 @@ class _SmoothAppState extends State<SmoothApp> {
   late ProductPreferences _productPreferences;
   late LocalDatabase _localDatabase;
   late ThemeProvider _themeProvider;
-  late UserManagementProvider _userManagementProvider;
+  final UserManagementProvider _userManagementProvider =
+      UserManagementProvider();
 
   final Brightness brightness =
       SchedulerBinding.instance?.window.platformBrightness ?? Brightness.light;
@@ -82,7 +83,6 @@ class _SmoothAppState extends State<SmoothApp> {
       ),
       daoString: DaoString(_localDatabase),
     );
-    _userManagementProvider = UserManagementProvider();
 
     await _productPreferences.init(DefaultAssetBundle.of(context));
     await _userPreferences.init(_productPreferences);
