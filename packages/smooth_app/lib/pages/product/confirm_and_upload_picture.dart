@@ -6,8 +6,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/picture_capture_helper.dart';
-
-import '../image_crop_page.dart';
+import 'package:smooth_app/pages/image_crop_page.dart';
 
 class ConfirmAndUploadPicture extends StatefulWidget {
   const ConfirmAndUploadPicture({
