@@ -104,6 +104,7 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
                     : const Icon(Icons.visibility),
               )
             : null,
+        errorMaxLines: 2,
       ),
     );
   }
