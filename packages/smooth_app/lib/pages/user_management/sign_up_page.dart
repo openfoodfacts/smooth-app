@@ -105,7 +105,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   return appLocalizations.sign_up_page_username_error_empty;
                 }
                 if (!UserManagementHelper.isUsernameValid(value)) {
-                  return appLocalizations.sign_up_page_username_error_invalid;
+                  return appLocalizations.sign_up_page_username_description;
                 }
                 return null;
               },
@@ -113,8 +113,6 @@ class _SignUpPageState extends State<SignUpPage> {
 
             const SizedBox(height: space),
 
-            Text(appLocalizations.sign_up_page_username_description),
-            const SizedBox(height: space),
             SmoothTextFormField(
               type: TextFieldTypes.PASSWORD,
               controller: _password1Controller,
