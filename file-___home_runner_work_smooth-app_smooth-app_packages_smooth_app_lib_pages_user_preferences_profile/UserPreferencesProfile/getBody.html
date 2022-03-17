@@ -71,120 +71,13 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 List&lt;Widget&gt; getBody() {
-  final ThemeData theme = Theme.of(context);
-  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-  final Size size = MediaQuery.of(context).size;
-
-  final List&lt;Widget&gt; result = &lt;Widget&gt;[];
-
-  &#47;&#47;Credentials exist
-  if (OpenFoodAPIConfiguration.globalUser != null) {
-    final String userId = OpenFoodAPIConfiguration.globalUser!.userId;
-    result.add(
-      ListTile(
-        onTap: () async =&gt; LaunchUrlHelper.launchURL(
-          &#39;https:&#47;&#47;openfoodfacts.org&#47;editor&#47;$userId&#39;,
-          true,
-        ),
-        title: Text(appLocalizations.view_profile),
-        leading: const Icon(Icons.open_in_new),
-      ),
-    );
-    result.add(
-      ListTile(
-        onTap: () =&gt; _confirmLogout(context),
-        title: Text(appLocalizations.sign_out),
-        leading: const Icon(Icons.clear),
-      ),
-    );
-    result.add(
-      ListTile(
-        onTap: () async {
-          final Mailto mailtoLink = Mailto(
-            to: &lt;String&gt;[&#39;contact@openfoodfacts.org&#39;],
-            subject: &#39;Delete account&#39;, &#47;&#47; TODO(monsieurtanuki): localize
-            body: &#39;Hi there, please delete my openfoodfacts account: $userId&#39;,
-          );
-          await launch(&#39;$mailtoLink&#39;);
-        },
-        title: const Text(&#39;Delete account&#39;),
-        leading: const Icon(Icons.delete),
-      ),
-    );
-  } else {
-    &#47;&#47; No credentials
-    result.add(
-      Center(
-        child: ElevatedButton(
-          onPressed: () async {
-            await Navigator.push&lt;dynamic&gt;(
-              context,
-              MaterialPageRoute&lt;dynamic&gt;(
-                builder: (BuildContext context) =&gt; const LoginPage(),
-              ),
-            );
-            setState(() {});
-          },
-          child: Text(
-            appLocalizations.sign_in,
-            style: theme.textTheme.bodyText2?.copyWith(
-              fontSize: 18.0,
-              color: theme.colorScheme.surface,
-            ),
-          ),
-          style: ButtonStyle(
-            minimumSize: MaterialStateProperty.all&lt;Size&gt;(
-              Size(size.width * 0.5, theme.buttonTheme.height + 10),
-            ),
-            shape: MaterialStateProperty.all&lt;RoundedRectangleBorder&gt;(
-              const RoundedRectangleBorder(
-                borderRadius: CIRCULAR_BORDER_RADIUS,
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  result.addAll(
-    &lt;Widget&gt;[
-      ListTile(
-        leading: const Icon(Icons.public),
-        title: CountrySelector(
-          initialCountryCode: userPreferences.userCountryCode,
-        ),
-      ),
-      SwitchListTile(
-        title:
-            const Text(&#39;Crash reporting&#39;), &#47;&#47; TODO(monsieurtanuki): localize
-        subtitle: const Text(
-            &#39;When enabled, crash reports will be sent to the Open Food Facts server automatically, so that we can fix bugs and improve the app.&#39;),
-        isThreeLine: true,
-        value: userPreferences.crashReports,
-        onChanged: (final bool value) async {
-          await userPreferences.setCrashReports(value);
-          AnalyticsHelper.setCrashReports(value);
-          setState(() {});
-        },
-      ),
-      SwitchListTile(
-        title: const Text(
-            &#39;Send anonymous data&#39;), &#47;&#47; TODO(monsieurtanuki): localize
-        subtitle: const Text(
-            &#39;When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.&#39;),
-        isThreeLine: true,
-        value: userPreferences.analyticsReports,
-        onChanged: (final bool value) async {
-          await userPreferences.setAnalyticsReports(value);
-          AnalyticsHelper.setAnalyticsReports(value);
-          setState(() {});
-        },
-      ),
-    ],
-  );
-
-  return result;
+  return &lt;Widget&gt;[
+    UserPreferencesSection(
+      userPreferences: userPreferences,
+      appLocalizations: appLocalizations,
+      themeData: themeData,
+    ),
+  ];
 }</code></pre>
 </section>
 

@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the login method from the UserManagementHelper class, for the Dart programming language.">
-  <title>login method - UserManagementHelper class - user_management_helper library - Dart API</title>
+  <meta name="description" content="API docs for the login method from the UserManagementProvider class, for the Dart programming language.">
+  <title>login method - UserManagementProvider class - user_management_provider library - Dart API</title>
 
 
   
@@ -30,8 +30,8 @@
   <button id="sidenav-left-toggle" type="button">&nbsp;</button>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">smooth_app</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_user_management_helper/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_user_management_helper-library.html">user_management_helper</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_user_management_helper/UserManagementHelper-class.html">UserManagementHelper</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider-library.html">user_management_provider</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider/UserManagementProvider-class.html">UserManagementProvider</a></li>
     <li class="self-crumb">login method</li>
   </ol>
   <div class="self-name">login</div>
@@ -68,7 +68,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static Future&lt;bool&gt; login(User user) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;bool&gt; login(User user) async {
   final bool rightCredentials;
   try {
     rightCredentials = await OpenFoodAPIClient.login(user);
@@ -77,7 +77,7 @@
   }
 
   if (rightCredentials) {
-    await put(user);
+    await putUser(user);
   }
 
   return rightCredentials &amp;&amp; await credentialsInStorage();
@@ -96,42 +96,40 @@
 
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
   <li><a href="../../index.html">smooth_app</a></li>
-  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_user_management_helper/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_user_management_helper-library.html">user_management_helper</a></li>
-  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_user_management_helper/UserManagementHelper-class.html">UserManagementHelper</a></li>
+  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider-library.html">user_management_provider</a></li>
+  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider/UserManagementProvider-class.html">UserManagementProvider</a></li>
   <li class="self-crumb">login method</li>
 </ol>
 
 
-    <h5>UserManagementHelper class</h5>
+    <h5>UserManagementProvider class</h5>
     <ol>
 
+    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider/UserManagementProvider-class.html#constructors">Constructors</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider/UserManagementProvider/UserManagementProvider.html">UserManagementProvider</a></li>
 
 
-    <li class="section-title inherited">
-      <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_user_management_helper/UserManagementHelper-class.html#instance-properties">Properties</a>
+    <li class="section-title">
+      <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider/UserManagementProvider-class.html#instance-properties">Properties</a>
     </li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider/UserManagementProvider/isLoading.html">isLoading</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
-    <li class="section-title inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_user_management_helper/UserManagementHelper-class.html#instance-methods">Methods</a></li>
+    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider/UserManagementProvider-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider/UserManagementProvider/credentialsInStorage.html">credentialsInStorage</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider/UserManagementProvider/login.html">login</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider/UserManagementProvider/logout.html">logout</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider/UserManagementProvider/mountCredentials.html">mountCredentials</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider/UserManagementProvider/putUser.html">putUser</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
-    <li class="section-title inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_user_management_helper/UserManagementHelper-class.html#operators">Operators</a></li>
+    <li class="section-title inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider/UserManagementProvider-class.html#operators">Operators</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
 
 
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_user_management_helper/UserManagementHelper-class.html#static-methods">Static methods</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_user_management_helper/UserManagementHelper/credentialsInStorage.html">credentialsInStorage</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_user_management_helper/UserManagementHelper/isEmailValid.html">isEmailValid</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_user_management_helper/UserManagementHelper/isPasswordValid.html">isPasswordValid</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_user_management_helper/UserManagementHelper/isUsernameValid.html">isUsernameValid</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_user_management_helper/UserManagementHelper/login.html">login</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_user_management_helper/UserManagementHelper/logout.html">logout</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_user_management_helper/UserManagementHelper/mountCredentials.html">mountCredentials</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_user_management_helper/UserManagementHelper/put.html">put</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_user_management_helper/UserManagementHelper/validateCredentials.html">validateCredentials</a></li>
 
 </ol>
 

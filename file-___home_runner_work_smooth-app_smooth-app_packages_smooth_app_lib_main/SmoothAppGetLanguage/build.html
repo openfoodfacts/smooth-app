@@ -75,8 +75,11 @@ Widget build(BuildContext context) {
   final String languageCode = Localizations.localeOf(context).languageCode;
   ProductQuery.setLanguage(languageCode);
   context.read&lt;ProductPreferences&gt;().refresh(languageCode);
+
   final LocalDatabase _localDatabase = context.read&lt;LocalDatabase&gt;();
   AnalyticsHelper.trackStart(_localDatabase, context);
+
+  context.read&lt;UserManagementProvider&gt;().mountCredentials();
 
   return appWidget;
 }</code></pre>
