@@ -4,6 +4,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
@@ -379,6 +380,7 @@ class _QuestionCardState extends State<QuestionCard>
                         child: Text(
                           appLocalizations.sign_in_text,
                           style: bodyTextStyle,
+                          textAlign: TextAlign.center,
                         ),
                       ),
                     ],
@@ -387,6 +389,10 @@ class _QuestionCardState extends State<QuestionCard>
                   return EMPTY_WIDGET;
                 }
               }),
+          SmoothActionButton(
+            text: appLocalizations.close,
+            onPressed: () => Navigator.pop<Widget>(context),
+          ),
         ],
       ),
     );

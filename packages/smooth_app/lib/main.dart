@@ -53,6 +53,9 @@ class _SmoothAppState extends State<SmoothApp> {
   late ProductPreferences _productPreferences;
   late LocalDatabase _localDatabase;
   late ThemeProvider _themeProvider;
+
+  final Brightness brightness =
+      SchedulerBinding.instance?.window.platformBrightness ?? Brightness.light;
   bool systemDarkmodeOn = false;
 
   // We store the argument of FutureBuilder to avoid re-initialization on
@@ -67,9 +70,6 @@ class _SmoothAppState extends State<SmoothApp> {
   }
 
   Future<void> _init() async {
-    final Brightness brightness =
-        SchedulerBinding.instance?.window.platformBrightness ??
-            Brightness.light;
     systemDarkmodeOn = brightness == Brightness.dark;
     _userPreferences = await UserPreferences.getUserPreferences();
     _localDatabase = await LocalDatabase.getLocalDatabase();
@@ -81,8 +81,10 @@ class _SmoothAppState extends State<SmoothApp> {
       ),
       daoString: DaoString(_localDatabase),
     );
+
     await _productPreferences.init(DefaultAssetBundle.of(context));
     await _userPreferences.init(_productPreferences);
+
     AnalyticsHelper.setCrashReports(_userPreferences.crashReports);
     AnalyticsHelper.setAnalyticsReports(_userPreferences.analyticsReports);
     ProductQuery.setCountry(_userPreferences.userCountryCode);
@@ -106,7 +108,8 @@ class _SmoothAppState extends State<SmoothApp> {
           return _buildError(snapshot);
         }
         if (snapshot.connectionState != ConnectionState.done) {
-          return _buildLoader();
+          //We don't need a loading indicator since the splash screen is still visible
+          return Container();
         }
 
         // The `create` constructor of [ChangeNotifierProvider] takes care of
@@ -151,15 +154,6 @@ class _SmoothAppState extends State<SmoothApp> {
     );
   }
 
-  Widget _buildLoader() {
-    return Container(
-      color: systemDarkmodeOn ? const Color(0xFF181818) : Colors.white,
-      child: const Center(
-        child: CircularProgressIndicator(),
-      ),
-    );
-  }
-
   Widget _buildError(AsyncSnapshot<void> snapshot) {
     return MaterialApp(
       home: Scaffold(
@@ -175,41 +169,19 @@ class _SmoothAppState extends State<SmoothApp> {
 
 /// Layer needed because we need to know the language. Language isn't available
 /// in the [context] in top level widget ([SmoothApp])
-class SmoothAppGetLanguage extends StatefulWidget {
+class SmoothAppGetLanguage extends StatelessWidget {
   const SmoothAppGetLanguage(this.appWidget);
 
   final Widget appWidget;
 
   @override
-  State<SmoothAppGetLanguage> createState() => _SmoothAppGetLanguageState();
-}
-
-class _SmoothAppGetLanguageState extends State<SmoothAppGetLanguage> {
-  @override
-  void initState() {
-    super.initState();
-
-    // Currently converted into a StatefulWidget to call trackStart in initState
-    // since this widget got rebuild multiple time which it shouldn't
-    // TODO(open): Fix unnecessary rebuilds
-    WidgetsBinding.instance?.addPostFrameCallback((_) {
-      final LocalDatabase _localDatabase = Provider.of<LocalDatabase>(
-        context,
-        listen: false,
-      );
-      AnalyticsHelper.trackStart(_localDatabase, context);
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
-    final ProductPreferences productPreferences =
-        context.watch<ProductPreferences>();
-    final Locale myLocale = Localizations.localeOf(context);
-    final String languageCode = myLocale.languageCode;
+    final String languageCode = Localizations.localeOf(context).languageCode;
     ProductQuery.setLanguage(languageCode);
-    productPreferences.refresh(languageCode);
+    context.read<ProductPreferences>().refresh(languageCode);
+    final LocalDatabase _localDatabase = context.read<LocalDatabase>();
+    AnalyticsHelper.trackStart(_localDatabase, context);
 
-    return widget.appWidget;
+    return appWidget;
   }
 }
