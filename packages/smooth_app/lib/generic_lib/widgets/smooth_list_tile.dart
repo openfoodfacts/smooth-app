@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:smooth_app/generic_lib/animations/smooth_animated_collapse_arrow.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 
