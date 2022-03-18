@@ -357,13 +357,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.2"
-  google_ml_kit:
+  google_ml_barcode_scanner:
     dependency: "direct main"
     description:
-      name: google_ml_kit
+      name: google_ml_barcode_scanner
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.6.0"
+    version: "0.0.2"
   hive:
     dependency: "direct main"
     description:
