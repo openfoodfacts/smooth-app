@@ -45,7 +45,7 @@ dependencies:
   crop_your_image: ^0.7.0
   mailto: ^2.0.0
   flutter_native_splash: ^2.1.0
-  google_ml_kit: 0.6.0
+  google_ml_barcode_scanner: ^0.0.2
 
 
   

@@ -2,7 +2,7 @@ import 'dart:typed_data';
 import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:google_ml_kit/google_ml_kit.dart';
+import 'package:google_ml_barcode_scanner/google_ml_barcode_scanner.dart';
 import 'package:smooth_app/pages/scan/abstract_camera_image_getter.dart';
 
 /// Camera Image helper where we get the full image.
