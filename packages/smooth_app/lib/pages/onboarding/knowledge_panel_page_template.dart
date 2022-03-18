@@ -59,7 +59,7 @@ class _KnowledgePanelPageTemplateState
             return Text('Fatal Error: ${snapshot.error}');
           }
           if (snapshot.connectionState != ConnectionState.done) {
-            return const Center(child:  CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           }
           final Widget knowledgePanelWidget =
               const KnowledgePanelsBuilder().buildSingle(
