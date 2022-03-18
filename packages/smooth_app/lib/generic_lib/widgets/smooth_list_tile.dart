@@ -46,10 +46,8 @@ class SmoothListTile extends StatelessWidget {
                       )
                     else
                       title ?? Container(),
-                    // _buildIcon(context),
-                    SmoothAnimatedCollapseArrow(
+                    const SmoothAnimatedCollapseArrow(
                       collapsed: false,
-                      duration: Duration(milliseconds: 80),
                     ),
                   ],
                 ),
@@ -58,12 +56,4 @@ class SmoothListTile extends StatelessWidget {
           ),
         ),
       );
-
-  // Widget _buildIcon(BuildContext context) {
-  //   return leadingWidget ??
-  //       SvgPicture.asset(
-  //         'assets/misc/right_arrow.svg',
-  //         color: Theme.of(context).colorScheme.onSurface,
-  //       );
-  // }
 }
