@@ -3,6 +3,7 @@ import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:smooth_app/cards/category_cards/abstract_cache.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/widgets/attribute_helper.dart';
 
 class KnowledgePanelTitleCard extends StatelessWidget {
   const KnowledgePanelTitleCard({
@@ -79,13 +80,13 @@ class KnowledgePanelTitleCard extends StatelessWidget {
   Color? _getColorFromEvaluation(Evaluation evaluation) {
     switch (evaluation) {
       case Evaluation.BAD:
-        return Colors.red;
+        return RED_COLOR;
       case Evaluation.NEUTRAL:
-        return Colors.grey;
+        return GREY_COLOR;
       case Evaluation.AVERAGE:
-        return Colors.orange;
+        return LIGHT_ORANGE_COLOR;
       case Evaluation.GOOD:
-        return Colors.green;
+        return LIGHT_GREEN_COLOR;
       case Evaluation.UNKNOWN:
         return null;
     }
