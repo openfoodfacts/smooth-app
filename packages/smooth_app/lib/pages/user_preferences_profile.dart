@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mailto/mailto.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
+import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
-import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/pages/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/onboarding/country_selector.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
@@ -47,14 +49,82 @@ class UserPreferencesProfile extends AbstractUserPreferences {
 
   @override
   List<Widget> getBody() {
+    return <Widget>[
+      UserPreferencesSection(
+        userPreferences: userPreferences,
+        appLocalizations: appLocalizations,
+        themeData: themeData,
+      ),
+    ];
+  }
+}
+
+// Put into it's own widget in order for provider.watch() to work
+class UserPreferencesSection extends StatefulWidget {
+  const UserPreferencesSection({
+    Key? key,
+    required this.userPreferences,
+    required this.appLocalizations,
+    required this.themeData,
+  }) : super(key: key);
+
+  final UserPreferences userPreferences;
+  final AppLocalizations appLocalizations;
+  final ThemeData themeData;
+
+  @override
+  State<UserPreferencesSection> createState() => _UserPreferencesPageState();
+}
+
+class _UserPreferencesPageState extends State<UserPreferencesSection> {
+  void _confirmLogout(BuildContext context) {
+    final AppLocalizations localizations = AppLocalizations.of(context)!;
+
+    showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return SmoothAlertDialog(
+          close: false,
+          title: localizations.sign_out,
+          body: Text(
+            localizations.sign_out_confirmation,
+          ),
+          actions: <SmoothActionButton>[
+            SmoothActionButton(
+              text: localizations.yes,
+              onPressed: () async {
+                context.read<UserManagementProvider>().logout();
+                Navigator.pop(context);
+              },
+            ),
+            SmoothActionButton(
+              text: localizations.no,
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final UserManagementProvider userManagementProvider =
+        context.watch<UserManagementProvider>();
+
     final ThemeData theme = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final Size size = MediaQuery.of(context).size;
 
     final List<Widget> result = <Widget>[];
 
-    //Credentials exist
-    if (OpenFoodAPIConfiguration.globalUser != null) {
+    if (userManagementProvider.isLoading) {
+      //Loading
+      result.add(const Center(child: CircularProgressIndicator()));
+    } else if (OpenFoodAPIConfiguration.globalUser != null) {
+      //Credentials
       final String userId = OpenFoodAPIConfiguration.globalUser!.userId;
       result.add(
         ListTile(
@@ -93,13 +163,12 @@ class UserPreferencesProfile extends AbstractUserPreferences {
         Center(
           child: ElevatedButton(
             onPressed: () async {
-              await Navigator.push<dynamic>(
+              Navigator.push<dynamic>(
                 context,
                 MaterialPageRoute<dynamic>(
                   builder: (BuildContext context) => const LoginPage(),
                 ),
               );
-              setState(() {});
             },
             child: Text(
               appLocalizations.sign_in,
@@ -128,45 +197,42 @@ class UserPreferencesProfile extends AbstractUserPreferences {
         ListTile(
           leading: const Icon(Icons.public),
           title: CountrySelector(
-            initialCountryCode: userPreferences.userCountryCode,
+            initialCountryCode: widget.userPreferences.userCountryCode,
           ),
+        ),
+        SwitchListTile(
+          title: const Text(
+            'Crash reporting', // TODO(monsieurtanuki): localize
+          ),
+          subtitle: const Text(
+            'When enabled, crash reports will be sent to the Open Food Facts server automatically, so that we can fix bugs and improve the app.',
+          ),
+          isThreeLine: true,
+          value: widget.userPreferences.crashReports,
+          onChanged: (final bool value) async {
+            await widget.userPreferences.setCrashReports(value);
+            AnalyticsHelper.setCrashReports(value);
+            setState(() {});
+          },
+        ),
+        SwitchListTile(
+          title: const Text(
+            'Send anonymous data', // TODO(monsieurtanuki): localize
+          ),
+          subtitle: const Text(
+            'When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.',
+          ),
+          isThreeLine: true,
+          value: widget.userPreferences.analyticsReports,
+          onChanged: (final bool value) async {
+            await widget.userPreferences.setAnalyticsReports(value);
+            AnalyticsHelper.setAnalyticsReports(value);
+            setState(() {});
+          },
         ),
       ],
     );
 
-    return result;
-  }
-
-  void _confirmLogout(BuildContext context) {
-    final AppLocalizations localizations = AppLocalizations.of(context)!;
-
-    showDialog<void>(
-      context: context,
-      builder: (BuildContext context) {
-        return SmoothAlertDialog(
-          close: false,
-          title: localizations.sign_out,
-          body: Text(
-            localizations.sign_out_confirmation,
-          ),
-          actions: <SmoothActionButton>[
-            SmoothActionButton(
-              text: localizations.yes,
-              onPressed: () async {
-                UserManagementHelper.logout();
-                Navigator.pop(context);
-                setState(() {});
-              },
-            ),
-            SmoothActionButton(
-              text: localizations.no,
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-          ],
-        );
-      },
-    );
+    return Column(children: result);
   }
 }

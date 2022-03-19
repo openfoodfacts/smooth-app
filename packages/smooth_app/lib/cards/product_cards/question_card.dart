@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
+import 'package:smooth_app/data_models/user_management_provider.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
-import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
 
 class QuestionCard extends StatefulWidget {
@@ -28,13 +30,6 @@ class _QuestionCardState extends State<QuestionCard>
     with SingleTickerProviderStateMixin {
   int _currentQuestionIndex = 0;
   InsightAnnotation? _lastAnswer;
-  late Future<bool> _isUserLoggedInFuture;
-
-  @override
-  void initState() {
-    super.initState();
-    _isUserLoggedInFuture = UserManagementHelper.credentialsInStorage();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -116,7 +111,7 @@ class _QuestionCardState extends State<QuestionCard>
   Widget _buildWidget(BuildContext context, int currentQuestionIndex) {
     final List<RobotoffQuestion> questions = widget.questions;
     if (questions.length == currentQuestionIndex) {
-      return _buildCongratsWidget(context);
+      return const CongratsWidget();
     }
     return Column(
       children: <Widget>[
@@ -315,11 +310,35 @@ class _QuestionCardState extends State<QuestionCard>
       ),
     );
   }
+}
 
-  Widget _buildCongratsWidget(BuildContext context) {
+Future<void> saveAnswer(
+  BuildContext context, {
+  required String? insightId,
+  required InsightAnnotation insightAnnotation,
+}) async {
+  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+  await LoadingDialog.run<Status>(
+    context: context,
+    future: OpenFoodAPIClient.postInsightAnnotation(
+      insightId,
+      insightAnnotation,
+      deviceId: OpenFoodAPIConfiguration.uuid,
+    ),
+    title: appLocalizations.saving_answer,
+  );
+}
+
+class CongratsWidget extends StatelessWidget {
+  const CongratsWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     final TextStyle bodyTextStyle =
         Theme.of(context).textTheme.bodyText2!.apply(color: Colors.white);
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final UserManagementProvider userManagementProvider =
+        context.watch<UserManagementProvider>();
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -337,7 +356,7 @@ class _QuestionCardState extends State<QuestionCard>
             ),
           ),
           FutureBuilder<bool>(
-              future: _isUserLoggedInFuture,
+              future: userManagementProvider.credentialsInStorage(),
               builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
                 if (snapshot.hasData) {
                   final bool isUserLoggedIn = snapshot.data!;
@@ -379,6 +398,7 @@ class _QuestionCardState extends State<QuestionCard>
                         child: Text(
                           appLocalizations.sign_in_text,
                           style: bodyTextStyle,
+                          textAlign: TextAlign.center,
                         ),
                       ),
                     ],
@@ -387,25 +407,12 @@ class _QuestionCardState extends State<QuestionCard>
                   return EMPTY_WIDGET;
                 }
               }),
+          SmoothActionButton(
+            text: appLocalizations.close,
+            onPressed: () => Navigator.pop<Widget>(context),
+          ),
         ],
       ),
     );
   }
-}
-
-Future<void> saveAnswer(
-  BuildContext context, {
-  required String? insightId,
-  required InsightAnnotation insightAnnotation,
-}) async {
-  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-  await LoadingDialog.run<Status>(
-    context: context,
-    future: OpenFoodAPIClient.postInsightAnnotation(
-      insightId,
-      insightAnnotation,
-      deviceId: OpenFoodAPIConfiguration.uuid,
-    ),
-    title: appLocalizations.saving_answer,
-  );
 }
