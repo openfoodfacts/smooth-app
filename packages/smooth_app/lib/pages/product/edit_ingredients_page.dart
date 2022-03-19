@@ -5,8 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/OcrIngredientsResult.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-//import 'package:openfoodfacts/model/Product.dart';
-//import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/helpers/picture_capture_helper.dart';
@@ -73,6 +71,7 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
   Future<void> _onSubmitField(String string) async {
     final User user = ProductQuery.getUser();
 
+    // TODO(justinmc): LoadingDialog.
     setState(() {
       _updatingIngredients = true;
     });
@@ -81,12 +80,7 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
       await _updateIngredientsText(string, user);
     } catch (error) {
       final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(appLocalizations.ingredients_editing_error),
-          duration: const Duration(seconds: 3),
-        ),
-      );
+      _showError(appLocalizations.ingredients_editing_error);
     }
 
     setState(() {
@@ -103,12 +97,7 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
       await _getImage();
     } catch (error) {
       final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(appLocalizations.ingredients_editing_image_error),
-          duration: const Duration(seconds: 3),
-        ),
-      );
+      _showError(appLocalizations.ingredients_editing_image_error);
     }
 
     setState(() {
@@ -116,6 +105,21 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
     });
   }
 
+  // Show the given error message to the user in a SnackBar.
+  void _showError(String error) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(error),
+        duration: const Duration(seconds: 3),
+      ),
+    );
+  }
+
+  // Get an image from the camera, run OCR on it, and update the product's
+  // ingredients.
+  //
+  // Returns a Future that resolves successfully only if everything succeeds,
+  // otherwise it will resolve with the relevant error.
   Future<void> _getImage() async {
     final File? croppedImageFile = await startImageCropping(context);
 
@@ -132,7 +136,7 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
     final bool isUploaded = await uploadCapturedPicture(
       context,
       barcode: widget.product
-          .barcode!, //Probably throws an error, but this is not a big problem when we got a product without a barcode
+          .barcode!,
       imageField: ImageField.INGREDIENTS,
       imageUri: croppedImageFile.uri,
     );
@@ -143,16 +147,13 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
     }
 
     final OpenFoodFactsLanguage? language = ProductQuery.getLanguage();
-    if (language == null) {
-      throw Exception("Couldn't find language.");
-    }
 
     final User user = ProductQuery.getUser();
 
     // Get the ingredients from the image.
     final OcrIngredientsResult ingredientsResult =
         await OpenFoodAPIClient.extractIngredients(
-            user, widget.barcode!, ProductQuery.getLanguage()!);
+            user, widget.barcode!, language!);
 
     final String? nextIngredients = ingredientsResult.ingredientsTextFromImage;
     if (nextIngredients == null || nextIngredients.isEmpty) {
