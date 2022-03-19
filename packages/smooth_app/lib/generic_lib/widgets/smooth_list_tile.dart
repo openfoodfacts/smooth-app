@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_app/generic_lib/animations/smooth_animated_collapse_arrow.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 
 class SmoothListTile extends StatelessWidget {
@@ -45,9 +45,7 @@ class SmoothListTile extends StatelessWidget {
                       )
                     else
                       title ?? Container(),
-                    const SmoothAnimatedCollapseArrow(
-                      collapsed: false,
-                    ),
+                    _buildIcon(context),
                   ],
                 ),
               ),
@@ -55,4 +53,12 @@ class SmoothListTile extends StatelessWidget {
           ),
         ),
       );
+
+  Widget _buildIcon(BuildContext context) {
+    return leadingWidget ??
+        SvgPicture.asset(
+          'assets/misc/right_arrow.svg',
+          color: Theme.of(context).colorScheme.onSurface,
+        );
+  }
 }
