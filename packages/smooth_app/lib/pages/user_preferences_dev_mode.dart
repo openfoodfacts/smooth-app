@@ -35,12 +35,15 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         );
 
   static const String userPreferencesFlagProd = '__devWorkingOnProd';
+  static const String userPreferencesTestEnvHost = '__testEnvHost';
   static const String userPreferencesFlagUseMLKit = '__useMLKit';
   static const String userPreferencesFlagLenientMatching = '__lenientMatching';
   static const String userPreferencesFlagAdditionalButton =
       '__additionalButtonOnProductPage';
   static const String userPreferencesFlagEditIngredients = '__editIngredients';
   static const String userPreferencesEnumScanMode = '__scanMode';
+
+  final TextEditingController _textFieldController = TextEditingController();
 
   @override
   bool isCollapsedByDefault() => true;
@@ -85,7 +88,8 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         ListTile(
-          title: const Text('Switch between openfoodfacts.org and .net'),
+          title: const Text(
+              'Switch between openfoodfacts.org (PROD) and test env'),
           subtitle: Text(
             'Current query type is ${OpenFoodAPIConfiguration.globalQueryType}',
           ),
@@ -95,6 +99,13 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             ProductQuery.setQueryType(userPreferences);
             setState(() {});
           },
+        ),
+        ListTile(
+          title: const Text('Test env parameters'),
+          subtitle: Text(
+            'Current base URL of test env is ${OpenFoodAPIConfiguration.uriScheme}://${OpenFoodAPIConfiguration.uriTestHost}/',
+          ),
+          onTap: () async => _changeTestEnvHost(),
         ),
         SwitchListTile(
           title: const Text('Use ML Kit'),
@@ -233,6 +244,35 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
       ];
+
+  Future<void> _changeTestEnvHost() async {
+    _textFieldController.text =
+        userPreferences.getDevModeString(userPreferencesTestEnvHost) ??
+            OpenFoodAPIConfiguration.uriTestHost;
+    final bool? result = await showDialog<bool>(
+      context: context,
+      builder: (final BuildContext context) => AlertDialog(
+        title: const Text('Test Env Host'),
+        content: TextField(controller: _textFieldController),
+        actions: <Widget>[
+          TextButton(
+            child: const Text('Cancel'),
+            onPressed: () => Navigator.pop(context, false),
+          ),
+          ElevatedButton(
+            child: const Text('OK'),
+            onPressed: () => Navigator.pop(context, true),
+          ),
+        ],
+      ),
+    );
+    if (result == true) {
+      await userPreferences.setDevModeString(
+          userPreferencesTestEnvHost, _textFieldController.text);
+      ProductQuery.setQueryType(userPreferences);
+      setState(() {});
+    }
+  }
 }
 
 enum DevModeScanMode {

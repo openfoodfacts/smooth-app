@@ -4,9 +4,9 @@
     "@yes": {},
     "add": "Přidat",
     "@add": {},
-    "okay": "Okay",
+    "okay": "Potvrdit",
     "@okay": {},
-    "applyButtonText": "Apply",
+    "applyButtonText": "Použít",
     "@applyButtonText": {},
     "next_label": "Další",
     "@next_label": {
@@ -20,7 +20,7 @@
     "@close": {},
     "no": "Ne",
     "@no": {},
-    "stop": "Stop",
+    "stop": "Zastavit",
     "@stop": {},
     "finish": "Dokončit",
     "@finish": {},
@@ -30,19 +30,19 @@
     },
     "error": "Něco se nepovedlo",
     "@error": {},
-    "error_occurred": "An error occurred",
+    "error_occurred": "Vyskytla se chyba",
     "@error_occurred": {},
-    "featureInProgress": "We're still working on this feature, stay tuned",
+    "featureInProgress": "Na této funkci stále pracujeme, zůstaňte na příjmu",
     "@featureInProgress": {},
-    "label_web": "View on the Web",
+    "label_web": "Zobrazit na webu",
     "@label_web": {},
-    "learnMore": "Learn more",
+    "learnMore": "Zjistit více",
     "@learnMore": {},
-    "incompatible": "Incompatible",
+    "incompatible": "Nekompatibilní",
     "@incompatible": {
         "description": "Short label for product list view: the product is incompatible with your preferences"
     },
-    "compatible": "Compatible",
+    "compatible": "Kompatibilní",
     "@compatible": {
         "description": "Short label for product list view: the product is compatible with your preferences"
     },
@@ -52,41 +52,41 @@
     },
     "licenses": "Licences",
     "@licenses": {},
-    "looking_for": "Looking for",
+    "looking_for": "Hledáte",
     "@looking_for": {
         "description": "Looking for: ${BARCODE}"
     },
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Vítejte v Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "whatIsOff": "Open Food Facts je globální nezisková organizace založená na místních komunitách.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Choose foods that are good for you and the planet.",
+    "offUtility": "Vybírejte si jídlo, které jsou dobré pro vás a pro planetu.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
-    "productDataUtility": "See the food data relevant to your preferences.",
+    "productDataUtility": "Podívejte se na údaje o jídle relevantní pro vaše preference.",
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."
     },
-    "healthCardUtility": "Choose foods that are good for you.",
+    "healthCardUtility": "Vyberte si potraviny, které jsou pro vás dobré.",
     "@healthCardUtility": {
         "description": "Description of what a user can use the health data in a product for."
     },
-    "ecoCardUtility": "Choose foods that are good for the planet.",
+    "ecoCardUtility": "Vyberte si potraviny, které jsou dobré pro planetu.",
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
-    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
-    "incorrect_credentials": "Incorrect username or password.",
+    "sign_in_text": "Pro uložení vašich příspěvků se přihlaste ke svému účtu Open Food Facts",
+    "incorrect_credentials": "Nesprávné uživatelské jméno nebo heslo.",
     "login": "Uživatelské jméno",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
-    "create_account": "Create account",
+    "create_account": "Vytvořit účet",
     "@create_account": {
         "description": "Button label: Opens a page where a new user can register"
     },
@@ -94,20 +94,20 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_out": "Sign out",
+    "sign_out": "Odhlásit",
     "@sign_out": {
         "description": "Button label: For sign out"
     },
-    "sign_out_confirmation": "Are you sure you want to sign out?",
+    "sign_out_confirmation": "Opravdu se chcete odhlásit?",
     "@sign_out_confirmation": {
         "description": "Pop up title: Reassuring if the user really want to sign out"
     },
     "password": "Heslo",
-    "forgot_password": "Forgot password",
+    "forgot_password": "Zapomenuté heslo",
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset e-mail can be requested"
     },
-    "view_profile": "View profile",
+    "view_profile": "Zobrazit profil",
     "@view_profile": {
         "description": "Button label: For to show your account"
     },
@@ -115,49 +115,49 @@
     "@reset_password": {
         "description": "Forgot password page title"
     },
-    "reset_password_explanation_text": "In case of a forgotten password, enter your username or e-mail address to receive instructions for a password reset. Also, remember to check the Spam folder.",
-    "username_or_email": "Username or e-mail",
+    "reset_password_explanation_text": "V případě zapomenutého hesla zadejte své uživatelské jméno nebo e-mailovou adresu, abyste mohli obdržet pokyny pro obnovení hesla. Také nezapomeňte zkontrolovat složku nevyžádané pošty.",
+    "username_or_email": "Uživatelské jméno nebo e-mail",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
-    "reset_password_done": "An e-mail with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
-    "send_reset_password_mail": "Change password",
+    "reset_password_done": "E-mail s odkazem na obnovení hesla byl odeslán na e-mailovou adresu spojenou s vaším účtem. Také zkontrolujte spam",
+    "send_reset_password_mail": "Změnit heslo",
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset e-mail request"
     },
-    "enter_some_text": "Please enter some text",
+    "enter_some_text": "Zadejte prosím nějaký text",
     "@enter_some_text": {
         "description": "Error when a required text field is empty"
     },
-    "sign_up_page_title": "Sign Up",
+    "sign_up_page_title": "Vytvořit účet",
     "@sign_up_page_title": {
         "description": "Header"
     },
-    "sign_up_page_action_button": "Sign Up",
+    "sign_up_page_action_button": "Vytvořit účet",
     "@sign_up_page_action_button": {
         "description": "Button for signing up"
     },
-    "sign_up_page_action_doing_it": "Signing up...",
+    "sign_up_page_action_doing_it": "Registrace...",
     "@sign_up_page_action_doing_it": {
         "description": "Progress indicator dialog during the actual signing up process"
     },
-    "sign_up_page_action_ok": "Congratulations! Your account has just been created.",
-    "sign_up_page_display_name_hint": "Display Name",
-    "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
+    "sign_up_page_action_ok": "Gratulujeme! Váš účet byl vytvořen.",
+    "sign_up_page_display_name_hint": "Zobrazované jméno",
+    "sign_up_page_display_name_error_empty": "Zadejte zobrazované jméno, které chcete používat",
     "sign_up_page_email_hint": "E-mail",
-    "sign_up_page_email_error_empty": "E-mail is required",
-    "sign_up_page_email_error_invalid": "This e-mail is invalid",
+    "sign_up_page_email_error_empty": "E-mail je povinný",
+    "sign_up_page_email_error_invalid": "Tato e-mailová adresa je neplatná",
     "sign_up_page_username_hint": "Uživatelské jméno",
-    "sign_up_page_username_error_empty": "Please enter a username",
-    "sign_up_page_username_error_invalid": "Please enter a valid username",
-    "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters",
+    "sign_up_page_username_error_empty": "Prosím, zadejte své uživatelské jméno",
+    "sign_up_page_username_error_invalid": "Zadejte prosím platné uživatelské jméno",
+    "sign_up_page_username_description": "Uživatelské jméno nesmí obsahovat mezery, velká písmena ani speciální znaky",
     "sign_up_page_password_hint": "Heslo",
-    "sign_up_page_password_error_empty": "Please enter a password",
-    "sign_up_page_password_error_invalid": "Please enter a valid password (at least 6 characters)",
-    "sign_up_page_confirm_password_hint": "Confirm Password",
-    "sign_up_page_confirm_password_error_empty": "Please confirm the password",
-    "sign_up_page_confirm_password_error_invalid": "Passwords don't match",
-    "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
+    "sign_up_page_password_error_empty": "Zadejte heslo",
+    "sign_up_page_password_error_invalid": "Zadejte prosím platné heslo (alespoň 6 znaků)",
+    "sign_up_page_confirm_password_hint": "Potvrzení hesla",
+    "sign_up_page_confirm_password_error_empty": "Potvrďte prosím heslo",
+    "sign_up_page_confirm_password_error_invalid": "Hesla se neshodují",
+    "sign_up_page_agree_url": "https://cz.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
@@ -577,5 +577,9 @@
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },
-    "retry_button_label": "Opakovat"
+    "retry_button_label": "Opakovat",
+    "main_app_color": "Main color of the app",
+    "@main_app_color": {
+        "description": "Heading for the section to pick the main app color"
+    }
 }

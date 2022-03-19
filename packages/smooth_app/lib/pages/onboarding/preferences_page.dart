@@ -44,7 +44,7 @@ class _PreferencesPageState extends State<PreferencesPage> {
             return Text('Fatal Error: ${snapshot.error}');
           }
           if (snapshot.connectionState != ConnectionState.done) {
-            return const CircularProgressIndicator();
+            return const Center(child: CircularProgressIndicator());
           }
           return _Helper(_product);
         },

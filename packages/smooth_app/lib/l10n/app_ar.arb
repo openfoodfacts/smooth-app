@@ -42,7 +42,7 @@
     "@incompatible": {
         "description": "Short label for product list view: the product is incompatible with your preferences"
     },
-    "compatible": "Compatible",
+    "compatible": "متوافق",
     "@compatible": {
         "description": "Short label for product list view: the product is compatible with your preferences"
     },
@@ -157,7 +157,7 @@
     "sign_up_page_confirm_password_hint": "تأكيد كلمة المرور",
     "sign_up_page_confirm_password_error_empty": "برجاء تأكيد كلمة المرور",
     "sign_up_page_confirm_password_error_invalid": "كلمة السر غير مطابقة",
-    "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use\n",
+    "sign_up_page_agree_url": "https://world-ar.openfoodfacts.org/terms-of-use\n",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
@@ -265,9 +265,9 @@
     "myPreferences_profile_subtitle": "اضبط إعدادات التطبيق واكتشف النصائح.",
     "myPreferences_settings_title": "إعدادات التطبيق",
     "myPreferences_settings_subtitle": "الوضع الداكن، المظهر، ...",
-    "myPreferences_food_title": "Food Preferences",
-    "myPreferences_food_subtitle": "Choose what information about food matters most to you.",
-    "confirmResetPreferences": "Reset your food preferences?",
+    "myPreferences_food_title": "أضف تفضيلات غذائية",
+    "myPreferences_food_subtitle": "اختر المعلومات التي تهمك أكثر عن الطعام.",
+    "confirmResetPreferences": "إعادة تعيين تفضيلات التطبيق؟",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
     },
@@ -276,9 +276,9 @@
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
     "ranking_tab_all": "الكل",
-    "ranking_subtitle_match_yes": "A great match for you",
-    "ranking_subtitle_match_no": "Very poor match",
-    "ranking_subtitle_match_maybe": "Unknown match",
+    "ranking_subtitle_match_yes": "",
+    "ranking_subtitle_match_no": "تطابُق ضعيف جداً",
+    "ranking_subtitle_match_maybe": "تطابق غير معروف",
     "reloaded_with_new_preferences": "تم التحميل مع تفضيلات جديدة",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
@@ -352,61 +352,61 @@
     },
     "packaging_information_photo": "صورة معلومات التعبِئة",
     "@packaging_information_photo": {},
-    "missing_product": "You found a new product!",
+    "missing_product": "لقد وجدت منتجا جديدا!",
     "@missing_product": {},
-    "add_product_take_photos": "Take photos of the packaging to add this product to our database.",
+    "add_product_take_photos": "التقط صورًا للعبوة لإضافة هذا المنتج إلى قاعدة بياناتنا.",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Please take the following photos and the Open Food Facts engine can work out the rest!",
+    "add_product_take_photos_descriptive": "يرجى التقاط الصور التالية ويمكن لمحرك الحقائق الغذائية المفتوحة أن يعمل على الباقي!",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "إضافة معلومات عن المنتج",
     "@add_product_information_button_label": {},
-    "new_product": "New Product",
+    "new_product": "منتج جديد",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Front packaging photo",
+    "front_packaging_photo_button_label": "صورة التغليف الأمامي",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Confirm Front packaging photo",
+    "confirm_front_packaging_photo_button_label": "تأكيد صورة التغليف الأمامي",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front packaging that user just took."
     },
-    "front_photo_uploaded": "Front photo uploaded",
+    "front_photo_uploaded": "تم تحميل الصورة الأمامية",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "صورة المكونات",
     "@ingredients_photo_button_label": {},
-    "confirm_ingredients_photo_button_label": "Confirm Ingredients photo",
+    "confirm_ingredients_photo_button_label": "تأكيد صورة المكونات",
     "@confirm_ingredients_photo_button_label": {
         "description": "Button clicking on which confirms the picture of ingredients that user just took."
     },
-    "ingredients_photo_uploaded": "Ingredients photo uploaded",
+    "ingredients_photo_uploaded": "تم تحميل صورة المكونات",
     "@ingredients_photo_uploaded": {},
-    "nutritional_facts_photo_button_label": "Nutritional facts photo",
+    "nutritional_facts_photo_button_label": "صورة الحقائق الغذائية",
     "@nutritional_facts_photo_button_label": {},
-    "confirm_nutritional_facts_photo_button_label": "Confirm Nutritional facts photo",
+    "confirm_nutritional_facts_photo_button_label": "تأكيد صورة الحقائق الغذائية",
     "@confirm_nutritional_facts_photo_button_label": {
         "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
     },
-    "nutritional_facts_photo_uploaded": "Nutritional facts photo uploaded",
+    "nutritional_facts_photo_uploaded": "تم تحميل صورة الحقائق الغذائية",
     "@nutritional_facts_photo_uploaded": {},
-    "recycling_photo_button_label": "Recycling information photo",
+    "recycling_photo_button_label": "صورة معلومات إعادة التدوير",
     "@recycling_photo_button_label": {},
-    "confirm_recycling_photo_button_label": "Confirm Recycling information photo",
+    "confirm_recycling_photo_button_label": "تأكيد صورة معلومات إعادة التدوير",
     "@confirm_recycling_photo_button_label": {
         "description": "Button clicking on which confirms the picture of recycling information that user just took."
     },
-    "recycling_photo_uploaded": "Recycling photo uploaded",
+    "recycling_photo_uploaded": "تم تحميل صورة إعادة التدوير",
     "@recycling_photo_uploaded": {},
-    "other_interesting_photo_button_label": "Other interesting photos",
+    "other_interesting_photo_button_label": "صور أخرى مثيرة للاهتمام",
     "@other_interesting_photo_button_label": {},
-    "confirm_other_interesting_photo_button_label": "Confirm photo",
+    "confirm_other_interesting_photo_button_label": "تأكيد الصورة",
     "@confirm_other_interesting_photo_button_label": {
         "description": "Button clicking on which confirms a miscellaneous photo of the product."
     },
-    "other_photo_uploaded": "Miscellaneous photo uploaded",
+    "other_photo_uploaded": "تم تحميل صور متنوعة",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "الإعادة",
     "@retake_photo_button_label": {
         "description": "Button clicking on which allows users to retake the last photo they took."
     },
-    "selecting_photo": "Selecting photo",
+    "selecting_photo": "تحديد الصورة",
     "@selecting_photo": {
         "description": "Progress indicator when the users takes a photo"
     },
@@ -577,5 +577,9 @@
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },
-    "retry_button_label": "إعادة المحاولة"
+    "retry_button_label": "إعادة المحاولة",
+    "main_app_color": "Main color of the app",
+    "@main_app_color": {
+        "description": "Heading for the section to pick the main app color"
+    }
 }
