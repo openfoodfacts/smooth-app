@@ -2,6 +2,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -105,12 +107,14 @@ class _SignUpPageState extends State<SignUpPage> {
                   return appLocalizations.sign_up_page_username_error_empty;
                 }
                 if (!UserManagementHelper.isUsernameValid(value)) {
-                  return appLocalizations.sign_up_page_username_error_invalid;
+                  return appLocalizations.sign_up_page_username_description;
                 }
                 return null;
               },
             ),
+
             const SizedBox(height: space),
+
             SmoothTextFormField(
               type: TextFieldTypes.PASSWORD,
               controller: _password1Controller,
@@ -151,8 +155,7 @@ class _SignUpPageState extends State<SignUpPage> {
               },
             ),
             const SizedBox(height: space),
-            Text(appLocalizations.sign_up_page_username_description),
-            const SizedBox(height: space),
+
             // careful with CheckboxListTile and hyperlinks
             // cf. https://github.com/flutter/flutter/issues/31437
             ListTile(
@@ -297,7 +300,7 @@ class _SignUpPageState extends State<SignUpPage> {
       await LoadingDialog.error(context: context, title: status.error);
       return;
     }
-    await UserManagementHelper.put(user);
+    await context.read<UserManagementProvider>().putUser(user);
     await showDialog<void>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
