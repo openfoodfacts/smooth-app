@@ -14,3 +14,9 @@ const Color DARK_YELLOW_COLOR = Color(0xFFC88F01);
 const Color LIGHT_ORANGE_COLOR = Color(0xFFF2994A);
 const Color DARK_ORANGE_COLOR = Color(0xFFE07312);
 const Color RED_COLOR = Color(0xFFEB5757);
+
+const Color RED_BACKGROUND_COLOR = Color.fromRGBO(255, 204, 204, 1);
+const Color ORANGE_BACKGROUND_COLOR = Color.fromRGBO(255, 230, 204, 1);
+const Color YELLOW_BACKGROUND_COLOR = Color.fromRGBO(255, 255, 204, 1);
+const Color LIGHT_GREEN_BACKGROUND_COLOR = Color.fromRGBO(230, 255, 204, 1);
+const Color DARK_GREEN_BACKGROUND_COLOR = Color.fromRGBO(204, 255, 204, 1);

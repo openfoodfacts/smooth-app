@@ -3,6 +3,7 @@ import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/widgets/attribute_helper.dart';
 
 /// Colored button for attribute importance, with corresponding action
 class AttributeButton extends StatelessWidget {
@@ -21,9 +22,9 @@ class AttributeButton extends StatelessWidget {
   };
 
   static const Map<String, Color> _colors = <String, Color>{
-    PreferenceImportance.ID_NOT_IMPORTANT: Color(0xFF666666),
-    PreferenceImportance.ID_IMPORTANT: Colors.blue,
-    PreferenceImportance.ID_MANDATORY: Colors.red,
+    PreferenceImportance.ID_NOT_IMPORTANT: PRIMARY_GREY_COLOR,
+    PreferenceImportance.ID_IMPORTANT: PRIMARY_BLUE_COLOR,
+    PreferenceImportance.ID_MANDATORY: RED_COLOR,
   };
 
   @override

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/widgets/attribute_helper.dart';
 
 // TODO(Stephane): Evaluation should come directly from the BE.
 enum AttributeEvaluation {
@@ -17,12 +18,12 @@ Widget getAttributeDisplayIcon(final Attribute attribute) => Padding(
       padding: const EdgeInsets.only(right: VERY_SMALL_SPACE),
       child: _attributeMatchComparison(
         attribute,
-        const Icon(CupertinoIcons.question, color: Colors.red),
-        const Icon(Icons.lens, color: Colors.red),
-        const Icon(Icons.lens, color: Colors.orange),
-        const Icon(Icons.lens, color: Colors.orange),
-        const Icon(Icons.lens, color: Colors.green),
-        const Icon(Icons.lens, color: Colors.green),
+        const Icon(CupertinoIcons.question, color: RED_COLOR),
+        const Icon(Icons.lens, color: RED_COLOR),
+        const Icon(Icons.lens, color: LIGHT_ORANGE_COLOR),
+        const Icon(Icons.lens, color: LIGHT_ORANGE_COLOR),
+        const Icon(Icons.lens, color: LIGHT_GREEN_COLOR),
+        const Icon(Icons.lens, color: LIGHT_GREEN_COLOR),
       ),
     );
 

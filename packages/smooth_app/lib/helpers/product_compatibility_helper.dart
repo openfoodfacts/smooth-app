@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/helpers/smooth_matched_product.dart';
+import 'package:smooth_app/widgets/attribute_helper.dart';
 
 class ProductCompatibilityHelper {
   const ProductCompatibilityHelper(this.matchedProduct);
@@ -11,11 +12,11 @@ class ProductCompatibilityHelper {
     switch (matchedProduct.status) {
       case null:
       case MatchedProductStatus.UNKNOWN:
-        return Colors.grey;
+        return GREY_COLOR;
       case MatchedProductStatus.NO:
-        return Colors.red;
+        return RED_COLOR;
       case MatchedProductStatus.YES:
-        return Colors.green;
+        return LIGHT_GREEN_COLOR;
     }
   }
 
