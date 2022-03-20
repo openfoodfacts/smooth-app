@@ -46,7 +46,7 @@ class MockSmoothApp extends StatelessWidget {
             Brightness.dark,
             themeProvider.colorTag,
           ),
-          themeMode: themeProvider.darkTheme ? ThemeMode.dark : ThemeMode.light,
+          themeMode: themeProvider.currentThemeMode,
           home: child,
         ));
   }
