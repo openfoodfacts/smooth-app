@@ -66,7 +66,7 @@ class _ProductPageState extends State<ProductPage> {
     final MaterialColor materialColor =
         SmoothTheme.getMaterialColor(themeProvider);
 
-    final size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.of(context).size;
 
     return Scaffold(
       backgroundColor: SmoothTheme.getColor(
