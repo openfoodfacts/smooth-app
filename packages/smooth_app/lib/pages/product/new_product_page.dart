@@ -66,6 +66,8 @@ class _ProductPageState extends State<ProductPage> {
     final MaterialColor materialColor =
         SmoothTheme.getMaterialColor(themeProvider);
 
+    final size = MediaQuery.of(context).size;
+
     return Scaffold(
       backgroundColor: SmoothTheme.getColor(
         colorScheme,
@@ -85,24 +87,69 @@ class _ProductPageState extends State<ProductPage> {
             )
           : null,
       floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
-      body: NotificationListener<UserScrollNotification>(
-          onNotification: (UserScrollNotification notification) {
-            if (notification.direction == ScrollDirection.forward) {
-              if (!isVisible) {
-                setState(() {
-                  isVisible = true;
-                });
-              }
-            } else if (notification.direction == ScrollDirection.reverse) {
-              if (isVisible) {
-                setState(() {
-                  isVisible = false;
-                });
-              }
-            }
-            return true;
-          },
-          child: _buildProductBody(context)),
+      body: Stack(
+        children: [
+          NotificationListener<UserScrollNotification>(
+              onNotification: (UserScrollNotification notification) {
+                if (notification.direction == ScrollDirection.forward) {
+                  if (!isVisible) {
+                    setState(() {
+                      isVisible = true;
+                    });
+                  }
+                } else if (notification.direction == ScrollDirection.reverse) {
+                  if (isVisible) {
+                    setState(() {
+                      isVisible = false;
+                    });
+                  }
+                }
+                return true;
+              },
+              child: _buildProductBody(context)),
+          if(isVisible) ...[
+            Positioned(
+            bottom: size.height*0.03,
+            right: size.width*0.06,
+              child: Container(
+            height: size.height * 0.06,
+            width: size.width * 0.1,
+            decoration: const BoxDecoration(
+              color: Colors.pink,
+              shape: BoxShape.circle
+            ),
+            child: PopupMenuButton<ProductPageMenuItem>(
+              itemBuilder: (BuildContext context) =>
+                  <PopupMenuEntry<ProductPageMenuItem>>[
+                PopupMenuItem<ProductPageMenuItem>(
+                  value: ProductPageMenuItem.WEB,
+                  child: Text(appLocalizations.label_web),
+                ),
+                PopupMenuItem<ProductPageMenuItem>(
+                  value: ProductPageMenuItem.REFRESH,
+                  child: Text(appLocalizations.label_refresh),
+                ),
+              ],
+              onSelected: (final ProductPageMenuItem value) async {
+                switch (value) {
+                  case ProductPageMenuItem.WEB:
+                    LaunchUrlHelper.launchURL(
+                        'https://openfoodfacts.org/product/${_product.barcode}/',
+                        false);
+                    break;
+                  case ProductPageMenuItem.REFRESH:
+                    _refreshProduct(context);
+                    break;
+                }
+              },
+            ),
+          ))
+
+          ]
+
+          
+        ],
+      ),
     );
   }
 
