@@ -48,7 +48,6 @@ class KnowledgePanelCard extends StatelessWidget {
               appBar: AppBar(),
               body: SingleChildScrollView(
                 child: SmoothCard(
-                  color: const Color(0xfff5f6fa),
                   padding: const EdgeInsets.all(
                     SMALL_SPACE,
                   ),
