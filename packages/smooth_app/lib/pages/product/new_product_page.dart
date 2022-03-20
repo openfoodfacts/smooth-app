@@ -107,15 +107,17 @@ class _ProductPageState extends State<ProductPage> {
                 return true;
               },
               child: _buildProductBody(context)),
+
+          //! It is a temporary button for Pop-Up action menu
           if(isVisible) ...[
             Positioned(
-            bottom: size.height*0.03,
-            right: size.width*0.06,
+            bottom: size.height*0.01,
+            right: size.width*0.01,
               child: Container(
-            height: size.height * 0.06,
-            width: size.width * 0.1,
-            decoration: const BoxDecoration(
-              color: Colors.pink,
+            height: size.height * 0.05,
+            width: size.width * 0.2,
+            decoration:  BoxDecoration(
+              color: colorScheme.primary,
               shape: BoxShape.circle
             ),
             child: PopupMenuButton<ProductPageMenuItem>(
