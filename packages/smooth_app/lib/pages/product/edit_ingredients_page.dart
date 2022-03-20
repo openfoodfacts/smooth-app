@@ -333,35 +333,37 @@ class _ActionButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<Widget> children = hasImage
+        ? <Widget>[
+            FloatingActionButton.small(
+              tooltip: 'Retake photo',
+              backgroundColor: Colors.white,
+              foregroundColor: Colors.grey,
+              onPressed: getImage,
+              child: const Icon(Icons.refresh),
+            ),
+            const SizedBox(width: 12.0),
+            FloatingActionButton.small(
+              tooltip: 'Confirm',
+              backgroundColor: Colors.blue,
+              foregroundColor: Colors.white,
+              onPressed: () {},
+              child: const Icon(Icons.check),
+            ),
+        ]
+        : <Widget>[
+            FloatingActionButton.small(
+              tooltip: 'Take photo',
+              backgroundColor: Colors.white,
+              foregroundColor: Colors.grey,
+              onPressed: getImage,
+              child: const Icon(Icons.camera_alt),
+            ),
+        ];
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
-      children: <Widget>[
-        if (!hasImage)
-          FloatingActionButton.small(
-            tooltip: 'Take photo',
-            backgroundColor: Colors.white,
-            foregroundColor: Colors.grey,
-            onPressed: getImage,
-            child: const Icon(Icons.camera_alt),
-          ),
-        if (hasImage)
-          FloatingActionButton.small(
-            tooltip: 'Retake photo',
-            backgroundColor: Colors.white,
-            foregroundColor: Colors.grey,
-            onPressed: getImage,
-            child: const Icon(Icons.refresh),
-          ),
-        if (hasImage) const SizedBox(width: 12.0),
-        if (hasImage)
-          FloatingActionButton.small(
-            tooltip: 'Confirm',
-            backgroundColor: Colors.blue,
-            foregroundColor: Colors.white,
-            onPressed: () {},
-            child: const Icon(Icons.check),
-          ),
-      ],
+      children: children,
     );
   }
 }
