@@ -108,7 +108,7 @@ class _ProductPageState extends State<ProductPage> {
               child: _buildProductBody(context)),
 
           //! It is a temporary button for Pop-Up action menu
-          if (isVisible) ...[
+          if (isVisible) ...<Widget>[
             Positioned(
                 bottom: size.height * 0.01,
                 right: size.width * 0.01,
