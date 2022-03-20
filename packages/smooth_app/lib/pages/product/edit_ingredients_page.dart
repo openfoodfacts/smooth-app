@@ -8,6 +8,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
@@ -259,6 +260,7 @@ class _EditIngredientsBody extends StatelessWidget {
       Brightness.dark,
       themeProvider.colorTag,
     );
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
 
     return Align(
       alignment: Alignment.bottomLeft,
@@ -283,7 +285,6 @@ class _EditIngredientsBody extends StatelessWidget {
             Flexible(
               flex: 1,
               child: Container(
-                height: 400.0,
                 color: Colors.black,
                 child: Theme(
                   data: darkTheme,
@@ -337,25 +338,27 @@ class _ActionButtons extends StatelessWidget {
         ? <Widget>[
             FloatingActionButton.small(
               tooltip: 'Retake photo',
-              backgroundColor: Colors.white,
-              foregroundColor: Colors.grey,
+              backgroundColor: Theme.of(context).buttonTheme.colorScheme!.background,
+              foregroundColor: Theme.of(context).buttonTheme.colorScheme!.onBackground,
               onPressed: getImage,
               child: const Icon(Icons.refresh),
             ),
-            const SizedBox(width: 12.0),
+            const SizedBox(width: MEDIUM_SPACE),
             FloatingActionButton.small(
               tooltip: 'Confirm',
-              backgroundColor: Colors.blue,
-              foregroundColor: Colors.white,
-              onPressed: () {},
+              backgroundColor: Theme.of(context).buttonTheme.colorScheme!.primary,
+              foregroundColor: Theme.of(context).buttonTheme.colorScheme!.onBackground,
+              onPressed: () {
+                Navigator.pop(context);
+              },
               child: const Icon(Icons.check),
             ),
         ]
         : <Widget>[
             FloatingActionButton.small(
               tooltip: 'Take photo',
-              backgroundColor: Colors.white,
-              foregroundColor: Colors.grey,
+              backgroundColor: Theme.of(context).buttonTheme.colorScheme!.background,
+              foregroundColor: Theme.of(context).buttonTheme.colorScheme!.onBackground,
               onPressed: getImage,
               child: const Icon(Icons.camera_alt),
             ),
