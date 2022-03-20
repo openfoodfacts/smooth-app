@@ -266,15 +266,14 @@ class _SummaryCardState extends State<SummaryCard> {
               context: context,
             ),
           ),
-          if ((widget._product.statesTags
-                ?.contains('en:product-name-to-be-completed') ?? 
-            false) 
-            ||
+        if ((widget._product.statesTags
+                    ?.contains('en:product-name-to-be-completed') ??
+                false) ||
             (widget._product.statesTags
-                ?.contains('en:quantity-to-be-completed') ?? 
-            false)
-            )
-          addPanelButton('Compelete basic details', // TODO(vik4114): localization
+                    ?.contains('en:quantity-to-be-completed') ??
+                false))
+          addPanelButton(
+              'Compelete basic details', // TODO(vik4114): localization
               onPressed: () {}),
       ],
     );
