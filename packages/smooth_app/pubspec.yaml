@@ -22,12 +22,12 @@ dependencies:
   hive: ^2.0.6
   hive_flutter: ^1.1.0
   http: ^0.13.4
-  image_picker: ^0.8.4+10
+  image_picker: ^0.8.4+11
   iso_countries: 2.1.0
   latlong2: ^0.8.1
   matomo_forever: ^1.0.0+1
   modal_bottom_sheet: ^2.0.1
-  openfoodfacts: ^1.13.0
+  openfoodfacts: ^1.14.0
 #  openfoodfacts:
 #    path: ../../../openfoodfacts-dart
   package_info_plus: ^1.4.0
@@ -37,15 +37,15 @@ dependencies:
   provider: ^6.0.2
   qr_code_scanner: ^0.7.0
   rubber: ^1.0.1
-  sentry_flutter: ^6.3.0
+  sentry_flutter: ^6.4.0
   url_launcher: ^6.0.20
   visibility_detector: ^0.2.2
   camera: ^0.9.4+16
   percent_indicator: ^4.0.0
-  crop_your_image: ^0.7.0
+  crop_your_image: ^0.7.2
   mailto: ^2.0.0
-  flutter_native_splash: ^2.1.0
-  google_ml_kit: 0.6.0
+  flutter_native_splash: ^2.1.1
+  google_ml_barcode_scanner: ^0.0.2
 
 
   
