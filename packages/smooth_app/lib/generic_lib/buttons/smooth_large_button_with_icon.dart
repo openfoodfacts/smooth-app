@@ -6,14 +6,12 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
     required this.text,
     required this.icon,
     required this.onPressed,
-    required this.isDarkMode,
     this.padding,
   });
 
   final String text;
   final IconData icon;
   final VoidCallback onPressed;
-  final bool isDarkMode;
   final EdgeInsets? padding;
 
   @override
@@ -25,7 +23,7 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
         children: <Widget>[
           Icon(
             icon,
-            color: isDarkMode
+            color: MediaQuery.platformBrightnessOf(context) == Brightness.dark
                 ? Theme.of(context).colorScheme.onPrimary
                 : Colors.blue,
           ),
@@ -34,7 +32,7 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
             text,
             textAlign: TextAlign.center,
             style: themeData.textTheme.bodyText2!.copyWith(
-              color: isDarkMode
+              color: MediaQuery.platformBrightnessOf(context) == Brightness.dark
                   ? Theme.of(context).colorScheme.onPrimary
                   : Colors.blue,
             ),
@@ -44,7 +42,9 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
       ),
       minWidth: double.infinity,
       padding: padding ?? const EdgeInsets.all(10),
-      buttonColor: isDarkMode ? Colors.grey : const Color(0xffeaf5fb),
+      buttonColor: MediaQuery.platformBrightnessOf(context) == Brightness.dark
+          ? Colors.grey
+          : const Color(0xffeaf5fb),
       onPressed: onPressed,
     );
   }
