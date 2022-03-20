@@ -66,17 +66,17 @@
   <pre class="language-dart"><code class="language-dart">Color getBackgroundColor(CardEvaluation evaluation) {
   switch (evaluation) {
     case CardEvaluation.UNKNOWN:
-      return const Color.fromARGB(0xff, 0xEE, 0xEE, 0xEE);
+      return GREY_COLOR;
     case CardEvaluation.VERY_BAD:
-      return const HSLColor.fromAHSL(1, 0, 1, .9).toColor();
+      return RED_BACKGROUND_COLOR;
     case CardEvaluation.BAD:
-      return const HSLColor.fromAHSL(1, 30, 1, .9).toColor();
+      return ORANGE_BACKGROUND_COLOR;
     case CardEvaluation.NEUTRAL:
-      return const HSLColor.fromAHSL(1, 60, 1, .9).toColor();
+      return YELLOW_BACKGROUND_COLOR;
     case CardEvaluation.GOOD:
-      return const HSLColor.fromAHSL(1, 90, 1, .9).toColor();
+      return LIGHT_GREEN_BACKGROUND_COLOR;
     case CardEvaluation.VERY_GOOD:
-      return const HSLColor.fromAHSL(1, 120, 1, .9).toColor();
+      return DARK_GREEN_BACKGROUND_COLOR;
   }
 }</code></pre>
 </section>

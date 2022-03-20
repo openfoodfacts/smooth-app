@@ -66,17 +66,17 @@
   <pre class="language-dart"><code class="language-dart">Color getTextColor(CardEvaluation evaluation) {
   switch (evaluation) {
     case CardEvaluation.UNKNOWN:
-      return const Color.fromARGB(1, 75, 75, 75);
+      return PRIMARY_GREY_COLOR;
     case CardEvaluation.VERY_BAD:
-      return const Color.fromARGB(1, 235, 87, 87);
+      return RED_COLOR;
     case CardEvaluation.BAD:
-      return const Color.fromARGB(1, 242, 153, 74);
+      return LIGHT_ORANGE_COLOR;
     case CardEvaluation.NEUTRAL:
-      return const Color.fromARGB(255, 149, 116, 0);
+      return DARK_YELLOW_COLOR;
     case CardEvaluation.GOOD:
-      return const Color.fromARGB(1, 133, 187, 47);
+      return LIGHT_GREEN_COLOR;
     case CardEvaluation.VERY_GOOD:
-      return const Color.fromARGB(1, 3, 129, 65);
+      return DARK_GREEN_COLOR;
   }
 }</code></pre>
 </section>
