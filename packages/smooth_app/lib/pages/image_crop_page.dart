@@ -38,7 +38,7 @@ Future<Uint8List?> pickImage() async {
 }
 
 // build circular progress bar widget
-Widget buildCircularProgressBar(BuildContext context) {
+Widget buildCircularProgressBar() {
   return const Center(
     child: CircularProgressIndicator(),
   );
@@ -62,7 +62,7 @@ class _ImageCropPageState extends State<ImageCropPage> {
     context.watch<ThemeProvider>();
     return Scaffold(
       body: isCropping
-          ? buildCircularProgressBar(context)
+          ? buildCircularProgressBar()
           : Crop(
               image: widget.imageBytes,
               controller: _controller,
