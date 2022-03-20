@@ -18,6 +18,7 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_PREFIX_IMPORTANCE = 'IMPORTANCE_AS_STRING';
   static const String _TAG_INIT = 'init';
   static const String _TAG_THEME_DARK = 'themeDark';
+  static const String _TAG_THEME_CURRENT = 'currentTheme';
   static const String _TAG_THEME_COLOR_TAG = 'themeColorTag';
   static const String _TAG_USER_COUNTRY_CODE = 'userCountry';
   static const String _TAG_LAST_VISITED_ONBOARDING_PAGE =
@@ -57,7 +58,8 @@ class UserPreferences extends ChangeNotifier {
 
   Future<void> setThemeDark(final bool state) async =>
       _sharedPreferences.setBool(_TAG_THEME_DARK, state);
-
+  Future<void> setTheme(final String theme) async =>
+      _sharedPreferences.setString(_TAG_THEME_CURRENT, theme);
   bool get isThemeDark => _sharedPreferences.getBool(_TAG_THEME_DARK) ?? false;
 
   Future<void> setCrashReports(final bool state) async =>
@@ -77,7 +79,8 @@ class UserPreferences extends ChangeNotifier {
 
   String get themeColorTag =>
       _sharedPreferences.getString(_TAG_THEME_COLOR_TAG) ?? 'COLOR_TAG_BLUE';
-
+  String get currentTheme =>
+      _sharedPreferences.getString(_TAG_THEME_CURRENT) ?? 'System Default';
   Future<void> setUserCountry(final String countryCode) async =>
       _sharedPreferences.setString(_TAG_USER_COUNTRY_CODE, countryCode);
 
