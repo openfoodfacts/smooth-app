@@ -108,47 +108,42 @@ class _ProductPageState extends State<ProductPage> {
               child: _buildProductBody(context)),
 
           //! It is a temporary button for Pop-Up action menu
-          if(isVisible) ...[
+          if (isVisible) ...[
             Positioned(
-            bottom: size.height*0.01,
-            right: size.width*0.01,
-              child: Container(
-            height: size.height * 0.05,
-            width: size.width * 0.2,
-            decoration:  BoxDecoration(
-              color: colorScheme.primary,
-              shape: BoxShape.circle
-            ),
-            child: PopupMenuButton<ProductPageMenuItem>(
-              itemBuilder: (BuildContext context) =>
-                  <PopupMenuEntry<ProductPageMenuItem>>[
-                PopupMenuItem<ProductPageMenuItem>(
-                  value: ProductPageMenuItem.WEB,
-                  child: Text(appLocalizations.label_web),
-                ),
-                PopupMenuItem<ProductPageMenuItem>(
-                  value: ProductPageMenuItem.REFRESH,
-                  child: Text(appLocalizations.label_refresh),
-                ),
-              ],
-              onSelected: (final ProductPageMenuItem value) async {
-                switch (value) {
-                  case ProductPageMenuItem.WEB:
-                    LaunchUrlHelper.launchURL(
-                        'https://openfoodfacts.org/product/${_product.barcode}/',
-                        false);
-                    break;
-                  case ProductPageMenuItem.REFRESH:
-                    _refreshProduct(context);
-                    break;
-                }
-              },
-            ),
-          ))
-
+                bottom: size.height * 0.01,
+                right: size.width * 0.01,
+                child: Container(
+                  height: size.height * 0.05,
+                  width: size.width * 0.2,
+                  decoration: BoxDecoration(
+                      color: colorScheme.primary, shape: BoxShape.circle),
+                  child: PopupMenuButton<ProductPageMenuItem>(
+                    itemBuilder: (BuildContext context) =>
+                        <PopupMenuEntry<ProductPageMenuItem>>[
+                      PopupMenuItem<ProductPageMenuItem>(
+                        value: ProductPageMenuItem.WEB,
+                        child: Text(appLocalizations.label_web),
+                      ),
+                      PopupMenuItem<ProductPageMenuItem>(
+                        value: ProductPageMenuItem.REFRESH,
+                        child: Text(appLocalizations.label_refresh),
+                      ),
+                    ],
+                    onSelected: (final ProductPageMenuItem value) async {
+                      switch (value) {
+                        case ProductPageMenuItem.WEB:
+                          LaunchUrlHelper.launchURL(
+                              'https://openfoodfacts.org/product/${_product.barcode}/',
+                              false);
+                          break;
+                        case ProductPageMenuItem.REFRESH:
+                          _refreshProduct(context);
+                          break;
+                      }
+                    },
+                  ),
+                ))
           ]
-
-          
         ],
       ),
     );
