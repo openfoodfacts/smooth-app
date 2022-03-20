@@ -47,8 +47,9 @@ class SmoothTheme {
 
   static MaterialColor getMaterialColor(
     final ThemeProvider themeProvider,
+    final BuildContext context,
   ) =>
-      instance.getMaterialColorImpl(themeProvider);
+      instance.getMaterialColorImpl(themeProvider,context);
 
   /// Returns a shade of a [materialColor]
   ///
@@ -89,8 +90,8 @@ class SmoothTheme {
   }
 
   @protected
-  MaterialColor getMaterialColorImpl(final ThemeProvider themeProvider) {
-    if (themeProvider.darkTheme) {
+  MaterialColor getMaterialColorImpl(final ThemeProvider themeProvider,BuildContext context) {
+    if (MediaQuery.platformBrightnessOf(context) == Brightness.dark) {
       return Colors.grey;
     }
     return MATERIAL_COLORS[themeProvider.colorTag] ??
