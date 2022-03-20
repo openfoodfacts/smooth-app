@@ -175,13 +175,45 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
-    final ThemeData darkTheme = SmoothTheme.getThemeData(
-      Brightness.dark,
-      themeProvider.colorTag,
-    );
-
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+
+    final List<Widget> children = <Widget>[];
+
+    if (_imageProvider != null) {
+      children.add(ConstrainedBox(
+        constraints: const BoxConstraints.expand(),
+        child: Image(
+          image: _imageProvider!,
+          fit: BoxFit.cover,
+        ),
+      ));
+    } else {
+      if (widget.imageIngredientsUrl != null) {
+        children.add(ConstrainedBox(
+          constraints: const BoxConstraints.expand(),
+          child: Image(
+            fit: BoxFit.cover,
+            image: NetworkImage(widget.imageIngredientsUrl!),
+          ),
+        ));
+      } else {
+        children.add(Container(color: Colors.white));
+      }
+    }
+
+    if (_updatingImage) {
+      children.add(const Center(
+        child: CircularProgressIndicator(),
+      ));
+    } else {
+      children.add(_EditIngredientsBody(
+        controller: _controller,
+        imageIngredientsUrl: widget.imageIngredientsUrl,
+        onTapGetImage: _onTapGetImage,
+        onSubmitField: _onSubmitField,
+        updatingIngredients: _updatingIngredients,
+      ));
+    }
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -198,90 +230,91 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
         ),
       ),
       body: Stack(
-        children: <Widget>[
-          if (_imageProvider != null)
-            ConstrainedBox(
-              constraints: const BoxConstraints.expand(),
-              child: Image(
-                image: _imageProvider!,
-                fit: BoxFit.cover,
-              ),
-            ),
-          if (_imageProvider == null && widget.imageIngredientsUrl != null)
-            ConstrainedBox(
-              constraints: const BoxConstraints.expand(),
-              child: Image(
-                fit: BoxFit.cover,
-                image: NetworkImage(widget.imageIngredientsUrl!),
-              ),
-            ),
-          if (_imageProvider == null && widget.imageIngredientsUrl == null)
-            Container(color: Colors.white),
-          if (_updatingImage)
-            const Center(
-              child: CircularProgressIndicator(),
-            ),
-          if (!_updatingImage)
-            Align(
-              alignment: Alignment.bottomLeft,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    Flexible(
-                      flex: 1,
-                      child: Align(
-                        alignment: Alignment.bottomRight,
-                        child: Padding(
-                          padding: const EdgeInsets.only(bottom: 16.0),
-                          child: _ActionButtons(
-                            getImage: _onTapGetImage,
-                            hasImage: widget.imageIngredientsUrl != null,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Flexible(
-                      flex: 1,
-                      child: Container(
-                        height: 400.0,
-                        color: Colors.black,
-                        child: Theme(
-                          data: darkTheme,
-                          child: DefaultTextStyle(
-                            style: const TextStyle(color: Colors.white),
-                            child: Padding(
-                              padding: const EdgeInsets.all(16.0),
-                              child: Column(
-                                children: <Widget>[
-                                  TextField(
-                                    enabled: !_updatingIngredients,
-                                    controller: _controller,
-                                    decoration: InputDecoration(
-                                      border: OutlineInputBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(3.0),
-                                      ),
-                                    ),
-                                    maxLines: null,
-                                    textInputAction: TextInputAction.done,
-                                    onSubmitted: _onSubmitField,
-                                  ),
-                                  Text(
-                                      appLocalizations.ingredients_editing_instructions),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+        children: children,
+      ),
+    );
+  }
+}
+
+class _EditIngredientsBody extends StatelessWidget {
+  const _EditIngredientsBody({
+    Key? key,
+    required this.controller,
+    required this.imageIngredientsUrl,
+    required this.onSubmitField,
+    required this.onTapGetImage,
+    required this.updatingIngredients,
+  }) : super(key: key);
+
+  final TextEditingController controller;
+  final bool updatingIngredients;
+  final String? imageIngredientsUrl;
+  final Future<void> Function() onTapGetImage;
+  final Future<void> Function(String) onSubmitField;
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
+    final ThemeData darkTheme = SmoothTheme.getThemeData(
+      Brightness.dark,
+      themeProvider.colorTag,
+    );
+
+    return Align(
+      alignment: Alignment.bottomLeft,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[
+            Flexible(
+              flex: 1,
+              child: Align(
+                alignment: Alignment.bottomRight,
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 16.0),
+                  child: _ActionButtons(
+                    getImage: onTapGetImage,
+                    hasImage: imageIngredientsUrl != null,
+                  ),
                 ),
               ),
             ),
-        ],
+            Flexible(
+              flex: 1,
+              child: Container(
+                height: 400.0,
+                color: Colors.black,
+                child: Theme(
+                  data: darkTheme,
+                  child: DefaultTextStyle(
+                    style: const TextStyle(color: Colors.white),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Column(
+                        children: <Widget>[
+                          TextField(
+                            enabled: !updatingIngredients,
+                            controller: controller,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(3.0),
+                              ),
+                            ),
+                            maxLines: null,
+                            textInputAction: TextInputAction.done,
+                            onSubmitted: onSubmitField,
+                          ),
+                          Text(appLocalizations.ingredients_editing_instructions),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
