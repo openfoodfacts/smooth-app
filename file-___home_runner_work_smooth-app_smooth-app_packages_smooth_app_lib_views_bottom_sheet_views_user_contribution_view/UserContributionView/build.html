@@ -74,72 +74,46 @@
 Widget build(BuildContext context) {
   return Material(
     child: SizedBox(
-      height: MediaQuery.of(context).size.height * 0.9,
-      child: Stack(
+      height: MediaQuery.of(context).size.height * 0.8,
+      child: ListView(
+        shrinkWrap: true,
+        scrollDirection: Axis.vertical,
         children: &lt;Widget&gt;[
-          Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: &lt;Widget&gt;[
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.9,
-                child: ListView(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.vertical,
-                  children: &lt;Widget&gt;[
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                      margin: const EdgeInsets.only(top: 20.0, bottom: 24.0),
-                      child: Text(
-                        AppLocalizations.of(context)!.contribute,
-                        style: Theme.of(context).textTheme.headline1,
-                      ),
-                    ),
-                    Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: &lt;SmoothListTile&gt;[
-                        &#47;&#47;Contribute
-                        SmoothListTile(
-                            text: AppLocalizations.of(context)!
-                                .contribute_improve_header,
-                            onPressed: () =&gt; _contribute(context)),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            margin: const EdgeInsets.only(top: 20.0, bottom: 24.0),
+            child: Text(
+              AppLocalizations.of(context)!.contribute,
+              style: Theme.of(context).textTheme.headline1,
+            ),
+          ),
+          SmoothListTile(
+              text: AppLocalizations.of(context)!.contribute_improve_header,
+              onPressed: () =&gt; _contribute(context)),
 
-                        &#47;&#47;Develop
-                        SmoothListTile(
-                          text: AppLocalizations.of(context)!
-                              .contribute_sw_development,
-                          onPressed: () =&gt; _develop(context),
-                        ),
+          &#47;&#47;Develop
+          SmoothListTile(
+            text: AppLocalizations.of(context)!.contribute_sw_development,
+            onPressed: () =&gt; _develop(context),
+          ),
 
-                        &#47;&#47;Translate
-                        SmoothListTile(
-                          text: AppLocalizations.of(context)!
-                              .contribute_translate_header,
-                          onPressed: () =&gt; _translate(context),
-                        ),
+          &#47;&#47;Translate
+          SmoothListTile(
+            text: AppLocalizations.of(context)!.contribute_translate_header,
+            onPressed: () =&gt; _translate(context),
+          ),
 
-                        &#47;&#47;Donate
-                        SmoothListTile(
-                          text: AppLocalizations.of(context)!
-                              .contribute_donate_header,
-                          leadingWidget: const Icon(Icons.open_in_new),
-                          onPressed: () =&gt; _donate(context),
-                        ),
+          &#47;&#47;Donate
+          SmoothListTile(
+            text: AppLocalizations.of(context)!.contribute_donate_header,
+            leadingWidget: const Icon(Icons.open_in_new),
+            onPressed: () =&gt; _donate(context),
+          ),
 
-                        &#47;&#47;Contributors list
-                        SmoothListTile(
-                          text: AppLocalizations.of(context)!.contributors,
-                          onPressed: () =&gt; _contributors(context),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.15,
-                    )
-                  ],
-                ),
-              ),
-            ],
+          &#47;&#47;Contributors list
+          SmoothListTile(
+            text: AppLocalizations.of(context)!.contributors,
+            onPressed: () =&gt; _contributors(context),
           ),
         ],
       ),
