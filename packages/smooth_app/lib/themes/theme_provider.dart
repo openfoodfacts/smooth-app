@@ -5,6 +5,7 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 const String THEME_SYSTEM_DEFAULT = 'System Default';
 const String THEME_LIGHT = 'Light';
 const String THEME_DARK = 'Dark';
+
 class ThemeProvider with ChangeNotifier {
   ThemeProvider(this._userPreferences);
 
@@ -19,6 +20,7 @@ class ThemeProvider with ChangeNotifier {
       return ThemeMode.dark;
     }
   }
+
   Future<void> setTheme(String value) async {
     await _userPreferences.setTheme(value);
     notifyListeners();

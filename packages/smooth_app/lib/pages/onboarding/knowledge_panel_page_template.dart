@@ -51,7 +51,7 @@ class _KnowledgePanelPageTemplateState
   @override
   Widget build(BuildContext context) {
     final MaterialColor materialColor =
-        SmoothTheme.getMaterialColor(context.read<ThemeProvider>(),context);
+        SmoothTheme.getMaterialColor(context.read<ThemeProvider>(), context);
     return FutureBuilder<void>(
         future: _initFuture,
         builder: (BuildContext context, AsyncSnapshot<void> snapshot) {

@@ -42,7 +42,7 @@ class KnowledgePanelCard extends StatelessWidget {
             builder: (BuildContext context) => Scaffold(
               backgroundColor: SmoothTheme.getColor(
                 themeData.colorScheme,
-                SmoothTheme.getMaterialColor(themeProvider,context),
+                SmoothTheme.getMaterialColor(themeProvider, context),
                 ColorDestination.SURFACE_BACKGROUND,
               ),
               appBar: AppBar(),

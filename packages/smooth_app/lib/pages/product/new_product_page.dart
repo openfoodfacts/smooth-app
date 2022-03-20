@@ -62,7 +62,7 @@ class _ProductPageState extends State<ProductPage> {
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
     final MaterialColor materialColor =
-        SmoothTheme.getMaterialColor(themeProvider,context);
+        SmoothTheme.getMaterialColor(themeProvider, context);
     return Scaffold(
       backgroundColor: SmoothTheme.getColor(
         colorScheme,
