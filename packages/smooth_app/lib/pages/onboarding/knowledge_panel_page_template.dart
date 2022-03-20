@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
-import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panels_builder.dart';
 import 'package:smooth_app/data_models/onboarding_data_knowledge_panels.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -10,7 +9,6 @@ import 'package:smooth_app/pages/onboarding/next_button.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/product/knowledge_panel_product_cards.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
 
 class KnowledgePanelPageTemplate extends StatefulWidget {
   const KnowledgePanelPageTemplate({
@@ -50,8 +48,7 @@ class _KnowledgePanelPageTemplateState
 
   @override
   Widget build(BuildContext context) {
-    final MaterialColor materialColor =
-        SmoothTheme.getMaterialColor(context.read<ThemeProvider>(), context);
+    final MaterialColor materialColor = SmoothTheme.getMaterialColor(context);
     return FutureBuilder<void>(
         future: _initFuture,
         builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
