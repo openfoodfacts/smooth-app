@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -42,6 +43,7 @@ enum ProductPageMenuItem { WEB, REFRESH }
 class _ProductPageState extends State<ProductPage> {
   late Product _product;
   late ProductPreferences _productPreferences;
+  bool isVisible = true;
 
   @override
   void initState() {
@@ -63,43 +65,44 @@ class _ProductPageState extends State<ProductPage> {
     final ColorScheme colorScheme = themeData.colorScheme;
     final MaterialColor materialColor =
         SmoothTheme.getMaterialColor(themeProvider);
+
     return Scaffold(
       backgroundColor: SmoothTheme.getColor(
         colorScheme,
         materialColor,
         ColorDestination.SURFACE_BACKGROUND,
       ),
-      appBar: AppBar(
-        title: Text(getProductName(_product, appLocalizations)),
-        actions: <Widget>[
-          PopupMenuButton<ProductPageMenuItem>(
-            itemBuilder: (BuildContext context) =>
-                <PopupMenuEntry<ProductPageMenuItem>>[
-              PopupMenuItem<ProductPageMenuItem>(
-                value: ProductPageMenuItem.WEB,
-                child: Text(appLocalizations.label_web),
+      floatingActionButton: isVisible
+          ? FloatingActionButton(
+              backgroundColor: colorScheme.primary,
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Icon(
+                Icons.arrow_back,
+                color: Colors.white,
               ),
-              PopupMenuItem<ProductPageMenuItem>(
-                value: ProductPageMenuItem.REFRESH,
-                child: Text(appLocalizations.label_refresh),
-              ),
-            ],
-            onSelected: (final ProductPageMenuItem value) async {
-              switch (value) {
-                case ProductPageMenuItem.WEB:
-                  LaunchUrlHelper.launchURL(
-                      'https://openfoodfacts.org/product/${_product.barcode}/',
-                      false);
-                  break;
-                case ProductPageMenuItem.REFRESH:
-                  _refreshProduct(context);
-                  break;
+            )
+          : null,
+      floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
+      body: NotificationListener<UserScrollNotification>(
+          onNotification: (UserScrollNotification notification) {
+            if (notification.direction == ScrollDirection.forward) {
+              if (!isVisible) {
+                setState(() {
+                  isVisible = true;
+                });
               }
-            },
-          ),
-        ],
-      ),
-      body: _buildProductBody(context),
+            } else if (notification.direction == ScrollDirection.reverse) {
+              if (isVisible) {
+                setState(() {
+                  isVisible = false;
+                });
+              }
+            }
+            return true;
+          },
+          child: _buildProductBody(context)),
     );
   }
 
