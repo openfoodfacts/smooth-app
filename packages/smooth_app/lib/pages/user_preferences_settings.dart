@@ -81,7 +81,7 @@ class UserPreferencesSettings extends AbstractUserPreferences {
                 items: <DropdownMenuItem<String>>[
                   const DropdownMenuItem<String>(
                     // need suggestions on how to set my own appLoxalizations for the string System Default
-                    child:   Text('System Default'),
+                    child: Text('System Default'),
                     value: THEME_SYSTEM_DEFAULT,
                   ),
                   DropdownMenuItem<String>(
