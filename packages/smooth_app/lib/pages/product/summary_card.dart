@@ -273,7 +273,7 @@ class _SummaryCardState extends State<SummaryCard> {
                     ?.contains('en:quantity-to-be-completed') ??
                 false))
           addPanelButton(
-              'Compelete basic details', // TODO(vik4114): localization
+              'Complete basic details', // TODO(vik4114): localization
               onPressed: () {}),
       ],
     );
