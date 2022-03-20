@@ -79,9 +79,9 @@ class UserPreferencesSettings extends AbstractUserPreferences {
                   themeProvider.setTheme(newValue!);
                 },
                 items: <DropdownMenuItem<String>>[
-                  DropdownMenuItem<String>(
+                  const DropdownMenuItem<String>(
                     // need suggestions on how to set my own appLoxalizations for the string System Default
-                    child: Text(appLocalizations.darkmode_dark),
+                    child:   Text('System Default'),
                     value: THEME_SYSTEM_DEFAULT,
                   ),
                   DropdownMenuItem<String>(
