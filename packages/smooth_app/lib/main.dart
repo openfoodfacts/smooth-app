@@ -11,12 +11,12 @@ import 'package:openfoodfacts/personalized_search/product_preferences_selection.
 import 'package:provider/provider.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
-import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -53,6 +53,8 @@ class _SmoothAppState extends State<SmoothApp> {
   late ProductPreferences _productPreferences;
   late LocalDatabase _localDatabase;
   late ThemeProvider _themeProvider;
+  final UserManagementProvider _userManagementProvider =
+      UserManagementProvider();
 
   final Brightness brightness =
       SchedulerBinding.instance?.window.platformBrightness ?? Brightness.light;
@@ -93,7 +95,6 @@ class _SmoothAppState extends State<SmoothApp> {
 
     cameras = await availableCameras();
 
-    UserManagementHelper.mountCredentials();
     await ProductQuery.setUuid(_localDatabase);
     AnalyticsHelper.initMatomo(context);
   }
@@ -124,6 +125,7 @@ class _SmoothAppState extends State<SmoothApp> {
             provide<ProductPreferences>(_productPreferences),
             provide<LocalDatabase>(_localDatabase),
             provide<ThemeProvider>(_themeProvider),
+            provide<UserManagementProvider>(_userManagementProvider),
           ],
           builder: _buildApp,
         );
@@ -179,8 +181,11 @@ class SmoothAppGetLanguage extends StatelessWidget {
     final String languageCode = Localizations.localeOf(context).languageCode;
     ProductQuery.setLanguage(languageCode);
     context.read<ProductPreferences>().refresh(languageCode);
+
     final LocalDatabase _localDatabase = context.read<LocalDatabase>();
     AnalyticsHelper.trackStart(_localDatabase, context);
+
+    context.read<UserManagementProvider>().mountCredentials();
 
     return appWidget;
   }
