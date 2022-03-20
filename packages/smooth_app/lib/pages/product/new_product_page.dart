@@ -87,7 +87,7 @@ class _ProductPageState extends State<ProductPage> {
           : null,
       floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
       body: Stack(
-        children:<Widget> [
+        children: <Widget>[
           NotificationListener<UserScrollNotification>(
               onNotification: (UserScrollNotification notification) {
                 if (notification.direction == ScrollDirection.forward) {
