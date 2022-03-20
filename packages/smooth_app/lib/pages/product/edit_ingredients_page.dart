@@ -6,9 +6,11 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/OcrIngredientsResult.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
+import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -37,19 +39,7 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
   bool _updatingIngredients = false;
 
   static String _getIngredientsString(List<Ingredient>? ingredients) {
-    if (ingredients == null) {
-      return '';
-    }
-    String string = '';
-    for (int i = 0; i < ingredients.length; i += i) {
-      final Ingredient ingredient = ingredients[i];
-      if (i == ingredients.length - 1) {
-        string += ingredient.toString();
-      } else {
-        string += ', $ingredient';
-      }
-    }
-    return string;
+    return ingredients == null ? '' : ingredients.join(', ');
   }
 
   @override
@@ -172,10 +162,14 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
 
   Future<void> _updateIngredientsText(String ingredientsText, User user) async {
     widget.product.ingredientsText = ingredientsText;
-    final Status status =
-        await OpenFoodAPIClient.saveProduct(user, widget.product);
-    if (status.error != null) {
-      throw Exception("Couldn't save the product. ${status.error}");
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final bool savedAndRefreshed = await ProductRefresher().saveAndRefresh(
+      context: context,
+      localDatabase: localDatabase,
+      product: widget.product,
+    );
+    if (!savedAndRefreshed) {
+      throw Exception("Couldn't save the product.");
     }
   }
 
