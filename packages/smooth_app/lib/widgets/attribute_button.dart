@@ -3,7 +3,6 @@ import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/widgets/attribute_helper.dart';
 
 /// Colored button for attribute importance, with corresponding action
 class AttributeButton extends StatelessWidget {

@@ -24,6 +24,7 @@ const Radius CIRCULAR_RADIUS = Radius.circular(40.0);
 const BorderRadius CIRCULAR_BORDER_RADIUS = BorderRadius.all(CIRCULAR_RADIUS);
 
 /// Widget Colors
+const MaterialColor WARNING_COLOR = Colors.deepOrange;
 const Color PRIMARY_BLUE_COLOR = Color(0xFF2D9CDB);
 const Color PRIMARY_GREY_COLOR = Color(0xFF4F4F4F);
 const Color GREY_COLOR = Color(0xFFF2F2F2);

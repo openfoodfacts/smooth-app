@@ -3,7 +3,6 @@ import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:smooth_app/cards/category_cards/abstract_cache.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
-import 'package:smooth_app/widgets/attribute_helper.dart';
 
 class KnowledgePanelTitleCard extends StatelessWidget {
   const KnowledgePanelTitleCard({
