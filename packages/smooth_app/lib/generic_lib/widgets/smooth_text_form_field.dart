@@ -14,6 +14,7 @@ class SmoothTextFormField extends StatefulWidget {
     this.enabled,
     this.textInputAction,
     this.validator,
+    this.onSubmit,
     this.autofillHints,
     this.textColor,
     this.backgroundColor,
@@ -21,6 +22,7 @@ class SmoothTextFormField extends StatefulWidget {
     this.hintTextFontSize,
     this.prefixIcon,
     this.textInputType,
+    this.focusNode,
   }) : super(key: key);
 
   final TextFieldTypes type;
@@ -30,11 +32,17 @@ class SmoothTextFormField extends StatefulWidget {
   final bool? enabled;
   final TextInputAction? textInputAction;
   final String? Function(String?)? validator;
+
+  /// takes in a function to run onFieldSubmit action
+  final void Function(String?)? onSubmit;
   final Iterable<String>? autofillHints;
   final Color? textColor;
   final double? hintTextFontSize;
   final Color? backgroundColor;
   final TextInputType? textInputType;
+
+  /// takes in the focusNode for the textFormField
+  final FocusNode? focusNode;
 
   @override
   State<SmoothTextFormField> createState() => _SmoothTextFormFieldState();
@@ -55,10 +63,12 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
     final bool _autocorrect = widget.type == TextFieldTypes.PLAIN_TEXT;
 
     return TextFormField(
+      focusNode: widget.focusNode,
       keyboardType: widget.textInputType,
       controller: widget.controller,
       enabled: widget.enabled,
       textInputAction: widget.textInputAction,
+      onFieldSubmitted: widget.onSubmit,
       validator: widget.validator,
       obscureText: _obscureText,
       enableSuggestions: _enableSuggestions,

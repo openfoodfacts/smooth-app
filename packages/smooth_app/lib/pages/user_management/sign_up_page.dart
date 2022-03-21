@@ -31,6 +31,7 @@ class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController _password1Controller = TextEditingController();
   final TextEditingController _password2Controller = TextEditingController();
   final TextEditingController _brandController = TextEditingController();
+  final FocusNode confirmPassword = FocusNode();
 
   bool _foodProducer = false;
   bool _agree = false;
@@ -131,9 +132,17 @@ class _SignUpPageState extends State<SignUpPage> {
                 }
                 return null;
               },
+              onSubmit: (String? value) {
+                // Checks if confirm password is equal to password if not then
+                // move the focus to the confirm password field
+                if (_password2Controller.text != value) {
+                  FocusScope.of(context).requestFocus(confirmPassword);
+                }
+              },
             ),
             const SizedBox(height: space),
             SmoothTextFormField(
+              focusNode: confirmPassword,
               type: TextFieldTypes.PASSWORD,
               controller: _password2Controller,
               textInputAction: TextInputAction.next,
