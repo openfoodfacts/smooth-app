@@ -1,11 +1,11 @@
 📦 Existing
 App Store Release(TestFlight): 
- Process: deliver the IOS version onto TestFlight
+ Process: deliver the IOS version onto TestFlight [.github/release.yml](https://github.com/openfoodfacts/smooth-app/blob/develop/.github/release.yml)
  Event: Push on [release/*]
 
 
 Crowdin Action：
- Process: Dump sources and download translations from Crowdin
+ Process: Dump sources and download translations from Crowdin [.github/crowdin.yml](https://github.com/openfoodfacts/smooth-app/blob/develop/.github/crowdin.yml)
  Event: Push onto [crowdin-trigger]
 
 
@@ -15,7 +15,7 @@ Labeler:
 
 
 Google Play Release:
- Process: deliver Android version onto Google Play
+ Process: deliver Android version onto Google Play [.github/release.yml](https://github.com/openfoodfacts/smooth-app/blob/develop/.github/release.yml)
  Event: Push on [release/*]
 
 
