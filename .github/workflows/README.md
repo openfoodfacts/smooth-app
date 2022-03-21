@@ -10,7 +10,7 @@ Crowdin Action：
 
 
 Labeler:
- Process: add tags to PR according to configuration file .github/labeler.yml
+ Process: add tags to PR according to configuration file [.github/labeler.yml](https://github.com/openfoodfacts/smooth-app/blob/develop/.github/labeler.yml)
  Event: Creation PR
 
 
