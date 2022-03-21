@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 
 /// Main attributes, to be displayed on top
 const List<String> SCORE_ATTRIBUTE_IDS = <String>[
@@ -35,12 +36,12 @@ Color? getTextColorFromKnowledgePanelElementEvaluation(Evaluation evaluation) {
       // Use default color for unknown.
       return null;
     case Evaluation.AVERAGE:
-      return Colors.grey;
+      return GREY_COLOR;
     case Evaluation.NEUTRAL:
-      return Colors.orange;
+      return DARK_ORANGE_COLOR;
     case Evaluation.BAD:
-      return Colors.red;
+      return RED_COLOR;
     case Evaluation.GOOD:
-      return Colors.green;
+      return DARK_GREEN_COLOR;
   }
 }
