@@ -35,14 +35,12 @@ class SmoothAlertDialog extends StatelessWidget {
       shape: const RoundedRectangleBorder(
         borderRadius: ROUNDED_BORDER_RADIUS,
       ),
-      content: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            _buildTitle(context),
-            SizedBox(height: height, child: body),
-          ],
-        ),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          _buildTitle(context),
+          SizedBox(height: height, child: body),
+        ],
       ),
       actions: actions == null
           ? null
