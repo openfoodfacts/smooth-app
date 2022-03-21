@@ -37,35 +37,51 @@ Future<Uint8List?> pickImage() async {
   return pickedXFile.readAsBytes();
 }
 
-class ImageCropPage extends StatelessWidget {
+// build circular progress bar widget
+Widget buildCircularProgressBar() {
+  return const Center(
+    child: CircularProgressIndicator(),
+  );
+}
+
+class ImageCropPage extends StatefulWidget {
   const ImageCropPage({Key? key, required this.imageBytes}) : super(key: key);
 
   final Uint8List imageBytes;
 
   @override
+  State<ImageCropPage> createState() => _ImageCropPageState();
+}
+
+class _ImageCropPageState extends State<ImageCropPage> {
+  bool isCropping = false;
+  @override
   Widget build(BuildContext context) {
     final CropController _controller = CropController();
     final ThemeData theme = Theme.of(context);
     context.watch<ThemeProvider>();
-
     return Scaffold(
-      body: Crop(
-        image: imageBytes,
-        controller: _controller,
-        onCropped: (Uint8List image) async {
-          final Directory tempDir = await getTemporaryDirectory();
-          final String tempPath = tempDir.path;
-          final String filePath = '$tempPath/upload_img_file.tmp';
-          final File file = await File(filePath).writeAsBytes(image);
-
-          Navigator.pop(context, file);
-        },
-        initialSize: 0.5,
-        baseColor: theme.colorScheme.primary,
-        maskColor: Colors.white.withAlpha(100),
-        cornerDotBuilder: (double size, EdgeAlignment edgeAlignment) =>
-            DotControl(color: theme.colorScheme.primary),
-      ),
+      body: isCropping
+          ? buildCircularProgressBar()
+          : Crop(
+              image: widget.imageBytes,
+              controller: _controller,
+              onCropped: (Uint8List image) async {
+                final Directory tempDir = await getTemporaryDirectory();
+                final String tempPath = tempDir.path;
+                final String filePath = '$tempPath/upload_img_file.tmp';
+                final File file = await File(filePath).writeAsBytes(image);
+                setState(() {
+                  isCropping = false;
+                });
+                Navigator.pop(context, file);
+              },
+              initialSize: 0.5,
+              baseColor: theme.colorScheme.primary,
+              maskColor: Colors.white.withAlpha(100),
+              cornerDotBuilder: (double size, EdgeAlignment edgeAlignment) =>
+                  DotControl(color: theme.colorScheme.primary),
+            ),
       bottomNavigationBar: BottomAppBar(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -80,6 +96,9 @@ class ImageCropPage extends StatelessWidget {
               icon: const Icon(Icons.done),
               onPressed: () {
                 _controller.crop();
+                setState(() {
+                  isCropping = true;
+                });
               },
             )
           ],

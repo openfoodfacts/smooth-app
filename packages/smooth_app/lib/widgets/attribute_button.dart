@@ -21,9 +21,9 @@ class AttributeButton extends StatelessWidget {
   };
 
   static const Map<String, Color> _colors = <String, Color>{
-    PreferenceImportance.ID_NOT_IMPORTANT: Color(0xFF666666),
-    PreferenceImportance.ID_IMPORTANT: Colors.blue,
-    PreferenceImportance.ID_MANDATORY: Colors.red,
+    PreferenceImportance.ID_NOT_IMPORTANT: PRIMARY_GREY_COLOR,
+    PreferenceImportance.ID_IMPORTANT: PRIMARY_BLUE_COLOR,
+    PreferenceImportance.ID_MANDATORY: RED_COLOR,
   };
 
   @override

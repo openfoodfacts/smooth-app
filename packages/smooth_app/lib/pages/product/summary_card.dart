@@ -266,6 +266,22 @@ class _SummaryCardState extends State<SummaryCard> {
               context: context,
             ),
           ),
+        if ((widget._product.statesTags
+                    ?.contains('en:product-name-to-be-completed') ??
+                false) ||
+            (widget._product.statesTags
+                    ?.contains('en:quantity-to-be-completed') ??
+                false))
+          addPanelButton(
+              'Complete basic details', // TODO(vik4114): localization
+              onPressed: () {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Not implemented yet'),
+                duration: Duration(seconds: 2),
+              ),
+            );
+          }),
       ],
     );
   }
