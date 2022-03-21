@@ -78,7 +78,8 @@ Widget build(BuildContext context) {
       (knowledgePanelTitleElement.iconColorFromEvaluation ?? false)) {
     colorFromEvaluation = _getColorFromEvaluation(evaluation!);
   }
-  if (colorFromEvaluation == null &amp;&amp;
+  if (evaluation != null &amp;&amp;
+      _getColorFromEvaluation(evaluation!) == null &amp;&amp;
       themeData.brightness == Brightness.dark) {
     colorFromEvaluation = Colors.white;
   }
