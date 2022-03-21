@@ -38,7 +38,8 @@ class _EditProductPageState extends State<EditProductPage> {
         child: ListView(
           children: <ListTile>[
             ListTile(
-              title: const Text('Barcode'), // TODO(vik4114): Localization and translations
+              title: const Text(
+                  'Barcode'), // TODO(vik4114): Localization and translations
               subtitle: widget.product.barcode == null
                   ? null
                   : Text(widget.product.barcode!),
