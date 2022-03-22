@@ -17,7 +17,7 @@ dependencies:
     sdk: flutter
   flutter_svg: ^1.0.3
   flutter_map: ^0.14.0
-  flutter_widget_from_html_core: ^0.8.5+1
+  flutter_widget_from_html: ^0.8.5
   flutter_secure_storage: ^5.0.2
   hive: ^2.0.6
   hive_flutter: ^1.1.0
