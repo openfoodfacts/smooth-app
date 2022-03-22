@@ -45,7 +45,11 @@ dependencies:
   crop_your_image: ^0.7.2
   mailto: ^2.0.0
   flutter_native_splash: ^2.1.1
-  google_ml_barcode_scanner: ^0.0.2
+  # Fork from cli1005 with iOS fix cf: https://github.com/openfoodfacts/smooth-app/issues/1155
+  google_ml_barcode_scanner:
+    git:
+      url: https://github.com/cli1005/google_ml_barcode_scanner.git
+      ref: master
 
 
   

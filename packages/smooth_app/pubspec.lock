@@ -360,9 +360,11 @@ packages:
   google_ml_barcode_scanner:
     dependency: "direct main"
     description:
-      name: google_ml_barcode_scanner
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "."
+      ref: master
+      resolved-ref: "5427e2a735be24b5f6b646a2554c636845ce9597"
+      url: "https://github.com/cli1005/google_ml_barcode_scanner.git"
+    source: git
     version: "0.0.2"
   hive:
     dependency: "direct main"
@@ -370,7 +372,7 @@ packages:
       name: hive
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.6"
+    version: "2.1.0"
   hive_flutter:
     dependency: "direct main"
     description:
@@ -1054,7 +1056,7 @@ packages:
       name: win32
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.4.1"
+    version: "2.4.2"
   wkt_parser:
     dependency: transitive
     description:
