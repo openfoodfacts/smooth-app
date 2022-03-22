@@ -36,9 +36,12 @@ class ThemeProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  MaterialColor materialColor(BuildContext context) =>
-      MediaQuery.platformBrightnessOf(context) == Brightness.dark
-          ? Colors.grey
-          : SmoothTheme.MATERIAL_COLORS[colorTag] ??
-              SmoothTheme.MATERIAL_COLORS[SmoothTheme.COLOR_TAG_BLUE]!;
+  bool isDarkMode(BuildContext context) {
+    return MediaQuery.platformBrightnessOf(context) == Brightness.dark;
+  }
+
+  MaterialColor materialColor(BuildContext context) => isDarkMode(context)
+      ? Colors.grey
+      : SmoothTheme.MATERIAL_COLORS[colorTag] ??
+          SmoothTheme.MATERIAL_COLORS[SmoothTheme.COLOR_TAG_BLUE]!;
 }

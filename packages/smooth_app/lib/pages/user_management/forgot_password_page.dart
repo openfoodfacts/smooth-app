@@ -69,9 +69,11 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final Size size = MediaQuery.of(context).size;
+    final bool isDarkMode =
+        MediaQuery.platformBrightnessOf(context) == Brightness.dark;
 
     // Needs to be changed
-    if (MediaQuery.platformBrightnessOf(context) == Brightness.dark) {
+    if (isDarkMode) {
       _textFieldBackgroundColor = Colors.white10;
     }
 

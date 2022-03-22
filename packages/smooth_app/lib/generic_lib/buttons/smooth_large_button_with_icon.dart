@@ -17,13 +17,15 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
+    final bool isDarkMode =
+        MediaQuery.platformBrightnessOf(context) == Brightness.dark;
     return SmoothSimpleButton(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           Icon(
             icon,
-            color: MediaQuery.platformBrightnessOf(context) == Brightness.dark
+            color: isDarkMode
                 ? Theme.of(context).colorScheme.onPrimary
                 : Colors.blue,
           ),
@@ -32,7 +34,7 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
             text,
             textAlign: TextAlign.center,
             style: themeData.textTheme.bodyText2!.copyWith(
-              color: MediaQuery.platformBrightnessOf(context) == Brightness.dark
+              color: isDarkMode
                   ? Theme.of(context).colorScheme.onPrimary
                   : Colors.blue,
             ),
@@ -42,7 +44,7 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
       ),
       minWidth: double.infinity,
       padding: padding ?? const EdgeInsets.all(10),
-      buttonColor: MediaQuery.platformBrightnessOf(context) == Brightness.dark
+      buttonColor: isDarkMode
           ? Colors.grey
           : const Color(0xffeaf5fb),
       onPressed: onPressed,

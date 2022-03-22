@@ -72,9 +72,11 @@ class _LoginPageState extends State<LoginPage> {
     final ThemeData theme = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final Size size = MediaQuery.of(context).size;
+    final bool isDarkMode =
+        MediaQuery.platformBrightnessOf(context) == Brightness.dark;
 
     // Needs to be changed
-    if (MediaQuery.platformBrightnessOf(context) == Brightness.dark) {
+    if (isDarkMode) {
       _textFieldBackgroundColor = Colors.white10;
     }
 
