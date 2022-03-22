@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -17,7 +18,6 @@ import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
-import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/category_cache.dart';
 import 'package:smooth_app/pages/product/category_picker_page.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
@@ -42,6 +42,7 @@ enum ProductPageMenuItem { WEB, REFRESH }
 class _ProductPageState extends State<ProductPage> {
   late Product _product;
   late ProductPreferences _productPreferences;
+  bool isVisible = true;
 
   @override
   void initState() {
@@ -63,43 +64,88 @@ class _ProductPageState extends State<ProductPage> {
     final ColorScheme colorScheme = themeData.colorScheme;
     final MaterialColor materialColor =
         SmoothTheme.getMaterialColor(themeProvider);
+
+    final Size size = MediaQuery.of(context).size;
+
     return Scaffold(
       backgroundColor: SmoothTheme.getColor(
         colorScheme,
         materialColor,
         ColorDestination.SURFACE_BACKGROUND,
       ),
-      appBar: AppBar(
-        title: Text(getProductName(_product, appLocalizations)),
-        actions: <Widget>[
-          PopupMenuButton<ProductPageMenuItem>(
-            itemBuilder: (BuildContext context) =>
-                <PopupMenuEntry<ProductPageMenuItem>>[
-              PopupMenuItem<ProductPageMenuItem>(
-                value: ProductPageMenuItem.WEB,
-                child: Text(appLocalizations.label_web),
+      floatingActionButton: isVisible
+          ? FloatingActionButton(
+              backgroundColor: colorScheme.primary,
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Icon(
+                Icons.arrow_back,
+                color: Colors.white,
               ),
-              PopupMenuItem<ProductPageMenuItem>(
-                value: ProductPageMenuItem.REFRESH,
-                child: Text(appLocalizations.label_refresh),
-              ),
-            ],
-            onSelected: (final ProductPageMenuItem value) async {
-              switch (value) {
-                case ProductPageMenuItem.WEB:
-                  LaunchUrlHelper.launchURL(
-                      'https://openfoodfacts.org/product/${_product.barcode}/',
-                      false);
-                  break;
-                case ProductPageMenuItem.REFRESH:
-                  _refreshProduct(context);
-                  break;
-              }
-            },
-          ),
+            )
+          : null,
+      floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
+      body: Stack(
+        children: <Widget>[
+          NotificationListener<UserScrollNotification>(
+              onNotification: (UserScrollNotification notification) {
+                if (notification.direction == ScrollDirection.forward) {
+                  if (!isVisible) {
+                    setState(() {
+                      isVisible = true;
+                    });
+                  }
+                } else if (notification.direction == ScrollDirection.reverse) {
+                  if (isVisible) {
+                    setState(() {
+                      isVisible = false;
+                    });
+                  }
+                }
+                return true;
+              },
+              child: _buildProductBody(context)),
+
+          //! It is a temporary button for Pop-Up action menu
+          if (isVisible) ...<Widget>[
+            Positioned(
+                bottom: size.height * 0.01,
+                right: size.width * 0.01,
+                child: Container(
+                  height: size.height * 0.05,
+                  width: size.width * 0.2,
+                  decoration: BoxDecoration(
+                      color: colorScheme.primary, shape: BoxShape.circle),
+                  child: PopupMenuButton<ProductPageMenuItem>(
+                    itemBuilder: (BuildContext context) =>
+                        <PopupMenuEntry<ProductPageMenuItem>>[
+                      PopupMenuItem<ProductPageMenuItem>(
+                        value: ProductPageMenuItem.WEB,
+                        child: Text(appLocalizations.label_web),
+                      ),
+                      PopupMenuItem<ProductPageMenuItem>(
+                        value: ProductPageMenuItem.REFRESH,
+                        child: Text(appLocalizations.label_refresh),
+                      ),
+                    ],
+                    onSelected: (final ProductPageMenuItem value) async {
+                      switch (value) {
+                        case ProductPageMenuItem.WEB:
+                          LaunchUrlHelper.launchURL(
+                              'https://openfoodfacts.org/product/${_product.barcode}/',
+                              false);
+                          break;
+                        case ProductPageMenuItem.REFRESH:
+                          _refreshProduct(context);
+                          break;
+                      }
+                    },
+                  ),
+                ))
+          ]
         ],
       ),
-      body: _buildProductBody(context),
     );
   }
 

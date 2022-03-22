@@ -44,7 +44,7 @@ class _PreferencesPageState extends State<PreferencesPage> {
             return Text('Fatal Error: ${snapshot.error}');
           }
           if (snapshot.connectionState != ConnectionState.done) {
-            return const CircularProgressIndicator();
+            return const Center(child: CircularProgressIndicator());
           }
           return _Helper(_product);
         },
@@ -123,11 +123,9 @@ class _HelperState extends State<_Helper> {
             shrinkWrap: true,
             children: pageData,
           ),
-          const Positioned(
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: NextButton(OnboardingPage.PREFERENCES_PAGE),
-            ),
+          const Align(
+            alignment: Alignment.bottomCenter,
+            child: NextButton(OnboardingPage.PREFERENCES_PAGE),
           ),
         ],
       ),
