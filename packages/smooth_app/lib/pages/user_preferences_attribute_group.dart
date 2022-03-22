@@ -8,7 +8,6 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/abstract_user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/widgets/attribute_button.dart';
-import 'package:smooth_app/widgets/attribute_helper.dart';
 
 /// Collapsed/expanded display of an attribute group for the preferences page.
 class UserPreferencesAttributeGroup extends AbstractUserPreferences {
