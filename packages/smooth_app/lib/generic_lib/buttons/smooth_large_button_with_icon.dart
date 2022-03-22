@@ -44,9 +44,7 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
       ),
       minWidth: double.infinity,
       padding: padding ?? const EdgeInsets.all(10),
-      buttonColor: isDarkMode
-          ? Colors.grey
-          : const Color(0xffeaf5fb),
+      buttonColor: isDarkMode ? Colors.grey : const Color(0xffeaf5fb),
       onPressed: onPressed,
     );
   }
