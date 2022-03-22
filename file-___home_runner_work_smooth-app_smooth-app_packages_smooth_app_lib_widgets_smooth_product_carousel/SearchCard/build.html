@@ -75,7 +75,7 @@ Widget build(BuildContext context) {
   final AppLocalizations localizations = AppLocalizations.of(context)!;
   return SmoothCard(
     color: Theme.of(context).colorScheme.background.withOpacity(0.85),
-    margin: EdgeInsets.zero,
+    margin: EdgeInsets.only(bottom: height * 0.05),
     elevation: 0,
     padding: const EdgeInsets.symmetric(horizontal: 20.0),
     child: SizedBox(
