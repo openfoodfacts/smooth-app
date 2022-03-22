@@ -21,7 +21,8 @@ class KnowledgePanelTitleCard extends StatelessWidget {
         (knowledgePanelTitleElement.iconColorFromEvaluation ?? false)) {
       colorFromEvaluation = _getColorFromEvaluation(evaluation!);
     }
-    if (colorFromEvaluation == null &&
+    if (evaluation != null &&
+        _getColorFromEvaluation(evaluation!) == null &&
         themeData.brightness == Brightness.dark) {
       colorFromEvaluation = Colors.white;
     }
