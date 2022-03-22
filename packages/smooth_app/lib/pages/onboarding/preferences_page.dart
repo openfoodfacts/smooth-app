@@ -123,11 +123,9 @@ class _HelperState extends State<_Helper> {
             shrinkWrap: true,
             children: pageData,
           ),
-          const Positioned(
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: NextButton(OnboardingPage.PREFERENCES_PAGE),
-            ),
+          const Align(
+            alignment: Alignment.bottomCenter,
+            child: NextButton(OnboardingPage.PREFERENCES_PAGE),
           ),
         ],
       ),
