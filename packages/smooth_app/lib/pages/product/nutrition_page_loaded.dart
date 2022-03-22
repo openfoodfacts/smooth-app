@@ -108,7 +108,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           SizedBox(
-            width: _columnSize1,
+            width: _columnSize2,
             child: _getNutrientCell(
               appLocalizations,
               orderedNutrient,
@@ -232,7 +232,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       Container(
         color: Theme.of(context).colorScheme.primary,
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Switch(
@@ -241,7 +241,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
                   setState(() => _unspecified = !_unspecified),
             ),
             SizedBox(
-              width: 300, // TODO(monsieurtanuki): proper size
+              width: _columnSize1,
               child: Text(
                 appLocalizations.nutrition_page_unspecified,
                 style: const TextStyle(color: Colors.white),
