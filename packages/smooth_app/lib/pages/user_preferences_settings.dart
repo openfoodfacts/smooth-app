@@ -80,7 +80,7 @@ class UserPreferencesSettings extends AbstractUserPreferences {
                 },
                 items: <DropdownMenuItem<String>>[
                   const DropdownMenuItem<String>(
-                    // need suggestions on how to set my own appLoxalizations for the string System Default
+                    // TODO(aman): translations
                     child: Text('System Default'),
                     value: THEME_SYSTEM_DEFAULT,
                   ),
