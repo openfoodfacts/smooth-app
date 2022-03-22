@@ -40,10 +40,14 @@ jobs:
       # analyze Dart for errors
       - name: "Analyze code"
         run: flutter analyze --fatal-infos --fatal-warnings .
-      
+
       # Run tests
       - name: "Run Tests"
         run: ci/testing.sh
+        
+      # Code Coverage
+      - name: "Run Tests" 
+        run: flutter test --coverage
       
       # Build apk.
       - name: "Build apk"
