@@ -17,6 +17,7 @@ import 'package:smooth_app/database/robotoff_questions_query.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
+import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
@@ -390,7 +391,7 @@ class _SummaryCardState extends State<SummaryCard> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 attributeIcon,
-                Expanded(child: Text(attributeDisplayTitle)),
+                Expanded(child: Text(attributeDisplayTitle).selectable()),
               ]));
     });
   }
