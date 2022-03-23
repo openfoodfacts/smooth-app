@@ -66,21 +66,23 @@ class SmoothAlertDialog extends StatelessWidget {
     } else {
       return Column(
         children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              _buildCross(true, context),
-              if (title != null)
-                SizedBox(
-                  height: height,
-                  child: Text(
-                    title!,
-                    style: Theme.of(context).textTheme.headline2,
+          FittedBox(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                _buildCross(true, context),
+                if (title != null)
+                  SizedBox(
+                    height: height,
+                    child: Text(
+                      title!,
+                      style: Theme.of(context).textTheme.headline2,
+                    ),
                   ),
-                ),
-              _buildCross(false, context),
-            ],
+                _buildCross(false, context),
+              ],
+            ),
           ),
           Divider(
             color: Theme.of(context).colorScheme.onBackground,
