@@ -167,69 +167,149 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
           body: Stack(
             children: <Widget>[
               _getHero(screenSize, themeData),
-              ListView.builder(
-                itemCount: _model.displayProducts!.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 12.0, vertical: 8.0),
-                    child: SmoothProductCardFound(
-                      heroTag: _model.displayProducts![index].barcode!,
-                      product: _model.displayProducts![index],
-                      elevation:
-                          Theme.of(context).brightness == Brightness.light
-                              ? 0.0
-                              : 4.0,
-                    ).build(context),
-                  );
-                },
-                padding: EdgeInsets.only(
-                    top: screenSize.height * 0.25, bottom: 80.0),
-                controller: _scrollController,
-              ),
-              AnimatedOpacity(
-                opacity: _showTitle ? 1.0 : 0.0,
-                duration: const Duration(milliseconds: 250),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    getBackArrow(context, widget.mainColor),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 24.0),
-                      child: TextButton.icon(
-                        icon: Icon(
-                          Icons.filter_list,
-                          color: widget.mainColor,
-                        ),
-                        label: Text(AppLocalizations.of(context)!.filter),
-                        style: TextButton.styleFrom(
-                          textStyle: TextStyle(
-                            color: widget.mainColor,
-                          ),
-                        ),
-                        onPressed: () {
-                          showCupertinoModalBottomSheet<Widget>(
-                            expand: false,
-                            context: context,
-                            backgroundColor: Colors.transparent,
-                            bounce: true,
-                            builder: (BuildContext context) =>
-                                GroupQueryFilterView(
-                              categories: _model.categories,
-                              categoriesList: _model.sortedCategories,
-                              callback: (String category) {
-                                _model.selectCategory(category);
-                                setState(() {});
+              // ListView.builder(
+              //   itemCount: _model.displayProducts!.length,
+              //   itemBuilder: (BuildContext context, int index) {
+              //     return Padding(
+              //       padding: const EdgeInsets.symmetric(
+              //           horizontal: 12.0, vertical: 8.0),
+              //       child: SmoothProductCardFound(
+              //         heroTag: _model.displayProducts![index].barcode!,
+              //         product: _model.displayProducts![index],
+              //         elevation:
+              //             Theme.of(context).brightness == Brightness.light
+              //                 ? 0.0
+              //                 : 4.0,
+              //       ).build(context),
+              //     );
+              //   },
+              //   padding: EdgeInsets.only(
+              //       top: screenSize.height * 0.25, bottom: 80.0),
+              //   controller: _scrollController,
+              // ),
+              CustomScrollView(
+                slivers: <Widget>[
+                  //2
+                  SliverAppBar(
+                    backgroundColor: themeData.brightness == Brightness.dark ?
+                        Colors.black : Colors.white,
+                    expandedHeight: screenSize.height * 0.15,
+                    collapsedHeight: screenSize.height * 0.09,
+                    pinned: true,
+                    
+                    automaticallyImplyLeading: false,
+                    title:  Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          getBackArrow(context, widget.mainColor),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 24.0),
+                            child: TextButton.icon(
+                              icon: Icon(
+                                Icons.filter_list,
+                                color: widget.mainColor,
+                              ),
+                              label: Text(AppLocalizations.of(context)!.filter),
+                              style: TextButton.styleFrom(
+                                textStyle: TextStyle(
+                                  color: widget.mainColor,
+                                ),
+                              ),
+                              onPressed: () {
+                                showCupertinoModalBottomSheet<Widget>(
+                                  expand: false,
+                                  context: context,
+                                  backgroundColor: Colors.transparent,
+                                  bounce: true,
+                                  builder: (BuildContext context) =>
+                                      GroupQueryFilterView(
+                                    categories: _model.categories,
+                                    categoriesList: _model.sortedCategories,
+                                    callback: (String category) {
+                                      _model.selectCategory(category);
+                                      setState(() {});
+                                    },
+                                  ),
+                                );
                               },
                             ),
-                          );
-                        },
+                          ),
+                        ],
                       ),
+                    flexibleSpace: FlexibleSpaceBar(
+                      centerTitle: true,
+                      title: Text(
+                              widget.name,
+                              textAlign: TextAlign.center,
+                              style: themeData.textTheme.headline1!
+                                  .copyWith(color: widget.mainColor),
+                            ),)),
+                  //3
+                  SliverList(
+                    delegate: SliverChildBuilderDelegate(
+                      (_, int index) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 12.0, vertical: 8.0),
+                          child: SmoothProductCardFound(
+                            heroTag: _model.displayProducts![index].barcode!,
+                            product: _model.displayProducts![index],
+                            elevation:
+                                Theme.of(context).brightness == Brightness.light
+                                    ? 0.0
+                                    : 4.0,
+                          ).build(context),
+                        );
+                      },
+                      childCount: _model.displayProducts!.length,
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
+              // AnimatedOpacity(
+              //   opacity: _showTitle ? 1.0 : 0.0,
+              //   duration: const Duration(milliseconds: 250),
+              //   child: Row(
+              //     mainAxisSize: MainAxisSize.max,
+              //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //     children: <Widget>[
+              //       getBackArrow(context, widget.mainColor),
+              //       Padding(
+              //         padding: const EdgeInsets.only(top: 24.0),
+              //         child: TextButton.icon(
+              //           icon: Icon(
+              //             Icons.filter_list,
+              //             color: widget.mainColor,
+              //           ),
+              //           label: Text(AppLocalizations.of(context)!.filter),
+              //           style: TextButton.styleFrom(
+              //             textStyle: TextStyle(
+              //               color: widget.mainColor,
+              //             ),
+              //           ),
+              //           onPressed: () {
+              //             showCupertinoModalBottomSheet<Widget>(
+              //               expand: false,
+              //               context: context,
+              //               backgroundColor: Colors.transparent,
+              //               bounce: true,
+              //               builder: (BuildContext context) =>
+              //                   GroupQueryFilterView(
+              //                 categories: _model.categories,
+              //                 categoriesList: _model.sortedCategories,
+              //                 callback: (String category) {
+              //                   _model.selectCategory(category);
+              //                   setState(() {});
+              //                 },
+              //               ),
+              //             );
+              //           },
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
             ],
           ));
 
@@ -245,31 +325,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                   bottomRight: Radius.circular(20.0)),
             ),
             padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 96.0),
-            child: Column(
-              children: <Widget>[
-                SizedBox(
-                  height: 80.0,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Flexible(
-                        child: AnimatedOpacity(
-                            opacity: _showTitle ? 1.0 : 0.0,
-                            duration: const Duration(milliseconds: 250),
-                            child: Text(
-                              widget.name,
-                              textAlign: TextAlign.center,
-                              style: themeData.textTheme.headline1!
-                                  .copyWith(color: widget.mainColor),
-                            )),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            )),
+        )
       );
 
   Widget _getEmptyText(
