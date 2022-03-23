@@ -33,9 +33,11 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   // If true then serving, if false then 100g.
   bool _servingOr100g = false;
 
-  static const double _columnSize1 = 250; // TODO(monsieurtanuki): proper size
-  static const double _columnSize2 =
-      100; // TODO(monsieurtanuki): anyway, should fit the largest text, probably 'mcg/µg'
+  double getColumnSizeFromContext(
+      BuildContext context, double adjustmentFactor) {
+    final double _columnSize = MediaQuery.of(context).size.width;
+    return _columnSize * adjustmentFactor;
+  }
 
   final Map<String, TextEditingController> _controllers =
       <String, TextEditingController>{};
@@ -74,10 +76,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       for (final OrderedNutrient orderedNutrient
           in _nutritionContainer.getDisplayableNutrients()) {
         children.add(
-          _getNutrientRow(
-            appLocalizations,
-            orderedNutrient,
-          ),
+          _getNutrientRow(appLocalizations, orderedNutrient),
         );
       }
       children.add(_addNutrientButton(appLocalizations));
@@ -99,16 +98,14 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     );
   }
 
-  Widget _getNutrientRow(
-    final AppLocalizations appLocalizations,
-    final OrderedNutrient orderedNutrient,
-  ) =>
+  Widget _getNutrientRow(final AppLocalizations appLocalizations,
+          final OrderedNutrient orderedNutrient) =>
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           SizedBox(
-            width: _columnSize2,
+            width: getColumnSizeFromContext(context, 0.6),
             child: _getNutrientCell(
               appLocalizations,
               orderedNutrient,
@@ -116,7 +113,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
             ),
           ),
           SizedBox(
-            width: _columnSize2,
+            width: getColumnSizeFromContext(context, 0.3),
             child: _getUnitCell(orderedNutrient),
           ),
         ],
@@ -241,7 +238,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
                   setState(() => _unspecified = !_unspecified),
             ),
             SizedBox(
-              width: _columnSize1,
+              width: getColumnSizeFromContext(context, 0.6),
               child: Text(
                 appLocalizations.nutrition_page_unspecified,
                 style: const TextStyle(color: Colors.white),
