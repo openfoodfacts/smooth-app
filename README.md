@@ -42,6 +42,7 @@ We are always looking for new contributors, if you're willing to help please let
 - [Smoothie GitHub wiki](https://github.com/openfoodfacts/smooth-app/wiki)
 - [Smoothie marketing automation repository](https://github.com/openfoodfacts/fastlane-descriptions-smoothie/pulls)
 - [UX mockups are located here](https://www.figma.com/file/lhRhMulB4Ek9NYDWl3FxAo/Fellowship-Jam-file?node-id=12%3A358). Please be aware that some of them have not been validated, so don't rush in implementing them. 
+- [Continuous Integration documentation](.github/workflows/README.md)
 
 ## V1 Roadmap
 - [ ] Minimal editing/addition value proposition
