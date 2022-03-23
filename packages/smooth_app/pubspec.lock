@@ -363,7 +363,7 @@ packages:
       path: "."
       ref: master
       resolved-ref: "5427e2a735be24b5f6b646a2554c636845ce9597"
-      url: "https://github.com/cli1005/google_ml_barcode_scanner.git"
+      url: "https://github.com/m123-dev/google_ml_barcode_scanner.git"
     source: git
     version: "0.0.2"
   hive:
