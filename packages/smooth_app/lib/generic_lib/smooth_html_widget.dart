@@ -18,10 +18,11 @@ class SmoothHtmlWidget extends StatelessWidget {
         await LaunchUrlHelper.launchURL(url, false);
         return true;
       },
-      factoryBuilder: () => MyWidgetFactory(),
+      factoryBuilder: () => SelectableHtmlWidgetFactory(),
       enableCaching: false,
     );
   }
 }
 
-class MyWidgetFactory extends WidgetFactory with SelectableTextFactory {}
+class SelectableHtmlWidgetFactory extends WidgetFactory
+    with SelectableTextFactory {}
