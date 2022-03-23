@@ -73,7 +73,16 @@ abstract class AbstractUserPreferences {
     return Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[title, subtitle]);
+        children: <Widget>[
+          const SizedBox(
+            height: SMALL_SPACE,
+          ),
+          title,
+          const SizedBox(
+            height: VERY_SMALL_SPACE,
+          ),
+          subtitle
+        ]);
   }
 
   /// Body of the content.
