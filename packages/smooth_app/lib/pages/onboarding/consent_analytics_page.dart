@@ -72,45 +72,44 @@ class ConsentAnalytics extends StatelessWidget {
             height: size.height * 0.03,
           ),
           //Authorize Button
-          Material(
-            child: InkWell(
-              borderRadius: BorderRadius.circular(25.0),
-              onTap: () {
-                _analyticsLogic(true, userPreferences, localDatabase, context);
-              },
-              child: Ink(
-                height: size.height * 0.06,
-                width: size.width * 0.7,
-                decoration: BoxDecoration(
-                    color: Colors.green,
-                    borderRadius: BorderRadius.circular(25.0),
-                    boxShadow: <BoxShadow>[
-                      BoxShadow(
-                          color: const Color.fromARGB(144, 0, 0, 0),
-                          offset:
-                              Offset(size.width * 0.004, size.height * 0.004))
-                    ]),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      'Authorize',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontSize: size.height * 0.025),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: size.width * 0.02),
-                      child: Icon(
-                        Icons.check,
+          InkWell(
+            borderRadius: BorderRadius.circular(25.0),
+            onTap: () {
+              _analyticsLogic(true, userPreferences, localDatabase, context);
+            },
+            child: Ink(
+              height: size.height * 0.06,
+              width: size.width * 0.7,
+              decoration: BoxDecoration(
+                  color: Colors.green,
+                  borderRadius: BorderRadius.circular(25.0),
+                  boxShadow: <BoxShadow>[
+                    BoxShadow(
+                      blurRadius: 3.0,
+                        color: const Color.fromARGB(144, 0, 0, 0),
+                        offset:
+                            Offset(size.width * 0.004, size.height * 0.004))
+                  ]),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    'Authorize',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
                         color: Colors.white,
-                        size: size.height * 0.04,
-                      ),
-                    )
-                  ],
-                ),
+                        fontSize: size.height * 0.025),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: size.width * 0.02),
+                    child: Icon(
+                      Icons.check,
+                      color: Colors.white,
+                      size: size.height * 0.04,
+                    ),
+                  )
+                ],
               ),
             ),
           ),
@@ -133,6 +132,7 @@ class ConsentAnalytics extends StatelessWidget {
                   borderRadius: BorderRadius.circular(25.0),
                   boxShadow: <BoxShadow>[
                     BoxShadow(
+                        blurRadius: 3.0,
                         color: const Color.fromARGB(144, 0, 0, 0),
                         offset: Offset(size.width * 0.004, size.height * 0.004))
                   ]),
