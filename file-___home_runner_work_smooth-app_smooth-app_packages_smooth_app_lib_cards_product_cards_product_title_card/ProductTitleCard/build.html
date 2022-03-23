@@ -82,12 +82,12 @@ Widget build(BuildContext context) {
       title: Text(
         _getProductName(appLocalizations),
         style: themeData.textTheme.headline4,
-      ),
+      ).selectable(),
       subtitle: Text(product.brands ?? appLocalizations.unknownBrand),
       trailing: Text(
         product.quantity ?? &#39;&#39;,
         style: themeData.textTheme.headline3,
-      ),
+      ).selectable(),
     ),
   );
 }</code></pre>

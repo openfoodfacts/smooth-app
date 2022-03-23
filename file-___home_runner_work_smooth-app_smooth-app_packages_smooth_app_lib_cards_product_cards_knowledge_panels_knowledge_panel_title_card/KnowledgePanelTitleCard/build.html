@@ -119,12 +119,13 @@ Widget build(BuildContext context) {
                     child: Text(
                       knowledgePanelTitleElement.title,
                       style: TextStyle(color: colorFromEvaluation),
-                    ),
+                    ).selectable(),
                   ),
                   if (knowledgePanelTitleElement.subtitle != null)
                     SizedBox(
                       width: constraints.maxWidth,
-                      child: Text(knowledgePanelTitleElement.subtitle!),
+                      child: Text(knowledgePanelTitleElement.subtitle!)
+                          .selectable(),
                     ),
                 ],
               );
