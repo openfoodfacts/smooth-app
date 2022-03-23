@@ -85,10 +85,9 @@ class ConsentAnalytics extends StatelessWidget {
                   borderRadius: BorderRadius.circular(25.0),
                   boxShadow: <BoxShadow>[
                     BoxShadow(
-                      blurRadius: 3.0,
+                        blurRadius: 3.0,
                         color: const Color.fromARGB(144, 0, 0, 0),
-                        offset:
-                            Offset(size.width * 0.004, size.height * 0.004))
+                        offset: Offset(size.width * 0.004, size.height * 0.004))
                   ]),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
