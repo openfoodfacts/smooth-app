@@ -4,15 +4,15 @@ import 'package:fwfh_selectable_text/fwfh_selectable_text.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 
 class SmoothHtmlWidget extends StatelessWidget {
-  const SmoothHtmlWidget(this.html, {this.textStyle});
+  const SmoothHtmlWidget(this.htmlString, {this.textStyle});
 
-  final String html;
+  final String htmlString;
   final TextStyle? textStyle;
 
   @override
   Widget build(BuildContext context) {
     return HtmlWidget(
-      html,
+      htmlString,
       textStyle: textStyle,
       onTapUrl: (String url) async {
         await LaunchUrlHelper.launchURL(url, false);
