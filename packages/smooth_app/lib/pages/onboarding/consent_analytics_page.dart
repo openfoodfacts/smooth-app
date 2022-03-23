@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_void_async
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/onboarding_loader.dart';
@@ -70,34 +72,44 @@ class ConsentAnalytics extends StatelessWidget {
             height: size.height * 0.03,
           ),
           //Authorize Button
-          InkWell(
-            borderRadius: BorderRadius.circular(25.0),
-            onTap: () async {
-              await userPreferences.setCrashReports(true);
-              await userPreferences.setAnalyticsReports(true);
-              await OnboardingLoader(localDatabase)
-                  .runAtNextTime(OnboardingPage.CONSENT_PAGE, context);
-              OnboardingFlowNavigator(userPreferences).navigateToPage(
-                  context,
-                  OnboardingFlowNavigator.getNextPage(
-                      OnboardingPage.CONSENT_PAGE));
-            },
-            child: Ink(
-              height: size.height * 0.06,
-              width: size.width * 0.7,
-              decoration: BoxDecoration(
-                  color: Colors.green,
-                  borderRadius: BorderRadius.circular(25.0),
-                  boxShadow: <BoxShadow>[
-                    BoxShadow(
-                        color: const Color.fromARGB(144, 0, 0, 0),
-                        offset: Offset(size.width * 0.004, size.height * 0.004))
-                  ]),
-              child: Center(
-                child: Text(
-                  'Authorize',
-                  style: TextStyle(
-                      color: Colors.white, fontSize: size.height * 0.02),
+          Material(
+            child: InkWell(
+              borderRadius: BorderRadius.circular(25.0),
+              onTap: () {
+                _analyticsLogic(true, userPreferences, localDatabase, context);
+              },
+              child: Ink(
+                height: size.height * 0.06,
+                width: size.width * 0.7,
+                decoration: BoxDecoration(
+                    color: Colors.green,
+                    borderRadius: BorderRadius.circular(25.0),
+                    boxShadow: <BoxShadow>[
+                      BoxShadow(
+                          color: const Color.fromARGB(144, 0, 0, 0),
+                          offset:
+                              Offset(size.width * 0.004, size.height * 0.004))
+                    ]),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      'Authorize',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: size.height * 0.025),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: size.width * 0.02),
+                      child: Icon(
+                        Icons.check,
+                        color: Colors.white,
+                        size: size.height * 0.04,
+                      ),
+                    )
+                  ],
                 ),
               ),
             ),
@@ -110,15 +122,8 @@ class ConsentAnalytics extends StatelessWidget {
           //Refuse Button
           InkWell(
             borderRadius: BorderRadius.circular(25.0),
-            onTap: () async {
-              await userPreferences.setCrashReports(true);
-              await userPreferences.setAnalyticsReports(true);
-              await OnboardingLoader(localDatabase)
-                  .runAtNextTime(OnboardingPage.CONSENT_PAGE, context);
-              OnboardingFlowNavigator(userPreferences).navigateToPage(
-                  context,
-                  OnboardingFlowNavigator.getNextPage(
-                      OnboardingPage.CONSENT_PAGE));
+            onTap: () {
+              _analyticsLogic(false, userPreferences, localDatabase, context);
             },
             child: Ink(
               height: size.height * 0.06,
@@ -131,17 +136,41 @@ class ConsentAnalytics extends StatelessWidget {
                         color: const Color.fromARGB(144, 0, 0, 0),
                         offset: Offset(size.width * 0.004, size.height * 0.004))
                   ]),
-              child: Center(
-                child: Text(
-                  'Refuse',
-                  style: TextStyle(
-                      color: Colors.white, fontSize: size.height * 0.02),
-                ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    'Refuse',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        fontSize: size.height * 0.025),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: size.width * 0.02),
+                    child: Icon(
+                      Icons.close,
+                      color: Colors.white,
+                      size: size.height * 0.04,
+                    ),
+                  )
+                ],
               ),
             ),
           ),
         ],
       ),
     );
+  }
+
+  void _analyticsLogic(bool accept, UserPreferences userPreferences,
+      LocalDatabase localDatabase, BuildContext context) async {
+    userPreferences.setCrashReports(false);
+    userPreferences.setAnalyticsReports(false);
+    await OnboardingLoader(localDatabase)
+        .runAtNextTime(OnboardingPage.CONSENT_PAGE, context);
+    OnboardingFlowNavigator(userPreferences).navigateToPage(context,
+        OnboardingFlowNavigator.getNextPage(OnboardingPage.CONSENT_PAGE));
   }
 }

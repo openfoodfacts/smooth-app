@@ -34,8 +34,6 @@ class OnboardingLoader {
       case OnboardingPage.ONBOARDING_COMPLETE:
         await _unloadData();
         return;
-      
-       
     }
   }
 
