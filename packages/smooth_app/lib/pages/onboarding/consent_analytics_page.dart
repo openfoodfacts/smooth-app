@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_void_async
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
@@ -82,9 +80,10 @@ class ConsentAnalytics extends StatelessWidget {
           //Authorize Button
           InkWell(
             borderRadius: BorderRadius.circular(25.0),
-            onTap: () async {
-              await _analyticsLogic(
+            onTap: ()  {
+               _analyticsLogic(
                   true, userPreferences, localDatabase, context);
+             
             },
             child: Ink(
               height: size.height * 0.06,
@@ -129,8 +128,8 @@ class ConsentAnalytics extends StatelessWidget {
           //Refuse Button
           InkWell(
             borderRadius: BorderRadius.circular(25.0),
-            onTap: () async {
-              await _analyticsLogic(
+            onTap: ()  {
+               _analyticsLogic(
                   false, userPreferences, localDatabase, context);
             },
             child: Ink(
@@ -174,10 +173,11 @@ class ConsentAnalytics extends StatelessWidget {
     );
   }
 
-  Future<void> _analyticsLogic(bool accept, UserPreferences userPreferences,
+  // ignore: avoid_void_async
+  void _analyticsLogic(bool accept, UserPreferences userPreferences,
       LocalDatabase localDatabase, BuildContext context) async {
-    await userPreferences.setCrashReports(false);
-    await userPreferences.setAnalyticsReports(false);
+    await userPreferences.setCrashReports(accept);
+    await userPreferences.setAnalyticsReports(accept);
     await OnboardingLoader(localDatabase)
         .runAtNextTime(OnboardingPage.CONSENT_PAGE, context);
     OnboardingFlowNavigator(userPreferences).navigateToPage(
