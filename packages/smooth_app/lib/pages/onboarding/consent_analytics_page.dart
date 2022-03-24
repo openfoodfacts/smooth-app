@@ -80,10 +80,8 @@ class ConsentAnalytics extends StatelessWidget {
           //Authorize Button
           InkWell(
             borderRadius: BorderRadius.circular(25.0),
-            onTap: ()  {
-               _analyticsLogic(
-                  true, userPreferences, localDatabase, context);
-             
+            onTap: () {
+              _analyticsLogic(true, userPreferences, localDatabase, context);
             },
             child: Ink(
               height: size.height * 0.06,
@@ -128,9 +126,8 @@ class ConsentAnalytics extends StatelessWidget {
           //Refuse Button
           InkWell(
             borderRadius: BorderRadius.circular(25.0),
-            onTap: ()  {
-               _analyticsLogic(
-                  false, userPreferences, localDatabase, context);
+            onTap: () {
+              _analyticsLogic(false, userPreferences, localDatabase, context);
             },
             child: Ink(
               height: size.height * 0.06,
