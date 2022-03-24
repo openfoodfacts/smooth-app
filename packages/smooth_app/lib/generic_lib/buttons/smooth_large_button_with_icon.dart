@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -20,9 +19,8 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
-    final UserPreferences userPreferences =
-        Provider.of<UserPreferences>(context, listen: false);
-    final bool isDarkMode = ThemeProvider(userPreferences).isDarkMode(context);
+    final bool isDarkMode =
+        Provider.of<ThemeProvider>(context, listen: false).isDarkMode(context);
     return SmoothSimpleButton(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,

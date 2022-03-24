@@ -10,8 +10,6 @@ import 'package:smooth_app/pages/user_management/forgot_password_page.dart';
 import 'package:smooth_app/pages/user_management/sign_up_page.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
-import '../../data_models/user_preferences.dart';
-
 // TODO(M123-dev): Handle colors better
 
 class LoginPage extends StatefulWidget {
@@ -75,9 +73,8 @@ class _LoginPageState extends State<LoginPage> {
     final ThemeData theme = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final Size size = MediaQuery.of(context).size;
-    final UserPreferences userPreferences =
-        Provider.of<UserPreferences>(context, listen: false);
-    final bool isDarkMode = ThemeProvider(userPreferences).isDarkMode(context);
+    final bool isDarkMode =
+        Provider.of<ThemeProvider>(context, listen: false).isDarkMode(context);
 
     // Needs to be changed
     if (isDarkMode) {

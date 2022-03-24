@@ -70,7 +70,8 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final Size size = MediaQuery.of(context).size;
-    final bool isDarkMode = ThemeProvider(userPreferences).isDarkMode(context);
+    final bool isDarkMode =
+        Provider.of<ThemeProvider>(context, listen: false).isDarkMode(context);
 
     // Needs to be changed
     if (isDarkMode) {
