@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
+
 import 'package:smooth_app/data_models/onboarding_loader.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -14,6 +16,7 @@ class ConsentAnalytics extends StatelessWidget {
     final Size size = MediaQuery.of(context).size;
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final UserPreferences userPreferences = context.watch<UserPreferences>();
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     const Color shadowColor = Color.fromARGB(144, 0, 0, 0);
     const Color bodyColor = Color.fromARGB(174, 19, 18, 18);
     const String assetName = 'assets/onboarding/analytics.svg';
@@ -35,7 +38,7 @@ class ConsentAnalytics extends StatelessWidget {
           Align(
             alignment: Alignment.center,
             child: Text(
-              'Send anonymous analytics',
+              appLocalizations.consent_analytics_title,
               style: Theme.of(context)
                   .textTheme
                   .headline2!
@@ -50,7 +53,7 @@ class ConsentAnalytics extends StatelessWidget {
               maxWidth: size.width * 0.8,
             ),
             child: Text(
-              'Help the Open Food Facts volunteer to improve the app.You decide if you want to send anonymous analytics.',
+              appLocalizations.consent_analytics_body1,
               textAlign: TextAlign.center,
               style: Theme.of(context)
                   .textTheme
@@ -66,7 +69,7 @@ class ConsentAnalytics extends StatelessWidget {
               maxWidth: size.width * 0.8,
             ),
             child: Text(
-              'If you change your mind this option can be enabled and disabled at any time from the settings.',
+              appLocalizations.consent_analytics_body2,
               textAlign: TextAlign.center,
               style: Theme.of(context)
                   .textTheme
@@ -100,7 +103,7 @@ class ConsentAnalytics extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    'Authorize',
+                    appLocalizations.authorize_button_label,
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
@@ -147,7 +150,7 @@ class ConsentAnalytics extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    'Refuse',
+                    appLocalizations.refuse_button_label,
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
