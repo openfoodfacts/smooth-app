@@ -82,8 +82,9 @@ class ConsentAnalytics extends StatelessWidget {
           //Authorize Button
           InkWell(
             borderRadius: BorderRadius.circular(25.0),
-            onTap: () {
-              _analyticsLogic(true, userPreferences, localDatabase, context);
+            onTap: () async {
+              await _analyticsLogic(
+                  true, userPreferences, localDatabase, context);
             },
             child: Ink(
               height: size.height * 0.06,
@@ -128,8 +129,9 @@ class ConsentAnalytics extends StatelessWidget {
           //Refuse Button
           InkWell(
             borderRadius: BorderRadius.circular(25.0),
-            onTap: () {
-              _analyticsLogic(false, userPreferences, localDatabase, context);
+            onTap: () async {
+              await _analyticsLogic(
+                  false, userPreferences, localDatabase, context);
             },
             child: Ink(
               height: size.height * 0.06,
@@ -172,10 +174,10 @@ class ConsentAnalytics extends StatelessWidget {
     );
   }
 
-  void _analyticsLogic(bool accept, UserPreferences userPreferences,
+  Future<void> _analyticsLogic(bool accept, UserPreferences userPreferences,
       LocalDatabase localDatabase, BuildContext context) async {
-    userPreferences.setCrashReports(false);
-    userPreferences.setAnalyticsReports(false);
+    await userPreferences.setCrashReports(false);
+    await userPreferences.setAnalyticsReports(false);
     await OnboardingLoader(localDatabase)
         .runAtNextTime(OnboardingPage.CONSENT_PAGE, context);
     OnboardingFlowNavigator(userPreferences).navigateToPage(
