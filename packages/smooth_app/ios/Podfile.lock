@@ -38,7 +38,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilitiesComponents (1.1.0):
     - GoogleUtilities/Logger
-  - GTMSessionFetcher/Core (1.7.0)
+  - GTMSessionFetcher/Core (1.7.1)
   - image_picker (0.0.1):
     - Flutter
   - iso_countries (0.0.1):
@@ -82,13 +82,13 @@ PODS:
   - qr_code_scanner (0.2.0):
     - Flutter
     - MTBBarcodeScanner
-  - Sentry (7.9.0):
-    - Sentry/Core (= 7.9.0)
-  - Sentry/Core (7.9.0)
+  - Sentry (7.10.2):
+    - Sentry/Core (= 7.10.2)
+  - Sentry/Core (7.10.2)
   - sentry_flutter (0.0.1):
     - Flutter
     - FlutterMacOS
-    - Sentry (~> 7.9.0)
+    - Sentry (~> 7.10.1)
   - shared_preferences_ios (0.0.1):
     - Flutter
   - url_launcher_ios (0.0.1):
@@ -172,7 +172,7 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 8bef7c7c5cf7291c687cf5354f39f9db6399ad34
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   GoogleUtilitiesComponents: 679b2c881db3b615a2777504623df6122dd20afe
-  GTMSessionFetcher: 43748f93435c2aa068b1cbe39655aaf600652e91
+  GTMSessionFetcher: 4577a4cc914a5a07c40a8a0ad0acc22080418c2d
   image_picker: 541dcbb3b9cf32d87eacbd957845d8651d6c62c3
   iso_countries: eb09d40f388e4c65e291e0bb36a701dfe7de6c74
   matomo_forever: 7e5e5fd8f355f64979591282cad4e858fa4c9fae
@@ -188,11 +188,11 @@ SPEC CHECKSUMS:
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
   Protobuf: 235750e4696ff59fb07d949a9dbbc92b3c0700fe
   qr_code_scanner: bb67d64904c3b9658ada8c402e8b4d406d5d796e
-  Sentry: 2f7e91f247cfb05b05bd01e0b5d0692557a7687b
-  sentry_flutter: 7c3cb050dc23563a4ea5db438c83afdb460a2ae6
+  Sentry: 7bf9bfe713692cf87812e55f0999260494ba7982
+  sentry_flutter: 77ccdac346608b8ce7e428e7284e7a3e4e7f4a02
   shared_preferences_ios: 548a61f8053b9b8a49ac19c1ffbc8b92c50d68ad
   url_launcher_ios: 839c58cdb4279282219f5e248c3321761ff3c4de
 
 PODFILE CHECKSUM: e1ffd3daa5042cd516081f94f61b857c0deb822d
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3
