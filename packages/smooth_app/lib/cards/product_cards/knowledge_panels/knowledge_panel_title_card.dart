@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:smooth_app/cards/category_cards/abstract_cache.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 
 class KnowledgePanelTitleCard extends StatelessWidget {
@@ -62,12 +63,13 @@ class KnowledgePanelTitleCard extends StatelessWidget {
                       child: Text(
                         knowledgePanelTitleElement.title,
                         style: TextStyle(color: colorFromEvaluation),
-                      ),
+                      ).selectable(),
                     ),
                     if (knowledgePanelTitleElement.subtitle != null)
                       SizedBox(
                         width: constraints.maxWidth,
-                        child: Text(knowledgePanelTitleElement.subtitle!),
+                        child: Text(knowledgePanelTitleElement.subtitle!)
+                            .selectable(),
                       ),
                   ],
                 );
