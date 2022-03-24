@@ -229,17 +229,14 @@ class _QuestionCardState extends State<QuestionCard>
             ),
           ],
         ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: AspectRatio(
-            aspectRatio: 8,
-            child: _buildAnswerButton(
-              insightId: question.insightId,
-              insightAnnotation: InsightAnnotation.MAYBE,
-              backgroundColor: const Color(0xFFFFEFB7),
-              contentColor: Colors.black,
-              currentQuestionIndex: currentQuestionIndex,
-            ),
+        AspectRatio(
+          aspectRatio: 8,
+          child: _buildAnswerButton(
+            insightId: question.insightId,
+            insightAnnotation: InsightAnnotation.MAYBE,
+            backgroundColor: const Color(0xFFFFEFB7),
+            contentColor: Colors.black,
+            currentQuestionIndex: currentQuestionIndex,
           ),
         ),
       ],
