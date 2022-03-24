@@ -1,12 +1,12 @@
 // ignore_for_file: avoid_void_async
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/onboarding_loader.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
-
-import '../../database/local_database.dart';
 
 class ConsentAnalytics extends StatelessWidget {
   const ConsentAnalytics({Key? key}) : super(key: key);
@@ -16,28 +16,32 @@ class ConsentAnalytics extends StatelessWidget {
     final Size size = MediaQuery.of(context).size;
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final UserPreferences userPreferences = context.watch<UserPreferences>();
+    const Color shadowColor = Color.fromARGB(144, 0, 0, 0);
+    const Color bodyColor = Color.fromARGB(174, 19, 18, 18);
+    const String assetName = 'assets/onboarding/analytics.svg';
     return Scaffold(
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           SizedBox(
-            height: size.height * 0.2,
-            width: size.width * 0.28,
-            child: Image.asset(
-              'assets/onboarding/data.png',
-              fit: BoxFit.contain,
-            ),
+              height: size.height * 0.2,
+              width: size.width * 0.45,
+              child: SvgPicture.asset(
+                assetName,
+                semanticsLabel: 'Analytics Icons',
+                fit: BoxFit.contain,
+              )),
+          SizedBox(
+            height: size.height * 0.01,
           ),
           Align(
             alignment: Alignment.center,
             child: Text(
               'Send anonymous analytics',
-              maxLines: 1,
-              style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  fontSize: size.height * 0.025),
+              style: Theme.of(context)
+                  .textTheme
+                  .headline2!
+                  .apply(color: Colors.black),
             ),
           ),
           SizedBox(
@@ -50,8 +54,10 @@ class ConsentAnalytics extends StatelessWidget {
             child: Text(
               'Help the Open Food Facts volunteer to improve the app.You decide if you want to send anonymous analytics.',
               textAlign: TextAlign.center,
-              style:
-                  TextStyle(fontSize: size.height * 0.021, color: Colors.black),
+              style: Theme.of(context)
+                  .textTheme
+                  .displaySmall!
+                  .apply(color: bodyColor),
             ),
           ),
           SizedBox(
@@ -64,12 +70,14 @@ class ConsentAnalytics extends StatelessWidget {
             child: Text(
               'If you change your mind this option can be enabled and disabled at any time from the settings.',
               textAlign: TextAlign.center,
-              style:
-                  TextStyle(fontSize: size.height * 0.021, color: Colors.black),
+              style: Theme.of(context)
+                  .textTheme
+                  .displaySmall!
+                  .apply(color: bodyColor),
             ),
           ),
           SizedBox(
-            height: size.height * 0.03,
+            height: size.height * 0.02,
           ),
           //Authorize Button
           InkWell(
@@ -86,7 +94,7 @@ class ConsentAnalytics extends StatelessWidget {
                   boxShadow: <BoxShadow>[
                     BoxShadow(
                         blurRadius: 3.0,
-                        color: const Color.fromARGB(144, 0, 0, 0),
+                        color: shadowColor,
                         offset: Offset(size.width * 0.004, size.height * 0.004))
                   ]),
               child: Row(
@@ -114,7 +122,7 @@ class ConsentAnalytics extends StatelessWidget {
           ),
 
           SizedBox(
-            height: size.height * 0.03,
+            height: size.height * 0.02,
           ),
 
           //Refuse Button
@@ -131,9 +139,10 @@ class ConsentAnalytics extends StatelessWidget {
                   borderRadius: BorderRadius.circular(25.0),
                   boxShadow: <BoxShadow>[
                     BoxShadow(
-                        blurRadius: 3.0,
-                        color: const Color.fromARGB(144, 0, 0, 0),
-                        offset: Offset(size.width * 0.004, size.height * 0.004))
+                      blurRadius: 3.0,
+                      color: shadowColor,
+                      offset: Offset(size.width * 0.004, size.height * 0.004),
+                    )
                   ]),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -169,7 +178,9 @@ class ConsentAnalytics extends StatelessWidget {
     userPreferences.setAnalyticsReports(false);
     await OnboardingLoader(localDatabase)
         .runAtNextTime(OnboardingPage.CONSENT_PAGE, context);
-    OnboardingFlowNavigator(userPreferences).navigateToPage(context,
-        OnboardingFlowNavigator.getNextPage(OnboardingPage.CONSENT_PAGE));
+    OnboardingFlowNavigator(userPreferences).navigateToPage(
+      context,
+      OnboardingFlowNavigator.getNextPage(OnboardingPage.CONSENT_PAGE),
+    );
   }
 }
