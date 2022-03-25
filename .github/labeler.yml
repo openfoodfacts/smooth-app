@@ -11,6 +11,9 @@ dependancies:
 ios:
 - packages/smooth_app/ios/**/*
 
+asset cache:
+- packages/smooth_app/assets/cache/**/*
+
 web:
 - packages/smooth_app/web/**/*
 
