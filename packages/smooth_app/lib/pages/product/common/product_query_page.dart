@@ -34,6 +34,8 @@ class ProductQueryPage extends StatefulWidget {
 }
 
 class _ProductQueryPageState extends State<ProductQueryPage> {
+  // we have to use GlobalKey's for SnackBar's because of nested Scaffold's:
+  // not the 2 Scaffold's here but one of them and the one on top (PageManager)
   final GlobalKey<ScaffoldMessengerState> _scaffoldKeyEmpty =
       GlobalKey<ScaffoldMessengerState>();
   final GlobalKey<ScaffoldMessengerState> _scaffoldKeyNotEmpty =
