@@ -198,7 +198,7 @@ class _ProductPageState extends State<ProductPage> {
           horizontal: SMALL_SPACE,
         ),
         child: Hero(
-          tag: _product.barcode??'',
+          tag: _product.barcode ?? '',
           child: SummaryCard(
             _product,
             _productPreferences,
