@@ -34,9 +34,10 @@ class ProductQueryPage extends StatefulWidget {
 }
 
 class _ProductQueryPageState extends State<ProductQueryPage> {
-  final GlobalKey<ScaffoldState> _scaffoldKeyEmpty = GlobalKey<ScaffoldState>();
-  final GlobalKey<ScaffoldState> _scaffoldKeyNotEmpty =
-      GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldMessengerState> _scaffoldKeyEmpty =
+      GlobalKey<ScaffoldMessengerState>();
+  final GlobalKey<ScaffoldMessengerState> _scaffoldKeyNotEmpty =
+      GlobalKey<ScaffoldMessengerState>();
 
   late ProductQueryModel _model;
   int? _lastUpdate;
@@ -126,8 +127,9 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
     final ThemeData themeData,
     final Widget emptiness,
   ) =>
-      Scaffold(
-          key: _scaffoldKeyEmpty,
+      ScaffoldMessenger(
+        key: _scaffoldKeyEmpty,
+        child: Scaffold(
           body: Stack(
             children: <Widget>[
               _getHero(screenSize, themeData),
@@ -144,14 +146,17 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                 ),
               ),
             ],
-          ));
+          ),
+        ),
+      );
 
   Widget _getNotEmptyScreen(
     final Size screenSize,
     final ThemeData themeData,
   ) =>
-      Scaffold(
-          key: _scaffoldKeyNotEmpty,
+      ScaffoldMessenger(
+        key: _scaffoldKeyNotEmpty,
+        child: Scaffold(
           floatingActionButton: RankingFloatingActionButton(
             color: widget.mainColor,
             onPressed: () => Navigator.push<Widget>(
@@ -231,7 +236,9 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                 ),
               ),
             ],
-          ));
+          ),
+        ),
+      );
 
   Widget _getHero(final Size screenSize, final ThemeData themeData) => Hero(
         tag: widget.heroTag,
@@ -290,7 +297,9 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
         ],
       );
 
-  void _showRefreshSnackBar(final GlobalKey<ScaffoldState> scaffoldKey) {
+  void _showRefreshSnackBar(
+    final GlobalKey<ScaffoldMessengerState> scaffoldKey,
+  ) {
     if (_lastUpdate == null) {
       return;
     }
@@ -308,7 +317,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
 
     Future<void>.delayed(
       Duration.zero,
-      () => ScaffoldMessenger.of(context).showSnackBar(
+      () => scaffoldKey.currentState?.showSnackBar(
         SnackBar(
           content: Text(message),
           duration: const Duration(seconds: 5),
