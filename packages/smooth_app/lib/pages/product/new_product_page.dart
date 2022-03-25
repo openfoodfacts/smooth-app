@@ -197,12 +197,15 @@ class _ProductPageState extends State<ProductPage> {
         padding: const EdgeInsets.symmetric(
           horizontal: SMALL_SPACE,
         ),
-        child: SummaryCard(
-          _product,
-          _productPreferences,
-          isFullVersion: true,
-          showUnansweredQuestions: true,
-          refreshProductCallback: _refreshProduct,
+        child: Hero(
+          tag: _product.barcode??'',
+          child: SummaryCard(
+            _product,
+            _productPreferences,
+            isFullVersion: true,
+            showUnansweredQuestions: true,
+            refreshProductCallback: _refreshProduct,
+          ),
         ),
       ),
       _buildKnowledgePanelCards(),
