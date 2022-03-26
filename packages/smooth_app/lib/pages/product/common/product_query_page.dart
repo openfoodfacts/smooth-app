@@ -149,41 +149,6 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             getBackArrow(context, widget.mainColor),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 24.0),
-                              child: TextButton.icon(
-                                icon: Icon(
-                                  Icons.filter_list,
-                                  color: widget.mainColor,
-                                ),
-                                label: Text(
-                                    AppLocalizations.of(context)!.filter,
-                                    style: themeData.textTheme.subtitle1!
-                                        .copyWith(color: widget.mainColor)),
-                                style: TextButton.styleFrom(
-                                  textStyle: TextStyle(
-                                    color: widget.mainColor,
-                                  ),
-                                ),
-                                onPressed: () {
-                                  showCupertinoModalBottomSheet<Widget>(
-                                    expand: false,
-                                    context: context,
-                                    backgroundColor: Colors.transparent,
-                                    bounce: true,
-                                    builder: (BuildContext context) =>
-                                        GroupQueryFilterView(
-                                      categories: _model.categories,
-                                      categoriesList: _model.sortedCategories,
-                                      callback: (String category) {
-                                        _model.selectCategory(category);
-                                        setState(() {});
-                                      },
-                                    ),
-                                  );
-                                },
-                              ),
-                            )
                           ]),
                       flexibleSpace: LayoutBuilder(builder:
                           (BuildContext context, BoxConstraints constraints) {
