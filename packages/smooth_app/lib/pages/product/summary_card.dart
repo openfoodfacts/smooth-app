@@ -481,7 +481,7 @@ class _SummaryCardState extends State<SummaryCard> {
               },
               child: SmoothCard(
                 margin: EdgeInsets.zero,
-                color: const Color(0xfff5f6fa),
+                color: Theme.of(context).colorScheme.primary,
                 elevation: 0,
                 padding: const EdgeInsets.all(
                   SMALL_SPACE,
