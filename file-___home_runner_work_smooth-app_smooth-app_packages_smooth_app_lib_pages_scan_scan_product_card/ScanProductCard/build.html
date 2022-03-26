@@ -84,7 +84,10 @@ Widget build(BuildContext context) {
         _openProductPage(context);
       }
     },
-    child: SummaryCard(product, productPreferences),
+    child: Hero(
+      tag: product.barcode ?? &#39;&#39;,
+      child: SummaryCard(product, productPreferences),
+    ),
   );
 }</code></pre>
 </section>
