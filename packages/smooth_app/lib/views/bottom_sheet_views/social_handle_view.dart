@@ -36,9 +36,9 @@ class SocialHandleView extends StatelessWidget {
                   _launchUrl(context, 'https://www.twitter.com/openfoodfacts'),
             ),
 
-            //Blogger
+            //Blog
             SmoothListTile(
-              text: AppLocalizations.of(context)!.blogger,
+              text: AppLocalizations.of(context)!.blog,
               leadingWidget: const Icon(Icons.open_in_new),
               onPressed: () =>
                   _launchUrl(context, 'https://en.blog.openfoodfacts.org'),
