@@ -34,7 +34,9 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   bool _servingOr100g = false;
 
   double getColumnSizeFromContext(
-      BuildContext context, double adjustmentFactor) {
+    BuildContext context,
+    double adjustmentFactor,
+  ) {
     final double _columnSize = MediaQuery.of(context).size.width;
     return _columnSize * adjustmentFactor;
   }
@@ -98,8 +100,10 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     );
   }
 
-  Widget _getNutrientRow(final AppLocalizations appLocalizations,
-          final OrderedNutrient orderedNutrient) =>
+  Widget _getNutrientRow(
+    final AppLocalizations appLocalizations,
+    final OrderedNutrient orderedNutrient,
+  ) =>
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
