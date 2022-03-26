@@ -164,7 +164,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
             SnackBar(
               content: Text(
                 removed
-                    ? appLocalizations.product_removed
+                    ? appLocalizations.product_removed_comparison
                     : appLocalizations.product_could_not_remove,
               ),
               duration: const Duration(seconds: 3),
