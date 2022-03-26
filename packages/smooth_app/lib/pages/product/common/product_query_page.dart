@@ -43,27 +43,12 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
 
   late ProductQueryModel _model;
   int? _lastUpdate;
-  final ScrollController _scrollController = ScrollController();
-  bool _showTitle = true;
 
   @override
   void initState() {
     super.initState();
     _lastUpdate = widget.lastUpdate;
     _model = ProductQueryModel(widget.productListSupplier);
-    _scrollController.addListener(() {
-      if (_scrollController.offset <=
-              _scrollController.position.minScrollExtent &&
-          !_scrollController.position.outOfRange) {
-        if (!_showTitle) {
-          setState(() => _showTitle = true);
-        }
-      } else {
-        if (_showTitle) {
-          setState(() => _showTitle = false);
-        }
-      }
-    });
   }
 
   @override
