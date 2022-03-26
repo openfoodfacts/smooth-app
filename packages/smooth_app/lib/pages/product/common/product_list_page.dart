@@ -208,7 +208,7 @@ class _ProductListPageState extends State<ProductListPage> {
                         SnackBar(
                           content: Text(
                             removed
-                                ? appLocalizations.product_removed
+                                ? appLocalizations.product_removed_history
                                 : appLocalizations.product_could_not_remove,
                           ),
                           duration: const Duration(seconds: 3),
