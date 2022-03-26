@@ -13,14 +13,7 @@ class SocialHandleView extends StatelessWidget {
           shrinkWrap: true,
           scrollDirection: Axis.vertical,
           children: <Widget>[
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              margin: const EdgeInsets.only(top: 20.0, bottom: 24.0),
-              child: Text(
-                AppLocalizations.of(context)!.connect_with_us,
-                style: Theme.of(context).textTheme.headline1,
-              ),
-            ),
+            buildContainer(context),
             // Instagram
             SmoothListTile(
                 text: AppLocalizations.of(context)!.instagram,
@@ -45,6 +38,17 @@ class SocialHandleView extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget buildContainer(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      margin: const EdgeInsets.only(top: 20.0, bottom: 24.0),
+      child: Text(
+        AppLocalizations.of(context)!.connect_with_us,
+        style: Theme.of(context).textTheme.headline1,
       ),
     );
   }
