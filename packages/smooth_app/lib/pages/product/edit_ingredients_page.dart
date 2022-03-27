@@ -302,7 +302,8 @@ class _EditIngredientsBody extends StatelessWidget {
                             textInputAction: TextInputAction.done,
                             onSubmitted: onSubmitField,
                           ),
-                          Text(appLocalizations.ingredients_editing_instructions),
+                          Text(appLocalizations
+                              .ingredients_editing_instructions),
                         ],
                       ),
                     ),
@@ -350,7 +351,7 @@ class _ActionButtons extends StatelessWidget {
               },
               child: const Icon(Icons.check),
             ),
-        ]
+          ]
         : <Widget>[
             FloatingActionButton.small(
               tooltip: 'Take photo',
@@ -359,7 +360,7 @@ class _ActionButtons extends StatelessWidget {
               onPressed: getImage,
               child: const Icon(Icons.camera_alt),
             ),
-        ];
+          ];
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,

@@ -135,8 +135,8 @@ class KnowledgePanelsBuilder {
         if (context.read<UserPreferences>().getFlag(
                 UserPreferencesDevMode.userPreferencesFlagEditIngredients) ??
             false) {
-        // When the flag is removed, this should be the following:
-        // if (product.statesTags?.contains('en:ingredients-to-be-completed') ?? false) {
+          // When the flag is removed, this should be the following:
+          // if (product.statesTags?.contains('en:ingredients-to-be-completed') ?? false) {
           knowledgePanelElementWidgets.add(
             addPanelButton(
               appLocalizations.score_add_missing_ingredients,
