@@ -22,10 +22,8 @@ class EditIngredientsPage extends StatefulWidget {
     Key? key,
     this.imageIngredientsUrl,
     required this.product,
-    this.barcode,
   }) : super(key: key);
 
-  final String? barcode;
   final Product product;
   final String? imageIngredientsUrl;
 
@@ -62,7 +60,6 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
   Future<void> _onSubmitField(String string) async {
     final User user = ProductQuery.getUser();
 
-    // TODO(justinmc): LoadingDialog.
     setState(() {
       _updatingIngredients = true;
     });
@@ -126,8 +123,7 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
 
     final bool isUploaded = await uploadCapturedPicture(
       context,
-      barcode: widget.product
-          .barcode!,
+      barcode: widget.product.barcode!,
       imageField: ImageField.INGREDIENTS,
       imageUri: croppedImageFile.uri,
     );
@@ -144,7 +140,7 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
     // Get the ingredients from the image.
     final OcrIngredientsResult ingredientsResult =
         await OpenFoodAPIClient.extractIngredients(
-            user, widget.barcode!, language!);
+            user, widget.product.barcode!, language!);
 
     final String? nextIngredients = ingredientsResult.ingredientsTextFromImage;
     if (nextIngredients == null || nextIngredients.isEmpty) {
@@ -265,7 +261,7 @@ class _EditIngredientsBody extends StatelessWidget {
     return Align(
       alignment: Alignment.bottomLeft,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
@@ -274,7 +270,7 @@ class _EditIngredientsBody extends StatelessWidget {
               child: Align(
                 alignment: Alignment.bottomRight,
                 child: Padding(
-                  padding: const EdgeInsets.only(bottom: 16.0),
+                  padding: const EdgeInsets.only(bottom: LARGE_SPACE),
                   child: _ActionButtons(
                     getImage: onTapGetImage,
                     hasImage: imageIngredientsUrl != null,
@@ -291,15 +287,15 @@ class _EditIngredientsBody extends StatelessWidget {
                   child: DefaultTextStyle(
                     style: const TextStyle(color: Colors.white),
                     child: Padding(
-                      padding: const EdgeInsets.all(16.0),
+                      padding: const EdgeInsets.all(LARGE_SPACE),
                       child: Column(
                         children: <Widget>[
                           TextField(
                             enabled: !updatingIngredients,
                             controller: controller,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(3.0),
+                                borderRadius: ANGULAR_BORDER_RADIUS,
                               ),
                             ),
                             maxLines: null,
@@ -321,7 +317,7 @@ class _EditIngredientsBody extends StatelessWidget {
   }
 }
 
-// The actions for the page in a row of FloatingActionButtons.
+/// The actions for the page in a row of FloatingActionButtons.
 class _ActionButtons extends StatelessWidget {
   const _ActionButtons({
     Key? key,
@@ -334,20 +330,21 @@ class _ActionButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ColorScheme colorScheme = Theme.of(context).buttonTheme.colorScheme!;
     final List<Widget> children = hasImage
         ? <Widget>[
             FloatingActionButton.small(
               tooltip: 'Retake photo',
-              backgroundColor: Theme.of(context).buttonTheme.colorScheme!.background,
-              foregroundColor: Theme.of(context).buttonTheme.colorScheme!.onBackground,
+              backgroundColor: colorScheme.background,
+              foregroundColor: colorScheme.onBackground,
               onPressed: getImage,
               child: const Icon(Icons.refresh),
             ),
             const SizedBox(width: MEDIUM_SPACE),
             FloatingActionButton.small(
               tooltip: 'Confirm',
-              backgroundColor: Theme.of(context).buttonTheme.colorScheme!.primary,
-              foregroundColor: Theme.of(context).buttonTheme.colorScheme!.onBackground,
+              backgroundColor: colorScheme.primary,
+              foregroundColor: colorScheme.onPrimary,
               onPressed: () {
                 Navigator.pop(context);
               },
@@ -357,8 +354,8 @@ class _ActionButtons extends StatelessWidget {
         : <Widget>[
             FloatingActionButton.small(
               tooltip: 'Take photo',
-              backgroundColor: Theme.of(context).buttonTheme.colorScheme!.background,
-              foregroundColor: Theme.of(context).buttonTheme.colorScheme!.onBackground,
+              backgroundColor: colorScheme.background,
+              foregroundColor: colorScheme.onBackground,
               onPressed: getImage,
               child: const Icon(Icons.camera_alt),
             ),

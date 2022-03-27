@@ -146,7 +146,6 @@ class KnowledgePanelsBuilder {
                   builder: (BuildContext context) => EditIngredientsPage(
                     product: product,
                     imageIngredientsUrl: product.imageIngredientsUrl,
-                    barcode: product.barcode,
                   ),
                 ),
               ),
