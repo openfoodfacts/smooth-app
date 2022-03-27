@@ -176,87 +176,90 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
           body: Stack(
             children: <Widget>[
               _getHero(screenSize, themeData),
-              CustomScrollView(
-                slivers: <Widget>[
-                  SliverAppBar(
-                      backgroundColor: themeData.scaffoldBackgroundColor,
-                      expandedHeight: screenSize.height * 0.15,
-                      collapsedHeight: screenSize.height * 0.09,
-                      pinned: true,
-                      elevation: 0,
-                      automaticallyImplyLeading: false,
-                      title: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            getBackArrow(context, widget.mainColor),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 24.0),
-                              child: TextButton.icon(
-                                icon: Icon(
-                                  Icons.filter_list,
-                                  color: widget.mainColor,
-                                ),
-                                label: Text(
-                                    AppLocalizations.of(context)!.filter,
-                                    style: themeData.textTheme.subtitle1!
-                                        .copyWith(color: widget.mainColor)),
-                                style: TextButton.styleFrom(
-                                  textStyle: TextStyle(
+              RefreshIndicator(
+                onRefresh: () => refreshlist(),
+                child: CustomScrollView(
+                  slivers: <Widget>[
+                    SliverAppBar(
+                        backgroundColor: themeData.scaffoldBackgroundColor,
+                        expandedHeight: screenSize.height * 0.15,
+                        collapsedHeight: screenSize.height * 0.09,
+                        pinned: true,
+                        elevation: 0,
+                        automaticallyImplyLeading: false,
+                        title: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              getBackArrow(context, widget.mainColor),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 24.0),
+                                child: TextButton.icon(
+                                  icon: Icon(
+                                    Icons.filter_list,
                                     color: widget.mainColor,
                                   ),
-                                ),
-                                onPressed: () {
-                                  showCupertinoModalBottomSheet<Widget>(
-                                    expand: false,
-                                    context: context,
-                                    backgroundColor: Colors.transparent,
-                                    bounce: true,
-                                    builder: (BuildContext context) =>
-                                        GroupQueryFilterView(
-                                      categories: _model.categories,
-                                      categoriesList: _model.sortedCategories,
-                                      callback: (String category) {
-                                        _model.selectCategory(category);
-                                        setState(() {});
-                                      },
+                                  label: Text(
+                                      AppLocalizations.of(context)!.filter,
+                                      style: themeData.textTheme.subtitle1!
+                                          .copyWith(color: widget.mainColor)),
+                                  style: TextButton.styleFrom(
+                                    textStyle: TextStyle(
+                                      color: widget.mainColor,
                                     ),
-                                  );
-                                },
+                                  ),
+                                  onPressed: () {
+                                    showCupertinoModalBottomSheet<Widget>(
+                                      expand: false,
+                                      context: context,
+                                      backgroundColor: Colors.transparent,
+                                      bounce: true,
+                                      builder: (BuildContext context) =>
+                                          GroupQueryFilterView(
+                                        categories: _model.categories,
+                                        categoriesList: _model.sortedCategories,
+                                        callback: (String category) {
+                                          _model.selectCategory(category);
+                                          setState(() {});
+                                        },
+                                      ),
+                                    );
+                                  },
+                                ),
+                              )
+                            ]),
+                        flexibleSpace: LayoutBuilder(builder:
+                            (BuildContext context, BoxConstraints constraints) {
+                          return FlexibleSpaceBar(
+                              centerTitle: true,
+                              title: Text(
+                                widget.name,
+                                textAlign: TextAlign.center,
+                                style: themeData.textTheme.headline1!
+                                    .copyWith(color: widget.mainColor),
                               ),
-                            )
-                          ]),
-                      flexibleSpace: LayoutBuilder(builder:
-                          (BuildContext context, BoxConstraints constraints) {
-                        return FlexibleSpaceBar(
-                            centerTitle: true,
-                            title: Text(
-                              widget.name,
-                              textAlign: TextAlign.center,
-                              style: themeData.textTheme.headline1!
-                                  .copyWith(color: widget.mainColor),
-                            ),
-                            background: _getHero(screenSize, themeData));
-                      })),
-                  SliverList(
-                    delegate: SliverChildBuilderDelegate(
-                      (_, int index) {
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 12.0, vertical: 8.0),
-                          child: SmoothProductCardFound(
-                            heroTag: _model.displayProducts![index].barcode!,
-                            product: _model.displayProducts![index],
-                            elevation:
-                                Theme.of(context).brightness == Brightness.light
-                                    ? 0.0
-                                    : 4.0,
-                          ).build(context),
-                        );
-                      },
-                      childCount: _model.displayProducts!.length,
-                    ),
-                  )
-                ],
+                              background: _getHero(screenSize, themeData));
+                        })),
+                    SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                        (_, int index) {
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 12.0, vertical: 8.0),
+                            child: SmoothProductCardFound(
+                              heroTag: _model.displayProducts![index].barcode!,
+                              product: _model.displayProducts![index],
+                              elevation: Theme.of(context).brightness ==
+                                      Brightness.light
+                                  ? 0.0
+                                  : 4.0,
+                            ).build(context),
+                          );
+                        },
+                        childCount: _model.displayProducts!.length,
+                      ),
+                    )
+                  ],
+                ),
               ),
             ],
           ),
@@ -339,4 +342,12 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
           onPressed: () => Navigator.pop(context),
         ),
       );
+
+  Future<void> refreshlist() async {
+    final ProductListSupplier? refreshSupplier =
+        widget.productListSupplier.getRefreshSupplier();
+    setState(
+      () => _model = ProductQueryModel(refreshSupplier!),
+    );
+  }
 }
