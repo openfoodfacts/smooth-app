@@ -250,7 +250,7 @@ class UserPreferencesSettings extends AbstractUserPreferences {
           },
         ),
         SmoothListTile(
-          text: "FAQ",
+          text: appLocalizations.faq,
           onPressed: () => showCupertinoModalBottomSheet<Widget>(
             expand: false,
             context: context,
