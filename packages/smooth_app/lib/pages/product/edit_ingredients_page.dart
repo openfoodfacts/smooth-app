@@ -28,7 +28,7 @@ class EditIngredientsPage extends StatefulWidget {
   final String? imageIngredientsUrl;
 
   @override
-  _EditIngredientsPageState createState() => _EditIngredientsPageState();
+  State<EditIngredientsPage> createState() => _EditIngredientsPageState();
 }
 
 class _EditIngredientsPageState extends State<EditIngredientsPage> {
