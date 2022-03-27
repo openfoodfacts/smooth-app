@@ -143,6 +143,9 @@ class _ProductListPageState extends State<ProductListPage> {
               ],
             )
           : RefreshIndicator(
+              //if it is in selectmode then refresh indicator is not shown
+              notificationPredicate:
+                  _selectionMode ? (_) => false : (_) => true,
               onRefresh: () async => _refreshListProducts(
                 products,
                 localDatabase,
