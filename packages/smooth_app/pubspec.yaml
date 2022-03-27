@@ -17,7 +17,8 @@ dependencies:
     sdk: flutter
   flutter_svg: ^1.0.3
   flutter_map: ^0.14.0
-  flutter_widget_from_html_core: ^0.8.5+1
+  flutter_widget_from_html_core: any
+  fwfh_selectable_text: ^0.8.3
   flutter_secure_storage: ^5.0.2
   hive: ^2.0.6
   hive_flutter: ^1.1.0
@@ -37,7 +38,7 @@ dependencies:
   provider: ^6.0.2
   qr_code_scanner: ^0.7.0
   rubber: ^1.0.1
-  sentry_flutter: ^6.4.0
+  sentry_flutter: ^6.4.0 # careful with upgrading cf: https://github.com/openfoodfacts/smooth-app/issues/1300
   url_launcher: ^6.0.20
   visibility_detector: ^0.2.2
   camera: ^0.9.4+16
@@ -45,7 +46,11 @@ dependencies:
   crop_your_image: ^0.7.2
   mailto: ^2.0.0
   flutter_native_splash: ^2.1.1
-  google_ml_barcode_scanner: ^0.0.2
+  # Fork from cli1005 with iOS fix cf: https://github.com/openfoodfacts/smooth-app/issues/1155
+  google_ml_barcode_scanner:
+    git:
+      url: https://github.com/cli1005/google_ml_barcode_scanner.git
+      ref: master
 
 
   

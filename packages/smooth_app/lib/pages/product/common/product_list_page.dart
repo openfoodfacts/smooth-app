@@ -208,7 +208,7 @@ class _ProductListPageState extends State<ProductListPage> {
                         SnackBar(
                           content: Text(
                             removed
-                                ? appLocalizations.product_removed
+                                ? appLocalizations.product_removed_history
                                 : appLocalizations.product_could_not_remove,
                           ),
                           duration: const Duration(seconds: 3),
@@ -269,7 +269,12 @@ class _ProductListPageState extends State<ProductListPage> {
       }
       final SearchResult searchResult = await OpenFoodAPIClient.getProductList(
         ProductQuery.getUser(),
-        ProductListQueryConfiguration(barcodes),
+        ProductListQueryConfiguration(
+          barcodes,
+          fields: ProductQuery.fields,
+          language: ProductQuery.getLanguage(),
+          country: ProductQuery.getCountry(),
+        ),
       );
       final List<Product>? freshProducts = searchResult.products;
       if (freshProducts == null) {
