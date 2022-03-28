@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/onboarding_loader.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 
 class ConsentAnalytics extends StatelessWidget {
@@ -82,7 +83,7 @@ class ConsentAnalytics extends StatelessWidget {
           ),
           //Authorize Button
           InkWell(
-            borderRadius: BorderRadius.circular(25.0),
+            borderRadius: CIRCULAR_BORDER_RADIUS,
             onTap: () {
               _analyticsLogic(true, userPreferences, localDatabase, context);
             },
@@ -90,8 +91,8 @@ class ConsentAnalytics extends StatelessWidget {
               height: size.height * 0.06,
               width: size.width * 0.7,
               decoration: BoxDecoration(
-                  color: Colors.green,
-                  borderRadius: BorderRadius.circular(25.0),
+                  color: LIGHT_GREEN_COLOR,
+                  borderRadius: CIRCULAR_BORDER_RADIUS,
                   boxShadow: <BoxShadow>[
                     BoxShadow(
                         blurRadius: 3.0,
@@ -106,14 +107,14 @@ class ConsentAnalytics extends StatelessWidget {
                     appLocalizations.authorize_button_label,
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: WHITE_COLOR,
                         fontSize: size.height * 0.025),
                   ),
                   Padding(
                     padding: EdgeInsets.only(left: size.width * 0.02),
                     child: Icon(
                       Icons.check,
-                      color: Colors.white,
+                      color: WHITE_COLOR,
                       size: size.height * 0.04,
                     ),
                   )
@@ -128,7 +129,7 @@ class ConsentAnalytics extends StatelessWidget {
 
           //Refuse Button
           InkWell(
-            borderRadius: BorderRadius.circular(25.0),
+            borderRadius: CIRCULAR_BORDER_RADIUS,
             onTap: () {
               _analyticsLogic(false, userPreferences, localDatabase, context);
             },
@@ -136,8 +137,8 @@ class ConsentAnalytics extends StatelessWidget {
               height: size.height * 0.06,
               width: size.width * 0.7,
               decoration: BoxDecoration(
-                  color: Colors.red,
-                  borderRadius: BorderRadius.circular(25.0),
+                  color: RED_COLOR,
+                  borderRadius: CIRCULAR_BORDER_RADIUS,
                   boxShadow: <BoxShadow>[
                     BoxShadow(
                       blurRadius: 3.0,
@@ -153,14 +154,14 @@ class ConsentAnalytics extends StatelessWidget {
                     appLocalizations.refuse_button_label,
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: WHITE_COLOR,
                         fontSize: size.height * 0.025),
                   ),
                   Padding(
                     padding: EdgeInsets.only(left: size.width * 0.02),
                     child: Icon(
                       Icons.close,
-                      color: Colors.white,
+                      color: WHITE_COLOR,
                       size: size.height * 0.04,
                     ),
                   )
@@ -173,13 +174,18 @@ class ConsentAnalytics extends StatelessWidget {
     );
   }
 
-  // ignore: avoid_void_async
-  void _analyticsLogic(bool accept, UserPreferences userPreferences,
-      LocalDatabase localDatabase, BuildContext context) async {
+  Future<void> _analyticsLogic(
+    bool accept,
+    UserPreferences userPreferences,
+    LocalDatabase localDatabase,
+    BuildContext context,
+  ) async {
     await userPreferences.setCrashReports(accept);
     await userPreferences.setAnalyticsReports(accept);
-    await OnboardingLoader(localDatabase)
-        .runAtNextTime(OnboardingPage.CONSENT_PAGE, context);
+    await OnboardingLoader(localDatabase).runAtNextTime(
+      OnboardingPage.CONSENT_PAGE,
+      context,
+    );
     OnboardingFlowNavigator(userPreferences).navigateToPage(
       context,
       OnboardingFlowNavigator.getNextPage(OnboardingPage.CONSENT_PAGE),
