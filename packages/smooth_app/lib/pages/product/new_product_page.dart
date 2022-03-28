@@ -183,94 +183,97 @@ class _ProductPageState extends State<ProductPage> {
   }
 
   Widget _buildProductBody(BuildContext context) {
-    return ListView(children: <Widget>[
-      Align(
-        heightFactor: 0.7,
-        alignment: Alignment.topLeft,
-        child: ProductImageCarousel(
-          _product,
-          height: 200,
-          onUpload: _refreshProduct,
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: SMALL_SPACE,
-        ),
-        child: Hero(
-          tag: _product.barcode ?? '',
-          child: SummaryCard(
+    return RefreshIndicator(
+      onRefresh: () => _refreshProduct(context),
+      child: ListView(children: <Widget>[
+        Align(
+          heightFactor: 0.7,
+          alignment: Alignment.topLeft,
+          child: ProductImageCarousel(
             _product,
-            _productPreferences,
-            isFullVersion: true,
-            showUnansweredQuestions: true,
-            refreshProductCallback: _refreshProduct,
+            height: 200,
+            onUpload: _refreshProduct,
           ),
         ),
-      ),
-      _buildKnowledgePanelCards(),
-      Padding(
-        padding: const EdgeInsets.all(SMALL_SPACE),
-        child: SmoothActionButton(
-          text: 'Edit product', // TODO(monsieurtanuki): translations
-          onPressed: () async {
-            final bool? refreshed = await Navigator.push<bool>(
-              context,
-              MaterialPageRoute<bool>(
-                builder: (BuildContext context) => EditProductPage(_product),
-              ),
-            );
-            if (refreshed ?? false) {
-              setState(() {});
-            }
-          },
+        Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: SMALL_SPACE,
+          ),
+          child: Hero(
+            tag: _product.barcode ?? '',
+            child: SummaryCard(
+              _product,
+              _productPreferences,
+              isFullVersion: true,
+              showUnansweredQuestions: true,
+              refreshProductCallback: _refreshProduct,
+            ),
+          ),
         ),
-      ),
-      if (context.read<UserPreferences>().getFlag(
-              UserPreferencesDevMode.userPreferencesFlagAdditionalButton) ??
-          false)
-        ElevatedButton(
-          onPressed: () async {
-            if (_product.categoriesTags == null) {
-              // TODO(monsieurtanuki): that's another story: how to set an initial category?
-              return;
-            }
-            if (_product.categoriesTags!.length < 2) {
-              // TODO(monsieurtanuki): no father, we need to do something with roots
-              return;
-            }
-            final String currentTag =
-                _product.categoriesTags![_product.categoriesTags!.length - 1];
-            final String fatherTag =
-                _product.categoriesTags![_product.categoriesTags!.length - 2];
-            final CategoryCache categoryCache =
-                CategoryCache(ProductQuery.getLanguage()!);
-            final Map<String, TaxonomyCategory>? siblingsData =
-                await categoryCache.getCategorySiblingsAndFather(
-              fatherTag: fatherTag,
-            );
-            if (siblingsData == null) {
-              // TODO(monsieurtanuki): what shall we do?
-              return;
-            }
-            final String? newTag = await Navigator.push<String>(
-              context,
-              MaterialPageRoute<String>(
-                builder: (BuildContext context) => CategoryPickerPage(
-                  barcode: _product.barcode!,
-                  initialMap: siblingsData,
-                  initialTree: _product.categoriesTags!,
-                  categoryCache: categoryCache,
+        _buildKnowledgePanelCards(),
+        Padding(
+          padding: const EdgeInsets.all(SMALL_SPACE),
+          child: SmoothActionButton(
+            text: 'Edit product', // TODO(monsieurtanuki): translations
+            onPressed: () async {
+              final bool? refreshed = await Navigator.push<bool>(
+                context,
+                MaterialPageRoute<bool>(
+                  builder: (BuildContext context) => EditProductPage(_product),
                 ),
-              ),
-            );
-            if (newTag != null && newTag != currentTag) {
-              setState(() {});
-            }
-          },
-          child: const Text('Additional Button'),
+              );
+              if (refreshed ?? false) {
+                setState(() {});
+              }
+            },
+          ),
         ),
-    ]);
+        if (context.read<UserPreferences>().getFlag(
+                UserPreferencesDevMode.userPreferencesFlagAdditionalButton) ??
+            false)
+          ElevatedButton(
+            onPressed: () async {
+              if (_product.categoriesTags == null) {
+                // TODO(monsieurtanuki): that's another story: how to set an initial category?
+                return;
+              }
+              if (_product.categoriesTags!.length < 2) {
+                // TODO(monsieurtanuki): no father, we need to do something with roots
+                return;
+              }
+              final String currentTag =
+                  _product.categoriesTags![_product.categoriesTags!.length - 1];
+              final String fatherTag =
+                  _product.categoriesTags![_product.categoriesTags!.length - 2];
+              final CategoryCache categoryCache =
+                  CategoryCache(ProductQuery.getLanguage()!);
+              final Map<String, TaxonomyCategory>? siblingsData =
+                  await categoryCache.getCategorySiblingsAndFather(
+                fatherTag: fatherTag,
+              );
+              if (siblingsData == null) {
+                // TODO(monsieurtanuki): what shall we do?
+                return;
+              }
+              final String? newTag = await Navigator.push<String>(
+                context,
+                MaterialPageRoute<String>(
+                  builder: (BuildContext context) => CategoryPickerPage(
+                    barcode: _product.barcode!,
+                    initialMap: siblingsData,
+                    initialTree: _product.categoriesTags!,
+                    categoryCache: categoryCache,
+                  ),
+                ),
+              );
+              if (newTag != null && newTag != currentTag) {
+                setState(() {});
+              }
+            },
+            child: const Text('Additional Button'),
+          ),
+      ]),
+    );
   }
 
   FutureBuilder<KnowledgePanels> _buildKnowledgePanelCards() {
