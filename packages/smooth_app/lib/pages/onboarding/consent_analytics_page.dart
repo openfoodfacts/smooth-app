@@ -26,16 +26,17 @@ class ConsentAnalytics extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           SizedBox(
-              height: size.height * 0.2,
-              width: size.width * 0.45,
-              child: SvgPicture.asset(
-                assetName,
-                semanticsLabel: 'Analytics Icons',
-                fit: BoxFit.contain,
-              )),
-          SizedBox(
-            height: size.height * 0.01,
+            height: size.height * 0.2,
+            width: size.width * 0.45,
+            child: SvgPicture.asset(
+              assetName,
+              semanticsLabel: 'Analytics Icons',
+              fit: BoxFit.contain,
+            ),
           ),
+
+          SizedBox(height: size.height * 0.01),
+
           Align(
             alignment: Alignment.center,
             child: Text(
@@ -46,9 +47,9 @@ class ConsentAnalytics extends StatelessWidget {
                   .apply(color: Colors.black),
             ),
           ),
-          SizedBox(
-            height: size.height * 0.034,
-          ),
+
+          SizedBox(height: size.height * 0.034),
+
           ConstrainedBox(
             constraints: BoxConstraints(
               maxWidth: size.width * 0.8,
@@ -62,9 +63,8 @@ class ConsentAnalytics extends StatelessWidget {
                   .apply(color: bodyColor),
             ),
           ),
-          SizedBox(
-            height: size.height * 0.03,
-          ),
+          SizedBox(height: size.height * 0.03),
+
           ConstrainedBox(
             constraints: BoxConstraints(
               maxWidth: size.width * 0.8,
@@ -78,9 +78,9 @@ class ConsentAnalytics extends StatelessWidget {
                   .apply(color: bodyColor),
             ),
           ),
-          SizedBox(
-            height: size.height * 0.02,
-          ),
+
+          SizedBox(height: size.height * 0.02),
+
           //Authorize Button
           InkWell(
             borderRadius: CIRCULAR_BORDER_RADIUS,
@@ -91,14 +91,16 @@ class ConsentAnalytics extends StatelessWidget {
               height: size.height * 0.06,
               width: size.width * 0.7,
               decoration: BoxDecoration(
-                  color: LIGHT_GREEN_COLOR,
-                  borderRadius: CIRCULAR_BORDER_RADIUS,
-                  boxShadow: <BoxShadow>[
-                    BoxShadow(
-                        blurRadius: 3.0,
-                        color: shadowColor,
-                        offset: Offset(size.width * 0.004, size.height * 0.004))
-                  ]),
+                color: LIGHT_GREEN_COLOR,
+                borderRadius: CIRCULAR_BORDER_RADIUS,
+                boxShadow: <BoxShadow>[
+                  BoxShadow(
+                    blurRadius: 3.0,
+                    color: shadowColor,
+                    offset: Offset(size.width * 0.004, size.height * 0.004),
+                  )
+                ],
+              ),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -123,9 +125,7 @@ class ConsentAnalytics extends StatelessWidget {
             ),
           ),
 
-          SizedBox(
-            height: size.height * 0.02,
-          ),
+          SizedBox(height: size.height * 0.02),
 
           //Refuse Button
           InkWell(
@@ -137,15 +137,16 @@ class ConsentAnalytics extends StatelessWidget {
               height: size.height * 0.06,
               width: size.width * 0.7,
               decoration: BoxDecoration(
-                  color: RED_COLOR,
-                  borderRadius: CIRCULAR_BORDER_RADIUS,
-                  boxShadow: <BoxShadow>[
-                    BoxShadow(
-                      blurRadius: 3.0,
-                      color: shadowColor,
-                      offset: Offset(size.width * 0.004, size.height * 0.004),
-                    )
-                  ]),
+                color: RED_COLOR,
+                borderRadius: CIRCULAR_BORDER_RADIUS,
+                boxShadow: <BoxShadow>[
+                  BoxShadow(
+                    blurRadius: 3.0,
+                    color: shadowColor,
+                    offset: Offset(size.width * 0.004, size.height * 0.004),
+                  ),
+                ],
+              ),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
