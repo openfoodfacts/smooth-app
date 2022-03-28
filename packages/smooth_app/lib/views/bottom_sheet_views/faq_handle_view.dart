@@ -4,7 +4,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_list_tile.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/widgets/modal_bottomsheet_header.dart';
 
-class SocialHandleView extends StatelessWidget {
+class FaqHandleView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -14,29 +14,30 @@ class SocialHandleView extends StatelessWidget {
           shrinkWrap: true,
           scrollDirection: Axis.vertical,
           children: <Widget>[
-            ModalBottomSheetHeader(
-                title: AppLocalizations.of(context)!.connect_with_us),
-            // Instagram
+            ModalBottomSheetHeader(title: AppLocalizations.of(context)!.faq),
             SmoothListTile(
-                text: AppLocalizations.of(context)!.instagram,
-                leadingWidget: const Icon(Icons.open_in_new),
-                onPressed: () => _launchUrl(
-                    context, 'https://instagram.com/open.food.facts')),
-
-            //Twitter
-            SmoothListTile(
-              text: AppLocalizations.of(context)!.twitter,
+              text: AppLocalizations.of(context)!.faq,
               leadingWidget: const Icon(Icons.open_in_new),
               onPressed: () =>
-                  _launchUrl(context, 'https://www.twitter.com/openfoodfacts'),
+                  _launchUrl(context, 'https://world.openfoodfacts.org/faq'),
             ),
-
-            //Blog
             SmoothListTile(
-              text: AppLocalizations.of(context)!.blog,
+              text: AppLocalizations.of(context)!.discover,
+              leadingWidget: const Icon(Icons.open_in_new),
+              onPressed: () => _launchUrl(
+                  context, 'https://world.openfoodfacts.org/discover'),
+            ),
+            SmoothListTile(
+              text: AppLocalizations.of(context)!.how_to_contribute,
+              leadingWidget: const Icon(Icons.open_in_new),
+              onPressed: () => _launchUrl(
+                  context, 'https://world.openfoodfacts.org/contribute'),
+            ),
+            SmoothListTile(
+              text: AppLocalizations.of(context)!.support,
               leadingWidget: const Icon(Icons.open_in_new),
               onPressed: () =>
-                  _launchUrl(context, 'https://en.blog.openfoodfacts.org'),
+                  _launchUrl(context, 'https://support.openfoodfacts.org/help'),
             ),
           ],
         ),
