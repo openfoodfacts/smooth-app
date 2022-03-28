@@ -13,6 +13,7 @@ import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
+import 'package:smooth_app/pages/scan/scan_page.dart';
 
 class ProductListPage extends StatefulWidget {
   const ProductListPage(this.productList);
@@ -128,11 +129,14 @@ class _ProductListPageState extends State<ProductListPage> {
           ? Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Icon(
-                  Icons.find_in_page_rounded,
-                  color: colorScheme.primary,
-                  size: VERY_LARGE_SPACE * 10,
-                  semanticLabel: 'History not available',
+                InkWell(
+                  onTap: () => _onIconTap(),
+                  child: Icon(
+                    Icons.find_in_page_rounded,
+                    color: colorScheme.primary,
+                    size: VERY_LARGE_SPACE * 10,
+                    semanticLabel: 'History not available',
+                  ),
                 ),
                 Text(
                   'Start scanning !', // TODO(bhattabhi013): localization
@@ -282,5 +286,14 @@ class _ProductListPageState extends State<ProductListPage> {
       //
     }
     return false;
+  }
+
+  void _onIconTap() {
+    Navigator.push<Widget>(
+      context,
+      MaterialPageRoute<Widget>(
+        builder: (BuildContext context) => const ScanPage(),
+      ),
+    );
   }
 }
