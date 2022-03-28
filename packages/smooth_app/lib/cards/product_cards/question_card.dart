@@ -31,6 +31,10 @@ class _QuestionCardState extends State<QuestionCard>
   int _currentQuestionIndex = 0;
   InsightAnnotation? _lastAnswer;
 
+  static const Color _noBackground = Colors.redAccent;
+  static const Color _yesBackground = Colors.lightGreen;
+  static const Color _yesNoTextColor = Colors.white;
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -200,6 +204,7 @@ class _QuestionCardState extends State<QuestionCard>
       {required int currentQuestionIndex}) {
     final double yesNoHeight = MediaQuery.of(context).size.width / (3 * 1.25);
     final RobotoffQuestion question = questions[currentQuestionIndex];
+
     return Column(
       children: <Widget>[
         Row(
@@ -211,8 +216,8 @@ class _QuestionCardState extends State<QuestionCard>
                 child: _buildAnswerButton(
                   insightId: question.insightId,
                   insightAnnotation: InsightAnnotation.NO,
-                  backgroundColor: Colors.redAccent,
-                  contentColor: Colors.white,
+                  backgroundColor: _noBackground,
+                  contentColor: _yesNoTextColor,
                   currentQuestionIndex: currentQuestionIndex,
                 ),
               ),
@@ -223,8 +228,8 @@ class _QuestionCardState extends State<QuestionCard>
                 child: _buildAnswerButton(
                   insightId: question.insightId,
                   insightAnnotation: InsightAnnotation.YES,
-                  backgroundColor: Colors.lightGreen,
-                  contentColor: Colors.white,
+                  backgroundColor: _yesBackground,
+                  contentColor: _yesNoTextColor,
                   currentQuestionIndex: currentQuestionIndex,
                 ),
               ),
