@@ -17,6 +17,7 @@ import 'package:smooth_app/database/robotoff_questions_query.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
+import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
@@ -132,9 +133,10 @@ class _SummaryCardState extends State<SummaryCard> {
               padding: const EdgeInsets.symmetric(
                 vertical: SMALL_SPACE,
               ),
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.vertical(bottom: ROUNDED_RADIUS),
+              decoration: BoxDecoration(
+                color: Theme.of(context).cardColor,
+                borderRadius:
+                    const BorderRadius.vertical(bottom: ROUNDED_RADIUS),
               ),
               child: Center(
                 child: Text(
@@ -390,7 +392,7 @@ class _SummaryCardState extends State<SummaryCard> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 attributeIcon,
-                Expanded(child: Text(attributeDisplayTitle)),
+                Expanded(child: Text(attributeDisplayTitle).selectable()),
               ]));
     });
   }
@@ -480,7 +482,7 @@ class _SummaryCardState extends State<SummaryCard> {
               },
               child: SmoothCard(
                 margin: EdgeInsets.zero,
-                color: const Color(0xfff5f6fa),
+                color: Theme.of(context).colorScheme.primary,
                 elevation: 0,
                 padding: const EdgeInsets.all(
                   SMALL_SPACE,

@@ -17,6 +17,7 @@ import 'package:smooth_app/pages/abstract_user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/views/bottom_sheet_views/faq_handle_view.dart';
+import 'package:smooth_app/views/bottom_sheet_views/social_handle_view.dart';
 import 'package:smooth_app/views/bottom_sheet_views/user_contribution_view.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -248,6 +249,16 @@ class UserPreferencesSettings extends AbstractUserPreferences {
               ),
             );
           },
+        ),
+        SmoothListTile(
+          text: AppLocalizations.of(context)!.connect_with_us,
+          onPressed: () => showCupertinoModalBottomSheet<Widget>(
+            expand: false,
+            context: context,
+            backgroundColor: Colors.transparent,
+            bounce: true,
+            builder: (BuildContext context) => SocialHandleView(),
+          ),
         ),
         SmoothListTile(
           text: appLocalizations.faq,

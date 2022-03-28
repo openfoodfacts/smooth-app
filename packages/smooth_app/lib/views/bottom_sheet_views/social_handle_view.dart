@@ -3,7 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 
-class FaqHandleView extends StatelessWidget {
+class SocialHandleView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -14,29 +14,27 @@ class FaqHandleView extends StatelessWidget {
           scrollDirection: Axis.vertical,
           children: <Widget>[
             _buildHeader(context),
+            // Instagram
             SmoothListTile(
-              text: AppLocalizations.of(context)!.faq,
+                text: AppLocalizations.of(context)!.instagram,
+                leadingWidget: const Icon(Icons.open_in_new),
+                onPressed: () => _launchUrl(
+                    context, 'https://instagram.com/open.food.facts')),
+
+            //Twitter
+            SmoothListTile(
+              text: AppLocalizations.of(context)!.twitter,
               leadingWidget: const Icon(Icons.open_in_new),
               onPressed: () =>
-                  _launchUrl(context, 'https://world.openfoodfacts.org/faq'),
+                  _launchUrl(context, 'https://www.twitter.com/openfoodfacts'),
             ),
+
+            //Blog
             SmoothListTile(
-              text: AppLocalizations.of(context)!.discover,
-              leadingWidget: const Icon(Icons.open_in_new),
-              onPressed: () => _launchUrl(
-                  context, 'https://world.openfoodfacts.org/discover'),
-            ),
-            SmoothListTile(
-              text: AppLocalizations.of(context)!.how_to_contribute,
-              leadingWidget: const Icon(Icons.open_in_new),
-              onPressed: () => _launchUrl(
-                  context, 'https://world.openfoodfacts.org/contribute'),
-            ),
-            SmoothListTile(
-              text: AppLocalizations.of(context)!.support,
+              text: AppLocalizations.of(context)!.blog,
               leadingWidget: const Icon(Icons.open_in_new),
               onPressed: () =>
-                  _launchUrl(context, 'https://support.openfoodfacts.org/help'),
+                  _launchUrl(context, 'https://en.blog.openfoodfacts.org'),
             ),
           ],
         ),
@@ -49,7 +47,7 @@ class FaqHandleView extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       margin: const EdgeInsets.only(top: 20.0, bottom: 24.0),
       child: Text(
-        AppLocalizations.of(context)!.faq,
+        AppLocalizations.of(context)!.connect_with_us,
         style: Theme.of(context).textTheme.headline1,
       ),
     );

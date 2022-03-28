@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 
 class ProductTitleCard extends StatelessWidget {
   const ProductTitleCard(this.product, {this.dense = false});
@@ -20,12 +21,12 @@ class ProductTitleCard extends StatelessWidget {
         title: Text(
           _getProductName(appLocalizations),
           style: themeData.textTheme.headline4,
-        ),
+        ).selectable(),
         subtitle: Text(product.brands ?? appLocalizations.unknownBrand),
         trailing: Text(
           product.quantity ?? '',
           style: themeData.textTheme.headline3,
-        ),
+        ).selectable(),
       ),
     );
   }

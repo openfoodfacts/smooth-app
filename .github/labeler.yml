@@ -11,6 +11,9 @@ dependancies:
 ios:
 - packages/smooth_app/ios/**/*
 
+asset cache:
+- packages/smooth_app/assets/cache/**/*
+
 web:
 - packages/smooth_app/web/**/*
 
@@ -61,6 +64,14 @@ knowledge panels:
 
 robotoff:
 - packages/smooth_app/lib/database/robotoff_questions_query.dart
+- packages/smooth_app/lib/cards/product_cards/question_card.dart
+
+summary card:
+- packages/smooth_app/lib/pages/product/summary_card.dart
+
+analytics:
+- packages/smooth_app/lib/pages/onboarding/consent_analytics_page.dart
+- packages/smooth_app/assets/onboarding/analytics.svg
 
 goldens:
 - packages/smooth_app/test/pages/goldens
