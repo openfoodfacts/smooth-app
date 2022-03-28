@@ -41,32 +41,34 @@ class AttributeButton extends StatelessWidget {
     final TextStyle style = themeData.textTheme.headline3!;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: horizontalPadding),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          SizedBox(
-            width: screenWidth * .45,
-            child: Text(attribute.name!, style: style),
-          ),
-          SizedBox(
-            width: screenWidth * .45,
-            child: ElevatedButton(
-              child: Text(
-                productPreferences
-                    .getPreferenceImportanceFromImportanceId(importanceId)!
-                    .name!,
-                style: style.copyWith(color: Colors.white),
-              ),
-              style: ElevatedButton.styleFrom(
-                primary: _colors[importanceId],
-                onPrimary: Colors.white,
-              ),
-              onPressed: () async => productPreferences.setImportance(
-                  attribute.id!, _nextValues[importanceId]!),
+      child: FittedBox(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            SizedBox(
+              width: screenWidth * .45,
+              child: Text(attribute.name!, style: style),
             ),
-          ),
-        ],
+            SizedBox(
+              width: screenWidth * .45,
+              child: ElevatedButton(
+                child: Text(
+                  productPreferences
+                      .getPreferenceImportanceFromImportanceId(importanceId)!
+                      .name!,
+                  style: style.copyWith(color: Colors.white),
+                ),
+                style: ElevatedButton.styleFrom(
+                  primary: _colors[importanceId],
+                  onPrimary: Colors.white,
+                ),
+                onPressed: () async => productPreferences.setImportance(
+                    attribute.id!, _nextValues[importanceId]!),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
