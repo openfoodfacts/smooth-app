@@ -28,6 +28,8 @@ class _ProductListPageState extends State<ProductListPage> {
   bool first = true;
   final Set<String> _selectedBarcodes = <String>{};
   bool _selectionMode = false;
+  final GlobalKey<RefreshIndicatorState> _refreshIndicatorStateKey =
+      GlobalKey<RefreshIndicatorState>();
 
   @override
   Widget build(BuildContext context) {
@@ -57,6 +59,29 @@ class _ProductListPageState extends State<ProductListPage> {
         elevation: 0,
         backgroundColor: colorScheme.background,
         foregroundColor: colorScheme.onBackground,
+        actions: <Widget>[
+          if ((!_selectionMode) && products.isNotEmpty)
+            IconButton(
+              icon: const Icon(Icons.compare),
+              tooltip: appLocalizations.compare_products_mode,
+              onPressed: () => setState(() => _selectionMode = true),
+            ),
+          if (products.isNotEmpty)
+            PopupMenuButton<String>(
+                onSelected: (String choice) {
+                  if (choice == appLocalizations.label_refresh) {
+                    _refreshIndicatorStateKey.currentState?.show();
+                  }
+                },
+                itemBuilder: (_) => <PopupMenuItem<String>>[
+                      PopupMenuItem<String>(
+                        value: appLocalizations.label_refresh,
+                        child: ListTile(
+                            title: Text(appLocalizations.label_refresh),
+                            leading: const Icon(Icons.refresh)),
+                      )
+                    ])
+        ],
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
@@ -106,127 +131,131 @@ class _ProductListPageState extends State<ProductListPage> {
                   overflow: TextOverflow.fade,
                 ),
               ),
-            if ((!_selectionMode) && products.isNotEmpty)
-              IconButton(
-                icon: const Icon(Icons.refresh),
-                onPressed: () async => _refreshListProducts(
-                  products,
-                  localDatabase,
-                ),
-              ),
-            if ((!_selectionMode) && products.isNotEmpty)
-              Flexible(
-                child: ElevatedButton(
-                  child: Text(appLocalizations.compare_products_mode),
-                  onPressed: () => setState(() => _selectionMode = true),
-                ),
-              ),
           ],
         ),
       ),
       body: products.isEmpty
-          ? Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Icon(
-                  Icons.find_in_page_rounded,
-                  color: colorScheme.primary,
-                  size: VERY_LARGE_SPACE * 10,
-                  semanticLabel: 'History not available',
-                ),
-                Text(
-                  'Start scanning !', // TODO(bhattabhi013): localization
-                  style: themeData.textTheme.headlineLarge
-                      ?.apply(color: colorScheme.onBackground),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(VERY_LARGE_SPACE),
-                  child: Text(
-                    'Product you scan in will appear here and you can check detailed information about them', // TODO(bhattabhi013): localization
-                    style: TextStyle(
-                      color: colorScheme.onBackground,
-                    ),
-                  ),
-                )
-              ],
-            )
-          : ListView.builder(
-              itemCount: products.length,
-              itemBuilder: (BuildContext context, int index) {
-                final Product product = products[index];
-                final String barcode = product.barcode!;
-                final bool selected = _selectedBarcodes.contains(barcode);
-                void onTap() => setState(
-                      () {
-                        if (selected) {
-                          _selectedBarcodes.remove(barcode);
-                        } else {
-                          _selectedBarcodes.add(barcode);
-                        }
-                      },
-                    );
-                final Widget child = GestureDetector(
-                  onTap: _selectionMode ? onTap : null,
-                  child: Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: _selectionMode ? 0 : 12.0,
-                      vertical: 8.0,
-                    ),
-                    child: Row(
-                      children: <Widget>[
-                        if (_selectionMode)
-                          Icon(
-                            selected
-                                ? Icons.check_box
-                                : Icons.check_box_outline_blank,
-                          ),
-                        Expanded(
-                          child: ProductListItemSimple(
-                            product: product,
-                            onTap: _selectionMode ? onTap : null,
-                            onLongPress: !_selectionMode
-                                ? () => setState(() => _selectionMode = true)
-                                : null,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                );
-                if (dismissible) {
-                  return Dismissible(
-                    background: Container(color: colorScheme.background),
-                    key: Key(product.barcode!),
-                    onDismissed: (final DismissDirection direction) async {
-                      final bool removed = productList.remove(product.barcode!);
-                      if (removed) {
-                        await daoProductList.put(productList);
-                        _selectedBarcodes.remove(product.barcode);
-                        setState(() => products.removeAt(index));
-                      }
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                            removed
-                                ? appLocalizations.product_removed_history
-                                : appLocalizations.product_could_not_remove,
-                          ),
-                          duration: const Duration(seconds: 3),
-                        ),
-                      );
-                      // TODO(monsieurtanuki): add a snackbar ("put back the food")
-                    },
-                    child: child,
-                  );
-                }
-                return Container(
-                  key: Key(product.barcode!),
-                  child: child,
-                );
-              },
-            ),
+          ? _buildEmptyList(colorScheme, themeData)
+          : RefreshIndicator(
+              key: _refreshIndicatorStateKey,
+              child: _buildListView(products, dismissible, colorScheme,
+                  daoProductList, appLocalizations),
+              onRefresh: () async {
+                _refreshListProducts(products, localDatabase);
+              }),
     );
   }
+
+  Column _buildEmptyList(ColorScheme colorScheme, ThemeData themeData) =>
+      Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Icon(
+            Icons.find_in_page_rounded,
+            color: colorScheme.primary,
+            size: VERY_LARGE_SPACE * 10,
+            semanticLabel: 'History not available',
+          ),
+          Text(
+            'Start scanning !', // TODO(bhattabhi013): localization
+            style: themeData.textTheme.headlineLarge
+                ?.apply(color: colorScheme.onBackground),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(VERY_LARGE_SPACE),
+            child: Text(
+              'Product you scan in will appear here and you can check detailed information about them',
+              // TODO(bhattabhi013): localization
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: colorScheme.onBackground,
+              ),
+            ),
+          )
+        ],
+      );
+
+  ListView _buildListView(
+          List<Product> products,
+          bool dismissible,
+          ColorScheme colorScheme,
+          DaoProductList daoProductList,
+          AppLocalizations appLocalizations) =>
+      ListView.builder(
+        itemCount: products.length,
+        itemBuilder: (BuildContext context, int index) {
+          final Product product = products[index];
+          final String barcode = product.barcode!;
+          final bool selected = _selectedBarcodes.contains(barcode);
+          void onTap() => setState(
+                () {
+                  if (selected) {
+                    _selectedBarcodes.remove(barcode);
+                  } else {
+                    _selectedBarcodes.add(barcode);
+                  }
+                },
+              );
+          final Widget child = GestureDetector(
+            onTap: _selectionMode ? onTap : null,
+            child: Container(
+              padding: EdgeInsets.symmetric(
+                horizontal: _selectionMode ? 0 : 12.0,
+                vertical: 8.0,
+              ),
+              child: Row(
+                children: <Widget>[
+                  if (_selectionMode)
+                    Icon(
+                      selected
+                          ? Icons.check_box
+                          : Icons.check_box_outline_blank,
+                    ),
+                  Expanded(
+                    child: ProductListItemSimple(
+                      product: product,
+                      onTap: _selectionMode ? onTap : null,
+                      onLongPress: !_selectionMode
+                          ? () => setState(() => _selectionMode = true)
+                          : null,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+          if (dismissible) {
+            return Dismissible(
+              background: Container(color: colorScheme.background),
+              key: Key(product.barcode!),
+              onDismissed: (final DismissDirection direction) async {
+                final bool removed = productList.remove(product.barcode!);
+                if (removed) {
+                  await daoProductList.put(productList);
+                  _selectedBarcodes.remove(product.barcode);
+                  setState(() => products.removeAt(index));
+                }
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      removed
+                          ? appLocalizations.product_removed_history
+                          : appLocalizations.product_could_not_remove,
+                    ),
+                    duration: const Duration(seconds: 3),
+                  ),
+                );
+                // TODO(monsieurtanuki): add a snackbar ("put back the food")
+              },
+              child: child,
+            );
+          }
+          return Container(
+            key: Key(product.barcode!),
+            child: child,
+          );
+        },
+      );
 
   /// Calls the "refresh products" part with dialogs on top.
   Future<void> _refreshListProducts(
@@ -236,7 +265,7 @@ class _ProductListPageState extends State<ProductListPage> {
     final bool? done = await LoadingDialog.run<bool>(
       context: context,
       title:
-          'refreshing the history products', // TODO(monsieurtanuki): localize
+          'Refreshing the history products', // TODO(monsieurtanuki): localize
       future: _reloadProducts(products, localDatabase),
     );
     switch (done) {
@@ -257,16 +286,17 @@ class _ProductListPageState extends State<ProductListPage> {
     }
   }
 
-  /// Fetches the products from the API and refreshes the local database
+  /// Fetches the [products] from the API and refreshes [localDatabase]
+  ///
+  /// Returns true if no error.
   Future<bool> _reloadProducts(
     final List<Product> products,
     final LocalDatabase localDatabase,
   ) async {
     try {
-      final List<String> barcodes = <String>[];
-      for (final Product product in products) {
-        barcodes.add(product.barcode!);
-      }
+      final List<String> barcodes =
+          products.map((Product e) => e.barcode!).toList();
+
       final SearchResult searchResult = await OpenFoodAPIClient.getProductList(
         ProductQuery.getUser(),
         ProductListQueryConfiguration(
@@ -283,8 +313,8 @@ class _ProductListPageState extends State<ProductListPage> {
       await DaoProduct(localDatabase).putAll(freshProducts);
       freshProducts.forEach(productList.refresh);
       return true;
-    } catch (e) {
-      //
+    } catch (_) {
+      // Ignored
     }
     return false;
   }
