@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/widgets/modal_bottomsheet_header.dart';
 
 class SocialHandleView extends StatelessWidget {
   @override
@@ -13,7 +14,8 @@ class SocialHandleView extends StatelessWidget {
           shrinkWrap: true,
           scrollDirection: Axis.vertical,
           children: <Widget>[
-            _buildHeader(context),
+            ModalBottomSheetHeader(
+                title: AppLocalizations.of(context)!.connect_with_us),
             // Instagram
             SmoothListTile(
                 text: AppLocalizations.of(context)!.instagram,
@@ -38,17 +40,6 @@ class SocialHandleView extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _buildHeader(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-      margin: const EdgeInsets.only(top: 20.0, bottom: 24.0),
-      child: Text(
-        AppLocalizations.of(context)!.connect_with_us,
-        style: Theme.of(context).textTheme.headline1,
       ),
     );
   }

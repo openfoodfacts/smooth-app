@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/widgets/modal_bottomsheet_header.dart';
 
 class FaqHandleView extends StatelessWidget {
   @override
@@ -13,7 +14,7 @@ class FaqHandleView extends StatelessWidget {
           shrinkWrap: true,
           scrollDirection: Axis.vertical,
           children: <Widget>[
-            _buildHeader(context),
+            ModalBottomSheetHeader(title: AppLocalizations.of(context)!.faq),
             SmoothListTile(
               text: AppLocalizations.of(context)!.faq,
               leadingWidget: const Icon(Icons.open_in_new),
@@ -40,17 +41,6 @@ class FaqHandleView extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _buildHeader(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-      margin: const EdgeInsets.only(top: 20.0, bottom: 24.0),
-      child: Text(
-        AppLocalizations.of(context)!.faq,
-        style: Theme.of(context).textTheme.headline1,
       ),
     );
   }
