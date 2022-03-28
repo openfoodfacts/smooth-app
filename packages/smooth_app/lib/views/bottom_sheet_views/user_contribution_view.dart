@@ -65,7 +65,7 @@ class UserContributionView extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return SmoothAlertDialog(
-          close: false,
+          close: true,
           title: AppLocalizations.of(context)!.contribute_improve_header,
           body: Column(
             children: <Widget>[

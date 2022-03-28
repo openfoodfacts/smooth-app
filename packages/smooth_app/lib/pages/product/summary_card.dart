@@ -133,9 +133,10 @@ class _SummaryCardState extends State<SummaryCard> {
               padding: const EdgeInsets.symmetric(
                 vertical: SMALL_SPACE,
               ),
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.vertical(bottom: ROUNDED_RADIUS),
+              decoration: BoxDecoration(
+                color: Theme.of(context).cardColor,
+                borderRadius:
+                    const BorderRadius.vertical(bottom: ROUNDED_RADIUS),
               ),
               child: Center(
                 child: Text(
