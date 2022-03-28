@@ -21,9 +21,15 @@ enum OnboardingPage {
 
 /// Decide which page to take the user to.
 class OnboardingFlowNavigator {
-  OnboardingFlowNavigator(this._userPreferences);
+  OnboardingFlowNavigator(this._userPreferences) {
+    if (_historyOnboradingNav.isEmpty) {
+      _historyOnboradingNav.add(_userPreferences.lastVisitedOnboardingPage);
+    }
+  }
 
   final UserPreferences _userPreferences;
+
+  static final List<OnboardingPage> _historyOnboradingNav = <OnboardingPage>[];
 
   static OnboardingPage getNextPage(OnboardingPage currentPage) {
     switch (currentPage) {
@@ -64,6 +70,7 @@ class OnboardingFlowNavigator {
 
   void navigateToPage(BuildContext context, OnboardingPage page) {
     _userPreferences.setLastVisitedOnboardingPage(page);
+    _historyOnboradingNav.add(page);
     Navigator.push<Widget>(
       context,
       MaterialPageRoute<Widget>(
@@ -113,5 +120,18 @@ class OnboardingFlowNavigator {
         ),
       ),
     );
+  }
+
+  static void getHistoryOnboradingNav(OnboardingPage currentPage) {
+    _historyOnboradingNav.add(currentPage);
+  }
+
+  static bool isOnboradingPagedInHistory(OnboardingPage page) {
+    bool exists = false;
+    if (_historyOnboradingNav.isNotEmpty) {
+      final int indexPage = _historyOnboradingNav.indexOf(page);
+      exists = indexPage >= 0 && indexPage < (_historyOnboradingNav.length - 1);
+    }
+    return exists;
   }
 }
