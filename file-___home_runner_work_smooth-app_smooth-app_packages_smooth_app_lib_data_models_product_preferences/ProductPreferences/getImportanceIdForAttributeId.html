@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the refresh method from the ProductPreferences class, for the Dart programming language.">
-  <title>refresh method - ProductPreferences class - product_preferences library - Dart API</title>
+  <meta name="description" content="API docs for the getImportanceIdForAttributeId method from the ProductPreferences class, for the Dart programming language.">
+  <title>getImportanceIdForAttributeId method - ProductPreferences class - product_preferences library - Dart API</title>
 
 
   
@@ -32,9 +32,9 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_preferences/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_preferences-library.html">product_preferences</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_preferences/ProductPreferences-class.html">ProductPreferences</a></li>
-    <li class="self-crumb">refresh method</li>
+    <li class="self-crumb">getImportanceIdForAttributeId method</li>
   </ol>
-  <div class="self-name">refresh</div>
+  <div class="self-name">getImportanceIdForAttributeId</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,47 +45,34 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">refresh</span> method 
+<h1><span class="kind-method">getImportanceIdForAttributeId</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
       
+<div>
+  <ol class="annotation-list">
+    <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+  </ol>
+</div>
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
-<span class="name ">refresh</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="refresh-param-languageCode"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">languageCode</span></span></li>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+<span class="name ">getImportanceIdForAttributeId</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getImportanceIdForAttributeId-param-attributeId"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">attributeId</span></span></li>
 </ol>)
 
       
 
     </section>
     
-<section class="desc markdown">
-  <p>Refreshes the references with network data.</p>
-</section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; refresh(final String languageCode) async {
-  if (_isNetwork) {
-    return;
-  }
-  if (_isDownloading) {
-    return;
-  }
-  _isDownloading = true;
-  final bool successful = await _loadFromNetwork(languageCode);
-  if (successful) {
-    _isNetwork = true;
-    if (daoString != null) {
-      await daoString!.put(_DAO_STRING_KEY_LANGUAGE, languageCode);
-    }
-    notify();
-  }
-  _isDownloading = false;
-}</code></pre>
+  <pre class="language-dart"><code class="language-dart">@override
+String getImportanceIdForAttributeId(String attributeId) =&gt;
+    _getRefinedImportanceId(super.getImportanceIdForAttributeId(attributeId));</code></pre>
 </section>
 
 
@@ -102,7 +89,7 @@
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_preferences/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_preferences-library.html">product_preferences</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_preferences/ProductPreferences-class.html">ProductPreferences</a></li>
-  <li class="self-crumb">refresh method</li>
+  <li class="self-crumb">getImportanceIdForAttributeId method</li>
 </ol>
 
 
