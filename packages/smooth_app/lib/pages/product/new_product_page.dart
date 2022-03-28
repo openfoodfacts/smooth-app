@@ -293,8 +293,8 @@ class _ProductPageState extends State<ProductPage> {
                 KnowledgePanelsBuilder(setState: () => setState(() {}))
                     .buildAll(
               snapshot.data!,
-              product: _product,
               context: context,
+              product: _product,
             );
           } else if (snapshot.hasError) {
             // TODO(jasmeet): Retry the request.
