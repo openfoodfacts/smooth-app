@@ -86,9 +86,12 @@ class ScannerOverlay extends StatelessWidget {
                   children: <Widget>[
                     const SafeArea(top: true, child: ScanHeader()),
                     const Spacer(),
-                    SmoothProductCarousel(
-                      showSearchCard: true,
-                      height: carouselHeight,
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 10.0),
+                      child: SmoothProductCarousel(
+                        showSearchCard: true,
+                        height: carouselHeight,
+                      ),
                     ),
                   ],
                 ),
