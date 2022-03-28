@@ -232,7 +232,7 @@ class _QuestionCardState extends State<QuestionCard>
           ],
         ),
         Row(
-          children: [
+          children: <Widget>[
             Expanded(
               child: _buildAnswerButton(
                 insightId: question.insightId,
