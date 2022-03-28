@@ -41,7 +41,7 @@ class _QuestionCardState extends State<QuestionCard>
         return true;
       },
       child: Scaffold(
-        backgroundColor: const Color(0xff4f4f4f),
+        backgroundColor: Theme.of(context).colorScheme.background,
         appBar: AppBar(),
         body: _buildAnimationSwitcher(),
       ),
@@ -170,7 +170,10 @@ class _QuestionCardState extends State<QuestionCard>
             padding: const EdgeInsets.only(bottom: SMALL_SPACE),
             child: Text(
               question.question!,
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme.of(context)
+                  .textTheme
+                  .headline4!
+                  .apply(color: Colors.black),
             ),
           ),
           Container(
@@ -231,8 +234,8 @@ class _QuestionCardState extends State<QuestionCard>
           child: _buildAnswerButton(
             insightId: question.insightId,
             insightAnnotation: InsightAnnotation.MAYBE,
-            backgroundColor: Colors.white,
-            contentColor: Colors.grey,
+            backgroundColor: const Color(0xFFFFEFB7),
+            contentColor: Colors.black,
             currentQuestionIndex: currentQuestionIndex,
           ),
         ),
