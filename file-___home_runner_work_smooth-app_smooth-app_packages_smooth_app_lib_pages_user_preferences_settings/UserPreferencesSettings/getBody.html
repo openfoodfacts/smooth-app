@@ -257,6 +257,16 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
           );
         },
       ),
+      SmoothListTile(
+        text: AppLocalizations.of(context)!.connect_with_us,
+        onPressed: () =&gt; showCupertinoModalBottomSheet&lt;Widget&gt;(
+          expand: false,
+          context: context,
+          backgroundColor: Colors.transparent,
+          bounce: true,
+          builder: (BuildContext context) =&gt; SocialHandleView(),
+        ),
+      ),
     ];</code></pre>
 </section>
 
