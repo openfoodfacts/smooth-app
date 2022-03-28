@@ -336,6 +336,10 @@
     },
     "ingredients": "Ingredients",
     "@ingredients": {},
+    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen, use parentheses for ingredients of an ingredient, and indicate allergens between underscores.",
+    "ingredients_editing_error": "Failed to save the ingredients.",
+    "ingredients_editing_image_error": "Failed to get a new ingredients image.",
+    "ingredients_editing_title": "Edit Ingredients",
     "ingredients_photo": "Ingredients photo",
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
