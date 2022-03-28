@@ -79,17 +79,12 @@ Widget build(BuildContext context) {
         shrinkWrap: true,
         scrollDirection: Axis.vertical,
         children: &lt;Widget&gt;[
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            margin: const EdgeInsets.only(top: 20.0, bottom: 24.0),
-            child: Text(
-              AppLocalizations.of(context)!.contribute,
-              style: Theme.of(context).textTheme.headline1,
-            ),
-          ),
+          ModalBottomSheetHeader(
+              title: AppLocalizations.of(context)!.contribute),
           SmoothListTile(
-              text: AppLocalizations.of(context)!.contribute_improve_header,
-              onPressed: () =&gt; _contribute(context)),
+            text: AppLocalizations.of(context)!.contribute_improve_header,
+            onPressed: () =&gt; _contribute(context),
+          ),
 
           &#47;&#47;Develop
           SmoothListTile(
