@@ -79,9 +79,7 @@ class _HelperState extends State<_Helper> {
         ),
         child: Text(
           appLocalizations.productDataUtility,
-          style: Theme.of(context).textTheme.headline2!.apply(
-                color: Colors.black,
-              ),
+          style: Theme.of(context).textTheme.displayMedium,
         ),
       ),
       Container(
