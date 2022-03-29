@@ -358,7 +358,7 @@
     "@packaging_information_photo": {},
     "missing_product": "You found a new product!",
     "@missing_product": {},
-    "add_product_take_photos": "Take photos of the packaging to add this product to our database.",
+    "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
     "@add_product_take_photos": {},
     "add_product_take_photos_descriptive": "Please take the following photos and the Open Food Facts engine can work out the rest!",
     "@add_product_take_photos_descriptive": {},
