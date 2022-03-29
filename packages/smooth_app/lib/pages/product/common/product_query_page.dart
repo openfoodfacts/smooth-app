@@ -176,9 +176,11 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
           body: Stack(
             children: <Widget>[
               _getHero(screenSize, themeData),
-              CustomScrollView(
-                slivers: <Widget>[
-                  SliverAppBar(
+              RefreshIndicator(
+                onRefresh: () => refreshlist(),
+                child: CustomScrollView(
+                  slivers: <Widget>[
+                    SliverAppBar(
                       backgroundColor: themeData.scaffoldBackgroundColor,
                       expandedHeight: screenSize.height * 0.15,
                       collapsedHeight: screenSize.height * 0.09,
@@ -236,27 +238,29 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                                   .copyWith(color: widget.mainColor),
                             ),
                             background: _getHero(screenSize, themeData));
-                      })),
-                  SliverList(
-                    delegate: SliverChildBuilderDelegate(
-                      (_, int index) {
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 12.0, vertical: 8.0),
-                          child: SmoothProductCardFound(
-                            heroTag: _model.displayProducts![index].barcode!,
-                            product: _model.displayProducts![index],
-                            elevation:
-                                Theme.of(context).brightness == Brightness.light
-                                    ? 0.0
-                                    : 4.0,
-                          ).build(context),
-                        );
-                      },
-                      childCount: _model.displayProducts!.length,
+                      }),
                     ),
-                  )
-                ],
+                    SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                        (_, int index) {
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 12.0, vertical: 8.0),
+                            child: SmoothProductCardFound(
+                              heroTag: _model.displayProducts![index].barcode!,
+                              product: _model.displayProducts![index],
+                              elevation: Theme.of(context).brightness ==
+                                      Brightness.light
+                                  ? 0.0
+                                  : 4.0,
+                            ).build(context),
+                          );
+                        },
+                        childCount: _model.displayProducts!.length,
+                      ),
+                    )
+                  ],
+                ),
               ),
             ],
           ),
@@ -339,4 +343,13 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
           onPressed: () => Navigator.pop(context),
         ),
       );
+
+  Future<void> refreshlist() async {
+    final ProductListSupplier? refreshSupplier =
+        widget.productListSupplier.getRefreshSupplier();
+    setState(
+      () => _model = ProductQueryModel(refreshSupplier!),
+    );
+    return;
+  }
 }
