@@ -84,6 +84,9 @@
     case OnboardingPage.PREFERENCES_PAGE:
       return _wrapWidgetInCustomBackNavigator(
           context, page, PreferencesPage(localDatabase));
+    case OnboardingPage.CONSENT_PAGE:
+      return _wrapWidgetInCustomBackNavigator(
+          context, page, const ConsentAnalytics());
     case OnboardingPage.ONBOARDING_COMPLETE:
       return PageManager();
   }

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the build method from the ConsentAnalytics class, for the Dart programming language.">
+  <title>build method - ConsentAnalytics class - consent_analytics_page library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_onboarding_consent_analytics_page/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_onboarding_consent_analytics_page-library.html">consent_analytics_page</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_onboarding_consent_analytics_page/ConsentAnalytics-class.html">ConsentAnalytics</a></li>
+    <li class="self-crumb">build method</li>
+  </ol>
+  <div class="self-name">build</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">build</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<div>
+  <ol class="annotation-list">
+    <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+  </ol>
+</div>
+
+<span class="returntype">dynamic</span>
+<span class="name ">build</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="build-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span></span></li>
+</ol>)
+
+      
+
+    </section>
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@override
+Widget build(BuildContext context) {
+  final Size size = MediaQuery.of(context).size;
+  final LocalDatabase localDatabase = context.watch&lt;LocalDatabase&gt;();
+  final UserPreferences userPreferences = context.watch&lt;UserPreferences&gt;();
+  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+  const Color shadowColor = Color.fromARGB(144, 0, 0, 0);
+  const Color bodyColor = Color.fromARGB(174, 19, 18, 18);
+  const String assetName = &#39;assets&#47;onboarding&#47;analytics.svg&#39;;
+  return Scaffold(
+    body: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: &lt;Widget&gt;[
+        SizedBox(
+          height: size.height * 0.2,
+          width: size.width * 0.45,
+          child: SvgPicture.asset(
+            assetName,
+            semanticsLabel: &#39;Analytics Icons&#39;,
+            fit: BoxFit.contain,
+          ),
+        ),
+
+        SizedBox(height: size.height * 0.01),
+
+        Align(
+          alignment: Alignment.center,
+          child: Text(
+            appLocalizations.consent_analytics_title,
+            style: Theme.of(context)
+                .textTheme
+                .headline2!
+                .apply(color: Colors.black),
+          ),
+        ),
+
+        SizedBox(height: size.height * 0.034),
+
+        ConstrainedBox(
+          constraints: BoxConstraints(
+            maxWidth: size.width * 0.8,
+          ),
+          child: Text(
+            appLocalizations.consent_analytics_body1,
+            textAlign: TextAlign.center,
+            style: Theme.of(context)
+                .textTheme
+                .displaySmall!
+                .apply(color: bodyColor),
+          ),
+        ),
+        SizedBox(height: size.height * 0.03),
+
+        ConstrainedBox(
+          constraints: BoxConstraints(
+            maxWidth: size.width * 0.8,
+          ),
+          child: Text(
+            appLocalizations.consent_analytics_body2,
+            textAlign: TextAlign.center,
+            style: Theme.of(context)
+                .textTheme
+                .displaySmall!
+                .apply(color: bodyColor),
+          ),
+        ),
+
+        SizedBox(height: size.height * 0.02),
+
+        &#47;&#47;Authorize Button
+        InkWell(
+          borderRadius: CIRCULAR_BORDER_RADIUS,
+          onTap: () {
+            _analyticsLogic(true, userPreferences, localDatabase, context);
+          },
+          child: Ink(
+            height: size.height * 0.06,
+            width: size.width * 0.7,
+            decoration: BoxDecoration(
+              color: LIGHT_GREEN_COLOR,
+              borderRadius: CIRCULAR_BORDER_RADIUS,
+              boxShadow: &lt;BoxShadow&gt;[
+                BoxShadow(
+                  blurRadius: 3.0,
+                  color: shadowColor,
+                  offset: Offset(size.width * 0.004, size.height * 0.004),
+                )
+              ],
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: &lt;Widget&gt;[
+                Text(
+                  appLocalizations.authorize_button_label,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: WHITE_COLOR,
+                      fontSize: size.height * 0.025),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: size.width * 0.02),
+                  child: Icon(
+                    Icons.check,
+                    color: WHITE_COLOR,
+                    size: size.height * 0.04,
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+
+        SizedBox(height: size.height * 0.02),
+
+        &#47;&#47;Refuse Button
+        InkWell(
+          borderRadius: CIRCULAR_BORDER_RADIUS,
+          onTap: () {
+            _analyticsLogic(false, userPreferences, localDatabase, context);
+          },
+          child: Ink(
+            height: size.height * 0.06,
+            width: size.width * 0.7,
+            decoration: BoxDecoration(
+              color: RED_COLOR,
+              borderRadius: CIRCULAR_BORDER_RADIUS,
+              boxShadow: &lt;BoxShadow&gt;[
+                BoxShadow(
+                  blurRadius: 3.0,
+                  color: shadowColor,
+                  offset: Offset(size.width * 0.004, size.height * 0.004),
+                ),
+              ],
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: &lt;Widget&gt;[
+                Text(
+                  appLocalizations.refuse_button_label,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: WHITE_COLOR,
+                      fontSize: size.height * 0.025),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: size.width * 0.02),
+                  child: Icon(
+                    Icons.close,
+                    color: WHITE_COLOR,
+                    size: size.height * 0.04,
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+      ],
+    ),
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">smooth_app</a></li>
+  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_onboarding_consent_analytics_page/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_onboarding_consent_analytics_page-library.html">consent_analytics_page</a></li>
+  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_onboarding_consent_analytics_page/ConsentAnalytics-class.html">ConsentAnalytics</a></li>
+  <li class="self-crumb">build method</li>
+</ol>
+
+
+    <h5>ConsentAnalytics class</h5>
+    <ol>
+
+    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_onboarding_consent_analytics_page/ConsentAnalytics-class.html#constructors">Constructors</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_onboarding_consent_analytics_page/ConsentAnalytics/ConsentAnalytics.html">ConsentAnalytics</a></li>
+
+
+    <li class="section-title inherited">
+      <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_onboarding_consent_analytics_page/ConsentAnalytics-class.html#instance-properties">Properties</a>
+    </li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+
+    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_onboarding_consent_analytics_page/ConsentAnalytics-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_onboarding_consent_analytics_page/ConsentAnalytics/build.html">build</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
+
+    <li class="section-title inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_onboarding_consent_analytics_page/ConsentAnalytics-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    smooth_app
+      0.0.0
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+
