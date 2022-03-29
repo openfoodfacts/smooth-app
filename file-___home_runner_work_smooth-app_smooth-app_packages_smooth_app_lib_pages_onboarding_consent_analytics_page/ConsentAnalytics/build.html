@@ -77,7 +77,6 @@ Widget build(BuildContext context) {
   final UserPreferences userPreferences = context.watch&lt;UserPreferences&gt;();
   final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
   const Color shadowColor = Color.fromARGB(144, 0, 0, 0);
-  const Color bodyColor = Color.fromARGB(174, 19, 18, 18);
   const String assetName = &#39;assets&#47;onboarding&#47;analytics.svg&#39;;
   return Scaffold(
     body: Column(
@@ -99,10 +98,7 @@ Widget build(BuildContext context) {
           alignment: Alignment.center,
           child: Text(
             appLocalizations.consent_analytics_title,
-            style: Theme.of(context)
-                .textTheme
-                .headline2!
-                .apply(color: Colors.black),
+            style: Theme.of(context).textTheme.displayMedium,
           ),
         ),
 
@@ -115,12 +111,10 @@ Widget build(BuildContext context) {
           child: Text(
             appLocalizations.consent_analytics_body1,
             textAlign: TextAlign.center,
-            style: Theme.of(context)
-                .textTheme
-                .displaySmall!
-                .apply(color: bodyColor),
+            style: Theme.of(context).textTheme.displaySmall,
           ),
         ),
+
         SizedBox(height: size.height * 0.03),
 
         ConstrainedBox(
@@ -130,16 +124,13 @@ Widget build(BuildContext context) {
           child: Text(
             appLocalizations.consent_analytics_body2,
             textAlign: TextAlign.center,
-            style: Theme.of(context)
-                .textTheme
-                .displaySmall!
-                .apply(color: bodyColor),
+            style: Theme.of(context).textTheme.displaySmall,
           ),
         ),
 
         SizedBox(height: size.height * 0.02),
 
-        &#47;&#47;Authorize Button
+        &#47;&#47; Authorize Button
         InkWell(
           borderRadius: CIRCULAR_BORDER_RADIUS,
           onTap: () {
@@ -185,7 +176,7 @@ Widget build(BuildContext context) {
 
         SizedBox(height: size.height * 0.02),
 
-        &#47;&#47;Refuse Button
+        &#47;&#47; Refuse Button
         InkWell(
           borderRadius: CIRCULAR_BORDER_RADIUS,
           onTap: () {
