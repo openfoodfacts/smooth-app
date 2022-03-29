@@ -19,7 +19,6 @@ class ConsentAnalytics extends StatelessWidget {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     const Color shadowColor = Color.fromARGB(144, 0, 0, 0);
-    const Color bodyColor = Color.fromARGB(174, 19, 18, 18);
     const String assetName = 'assets/onboarding/analytics.svg';
     return Scaffold(
       body: Column(
@@ -41,10 +40,7 @@ class ConsentAnalytics extends StatelessWidget {
             alignment: Alignment.center,
             child: Text(
               appLocalizations.consent_analytics_title,
-              style: Theme.of(context)
-                  .textTheme
-                  .headline2!
-                  .apply(color: Colors.black),
+              style: Theme.of(context).textTheme.headline2,
             ),
           ),
 
@@ -57,10 +53,7 @@ class ConsentAnalytics extends StatelessWidget {
             child: Text(
               appLocalizations.consent_analytics_body1,
               textAlign: TextAlign.center,
-              style: Theme.of(context)
-                  .textTheme
-                  .displaySmall!
-                  .apply(color: bodyColor),
+              style: Theme.of(context).textTheme.displaySmall,
             ),
           ),
           SizedBox(height: size.height * 0.03),
@@ -72,10 +65,7 @@ class ConsentAnalytics extends StatelessWidget {
             child: Text(
               appLocalizations.consent_analytics_body2,
               textAlign: TextAlign.center,
-              style: Theme.of(context)
-                  .textTheme
-                  .displaySmall!
-                  .apply(color: bodyColor),
+              style: Theme.of(context).textTheme.displaySmall,
             ),
           ),
 
