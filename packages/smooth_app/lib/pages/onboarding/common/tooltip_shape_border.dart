@@ -1,17 +1,16 @@
 import 'package:flutter/cupertino.dart';
 
 class TooltipShapeBorder extends ShapeBorder {
-  final double arrowWidth;
-  final double arrowHeight;
-  final double arrowArc;
-  final double radius;
-
   const TooltipShapeBorder({
     this.radius = 10.0,
     this.arrowWidth = 20.0,
     this.arrowHeight = 20.0,
     this.arrowArc = 0.0,
   }) : assert(arrowArc <= 1.0 && arrowArc >= 0.0);
+  final double arrowWidth;
+  final double arrowHeight;
+  final double arrowArc;
+  final double radius;
 
   @override
   EdgeInsetsGeometry get dimensions => EdgeInsets.only(top: arrowHeight);

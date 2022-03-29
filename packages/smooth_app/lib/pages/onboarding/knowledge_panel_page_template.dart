@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panels_builder.dart';
@@ -12,7 +13,6 @@ import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/product/knowledge_panel_product_cards.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class KnowledgePanelPageTemplate extends StatefulWidget {
   const KnowledgePanelPageTemplate({
@@ -117,7 +117,7 @@ class _KnowledgePanelPageTemplateState
   }
 
   List<Widget> _buildHintPopup() {
-    Widget hintPopup = InkWell(
+    final Widget hintPopup = InkWell(
       child: Card(
         child: Container(
           margin: const EdgeInsets.fromLTRB(20, 10, 20, 10),
