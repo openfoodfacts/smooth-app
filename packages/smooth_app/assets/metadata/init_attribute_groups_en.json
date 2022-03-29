@@ -151,7 +151,7 @@
     "setting_name": "Organic farming",
     "id": "labels_organic"
   }, {
-    "description_short": "Fair trade products help producers in developping countries.",
+    "description_short": "Fair trade products help producers in developing countries.",
     "icon_url": "https://static.openfoodfacts.org/images/attributes/fair-trade.svg",
     "name": "Fair trade",
     "description": "When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards.",

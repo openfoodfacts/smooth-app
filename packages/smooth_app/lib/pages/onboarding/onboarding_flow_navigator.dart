@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/pages/onboarding/consent_analytics_page.dart';
 import 'package:smooth_app/pages/onboarding/preferences_page.dart';
 import 'package:smooth_app/pages/onboarding/sample_eco_card_page.dart';
 import 'package:smooth_app/pages/onboarding/sample_health_card_page.dart';
@@ -16,6 +17,7 @@ enum OnboardingPage {
   HEALTH_CARD_EXAMPLE,
   ECO_CARD_EXAMPLE,
   PREFERENCES_PAGE,
+  CONSENT_PAGE,
   ONBOARDING_COMPLETE,
 }
 
@@ -38,6 +40,8 @@ class OnboardingFlowNavigator {
       case OnboardingPage.ECO_CARD_EXAMPLE:
         return OnboardingPage.PREFERENCES_PAGE;
       case OnboardingPage.PREFERENCES_PAGE:
+        return OnboardingPage.CONSENT_PAGE;
+      case OnboardingPage.CONSENT_PAGE:
         return OnboardingPage.ONBOARDING_COMPLETE;
       case OnboardingPage.ONBOARDING_COMPLETE:
         return OnboardingPage.ONBOARDING_COMPLETE;
@@ -57,8 +61,10 @@ class OnboardingFlowNavigator {
         return OnboardingPage.HEALTH_CARD_EXAMPLE;
       case OnboardingPage.PREFERENCES_PAGE:
         return OnboardingPage.ECO_CARD_EXAMPLE;
-      case OnboardingPage.ONBOARDING_COMPLETE:
+      case OnboardingPage.CONSENT_PAGE:
         return OnboardingPage.PREFERENCES_PAGE;
+      case OnboardingPage.ONBOARDING_COMPLETE:
+        return OnboardingPage.CONSENT_PAGE;
     }
   }
 
@@ -90,6 +96,9 @@ class OnboardingFlowNavigator {
       case OnboardingPage.PREFERENCES_PAGE:
         return _wrapWidgetInCustomBackNavigator(
             context, page, PreferencesPage(localDatabase));
+      case OnboardingPage.CONSENT_PAGE:
+        return _wrapWidgetInCustomBackNavigator(
+            context, page, const ConsentAnalytics());
       case OnboardingPage.ONBOARDING_COMPLETE:
         return PageManager();
     }
