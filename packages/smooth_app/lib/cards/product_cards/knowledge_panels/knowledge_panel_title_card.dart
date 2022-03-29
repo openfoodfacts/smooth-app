@@ -63,7 +63,7 @@ class KnowledgePanelTitleCard extends StatelessWidget {
                       child: Text(
                         knowledgePanelTitleElement.title,
                         style: TextStyle(color: colorFromEvaluation),
-                      ).selectable(),
+                      ),
                     ),
                     if (knowledgePanelTitleElement.subtitle != null)
                       SizedBox(

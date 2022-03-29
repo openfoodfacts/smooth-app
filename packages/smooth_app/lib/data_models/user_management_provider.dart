@@ -3,7 +3,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:smooth_app/database/dao_secured_string.dart';
 
-class UserManagementProvider extends ChangeNotifier {
+class UserManagementProvider with ChangeNotifier {
   static const String _USER_ID = 'user_id';
   static const String _PASSWORD = 'pasword';
 
@@ -64,6 +64,7 @@ class UserManagementProvider extends ChangeNotifier {
 
   /// Saves user to storage
   Future<void> putUser(User user) async {
+    OpenFoodAPIConfiguration.globalUser = user;
     await DaoSecuredString.put(
       key: _USER_ID,
       value: user.userId,
