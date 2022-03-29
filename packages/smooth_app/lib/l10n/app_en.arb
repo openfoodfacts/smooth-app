@@ -142,7 +142,7 @@
         "description": "Progress indicator dialog during the actual signing up process"
     },
     "sign_up_page_action_ok": "Congratulations! Your account has just been created.",
-    "sign_up_page_display_name_hint": "Display Name",
+    "sign_up_page_display_name_hint": "Name",
     "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
     "sign_up_page_email_hint": "E-mail",
     "sign_up_page_email_error_empty": "E-mail is required",
@@ -586,6 +586,13 @@
         "description": "Button to switch to 'compare products mode'"
     },
     "retry_button_label": "Retry",
+    "connect_with_us": "Connect with us",
+    "instagram": "Instagram",
+    "twitter": "Twitter",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "discover": "Discover",
+    "how_to_contribute": "How to Contribute",
     "main_app_color": "Main color of the app",
     "@main_app_color": {
         "description": "Heading for the section to pick the main app color"

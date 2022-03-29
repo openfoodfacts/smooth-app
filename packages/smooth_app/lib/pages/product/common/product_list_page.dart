@@ -107,14 +107,6 @@ class _ProductListPageState extends State<ProductListPage> {
                 ),
               ),
             if ((!_selectionMode) && products.isNotEmpty)
-              IconButton(
-                icon: const Icon(Icons.refresh),
-                onPressed: () async => _refreshListProducts(
-                  products,
-                  localDatabase,
-                ),
-              ),
-            if ((!_selectionMode) && products.isNotEmpty)
               Flexible(
                 child: ElevatedButton(
                   child: Text(appLocalizations.compare_products_mode),
@@ -150,80 +142,90 @@ class _ProductListPageState extends State<ProductListPage> {
                 )
               ],
             )
-          : ListView.builder(
-              itemCount: products.length,
-              itemBuilder: (BuildContext context, int index) {
-                final Product product = products[index];
-                final String barcode = product.barcode!;
-                final bool selected = _selectedBarcodes.contains(barcode);
-                void onTap() => setState(
-                      () {
-                        if (selected) {
-                          _selectedBarcodes.remove(barcode);
-                        } else {
-                          _selectedBarcodes.add(barcode);
-                        }
-                      },
-                    );
-                final Widget child = GestureDetector(
-                  onTap: _selectionMode ? onTap : null,
-                  child: Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: _selectionMode ? 0 : 12.0,
-                      vertical: 8.0,
-                    ),
-                    child: Row(
-                      children: <Widget>[
-                        if (_selectionMode)
-                          Icon(
-                            selected
-                                ? Icons.check_box
-                                : Icons.check_box_outline_blank,
-                          ),
-                        Expanded(
-                          child: ProductListItemSimple(
-                            product: product,
-                            onTap: _selectionMode ? onTap : null,
-                            onLongPress: !_selectionMode
-                                ? () => setState(() => _selectionMode = true)
-                                : null,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                );
-                if (dismissible) {
-                  return Dismissible(
-                    background: Container(color: colorScheme.background),
-                    key: Key(product.barcode!),
-                    onDismissed: (final DismissDirection direction) async {
-                      final bool removed = productList.remove(product.barcode!);
-                      if (removed) {
-                        await daoProductList.put(productList);
-                        _selectedBarcodes.remove(product.barcode);
-                        setState(() => products.removeAt(index));
-                      }
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                            removed
-                                ? appLocalizations.product_removed_history
-                                : appLocalizations.product_could_not_remove,
-                          ),
-                          duration: const Duration(seconds: 3),
-                        ),
+          : RefreshIndicator(
+              //if it is in selectmode then refresh indicator is not shown
+              notificationPredicate:
+                  _selectionMode ? (_) => false : (_) => true,
+              onRefresh: () async => _refreshListProducts(
+                products,
+                localDatabase,
+              ),
+              child: ListView.builder(
+                itemCount: products.length,
+                itemBuilder: (BuildContext context, int index) {
+                  final Product product = products[index];
+                  final String barcode = product.barcode!;
+                  final bool selected = _selectedBarcodes.contains(barcode);
+                  void onTap() => setState(
+                        () {
+                          if (selected) {
+                            _selectedBarcodes.remove(barcode);
+                          } else {
+                            _selectedBarcodes.add(barcode);
+                          }
+                        },
                       );
-                      // TODO(monsieurtanuki): add a snackbar ("put back the food")
-                    },
+                  final Widget child = GestureDetector(
+                    onTap: _selectionMode ? onTap : null,
+                    child: Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: _selectionMode ? 0 : 12.0,
+                        vertical: 8.0,
+                      ),
+                      child: Row(
+                        children: <Widget>[
+                          if (_selectionMode)
+                            Icon(
+                              selected
+                                  ? Icons.check_box
+                                  : Icons.check_box_outline_blank,
+                            ),
+                          Expanded(
+                            child: ProductListItemSimple(
+                              product: product,
+                              onTap: _selectionMode ? onTap : null,
+                              onLongPress: !_selectionMode
+                                  ? () => setState(() => _selectionMode = true)
+                                  : null,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                  if (dismissible) {
+                    return Dismissible(
+                      background: Container(color: colorScheme.background),
+                      key: Key(product.barcode!),
+                      onDismissed: (final DismissDirection direction) async {
+                        final bool removed =
+                            productList.remove(product.barcode!);
+                        if (removed) {
+                          await daoProductList.put(productList);
+                          _selectedBarcodes.remove(product.barcode);
+                          setState(() => products.removeAt(index));
+                        }
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              removed
+                                  ? appLocalizations.product_removed_history
+                                  : appLocalizations.product_could_not_remove,
+                            ),
+                            duration: const Duration(seconds: 3),
+                          ),
+                        );
+                        // TODO(monsieurtanuki): add a snackbar ("put back the food")
+                      },
+                      child: child,
+                    );
+                  }
+                  return Container(
+                    key: Key(product.barcode!),
                     child: child,
                   );
-                }
-                return Container(
-                  key: Key(product.barcode!),
-                  child: child,
-                );
-              },
+                },
+              ),
             ),
     );
   }

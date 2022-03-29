@@ -79,7 +79,6 @@ class UserPreferencesSection extends StatefulWidget {
 class _UserPreferencesPageState extends State<UserPreferencesSection> {
   void _confirmLogout(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context)!;
-
     showDialog<void>(
       context: context,
       builder: (BuildContext context) {
