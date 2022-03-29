@@ -127,7 +127,7 @@ class _KnowledgePanelPageTemplateState
           ),
         ),
         margin: const EdgeInsets.symmetric(horizontal: 30),
-        color: Theme.of(context).hintColor,
+        color: Theme.of(context).hintColor.withOpacity(0.9),
         shape: const TooltipShapeBorder(arrowArc: 0.5),
       ),
       onTap: () {
