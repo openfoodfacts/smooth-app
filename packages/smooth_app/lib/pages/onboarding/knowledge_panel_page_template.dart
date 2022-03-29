@@ -85,9 +85,7 @@ class _KnowledgePanelPageTemplateState
                       ),
                       child: Text(
                         widget.headerTitle,
-                        style: Theme.of(context).textTheme.headline2!.apply(
-                              color: Colors.black,
-                            ),
+                        style: Theme.of(context).textTheme.displayMedium,
                       ),
                     ),
                     KnowledgePanelProductCards(<Widget>[knowledgePanelWidget]),
