@@ -86,6 +86,8 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
+    "login_page_username_or_email": "Please enter username or e-mail",
+    "login_page_password_error_empty": "Please enter a password",
     "create_account": "Create account",
     "@create_account": {
         "description": "Button label: Opens a page where a new user can register"
@@ -288,13 +290,13 @@
     "@profile_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "scan_navbar_label": "Profile",
+    "scan_navbar_label": "Search",
     "@scan_navbar_label": {
-        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+        "description": "BottomNavigationBarLabel: For the searching of products"
     },
-    "history_navbar_label": "Profile",
+    "history_navbar_label": "History",
     "@history_navbar_label": {
-        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+        "description": "BottomNavigationBarLabel: For the history and compare mode"
     },
     "category": "Filter by category",
     "@category": {
@@ -597,28 +599,28 @@
     "@main_app_color": {
         "description": "Heading for the section to pick the main app color"
     },
-    "consent_analytics_title":"Send anonymous analytics",
-    "@consent_analytics_title":{
+    "hint_knowledge_panel_message": "Your can tap on any part of the card to get more details about what you see. Try it now!",
+    "@hint_knowledge_panel_message": {
+        "description": "Hint popup indicating the card is clickable during onboarding"
+    },
+    "consent_analytics_title": "Send anonymous analytics",
+    "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-
-    "consent_analytics_body1":"Help the Open Food Facts volunteer to improve the app.You decide if you want to send anonymous analytics.",
-    "@conset_analytics_body1":{
-        "description":"first paragraph for the consent analytics UI Page"
+    "consent_analytics_body1": "Help the Open Food Facts volunteer to improve the app. You decide if you want to send anonymous analytics.",
+    "@conset_analytics_body1": {
+        "description": "first paragraph for the consent analytics UI Page"
     },
-
-    "consent_analytics_body2":"If you change your mind this option can be enabled and disabled at any time from the settings.",
-    "@consent_analytics_body2":{
-        "description":"second paragraph for the consent analytics UI Page"
+    "consent_analytics_body2": "If you change your mind this option can be enabled and disabled at any time from the settings.",
+    "@consent_analytics_body2": {
+        "description": "second paragraph for the consent analytics UI Page"
     },
-
-    "authorize_button_label":"Authorize",
-    "@authorize":{
-        "description":"Button to accept the request of sending the anonymous analytics"
+    "authorize_button_label": "Authorize",
+    "@authorize": {
+        "description": "Button to accept the request of sending the anonymous analytics"
     },
-    "refuse_button_label":"Refuse",
-    "@refuse":{
-        "description":"Button to decline the request of sending the anonymous analytics"
+    "refuse_button_label": "Refuse",
+    "@refuse": {
+        "description": "Button to decline the request of sending the anonymous analytics"
     }
 }
-

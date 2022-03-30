@@ -492,10 +492,16 @@ class _SummaryCardState extends State<SummaryCard> {
                   child: Column(
                     children: <Widget>[
                       // TODO(jasmeet): Use Material icon or SVG (after consulting UX).
-                      Text('🏅 ${appLocalizations.tap_to_answer}'),
+                      Text(
+                        '🏅 ${appLocalizations.tap_to_answer}',
+                        style: Theme.of(context).primaryTextTheme.bodyLarge,
+                      ),
                       Container(
                         padding: const EdgeInsets.only(top: SMALL_SPACE),
-                        child: Text(appLocalizations.contribute_to_get_rewards),
+                        child: Text(
+                          appLocalizations.contribute_to_get_rewards,
+                          style: Theme.of(context).primaryTextTheme.bodyText2,
+                        ),
                       ),
                     ],
                   ),

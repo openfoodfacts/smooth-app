@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
-
 import 'package:smooth_app/data_models/onboarding_loader.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -19,7 +18,6 @@ class ConsentAnalytics extends StatelessWidget {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     const Color shadowColor = Color.fromARGB(144, 0, 0, 0);
-    const Color bodyColor = Color.fromARGB(174, 19, 18, 18);
     const String assetName = 'assets/onboarding/analytics.svg';
     return Scaffold(
       body: Column(
@@ -41,10 +39,7 @@ class ConsentAnalytics extends StatelessWidget {
             alignment: Alignment.center,
             child: Text(
               appLocalizations.consent_analytics_title,
-              style: Theme.of(context)
-                  .textTheme
-                  .headline2!
-                  .apply(color: Colors.black),
+              style: Theme.of(context).textTheme.displayMedium,
             ),
           ),
 
@@ -57,12 +52,10 @@ class ConsentAnalytics extends StatelessWidget {
             child: Text(
               appLocalizations.consent_analytics_body1,
               textAlign: TextAlign.center,
-              style: Theme.of(context)
-                  .textTheme
-                  .displaySmall!
-                  .apply(color: bodyColor),
+              style: Theme.of(context).textTheme.displaySmall,
             ),
           ),
+
           SizedBox(height: size.height * 0.03),
 
           ConstrainedBox(
@@ -72,16 +65,13 @@ class ConsentAnalytics extends StatelessWidget {
             child: Text(
               appLocalizations.consent_analytics_body2,
               textAlign: TextAlign.center,
-              style: Theme.of(context)
-                  .textTheme
-                  .displaySmall!
-                  .apply(color: bodyColor),
+              style: Theme.of(context).textTheme.displaySmall,
             ),
           ),
 
           SizedBox(height: size.height * 0.02),
 
-          //Authorize Button
+          // Authorize Button
           InkWell(
             borderRadius: CIRCULAR_BORDER_RADIUS,
             onTap: () {
@@ -127,7 +117,7 @@ class ConsentAnalytics extends StatelessWidget {
 
           SizedBox(height: size.height * 0.02),
 
-          //Refuse Button
+          // Refuse Button
           InkWell(
             borderRadius: CIRCULAR_BORDER_RADIUS,
             onTap: () {

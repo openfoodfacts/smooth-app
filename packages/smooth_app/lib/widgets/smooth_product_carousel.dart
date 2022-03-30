@@ -106,6 +106,7 @@ class SearchCard extends StatelessWidget {
   const SearchCard({required this.height});
 
   final double height;
+
   @override
   Widget build(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context)!;
@@ -146,7 +147,7 @@ class SearchCard extends StatelessWidget {
     Navigator.push<Widget>(
       context,
       MaterialPageRoute<Widget>(
-        builder: (BuildContext context) => SearchPage(),
+        builder: (_) => SearchPage(),
       ),
     );
   }
