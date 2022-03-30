@@ -24,14 +24,15 @@ enum OnboardingPage {
 /// Decide which page to take the user to.
 class OnboardingFlowNavigator {
   OnboardingFlowNavigator(this._userPreferences) {
-    if (_historyOnboradingNav.isEmpty) {
-      _historyOnboradingNav.add(_userPreferences.lastVisitedOnboardingPage);
+    if (_historyOnboardingNav.isEmpty) {
+      _historyOnboardingNav.add(_userPreferences.lastVisitedOnboardingPage);
     }
   }
 
   final UserPreferences _userPreferences;
 
-  static final List<OnboardingPage> _historyOnboradingNav = <OnboardingPage>[];
+  //used for recording history of onboarding pages navigated
+  static final List<OnboardingPage> _historyOnboardingNav = <OnboardingPage>[];
 
   static OnboardingPage getNextPage(OnboardingPage currentPage) {
     switch (currentPage) {
@@ -76,7 +77,7 @@ class OnboardingFlowNavigator {
 
   void navigateToPage(BuildContext context, OnboardingPage page) {
     _userPreferences.setLastVisitedOnboardingPage(page);
-    _historyOnboradingNav.add(page);
+    _historyOnboardingNav.add(page);
     Navigator.push<Widget>(
       context,
       MaterialPageRoute<Widget>(
@@ -131,15 +132,11 @@ class OnboardingFlowNavigator {
     );
   }
 
-  static void getHistoryOnboradingNav(OnboardingPage currentPage) {
-    _historyOnboradingNav.add(currentPage);
-  }
-
   static bool isOnboradingPagedInHistory(OnboardingPage page) {
     bool exists = false;
-    if (_historyOnboradingNav.isNotEmpty) {
-      final int indexPage = _historyOnboradingNav.indexOf(page);
-      exists = indexPage >= 0 && indexPage < (_historyOnboradingNav.length - 1);
+    if (_historyOnboardingNav.isNotEmpty) {
+      final int indexPage = _historyOnboardingNav.indexOf(page);
+      exists = indexPage >= 0 && indexPage < (_historyOnboardingNav.length - 1);
     }
     return exists;
   }
