@@ -20,7 +20,7 @@ class NextButton extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    // Side padding is 8% of total widtha.
+    // Side padding is 8% of total width.
     final double sidePadding = screenSize.width * .08;
     return Container(
       color: ThemeProvider(userPreferences).isDarkMode(context)
