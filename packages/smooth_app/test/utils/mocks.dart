@@ -61,7 +61,7 @@ Map<String, Object> mockSharedPreferences({
       // Configured by test
       'init': init,
       'themeColorTag': colorTag,
-      'themeDark': themeDark,
+      'currentThemeMode': themeDark ? 'Dark' : 'Light',
 
       // Very important by default
       'IMPORTANCE_AS_STRINGnutriscore': 'very_important',
