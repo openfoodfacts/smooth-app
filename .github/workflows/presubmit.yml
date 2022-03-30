@@ -1,4 +1,4 @@
-name: SmoothApp Presubmit Tests
+name: SmoothApp Pre-Submit Tests
 
 on: pull_request
     
@@ -37,10 +37,4 @@ jobs:
       # Run tests
       - name: Run Tests with coverage
         run: ci/testing.sh
-
-      - name: Upload coverage to codecov
-        run: |
-            curl -Os https://uploader.codecov.io/latest/linux/codecov 
-            chmod +x codecov
-            ./codecov
 

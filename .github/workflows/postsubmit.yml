@@ -13,24 +13,24 @@ jobs:
         uses: actions/checkout@v3
 
       # Setup Java
-      - name: "Setup Java jdk"
+      - name: "Setup Java JDK"
         uses: actions/setup-java@v3.0.0
         with:
           distribution: 'zulu'
           java-version: '14.x'
       
-      # Setup flutter 
-      - uses: actions/checkout@v3
+      # Setup flutter
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: stable
           cache: true
           cache-key: flutter2.10 #change this to force refresh cache
+          
       - run: flutter --version
       
       # Get dependencies.
-      - name: "Get dependencies"
+      - name: Get dependencies
         run: ci/pub_upgrade.sh
 
       # Check for formatting issues
@@ -38,20 +38,26 @@ jobs:
         run: flutter format --set-exit-if-changed .
       
       # analyze Dart for errors
-      - name: "Analyze code"
+      - name: Analyze code
         run: flutter analyze --fatal-infos --fatal-warnings .
       
       # Run tests
-      - name: "Run Tests"
+      - name: Run Tests with coverage
         run: ci/testing.sh
       
+      - name: Upload coverage to codecov
+        run: |
+            curl -Os https://uploader.codecov.io/latest/linux/codecov 
+            chmod +x codecov
+            ./codecov
+      
       # Build apk.
-      - name: "Build apk"
+      - name: Build APK
         run: flutter build apk --debug
         working-directory: ./packages/smooth_app
       
       # Upload generated apk to the artifacts.
-      - name: "Upload APK"
+      - name: Upload APK
         uses: actions/upload-artifact@v3
         with:
           name: release-apk
