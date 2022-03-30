@@ -23,7 +23,7 @@ class NextButton extends StatelessWidget {
     // Side padding is 8% of total widtha.
     final double sidePadding = screenSize.width * .08;
     return Container(
-      color: ThemeProvider(userPreferences).darkTheme
+      color: ThemeProvider(userPreferences).isDarkMode(context)
           ? Theme.of(context).backgroundColor
           : Theme.of(context).appBarTheme.backgroundColor,
       padding: EdgeInsets.symmetric(
