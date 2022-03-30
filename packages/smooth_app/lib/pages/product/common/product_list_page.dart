@@ -195,12 +195,12 @@ class _ProductListPageState extends State<ProductListPage> {
                   );
                   if (dismissible) {
                     return Dismissible(
-                      //Delete Animation Added
                       direction: DismissDirection.endToStart,
                       background: Container(
                         alignment: Alignment.centerRight,
+                        margin: const EdgeInsets.symmetric(vertical: 14),
+                        color: RED_COLOR,
                         padding: const EdgeInsets.only(right: 30),
-                        color: Colors.red,
                         child: const Icon(
                           Icons.delete,
                           color: Colors.white,
