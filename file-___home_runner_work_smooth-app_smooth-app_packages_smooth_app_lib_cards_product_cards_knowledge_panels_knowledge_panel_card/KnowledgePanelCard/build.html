@@ -72,7 +72,6 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final ThemeProvider themeProvider = context.watch&lt;ThemeProvider&gt;();
   final ThemeData themeData = Theme.of(context);
   &#47;&#47; If [expanded] = true, render all panel elements (including summary), otherwise just renders panel summary.
   if (panel.expanded ?? false) {
@@ -93,7 +92,7 @@ Widget build(BuildContext context) {
           builder: (BuildContext context) =&gt; Scaffold(
             backgroundColor: SmoothTheme.getColor(
               themeData.colorScheme,
-              SmoothTheme.getMaterialColor(themeProvider),
+              SmoothTheme.getMaterialColor(context),
               ColorDestination.SURFACE_BACKGROUND,
             ),
             appBar: AppBar(),

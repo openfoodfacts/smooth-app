@@ -81,9 +81,20 @@
 
 </dd>
 
-        <dt id="darkTheme" class="property">
-  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider/darkTheme.html">darkTheme</a></span>
-  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> 
+        <dt id="currentTheme" class="property">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider/currentTheme.html">currentTheme</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> 
+
+</dt>
+<dd>
+   
+  <div class="features">read-only</div>
+
+</dd>
+
+        <dt id="currentThemeMode" class="property">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider/currentThemeMode.html">currentThemeMode</a></span>
+  <span class="signature">&#8594; dynamic</span> 
 
 </dt>
 <dd>
@@ -100,17 +111,6 @@
 <dd class="inherited">
   The hash code for this object. <a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">[...]</a>
   <div class="features">read-only, inherited</div>
-
-</dd>
-
-        <dt id="materialColor" class="property">
-  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider/materialColor.html">materialColor</a></span>
-  <span class="signature">&#8594; dynamic</span> 
-
-</dt>
-<dd>
-   
-  <div class="features">read-only</div>
 
 </dd>
 
@@ -131,6 +131,32 @@
     <section class="summary offset-anchor" id="instance-methods">
       <h2>Methods</h2>
       <dl class="callables">
+        <dt id="isDarkMode" class="callable">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider/isDarkMode.html">isDarkMode</a></span><span class="signature">(<wbr><span class="parameter" id="isDarkMode-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+   
+  
+
+</dd>
+
+        <dt id="materialColor" class="callable">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider/materialColor.html">materialColor</a></span><span class="signature">(<wbr><span class="parameter" id="materialColor-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd>
+   
+  
+
+</dd>
+
         <dt id="noSuchMethod" class="callable inherited">
   <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
     <span class="returntype parameter">&#8594; dynamic</span>
@@ -157,8 +183,8 @@
 
 </dd>
 
-        <dt id="setDarkTheme" class="callable">
-  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider/setDarkTheme.html">setDarkTheme</a></span><span class="signature">(<wbr><span class="parameter" id="setDarkTheme-param-value"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">value</span></span>)
+        <dt id="setTheme" class="callable">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider/setTheme.html">setTheme</a></span><span class="signature">(<wbr><span class="parameter" id="setTheme-param-value"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">value</span></span>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
   </span>
   
@@ -231,6 +257,10 @@
 
 
 
+  <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider-library.html#constants">Constants</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/THEME_DARK-constant.html">THEME_DARK</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/THEME_LIGHT-constant.html">THEME_LIGHT</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/THEME_SYSTEM_DEFAULT-constant.html">THEME_SYSTEM_DEFAULT</a></li>
 
 
 
@@ -251,15 +281,17 @@
       <a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider-class.html#instance-properties">Properties</a>
     </li>
     <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider/colorTag.html">colorTag</a></li>
-    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider/darkTheme.html">darkTheme</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider/currentTheme.html">currentTheme</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider/currentThemeMode.html">currentThemeMode</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
-    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider/materialColor.html">materialColor</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
     <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider-class.html#instance-methods">Methods</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider/isDarkMode.html">isDarkMode</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider/materialColor.html">materialColor</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider/setColorTag.html">setColorTag</a></li>
-    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider/setDarkTheme.html">setDarkTheme</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider/setTheme.html">setTheme</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
     <li class="section-title inherited"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider-class.html#operators">Operators</a></li>

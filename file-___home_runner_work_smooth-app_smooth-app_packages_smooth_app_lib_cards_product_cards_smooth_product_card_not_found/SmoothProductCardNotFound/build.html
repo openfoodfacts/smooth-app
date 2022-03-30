@@ -73,7 +73,6 @@
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-  final ThemeProvider themeProvider = context.watch&lt;ThemeProvider&gt;();
   return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
     return SmoothCard(
@@ -103,7 +102,6 @@ Widget build(BuildContext context) {
                 text: appLocalizations.add_product_information_button_label,
                 icon: Icons.add,
                 padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
-                isDarkMode: themeProvider.darkTheme,
                 onPressed: () {
                   Navigator.push&lt;Widget&gt;(
                     context,

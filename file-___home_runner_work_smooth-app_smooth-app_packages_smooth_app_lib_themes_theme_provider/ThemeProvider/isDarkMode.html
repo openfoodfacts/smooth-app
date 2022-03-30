@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the setColorTag method from the ThemeProvider class, for the Dart programming language.">
-  <title>setColorTag method - ThemeProvider class - theme_provider library - Dart API</title>
+  <meta name="description" content="API docs for the isDarkMode method from the ThemeProvider class, for the Dart programming language.">
+  <title>isDarkMode method - ThemeProvider class - theme_provider library - Dart API</title>
 
 
   
@@ -32,9 +32,9 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider-library.html">theme_provider</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider-class.html">ThemeProvider</a></li>
-    <li class="self-crumb">setColorTag method</li>
+    <li class="self-crumb">isDarkMode method</li>
   </ol>
-  <div class="self-name">setColorTag</div>
+  <div class="self-name">isDarkMode</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,15 +45,15 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">setColorTag</span> method 
+<h1><span class="kind-method">isDarkMode</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
       
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
-<span class="name ">setColorTag</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="setColorTag-param-value"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">value</span></span></li>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+<span class="name ">isDarkMode</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="isDarkMode-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span></span></li>
 </ol>)
 
       
@@ -65,12 +65,8 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; setColorTag(final String value) async {
-  if (colorTag == value) {
-    return;
-  }
-  await _userPreferences.setThemeColorTag(value);
-  notifyListeners();
+  <pre class="language-dart"><code class="language-dart">bool isDarkMode(BuildContext context) {
+  return MediaQuery.platformBrightnessOf(context) == Brightness.dark;
 }</code></pre>
 </section>
 
@@ -88,7 +84,7 @@
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider-library.html">theme_provider</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider-class.html">ThemeProvider</a></li>
-  <li class="self-crumb">setColorTag method</li>
+  <li class="self-crumb">isDarkMode method</li>
 </ol>
 
 

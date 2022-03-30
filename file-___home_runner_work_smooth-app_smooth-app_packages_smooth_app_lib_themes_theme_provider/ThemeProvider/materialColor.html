@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the materialColor property from the ThemeProvider class, for the Dart programming language.">
-  <title>materialColor property - ThemeProvider class - theme_provider library - Dart API</title>
+  <meta name="description" content="API docs for the materialColor method from the ThemeProvider class, for the Dart programming language.">
+  <title>materialColor method - ThemeProvider class - theme_provider library - Dart API</title>
 
 
   
@@ -32,7 +32,7 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider-library.html">theme_provider</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider-class.html">ThemeProvider</a></li>
-    <li class="self-crumb">materialColor property</li>
+    <li class="self-crumb">materialColor method</li>
   </ol>
   <div class="self-name">materialColor</div>
   <form class="search navbar-right" role="search">
@@ -45,32 +45,30 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-property">materialColor</span> property 
+<h1><span class="kind-method">materialColor</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
+    <section class="multi-line-signature">
+      
 
-        
-<section id="getter">
+<span class="returntype">dynamic</span>
+<span class="name ">materialColor</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="materialColor-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span></span></li>
+</ol>)
 
-<section class="multi-line-signature">
-  <span class="returntype">dynamic</span>
-  <span class="name ">materialColor</span>
-  
+      
 
-</section>
-
+    </section>
+    
 
 
-
+    
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">MaterialColor get materialColor =&gt; darkTheme
+  <pre class="language-dart"><code class="language-dart">MaterialColor materialColor(BuildContext context) =&gt; isDarkMode(context)
     ? Colors.grey
     : SmoothTheme.MATERIAL_COLORS[colorTag] ??
         SmoothTheme.MATERIAL_COLORS[SmoothTheme.COLOR_TAG_BLUE]!;</code></pre>
-</section>
-
 </section>
 
 
@@ -87,7 +85,7 @@
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider-library.html">theme_provider</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider-class.html">ThemeProvider</a></li>
-  <li class="self-crumb">materialColor property</li>
+  <li class="self-crumb">materialColor method</li>
 </ol>
 
 
@@ -102,15 +100,17 @@
       <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider-class.html#instance-properties">Properties</a>
     </li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider/colorTag.html">colorTag</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider/darkTheme.html">darkTheme</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider/currentTheme.html">currentTheme</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider/currentThemeMode.html">currentThemeMode</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider/materialColor.html">materialColor</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider/isDarkMode.html">isDarkMode</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider/materialColor.html">materialColor</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider/setColorTag.html">setColorTag</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider/setDarkTheme.html">setDarkTheme</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider/setTheme.html">setTheme</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
     <li class="section-title inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_theme_provider/ThemeProvider-class.html#operators">Operators</a></li>

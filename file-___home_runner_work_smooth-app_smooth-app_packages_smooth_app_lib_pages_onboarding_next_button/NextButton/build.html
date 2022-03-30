@@ -76,10 +76,10 @@ Widget build(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
   final UserPreferences userPreferences = context.watch&lt;UserPreferences&gt;();
   final LocalDatabase localDatabase = context.watch&lt;LocalDatabase&gt;();
-  &#47;&#47; Side padding is 8% of total widtha.
+  &#47;&#47; Side padding is 8% of total width.
   final double sidePadding = screenSize.width * .08;
   return Container(
-    color: ThemeProvider(userPreferences).darkTheme
+    color: ThemeProvider(userPreferences).isDarkMode(context)
         ? Theme.of(context).backgroundColor
         : Theme.of(context).appBarTheme.backgroundColor,
     padding: EdgeInsets.symmetric(

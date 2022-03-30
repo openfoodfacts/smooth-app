@@ -83,21 +83,27 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
               appLocalizations.darkmode,
               style: themeData.textTheme.headline4,
             ),
-            SmoothToggle(
-              value: themeProvider.darkTheme,
-              width: 85.0,
-              height: 38.0,
-              textRight: appLocalizations.darkmode_light,
-              textLeft: appLocalizations.darkmode_dark,
-              colorRight: Colors.blue,
-              colorLeft: Colors.blueGrey.shade700,
-              iconRight: const Icon(Icons.wb_sunny_rounded),
-              iconLeft: const Icon(
-                Icons.nightlight_round,
-                color: Colors.black,
-              ),
-              onChanged: (bool newValue) async =&gt;
-                  themeProvider.setDarkTheme(newValue),
+            DropdownButton&lt;String&gt;(
+              value: themeProvider.currentTheme,
+              elevation: 16,
+              onChanged: (String? newValue) {
+                themeProvider.setTheme(newValue!);
+              },
+              items: &lt;DropdownMenuItem&lt;String&gt;&gt;[
+                const DropdownMenuItem&lt;String&gt;(
+                  &#47;&#47; TODO(aman): translations
+                  child: Text(&#39;System Default&#39;),
+                  value: THEME_SYSTEM_DEFAULT,
+                ),
+                DropdownMenuItem&lt;String&gt;(
+                  child: Text(appLocalizations.darkmode_light),
+                  value: THEME_LIGHT,
+                ),
+                DropdownMenuItem&lt;String&gt;(
+                  child: Text(appLocalizations.darkmode_dark),
+                  value: THEME_DARK,
+                )
+              ],
             ),
           ],
         ),

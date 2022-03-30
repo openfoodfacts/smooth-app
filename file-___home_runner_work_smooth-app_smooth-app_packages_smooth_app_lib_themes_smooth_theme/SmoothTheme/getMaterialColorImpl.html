@@ -53,7 +53,7 @@
       
 
 <span class="returntype">dynamic</span>
-<span class="name ">getMaterialColorImpl</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getMaterialColorImpl-param-themeProvider"><span class="type-annotation">dynamic</span> <span class="parameter-name">themeProvider</span></span></li>
+<span class="name ">getMaterialColorImpl</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getMaterialColorImpl-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span></span></li>
 </ol>)
 
       
@@ -66,8 +66,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@protected
-MaterialColor getMaterialColorImpl(final ThemeProvider themeProvider) {
-  if (themeProvider.darkTheme) {
+MaterialColor getMaterialColorImpl(final BuildContext context) {
+  final ThemeProvider themeProvider = context.watch&lt;ThemeProvider&gt;();
+  if (MediaQuery.platformBrightnessOf(context) == Brightness.dark) {
     return Colors.grey;
   }
   return MATERIAL_COLORS[themeProvider.colorTag] ??
