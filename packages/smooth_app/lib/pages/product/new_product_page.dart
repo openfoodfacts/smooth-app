@@ -26,7 +26,6 @@ import 'package:smooth_app/pages/product/knowledge_panel_product_cards.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
 import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage(this.product);
@@ -58,15 +57,11 @@ class _ProductPageState extends State<ProductPage> {
   Widget build(BuildContext context) {
     // All watchers defined here:
     _productPreferences = context.watch<ProductPreferences>();
-    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
-    final MaterialColor materialColor =
-        SmoothTheme.getMaterialColor(themeProvider);
-
+    final MaterialColor materialColor = SmoothTheme.getMaterialColor(context);
     final Size size = MediaQuery.of(context).size;
-
     return Scaffold(
       backgroundColor: SmoothTheme.getColor(
         colorScheme,

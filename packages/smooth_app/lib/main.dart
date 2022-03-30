@@ -151,7 +151,7 @@ class _SmoothAppState extends State<SmoothApp> {
         Brightness.dark,
         themeProvider.colorTag,
       ),
-      themeMode: themeProvider.darkTheme ? ThemeMode.dark : ThemeMode.light,
+      themeMode: themeProvider.currentThemeMode,
       home: SmoothAppGetLanguage(appWidget),
     );
   }

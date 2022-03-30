@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/product/add_new_product_page.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
 
 class SmoothProductCardNotFound extends StatelessWidget {
   const SmoothProductCardNotFound({
@@ -21,7 +19,6 @@ class SmoothProductCardNotFound extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
       return SmoothCard(
@@ -51,7 +48,6 @@ class SmoothProductCardNotFound extends StatelessWidget {
                   text: appLocalizations.add_product_information_button_label,
                   icon: Icons.add,
                   padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
-                  isDarkMode: themeProvider.darkTheme,
                   onPressed: () {
                     Navigator.push<Widget>(
                       context,
