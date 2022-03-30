@@ -86,6 +86,8 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
+    "login_page_username_or_email": "Please enter username or e-mail",
+    "login_page_password_error_empty": "برجاء إخال كلمة مرور",
     "create_account": "إنشاء حساب",
     "@create_account": {
         "description": "Button label: Opens a page where a new user can register"
@@ -142,7 +144,7 @@
         "description": "Progress indicator dialog during the actual signing up process"
     },
     "sign_up_page_action_ok": "تهانينا! تم إنشاء حسابك للتو.",
-    "sign_up_page_display_name_hint": "اسم العرض",
+    "sign_up_page_display_name_hint": "اﻹسم",
     "sign_up_page_display_name_error_empty": "يرجاء إدخال الإسم العرض الذي تود استخدامه",
     "sign_up_page_email_hint": "البريد الإلكتروني",
     "sign_up_page_email_error_empty": "البريد الإلكتروني مطلوب",
@@ -157,7 +159,7 @@
     "sign_up_page_confirm_password_hint": "تأكيد كلمة المرور",
     "sign_up_page_confirm_password_error_empty": "برجاء تأكيد كلمة المرور",
     "sign_up_page_confirm_password_error_invalid": "كلمة السر غير مطابقة",
-    "sign_up_page_agree_url": "https://world-ar.openfoodfacts.org/terms-of-use\n",
+    "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use\n",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
@@ -276,7 +278,7 @@
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
     "ranking_tab_all": "الكل",
-    "ranking_subtitle_match_yes": "",
+    "ranking_subtitle_match_yes": "A great match for you",
     "ranking_subtitle_match_no": "تطابُق ضعيف جداً",
     "ranking_subtitle_match_maybe": "تطابق غير معروف",
     "reloaded_with_new_preferences": "تم التحميل مع تفضيلات جديدة",
@@ -288,13 +290,13 @@
     "@profile_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "scan_navbar_label": "الملف الشخصي",
+    "scan_navbar_label": "بحث",
     "@scan_navbar_label": {
-        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+        "description": "BottomNavigationBarLabel: For the searching of products"
     },
-    "history_navbar_label": "الملف الشخصي",
+    "history_navbar_label": "السجل",
     "@history_navbar_label": {
-        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+        "description": "BottomNavigationBarLabel: For the history and compare mode"
     },
     "category": "فرز حسب الفئة",
     "@category": {
@@ -336,6 +338,10 @@
     },
     "ingredients": "مكونات",
     "@ingredients": {},
+    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen, use parentheses for ingredients of an ingredient, and indicate allergens between underscores.",
+    "ingredients_editing_error": "Failed to save the ingredients.",
+    "ingredients_editing_image_error": "Failed to get a new ingredients image.",
+    "ingredients_editing_title": "Edit Ingredients",
     "ingredients_photo": "صورة المكونات",
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
@@ -354,9 +360,9 @@
     "@packaging_information_photo": {},
     "missing_product": "لقد وجدت منتجا جديدا!",
     "@missing_product": {},
-    "add_product_take_photos": "التقط صورًا للعبوة لإضافة هذا المنتج إلى قاعدة بياناتنا.",
+    "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "يرجى التقاط الصور التالية ويمكن لمحرك الحقائق الغذائية المفتوحة أن يعمل على الباقي!",
+    "add_product_take_photos_descriptive": "يرجى التقاط الصور التالية ويمكن لمحرك \"الحقائق الغذائية المفتوحة\" أن يعمل على الباقي!",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "إضافة معلومات عن المنتج",
     "@add_product_information_button_label": {},
@@ -414,7 +420,7 @@
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
-    "score_add_missing_ingredients": "Add missing ingredients",
+    "score_add_missing_ingredients": "أضف المكونات المفقودة",
     "score_add_missing_nutrition_facts": "Add missing nutrition facts",
     "score_add_missing_product_category": "Add missing product category",
     "score_update_nutrition_facts": "Update nutrition facts",
@@ -494,9 +500,13 @@
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
-    "product_removed": "Product removed",
-    "@product_removed": {
-        "description": "Product got removed from a list"
+    "product_removed_comparison": "Product removed from comparison",
+    "@product_removed_comparison": {
+        "description": "Product got removed from comparison list"
+    },
+    "product_removed_history": "Product removed from history",
+    "@product_removed_history": {
+        "description": "Product got removed from history"
     },
     "product_could_not_remove": "Could not remove product",
     "@product_could_not_remove": {
@@ -578,8 +588,35 @@
         "description": "Button to switch to 'compare products mode'"
     },
     "retry_button_label": "إعادة المحاولة",
+    "connect_with_us": "Connect with us",
+    "instagram": "Instagram",
+    "twitter": "Twitter",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "discover": "إكتشف",
+    "how_to_contribute": "How to Contribute",
     "main_app_color": "Main color of the app",
     "@main_app_color": {
         "description": "Heading for the section to pick the main app color"
+    },
+    "consent_analytics_title": "إرسال تحليلات مجهولة",
+    "@consent_analytics_title": {
+        "description": "Title for the consent analytics UI Page"
+    },
+    "consent_analytics_body1": "Help the Open Food Facts volunteer to improve the app.You decide if you want to send anonymous analytics.",
+    "@conset_analytics_body1": {
+        "description": "first paragraph for the consent analytics UI Page"
+    },
+    "consent_analytics_body2": "If you change your mind this option can be enabled and disabled at any time from the settings.",
+    "@consent_analytics_body2": {
+        "description": "second paragraph for the consent analytics UI Page"
+    },
+    "authorize_button_label": "Authorize",
+    "@authorize": {
+        "description": "Button to accept the request of sending the anonymous analytics"
+    },
+    "refuse_button_label": "Refuse",
+    "@refuse": {
+        "description": "Button to decline the request of sending the anonymous analytics"
     }
 }
