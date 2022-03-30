@@ -72,8 +72,6 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final TextStyle bodyTextStyle =
-      Theme.of(context).textTheme.bodyText2!.apply(color: Colors.white);
   final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
   final UserManagementProvider userManagementProvider =
       context.watch&lt;UserManagementProvider&gt;();
@@ -83,14 +81,14 @@ Widget build(BuildContext context) {
       children: &lt;Widget&gt;[
         const Icon(
           Icons.grade,
-          color: Colors.white,
-          size: 72,
+          color: Colors.amber,
+          size: 100,
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
           child: Text(
             appLocalizations.thanks_for_contributing,
-            style: bodyTextStyle,
+            style: Theme.of(context).textTheme.bodyText1,
           ),
         ),
         FutureBuilder&lt;bool&gt;(
@@ -104,38 +102,24 @@ Widget build(BuildContext context) {
                 }
                 return Column(
                   children: &lt;Widget&gt;[
-                    InkWell(
-                      onTap: () async {
+                    SmoothActionButton(
+                      text: appLocalizations.sign_in,
+                      onPressed: () async {
                         Navigator.pop&lt;Widget&gt;(context);
                         await Navigator.push&lt;Widget&gt;(
                           context,
                           MaterialPageRoute&lt;Widget&gt;(
-                            builder: (BuildContext context) =&gt;
-                                const LoginPage(),
+                            builder: (_) =&gt; const LoginPage(),
                           ),
                         );
                       },
-                      child: Container(
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(ANGULAR_RADIUS),
-                          color: Colors.grey,
-                        ),
-                        width: 150,
-                        padding: const EdgeInsets.all(MEDIUM_SPACE),
-                        child: Center(
-                          child: Text(
-                            appLocalizations.sign_in,
-                            style: Theme.of(context).textTheme.headline3,
-                          ),
-                        ),
-                      ),
                     ),
                     Padding(
                       padding:
                           const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
                       child: Text(
                         appLocalizations.sign_in_text,
-                        style: bodyTextStyle,
+                        style: Theme.of(context).textTheme.bodyText2,
                         textAlign: TextAlign.center,
                       ),
                     ),
@@ -145,8 +129,8 @@ Widget build(BuildContext context) {
                 return EMPTY_WIDGET;
               }
             }),
-        SmoothActionButton(
-          text: appLocalizations.close,
+        TextButton(
+          child: Text(appLocalizations.close),
           onPressed: () =&gt; Navigator.pop&lt;Widget&gt;(context),
         ),
       ],
