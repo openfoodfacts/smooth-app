@@ -50,11 +50,6 @@ class UserPreferences extends ChangeNotifier {
       _sharedPreferences.getString(_getImportanceTag(attributeId)) ??
       PreferenceImportance.ID_NOT_IMPORTANT;
 
-  Future<void> resetImportances(
-    final ProductPreferences productPreferences,
-  ) async =>
-      productPreferences.resetImportances();
-
   Future<void> setTheme(final String theme) async =>
       _sharedPreferences.setString(_TAG_CURRENT_THEME_MODE, theme);
 

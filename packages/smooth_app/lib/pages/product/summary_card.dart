@@ -133,9 +133,10 @@ class _SummaryCardState extends State<SummaryCard> {
               padding: const EdgeInsets.symmetric(
                 vertical: SMALL_SPACE,
               ),
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.vertical(bottom: ROUNDED_RADIUS),
+              decoration: BoxDecoration(
+                color: Theme.of(context).cardColor,
+                borderRadius:
+                    const BorderRadius.vertical(bottom: ROUNDED_RADIUS),
               ),
               child: Center(
                 child: Text(
@@ -481,7 +482,7 @@ class _SummaryCardState extends State<SummaryCard> {
               },
               child: SmoothCard(
                 margin: EdgeInsets.zero,
-                color: const Color(0xfff5f6fa),
+                color: Theme.of(context).colorScheme.primary,
                 elevation: 0,
                 padding: const EdgeInsets.all(
                   SMALL_SPACE,
@@ -491,10 +492,16 @@ class _SummaryCardState extends State<SummaryCard> {
                   child: Column(
                     children: <Widget>[
                       // TODO(jasmeet): Use Material icon or SVG (after consulting UX).
-                      Text('🏅 ${appLocalizations.tap_to_answer}'),
+                      Text(
+                        '🏅 ${appLocalizations.tap_to_answer}',
+                        style: Theme.of(context).primaryTextTheme.bodyLarge,
+                      ),
                       Container(
                         padding: const EdgeInsets.only(top: SMALL_SPACE),
-                        child: Text(appLocalizations.contribute_to_get_rewards),
+                        child: Text(
+                          appLocalizations.contribute_to_get_rewards,
+                          style: Theme.of(context).primaryTextTheme.bodyText2,
+                        ),
                       ),
                     ],
                   ),

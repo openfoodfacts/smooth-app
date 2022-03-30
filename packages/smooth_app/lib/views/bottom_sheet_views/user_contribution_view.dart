@@ -7,6 +7,7 @@ import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/widgets/modal_bottomsheet_header.dart';
 
 class UserContributionView extends StatelessWidget {
   @override
@@ -18,17 +19,12 @@ class UserContributionView extends StatelessWidget {
           shrinkWrap: true,
           scrollDirection: Axis.vertical,
           children: <Widget>[
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              margin: const EdgeInsets.only(top: 20.0, bottom: 24.0),
-              child: Text(
-                AppLocalizations.of(context)!.contribute,
-                style: Theme.of(context).textTheme.headline1,
-              ),
-            ),
+            ModalBottomSheetHeader(
+                title: AppLocalizations.of(context)!.contribute),
             SmoothListTile(
-                text: AppLocalizations.of(context)!.contribute_improve_header,
-                onPressed: () => _contribute(context)),
+              text: AppLocalizations.of(context)!.contribute_improve_header,
+              onPressed: () => _contribute(context),
+            ),
 
             //Develop
             SmoothListTile(
@@ -65,7 +61,7 @@ class UserContributionView extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return SmoothAlertDialog(
-          close: false,
+          close: true,
           title: AppLocalizations.of(context)!.contribute_improve_header,
           body: Column(
             children: <Widget>[

@@ -129,7 +129,7 @@ class _LoginPageState extends State<LoginPage> {
                   SmoothTextFormField(
                     type: TextFieldTypes.PLAIN_TEXT,
                     controller: userIdController,
-                    hintText: appLocalizations.login,
+                    hintText: appLocalizations.username_or_email,
                     textColor: _customGrey,
                     backgroundColor: _textFieldBackgroundColor,
                     prefixIcon: const Icon(Icons.person),
@@ -142,7 +142,7 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
-                        return appLocalizations.enter_some_text;
+                        return appLocalizations.login_page_username_or_email;
                       }
                       return null;
                     },
@@ -165,7 +165,7 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
-                        return appLocalizations.enter_some_text;
+                        return appLocalizations.login_page_password_error_empty;
                       }
                       return null;
                     },

@@ -117,7 +117,6 @@ class _StrongMatchedProduct extends MatchedProduct {
 
 const Map<String, int> _attributeImportanceWeight = <String, int>{
   PreferenceImportance.ID_MANDATORY: 4,
-  PreferenceImportance.ID_VERY_IMPORTANT: 1, // same as important from now on
   PreferenceImportance.ID_IMPORTANT: 1,
   PreferenceImportance.ID_NOT_IMPORTANT: 0,
 };

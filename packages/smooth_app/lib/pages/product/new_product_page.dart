@@ -178,8 +178,9 @@ class _ProductPageState extends State<ProductPage> {
   }
 
   Widget _buildProductBody(BuildContext context) {
-    return ListView(
-      children: <Widget>[
+    return RefreshIndicator(
+      onRefresh: () => _refreshProduct(context),
+      child: ListView(children: <Widget>[
         Align(
           heightFactor: 0.7,
           alignment: Alignment.topLeft,
@@ -193,12 +194,15 @@ class _ProductPageState extends State<ProductPage> {
           padding: const EdgeInsets.symmetric(
             horizontal: SMALL_SPACE,
           ),
-          child: SummaryCard(
-            _product,
-            _productPreferences,
-            isFullVersion: true,
-            showUnansweredQuestions: true,
-            refreshProductCallback: _refreshProduct,
+          child: Hero(
+            tag: _product.barcode ?? '',
+            child: SummaryCard(
+              _product,
+              _productPreferences,
+              isFullVersion: true,
+              showUnansweredQuestions: true,
+              refreshProductCallback: _refreshProduct,
+            ),
           ),
         ),
         _buildKnowledgePanelCards(),
@@ -263,7 +267,7 @@ class _ProductPageState extends State<ProductPage> {
             },
             child: const Text('Additional Button'),
           ),
-      ],
+      ]),
     );
   }
 
@@ -284,8 +288,8 @@ class _ProductPageState extends State<ProductPage> {
                 KnowledgePanelsBuilder(setState: () => setState(() {}))
                     .buildAll(
               snapshot.data!,
-              product: _product,
               context: context,
+              product: _product,
             );
           } else if (snapshot.hasError) {
             // TODO(jasmeet): Retry the request.
