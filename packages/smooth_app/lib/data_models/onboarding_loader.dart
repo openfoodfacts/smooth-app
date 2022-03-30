@@ -29,6 +29,7 @@ class OnboardingLoader {
       case OnboardingPage.HEALTH_CARD_EXAMPLE:
       case OnboardingPage.ECO_CARD_EXAMPLE:
       case OnboardingPage.PREFERENCES_PAGE:
+      case OnboardingPage.CONSENT_PAGE:
         return;
       case OnboardingPage.ONBOARDING_COMPLETE:
         await _unloadData();

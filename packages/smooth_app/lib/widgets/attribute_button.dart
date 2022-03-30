@@ -29,16 +29,13 @@ class AttributeButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
-    String importanceId =
+    final String importanceId =
         productPreferences.getImportanceIdForAttributeId(attribute.id!);
-    // We switch from 4 to 3 choices: very important is downgraded to important
-    if (importanceId == PreferenceImportance.ID_VERY_IMPORTANT) {
-      importanceId = PreferenceImportance.ID_IMPORTANT;
-    }
     const double horizontalPadding = LARGE_SPACE;
     final double screenWidth =
         MediaQuery.of(context).size.width - 2 * horizontalPadding;
-    final TextStyle style = themeData.textTheme.headline3!;
+    final TextStyle styleLabel = themeData.textTheme.bodyMedium!;
+    final TextStyle styleButton = themeData.textTheme.headline4!;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: horizontalPadding),
       child: Row(
@@ -47,7 +44,7 @@ class AttributeButton extends StatelessWidget {
         children: <Widget>[
           SizedBox(
             width: screenWidth * .45,
-            child: Text(attribute.name!, style: style),
+            child: Text(attribute.settingName!, style: styleLabel),
           ),
           SizedBox(
             width: screenWidth * .45,
@@ -56,7 +53,7 @@ class AttributeButton extends StatelessWidget {
                 productPreferences
                     .getPreferenceImportanceFromImportanceId(importanceId)!
                     .name!,
-                style: style.copyWith(color: Colors.white),
+                style: styleButton.copyWith(color: Colors.white),
               ),
               style: ElevatedButton.styleFrom(
                 primary: _colors[importanceId],

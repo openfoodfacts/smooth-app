@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:smooth_app/cards/category_cards/abstract_cache.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 
 class KnowledgePanelTitleCard extends StatelessWidget {
@@ -21,7 +22,8 @@ class KnowledgePanelTitleCard extends StatelessWidget {
         (knowledgePanelTitleElement.iconColorFromEvaluation ?? false)) {
       colorFromEvaluation = _getColorFromEvaluation(evaluation!);
     }
-    if (colorFromEvaluation == null &&
+    if (evaluation != null &&
+        _getColorFromEvaluation(evaluation!) == null &&
         themeData.brightness == Brightness.dark) {
       colorFromEvaluation = Colors.white;
     }
@@ -66,7 +68,8 @@ class KnowledgePanelTitleCard extends StatelessWidget {
                     if (knowledgePanelTitleElement.subtitle != null)
                       SizedBox(
                         width: constraints.maxWidth,
-                        child: Text(knowledgePanelTitleElement.subtitle!),
+                        child: Text(knowledgePanelTitleElement.subtitle!)
+                            .selectable(),
                       ),
                   ],
                 );

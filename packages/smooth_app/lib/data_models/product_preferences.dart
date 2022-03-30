@@ -43,22 +43,6 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
   static String _getAttributeAssetPath(final String languageCode) =>
       'assets/metadata/init_attribute_groups_$languageCode.json';
 
-  static const List<String> _DEFAULT_ATTRIBUTES = <String>[
-    Attribute.ATTRIBUTE_NUTRISCORE,
-    Attribute.ATTRIBUTE_ECOSCORE,
-    Attribute.ATTRIBUTE_NOVA,
-    Attribute.ATTRIBUTE_VEGETARIAN,
-    Attribute.ATTRIBUTE_VEGAN,
-    Attribute.ATTRIBUTE_PALM_OIL_FREE,
-    Attribute.ATTRIBUTE_LOW_SALT,
-    Attribute.ATTRIBUTE_LOW_SUGARS,
-    Attribute.ATTRIBUTE_LOW_FAT,
-    Attribute.ATTRIBUTE_LOW_SATURATED_FAT,
-    Attribute.ATTRIBUTE_LABELS_ORGANIC,
-    Attribute.ATTRIBUTE_LABELS_FAIR_TRADE,
-    Attribute.ATTRIBUTE_FOREST_FOOTPRINT,
-  ];
-
   /// Inits with the best available not-network references.
   ///
   /// That means trying with assets and local database.
@@ -198,17 +182,34 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
     availableProductPreferences = myAvailableProductPreferences;
   }
 
+  @override
+  String getImportanceIdForAttributeId(String attributeId) =>
+      _getRefinedImportanceId(super.getImportanceIdForAttributeId(attributeId));
+
+  /// Downgrades "very important" to "important" (from 4 to 3 choices, simpler).
+  static String _getRefinedImportanceId(final String importanceId) =>
+      importanceId == PreferenceImportance.ID_VERY_IMPORTANT
+          ? PreferenceImportance.ID_IMPORTANT
+          : importanceId;
+
   Future<void> resetImportances() async {
     await clearImportances(notifyListeners: false);
-    await Future.wait(
-      _DEFAULT_ATTRIBUTES.map(
-        (String attributeId) => setImportance(
-          attributeId,
-          PreferenceImportance.ID_IMPORTANT,
-          notifyListeners: false,
-        ),
-      ),
-    );
+    if (attributeGroups != null) {
+      for (final AttributeGroup attributeGroup in attributeGroups!) {
+        if (attributeGroup.attributes != null) {
+          for (final Attribute attribute in attributeGroup.attributes!) {
+            final String? defaultF = attribute.defaultF;
+            if (attribute.id != null && defaultF != null) {
+              await setImportance(
+                attribute.id!,
+                _getRefinedImportanceId(defaultF),
+                notifyListeners: false,
+              );
+            }
+          }
+        }
+      }
+    }
     notify();
   }
 
