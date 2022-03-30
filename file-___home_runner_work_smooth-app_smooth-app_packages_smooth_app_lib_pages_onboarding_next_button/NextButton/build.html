@@ -79,7 +79,9 @@ Widget build(BuildContext context) {
   &#47;&#47; Side padding is 8% of total widtha.
   final double sidePadding = screenSize.width * .08;
   return Container(
-    color: Theme.of(context).appBarTheme.backgroundColor,
+    color: ThemeProvider(userPreferences).darkTheme
+        ? Theme.of(context).backgroundColor
+        : Theme.of(context).appBarTheme.backgroundColor,
     padding: EdgeInsets.symmetric(
       vertical: VERY_LARGE_SPACE,
       horizontal: sidePadding,
@@ -88,11 +90,7 @@ Widget build(BuildContext context) {
       Expanded(
         child: TextButton(
           style: TextButton.styleFrom(
-            backgroundColor: SmoothTheme.getColor(
-              Theme.of(context).colorScheme,
-              SmoothTheme.MATERIAL_COLORS[SmoothTheme.COLOR_TAG_BLUE]!,
-              ColorDestination.BUTTON_BACKGROUND,
-            ),
+            backgroundColor: Theme.of(context).cardColor,
             shape: const RoundedRectangleBorder(
                 borderRadius: ANGULAR_BORDER_RADIUS),
             primary: Colors.white,
@@ -105,10 +103,7 @@ Widget build(BuildContext context) {
           },
           child: Text(
             appLocalizations.next_label,
-            style: Theme.of(context)
-                .textTheme
-                .headline3!
-                .apply(color: Colors.white),
+            style: Theme.of(context).textTheme.headline3,
           ),
         ),
       ),
