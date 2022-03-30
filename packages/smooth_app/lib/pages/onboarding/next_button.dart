@@ -6,7 +6,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Next button showed at the bottom of the onboarding flow.
 class NextButton extends StatelessWidget {
@@ -23,7 +23,9 @@ class NextButton extends StatelessWidget {
     // Side padding is 8% of total widtha.
     final double sidePadding = screenSize.width * .08;
     return Container(
-      color: Theme.of(context).appBarTheme.backgroundColor,
+      color: ThemeProvider(userPreferences).darkTheme
+          ? Theme.of(context).backgroundColor
+          : Theme.of(context).appBarTheme.backgroundColor,
       padding: EdgeInsets.symmetric(
         vertical: VERY_LARGE_SPACE,
         horizontal: sidePadding,
@@ -32,11 +34,7 @@ class NextButton extends StatelessWidget {
         Expanded(
           child: TextButton(
             style: TextButton.styleFrom(
-              backgroundColor: SmoothTheme.getColor(
-                Theme.of(context).colorScheme,
-                SmoothTheme.MATERIAL_COLORS[SmoothTheme.COLOR_TAG_BLUE]!,
-                ColorDestination.BUTTON_BACKGROUND,
-              ),
+              backgroundColor: Theme.of(context).cardColor,
               shape: const RoundedRectangleBorder(
                   borderRadius: ANGULAR_BORDER_RADIUS),
               primary: Colors.white,
@@ -49,10 +47,7 @@ class NextButton extends StatelessWidget {
             },
             child: Text(
               appLocalizations.next_label,
-              style: Theme.of(context)
-                  .textTheme
-                  .headline3!
-                  .apply(color: Colors.white),
+              style: Theme.of(context).textTheme.headline3,
             ),
           ),
         ),
