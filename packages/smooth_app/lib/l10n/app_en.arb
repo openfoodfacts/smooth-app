@@ -599,28 +599,28 @@
     "@main_app_color": {
         "description": "Heading for the section to pick the main app color"
     },
-    "consent_analytics_title":"Send anonymous analytics",
-    "@consent_analytics_title":{
+    "hint_knowledge_panel_message": "Your can tap on any part of the card to get more details about what you see. Try it now!",
+    "@hint_knowledge_panel_message": {
+        "description": "Hint popup indicating the card is clickable during onboarding"
+    },
+    "consent_analytics_title": "Send anonymous analytics",
+    "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-
-    "consent_analytics_body1":"Help the Open Food Facts volunteer to improve the app.You decide if you want to send anonymous analytics.",
-    "@conset_analytics_body1":{
-        "description":"first paragraph for the consent analytics UI Page"
+    "consent_analytics_body1": "Help the Open Food Facts volunteer to improve the app. You decide if you want to send anonymous analytics.",
+    "@conset_analytics_body1": {
+        "description": "first paragraph for the consent analytics UI Page"
     },
-
-    "consent_analytics_body2":"If you change your mind this option can be enabled and disabled at any time from the settings.",
-    "@consent_analytics_body2":{
-        "description":"second paragraph for the consent analytics UI Page"
+    "consent_analytics_body2": "If you change your mind this option can be enabled and disabled at any time from the settings.",
+    "@consent_analytics_body2": {
+        "description": "second paragraph for the consent analytics UI Page"
     },
-
-    "authorize_button_label":"Authorize",
-    "@authorize":{
-        "description":"Button to accept the request of sending the anonymous analytics"
+    "authorize_button_label": "Authorize",
+    "@authorize": {
+        "description": "Button to accept the request of sending the anonymous analytics"
     },
-    "refuse_button_label":"Refuse",
-    "@refuse":{
-        "description":"Button to decline the request of sending the anonymous analytics"
+    "refuse_button_label": "Refuse",
+    "@refuse": {
+        "description": "Button to decline the request of sending the anonymous analytics"
     }
 }
-
