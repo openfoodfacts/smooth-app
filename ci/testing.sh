@@ -20,7 +20,7 @@ if [[ "$SHARD" == "test" ]]; then
   echo "Running tests."
   for file in "$REPO_DIR/packages/"*; do
     if [[ -d $file ]]; then
-      (cd "$file" && flutter test)
+      (cd "$file" && flutter test --coverage)
     fi
   done
 fi
