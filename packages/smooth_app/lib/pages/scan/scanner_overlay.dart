@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/generic_lib/animations/smooth_reveal_animation.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_view_finder.dart';
-import 'package:smooth_app/pages/scan/scan_header.dart';
 import 'package:smooth_app/widgets/smooth_product_carousel.dart';
 
 /// This builds all the essential widgets which are displayed above the camera
@@ -84,7 +83,6 @@ class ScannerOverlay extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
-                    const SafeArea(top: true, child: ScanHeader()),
                     const Spacer(),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 10.0),
