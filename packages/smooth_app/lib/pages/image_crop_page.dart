@@ -36,7 +36,8 @@ Future<File?> startImageCropping(BuildContext context) async {
       statusBarColor: themeColor,
       toolbarColor: themeColor,
       toolbarWidgetColor: Colors.white,
-      activeControlsWidgetColor: tooltipColor,
+      activeControlsWidgetColor: Theme.of(context).colorScheme.primary,
+      backgroundColor: themeColor,
     ),
     iosUiSettings: const IOSUiSettings(
       minimumAspectRatio: 1.0,
