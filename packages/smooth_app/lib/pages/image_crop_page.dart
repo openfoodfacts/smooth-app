@@ -2,9 +2,16 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:provider/provider.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 Future<File?> startImageCropping(BuildContext context) async {
-  final ColorScheme colorScheme = Theme.of(context).colorScheme;
+  final bool isDarktheme =
+      Provider.of<ThemeProvider>(context, listen: false).isDarkMode(context);
+  final Color? themeColor = isDarktheme
+      ? Colors.black
+      : Theme.of(context).appBarTheme.backgroundColor;
+  final Color? tooltipColor = isDarktheme ? Colors.green : themeColor;
 
   final ImagePicker picker = ImagePicker();
   final XFile? pickedXFile = await picker.pickImage(
@@ -26,7 +33,10 @@ Future<File?> startImageCropping(BuildContext context) async {
       toolbarTitle: 'Edit Photo', // TODO(ashaan): Localize
       initAspectRatio: CropAspectRatioPreset.original,
       lockAspectRatio: false,
-      // style the cropper UI with the current theme
+      statusBarColor: themeColor,
+      toolbarColor: themeColor,
+      toolbarWidgetColor: Colors.white,
+      activeControlsWidgetColor: tooltipColor,
     ),
     iosUiSettings: const IOSUiSettings(
       minimumAspectRatio: 1.0,
