@@ -4,10 +4,11 @@ import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 
 class ProductTitleCard extends StatelessWidget {
-  const ProductTitleCard(this.product, {this.dense = false});
+  const ProductTitleCard(this.product, this.isSelectable, {this.dense = false});
 
   final Product product;
   final bool dense;
+  final bool isSelectable;
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +19,15 @@ class ProductTitleCard extends StatelessWidget {
       child: ListTile(
         dense: dense,
         contentPadding: EdgeInsets.zero,
-        title: Text(
-          _getProductName(appLocalizations),
-          style: themeData.textTheme.headline4,
-        ).selectable(),
+        title: isSelectable
+            ? Text(
+                _getProductName(appLocalizations),
+                style: themeData.textTheme.headline4,
+              ).selectable()
+            : Text(
+                _getProductName(appLocalizations),
+                style: themeData.textTheme.headline4,
+              ),
         subtitle: Text(product.brands ?? appLocalizations.unknownBrand),
         trailing: Text(
           product.quantity ?? '',
