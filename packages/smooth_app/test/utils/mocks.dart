@@ -46,7 +46,7 @@ class MockSmoothApp extends StatelessWidget {
             Brightness.dark,
             themeProvider.colorTag,
           ),
-          themeMode: themeProvider.darkTheme ? ThemeMode.dark : ThemeMode.light,
+          themeMode: themeProvider.currentThemeMode,
           home: child,
         ));
   }
@@ -61,7 +61,7 @@ Map<String, Object> mockSharedPreferences({
       // Configured by test
       'init': init,
       'themeColorTag': colorTag,
-      'themeDark': themeDark,
+      'currentThemeMode': themeDark ? 'Dark' : 'Light',
 
       // Very important by default
       'IMPORTANCE_AS_STRINGnutriscore': 'very_important',

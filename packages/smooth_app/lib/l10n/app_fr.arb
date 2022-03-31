@@ -57,7 +57,7 @@
         "description": "Looking for: ${BARCODE}"
     },
     "@Introduction screen": {},
-    "welcomeToOpenFoodFacts": "Bienvenue sur Open Food Facts",
+    "welcomeToOpenFoodFacts": "Bienvenue sur Open\u00A0Food\u00A0Facts",
     "@welcomeToOpenFoodFacts": {},
     "whatIsOff": "Open Food Facts est une organisation mondiale à but non lucratif alimentée par les communautés locales.",
     "@whatIsOff": {
