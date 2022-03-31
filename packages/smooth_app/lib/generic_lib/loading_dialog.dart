@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -9,9 +8,6 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 /// Typical use-case: wait during download.
 class LoadingDialog<T> {
   LoadingDialog._();
-
-  /// Is the dialog already pop'ed?
-  bool _popEd = false;
 
   /// Runs a future while displaying a stoppable dialog.
   static Future<T?> run<T>({
@@ -44,7 +40,7 @@ class LoadingDialog<T> {
           actions: <SmoothActionButton>[
             SmoothActionButton(
               text: AppLocalizations.of(context)!.close,
-              onPressed: () => Navigator.pop(context),
+              onPressed: () => Navigator.of(context, rootNavigator: true).pop(),
             ),
           ],
         ),
@@ -68,15 +64,8 @@ class LoadingDialog<T> {
 
   /// Closes the dialog if relevant, pop'ing the [value]
   void _popDialog(final BuildContext context, final T? value) {
-    if (_popEd) {
-      return;
-    }
-    _popEd = true;
-    // To avoid returning before the alertDialog is build
-    SchedulerBinding.instance?.addPostFrameCallback((_) {
-      // Here we use the root navigator so that we can pop dialog while using multiple navigators.
-      Navigator.of(context, rootNavigator: true).pop(value);
-    });
+    // Here we use the root navigator so that we can pop dialog while using multiple navigators.
+    Navigator.of(context, rootNavigator: true).pop(value);
   }
 
   /// Displayed dialog during future.
