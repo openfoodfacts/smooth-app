@@ -11,8 +11,6 @@ Future<File?> startImageCropping(BuildContext context) async {
   final Color? themeColor = isDarktheme
       ? Colors.black
       : Theme.of(context).appBarTheme.backgroundColor;
-  final Color? tooltipColor = isDarktheme ? Colors.green : themeColor;
-
   final ImagePicker picker = ImagePicker();
   final XFile? pickedXFile = await picker.pickImage(
     source: ImageSource.camera,
