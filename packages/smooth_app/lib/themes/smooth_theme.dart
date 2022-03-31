@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Color destination
@@ -44,11 +45,10 @@ class SmoothTheme {
     final ColorDestination colorDestination,
   ) =>
       instance.getColorImpl(colorScheme, materialColor, colorDestination);
-
   static MaterialColor getMaterialColor(
-    final ThemeProvider themeProvider,
+    final BuildContext context,
   ) =>
-      instance.getMaterialColorImpl(themeProvider);
+      instance.getMaterialColorImpl(context);
 
   /// Returns a shade of a [materialColor]
   ///
@@ -89,8 +89,9 @@ class SmoothTheme {
   }
 
   @protected
-  MaterialColor getMaterialColorImpl(final ThemeProvider themeProvider) {
-    if (themeProvider.darkTheme) {
+  MaterialColor getMaterialColorImpl(final BuildContext context) {
+    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
+    if (MediaQuery.platformBrightnessOf(context) == Brightness.dark) {
       return Colors.grey;
     }
     return MATERIAL_COLORS[themeProvider.colorTag] ??

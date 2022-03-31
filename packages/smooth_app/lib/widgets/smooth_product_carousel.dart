@@ -106,12 +106,12 @@ class SearchCard extends StatelessWidget {
   const SearchCard({required this.height});
 
   final double height;
+
   @override
   Widget build(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context)!;
     return SmoothCard(
       color: Theme.of(context).colorScheme.background.withOpacity(0.85),
-      margin: EdgeInsets.zero,
       elevation: 0,
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: SizedBox(
@@ -147,7 +147,7 @@ class SearchCard extends StatelessWidget {
     Navigator.push<Widget>(
       context,
       MaterialPageRoute<Widget>(
-        builder: (BuildContext context) => SearchPage(),
+        builder: (_) => SearchPage(),
       ),
     );
   }
