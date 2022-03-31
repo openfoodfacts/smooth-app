@@ -28,7 +28,7 @@ packages:
       name: archive
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.2.2"
+    version: "3.2.1"
   args:
     dependency: transitive
     description:
@@ -262,7 +262,7 @@ packages:
       name: flutter_native_splash
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.1"
+    version: "2.1.2+1"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -343,6 +343,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.0"
+  fwfh_selectable_text:
+    dependency: "direct main"
+    description:
+      name: fwfh_selectable_text
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.8.3+1"
   fwfh_text_style:
     dependency: transitive
     description:
@@ -360,9 +367,11 @@ packages:
   google_ml_barcode_scanner:
     dependency: "direct main"
     description:
-      name: google_ml_barcode_scanner
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "."
+      ref: master
+      resolved-ref: "5427e2a735be24b5f6b646a2554c636845ce9597"
+      url: "https://github.com/cli1005/google_ml_barcode_scanner.git"
+    source: git
     version: "0.0.2"
   hive:
     dependency: "direct main"

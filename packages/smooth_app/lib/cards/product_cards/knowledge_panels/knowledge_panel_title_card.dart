@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:smooth_app/cards/category_cards/abstract_cache.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 
 class KnowledgePanelTitleCard extends StatelessWidget {
@@ -21,7 +22,8 @@ class KnowledgePanelTitleCard extends StatelessWidget {
         (knowledgePanelTitleElement.iconColorFromEvaluation ?? false)) {
       colorFromEvaluation = _getColorFromEvaluation(evaluation!);
     }
-    if (colorFromEvaluation == null &&
+    if (evaluation != null &&
+        _getColorFromEvaluation(evaluation!) == null &&
         themeData.brightness == Brightness.dark) {
       colorFromEvaluation = Colors.white;
     }
@@ -66,7 +68,8 @@ class KnowledgePanelTitleCard extends StatelessWidget {
                     if (knowledgePanelTitleElement.subtitle != null)
                       SizedBox(
                         width: constraints.maxWidth,
-                        child: Text(knowledgePanelTitleElement.subtitle!),
+                        child: Text(knowledgePanelTitleElement.subtitle!)
+                            .selectable(),
                       ),
                   ],
                 );
@@ -79,13 +82,13 @@ class KnowledgePanelTitleCard extends StatelessWidget {
   Color? _getColorFromEvaluation(Evaluation evaluation) {
     switch (evaluation) {
       case Evaluation.BAD:
-        return Colors.red;
+        return RED_COLOR;
       case Evaluation.NEUTRAL:
-        return Colors.grey;
+        return GREY_COLOR;
       case Evaluation.AVERAGE:
-        return Colors.orange;
+        return LIGHT_ORANGE_COLOR;
       case Evaluation.GOOD:
-        return Colors.green;
+        return LIGHT_GREEN_COLOR;
       case Evaluation.UNKNOWN:
         return null;
     }

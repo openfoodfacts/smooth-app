@@ -79,9 +79,7 @@ class _HelperState extends State<_Helper> {
         ),
         child: Text(
           appLocalizations.productDataUtility,
-          style: Theme.of(context).textTheme.headline2!.apply(
-                color: Colors.black,
-              ),
+          style: Theme.of(context).textTheme.displayMedium,
         ),
       ),
       Container(
@@ -123,11 +121,9 @@ class _HelperState extends State<_Helper> {
             shrinkWrap: true,
             children: pageData,
           ),
-          const Positioned(
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: NextButton(OnboardingPage.PREFERENCES_PAGE),
-            ),
+          const Align(
+            alignment: Alignment.bottomCenter,
+            child: NextButton(OnboardingPage.PREFERENCES_PAGE),
           ),
         ],
       ),

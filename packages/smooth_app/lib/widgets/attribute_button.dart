@@ -21,9 +21,9 @@ class AttributeButton extends StatelessWidget {
   };
 
   static const Map<String, Color> _colors = <String, Color>{
-    PreferenceImportance.ID_NOT_IMPORTANT: Color(0xFF666666),
-    PreferenceImportance.ID_IMPORTANT: Colors.blue,
-    PreferenceImportance.ID_MANDATORY: Colors.red,
+    PreferenceImportance.ID_NOT_IMPORTANT: PRIMARY_GREY_COLOR,
+    PreferenceImportance.ID_IMPORTANT: PRIMARY_BLUE_COLOR,
+    PreferenceImportance.ID_MANDATORY: RED_COLOR,
   };
 
   @override
@@ -47,23 +47,31 @@ class AttributeButton extends StatelessWidget {
         children: <Widget>[
           SizedBox(
             width: screenWidth * .45,
-            child: Text(attribute.name!, style: style),
+            child: FittedBox(
+              alignment: Alignment.centerLeft,
+              fit: BoxFit.scaleDown,
+              child: Text(attribute.name!, style: style),
+            ),
           ),
           SizedBox(
             width: screenWidth * .45,
-            child: ElevatedButton(
-              child: Text(
-                productPreferences
-                    .getPreferenceImportanceFromImportanceId(importanceId)!
-                    .name!,
-                style: style.copyWith(color: Colors.white),
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              alignment: Alignment.centerRight,
+              child: ElevatedButton(
+                child: Text(
+                  productPreferences
+                      .getPreferenceImportanceFromImportanceId(importanceId)!
+                      .name!,
+                  style: style.copyWith(color: Colors.white),
+                ),
+                style: ElevatedButton.styleFrom(
+                  primary: _colors[importanceId],
+                  onPrimary: Colors.white,
+                ),
+                onPressed: () async => productPreferences.setImportance(
+                    attribute.id!, _nextValues[importanceId]!),
               ),
-              style: ElevatedButton.styleFrom(
-                primary: _colors[importanceId],
-                onPrimary: Colors.white,
-              ),
-              onPressed: () async => productPreferences.setImportance(
-                  attribute.id!, _nextValues[importanceId]!),
             ),
           ),
         ],

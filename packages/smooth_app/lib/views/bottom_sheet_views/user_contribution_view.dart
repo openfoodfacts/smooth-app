@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:http/http.dart' as http;
@@ -8,78 +7,48 @@ import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/widgets/modal_bottomsheet_header.dart';
 
 class UserContributionView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
       child: SizedBox(
-        height: MediaQuery.of(context).size.height * 0.9,
-        child: Stack(
+        height: MediaQuery.of(context).size.height * 0.8,
+        child: ListView(
+          shrinkWrap: true,
+          scrollDirection: Axis.vertical,
           children: <Widget>[
-            Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.9,
-                  child: ListView(
-                    shrinkWrap: true,
-                    scrollDirection: Axis.vertical,
-                    children: <Widget>[
-                      Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                        margin: const EdgeInsets.only(top: 20.0, bottom: 24.0),
-                        child: Text(
-                          AppLocalizations.of(context)!.contribute,
-                          style: Theme.of(context).textTheme.headline1,
-                        ),
-                      ),
-                      Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <SmoothListTile>[
-                          //Contribute
-                          SmoothListTile(
-                              text: AppLocalizations.of(context)!
-                                  .contribute_improve_header,
-                              onPressed: () => _contribute(context)),
+            ModalBottomSheetHeader(
+                title: AppLocalizations.of(context)!.contribute),
+            SmoothListTile(
+              text: AppLocalizations.of(context)!.contribute_improve_header,
+              onPressed: () => _contribute(context),
+            ),
 
-                          //Develop
-                          SmoothListTile(
-                            text: AppLocalizations.of(context)!
-                                .contribute_sw_development,
-                            onPressed: () => _develop(context),
-                          ),
+            //Develop
+            SmoothListTile(
+              text: AppLocalizations.of(context)!.contribute_sw_development,
+              onPressed: () => _develop(context),
+            ),
 
-                          //Translate
-                          SmoothListTile(
-                            text: AppLocalizations.of(context)!
-                                .contribute_translate_header,
-                            onPressed: () => _translate(context),
-                          ),
+            //Translate
+            SmoothListTile(
+              text: AppLocalizations.of(context)!.contribute_translate_header,
+              onPressed: () => _translate(context),
+            ),
 
-                          //Donate
-                          SmoothListTile(
-                            text: AppLocalizations.of(context)!
-                                .contribute_donate_header,
-                            leadingWidget: const Icon(Icons.open_in_new),
-                            onPressed: () => _donate(context),
-                          ),
+            //Donate
+            SmoothListTile(
+              text: AppLocalizations.of(context)!.contribute_donate_header,
+              leadingWidget: const Icon(Icons.open_in_new),
+              onPressed: () => _donate(context),
+            ),
 
-                          //Contributors list
-                          SmoothListTile(
-                            text: AppLocalizations.of(context)!.contributors,
-                            onPressed: () => _contributors(context),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.15,
-                      )
-                    ],
-                  ),
-                ),
-              ],
+            //Contributors list
+            SmoothListTile(
+              text: AppLocalizations.of(context)!.contributors,
+              onPressed: () => _contributors(context),
             ),
           ],
         ),
@@ -92,7 +61,7 @@ class UserContributionView extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return SmoothAlertDialog(
-          close: false,
+          close: true,
           title: AppLocalizations.of(context)!.contribute_improve_header,
           body: Column(
             children: <Widget>[

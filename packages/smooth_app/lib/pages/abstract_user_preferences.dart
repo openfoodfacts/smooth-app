@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/generic_lib/animations/smooth_animated_collapse_arrow.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 
 /// Abstraction of a collapsed/expanded display for the preferences page.
@@ -62,9 +63,7 @@ abstract class AbstractUserPreferences {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         getTitle(),
-        Icon(
-          _isCollapsed(userPreferences) ? Icons.expand_more : Icons.expand_less,
-        ),
+        SmoothAnimatedCollapseArrow(collapsed: _isCollapsed(userPreferences))
       ],
     );
     final Widget? subtitle = getSubtitle();
@@ -74,7 +73,16 @@ abstract class AbstractUserPreferences {
     return Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[title, subtitle]);
+        children: <Widget>[
+          const SizedBox(
+            height: SMALL_SPACE,
+          ),
+          title,
+          const SizedBox(
+            height: VERY_SMALL_SPACE,
+          ),
+          subtitle
+        ]);
   }
 
   /// Body of the content.

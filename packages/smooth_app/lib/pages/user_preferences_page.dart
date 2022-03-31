@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/user_preferences_food.dart';
@@ -70,7 +71,10 @@ class _UserPreferencesPageState extends State<UserPreferencesPage> {
     }
     return Scaffold(
       appBar: AppBar(title: Text(appLocalizations.myPreferences)),
-      body: ListView(children: children),
+      body: ListView(
+        padding: const EdgeInsets.fromLTRB(0.0, MEDIUM_SPACE, 0.0, 0.0),
+        children: children,
+      ),
     );
   }
 }
