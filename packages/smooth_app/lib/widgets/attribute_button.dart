@@ -29,8 +29,12 @@ class AttributeButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
-    final String importanceId =
+    String importanceId =
         productPreferences.getImportanceIdForAttributeId(attribute.id!);
+    // We switch from 4 to 3 choices: very important is downgraded to important
+    if (importanceId == PreferenceImportance.ID_VERY_IMPORTANT) {
+      importanceId = PreferenceImportance.ID_IMPORTANT;
+    }
     const double horizontalPadding = LARGE_SPACE;
     final double screenWidth =
         MediaQuery.of(context).size.width - 2 * horizontalPadding;
@@ -43,23 +47,31 @@ class AttributeButton extends StatelessWidget {
         children: <Widget>[
           SizedBox(
             width: screenWidth * .45,
-            child: Text(attribute.name!, style: style),
+            child: FittedBox(
+              alignment: Alignment.centerLeft,
+              fit: BoxFit.scaleDown,
+              child: Text(attribute.name!, style: style),
+            ),
           ),
           SizedBox(
             width: screenWidth * .45,
-            child: ElevatedButton(
-              child: Text(
-                productPreferences
-                    .getPreferenceImportanceFromImportanceId(importanceId)!
-                    .name!,
-                style: style.copyWith(color: Colors.white),
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              alignment: Alignment.centerRight,
+              child: ElevatedButton(
+                child: Text(
+                  productPreferences
+                      .getPreferenceImportanceFromImportanceId(importanceId)!
+                      .name!,
+                  style: style.copyWith(color: Colors.white),
+                ),
+                style: ElevatedButton.styleFrom(
+                  primary: _colors[importanceId],
+                  onPrimary: Colors.white,
+                ),
+                onPressed: () async => productPreferences.setImportance(
+                    attribute.id!, _nextValues[importanceId]!),
               ),
-              style: ElevatedButton.styleFrom(
-                primary: _colors[importanceId],
-                onPrimary: Colors.white,
-              ),
-              onPressed: () async => productPreferences.setImportance(
-                  attribute.id!, _nextValues[importanceId]!),
             ),
           ),
         ],
