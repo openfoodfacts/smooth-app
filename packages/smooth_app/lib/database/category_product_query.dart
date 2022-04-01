@@ -1,43 +1,30 @@
-import 'dart:async';
-
 import 'package:openfoodfacts/model/parameter/TagFilter.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_list.dart';
-import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/database/paged_product_query.dart';
 
 /// Back-end query about a category.
-class CategoryProductQuery implements ProductQuery {
-  CategoryProductQuery({
-    required this.categoryTag,
-    required this.size,
-  });
+class CategoryProductQuery extends PagedProductQuery {
+  CategoryProductQuery(this.categoryTag);
 
   // e.g. 'en:unsweetened-natural-soy-milks'
   final String categoryTag;
-  final int size;
 
   @override
-  Future<SearchResult> getSearchResult() async =>
-      OpenFoodAPIClient.searchProducts(
-        ProductQuery.getUser(),
-        ProductSearchQueryConfiguration(
-          fields: ProductQuery.fields,
-          parametersList: <Parameter>[
-            PageSize(size: size),
-            TagFilter.fromType(
-              tagFilterType: TagFilterType.CATEGORIES,
-              contains: true,
-              tagName: categoryTag,
-            ),
-          ],
-          language: ProductQuery.getLanguage(),
-          country: ProductQuery.getCountry(),
-        ),
+  Parameter getParameter() => TagFilter.fromType(
+        tagFilterType: TagFilterType.CATEGORIES,
+        contains: true,
+        tagName: categoryTag,
       );
 
   @override
-  ProductList getProductList() => ProductList.categorySearch(categoryTag);
+  ProductList getProductList() => ProductList.categorySearch(
+        categoryTag,
+        pageSize: pageSize,
+        pageNumber: pageNumber,
+      );
 
   @override
-  String toString() => 'CategoryProductQuery("$categoryTag", $size)';
+  String toString() =>
+      'CategoryProductQuery("$categoryTag", $pageSize, $pageNumber)';
 }

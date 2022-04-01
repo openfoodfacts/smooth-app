@@ -25,6 +25,7 @@ import 'package:smooth_app/pages/product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/knowledge_panel_product_cards.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
 import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
+import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -79,8 +80,8 @@ class _ProductPageState extends State<ProductPage> {
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: const Icon(
-                Icons.arrow_back,
+              child: Icon(
+                ConstantIcons.instance.getBackIcon(),
                 color: Colors.white,
               ),
             )

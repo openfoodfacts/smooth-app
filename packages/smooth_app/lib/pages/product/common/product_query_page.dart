@@ -1,12 +1,14 @@
 import 'dart:async';
-
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
 import 'package:smooth_app/data_models/product_query_model.dart';
+import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
@@ -133,7 +135,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                       title: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            getBackArrow(context, widget.mainColor),
+                            _getBackArrow(context, widget.mainColor),
                           ]),
                       flexibleSpace: LayoutBuilder(builder:
                           (BuildContext context, BoxConstraints constraints) {
@@ -167,7 +169,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
               context,
               MaterialPageRoute<Widget>(
                 builder: (BuildContext context) => PersonalizedRankingPage(
-                  productList: _model.supplier.getProductList(),
+                  products: _model.displayProducts!,
                   title: widget.name,
                 ),
               ),
@@ -179,81 +181,129 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
               CustomScrollView(
                 slivers: <Widget>[
                   SliverAppBar(
-                      backgroundColor: themeData.scaffoldBackgroundColor,
-                      expandedHeight: screenSize.height * 0.15,
-                      collapsedHeight: screenSize.height * 0.09,
-                      pinned: true,
-                      elevation: 0,
-                      automaticallyImplyLeading: false,
-                      title: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            getBackArrow(context, widget.mainColor),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 24.0),
-                              child: TextButton.icon(
-                                icon: Icon(
-                                  Icons.filter_list,
-                                  color: widget.mainColor,
-                                ),
-                                label: Text(
-                                    AppLocalizations.of(context)!.filter,
-                                    style: themeData.textTheme.subtitle1!
-                                        .copyWith(color: widget.mainColor)),
-                                style: TextButton.styleFrom(
-                                  textStyle: TextStyle(
-                                    color: widget.mainColor,
-                                  ),
-                                ),
-                                onPressed: () {
-                                  showCupertinoModalBottomSheet<Widget>(
-                                    expand: false,
-                                    context: context,
-                                    backgroundColor: Colors.transparent,
-                                    bounce: true,
-                                    builder: (BuildContext context) =>
-                                        GroupQueryFilterView(
-                                      categories: _model.categories,
-                                      categoriesList: _model.sortedCategories,
-                                      callback: (String category) {
-                                        _model.selectCategory(category);
-                                        setState(() {});
-                                      },
-                                    ),
-                                  );
-                                },
-                              ),
-                            )
-                          ]),
-                      flexibleSpace: LayoutBuilder(builder:
-                          (BuildContext context, BoxConstraints constraints) {
-                        return FlexibleSpaceBar(
-                            centerTitle: true,
-                            title: Text(
-                              widget.name,
-                              textAlign: TextAlign.center,
-                              style: themeData.textTheme.headline1!
+                    backgroundColor: themeData.scaffoldBackgroundColor,
+                    expandedHeight: screenSize.height * 0.15,
+                    collapsedHeight: screenSize.height * 0.09,
+                    pinned: true,
+                    elevation: 0,
+                    automaticallyImplyLeading: false,
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        _getBackArrow(context, widget.mainColor),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 24.0),
+                          child: TextButton.icon(
+                            icon: Icon(
+                              Icons.filter_list,
+                              color: widget.mainColor,
+                            ),
+                            label: Text(
+                              AppLocalizations.of(context)!.filter,
+                              style: themeData.textTheme.subtitle1!
                                   .copyWith(color: widget.mainColor),
                             ),
-                            background: _getHero(screenSize, themeData));
-                      })),
+                            style: TextButton.styleFrom(
+                              textStyle: TextStyle(color: widget.mainColor),
+                            ),
+                            onPressed: () =>
+                                showCupertinoModalBottomSheet<Widget>(
+                              expand: false,
+                              context: context,
+                              backgroundColor: Colors.transparent,
+                              bounce: true,
+                              builder: (BuildContext context) =>
+                                  GroupQueryFilterView(
+                                categories: _model.categories,
+                                categoriesList: _model.sortedCategories,
+                                callback: (String category) {
+                                  _model.selectCategory(category);
+                                  setState(() {});
+                                },
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                    flexibleSpace: LayoutBuilder(
+                      builder: (
+                        BuildContext context,
+                        BoxConstraints constraints,
+                      ) =>
+                          FlexibleSpaceBar(
+                        centerTitle: true,
+                        title: Text(
+                          widget.name,
+                          textAlign: TextAlign.center,
+                          style: themeData.textTheme.headline1!
+                              .copyWith(color: widget.mainColor),
+                        ),
+                        background: _getHero(screenSize, themeData),
+                      ),
+                    ),
+                  ),
                   SliverList(
                     delegate: SliverChildBuilderDelegate(
-                      (_, int index) {
+                      (BuildContext _context, int index) {
+                        if (index >= _model.displayProducts!.length) {
+                          // final button
+                          final int already = _model.displayProducts!.length;
+                          final int totalSize =
+                              _model.supplier.partialProductList.totalSize;
+                          final int next = max(
+                            0,
+                            min(
+                              _model.supplier.productQuery.pageSize,
+                              totalSize - already,
+                            ),
+                          );
+                          final Widget child;
+                          if (next == 0) {
+                            child = Text(// TODO(monsieurtanuki): localize
+                                "You've downloaded all the $totalSize products.");
+                          } else {
+                            child = ElevatedButton.icon(
+                              icon: const Icon(Icons.download_rounded),
+                              label: Text(
+                                'Download $next more products'
+                                '\n'
+                                'Already downloaded $already out of $totalSize.',
+                              ),
+                              onPressed: () async {
+                                final bool? error =
+                                    await LoadingDialog.run<bool>(
+                                  context: context,
+                                  future: _model.loadNextPage(),
+                                );
+                                if (error != true) {
+                                  await LoadingDialog.error(context: context);
+                                }
+                              },
+                            );
+                          }
+                          return Padding(
+                            padding: const EdgeInsets.only(
+                                bottom: 90.0, left: 20, right: 20),
+                            child: child,
+                          );
+                        }
+                        final Product product = _model.displayProducts![index];
                         return Padding(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 12.0, vertical: 8.0),
+                            horizontal: 12.0,
+                            vertical: 8.0,
+                          ),
                           child: SmoothProductCardFound(
-                            heroTag: _model.displayProducts![index].barcode!,
-                            product: _model.displayProducts![index],
-                            elevation:
-                                Theme.of(context).brightness == Brightness.light
-                                    ? 0.0
-                                    : 4.0,
-                          ).build(context),
+                            heroTag: product.barcode!,
+                            product: product,
+                            elevation: themeData.brightness == Brightness.light
+                                ? 0.0
+                                : 4.0,
+                          ).build(_context),
                         );
                       },
-                      childCount: _model.displayProducts!.length,
+                      childCount: _model.displayProducts!.length + 1,
                     ),
                   )
                 ],
@@ -299,7 +349,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
       return;
     }
     final ProductListSupplier? refreshSupplier =
-        widget.productListSupplier.getRefreshSupplier();
+        _model.supplier.getRefreshSupplier();
     if (refreshSupplier == null) {
       return;
     }
@@ -318,17 +368,22 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
           duration: const Duration(seconds: 5),
           action: SnackBarAction(
             label: AppLocalizations.of(context)!.label_refresh,
-            onPressed: () => setState(
-              () => _model = ProductQueryModel(refreshSupplier),
-            ),
+            onPressed: () async {
+              final bool? error = await LoadingDialog.run<bool>(
+                context: context,
+                future: _model.loadFromTop(),
+              );
+              if (error != true) {
+                await LoadingDialog.error(context: context);
+              }
+            },
           ),
         ),
       ),
     );
   }
 
-  // TODO(monsieurtanuki): move to an appropriate class?
-  static Widget getBackArrow(final BuildContext context, final Color color) =>
+  static Widget _getBackArrow(final BuildContext context, final Color color) =>
       Padding(
         padding: const EdgeInsets.only(top: 28.0),
         child: IconButton(
