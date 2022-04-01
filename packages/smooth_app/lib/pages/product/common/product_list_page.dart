@@ -195,7 +195,17 @@ class _ProductListPageState extends State<ProductListPage> {
                   );
                   if (dismissible) {
                     return Dismissible(
-                      background: Container(color: colorScheme.background),
+                      direction: DismissDirection.endToStart,
+                      background: Container(
+                        alignment: Alignment.centerRight,
+                        margin: const EdgeInsets.symmetric(vertical: 14),
+                        color: RED_COLOR,
+                        padding: const EdgeInsets.only(right: 30),
+                        child: const Icon(
+                          Icons.delete,
+                          color: Colors.white,
+                        ),
+                      ),
                       key: Key(product.barcode!),
                       onDismissed: (final DismissDirection direction) async {
                         final bool removed =
