@@ -82,12 +82,12 @@ Widget build(BuildContext context) {
       title: Text(
         _getProductName(appLocalizations),
         style: themeData.textTheme.headline4,
-      ).selectable(),
+      ).selectable(isSelectable: isSelectable),
       subtitle: Text(product.brands ?? appLocalizations.unknownBrand),
       trailing: Text(
         product.quantity ?? &#39;&#39;,
         style: themeData.textTheme.headline3,
-      ).selectable(),
+      ).selectable(isSelectable: isSelectable),
     ),
   );
 }</code></pre>
@@ -123,6 +123,7 @@ Widget build(BuildContext context) {
     </li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_product_title_card/ProductTitleCard/dense.html">dense</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_product_title_card/ProductTitleCard/isSelectable.html">isSelectable</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_product_title_card/ProductTitleCard/product.html">product</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 

@@ -53,7 +53,8 @@
       
 
 <span class="returntype">dynamic</span>
-<span class="name ">selectable</span>(<wbr>)
+<span class="name ">selectable</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="selectable-param-isSelectable">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isSelectable</span> = <span class="default-value">true</span>}</span></li>
+</ol>)
 
       
 
@@ -64,15 +65,20 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Widget selectable() {
-  return SelectableText(
-    data!,
-    style: style,
-    toolbarOptions: const ToolbarOptions(
-      copy: true,
-      selectAll: true,
-    ),
-  );
+  <pre class="language-dart"><code class="language-dart">Widget selectable({bool isSelectable = true}) {
+  return isSelectable
+      ? SelectableText(
+          data!,
+          style: style,
+          toolbarOptions: const ToolbarOptions(
+            copy: true,
+            selectAll: true,
+          ),
+        )
+      : Text(
+          data!,
+          style: style,
+        );
 }</code></pre>
 </section>
 
