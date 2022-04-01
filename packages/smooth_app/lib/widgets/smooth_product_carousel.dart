@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -120,13 +121,14 @@ class SearchCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Text(
+            AutoSizeText(
               localizations.welcomeToOpenFoodFacts,
               textAlign: TextAlign.center,
               style: const TextStyle(
                 fontSize: 36.0,
                 fontWeight: FontWeight.bold,
               ),
+              maxLines: 2,
             ),
             Text(
               localizations.searchPanelHeader,
