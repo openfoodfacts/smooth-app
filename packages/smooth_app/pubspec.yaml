@@ -51,6 +51,7 @@ dependencies:
     git:
       url: https://github.com/cli1005/google_ml_barcode_scanner.git
       ref: master
+  auto_size_text: ^3.0.0
 
 
   
