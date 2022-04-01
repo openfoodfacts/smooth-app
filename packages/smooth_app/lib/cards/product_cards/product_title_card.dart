@@ -19,20 +19,15 @@ class ProductTitleCard extends StatelessWidget {
       child: ListTile(
         dense: dense,
         contentPadding: EdgeInsets.zero,
-        title: isSelectable
-            ? Text(
-                _getProductName(appLocalizations),
-                style: themeData.textTheme.headline4,
-              ).selectable()
-            : Text(
-                _getProductName(appLocalizations),
-                style: themeData.textTheme.headline4,
-              ),
+        title: Text(
+          _getProductName(appLocalizations),
+          style: themeData.textTheme.headline4,
+        ).selectable(isSelectable: isSelectable),
         subtitle: Text(product.brands ?? appLocalizations.unknownBrand),
         trailing: Text(
           product.quantity ?? '',
           style: themeData.textTheme.headline3,
-        ).selectable(),
+        ).selectable(isSelectable: isSelectable),
       ),
     );
   }

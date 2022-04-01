@@ -237,10 +237,7 @@ class _SummaryCardState extends State<SummaryCard> {
     }
     return Column(
       children: <Widget>[
-        if (widget.isFullVersion)
-          ProductTitleCard(widget._product, true)
-        else
-          ProductTitleCard(widget._product, false), // for scanner
+        ProductTitleCard(widget._product, widget.isFullVersion),
         for (final Attribute attribute in scoreAttributes)
           ScoreCard(
             iconUrl: attribute.iconUrl,
