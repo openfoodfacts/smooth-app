@@ -252,22 +252,23 @@ class _SummaryCardState extends State<SummaryCard> {
             false)
           addPanelButton(appLocalizations.score_add_missing_product_category,
               onPressed: () {}),
-        if (categoryTag != null && categoryLabel != null)
-          addPanelButton(
-            appLocalizations.product_search_same_category,
-            iconData: Icons.leaderboard,
-            onPressed: () async => ProductQueryPageHelper().openBestChoice(
-              color: Colors.deepPurple,
-              heroTag: 'search_bar',
-              name: categoryLabel!,
-              localDatabase: localDatabase,
-              productQuery: CategoryProductQuery(
-                categoryTag: widget._product.categoriesTags!.last,
-                size: 500,
+        if (widget.isFullVersion)
+          if (categoryTag != null && categoryLabel != null)
+            addPanelButton(
+              appLocalizations.product_search_same_category,
+              iconData: Icons.leaderboard,
+              onPressed: () async => ProductQueryPageHelper().openBestChoice(
+                color: Colors.deepPurple,
+                heroTag: 'search_bar',
+                name: categoryLabel!,
+                localDatabase: localDatabase,
+                productQuery: CategoryProductQuery(
+                  categoryTag: widget._product.categoriesTags!.last,
+                  size: 500,
+                ),
+                context: context,
               ),
-              context: context,
             ),
-          ),
         if ((widget._product.statesTags
                     ?.contains('en:product-name-to-be-completed') ??
                 false) ||
