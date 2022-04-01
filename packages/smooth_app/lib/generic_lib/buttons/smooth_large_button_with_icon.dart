@@ -1,24 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 class SmoothLargeButtonWithIcon extends StatelessWidget {
   const SmoothLargeButtonWithIcon({
     required this.text,
     required this.icon,
     required this.onPressed,
-    required this.isDarkMode,
     this.padding,
   });
 
   final String text;
   final IconData icon;
   final VoidCallback onPressed;
-  final bool isDarkMode;
   final EdgeInsets? padding;
 
   @override
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
+    final bool isDarkMode =
+        Provider.of<ThemeProvider>(context, listen: false).isDarkMode(context);
     return SmoothSimpleButton(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,

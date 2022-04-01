@@ -86,6 +86,8 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
+    "login_page_username_or_email": "Please enter username or e-mail",
+    "login_page_password_error_empty": "비밀번호를 입력하십시오",
     "create_account": "계정 생성",
     "@create_account": {
         "description": "Button label: Opens a page where a new user can register"
@@ -94,7 +96,7 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_out": "Sign out",
+    "sign_out": "로그아웃",
     "@sign_out": {
         "description": "Button label: For sign out"
     },
@@ -107,7 +109,7 @@
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset e-mail can be requested"
     },
-    "view_profile": "View profile",
+    "view_profile": "프로필 보기",
     "@view_profile": {
         "description": "Button label: For to show your account"
     },
@@ -142,7 +144,7 @@
         "description": "Progress indicator dialog during the actual signing up process"
     },
     "sign_up_page_action_ok": "축하합니다! 귀하의 계정이 방금 생성되었습니다.",
-    "sign_up_page_display_name_hint": "표시할 이름",
+    "sign_up_page_display_name_hint": "이름",
     "sign_up_page_display_name_error_empty": "사용하고자 하는 이름을 입력하십시오",
     "sign_up_page_email_hint": "이메일",
     "sign_up_page_email_error_empty": "이메일이 필요합니다",
@@ -277,7 +279,7 @@
     },
     "ranking_tab_all": "모두",
     "ranking_subtitle_match_yes": "A great match for you",
-    "ranking_subtitle_match_no": "Very poor match",
+    "ranking_subtitle_match_no": "호환성 매우 낮음",
     "ranking_subtitle_match_maybe": "호환성 알 수 없음",
     "reloaded_with_new_preferences": "새 설정으로 다시 불러옴",
     "@reloaded_with_new_preferences": {
@@ -288,13 +290,13 @@
     "@profile_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "scan_navbar_label": "프로필",
+    "scan_navbar_label": "검색",
     "@scan_navbar_label": {
-        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+        "description": "BottomNavigationBarLabel: For the searching of products"
     },
-    "history_navbar_label": "프로필",
+    "history_navbar_label": "최근 기록",
     "@history_navbar_label": {
-        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+        "description": "BottomNavigationBarLabel: For the history and compare mode"
     },
     "category": "카테고리로 필터",
     "@category": {
@@ -336,6 +338,10 @@
     },
     "ingredients": "성분",
     "@ingredients": {},
+    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen, use parentheses for ingredients of an ingredient, and indicate allergens between underscores.",
+    "ingredients_editing_error": "Failed to save the ingredients.",
+    "ingredients_editing_image_error": "Failed to get a new ingredients image.",
+    "ingredients_editing_title": "Edit Ingredients",
     "ingredients_photo": "재료 사진",
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
@@ -354,7 +360,7 @@
     "@packaging_information_photo": {},
     "missing_product": "새 상품을 찾았습니다!",
     "@missing_product": {},
-    "add_product_take_photos": "이 상품을 데이터베이스에 추가하려면 포장 사진을 찍으십시오.",
+    "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
     "@add_product_take_photos": {},
     "add_product_take_photos_descriptive": "사진만 찍어주시면 나머지는 Open Food Facts 엔진이 알아서 해결합니다!",
     "@add_product_take_photos_descriptive": {},
@@ -424,9 +430,9 @@
     "nutrition_page_per_serving": "인분",
     "nutrition_page_add_nutrient": "영양소 추가하기",
     "nutrition_page_serving_size": "서빙 사이즈",
-    "nutrition_page_invalid_number": "Invalid number",
+    "nutrition_page_invalid_number": "잘못된 번호",
     "nutrition_page_update_running": "Updating the product on the server...",
-    "nutrition_page_update_done": "Product updated!",
+    "nutrition_page_update_done": "제품 업데이트됨",
     "more_photos": "기타 흥미로운 사진",
     "@more_photos": {},
     "no_product_found": "상품 없음",
@@ -494,9 +500,13 @@
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
-    "product_removed": "상품 제거됨",
-    "@product_removed": {
-        "description": "Product got removed from a list"
+    "product_removed_comparison": "Product removed from comparison",
+    "@product_removed_comparison": {
+        "description": "Product got removed from comparison list"
+    },
+    "product_removed_history": "Product removed from history",
+    "@product_removed_history": {
+        "description": "Product got removed from history"
     },
     "product_could_not_remove": "상품을 제거할 수 없음",
     "@product_could_not_remove": {
@@ -578,8 +588,35 @@
         "description": "Button to switch to 'compare products mode'"
     },
     "retry_button_label": "다시 시도",
-    "main_app_color": "Main color of the app",
+    "connect_with_us": "Connect with us",
+    "instagram": "Instagram",
+    "twitter": "Twitter",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "discover": "둘러보기",
+    "how_to_contribute": "How to Contribute",
+    "main_app_color": "응용 프로그램의 주요 테마",
     "@main_app_color": {
         "description": "Heading for the section to pick the main app color"
+    },
+    "consent_analytics_title": "Send anonymous analytics",
+    "@consent_analytics_title": {
+        "description": "Title for the consent analytics UI Page"
+    },
+    "consent_analytics_body1": "Help the Open Food Facts volunteer to improve the app.You decide if you want to send anonymous analytics.",
+    "@conset_analytics_body1": {
+        "description": "first paragraph for the consent analytics UI Page"
+    },
+    "consent_analytics_body2": "If you change your mind this option can be enabled and disabled at any time from the settings.",
+    "@consent_analytics_body2": {
+        "description": "second paragraph for the consent analytics UI Page"
+    },
+    "authorize_button_label": "Authorize",
+    "@authorize": {
+        "description": "Button to accept the request of sending the anonymous analytics"
+    },
+    "refuse_button_label": "Refuse",
+    "@refuse": {
+        "description": "Button to decline the request of sending the anonymous analytics"
     }
 }

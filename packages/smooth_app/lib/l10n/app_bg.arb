@@ -86,6 +86,8 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
+    "login_page_username_or_email": "Please enter username or e-mail",
+    "login_page_password_error_empty": "Моля, въведи парола",
     "create_account": "Създаване на акаунт",
     "@create_account": {
         "description": "Button label: Opens a page where a new user can register"
@@ -115,7 +117,7 @@
     "@reset_password": {
         "description": "Forgot password page title"
     },
-    "reset_password_explanation_text": "В случай на забравена парола, въведете Вашето потребителско име или емайл адрес, за да получите инструкции за нулиране на паролата. Също така, не забравяйте да проверите папката Спам.",
+    "reset_password_explanation_text": "В случай на забравена парола, въведи твоето потребителско име или емайл адрес, за да получиш инструкции за нулиране на паролата. Също така, не забравяй да провериш папка Спам.",
     "username_or_email": "Потребителско име или е-мейл адрес",
     "@username_or_email": {
         "description": "Text field hint for password reset"
@@ -142,7 +144,7 @@
         "description": "Progress indicator dialog during the actual signing up process"
     },
     "sign_up_page_action_ok": "Честито! Твоят акаунт току-що бе създаден.",
-    "sign_up_page_display_name_hint": "Екранно име",
+    "sign_up_page_display_name_hint": "Име",
     "sign_up_page_display_name_error_empty": "Моля, въведи екранно име, което искаш да използваш",
     "sign_up_page_email_hint": "Имейл",
     "sign_up_page_email_error_empty": "Изисква се имейл",
@@ -165,14 +167,14 @@
     "@donate_url": {
         "description": "Please insert the right url from the website here."
     },
-    "sign_up_page_agree_error_invalid": "Когато създавате нов профил, приемането на Условията за ползване е задължително, въпреки това, анонимни приноси могат да се правят чрез приложението",
+    "sign_up_page_agree_error_invalid": "Когато създаваш нов профил, приемането на Условията за ползване е задължително, въпреки това, анонимни приноси могат да се правят чрез приложението",
     "@sign_up_page_agree_error_invalid": {
         "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
     },
     "sign_up_page_producer_checkbox": "Аз съм производител на храни",
     "sign_up_page_producer_hint": "Производител/марка",
     "sign_up_page_producer_error_empty": "Моля, въведи производител или марка",
-    "sign_up_page_subscribe_checkbox": "Бих искал да се абонирам за бюлетина Open Food Facts (Забележка: Можеш да се отпишеш от него по всяко време)",
+    "sign_up_page_subscribe_checkbox": "Бих искал да се абонирам за бюлетина на Open Food Facts (Забележка: Можеш да се отпишеш от него по всяко време)",
     "@Settings": {},
     "settingsTitle": "Настройки",
     "@settingsTitle": {
@@ -199,7 +201,7 @@
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
-    "support_join_slack": "Помоли за помощ в нашият Slack канал",
+    "support_join_slack": "Поискай помощ в нашият Slack канал",
     "support_via_email": "Изпрати ни имейл",
     "termsOfUse": "Условия за ползване",
     "@termsOfUse": {},
@@ -267,7 +269,7 @@
     "myPreferences_settings_subtitle": "Тъмен режим, Тема, ...",
     "myPreferences_food_title": "Хранителни предпочитания",
     "myPreferences_food_subtitle": "Избери каква информация за храната е най-важна за теб.",
-    "confirmResetPreferences": "Нулирай твоите хранителни предпочитания?",
+    "confirmResetPreferences": "Нулиране на твоите хранителни предпочитания?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
     },
@@ -288,13 +290,13 @@
     "@profile_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "scan_navbar_label": "Профил",
+    "scan_navbar_label": "Търсене",
     "@scan_navbar_label": {
-        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+        "description": "BottomNavigationBarLabel: For the searching of products"
     },
-    "history_navbar_label": "Профил",
+    "history_navbar_label": "История",
     "@history_navbar_label": {
-        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+        "description": "BottomNavigationBarLabel: For the history and compare mode"
     },
     "category": "Филтър по категория",
     "@category": {
@@ -336,6 +338,10 @@
     },
     "ingredients": "Съставки",
     "@ingredients": {},
+    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen, use parentheses for ingredients of an ingredient, and indicate allergens between underscores.",
+    "ingredients_editing_error": "Failed to save the ingredients.",
+    "ingredients_editing_image_error": "Failed to get a new ingredients image.",
+    "ingredients_editing_title": "Edit Ingredients",
     "ingredients_photo": "Снимка на съставките",
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
@@ -354,7 +360,7 @@
     "@packaging_information_photo": {},
     "missing_product": "Откри нов продукт!",
     "@missing_product": {},
-    "add_product_take_photos": "Направи снимки на опаковката, за да добавиш този продукт към нашата база данни.",
+    "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
     "@add_product_take_photos": {},
     "add_product_take_photos_descriptive": "Моля, направи следните снимки и Open Food Facts ще направи останалото!",
     "@add_product_take_photos_descriptive": {},
@@ -400,13 +406,13 @@
     "@confirm_other_interesting_photo_button_label": {
         "description": "Button clicking on which confirms a miscellaneous photo of the product."
     },
-    "other_photo_uploaded": "Miscellaneous photo uploaded",
+    "other_photo_uploaded": "Качена е различна снимка",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "Направи отново",
     "@retake_photo_button_label": {
         "description": "Button clicking on which allows users to retake the last photo they took."
     },
-    "selecting_photo": "Selecting photo",
+    "selecting_photo": "Избор на снимката",
     "@selecting_photo": {
         "description": "Progress indicator when the users takes a photo"
     },
@@ -458,7 +464,7 @@
     "@Product Addition": {},
     "added_product_thanks": "Благодарим, че добави този продукт!",
     "@added_product_thanks": {},
-    "product_search_same_category": "Compare to Category",
+    "product_search_same_category": "Сравни с категорията",
     "@product_search_same_category": {
         "description": "Button looking for the other products within the same category. Less than 30 characters"
     },
@@ -494,9 +500,13 @@
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
-    "product_removed": "Продуктът е премахнат",
-    "@product_removed": {
-        "description": "Product got removed from a list"
+    "product_removed_comparison": "Product removed from comparison",
+    "@product_removed_comparison": {
+        "description": "Product got removed from comparison list"
+    },
+    "product_removed_history": "Product removed from history",
+    "@product_removed_history": {
+        "description": "Product got removed from history"
     },
     "product_could_not_remove": "Продуктът не можа да бъде премахнат",
     "@product_could_not_remove": {
@@ -578,8 +588,35 @@
         "description": "Button to switch to 'compare products mode'"
     },
     "retry_button_label": "Повторен опит",
-    "main_app_color": "Main color of the app",
+    "connect_with_us": "Connect with us",
+    "instagram": "Instagram",
+    "twitter": "Twitter",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "discover": "Открий",
+    "how_to_contribute": "How to Contribute",
+    "main_app_color": "Основен цвят на приложението",
     "@main_app_color": {
         "description": "Heading for the section to pick the main app color"
+    },
+    "consent_analytics_title": "Анонимно споделяне на статистики",
+    "@consent_analytics_title": {
+        "description": "Title for the consent analytics UI Page"
+    },
+    "consent_analytics_body1": "Help the Open Food Facts volunteer to improve the app.You decide if you want to send anonymous analytics.",
+    "@conset_analytics_body1": {
+        "description": "first paragraph for the consent analytics UI Page"
+    },
+    "consent_analytics_body2": "If you change your mind this option can be enabled and disabled at any time from the settings.",
+    "@consent_analytics_body2": {
+        "description": "second paragraph for the consent analytics UI Page"
+    },
+    "authorize_button_label": "Authorize",
+    "@authorize": {
+        "description": "Button to accept the request of sending the anonymous analytics"
+    },
+    "refuse_button_label": "Refuse",
+    "@refuse": {
+        "description": "Button to decline the request of sending the anonymous analytics"
     }
 }

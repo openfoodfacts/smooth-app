@@ -153,7 +153,11 @@ class _QuestionCardState extends State<QuestionCard>
             padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
             child: Column(
               children: <Widget>[
-                ProductTitleCard(widget.product, dense: true),
+                ProductTitleCard(
+                  widget.product,
+                  true,
+                  dense: true,
+                ),
               ],
             ),
           ),
