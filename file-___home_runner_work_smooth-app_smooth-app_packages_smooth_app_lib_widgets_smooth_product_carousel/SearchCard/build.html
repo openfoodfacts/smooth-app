@@ -83,13 +83,14 @@ Widget build(BuildContext context) {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: &lt;Widget&gt;[
-          Text(
+          AutoSizeText(
             localizations.welcomeToOpenFoodFacts,
             textAlign: TextAlign.center,
             style: const TextStyle(
               fontSize: 36.0,
               fontWeight: FontWeight.bold,
             ),
+            maxLines: 2,
           ),
           Text(
             localizations.searchPanelHeader,
