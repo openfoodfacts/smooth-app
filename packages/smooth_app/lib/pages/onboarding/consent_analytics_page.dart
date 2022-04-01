@@ -112,6 +112,7 @@ class ConsentAnalytics extends StatelessWidget {
           size.width * 0.9,
           size.height * 0.05,
         ),
+        elevation: 2,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30.0),
         ),
