@@ -11,6 +11,9 @@ extension Selectable on Text {
               selectAll: true,
             ),
           )
-        : Text(data!);
+        : Text(
+            data!,
+            style: style,
+          );
   }
 }
