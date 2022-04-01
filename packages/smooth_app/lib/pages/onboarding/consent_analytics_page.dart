@@ -14,10 +14,7 @@ class ConsentAnalytics extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    final UserPreferences userPreferences = context.watch<UserPreferences>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-    const Color shadowColor = Color.fromARGB(144, 0, 0, 0);
     const String assetName = 'assets/onboarding/analytics.svg';
     return Scaffold(
       body: Column(
@@ -35,130 +32,45 @@ class ConsentAnalytics extends StatelessWidget {
 
           SizedBox(height: size.height * 0.01),
 
-          Align(
-            alignment: Alignment.center,
-            child: Text(
-              appLocalizations.consent_analytics_title,
-              style: Theme.of(context).textTheme.displayMedium,
-            ),
+          _buildTextHeader(
+            context,
+            appLocalizations.consent_analytics_title,
           ),
 
-          SizedBox(height: size.height * 0.034),
+          SizedBox(height: size.height * 0.04),
 
-          ConstrainedBox(
-            constraints: BoxConstraints(
-              maxWidth: size.width * 0.8,
-            ),
-            child: Text(
-              appLocalizations.consent_analytics_body1,
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.displaySmall,
-            ),
+          _buildTextBody(
+            context,
+            appLocalizations.consent_analytics_body1,
           ),
 
-          SizedBox(height: size.height * 0.03),
+          SizedBox(height: size.height * 0.02),
 
-          ConstrainedBox(
-            constraints: BoxConstraints(
-              maxWidth: size.width * 0.8,
-            ),
-            child: Text(
-              appLocalizations.consent_analytics_body2,
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.displaySmall,
-            ),
+          _buildTextBody(
+            context,
+            appLocalizations.consent_analytics_body2,
           ),
 
           SizedBox(height: size.height * 0.02),
 
           // Authorize Button
-          InkWell(
-            borderRadius: CIRCULAR_BORDER_RADIUS,
-            onTap: () {
-              _analyticsLogic(true, userPreferences, localDatabase, context);
-            },
-            child: Ink(
-              height: size.height * 0.06,
-              width: size.width * 0.7,
-              decoration: BoxDecoration(
-                color: LIGHT_GREEN_COLOR,
-                borderRadius: CIRCULAR_BORDER_RADIUS,
-                boxShadow: <BoxShadow>[
-                  BoxShadow(
-                    blurRadius: 3.0,
-                    color: shadowColor,
-                    offset: Offset(size.width * 0.004, size.height * 0.004),
-                  )
-                ],
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    appLocalizations.authorize_button_label,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: WHITE_COLOR,
-                        fontSize: size.height * 0.025),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: size.width * 0.02),
-                    child: Icon(
-                      Icons.check,
-                      color: WHITE_COLOR,
-                      size: size.height * 0.04,
-                    ),
-                  )
-                ],
-              ),
-            ),
+          _buildButton(
+            context,
+            Colors.green,
+            appLocalizations.authorize_button_label,
+            Icons.check,
+            true,
           ),
 
-          SizedBox(height: size.height * 0.02),
+          SizedBox(height: size.height * 0.01),
 
-          // Refuse Button
-          InkWell(
-            borderRadius: CIRCULAR_BORDER_RADIUS,
-            onTap: () {
-              _analyticsLogic(false, userPreferences, localDatabase, context);
-            },
-            child: Ink(
-              height: size.height * 0.06,
-              width: size.width * 0.7,
-              decoration: BoxDecoration(
-                color: RED_COLOR,
-                borderRadius: CIRCULAR_BORDER_RADIUS,
-                boxShadow: <BoxShadow>[
-                  BoxShadow(
-                    blurRadius: 3.0,
-                    color: shadowColor,
-                    offset: Offset(size.width * 0.004, size.height * 0.004),
-                  ),
-                ],
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    appLocalizations.refuse_button_label,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: WHITE_COLOR,
-                        fontSize: size.height * 0.025),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: size.width * 0.02),
-                    child: Icon(
-                      Icons.close,
-                      color: WHITE_COLOR,
-                      size: size.height * 0.04,
-                    ),
-                  )
-                ],
-              ),
-            ),
+          // Reject button
+          _buildButton(
+            context,
+            Colors.red,
+            appLocalizations.refuse_button_label,
+            Icons.close,
+            false,
           ),
         ],
       ),
@@ -180,6 +92,75 @@ class ConsentAnalytics extends StatelessWidget {
     OnboardingFlowNavigator(userPreferences).navigateToPage(
       context,
       OnboardingFlowNavigator.getNextPage(OnboardingPage.CONSENT_PAGE),
+    );
+  }
+
+  Widget _buildButton(
+    BuildContext context,
+    Color btnColor,
+    String label,
+    IconData icon,
+    bool isAccepted,
+  ) {
+    final Size size = MediaQuery.of(context).size;
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
+    const Color shadowColor = Color.fromARGB(144, 0, 0, 0);
+    return ElevatedButton.icon(
+      style: ElevatedButton.styleFrom(
+        fixedSize: Size(
+          size.width * 0.9,
+          size.height * 0.05,
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30.0),
+        ),
+        primary: btnColor,
+        shadowColor: shadowColor,
+      ),
+      onPressed: () {
+        _analyticsLogic(
+          isAccepted,
+          userPreferences,
+          localDatabase,
+          context,
+        );
+      },
+      icon: Icon(
+        icon,
+        color: WHITE_COLOR,
+        size: size.height * 0.05,
+      ),
+      label: Text(
+        label,
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          color: WHITE_COLOR,
+          fontSize: size.height * 0.025,
+        ),
+      ),
+    );
+  }
+
+  Widget _buildTextHeader(BuildContext context, String title) {
+    return Center(
+      child: Text(
+        title,
+        style: Theme.of(context).textTheme.displayMedium,
+      ),
+    );
+  }
+
+  Widget _buildTextBody(BuildContext context, String title) {
+    return ConstrainedBox(
+      constraints: BoxConstraints(
+        maxWidth: MediaQuery.of(context).size.width * 0.8,
+      ),
+      child: Text(
+        title,
+        textAlign: TextAlign.center,
+        style: Theme.of(context).textTheme.displaySmall,
+      ),
     );
   }
 }
