@@ -64,18 +64,42 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;File?&gt; startImageCropping(BuildContext context) async {
-  final Uint8List? bytes = await pickImage();
-
-  if (bytes == null) {
+  final bool isDarktheme =
+      Provider.of&lt;ThemeProvider&gt;(context, listen: false).isDarkMode(context);
+  final Color? themeColor = isDarktheme
+      ? Colors.black
+      : Theme.of(context).appBarTheme.backgroundColor;
+  final ImagePicker picker = ImagePicker();
+  final XFile? pickedXFile = await picker.pickImage(
+    source: ImageSource.camera,
+  );
+  if (pickedXFile == null) {
     return null;
   }
-
-  return Navigator.push&lt;File?&gt;(
-    context,
-    MaterialPageRoute&lt;File?&gt;(
-      builder: (BuildContext context) =&gt; ImageCropPage(imageBytes: bytes),
+  final File? croppedFile = await ImageCropper().cropImage(
+    sourcePath: pickedXFile.path,
+    aspectRatioPresets: &lt;CropAspectRatioPreset&gt;[
+      CropAspectRatioPreset.square,
+      CropAspectRatioPreset.ratio3x2,
+      CropAspectRatioPreset.original,
+      CropAspectRatioPreset.ratio4x3,
+      CropAspectRatioPreset.ratio16x9
+    ],
+    androidUiSettings: AndroidUiSettings(
+      toolbarTitle: &#39;Edit Photo&#39;, &#47;&#47; TODO(ashaan): Localize
+      initAspectRatio: CropAspectRatioPreset.original,
+      lockAspectRatio: false,
+      statusBarColor: themeColor,
+      toolbarColor: themeColor,
+      toolbarWidgetColor: Colors.white,
+      activeControlsWidgetColor: Theme.of(context).colorScheme.primary,
+      backgroundColor: themeColor,
+    ),
+    iosUiSettings: const IOSUiSettings(
+      minimumAspectRatio: 1.0,
     ),
   );
+  return croppedFile;
 }</code></pre>
 </section>
 
@@ -98,16 +122,12 @@
 
     <h5>image_crop_page library</h5>
     <ol>
-  <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_image_crop_page/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_image_crop_page-library.html#classes">Classes</a></li>
-  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_image_crop_page/ImageCropPage-class.html">ImageCropPage</a></li>
 
 
 
 
 
   <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_image_crop_page/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_image_crop_page-library.html#functions">Functions</a></li>
-  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_image_crop_page/buildCircularProgressBar.html">buildCircularProgressBar</a></li>
-  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_image_crop_page/pickImage.html">pickImage</a></li>
   <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_image_crop_page/startImageCropping.html">startImageCropping</a></li>
 
 
