@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: mschilde/auto-label-merge-conflicts@master
         with:
-          CONFLICT_LABEL_NAME: "merge-conflicts"
+          CONFLICT_LABEL_NAME: "merge conflicts"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MAX_RETRIES: 5
           WAIT_MS: 5000
