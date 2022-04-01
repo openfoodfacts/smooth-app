@@ -1,109 +1,45 @@
 import 'dart:io';
-import 'dart:typed_data';
-
-import 'package:crop_your_image/crop_your_image.dart';
 import 'package:flutter/material.dart';
+import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 Future<File?> startImageCropping(BuildContext context) async {
-  final Uint8List? bytes = await pickImage();
-
-  if (bytes == null) {
-    return null;
-  }
-
-  return Navigator.push<File?>(
-    context,
-    MaterialPageRoute<File?>(
-      builder: (BuildContext context) => ImageCropPage(imageBytes: bytes),
-    ),
-  );
-}
-
-Future<Uint8List?> pickImage() async {
+  final bool isDarktheme =
+      Provider.of<ThemeProvider>(context, listen: false).isDarkMode(context);
+  final Color? themeColor = isDarktheme
+      ? Colors.black
+      : Theme.of(context).appBarTheme.backgroundColor;
   final ImagePicker picker = ImagePicker();
-
   final XFile? pickedXFile = await picker.pickImage(
     source: ImageSource.camera,
   );
   if (pickedXFile == null) {
-    // User didn't pick any image.
     return null;
   }
-
-  return pickedXFile.readAsBytes();
-}
-
-// build circular progress bar widget
-Widget buildCircularProgressBar() {
-  return const Center(
-    child: CircularProgressIndicator(),
+  final File? croppedFile = await ImageCropper().cropImage(
+    sourcePath: pickedXFile.path,
+    aspectRatioPresets: <CropAspectRatioPreset>[
+      CropAspectRatioPreset.square,
+      CropAspectRatioPreset.ratio3x2,
+      CropAspectRatioPreset.original,
+      CropAspectRatioPreset.ratio4x3,
+      CropAspectRatioPreset.ratio16x9
+    ],
+    androidUiSettings: AndroidUiSettings(
+      toolbarTitle: 'Edit Photo', // TODO(ashaan): Localize
+      initAspectRatio: CropAspectRatioPreset.original,
+      lockAspectRatio: false,
+      statusBarColor: themeColor,
+      toolbarColor: themeColor,
+      toolbarWidgetColor: Colors.white,
+      activeControlsWidgetColor: Theme.of(context).colorScheme.primary,
+      backgroundColor: themeColor,
+    ),
+    iosUiSettings: const IOSUiSettings(
+      minimumAspectRatio: 1.0,
+    ),
   );
-}
-
-class ImageCropPage extends StatefulWidget {
-  const ImageCropPage({Key? key, required this.imageBytes}) : super(key: key);
-
-  final Uint8List imageBytes;
-
-  @override
-  State<ImageCropPage> createState() => _ImageCropPageState();
-}
-
-class _ImageCropPageState extends State<ImageCropPage> {
-  bool isCropping = false;
-  @override
-  Widget build(BuildContext context) {
-    final CropController _controller = CropController();
-    final ThemeData theme = Theme.of(context);
-    context.watch<ThemeProvider>();
-    return Scaffold(
-      body: isCropping
-          ? buildCircularProgressBar()
-          : Crop(
-              image: widget.imageBytes,
-              controller: _controller,
-              onCropped: (Uint8List image) async {
-                final Directory tempDir = await getTemporaryDirectory();
-                final String tempPath = tempDir.path;
-                final String filePath = '$tempPath/upload_img_file.tmp';
-                final File file = await File(filePath).writeAsBytes(image);
-                setState(() {
-                  isCropping = false;
-                });
-                Navigator.pop(context, file);
-              },
-              initialSize: 0.5,
-              baseColor: theme.colorScheme.primary,
-              maskColor: Colors.white.withAlpha(100),
-              cornerDotBuilder: (double size, EdgeAlignment edgeAlignment) =>
-                  DotControl(color: theme.colorScheme.primary),
-            ),
-      bottomNavigationBar: BottomAppBar(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            IconButton(
-              icon: const Icon(Icons.cancel_outlined),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-            IconButton(
-              icon: const Icon(Icons.done),
-              onPressed: () {
-                _controller.crop();
-                setState(() {
-                  isCropping = true;
-                });
-              },
-            )
-          ],
-        ),
-      ),
-    );
-  }
+  return croppedFile;
 }
