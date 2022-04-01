@@ -57,7 +57,7 @@
         "description": "Looking for: ${BARCODE}"
     },
     "@Introduction screen": {},
-    "welcomeToOpenFoodFacts": "Welcome to Open\u00A0Food\u00A0Facts",
+    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
     "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
     "@whatIsOff": {
@@ -583,7 +583,7 @@
             "count": {}
         }
     },
-    "compare_products_mode": "Compare",
+    "compare_products_mode": "Original",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },

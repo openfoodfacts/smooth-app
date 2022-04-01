@@ -57,7 +57,7 @@
         "description": "Looking for: ${BARCODE}"
     },
     "@Introduction screen": {},
-    "welcomeToOpenFoodFacts": "Velkommen til Open Food Facts",
+    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
     "whatIsOff": "Open Food Facts er en global non-profit drevet af lokalsamfund.",
     "@whatIsOff": {
@@ -86,7 +86,7 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
-    "login_page_username_or_email": "Please enter username or e-mail",
+    "login_page_username_or_email": "Angiv brugernavn eller e-mail",
     "login_page_password_error_empty": "Angiv adgangskode",
     "create_account": "Opret konto",
     "@create_account": {
@@ -174,7 +174,7 @@
     "sign_up_page_producer_checkbox": "Jeg er fødevareproducent",
     "sign_up_page_producer_hint": "Producent/mærke",
     "sign_up_page_producer_error_empty": "Angiv en producent eller et mærkenavn",
-    "sign_up_page_subscribe_checkbox": "Abonnement ønskes på Open Food Facts-nyhedsbrevet (hvilket til enhver tid kan afmeldes)",
+    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
     "@Settings": {},
     "settingsTitle": "Indstillinger",
     "@settingsTitle": {
@@ -202,7 +202,7 @@
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
     "support_join_slack": "Bed om hjælp i vores Slack-kanal",
-    "support_via_email": "Send os en e-mail",
+    "support_via_email": "Send us an e-mail",
     "termsOfUse": "Afbenyttelsesvilkår",
     "@termsOfUse": {},
     "about_this_app": "Om denne app",
@@ -254,7 +254,7 @@
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
     },
-    "contribute_to_get_rewards": "Hjælp med madgennemsigtighed og få belønningsmærker",
+    "contribute_to_get_rewards": "Help improve food transparency and get rewards",
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
@@ -264,7 +264,7 @@
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "Din profil",
-    "myPreferences_profile_subtitle": "Opsæt app-indstillinger og få råd.",
+    "myPreferences_profile_subtitle": "Change app settings and get advice.",
     "myPreferences_settings_title": "App-indstillinger",
     "myPreferences_settings_subtitle": "Mørk tilstand, tema,...",
     "myPreferences_food_title": "Fødevarepræferencer",
@@ -338,10 +338,10 @@
     },
     "ingredients": "Ingredienser",
     "@ingredients": {},
-    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen, use parentheses for ingredients of an ingredient, and indicate allergens between underscores.",
-    "ingredients_editing_error": "Failed to save the ingredients.",
-    "ingredients_editing_image_error": "Failed to get a new ingredients image.",
-    "ingredients_editing_title": "Edit Ingredients",
+    "ingredients_editing_instructions": "Bevar den oprindelige rækkefølge. Angiv procentdelen, når den er angivet. Adskil med komma eller bindestreg, brug parenteser for ingredienser i en ingrediens, og angiv allergener mellem understregningstegn.",
+    "ingredients_editing_error": "Mislykkedes at gemme ingredienser.",
+    "ingredients_editing_image_error": "Mislykkedes at hente nyt ingrediensfoto.",
+    "ingredients_editing_title": "Redigér ingredienser",
     "ingredients_photo": "Ingrediensfoto",
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
@@ -360,9 +360,9 @@
     "@packaging_information_photo": {},
     "missing_product": "Nyt produkt blev fundet!",
     "@missing_product": {},
-    "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
+    "add_product_take_photos": "Tag emballagefotos for at føje dette produkt til OFF-databasen",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Tag flg. fotos, hvorefter OFF-motoren klarer resten!",
+    "add_product_take_photos_descriptive": "Please take some photos and the Open Food Facts engine can work out the rest!",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Tilføj produkt eller oplysning",
     "@add_product_information_button_label": {},
@@ -457,7 +457,7 @@
         "description": "Confirmation, that the product data got canceled by the user"
     },
     "product_internet_error": "Ikke muligt at hente disse produktoplysninger grundet netværksfejl.",
-    "cached_results_from": "Cachelagrede resultater fra:",
+    "cached_results_from": "Show results from:",
     "@cached_results_from": {
         "description": "Cached results from: x time ago (time ago should not be added to the string)"
     },
@@ -488,7 +488,7 @@
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "Øko-Score tager hensyn til ingredientsoprindelserne, så medtag disse på fotoet (ingrediensovesigt og/eller enhver geografisk angivelse) eller redigér produktet, så de kan indgå i beregningen.",
+    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
@@ -500,11 +500,11 @@
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
-    "product_removed_comparison": "Product removed from comparison",
+    "product_removed_comparison": "Produkt fjernet fra sammenligning",
     "@product_removed_comparison": {
         "description": "Product got removed from comparison list"
     },
-    "product_removed_history": "Product removed from history",
+    "product_removed_history": "Produkt fjernet fra historik",
     "@product_removed_history": {
         "description": "Product got removed from history"
     },
@@ -520,12 +520,12 @@
     "@clear": {
         "description": "Clears a product list"
     },
-    "really_clear": "Sikker på, at denne liste skal ryddes?",
-    "product_compatibility_unknown": "Produktkompatibilitet ukendt",
+    "really_clear": "Do you really want to delete this list?",
+    "product_compatibility_unknown": "Compatibility Unknown",
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_incompatible": "Matcher ikke",
+    "product_compatibility_incompatible": "Doesn't match",
     "@product_compatibility_incompatible": {
         "description": "Product compatibility summary title"
     },
@@ -541,35 +541,35 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural, =1{én dag siden} other{{count} dage siden}}",
+    "plural_ago_days": "{count,plural, one {} =1{one day ago} other{{count} days ago}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural, =1{ én time siden} other{{count} timer siden}}",
+    "plural_ago_hours": "{count,plural, one {} =1{one hour ago} other{{count} hours ago}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural, =0{under ét minut siden} =1{one minute ago} other{{count} minutter siden}}",
+    "plural_ago_minutes": "{count,plural, one {} =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, =1{én måned siden} other{{count} måneder siden}}",
+    "plural_ago_months": "{count,plural, one {} =1{one month ago} other{{count} months ago}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, =1{én uge siden} other{{count} uger siden}}",
+    "plural_ago_weeks": "{count,plural, one {} =1{one week ago} other{{count} weeks ago}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
@@ -583,39 +583,43 @@
             "count": {}
         }
     },
-    "compare_products_mode": "Sammenligningstilstand",
+    "compare_products_mode": "Sammenlign",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },
     "retry_button_label": "Forsøg igen",
-    "connect_with_us": "Connect with us",
+    "connect_with_us": "Kom i forbindelse med os",
     "instagram": "Instagram",
     "twitter": "Twitter",
     "blog": "Blog",
     "faq": "FAQ",
     "discover": "Opdag",
-    "how_to_contribute": "How to Contribute",
-    "main_app_color": "Appens basisfarve",
+    "how_to_contribute": "Sådan bidrager man",
+    "main_app_color": "Theme",
     "@main_app_color": {
         "description": "Heading for the section to pick the main app color"
+    },
+    "hint_knowledge_panel_message": "Your can tap on any part of the card to get more details about what you see. Try it now!",
+    "@hint_knowledge_panel_message": {
+        "description": "Hint popup indicating the card is clickable during onboarding"
     },
     "consent_analytics_title": "Indsend anonyme analysedata",
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Help the Open Food Facts volunteer to improve the app.You decide if you want to send anonymous analytics.",
+    "consent_analytics_body1": "Help the Open Food Facts volunteer to improve the app. You decide if you want to send anonymous analytics.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
-    "consent_analytics_body2": "If you change your mind this option can be enabled and disabled at any time from the settings.",
+    "consent_analytics_body2": "Ombestemmer man sig, kan denne valgmulighed altid aktiveres/deaktiveres via Indstillingerne.",
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "authorize_button_label": "Authorize",
+    "authorize_button_label": "Godkend",
     "@authorize": {
         "description": "Button to accept the request of sending the anonymous analytics"
     },
-    "refuse_button_label": "Refuse",
+    "refuse_button_label": "Afvis",
     "@refuse": {
         "description": "Button to decline the request of sending the anonymous analytics"
     }
