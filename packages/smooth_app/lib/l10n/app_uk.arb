@@ -86,6 +86,8 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
+    "login_page_username_or_email": "Please enter username or e-mail",
+    "login_page_password_error_empty": "Будь ласка, введіть пароль",
     "create_account": "Створіть обліковий запис",
     "@create_account": {
         "description": "Button label: Opens a page where a new user can register"
@@ -142,7 +144,7 @@
         "description": "Progress indicator dialog during the actual signing up process"
     },
     "sign_up_page_action_ok": "Вітаємо! Ваш обліковий створено.",
-    "sign_up_page_display_name_hint": "Показувати ім'я",
+    "sign_up_page_display_name_hint": "Ім’я",
     "sign_up_page_display_name_error_empty": "Будь ласка, введіть відображуване ім'я, яке ви хочете використовувати.",
     "sign_up_page_email_hint": "Електронна пошта",
     "sign_up_page_email_error_empty": "Необхідно заповнити поле електронної адреси",
@@ -288,13 +290,13 @@
     "@profile_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "scan_navbar_label": "Профіль",
+    "scan_navbar_label": "Пошук",
     "@scan_navbar_label": {
-        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+        "description": "BottomNavigationBarLabel: For the searching of products"
     },
-    "history_navbar_label": "Профіль",
+    "history_navbar_label": "Історія",
     "@history_navbar_label": {
-        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+        "description": "BottomNavigationBarLabel: For the history and compare mode"
     },
     "category": "Фільтр за категорією",
     "@category": {
@@ -336,6 +338,10 @@
     },
     "ingredients": "Інгредієнти",
     "@ingredients": {},
+    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen, use parentheses for ingredients of an ingredient, and indicate allergens between underscores.",
+    "ingredients_editing_error": "Failed to save the ingredients.",
+    "ingredients_editing_image_error": "Failed to get a new ingredients image.",
+    "ingredients_editing_title": "Edit Ingredients",
     "ingredients_photo": "Фото інгредієнтів",
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
@@ -354,7 +360,7 @@
     "@packaging_information_photo": {},
     "missing_product": "Ви знайшли новий продукт!",
     "@missing_product": {},
-    "add_product_take_photos": "Зробіть фотографії пакування, щоб додати цей продукт до Вашої бази даних.",
+    "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
     "@add_product_take_photos": {},
     "add_product_take_photos_descriptive": "Будь ласка, зробіть наступні фотографії та система Open Food Facts допрацює те, що залишилось!",
     "@add_product_take_photos_descriptive": {},
@@ -494,9 +500,13 @@
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
-    "product_removed": "Продукт видалено",
-    "@product_removed": {
-        "description": "Product got removed from a list"
+    "product_removed_comparison": "Product removed from comparison",
+    "@product_removed_comparison": {
+        "description": "Product got removed from comparison list"
+    },
+    "product_removed_history": "Product removed from history",
+    "@product_removed_history": {
+        "description": "Product got removed from history"
     },
     "product_could_not_remove": "Неможливо видалити продукт",
     "@product_could_not_remove": {
@@ -578,8 +588,35 @@
         "description": "Button to switch to 'compare products mode'"
     },
     "retry_button_label": "Повторити спробу",
+    "connect_with_us": "Connect with us",
+    "instagram": "Instagram",
+    "twitter": "Twitter",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "discover": "Дізнатись більше",
+    "how_to_contribute": "How to Contribute",
     "main_app_color": "Main color of the app",
     "@main_app_color": {
         "description": "Heading for the section to pick the main app color"
+    },
+    "consent_analytics_title": "Відправити статистику анонімно",
+    "@consent_analytics_title": {
+        "description": "Title for the consent analytics UI Page"
+    },
+    "consent_analytics_body1": "Help the Open Food Facts volunteer to improve the app.You decide if you want to send anonymous analytics.",
+    "@conset_analytics_body1": {
+        "description": "first paragraph for the consent analytics UI Page"
+    },
+    "consent_analytics_body2": "If you change your mind this option can be enabled and disabled at any time from the settings.",
+    "@consent_analytics_body2": {
+        "description": "second paragraph for the consent analytics UI Page"
+    },
+    "authorize_button_label": "Authorize",
+    "@authorize": {
+        "description": "Button to accept the request of sending the anonymous analytics"
+    },
+    "refuse_button_label": "Refuse",
+    "@refuse": {
+        "description": "Button to decline the request of sending the anonymous analytics"
     }
 }
