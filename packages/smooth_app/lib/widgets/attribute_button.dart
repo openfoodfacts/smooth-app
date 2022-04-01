@@ -47,23 +47,31 @@ class AttributeButton extends StatelessWidget {
         children: <Widget>[
           SizedBox(
             width: screenWidth * .45,
-            child: Text(attribute.name!, style: style),
+            child: FittedBox(
+              alignment: Alignment.centerLeft,
+              fit: BoxFit.scaleDown,
+              child: Text(attribute.name!, style: style),
+            ),
           ),
           SizedBox(
             width: screenWidth * .45,
-            child: ElevatedButton(
-              child: Text(
-                productPreferences
-                    .getPreferenceImportanceFromImportanceId(importanceId)!
-                    .name!,
-                style: style.copyWith(color: Colors.white),
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              alignment: Alignment.centerRight,
+              child: ElevatedButton(
+                child: Text(
+                  productPreferences
+                      .getPreferenceImportanceFromImportanceId(importanceId)!
+                      .name!,
+                  style: style.copyWith(color: Colors.white),
+                ),
+                style: ElevatedButton.styleFrom(
+                  primary: _colors[importanceId],
+                  onPrimary: Colors.white,
+                ),
+                onPressed: () async => productPreferences.setImportance(
+                    attribute.id!, _nextValues[importanceId]!),
               ),
-              style: ElevatedButton.styleFrom(
-                primary: _colors[importanceId],
-                onPrimary: Colors.white,
-              ),
-              onPressed: () async => productPreferences.setImportance(
-                  attribute.id!, _nextValues[importanceId]!),
             ),
           ),
         ],

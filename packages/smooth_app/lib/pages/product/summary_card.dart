@@ -133,9 +133,10 @@ class _SummaryCardState extends State<SummaryCard> {
               padding: const EdgeInsets.symmetric(
                 vertical: SMALL_SPACE,
               ),
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.vertical(bottom: ROUNDED_RADIUS),
+              decoration: BoxDecoration(
+                color: Theme.of(context).cardColor,
+                borderRadius:
+                    const BorderRadius.vertical(bottom: ROUNDED_RADIUS),
               ),
               child: Center(
                 child: Text(
@@ -251,22 +252,23 @@ class _SummaryCardState extends State<SummaryCard> {
             false)
           addPanelButton(appLocalizations.score_add_missing_product_category,
               onPressed: () {}),
-        if (categoryTag != null && categoryLabel != null)
-          addPanelButton(
-            appLocalizations.product_search_same_category,
-            iconData: Icons.leaderboard,
-            onPressed: () async => ProductQueryPageHelper().openBestChoice(
-              color: Colors.deepPurple,
-              heroTag: 'search_bar',
-              name: categoryLabel!,
-              localDatabase: localDatabase,
-              productQuery: CategoryProductQuery(
-                categoryTag: widget._product.categoriesTags!.last,
-                size: 500,
+        if (widget.isFullVersion)
+          if (categoryTag != null && categoryLabel != null)
+            addPanelButton(
+              appLocalizations.product_search_same_category,
+              iconData: Icons.leaderboard,
+              onPressed: () async => ProductQueryPageHelper().openBestChoice(
+                color: Colors.deepPurple,
+                heroTag: 'search_bar',
+                name: categoryLabel!,
+                localDatabase: localDatabase,
+                productQuery: CategoryProductQuery(
+                  categoryTag: widget._product.categoriesTags!.last,
+                  size: 500,
+                ),
+                context: context,
               ),
-              context: context,
             ),
-          ),
         if ((widget._product.statesTags
                     ?.contains('en:product-name-to-be-completed') ??
                 false) ||
@@ -491,10 +493,16 @@ class _SummaryCardState extends State<SummaryCard> {
                   child: Column(
                     children: <Widget>[
                       // TODO(jasmeet): Use Material icon or SVG (after consulting UX).
-                      Text('🏅 ${appLocalizations.tap_to_answer}'),
+                      Text(
+                        '🏅 ${appLocalizations.tap_to_answer}',
+                        style: Theme.of(context).primaryTextTheme.bodyLarge,
+                      ),
                       Container(
                         padding: const EdgeInsets.only(top: SMALL_SPACE),
-                        child: Text(appLocalizations.contribute_to_get_rewards),
+                        child: Text(
+                          appLocalizations.contribute_to_get_rewards,
+                          style: Theme.of(context).primaryTextTheme.bodyText2,
+                        ),
                       ),
                     ],
                   ),

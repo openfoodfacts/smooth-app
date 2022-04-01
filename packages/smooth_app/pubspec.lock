@@ -28,7 +28,7 @@ packages:
       name: archive
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.2.2"
+    version: "3.2.1"
   args:
     dependency: transitive
     description:
@@ -262,7 +262,7 @@ packages:
       name: flutter_native_splash
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.1"
+    version: "2.1.2+1"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -379,7 +379,7 @@ packages:
       name: hive
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.0"
+    version: "2.0.6"
   hive_flutter:
     dependency: "direct main"
     description:
@@ -1063,7 +1063,7 @@ packages:
       name: win32
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.4.2"
+    version: "2.4.1"
   wkt_parser:
     dependency: transitive
     description:

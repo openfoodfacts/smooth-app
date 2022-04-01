@@ -31,6 +31,10 @@ class _QuestionCardState extends State<QuestionCard>
   int _currentQuestionIndex = 0;
   InsightAnnotation? _lastAnswer;
 
+  static const Color _noBackground = Colors.redAccent;
+  static const Color _yesBackground = Colors.lightGreen;
+  static const Color _yesNoTextColor = Colors.white;
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -198,58 +202,64 @@ class _QuestionCardState extends State<QuestionCard>
   Widget _buildAnswerOptions(
       BuildContext context, List<RobotoffQuestion> questions,
       {required int currentQuestionIndex}) {
-    final double yesNoButtonWidth = MediaQuery.of(context).size.width / 3;
+    final double yesNoHeight = MediaQuery.of(context).size.width / (3 * 1.25);
     final RobotoffQuestion question = questions[currentQuestionIndex];
+
     return Column(
       children: <Widget>[
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            SizedBox(
-              width: yesNoButtonWidth,
-              height: yesNoButtonWidth / 1.25,
-              child: _buildAnswerButton(
-                insightId: question.insightId,
-                insightAnnotation: InsightAnnotation.NO,
-                backgroundColor: Colors.redAccent,
-                contentColor: Colors.white,
-                currentQuestionIndex: currentQuestionIndex,
+            Expanded(
+              child: SizedBox(
+                height: yesNoHeight,
+                child: _buildAnswerButton(
+                  insightId: question.insightId,
+                  insightAnnotation: InsightAnnotation.NO,
+                  backgroundColor: _noBackground,
+                  contentColor: _yesNoTextColor,
+                  currentQuestionIndex: currentQuestionIndex,
+                ),
               ),
             ),
-            SizedBox(
-              width: yesNoButtonWidth,
-              height: yesNoButtonWidth / 1.25,
+            Expanded(
+              child: SizedBox(
+                height: yesNoHeight,
+                child: _buildAnswerButton(
+                  insightId: question.insightId,
+                  insightAnnotation: InsightAnnotation.YES,
+                  backgroundColor: _yesBackground,
+                  contentColor: _yesNoTextColor,
+                  currentQuestionIndex: currentQuestionIndex,
+                ),
+              ),
+            ),
+          ],
+        ),
+        Row(
+          children: <Widget>[
+            Expanded(
               child: _buildAnswerButton(
                 insightId: question.insightId,
-                insightAnnotation: InsightAnnotation.YES,
-                backgroundColor: Colors.lightGreen,
-                contentColor: Colors.white,
+                insightAnnotation: InsightAnnotation.MAYBE,
+                backgroundColor: const Color(0xFFFFEFB7),
+                contentColor: Colors.black,
                 currentQuestionIndex: currentQuestionIndex,
               ),
             ),
           ],
         ),
-        AspectRatio(
-          aspectRatio: 8,
-          child: _buildAnswerButton(
-            insightId: question.insightId,
-            insightAnnotation: InsightAnnotation.MAYBE,
-            backgroundColor: const Color(0xFFFFEFB7),
-            contentColor: Colors.black,
-            currentQuestionIndex: currentQuestionIndex,
-          ),
-        ),
       ],
     );
   }
 
-  Widget _buildAnswerButton({
-    required String? insightId,
-    required InsightAnnotation insightAnnotation,
-    required Color backgroundColor,
-    required Color contentColor,
-    required int currentQuestionIndex,
-  }) {
+  Widget _buildAnswerButton(
+      {required String? insightId,
+      required InsightAnnotation insightAnnotation,
+      required Color backgroundColor,
+      required Color contentColor,
+      required int currentQuestionIndex,
+      EdgeInsets padding = const EdgeInsets.all(4)}) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     String buttonText;
     IconData? icon;
@@ -265,28 +275,29 @@ class _QuestionCardState extends State<QuestionCard>
       case InsightAnnotation.MAYBE:
         buttonText = appLocalizations.skip;
     }
-    return GestureDetector(
-      onTap: () async {
-        try {
-          await saveAnswer(
-            context,
-            insightId: insightId,
-            insightAnnotation: insightAnnotation,
-          );
-        } catch (e) {
-          await LoadingDialog.error(
-            context: context,
-            title: appLocalizations.error_occurred,
-          );
-          Navigator.of(context).pop();
-          return;
-        }
-        setState(() {
-          _lastAnswer = insightAnnotation;
-          _currentQuestionIndex++;
-        });
-      },
-      child: Card(
+    return Padding(
+      padding: padding,
+      child: MaterialButton(
+        onPressed: () async {
+          try {
+            await _saveAnswer(
+              context,
+              insightId: insightId,
+              insightAnnotation: insightAnnotation,
+            );
+          } catch (e) {
+            await LoadingDialog.error(
+              context: context,
+              title: appLocalizations.error_occurred,
+            );
+            Navigator.of(context).pop();
+            return;
+          }
+          setState(() {
+            _lastAnswer = insightAnnotation;
+            _currentQuestionIndex++;
+          });
+        },
         elevation: 4,
         color: backgroundColor,
         shape: const RoundedRectangleBorder(
@@ -315,7 +326,7 @@ class _QuestionCardState extends State<QuestionCard>
   }
 }
 
-Future<void> saveAnswer(
+Future<void> _saveAnswer(
   BuildContext context, {
   required String? insightId,
   required InsightAnnotation insightAnnotation,
@@ -323,12 +334,12 @@ Future<void> saveAnswer(
   final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
   await LoadingDialog.run<Status>(
     context: context,
+    title: appLocalizations.saving_answer,
     future: OpenFoodAPIClient.postInsightAnnotation(
       insightId,
       insightAnnotation,
       deviceId: OpenFoodAPIConfiguration.uuid,
     ),
-    title: appLocalizations.saving_answer,
   );
 }
 
@@ -337,8 +348,6 @@ class CongratsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle bodyTextStyle =
-        Theme.of(context).textTheme.bodyText2!.apply(color: Colors.white);
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final UserManagementProvider userManagementProvider =
         context.watch<UserManagementProvider>();
@@ -348,14 +357,14 @@ class CongratsWidget extends StatelessWidget {
         children: <Widget>[
           const Icon(
             Icons.grade,
-            color: Colors.white,
-            size: 72,
+            color: Colors.amber,
+            size: 100,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
             child: Text(
               appLocalizations.thanks_for_contributing,
-              style: bodyTextStyle,
+              style: Theme.of(context).textTheme.bodyText1,
             ),
           ),
           FutureBuilder<bool>(
@@ -369,38 +378,24 @@ class CongratsWidget extends StatelessWidget {
                   }
                   return Column(
                     children: <Widget>[
-                      InkWell(
-                        onTap: () async {
+                      SmoothActionButton(
+                        text: appLocalizations.sign_in,
+                        onPressed: () async {
                           Navigator.pop<Widget>(context);
                           await Navigator.push<Widget>(
                             context,
                             MaterialPageRoute<Widget>(
-                              builder: (BuildContext context) =>
-                                  const LoginPage(),
+                              builder: (_) => const LoginPage(),
                             ),
                           );
                         },
-                        child: Container(
-                          decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.all(ANGULAR_RADIUS),
-                            color: Colors.grey,
-                          ),
-                          width: 150,
-                          padding: const EdgeInsets.all(MEDIUM_SPACE),
-                          child: Center(
-                            child: Text(
-                              appLocalizations.sign_in,
-                              style: Theme.of(context).textTheme.headline3,
-                            ),
-                          ),
-                        ),
                       ),
                       Padding(
                         padding:
                             const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
                         child: Text(
                           appLocalizations.sign_in_text,
-                          style: bodyTextStyle,
+                          style: Theme.of(context).textTheme.bodyText2,
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -410,8 +405,8 @@ class CongratsWidget extends StatelessWidget {
                   return EMPTY_WIDGET;
                 }
               }),
-          SmoothActionButton(
-            text: appLocalizations.close,
+          TextButton(
+            child: Text(appLocalizations.close),
             onPressed: () => Navigator.pop<Widget>(context),
           ),
         ],

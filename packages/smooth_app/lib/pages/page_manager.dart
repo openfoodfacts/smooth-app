@@ -70,6 +70,7 @@ class PageManagerState extends State<PageManager> {
           _buildOffstageNavigator(BottomNavigationTab.History),
         ]),
         bottomNavigationBar: BottomNavigationBar(
+          unselectedItemColor: Theme.of(context).primaryColorLight,
           showSelectedLabels: false,
           showUnselectedLabels: false,
           selectedItemColor: Colors.white,

@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
 import 'package:smooth_app/data_models/product_query_model.dart';
+import 'package:smooth_app/generic_lib/animations/smooth_reveal_animation.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
@@ -40,6 +41,8 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
       GlobalKey<ScaffoldMessengerState>();
   final GlobalKey<ScaffoldMessengerState> _scaffoldKeyNotEmpty =
       GlobalKey<ScaffoldMessengerState>();
+  bool _showBackToTopButton = false;
+  late ScrollController _scrollController;
 
   late ProductQueryModel _model;
   int? _lastUpdate;
@@ -49,6 +52,22 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
     super.initState();
     _lastUpdate = widget.lastUpdate;
     _model = ProductQueryModel(widget.productListSupplier);
+    _scrollController = ScrollController()
+      ..addListener(() {
+        setState(() {
+          if (_scrollController.offset >= 400) {
+            _showBackToTopButton = true;
+          } else {
+            _showBackToTopButton = false;
+          }
+        });
+      });
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
   }
 
   @override
@@ -161,24 +180,58 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
       ScaffoldMessenger(
         key: _scaffoldKeyNotEmpty,
         child: Scaffold(
-          floatingActionButton: RankingFloatingActionButton(
-            color: widget.mainColor,
-            onPressed: () => Navigator.push<Widget>(
-              context,
-              MaterialPageRoute<Widget>(
-                builder: (BuildContext context) => PersonalizedRankingPage(
-                  productList: _model.supplier.getProductList(),
-                  title: widget.name,
+          floatingActionButton: Row(
+            mainAxisAlignment: _showBackToTopButton
+                ? MainAxisAlignment.spaceBetween
+                : MainAxisAlignment.center,
+            children: <Widget>[
+              RankingFloatingActionButton(
+                color: widget.mainColor,
+                onPressed: () => Navigator.push<Widget>(
+                  context,
+                  MaterialPageRoute<Widget>(
+                    builder: (BuildContext context) => PersonalizedRankingPage(
+                      productList: _model.supplier.getProductList(),
+                      title: widget.name,
+                    ),
+                  ),
                 ),
               ),
-            ),
+              Visibility(
+                visible: _showBackToTopButton,
+                child: AnimatedOpacity(
+                  duration: const Duration(milliseconds: 200),
+                  opacity: _showBackToTopButton ? 1.0 : 0.0,
+                  child: SmoothRevealAnimation(
+                    animationCurve: Curves.easeInOutBack,
+                    startOffset: const Offset(0.0, 1.0),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 8.0),
+                      child: FloatingActionButton(
+                        backgroundColor: Colors.white,
+                        onPressed: () {
+                          _scrollToTop();
+                        },
+                        child: Icon(
+                          Icons.arrow_upward,
+                          color: widget.mainColor,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
           body: Stack(
             children: <Widget>[
               _getHero(screenSize, themeData),
-              CustomScrollView(
-                slivers: <Widget>[
-                  SliverAppBar(
+              RefreshIndicator(
+                onRefresh: () => refreshlist(),
+                child: CustomScrollView(
+                  controller: _scrollController,
+                  slivers: <Widget>[
+                    SliverAppBar(
                       backgroundColor: themeData.scaffoldBackgroundColor,
                       expandedHeight: screenSize.height * 0.15,
                       collapsedHeight: screenSize.height * 0.09,
@@ -236,27 +289,29 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                                   .copyWith(color: widget.mainColor),
                             ),
                             background: _getHero(screenSize, themeData));
-                      })),
-                  SliverList(
-                    delegate: SliverChildBuilderDelegate(
-                      (_, int index) {
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 12.0, vertical: 8.0),
-                          child: SmoothProductCardFound(
-                            heroTag: _model.displayProducts![index].barcode!,
-                            product: _model.displayProducts![index],
-                            elevation:
-                                Theme.of(context).brightness == Brightness.light
-                                    ? 0.0
-                                    : 4.0,
-                          ).build(context),
-                        );
-                      },
-                      childCount: _model.displayProducts!.length,
+                      }),
                     ),
-                  )
-                ],
+                    SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                        (_, int index) {
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 12.0, vertical: 8.0),
+                            child: SmoothProductCardFound(
+                              heroTag: _model.displayProducts![index].barcode!,
+                              product: _model.displayProducts![index],
+                              elevation: Theme.of(context).brightness ==
+                                      Brightness.light
+                                  ? 0.0
+                                  : 4.0,
+                            ).build(context),
+                          );
+                        },
+                        childCount: _model.displayProducts!.length,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
@@ -339,4 +394,18 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
           onPressed: () => Navigator.pop(context),
         ),
       );
+
+  Future<void> refreshlist() async {
+    final ProductListSupplier? refreshSupplier =
+        widget.productListSupplier.getRefreshSupplier();
+    setState(
+      () => _model = ProductQueryModel(refreshSupplier!),
+    );
+    return;
+  }
+
+  void _scrollToTop() {
+    _scrollController.animateTo(0,
+        duration: const Duration(seconds: 3), curve: Curves.linear);
+  }
 }
