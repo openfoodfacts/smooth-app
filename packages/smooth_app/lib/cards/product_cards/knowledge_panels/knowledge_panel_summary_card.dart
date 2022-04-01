@@ -22,7 +22,7 @@ class KnowledgePanelSummaryCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 5.0),
+              padding: const EdgeInsets.symmetric(vertical: VERY_SMALL_SPACE),
               child: Text(
                 knowledgePanel.topics!.first.substring(0, 1).toUpperCase() +
                     knowledgePanel.topics!.first.substring(1),
