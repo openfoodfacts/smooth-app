@@ -39,7 +39,7 @@ class NextButton extends StatelessWidget {
               ),
               shape: const RoundedRectangleBorder(
                   borderRadius: ANGULAR_BORDER_RADIUS),
-              primary: Colors.white,
+              primary: const Color.fromRGBO(75, 0, 130, 1.0),
             ),
             onPressed: () async {
               await OnboardingLoader(localDatabase)
