@@ -74,8 +74,8 @@
 Widget build(BuildContext context) {
   switch (knowledgePanelElement.elementType) {
     case KnowledgePanelElementType.TEXT:
-      return SmoothHtmlWidget(
-        knowledgePanelElement.textElement!.html,
+      return _KnowledgePanelTextElementCard(
+        textElement: knowledgePanelElement.textElement!,
       );
     case KnowledgePanelElementType.IMAGE:
       return Image.network(
