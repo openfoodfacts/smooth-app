@@ -48,7 +48,9 @@ class KnowledgePanelTitleCard extends StatelessWidget {
     }
     return Padding(
       padding: const EdgeInsets.only(
-          top: VERY_SMALL_SPACE, bottom: VERY_SMALL_SPACE),
+        top: VERY_SMALL_SPACE,
+        bottom: VERY_SMALL_SPACE,
+      ),
       child: Row(
         children: <Widget>[
           ...iconWidget,
