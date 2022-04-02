@@ -9,6 +9,7 @@ import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/smooth_html_widget.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
 
 class KnowledgePanelElementCard extends StatelessWidget {
   const KnowledgePanelElementCard({
@@ -79,44 +80,24 @@ class _KnowledgePanelTextElementCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           text,
-          InkWell(
-            child: Padding(
-              padding: const EdgeInsetsDirectional.only(
-                top: 8.0,
-                bottom: 8.0,
-                end: 8.0,
-              ),
-              child: RichText(
-                text: TextSpan(
-                  children: <InlineSpan>[
-                    TextSpan(
-                      text: appLocalizations.knowledge_panel_text_source,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    TextSpan(
-                      text: textElement.sourceText,
-                      style: const TextStyle(
-                        decoration: TextDecoration.underline,
-                        decorationStyle: TextDecorationStyle.dashed,
-                      ),
-                    ),
-                  ],
-                  style: DefaultTextStyle.of(context).style,
-                ),
-              ),
+          const SizedBox(
+            height: MEDIUM_SPACE,
+          ),
+          // Remove Icon
+          IconTheme.merge(
+            data: const IconThemeData(
+              size: 0.0,
             ),
-            onTap: hasSourceUrl
-                ? () {
-                    LaunchUrlHelper.launchURL(
-                      textElement.sourceUrl!,
-                      false,
-                    );
-                  }
-                : null,
-            borderRadius: BorderRadius.circular(
-              15.0,
+            child: addPanelButton(
+              appLocalizations
+                  .knowledge_panel_text_source(textElement.sourceText!),
+              iconData: null,
+              onPressed: () {
+                LaunchUrlHelper.launchURL(
+                  textElement.sourceUrl!,
+                  false,
+                );
+              },
             ),
           ),
         ],
@@ -126,7 +107,7 @@ class _KnowledgePanelTextElementCard extends StatelessWidget {
     return text;
   }
 
-  bool get hasSource => textElement.sourceText?.isNotEmpty == true;
-
-  bool get hasSourceUrl => textElement.sourceUrl?.isNotEmpty == true;
+  bool get hasSource =>
+      textElement.sourceText?.isNotEmpty == true &&
+      textElement.sourceUrl?.isNotEmpty == true;
 }
