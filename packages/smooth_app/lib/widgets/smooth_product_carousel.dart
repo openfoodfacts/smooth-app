@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -106,12 +107,12 @@ class SearchCard extends StatelessWidget {
   const SearchCard({required this.height});
 
   final double height;
+
   @override
   Widget build(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context)!;
     return SmoothCard(
       color: Theme.of(context).colorScheme.background.withOpacity(0.85),
-      margin: EdgeInsets.only(bottom: height * 0.05),
       elevation: 0,
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: SizedBox(
@@ -120,13 +121,14 @@ class SearchCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Text(
+            AutoSizeText(
               localizations.welcomeToOpenFoodFacts,
               textAlign: TextAlign.center,
               style: const TextStyle(
                 fontSize: 36.0,
                 fontWeight: FontWeight.bold,
               ),
+              maxLines: 2,
             ),
             Text(
               localizations.searchPanelHeader,
@@ -147,7 +149,7 @@ class SearchCard extends StatelessWidget {
     Navigator.push<Widget>(
       context,
       MaterialPageRoute<Widget>(
-        builder: (BuildContext context) => SearchPage(),
+        builder: (_) => SearchPage(),
       ),
     );
   }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -62,6 +61,7 @@ class LoadingDialog<T> {
           future.then<void>(
             (final T value) => _popDialog(context, value),
           );
+          // TODO(monsieurtanuki): is that safe? If the future finishes before the "return" call?
           return _getDialog(context, title);
         },
       );
@@ -72,11 +72,8 @@ class LoadingDialog<T> {
       return;
     }
     _popEd = true;
-    // To avoid returning before the alertDialog is build
-    SchedulerBinding.instance?.addPostFrameCallback((_) {
-      // Here we use the root navigator so that we can pop dialog while using multiple navigators.
-      Navigator.of(context, rootNavigator: true).pop(value);
-    });
+    // Here we use the root navigator so that we can pop dialog while using multiple navigators.
+    Navigator.of(context, rootNavigator: true).pop(value);
   }
 
   /// Displayed dialog during future.

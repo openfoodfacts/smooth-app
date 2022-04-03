@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
 import 'package:smooth_app/data_models/product_query_model.dart';
+import 'package:smooth_app/generic_lib/animations/smooth_reveal_animation.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
@@ -34,33 +35,39 @@ class ProductQueryPage extends StatefulWidget {
 }
 
 class _ProductQueryPageState extends State<ProductQueryPage> {
-  final GlobalKey<ScaffoldState> _scaffoldKeyEmpty = GlobalKey<ScaffoldState>();
-  final GlobalKey<ScaffoldState> _scaffoldKeyNotEmpty =
-      GlobalKey<ScaffoldState>();
+  // we have to use GlobalKey's for SnackBar's because of nested Scaffold's:
+  // not the 2 Scaffold's here but one of them and the one on top (PageManager)
+  final GlobalKey<ScaffoldMessengerState> _scaffoldKeyEmpty =
+      GlobalKey<ScaffoldMessengerState>();
+  final GlobalKey<ScaffoldMessengerState> _scaffoldKeyNotEmpty =
+      GlobalKey<ScaffoldMessengerState>();
+  bool _showBackToTopButton = false;
+  late ScrollController _scrollController;
 
   late ProductQueryModel _model;
   int? _lastUpdate;
-  final ScrollController _scrollController = ScrollController();
-  bool _showTitle = true;
 
   @override
   void initState() {
     super.initState();
     _lastUpdate = widget.lastUpdate;
     _model = ProductQueryModel(widget.productListSupplier);
-    _scrollController.addListener(() {
-      if (_scrollController.offset <=
-              _scrollController.position.minScrollExtent &&
-          !_scrollController.position.outOfRange) {
-        if (!_showTitle) {
-          setState(() => _showTitle = true);
-        }
-      } else {
-        if (_showTitle) {
-          setState(() => _showTitle = false);
-        }
-      }
-    });
+    _scrollController = ScrollController()
+      ..addListener(() {
+        setState(() {
+          if (_scrollController.offset >= 400) {
+            _showBackToTopButton = true;
+          } else {
+            _showBackToTopButton = false;
+          }
+        });
+      });
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
   }
 
   @override
@@ -126,151 +133,201 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
     final ThemeData themeData,
     final Widget emptiness,
   ) =>
-      Scaffold(
-          key: _scaffoldKeyEmpty,
+      ScaffoldMessenger(
+        key: _scaffoldKeyEmpty,
+        child: Scaffold(
           body: Stack(
             children: <Widget>[
               _getHero(screenSize, themeData),
               Center(child: emptiness),
-              AnimatedOpacity(
-                opacity: _showTitle ? 1.0 : 0.0,
-                duration: const Duration(milliseconds: 250),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    getBackArrow(context, widget.mainColor),
-                  ],
-                ),
+              CustomScrollView(
+                slivers: <Widget>[
+                  SliverAppBar(
+                      backgroundColor: themeData.scaffoldBackgroundColor,
+                      expandedHeight: screenSize.height * 0.15,
+                      collapsedHeight: screenSize.height * 0.09,
+                      pinned: true,
+                      elevation: 0,
+                      automaticallyImplyLeading: false,
+                      title: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            getBackArrow(context, widget.mainColor),
+                          ]),
+                      flexibleSpace: LayoutBuilder(builder:
+                          (BuildContext context, BoxConstraints constraints) {
+                        return FlexibleSpaceBar(
+                            centerTitle: true,
+                            title: Text(
+                              widget.name,
+                              textAlign: TextAlign.center,
+                              style: themeData.textTheme.headline1!
+                                  .copyWith(color: widget.mainColor),
+                            ),
+                            background: _getHero(screenSize, themeData));
+                      })),
+                ],
               ),
             ],
-          ));
+          ),
+        ),
+      );
 
   Widget _getNotEmptyScreen(
     final Size screenSize,
     final ThemeData themeData,
   ) =>
-      Scaffold(
-          key: _scaffoldKeyNotEmpty,
-          floatingActionButton: RankingFloatingActionButton(
-            color: widget.mainColor,
-            onPressed: () => Navigator.push<Widget>(
-              context,
-              MaterialPageRoute<Widget>(
-                builder: (BuildContext context) => PersonalizedRankingPage(
-                  productList: _model.supplier.getProductList(),
-                  title: widget.name,
+      ScaffoldMessenger(
+        key: _scaffoldKeyNotEmpty,
+        child: Scaffold(
+          floatingActionButton: Row(
+            mainAxisAlignment: _showBackToTopButton
+                ? MainAxisAlignment.spaceBetween
+                : MainAxisAlignment.center,
+            children: <Widget>[
+              RankingFloatingActionButton(
+                color: widget.mainColor,
+                onPressed: () => Navigator.push<Widget>(
+                  context,
+                  MaterialPageRoute<Widget>(
+                    builder: (BuildContext context) => PersonalizedRankingPage(
+                      productList: _model.supplier.getProductList(),
+                      title: widget.name,
+                    ),
+                  ),
                 ),
               ),
-            ),
+              Visibility(
+                visible: _showBackToTopButton,
+                child: AnimatedOpacity(
+                  duration: const Duration(milliseconds: 200),
+                  opacity: _showBackToTopButton ? 1.0 : 0.0,
+                  child: SmoothRevealAnimation(
+                    animationCurve: Curves.easeInOutBack,
+                    startOffset: const Offset(0.0, 1.0),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 8.0),
+                      child: FloatingActionButton(
+                        backgroundColor: Colors.white,
+                        onPressed: () {
+                          _scrollToTop();
+                        },
+                        child: Icon(
+                          Icons.arrow_upward,
+                          color: widget.mainColor,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
           body: Stack(
             children: <Widget>[
               _getHero(screenSize, themeData),
-              ListView.builder(
-                itemCount: _model.displayProducts!.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 12.0, vertical: 8.0),
-                    child: SmoothProductCardFound(
-                      heroTag: _model.displayProducts![index].barcode!,
-                      product: _model.displayProducts![index],
-                      elevation:
-                          Theme.of(context).brightness == Brightness.light
-                              ? 0.0
-                              : 4.0,
-                    ).build(context),
-                  );
-                },
-                padding: EdgeInsets.only(
-                    top: screenSize.height * 0.25, bottom: 80.0),
-                controller: _scrollController,
-              ),
-              AnimatedOpacity(
-                opacity: _showTitle ? 1.0 : 0.0,
-                duration: const Duration(milliseconds: 250),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    getBackArrow(context, widget.mainColor),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 24.0),
-                      child: TextButton.icon(
-                        icon: Icon(
-                          Icons.filter_list,
-                          color: widget.mainColor,
-                        ),
-                        label: Text(AppLocalizations.of(context)!.filter),
-                        style: TextButton.styleFrom(
-                          textStyle: TextStyle(
-                            color: widget.mainColor,
-                          ),
-                        ),
-                        onPressed: () {
-                          showCupertinoModalBottomSheet<Widget>(
-                            expand: false,
-                            context: context,
-                            backgroundColor: Colors.transparent,
-                            bounce: true,
-                            builder: (BuildContext context) =>
-                                GroupQueryFilterView(
-                              categories: _model.categories,
-                              categoriesList: _model.sortedCategories,
-                              callback: (String category) {
-                                _model.selectCategory(category);
-                                setState(() {});
-                              },
+              RefreshIndicator(
+                onRefresh: () => refreshlist(),
+                child: CustomScrollView(
+                  controller: _scrollController,
+                  slivers: <Widget>[
+                    SliverAppBar(
+                      backgroundColor: themeData.scaffoldBackgroundColor,
+                      expandedHeight: screenSize.height * 0.15,
+                      collapsedHeight: screenSize.height * 0.09,
+                      pinned: true,
+                      elevation: 0,
+                      automaticallyImplyLeading: false,
+                      title: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            getBackArrow(context, widget.mainColor),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 24.0),
+                              child: TextButton.icon(
+                                icon: Icon(
+                                  Icons.filter_list,
+                                  color: widget.mainColor,
+                                ),
+                                label: Text(
+                                    AppLocalizations.of(context)!.filter,
+                                    style: themeData.textTheme.subtitle1!
+                                        .copyWith(color: widget.mainColor)),
+                                style: TextButton.styleFrom(
+                                  textStyle: TextStyle(
+                                    color: widget.mainColor,
+                                  ),
+                                ),
+                                onPressed: () {
+                                  showCupertinoModalBottomSheet<Widget>(
+                                    expand: false,
+                                    context: context,
+                                    backgroundColor: Colors.transparent,
+                                    bounce: true,
+                                    builder: (BuildContext context) =>
+                                        GroupQueryFilterView(
+                                      categories: _model.categories,
+                                      categoriesList: _model.sortedCategories,
+                                      callback: (String category) {
+                                        _model.selectCategory(category);
+                                        setState(() {});
+                                      },
+                                    ),
+                                  );
+                                },
+                              ),
+                            )
+                          ]),
+                      flexibleSpace: LayoutBuilder(builder:
+                          (BuildContext context, BoxConstraints constraints) {
+                        return FlexibleSpaceBar(
+                            centerTitle: true,
+                            title: Text(
+                              widget.name,
+                              textAlign: TextAlign.center,
+                              style: themeData.textTheme.headline1!
+                                  .copyWith(color: widget.mainColor),
                             ),
+                            background: _getHero(screenSize, themeData));
+                      }),
+                    ),
+                    SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                        (_, int index) {
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 12.0, vertical: 8.0),
+                            child: SmoothProductCardFound(
+                              heroTag: _model.displayProducts![index].barcode!,
+                              product: _model.displayProducts![index],
+                              elevation: Theme.of(context).brightness ==
+                                      Brightness.light
+                                  ? 0.0
+                                  : 4.0,
+                            ).build(context),
                           );
                         },
+                        childCount: _model.displayProducts!.length,
                       ),
                     ),
                   ],
                 ),
               ),
             ],
-          ));
+          ),
+        ),
+      );
 
   Widget _getHero(final Size screenSize, final ThemeData themeData) => Hero(
-        tag: widget.heroTag,
-        child: Container(
-            width: screenSize.width,
-            height: screenSize.height,
-            decoration: BoxDecoration(
-              color: widget.mainColor.withAlpha(32),
-              borderRadius: const BorderRadius.only(
-                  bottomLeft: Radius.circular(20.0),
-                  bottomRight: Radius.circular(20.0)),
-            ),
-            padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 96.0),
-            child: Column(
-              children: <Widget>[
-                SizedBox(
-                  height: 80.0,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Flexible(
-                        child: AnimatedOpacity(
-                            opacity: _showTitle ? 1.0 : 0.0,
-                            duration: const Duration(milliseconds: 250),
-                            child: Text(
-                              widget.name,
-                              textAlign: TextAlign.center,
-                              style: themeData.textTheme.headline1!
-                                  .copyWith(color: widget.mainColor),
-                            )),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            )),
-      );
+      tag: widget.heroTag,
+      child: Container(
+        width: screenSize.width,
+        height: screenSize.height,
+        decoration: BoxDecoration(
+          color: widget.mainColor.withAlpha(32),
+        ),
+        padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 96.0),
+      ));
 
   Widget _getEmptyText(
     final ThemeData themeData,
@@ -290,7 +347,9 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
         ],
       );
 
-  void _showRefreshSnackBar(final GlobalKey<ScaffoldState> scaffoldKey) {
+  void _showRefreshSnackBar(
+    final GlobalKey<ScaffoldMessengerState> scaffoldKey,
+  ) {
     if (_lastUpdate == null) {
       return;
     }
@@ -308,7 +367,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
 
     Future<void>.delayed(
       Duration.zero,
-      () => ScaffoldMessenger.of(context).showSnackBar(
+      () => scaffoldKey.currentState?.showSnackBar(
         SnackBar(
           content: Text(message),
           duration: const Duration(seconds: 5),
@@ -335,4 +394,18 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
           onPressed: () => Navigator.pop(context),
         ),
       );
+
+  Future<void> refreshlist() async {
+    final ProductListSupplier? refreshSupplier =
+        widget.productListSupplier.getRefreshSupplier();
+    setState(
+      () => _model = ProductQueryModel(refreshSupplier!),
+    );
+    return;
+  }
+
+  void _scrollToTop() {
+    _scrollController.animateTo(0,
+        duration: const Duration(seconds: 3), curve: Curves.linear);
+  }
 }

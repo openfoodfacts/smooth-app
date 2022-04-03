@@ -1,4 +1,4 @@
-name: SmoothApp Presubmit Tests
+name: SmoothApp Pre-Submit Tests
 
 on: pull_request
     
@@ -8,22 +8,22 @@ jobs:
     defaults:
       run:
         shell: bash
+
     steps:
-      - name: "Checkout code"
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      # Setup flutter 
-      - uses: actions/checkout@v3
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: stable
           cache: true
           cache-key: flutter2.10 #change this to force refresh cache
+
       - run: flutter --version
       
       # Get dependencies.
-      - name: "Get dependencies"
+      - name: Get dependencies
         run: ci/pub_upgrade.sh
       
       # Check for formatting issues
@@ -31,9 +31,16 @@ jobs:
         run: flutter format --set-exit-if-changed .
       
       # analyze Dart for errors
-      - name: "Analyze code"
+      - name: Analyze code
         run: flutter analyze --fatal-infos --fatal-warnings .
       
       # Run tests
-      - name: "Run Tests"
+      - name: Run Tests with coverage
         run: ci/testing.sh
+      
+      - name: Upload coverage to codecov
+        uses: codecov/codecov-action@v2
+        with:
+          fail_ci_if_error: true
+          verbose: true
+

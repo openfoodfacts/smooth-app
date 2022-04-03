@@ -82,6 +82,9 @@ class SmoothAlertDialog extends StatelessWidget {
                       style: Theme.of(context).textTheme.headline2,
                     ),
                   ),
+                const SizedBox(
+                  width: 10,
+                ),
                 _buildCross(false, context),
               ],
             ),
