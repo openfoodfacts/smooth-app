@@ -576,7 +576,7 @@
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,daugiskaita, kita{Palyginkite {count} Produktai}",
+    "plural_compare_x_products": "{count,plural, other{Palyginkite {count} Produktai}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {

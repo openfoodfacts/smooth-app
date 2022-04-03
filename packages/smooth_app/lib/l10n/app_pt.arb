@@ -576,7 +576,7 @@
             "count": {}
         }
     },
-    "plural_compare_x_products": "{contagem,plural, outros{Comparar {count} Produtos}",
+    "plural_compare_x_products": "{count,plural, other{Comparar {count} Produtos}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {
