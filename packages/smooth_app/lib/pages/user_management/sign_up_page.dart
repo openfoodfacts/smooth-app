@@ -85,12 +85,19 @@ class _SignUpPageState extends State<SignUpPage> {
               prefixIcon: const Icon(Icons.person),
               autofillHints: const <String>[AutofillHints.email],
               validator: (String? value) {
+                final String emailTrimmed;
                 if (value == null || value.isEmpty) {
                   return appLocalizations.sign_up_page_email_error_empty;
+                }
+                emailTrimmed = value.trim();
+                if (value != emailTrimmed) {
+                  _emailController.text = emailTrimmed;
+                  value = emailTrimmed;
                 }
                 if (!UserManagementHelper.isEmailValid(value)) {
                   return appLocalizations.sign_up_page_email_error_invalid;
                 }
+
                 return null;
               },
             ),
@@ -103,8 +110,14 @@ class _SignUpPageState extends State<SignUpPage> {
               prefixIcon: const Icon(Icons.person),
               autofillHints: const <String>[AutofillHints.username],
               validator: (String? value) {
+                final String userTrimmed;
                 if (value == null || value.isEmpty) {
                   return appLocalizations.sign_up_page_username_error_empty;
+                }
+                userTrimmed = value.trim();
+                if (value != userTrimmed) {
+                  _userController.text = userTrimmed;
+                  value = userTrimmed;
                 }
                 if (!UserManagementHelper.isUsernameValid(value)) {
                   return appLocalizations.sign_up_page_username_description;
