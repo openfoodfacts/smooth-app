@@ -9,7 +9,6 @@ import 'package:openfoodfacts/utils/UnitHelper.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
@@ -325,16 +324,20 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       await showDialog<bool>(
         context: context,
         builder: (BuildContext context) => AlertDialog(
-          title: Text(localizations.nutrition_page_close_confirmation),
-          actions: <Widget>[
-            SmoothActionButton(
-              text: localizations.yes,
+          shape: const RoundedRectangleBorder(
+            borderRadius: ROUNDED_BORDER_RADIUS,
+          ),
+          title: Text(localizations.general_confirmation),
+          content: Text(localizations.nutrition_page_close_confirmation),
+          actions: <TextButton>[
+            TextButton(
+              child: Text(localizations.cancel.toUpperCase()),
+              onPressed: () => Navigator.pop(context, false),
+            ),
+            TextButton(
+              child: Text(localizations.close.toUpperCase()),
               onPressed: () => Navigator.pop(context, true),
             ),
-            SmoothActionButton(
-              text: localizations.cancel,
-              onPressed: () => Navigator.pop(context, false),
-            )
           ],
         ),
       ) ??
@@ -354,16 +357,20 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     final bool shouldSave = await showDialog<bool>(
             context: context,
             builder: (BuildContext context) => AlertDialog(
-                  title: Text(localizations.save_confirmation),
-                  actions: <Widget>[
-                    SmoothActionButton(
-                      text: localizations.save,
+                  title: Text(localizations.general_confirmation),
+                  content: Text(localizations.save_confirmation),
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: ROUNDED_BORDER_RADIUS,
+                  ),
+                  actions: <TextButton>[
+                    TextButton(
+                      child: Text(localizations.cancel.toUpperCase()),
+                      onPressed: () => Navigator.pop(context, false),
+                    ),
+                    TextButton(
+                      child: Text(localizations.save.toUpperCase()),
                       onPressed: () => Navigator.pop(context, true),
                     ),
-                    SmoothActionButton(
-                      text: localizations.cancel,
-                      onPressed: () => Navigator.pop(context, false),
-                    )
                   ],
                 )) ??
         false;
