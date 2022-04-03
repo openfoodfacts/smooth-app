@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
@@ -47,31 +48,24 @@ class AttributeButton extends StatelessWidget {
         children: <Widget>[
           SizedBox(
             width: screenWidth * .45,
-            child: FittedBox(
-              alignment: Alignment.centerLeft,
-              fit: BoxFit.scaleDown,
-              child: Text(attribute.name!, style: style),
-            ),
+            child: Text(attribute.name!, style: style),
           ),
           SizedBox(
             width: screenWidth * .45,
-            child: FittedBox(
-              fit: BoxFit.scaleDown,
-              alignment: Alignment.centerRight,
-              child: ElevatedButton(
-                child: Text(
-                  productPreferences
-                      .getPreferenceImportanceFromImportanceId(importanceId)!
-                      .name!,
-                  style: style.copyWith(color: Colors.white),
-                ),
-                style: ElevatedButton.styleFrom(
-                  primary: _colors[importanceId],
-                  onPrimary: Colors.white,
-                ),
-                onPressed: () async => productPreferences.setImportance(
-                    attribute.id!, _nextValues[importanceId]!),
+            child: ElevatedButton(
+              child: AutoSizeText(
+                productPreferences
+                    .getPreferenceImportanceFromImportanceId(importanceId)!
+                    .name!,
+                style: style.copyWith(color: Colors.white),
+                maxLines: 1,
               ),
+              style: ElevatedButton.styleFrom(
+                primary: _colors[importanceId],
+                onPrimary: Colors.white,
+              ),
+              onPressed: () async => productPreferences.setImportance(
+                  attribute.id!, _nextValues[importanceId]!),
             ),
           ),
         ],
