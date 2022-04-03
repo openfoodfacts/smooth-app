@@ -55,7 +55,7 @@ class WelcomePage extends StatelessWidget {
                       ),
                       inputDecoration: InputDecoration(
                         focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: ROUNDED_BORDER_RADIUS,
                           borderSide: BorderSide(
                             color: Theme.of(context).primaryColorDark,
                             width: 2.0,
