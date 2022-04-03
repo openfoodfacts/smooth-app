@@ -12,6 +12,8 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/smooth_matched_product.dart';
 
+import '../generic_lib/design_constants.dart';
+
 class PersonalizedRankingPage extends StatefulWidget {
   PersonalizedRankingPage({
     required final ProductList productList,
@@ -154,6 +156,17 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
     final AppLocalizations appLocalizations,
   ) =>
       Dismissible(
+        direction: DismissDirection.endToStart,
+        background: Container(
+          alignment: Alignment.centerRight,
+          margin: const EdgeInsets.symmetric(vertical: 14),
+          color: RED_COLOR,
+          padding: const EdgeInsets.only(right: 30),
+          child: const Icon(
+            Icons.delete,
+            color: Colors.white,
+          ),
+        ),
         key: Key(matchedProduct.product.barcode!),
         onDismissed: (final DismissDirection direction) async {
           final bool removed = widget.products.remove(matchedProduct.product);
