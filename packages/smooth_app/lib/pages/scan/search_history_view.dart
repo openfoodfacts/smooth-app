@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 
 class SearchHistoryView extends StatefulWidget {
   const SearchHistoryView({
@@ -47,7 +48,7 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
       direction: DismissDirection.endToStart,
       onDismissed: (DismissDirection direction) =>
           _handleDismissed(context, query),
-      background: Container(color: Colors.red),
+      background: Container(color: RED_COLOR),
       child: ListTile(
         leading: const SizedBox(
           height: double.infinity, // Vertically center the icon.
