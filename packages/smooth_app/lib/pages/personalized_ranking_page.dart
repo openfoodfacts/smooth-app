@@ -9,10 +9,9 @@ import 'package:smooth_app/data_models/smooth_it_model.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/smooth_matched_product.dart';
-
-import '../generic_lib/design_constants.dart';
 
 class PersonalizedRankingPage extends StatefulWidget {
   PersonalizedRankingPage({
