@@ -1,5 +1,7 @@
 import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
@@ -18,6 +20,9 @@ Future<File?> startImageCropping(BuildContext context) async {
   if (pickedXFile == null) {
     return null;
   }
+
+  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+
   final File? croppedFile = await ImageCropper().cropImage(
     sourcePath: pickedXFile.path,
     aspectRatioPresets: <CropAspectRatioPreset>[
@@ -28,7 +33,7 @@ Future<File?> startImageCropping(BuildContext context) async {
       CropAspectRatioPreset.ratio16x9
     ],
     androidUiSettings: AndroidUiSettings(
-      toolbarTitle: 'Edit Photo', // TODO(ashaan): Localize
+      toolbarTitle: appLocalizations.product_edit_photo_title,
       initAspectRatio: CropAspectRatioPreset.original,
       lockAspectRatio: false,
       statusBarColor: themeColor,

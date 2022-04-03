@@ -178,6 +178,8 @@ class _ProductPageState extends State<ProductPage> {
   }
 
   Widget _buildProductBody(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+
     return RefreshIndicator(
       onRefresh: () => _refreshProduct(context),
       child: ListView(children: <Widget>[
@@ -209,7 +211,7 @@ class _ProductPageState extends State<ProductPage> {
         Padding(
           padding: const EdgeInsets.all(SMALL_SPACE),
           child: SmoothActionButton(
-            text: 'Edit product', // TODO(monsieurtanuki): translations
+            text: appLocalizations.edit_product_label,
             onPressed: () async {
               final bool? refreshed = await Navigator.push<bool>(
                 context,
