@@ -9,6 +9,7 @@ import 'package:openfoodfacts/utils/UnitHelper.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
@@ -69,41 +70,45 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations localizations = AppLocalizations.of(context)!;
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final List<Widget> children = <Widget>[];
-    children.add(_switchNoNutrition(appLocalizations));
+    children.add(_switchNoNutrition(localizations));
     if (!_unspecified) {
-      children.add(_getServingField(appLocalizations));
-      children.add(_getServingSwitch(appLocalizations));
+      children.add(_getServingField(localizations));
+      children.add(_getServingSwitch(localizations));
       for (final OrderedNutrient orderedNutrient
           in _nutritionContainer.getDisplayableNutrients()) {
         children.add(
-          _getNutrientRow(appLocalizations, orderedNutrient),
+          _getNutrientRow(localizations, orderedNutrient),
         );
       }
-      children.add(_addNutrientButton(appLocalizations));
+      children.add(_addNutrientButton(localizations));
     }
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(appLocalizations.nutrition_page_title),
-        actions: <Widget>[
-          IconButton(
-              onPressed: () => _validateAndSave(localDatabase),
-              icon: const Icon(Icons.check))
-        ],
-      ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: LARGE_SPACE,
-          vertical: SMALL_SPACE,
+    return WillPopScope(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(localizations.nutrition_page_title),
+          actions: <Widget>[
+            IconButton(
+              onPressed: () => _validateAndSave(localizations, localDatabase),
+              icon: const Icon(Icons.check),
+            )
+          ],
         ),
-        child: Form(
-          key: _formKey,
-          child: ListView(children: children),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: LARGE_SPACE,
+            vertical: SMALL_SPACE,
+          ),
+          child: Form(
+            key: _formKey,
+            child: ListView(children: children),
+          ),
         ),
       ),
+      onWillPop: () => _showCancelPopup(localizations),
     );
   }
 
@@ -316,11 +321,56 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         label: Text(appLocalizations.nutrition_page_add_nutrient),
       );
 
-  Future<void> _validateAndSave(final LocalDatabase localDatabase) async {
+  Future<bool> _showCancelPopup(AppLocalizations localizations) async =>
+      await showDialog<bool>(
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+          title: Text(localizations.nutrition_page_close_confirmation),
+          actions: <Widget>[
+            SmoothActionButton(
+              text: localizations.yes,
+              onPressed: () => Navigator.pop(context, true),
+            ),
+            SmoothActionButton(
+              text: localizations.cancel,
+              onPressed: () => Navigator.pop(context, false),
+            )
+          ],
+        ),
+      ) ??
+      false;
+
+  Future<void> _validateAndSave(final AppLocalizations localizations,
+      final LocalDatabase localDatabase) async {
     if (!_formKey.currentState!.validate()) {
       return;
     }
-    await _save(localDatabase);
+
+    await _showSavePopup(localizations, localDatabase);
+  }
+
+  Future<void> _showSavePopup(
+      AppLocalizations localizations, LocalDatabase localDatabase) async {
+    final bool shouldSave = await showDialog<bool>(
+            context: context,
+            builder: (BuildContext context) => AlertDialog(
+                  title: Text(localizations.save_confirmation),
+                  actions: <Widget>[
+                    SmoothActionButton(
+                      text: localizations.save,
+                      onPressed: () => Navigator.pop(context, true),
+                    ),
+                    SmoothActionButton(
+                      text: localizations.cancel,
+                      onPressed: () => Navigator.pop(context, false),
+                    )
+                  ],
+                )) ??
+        false;
+
+    if (shouldSave) {
+      _save(localDatabase);
+    }
   }
 
   Future<void> _save(final LocalDatabase localDatabase) async {
