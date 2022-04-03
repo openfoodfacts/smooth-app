@@ -21,7 +21,8 @@ class LoadingDialog<T> {
       LoadingDialog<T>._()._run(
         context: context,
         future: future,
-        title: title ?? 'Downloading data', // TODO(monsieurtanuki): localize
+        title:
+            title ?? AppLocalizations.of(context)!.loading_dialog_default_title,
       );
 
   /// Shows an loading error dialog.
@@ -37,8 +38,11 @@ class LoadingDialog<T> {
           close: false,
           body: ListTile(
             leading: const Icon(Icons.error),
-            title: Text(title ??
-                'Could not download data'), // TODO(monsieurtanuki): localize
+            title: Text(
+              title ??
+                  AppLocalizations.of(context)!
+                      .loading_dialog_default_error_message,
+            ),
           ),
           actions: <SmoothActionButton>[
             SmoothActionButton(

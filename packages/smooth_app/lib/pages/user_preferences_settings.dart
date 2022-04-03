@@ -81,9 +81,8 @@ class UserPreferencesSettings extends AbstractUserPreferences {
                   themeProvider.setTheme(newValue!);
                 },
                 items: <DropdownMenuItem<String>>[
-                  const DropdownMenuItem<String>(
-                    // TODO(aman): translations
-                    child: Text('System Default'),
+                  DropdownMenuItem<String>(
+                    child: Text(appLocalizations.darkmode_system_default),
                     value: THEME_SYSTEM_DEFAULT,
                   ),
                   DropdownMenuItem<String>(
