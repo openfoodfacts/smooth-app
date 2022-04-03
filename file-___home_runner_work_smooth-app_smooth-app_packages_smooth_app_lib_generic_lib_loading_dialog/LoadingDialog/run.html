@@ -74,12 +74,14 @@
   required final BuildContext context,
   required final Future&lt;T&gt; future,
   final String? title,
-}) async =&gt;
-    LoadingDialog&lt;T&gt;._()._run(
-      context: context,
-      future: future,
-      title: title ?? &#39;Downloading data&#39;, &#47;&#47; TODO(monsieurtanuki): localize
-    );</code></pre>
+}) {
+  final AppLocalizations? appLocalizations = AppLocalizations.of(context);
+  return LoadingDialog&lt;T&gt;._()._run(
+    context: context,
+    future: future,
+    title: title ?? appLocalizations!.loading_dialog_default_title,
+  );
+}</code></pre>
 </section>
 
 

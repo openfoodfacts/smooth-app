@@ -76,6 +76,9 @@
   if (pickedXFile == null) {
     return null;
   }
+
+  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+
   final File? croppedFile = await ImageCropper().cropImage(
     sourcePath: pickedXFile.path,
     aspectRatioPresets: &lt;CropAspectRatioPreset&gt;[
@@ -86,7 +89,7 @@
       CropAspectRatioPreset.ratio16x9
     ],
     androidUiSettings: AndroidUiSettings(
-      toolbarTitle: &#39;Edit Photo&#39;, &#47;&#47; TODO(ashaan): Localize
+      toolbarTitle: appLocalizations.product_edit_photo_title,
       initAspectRatio: CropAspectRatioPreset.original,
       lockAspectRatio: false,
       statusBarColor: themeColor,

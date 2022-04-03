@@ -76,20 +76,25 @@
 }) async =&gt;
     showDialog&lt;void&gt;(
       context: context,
-      builder: (BuildContext context) =&gt; SmoothAlertDialog(
-        close: false,
-        body: ListTile(
-          leading: const Icon(Icons.error),
-          title: Text(title ??
-              &#39;Could not download data&#39;), &#47;&#47; TODO(monsieurtanuki): localize
-        ),
-        actions: &lt;SmoothActionButton&gt;[
-          SmoothActionButton(
-            text: AppLocalizations.of(context)!.close,
-            onPressed: () =&gt; Navigator.pop(context),
+      builder: (BuildContext context) {
+        final AppLocalizations? appLocalizations =
+            AppLocalizations.of(context);
+        return SmoothAlertDialog(
+          close: false,
+          body: ListTile(
+            leading: const Icon(Icons.error),
+            title: Text(
+              title ?? appLocalizations!.loading_dialog_default_error_message,
+            ),
           ),
-        ],
-      ),
+          actions: &lt;SmoothActionButton&gt;[
+            SmoothActionButton(
+              text: appLocalizations!.close,
+              onPressed: () =&gt; Navigator.pop(context),
+            ),
+          ],
+        );
+      },
     );</code></pre>
 </section>
 

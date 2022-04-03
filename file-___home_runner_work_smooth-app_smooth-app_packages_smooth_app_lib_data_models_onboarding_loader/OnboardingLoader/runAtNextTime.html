@@ -78,7 +78,8 @@
       await LoadingDialog.run&lt;void&gt;(
         context: context,
         future: _downloadData(),
-        title: &#39;Loading internet data&#39;, &#47;&#47; TODO(monsieurtanuki): localize
+        title: AppLocalizations.of(context)!
+            .onboarding_welcome_loading_dialog_title,
       );
       return;
     case OnboardingPage.NOT_STARTED:
