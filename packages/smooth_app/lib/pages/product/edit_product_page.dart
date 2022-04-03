@@ -109,14 +109,13 @@ class _ListTitleItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations? appLocalizations = AppLocalizations.of(context);
     return ListTile(
       onTap: onTap,
       title: Text(title),
       subtitle: subtitle == null ? null : Text(subtitle!),
       leading: ElevatedButton(
-        child: Text(
-          AppLocalizations.of(context)!.edit_product_form_save,
-        ),
+        child: Text(appLocalizations!.edit_product_form_save),
         onPressed: onTap,
       ),
     );
