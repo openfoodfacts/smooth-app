@@ -82,7 +82,7 @@ class _ProductListPageState extends State<ProductListPage> {
                             builder: (BuildContext context) =>
                                 PersonalizedRankingPage.fromItems(
                               products: list,
-                              title: 'Your ranking', // TODO(X): Translate
+                              title: appLocalizations.product_list_your_ranking,
                             ),
                           ),
                         );
@@ -124,17 +124,17 @@ class _ProductListPageState extends State<ProductListPage> {
                   Icons.find_in_page_rounded,
                   color: colorScheme.primary,
                   size: VERY_LARGE_SPACE * 10,
-                  semanticLabel: 'History not available',
+                  semanticLabel: appLocalizations.product_list_empty_icon_desc,
                 ),
                 Text(
-                  'Start scanning !', // TODO(bhattabhi013): localization
+                  appLocalizations.product_list_empty_title,
                   style: themeData.textTheme.headlineLarge
                       ?.apply(color: colorScheme.onBackground),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(VERY_LARGE_SPACE),
                   child: Text(
-                    'Product you scan in will appear here and you can check detailed information about them', // TODO(bhattabhi013): localization
+                    appLocalizations.product_list_empty_message,
                     style: TextStyle(
                       color: colorScheme.onBackground,
                     ),
@@ -149,6 +149,7 @@ class _ProductListPageState extends State<ProductListPage> {
               onRefresh: () async => _refreshListProducts(
                 products,
                 localDatabase,
+                appLocalizations,
               ),
               child: ListView.builder(
                 itemCount: products.length,
@@ -244,11 +245,11 @@ class _ProductListPageState extends State<ProductListPage> {
   Future<void> _refreshListProducts(
     final List<Product> products,
     final LocalDatabase localDatabase,
+    final AppLocalizations appLocalizations,
   ) async {
     final bool? done = await LoadingDialog.run<bool>(
       context: context,
-      title:
-          'refreshing the history products', // TODO(monsieurtanuki): localize
+      title: appLocalizations.product_list_reloading_in_progress,
       future: _reloadProducts(products, localDatabase),
     );
     switch (done) {
@@ -256,9 +257,9 @@ class _ProductListPageState extends State<ProductListPage> {
         return;
       case true:
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Just refreshed'), // TODO(monsieurtanuki): localize
-            duration: Duration(seconds: 2),
+          SnackBar(
+            content: Text(appLocalizations.product_list_reloading_success),
+            duration: const Duration(seconds: 2),
           ),
         );
         setState(() {});
