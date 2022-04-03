@@ -35,12 +35,46 @@ class SmoothAlertDialog extends StatelessWidget {
       shape: const RoundedRectangleBorder(
         borderRadius: ROUNDED_BORDER_RADIUS,
       ),
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          _buildTitle(context),
-          SizedBox(height: height, child: body),
-        ],
+      content: ConstrainedBox(
+        constraints: BoxConstraints(maxHeight: height ?? double.infinity),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            if (title != null) ...<Widget>[
+              SizedBox(
+                height: 29,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    _buildCross(true, context),
+                    if (title != null)
+                      Expanded(
+                        child: FittedBox(
+                          child: Text(
+                            title!,
+                            style: Theme.of(context).textTheme.headline2,
+                          ),
+                        ),
+                      ),
+                    _buildCross(false, context),
+                  ],
+                ),
+              ),
+              Divider(
+                color: Theme.of(context).colorScheme.onBackground,
+              ),
+              const SizedBox(
+                height: 12,
+              ),
+            ],
+            Expanded(
+              child: SingleChildScrollView(
+                child: body,
+              ),
+            ),
+          ],
+        ),
       ),
       actions: actions == null
           ? null
@@ -58,53 +92,13 @@ class SmoothAlertDialog extends StatelessWidget {
     );
   }
 
-  Widget _buildTitle(final BuildContext context) {
-    const double height = 29;
-
-    if (title == null) {
-      return Container();
-    } else {
-      return Column(
-        children: <Widget>[
-          FittedBox(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                _buildCross(true, context),
-                if (title != null)
-                  SizedBox(
-                    height: height,
-                    child: Text(
-                      title!,
-                      style: Theme.of(context).textTheme.headline2,
-                    ),
-                  ),
-                const SizedBox(
-                  width: 10,
-                ),
-                _buildCross(false, context),
-              ],
-            ),
-          ),
-          Divider(
-            color: Theme.of(context).colorScheme.onBackground,
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-        ],
-      );
-    }
-  }
-
   Widget _buildCross(final bool isPlaceHolder, final BuildContext context) {
     if (close) {
       return Visibility(
         child: InkWell(
-          child: Icon(
+          child: const Icon(
             Icons.close,
-            size: height,
+            size: 29,
           ),
           onTap: () => Navigator.of(context, rootNavigator: true).pop('dialog'),
         ),
