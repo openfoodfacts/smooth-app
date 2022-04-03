@@ -618,7 +618,7 @@
     "@authorize":{
         "description":"Button to accept the request of sending the anonymous analytics"
     },
-    "refuse_button_label":"Refuse    ",
+    "refuse_button_label":"Refuse",
     "@refuse":{
         "description":"Button to decline the request of sending the anonymous analytics"
     }

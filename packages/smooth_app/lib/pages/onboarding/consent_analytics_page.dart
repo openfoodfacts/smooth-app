@@ -6,6 +6,7 @@ import 'package:smooth_app/data_models/onboarding_loader.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 
 class ConsentAnalytics extends StatelessWidget {
@@ -32,23 +33,37 @@ class ConsentAnalytics extends StatelessWidget {
 
           SizedBox(height: size.height * 0.01),
 
-          _buildTextHeader(
-            context,
-            appLocalizations.consent_analytics_title,
+          Center(
+            child: Text(
+              appLocalizations.consent_analytics_title,
+              style: Theme.of(context).textTheme.displayMedium,
+            ),
           ),
 
           SizedBox(height: size.height * 0.04),
 
-          _buildTextBody(
-            context,
-            appLocalizations.consent_analytics_body1,
+          ConstrainedBox(
+            constraints: BoxConstraints(
+              maxWidth: size.width * 0.8,
+            ),
+            child: Text(
+              appLocalizations.consent_analytics_body1,
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.displaySmall,
+            ),
           ),
 
           SizedBox(height: size.height * 0.02),
 
-          _buildTextBody(
-            context,
-            appLocalizations.consent_analytics_body2,
+          ConstrainedBox(
+            constraints: BoxConstraints(
+              maxWidth: size.width * 0.8,
+            ),
+            child: Text(
+              appLocalizations.consent_analytics_body2,
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.displaySmall,
+            ),
           ),
 
           SizedBox(height: size.height * 0.02),
@@ -105,21 +120,8 @@ class ConsentAnalytics extends StatelessWidget {
     final Size size = MediaQuery.of(context).size;
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final UserPreferences userPreferences = context.watch<UserPreferences>();
-    const Color shadowColor = Color.fromARGB(144, 0, 0, 0);
-    return ElevatedButton.icon(
-      style: ElevatedButton.styleFrom(
-        fixedSize: Size(
-          size.width * 0.9,
-          size.height * 0.05,
-        ),
-        elevation: 2,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30.0),
-        ),
-        primary: btnColor,
-        shadowColor: shadowColor,
-      ),
-      onPressed: () {
+    return InkWell(
+      onTap: () {
         _analyticsLogic(
           isAccepted,
           userPreferences,
@@ -127,40 +129,40 @@ class ConsentAnalytics extends StatelessWidget {
           context,
         );
       },
-      icon: Icon(
-        icon,
-        color: WHITE_COLOR,
-        size: size.height * 0.05,
-      ),
-      label: Text(
-        label,
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-          color: WHITE_COLOR,
-          fontSize: size.height * 0.025,
+      child: Padding(
+        padding: EdgeInsets.fromLTRB(
+          size.width * 0.2,
+          0,
+          size.width * 0.2,
+          0,
         ),
-      ),
-    );
-  }
-
-  Widget _buildTextHeader(BuildContext context, String title) {
-    return Center(
-      child: Text(
-        title,
-        style: Theme.of(context).textTheme.displayMedium,
-      ),
-    );
-  }
-
-  Widget _buildTextBody(BuildContext context, String title) {
-    return ConstrainedBox(
-      constraints: BoxConstraints(
-        maxWidth: MediaQuery.of(context).size.width * 0.8,
-      ),
-      child: Text(
-        title,
-        textAlign: TextAlign.center,
-        style: Theme.of(context).textTheme.displaySmall,
+        child: SmoothCard(
+          color: btnColor,
+          elevation: 5,
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              minHeight: size.height * 0.04,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text(
+                  label,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: WHITE_COLOR,
+                    fontSize: size.height * 0.025,
+                  ),
+                ),
+                Icon(
+                  icon,
+                  color: WHITE_COLOR,
+                  size: size.height * 0.05,
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
