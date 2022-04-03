@@ -73,10 +73,7 @@
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   final Size size = MediaQuery.of(context).size;
-  final LocalDatabase localDatabase = context.watch&lt;LocalDatabase&gt;();
-  final UserPreferences userPreferences = context.watch&lt;UserPreferences&gt;();
   final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-  const Color shadowColor = Color.fromARGB(144, 0, 0, 0);
   const String assetName = &#39;assets&#47;onboarding&#47;analytics.svg&#39;;
   return Scaffold(
     body: Column(
@@ -94,15 +91,14 @@ Widget build(BuildContext context) {
 
         SizedBox(height: size.height * 0.01),
 
-        Align(
-          alignment: Alignment.center,
+        Center(
           child: Text(
             appLocalizations.consent_analytics_title,
             style: Theme.of(context).textTheme.displayMedium,
           ),
         ),
 
-        SizedBox(height: size.height * 0.034),
+        SizedBox(height: size.height * 0.04),
 
         ConstrainedBox(
           constraints: BoxConstraints(
@@ -115,7 +111,7 @@ Widget build(BuildContext context) {
           ),
         ),
 
-        SizedBox(height: size.height * 0.03),
+        SizedBox(height: size.height * 0.02),
 
         ConstrainedBox(
           constraints: BoxConstraints(
@@ -131,93 +127,23 @@ Widget build(BuildContext context) {
         SizedBox(height: size.height * 0.02),
 
         &#47;&#47; Authorize Button
-        InkWell(
-          borderRadius: CIRCULAR_BORDER_RADIUS,
-          onTap: () {
-            _analyticsLogic(true, userPreferences, localDatabase, context);
-          },
-          child: Ink(
-            height: size.height * 0.06,
-            width: size.width * 0.7,
-            decoration: BoxDecoration(
-              color: LIGHT_GREEN_COLOR,
-              borderRadius: CIRCULAR_BORDER_RADIUS,
-              boxShadow: &lt;BoxShadow&gt;[
-                BoxShadow(
-                  blurRadius: 3.0,
-                  color: shadowColor,
-                  offset: Offset(size.width * 0.004, size.height * 0.004),
-                )
-              ],
-            ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: &lt;Widget&gt;[
-                Text(
-                  appLocalizations.authorize_button_label,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: WHITE_COLOR,
-                      fontSize: size.height * 0.025),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: size.width * 0.02),
-                  child: Icon(
-                    Icons.check,
-                    color: WHITE_COLOR,
-                    size: size.height * 0.04,
-                  ),
-                )
-              ],
-            ),
-          ),
+        _buildButton(
+          context,
+          Colors.green,
+          appLocalizations.authorize_button_label,
+          Icons.check,
+          true,
         ),
 
-        SizedBox(height: size.height * 0.02),
+        SizedBox(height: size.height * 0.01),
 
-        &#47;&#47; Refuse Button
-        InkWell(
-          borderRadius: CIRCULAR_BORDER_RADIUS,
-          onTap: () {
-            _analyticsLogic(false, userPreferences, localDatabase, context);
-          },
-          child: Ink(
-            height: size.height * 0.06,
-            width: size.width * 0.7,
-            decoration: BoxDecoration(
-              color: RED_COLOR,
-              borderRadius: CIRCULAR_BORDER_RADIUS,
-              boxShadow: &lt;BoxShadow&gt;[
-                BoxShadow(
-                  blurRadius: 3.0,
-                  color: shadowColor,
-                  offset: Offset(size.width * 0.004, size.height * 0.004),
-                ),
-              ],
-            ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: &lt;Widget&gt;[
-                Text(
-                  appLocalizations.refuse_button_label,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: WHITE_COLOR,
-                      fontSize: size.height * 0.025),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: size.width * 0.02),
-                  child: Icon(
-                    Icons.close,
-                    color: WHITE_COLOR,
-                    size: size.height * 0.04,
-                  ),
-                )
-              ],
-            ),
-          ),
+        &#47;&#47; Reject button
+        _buildButton(
+          context,
+          Colors.red,
+          appLocalizations.refuse_button_label,
+          Icons.close,
+          false,
         ),
       ],
     ),
