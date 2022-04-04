@@ -57,7 +57,7 @@
         "description": "Looking for: ${BARCODE}"
     },
     "@Introduction screen": {},
-    "welcomeToOpenFoodFacts": "Ласкаво просимо в Open Food Facts",
+    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
     "whatIsOff": "Open Food Facts - це світова некомерційна організація, що заснована місцевими спільнотами.",
     "@whatIsOff": {
@@ -174,7 +174,7 @@
     "sign_up_page_producer_checkbox": "Я виробник продуктів харчування",
     "sign_up_page_producer_hint": "Виробник/бренд",
     "sign_up_page_producer_error_empty": "Будь ласка, введіть виробника або торгову марку",
-    "sign_up_page_subscribe_checkbox": "Я хотів би підписатися на розсилку від Open Food Facts (Ви завжди можете відписатися від розсилки)",
+    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
     "@Settings": {},
     "settingsTitle": "Налаштування",
     "@settingsTitle": {
@@ -202,7 +202,7 @@
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
     "support_join_slack": "Зверніться за допомогою на нашому каналі Slack",
-    "support_via_email": "Надішліть нам електронний лист",
+    "support_via_email": "Send us an e-mail",
     "termsOfUse": "Умови використання",
     "@termsOfUse": {},
     "about_this_app": "Про додаток",
@@ -254,7 +254,7 @@
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
     },
-    "contribute_to_get_rewards": "Допомагайте у забезпеченні доступності інформації про харчові продукти та отримуйте заохочувальні нагороди",
+    "contribute_to_get_rewards": "Help improve food transparency and get rewards",
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
@@ -264,7 +264,7 @@
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "Ваш Профіль",
-    "myPreferences_profile_subtitle": "Встановіть налаштування додатка та отримайте поради.",
+    "myPreferences_profile_subtitle": "Change app settings and get advice.",
     "myPreferences_settings_title": "Налаштування Додатку",
     "myPreferences_settings_subtitle": "Темний режим, Тема, ...",
     "myPreferences_food_title": "Харчові вподобання",
@@ -362,7 +362,7 @@
     "@missing_product": {},
     "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Будь ласка, зробіть наступні фотографії та система Open Food Facts допрацює те, що залишилось!",
+    "add_product_take_photos_descriptive": "Please take some photos and the Open Food Facts engine can work out the rest!",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Додайте інформацію про продукт",
     "@add_product_information_button_label": {},
@@ -457,7 +457,7 @@
         "description": "Confirmation, that the product data got canceled by the user"
     },
     "product_internet_error": "Неможливо отримати інформацію про цей продукт через помилку мережі.",
-    "cached_results_from": "Результати з кеш-пам'яті:",
+    "cached_results_from": "Show results from:",
     "@cached_results_from": {
         "description": "Cached results from: x time ago (time ago should not be added to the string)"
     },
@@ -488,7 +488,7 @@
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "Показник впливу на дозвілля Eco-Score враховує походження інгредієнтів. Будь ласка, зробіть фото інгредієнтів (перелік інгредієнтів та/або географічну характеристику або відредагуйте продукт) так, щоб вони були враховані.",
+    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
@@ -520,12 +520,12 @@
     "@clear": {
         "description": "Clears a product list"
     },
-    "really_clear": "Ви дійсно хочете очистити список?",
-    "product_compatibility_unknown": "Невідоме Поєднання Продукту",
+    "really_clear": "Do you really want to delete this list?",
+    "product_compatibility_unknown": "Compatibility Unknown",
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_incompatible": "Не співпадає",
+    "product_compatibility_incompatible": "Doesn't match",
     "@product_compatibility_incompatible": {
         "description": "Product compatibility summary title"
     },
@@ -541,35 +541,35 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural, =1{one day ago} other{{count} days ago}}",
+    "plural_ago_days": "{count,plural, one {} =1{one day ago} other{{count} days ago}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural, =1{one hour ago} other{{count} hours ago}}",
+    "plural_ago_hours": "{count,plural, one {} =1{one hour ago} other{{count} hours ago}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural, =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
+    "plural_ago_minutes": "{count,plural, one {} =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, =1{one month ago} other{{count} months ago}}",
+    "plural_ago_months": "{count,plural, one {} =1{one month ago} other{{count} months ago}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, =1{one week ago} other{{count} weeks ago}}",
+    "plural_ago_weeks": "{count,plural, one {} =1{one week ago} other{{count} weeks ago}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
@@ -583,7 +583,7 @@
             "count": {}
         }
     },
-    "compare_products_mode": "Режим Порівняння",
+    "compare_products_mode": "Порівняти",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },
@@ -595,15 +595,19 @@
     "faq": "FAQ",
     "discover": "Дізнатись більше",
     "how_to_contribute": "How to Contribute",
-    "main_app_color": "Main color of the app",
+    "main_app_color": "Theme",
     "@main_app_color": {
         "description": "Heading for the section to pick the main app color"
+    },
+    "hint_knowledge_panel_message": "Your can tap on any part of the card to get more details about what you see. Try it now!",
+    "@hint_knowledge_panel_message": {
+        "description": "Hint popup indicating the card is clickable during onboarding"
     },
     "consent_analytics_title": "Відправити статистику анонімно",
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Help the Open Food Facts volunteer to improve the app.You decide if you want to send anonymous analytics.",
+    "consent_analytics_body1": "Help the Open Food Facts volunteer to improve the app. You decide if you want to send anonymous analytics.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
