@@ -13,23 +13,20 @@ class KnowledgePanelTitleCard extends StatelessWidget {
 
   final TitleElement knowledgePanelTitleElement;
   final Evaluation? evaluation;
-  
+
   @override
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
     Color? colorFromEvaluation;
-    Color? iconColorFromEvaluation;
     if (evaluation != null &&
         (knowledgePanelTitleElement.iconColorFromEvaluation ?? false)) {
       colorFromEvaluation = _getColorFromEvaluation(evaluation!);
-      iconColorFromEvaluation = _getColorFromEvaluation(evaluation!);
     }
     if (evaluation != null &&
         _getColorFromEvaluation(evaluation!) == null &&
         themeData.brightness == Brightness.dark) {
-      colorFromEvaluation = Colors.white;
-      iconColorFromEvaluation = colorScheme.primary;
+      colorFromEvaluation = colorScheme.onBackground;
     }
     List<Widget> iconWidget;
     if (knowledgePanelTitleElement.iconUrl != null) {
@@ -41,7 +38,7 @@ class KnowledgePanelTitleCard extends StatelessWidget {
               iconUrl: knowledgePanelTitleElement.iconUrl,
               width: 36,
               height: 36,
-              color: iconColorFromEvaluation,
+              color: colorFromEvaluation,
             ),
           ),
         ),
