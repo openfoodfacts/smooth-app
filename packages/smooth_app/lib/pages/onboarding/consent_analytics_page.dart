@@ -6,6 +6,7 @@ import 'package:smooth_app/data_models/onboarding_loader.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 
 class ConsentAnalytics extends StatelessWidget {
@@ -14,10 +15,7 @@ class ConsentAnalytics extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    final UserPreferences userPreferences = context.watch<UserPreferences>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-    const Color shadowColor = Color.fromARGB(144, 0, 0, 0);
     const String assetName = 'assets/onboarding/analytics.svg';
     return Scaffold(
       body: Column(
@@ -35,15 +33,14 @@ class ConsentAnalytics extends StatelessWidget {
 
           SizedBox(height: size.height * 0.01),
 
-          Align(
-            alignment: Alignment.center,
+          Center(
             child: Text(
               appLocalizations.consent_analytics_title,
               style: Theme.of(context).textTheme.displayMedium,
             ),
           ),
 
-          SizedBox(height: size.height * 0.034),
+          SizedBox(height: size.height * 0.04),
 
           ConstrainedBox(
             constraints: BoxConstraints(
@@ -56,7 +53,7 @@ class ConsentAnalytics extends StatelessWidget {
             ),
           ),
 
-          SizedBox(height: size.height * 0.03),
+          SizedBox(height: size.height * 0.02),
 
           ConstrainedBox(
             constraints: BoxConstraints(
@@ -72,93 +69,23 @@ class ConsentAnalytics extends StatelessWidget {
           SizedBox(height: size.height * 0.02),
 
           // Authorize Button
-          InkWell(
-            borderRadius: CIRCULAR_BORDER_RADIUS,
-            onTap: () {
-              _analyticsLogic(true, userPreferences, localDatabase, context);
-            },
-            child: Ink(
-              height: size.height * 0.06,
-              width: size.width * 0.7,
-              decoration: BoxDecoration(
-                color: LIGHT_GREEN_COLOR,
-                borderRadius: CIRCULAR_BORDER_RADIUS,
-                boxShadow: <BoxShadow>[
-                  BoxShadow(
-                    blurRadius: 3.0,
-                    color: shadowColor,
-                    offset: Offset(size.width * 0.004, size.height * 0.004),
-                  )
-                ],
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    appLocalizations.authorize_button_label,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: WHITE_COLOR,
-                        fontSize: size.height * 0.025),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: size.width * 0.02),
-                    child: Icon(
-                      Icons.check,
-                      color: WHITE_COLOR,
-                      size: size.height * 0.04,
-                    ),
-                  )
-                ],
-              ),
-            ),
+          _buildButton(
+            context,
+            Colors.green,
+            appLocalizations.authorize_button_label,
+            Icons.check,
+            true,
           ),
 
-          SizedBox(height: size.height * 0.02),
+          SizedBox(height: size.height * 0.01),
 
-          // Refuse Button
-          InkWell(
-            borderRadius: CIRCULAR_BORDER_RADIUS,
-            onTap: () {
-              _analyticsLogic(false, userPreferences, localDatabase, context);
-            },
-            child: Ink(
-              height: size.height * 0.06,
-              width: size.width * 0.7,
-              decoration: BoxDecoration(
-                color: RED_COLOR,
-                borderRadius: CIRCULAR_BORDER_RADIUS,
-                boxShadow: <BoxShadow>[
-                  BoxShadow(
-                    blurRadius: 3.0,
-                    color: shadowColor,
-                    offset: Offset(size.width * 0.004, size.height * 0.004),
-                  ),
-                ],
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    appLocalizations.refuse_button_label,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: WHITE_COLOR,
-                        fontSize: size.height * 0.025),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: size.width * 0.02),
-                    child: Icon(
-                      Icons.close,
-                      color: WHITE_COLOR,
-                      size: size.height * 0.04,
-                    ),
-                  )
-                ],
-              ),
-            ),
+          // Reject button
+          _buildButton(
+            context,
+            Colors.red,
+            appLocalizations.refuse_button_label,
+            Icons.close,
+            false,
           ),
         ],
       ),
@@ -180,6 +107,63 @@ class ConsentAnalytics extends StatelessWidget {
     OnboardingFlowNavigator(userPreferences).navigateToPage(
       context,
       OnboardingFlowNavigator.getNextPage(OnboardingPage.CONSENT_PAGE),
+    );
+  }
+
+  Widget _buildButton(
+    BuildContext context,
+    Color btnColor,
+    String label,
+    IconData icon,
+    bool isAccepted,
+  ) {
+    final Size size = MediaQuery.of(context).size;
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
+    return InkWell(
+      onTap: () {
+        _analyticsLogic(
+          isAccepted,
+          userPreferences,
+          localDatabase,
+          context,
+        );
+      },
+      child: Padding(
+        padding: EdgeInsets.fromLTRB(
+          size.width * 0.2,
+          0,
+          size.width * 0.2,
+          0,
+        ),
+        child: SmoothCard(
+          color: btnColor,
+          elevation: 5,
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              minHeight: size.height * 0.04,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text(
+                  label,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: WHITE_COLOR,
+                    fontSize: size.height * 0.025,
+                  ),
+                ),
+                Icon(
+                  icon,
+                  color: WHITE_COLOR,
+                  size: size.height * 0.05,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
