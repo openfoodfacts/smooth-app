@@ -50,8 +50,6 @@ class PageManagerState extends State<PageManager> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-    final ThemeData themeData = Theme.of(context);
-    final bool brightnessCheck = themeData.brightness == Brightness.light;
     return WillPopScope(
       onWillPop: () async {
         final bool isFirstRouteInCurrentTab =
@@ -72,7 +70,7 @@ class PageManagerState extends State<PageManager> {
           _buildOffstageNavigator(BottomNavigationTab.History),
         ]),
         bottomNavigationBar: BottomNavigationBar(
-          unselectedItemColor: brightnessCheck ? Colors.black : Colors.grey,
+          unselectedItemColor: Theme.of(context).primaryColorLight,
           showSelectedLabels: false,
           showUnselectedLabels: false,
           selectedItemColor: Colors.white,
