@@ -254,6 +254,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                                     style: themeData.textTheme.subtitle1!
                                         .copyWith(color: widget.mainColor)),
                                 style: TextButton.styleFrom(
+                                  primary: widget.mainColor,
                                   textStyle: TextStyle(
                                     color: widget.mainColor,
                                   ),
@@ -392,6 +393,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
       Padding(
         padding: const EdgeInsets.only(top: 28.0),
         child: IconButton(
+          splashColor: color,
           icon: Icon(
             ConstantIcons.instance.getBackIcon(),
             color: color,
