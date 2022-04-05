@@ -17,14 +17,14 @@ class SmoothAlertDialog extends StatelessWidget {
   const SmoothAlertDialog({
     this.title,
     this.close = true,
-    this.height,
+    this.maxHeight,
     required this.body,
     this.actions,
   });
 
   final String? title;
   final bool close;
-  final double? height;
+  final double? maxHeight;
   final Widget body;
   final List<SmoothActionButton>? actions;
 
@@ -36,13 +36,14 @@ class SmoothAlertDialog extends StatelessWidget {
         borderRadius: ROUNDED_BORDER_RADIUS,
       ),
       content: ConstrainedBox(
-        constraints: BoxConstraints(maxHeight: height ?? double.infinity),
+        constraints:
+            BoxConstraints(maxHeight: maxHeight ?? double.infinity * 0.5),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             if (title != null) ...<Widget>[
               SizedBox(
-                height: 29,
+                height: 32,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,

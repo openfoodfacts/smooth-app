@@ -7,13 +7,7 @@ import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
-
-class ListHelper {
-  ListHelper({required this.onTap, required this.title, this.icon});
-  String title;
-  void Function() onTap;
-  Icon? icon;
-}
+import '../../helpers/list_helper.dart';
 
 class UserContributionView extends StatelessWidget {
   @override
@@ -90,7 +84,7 @@ class UserContributionView extends StatelessWidget {
         final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
         return SmoothAlertDialog(
           close: false,
-          height: MediaQuery.of(context).size.height * 0.3,
+          maxHeight: MediaQuery.of(context).size.height * 0.35,
           title: appLocalizations.contribute_improve_header,
           body: Column(
             children: <Widget>[
@@ -130,7 +124,7 @@ class UserContributionView extends StatelessWidget {
       builder: (BuildContext context) {
         final AppLocalizations applocalization = AppLocalizations.of(context)!;
         return SmoothAlertDialog(
-          height: MediaQuery.of(context).size.height * 0.3,
+          maxHeight: MediaQuery.of(context).size.height * 0.35,
           title: applocalization.contribute_sw_development,
           body: Column(
             children: <Widget>[
@@ -192,7 +186,7 @@ class UserContributionView extends StatelessWidget {
         final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
         return SmoothAlertDialog(
           title: appLocalizations.contribute_translate_header,
-          height: MediaQuery.of(context).size.height * 0.25,
+          maxHeight: MediaQuery.of(context).size.height * 0.25,
           body: Column(
             children: <Widget>[
               Text(
@@ -229,7 +223,7 @@ class UserContributionView extends StatelessWidget {
       builder: (BuildContext context) {
         return SmoothAlertDialog(
           title: AppLocalizations.of(context)!.contributors,
-          height: MediaQuery.of(context).size.height * 0.45,
+          maxHeight: MediaQuery.of(context).size.height * 0.45,
           body: FutureBuilder<http.Response>(
             future: http.get(
               Uri.https(
