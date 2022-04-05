@@ -73,24 +73,35 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                           });
                           retakenPhoto.delete();
                         }),
-                    SmoothActionButton(
-                      text: _getConfirmButtonText(
-                        context,
-                        widget.imageType,
+                    const SizedBox(width:10),    
+                    Flexible(
+                      child: SizedBox(
+                        child: Tooltip(
+                          message: _getConfirmButtonText(
+                              context,
+                              widget.imageType,
+                            ),
+                          child: SmoothActionButton(
+                            text: _getConfirmButtonText(
+                              context,
+                              widget.imageType,
+                            ),
+                            onPressed: () async {
+                              final bool isPhotoUploaded =
+                                  await uploadCapturedPicture(
+                                context,
+                                barcode: widget.barcode,
+                                imageField: widget.imageType,
+                                imageUri: photo.uri,
+                              );
+                              Navigator.pop(
+                                context,
+                                isPhotoUploaded ? photo : null,
+                              );
+                            },
+                          ),
+                        ),
                       ),
-                      onPressed: () async {
-                        final bool isPhotoUploaded =
-                            await uploadCapturedPicture(
-                          context,
-                          barcode: widget.barcode,
-                          imageField: widget.imageType,
-                          imageUri: photo.uri,
-                        );
-                        Navigator.pop(
-                          context,
-                          isPhotoUploaded ? photo : null,
-                        );
-                      },
                     ),
                   ],
                 ),
