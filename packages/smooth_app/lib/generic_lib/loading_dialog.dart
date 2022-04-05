@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -18,12 +17,14 @@ class LoadingDialog<T> {
     required final BuildContext context,
     required final Future<T> future,
     final String? title,
-  }) async =>
-      LoadingDialog<T>._()._run(
-        context: context,
-        future: future,
-        title: title ?? 'Downloading data', // TODO(monsieurtanuki): localize
-      );
+  }) {
+    final AppLocalizations? appLocalizations = AppLocalizations.of(context);
+    return LoadingDialog<T>._()._run(
+      context: context,
+      future: future,
+      title: title ?? appLocalizations!.loading_dialog_default_title,
+    );
+  }
 
   /// Shows an loading error dialog.
   ///
@@ -34,20 +35,25 @@ class LoadingDialog<T> {
   }) async =>
       showDialog<void>(
         context: context,
-        builder: (BuildContext context) => SmoothAlertDialog(
-          close: false,
-          body: ListTile(
-            leading: const Icon(Icons.error),
-            title: Text(title ??
-                'Could not download data'), // TODO(monsieurtanuki): localize
-          ),
-          actions: <SmoothActionButton>[
-            SmoothActionButton(
-              text: AppLocalizations.of(context)!.close,
-              onPressed: () => Navigator.pop(context),
+        builder: (BuildContext context) {
+          final AppLocalizations? appLocalizations =
+              AppLocalizations.of(context);
+          return SmoothAlertDialog(
+            close: false,
+            body: ListTile(
+              leading: const Icon(Icons.error),
+              title: Text(
+                title ?? appLocalizations!.loading_dialog_default_error_message,
+              ),
             ),
-          ],
-        ),
+            actions: <SmoothActionButton>[
+              SmoothActionButton(
+                text: appLocalizations!.close,
+                onPressed: () => Navigator.pop(context),
+              ),
+            ],
+          );
+        },
       );
 
   /// Displays "downloading" dialog while actually downloading
@@ -62,6 +68,7 @@ class LoadingDialog<T> {
           future.then<void>(
             (final T value) => _popDialog(context, value),
           );
+          // TODO(monsieurtanuki): is that safe? If the future finishes before the "return" call?
           return _getDialog(context, title);
         },
       );
@@ -72,29 +79,28 @@ class LoadingDialog<T> {
       return;
     }
     _popEd = true;
-    // To avoid returning before the alertDialog is build
-    SchedulerBinding.instance?.addPostFrameCallback((_) {
-      // Here we use the root navigator so that we can pop dialog while using multiple navigators.
-      Navigator.of(context, rootNavigator: true).pop(value);
-    });
+    // Here we use the root navigator so that we can pop dialog while using multiple navigators.
+    Navigator.of(context, rootNavigator: true).pop(value);
   }
 
   /// Displayed dialog during future.
   Widget _getDialog(
     final BuildContext context,
     final String title,
-  ) =>
-      SmoothAlertDialog(
-        close: false,
-        body: ListTile(
-          leading: const CircularProgressIndicator(),
-          title: Text(title),
+  ) {
+    final AppLocalizations? appLocalizations = AppLocalizations.of(context);
+    return SmoothAlertDialog(
+      close: false,
+      body: ListTile(
+        leading: const CircularProgressIndicator(),
+        title: Text(title),
+      ),
+      actions: <SmoothActionButton>[
+        SmoothActionButton(
+          text: appLocalizations!.stop,
+          onPressed: () => _popDialog(context, null),
         ),
-        actions: <SmoothActionButton>[
-          SmoothActionButton(
-            text: AppLocalizations.of(context)!.stop,
-            onPressed: () => _popDialog(context, null),
-          ),
-        ],
-      );
+      ],
+    );
+  }
 }

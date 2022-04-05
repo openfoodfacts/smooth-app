@@ -88,9 +88,11 @@ class _SignUpPageState extends State<SignUpPage> {
                 if (value == null || value.isEmpty) {
                   return appLocalizations.sign_up_page_email_error_empty;
                 }
-                if (!UserManagementHelper.isEmailValid(value)) {
+                _emailController.text = value.trim();
+                if (!UserManagementHelper.isEmailValid(value.trim())) {
                   return appLocalizations.sign_up_page_email_error_invalid;
                 }
+
                 return null;
               },
             ),
@@ -106,7 +108,8 @@ class _SignUpPageState extends State<SignUpPage> {
                 if (value == null || value.isEmpty) {
                   return appLocalizations.sign_up_page_username_error_empty;
                 }
-                if (!UserManagementHelper.isUsernameValid(value)) {
+                _userController.text = value.trim();
+                if (!UserManagementHelper.isUsernameValid(value.trim())) {
                   return appLocalizations.sign_up_page_username_description;
                 }
                 return null;

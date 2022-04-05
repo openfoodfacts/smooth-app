@@ -1,12 +1,12 @@
 {
     "@Utils": {},
-    "yes": "Po",
+    "yes": "Po ",
     "@yes": {},
     "add": "Shto",
     "@add": {},
-    "okay": "Okay",
+    "okay": "Ne rregull",
     "@okay": {},
-    "applyButtonText": "Apply",
+    "applyButtonText": "Apliko",
     "@applyButtonText": {},
     "next_label": "Next",
     "@next_label": {
@@ -18,31 +18,31 @@
     "@cancel": {},
     "close": "Close",
     "@close": {},
-    "no": "No",
+    "no": "Jo",
     "@no": {},
-    "stop": "Stop",
+    "stop": "Ndalo",
     "@stop": {},
     "finish": "Finish",
     "@finish": {},
-    "reset_food_prefs": "Reset food preferences",
+    "reset_food_prefs": "Rinis, rivendos preferencat ushqimore",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
     },
     "error": "Something went wrong",
     "@error": {},
-    "error_occurred": "An error occurred",
+    "error_occurred": "Nje gabim ka ndodhur",
     "@error_occurred": {},
-    "featureInProgress": "We're still working on this feature, stay tuned",
+    "featureInProgress": "Ne jemi ende duke punuar mbi kete funksion, vecori, qendroni vigjilent, ne sinkron",
     "@featureInProgress": {},
-    "label_web": "View on the Web",
+    "label_web": "Shiko ne web",
     "@label_web": {},
     "learnMore": "Learn more",
     "@learnMore": {},
-    "incompatible": "Incompatible",
+    "incompatible": "E papajtueshme",
     "@incompatible": {
         "description": "Short label for product list view: the product is incompatible with your preferences"
     },
-    "compatible": "Compatible",
+    "compatible": "E perputhshme",
     "@compatible": {
         "description": "Short label for product list view: the product is compatible with your preferences"
     },
@@ -52,41 +52,43 @@
     },
     "licenses": "Licences",
     "@licenses": {},
-    "looking_for": "Looking for",
+    "looking_for": "Ne kerkim te",
     "@looking_for": {
         "description": "Looking for: ${BARCODE}"
     },
     "@Introduction screen": {},
-    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
+    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "whatIsOff": "Open Food Facts eshte nje organizate jo fitimprurese globale e fuqizuar dhe mundesuar nga komunitete lokale.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Choose foods that are good for you and the planet.",
+    "offUtility": "Perzgjidh ushqime qe jane te mira per ty dhe planetin.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
-    "productDataUtility": "See the food data relevant to your preferences.",
+    "productDataUtility": "Shihni te dhenat ushqimore qe jane te rendesishme lidhur me pelqyeshmerite tuaja.",
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."
     },
-    "healthCardUtility": "Choose foods that are good for you.",
+    "healthCardUtility": "Perzgjidh ushqime qe jane te mira per ty.\n",
     "@healthCardUtility": {
         "description": "Description of what a user can use the health data in a product for."
     },
-    "ecoCardUtility": "Choose foods that are good for the planet.",
+    "ecoCardUtility": "Perzgjidh ushqime qe jane te mira per planetin.",
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
-    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
-    "incorrect_credentials": "Incorrect username or password.",
+    "sign_in_text": "Hyni ne llogarine tuaj ne Open Food Facts per te ruajtur kontributet, ndihmesat tuaja. ",
+    "incorrect_credentials": "Emri i perdoruesit ose fjalekalimi i pasakte",
     "login": "Login",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
-    "create_account": "Create account",
+    "login_page_username_or_email": "Please enter username or e-mail",
+    "login_page_password_error_empty": "Ju lutem vendosni nje fjalekalim.",
+    "create_account": "Krijo nje llogari",
     "@create_account": {
         "description": "Button label: Opens a page where a new user can register"
     },
@@ -94,20 +96,20 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_out": "Sign out",
+    "sign_out": "Dilni",
     "@sign_out": {
         "description": "Button label: For sign out"
     },
-    "sign_out_confirmation": "Are you sure you want to sign out?",
+    "sign_out_confirmation": "Jeni te sigurt qe doni te dilni?",
     "@sign_out_confirmation": {
         "description": "Pop up title: Reassuring if the user really want to sign out"
     },
     "password": "Password",
-    "forgot_password": "Forgot password",
+    "forgot_password": "Keni harruar fjalekalimin",
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset e-mail can be requested"
     },
-    "view_profile": "View profile",
+    "view_profile": "Shiko profilin",
     "@view_profile": {
         "description": "Button label: For to show your account"
     },
@@ -115,48 +117,48 @@
     "@reset_password": {
         "description": "Forgot password page title"
     },
-    "reset_password_explanation_text": "In case of a forgotten password, enter your username or e-mail address to receive instructions for a password reset. Also, remember to check the Spam folder.",
-    "username_or_email": "Username or e-mail",
+    "reset_password_explanation_text": "Ne rast te nje fjalekalimi te harruar, vendosni emrin tuaj te perdoruesit ose adresen e emailit per te marre udhezime per nje rivendosje te fjalekalimit.Gjithashtu, kini parasysh te kontrolloni kartelen spam.",
+    "username_or_email": "Emri i perdoruesit ose adresa e email-it",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
-    "reset_password_done": "An e-mail with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
-    "send_reset_password_mail": "Change password",
+    "reset_password_done": "Nje email me nje link per te rivendosur fjalekalimin tuaj eshte derguar ne adresen tuaj te email-it te lidhur me llogarine tuaj. Kontrolloni gjithashtu edhe kartelen spam",
+    "send_reset_password_mail": "Ndrysho fjalekalimin",
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset e-mail request"
     },
-    "enter_some_text": "Please enter some text",
+    "enter_some_text": "Ju lutem vendosni tekstin ",
     "@enter_some_text": {
         "description": "Error when a required text field is empty"
     },
-    "sign_up_page_title": "Sign Up",
+    "sign_up_page_title": "Regjistrohu",
     "@sign_up_page_title": {
         "description": "Header"
     },
-    "sign_up_page_action_button": "Sign Up",
+    "sign_up_page_action_button": "Regjistrohu",
     "@sign_up_page_action_button": {
         "description": "Button for signing up"
     },
-    "sign_up_page_action_doing_it": "Signing up...",
+    "sign_up_page_action_doing_it": "Duke u regjistruar...",
     "@sign_up_page_action_doing_it": {
         "description": "Progress indicator dialog during the actual signing up process"
     },
-    "sign_up_page_action_ok": "Congratulations! Your account has just been created.",
-    "sign_up_page_display_name_hint": "Display Name",
+    "sign_up_page_action_ok": "Pergezime! Llogaria juaj sapo eshte krijuar.",
+    "sign_up_page_display_name_hint": "Name",
     "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
     "sign_up_page_email_hint": "E-mail",
-    "sign_up_page_email_error_empty": "E-mail is required",
-    "sign_up_page_email_error_invalid": "This e-mail is invalid",
+    "sign_up_page_email_error_empty": "Adresa e postes elektronike kerkohet, eshte e detyrueshme te paraqitet.",
+    "sign_up_page_email_error_invalid": "Kjo adrese email-i eshte e pavlefshme, pasakte.",
     "sign_up_page_username_hint": "Username",
-    "sign_up_page_username_error_empty": "Please enter a username",
-    "sign_up_page_username_error_invalid": "Please enter a valid username",
-    "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters",
+    "sign_up_page_username_error_empty": "Ju lutem vendosni emrin e perdoruesit",
+    "sign_up_page_username_error_invalid": "Ju lutem vendsoni nje emer perdoruesi te vlefshem , te sakte.",
+    "sign_up_page_username_description": "Emri i perdoruesit nuk duhet te permbaje  hapesira, germa te medha apo karaktere te vecanta.",
     "sign_up_page_password_hint": "Password",
-    "sign_up_page_password_error_empty": "Please enter a password",
-    "sign_up_page_password_error_invalid": "Please enter a valid password (at least 6 characters)",
-    "sign_up_page_confirm_password_hint": "Confirm Password",
-    "sign_up_page_confirm_password_error_empty": "Please confirm the password",
-    "sign_up_page_confirm_password_error_invalid": "Passwords don't match",
+    "sign_up_page_password_error_empty": "Ju lutem vendosni nje fjalekalim.",
+    "sign_up_page_password_error_invalid": "Ju lutemi shkruani një fjalëkalim të vlefshëm (të paktën 6 karaktere)",
+    "sign_up_page_confirm_password_hint": "Konfirmoni fjalekalimin.",
+    "sign_up_page_confirm_password_error_empty": "Ju lutem konfirmoni fjalekalimin.",
+    "sign_up_page_confirm_password_error_invalid": "Fjalekalimet nuk perputhen",
     "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
@@ -165,24 +167,24 @@
     "@donate_url": {
         "description": "Please insert the right url from the website here."
     },
-    "sign_up_page_agree_error_invalid": "When creating an account, agreeing to the Terms of Use is mandatory, however, anonymous contributions can still be made through the app",
+    "sign_up_page_agree_error_invalid": "Kur krijoni një llogari, pranimi i kushteve të përdorimit është i detyrueshëm, megjithatë, kontributet anonime mund të bëhen ende përmes aplikacionit",
     "@sign_up_page_agree_error_invalid": {
         "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
     },
-    "sign_up_page_producer_checkbox": "I am a food producer",
-    "sign_up_page_producer_hint": "Producer/brand",
-    "sign_up_page_producer_error_empty": "Please enter a producer or a brand name",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at all time)",
+    "sign_up_page_producer_checkbox": "Une jam nje prodhues ushqimor.",
+    "sign_up_page_producer_hint": "Prodhuesi/marka",
+    "sign_up_page_producer_error_empty": "Ju lutemi shkruani një prodhues ose një emër marke",
+    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
     "@Settings": {},
     "settingsTitle": "Settings",
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
-    "darkmode": "Darkmode",
+    "darkmode": "Modalitet i erresuar.",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
-    "darkmode_dark": "Dark",
+    "darkmode_dark": "I erret.",
     "@darkmode_dark": {
         "description": "Indicator inside the darkmode switch"
     },
@@ -190,7 +192,7 @@
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch"
     },
-    "thanks_for_contributing": "Thanks for contributing",
+    "thanks_for_contributing": "Ju faleminderit per kontributin.",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
@@ -199,11 +201,11 @@
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
-    "support_join_slack": "Ask for help in our Slack channel",
-    "support_via_email": "Send us a e-mail",
+    "support_join_slack": "Kerkoni ndihme ne kanalin tone Slack.",
+    "support_via_email": "Send us an e-mail",
     "termsOfUse": "Terms of use",
     "@termsOfUse": {},
-    "about_this_app": "About this app",
+    "about_this_app": "Mbi kete aplikacion",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
     },
@@ -212,13 +214,13 @@
     "@contribute": {
         "description": "Button label: Shows multiple ways how users can contribute to OFF"
     },
-    "contribute_sw_development": "Software development",
+    "contribute_sw_development": "Zhvillim software-i",
     "@contribute_sw_development": {
         "description": "Button label + page title: Ways to help"
     },
-    "contribute_develop_text": "The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.",
+    "contribute_develop_text": "Kodi për çdo produkt Open Food Facts është i disponueshëm në GitHub. Jeni të mirëpritur të ripërdorni kodin (është me burim të hapur) dhe të na ndihmoni ta përmirësojmë atë, për të gjithë, në të gjithë planetin.",
     "@contribute_develop_text": {},
-    "contribute_develop_text_2": "You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.",
+    "contribute_develop_text_2": "Ju mund te beheni pjese e dhomes se bisedes Open Food Facts Slack, e cila eshte menyra me e preferuar per te bere ,adresuar pyetje.",
     "@contribute_develop_text_2": {},
     "contribute_donate_header": "Donate to Open Food Facts",
     "@contribute_donate_header": {},
@@ -226,77 +228,77 @@
     "@contribute_improve_ProductsToBeCompleted": {
         "description": "Button label: Shows a list of products which aren't completed"
     },
-    "contribute_improve_header": "Improving",
+    "contribute_improve_header": "Duke u permiresuar.\n",
     "@contribute_improve_header": {
         "description": "Button label + page title: Ways to improve the database"
     },
-    "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ",
+    "contribute_improve_text": "Baza e te dhenave eshte thelbi i projektit. Eshte e thjeshte dhe shume e shpejte per t'ju ardhur ne ndihme. Ju mund te shkarkoni aplikacionin celular per telefonin tuaj dhe te filloni te shtoni ose permiresoni, produktet.",
     "@contribute_improve_text": {},
-    "contribute_translate_header": "Translate",
+    "contribute_translate_header": "PERKTHE",
     "@contribute_translate_header": {
         "description": "Button label + pop up window title: Shows information about helping by translating"
     },
-    "contribute_translate_link_text": "Start Translating",
+    "contribute_translate_link_text": "Filloni te perktheni",
     "@contribute_translate_link_text": {
         "description": "Button label: Opens the Crowdin translation portal"
     },
-    "contribute_translate_text": "Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.",
+    "contribute_translate_text": "Open Food Facts eshte nje projekt global, qe permban produkte nga me shume se 160 vende te botes. Open Food Facts eshte perkthyer ne me shume se dhjetera gjuhe, me permbajtje qe zhvillohet vazhdimisht.",
     "@contribute_translate_text": {},
-    "contribute_translate_text_2": "Translations is one of the key tasks of the project",
+    "contribute_translate_text_2": "Perkthimet jane nje nga detyrat kyce te projektit.",
     "@contribute_translate_text_2": {},
-    "tap_to_answer": "Tap here to answer questions",
+    "tap_to_answer": "Trokisni ketu per t'ju pergjigjur pyetjeve.",
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "saving_answer": "Saving your answer",
+    "saving_answer": "Duke ruajtur pergjigjen tuaj.",
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
     },
-    "contribute_to_get_rewards": "Help food transparency and get reward badges",
+    "contribute_to_get_rewards": "Help improve food transparency and get rewards",
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
     "@Personal preferences": {},
-    "myPreferences": "My preferences",
+    "myPreferences": "Parapelqimet e mia",
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
-    "myPreferences_profile_title": "Your Profile",
-    "myPreferences_profile_subtitle": "Set app settings and find out advices.",
-    "myPreferences_settings_title": "App Settings",
-    "myPreferences_settings_subtitle": "Dark mode, Theme, ...",
-    "myPreferences_food_title": "Food Preferences",
-    "myPreferences_food_subtitle": "Choose what information about food matters most to you.",
-    "confirmResetPreferences": "Reset your food preferences?",
+    "myPreferences_profile_title": "Profili juaj",
+    "myPreferences_profile_subtitle": "Change app settings and get advice.",
+    "myPreferences_settings_title": "Parametrat e aplikacionit",
+    "myPreferences_settings_subtitle": "Modaliteti i errët, Tema, ...",
+    "myPreferences_food_title": "Preferencat ushqimore",
+    "myPreferences_food_subtitle": "Zgjidhni cfare informacioni rreth ushqimit eshte me i rendesishmi per ju.",
+    "confirmResetPreferences": "Rinis, rivendos preferencat ushqimore?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
     },
-    "myPersonalizedRanking": "My personalized ranking",
+    "myPersonalizedRanking": "Renditja ime e personalizuar",
     "@myPersonalizedRanking": {
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
     "ranking_tab_all": "All",
-    "ranking_subtitle_match_yes": "A great match for you",
-    "ranking_subtitle_match_no": "Very poor match",
-    "ranking_subtitle_match_maybe": "Unknown match",
-    "reloaded_with_new_preferences": "Reloaded with new preferences",
+    "ranking_subtitle_match_yes": "Nje pershtatje, perputhje e madhe  per ju.",
+    "ranking_subtitle_match_no": "Nje pershtatje shume e dobet ",
+    "ranking_subtitle_match_maybe": "Nje pershtatje e panjohur",
+    "reloaded_with_new_preferences": "E rimbushur me preferenca te reja",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
     },
     "@other": {},
-    "profile_navbar_label": "Profile",
+    "profile_navbar_label": "Profili",
     "@profile_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "scan_navbar_label": "Profile",
+    "scan_navbar_label": "Search",
     "@scan_navbar_label": {
-        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+        "description": "BottomNavigationBarLabel: For the searching of products"
     },
-    "history_navbar_label": "Profile",
+    "history_navbar_label": "History",
     "@history_navbar_label": {
-        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+        "description": "BottomNavigationBarLabel: For the history and compare mode"
     },
-    "category": "Filter by category",
+    "category": "Filtruar sipas kategorise",
     "@category": {
         "description": "From a product list, there's a category filter: this is its title"
     },
@@ -304,8 +306,8 @@
     "@category_al": {
         "description": "Top meta-entry on a category filter"
     },
-    "category_search": "(category search)",
-    "filter": "Filter",
+    "category_search": "(kërkimi i kategorisë)",
+    "filter": "Filtro",
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
@@ -317,265 +319,308 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Tap to see more info...",
+    "tab_for_more": "Trokit per te pare me shume informacion",
     "@Product": {},
     "product": "Product",
     "@product": {},
-    "unknownBrand": "Unknown brand",
+    "unknownBrand": "Markë e panjohur",
     "@unknownBrand": {},
-    "unknownProductName": "Unknown product name",
+    "unknownProductName": "Emer i panjohur produkti.",
     "@unknownProductName": {},
-    "label_refresh": "Refresh",
+    "label_refresh": "Rifresko.",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
-    "image": "Image",
-    "front_photo": "Front photo",
+    "image": "Figura, imazhi",
+    "front_photo": "Fotoja ballore",
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
     },
     "ingredients": "Përbërësit",
     "@ingredients": {},
-    "ingredients_photo": "Ingredients photo",
+    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen, use parentheses for ingredients of an ingredient, and indicate allergens between underscores.",
+    "ingredients_editing_error": "Failed to save the ingredients.",
+    "ingredients_editing_image_error": "Failed to get a new ingredients image.",
+    "ingredients_editing_title": "Edit Ingredients",
+    "ingredients_photo": "Foto e perberesve",
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
-    "nutrition": "Nutrition",
+    "nutrition": "Vlerat ushqyese",
     "@nutrition": {},
-    "nutrition_facts_photo": "Nutrition facts photo",
+    "nutrition_facts_photo": "Foto e fakteve ushqyese",
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
     },
-    "packaging_information": "Packaging information",
+    "packaging_information": "Informacion i paketimit",
     "@packaging_information": {
         "description": "Button label: For adding a picture of the packaging of a product"
     },
-    "packaging_information_photo": "Packaging information photo",
+    "packaging_information_photo": "Foto e informacionit te paketimit.",
     "@packaging_information_photo": {},
-    "missing_product": "You found a new product!",
+    "missing_product": "Ju gjetet nje produkt te ri!",
     "@missing_product": {},
-    "add_product_take_photos": "Take photos of the packaging to add this product to our database.",
+    "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Please take the following photos and the Open Food Facts engine can work out the rest!",
+    "add_product_take_photos_descriptive": "Please take some photos and the Open Food Facts engine can work out the rest!",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Add product information",
     "@add_product_information_button_label": {},
-    "new_product": "New Product",
+    "new_product": "Nje produkt i ri.",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Front packaging photo",
+    "front_packaging_photo_button_label": "Foto e paketimit te perparme, ballor.",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Confirm Front packaging photo",
+    "confirm_front_packaging_photo_button_label": "Konfirmoni foton e paketimit, ambalazhimit ballor.",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front packaging that user just took."
     },
-    "front_photo_uploaded": "Front photo uploaded",
+    "front_photo_uploaded": "Fotoja e perparme, ballore u ngarkua.",
     "@front_photo_uploaded": {},
-    "ingredients_photo_button_label": "Ingredients photo",
+    "ingredients_photo_button_label": "Foto e perberesve",
     "@ingredients_photo_button_label": {},
-    "confirm_ingredients_photo_button_label": "Confirm Ingredients photo",
+    "confirm_ingredients_photo_button_label": "Konfirmoni foton e perberesve.",
     "@confirm_ingredients_photo_button_label": {
         "description": "Button clicking on which confirms the picture of ingredients that user just took."
     },
-    "ingredients_photo_uploaded": "Ingredients photo uploaded",
+    "ingredients_photo_uploaded": "Fotoja e perberesve u ngarkua.",
     "@ingredients_photo_uploaded": {},
-    "nutritional_facts_photo_button_label": "Nutritional facts photo",
+    "nutritional_facts_photo_button_label": "Foto e fakteve ushqyese",
     "@nutritional_facts_photo_button_label": {},
-    "confirm_nutritional_facts_photo_button_label": "Confirm Nutritional facts photo",
+    "confirm_nutritional_facts_photo_button_label": "Konfirmoni foton e fakteve ushqyese.",
     "@confirm_nutritional_facts_photo_button_label": {
         "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
     },
-    "nutritional_facts_photo_uploaded": "Nutritional facts photo uploaded",
+    "nutritional_facts_photo_uploaded": "Fotoja e fakteve ushqyese u ngarkua.",
     "@nutritional_facts_photo_uploaded": {},
-    "recycling_photo_button_label": "Recycling information photo",
+    "recycling_photo_button_label": "Foto e informacionit te riciklimit.",
     "@recycling_photo_button_label": {},
-    "confirm_recycling_photo_button_label": "Confirm Recycling information photo",
+    "confirm_recycling_photo_button_label": "Konfirmoni foton e informacionit te riciklimit.",
     "@confirm_recycling_photo_button_label": {
         "description": "Button clicking on which confirms the picture of recycling information that user just took."
     },
-    "recycling_photo_uploaded": "Recycling photo uploaded",
+    "recycling_photo_uploaded": "Fotoja e ricklimit u ngarkua",
     "@recycling_photo_uploaded": {},
-    "other_interesting_photo_button_label": "Other interesting photos",
+    "other_interesting_photo_button_label": "Foto te tjera interesante",
     "@other_interesting_photo_button_label": {},
-    "confirm_other_interesting_photo_button_label": "Confirm photo",
+    "confirm_other_interesting_photo_button_label": "Konfirmoni foton.",
     "@confirm_other_interesting_photo_button_label": {
         "description": "Button clicking on which confirms a miscellaneous photo of the product."
     },
-    "other_photo_uploaded": "Miscellaneous photo uploaded",
+    "other_photo_uploaded": "Fotografi e ndryshme u ngarkua",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "Retake",
     "@retake_photo_button_label": {
         "description": "Button clicking on which allows users to retake the last photo they took."
     },
-    "selecting_photo": "Selecting photo",
+    "selecting_photo": "Duke zgjedhur foton",
     "@selecting_photo": {
         "description": "Progress indicator when the users takes a photo"
     },
-    "uploading_image": "Uploading Image to the server",
+    "uploading_image": "Duke ngarkuar imazhin ne server.",
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
-    "score_add_missing_ingredients": "Add missing ingredients",
-    "score_add_missing_nutrition_facts": "Add missing nutrition facts",
-    "score_add_missing_product_category": "Add missing product category",
-    "score_update_nutrition_facts": "Update nutrition facts",
-    "nutrition_page_title": "Product Nutrition Facts",
-    "nutrition_page_unspecified": "Nutrition facts are not specified on the product",
-    "nutrition_page_per_100g": "per 100g",
+    "score_add_missing_ingredients": "Shto perberesit e munguar.",
+    "score_add_missing_nutrition_facts": "Shto faktet ushqyese te munguara",
+    "score_add_missing_product_category": "Shto kategorine e munguar te produktit.",
+    "score_update_nutrition_facts": "Perditesoni faktet ushqyese.",
+    "nutrition_page_title": "Faktet ushqyese te produktit.",
+    "nutrition_page_unspecified": "Faktet ushqyese nuk jane te specifikuara ne produkt.",
+    "nutrition_page_per_100g": "për 100 g",
     "nutrition_page_per_serving": "per serving",
     "nutrition_page_add_nutrient": "Add a nutrient",
     "nutrition_page_serving_size": "Serving size",
-    "nutrition_page_invalid_number": "Invalid number",
-    "nutrition_page_update_running": "Updating the product on the server...",
-    "nutrition_page_update_done": "Product updated!",
-    "more_photos": "More interesting photos",
+    "nutrition_page_invalid_number": "Numer i pavlefshem, jo i sakte.",
+    "nutrition_page_update_running": "Duke perditesuar produktin ne server",
+    "nutrition_page_update_done": "Produkti u perditesua.",
+    "more_photos": "Me shume foto interesante",
     "@more_photos": {},
-    "no_product_found": "No product found",
+    "no_product_found": "Nuk u gjet asnje produkt",
     "@no_product_found": {},
-    "not_found": "not found:",
-    "searchPanelHeader": "Search or scan your first product",
+    "not_found": "Nuk u gjet, nuk rezultoi ",
+    "searchPanelHeader": "Kerkoni ose skanoni produktin tuaj te pare",
     "@Product query status": {},
-    "refreshing_product": "Refreshing product",
+    "refreshing_product": "Produkt freskues",
     "@refreshing_product": {
         "description": "Confirmation, that the product data of a cached product is queried again"
     },
-    "product_refreshed": "Product refreshed",
+    "product_refreshed": "Produkti u rifreskua.",
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "could_not_refresh": "Could not refresh product",
+    "could_not_refresh": "Produkti nuk mund te rifreskohej.",
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
     },
-    "product_internet_cancel": "Canceled by user.",
+    "product_internet_cancel": "U anullua nga perdoruesi.",
     "@product_internet_cancel": {
         "description": "Confirmation, that the product data got canceled by the user"
     },
-    "product_internet_error": "Impossible to fetch information about this product due to a network error.",
-    "cached_results_from": "Cached results from:",
+    "product_internet_error": "Eshte e pamundur te merret informacion ne lidhje me kete produkt per shkak te nje gabimi ne rrjet.",
+    "cached_results_from": "Show results from:",
     "@cached_results_from": {
         "description": "Cached results from: x time ago (time ago should not be added to the string)"
     },
     "@Product Addition": {},
-    "added_product_thanks": "Thank you for adding this product!",
+    "added_product_thanks": "Ju faleminderit per shtimin e ketij produkti.",
     "@added_product_thanks": {},
-    "product_search_same_category": "Compare to Category",
+    "product_search_same_category": "Krahasoni me kategorine.",
     "@product_search_same_category": {
         "description": "Button looking for the other products within the same category. Less than 30 characters"
     },
-    "product_improvement_add_category": "Add a category to calculate the Nutri-Score.",
+    "product_improvement_add_category": "Shto një kategori për të llogaritur Nutri-Score.",
     "@product_improvement_add_category": {
         "description": "Message for ProductImprovement.ADD_CATEGORY"
     },
-    "product_improvement_add_nutrition_facts": "Add nutrition facts to calculate the Nutri-Score.",
+    "product_improvement_add_nutrition_facts": "Shtoni fakte të ushqyerjes për të llogaritur Nutri-Score.",
     "@product_improvement_add_nutrition_facts": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
     },
-    "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to calculate the Nutri-Score.",
+    "product_improvement_add_nutrition_facts_and_category": "Shtoni faktet ushqyese dhe nje kategori per te llogaritur piket-ushqyese.",
     "@product_improvement_add_nutrition_facts_and_category": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
     },
-    "product_improvement_categories_but_no_nutriscore": "The Nutri-Score for this product can't be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.",
+    "product_improvement_categories_but_no_nutriscore": "Nutri-Score për këtë produkt nuk mund të llogaritet, gjë që mund të jetë për shkak të p.sh. një kategorie jo standarde. Nëse kjo konsiderohet si një gabim, ju lutemi na kontaktoni.",
     "@product_improvement_categories_but_no_nutriscore": {
         "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
-    "product_improvement_obsolete_nutrition_image": "The nutrition image is obsolete: please refresh it.",
+    "product_improvement_obsolete_nutrition_image": "Imazhi i ushqimit eshte i vjeteruar: ju lutem rifreskojeni ate.",
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take a photo of them (ingredient list and/or any geographic claim or edit the product) so that they can be taken into account.",
+    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
-    "country_chooser_label": "Please choose a country",
+    "country_chooser_label": "Ju lutem zgjidhni nje shtet",
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },
-    "country_selection_explanation": "Some environmental features are location-specific",
+    "country_selection_explanation": "Disa vecori mjedisore jane specifike per vendndodhjen.",
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
-    "product_removed": "Product removed",
-    "@product_removed": {
-        "description": "Product got removed from a list"
+    "product_removed_comparison": "Product removed from comparison",
+    "@product_removed_comparison": {
+        "description": "Product got removed from comparison list"
     },
-    "product_could_not_remove": "Could not remove product",
+    "product_removed_history": "Product removed from history",
+    "@product_removed_history": {
+        "description": "Product got removed from history"
+    },
+    "product_could_not_remove": "Produkti nuk mund te hiqej.",
     "@product_could_not_remove": {
         "description": "Could not remove product from a list"
     },
     "@Lists": {},
-    "no_prodcut_in_list": "There is no product in this list",
-    "no_product_in_section": "There is no product in this section",
+    "no_prodcut_in_list": "Nuk ka produkte ne kete list.",
+    "no_product_in_section": "Nuk ka produkte ne kete seksion.",
     "recently_seen_products": "History",
     "clear": "Clear",
     "@clear": {
         "description": "Clears a product list"
     },
-    "really_clear": "Do you really want to clear this list?",
-    "product_compatibility_unknown": "Product Compatibility Unknown",
+    "really_clear": "Do you really want to delete this list?",
+    "product_compatibility_unknown": "Compatibility Unknown",
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_incompatible": "Does not match",
+    "product_compatibility_incompatible": "Doesn't match",
     "@product_compatibility_incompatible": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_good": "Good Match",
+    "product_compatibility_good": "Perputhje, pershtatje e mire.",
     "@product_compatibility_good": {
         "description": "Product compatibility summary title"
     },
     "@Plural": {},
-    "pct_match": "{percent}% match",
+    "pct_match": "{percent}% e perputhshmerise",
     "@pct_match": {
         "description": "This product has a x percent match with your preferences",
         "placeholders": {
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural, =1{one day ago} other{{count} days ago}}",
+    "plural_ago_days": "{count,plural, one {} =1{one day ago} other{{count} days ago}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural, =1{one hour ago} other{{count} hours ago}}",
+    "plural_ago_hours": "{count,plural, one {} =1{one hour ago} other{{count} hours ago}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural, =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
+    "plural_ago_minutes": "{count,plural, one {} =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, =1{one month ago} other{{count} months ago}}",
+    "plural_ago_months": "{count,plural, one {} =1{one month ago} other{{count} months ago}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, =1{one week ago} other{{count} weeks ago}}",
+    "plural_ago_weeks": "{count,plural, one {} =1{one week ago} other{{count} weeks ago}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, other{Compare {count} Products}",
+    "plural_compare_x_products": "{count,plural, other{Krahaso {count} produktet}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {
             "count": {}
         }
     },
-    "compare_products_mode": "Compare Mode",
+    "compare_products_mode": "Compare",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },
-    "retry_button_label": "Retry"
+    "retry_button_label": "Retry",
+    "connect_with_us": "Connect with us",
+    "instagram": "Instagram",
+    "twitter": "Twitter",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "discover": "Zbulo",
+    "how_to_contribute": "How to Contribute",
+    "main_app_color": "Theme",
+    "@main_app_color": {
+        "description": "Heading for the section to pick the main app color"
+    },
+    "hint_knowledge_panel_message": "Your can tap on any part of the card to get more details about what you see. Try it now!",
+    "@hint_knowledge_panel_message": {
+        "description": "Hint popup indicating the card is clickable during onboarding"
+    },
+    "consent_analytics_title": "Send anonymous analytics",
+    "@consent_analytics_title": {
+        "description": "Title for the consent analytics UI Page"
+    },
+    "consent_analytics_body1": "Help the Open Food Facts volunteer to improve the app. You decide if you want to send anonymous analytics.",
+    "@conset_analytics_body1": {
+        "description": "first paragraph for the consent analytics UI Page"
+    },
+    "consent_analytics_body2": "If you change your mind this option can be enabled and disabled at any time from the settings.",
+    "@consent_analytics_body2": {
+        "description": "second paragraph for the consent analytics UI Page"
+    },
+    "authorize_button_label": "Authorize",
+    "@authorize": {
+        "description": "Button to accept the request of sending the anonymous analytics"
+    },
+    "refuse_button_label": "Refuse",
+    "@refuse": {
+        "description": "Button to decline the request of sending the anonymous analytics"
+    }
 }
