@@ -57,7 +57,7 @@
         "description": "Looking for: ${BARCODE}"
     },
     "@Introduction screen": {},
-    "welcomeToOpenFoodFacts": "Bienvenido a Open Food Facts",
+    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
     "whatIsOff": "Open Food Facts es una organización global sin fines de lucro impulsada por comunidades locales.",
     "@whatIsOff": {
@@ -86,6 +86,8 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
+    "login_page_username_or_email": "Por favor, ingresa tu nombre de usuario o tu correo electrónico",
+    "login_page_password_error_empty": "Por favor, introduzca una contraseña",
     "create_account": "Crear una cuenta",
     "@create_account": {
         "description": "Button label: Opens a page where a new user can register"
@@ -142,7 +144,7 @@
         "description": "Progress indicator dialog during the actual signing up process"
     },
     "sign_up_page_action_ok": "¡Felicidades! Su cuenta acaba de ser creada.",
-    "sign_up_page_display_name_hint": "Mostrar Nombre",
+    "sign_up_page_display_name_hint": "Nombre",
     "sign_up_page_display_name_error_empty": "Ingrese el nombre para mostrar que desea usar",
     "sign_up_page_email_hint": "E-mail de contacto",
     "sign_up_page_email_error_empty": "Se requiere un correo electrónico",
@@ -157,7 +159,7 @@
     "sign_up_page_confirm_password_hint": "Confirmar Contraseña",
     "sign_up_page_confirm_password_error_empty": "Por favor confirme la contraseña",
     "sign_up_page_confirm_password_error_invalid": "Las contraseñas no coinciden",
-    "sign_up_page_agree_url": "https://es.openfoodfacts.org/terms-of-use",
+    "sign_up_page_agree_url": "https://world-es.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
@@ -172,7 +174,7 @@
     "sign_up_page_producer_checkbox": "Soy productor de alimentos",
     "sign_up_page_producer_hint": "Productor/marca",
     "sign_up_page_producer_error_empty": "Por favor, introduzca un productor o una marca",
-    "sign_up_page_subscribe_checkbox": "Me gustaría suscribirme al boletín de noticias de Open Food Facts (Puedes darte de baja del mismo en cualquier momento)",
+    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
     "@Settings": {},
     "settingsTitle": "Configuración",
     "@settingsTitle": {
@@ -200,7 +202,7 @@
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
     "support_join_slack": "Pide ayuda en nuestro canal de Slack",
-    "support_via_email": "Envíenos un e-mail",
+    "support_via_email": "Send us an e-mail",
     "termsOfUse": "Condiciones de uso",
     "@termsOfUse": {},
     "about_this_app": "Sobre esta aplicación",
@@ -252,7 +254,7 @@
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
     },
-    "contribute_to_get_rewards": "Ayude a la transparencia alimentaria y obtenga insignias de recompensa",
+    "contribute_to_get_rewards": "Help improve food transparency and get rewards",
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
@@ -262,7 +264,7 @@
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "Tu perfil",
-    "myPreferences_profile_subtitle": "Configurar ajustes de la aplicación y descubre consejos.",
+    "myPreferences_profile_subtitle": "Change app settings and get advice.",
     "myPreferences_settings_title": "Ajustes de aplicación",
     "myPreferences_settings_subtitle": "Modo oscuro, Tema de pantalla , ...",
     "myPreferences_food_title": "Preferencias de comida",
@@ -288,13 +290,13 @@
     "@profile_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "scan_navbar_label": "Perfil",
+    "scan_navbar_label": "Buscar",
     "@scan_navbar_label": {
-        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+        "description": "BottomNavigationBarLabel: For the searching of products"
     },
-    "history_navbar_label": "Perfil",
+    "history_navbar_label": "Historial",
     "@history_navbar_label": {
-        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+        "description": "BottomNavigationBarLabel: For the history and compare mode"
     },
     "category": "Filtrar por categoría",
     "@category": {
@@ -336,6 +338,10 @@
     },
     "ingredients": "Ingredientes",
     "@ingredients": {},
+    "ingredients_editing_instructions": "Mantén el orden original. Indica el porcentaje cuando se especifique. Separa con una coma o guion, usa paréntesis para los ingredientes de un ingrediente e indica alérgenos entre guiones bajos.",
+    "ingredients_editing_error": "Error al guardar los ingredientes.",
+    "ingredients_editing_image_error": "No se pudo obtener una imagen de nuevos ingredientes.",
+    "ingredients_editing_title": "Editar ingredientes",
     "ingredients_photo": "Foto de ingredientes",
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
@@ -354,9 +360,9 @@
     "@packaging_information_photo": {},
     "missing_product": "¡Has encontrado un nuevo producto!",
     "@missing_product": {},
-    "add_product_take_photos": "Tome fotos del embalaje para añadir este producto a nuestra base de datos.",
+    "add_product_take_photos": "Toma fotos del empaque para agregar este producto a Open Food Facts",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Por favor, tome las siguientes fotos y el motor Open Food Facts puede resolver el resto!",
+    "add_product_take_photos_descriptive": "Please take some photos and the Open Food Facts engine can work out the rest!",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Agregar información del producto",
     "@add_product_information_button_label": {},
@@ -451,7 +457,7 @@
         "description": "Confirmation, that the product data got canceled by the user"
     },
     "product_internet_error": "Imposible obtener información sobre este producto debido a un error de red.",
-    "cached_results_from": "Resultados en caché de:",
+    "cached_results_from": "Show results from:",
     "@cached_results_from": {
         "description": "Cached results from: x time ago (time ago should not be added to the string)"
     },
@@ -482,7 +488,7 @@
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "El Eco-Score tiene en cuenta los orígenes de los ingredientes. Tómales una foto de ellos (lista de ingredientes y/o cualquier indicio geográfico o edita el producto) para que puedan ser tomados en cuenta.",
+    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
@@ -494,9 +500,13 @@
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
-    "product_removed": "Producto eliminado",
-    "@product_removed": {
-        "description": "Product got removed from a list"
+    "product_removed_comparison": "Producto eliminado de la comparación",
+    "@product_removed_comparison": {
+        "description": "Product got removed from comparison list"
+    },
+    "product_removed_history": "Producto eliminado del historial",
+    "@product_removed_history": {
+        "description": "Product got removed from history"
     },
     "product_could_not_remove": "No se pudo eliminar el producto",
     "@product_could_not_remove": {
@@ -510,12 +520,12 @@
     "@clear": {
         "description": "Clears a product list"
     },
-    "really_clear": "¿Está seguro de que quiere eliminar esta lista?",
-    "product_compatibility_unknown": "Compatibilidad del producto desconocida",
+    "really_clear": "Do you really want to delete this list?",
+    "product_compatibility_unknown": "Compatibility Unknown",
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_incompatible": "No coincide",
+    "product_compatibility_incompatible": "Doesn't match",
     "@product_compatibility_incompatible": {
         "description": "Product compatibility summary title"
     },
@@ -531,35 +541,35 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural, =1{hace un día} other{{count} días atrás}}",
+    "plural_ago_days": "{count,plural, one {} =1{one day ago} other{{count} days ago}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural, =1{hace una hora} other{{count} horas atrás}}",
+    "plural_ago_hours": "{count,plural, one {} =1{one hour ago} other{{count} hours ago}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural, =0{hace menos de un minuto} =1{hace un minuto} other{{count} minutos atrás}}",
+    "plural_ago_minutes": "{count,plural, one {} =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, =1{hace un mes} other{{count} hace meses}}",
+    "plural_ago_months": "{count,plural, one {} =1{one month ago} other{{count} months ago}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, =1{hace una semana} other{{count} semans atrás}}",
+    "plural_ago_weeks": "{count,plural, one {} =1{one week ago} other{{count} weeks ago}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
@@ -573,13 +583,44 @@
             "count": {}
         }
     },
-    "compare_products_mode": "Modo Comparar",
+    "compare_products_mode": "Comparar",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },
     "retry_button_label": "Reintentar",
-    "main_app_color": "Main color of the app",
+    "connect_with_us": "Contáctanos",
+    "instagram": "Instagram",
+    "twitter": "Twitter",
+    "blog": "Blog",
+    "faq": "Preguntas frecuentes",
+    "discover": "Descubrir",
+    "how_to_contribute": "Cómo contribuir",
+    "main_app_color": "Theme",
     "@main_app_color": {
         "description": "Heading for the section to pick the main app color"
+    },
+    "hint_knowledge_panel_message": "Your can tap on any part of the card to get more details about what you see. Try it now!",
+    "@hint_knowledge_panel_message": {
+        "description": "Hint popup indicating the card is clickable during onboarding"
+    },
+    "consent_analytics_title": "Enviar análisis anónimos",
+    "@consent_analytics_title": {
+        "description": "Title for the consent analytics UI Page"
+    },
+    "consent_analytics_body1": "Help the Open Food Facts volunteer to improve the app. You decide if you want to send anonymous analytics.",
+    "@conset_analytics_body1": {
+        "description": "first paragraph for the consent analytics UI Page"
+    },
+    "consent_analytics_body2": "Si cambias de opinión, esta opción puede ser activada y desactivada desde la configuración en cualquier momento.",
+    "@consent_analytics_body2": {
+        "description": "second paragraph for the consent analytics UI Page"
+    },
+    "authorize_button_label": "Autorizar",
+    "@authorize": {
+        "description": "Button to accept the request of sending the anonymous analytics"
+    },
+    "refuse_button_label": "Declinar",
+    "@refuse": {
+        "description": "Button to decline the request of sending the anonymous analytics"
     }
 }

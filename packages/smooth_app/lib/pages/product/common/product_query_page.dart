@@ -288,15 +288,16 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                         ) =>
                             FlexibleSpaceBar(
                           centerTitle: true,
-                          title: Text(
-                            widget.name,
-                            textAlign: TextAlign.center,
-                            style: themeData.textTheme.headline1!
-                                .copyWith(color: widget.mainColor),
-                          ),
-                          background: _getHero(screenSize, themeData),
-                        ),
-                      ),
+                            title: SizedBox(
+                              width: screenSize.width * 0.50,
+                              child: FittedBox(
+                                child: Text(
+                                  widget.name,
+                                  textAlign: TextAlign.center,
+                                  style: themeData.textTheme.headline1!
+                                      .copyWith(color: widget.mainColor),
+                                ),
+                              ),
                     ),
                     SliverList(
                       delegate: SliverChildBuilderDelegate(
