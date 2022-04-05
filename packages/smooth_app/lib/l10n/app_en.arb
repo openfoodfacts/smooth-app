@@ -459,10 +459,6 @@
   "@could_not_refresh": {
     "description": "The product data couldn't be refreshed"
   },
-  "product_internet_cancel": "Canceled by user.",
-  "@product_internet_cancel": {
-    "description": "Confirmation, that the product data got canceled by the user"
-  },
   "product_internet_error": "Impossible to fetch information about this product due to a network error.",
   "cached_results_from": "Show results from:",
   "@cached_results_from": {
