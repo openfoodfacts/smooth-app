@@ -13,6 +13,7 @@
     "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
   },
   "save": "Save",
+  "save_confirmation": "Are you sure you want to save?",
   "skip": "Skip",
   "cancel": "Cancel",
   "@cancel": {},
@@ -38,6 +39,7 @@
   "@label_web": {},
   "learnMore": "Learn more",
   "@learnMore": {},
+  "general_confirmation": "Are you sure?",
   "incompatible": "Incompatible",
   "@incompatible": {
     "description": "Short label for product list view: the product is incompatible with your preferences"
@@ -57,7 +59,7 @@
     "description": "Looking for: ${BARCODE}"
   },
   "@Introduction screen": {},
-  "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
+  "welcomeToOpenFoodFacts": "Welcome to Open\u00A0Food\u00A0Facts",
   "@welcomeToOpenFoodFacts": {},
   "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
   "@whatIsOff": {
@@ -352,6 +354,7 @@
   },
   "nutrition": "Nutrition",
   "@nutrition": {},
+  "nutrition_page_close_confirmation": "Are you sure you want to close without saving?",
   "nutrition_facts_photo": "Nutrition facts photo",
   "@nutrition_facts_photo": {
     "description": "Button label: For adding a picture of the nutrition facts of a product"
@@ -587,7 +590,7 @@
       "count": {}
     }
   },
-  "compare_products_mode": "Original",
+  "compare_products_mode": "Compare",
   "@compare_products_mode": {
     "description": "Button to switch to 'compare products mode'"
   },
