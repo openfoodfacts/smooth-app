@@ -17,6 +17,7 @@ class KnowledgePanelTitleCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
+    final ColorScheme colorScheme = themeData.colorScheme;
     Color? colorFromEvaluation;
     if (evaluation != null &&
         (knowledgePanelTitleElement.iconColorFromEvaluation ?? false)) {
@@ -25,7 +26,7 @@ class KnowledgePanelTitleCard extends StatelessWidget {
     if (evaluation != null &&
         _getColorFromEvaluation(evaluation!) == null &&
         themeData.brightness == Brightness.dark) {
-      colorFromEvaluation = Colors.white;
+      colorFromEvaluation = colorScheme.onBackground;
     }
     List<Widget> iconWidget;
     if (knowledgePanelTitleElement.iconUrl != null) {
@@ -87,7 +88,7 @@ class KnowledgePanelTitleCard extends StatelessWidget {
       case Evaluation.BAD:
         return RED_COLOR;
       case Evaluation.NEUTRAL:
-        return GREY_COLOR;
+        return PRIMARY_BLUE_COLOR;
       case Evaluation.AVERAGE:
         return LIGHT_ORANGE_COLOR;
       case Evaluation.GOOD:
