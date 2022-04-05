@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
@@ -68,18 +69,20 @@ class _ScanPageState extends State<ScanPage> {
         BuildContext context,
         AsyncSnapshot<PermissionStatus> snapshot,
       ) {
+        final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+
         if (!snapshot.hasData) {
           return const Center(child: CircularProgressIndicator());
         } else if (snapshot.hasError) {
-          return const Center(child: Text('Error'));
+          return Center(child: Text(appLocalizations.permission_photo_error));
         }
 
         // TODO(M123): show no camera access screen
         if (snapshot.data!.isDenied ||
             snapshot.data!.isPermanentlyDenied ||
             snapshot.data!.isRestricted) {
-          const Center(
-            child: Text('No camera access granted'),
+          Center(
+            child: Text(appLocalizations.permission_photo_denied),
           );
         }
 

@@ -18,11 +18,11 @@ jobs:
       - name: Version
         run: echo ${{ env.RELEASE_VERSION }}
 
-      - name: Setup Java jdk
-        uses: actions/setup-java@v3.0.0
+      - name: Setup Java JDK
+        uses: actions/setup-java@v3.1.0
         with:
           distribution: 'zulu'
-          java-version: 12.x
+          java-version: 11
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
