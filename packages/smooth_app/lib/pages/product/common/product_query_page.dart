@@ -282,11 +282,16 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                           (BuildContext context, BoxConstraints constraints) {
                         return FlexibleSpaceBar(
                             centerTitle: true,
-                            title: Text(
-                              widget.name,
-                              textAlign: TextAlign.center,
-                              style: themeData.textTheme.headline1!
-                                  .copyWith(color: widget.mainColor),
+                            title: SizedBox(
+                              width: screenSize.width * 0.50,
+                              child: FittedBox(
+                                child: Text(
+                                  widget.name,
+                                  textAlign: TextAlign.center,
+                                  style: themeData.textTheme.headline1!
+                                      .copyWith(color: widget.mainColor),
+                                ),
+                              ),
                             ),
                             background: _getHero(screenSize, themeData));
                       }),
