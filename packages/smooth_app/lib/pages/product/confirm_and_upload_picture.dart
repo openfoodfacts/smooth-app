@@ -73,14 +73,14 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                           });
                           retakenPhoto.delete();
                         }),
-                    const SizedBox(width:10),    
+                    const SizedBox(width: 10),
                     Flexible(
                       child: SizedBox(
                         child: Tooltip(
                           message: _getConfirmButtonText(
-                              context,
-                              widget.imageType,
-                            ),
+                            context,
+                            widget.imageType,
+                          ),
                           child: SmoothActionButton(
                             text: _getConfirmButtonText(
                               context,
