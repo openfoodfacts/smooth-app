@@ -74,7 +74,6 @@
     case FetchedProductStatus.ok:
       throw Exception(&quot;You&#39;re not supposed to call this if the status is ok&quot;);
     case FetchedProductStatus.userCancelled:
-      _openErrorMessage(appLocalizations.product_internet_cancel);
       return;
     case FetchedProductStatus.internetError:
       _openErrorMessage(appLocalizations.product_internet_error);
