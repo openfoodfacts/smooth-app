@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0](https://github.com/bhattabhi013/smooth-app/compare/v1.0.0...v1.1.0) (2022-04-05)
+
+
+### Features
+
+* minor design fixes in nutrition_page_loaded.dart ([#1475](https://github.com/bhattabhi013/smooth-app/issues/1475)) ([ebc0672](https://github.com/bhattabhi013/smooth-app/commit/ebc067245c3f940df906badbfe786ecc46147f12))
+* remove bottom fab button in product page ([#1487](https://github.com/bhattabhi013/smooth-app/issues/1487)) ([7453743](https://github.com/bhattabhi013/smooth-app/commit/745374372eef00f95c594e49f5155b9c275789a4))
+
 ## 1.0.0 (2022-04-04)
 
 
