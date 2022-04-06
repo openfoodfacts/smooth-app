@@ -337,7 +337,10 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                                     future: _model.loadNextPage(),
                                   );
                                   if (error != true) {
-                                    await LoadingDialog.error(context: context);
+                                    await LoadingDialog.error(
+                                      context: context,
+                                      title: _model.loadingError,
+                                    );
                                   }
                                 },
                               );

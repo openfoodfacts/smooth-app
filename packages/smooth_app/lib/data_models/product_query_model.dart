@@ -54,7 +54,7 @@ class ProductQueryModel with ChangeNotifier {
     sortedCategories.clear();
   }
 
-  Future<void> _asyncLoad() async {
+  Future<bool> _asyncLoad() async {
     _loadingError = await supplier.asyncLoad();
     if (_loadingError != null) {
       _loadingStatus = LoadingStatus.ERROR;
@@ -63,6 +63,7 @@ class ProductQueryModel with ChangeNotifier {
       _products.addAll(supplier.partialProductList.getProducts());
     }
     notifyListeners();
+    return _loadingStatus == LoadingStatus.LOADED;
   }
 
   Future<bool> loadNextPage() async {
@@ -74,8 +75,7 @@ class ProductQueryModel with ChangeNotifier {
       // in that case, we were on a back-end supplier, on a loaded page
       supplier.productQuery.toNextPage();
     }
-    await _asyncLoad();
-    return true;
+    return _asyncLoad();
   }
 
   // TODO(monsieurtanuki): don't clear everything if it fails?
@@ -91,8 +91,7 @@ class ProductQueryModel with ChangeNotifier {
     }
     await supplier.clear();
     supplier.productQuery.toTopPage();
-    await _asyncLoad();
-    return true;
+    return _asyncLoad();
   }
 
   /// Sorts the products by category.

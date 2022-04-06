@@ -9,6 +9,9 @@ import 'package:smooth_app/database/abstract_dao.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 
+/// "Total size" fake value for lists that are not partial/paged.
+const int _uselessTotalSizeValue = 0;
+
 /// An immutable barcode list; e.g. my search yesterday about "Nutella"
 class _BarcodeList {
   _BarcodeList(
@@ -18,7 +21,11 @@ class _BarcodeList {
   );
 
   _BarcodeList.now(final List<String> barcodes)
-      : this(LocalDatabase.nowInMillis(), barcodes, 0);
+      : this(
+          LocalDatabase.nowInMillis(),
+          barcodes,
+          _uselessTotalSizeValue,
+        );
 
   _BarcodeList.fromProductList(final ProductList productList)
       : this(
@@ -51,7 +58,7 @@ class _BarcodeListAdapter extends TypeAdapter<_BarcodeList> {
     try {
       totalSize = reader.readInt();
     } catch (e) {
-      totalSize = 0;
+      totalSize = _uselessTotalSizeValue;
     }
     return _BarcodeList(timestamp, barcodes, totalSize);
   }

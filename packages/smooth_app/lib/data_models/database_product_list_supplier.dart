@@ -17,22 +17,28 @@ class DatabaseProductListSupplier extends ProductListSupplier {
   @override
   Future<String?> asyncLoad() async {
     try {
+      // we start from page 1
       ProductList productList = productQuery.getProductList();
       bool first = true;
       do {
+        // we try to get the locally saved data for the current page
         await DaoProductList(localDatabase).get(productList);
         if (productList.barcodes.isEmpty) {
+          // we found nothing
           if (first) {
+            // we save an empty list
             partialProductList.add(productList);
           }
-          break;
+          // that's it, we've just loaded all the non-empty pages we could
+          return null;
         }
+        // we found something: let's add it to the partial product list
         partialProductList.add(productList);
+        // and try again with the next page
         productQuery.toNextPage();
         productList = productQuery.getProductList();
         first = false;
       } while (true);
-      return null;
     } catch (e) {
       return e.toString();
     }
