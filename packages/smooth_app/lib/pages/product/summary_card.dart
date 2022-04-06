@@ -255,8 +255,7 @@ class _SummaryCardState extends State<SummaryCard> {
                 name: categoryLabel!,
                 localDatabase: localDatabase,
                 productQuery: CategoryProductQuery(
-                  categoryTag: widget._product.categoriesTags!.last,
-                  size: 500,
+                  widget._product.categoriesTags!.last,
                 ),
                 context: context,
               ),
