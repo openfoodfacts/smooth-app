@@ -95,7 +95,6 @@ class ProductDialogHelper {
       case FetchedProductStatus.ok:
         throw Exception("You're not supposed to call this if the status is ok");
       case FetchedProductStatus.userCancelled:
-        _openErrorMessage(appLocalizations.product_internet_cancel);
         return;
       case FetchedProductStatus.internetError:
         _openErrorMessage(appLocalizations.product_internet_error);
