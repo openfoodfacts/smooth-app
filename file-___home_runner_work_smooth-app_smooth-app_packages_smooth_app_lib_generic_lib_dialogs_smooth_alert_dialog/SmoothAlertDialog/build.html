@@ -77,12 +77,47 @@ Widget build(BuildContext context) {
     shape: const RoundedRectangleBorder(
       borderRadius: ROUNDED_BORDER_RADIUS,
     ),
-    content: Column(
-      mainAxisSize: MainAxisSize.min,
-      children: &lt;Widget&gt;[
-        _buildTitle(context),
-        SizedBox(height: height, child: body),
-      ],
+    content: ConstrainedBox(
+      constraints:
+          BoxConstraints(maxHeight: maxHeight ?? double.infinity * 0.5),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: &lt;Widget&gt;[
+          if (title != null) ...&lt;Widget&gt;[
+            SizedBox(
+              height: 32,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: &lt;Widget&gt;[
+                  _buildCross(true, context),
+                  if (title != null)
+                    Expanded(
+                      child: FittedBox(
+                        child: Text(
+                          title!,
+                          style: Theme.of(context).textTheme.headline2,
+                        ),
+                      ),
+                    ),
+                  _buildCross(false, context),
+                ],
+              ),
+            ),
+            Divider(
+              color: Theme.of(context).colorScheme.onBackground,
+            ),
+            const SizedBox(
+              height: 12,
+            ),
+          ],
+          Expanded(
+            child: SingleChildScrollView(
+              child: body,
+            ),
+          ),
+        ],
+      ),
     ),
     actions: actions == null
         ? null
@@ -133,7 +168,7 @@ Widget build(BuildContext context) {
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/body.html">body</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/close.html">close</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/height.html">height</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/maxHeight.html">maxHeight</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/title.html">title</a></li>
 
