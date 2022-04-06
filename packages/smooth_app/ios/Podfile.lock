@@ -39,6 +39,9 @@ PODS:
   - GoogleUtilitiesComponents (1.1.0):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.7.1)
+  - image_cropper (0.0.4):
+    - Flutter
+    - TOCropViewController (~> 2.6.1)
   - image_picker (0.0.1):
     - Flutter
   - iso_countries (0.0.1):
@@ -91,6 +94,7 @@ PODS:
     - Sentry (~> 7.10.1)
   - shared_preferences_ios (0.0.1):
     - Flutter
+  - TOCropViewController (2.6.1)
   - url_launcher_ios (0.0.1):
     - Flutter
 
@@ -100,6 +104,7 @@ DEPENDENCIES:
   - flutter_native_splash (from `.symlinks/plugins/flutter_native_splash/ios`)
   - flutter_secure_storage (from `.symlinks/plugins/flutter_secure_storage/ios`)
   - google_ml_barcode_scanner (from `.symlinks/plugins/google_ml_barcode_scanner/ios`)
+  - image_cropper (from `.symlinks/plugins/image_cropper/ios`)
   - image_picker (from `.symlinks/plugins/image_picker/ios`)
   - iso_countries (from `.symlinks/plugins/iso_countries/ios`)
   - matomo_forever (from `.symlinks/plugins/matomo_forever/ios`)
@@ -128,6 +133,7 @@ SPEC REPOS:
     - PromisesObjC
     - Protobuf
     - Sentry
+    - TOCropViewController
 
 EXTERNAL SOURCES:
   camera:
@@ -140,6 +146,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_secure_storage/ios"
   google_ml_barcode_scanner:
     :path: ".symlinks/plugins/google_ml_barcode_scanner/ios"
+  image_cropper:
+    :path: ".symlinks/plugins/image_cropper/ios"
   image_picker:
     :path: ".symlinks/plugins/image_picker/ios"
   iso_countries:
@@ -173,6 +181,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   GoogleUtilitiesComponents: 679b2c881db3b615a2777504623df6122dd20afe
   GTMSessionFetcher: 4577a4cc914a5a07c40a8a0ad0acc22080418c2d
+  image_cropper: 60c2789d1f1a78c873235d4319ca0c34a69f2d98
   image_picker: 541dcbb3b9cf32d87eacbd957845d8651d6c62c3
   iso_countries: eb09d40f388e4c65e291e0bb36a701dfe7de6c74
   matomo_forever: 7e5e5fd8f355f64979591282cad4e858fa4c9fae
@@ -191,8 +200,9 @@ SPEC CHECKSUMS:
   Sentry: 7bf9bfe713692cf87812e55f0999260494ba7982
   sentry_flutter: 77ccdac346608b8ce7e428e7284e7a3e4e7f4a02
   shared_preferences_ios: 548a61f8053b9b8a49ac19c1ffbc8b92c50d68ad
+  TOCropViewController: edfd4f25713d56905ad1e0b9f5be3fbe0f59c863
   url_launcher_ios: 839c58cdb4279282219f5e248c3321761ff3c4de
 
 PODFILE CHECKSUM: e1ffd3daa5042cd516081f94f61b857c0deb822d
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3
