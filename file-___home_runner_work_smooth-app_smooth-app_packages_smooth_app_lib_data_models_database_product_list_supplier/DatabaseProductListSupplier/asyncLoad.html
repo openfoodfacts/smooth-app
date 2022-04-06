@@ -64,6 +64,9 @@
 
     </section>
     
+<section class="desc markdown">
+  <p>Loads all results page after page.</p>
+</section>
 
 
     
@@ -72,10 +75,28 @@
   <pre class="language-dart"><code class="language-dart">@override
 Future&lt;String?&gt; asyncLoad() async {
   try {
-    final ProductList loadedProductList = productQuery.getProductList();
-    await DaoProductList(localDatabase).get(loadedProductList);
-    productList = loadedProductList;
-    return null;
+    &#47;&#47; we start from page 1
+    ProductList productList = productQuery.getProductList();
+    bool first = true;
+    do {
+      &#47;&#47; we try to get the locally saved data for the current page
+      await DaoProductList(localDatabase).get(productList);
+      if (productList.barcodes.isEmpty) {
+        &#47;&#47; we found nothing
+        if (first) {
+          &#47;&#47; we save an empty list
+          partialProductList.add(productList);
+        }
+        &#47;&#47; that&#39;s it, we&#39;ve just loaded all the non-empty pages we could
+        return null;
+      }
+      &#47;&#47; we found something: let&#39;s add it to the partial product list
+      partialProductList.add(productList);
+      &#47;&#47; and try again with the next page
+      productQuery.toNextPage();
+      productList = productQuery.getProductList();
+      first = false;
+    } while (true);
   } catch (e) {
     return e.toString();
   }

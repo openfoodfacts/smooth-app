@@ -73,9 +73,12 @@
 Future&lt;String?&gt; asyncLoad() async {
   try {
     final SearchResult searchResult = await productQuery.getSearchResult();
-    productList = productQuery.getProductList();
+    final ProductList productList = productQuery.getProductList();
+    partialProductList.clear();
     if (searchResult.products != null) {
       productList.setAll(searchResult.products!);
+      productList.totalSize = searchResult.count!;
+      partialProductList.add(productList);
       await DaoProduct(localDatabase).putAll(searchResult.products!);
     }
     await DaoProductList(localDatabase).put(productList);

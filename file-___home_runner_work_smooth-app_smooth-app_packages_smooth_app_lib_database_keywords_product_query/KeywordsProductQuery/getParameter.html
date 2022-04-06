@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the getSearchResult method from the KeywordsProductQuery class, for the Dart programming language.">
-  <title>getSearchResult method - KeywordsProductQuery class - keywords_product_query library - Dart API</title>
+  <meta name="description" content="API docs for the getParameter method from the KeywordsProductQuery class, for the Dart programming language.">
+  <title>getParameter method - KeywordsProductQuery class - keywords_product_query library - Dart API</title>
 
 
   
@@ -32,9 +32,9 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_keywords_product_query/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_keywords_product_query-library.html">keywords_product_query</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_keywords_product_query/KeywordsProductQuery-class.html">KeywordsProductQuery</a></li>
-    <li class="self-crumb">getSearchResult method</li>
+    <li class="self-crumb">getParameter method</li>
   </ol>
-  <div class="self-name">getSearchResult</div>
+  <div class="self-name">getParameter</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,7 +45,7 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">getSearchResult</span> method 
+<h1><span class="kind-method">getParameter</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
@@ -57,8 +57,8 @@
   </ol>
 </div>
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a></span>
-<span class="name ">getSearchResult</span>(<wbr>)
+<span class="returntype">dynamic</span>
+<span class="name ">getParameter</span>(<wbr>)
 
       
 
@@ -70,19 +70,7 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
-Future&lt;SearchResult&gt; getSearchResult() async =&gt;
-    OpenFoodAPIClient.searchProducts(
-      ProductQuery.getUser(),
-      ProductSearchQueryConfiguration(
-        fields: ProductQuery.fields,
-        parametersList: &lt;Parameter&gt;[
-          PageSize(size: size),
-          SearchTerms(terms: &lt;String&gt;[keywords]),
-        ],
-        language: ProductQuery.getLanguage(),
-        country: ProductQuery.getCountry(),
-      ),
-    );</code></pre>
+Parameter getParameter() =&gt; SearchTerms(terms: &lt;String&gt;[keywords]);</code></pre>
 </section>
 
 
@@ -99,7 +87,7 @@ Future&lt;SearchResult&gt; getSearchResult() async =&gt;
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_keywords_product_query/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_keywords_product_query-library.html">keywords_product_query</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_keywords_product_query/KeywordsProductQuery-class.html">KeywordsProductQuery</a></li>
-  <li class="self-crumb">getSearchResult method</li>
+  <li class="self-crumb">getParameter method</li>
 </ol>
 
 
@@ -116,11 +104,10 @@ Future&lt;SearchResult&gt; getSearchResult() async =&gt;
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_keywords_product_query/KeywordsProductQuery/keywords.html">keywords</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_keywords_product_query/KeywordsProductQuery/size.html">size</a></li>
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_keywords_product_query/KeywordsProductQuery-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_keywords_product_query/KeywordsProductQuery/getParameter.html">getParameter</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_keywords_product_query/KeywordsProductQuery/getProductList.html">getProductList</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_keywords_product_query/KeywordsProductQuery/getSearchResult.html">getSearchResult</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_keywords_product_query/KeywordsProductQuery/toString.html">toString</a></li>
 

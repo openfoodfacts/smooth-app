@@ -50,7 +50,7 @@
 </h1></div>
 
     <section class="multi-line-signature">
-      <span class="name ">DatabaseProductListSupplier</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-productQuery"><span class="type-annotation">dynamic</span> <span class="parameter-name">productQuery</span>, </span></li>
+      <span class="name ">DatabaseProductListSupplier</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-pagedProductQuery"><span class="type-annotation">dynamic</span> <span class="parameter-name">pagedProductQuery</span>, </span></li>
 <li><span class="parameter" id="-param-localDatabase"><span class="type-annotation">dynamic</span> <span class="parameter-name">localDatabase</span>, </span></li>
 <li><span class="parameter" id="-param-timestamp"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">timestamp</span></span></li>
 </ol>)
@@ -63,10 +63,10 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">DatabaseProductListSupplier(
-  final ProductQuery productQuery,
+  final PagedProductQuery pagedProductQuery,
   final LocalDatabase localDatabase,
   final int timestamp,
-) : super(productQuery, localDatabase, timestamp: timestamp);</code></pre>
+) : super(pagedProductQuery, localDatabase, timestamp: timestamp);</code></pre>
 </section>
 
 

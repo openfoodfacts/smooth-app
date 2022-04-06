@@ -52,8 +52,8 @@
     <section class="multi-line-signature">
       
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
-<span class="name ">delete</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="delete-param-key"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">key</span></span></li>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>&gt;</span></span>
+<span class="name ">delete</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="delete-param-productList"><span class="type-annotation">dynamic</span> <span class="parameter-name">productList</span></span></li>
 </ol>)
 
       
@@ -65,7 +65,15 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; delete(final String key) async =&gt; _getBox().delete(key);</code></pre>
+  <pre class="language-dart"><code class="language-dart">Future&lt;bool&gt; delete(final ProductList productList) async {
+  final Box&lt;_BarcodeList&gt; box = _getBox();
+  final String key = _getKey(productList);
+  if (!box.containsKey(key)) {
+    return false;
+  }
+  await box.delete(key);
+  return true;
+}</code></pre>
 </section>
 
 

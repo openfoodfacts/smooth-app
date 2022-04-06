@@ -72,9 +72,6 @@
     {final bool verbose = true}) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
   switch (productList.listType) {
-    case ProductListType.HTTP_SEARCH_GROUP:
-      return &#39;${_getGroupName(productList.parameters, appLocalizations)}&#39;
-          &#39;${verbose ? &#39; ${appLocalizations.category_search}&#39; : &#39;&#39;}&#39;;
     case ProductListType.HTTP_SEARCH_KEYWORDS:
       return &#39;${productList.parameters}&#39;
           &#39;${verbose ? &#39; ${appLocalizations.category_search}&#39; : &#39;&#39;}&#39;;

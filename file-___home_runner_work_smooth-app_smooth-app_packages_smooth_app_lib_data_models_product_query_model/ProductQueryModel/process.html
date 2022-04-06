@@ -75,14 +75,11 @@
   }
   _loadingStatus = LoadingStatus.POST_LOAD_STARTED;
 
-  final ProductList productList = supplier.getProductList();
-  _products = productList.getList();
-
   displayProducts = _products;
 
   categories[_CATEGORY_ALL] = translationForAll;
 
-  for (final Product product in _products!) {
+  for (final Product product in _products) {
     if (product.categoriesTagsInLanguages != null) {
       final List&lt;String&gt;? translatedCategories =
           product.categoriesTagsInLanguages![ProductQuery.getLanguage()];
@@ -163,6 +160,8 @@
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_query_model/ProductQueryModel-class.html#instance-methods">Methods</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_query_model/ProductQueryModel/isNotEmpty.html">isNotEmpty</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_query_model/ProductQueryModel/loadFromTop.html">loadFromTop</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_query_model/ProductQueryModel/loadNextPage.html">loadNextPage</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_query_model/ProductQueryModel/process.html">process</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_query_model/ProductQueryModel/selectCategory.html">selectCategory</a></li>

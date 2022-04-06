@@ -72,6 +72,7 @@
   final _BarcodeList? list = await _get(productList);
   final List&lt;String&gt; barcodes = &lt;String&gt;[];
   final Map&lt;String, Product&gt; products = &lt;String, Product&gt;{};
+  productList.totalSize = list?.totalSize ?? 0;
   if (list == null || list.barcodes.isEmpty) {
     productList.set(barcodes, products);
     return;
