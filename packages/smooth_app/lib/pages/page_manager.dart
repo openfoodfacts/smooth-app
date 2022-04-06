@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:smooth_app/pages/scan/inherited_data_manager.dart';
 import 'package:smooth_app/widgets/tab_navigator.dart';
 
 enum BottomNavigationTab {
@@ -34,6 +35,7 @@ class PageManagerState extends State<PageManager> {
   };
 
   BottomNavigationTab _currentPage = BottomNavigationTab.Scan;
+  List<Widget> _tabs = <Widget>[];
 
   void _selectTab(BottomNavigationTab tabItem, int index) {
     if (tabItem == _currentPage) {
@@ -50,6 +52,12 @@ class PageManagerState extends State<PageManager> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    _tabs = <Widget>[
+      _buildOffstageNavigator(BottomNavigationTab.Profile),
+      _buildOffstageNavigator(BottomNavigationTab.Scan),
+      _buildOffstageNavigator(BottomNavigationTab.History),
+    ];
+
     return WillPopScope(
       onWillPop: () async {
         final bool isFirstRouteInCurrentTab =
@@ -64,18 +72,21 @@ class PageManagerState extends State<PageManager> {
         return isFirstRouteInCurrentTab;
       },
       child: Scaffold(
-        body: Stack(children: <Widget>[
-          _buildOffstageNavigator(BottomNavigationTab.Profile),
-          _buildOffstageNavigator(BottomNavigationTab.Scan),
-          _buildOffstageNavigator(BottomNavigationTab.History),
-        ]),
+        body: Stack(children: _tabs),
         bottomNavigationBar: BottomNavigationBar(
           showSelectedLabels: false,
           showUnselectedLabels: false,
           selectedItemColor: Colors.white,
           backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
           onTap: (int index) {
-            _selectTab(_pageKeys[index], index);
+            if (_currentPage == BottomNavigationTab.Scan &&
+                _pageKeys[index] == BottomNavigationTab.Scan) {
+              InheritedDataManager.of(context).resetShowSearchCard(true);
+              _selectTab(_pageKeys[index], index);
+            } else {
+              InheritedDataManager.of(context).resetShowSearchCard(false);
+              _selectTab(_pageKeys[index], index);
+            }
           },
           currentIndex: _currentPage.index,
           items: <BottomNavigationBarItem>[

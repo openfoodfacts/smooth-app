@@ -77,7 +77,7 @@ class _ProductPageState extends State<ProductPage> {
           ? FloatingActionButton(
               backgroundColor: colorScheme.primary,
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.maybePop(context);
               },
               child: const Icon(
                 Icons.arrow_back,
