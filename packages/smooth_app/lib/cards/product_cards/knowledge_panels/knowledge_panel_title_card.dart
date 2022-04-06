@@ -47,7 +47,10 @@ class KnowledgePanelTitleCard extends StatelessWidget {
       iconWidget = <Widget>[];
     }
     return Padding(
-      padding: const EdgeInsets.only(top: SMALL_SPACE),
+      padding: const EdgeInsets.only(
+        top: VERY_SMALL_SPACE,
+        bottom: VERY_SMALL_SPACE,
+      ),
       child: Row(
         children: <Widget>[
           ...iconWidget,
@@ -63,7 +66,7 @@ class KnowledgePanelTitleCard extends StatelessWidget {
                       child: Text(
                         knowledgePanelTitleElement.title,
                         style: TextStyle(color: colorFromEvaluation),
-                      ).selectable(),
+                      ),
                     ),
                     if (knowledgePanelTitleElement.subtitle != null)
                       SizedBox(

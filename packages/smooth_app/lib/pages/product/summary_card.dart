@@ -77,13 +77,8 @@ class _SummaryCardState extends State<SummaryCard> {
   void initState() {
     super.initState();
     if (widget.showUnansweredQuestions) {
-      loadProductQuestions();
+      _loadProductQuestions();
     }
-  }
-
-  Future<void> loadProductQuestions() async {
-    _productQuestions = RobotoffQuestionsQuery(widget._product.barcode!)
-        .getRobotoffQuestionsForProduct();
   }
 
   @override
@@ -141,10 +136,7 @@ class _SummaryCardState extends State<SummaryCard> {
               child: Center(
                 child: Text(
                   AppLocalizations.of(context)!.tab_for_more,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyText1!
-                      .apply(color: Colors.lightBlue),
+                  style: Theme.of(context).primaryTextTheme.bodyText1,
                 ),
               ),
             ),
@@ -156,7 +148,7 @@ class _SummaryCardState extends State<SummaryCard> {
 
   Widget _buildSummaryCardContent(BuildContext context) {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations localizations = AppLocalizations.of(context)!;
     final List<Attribute> scoreAttributes =
         getPopulatedAttributes(widget._product, SCORE_ATTRIBUTE_IDS);
 
@@ -235,9 +227,11 @@ class _SummaryCardState extends State<SummaryCard> {
             .categoriesTagsInLanguages![ProductQuery.getLanguage()!]!.last;
       }
     }
+    final List<String> statesTags =
+        widget._product.statesTags ?? List<String>.empty();
     return Column(
       children: <Widget>[
-        ProductTitleCard(widget._product),
+        ProductTitleCard(widget._product, widget.isFullVersion),
         for (final Attribute attribute in scoreAttributes)
           ScoreCard(
             iconUrl: attribute.iconUrl,
@@ -247,44 +241,41 @@ class _SummaryCardState extends State<SummaryCard> {
           ),
         _buildProductQuestionsWidget(),
         attributesContainer,
-        if (widget._product.statesTags
-                ?.contains('en:categories-to-be-completed') ??
-            false)
-          addPanelButton(appLocalizations.score_add_missing_product_category,
-              onPressed: () {}),
-        if (categoryTag != null && categoryLabel != null)
-          addPanelButton(
-            appLocalizations.product_search_same_category,
-            iconData: Icons.leaderboard,
-            onPressed: () async => ProductQueryPageHelper().openBestChoice(
-              color: Colors.deepPurple,
-              heroTag: 'search_bar',
-              name: categoryLabel!,
-              localDatabase: localDatabase,
-              productQuery: CategoryProductQuery(
-                categoryTag: widget._product.categoriesTags!.last,
-                size: 500,
+        if (statesTags.contains('en:categories-to-be-completed'))
+          addPanelButton(localizations.score_add_missing_product_category,
+              onPressed: () => _showNotImplemented(context)),
+        if (widget.isFullVersion)
+          if (categoryTag != null && categoryLabel != null)
+            addPanelButton(
+              localizations.product_search_same_category,
+              iconData: Icons.leaderboard,
+              onPressed: () async => ProductQueryPageHelper().openBestChoice(
+                color: Colors.deepPurple,
+                heroTag: 'search_bar',
+                name: categoryLabel!,
+                localDatabase: localDatabase,
+                productQuery: CategoryProductQuery(
+                  categoryTag: widget._product.categoriesTags!.last,
+                  size: 500,
+                ),
+                context: context,
               ),
-              context: context,
             ),
-          ),
-        if ((widget._product.statesTags
-                    ?.contains('en:product-name-to-be-completed') ??
-                false) ||
-            (widget._product.statesTags
-                    ?.contains('en:quantity-to-be-completed') ??
-                false))
+        if ((statesTags.contains('en:product-name-to-be-completed')) ||
+            (statesTags.contains('en:quantity-to-be-completed')))
           addPanelButton(
               'Complete basic details', // TODO(vik4114): localization
-              onPressed: () {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('Not implemented yet'),
-                duration: Duration(seconds: 2),
-              ),
-            );
-          }),
+              onPressed: () => _showNotImplemented(context)),
       ],
+    );
+  }
+
+  void _showNotImplemented(BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Not implemented yet'),
+        duration: Duration(seconds: 2),
+      ),
     );
   }
 
@@ -475,7 +466,7 @@ class _SummaryCardState extends State<SummaryCard> {
                     builder: (BuildContext context) => QuestionCard(
                       product: widget._product,
                       questions: questions,
-                      updateProductUponAnswers: updateProductUponAnswers,
+                      updateProductUponAnswers: _updateProductUponAnswers,
                     ),
                   ),
                 );
@@ -492,10 +483,16 @@ class _SummaryCardState extends State<SummaryCard> {
                   child: Column(
                     children: <Widget>[
                       // TODO(jasmeet): Use Material icon or SVG (after consulting UX).
-                      Text('🏅 ${appLocalizations.tap_to_answer}'),
+                      Text(
+                        '🏅 ${appLocalizations.tap_to_answer}',
+                        style: Theme.of(context).primaryTextTheme.bodyLarge,
+                      ),
                       Container(
                         padding: const EdgeInsets.only(top: SMALL_SPACE),
-                        child: Text(appLocalizations.contribute_to_get_rewards),
+                        child: Text(
+                          appLocalizations.contribute_to_get_rewards,
+                          style: Theme.of(context).primaryTextTheme.bodyText2,
+                        ),
                       ),
                     ],
                   ),
@@ -507,14 +504,17 @@ class _SummaryCardState extends State<SummaryCard> {
         });
   }
 
-  Future<void> updateProductUponAnswers() async {
+  Future<void> _updateProductUponAnswers() async {
     // Reload the product questions, they might have been answered.
     // Or the backend may have new ones.
-    await loadProductQuestions();
+    await _loadProductQuestions();
     // Reload the product as it may have been updated because of the
     // new answers.
-    if (widget.refreshProductCallback != null) {
-      widget.refreshProductCallback!(context);
-    }
+    widget.refreshProductCallback?.call(context);
+  }
+
+  Future<void> _loadProductQuestions() async {
+    _productQuestions = RobotoffQuestionsQuery(widget._product.barcode!)
+        .getRobotoffQuestionsForProduct();
   }
 }

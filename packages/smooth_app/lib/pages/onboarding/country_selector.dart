@@ -53,8 +53,7 @@ class _CountrySelectorState extends State<CountrySelector> {
         builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
           if (snapshot.hasError) {
             return Text('Fatal Error: ${snapshot.error}');
-          }
-          if (snapshot.connectionState != ConnectionState.done) {
+          } else if (snapshot.connectionState != ConnectionState.done) {
             return const CircularProgressIndicator();
           }
           return LayoutBuilder(
@@ -65,8 +64,19 @@ class _CountrySelectorState extends State<CountrySelector> {
               child: DropdownButtonFormField<Country>(
                 value: _chosenValue,
                 decoration: widget.inputDecoration,
+                selectedItemBuilder: (BuildContext context) {
+                  return _countryList
+                      .map(
+                        (Country country) => Text(
+                          country.name,
+                        ),
+                      )
+                      .toList(growable: false);
+                },
                 items: _countryList
                     .map<DropdownMenuItem<Country>>((Country country) {
+                  final bool isSelected = _chosenValue == country;
+
                   return DropdownMenuItem<Country>(
                     value: country,
                     child: Container(
@@ -74,10 +84,15 @@ class _CountrySelectorState extends State<CountrySelector> {
                       // 48 dp is needed to account for dropdown arrow icon and padding.
                       constraints: BoxConstraints(maxWidth: parentWidth - 48)
                           .normalize(),
-                      child: Text(country.name),
+                      child: Text(
+                        country.name,
+                        style: TextStyle(
+                          fontWeight: isSelected ? FontWeight.bold : null,
+                        ),
+                      ),
                     ),
                   );
-                }).toList(),
+                }).toList(growable: false),
                 onChanged: (Country? value) async {
                   if (value != null) {
                     _chosenValue = value;

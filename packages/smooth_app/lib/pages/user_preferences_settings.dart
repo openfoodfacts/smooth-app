@@ -11,11 +11,11 @@ import 'package:smooth_app/generic_lib/buttons/smooth_main_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_toggle.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/abstract_user_preferences.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/views/bottom_sheet_views/faq_handle_view.dart';
 import 'package:smooth_app/views/bottom_sheet_views/social_handle_view.dart';
 import 'package:smooth_app/views/bottom_sheet_views/user_contribution_view.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -60,7 +60,6 @@ class UserPreferencesSettings extends AbstractUserPreferences {
   @override
   Widget? getSubtitle() =>
       Text(appLocalizations.myPreferences_settings_subtitle);
-
   @override
   List<Widget> getBody() => <Widget>[
         Padding(
@@ -75,21 +74,26 @@ class UserPreferencesSettings extends AbstractUserPreferences {
                 appLocalizations.darkmode,
                 style: themeData.textTheme.headline4,
               ),
-              SmoothToggle(
-                value: themeProvider.darkTheme,
-                width: 85.0,
-                height: 38.0,
-                textRight: appLocalizations.darkmode_light,
-                textLeft: appLocalizations.darkmode_dark,
-                colorRight: Colors.blue,
-                colorLeft: Colors.blueGrey.shade700,
-                iconRight: const Icon(Icons.wb_sunny_rounded),
-                iconLeft: const Icon(
-                  Icons.nightlight_round,
-                  color: Colors.black,
-                ),
-                onChanged: (bool newValue) async =>
-                    themeProvider.setDarkTheme(newValue),
+              DropdownButton<String>(
+                value: themeProvider.currentTheme,
+                elevation: 16,
+                onChanged: (String? newValue) {
+                  themeProvider.setTheme(newValue!);
+                },
+                items: <DropdownMenuItem<String>>[
+                  DropdownMenuItem<String>(
+                    child: Text(appLocalizations.darkmode_system_default),
+                    value: THEME_SYSTEM_DEFAULT,
+                  ),
+                  DropdownMenuItem<String>(
+                    child: Text(appLocalizations.darkmode_light),
+                    value: THEME_LIGHT,
+                  ),
+                  DropdownMenuItem<String>(
+                    child: Text(appLocalizations.darkmode_dark),
+                    value: THEME_DARK,
+                  )
+                ],
               ),
             ],
           ),
@@ -257,6 +261,16 @@ class UserPreferencesSettings extends AbstractUserPreferences {
             backgroundColor: Colors.transparent,
             bounce: true,
             builder: (BuildContext context) => SocialHandleView(),
+          ),
+        ),
+        SmoothListTile(
+          text: appLocalizations.faq,
+          onPressed: () => showCupertinoModalBottomSheet<Widget>(
+            expand: false,
+            context: context,
+            backgroundColor: Colors.transparent,
+            bounce: true,
+            builder: (BuildContext context) => FaqHandleView(),
           ),
         ),
       ];
