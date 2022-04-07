@@ -256,11 +256,14 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
               onChanged: (final bool value) =>
                   setState(() => _unspecified = !_unspecified),
             ),
-            Text(
-              localizations.nutrition_page_unspecified,
-              style: Theme.of(context).primaryTextTheme.bodyText1,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
+            SizedBox(
+              width: getColumnSizeFromContext(context, 0.6),
+              child: Text(
+                localizations.nutrition_page_unspecified,
+                style: Theme.of(context).primaryTextTheme.bodyText1,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
             ),
           ],
         ),
