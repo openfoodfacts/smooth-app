@@ -54,7 +54,7 @@ class _BarcodeListAdapter extends TypeAdapter<_BarcodeList> {
   _BarcodeList read(BinaryReader reader) {
     final int timestamp = reader.readInt();
     final List<String> barcodes = reader.readStringList();
-    late final int totalSize;
+    late int totalSize;
     try {
       totalSize = reader.readInt();
     } catch (e) {
