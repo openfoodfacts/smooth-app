@@ -8,6 +8,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/helpers/product_list_import_export.dart';
 import 'package:smooth_app/pages/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 
@@ -184,6 +185,21 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
                 ],
               ),
             );
+          },
+        ),
+        ListTile(
+          title: const Text('Import History'),
+          subtitle:
+              const Text('Will clear history and put 3 products in there'),
+          onTap: () async {
+            final LocalDatabase localDatabase = context.read<LocalDatabase>();
+            await ProductListImportExport().import(
+              ProductListImportExport.TMP_IMPORT,
+              localDatabase,
+            );
+            ScaffoldMessenger.of(context)
+                .showSnackBar(const SnackBar(content: Text('Done')));
+            localDatabase.notifyListeners();
           },
         ),
         ListTile(
