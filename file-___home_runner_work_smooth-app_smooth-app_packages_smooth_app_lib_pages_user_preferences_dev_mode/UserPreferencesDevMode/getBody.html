@@ -192,6 +192,21 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
         },
       ),
       ListTile(
+        title: const Text(&#39;Import History&#39;),
+        subtitle:
+            const Text(&#39;Will clear history and put 3 products in there&#39;),
+        onTap: () async {
+          final LocalDatabase localDatabase = context.read&lt;LocalDatabase&gt;();
+          await ProductListImportExport().import(
+            ProductListImportExport.TMP_IMPORT,
+            localDatabase,
+          );
+          ScaffoldMessenger.of(context)
+              .showSnackBar(const SnackBar(content: Text(&#39;Done&#39;)));
+          localDatabase.notifyListeners();
+        },
+      ),
+      ListTile(
         title: const Text(&#39;Switch between strong and lenient matching&#39;),
         subtitle: Text(
           &#39;Current matching level is &#39;
