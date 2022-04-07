@@ -9,6 +9,8 @@ import 'package:smooth_app/pages/onboarding/sample_health_card_page.dart';
 import 'package:smooth_app/pages/onboarding/scan_example.dart';
 import 'package:smooth_app/pages/onboarding/welcome_page.dart';
 import 'package:smooth_app/pages/page_manager.dart';
+import 'package:smooth_app/pages/scan/inherited_data_manager.dart';
+import 'package:smooth_app/themes/constant_icons.dart';
 
 enum OnboardingPage {
   NOT_STARTED,
@@ -108,7 +110,7 @@ class OnboardingFlowNavigator {
         return _wrapWidgetInCustomBackNavigator(
             context, page, const ConsentAnalytics());
       case OnboardingPage.ONBOARDING_COMPLETE:
-        return PageManager();
+        return InheritedDataManager(child: PageManager());
     }
   }
 
@@ -122,7 +124,7 @@ class OnboardingFlowNavigator {
           body: widget,
           appBar: AppBar(
             leading: IconButton(
-              icon: const Icon(Icons.arrow_back),
+              icon: Icon(ConstantIcons.instance.getBackIcon()),
               onPressed: () =>
                   navigateToPage(context, _getPrevPage(currentPage)),
             ),
