@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AddBasicDetailsPage extends StatefulWidget {
   const AddBasicDetailsPage(this.product);
@@ -38,40 +38,54 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                 onUpload: (_) {},
               ),
             ),
-            SizedBox(height: size.height * 0.05),
+            SizedBox(height: size.height * 0.02),
             if (widget.product.barcode != null)
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.symmetric(horizontal: size.width * 0.1),
                 child: Text(
                   '${appLocalizations.barcode}: ${widget.product.barcode!}',
                   style: TextStyle(
                     color: colorScheme.onBackground,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
+            SizedBox(height: size.height * 0.02),
             SmoothTextFormField(
               controller: _productNameController,
               type: TextFieldTypes.PLAIN_TEXT,
               hintText: appLocalizations.product_name,
               validator: (String? value) {
                 if (value == null || value.isEmpty) {
-                  return appLocalizations.sign_up_page_display_name_error_empty;
+                  return appLocalizations.add_basic_details_product_name_error;
                 }
                 return null;
               },
             ),
-            SizedBox(height: size.height * 0.05),
+            SizedBox(height: size.height * 0.02),
             SmoothTextFormField(
               controller: _brandNameController,
               type: TextFieldTypes.PLAIN_TEXT,
               hintText: appLocalizations.brand_name,
+              validator: (String? value) {
+                if (value == null || value.isEmpty) {
+                  return appLocalizations.add_basic_details_brand_name_error;
+                }
+                return null;
+              },
             ),
-            SizedBox(height: size.height * 0.05),
+            SizedBox(height: size.height * 0.02),
             SmoothTextFormField(
               controller: _weightController,
               type: TextFieldTypes.PLAIN_TEXT,
-              hintText: appLocalizations.weight_kg,
+              hintText: appLocalizations.weight_gram,
               textInputType: TextInputType.number,
+              validator: (String? value) {
+                if (value == null || value.isEmpty) {
+                  return appLocalizations.add_basic_details_weight_gram_error;
+                }
+                return null;
+              },
             ),
             SizedBox(height: size.height * 0.05),
             Row(
@@ -86,6 +100,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                   if (!_formKey.currentState!.validate()) {
                     return;
                   }
+                  // code to send the data to server
                 }),
               ],
             ),

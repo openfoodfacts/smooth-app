@@ -624,8 +624,11 @@
     },
     "basic_details": "Basic Details",
     "product_name": "Product Name",
+    "add_basic_details_product_name_error": "Please enter the product name",
     "brand_name": "Brand name",
-    "weight_kg": "Weight in Kg",
+    "add_basic_details_brand_name_error": "Please enter the brand name",
+    "weight_gram": "Weight in gram",
+    "add_basic_details_weight_gram_error": "Please enter the weight",
     "barcode": "Barcode"
 }
 
