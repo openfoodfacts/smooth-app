@@ -81,7 +81,7 @@ Future<void> _onSubmittedText(
       heroTag: 'search_bar',
       name: value,
       localDatabase: localDatabase,
-      productQuery: KeywordsProductQuery(keywords: value, size: 500),
+      productQuery: KeywordsProductQuery(value),
       context: context,
     );
 

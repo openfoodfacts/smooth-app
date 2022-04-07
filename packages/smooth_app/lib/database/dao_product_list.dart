@@ -9,15 +9,30 @@ import 'package:smooth_app/database/abstract_dao.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 
+/// "Total size" fake value for lists that are not partial/paged.
+const int _uselessTotalSizeValue = 0;
+
 /// An immutable barcode list; e.g. my search yesterday about "Nutella"
 class _BarcodeList {
-  _BarcodeList(this.timestamp, this.barcodes);
+  _BarcodeList(
+    this.timestamp,
+    this.barcodes,
+    this.totalSize,
+  );
 
   _BarcodeList.now(final List<String> barcodes)
-      : this(LocalDatabase.nowInMillis(), barcodes);
+      : this(
+          LocalDatabase.nowInMillis(),
+          barcodes,
+          _uselessTotalSizeValue,
+        );
 
   _BarcodeList.fromProductList(final ProductList productList)
-      : this(LocalDatabase.nowInMillis(), productList.barcodes);
+      : this(
+          LocalDatabase.nowInMillis(),
+          productList.barcodes,
+          productList.totalSize,
+        );
 
   /// Freshness indicator: last time the list was updated.
   ///
@@ -25,6 +40,9 @@ class _BarcodeList {
   /// Can be used to decide if the data is recent enough or deprecated.
   final int timestamp;
   final List<String> barcodes;
+
+  /// Total size of server query results (or 0).
+  final int totalSize;
 }
 
 /// Hive type adapter for [_BarcodeList]
@@ -36,13 +54,20 @@ class _BarcodeListAdapter extends TypeAdapter<_BarcodeList> {
   _BarcodeList read(BinaryReader reader) {
     final int timestamp = reader.readInt();
     final List<String> barcodes = reader.readStringList();
-    return _BarcodeList(timestamp, barcodes);
+    late int totalSize;
+    try {
+      totalSize = reader.readInt();
+    } catch (e) {
+      totalSize = _uselessTotalSizeValue;
+    }
+    return _BarcodeList(timestamp, barcodes, totalSize);
   }
 
   @override
   void write(BinaryWriter writer, _BarcodeList obj) {
     writer.writeInt(obj.timestamp);
     writer.writeStringList(obj.barcodes);
+    writer.writeInt(obj.totalSize);
   }
 }
 
@@ -72,7 +97,7 @@ class DaoProductList extends AbstractDao {
   // that we'll be under the 255 character length.
   String _getKey(final ProductList productList) => '${productList.listType.key}'
       '::'
-      '${base64.encode(utf8.encode(productList.parameters))}';
+      '${base64.encode(utf8.encode(productList.getParametersKey()))}';
 
   Future<void> _put(final String key, final _BarcodeList barcodeList) async =>
       _getBox().put(key, barcodeList);
@@ -80,13 +105,22 @@ class DaoProductList extends AbstractDao {
   Future<void> put(final ProductList productList) async =>
       _put(_getKey(productList), _BarcodeList.fromProductList(productList));
 
-  Future<void> delete(final String key) async => _getBox().delete(key);
+  Future<bool> delete(final ProductList productList) async {
+    final Box<_BarcodeList> box = _getBox();
+    final String key = _getKey(productList);
+    if (!box.containsKey(key)) {
+      return false;
+    }
+    await box.delete(key);
+    return true;
+  }
 
   /// Loads the barcodes AND all the products.
   Future<void> get(final ProductList productList) async {
     final _BarcodeList? list = await _get(productList);
     final List<String> barcodes = <String>[];
     final Map<String, Product> products = <String, Product>{};
+    productList.totalSize = list?.totalSize ?? 0;
     if (list == null || list.barcodes.isEmpty) {
       productList.set(barcodes, products);
       return;
