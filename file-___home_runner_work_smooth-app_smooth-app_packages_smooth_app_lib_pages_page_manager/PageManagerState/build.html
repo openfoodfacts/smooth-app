@@ -73,6 +73,12 @@
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+  _tabs = &lt;Widget&gt;[
+    _buildOffstageNavigator(BottomNavigationTab.Profile),
+    _buildOffstageNavigator(BottomNavigationTab.Scan),
+    _buildOffstageNavigator(BottomNavigationTab.History),
+  ];
+
   final ThemeData themeData = Theme.of(context);
   final bool brightnessCheck = themeData.brightness == Brightness.light;
   return WillPopScope(
@@ -89,11 +95,7 @@ Widget build(BuildContext context) {
       return isFirstRouteInCurrentTab;
     },
     child: Scaffold(
-      body: Stack(children: &lt;Widget&gt;[
-        _buildOffstageNavigator(BottomNavigationTab.Profile),
-        _buildOffstageNavigator(BottomNavigationTab.Scan),
-        _buildOffstageNavigator(BottomNavigationTab.History),
-      ]),
+      body: Stack(children: _tabs),
       bottomNavigationBar: BottomNavigationBar(
         unselectedItemColor: brightnessCheck ? Colors.black : Colors.grey,
         showSelectedLabels: false,
@@ -101,7 +103,14 @@ Widget build(BuildContext context) {
         selectedItemColor: Colors.white,
         backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
         onTap: (int index) {
-          _selectTab(_pageKeys[index], index);
+          if (_currentPage == BottomNavigationTab.Scan &amp;&amp;
+              _pageKeys[index] == BottomNavigationTab.Scan) {
+            InheritedDataManager.of(context).resetShowSearchCard(true);
+            _selectTab(_pageKeys[index], index);
+          } else {
+            InheritedDataManager.of(context).resetShowSearchCard(false);
+            _selectTab(_pageKeys[index], index);
+          }
         },
         currentIndex: _currentPage.index,
         items: &lt;BottomNavigationBarItem&gt;[

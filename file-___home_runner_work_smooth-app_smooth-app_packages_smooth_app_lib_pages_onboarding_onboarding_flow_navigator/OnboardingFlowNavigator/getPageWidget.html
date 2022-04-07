@@ -88,7 +88,7 @@
       return _wrapWidgetInCustomBackNavigator(
           context, page, const ConsentAnalytics());
     case OnboardingPage.ONBOARDING_COMPLETE:
-      return PageManager();
+      return InheritedDataManager(child: PageManager());
   }
 }</code></pre>
 </section>
