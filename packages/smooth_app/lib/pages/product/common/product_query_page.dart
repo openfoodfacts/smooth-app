@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
@@ -290,14 +291,13 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                             FlexibleSpaceBar(
                           centerTitle: true,
                           title: SizedBox(
-                            width: screenSize.width * 0.50,
-                            child: FittedBox(
-                              child: Text(
-                                widget.name,
-                                textAlign: TextAlign.center,
-                                style: themeData.textTheme.headline1!
-                                    .copyWith(color: widget.mainColor),
-                              ),
+                            width: screenSize.width * 0.55,
+                            child: AutoSizeText(
+                              widget.name,
+                              textAlign: TextAlign.center,
+                              style: themeData.textTheme.headline1!
+                                  .copyWith(color: widget.mainColor),
+                              maxLines: 1,
                             ),
                           ),
                         ),
