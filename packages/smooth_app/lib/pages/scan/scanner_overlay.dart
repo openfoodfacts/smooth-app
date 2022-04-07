@@ -89,7 +89,7 @@ class ScannerOverlay extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(bottom: 10.0),
                       child: SmoothProductCarousel(
-                        showSearchCard: true,
+                        containSearchCard: true,
                         height: carouselHeight,
                       ),
                     ),
