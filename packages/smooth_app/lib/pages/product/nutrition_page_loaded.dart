@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -258,7 +259,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
             ),
             SizedBox(
               width: getColumnSizeFromContext(context, 0.6),
-              child: Text(
+              child: AutoSizeText(
                 localizations.nutrition_page_unspecified,
                 style: Theme.of(context).primaryTextTheme.bodyText1,
                 maxLines: 2,
