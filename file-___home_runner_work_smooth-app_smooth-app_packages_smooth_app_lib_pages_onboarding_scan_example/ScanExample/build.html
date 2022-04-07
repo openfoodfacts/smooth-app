@@ -117,8 +117,9 @@ Widget build(BuildContext context) {
             child: Padding(
               padding: EdgeInsets.only(
                   left: screenSize.width &#47; 10, right: MEDIUM_SPACE),
-              child: Text(
+              child: AutoSizeText(
                 appLocalizations.offUtility,
+                maxLines: 2,
                 style: Theme.of(context)
                     .textTheme
                     .headline1!
@@ -147,7 +148,7 @@ Widget build(BuildContext context) {
               ),
             ),
           ),
-          const Spacer(flex: 3),
+          const Spacer(flex: 2),
         ],
       ),
       const Positioned(
