@@ -100,7 +100,6 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                   if (!_formKey.currentState!.validate()) {
                     return;
                   }
-                  // code to send the data to server
                 }),
               ],
             ),

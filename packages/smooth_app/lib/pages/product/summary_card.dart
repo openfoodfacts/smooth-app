@@ -277,14 +277,6 @@ class _SummaryCardState extends State<SummaryCard> {
                 false))
           addPanelButton(
             'Complete basic details', // TODO(vik4114): localization
-            //     onPressed: () {
-            //   // ScaffoldMessenger.of(context).showSnackBar(
-            //   //   const SnackBar(
-            //   //     content: Text('Not implemented yet'),
-            //   //     duration: Duration(seconds: 2),
-            //   //   ),
-            //   // );
-            // }
             onPressed: () async {
               await Navigator.push<bool>(
                 context,
