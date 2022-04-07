@@ -96,13 +96,14 @@ List&lt;Widget&gt; getBody() {
       ),
     );
   }
-  final List&lt;Attribute&gt; attributes = group.attributes!;
-  result.addAll(
-    List&lt;Widget&gt;.generate(
-      attributes.length,
-      (int index) =&gt; AttributeButton(attributes[index], productPreferences),
-    ),
-  );
+  final List&lt;String&gt; excludedAttributeIds =
+      userPreferences.getExcludedAttributeIds();
+  for (final Attribute attribute in group.attributes!) {
+    if (excludedAttributeIds.contains(attribute.id)) {
+      continue;
+    }
+    result.add(AttributeButton(attribute, productPreferences));
+  }
   return result;
 }</code></pre>
 </section>

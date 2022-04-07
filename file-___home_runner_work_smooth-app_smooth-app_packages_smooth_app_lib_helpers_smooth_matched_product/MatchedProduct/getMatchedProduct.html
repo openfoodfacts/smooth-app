@@ -71,12 +71,25 @@
   final Product product,
   final ProductPreferencesManager productPreferencesManager,
   final UserPreferences userPreferences,
-) =&gt;
-    userPreferences.getFlag(
-                UserPreferencesDevMode.userPreferencesFlagLenientMatching) ??
-            false
-        ? _StrongMatchedProduct(product, productPreferencesManager)
-        : _LenientMatchedProduct(product, productPreferencesManager);</code></pre>
+) {
+  final List&lt;String&gt; excludedAttributeIds =
+      userPreferences.getExcludedAttributeIds();
+  if (userPreferences.getFlag(
+        UserPreferencesDevMode.userPreferencesFlagStrongMatching,
+      ) ??
+      false) {
+    return _StrongMatchedProduct(
+      product,
+      productPreferencesManager,
+      excludedAttributeIds,
+    );
+  }
+  return _LenientMatchedProduct(
+    product,
+    productPreferencesManager,
+    excludedAttributeIds,
+  );
+}</code></pre>
 </section>
 
 

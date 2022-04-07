@@ -73,19 +73,27 @@
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+  final UserPreferences userPreferences = context.watch&lt;UserPreferences&gt;();
+  final ProductPreferences productPreferences =
+      context.watch&lt;ProductPreferences&gt;();
   final Size screenSize = MediaQuery.of(context).size;
 
+  final List&lt;String&gt; excludedAttributeIds =
+      userPreferences.getExcludedAttributeIds();
   final List&lt;Widget&gt; scores = &lt;Widget&gt;[];
   final double iconSize = IconWidgetSizer.getIconSizeFromContext(context);
-  final List&lt;Attribute&gt; attributes =
-      getPopulatedAttributes(product, SCORE_ATTRIBUTE_IDS);
+  final List&lt;Attribute&gt; attributes = getPopulatedAttributes(
+    product,
+    SCORE_ATTRIBUTE_IDS,
+    excludedAttributeIds,
+  );
   for (final Attribute attribute in attributes) {
     scores.add(SvgIconChip(attribute.iconUrl!, height: iconSize));
   }
   final MatchedProduct matchedProduct = MatchedProduct.getMatchedProduct(
     product,
-    context.watch&lt;ProductPreferences&gt;(),
-    context.watch&lt;UserPreferences&gt;(),
+    productPreferences,
+    userPreferences,
   );
   final ProductCompatibilityHelper helper =
       ProductCompatibilityHelper(matchedProduct);

@@ -54,7 +54,8 @@
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a></span>
 <span class="name ">getPopulatedAttributes</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getPopulatedAttributes-param-product"><span class="type-annotation">dynamic</span> <span class="parameter-name">product</span>, </span></li>
-<li><span class="parameter" id="getPopulatedAttributes-param-attributeIds"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">attributeIds</span></span></li>
+<li><span class="parameter" id="getPopulatedAttributes-param-attributeIds"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">attributeIds</span>, </span></li>
+<li><span class="parameter" id="getPopulatedAttributes-param-excludedAttributeIds"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">excludedAttributeIds</span></span></li>
 </ol>)
 
     </section>
@@ -67,10 +68,14 @@
   <pre class="language-dart"><code class="language-dart">List&lt;Attribute&gt; getPopulatedAttributes(
   final Product product,
   final List&lt;String&gt; attributeIds,
+  final List&lt;String&gt; excludedAttributeIds,
 ) {
   final List&lt;Attribute&gt; result = &lt;Attribute&gt;[];
   final Map&lt;String, Attribute&gt; attributes = product.getAttributes(attributeIds);
   for (final String attributeId in attributeIds) {
+    if (excludedAttributeIds.contains(attributeId)) {
+      continue;
+    }
     Attribute? attribute = attributes[attributeId];
 &#47;&#47; Some attributes selected in the user preferences might be unavailable for some products
     if (attribute == null) {
