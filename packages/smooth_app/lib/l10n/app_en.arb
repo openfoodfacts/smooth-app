@@ -621,6 +621,11 @@
     "refuse_button_label":"Refuse",
     "@refuse":{
         "description":"Button to decline the request of sending the anonymous analytics"
-    }
+    },
+    "basic_details": "Basic Details",
+    "product_name": "Product Name",
+    "brand_name": "Brand name",
+    "weight_kg": "Weight in Kg",
+    "barcode": "Barcode"
 }
 

@@ -23,6 +23,7 @@ import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/helpers/smooth_matched_product.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 
 const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
@@ -275,16 +276,25 @@ class _SummaryCardState extends State<SummaryCard> {
                     ?.contains('en:quantity-to-be-completed') ??
                 false))
           addPanelButton(
-              'Complete basic details', // TODO(vik4114): localization
-              onPressed: () {
-            // ScaffoldMessenger.of(context).showSnackBar(
-            //   const SnackBar(
-            //     content: Text('Not implemented yet'),
-            //     duration: Duration(seconds: 2),
-            //   ),
-            // );
-            
-          }),
+            'Complete basic details', // TODO(vik4114): localization
+            //     onPressed: () {
+            //   // ScaffoldMessenger.of(context).showSnackBar(
+            //   //   const SnackBar(
+            //   //     content: Text('Not implemented yet'),
+            //   //     duration: Duration(seconds: 2),
+            //   //   ),
+            //   // );
+            // }
+            onPressed: () async {
+              await Navigator.push<bool>(
+                context,
+                MaterialPageRoute<bool>(
+                  builder: (BuildContext context) =>
+                      AddBasicDetailsPage(widget._product),
+                ),
+              );
+            },
+          ),
       ],
     );
   }
