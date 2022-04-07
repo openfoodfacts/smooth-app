@@ -16,18 +16,27 @@ class ProductTitleCard extends StatelessWidget {
     final ThemeData themeData = Theme.of(context);
     return Align(
       alignment: Alignment.topLeft,
-      child: ListTile(
-        dense: dense,
-        contentPadding: EdgeInsets.zero,
-        title: Text(
-          _getProductName(appLocalizations),
-          style: themeData.textTheme.headline4,
-        ).selectable(isSelectable: isSelectable),
-        subtitle: Text(product.brands ?? appLocalizations.unknownBrand),
-        trailing: Text(
-          product.quantity ?? '',
-          style: themeData.textTheme.headline3,
-        ).selectable(isSelectable: isSelectable),
+      child: InkWell(
+        onTap: () {
+          if (_getProductName(appLocalizations) ==
+              appLocalizations.unknownProductName) {
+            print('Hello'); 
+            // navigate to basic details page
+          }
+        },
+        child: ListTile(
+          dense: dense,
+          contentPadding: EdgeInsets.zero,
+          title: Text(
+            _getProductName(appLocalizations),
+            style: themeData.textTheme.headline4,
+          ).selectable(isSelectable: isSelectable),
+          subtitle: Text(product.brands ?? appLocalizations.unknownBrand),
+          trailing: Text(
+            product.quantity ?? '',
+            style: themeData.textTheme.headline3,
+          ).selectable(isSelectable: isSelectable),
+        ),
       ),
     );
   }
