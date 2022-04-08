@@ -12,7 +12,7 @@ class SmoothProductCardNotFound extends StatelessWidget {
     this.elevation = 0.0,
   });
 
-  final VoidCallback? callback;
+  final Function(String?)? callback;
   final double elevation;
   final String barcode;
 
@@ -48,16 +48,16 @@ class SmoothProductCardNotFound extends StatelessWidget {
                   text: appLocalizations.add_product_information_button_label,
                   icon: Icons.add,
                   padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
-                  onPressed: () {
-                    Navigator.push<Widget>(
+                  onPressed: () async {
+                    final String? result = await Navigator.push<String>(
                       context,
-                      MaterialPageRoute<Widget>(
+                      MaterialPageRoute<String>(
                         builder: (BuildContext context) =>
                             AddNewProductPage(barcode),
                       ),
                     );
                     if (callback != null) {
-                      callback!();
+                      await callback!(result);
                     }
                   },
                 ),

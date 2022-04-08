@@ -33,11 +33,12 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
   bool _returnToSearchCard = false;
 
   int get _searchCardAdjustment => widget.containSearchCard ? 1 : 0;
+  late ContinuousScanModel model;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    final ContinuousScanModel model = context.watch<ContinuousScanModel>();
+    model = context.watch<ContinuousScanModel>();
     barcodes = model.getBarcodes();
     _returnToSearchCard = InheritedDataManager.of(context).showSearchCard;
     if (_controller.ready) {
@@ -51,6 +52,7 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
 
   @override
   Widget build(BuildContext context) {
+    barcodes = model.getBarcodes();
     return CarouselSlider.builder(
       itemCount: barcodes.length + _searchCardAdjustment,
       itemBuilder: (BuildContext context, int itemIndex, int itemRealIndex) {
@@ -87,7 +89,6 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
       return Container();
     }
     final String barcode = barcodes[index];
-    final ContinuousScanModel model = context.watch<ContinuousScanModel>();
     switch (model.getBarcodeState(barcode)!) {
       case ScannedProductState.FOUND:
       case ScannedProductState.CACHED:
@@ -98,10 +99,14 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
       case ScannedProductState.NOT_FOUND:
         return SmoothProductCardNotFound(
           barcode: barcode,
-          callback: () {
+          callback: (String? barcodeLoaded) async {
             // Remove the "Add New Product" card. The user may have added it
             // already.
-            model.getBarcodes().remove(barcode);
+            if (barcodeLoaded == null) {
+              model.getBarcodes().remove(barcode);
+            } else {
+              await model.refresh();
+            }
             setState(() {});
           },
         );
