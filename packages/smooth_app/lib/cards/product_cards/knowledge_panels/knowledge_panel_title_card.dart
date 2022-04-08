@@ -21,7 +21,11 @@ class KnowledgePanelTitleCard extends StatelessWidget {
     Color? colorFromEvaluation;
     if (evaluation != null &&
         (knowledgePanelTitleElement.iconColorFromEvaluation ?? false)) {
-      colorFromEvaluation = _getColorFromEvaluation(evaluation!);
+      if (themeData.brightness == Brightness.dark) {
+        colorFromEvaluation = _getColorFromEvaluationDarkMode(evaluation!);
+      } else {
+        colorFromEvaluation = _getColorFromEvaluation(evaluation!);
+      }
     }
     if (evaluation != null &&
         _getColorFromEvaluation(evaluation!) == null &&
@@ -88,7 +92,22 @@ class KnowledgePanelTitleCard extends StatelessWidget {
       case Evaluation.BAD:
         return RED_COLOR;
       case Evaluation.NEUTRAL:
-        return PRIMARY_BLUE_COLOR;
+        return PRIMARY_GREY_COLOR;
+      case Evaluation.AVERAGE:
+        return LIGHT_ORANGE_COLOR;
+      case Evaluation.GOOD:
+        return LIGHT_GREEN_COLOR;
+      case Evaluation.UNKNOWN:
+        return null;
+    }
+  }
+
+  Color? _getColorFromEvaluationDarkMode(Evaluation evaluation) {
+    switch (evaluation) {
+      case Evaluation.BAD:
+        return RED_COLOR;
+      case Evaluation.NEUTRAL:
+        return GREY_COLOR;
       case Evaluation.AVERAGE:
         return LIGHT_ORANGE_COLOR;
       case Evaluation.GOOD:
