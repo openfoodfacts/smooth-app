@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -56,8 +57,9 @@ class ScanExample extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.only(
                     left: screenSize.width / 10, right: MEDIUM_SPACE),
-                child: Text(
+                child: AutoSizeText(
                   appLocalizations.offUtility,
+                  maxLines: 2,
                   style: Theme.of(context)
                       .textTheme
                       .headline1!
@@ -86,7 +88,7 @@ class ScanExample extends StatelessWidget {
                 ),
               ),
             ),
-            const Spacer(flex: 3),
+            const Spacer(flex: 2),
           ],
         ),
         const Positioned(

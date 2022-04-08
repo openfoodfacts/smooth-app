@@ -149,8 +149,15 @@ class _SummaryCardState extends State<SummaryCard> {
   Widget _buildSummaryCardContent(BuildContext context) {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final AppLocalizations localizations = AppLocalizations.of(context)!;
-    final List<Attribute> scoreAttributes =
-        getPopulatedAttributes(widget._product, SCORE_ATTRIBUTE_IDS);
+    final UserPreferences userPreferences = context.read<UserPreferences>();
+
+    final List<String> excludedAttributeIds =
+        userPreferences.getExcludedAttributeIds();
+    final List<Attribute> scoreAttributes = getPopulatedAttributes(
+      widget._product,
+      SCORE_ATTRIBUTE_IDS,
+      excludedAttributeIds,
+    );
 
     // Header takes 1 row.
     // Product Title Tile takes 2 rows to render.
