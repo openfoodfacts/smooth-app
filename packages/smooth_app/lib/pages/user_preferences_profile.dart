@@ -83,7 +83,6 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
       context: context,
       builder: (BuildContext context) {
         return SmoothAlertDialog(
-          close: false,
           title: localizations.sign_out,
           body: Text(
             localizations.sign_out_confirmation,
