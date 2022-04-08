@@ -41,19 +41,17 @@ class SmoothAlertDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (_simpleMode) {
-      return _buildSimpleDialog(context);
-    }
+    final Widget content = _buildContent(context);
     return AlertDialog(
       elevation: 4,
-      shape: const RoundedRectangleBorder(
-        borderRadius: ROUNDED_BORDER_RADIUS,
-      ),
-      content: ConstrainedBox(
-        constraints:
-            BoxConstraints(maxHeight: maxHeight ?? double.infinity * 0.5),
-        child: _buildContent(context),
-      ),
+      shape: const RoundedRectangleBorder(borderRadius: ROUNDED_BORDER_RADIUS),
+      content: _simpleMode
+          ? content
+          : ConstrainedBox(
+              constraints:
+                  BoxConstraints(maxHeight: maxHeight ?? double.infinity * 0.5),
+              child: content,
+            ),
       actions: actions == null
           ? null
           : <Widget>[
@@ -89,27 +87,6 @@ class SmoothAlertDialog extends StatelessWidget {
       return Container();
     }
   }
-
-  Widget _buildSimpleDialog(final BuildContext context) => AlertDialog(
-        elevation: 4,
-        shape: const RoundedRectangleBorder(
-          borderRadius: ROUNDED_BORDER_RADIUS,
-        ),
-        content: _buildContent(context),
-        actions: actions == null
-            ? null
-            : <Widget>[
-                SizedBox(
-                  height: 58,
-                  width: MediaQuery.of(context).size.width,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: actions!,
-                  ),
-                ),
-              ],
-      );
 
   Widget _buildContent(final BuildContext context) => Column(
         mainAxisSize: MainAxisSize.min,
