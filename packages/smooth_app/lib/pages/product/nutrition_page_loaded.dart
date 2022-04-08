@@ -89,7 +89,10 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     return WillPopScope(
       child: Scaffold(
         appBar: AppBar(
-          title: Text(localizations.nutrition_page_title),
+          title: AutoSizeText(
+            localizations.nutrition_page_title,
+            maxLines: 2,
+          ),
           actions: <Widget>[
             IconButton(
               onPressed: () => _validateAndSave(localizations, localDatabase),
