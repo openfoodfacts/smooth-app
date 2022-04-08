@@ -72,53 +72,17 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
+  final Widget content = _buildContent(context);
   return AlertDialog(
     elevation: 4,
-    shape: const RoundedRectangleBorder(
-      borderRadius: ROUNDED_BORDER_RADIUS,
-    ),
-    content: ConstrainedBox(
-      constraints:
-          BoxConstraints(maxHeight: maxHeight ?? double.infinity * 0.5),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: &lt;Widget&gt;[
-          if (title != null) ...&lt;Widget&gt;[
-            SizedBox(
-              height: 32,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: &lt;Widget&gt;[
-                  _buildCross(true, context),
-                  if (title != null)
-                    Expanded(
-                      child: FittedBox(
-                        child: Text(
-                          title!,
-                          style: Theme.of(context).textTheme.headline2,
-                        ),
-                      ),
-                    ),
-                  _buildCross(false, context),
-                ],
-              ),
-            ),
-            Divider(
-              color: Theme.of(context).colorScheme.onBackground,
-            ),
-            const SizedBox(
-              height: 12,
-            ),
-          ],
-          Expanded(
-            child: SingleChildScrollView(
-              child: body,
-            ),
+    shape: const RoundedRectangleBorder(borderRadius: ROUNDED_BORDER_RADIUS),
+    content: _simpleMode
+        ? content
+        : ConstrainedBox(
+            constraints:
+                BoxConstraints(maxHeight: maxHeight ?? double.infinity * 0.5),
+            child: content,
           ),
-        ],
-      ),
-    ),
     actions: actions == null
         ? null
         : &lt;Widget&gt;[
@@ -159,6 +123,7 @@ Widget build(BuildContext context) {
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog-class.html#constructors">Constructors</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/SmoothAlertDialog.html">SmoothAlertDialog</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/SmoothAlertDialog.advanced.html">advanced</a></li>
 
 
     <li class="section-title">

@@ -146,8 +146,7 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
         onPressed: () {
           showDialog&lt;void&gt;(
             context: context,
-            builder: (BuildContext context) =&gt; SmoothAlertDialog(
-              close: false,
+            builder: (BuildContext context) =&gt; SmoothAlertDialog.advanced(
               body: Column(
                 children: &lt;Widget&gt;[
                   SmoothMainButton(
@@ -189,7 +188,7 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
           final PackageInfo packageInfo = await PackageInfo.fromPlatform();
           showDialog&lt;void&gt;(
             context: context,
-            builder: (BuildContext context) =&gt; SmoothAlertDialog(
+            builder: (BuildContext context) =&gt; SmoothAlertDialog.advanced(
               close: false,
               body: Column(
                 children: &lt;Widget&gt;[
