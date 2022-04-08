@@ -177,21 +177,17 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
     final List<Widget> children = <Widget>[];
 
     if (_imageProvider != null) {
-      children.add(ConstrainedBox(
-        constraints: const BoxConstraints.expand(),
-        child: Image(
-          image: _imageProvider!,
-          fit: BoxFit.cover,
+      children.add(
+        ConstrainedBox(
+          constraints: const BoxConstraints.expand(),
+          child: _buildZoomableImage(_imageProvider!),
         ),
-      ));
+      );
     } else {
       if (widget.imageIngredientsUrl != null) {
         children.add(ConstrainedBox(
           constraints: const BoxConstraints.expand(),
-          child: Image(
-            fit: BoxFit.cover,
-            image: NetworkImage(widget.imageIngredientsUrl!),
-          ),
+          child: _buildZoomableImage(NetworkImage(widget.imageIngredientsUrl!)),
         ));
       } else {
         children.add(Container(color: Colors.white));
@@ -229,6 +225,15 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
       body: Stack(
         children: children,
       ),
+    );
+  }
+
+  Widget _buildZoomableImage(ImageProvider imageSource) {
+    return InteractiveViewer(
+      boundaryMargin: const EdgeInsets.fromLTRB(20, 10, 20, 200),
+      minScale: 0.1,
+      maxScale: 5,
+      child: Image(fit: BoxFit.contain, image: imageSource),
     );
   }
 }
