@@ -11,8 +11,8 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
 
-class QuestionCard extends StatefulWidget {
-  const QuestionCard({
+class QuestionPage extends StatefulWidget {
+  const QuestionPage({
     required this.product,
     required this.questions,
     required this.updateProductUponAnswers,
@@ -23,10 +23,10 @@ class QuestionCard extends StatefulWidget {
   final Function() updateProductUponAnswers;
 
   @override
-  State<QuestionCard> createState() => _QuestionCardState();
+  State<QuestionPage> createState() => _QuestionPageState();
 }
 
-class _QuestionCardState extends State<QuestionCard>
+class _QuestionPageState extends State<QuestionPage>
     with SingleTickerProviderStateMixin {
   int _currentQuestionIndex = 0;
   InsightAnnotation? _lastAnswer;
@@ -257,13 +257,14 @@ class _QuestionCardState extends State<QuestionCard>
     );
   }
 
-  Widget _buildAnswerButton(
-      {required String? insightId,
-      required InsightAnnotation insightAnnotation,
-      required Color backgroundColor,
-      required Color contentColor,
-      required int currentQuestionIndex,
-      EdgeInsets padding = const EdgeInsets.all(4)}) {
+  Widget _buildAnswerButton({
+    required String? insightId,
+    required InsightAnnotation insightAnnotation,
+    required Color backgroundColor,
+    required Color contentColor,
+    required int currentQuestionIndex,
+    EdgeInsets padding = const EdgeInsets.all(4),
+  }) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     String buttonText;
     IconData? icon;
@@ -398,7 +399,7 @@ class CongratsWidget extends StatelessWidget {
                         padding:
                             const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
                         child: Text(
-                          appLocalizations.sign_in_text,
+                          appLocalizations.question_sign_in_text,
                           style: Theme.of(context).textTheme.bodyText2,
                           textAlign: TextAlign.center,
                         ),
