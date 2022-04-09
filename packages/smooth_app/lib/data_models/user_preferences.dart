@@ -27,6 +27,7 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_CAMERA_DECLINE = 'declined_camera_use_once';
   static const String _TAG_CRASH_REPORTS = 'crash_reports';
   static const String _TAG_ANALYTICS_REPORTS = 'analytics_reports';
+  static const String _TAG_EXCLUDED_ATTRIBUTE_IDS = 'excluded_attributes';
 
   Future<void> init(final ProductPreferences productPreferences) async {
     if (_sharedPreferences.getBool(_TAG_INIT) != null) {
@@ -108,6 +109,13 @@ class UserPreferences extends ChangeNotifier {
 
   bool? getFlag(final String key) =>
       _sharedPreferences.getBool(_getFlagTag(key));
+
+  List<String> getExcludedAttributeIds() =>
+      _sharedPreferences.getStringList(_TAG_EXCLUDED_ATTRIBUTE_IDS) ??
+      <String>[];
+
+  Future<void> setExcludedAttributeIds(final List<String> value) async =>
+      _sharedPreferences.setStringList(_TAG_EXCLUDED_ATTRIBUTE_IDS, value);
 
   Future<void> setDevMode(final int value) async =>
       _sharedPreferences.setInt(_TAG_DEV_MODE, value);

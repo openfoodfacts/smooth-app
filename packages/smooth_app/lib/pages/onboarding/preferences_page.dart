@@ -33,8 +33,9 @@ class _PreferencesPageState extends State<PreferencesPage> {
     _initFuture = _init();
   }
 
-  Future<dynamic> _init() async => _product =
-      await OnboardingDataProduct(widget._localDatabase).getData(rootBundle);
+  Future<void> _init() async =>
+      _product = await OnboardingDataProduct.forProduct(widget._localDatabase)
+          .getData(rootBundle);
 
   @override
   Widget build(BuildContext context) => FutureBuilder<void>(

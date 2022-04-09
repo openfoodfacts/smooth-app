@@ -7,7 +7,6 @@ import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
-import 'package:smooth_app/cards/product_cards/question_card.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/category_product_query.dart';
@@ -24,6 +23,7 @@ import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/helpers/smooth_matched_product.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
+import 'package:smooth_app/pages/question_page.dart';
 
 const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS,
@@ -149,8 +149,15 @@ class _SummaryCardState extends State<SummaryCard> {
   Widget _buildSummaryCardContent(BuildContext context) {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final AppLocalizations localizations = AppLocalizations.of(context)!;
-    final List<Attribute> scoreAttributes =
-        getPopulatedAttributes(widget._product, SCORE_ATTRIBUTE_IDS);
+    final UserPreferences userPreferences = context.read<UserPreferences>();
+
+    final List<String> excludedAttributeIds =
+        userPreferences.getExcludedAttributeIds();
+    final List<Attribute> scoreAttributes = getPopulatedAttributes(
+      widget._product,
+      SCORE_ATTRIBUTE_IDS,
+      excludedAttributeIds,
+    );
 
     // Header takes 1 row.
     // Product Title Tile takes 2 rows to render.
@@ -462,7 +469,7 @@ class _SummaryCardState extends State<SummaryCard> {
                 await Navigator.push<Widget>(
                   context,
                   MaterialPageRoute<Widget>(
-                    builder: (BuildContext context) => QuestionCard(
+                    builder: (BuildContext context) => QuestionPage(
                       product: widget._product,
                       questions: questions,
                       updateProductUponAnswers: _updateProductUponAnswers,
