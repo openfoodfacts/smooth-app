@@ -18,16 +18,12 @@ class KnowledgePanelTitleCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
     Color? colorFromEvaluation;
-    if (evaluation != null &&
-        (knowledgePanelTitleElement.iconColorFromEvaluation ?? false)) {
+    if (knowledgePanelTitleElement.iconColorFromEvaluation ?? false) {
       if (themeData.brightness == Brightness.dark) {
-        colorFromEvaluation = _getColorFromEvaluationDarkMode(evaluation!);
+        colorFromEvaluation = _getColorFromEvaluationDarkMode(evaluation);
       } else {
-        colorFromEvaluation = _getColorFromEvaluation(evaluation!);
+        colorFromEvaluation = _getColorFromEvaluation(evaluation);
       }
-    }
-    if (evaluation != null && themeData.brightness == Brightness.dark) {
-      colorFromEvaluation = _getColorFromEvaluationDarkMode(evaluation!);
     }
     List<Widget> iconWidget;
     if (knowledgePanelTitleElement.iconUrl != null) {
@@ -84,31 +80,31 @@ class KnowledgePanelTitleCard extends StatelessWidget {
     );
   }
 
-  Color _getColorFromEvaluation(Evaluation evaluation) {
+  Color _getColorFromEvaluation(Evaluation? evaluation) {
     switch (evaluation) {
       case Evaluation.BAD:
         return RED_COLOR;
-      case Evaluation.NEUTRAL:
-        return PRIMARY_GREY_COLOR;
       case Evaluation.AVERAGE:
         return LIGHT_ORANGE_COLOR;
       case Evaluation.GOOD:
         return LIGHT_GREEN_COLOR;
+      case null:
+      case Evaluation.NEUTRAL:
       case Evaluation.UNKNOWN:
         return PRIMARY_GREY_COLOR;
     }
   }
 
-  Color _getColorFromEvaluationDarkMode(Evaluation evaluation) {
+  Color _getColorFromEvaluationDarkMode(Evaluation? evaluation) {
     switch (evaluation) {
       case Evaluation.BAD:
         return RED_COLOR;
-      case Evaluation.NEUTRAL:
-        return LIGHT_GREY_COLOR;
       case Evaluation.AVERAGE:
         return LIGHT_ORANGE_COLOR;
       case Evaluation.GOOD:
         return LIGHT_GREEN_COLOR;
+      case null:
+      case Evaluation.NEUTRAL:
       case Evaluation.UNKNOWN:
         return LIGHT_GREY_COLOR;
     }
