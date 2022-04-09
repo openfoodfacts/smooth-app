@@ -4,7 +4,7 @@
     "@yes": {},
     "add": "Tambahkan",
     "@add": {},
-    "okay": "Oke",
+    "okay": "Baik",
     "@okay": {},
     "applyButtonText": "Terapkan",
     "@applyButtonText": {},
@@ -24,7 +24,7 @@
     "@stop": {},
     "finish": "Finish",
     "@finish": {},
-    "reset_food_prefs": "Reset food preferences",
+    "reset_food_prefs": "Atur ulang preferensi makanan Anda",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
     },
@@ -42,7 +42,7 @@
     "@incompatible": {
         "description": "Short label for product list view: the product is incompatible with your preferences"
     },
-    "compatible": "Compatible",
+    "compatible": "Cocok",
     "@compatible": {
         "description": "Short label for product list view: the product is compatible with your preferences"
     },
@@ -57,36 +57,38 @@
         "description": "Looking for: ${BARCODE}"
     },
     "@Introduction screen": {},
-    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
+    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "whatIsOff": "Open Food Facts adalah organisasi nirlaba global yang didukung oleh komunitas lokal.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Choose foods that are good for you and the planet.",
+    "offUtility": "Pilih makanan yang baik bagi Anda dan planet Anda.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
-    "productDataUtility": "See the food data relevant to your preferences.",
+    "productDataUtility": "Lihat data makanan yang cocok dengan preferensi Anda.",
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."
     },
-    "healthCardUtility": "Choose foods that are good for you.",
+    "healthCardUtility": "Pilih makanan yang baik bagi Anda.",
     "@healthCardUtility": {
         "description": "Description of what a user can use the health data in a product for."
     },
-    "ecoCardUtility": "Choose foods that are good for the planet.",
+    "ecoCardUtility": "Pilih makanan yang baik bagi planet Anda.",
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
-    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
-    "incorrect_credentials": "Incorrect username or password.",
+    "sign_in_text": "Masuk ke akun Open Food Facts untuk menyimpan kontribusi Anda",
+    "incorrect_credentials": "Nama pengguna atau kata sandi Anda salah.",
     "login": "Masuk",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
-    "create_account": "Create account",
+    "login_page_username_or_email": "Silakan masukkan nama pengguna atau email",
+    "login_page_password_error_empty": "Silakan masukkan kata sandi",
+    "create_account": "Buat akun",
     "@create_account": {
         "description": "Button label: Opens a page where a new user can register"
     },
@@ -94,20 +96,20 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_out": "Sign out",
+    "sign_out": "Keluar",
     "@sign_out": {
         "description": "Button label: For sign out"
     },
-    "sign_out_confirmation": "Are you sure you want to sign out?",
+    "sign_out_confirmation": "Apa Anda yakin Anda ingin keluar?",
     "@sign_out_confirmation": {
         "description": "Pop up title: Reassuring if the user really want to sign out"
     },
     "password": "Kata sandi",
-    "forgot_password": "Forgot password",
+    "forgot_password": "Lupa kata sandi",
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset e-mail can be requested"
     },
-    "view_profile": "View profile",
+    "view_profile": "Lihat profil",
     "@view_profile": {
         "description": "Button label: For to show your account"
     },
@@ -115,49 +117,49 @@
     "@reset_password": {
         "description": "Forgot password page title"
     },
-    "reset_password_explanation_text": "In case of a forgotten password, enter your username or e-mail address to receive instructions for a password reset. Also, remember to check the Spam folder.",
-    "username_or_email": "Username or e-mail",
+    "reset_password_explanation_text": "Jika Anda lupa kata sandi, masukkan nama pengguna atau alamat email Anda untuk menerima instruksi untuk mengatur ulang kata sandi. Jangan lupa memeriksa folder Spam.",
+    "username_or_email": "Nama pengguna atau alamat e-mail",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
-    "reset_password_done": "An e-mail with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
-    "send_reset_password_mail": "Change password",
+    "reset_password_done": "E-mail dengan link untuk mengatur ulang kata sandi telah dikirim ke alamat e-mail yang terhubung dengan akun Anda. Periksa folder Spam Anda",
+    "send_reset_password_mail": "Ubah kata sandi",
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset e-mail request"
     },
-    "enter_some_text": "Please enter some text",
+    "enter_some_text": "Harap masukkan teks",
     "@enter_some_text": {
         "description": "Error when a required text field is empty"
     },
-    "sign_up_page_title": "Sign Up",
+    "sign_up_page_title": "Daftar",
     "@sign_up_page_title": {
         "description": "Header"
     },
-    "sign_up_page_action_button": "Sign Up",
+    "sign_up_page_action_button": "Daftar",
     "@sign_up_page_action_button": {
         "description": "Button for signing up"
     },
-    "sign_up_page_action_doing_it": "Signing up...",
+    "sign_up_page_action_doing_it": "Mendaftarkan...",
     "@sign_up_page_action_doing_it": {
         "description": "Progress indicator dialog during the actual signing up process"
     },
-    "sign_up_page_action_ok": "Congratulations! Your account has just been created.",
-    "sign_up_page_display_name_hint": "Display Name",
-    "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
+    "sign_up_page_action_ok": "Selamat! Akun Anda baru saja dibuat.",
+    "sign_up_page_display_name_hint": "Nama",
+    "sign_up_page_display_name_error_empty": "Silakan masukkan nama panggilan yang Anda inginkan",
     "sign_up_page_email_hint": "E-mail",
-    "sign_up_page_email_error_empty": "E-mail is required",
-    "sign_up_page_email_error_invalid": "This e-mail is invalid",
+    "sign_up_page_email_error_empty": "E-mail diperlukan",
+    "sign_up_page_email_error_invalid": "E-mail ini tidak sah",
     "sign_up_page_username_hint": "Nama pengguna",
-    "sign_up_page_username_error_empty": "Please enter a username",
-    "sign_up_page_username_error_invalid": "Please enter a valid username",
-    "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters",
+    "sign_up_page_username_error_empty": "Silakan masukkan nama pengguna Anda",
+    "sign_up_page_username_error_invalid": "Silakan masukkan nama pengguna yang sah",
+    "sign_up_page_username_description": "Nama pengguna tidak dapat mengandung spasi, huruf besar ataupun karakter khusus",
     "sign_up_page_password_hint": "Kata sandi",
-    "sign_up_page_password_error_empty": "Please enter a password",
-    "sign_up_page_password_error_invalid": "Please enter a valid password (at least 6 characters)",
-    "sign_up_page_confirm_password_hint": "Confirm Password",
-    "sign_up_page_confirm_password_error_empty": "Please confirm the password",
-    "sign_up_page_confirm_password_error_invalid": "Passwords don't match",
-    "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
+    "sign_up_page_password_error_empty": "Silakan masukkan kata sandi",
+    "sign_up_page_password_error_invalid": "Silakan masukkan kata sandi yang sah (paling sedikit 6 karakter)",
+    "sign_up_page_confirm_password_hint": "Konfirmasi kata sandi",
+    "sign_up_page_confirm_password_error_empty": "Harap konfirmasi kata sandi",
+    "sign_up_page_confirm_password_error_invalid": "Kata sandi tidak cocok",
+    "sign_up_page_agree_url": "https://world.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
@@ -165,32 +167,32 @@
     "@donate_url": {
         "description": "Please insert the right url from the website here."
     },
-    "sign_up_page_agree_error_invalid": "When creating an account, agreeing to the Terms of Use is mandatory, however, anonymous contributions can still be made through the app",
+    "sign_up_page_agree_error_invalid": "Anda wajib menyetujui Persyaratan Penggunaan saat menggunakan akun, akan tetapi kontribusi anonim masih dapat dilakukan melalui aplikasi",
     "@sign_up_page_agree_error_invalid": {
         "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
     },
-    "sign_up_page_producer_checkbox": "I am a food producer",
-    "sign_up_page_producer_hint": "Producer/brand",
-    "sign_up_page_producer_error_empty": "Please enter a producer or a brand name",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at all time)",
+    "sign_up_page_producer_checkbox": "Saya seorang produsen makanan",
+    "sign_up_page_producer_hint": "Produsen/merek",
+    "sign_up_page_producer_error_empty": "Silakan masukkan nama produsen atau merek",
+    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
     "@Settings": {},
     "settingsTitle": "Pengaturan",
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
-    "darkmode": "Modegelap",
+    "darkmode": "Mode gelap",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
-    "darkmode_dark": "Dark",
+    "darkmode_dark": "Gelap",
     "@darkmode_dark": {
         "description": "Indicator inside the darkmode switch"
     },
-    "darkmode_light": "Light",
+    "darkmode_light": "Terang",
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch"
     },
-    "thanks_for_contributing": "Thanks for contributing",
+    "thanks_for_contributing": "Terima kasih atas kontribusi Anda",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
@@ -199,11 +201,11 @@
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
-    "support_join_slack": "Ask for help in our Slack channel",
-    "support_via_email": "Send us a e-mail",
+    "support_join_slack": "Minta bantuan di saluran Slack kami",
+    "support_via_email": "Send us an e-mail",
     "termsOfUse": "Syarat Penggunaan",
     "@termsOfUse": {},
-    "about_this_app": "About this app",
+    "about_this_app": "Tentang aplikasi ini",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
     },
@@ -212,11 +214,11 @@
     "@contribute": {
         "description": "Button label: Shows multiple ways how users can contribute to OFF"
     },
-    "contribute_sw_development": "Software development",
+    "contribute_sw_development": "Pengembangan perangkat lunak",
     "@contribute_sw_development": {
         "description": "Button label + page title: Ways to help"
     },
-    "contribute_develop_text": "Kode untuk setiap produk Open Food Facts tersedia di GitHub. Anda dipersilahkan untuk menggunakan kode tersebut kembali (ia merupakan sumber terbuka) dan bantu kami memperbaikinya untuk semua orang di seluruh planet.",
+    "contribute_develop_text": "Kode untuk setiap produk Open Food Facts tersedia di GitHub. Anda dipersilahkan untuk menggunakan kode tersebut kembali (bersifat open-source) dan bantu kami memperbaikinya untuk semua orang di seluruh planet.",
     "@contribute_develop_text": {},
     "contribute_develop_text_2": "Anda dapat bergabung dengan ruang obrolan Slack Open Food Facts yang juga merupakan cara yang lebih disukai untuk mengajukan pertanyaan.",
     "@contribute_develop_text_2": {},
@@ -226,11 +228,11 @@
     "@contribute_improve_ProductsToBeCompleted": {
         "description": "Button label: Shows a list of products which aren't completed"
     },
-    "contribute_improve_header": "Peningkatan",
+    "contribute_improve_header": "Meningkatkan",
     "@contribute_improve_header": {
         "description": "Button label + page title: Ways to improve the database"
     },
-    "contribute_improve_text": "Basis data adalah inti dari proyek ini. Ia membantu dengan mudah dan sangat cepat. Anda bisa mengunduh aplikasi seluler untuk ponsel Anda, dan mulai menambahkan atau meningkatkan produk.\n\nDi sisi lain, situs web Open Food Facts menyediakan banyak cara untuk berkontribusi: ",
+    "contribute_improve_text": "Pembangunan database adalah inti dari proyek ini. Kontribusi dapat dilakukan dengan mudah dan cepat. Anda dapat mengunduh aplikasi seluler untuk ponsel Anda dan mulai menambahkan atau meningkatkan produk.\n\nDi sisi lain, situs web Open Food Facts menyediakan banyak cara untuk berkontribusi: ",
     "@contribute_improve_text": {},
     "contribute_translate_header": "Terjemahkan",
     "@contribute_translate_header": {
@@ -240,11 +242,11 @@
     "@contribute_translate_link_text": {
         "description": "Button label: Opens the Crowdin translation portal"
     },
-    "contribute_translate_text": "Open Food Facts adalah proyek global, yang berisi produk dari lebih dari 160 negara. Open Food Facts diterjemahkan ke dalam berbagai bahasa, dengan konten yang terus dikembangkan.",
+    "contribute_translate_text": "Open Food Facts adalah proyek global yang berisi produk dari lebih dari 160 negara. Open Food Facts diterjemahkan ke dalam berbagai bahasa, dengan konten yang terus dikembangkan.",
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Penerjemahan adalah salah satu tugas utama dari proyek ini",
     "@contribute_translate_text_2": {},
-    "tap_to_answer": "Tap here to answer questions",
+    "tap_to_answer": "Ketuk di sini untuk menjawab pertanyaan",
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
@@ -252,7 +254,7 @@
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
     },
-    "contribute_to_get_rewards": "Help food transparency and get reward badges",
+    "contribute_to_get_rewards": "Help improve food transparency and get rewards",
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
@@ -262,7 +264,7 @@
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "Your Profile",
-    "myPreferences_profile_subtitle": "Set app settings and find out advices.",
+    "myPreferences_profile_subtitle": "Change app settings and get advice.",
     "myPreferences_settings_title": "App Settings",
     "myPreferences_settings_subtitle": "Dark mode, Theme, ...",
     "myPreferences_food_title": "Food Preferences",
@@ -288,13 +290,13 @@
     "@profile_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "scan_navbar_label": "Profile",
+    "scan_navbar_label": "Cari",
     "@scan_navbar_label": {
-        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+        "description": "BottomNavigationBarLabel: For the searching of products"
     },
-    "history_navbar_label": "Profile",
+    "history_navbar_label": "Riwayat",
     "@history_navbar_label": {
-        "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
+        "description": "BottomNavigationBarLabel: For the history and compare mode"
     },
     "category": "Filter by category",
     "@category": {
@@ -334,13 +336,17 @@
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
     },
-    "ingredients": "Kandungan bahan",
+    "ingredients": "Komposisi",
     "@ingredients": {},
+    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen, use parentheses for ingredients of an ingredient, and indicate allergens between underscores.",
+    "ingredients_editing_error": "Failed to save the ingredients.",
+    "ingredients_editing_image_error": "Failed to get a new ingredients image.",
+    "ingredients_editing_title": "Edit Ingredients",
     "ingredients_photo": "Foto kandungan bahan",
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
-    "nutrition": "kandungan nutrisi",
+    "nutrition": "Kandungan nutrisi",
     "@nutrition": {},
     "nutrition_facts_photo": "Foto kandungan gizi",
     "@nutrition_facts_photo": {
@@ -354,9 +360,9 @@
     "@packaging_information_photo": {},
     "missing_product": "You found a new product!",
     "@missing_product": {},
-    "add_product_take_photos": "Take photos of the packaging to add this product to our database.",
+    "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Please take the following photos and the Open Food Facts engine can work out the rest!",
+    "add_product_take_photos_descriptive": "Please take some photos and the Open Food Facts engine can work out the rest!",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Tambahkan informasi produk",
     "@add_product_information_button_label": {},
@@ -450,8 +456,8 @@
     "@product_internet_cancel": {
         "description": "Confirmation, that the product data got canceled by the user"
     },
-    "product_internet_error": "Gagal mengambil informasi tentang produk ini karena kesalahan jaringan.",
-    "cached_results_from": "Cached results from:",
+    "product_internet_error": "Pengambilan informasi tentang produk ini gagal karena kesalahan jaringan.",
+    "cached_results_from": "Show results from:",
     "@cached_results_from": {
         "description": "Cached results from: x time ago (time ago should not be added to the string)"
     },
@@ -466,39 +472,43 @@
     "@product_improvement_add_category": {
         "description": "Message for ProductImprovement.ADD_CATEGORY"
     },
-    "product_improvement_add_nutrition_facts": "Add nutrition facts to calculate the Nutri-Score.",
+    "product_improvement_add_nutrition_facts": "Tambahkan informasi nilai gizi untuk menghitung Nutri-Score.",
     "@product_improvement_add_nutrition_facts": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
     },
-    "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to calculate the Nutri-Score.",
+    "product_improvement_add_nutrition_facts_and_category": "Tambahkan informasi nilai gizi dan kategori untuk menghitung Nutri-Score.",
     "@product_improvement_add_nutrition_facts_and_category": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
     },
-    "product_improvement_categories_but_no_nutriscore": "The Nutri-Score for this product can't be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.",
+    "product_improvement_categories_but_no_nutriscore": "Nutri-Score untuk produk ini tidak dapat dihitung, kemungkinan disebabkan oleh kategori non-standar. Jika ini dianggap sebagai kesalahan, silakan hubungi kami.",
     "@product_improvement_categories_but_no_nutriscore": {
         "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
-    "product_improvement_obsolete_nutrition_image": "Gambar nutrisi sudah usang: harap segarkan.",
+    "product_improvement_obsolete_nutrition_image": "Gambar nutrisi sudah tidak berlaku: harap perbaharui.",
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take a photo of them (ingredient list and/or any geographic claim or edit the product) so that they can be taken into account.",
+    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
-    "country_chooser_label": "Please choose a country",
+    "country_chooser_label": "Silakan pilih negara",
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },
-    "country_selection_explanation": "Some environmental features are location-specific",
+    "country_selection_explanation": "Beberapa fitur lingkungan bersifat khusus tergantung lokasi",
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
-    "product_removed": "Product removed",
-    "@product_removed": {
-        "description": "Product got removed from a list"
+    "product_removed_comparison": "Product removed from comparison",
+    "@product_removed_comparison": {
+        "description": "Product got removed from comparison list"
     },
-    "product_could_not_remove": "Could not remove product",
+    "product_removed_history": "Product removed from history",
+    "@product_removed_history": {
+        "description": "Product got removed from history"
+    },
+    "product_could_not_remove": "Tidak dapat menghapus produk",
     "@product_could_not_remove": {
         "description": "Could not remove product from a list"
     },
@@ -510,76 +520,107 @@
     "@clear": {
         "description": "Clears a product list"
     },
-    "really_clear": "Do you really want to clear this list?",
-    "product_compatibility_unknown": "Product Compatibility Unknown",
+    "really_clear": "Do you really want to delete this list?",
+    "product_compatibility_unknown": "Compatibility Unknown",
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_incompatible": "Does not match",
+    "product_compatibility_incompatible": "Doesn't match",
     "@product_compatibility_incompatible": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_good": "Good Match",
+    "product_compatibility_good": "Sesuai",
     "@product_compatibility_good": {
         "description": "Product compatibility summary title"
     },
     "@Plural": {},
-    "pct_match": "{percent}% match",
+    "pct_match": "{percent}% cocok",
     "@pct_match": {
         "description": "This product has a x percent match with your preferences",
         "placeholders": {
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural, =1{one day ago} other{{count} days ago}}",
+    "plural_ago_days": "{count,plural, one {} =1{one day ago} other{{count} days ago}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural, =1{one hour ago} other{{count} hours ago}}",
+    "plural_ago_hours": "{count,plural, one {} =1{one hour ago} other{{count} hours ago}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural, =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
+    "plural_ago_minutes": "{count,plural, one {} =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, =1{one month ago} other{{count} months ago}}",
+    "plural_ago_months": "{count,plural, one {} =1{one month ago} other{{count} months ago}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, =1{one week ago} other{{count} weeks ago}}",
+    "plural_ago_weeks": "{count,plural, one {} =1{one week ago} other{{count} weeks ago}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, other{Compare {count} Products}",
+    "plural_compare_x_products": "{count,plural, other{Bandingkan {count} Produk}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {
             "count": {}
         }
     },
-    "compare_products_mode": "Compare Mode",
+    "compare_products_mode": "Bandingkan",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },
     "retry_button_label": "Coba lagi",
-    "main_app_color": "Main color of the app",
+    "connect_with_us": "Connect with us",
+    "instagram": "Instagram",
+    "twitter": "Twitter",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "discover": "Temukan",
+    "how_to_contribute": "How to Contribute",
+    "main_app_color": "Theme",
     "@main_app_color": {
         "description": "Heading for the section to pick the main app color"
+    },
+    "hint_knowledge_panel_message": "Your can tap on any part of the card to get more details about what you see. Try it now!",
+    "@hint_knowledge_panel_message": {
+        "description": "Hint popup indicating the card is clickable during onboarding"
+    },
+    "consent_analytics_title": "Kirim analitik anonim",
+    "@consent_analytics_title": {
+        "description": "Title for the consent analytics UI Page"
+    },
+    "consent_analytics_body1": "Help the Open Food Facts volunteer to improve the app. You decide if you want to send anonymous analytics.",
+    "@conset_analytics_body1": {
+        "description": "first paragraph for the consent analytics UI Page"
+    },
+    "consent_analytics_body2": "If you change your mind this option can be enabled and disabled at any time from the settings.",
+    "@consent_analytics_body2": {
+        "description": "second paragraph for the consent analytics UI Page"
+    },
+    "authorize_button_label": "Authorize",
+    "@authorize": {
+        "description": "Button to accept the request of sending the anonymous analytics"
+    },
+    "refuse_button_label": "Refuse",
+    "@refuse": {
+        "description": "Button to decline the request of sending the anonymous analytics"
     }
 }

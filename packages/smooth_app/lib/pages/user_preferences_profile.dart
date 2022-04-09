@@ -83,7 +83,6 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
       context: context,
       builder: (BuildContext context) {
         return SmoothAlertDialog(
-          close: false,
           title: localizations.sign_out,
           body: Text(
             localizations.sign_out_confirmation,
@@ -147,12 +146,12 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           onTap: () async {
             final Mailto mailtoLink = Mailto(
               to: <String>['contact@openfoodfacts.org'],
-              subject: 'Delete account', // TODO(monsieurtanuki): localize
-              body: 'Hi there, please delete my openfoodfacts account: $userId',
+              subject: appLocalizations.email_subject_account_deletion,
+              body: appLocalizations.email_body_account_deletion(userId),
             );
             await launch('$mailtoLink');
           },
-          title: const Text('Delete account'),
+          title: Text(appLocalizations.account_delete),
           leading: const Icon(Icons.delete),
         ),
       );
@@ -200,11 +199,9 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           ),
         ),
         SwitchListTile(
-          title: const Text(
-            'Crash reporting', // TODO(monsieurtanuki): localize
-          ),
-          subtitle: const Text(
-            'When enabled, crash reports will be sent to the Open Food Facts server automatically, so that we can fix bugs and improve the app.',
+          title: Text(appLocalizations.crash_reporting_toggle_title),
+          subtitle: Text(
+            appLocalizations.crash_reporting_toggle_subtitle,
           ),
           isThreeLine: true,
           value: widget.userPreferences.crashReports,
@@ -215,11 +212,11 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           },
         ),
         SwitchListTile(
-          title: const Text(
-            'Send anonymous data', // TODO(monsieurtanuki): localize
+          title: Text(
+            appLocalizations.send_anonymous_data_toggle_title,
           ),
-          subtitle: const Text(
-            'When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.',
+          subtitle: Text(
+            appLocalizations.send_anonymous_data_toggle_subtitle,
           ),
           isThreeLine: true,
           value: widget.userPreferences.analyticsReports,

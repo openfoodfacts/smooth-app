@@ -81,9 +81,8 @@ class UserPreferencesSettings extends AbstractUserPreferences {
                   themeProvider.setTheme(newValue!);
                 },
                 items: <DropdownMenuItem<String>>[
-                  const DropdownMenuItem<String>(
-                    // TODO(aman): translations
-                    child: Text('System Default'),
+                  DropdownMenuItem<String>(
+                    child: Text(appLocalizations.darkmode_system_default),
                     value: THEME_SYSTEM_DEFAULT,
                   ),
                   DropdownMenuItem<String>(
@@ -138,8 +137,7 @@ class UserPreferencesSettings extends AbstractUserPreferences {
           onPressed: () {
             showDialog<void>(
               context: context,
-              builder: (BuildContext context) => SmoothAlertDialog(
-                close: false,
+              builder: (BuildContext context) => SmoothAlertDialog.advanced(
                 body: Column(
                   children: <Widget>[
                     SmoothMainButton(
@@ -181,7 +179,7 @@ class UserPreferencesSettings extends AbstractUserPreferences {
             final PackageInfo packageInfo = await PackageInfo.fromPlatform();
             showDialog<void>(
               context: context,
-              builder: (BuildContext context) => SmoothAlertDialog(
+              builder: (BuildContext context) => SmoothAlertDialog.advanced(
                 close: false,
                 body: Column(
                   children: <Widget>[

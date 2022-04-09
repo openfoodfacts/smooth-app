@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_app/data_models/onboarding_data_knowledge_panels.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/data_models/onboarding_data_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
@@ -21,7 +21,8 @@ class OnboardingLoader {
         await LoadingDialog.run<void>(
           context: context,
           future: _downloadData(),
-          title: 'Loading internet data', // TODO(monsieurtanuki): localize
+          title: AppLocalizations.of(context)!
+              .onboarding_welcome_loading_dialog_title,
         );
         return;
       case OnboardingPage.NOT_STARTED:
@@ -39,13 +40,14 @@ class OnboardingLoader {
 
   /// Actual download of all data.
   Future<void> _downloadData() async {
-    await OnboardingDataProduct(_localDatabase).downloadData();
-    await OnboardingDataKnowledgePanels(_localDatabase).downloadData();
+    await OnboardingDataProduct.forProduct(_localDatabase).downloadData();
+    await OnboardingDataProduct.forKnowledgePanels(_localDatabase)
+        .downloadData();
   }
 
   /// Unloads all data that are no longer required.
   Future<void> _unloadData() async {
-    await OnboardingDataProduct(_localDatabase).clear();
-    await OnboardingDataKnowledgePanels(_localDatabase).clear();
+    await OnboardingDataProduct.forProduct(_localDatabase).clear();
+    await OnboardingDataProduct.forKnowledgePanels(_localDatabase).clear();
   }
 }

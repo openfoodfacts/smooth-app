@@ -60,7 +60,7 @@ class ContinuousScanModel with ChangeNotifier {
       _states.clear();
       _latestScannedBarcode = null;
       await refreshProductList();
-      for (final String barcode in _productList.barcodes.reversed) {
+      for (final String barcode in _productList.barcodes) {
         _barcodes.add(barcode);
         _states[barcode] = ScannedProductState.CACHED;
         _latestScannedBarcode = barcode;

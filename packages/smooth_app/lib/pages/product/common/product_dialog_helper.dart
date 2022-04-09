@@ -47,7 +47,6 @@ class ProductDialogHelper {
         context: context,
         builder: (BuildContext context) {
           return SmoothAlertDialog(
-            close: false,
             body: Text(
               refresh
                   ? AppLocalizations.of(context)!.could_not_refresh
@@ -77,7 +76,6 @@ class ProductDialogHelper {
   void _openErrorMessage(final String message) => showDialog<void>(
         context: context,
         builder: (BuildContext context) => SmoothAlertDialog(
-          close: false,
           body: getErrorMessage(message),
           actions: <SmoothActionButton>[
             SmoothActionButton(
@@ -95,7 +93,6 @@ class ProductDialogHelper {
       case FetchedProductStatus.ok:
         throw Exception("You're not supposed to call this if the status is ok");
       case FetchedProductStatus.userCancelled:
-        _openErrorMessage(appLocalizations.product_internet_cancel);
         return;
       case FetchedProductStatus.internetError:
         _openErrorMessage(appLocalizations.product_internet_error);

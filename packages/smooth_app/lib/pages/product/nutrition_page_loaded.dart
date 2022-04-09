@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -10,6 +11,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/nutrition_container.dart';
 
@@ -68,35 +70,48 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations localizations = AppLocalizations.of(context)!;
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final List<Widget> children = <Widget>[];
-    children.add(_switchNoNutrition(appLocalizations));
+    children.add(_switchNoNutrition(localizations));
     if (!_unspecified) {
-      children.add(_getServingField(appLocalizations));
-      children.add(_getServingSwitch(appLocalizations));
+      children.add(_getServingField(localizations));
+      children.add(_getServingSwitch(localizations));
       for (final OrderedNutrient orderedNutrient
           in _nutritionContainer.getDisplayableNutrients()) {
         children.add(
-          _getNutrientRow(appLocalizations, orderedNutrient),
+          _getNutrientRow(localizations, orderedNutrient),
         );
       }
-      children.add(_addNutrientButton(appLocalizations));
+      children.add(_addNutrientButton(localizations));
     }
-    children.add(_addCancelSaveButtons(
-      appLocalizations,
-      localDatabase,
-    ));
 
-    return Scaffold(
-      appBar: AppBar(title: Text(appLocalizations.nutrition_page_title)),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Form(
-          key: _formKey,
-          child: ListView(children: children),
+    return WillPopScope(
+      child: Scaffold(
+        appBar: AppBar(
+          title: AutoSizeText(
+            localizations.nutrition_page_title,
+            maxLines: 2,
+          ),
+          actions: <Widget>[
+            IconButton(
+              onPressed: () => _validateAndSave(localizations, localDatabase),
+              icon: const Icon(Icons.check),
+            )
+          ],
+        ),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: LARGE_SPACE,
+            vertical: SMALL_SPACE,
+          ),
+          child: Form(
+            key: _formKey,
+            child: ListView(children: children),
+          ),
         ),
       ),
+      onWillPop: () => _showCancelPopup(localizations),
     );
   }
 
@@ -216,7 +231,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   }
 
   Widget _getServingSwitch(final AppLocalizations appLocalizations) => Row(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Text(appLocalizations.nutrition_page_per_100g),
@@ -229,11 +244,15 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         ],
       );
 
-  Widget _switchNoNutrition(final AppLocalizations appLocalizations) =>
-      Container(
+  Widget _switchNoNutrition(final AppLocalizations localizations) => SmoothCard(
         color: Theme.of(context).colorScheme.primary,
+        padding: const EdgeInsets.symmetric(
+          horizontal: MEDIUM_SPACE,
+          vertical: SMALL_SPACE,
+        ),
+        margin: EdgeInsets.zero,
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Switch(
@@ -243,9 +262,9 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
             ),
             SizedBox(
               width: getColumnSizeFromContext(context, 0.6),
-              child: Text(
-                appLocalizations.nutrition_page_unspecified,
-                style: const TextStyle(color: Colors.white),
+              child: AutoSizeText(
+                localizations.nutrition_page_unspecified,
+                style: Theme.of(context).primaryTextTheme.bodyText1,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),
@@ -260,8 +279,10 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
           final List<OrderedNutrient> leftovers = List<OrderedNutrient>.from(
             _nutritionContainer.getLeftoverNutrients(),
           );
+
           leftovers.sort((final OrderedNutrient a, final OrderedNutrient b) =>
               a.name!.compareTo(b.name!));
+
           final OrderedNutrient? selected = await showDialog<OrderedNutrient>(
               context: context,
               builder: (BuildContext context) {
@@ -294,33 +315,77 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
             setState(() => _nutritionContainer.add(selected));
           }
         },
+        style: ButtonStyle(
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            const RoundedRectangleBorder(
+              borderRadius: ROUNDED_BORDER_RADIUS,
+              side: BorderSide.none,
+            ),
+          ),
+        ),
         icon: const Icon(Icons.add),
         label: Text(appLocalizations.nutrition_page_add_nutrient),
       );
 
-  Widget _addCancelSaveButtons(
-    final AppLocalizations appLocalizations,
-    final LocalDatabase localDatabase,
-  ) =>
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          ElevatedButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text(appLocalizations.cancel),
+  Future<bool> _showCancelPopup(AppLocalizations localizations) async =>
+      await showDialog<bool>(
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+          shape: const RoundedRectangleBorder(
+            borderRadius: ROUNDED_BORDER_RADIUS,
           ),
-          ElevatedButton(
-            onPressed: () async {
-              if (!_formKey.currentState!.validate()) {
-                return;
-              }
-              await _save(localDatabase);
-            },
-            child: Text(appLocalizations.save),
-          ),
-        ],
-      );
+          title: Text(localizations.general_confirmation),
+          content: Text(localizations.nutrition_page_close_confirmation),
+          actions: <TextButton>[
+            TextButton(
+              child: Text(localizations.cancel.toUpperCase()),
+              onPressed: () => Navigator.pop(context, false),
+            ),
+            TextButton(
+              child: Text(localizations.close.toUpperCase()),
+              onPressed: () => Navigator.pop(context, true),
+            ),
+          ],
+        ),
+      ) ??
+      false;
+
+  Future<void> _validateAndSave(final AppLocalizations localizations,
+      final LocalDatabase localDatabase) async {
+    if (!_formKey.currentState!.validate()) {
+      return;
+    }
+
+    await _showSavePopup(localizations, localDatabase);
+  }
+
+  Future<void> _showSavePopup(
+      AppLocalizations localizations, LocalDatabase localDatabase) async {
+    final bool shouldSave = await showDialog<bool>(
+            context: context,
+            builder: (BuildContext context) => AlertDialog(
+                  title: Text(localizations.general_confirmation),
+                  content: Text(localizations.save_confirmation),
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: ROUNDED_BORDER_RADIUS,
+                  ),
+                  actions: <TextButton>[
+                    TextButton(
+                      child: Text(localizations.cancel.toUpperCase()),
+                      onPressed: () => Navigator.pop(context, false),
+                    ),
+                    TextButton(
+                      child: Text(localizations.save.toUpperCase()),
+                      onPressed: () => Navigator.pop(context, true),
+                    ),
+                  ],
+                )) ??
+        false;
+
+    if (shouldSave) {
+      _save(localDatabase);
+    }
+  }
 
   Future<void> _save(final LocalDatabase localDatabase) async {
     for (final String key in _controllers.keys) {

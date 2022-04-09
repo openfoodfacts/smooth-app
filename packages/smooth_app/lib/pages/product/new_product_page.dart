@@ -17,7 +17,6 @@ import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
-import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/product/category_cache.dart';
 import 'package:smooth_app/pages/product/category_picker_page.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
@@ -25,6 +24,7 @@ import 'package:smooth_app/pages/product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/knowledge_panel_product_cards.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
 import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
+import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 class ProductPage extends StatefulWidget {
@@ -41,7 +41,7 @@ enum ProductPageMenuItem { WEB, REFRESH }
 class _ProductPageState extends State<ProductPage> {
   late Product _product;
   late ProductPreferences _productPreferences;
-  bool isVisible = true;
+  bool scrollingUp = true;
 
   @override
   void initState() {
@@ -57,25 +57,23 @@ class _ProductPageState extends State<ProductPage> {
   Widget build(BuildContext context) {
     // All watchers defined here:
     _productPreferences = context.watch<ProductPreferences>();
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
     final MaterialColor materialColor = SmoothTheme.getMaterialColor(context);
-    final Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: SmoothTheme.getColor(
         colorScheme,
         materialColor,
         ColorDestination.SURFACE_BACKGROUND,
       ),
-      floatingActionButton: isVisible
+      floatingActionButton: scrollingUp
           ? FloatingActionButton(
               backgroundColor: colorScheme.primary,
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.maybePop(context);
               },
-              child: const Icon(
-                Icons.arrow_back,
+              child: Icon(
+                ConstantIcons.instance.getBackIcon(),
                 color: Colors.white,
               ),
             )
@@ -86,59 +84,21 @@ class _ProductPageState extends State<ProductPage> {
           NotificationListener<UserScrollNotification>(
               onNotification: (UserScrollNotification notification) {
                 if (notification.direction == ScrollDirection.forward) {
-                  if (!isVisible) {
+                  if (!scrollingUp) {
                     setState(() {
-                      isVisible = true;
+                      scrollingUp = true;
                     });
                   }
                 } else if (notification.direction == ScrollDirection.reverse) {
-                  if (isVisible) {
+                  if (scrollingUp) {
                     setState(() {
-                      isVisible = false;
+                      scrollingUp = false;
                     });
                   }
                 }
                 return true;
               },
               child: _buildProductBody(context)),
-
-          //! It is a temporary button for Pop-Up action menu
-          if (isVisible) ...<Widget>[
-            Positioned(
-                bottom: size.height * 0.01,
-                right: size.width * 0.01,
-                child: Container(
-                  height: size.height * 0.05,
-                  width: size.width * 0.2,
-                  decoration: BoxDecoration(
-                      color: colorScheme.primary, shape: BoxShape.circle),
-                  child: PopupMenuButton<ProductPageMenuItem>(
-                    itemBuilder: (BuildContext context) =>
-                        <PopupMenuEntry<ProductPageMenuItem>>[
-                      PopupMenuItem<ProductPageMenuItem>(
-                        value: ProductPageMenuItem.WEB,
-                        child: Text(appLocalizations.label_web),
-                      ),
-                      PopupMenuItem<ProductPageMenuItem>(
-                        value: ProductPageMenuItem.REFRESH,
-                        child: Text(appLocalizations.label_refresh),
-                      ),
-                    ],
-                    onSelected: (final ProductPageMenuItem value) async {
-                      switch (value) {
-                        case ProductPageMenuItem.WEB:
-                          LaunchUrlHelper.launchURL(
-                              'https://openfoodfacts.org/product/${_product.barcode}/',
-                              false);
-                          break;
-                        case ProductPageMenuItem.REFRESH:
-                          _refreshProduct(context);
-                          break;
-                      }
-                    },
-                  ),
-                ))
-          ]
         ],
       ),
     );
@@ -178,6 +138,8 @@ class _ProductPageState extends State<ProductPage> {
   }
 
   Widget _buildProductBody(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+
     return RefreshIndicator(
       onRefresh: () => _refreshProduct(context),
       child: ListView(children: <Widget>[
@@ -209,7 +171,7 @@ class _ProductPageState extends State<ProductPage> {
         Padding(
           padding: const EdgeInsets.all(SMALL_SPACE),
           child: SmoothActionButton(
-            text: 'Edit product', // TODO(monsieurtanuki): translations
+            text: appLocalizations.edit_product_label,
             onPressed: () async {
               final bool? refreshed = await Navigator.push<bool>(
                 context,
