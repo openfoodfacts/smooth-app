@@ -17,7 +17,6 @@ class KnowledgePanelTitleCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
-    final ColorScheme colorScheme = themeData.colorScheme;
     Color? colorFromEvaluation;
     if (evaluation != null &&
         (knowledgePanelTitleElement.iconColorFromEvaluation ?? false)) {
@@ -27,10 +26,8 @@ class KnowledgePanelTitleCard extends StatelessWidget {
         colorFromEvaluation = _getColorFromEvaluation(evaluation!);
       }
     }
-    if (evaluation != null &&
-        _getColorFromEvaluation(evaluation!) == null &&
-        themeData.brightness == Brightness.dark) {
-      colorFromEvaluation = colorScheme.onBackground;
+    if (evaluation != null && themeData.brightness == Brightness.dark) {
+      colorFromEvaluation = _getColorFromEvaluationDarkMode(evaluation!);
     }
     List<Widget> iconWidget;
     if (knowledgePanelTitleElement.iconUrl != null) {
@@ -87,7 +84,7 @@ class KnowledgePanelTitleCard extends StatelessWidget {
     );
   }
 
-  Color? _getColorFromEvaluation(Evaluation evaluation) {
+  Color _getColorFromEvaluation(Evaluation evaluation) {
     switch (evaluation) {
       case Evaluation.BAD:
         return RED_COLOR;
@@ -98,22 +95,22 @@ class KnowledgePanelTitleCard extends StatelessWidget {
       case Evaluation.GOOD:
         return LIGHT_GREEN_COLOR;
       case Evaluation.UNKNOWN:
-        return null;
+        return PRIMARY_GREY_COLOR;
     }
   }
 
-  Color? _getColorFromEvaluationDarkMode(Evaluation evaluation) {
+  Color _getColorFromEvaluationDarkMode(Evaluation evaluation) {
     switch (evaluation) {
       case Evaluation.BAD:
         return RED_COLOR;
       case Evaluation.NEUTRAL:
-        return GREY_COLOR;
+        return LIGHT_GREY_COLOR;
       case Evaluation.AVERAGE:
         return LIGHT_ORANGE_COLOR;
       case Evaluation.GOOD:
         return LIGHT_GREEN_COLOR;
       case Evaluation.UNKNOWN:
-        return null;
+        return LIGHT_GREY_COLOR;
     }
   }
 }
