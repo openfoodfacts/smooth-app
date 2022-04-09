@@ -587,7 +587,7 @@
             "count": {}
         }
     },
-    "compare_products_mode": "Original",
+    "compare_products_mode": "Compare",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },
