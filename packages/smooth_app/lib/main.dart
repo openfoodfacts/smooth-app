@@ -143,6 +143,7 @@ class _SmoothAppState extends State<SmoothApp> {
             ChangeNotifierProvider<T>(create: (BuildContext context) => value);
 
         if (!_screenshots) {
+          // ending FlutterNativeSplash.preserve()
           FlutterNativeSplash.remove();
         }
 

@@ -13,9 +13,7 @@ then flutter clean
 
 // cf. https://dev.to/mjablecnik/take-screenshot-during-flutter-integration-tests-435k
 /// Screenshot driver.
-Future<void> main() async {
-  try {
-    await integrationDriver(
+Future<void> main() async => integrationDriver(
       onScreenshot: (String screenshotName, List<int> screenshotBytes) async {
         final File image = await File('screenshots/$screenshotName.png')
             .create(recursive: true);
@@ -23,7 +21,3 @@ Future<void> main() async {
         return true;
       },
     );
-  } catch (e) {
-    print('Error occured: $e');
-  }
-}
