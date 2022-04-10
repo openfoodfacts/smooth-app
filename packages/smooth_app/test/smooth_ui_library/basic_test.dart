@@ -4,8 +4,8 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 
 void main() {
   testWidgets('Alert dialog can be created', (WidgetTester tester) async {
-    await tester.pumpWidget(
-        const MaterialApp(home: SmoothAlertDialog(body: Placeholder())));
+    await tester.pumpWidget(const MaterialApp(
+        home: SmoothAlertDialog.advanced(body: Placeholder())));
     expect(find.byType(SmoothAlertDialog), findsOneWidget);
   });
 }
