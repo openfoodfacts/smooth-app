@@ -64,8 +64,6 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
         ),
       );
     }
-
-    _startLiveFeed();
   }
 
   @override
@@ -150,10 +148,10 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
 
     try {
       await _controller?.initialize();
-      _controller?.setFocusMode(FocusMode.auto);
-      _controller?.setFocusPoint(_focusPoint);
-      _controller?.lockCaptureOrientation(DeviceOrientation.portraitUp);
-      _controller?.startImageStream(_processCameraImage);
+      await _controller?.setFocusMode(FocusMode.auto);
+      await _controller?.setFocusPoint(_focusPoint);
+      await _controller?.lockCaptureOrientation(DeviceOrientation.portraitUp);
+      await _controller?.startImageStream(_processCameraImage);
     } on CameraException catch (e) {
       if (kDebugMode) {
         // TODO(M123): Show error message
