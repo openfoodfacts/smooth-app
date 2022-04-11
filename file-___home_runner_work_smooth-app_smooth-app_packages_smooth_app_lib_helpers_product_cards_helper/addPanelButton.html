@@ -75,6 +75,13 @@
       width: double.infinity,
       child: ElevatedButton.icon(
         icon: Icon(iconData ?? Icons.add),
+        style: ButtonStyle(
+          shape: MaterialStateProperty.all&lt;RoundedRectangleBorder&gt;(
+            const RoundedRectangleBorder(
+              borderRadius: ROUNDED_BORDER_RADIUS,
+            ),
+          ),
+        ),
         label: Text(label),
         onPressed: onPressed,
       ),
