@@ -13,6 +13,7 @@
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
     "save": "שמירה",
+    "save_confirmation": "לשמור?",
     "skip": "דילוג",
     "cancel": "ביטול",
     "@cancel": {},
@@ -38,6 +39,7 @@
     "@label_web": {},
     "learnMore": "מידע נוסף",
     "@learnMore": {},
+    "general_confirmation": "להמשיך?",
     "incompatible": "אין תאימות",
     "@incompatible": {
         "description": "Short label for product list view: the product is incompatible with your preferences"
@@ -57,7 +59,7 @@
         "description": "Looking for: ${BARCODE}"
     },
     "@Introduction screen": {},
-    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
+    "welcomeToOpenFoodFacts": "ברוך בואך ל־Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
     "whatIsOff": "Open Food Facts הוא ארגון כלל עולמי ללא מטרות רווח שמופעל על ידי קהילות מקומיות.",
     "@whatIsOff": {
@@ -174,7 +176,7 @@
     "sign_up_page_producer_checkbox": "עיסוקי הוא ייצור מזון",
     "sign_up_page_producer_hint": "יצרן/מותג",
     "sign_up_page_producer_error_empty": "נא למלא יצרן או שם מותג",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
+    "sign_up_page_subscribe_checkbox": "אשמח להירשם לקבוצת הדיוור של Open Food Facts (ניתן לצאת ממנה בכל רגע נתון)",
     "@Settings": {},
     "settingsTitle": "הגדרות",
     "@settingsTitle": {
@@ -186,11 +188,15 @@
     },
     "darkmode_dark": "כהה",
     "@darkmode_dark": {
-        "description": "Indicator inside the darkmode switch"
+        "description": "Indicator inside the darkmode switch (dark)"
     },
     "darkmode_light": "בהיר",
     "@darkmode_light": {
-        "description": "Indicator inside the darkmode switch"
+        "description": "Indicator inside the darkmode switch (light)"
+    },
+    "darkmode_system_default": "ברירת המחדל של המערכת",
+    "@darkmode_system_default": {
+        "description": "Indicator inside the darkmode switch (system default)"
     },
     "thanks_for_contributing": "תודה על תרומתך",
     "@contributors": {
@@ -202,7 +208,7 @@
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
     "support_join_slack": "ניתן לבקש עזרה בערוץ ה־Slack שלנו",
-    "support_via_email": "Send us an e-mail",
+    "support_via_email": "לשלוח לנו דוא״ל",
     "termsOfUse": "תנאי שימוש",
     "@termsOfUse": {},
     "about_this_app": "על היישומון הזה",
@@ -254,17 +260,18 @@
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
     },
-    "contribute_to_get_rewards": "Help improve food transparency and get rewards",
+    "contribute_to_get_rewards": "מסייעים בשיפור שקיפות המזון ומקבלים פרסים",
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
+    "question_sign_in_text": "עליך להיכנס לחשבון שלך ב־Open Food Facts כדי לקבל הוקרה על התרומות שלך ולהמשיך לשפר אותה בעתיד",
     "@Personal preferences": {},
     "myPreferences": "ההעדפות שלי",
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "הפרופיל שלך",
-    "myPreferences_profile_subtitle": "Change app settings and get advice.",
+    "myPreferences_profile_subtitle": "החלפת הגדרה ביישומון מציעה עצה.",
     "myPreferences_settings_title": "הגדרות היישומון",
     "myPreferences_settings_subtitle": "מצב כהה, ערכת עיצוב…",
     "myPreferences_food_title": "העדפות מזון",
@@ -281,7 +288,7 @@
     "ranking_subtitle_match_yes": "מתאים לך היטב",
     "ranking_subtitle_match_no": "לא כל כך קשור אליך",
     "ranking_subtitle_match_maybe": "התאמה לא ידועה",
-    "reloaded_with_new_preferences": "נטען מחדש עם העדפות חדשות",
+    "reloaded_with_new_preferences": "Reloaded with your new preferences",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
     },
@@ -348,6 +355,7 @@
     },
     "nutrition": "תזונה",
     "@nutrition": {},
+    "nutrition_page_close_confirmation": "לסגור בלי לשמור?",
     "nutrition_facts_photo": "תמונת פירוט תזונתי",
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
@@ -362,23 +370,23 @@
     "@missing_product": {},
     "add_product_take_photos": "יש לצלם את האריזה כדי להוסיף את המוצר הזה ל־Open Food Facts",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Please take some photos and the Open Food Facts engine can work out the rest!",
+    "add_product_take_photos_descriptive": "נא לצלם תמונות והמנוע של Open Food Facts ידאג לשאר!",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "הוספת פרטי מוצר",
     "@add_product_information_button_label": {},
     "new_product": "מוצר חדש",
     "@new_product": {},
-    "front_packaging_photo_button_label": "תמונת חזית האריזה",
+    "front_packaging_photo_button_label": "Front of product photo",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "אימות תמונת חזית האריזה",
+    "confirm_front_packaging_photo_button_label": "Confirm front of product photo",
     "@confirm_front_packaging_photo_button_label": {
-        "description": "Button clicking on which confirms the picture of the front packaging that user just took."
+        "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
     "front_photo_uploaded": "תמונת החזית נשלחה",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "תמונת רכיבים",
     "@ingredients_photo_button_label": {},
-    "confirm_ingredients_photo_button_label": "אימות תמונת הרכיבים",
+    "confirm_ingredients_photo_button_label": "Confirm ingredients photo",
     "@confirm_ingredients_photo_button_label": {
         "description": "Button clicking on which confirms the picture of ingredients that user just took."
     },
@@ -386,11 +394,11 @@
     "@ingredients_photo_uploaded": {},
     "nutritional_facts_photo_button_label": "תמונת פירוט תזונתי",
     "@nutritional_facts_photo_button_label": {},
-    "confirm_nutritional_facts_photo_button_label": "אימות תמונת הפירוט התזונתי",
+    "confirm_nutritional_facts_photo_button_label": "Confirm nutrition facts photo",
     "@confirm_nutritional_facts_photo_button_label": {
         "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
     },
-    "nutritional_facts_photo_uploaded": "תמונת הפירוט התזונתי נשלחה",
+    "nutritional_facts_photo_uploaded": "Nutrition facts photo uploaded",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "תמונת פרטי המיחזור",
     "@recycling_photo_button_label": {},
@@ -416,7 +424,7 @@
     "@selecting_photo": {
         "description": "Progress indicator when the users takes a photo"
     },
-    "uploading_image": "התמונה נשלחת לשרת",
+    "uploading_image": "Uploading photo to the server",
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
@@ -424,7 +432,7 @@
     "score_add_missing_nutrition_facts": "הוספת עובדות תזונתיות חסרות",
     "score_add_missing_product_category": "הוספת קטגוריית מוצר חסרה",
     "score_update_nutrition_facts": "עדכון העובדות התזונתיות",
-    "nutrition_page_title": "עובדות תזונתיות על המוצר",
+    "nutrition_page_title": "מפרט תזונתי",
     "nutrition_page_unspecified": "העובדות התזונתיות לא מופיעות על המוצר",
     "nutrition_page_per_100g": "ל־100 ג׳",
     "nutrition_page_per_serving": "לכל הגשה",
@@ -452,12 +460,8 @@
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
     },
-    "product_internet_cancel": "בוטל על ידי המשתמש.",
-    "@product_internet_cancel": {
-        "description": "Confirmation, that the product data got canceled by the user"
-    },
     "product_internet_error": "לא ניתן למשוך מידע על המוצר הזה עקב שגיאת רשת.",
-    "cached_results_from": "Show results from:",
+    "cached_results_from": "להציג תוצאות מ־:",
     "@cached_results_from": {
         "description": "Cached results from: x time ago (time ago should not be added to the string)"
     },
@@ -488,7 +492,7 @@
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
+    "product_improvement_origins_to_be_completed": "ציון Eco-Score מתחשב במקורות הרכיבים. נא לצלם את רשימת הרכיבים ו/או טענה גאוגרפית כלשהי או לערוך את המוצר, כדי שאפשר יהיה לקחת אותם בחשבון.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
@@ -520,12 +524,12 @@
     "@clear": {
         "description": "Clears a product list"
     },
-    "really_clear": "Do you really want to delete this list?",
-    "product_compatibility_unknown": "Compatibility Unknown",
+    "really_clear": "למחוק את הרשימה הזאת?",
+    "product_compatibility_unknown": "תאימות לא ידועה",
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_incompatible": "Doesn't match",
+    "product_compatibility_incompatible": "Does not match",
     "@product_compatibility_incompatible": {
         "description": "Product compatibility summary title"
     },
@@ -541,35 +545,35 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural, one {} =1{one day ago} other{{count} days ago}}",
+    "plural_ago_days": "{count,plural, one {אתמול} two {שלשום} many {לפני {count} ימים} =1{אתמול} other{לפני {count} ימים}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural, one {} =1{one hour ago} other{{count} hours ago}}",
+    "plural_ago_hours": "{count,plural, one {לפני שעה} two {לפני שעתיים} many {לפני {count} שעות} =1{לפני שעה} other{לפני {count} שעות}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural, one {} =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
+    "plural_ago_minutes": "{count,plural, one {לפני דקה} two {לפני שתי דקות} many {לפני {count} דקות} =0{לפני פחות מדקה} =1{לפני דקה} other{לפני {count} דקות}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, one {} =1{one month ago} other{{count} months ago}}",
+    "plural_ago_months": "{count,plural, one {לפני חודש} two {לפני חודשיים} many {לפני {count} חודשים} =1{לפני חודש} other{לפני {count} חודשים}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, one {} =1{one week ago} other{{count} weeks ago}}",
+    "plural_ago_weeks": "{count,plural, one {לפני שבוע} two {לפני שבועיים} many {לפני {count} שבועות} =1{לפני שבוע} other{לפני {count} שבועות}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
@@ -595,11 +599,11 @@
     "faq": "שו״ת",
     "discover": "לגלות",
     "how_to_contribute": "כיצד לתרום",
-    "main_app_color": "Theme",
+    "main_app_color": "ערכת עיצוב",
     "@main_app_color": {
         "description": "Heading for the section to pick the main app color"
     },
-    "hint_knowledge_panel_message": "Your can tap on any part of the card to get more details about what you see. Try it now!",
+    "hint_knowledge_panel_message": "ניתן לחלק בכל אחד מחלקי הכרטיס לקבלת פרטים נוספים על מה שמופיע. כדאי לנסות!",
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
     },
@@ -607,11 +611,11 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Help the Open Food Facts volunteer to improve the app. You decide if you want to send anonymous analytics.",
+    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide if you want to send anonymous analytics.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
-    "consent_analytics_body2": "אפשר להפעיל או להשבית את האפשרות הזאת דרך ההגדרות במקרה של חרטה.",
+    "consent_analytics_body2": "If you change your mind, this option can be enabled and disabled at any time from the settings.",
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
@@ -622,5 +626,147 @@
     "refuse_button_label": "סירוב",
     "@refuse": {
         "description": "Button to decline the request of sending the anonymous analytics"
+    },
+    "knowledge_panel_text_source": "להמשיך ב־{source_name}",
+    "@knowledge_panel_text_source": {
+        "description": "Source field within a text knowledge panel.",
+        "placeholders": {
+            "source_name": {
+                "type": "String"
+            }
+        }
+    },
+    "onboarding_welcome_loading_dialog_title": "Loading your first example product",
+    "@onboarding_welcome_loading_dialog_title": {
+        "description": "Title for the onboarding loading dialog"
+    },
+    "product_list_your_ranking": "הדירוג שלך",
+    "@product_list_your_ranking": {
+        "description": "Your ranking screen title"
+    },
+    "product_list_empty_icon_desc": "ההיסטוריה לא זמינה",
+    "@product_list_icon_desc": {
+        "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
+    },
+    "product_list_empty_title": "התחלת הסריקה!",
+    "@product_list_empty_title": {
+        "description": "When the history list is empty, title of the message explaining to start scanning"
+    },
+    "product_list_empty_message": "Products you scan will appear here and you can check detailed information about them",
+    "@product_list_empty_message": {
+        "description": "When the history list is empty, body of the message explaining to start scanning"
+    },
+    "product_list_reloading_in_progress": "Refreshing products in your History",
+    "@product_list_reloading_in_progress": {
+        "description": "Message to show while loading previous scanned items"
+    },
+    "product_list_reloading_success": "Product refresh complete",
+    "@product_list_reloading_success": {
+        "description": "Message to show once previous scanned items are loaded"
+    },
+    "loading_dialog_default_title": "הנתונים מתקבלים",
+    "@loading_dialog_default_title": {
+        "description": "Default loading dialog title"
+    },
+    "loading_dialog_default_error_message": "לא ניתן להוריד נתונים",
+    "@loading_dialog_default_error_message": {
+        "description": "Default loading dialog error message"
+    },
+    "account_delete": "מחיקת חשבון",
+    "@account_delete": {
+        "description": "Delete account button (user profile)"
+    },
+    "email_subject_account_deletion": "מחיקת חשבון",
+    "@email_subject_account_deletion": {
+        "description": "Email subject for an account deletion"
+    },
+    "email_body_account_deletion": "Hi there, please delete my Open Food Facts account: {userId}",
+    "@email_body_account_deletion": {
+        "description": "Email body for an account deletion",
+        "placeholders": {
+            "userId": {
+                "type": "String"
+            }
+        }
+    },
+    "crash_reporting_toggle_title": "דיווח על קריסות",
+    "@crash_reporting_toggle_title": {
+        "description": "Title for the Crash reporting toggle"
+    },
+    "crash_reporting_toggle_subtitle": "When enabled, crash reports will be sent to the Open Food Facts bug system automatically, so that we can fix bugs and improve the app.",
+    "@crash_reporting_toggle_subtitle": {
+        "description": "SubTitle for the Crash reporting toggle"
+    },
+    "send_anonymous_data_toggle_title": "שליחת נתונים אלמוניים",
+    "@send_anonymous_toggle_title": {
+        "description": "Title for the Send anonymous data toggle"
+    },
+    "send_anonymous_data_toggle_subtitle": "כאשר האפשרות פעילה, יישלח מידע אלמוני כלשהו בנוגע ליישומון אל השרתים של Open Food Facts כדי שנוכל להבין איך וכמה תכונות נמצאות בשימוש כדי לשפר אותן.",
+    "@send_anonymous_toggle_subtitle": {
+        "description": "SubTitle for the Send anonymous data toggle"
+    },
+    "product_edit_photo_title": "עריכת תמונה",
+    "@product_edit_photo_title": {
+        "description": "Toolbar Title while editing a photo (Android only)"
+    },
+    "permission_photo_error": "שגיאה",
+    "@permission_photo_error": {
+        "description": "When the camera/photo permission failed to be acquired (!= denied)"
+    },
+    "permission_photo_denied": "הגישה למצלמה לא אושרה",
+    "@permission_photo_denied": {
+        "description": "When the camera/photo permission is denied by user"
+    },
+    "edit_product_label": "עריכת מוצר",
+    "@edit_product_label": {
+        "description": "Edit product button label"
+    },
+    "edit_product_form_item_barcode": "ברקוד",
+    "@edit_product_form_item_barcode": {
+        "description": "Product edition - Barcode"
+    },
+    "edit_product_form_item_details_title": "פרטים בסיסיים",
+    "@edit_product_form_item_details_title": {
+        "description": "Product edition - Basic Details - Title"
+    },
+    "edit_product_form_item_details_subtitle": "שם, מותג, כמות המוצר",
+    "@edit_product_form_item_details_subtitle": {
+        "description": "Product edition - Basic Details - Title"
+    },
+    "edit_product_form_item_photos_title": "תמונות",
+    "@edit_product_form_item_photos_title": {
+        "description": "Product edition - Photos - Title"
+    },
+    "edit_product_form_item_photos_subtitle": "הוספה או רענון תמונות",
+    "@edit_product_form_item_photos_subtitle": {
+        "description": "Product edition - Photos - SubTitle"
+    },
+    "edit_product_form_item_labels_title": "תוויות ואישורים",
+    "@edit_product_form_item_labels_title": {
+        "description": "Product edition - Labels - Title"
+    },
+    "edit_product_form_item_labels_subtitle": "איכות הסביבה, איכות תזונתית…",
+    "@edit_product_form_item_labels_subtitle": {
+        "description": "Product edition - Labels - SubTitle"
+    },
+    "edit_product_form_item_ingredients_title": "רכיבים ומקורות",
+    "@edit_product_form_item_ingredients_title": {
+        "description": "Product edition - Ingredients - Title"
+    },
+    "edit_product_form_item_packaging_title": "אריזה",
+    "@edit_product_form_item_packaging_title": {
+        "description": "Product edition - Packaging - Title"
+    },
+    "edit_product_form_item_nutrition_facts_title": "מפרט תזונתי",
+    "@edit_product_form_item_nutrition_facts_title": {
+        "description": "Product edition - Nutrition facts - Title"
+    },
+    "edit_product_form_item_nutrition_facts_subtitle": "תזונה, הרכב אלכוהול…",
+    "@edit_product_form_item_nutrition_facts_subtitle": {
+        "description": "Product edition - Nutrition facts - SubTitle"
+    },
+    "edit_product_form_save": "עריכה",
+    "@edit_product_form_save": {
+        "description": "Product edition - Nutrition facts - Save button"
     }
 }

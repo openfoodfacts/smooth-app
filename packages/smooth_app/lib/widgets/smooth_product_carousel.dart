@@ -33,12 +33,13 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
   bool _returnToSearchCard = false;
 
   int get _searchCardAdjustment => widget.containSearchCard ? 1 : 0;
+  late ContinuousScanModel _model;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    final ContinuousScanModel model = context.watch<ContinuousScanModel>();
-    barcodes = model.getBarcodes();
+    _model = context.watch<ContinuousScanModel>();
+    barcodes = _model.getBarcodes();
     _returnToSearchCard = InheritedDataManager.of(context).showSearchCard;
     if (_controller.ready) {
       if (_returnToSearchCard && widget.containSearchCard) {
@@ -51,6 +52,7 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
 
   @override
   Widget build(BuildContext context) {
+    barcodes = _model.getBarcodes();
     return CarouselSlider.builder(
       itemCount: barcodes.length + _searchCardAdjustment,
       itemBuilder: (BuildContext context, int itemIndex, int itemRealIndex) {
@@ -87,21 +89,24 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
       return Container();
     }
     final String barcode = barcodes[index];
-    final ContinuousScanModel model = context.watch<ContinuousScanModel>();
-    switch (model.getBarcodeState(barcode)!) {
+    switch (_model.getBarcodeState(barcode)!) {
       case ScannedProductState.FOUND:
       case ScannedProductState.CACHED:
-        final Product product = model.getProduct(barcode);
+        final Product product = _model.getProduct(barcode);
         return ScanProductCard(product);
       case ScannedProductState.LOADING:
         return SmoothProductCardLoading(barcode: barcode);
       case ScannedProductState.NOT_FOUND:
         return SmoothProductCardNotFound(
           barcode: barcode,
-          callback: () {
+          callback: (String? barcodeLoaded) async {
             // Remove the "Add New Product" card. The user may have added it
             // already.
-            model.getBarcodes().remove(barcode);
+            if (barcodeLoaded == null) {
+              _model.getBarcodes().remove(barcode);
+            } else {
+              await _model.refresh();
+            }
             setState(() {});
           },
         );

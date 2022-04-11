@@ -79,7 +79,15 @@ class AnalyticsHelper {
     return event;
   }
 
-  static void initMatomo(final BuildContext context) {
+  static void initMatomo(
+    final BuildContext context,
+    final bool screenshotMode,
+  ) {
+    if (screenshotMode) {
+      setCrashReports(false);
+      setAnalyticsReports(false);
+      return;
+    }
     MatomoForever.init(
       'https://analytics.openfoodfacts.org/matomo.php',
       2,

@@ -13,6 +13,7 @@
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
     "save": "حفظ",
+    "save_confirmation": "هل أنت متأكد أنك تريد المغادرة؟",
     "skip": "Skip",
     "cancel": "إلغاء",
     "@cancel": {},
@@ -38,6 +39,7 @@
     "@label_web": {},
     "learnMore": "لمعرفة المزيد",
     "@learnMore": {},
+    "general_confirmation": "هل أنت متأكد؟",
     "incompatible": "قائمة غير متوافقة",
     "@incompatible": {
         "description": "Short label for product list view: the product is incompatible with your preferences"
@@ -57,7 +59,7 @@
         "description": "Looking for: ${BARCODE}"
     },
     "@Introduction screen": {},
-    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
+    "welcomeToOpenFoodFacts": "مرحبًا بكم في موقع Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
     "whatIsOff": "Open Food Facts هي منظمة عالمية غير ربحية تدعمها المجتمعات المحلية.",
     "@whatIsOff": {
@@ -86,7 +88,7 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
-    "login_page_username_or_email": "Please enter username or e-mail",
+    "login_page_username_or_email": "الرجاء إدخال اسم المستخدم أو البريد الإلكتروني",
     "login_page_password_error_empty": "برجاء إخال كلمة مرور",
     "create_account": "إنشاء حساب",
     "@create_account": {
@@ -174,7 +176,7 @@
     "sign_up_page_producer_checkbox": "أنا منتج للغذاء",
     "sign_up_page_producer_hint": "المنتِج / العلامة التجارية",
     "sign_up_page_producer_error_empty": "برجاء إدخال اسم منتِج أو اسم علامة تجارية",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
+    "sign_up_page_subscribe_checkbox": "أرغب في الاشتراك في النشرة الإخبارية لـ Open Food Facts (يمكنك إلغاء الاشتراك بها في أي وقت)",
     "@Settings": {},
     "settingsTitle": "الإعدادات",
     "@settingsTitle": {
@@ -186,11 +188,15 @@
     },
     "darkmode_dark": "وضع ليلي",
     "@darkmode_dark": {
-        "description": "Indicator inside the darkmode switch"
+        "description": "Indicator inside the darkmode switch (dark)"
     },
     "darkmode_light": "وضع نهاري",
     "@darkmode_light": {
-        "description": "Indicator inside the darkmode switch"
+        "description": "Indicator inside the darkmode switch (light)"
+    },
+    "darkmode_system_default": "الإعداد الافتراضي للنظام",
+    "@darkmode_system_default": {
+        "description": "Indicator inside the darkmode switch (system default)"
     },
     "thanks_for_contributing": "شكراً على المساهمة",
     "@contributors": {
@@ -202,7 +208,7 @@
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
     "support_join_slack": "طلب المساعدة في قناتنا على Slack",
-    "support_via_email": "Send us an e-mail",
+    "support_via_email": "ارسل لنا بريد إلكتروني",
     "termsOfUse": "شروط الاستخدام",
     "@termsOfUse": {},
     "about_this_app": "حول هذا التطبيق",
@@ -254,17 +260,18 @@
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
     },
-    "contribute_to_get_rewards": "Help improve food transparency and get rewards",
+    "contribute_to_get_rewards": "ساعد في تحسين شفافية الطعام واحصل على مكافآت",
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
+    "question_sign_in_text": "Sign in to your Open Food Facts account to claim your contribution and to increase your creditability",
     "@Personal preferences": {},
     "myPreferences": "خياراتي",
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "صفحتك الشخصية",
-    "myPreferences_profile_subtitle": "Change app settings and get advice.",
+    "myPreferences_profile_subtitle": "تغيير إعدادات التطبيق والحصول على المشورة.",
     "myPreferences_settings_title": "إعدادات التطبيق",
     "myPreferences_settings_subtitle": "الوضع الداكن، المظهر، ...",
     "myPreferences_food_title": "أضف تفضيلات غذائية",
@@ -281,7 +288,7 @@
     "ranking_subtitle_match_yes": "A great match for you",
     "ranking_subtitle_match_no": "تطابُق ضعيف جداً",
     "ranking_subtitle_match_maybe": "تطابق غير معروف",
-    "reloaded_with_new_preferences": "تم التحميل مع تفضيلات جديدة",
+    "reloaded_with_new_preferences": "Reloaded with your new preferences",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
     },
@@ -339,15 +346,16 @@
     "ingredients": "مكونات",
     "@ingredients": {},
     "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen, use parentheses for ingredients of an ingredient, and indicate allergens between underscores.",
-    "ingredients_editing_error": "Failed to save the ingredients.",
-    "ingredients_editing_image_error": "Failed to get a new ingredients image.",
-    "ingredients_editing_title": "Edit Ingredients",
+    "ingredients_editing_error": "فشل في حفظ المكونات.",
+    "ingredients_editing_image_error": "فشل الحصول على صورة جديدة للمكونات.",
+    "ingredients_editing_title": "تعديل المكونات",
     "ingredients_photo": "صورة المكونات",
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
     "nutrition": "التغذية",
     "@nutrition": {},
+    "nutrition_page_close_confirmation": "هل أنت متأكد من أنك تريد الإغلاق بدون حفظ؟",
     "nutrition_facts_photo": "صورة حقائق التغذية",
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
@@ -360,37 +368,37 @@
     "@packaging_information_photo": {},
     "missing_product": "لقد وجدت منتجا جديدا!",
     "@missing_product": {},
-    "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
+    "add_product_take_photos": "التقاط صور من التغليف لإضافة هذا المنتج إلى Open Food Facts",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Please take some photos and the Open Food Facts engine can work out the rest!",
+    "add_product_take_photos_descriptive": "يرجى التقاط بعض الصور ويمكن لمحرك Open Food Facts أن يعمل على الباقي!",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "إضافة معلومات عن المنتج",
     "@add_product_information_button_label": {},
     "new_product": "منتج جديد",
     "@new_product": {},
-    "front_packaging_photo_button_label": "صورة التغليف الأمامي",
+    "front_packaging_photo_button_label": "Front of product photo",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "تأكيد صورة التغليف الأمامي",
+    "confirm_front_packaging_photo_button_label": "Confirm front of product photo",
     "@confirm_front_packaging_photo_button_label": {
-        "description": "Button clicking on which confirms the picture of the front packaging that user just took."
+        "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
     "front_photo_uploaded": "تم تحميل الصورة الأمامية",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "صورة المكونات",
     "@ingredients_photo_button_label": {},
-    "confirm_ingredients_photo_button_label": "تأكيد صورة المكونات",
+    "confirm_ingredients_photo_button_label": "Confirm ingredients photo",
     "@confirm_ingredients_photo_button_label": {
         "description": "Button clicking on which confirms the picture of ingredients that user just took."
     },
     "ingredients_photo_uploaded": "تم تحميل صورة المكونات",
     "@ingredients_photo_uploaded": {},
-    "nutritional_facts_photo_button_label": "صورة الحقائق الغذائية",
+    "nutritional_facts_photo_button_label": "صورة حقائق التغذية",
     "@nutritional_facts_photo_button_label": {},
-    "confirm_nutritional_facts_photo_button_label": "تأكيد صورة الحقائق الغذائية",
+    "confirm_nutritional_facts_photo_button_label": "Confirm nutrition facts photo",
     "@confirm_nutritional_facts_photo_button_label": {
         "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
     },
-    "nutritional_facts_photo_uploaded": "تم تحميل صورة الحقائق الغذائية",
+    "nutritional_facts_photo_uploaded": "Nutrition facts photo uploaded",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "صورة معلومات إعادة التدوير",
     "@recycling_photo_button_label": {},
@@ -416,23 +424,23 @@
     "@selecting_photo": {
         "description": "Progress indicator when the users takes a photo"
     },
-    "uploading_image": "Uploading Image to the server",
+    "uploading_image": "Uploading photo to the server",
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
     "score_add_missing_ingredients": "أضف المكونات المفقودة",
-    "score_add_missing_nutrition_facts": "Add missing nutrition facts",
-    "score_add_missing_product_category": "Add missing product category",
-    "score_update_nutrition_facts": "Update nutrition facts",
-    "nutrition_page_title": "Product Nutrition Facts",
-    "nutrition_page_unspecified": "Nutrition facts are not specified on the product",
-    "nutrition_page_per_100g": "per 100g",
+    "score_add_missing_nutrition_facts": "إضافة معلومات التغذية المفقودة",
+    "score_add_missing_product_category": "إضافة فئة المنتج مفقودة",
+    "score_update_nutrition_facts": "تحديث المعلومات الغذائية",
+    "nutrition_page_title": "حقائق غذائية",
+    "nutrition_page_unspecified": "لم يتم تحديد المعلومات الغذائية على المنتج",
+    "nutrition_page_per_100g": "لكل 100 غرام",
     "nutrition_page_per_serving": "لكل وجبة",
     "nutrition_page_add_nutrient": "إضافة مادة غذائية",
     "nutrition_page_serving_size": "حجم الحصة",
-    "nutrition_page_invalid_number": "Invalid number",
-    "nutrition_page_update_running": "Updating the product on the server...",
-    "nutrition_page_update_done": "Product updated!",
+    "nutrition_page_invalid_number": "الرقم غير صحيح",
+    "nutrition_page_update_running": "تحديث المنتج على الخادم...",
+    "nutrition_page_update_done": "تم تحديث المنتج!",
     "more_photos": "صور أكثر إثارة للاهتمام",
     "@more_photos": {},
     "no_product_found": "لم يتم العثور على أي منتج",
@@ -452,63 +460,59 @@
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
     },
-    "product_internet_cancel": "ألغي من قبل المستخدم.",
-    "@product_internet_cancel": {
-        "description": "Confirmation, that the product data got canceled by the user"
-    },
     "product_internet_error": "يتعذر جلب معلمومات حول هذا المنتج بسبب خطأ في الشبكة.",
-    "cached_results_from": "Show results from:",
+    "cached_results_from": "إظهار النتائج من:",
     "@cached_results_from": {
         "description": "Cached results from: x time ago (time ago should not be added to the string)"
     },
     "@Product Addition": {},
     "added_product_thanks": "شكرًا لَإضافة هذا المنتج!",
     "@added_product_thanks": {},
-    "product_search_same_category": "Compare to Category",
+    "product_search_same_category": "قارن بالفئة",
     "@product_search_same_category": {
         "description": "Button looking for the other products within the same category. Less than 30 characters"
     },
-    "product_improvement_add_category": "Add a category to calculate the Nutri-Score.",
+    "product_improvement_add_category": "إضافة فئة لحساب Nutri-Score.",
     "@product_improvement_add_category": {
         "description": "Message for ProductImprovement.ADD_CATEGORY"
     },
-    "product_improvement_add_nutrition_facts": "Add nutrition facts to calculate the Nutri-Score.",
+    "product_improvement_add_nutrition_facts": "إضافة المعلومات الغذائية لحساب Nutri-Score.",
     "@product_improvement_add_nutrition_facts": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
     },
-    "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to calculate the Nutri-Score.",
+    "product_improvement_add_nutrition_facts_and_category": "أضف المعلومات الغذائية والفئة لحساب Nutri-Score.",
     "@product_improvement_add_nutrition_facts_and_category": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
     },
-    "product_improvement_categories_but_no_nutriscore": "The Nutri-Score for this product can't be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.",
+    "product_improvement_categories_but_no_nutriscore": "لا يمكن حساب Nutri-Score هذا المنتج، والذي قد يكون بسبب مثل. فئة غير قياسية. إذا كان هذا خطأ، يرجى الاتصال بنا.",
     "@product_improvement_categories_but_no_nutriscore": {
         "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
-    "product_improvement_obsolete_nutrition_image": "The nutrition image is obsolete: please refresh it.",
+    "product_improvement_obsolete_nutrition_image": "صورة التغذية قديمة: يرجى تحديثها.",
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
+    "product_improvement_origins_to_be_completed": "تأخذ النتيجة البيئية في الاعتبار أصول المكونات. يرجى التقاط صورة لقائمة المكونات و / أو أي مطالبة جغرافية أو تعديل المنتج ، حتى يمكن أخذها في الحسبان.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
-    "country_chooser_label": "Please choose a country",
+    "country_chooser_label": "الرجاء اختيار بلد",
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },
-    "country_selection_explanation": "Some environmental features are location-specific",
+    "country_selection_explanation": "بعض السمات البيئية خاصة بالموقع",
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
-    "product_removed_comparison": "Product removed from comparison",
+    "product_removed_comparison": "تم إزالة المنتج من المقارنة",
     "@product_removed_comparison": {
         "description": "Product got removed from comparison list"
     },
-    "product_removed_history": "Product removed from history",
+    "product_removed_history": "تم إزالة المنتج من السجل",
     "@product_removed_history": {
         "description": "Product got removed from history"
     },
-    "product_could_not_remove": "Could not remove product",
+    "product_could_not_remove": "لا يمكن إزالة المنتج",
     "@product_could_not_remove": {
         "description": "Could not remove product from a list"
     },
@@ -520,12 +524,12 @@
     "@clear": {
         "description": "Clears a product list"
     },
-    "really_clear": "Do you really want to delete this list?",
-    "product_compatibility_unknown": "Compatibility Unknown",
+    "really_clear": "هل تريد حقًا حذف هذه القائمة؟",
+    "product_compatibility_unknown": "التوافق غير معروف",
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_incompatible": "Doesn't match",
+    "product_compatibility_incompatible": "Does not match",
     "@product_compatibility_incompatible": {
         "description": "Product compatibility summary title"
     },
@@ -534,14 +538,14 @@
         "description": "Product compatibility summary title"
     },
     "@Plural": {},
-    "pct_match": "{percent}% match",
+    "pct_match": "{percent}٪ تطابق",
     "@pct_match": {
         "description": "This product has a x percent match with your preferences",
         "placeholders": {
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural, one {} =1{one day ago} other{{count} days ago}}",
+    "plural_ago_days": "{count,plural, zero {} one {} two {{count} قبل أيام} few {{count} قبل أيام} many {{count} قبل أيام} =1{قبل يوم واحد} other{{count} قبل أيام}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
@@ -588,14 +592,14 @@
         "description": "Button to switch to 'compare products mode'"
     },
     "retry_button_label": "إعادة المحاولة",
-    "connect_with_us": "Connect with us",
+    "connect_with_us": "اتصل بنا",
     "instagram": "Instagram",
     "twitter": "Twitter",
     "blog": "Blog",
-    "faq": "FAQ",
+    "faq": "الأسئلة المتكررة",
     "discover": "إكتشف",
-    "how_to_contribute": "How to Contribute",
-    "main_app_color": "Theme",
+    "how_to_contribute": "كيفية المساهمة",
+    "main_app_color": "السمة",
     "@main_app_color": {
         "description": "Heading for the section to pick the main app color"
     },
@@ -607,11 +611,11 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Help the Open Food Facts volunteer to improve the app. You decide if you want to send anonymous analytics.",
+    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide if you want to send anonymous analytics.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
-    "consent_analytics_body2": "If you change your mind this option can be enabled and disabled at any time from the settings.",
+    "consent_analytics_body2": "If you change your mind, this option can be enabled and disabled at any time from the settings.",
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
@@ -622,5 +626,147 @@
     "refuse_button_label": "Refuse",
     "@refuse": {
         "description": "Button to decline the request of sending the anonymous analytics"
+    },
+    "knowledge_panel_text_source": "تعرف أكثر عبر {source_name}",
+    "@knowledge_panel_text_source": {
+        "description": "Source field within a text knowledge panel.",
+        "placeholders": {
+            "source_name": {
+                "type": "String"
+            }
+        }
+    },
+    "onboarding_welcome_loading_dialog_title": "Loading your first example product",
+    "@onboarding_welcome_loading_dialog_title": {
+        "description": "Title for the onboarding loading dialog"
+    },
+    "product_list_your_ranking": "ترتيبك هو",
+    "@product_list_your_ranking": {
+        "description": "Your ranking screen title"
+    },
+    "product_list_empty_icon_desc": "السجل غير متوفر",
+    "@product_list_icon_desc": {
+        "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
+    },
+    "product_list_empty_title": "بدء المسح الضوئي!",
+    "@product_list_empty_title": {
+        "description": "When the history list is empty, title of the message explaining to start scanning"
+    },
+    "product_list_empty_message": "Products you scan will appear here and you can check detailed information about them",
+    "@product_list_empty_message": {
+        "description": "When the history list is empty, body of the message explaining to start scanning"
+    },
+    "product_list_reloading_in_progress": "Refreshing products in your History",
+    "@product_list_reloading_in_progress": {
+        "description": "Message to show while loading previous scanned items"
+    },
+    "product_list_reloading_success": "Product refresh complete",
+    "@product_list_reloading_success": {
+        "description": "Message to show once previous scanned items are loaded"
+    },
+    "loading_dialog_default_title": "تحميل البيانات",
+    "@loading_dialog_default_title": {
+        "description": "Default loading dialog title"
+    },
+    "loading_dialog_default_error_message": "تعذر تحميل البيانات",
+    "@loading_dialog_default_error_message": {
+        "description": "Default loading dialog error message"
+    },
+    "account_delete": "حذف الحساب",
+    "@account_delete": {
+        "description": "Delete account button (user profile)"
+    },
+    "email_subject_account_deletion": "حذف الحساب",
+    "@email_subject_account_deletion": {
+        "description": "Email subject for an account deletion"
+    },
+    "email_body_account_deletion": "Hi there, please delete my Open Food Facts account: {userId}",
+    "@email_body_account_deletion": {
+        "description": "Email body for an account deletion",
+        "placeholders": {
+            "userId": {
+                "type": "String"
+            }
+        }
+    },
+    "crash_reporting_toggle_title": "Crash reporting",
+    "@crash_reporting_toggle_title": {
+        "description": "Title for the Crash reporting toggle"
+    },
+    "crash_reporting_toggle_subtitle": "When enabled, crash reports will be sent to the Open Food Facts bug system automatically, so that we can fix bugs and improve the app.",
+    "@crash_reporting_toggle_subtitle": {
+        "description": "SubTitle for the Crash reporting toggle"
+    },
+    "send_anonymous_data_toggle_title": "Send anonymous data",
+    "@send_anonymous_toggle_title": {
+        "description": "Title for the Send anonymous data toggle"
+    },
+    "send_anonymous_data_toggle_subtitle": "When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.",
+    "@send_anonymous_toggle_subtitle": {
+        "description": "SubTitle for the Send anonymous data toggle"
+    },
+    "product_edit_photo_title": "حرر الصورة",
+    "@product_edit_photo_title": {
+        "description": "Toolbar Title while editing a photo (Android only)"
+    },
+    "permission_photo_error": "خطأ",
+    "@permission_photo_error": {
+        "description": "When the camera/photo permission failed to be acquired (!= denied)"
+    },
+    "permission_photo_denied": "لم يتم منح الوصول إلى الكاميرا",
+    "@permission_photo_denied": {
+        "description": "When the camera/photo permission is denied by user"
+    },
+    "edit_product_label": "تحرير المنتج",
+    "@edit_product_label": {
+        "description": "Edit product button label"
+    },
+    "edit_product_form_item_barcode": "الرمز الشريطي",
+    "@edit_product_form_item_barcode": {
+        "description": "Product edition - Barcode"
+    },
+    "edit_product_form_item_details_title": "المعلومات الأساسية",
+    "@edit_product_form_item_details_title": {
+        "description": "Product edition - Basic Details - Title"
+    },
+    "edit_product_form_item_details_subtitle": "اسم المنتج، العلامة التجارية، الكمية",
+    "@edit_product_form_item_details_subtitle": {
+        "description": "Product edition - Basic Details - Title"
+    },
+    "edit_product_form_item_photos_title": "صور",
+    "@edit_product_form_item_photos_title": {
+        "description": "Product edition - Photos - Title"
+    },
+    "edit_product_form_item_photos_subtitle": "إضافة أو تحديث الصور",
+    "@edit_product_form_item_photos_subtitle": {
+        "description": "Product edition - Photos - SubTitle"
+    },
+    "edit_product_form_item_labels_title": "التسميات وشهادات الاعتماد",
+    "@edit_product_form_item_labels_title": {
+        "description": "Product edition - Labels - Title"
+    },
+    "edit_product_form_item_labels_subtitle": "العلامة البيئية، شهادات الجودة، ...",
+    "@edit_product_form_item_labels_subtitle": {
+        "description": "Product edition - Labels - SubTitle"
+    },
+    "edit_product_form_item_ingredients_title": "المكونات والأصول",
+    "@edit_product_form_item_ingredients_title": {
+        "description": "Product edition - Ingredients - Title"
+    },
+    "edit_product_form_item_packaging_title": "التعبئة والتغليف",
+    "@edit_product_form_item_packaging_title": {
+        "description": "Product edition - Packaging - Title"
+    },
+    "edit_product_form_item_nutrition_facts_title": "حقائق غذائية",
+    "@edit_product_form_item_nutrition_facts_title": {
+        "description": "Product edition - Nutrition facts - Title"
+    },
+    "edit_product_form_item_nutrition_facts_subtitle": "التفاضيل الغذائية، ومحتوى الكحول…",
+    "@edit_product_form_item_nutrition_facts_subtitle": {
+        "description": "Product edition - Nutrition facts - SubTitle"
+    },
+    "edit_product_form_save": "تحرير",
+    "@edit_product_form_save": {
+        "description": "Product edition - Nutrition facts - Save button"
     }
 }

@@ -10,7 +10,8 @@ import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Next button showed at the bottom of the onboarding flow.
 class NextButton extends StatelessWidget {
-  const NextButton(this.currentPage);
+  // we need a Key for the test/screenshots
+  const NextButton(this.currentPage) : super(key: const Key('next'));
 
   final OnboardingPage currentPage;
 
