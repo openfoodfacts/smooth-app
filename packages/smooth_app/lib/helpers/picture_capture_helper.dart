@@ -35,13 +35,13 @@ Future<bool> uploadCapturedPicture(
     );
     return false;
   }
-  await updateContinuousScanModel(context, barcode);
+  await _updateContinuousScanModel(context, barcode);
   return true;
 }
 
-Future<void> updateContinuousScanModel(
+Future<void> _updateContinuousScanModel(
     BuildContext context, String barcode) async {
   final ContinuousScanModel? model =
       await ContinuousScanModel().load(context.read<LocalDatabase>());
-  await model?.onCreate(barcode);
+  await model?.onCreateProduct(barcode);
 }

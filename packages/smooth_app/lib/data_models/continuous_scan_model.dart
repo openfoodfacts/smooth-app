@@ -105,7 +105,7 @@ class ContinuousScanModel with ChangeNotifier {
     _addBarcode(code);
   }
 
-  Future<bool> onCreate(String? barcode) async {
+  Future<bool> onCreateProduct(String? barcode) async {
     if (barcode == null) {
       return false;
     }
