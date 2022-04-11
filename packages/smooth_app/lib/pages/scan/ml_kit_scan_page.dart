@@ -29,8 +29,10 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
   CameraController? _controller;
   int _cameraIndex = 0;
   bool isBusy = false;
+
   //Used when rebuilding to stop the camera
   bool stoppingCamera = false;
+
   //We don't scan every image for performance reasons
   int frameCounter = 0;
 
@@ -149,6 +151,7 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
     try {
       await _controller?.initialize();
       _controller?.setFocusMode(FocusMode.auto);
+      _controller?.setFocusPoint(_focusPoint);
       _controller?.lockCaptureOrientation(DeviceOrientation.portraitUp);
       _controller?.startImageStream(_processCameraImage);
     } on CameraException catch (e) {
@@ -195,6 +198,26 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
     await _scan(image);
 
     isBusy = false;
+  }
+
+  Offset? get _focusPoint {
+    final DevModeScanMode scanMode = DevModeScanModeExtension.fromIndex(
+      _userPreferences
+          .getDevModeIndex(UserPreferencesDevMode.userPreferencesEnumScanMode),
+    );
+
+    switch (scanMode) {
+      case DevModeScanMode.PREPROCESS_HALF_IMAGE:
+      case DevModeScanMode.SCAN_HALF_IMAGE:
+        // Half center top
+        return const Offset(0.5, 0.25);
+      case DevModeScanMode.CAMERA_ONLY:
+      case DevModeScanMode.PREPROCESS_FULL_IMAGE:
+      case DevModeScanMode.SCAN_FULL_IMAGE:
+      default:
+        // Center
+        return const Offset(0.5, 0.5);
+    }
   }
 
   Future<void> _scan(final CameraImage image) async {
