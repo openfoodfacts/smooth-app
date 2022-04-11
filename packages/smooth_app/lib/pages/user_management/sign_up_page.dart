@@ -173,9 +173,9 @@ class _SignUpPageState extends State<SignUpPage> {
               title: RichText(
                 text: TextSpan(
                   children: <InlineSpan>[
-                    // TODO(monsieurtanuki): refactor / translate
+                    // TODO(monsieurtanuki): refactor
                     TextSpan(
-                      text: 'I agree to the Open Food Facts ',
+                      text: appLocalizations.sign_up_page_agree_text,
                       style: TextStyle(color: theme.colorScheme.onBackground),
                     ),
                     TextSpan(
@@ -183,7 +183,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         color: Colors.blue,
                         decoration: TextDecoration.underline,
                       ),
-                      text: 'terms of use and contribution',
+                      text: appLocalizations.sign_up_page_terms_text,
                       recognizer: TapGestureRecognizer()
                         ..onTap = () async {
                           final String url =
