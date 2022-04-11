@@ -22,29 +22,34 @@ Future<void> _takeScreenshot(
   if ((!kIsWeb) && Platform.isAndroid) {
     await tester.pumpAndSettle();
   }
-  await binding.takeScreenshot(screenshotName);
+  await binding
+      .takeScreenshot('$platform/$device/$country/$language/$screenshotName');
 }
 
-// flutter drive --driver=test_driver/screenshot_driver.dart --target=integration_test/app_test.dart
-
+const String language = String.fromEnvironment('LANGUAGE'); // e.g. fr
+const String country = String.fromEnvironment('COUNTRY'); // e.g. BE
+const String platform = String.fromEnvironment('PLATFORM'); // e.g. ios
+const String device = String.fromEnvironment('DEVICE'); // e.g. iPhone8Plus
+/*
+flutter drive --driver=test_driver/screenshot_driver.dart --target=integration_test/app_test.dart \
+ --dart-define=LANGUAGE=fr --dart-define=COUNTRY=FR --dart-define=PLATFORM=ios --dart-define=DEVICE=iPhone8Plus
+ */
 /// Onboarding screenshots.
 void main() {
   final IntegrationTestWidgetsFlutterBinding binding =
       IntegrationTestWidgetsFlutterBinding.ensureInitialized()
           as IntegrationTestWidgetsFlutterBinding;
 
-  setUpAll(
-    () => SharedPreferences.setMockInitialValues(
-      const <String, Object>{
-        'IMPORTANCE_AS_STRINGnutriscore': 'important',
-        'IMPORTANCE_AS_STRINGnova': 'important',
-        'IMPORTANCE_AS_STRINGecoscore': 'important',
-      },
-    ),
-  );
-
   group('end-to-end test', () {
     testWidgets('just a single screenshot', (WidgetTester tester) async {
+      SharedPreferences.setMockInitialValues(
+        const <String, Object>{
+          'IMPORTANCE_AS_STRINGnutriscore': 'important',
+          'IMPORTANCE_AS_STRINGnova': 'important',
+          'IMPORTANCE_AS_STRINGecoscore': 'important',
+        },
+      );
+
       await tester.runAsync(() async {
         await _initScreenshot(binding);
 
