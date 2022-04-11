@@ -74,6 +74,13 @@ Widget addPanelButton(
       width: double.infinity,
       child: ElevatedButton.icon(
         icon: Icon(iconData ?? Icons.add),
+        style: ButtonStyle(
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            const RoundedRectangleBorder(
+              borderRadius: ROUNDED_BORDER_RADIUS,
+            ),
+          ),
+        ),
         label: Text(label),
         onPressed: onPressed,
       ),
