@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/continuous_scan_model.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 
@@ -32,5 +35,13 @@ Future<bool> uploadCapturedPicture(
     );
     return false;
   }
+  await _updateContinuousScanModel(context, barcode);
   return true;
+}
+
+Future<void> _updateContinuousScanModel(
+    BuildContext context, String barcode) async {
+  final ContinuousScanModel? model =
+      await ContinuousScanModel().load(context.read<LocalDatabase>());
+  await model?.onCreateProduct(barcode);
 }
