@@ -13,6 +13,7 @@
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
     "save": "Salvează",
+    "save_confirmation": "Sunteți sigur că doriți să salvați?",
     "skip": "Omitere",
     "cancel": "Anulare",
     "@cancel": {},
@@ -38,11 +39,12 @@
     "@label_web": {},
     "learnMore": "Afla mai mult",
     "@learnMore": {},
+    "general_confirmation": "Ești sigur?",
     "incompatible": "Incompatibil",
     "@incompatible": {
         "description": "Short label for product list view: the product is incompatible with your preferences"
     },
-    "compatible": "Compatible",
+    "compatible": "Compatibil",
     "@compatible": {
         "description": "Short label for product list view: the product is compatible with your preferences"
     },
@@ -57,9 +59,9 @@
         "description": "Looking for: ${BARCODE}"
     },
     "@Introduction screen": {},
-    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
+    "welcomeToOpenFoodFacts": "Bun venit la OpenFoodFacts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facto este o organizație non-profit globală susținută de comunitățile locale.",
+    "whatIsOff": "Open Food Facts este o organizație non-profit globală susținută de comunitățile locale.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
@@ -80,15 +82,15 @@
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
-    "sign_in_text": "Conectați-vă la contul Open Food Facto pentru a vă salva contribuțiile",
+    "sign_in_text": "Conectați-vă la contul Open Food Facts pentru a vă salva contribuțiile",
     "incorrect_credentials": "Numele de utilizator sau parola incorectă.",
     "login": "Nume de utilizator",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
-    "login_page_username_or_email": "Please enter username or e-mail",
+    "login_page_username_or_email": "Vă rugăm să introduceți numele de utilizator sau adresa de e-mail",
     "login_page_password_error_empty": "Vă rugăm să introduceți o parolă",
-    "create_account": "Creare cont",
+    "create_account": "Creați cont",
     "@create_account": {
         "description": "Button label: Opens a page where a new user can register"
     },
@@ -174,7 +176,7 @@
     "sign_up_page_producer_checkbox": "Sunt un producător de alimente",
     "sign_up_page_producer_hint": "Producător/marcă",
     "sign_up_page_producer_error_empty": "Vă rugăm să introduceţi un producător sau un nume de marcă",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
+    "sign_up_page_subscribe_checkbox": "Aș dori să mă abonez la buletinul informativ Open Food Facts (vă puteți dezabona de la acesta în orice moment)",
     "@Settings": {},
     "settingsTitle": "Configurări",
     "@settingsTitle": {
@@ -186,11 +188,15 @@
     },
     "darkmode_dark": "Întunecat",
     "@darkmode_dark": {
-        "description": "Indicator inside the darkmode switch"
+        "description": "Indicator inside the darkmode switch (dark)"
     },
     "darkmode_light": "Luminos",
     "@darkmode_light": {
-        "description": "Indicator inside the darkmode switch"
+        "description": "Indicator inside the darkmode switch (light)"
+    },
+    "darkmode_system_default": "Setări implicite ale sistemului",
+    "@darkmode_system_default": {
+        "description": "Indicator inside the darkmode switch (system default)"
     },
     "thanks_for_contributing": "Mulțumim pentru contribuție",
     "@contributors": {
@@ -202,7 +208,7 @@
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
     "support_join_slack": "Solicitați ajutor pe canalul nostru Slack",
-    "support_via_email": "Send us an e-mail",
+    "support_via_email": "Trimiteți-ne un e-mail",
     "termsOfUse": "Condiții de utilizare",
     "@termsOfUse": {},
     "about_this_app": "Despre această aplicație",
@@ -254,19 +260,20 @@
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
     },
-    "contribute_to_get_rewards": "Help improve food transparency and get rewards",
+    "contribute_to_get_rewards": "Ajută la îmbunătățirea transparenței produselor și primește recompense",
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
+    "question_sign_in_text": "Conectați-vă la contul dvs. Open Food Facts pentru a vă revendica contribuția și pentru a vă spori credibilitatea",
     "@Personal preferences": {},
     "myPreferences": "Preferințe",
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "Profilul tău",
-    "myPreferences_profile_subtitle": "Change app settings and get advice.",
+    "myPreferences_profile_subtitle": "Schimba setările aplicației și primește sfat.",
     "myPreferences_settings_title": "Setările aplicației",
-    "myPreferences_settings_subtitle": "Dark mode, Theme, ...",
+    "myPreferences_settings_subtitle": "Tema, Modul Întunecat, ...",
     "myPreferences_food_title": "Preferințe alimentare",
     "myPreferences_food_subtitle": "Alegeți ce informații despre alimente contează cel mai mult pentru dvs.",
     "confirmResetPreferences": "Resetați preferințele alimentare?",
@@ -278,10 +285,10 @@
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
     "ranking_tab_all": "Toate",
-    "ranking_subtitle_match_yes": "A great match for you",
-    "ranking_subtitle_match_no": "Very poor match",
-    "ranking_subtitle_match_maybe": "Unknown match",
-    "reloaded_with_new_preferences": "Reîncărcat cu noi preferințe",
+    "ranking_subtitle_match_yes": "O bună potrivire pentru tine",
+    "ranking_subtitle_match_no": "Potrivire foarte slabă",
+    "ranking_subtitle_match_maybe": "Potrivire necunoscută",
+    "reloaded_with_new_preferences": "Reloaded with your new preferences",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
     },
@@ -338,16 +345,17 @@
     },
     "ingredients": "Ingrediente",
     "@ingredients": {},
-    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen, use parentheses for ingredients of an ingredient, and indicate allergens between underscores.",
-    "ingredients_editing_error": "Failed to save the ingredients.",
-    "ingredients_editing_image_error": "Failed to get a new ingredients image.",
-    "ingredients_editing_title": "Edit Ingredients",
+    "ingredients_editing_instructions": "Păstrați ordinea originală. Indicați procentajul atunci când este specificat. Separați cu virgulă sau cratimă, utilizați paranteze pentru ingredientele unui ingredient și indicați alergenii între sublinieri.",
+    "ingredients_editing_error": "Salvarea ingredientelor nu a reușit.",
+    "ingredients_editing_image_error": "Nu s-a putut obține o imagine nouă a ingredientelor.",
+    "ingredients_editing_title": "Editați ingredientele",
     "ingredients_photo": "Foto ingrediente",
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
     "nutrition": "Informații nutriționale",
     "@nutrition": {},
+    "nutrition_page_close_confirmation": "Sunteți sigur că doriți să închideți fără să salivați?",
     "nutrition_facts_photo": "Foto cu informații nutriționale",
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
@@ -358,65 +366,65 @@
     },
     "packaging_information_photo": "Foto cu informații despre ambalaj",
     "@packaging_information_photo": {},
-    "missing_product": "You found a new product!",
+    "missing_product": "Ai gasit un produs nou!",
     "@missing_product": {},
-    "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
+    "add_product_take_photos": "Faceți fotografii ale ambalajului pentru a adăuga acest produs în Open Food Facts",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Please take some photos and the Open Food Facts engine can work out the rest!",
+    "add_product_take_photos_descriptive": "Vă rugăm să faceți câteva fotografii, iar motorul Open Food Facts poate rezolva restul!",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Adăugați informații despre produs",
     "@add_product_information_button_label": {},
-    "new_product": "New Product",
+    "new_product": "Produs Nou",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Front packaging photo",
+    "front_packaging_photo_button_label": "Front of product photo",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Confirm Front packaging photo",
+    "confirm_front_packaging_photo_button_label": "Confirm front of product photo",
     "@confirm_front_packaging_photo_button_label": {
-        "description": "Button clicking on which confirms the picture of the front packaging that user just took."
+        "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
-    "front_photo_uploaded": "Front photo uploaded",
+    "front_photo_uploaded": "Fotografia frontală a fost încărcată",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Foto ingrediente",
     "@ingredients_photo_button_label": {},
-    "confirm_ingredients_photo_button_label": "Confirm Ingredients photo",
+    "confirm_ingredients_photo_button_label": "Confirm ingredients photo",
     "@confirm_ingredients_photo_button_label": {
         "description": "Button clicking on which confirms the picture of ingredients that user just took."
     },
-    "ingredients_photo_uploaded": "Ingredients photo uploaded",
+    "ingredients_photo_uploaded": "Fotografia cu ingredientele încărcată",
     "@ingredients_photo_uploaded": {},
-    "nutritional_facts_photo_button_label": "Poză date nutriționale",
+    "nutritional_facts_photo_button_label": "Foto cu informații nutriționale",
     "@nutritional_facts_photo_button_label": {},
-    "confirm_nutritional_facts_photo_button_label": "Confirm Nutritional facts photo",
+    "confirm_nutritional_facts_photo_button_label": "Confirm nutrition facts photo",
     "@confirm_nutritional_facts_photo_button_label": {
         "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
     },
-    "nutritional_facts_photo_uploaded": "Nutritional facts photo uploaded",
+    "nutritional_facts_photo_uploaded": "Nutrition facts photo uploaded",
     "@nutritional_facts_photo_uploaded": {},
-    "recycling_photo_button_label": "Recycling information photo",
+    "recycling_photo_button_label": "Fotografia cu informații despre reciclare",
     "@recycling_photo_button_label": {},
-    "confirm_recycling_photo_button_label": "Confirm Recycling information photo",
+    "confirm_recycling_photo_button_label": "Confirmați fotografia cu informațiile despre reciclare",
     "@confirm_recycling_photo_button_label": {
         "description": "Button clicking on which confirms the picture of recycling information that user just took."
     },
-    "recycling_photo_uploaded": "Recycling photo uploaded",
+    "recycling_photo_uploaded": "Fotografia despre reciclare încărcată",
     "@recycling_photo_uploaded": {},
-    "other_interesting_photo_button_label": "Other interesting photos",
+    "other_interesting_photo_button_label": "Alte fotografii interesante",
     "@other_interesting_photo_button_label": {},
-    "confirm_other_interesting_photo_button_label": "Confirm photo",
+    "confirm_other_interesting_photo_button_label": "Confirmați fotografia",
     "@confirm_other_interesting_photo_button_label": {
         "description": "Button clicking on which confirms a miscellaneous photo of the product."
     },
-    "other_photo_uploaded": "Miscellaneous photo uploaded",
+    "other_photo_uploaded": "Diverse fotografii încărcate",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "Refaceți",
     "@retake_photo_button_label": {
         "description": "Button clicking on which allows users to retake the last photo they took."
     },
-    "selecting_photo": "Selecting photo",
+    "selecting_photo": "Selectare fotografie",
     "@selecting_photo": {
         "description": "Progress indicator when the users takes a photo"
     },
-    "uploading_image": "Uploading Image to the server",
+    "uploading_image": "Uploading photo to the server",
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
@@ -424,7 +432,7 @@
     "score_add_missing_nutrition_facts": "Adăugați informațiile nutriționale care lipsesc",
     "score_add_missing_product_category": "Adăugați categoria de produse lipsă",
     "score_update_nutrition_facts": "Actualizați informațiile nutriționale",
-    "nutrition_page_title": "Date nutriționale ale produsului",
+    "nutrition_page_title": "Valori nutriționale",
     "nutrition_page_unspecified": "Valorile nutriționale nu sunt specificate pe produs",
     "nutrition_page_per_100g": "la 100g",
     "nutrition_page_per_serving": "per porție",
@@ -452,12 +460,8 @@
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
     },
-    "product_internet_cancel": "Anulat de utilizator.",
-    "@product_internet_cancel": {
-        "description": "Confirmation, that the product data got canceled by the user"
-    },
     "product_internet_error": "Imposibil de preluat informații despre acest produs din cauza unei erori de rețea.",
-    "cached_results_from": "Show results from:",
+    "cached_results_from": "Afișați rezultate de la:",
     "@cached_results_from": {
         "description": "Cached results from: x time ago (time ago should not be added to the string)"
     },
@@ -488,7 +492,7 @@
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
+    "product_improvement_origins_to_be_completed": "Scorul Eco ține cont de originile ingredientelor. Vă rugăm să faceți o fotografie a listei de ingrediente și/sau a oricărei declarații geografice sau să editați produsul, pentru a putea fi luate în considerare.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
@@ -500,11 +504,11 @@
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
-    "product_removed_comparison": "Product removed from comparison",
+    "product_removed_comparison": "Produs eliminat din comparație",
     "@product_removed_comparison": {
         "description": "Product got removed from comparison list"
     },
-    "product_removed_history": "Product removed from history",
+    "product_removed_history": "Produs eliminat din istoric",
     "@product_removed_history": {
         "description": "Product got removed from history"
     },
@@ -520,16 +524,16 @@
     "@clear": {
         "description": "Clears a product list"
     },
-    "really_clear": "Do you really want to delete this list?",
-    "product_compatibility_unknown": "Compatibility Unknown",
+    "really_clear": "Sigur doriți să ștergeți această listă?",
+    "product_compatibility_unknown": "Compatibilitate necunoscută",
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_incompatible": "Doesn't match",
+    "product_compatibility_incompatible": "Does not match",
     "@product_compatibility_incompatible": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_good": "Good Match",
+    "product_compatibility_good": "Potrivire bună",
     "@product_compatibility_good": {
         "description": "Product compatibility summary title"
     },
@@ -541,35 +545,35 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural, one {} =1{one day ago} other{{count} days ago}}",
+    "plural_ago_days": "{count,plural, one {} few {{count} zile în urmă} =1{acum o zi} other{{count} zile în urmă}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural, one {} =1{one hour ago} other{{count} hours ago}}",
+    "plural_ago_hours": "{count,plural, one {} few {{count} ore în urmă} =1{acum o ora} other{{count} ore în urmă}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural, one {} =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
+    "plural_ago_minutes": "{count,plural, one {} few {{count} minute în urmă} =0{in urma cu mai puțin de un minut} =1{acum un minut} other{{count} minute în urmă}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, one {} =1{one month ago} other{{count} months ago}}",
+    "plural_ago_months": "{count,plural, one {} few {{count} cu luni în urmă} =1{acum o luna} other{{count} cu luni în urmă}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, one {} =1{one week ago} other{{count} weeks ago}}",
+    "plural_ago_weeks": "{count,plural, one {} few {{count} săptămâni în urma} =1{acum o saptamana} other{{count} săptămâni în urma}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
@@ -588,18 +592,18 @@
         "description": "Button to switch to 'compare products mode'"
     },
     "retry_button_label": "Reîncercați",
-    "connect_with_us": "Connect with us",
+    "connect_with_us": "Conectați-vă cu noi",
     "instagram": "Instagram",
     "twitter": "Twitter",
     "blog": "Blog",
-    "faq": "FAQ",
+    "faq": "Întrebări frecvente",
     "discover": "Descoperiți",
-    "how_to_contribute": "How to Contribute",
-    "main_app_color": "Theme",
+    "how_to_contribute": "Cum să contribuiți",
+    "main_app_color": "Temă",
     "@main_app_color": {
         "description": "Heading for the section to pick the main app color"
     },
-    "hint_knowledge_panel_message": "Your can tap on any part of the card to get more details about what you see. Try it now!",
+    "hint_knowledge_panel_message": "Puteți atinge orice parte a cardului pentru a obține mai multe detalii despre ceea ce vedeți. Încearcă acum!",
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
     },
@@ -607,20 +611,162 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Help the Open Food Facts volunteer to improve the app. You decide if you want to send anonymous analytics.",
+    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide if you want to send anonymous analytics.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
-    "consent_analytics_body2": "If you change your mind this option can be enabled and disabled at any time from the settings.",
+    "consent_analytics_body2": "If you change your mind, this option can be enabled and disabled at any time from the settings.",
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "authorize_button_label": "Authorize",
+    "authorize_button_label": "Autorizați",
     "@authorize": {
         "description": "Button to accept the request of sending the anonymous analytics"
     },
-    "refuse_button_label": "Refuse",
+    "refuse_button_label": "Refuzați",
     "@refuse": {
         "description": "Button to decline the request of sending the anonymous analytics"
+    },
+    "knowledge_panel_text_source": "Mergeți mai departe pe {source_name}",
+    "@knowledge_panel_text_source": {
+        "description": "Source field within a text knowledge panel.",
+        "placeholders": {
+            "source_name": {
+                "type": "String"
+            }
+        }
+    },
+    "onboarding_welcome_loading_dialog_title": "Loading your first example product",
+    "@onboarding_welcome_loading_dialog_title": {
+        "description": "Title for the onboarding loading dialog"
+    },
+    "product_list_your_ranking": "Clasamentul tău",
+    "@product_list_your_ranking": {
+        "description": "Your ranking screen title"
+    },
+    "product_list_empty_icon_desc": "Istoricul nu este disponibil",
+    "@product_list_icon_desc": {
+        "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
+    },
+    "product_list_empty_title": "Începe scanarea!",
+    "@product_list_empty_title": {
+        "description": "When the history list is empty, title of the message explaining to start scanning"
+    },
+    "product_list_empty_message": "Products you scan will appear here and you can check detailed information about them",
+    "@product_list_empty_message": {
+        "description": "When the history list is empty, body of the message explaining to start scanning"
+    },
+    "product_list_reloading_in_progress": "Refreshing products in your History",
+    "@product_list_reloading_in_progress": {
+        "description": "Message to show while loading previous scanned items"
+    },
+    "product_list_reloading_success": "Product refresh complete",
+    "@product_list_reloading_success": {
+        "description": "Message to show once previous scanned items are loaded"
+    },
+    "loading_dialog_default_title": "Descărcare date",
+    "@loading_dialog_default_title": {
+        "description": "Default loading dialog title"
+    },
+    "loading_dialog_default_error_message": "Datele nu au putut fi descărcate",
+    "@loading_dialog_default_error_message": {
+        "description": "Default loading dialog error message"
+    },
+    "account_delete": "Ștergere cont",
+    "@account_delete": {
+        "description": "Delete account button (user profile)"
+    },
+    "email_subject_account_deletion": "Ștergere cont",
+    "@email_subject_account_deletion": {
+        "description": "Email subject for an account deletion"
+    },
+    "email_body_account_deletion": "Hi there, please delete my Open Food Facts account: {userId}",
+    "@email_body_account_deletion": {
+        "description": "Email body for an account deletion",
+        "placeholders": {
+            "userId": {
+                "type": "String"
+            }
+        }
+    },
+    "crash_reporting_toggle_title": "Rapoarte erori",
+    "@crash_reporting_toggle_title": {
+        "description": "Title for the Crash reporting toggle"
+    },
+    "crash_reporting_toggle_subtitle": "When enabled, crash reports will be sent to the Open Food Facts bug system automatically, so that we can fix bugs and improve the app.",
+    "@crash_reporting_toggle_subtitle": {
+        "description": "SubTitle for the Crash reporting toggle"
+    },
+    "send_anonymous_data_toggle_title": "Trimiteți date anonime",
+    "@send_anonymous_toggle_title": {
+        "description": "Title for the Send anonymous data toggle"
+    },
+    "send_anonymous_data_toggle_subtitle": "Când este activată, unele informații anonime privind utilizarea aplicației vor fi trimise către serverele Open Food Facts, astfel încât să putem înțelege cum și cât de mult sunt utilizate funcțiile pentru a le îmbunătăți.",
+    "@send_anonymous_toggle_subtitle": {
+        "description": "SubTitle for the Send anonymous data toggle"
+    },
+    "product_edit_photo_title": "Editare fotografie",
+    "@product_edit_photo_title": {
+        "description": "Toolbar Title while editing a photo (Android only)"
+    },
+    "permission_photo_error": "Eroare",
+    "@permission_photo_error": {
+        "description": "When the camera/photo permission failed to be acquired (!= denied)"
+    },
+    "permission_photo_denied": "Nu este permis accesul la cameră",
+    "@permission_photo_denied": {
+        "description": "When the camera/photo permission is denied by user"
+    },
+    "edit_product_label": "Modificare produs",
+    "@edit_product_label": {
+        "description": "Edit product button label"
+    },
+    "edit_product_form_item_barcode": "Cod de bare",
+    "@edit_product_form_item_barcode": {
+        "description": "Product edition - Barcode"
+    },
+    "edit_product_form_item_details_title": "Detalii de bază",
+    "@edit_product_form_item_details_title": {
+        "description": "Product edition - Basic Details - Title"
+    },
+    "edit_product_form_item_details_subtitle": "Denumirea produsului, marcă, cantitate",
+    "@edit_product_form_item_details_subtitle": {
+        "description": "Product edition - Basic Details - Title"
+    },
+    "edit_product_form_item_photos_title": "Imagini",
+    "@edit_product_form_item_photos_title": {
+        "description": "Product edition - Photos - Title"
+    },
+    "edit_product_form_item_photos_subtitle": "Adăugați sau reîmprospătați fotografii",
+    "@edit_product_form_item_photos_subtitle": {
+        "description": "Product edition - Photos - SubTitle"
+    },
+    "edit_product_form_item_labels_title": "Etichete și certificări",
+    "@edit_product_form_item_labels_title": {
+        "description": "Product edition - Labels - Title"
+    },
+    "edit_product_form_item_labels_subtitle": "Mediu, etichete de calitate,...",
+    "@edit_product_form_item_labels_subtitle": {
+        "description": "Product edition - Labels - SubTitle"
+    },
+    "edit_product_form_item_ingredients_title": "Ingrediente și Origini",
+    "@edit_product_form_item_ingredients_title": {
+        "description": "Product edition - Ingredients - Title"
+    },
+    "edit_product_form_item_packaging_title": "Ambalare",
+    "@edit_product_form_item_packaging_title": {
+        "description": "Product edition - Packaging - Title"
+    },
+    "edit_product_form_item_nutrition_facts_title": "Valori nutriționale",
+    "@edit_product_form_item_nutrition_facts_title": {
+        "description": "Product edition - Nutrition facts - Title"
+    },
+    "edit_product_form_item_nutrition_facts_subtitle": "Nutriție, conținut de alcool…",
+    "@edit_product_form_item_nutrition_facts_subtitle": {
+        "description": "Product edition - Nutrition facts - SubTitle"
+    },
+    "edit_product_form_save": "Modificare",
+    "@edit_product_form_save": {
+        "description": "Product edition - Nutrition facts - Save button"
     }
 }

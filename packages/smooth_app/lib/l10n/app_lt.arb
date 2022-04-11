@@ -13,6 +13,7 @@
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
     "save": "Išsaugoti",
+    "save_confirmation": "Ar tikrai norite išsaugoti?",
     "skip": "Skip",
     "cancel": "Cancel",
     "@cancel": {},
@@ -38,6 +39,7 @@
     "@label_web": {},
     "learnMore": "Sužinokite daugiau",
     "@learnMore": {},
+    "general_confirmation": "Ar tikrai?",
     "incompatible": "Nesuderinamas",
     "@incompatible": {
         "description": "Short label for product list view: the product is incompatible with your preferences"
@@ -57,7 +59,7 @@
         "description": "Looking for: ${BARCODE}"
     },
     "@Introduction screen": {},
-    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
+    "welcomeToOpenFoodFacts": "Sveiki atvykę į Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
     "whatIsOff": "„Open Food Facts“ yra pasaulinė ne pelno siekianti organizacija, kurią maitina vietos bendruomenės.",
     "@whatIsOff": {
@@ -86,7 +88,7 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
-    "login_page_username_or_email": "Please enter username or e-mail",
+    "login_page_username_or_email": "Įveskite slapyvardį arba el. paštą",
     "login_page_password_error_empty": "Įveskite slaptažodį",
     "create_account": "Sukurti paskyrą",
     "@create_account": {
@@ -174,7 +176,7 @@
     "sign_up_page_producer_checkbox": "Esu maisto gamintoja",
     "sign_up_page_producer_hint": "Gamintojas/prekės ženklas",
     "sign_up_page_producer_error_empty": "Įveskite gamintoją arba prekės pavadinimą",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
+    "sign_up_page_subscribe_checkbox": "Norėčiau užsiprenumeruoti „Open Food Facts“ naujienlaiškį (jo galite bet kada atsisakyti)",
     "@Settings": {},
     "settingsTitle": "Settings",
     "@settingsTitle": {
@@ -186,11 +188,15 @@
     },
     "darkmode_dark": "Tamsus",
     "@darkmode_dark": {
-        "description": "Indicator inside the darkmode switch"
+        "description": "Indicator inside the darkmode switch (dark)"
     },
     "darkmode_light": "Šviesus",
     "@darkmode_light": {
-        "description": "Indicator inside the darkmode switch"
+        "description": "Indicator inside the darkmode switch (light)"
+    },
+    "darkmode_system_default": "Sistemos numatytasis",
+    "@darkmode_system_default": {
+        "description": "Indicator inside the darkmode switch (system default)"
     },
     "thanks_for_contributing": "Ačiū, kad prisidėjote",
     "@contributors": {
@@ -202,7 +208,7 @@
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
     "support_join_slack": "Paprašykite pagalbos mūsų „Slack“ kanale",
-    "support_via_email": "Send us an e-mail",
+    "support_via_email": "Atsiųskite mums el. laišką",
     "termsOfUse": "Naudojimo sąlygos",
     "@termsOfUse": {},
     "about_this_app": "Apie šią programėlę",
@@ -254,17 +260,18 @@
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
     },
-    "contribute_to_get_rewards": "Help improve food transparency and get rewards",
+    "contribute_to_get_rewards": "Padėkite pagerinti maisto skaidrumą ir gaukite prizų",
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
+    "question_sign_in_text": "Sign in to your Open Food Facts account to claim your contribution and to increase your creditability",
     "@Personal preferences": {},
     "myPreferences": "Mano nustatymai",
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "Jūsų profilis",
-    "myPreferences_profile_subtitle": "Change app settings and get advice.",
+    "myPreferences_profile_subtitle": "Pakeiskite programėlės nustatymus ir gaukite patarimų.",
     "myPreferences_settings_title": "Programos nustatymai",
     "myPreferences_settings_subtitle": "Tamsusis režimas, tema,...",
     "myPreferences_food_title": "Maisto pasirinkimai",
@@ -281,7 +288,7 @@
     "ranking_subtitle_match_yes": "Puikus pasirinkimas jums",
     "ranking_subtitle_match_no": "Labai prastas pasirinkimas",
     "ranking_subtitle_match_maybe": "Nežinomas pasirinkimas",
-    "reloaded_with_new_preferences": "Iš naujo įkeltas su naujomis nuostatomis",
+    "reloaded_with_new_preferences": "Reloaded with your new preferences",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
     },
@@ -311,7 +318,7 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Skanuoti",
+    "scan": "Skenuoti",
     "@scan": {
         "description": "Page title: List type: Scanned products"
     },
@@ -339,15 +346,16 @@
     "ingredients": "Sudėtis",
     "@ingredients": {},
     "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen, use parentheses for ingredients of an ingredient, and indicate allergens between underscores.",
-    "ingredients_editing_error": "Failed to save the ingredients.",
+    "ingredients_editing_error": "Nepavyko išsaugoti ingredientų.",
     "ingredients_editing_image_error": "Failed to get a new ingredients image.",
-    "ingredients_editing_title": "Edit Ingredients",
+    "ingredients_editing_title": "Redaguoti sudėtį",
     "ingredients_photo": "Sudėties nuotrauka",
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
     "nutrition": "Maistingumas",
     "@nutrition": {},
+    "nutrition_page_close_confirmation": "Ar tikrai norite uždaryti neišsaugoję?",
     "nutrition_facts_photo": "Maistingumo deklaracijos nuotrauka",
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
@@ -368,29 +376,29 @@
     "@add_product_information_button_label": {},
     "new_product": "Naujas produktas",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Priekinės pakuotės nuotrauka",
+    "front_packaging_photo_button_label": "Front of product photo",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Patvirtinkite priekinės pakuotės nuotrauką",
+    "confirm_front_packaging_photo_button_label": "Confirm front of product photo",
     "@confirm_front_packaging_photo_button_label": {
-        "description": "Button clicking on which confirms the picture of the front packaging that user just took."
+        "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
     "front_photo_uploaded": "Priekinė nuotrauka įkelta",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Sudėties nuotrauka",
     "@ingredients_photo_button_label": {},
-    "confirm_ingredients_photo_button_label": "Patvirtinkite ingredientų nuotrauką",
+    "confirm_ingredients_photo_button_label": "Confirm ingredients photo",
     "@confirm_ingredients_photo_button_label": {
         "description": "Button clicking on which confirms the picture of ingredients that user just took."
     },
     "ingredients_photo_uploaded": "Ingredientų nuotrauka įkelta",
     "@ingredients_photo_uploaded": {},
-    "nutritional_facts_photo_button_label": "Mitybos faktų nuotrauka",
+    "nutritional_facts_photo_button_label": "Maistingumo deklaracijos nuotrauka",
     "@nutritional_facts_photo_button_label": {},
-    "confirm_nutritional_facts_photo_button_label": "Patvirtinkite Mitybos faktų nuotrauką",
+    "confirm_nutritional_facts_photo_button_label": "Confirm nutrition facts photo",
     "@confirm_nutritional_facts_photo_button_label": {
         "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
     },
-    "nutritional_facts_photo_uploaded": "Įkelta mitybos faktų nuotrauka",
+    "nutritional_facts_photo_uploaded": "Nutrition facts photo uploaded",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Perdirbimo informacijos nuotrauka",
     "@recycling_photo_button_label": {},
@@ -416,7 +424,7 @@
     "@selecting_photo": {
         "description": "Progress indicator when the users takes a photo"
     },
-    "uploading_image": "Vaizdo įkėlimas į serverį",
+    "uploading_image": "Uploading photo to the server",
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
@@ -424,7 +432,7 @@
     "score_add_missing_nutrition_facts": "Pridėkite trūkstamus mitybos faktus",
     "score_add_missing_product_category": "Pridėkite trūkstamą produkto kategoriją",
     "score_update_nutrition_facts": "Atnaujinkite mitybos faktus",
-    "nutrition_page_title": "Produkto mitybos faktai",
+    "nutrition_page_title": "Nutrition Facts",
     "nutrition_page_unspecified": "Mitybos faktai ant gaminio nenurodyti",
     "nutrition_page_per_100g": "už 100 g",
     "nutrition_page_per_serving": "porcijoje",
@@ -452,12 +460,8 @@
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
     },
-    "product_internet_cancel": "Atšaukė naudotojas.",
-    "@product_internet_cancel": {
-        "description": "Confirmation, that the product data got canceled by the user"
-    },
     "product_internet_error": "Neįmanoma gauti informacijos apie šį gaminį dėl tinklo klaidos.",
-    "cached_results_from": "Show results from:",
+    "cached_results_from": "Rodyti rezultatus iš:",
     "@cached_results_from": {
         "description": "Cached results from: x time ago (time ago should not be added to the string)"
     },
@@ -525,7 +529,7 @@
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_incompatible": "Doesn't match",
+    "product_compatibility_incompatible": "Does not match",
     "@product_compatibility_incompatible": {
         "description": "Product compatibility summary title"
     },
@@ -541,14 +545,14 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural, one {} =1{one day ago} other{{count} days ago}}",
+    "plural_ago_days": "{count,plural, one {} =1{prieš vieną dieną} other{prieš {count} dienų}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural, one {} =1{one hour ago} other{{count} hours ago}}",
+    "plural_ago_hours": "{count,plural, one {} =1{prieš vieną valandą} other{prieš {count}h}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
@@ -588,14 +592,14 @@
         "description": "Button to switch to 'compare products mode'"
     },
     "retry_button_label": "Bandyti dar kartą",
-    "connect_with_us": "Connect with us",
+    "connect_with_us": "Susisiekite su mumis",
     "instagram": "Instagram",
     "twitter": "Twitter",
-    "blog": "Blog",
-    "faq": "FAQ",
+    "blog": "Blogas",
+    "faq": "DUK",
     "discover": "Atrasti",
-    "how_to_contribute": "How to Contribute",
-    "main_app_color": "Theme",
+    "how_to_contribute": "Kaip prisidėti",
+    "main_app_color": "Tema",
     "@main_app_color": {
         "description": "Heading for the section to pick the main app color"
     },
@@ -607,11 +611,11 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Help the Open Food Facts volunteer to improve the app. You decide if you want to send anonymous analytics.",
+    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide if you want to send anonymous analytics.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
-    "consent_analytics_body2": "If you change your mind this option can be enabled and disabled at any time from the settings.",
+    "consent_analytics_body2": "If you change your mind, this option can be enabled and disabled at any time from the settings.",
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
@@ -619,8 +623,150 @@
     "@authorize": {
         "description": "Button to accept the request of sending the anonymous analytics"
     },
-    "refuse_button_label": "Refuse",
+    "refuse_button_label": "Atsisakyti",
     "@refuse": {
         "description": "Button to decline the request of sending the anonymous analytics"
+    },
+    "knowledge_panel_text_source": "Go further on {source_name}",
+    "@knowledge_panel_text_source": {
+        "description": "Source field within a text knowledge panel.",
+        "placeholders": {
+            "source_name": {
+                "type": "String"
+            }
+        }
+    },
+    "onboarding_welcome_loading_dialog_title": "Loading your first example product",
+    "@onboarding_welcome_loading_dialog_title": {
+        "description": "Title for the onboarding loading dialog"
+    },
+    "product_list_your_ranking": "Jūsų reitingas",
+    "@product_list_your_ranking": {
+        "description": "Your ranking screen title"
+    },
+    "product_list_empty_icon_desc": "Istorija nepasiekiama",
+    "@product_list_icon_desc": {
+        "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
+    },
+    "product_list_empty_title": "Pradėkite skenuoti!",
+    "@product_list_empty_title": {
+        "description": "When the history list is empty, title of the message explaining to start scanning"
+    },
+    "product_list_empty_message": "Products you scan will appear here and you can check detailed information about them",
+    "@product_list_empty_message": {
+        "description": "When the history list is empty, body of the message explaining to start scanning"
+    },
+    "product_list_reloading_in_progress": "Refreshing products in your History",
+    "@product_list_reloading_in_progress": {
+        "description": "Message to show while loading previous scanned items"
+    },
+    "product_list_reloading_success": "Product refresh complete",
+    "@product_list_reloading_success": {
+        "description": "Message to show once previous scanned items are loaded"
+    },
+    "loading_dialog_default_title": "Atsisiunčiami duomenys",
+    "@loading_dialog_default_title": {
+        "description": "Default loading dialog title"
+    },
+    "loading_dialog_default_error_message": "Nepavyko atsisiųsti duomenų",
+    "@loading_dialog_default_error_message": {
+        "description": "Default loading dialog error message"
+    },
+    "account_delete": "Ištrinti paskyrą",
+    "@account_delete": {
+        "description": "Delete account button (user profile)"
+    },
+    "email_subject_account_deletion": "Ištrinti paskyrą",
+    "@email_subject_account_deletion": {
+        "description": "Email subject for an account deletion"
+    },
+    "email_body_account_deletion": "Hi there, please delete my Open Food Facts account: {userId}",
+    "@email_body_account_deletion": {
+        "description": "Email body for an account deletion",
+        "placeholders": {
+            "userId": {
+                "type": "String"
+            }
+        }
+    },
+    "crash_reporting_toggle_title": "Pranešimas apie strigtis",
+    "@crash_reporting_toggle_title": {
+        "description": "Title for the Crash reporting toggle"
+    },
+    "crash_reporting_toggle_subtitle": "When enabled, crash reports will be sent to the Open Food Facts bug system automatically, so that we can fix bugs and improve the app.",
+    "@crash_reporting_toggle_subtitle": {
+        "description": "SubTitle for the Crash reporting toggle"
+    },
+    "send_anonymous_data_toggle_title": "Siųsti anoniminius duomenis",
+    "@send_anonymous_toggle_title": {
+        "description": "Title for the Send anonymous data toggle"
+    },
+    "send_anonymous_data_toggle_subtitle": "Kai įjungta, tam tikra anoniminė informacija apie programos naudojimą bus siunčiama į „Open Food Facts“ serverius, kad galėtume suprasti, kaip ir kiek funkcijų naudojama siekiant jas tobulinti.",
+    "@send_anonymous_toggle_subtitle": {
+        "description": "SubTitle for the Send anonymous data toggle"
+    },
+    "product_edit_photo_title": "Redaguoti nuotrauką",
+    "@product_edit_photo_title": {
+        "description": "Toolbar Title while editing a photo (Android only)"
+    },
+    "permission_photo_error": "Klaida",
+    "@permission_photo_error": {
+        "description": "When the camera/photo permission failed to be acquired (!= denied)"
+    },
+    "permission_photo_denied": "No camera access granted",
+    "@permission_photo_denied": {
+        "description": "When the camera/photo permission is denied by user"
+    },
+    "edit_product_label": "Edit product",
+    "@edit_product_label": {
+        "description": "Edit product button label"
+    },
+    "edit_product_form_item_barcode": "Barkodas",
+    "@edit_product_form_item_barcode": {
+        "description": "Product edition - Barcode"
+    },
+    "edit_product_form_item_details_title": "Basic details",
+    "@edit_product_form_item_details_title": {
+        "description": "Product edition - Basic Details - Title"
+    },
+    "edit_product_form_item_details_subtitle": "Product name, brand, quantity",
+    "@edit_product_form_item_details_subtitle": {
+        "description": "Product edition - Basic Details - Title"
+    },
+    "edit_product_form_item_photos_title": "Photos",
+    "@edit_product_form_item_photos_title": {
+        "description": "Product edition - Photos - Title"
+    },
+    "edit_product_form_item_photos_subtitle": "Pridėkite arba atnaujinkite nuotraukas",
+    "@edit_product_form_item_photos_subtitle": {
+        "description": "Product edition - Photos - SubTitle"
+    },
+    "edit_product_form_item_labels_title": "Etiketės ir sertifikatai",
+    "@edit_product_form_item_labels_title": {
+        "description": "Product edition - Labels - Title"
+    },
+    "edit_product_form_item_labels_subtitle": "Aplinkosauga, kokybės ženklai,...",
+    "@edit_product_form_item_labels_subtitle": {
+        "description": "Product edition - Labels - SubTitle"
+    },
+    "edit_product_form_item_ingredients_title": "Ingredientai ir kilmė",
+    "@edit_product_form_item_ingredients_title": {
+        "description": "Product edition - Ingredients - Title"
+    },
+    "edit_product_form_item_packaging_title": "Pakuotė",
+    "@edit_product_form_item_packaging_title": {
+        "description": "Product edition - Packaging - Title"
+    },
+    "edit_product_form_item_nutrition_facts_title": "Nutrition facts",
+    "@edit_product_form_item_nutrition_facts_title": {
+        "description": "Product edition - Nutrition facts - Title"
+    },
+    "edit_product_form_item_nutrition_facts_subtitle": "Maistingumas, alkoholio kiekis…",
+    "@edit_product_form_item_nutrition_facts_subtitle": {
+        "description": "Product edition - Nutrition facts - SubTitle"
+    },
+    "edit_product_form_save": "Edit",
+    "@edit_product_form_save": {
+        "description": "Product edition - Nutrition facts - Save button"
     }
 }
