@@ -53,7 +53,8 @@
       
 
 <span class="returntype">void</span>
-<span class="name ">initMatomo</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="initMatomo-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span></span></li>
+<span class="name ">initMatomo</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="initMatomo-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span>, </span></li>
+<li><span class="parameter" id="initMatomo-param-screenshotMode"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">screenshotMode</span></span></li>
 </ol>)
 
       
@@ -65,7 +66,15 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static void initMatomo(final BuildContext context) {
+  <pre class="language-dart"><code class="language-dart">static void initMatomo(
+  final BuildContext context,
+  final bool screenshotMode,
+) {
+  if (screenshotMode) {
+    setCrashReports(false);
+    setAnalyticsReports(false);
+    return;
+  }
   MatomoForever.init(
     &#39;https:&#47;&#47;analytics.openfoodfacts.org&#47;matomo.php&#39;,
     2,

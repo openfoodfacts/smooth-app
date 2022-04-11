@@ -53,7 +53,8 @@
         
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
-<span class="name ">main</span>(<wbr>)
+<span class="name ">main</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="main-param-screenshots">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">screenshots</span> = <span class="default-value">false</span>}</span></li>
+</ol>)
 
     </section>
     
@@ -62,7 +63,13 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; main() async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; main({final bool screenshots = false}) async {
+  _screenshots = screenshots;
+  if (_screenshots) {
+    await _init1();
+    runApp(const SmoothApp());
+    return;
+  }
   final WidgetsBinding widgetsBinding =
       WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
