@@ -23,7 +23,15 @@ import 'package:smooth_app/themes/theme_provider.dart';
 
 List<CameraDescription> cameras = <CameraDescription>[];
 
-Future<void> main() async {
+late bool _screenshots;
+
+Future<void> main({final bool screenshots = false}) async {
+  _screenshots = screenshots;
+  if (_screenshots) {
+    await _init1();
+    runApp(const SmoothApp());
+    return;
+  }
   final WidgetsBinding widgetsBinding =
       WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
@@ -48,17 +56,50 @@ class SmoothApp extends StatefulWidget {
   State<SmoothApp> createState() => _SmoothAppState();
 }
 
+late UserPreferences _userPreferences;
+late ProductPreferences _productPreferences;
+late LocalDatabase _localDatabase;
+late ThemeProvider _themeProvider;
+bool _init1done = false;
+
+// Had to split init in 2 methods, for test/screenshots reasons.
+// Don't know why, but some init codes seem to freeze the test.
+// Now we run them before running the app, during the tests.
+Future<bool> _init1() async {
+  if (_init1done) {
+    return false;
+  }
+  _userPreferences = await UserPreferences.getUserPreferences();
+  _localDatabase = await LocalDatabase.getLocalDatabase();
+  _productPreferences = ProductPreferences(
+    ProductPreferencesSelection(
+      setImportance: _userPreferences.setImportance,
+      getImportance: _userPreferences.getImportance,
+      notify: () => _productPreferences.notifyListeners(),
+    ),
+    daoString: DaoString(_localDatabase),
+  );
+
+  AnalyticsHelper.setCrashReports(_userPreferences.crashReports);
+  AnalyticsHelper.setAnalyticsReports(_userPreferences.analyticsReports);
+  ProductQuery.setCountry(_userPreferences.userCountryCode);
+  _themeProvider = ThemeProvider(_userPreferences);
+  ProductQuery.setQueryType(_userPreferences);
+
+  cameras = await availableCameras();
+
+  await ProductQuery.setUuid(_localDatabase);
+  _init1done = true;
+  return true;
+}
+
 class _SmoothAppState extends State<SmoothApp> {
-  late UserPreferences _userPreferences;
-  late ProductPreferences _productPreferences;
-  late LocalDatabase _localDatabase;
-  late ThemeProvider _themeProvider;
   final UserManagementProvider _userManagementProvider =
       UserManagementProvider();
 
+  bool systemDarkmodeOn = false;
   final Brightness brightness =
       SchedulerBinding.instance?.window.platformBrightness ?? Brightness.light;
-  bool systemDarkmodeOn = false;
 
   // We store the argument of FutureBuilder to avoid re-initialization on
   // subsequent builds. This enables hot reloading. See
@@ -68,35 +109,18 @@ class _SmoothAppState extends State<SmoothApp> {
   @override
   void initState() {
     super.initState();
-    _initFuture = _init();
+    _initFuture = _init2();
   }
 
-  Future<void> _init() async {
+  Future<bool> _init2() async {
+    await _init1();
     systemDarkmodeOn = brightness == Brightness.dark;
-    _userPreferences = await UserPreferences.getUserPreferences();
-    _localDatabase = await LocalDatabase.getLocalDatabase();
-    _productPreferences = ProductPreferences(
-      ProductPreferencesSelection(
-        setImportance: _userPreferences.setImportance,
-        getImportance: _userPreferences.getImportance,
-        notify: () => _productPreferences.notifyListeners(),
-      ),
-      daoString: DaoString(_localDatabase),
-    );
-
     await _productPreferences.init(DefaultAssetBundle.of(context));
-    await _userPreferences.init(_productPreferences);
-
-    AnalyticsHelper.setCrashReports(_userPreferences.crashReports);
-    AnalyticsHelper.setAnalyticsReports(_userPreferences.analyticsReports);
-    ProductQuery.setCountry(_userPreferences.userCountryCode);
-    _themeProvider = ThemeProvider(_userPreferences);
-    ProductQuery.setQueryType(_userPreferences);
-
-    cameras = await availableCameras();
-
-    await ProductQuery.setUuid(_localDatabase);
-    AnalyticsHelper.initMatomo(context);
+    if (!_screenshots) {
+      await _userPreferences.init(_productPreferences);
+    }
+    AnalyticsHelper.initMatomo(context, _screenshots);
+    return true;
   }
 
   @override
@@ -118,7 +142,11 @@ class _SmoothAppState extends State<SmoothApp> {
         ChangeNotifierProvider<T> provide<T extends ChangeNotifier>(T value) =>
             ChangeNotifierProvider<T>(create: (BuildContext context) => value);
 
-        FlutterNativeSplash.remove();
+        if (!_screenshots) {
+          // ending FlutterNativeSplash.preserve()
+          FlutterNativeSplash.remove();
+        }
+
         return MultiProvider(
           providers: <ChangeNotifierProvider<ChangeNotifier>>[
             provide<UserPreferences>(_userPreferences),
@@ -140,6 +168,7 @@ class _SmoothAppState extends State<SmoothApp> {
     return MaterialApp(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
+      debugShowCheckedModeBanner: !(kReleaseMode || _screenshots),
       navigatorObservers: <NavigatorObserver>[
         SentryNavigatorObserver(),
       ],

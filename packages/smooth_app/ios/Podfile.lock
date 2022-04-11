@@ -44,6 +44,8 @@ PODS:
     - TOCropViewController (~> 2.6.1)
   - image_picker (0.0.1):
     - Flutter
+  - integration_test (0.0.1):
+    - Flutter
   - iso_countries (0.0.1):
     - Flutter
   - matomo_forever (0.0.1):
@@ -106,6 +108,7 @@ DEPENDENCIES:
   - google_ml_barcode_scanner (from `.symlinks/plugins/google_ml_barcode_scanner/ios`)
   - image_cropper (from `.symlinks/plugins/image_cropper/ios`)
   - image_picker (from `.symlinks/plugins/image_picker/ios`)
+  - integration_test (from `.symlinks/plugins/integration_test/ios`)
   - iso_countries (from `.symlinks/plugins/iso_countries/ios`)
   - matomo_forever (from `.symlinks/plugins/matomo_forever/ios`)
   - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
@@ -150,6 +153,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/image_cropper/ios"
   image_picker:
     :path: ".symlinks/plugins/image_picker/ios"
+  integration_test:
+    :path: ".symlinks/plugins/integration_test/ios"
   iso_countries:
     :path: ".symlinks/plugins/iso_countries/ios"
   matomo_forever:
@@ -183,6 +188,7 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 4577a4cc914a5a07c40a8a0ad0acc22080418c2d
   image_cropper: 60c2789d1f1a78c873235d4319ca0c34a69f2d98
   image_picker: 541dcbb3b9cf32d87eacbd957845d8651d6c62c3
+  integration_test: a1e7d09bd98eca2fc37aefd79d4f41ad37bdbbe5
   iso_countries: eb09d40f388e4c65e291e0bb36a701dfe7de6c74
   matomo_forever: 7e5e5fd8f355f64979591282cad4e858fa4c9fae
   MLImage: 647f3d580c10b3c9a3f6154f5d7baead60c42a0c
