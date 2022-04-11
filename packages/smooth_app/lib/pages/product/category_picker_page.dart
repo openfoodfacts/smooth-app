@@ -49,7 +49,7 @@ class _CategoryPickerPageState extends State<CategoryPickerPage> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: Text(appLocalizations.category_picker_page_appBar_text),
+        title: Text(appLocalizations.category_picker_page_appbar_text),
       ),
       body: ListView.builder(
         itemBuilder: (final BuildContext context, final int index) {
