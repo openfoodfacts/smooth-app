@@ -13,7 +13,7 @@
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
     "save": "Kaydet",
-    "save_confirmation": "Are you sure you want to save?",
+    "save_confirmation": "Kaydetmek istediğinizden emin misiniz?",
     "skip": "Atla",
     "cancel": "İptal",
     "@cancel": {},
@@ -39,7 +39,7 @@
     "@label_web": {},
     "learnMore": "Daha fazla bilgi edin",
     "@learnMore": {},
-    "general_confirmation": "Are you sure?",
+    "general_confirmation": "Emin misiniz?",
     "incompatible": "Uyumsuz",
     "@incompatible": {
         "description": "Short label for product list view: the product is incompatible with your preferences"
@@ -59,7 +59,7 @@
         "description": "Looking for: ${BARCODE}"
     },
     "@Introduction screen": {},
-    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
+    "welcomeToOpenFoodFacts": "Open Food Facts'e Hoş Geldiniz",
     "@welcomeToOpenFoodFacts": {},
     "whatIsOff": "Open Food Facts, gücünü yerel topluluklardan alan kar amacı gütmeyen küresel bir kuruluştur.",
     "@whatIsOff": {
@@ -88,7 +88,7 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
-    "login_page_username_or_email": "Please enter username or e-mail",
+    "login_page_username_or_email": "Lütfen kullanıcı adı veya e-posta girin",
     "login_page_password_error_empty": "Lütfen bir şifre girin",
     "create_account": "Hesap oluştur",
     "@create_account": {
@@ -119,7 +119,7 @@
     "@reset_password": {
         "description": "Forgot password page title"
     },
-    "reset_password_explanation_text": "In case of a forgotten password, enter your username or e-mail address to receive instructions for a password reset. Also, remember to check the Spam folder.",
+    "reset_password_explanation_text": "Parolanın unutulması durumunda parola sıfırlama talimatlarını almak için kullanıcı adınızı veya e-posta adresinizi girin. Ayrıca, Spam klasörünü kontrol etmeyi unutmayın.",
     "username_or_email": "Kullanıcı adı veya e-mail",
     "@username_or_email": {
         "description": "Text field hint for password reset"
@@ -165,18 +165,18 @@
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
-    "donate_url": "https://donate.openfoodfacts.org/",
+    "donate_url": "https://tr.openfoodfacts.org/",
     "@donate_url": {
         "description": "Please insert the right url from the website here."
     },
-    "sign_up_page_agree_error_invalid": "When creating an account, agreeing to the Terms of Use is mandatory, however, anonymous contributions can still be made through the app",
+    "sign_up_page_agree_error_invalid": "Bir hesap oluştururken Kullanım Koşullarını kabul etmek zorunludur, ancak uygulama aracılığıyla yine de anonim katkılar yapılabilir",
     "@sign_up_page_agree_error_invalid": {
         "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
     },
     "sign_up_page_producer_checkbox": "Ben bir yemek üreticisiyim",
     "sign_up_page_producer_hint": "Üretici/Marka",
     "sign_up_page_producer_error_empty": "Lütfen bir üretici veya marka adı girin",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
+    "sign_up_page_subscribe_checkbox": "Open Food Facts haber bültenine abone olmak istiyorum (İstediğiniz zaman aboneliğinizi iptal edebilirsiniz)",
     "@Settings": {},
     "settingsTitle": "Ayarlar",
     "@settingsTitle": {
@@ -194,11 +194,11 @@
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch (light)"
     },
-    "darkmode_system_default": "System default",
+    "darkmode_system_default": "Sistem varsayılanı",
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
-    "thanks_for_contributing": "Thanks for contributing",
+    "thanks_for_contributing": "Katkınız için teşekkürler",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
@@ -208,7 +208,7 @@
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
     "support_join_slack": "Ask for help in our Slack channel",
-    "support_via_email": "Send us an e-mail",
+    "support_via_email": "Bize bir e-posta gönder",
     "termsOfUse": "Kullanım Koşulları",
     "@termsOfUse": {},
     "about_this_app": "Bu uygulama hakkında",
@@ -220,7 +220,7 @@
     "@contribute": {
         "description": "Button label: Shows multiple ways how users can contribute to OFF"
     },
-    "contribute_sw_development": "Software development",
+    "contribute_sw_development": "Yazılım geliştirme",
     "@contribute_sw_development": {
         "description": "Button label + page title: Ways to help"
     },
@@ -252,7 +252,7 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Çeviriler, projenin temel görevlerinden biridir",
     "@contribute_translate_text_2": {},
-    "tap_to_answer": "Tap here to answer questions",
+    "tap_to_answer": "Soruları yanıtlamak için buraya dokunun",
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
@@ -271,11 +271,11 @@
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "Profiliniz",
-    "myPreferences_profile_subtitle": "Change app settings and get advice.",
+    "myPreferences_profile_subtitle": "Uygulama ayarlarını değiştirin ve tavsiye alın.",
     "myPreferences_settings_title": "Uygulama Ayarları",
     "myPreferences_settings_subtitle": "Karanlık mod, Tema, ...",
     "myPreferences_food_title": "Yiyecek tercihleri",
-    "myPreferences_food_subtitle": "Choose what information about food matters most to you.",
+    "myPreferences_food_subtitle": "Yiyeceklerle ilgili hangi bilgilerin sizin için en önemli olduğunu seçin.",
     "confirmResetPreferences": "Yiyecek tercihleriniz sıfırlansın mı?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -288,7 +288,7 @@
     "ranking_subtitle_match_yes": "Sizin için harika bir eşleşme",
     "ranking_subtitle_match_no": "Çok zayıf eşleşme",
     "ranking_subtitle_match_maybe": "Bilinmeyen eşleşme",
-    "reloaded_with_new_preferences": "Yeni tercihlerle yeniden yüklendi",
+    "reloaded_with_new_preferences": "Reloaded with your new preferences",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
     },
@@ -376,17 +376,17 @@
     "@add_product_information_button_label": {},
     "new_product": "Yeni ürün",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Ön ambalaj fotoğrafı",
+    "front_packaging_photo_button_label": "Front of product photo",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Confirm Front packaging photo",
+    "confirm_front_packaging_photo_button_label": "Confirm front of product photo",
     "@confirm_front_packaging_photo_button_label": {
-        "description": "Button clicking on which confirms the picture of the front packaging that user just took."
+        "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
     "front_photo_uploaded": "Front photo uploaded",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "İçindekiler fotoğarafı",
     "@ingredients_photo_button_label": {},
-    "confirm_ingredients_photo_button_label": "Confirm Ingredients photo",
+    "confirm_ingredients_photo_button_label": "Confirm ingredients photo",
     "@confirm_ingredients_photo_button_label": {
         "description": "Button clicking on which confirms the picture of ingredients that user just took."
     },
@@ -394,11 +394,11 @@
     "@ingredients_photo_uploaded": {},
     "nutritional_facts_photo_button_label": "Besin değerleri fotoğrafı",
     "@nutritional_facts_photo_button_label": {},
-    "confirm_nutritional_facts_photo_button_label": "Confirm Nutritional facts photo",
+    "confirm_nutritional_facts_photo_button_label": "Confirm nutrition facts photo",
     "@confirm_nutritional_facts_photo_button_label": {
         "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
     },
-    "nutritional_facts_photo_uploaded": "Nutritional facts photo uploaded",
+    "nutritional_facts_photo_uploaded": "Nutrition facts photo uploaded",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Recycling information photo",
     "@recycling_photo_button_label": {},
@@ -424,7 +424,7 @@
     "@selecting_photo": {
         "description": "Progress indicator when the users takes a photo"
     },
-    "uploading_image": "Uploading Image to the server",
+    "uploading_image": "Uploading photo to the server",
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
@@ -434,7 +434,7 @@
     "score_update_nutrition_facts": "Update nutrition facts",
     "nutrition_page_title": "Besin Değerleri",
     "nutrition_page_unspecified": "Nutrition facts are not specified on the product",
-    "nutrition_page_per_100g": "per 100g",
+    "nutrition_page_per_100g": "100g başına",
     "nutrition_page_per_serving": "porsiyon başına",
     "nutrition_page_add_nutrient": "Besin ögesi ekle",
     "nutrition_page_serving_size": "Porsiyon ölçüsü",
@@ -461,7 +461,7 @@
         "description": "The product data couldn't be refreshed"
     },
     "product_internet_error": "Impossible to fetch information about this product due to a network error.",
-    "cached_results_from": "Show results from:",
+    "cached_results_from": "Sonuçların gösterildiği:",
     "@cached_results_from": {
         "description": "Cached results from: x time ago (time ago should not be added to the string)"
     },
@@ -472,7 +472,7 @@
     "@product_search_same_category": {
         "description": "Button looking for the other products within the same category. Less than 30 characters"
     },
-    "product_improvement_add_category": "Add a category to calculate the Nutri-Score.",
+    "product_improvement_add_category": "Nutri-Score'u hesaplamak için bir kategori ekleyin.",
     "@product_improvement_add_category": {
         "description": "Message for ProductImprovement.ADD_CATEGORY"
     },
@@ -529,7 +529,7 @@
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_incompatible": "Doesn't match",
+    "product_compatibility_incompatible": "Does not match",
     "@product_compatibility_incompatible": {
         "description": "Product compatibility summary title"
     },
@@ -611,11 +611,11 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Help the Open Food Facts volunteer to improve the app. You decide if you want to send anonymous analytics.",
+    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide if you want to send anonymous analytics.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
-    "consent_analytics_body2": "If you change your mind this option can be enabled and disabled at any time from the settings.",
+    "consent_analytics_body2": "If you change your mind, this option can be enabled and disabled at any time from the settings.",
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
@@ -636,7 +636,7 @@
             }
         }
     },
-    "onboarding_welcome_loading_dialog_title": "Loading internet data",
+    "onboarding_welcome_loading_dialog_title": "Loading your first example product",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },
@@ -652,15 +652,15 @@
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
-    "product_list_empty_message": "Product you scan in will appear here and you can check detailed information about them",
+    "product_list_empty_message": "Products you scan will appear here and you can check detailed information about them",
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress": "refreshing the history products",
+    "product_list_reloading_in_progress": "Refreshing products in your History",
     "@product_list_reloading_in_progress": {
         "description": "Message to show while loading previous scanned items"
     },
-    "product_list_reloading_success": "Just refreshed",
+    "product_list_reloading_success": "Product refresh complete",
     "@product_list_reloading_success": {
         "description": "Message to show once previous scanned items are loaded"
     },
@@ -680,7 +680,7 @@
     "@email_subject_account_deletion": {
         "description": "Email subject for an account deletion"
     },
-    "email_body_account_deletion": "Hi there, please delete my openfoodfacts account: {userId}",
+    "email_body_account_deletion": "Hi there, please delete my Open Food Facts account: {userId}",
     "@email_body_account_deletion": {
         "description": "Email body for an account deletion",
         "placeholders": {
@@ -693,7 +693,7 @@
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "When enabled, crash reports will be sent to the Open Food Facts server automatically, so that we can fix bugs and improve the app.",
+    "crash_reporting_toggle_subtitle": "When enabled, crash reports will be sent to the Open Food Facts bug system automatically, so that we can fix bugs and improve the app.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
