@@ -318,7 +318,7 @@ enum DevModeScanMode {
 
 extension DevModeScanModeExtension on DevModeScanMode {
   static const DevModeScanMode defaultScanMode =
-      DevModeScanMode.SCAN_FULL_IMAGE;
+      DevModeScanMode.SCAN_HALF_IMAGE;
 
   static const Map<DevModeScanMode, String> _labels = <DevModeScanMode, String>{
     DevModeScanMode.CAMERA_ONLY: 'Only camera stream, no scanning',
