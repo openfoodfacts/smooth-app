@@ -72,6 +72,7 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
+  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
   return Material(
     child: SizedBox(
       height: MediaQuery.of(context).size.height * 0.8,
@@ -79,29 +80,45 @@ Widget build(BuildContext context) {
         shrinkWrap: true,
         scrollDirection: Axis.vertical,
         children: &lt;Widget&gt;[
-          ModalBottomSheetHeader(
-              title: AppLocalizations.of(context)!.connect_with_us),
-          &#47;&#47; Instagram
+          ModalBottomSheetHeader(title: appLocalizations.connect_with_us),
           SmoothListTile(
-              text: AppLocalizations.of(context)!.instagram,
-              leadingWidget: const Icon(Icons.open_in_new),
+              text: appLocalizations.instagram,
+              leadingWidget: _icon,
               onPressed: () =&gt; _launchUrl(
                   context, &#39;https:&#47;&#47;instagram.com&#47;open.food.facts&#39;)),
-
-          &#47;&#47;Twitter
           SmoothListTile(
-            text: AppLocalizations.of(context)!.twitter,
-            leadingWidget: const Icon(Icons.open_in_new),
+            text: appLocalizations.twitter,
+            leadingWidget: _icon,
             onPressed: () =&gt;
                 _launchUrl(context, &#39;https:&#47;&#47;www.twitter.com&#47;openfoodfacts&#39;),
           ),
-
-          &#47;&#47;Blog
           SmoothListTile(
-            text: AppLocalizations.of(context)!.blog,
-            leadingWidget: const Icon(Icons.open_in_new),
+            text: appLocalizations.blog,
+            leadingWidget: _icon,
             onPressed: () =&gt;
                 _launchUrl(context, &#39;https:&#47;&#47;en.blog.openfoodfacts.org&#39;),
+          ),
+          SmoothListTile(
+            text: appLocalizations.support_join_slack,
+            leadingWidget: _icon,
+            onPressed: () =&gt;
+                _launchUrl(context, &#39;https:&#47;&#47;slack.openfoodfacts.org&#47;&#39;),
+          ),
+          SmoothListTile(
+            text: appLocalizations.support_via_email,
+            leadingWidget: _icon,
+            onPressed: () async {
+              final PackageInfo packageInfo =
+                  await PackageInfo.fromPlatform();
+              &#47;&#47; TODO(M123): Change subject name when we have a different app name
+              final Mailto mailtoLink = Mailto(
+                to: &lt;String&gt;[&#39;contact@openfoodfacts.org&#39;],
+                subject: &#39;Smoothie help&#39;, &#47;&#47; TODO(monsieurtanuki): localize
+                body:
+                    &#39;Version:${packageInfo.version}+${packageInfo.buildNumber} running on ${Platform.operatingSystem}(${Platform.operatingSystemVersion})&#39;,
+              );
+              await launch(&#39;$mailtoLink&#39;);
+            },
           ),
         ],
       ),
