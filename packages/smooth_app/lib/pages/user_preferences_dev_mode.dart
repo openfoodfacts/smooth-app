@@ -57,7 +57,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   Widget getTitle() => Container(
         color: Colors.red,
         child: Text(
-          'DEV MODE',
+          appLocalizations.dev_preferences_screen_title,
           style: themeData.textTheme.headline2!.copyWith(color: Colors.white),
         ),
       );
@@ -68,7 +68,9 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   @override
   List<Widget> getBody() => <Widget>[
         ListTile(
-          title: const Text('Remove dev mode'),
+          title: Text(
+            appLocalizations.dev_preferences_disable_mode,
+          ),
           onTap: () async {
             // resetting back to "no dev mode"
             await userPreferences.setDevMode(0);
@@ -79,21 +81,26 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         ListTile(
-          title: const Text('Restart onboarding'),
-          subtitle:
-              const Text('You then have to restart Flutter to see it again.'),
+          title: Text(
+            appLocalizations.dev_preferences_reset_onboarding_title,
+          ),
+          subtitle: Text(
+            appLocalizations.dev_preferences_reset_onboarding_subtitle,
+          ),
           onTap: () async {
             userPreferences
                 .setLastVisitedOnboardingPage(OnboardingPage.NOT_STARTED);
-            ScaffoldMessenger.of(context)
-                .showSnackBar(const SnackBar(content: Text('Ok')));
+            _showSuccessMessage();
           },
         ),
         ListTile(
-          title: const Text(
-              'Switch between openfoodfacts.org (PROD) and test env'),
+          title: Text(
+            appLocalizations.dev_preferences_environment_switch_title,
+          ),
           subtitle: Text(
-            'Current query type is ${OpenFoodAPIConfiguration.globalQueryType}',
+            appLocalizations.dev_preferences_environment_switch_subtitle(
+              OpenFoodAPIConfiguration.globalQueryType.toString(),
+            ),
           ),
           onTap: () async {
             await userPreferences.setFlag(userPreferencesFlagProd,
@@ -103,46 +110,57 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         ListTile(
-          title: const Text('Test env parameters'),
+          title: Text(
+            appLocalizations.dev_preferences_test_environment_title,
+          ),
           subtitle: Text(
-            'Current base URL of test env is ${OpenFoodAPIConfiguration.uriScheme}://${OpenFoodAPIConfiguration.uriTestHost}/',
+            appLocalizations.dev_preferences_test_environment_subtitle(
+              '${OpenFoodAPIConfiguration.uriScheme}://${OpenFoodAPIConfiguration.uriTestHost}/',
+            ),
           ),
           onTap: () async => _changeTestEnvHost(),
         ),
         SwitchListTile(
-          title: const Text('Use ML Kit'),
-          subtitle: const Text('then you have to restart this app'),
+          title: Text(
+            appLocalizations.dev_preferences_ml_kit_title,
+          ),
+          subtitle: Text(
+            appLocalizations.dev_preferences_ml_kit_subtitle,
+          ),
           value: userPreferences.getFlag(userPreferencesFlagUseMLKit) ?? true,
           onChanged: (bool value) async {
             await userPreferences.setFlag(userPreferencesFlagUseMLKit, value);
-            ScaffoldMessenger.of(context)
-                .showSnackBar(const SnackBar(content: Text('Ok')));
+            _showSuccessMessage();
           },
         ),
         SwitchListTile(
-          title: const Text('Additional button on product page'),
+          title: Text(
+            appLocalizations.dev_preferences_product_additional_features_title,
+          ),
           value: userPreferences.getFlag(userPreferencesFlagAdditionalButton) ??
               false,
           onChanged: (bool value) async {
             await userPreferences.setFlag(
                 userPreferencesFlagAdditionalButton, value);
-            ScaffoldMessenger.of(context)
-                .showSnackBar(const SnackBar(content: Text('Ok')));
+            _showSuccessMessage();
           },
         ),
         SwitchListTile(
-          title: const Text('Edit ingredients via a knowledge panel button'),
+          title: Text(
+            appLocalizations.dev_preferences_edit_ingredients_title,
+          ),
           value: userPreferences.getFlag(userPreferencesFlagEditIngredients) ??
               false,
           onChanged: (bool value) async {
             await userPreferences.setFlag(
                 userPreferencesFlagEditIngredients, value);
-            ScaffoldMessenger.of(context)
-                .showSnackBar(const SnackBar(content: Text('Ok')));
+            _showSuccessMessage();
           },
         ),
         ListTile(
-          title: const Text('Export History'),
+          title: Text(
+            appLocalizations.dev_preferences_export_history_title,
+          ),
           onTap: () async {
             final LocalDatabase localDatabase = context.read<LocalDatabase>();
             final Map<String, dynamic> export =
@@ -161,17 +179,22 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
                           : Icons.help_outline),
                   title: Text(barcode),
                   subtitle: Text(exists == null
-                      ? 'exception'
+                      ? appLocalizations
+                          .dev_preferences_export_history_progress_error
                       : exists
-                          ? 'product found'
-                          : 'product NOT found'),
+                          ? appLocalizations
+                              .dev_preferences_export_history_progress_found
+                          : appLocalizations
+                              .dev_preferences_export_history_progress_not_found),
                 ),
               );
             }
             showDialog<void>(
               context: context,
               builder: (BuildContext context) => AlertDialog(
-                title: const Text('export history'),
+                title: Text(
+                  appLocalizations.dev_preferences_export_history_dialog_title,
+                ),
                 content: SizedBox(
                   height: 400,
                   width: 300,
@@ -179,7 +202,9 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
                 ),
                 actions: <Widget>[
                   ElevatedButton(
-                    child: Text(AppLocalizations.of(context)!.okay),
+                    child: Text(
+                      appLocalizations.dev_preferences_button_positive,
+                    ),
                     onPressed: () => Navigator.pop(context),
                   ),
                 ],
@@ -188,25 +213,40 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         ListTile(
-          title: const Text('Import History'),
-          subtitle:
-              const Text('Will clear history and put 3 products in there'),
+          title: Text(
+            appLocalizations.dev_preferences_import_history_title,
+          ),
+          subtitle: Text(
+            appLocalizations.dev_preferences_import_history_subtitle,
+          ),
           onTap: () async {
             final LocalDatabase localDatabase = context.read<LocalDatabase>();
             await ProductListImportExport().import(
               ProductListImportExport.TMP_IMPORT,
               localDatabase,
             );
-            ScaffoldMessenger.of(context)
-                .showSnackBar(const SnackBar(content: Text('Done')));
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(
+                  appLocalizations
+                      .dev_preferences_import_history_result_success,
+                ),
+              ),
+            );
             localDatabase.notifyListeners();
           },
         ),
         ListTile(
-          title: const Text('Switch between strong and lenient matching'),
+          title: Text(
+            appLocalizations.dev_mode_matching_mode_title,
+          ),
           subtitle: Text(
-            'Current matching level is '
-            '${(userPreferences.getFlag(userPreferencesFlagStrongMatching) ?? false) ? 'strong' : 'lenient'}',
+            appLocalizations.dev_mode_matching_mode_subtitle(
+              (userPreferences.getFlag(userPreferencesFlagStrongMatching) ??
+                      false)
+                  ? appLocalizations.dev_mode_matching_mode_value_strong
+                  : appLocalizations.dev_mode_matching_mode_value_lenient,
+            ),
           ),
           onTap: () async {
             await userPreferences.setFlag(
@@ -217,17 +257,24 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         ListTile(
-          title: const Text('Scan Mode'),
+          title: Text(
+            appLocalizations.dev_mode_scan_mode_title,
+          ),
           subtitle: Text(
-            'Current scan mode is :"'
-            '${DevModeScanModeExtension.fromIndex(userPreferences.getDevModeIndex(userPreferencesEnumScanMode)).label}'
-            '"',
+            appLocalizations
+                .dev_mode_scan_mode_subtitle(DevModeScanModeExtension.fromIndex(
+              userPreferences.getDevModeIndex(
+                userPreferencesEnumScanMode,
+              ),
+            ).localizedLabel(appLocalizations)),
           ),
           onTap: () async {
             final DevModeScanMode? scanMode = await showDialog<DevModeScanMode>(
               context: context,
               builder: (BuildContext context) => AlertDialog(
-                title: const Text('Scan Mode'),
+                title: Text(
+                  appLocalizations.dev_mode_scan_mode_dialog_title,
+                ),
                 content: SizedBox(
                   height: 400,
                   width: 300,
@@ -237,7 +284,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
                       final DevModeScanMode scanMode =
                           DevModeScanMode.values[index];
                       return ListTile(
-                        title: Text(scanMode.label),
+                        title: Text(scanMode.localizedLabel(appLocalizations)),
                         onTap: () => Navigator.pop(context, scanMode),
                       );
                     },
@@ -245,7 +292,9 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
                 ),
                 actions: <Widget>[
                   ElevatedButton(
-                    child: const Text('cancel'),
+                    child: Text(
+                      appLocalizations.dev_preferences_button_negative,
+                    ),
                     onPressed: () => Navigator.pop(context),
                   ),
                 ],
@@ -261,7 +310,9 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         SwitchListTile(
-          title: const Text('Exclude ecoscore'),
+          title: Text(
+            appLocalizations.dev_mode_hide_ecoscore_title,
+          ),
           value: userPreferences
               .getExcludedAttributeIds()
               .contains(Attribute.ATTRIBUTE_ECOSCORE),
@@ -278,6 +329,15 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         ),
       ];
 
+  ScaffoldFeatureController<SnackBar, SnackBarClosedReason>
+      _showSuccessMessage() {
+    return ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(appLocalizations.dev_preferences_button_positive),
+      ),
+    );
+  }
+
   Future<void> _changeTestEnvHost() async {
     _textFieldController.text =
         userPreferences.getDevModeString(userPreferencesTestEnvHost) ??
@@ -285,15 +345,21 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
     final bool? result = await showDialog<bool>(
       context: context,
       builder: (final BuildContext context) => AlertDialog(
-        title: const Text('Test Env Host'),
+        title: Text(
+          appLocalizations.dev_preferences_test_environment_dialog_title,
+        ),
         content: TextField(controller: _textFieldController),
         actions: <Widget>[
           TextButton(
-            child: const Text('Cancel'),
+            child: Text(
+              appLocalizations.dev_preferences_button_negative,
+            ),
             onPressed: () => Navigator.pop(context, false),
           ),
           ElevatedButton(
-            child: const Text('OK'),
+            child: Text(
+              appLocalizations.dev_preferences_button_positive,
+            ),
             onPressed: () => Navigator.pop(context, true),
           ),
         ],
@@ -339,6 +405,21 @@ extension DevModeScanModeExtension on DevModeScanMode {
   };
 
   String get label => _labels[this]!;
+
+  String localizedLabel(AppLocalizations appLocalizations) {
+    switch (this) {
+      case DevModeScanMode.CAMERA_ONLY:
+        return appLocalizations.dev_mode_scan_camera_only;
+      case DevModeScanMode.PREPROCESS_FULL_IMAGE:
+        return appLocalizations.dev_mode_scan_preprocess_full_image;
+      case DevModeScanMode.PREPROCESS_HALF_IMAGE:
+        return appLocalizations.dev_mode_scan_preprocess_half_image;
+      case DevModeScanMode.SCAN_FULL_IMAGE:
+        return appLocalizations.dev_mode_scan_scan_full_image;
+      case DevModeScanMode.SCAN_HALF_IMAGE:
+        return appLocalizations.dev_mode_scan_scan_half_image;
+    }
+  }
 
   int get index => _indices[this]!;
 
