@@ -91,13 +91,12 @@ class _SignUpPageState extends State<SignUpPage> {
               validator: (String? value) {
                 if (value == null || value.isEmpty) {
                   return appLocalizations.sign_up_page_email_error_empty;
-                }
-                _emailController.text = value.trim();
-                if (!UserManagementHelper.isEmailValid(value.trim())) {
+                } else if (!UserManagementHelper.isEmailValid(
+                    _emailController.trimmedText)) {
                   return appLocalizations.sign_up_page_email_error_invalid;
+                } else {
+                  return null;
                 }
-
-                return null;
               },
             ),
             const SizedBox(height: space),
@@ -114,8 +113,8 @@ class _SignUpPageState extends State<SignUpPage> {
                 if (value == null || value.isEmpty) {
                   return appLocalizations.sign_up_page_username_error_empty;
                 }
-                _userController.text = value.trim();
-                if (!UserManagementHelper.isUsernameValid(value.trim())) {
+                if (!UserManagementHelper.isUsernameValid(
+                    _userController.trimmedText)) {
                   return appLocalizations.sign_up_page_username_description;
                 }
                 return null;
@@ -136,11 +135,11 @@ class _SignUpPageState extends State<SignUpPage> {
               validator: (String? value) {
                 if (value == null || value.isEmpty) {
                   return appLocalizations.sign_up_page_password_error_empty;
-                }
-                if (!UserManagementHelper.isPasswordValid(value)) {
+                } else if (!UserManagementHelper.isPasswordValid(value)) {
                   return appLocalizations.sign_up_page_password_error_invalid;
+                } else {
+                  return null;
                 }
-                return null;
               },
             ),
             const SizedBox(height: space),
@@ -157,12 +156,13 @@ class _SignUpPageState extends State<SignUpPage> {
                 if (value == null || value.isEmpty) {
                   return appLocalizations
                       .sign_up_page_confirm_password_error_empty;
-                }
-                if (value != _password1Controller.text) {
+                } else if (_password2Controller.text !=
+                    _password1Controller.text) {
                   return appLocalizations
                       .sign_up_page_confirm_password_error_invalid;
+                } else {
+                  return null;
                 }
-                return null;
               },
             ),
             const SizedBox(height: space),
@@ -290,17 +290,17 @@ class _SignUpPageState extends State<SignUpPage> {
       return;
     }
     final User user = User(
-      userId: _userController.text,
+      userId: _userController.trimmedText,
       password: _password1Controller.text,
     );
     final Status? status = await LoadingDialog.run<Status>(
       context: context,
       future: OpenFoodAPIClient.register(
         user: user,
-        name: _displayNameController.text,
-        email: _emailController.text,
+        name: _displayNameController.trimmedText,
+        email: _emailController.trimmedText,
         newsletter: _subscribe,
-        orgName: _foodProducer ? _brandController.text : null,
+        orgName: _foodProducer ? _brandController.trimmedText : null,
       ),
       title: AppLocalizations.of(context)!.sign_up_page_action_doing_it,
     );
