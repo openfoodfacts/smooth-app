@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 
+// TODO(monsieurtanuki): probably useless now, [SmoothActionButton] should be enough
 class SmoothMainButton extends StatelessWidget {
   const SmoothMainButton({
     required this.text,
