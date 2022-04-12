@@ -12,7 +12,16 @@ updates:
       prefix: "chore"
       include: "scope"
   - package-ecosystem: "bundler"
-    directory: "/"
+    directory: "packages/smooth_app/android"
+    schedule:
+      interval: "daily"
+    labels:
+      - "dependencies"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+  - package-ecosystem: "bundler"
+    directory: "packages/smooth_app/ios"
     schedule:
       interval: "daily"
     labels:
@@ -21,7 +30,7 @@ updates:
       prefix: "chore"
       include: "scope"
   - package-ecosystem: "pub"
-    directory: "/"
+    directory: "/packages/smooth_app/"
     schedule:
       interval: "daily"
     commit-message:
