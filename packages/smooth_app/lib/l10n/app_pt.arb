@@ -288,7 +288,7 @@
     "ranking_subtitle_match_yes": "Uma ótima combinação para você",
     "ranking_subtitle_match_no": "Uma combinação muita pobre",
     "ranking_subtitle_match_maybe": "Combinação desconhecida",
-    "reloaded_with_new_preferences": "Reloaded with your new preferences",
+    "reloaded_with_new_preferences": "Recarregado com suas novas preferências",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
     },
@@ -376,9 +376,9 @@
     "@add_product_information_button_label": {},
     "new_product": "Novo produto",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Front of product photo",
+    "front_packaging_photo_button_label": "Frente da foto do produto",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Confirm front of product photo",
+    "confirm_front_packaging_photo_button_label": "Confirme a frente da foto do produto",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
@@ -386,7 +386,7 @@
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Foto de ingredientes",
     "@ingredients_photo_button_label": {},
-    "confirm_ingredients_photo_button_label": "Confirm ingredients photo",
+    "confirm_ingredients_photo_button_label": "Confirme a foto dos ingredientes",
     "@confirm_ingredients_photo_button_label": {
         "description": "Button clicking on which confirms the picture of ingredients that user just took."
     },
@@ -394,11 +394,11 @@
     "@ingredients_photo_uploaded": {},
     "nutritional_facts_photo_button_label": "Foto de informações nutricionais",
     "@nutritional_facts_photo_button_label": {},
-    "confirm_nutritional_facts_photo_button_label": "Confirm nutrition facts photo",
+    "confirm_nutritional_facts_photo_button_label": "Confirme a foto das informações nutricionais",
     "@confirm_nutritional_facts_photo_button_label": {
         "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
     },
-    "nutritional_facts_photo_uploaded": "Nutrition facts photo uploaded",
+    "nutritional_facts_photo_uploaded": "Foto das informações nutricionais enviada",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Foto de informações sobre reciclagem",
     "@recycling_photo_button_label": {},
@@ -424,7 +424,7 @@
     "@selecting_photo": {
         "description": "Progress indicator when the users takes a photo"
     },
-    "uploading_image": "Uploading photo to the server",
+    "uploading_image": "Carregando imagem para o servidor",
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
@@ -529,7 +529,7 @@
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_incompatible": "Does not match",
+    "product_compatibility_incompatible": "Não combina",
     "@product_compatibility_incompatible": {
         "description": "Product compatibility summary title"
     },
@@ -611,11 +611,11 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide if you want to send anonymous analytics.",
+    "consent_analytics_body1": "Ajude os voluntários do Open Food Facts a melhorar o aplicativo. Você decide se deseja enviar análises anônimas.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
-    "consent_analytics_body2": "If you change your mind, this option can be enabled and disabled at any time from the settings.",
+    "consent_analytics_body2": "Se você mudar de ideia, esta opção pode ser ativada e desativada a qualquer momento nas configurações.",
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
@@ -636,7 +636,7 @@
             }
         }
     },
-    "onboarding_welcome_loading_dialog_title": "Loading your first example product",
+    "onboarding_welcome_loading_dialog_title": "Carregando seu primeiro produto de exemplo",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },
@@ -652,15 +652,15 @@
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
-    "product_list_empty_message": "Products you scan will appear here and you can check detailed information about them",
+    "product_list_empty_message": "Os produtos que você digitalizar aparecerão aqui e você poderá verificar informações detalhadas sobre eles",
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress": "Refreshing products in your History",
+    "product_list_reloading_in_progress": "Atualizando produtos em seu histórico",
     "@product_list_reloading_in_progress": {
         "description": "Message to show while loading previous scanned items"
     },
-    "product_list_reloading_success": "Product refresh complete",
+    "product_list_reloading_success": "Atualização do produto concluída",
     "@product_list_reloading_success": {
         "description": "Message to show once previous scanned items are loaded"
     },
@@ -680,7 +680,7 @@
     "@email_subject_account_deletion": {
         "description": "Email subject for an account deletion"
     },
-    "email_body_account_deletion": "Hi there, please delete my Open Food Facts account: {userId}",
+    "email_body_account_deletion": "Olá, por favor exclua minha conta Open Food Fact: {userId}",
     "@email_body_account_deletion": {
         "description": "Email body for an account deletion",
         "placeholders": {
@@ -693,7 +693,7 @@
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "When enabled, crash reports will be sent to the Open Food Facts bug system automatically, so that we can fix bugs and improve the app.",
+    "crash_reporting_toggle_subtitle": "Quando habilitado, os relatórios de falhas serão enviados para o servidor Open Food Facts automaticamente, para que possamos corrigir bugs e melhorar o aplicativo.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },

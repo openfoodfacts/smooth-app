@@ -11,6 +11,7 @@ updates:
     commit-message:
       prefix: "chore"
       include: "scope"
+      
   - package-ecosystem: "bundler"
     directory: "packages/smooth_app/android"
     schedule:
@@ -20,6 +21,7 @@ updates:
     commit-message:
       prefix: "chore"
       include: "scope"
+      
   - package-ecosystem: "bundler"
     directory: "packages/smooth_app/ios"
     schedule:
@@ -36,3 +38,4 @@ updates:
     commit-message:
       prefix: "chore"
       include: "scope"
+#end
