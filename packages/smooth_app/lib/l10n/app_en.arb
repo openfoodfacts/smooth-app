@@ -852,7 +852,6 @@
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
-    "completed_basic_details_btn_text": "Complete basic details",
     "not_implemented_snackbar_text": "Not implemented yet",
     "category_picker_page_appbar_text": "Categories",
     "edit_ingredients_extrait_ingredients_btn_text": "Extract ingredients",
@@ -1153,5 +1152,13 @@
                 "type": "Object?"
             }
         }
+    },
+    "summary_card_button_add_basic_details": "Complete basic details",
+    "@summary_card_button_add_basic_details": {
+        "description": "Summary card - Button to add details about the product"
+    },
+    "category_picker_screen_title": "Categories",
+    "@category_picker_screen_title": {
+        "description": "Categories picker screen title"
     }
 }

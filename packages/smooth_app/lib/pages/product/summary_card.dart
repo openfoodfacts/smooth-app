@@ -231,7 +231,6 @@ class _SummaryCardState extends State<SummaryCard> {
         );
       }
     }
-
     final Widget attributesContainer = Container(
       alignment: Alignment.topLeft,
       margin: const EdgeInsets.only(bottom: 16),
