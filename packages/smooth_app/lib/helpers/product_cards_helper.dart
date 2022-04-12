@@ -38,10 +38,14 @@ Widget buildProductSmoothCard({
 List<Attribute> getPopulatedAttributes(
   final Product product,
   final List<String> attributeIds,
+  final List<String> excludedAttributeIds,
 ) {
   final List<Attribute> result = <Attribute>[];
   final Map<String, Attribute> attributes = product.getAttributes(attributeIds);
   for (final String attributeId in attributeIds) {
+    if (excludedAttributeIds.contains(attributeId)) {
+      continue;
+    }
     Attribute? attribute = attributes[attributeId];
 // Some attributes selected in the user preferences might be unavailable for some products
     if (attribute == null) {
@@ -70,6 +74,13 @@ Widget addPanelButton(
       width: double.infinity,
       child: ElevatedButton.icon(
         icon: Icon(iconData ?? Icons.add),
+        style: ButtonStyle(
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            const RoundedRectangleBorder(
+              borderRadius: ROUNDED_BORDER_RADIUS,
+            ),
+          ),
+        ),
         label: Text(label),
         onPressed: onPressed,
       ),

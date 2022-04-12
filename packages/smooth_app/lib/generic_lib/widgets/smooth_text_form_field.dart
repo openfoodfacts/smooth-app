@@ -64,6 +64,7 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
       enableSuggestions: _enableSuggestions,
       autocorrect: _autocorrect,
       autofillHints: widget.autofillHints,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       onChanged: (String data) {
         // Rebuilds for changing the eye icon
         if (widget.type == TextFieldTypes.PASSWORD) {

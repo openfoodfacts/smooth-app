@@ -4,10 +4,14 @@ import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_element_card.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/product/edit_ingredients_page.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
+import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
 
 /// Builds "knowledge panels" panels.
 ///
@@ -128,12 +132,23 @@ class KnowledgePanelsBuilder {
             },
           ),
         );
-        if (product.statesTags?.contains('en:ingredients-to-be-completed') ??
+        if (context.read<UserPreferences>().getFlag(
+                UserPreferencesDevMode.userPreferencesFlagEditIngredients) ??
             false) {
+          // When the flag is removed, this should be the following:
+          // if (product.statesTags?.contains('en:ingredients-to-be-completed') ?? false) {
           knowledgePanelElementWidgets.add(
             addPanelButton(
               appLocalizations.score_add_missing_ingredients,
-              onPressed: () {},
+              onPressed: () async => Navigator.push<Widget>(
+                context,
+                MaterialPageRoute<Widget>(
+                  builder: (BuildContext context) => EditIngredientsPage(
+                    product: product,
+                    imageIngredientsUrl: product.imageIngredientsUrl,
+                  ),
+                ),
+              ),
             ),
           );
         }

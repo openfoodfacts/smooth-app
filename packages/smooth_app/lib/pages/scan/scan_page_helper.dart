@@ -11,7 +11,7 @@ Future<void> openPersonalizedRankingPage(BuildContext context) async {
     context,
     MaterialPageRoute<Widget>(
       builder: (BuildContext context) => PersonalizedRankingPage(
-        productList: model.productList,
+        products: model.productList.getList(),
         title: ProductQueryPageHelper.getProductListLabel(
           model.productList,
           context,

@@ -71,9 +71,9 @@ class _UserPreferencesPageState extends State<UserPreferencesPage> {
     }
     return Scaffold(
       appBar: AppBar(title: Text(appLocalizations.myPreferences)),
-      body: Padding(
+      body: ListView(
         padding: const EdgeInsets.fromLTRB(0.0, MEDIUM_SPACE, 0.0, 0.0),
-        child: ListView(children: children),
+        children: children,
       ),
     );
   }

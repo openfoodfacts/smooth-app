@@ -11,8 +11,8 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
 
-class QuestionCard extends StatefulWidget {
-  const QuestionCard({
+class QuestionPage extends StatefulWidget {
+  const QuestionPage({
     required this.product,
     required this.questions,
     required this.updateProductUponAnswers,
@@ -23,13 +23,17 @@ class QuestionCard extends StatefulWidget {
   final Function() updateProductUponAnswers;
 
   @override
-  State<QuestionCard> createState() => _QuestionCardState();
+  State<QuestionPage> createState() => _QuestionPageState();
 }
 
-class _QuestionCardState extends State<QuestionCard>
+class _QuestionPageState extends State<QuestionPage>
     with SingleTickerProviderStateMixin {
   int _currentQuestionIndex = 0;
   InsightAnnotation? _lastAnswer;
+
+  static const Color _noBackground = Colors.redAccent;
+  static const Color _yesBackground = Colors.lightGreen;
+  static const Color _yesNoTextColor = Colors.white;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +45,7 @@ class _QuestionCardState extends State<QuestionCard>
         return true;
       },
       child: Scaffold(
-        backgroundColor: const Color(0xff4f4f4f),
+        backgroundColor: Theme.of(context).colorScheme.background,
         appBar: AppBar(),
         body: _buildAnimationSwitcher(),
       ),
@@ -149,7 +153,11 @@ class _QuestionCardState extends State<QuestionCard>
             padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
             child: Column(
               children: <Widget>[
-                ProductTitleCard(widget.product, dense: true),
+                ProductTitleCard(
+                  widget.product,
+                  true,
+                  dense: true,
+                ),
               ],
             ),
           ),
@@ -170,7 +178,10 @@ class _QuestionCardState extends State<QuestionCard>
             padding: const EdgeInsets.only(bottom: SMALL_SPACE),
             child: Text(
               question.question!,
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme.of(context)
+                  .textTheme
+                  .headline4!
+                  .apply(color: Colors.black),
             ),
           ),
           Container(
@@ -195,46 +206,52 @@ class _QuestionCardState extends State<QuestionCard>
   Widget _buildAnswerOptions(
       BuildContext context, List<RobotoffQuestion> questions,
       {required int currentQuestionIndex}) {
-    final double yesNoButtonWidth = MediaQuery.of(context).size.width / 3;
+    final double yesNoHeight = MediaQuery.of(context).size.width / (3 * 1.25);
     final RobotoffQuestion question = questions[currentQuestionIndex];
+
     return Column(
       children: <Widget>[
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            SizedBox(
-              width: yesNoButtonWidth,
-              height: yesNoButtonWidth / 1.25,
-              child: _buildAnswerButton(
-                insightId: question.insightId,
-                insightAnnotation: InsightAnnotation.NO,
-                backgroundColor: Colors.redAccent,
-                contentColor: Colors.white,
-                currentQuestionIndex: currentQuestionIndex,
+            Expanded(
+              child: SizedBox(
+                height: yesNoHeight,
+                child: _buildAnswerButton(
+                  insightId: question.insightId,
+                  insightAnnotation: InsightAnnotation.NO,
+                  backgroundColor: _noBackground,
+                  contentColor: _yesNoTextColor,
+                  currentQuestionIndex: currentQuestionIndex,
+                ),
               ),
             ),
-            SizedBox(
-              width: yesNoButtonWidth,
-              height: yesNoButtonWidth / 1.25,
-              child: _buildAnswerButton(
-                insightId: question.insightId,
-                insightAnnotation: InsightAnnotation.YES,
-                backgroundColor: Colors.lightGreen,
-                contentColor: Colors.white,
-                currentQuestionIndex: currentQuestionIndex,
+            Expanded(
+              child: SizedBox(
+                height: yesNoHeight,
+                child: _buildAnswerButton(
+                  insightId: question.insightId,
+                  insightAnnotation: InsightAnnotation.YES,
+                  backgroundColor: _yesBackground,
+                  contentColor: _yesNoTextColor,
+                  currentQuestionIndex: currentQuestionIndex,
+                ),
               ),
             ),
           ],
         ),
-        AspectRatio(
-          aspectRatio: 8,
-          child: _buildAnswerButton(
-            insightId: question.insightId,
-            insightAnnotation: InsightAnnotation.MAYBE,
-            backgroundColor: Colors.white,
-            contentColor: Colors.grey,
-            currentQuestionIndex: currentQuestionIndex,
-          ),
+        Row(
+          children: <Widget>[
+            Expanded(
+              child: _buildAnswerButton(
+                insightId: question.insightId,
+                insightAnnotation: InsightAnnotation.MAYBE,
+                backgroundColor: const Color(0xFFFFEFB7),
+                contentColor: Colors.black,
+                currentQuestionIndex: currentQuestionIndex,
+              ),
+            ),
+          ],
         ),
       ],
     );
@@ -246,6 +263,7 @@ class _QuestionCardState extends State<QuestionCard>
     required Color backgroundColor,
     required Color contentColor,
     required int currentQuestionIndex,
+    EdgeInsets padding = const EdgeInsets.all(4),
   }) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     String buttonText;
@@ -262,28 +280,29 @@ class _QuestionCardState extends State<QuestionCard>
       case InsightAnnotation.MAYBE:
         buttonText = appLocalizations.skip;
     }
-    return GestureDetector(
-      onTap: () async {
-        try {
-          await saveAnswer(
-            context,
-            insightId: insightId,
-            insightAnnotation: insightAnnotation,
-          );
-        } catch (e) {
-          await LoadingDialog.error(
-            context: context,
-            title: appLocalizations.error_occurred,
-          );
-          Navigator.of(context).pop();
-          return;
-        }
-        setState(() {
-          _lastAnswer = insightAnnotation;
-          _currentQuestionIndex++;
-        });
-      },
-      child: Card(
+    return Padding(
+      padding: padding,
+      child: MaterialButton(
+        onPressed: () async {
+          try {
+            await _saveAnswer(
+              context,
+              insightId: insightId,
+              insightAnnotation: insightAnnotation,
+            );
+          } catch (e) {
+            await LoadingDialog.error(
+              context: context,
+              title: appLocalizations.error_occurred,
+            );
+            Navigator.of(context).pop();
+            return;
+          }
+          setState(() {
+            _lastAnswer = insightAnnotation;
+            _currentQuestionIndex++;
+          });
+        },
         elevation: 4,
         color: backgroundColor,
         shape: const RoundedRectangleBorder(
@@ -312,7 +331,7 @@ class _QuestionCardState extends State<QuestionCard>
   }
 }
 
-Future<void> saveAnswer(
+Future<void> _saveAnswer(
   BuildContext context, {
   required String? insightId,
   required InsightAnnotation insightAnnotation,
@@ -320,12 +339,12 @@ Future<void> saveAnswer(
   final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
   await LoadingDialog.run<Status>(
     context: context,
+    title: appLocalizations.saving_answer,
     future: OpenFoodAPIClient.postInsightAnnotation(
       insightId,
       insightAnnotation,
       deviceId: OpenFoodAPIConfiguration.uuid,
     ),
-    title: appLocalizations.saving_answer,
   );
 }
 
@@ -334,8 +353,6 @@ class CongratsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle bodyTextStyle =
-        Theme.of(context).textTheme.bodyText2!.apply(color: Colors.white);
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final UserManagementProvider userManagementProvider =
         context.watch<UserManagementProvider>();
@@ -345,14 +362,14 @@ class CongratsWidget extends StatelessWidget {
         children: <Widget>[
           const Icon(
             Icons.grade,
-            color: Colors.white,
-            size: 72,
+            color: Colors.amber,
+            size: 100,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
             child: Text(
               appLocalizations.thanks_for_contributing,
-              style: bodyTextStyle,
+              style: Theme.of(context).textTheme.bodyText1,
             ),
           ),
           FutureBuilder<bool>(
@@ -366,38 +383,24 @@ class CongratsWidget extends StatelessWidget {
                   }
                   return Column(
                     children: <Widget>[
-                      InkWell(
-                        onTap: () async {
+                      SmoothActionButton(
+                        text: appLocalizations.sign_in,
+                        onPressed: () async {
                           Navigator.pop<Widget>(context);
                           await Navigator.push<Widget>(
                             context,
                             MaterialPageRoute<Widget>(
-                              builder: (BuildContext context) =>
-                                  const LoginPage(),
+                              builder: (_) => const LoginPage(),
                             ),
                           );
                         },
-                        child: Container(
-                          decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.all(ANGULAR_RADIUS),
-                            color: Colors.grey,
-                          ),
-                          width: 150,
-                          padding: const EdgeInsets.all(MEDIUM_SPACE),
-                          child: Center(
-                            child: Text(
-                              appLocalizations.sign_in,
-                              style: Theme.of(context).textTheme.headline3,
-                            ),
-                          ),
-                        ),
                       ),
                       Padding(
                         padding:
                             const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
                         child: Text(
-                          appLocalizations.sign_in_text,
-                          style: bodyTextStyle,
+                          appLocalizations.question_sign_in_text,
+                          style: Theme.of(context).textTheme.bodyText2,
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -407,8 +410,8 @@ class CongratsWidget extends StatelessWidget {
                   return EMPTY_WIDGET;
                 }
               }),
-          SmoothActionButton(
-            text: appLocalizations.close,
+          TextButton(
+            child: Text(appLocalizations.close),
             onPressed: () => Navigator.pop<Widget>(context),
           ),
         ],
