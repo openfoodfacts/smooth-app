@@ -1,0 +1,2 @@
+"NSPhotoLibraryUsageDescription"="This app needs to access photo library for product photos uploads";
+"NSCameraUsageDescription"="This app needs Camera Usage for scanning barcodes and cropping photos";
