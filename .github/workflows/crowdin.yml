@@ -71,11 +71,6 @@ jobs:
         #base_url: 'https://crowdin.com'
         # Path to your project directory on a local machine
         #base_path: '/openfoodfacts'
-        # Path to the source files
-        # source: # optional
-        source: 'packages/smooth_app/lib/l10n/app_en.arb'
-        # Path to the translation files
-        translation: 'packages/smooth_app/lib/l10n/app_%two_letters_code%.arb'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
