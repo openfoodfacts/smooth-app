@@ -41,7 +41,9 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
     // picture as sometimes the picture can be blurry.
     return Scaffold(
       backgroundColor: Colors.black,
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text(appLocalizations.front_packaging_photo),
+      ),
       body: Stack(
         children: <Widget>[
           Positioned(
@@ -74,34 +76,24 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                           retakenPhoto.delete();
                         }),
                     const SizedBox(width: 10),
-                    Flexible(
-                      child: SizedBox(
-                        child: Tooltip(
-                          message: _getConfirmButtonText(
-                            context,
-                            widget.imageType,
-                          ),
-                          child: SmoothActionButton(
-                            text: _getConfirmButtonText(
-                              context,
-                              widget.imageType,
-                            ),
-                            onPressed: () async {
-                              final bool isPhotoUploaded =
-                                  await uploadCapturedPicture(
-                                context,
-                                barcode: widget.barcode,
-                                imageField: widget.imageType,
-                                imageUri: photo.uri,
-                              );
-                              Navigator.pop(
-                                context,
-                                isPhotoUploaded ? photo : null,
-                              );
-                            },
-                          ),
-                        ),
+                    SmoothActionButton(
+                      text: _getConfirmButtonText(
+                        context,
+                        widget.imageType,
                       ),
+                      onPressed: () async {
+                        final bool isPhotoUploaded =
+                            await uploadCapturedPicture(
+                          context,
+                          barcode: widget.barcode,
+                          imageField: widget.imageType,
+                          imageUri: photo.uri,
+                        );
+                        Navigator.pop(
+                          context,
+                          isPhotoUploaded ? photo : null,
+                        );
+                      },
                     ),
                   ],
                 ),
@@ -117,7 +109,7 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     switch (imageType) {
       case ImageField.FRONT:
-        return appLocalizations.confirm_front_packaging_photo_button_label;
+        return appLocalizations.confirm_button_label;
       case ImageField.INGREDIENTS:
         return appLocalizations.confirm_ingredients_photo_button_label;
       case ImageField.NUTRITION:
