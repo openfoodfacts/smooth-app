@@ -103,6 +103,7 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
       ),
     );
   }
+
   String _getAppBarTitle(BuildContext context, ImageField imageType) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     switch (imageType) {
