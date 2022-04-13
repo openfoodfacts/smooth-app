@@ -67,13 +67,14 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final Size size = MediaQuery.of(context).size;
+    final bool isDarkMode =
+        Provider.of<ThemeProvider>(context, listen: false).isDarkMode(context);
 
     // Needs to be changed
-    if (themeProvider.darkTheme) {
+    if (isDarkMode) {
       _textFieldBackgroundColor = Colors.white10;
     }
 

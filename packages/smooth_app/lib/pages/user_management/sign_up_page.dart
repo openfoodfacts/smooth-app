@@ -67,7 +67,9 @@ class _SignUpPageState extends State<SignUpPage> {
               textInputAction: TextInputAction.next,
               hintText: appLocalizations.sign_up_page_display_name_hint,
               prefixIcon: const Icon(Icons.person),
-              autofillHints: const <String>[AutofillHints.name],
+              autofillHints: const <String>[
+                AutofillHints.name,
+              ],
               validator: (String? value) {
                 if (value == null || value.isEmpty) {
                   return appLocalizations.sign_up_page_display_name_error_empty;
@@ -83,15 +85,18 @@ class _SignUpPageState extends State<SignUpPage> {
               textInputAction: TextInputAction.next,
               hintText: appLocalizations.sign_up_page_email_hint,
               prefixIcon: const Icon(Icons.person),
-              autofillHints: const <String>[AutofillHints.email],
+              autofillHints: const <String>[
+                AutofillHints.email,
+              ],
               validator: (String? value) {
                 if (value == null || value.isEmpty) {
                   return appLocalizations.sign_up_page_email_error_empty;
-                }
-                if (!UserManagementHelper.isEmailValid(value)) {
+                } else if (!UserManagementHelper.isEmailValid(
+                    _emailController.trimmedText)) {
                   return appLocalizations.sign_up_page_email_error_invalid;
+                } else {
+                  return null;
                 }
-                return null;
               },
             ),
             const SizedBox(height: space),
@@ -101,12 +106,15 @@ class _SignUpPageState extends State<SignUpPage> {
               textInputAction: TextInputAction.next,
               hintText: appLocalizations.sign_up_page_username_hint,
               prefixIcon: const Icon(Icons.person),
-              autofillHints: const <String>[AutofillHints.username],
+              autofillHints: const <String>[
+                AutofillHints.newUsername,
+              ],
               validator: (String? value) {
                 if (value == null || value.isEmpty) {
                   return appLocalizations.sign_up_page_username_error_empty;
                 }
-                if (!UserManagementHelper.isUsernameValid(value)) {
+                if (!UserManagementHelper.isUsernameValid(
+                    _userController.trimmedText)) {
                   return appLocalizations.sign_up_page_username_description;
                 }
                 return null;
@@ -121,15 +129,17 @@ class _SignUpPageState extends State<SignUpPage> {
               textInputAction: TextInputAction.next,
               hintText: appLocalizations.sign_up_page_password_hint,
               prefixIcon: const Icon(Icons.vpn_key),
-              autofillHints: const <String>[AutofillHints.password],
+              autofillHints: const <String>[
+                AutofillHints.newPassword,
+              ],
               validator: (String? value) {
                 if (value == null || value.isEmpty) {
                   return appLocalizations.sign_up_page_password_error_empty;
-                }
-                if (!UserManagementHelper.isPasswordValid(value)) {
+                } else if (!UserManagementHelper.isPasswordValid(value)) {
                   return appLocalizations.sign_up_page_password_error_invalid;
+                } else {
+                  return null;
                 }
-                return null;
               },
             ),
             const SizedBox(height: space),
@@ -140,18 +150,19 @@ class _SignUpPageState extends State<SignUpPage> {
               hintText: appLocalizations.sign_up_page_confirm_password_hint,
               prefixIcon: const Icon(Icons.vpn_key),
               autofillHints: const <String>[
-                AutofillHints.password,
+                AutofillHints.newPassword,
               ],
               validator: (String? value) {
                 if (value == null || value.isEmpty) {
                   return appLocalizations
                       .sign_up_page_confirm_password_error_empty;
-                }
-                if (value != _password1Controller.text) {
+                } else if (_password2Controller.text !=
+                    _password1Controller.text) {
                   return appLocalizations
                       .sign_up_page_confirm_password_error_invalid;
+                } else {
+                  return null;
                 }
-                return null;
               },
             ),
             const SizedBox(height: space),
@@ -265,6 +276,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
               ),
             ),
+            const SizedBox(height: space),
           ],
         ),
       ),
@@ -278,17 +290,17 @@ class _SignUpPageState extends State<SignUpPage> {
       return;
     }
     final User user = User(
-      userId: _userController.text,
+      userId: _userController.trimmedText,
       password: _password1Controller.text,
     );
     final Status? status = await LoadingDialog.run<Status>(
       context: context,
       future: OpenFoodAPIClient.register(
         user: user,
-        name: _displayNameController.text,
-        email: _emailController.text,
+        name: _displayNameController.trimmedText,
+        email: _emailController.trimmedText,
         newsletter: _subscribe,
-        orgName: _foodProducer ? _brandController.text : null,
+        orgName: _foodProducer ? _brandController.trimmedText : null,
       ),
       title: AppLocalizations.of(context)!.sign_up_page_action_doing_it,
     );

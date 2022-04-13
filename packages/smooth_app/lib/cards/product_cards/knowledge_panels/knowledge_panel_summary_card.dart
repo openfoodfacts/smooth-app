@@ -15,14 +15,28 @@ class KnowledgePanelSummaryCard extends StatelessWidget {
     if (knowledgePanel.titleElement == null) {
       return EMPTY_WIDGET;
     }
+    final ThemeData themeData = Theme.of(context);
     switch (knowledgePanel.titleElement!.type) {
       case TitleElementType.GRADE:
-        return ScoreCard(
-          iconUrl: knowledgePanel.titleElement!.iconUrl,
-          description: knowledgePanel.titleElement!.title,
-          cardEvaluation: getCardEvaluationFromKnowledgePanelTitleElement(
-            knowledgePanel.titleElement!,
-          ),
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: VERY_SMALL_SPACE),
+              child: Text(
+                knowledgePanel.topics!.first.substring(0, 1).toUpperCase() +
+                    knowledgePanel.topics!.first.substring(1),
+                style: themeData.textTheme.headline3,
+              ),
+            ),
+            ScoreCard(
+              iconUrl: knowledgePanel.titleElement!.iconUrl,
+              description: knowledgePanel.titleElement!.title,
+              cardEvaluation: getCardEvaluationFromKnowledgePanelTitleElement(
+                knowledgePanel.titleElement!,
+              ),
+            ),
+          ],
         );
       case null:
       case TitleElementType.UNKNOWN:

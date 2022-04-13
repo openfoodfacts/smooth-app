@@ -17,7 +17,7 @@ class UserPreferences extends ChangeNotifier {
 
   static const String _TAG_PREFIX_IMPORTANCE = 'IMPORTANCE_AS_STRING';
   static const String _TAG_INIT = 'init';
-  static const String _TAG_THEME_DARK = 'themeDark';
+  static const String _TAG_CURRENT_THEME_MODE = 'currentThemeMode';
   static const String _TAG_THEME_COLOR_TAG = 'themeColorTag';
   static const String _TAG_USER_COUNTRY_CODE = 'userCountry';
   static const String _TAG_LAST_VISITED_ONBOARDING_PAGE =
@@ -27,6 +27,7 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_CAMERA_DECLINE = 'declined_camera_use_once';
   static const String _TAG_CRASH_REPORTS = 'crash_reports';
   static const String _TAG_ANALYTICS_REPORTS = 'analytics_reports';
+  static const String _TAG_EXCLUDED_ATTRIBUTE_IDS = 'excluded_attributes';
 
   Future<void> init(final ProductPreferences productPreferences) async {
     if (_sharedPreferences.getBool(_TAG_INIT) != null) {
@@ -50,15 +51,8 @@ class UserPreferences extends ChangeNotifier {
       _sharedPreferences.getString(_getImportanceTag(attributeId)) ??
       PreferenceImportance.ID_NOT_IMPORTANT;
 
-  Future<void> resetImportances(
-    final ProductPreferences productPreferences,
-  ) async =>
-      productPreferences.resetImportances();
-
-  Future<void> setThemeDark(final bool state) async =>
-      _sharedPreferences.setBool(_TAG_THEME_DARK, state);
-
-  bool get isThemeDark => _sharedPreferences.getBool(_TAG_THEME_DARK) ?? false;
+  Future<void> setTheme(final String theme) async =>
+      _sharedPreferences.setString(_TAG_CURRENT_THEME_MODE, theme);
 
   Future<void> setCrashReports(final bool state) async =>
       _sharedPreferences.setBool(_TAG_CRASH_REPORTS, state);
@@ -77,7 +71,8 @@ class UserPreferences extends ChangeNotifier {
 
   String get themeColorTag =>
       _sharedPreferences.getString(_TAG_THEME_COLOR_TAG) ?? 'COLOR_TAG_BLUE';
-
+  String get currentTheme =>
+      _sharedPreferences.getString(_TAG_CURRENT_THEME_MODE) ?? 'System Default';
   Future<void> setUserCountry(final String countryCode) async =>
       _sharedPreferences.setString(_TAG_USER_COUNTRY_CODE, countryCode);
 
@@ -114,6 +109,13 @@ class UserPreferences extends ChangeNotifier {
 
   bool? getFlag(final String key) =>
       _sharedPreferences.getBool(_getFlagTag(key));
+
+  List<String> getExcludedAttributeIds() =>
+      _sharedPreferences.getStringList(_TAG_EXCLUDED_ATTRIBUTE_IDS) ??
+      <String>[];
+
+  Future<void> setExcludedAttributeIds(final List<String> value) async =>
+      _sharedPreferences.setStringList(_TAG_EXCLUDED_ATTRIBUTE_IDS, value);
 
   Future<void> setDevMode(final int value) async =>
       _sharedPreferences.setInt(_TAG_DEV_MODE, value);

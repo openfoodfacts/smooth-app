@@ -33,8 +33,9 @@ class _PreferencesPageState extends State<PreferencesPage> {
     _initFuture = _init();
   }
 
-  Future<dynamic> _init() async => _product =
-      await OnboardingDataProduct(widget._localDatabase).getData(rootBundle);
+  Future<void> _init() async =>
+      _product = await OnboardingDataProduct.forProduct(widget._localDatabase)
+          .getData(rootBundle);
 
   @override
   Widget build(BuildContext context) => FutureBuilder<void>(
@@ -79,9 +80,7 @@ class _HelperState extends State<_Helper> {
         ),
         child: Text(
           appLocalizations.productDataUtility,
-          style: Theme.of(context).textTheme.headline2!.apply(
-                color: Colors.black,
-              ),
+          style: Theme.of(context).textTheme.displayMedium,
         ),
       ),
       Container(
