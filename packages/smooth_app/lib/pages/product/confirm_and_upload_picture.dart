@@ -75,7 +75,6 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                           });
                           retakenPhoto.delete();
                         }),
-                    const SizedBox(width: 10),
                     SmoothActionButton(
                       text: _getConfirmButtonText(
                         context,
