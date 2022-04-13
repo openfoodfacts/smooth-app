@@ -42,7 +42,7 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Text(appLocalizations.front_packaging_photo),
+        title: Text(_getAppBarTitle(context, widget.imageType)),
       ),
       body: Stack(
         children: <Widget>[
@@ -102,6 +102,21 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
         ],
       ),
     );
+  }
+  String _getAppBarTitle(BuildContext context, ImageField imageType) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    switch (imageType) {
+      case ImageField.FRONT:
+        return appLocalizations.front_packaging_photo_title;
+      case ImageField.INGREDIENTS:
+        return appLocalizations.ingredients_photo_title;
+      case ImageField.NUTRITION:
+        return appLocalizations.nutritional_facts_photo_title;
+      case ImageField.PACKAGING:
+        return appLocalizations.recycling_photo_title;
+      case ImageField.OTHER:
+        return appLocalizations.other_interesting_photo_title;
+    }
   }
 
   String _getConfirmButtonText(BuildContext context, ImageField imageType) {
