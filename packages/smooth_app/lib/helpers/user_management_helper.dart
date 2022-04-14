@@ -1,3 +1,5 @@
+import 'package:flutter/widgets.dart';
+
 class UserManagementHelper {
   UserManagementHelper._();
 
@@ -19,4 +21,8 @@ class UserManagementHelper {
       username.isNotEmpty && _userRegex.hasMatch(username);
 
   static bool isPasswordValid(final String password) => password.length >= 6;
+}
+
+extension UserManagementTextController on TextEditingController {
+  String get trimmedText => text.trim();
 }

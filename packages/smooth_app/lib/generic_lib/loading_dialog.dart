@@ -39,7 +39,6 @@ class LoadingDialog<T> {
           final AppLocalizations? appLocalizations =
               AppLocalizations.of(context);
           return SmoothAlertDialog(
-            close: false,
             body: ListTile(
               leading: const Icon(Icons.error),
               title: Text(
@@ -91,7 +90,6 @@ class LoadingDialog<T> {
   ) {
     final AppLocalizations? appLocalizations = AppLocalizations.of(context);
     return SmoothAlertDialog(
-      close: false,
       body: FutureBuilder<T>(
         future: future,
         builder: (BuildContext context, AsyncSnapshot<T> snapshot) {

@@ -82,7 +82,7 @@ class UserContributionView extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-        return SmoothAlertDialog(
+        return SmoothAlertDialog.advanced(
           close: false,
           maxHeight: MediaQuery.of(context).size.height * 0.35,
           title: appLocalizations.contribute_improve_header,
@@ -123,7 +123,7 @@ class UserContributionView extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         final AppLocalizations applocalization = AppLocalizations.of(context)!;
-        return SmoothAlertDialog(
+        return SmoothAlertDialog.advanced(
           maxHeight: MediaQuery.of(context).size.height * 0.35,
           title: applocalization.contribute_sw_development,
           body: Column(
@@ -184,7 +184,7 @@ class UserContributionView extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-        return SmoothAlertDialog(
+        return SmoothAlertDialog.advanced(
           title: appLocalizations.contribute_translate_header,
           maxHeight: MediaQuery.of(context).size.height * 0.25,
           body: Column(
@@ -221,7 +221,7 @@ class UserContributionView extends StatelessWidget {
     return showDialog<void>(
       context: context,
       builder: (BuildContext context) {
-        return SmoothAlertDialog(
+        return SmoothAlertDialog.advanced(
           title: AppLocalizations.of(context)!.contributors,
           maxHeight: MediaQuery.of(context).size.height * 0.45,
           body: FutureBuilder<http.Response>(

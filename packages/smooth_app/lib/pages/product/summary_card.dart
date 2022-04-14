@@ -7,7 +7,6 @@ import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
-import 'package:smooth_app/cards/product_cards/question_card.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/product_query_model.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
@@ -25,6 +24,7 @@ import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/helpers/smooth_matched_product.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
+import 'package:smooth_app/pages/question_page.dart';
 
 const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS,
@@ -267,18 +267,18 @@ class _SummaryCardState extends State<SummaryCard> {
             ),
         if ((statesTags.contains('en:product-name-to-be-completed')) ||
             (statesTags.contains('en:quantity-to-be-completed')))
-          addPanelButton(
-              'Complete basic details', // TODO(vik4114): localization
+          addPanelButton(localizations.completed_basic_details_btn_text,
               onPressed: () => _showNotImplemented(context)),
       ],
     );
   }
 
   void _showNotImplemented(BuildContext context) {
+    final AppLocalizations localizations = AppLocalizations.of(context)!;
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Not implemented yet'),
-        duration: Duration(seconds: 2),
+      SnackBar(
+        content: Text(localizations.not_implemented_snackbar_text),
+        duration: const Duration(seconds: 2),
       ),
     );
   }
@@ -464,7 +464,7 @@ class _SummaryCardState extends State<SummaryCard> {
                 await Navigator.push<Widget>(
                   context,
                   MaterialPageRoute<Widget>(
-                    builder: (BuildContext context) => QuestionCard(
+                    builder: (BuildContext context) => QuestionPage(
                       product: widget._product,
                       questions: questions,
                       updateProductUponAnswers: _updateProductUponAnswers,
