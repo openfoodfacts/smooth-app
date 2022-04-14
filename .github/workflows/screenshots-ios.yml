@@ -40,7 +40,10 @@ jobs:
 
       - name: Get dependencies
         run: ci/pub_upgrade.sh
-      
+
+      - name: Run screenshot generation
+        run: flutter drive --driver=test_driver/screenshot_driver.dart --target=integration_test/app_test.dart
+
       - name: Bundle install
         run: cd ./packages/smooth_app/ios && gem install bundler:1.17.3 && bundle install
 
