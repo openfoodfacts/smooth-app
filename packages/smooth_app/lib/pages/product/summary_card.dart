@@ -277,18 +277,18 @@ class _SummaryCardState extends State<SummaryCard> {
             ),
         if ((statesTags.contains('en:product-name-to-be-completed')) ||
             (statesTags.contains('en:quantity-to-be-completed')))
-          addPanelButton(
-              'Complete basic details', // TODO(vik4114): localization
+          addPanelButton(localizations.completed_basic_details_btn_text,
               onPressed: () => _showNotImplemented(context)),
       ],
     );
   }
 
   void _showNotImplemented(BuildContext context) {
+    final AppLocalizations localizations = AppLocalizations.of(context)!;
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Not implemented yet'),
-        duration: Duration(seconds: 2),
+      SnackBar(
+        content: Text(localizations.not_implemented_snackbar_text),
+        duration: const Duration(seconds: 2),
       ),
     );
   }
