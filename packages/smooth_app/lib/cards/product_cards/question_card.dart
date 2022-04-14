@@ -5,6 +5,7 @@ import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
+import 'package:smooth_app/data_models/product_query_model.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -285,7 +286,7 @@ class _QuestionCardState extends State<QuestionCard>
         onPressed: () async {
           try {
             await _saveAnswer(
-              context,
+              barcode: widget.product.barcode,
               insightId: insightId,
               insightAnnotation: insightAnnotation,
             );
@@ -294,7 +295,7 @@ class _QuestionCardState extends State<QuestionCard>
               context: context,
               title: appLocalizations.error_occurred,
             );
-            Navigator.of(context).pop();
+            Navigator.of(context).maybePop();
             return;
           }
           setState(() {
@@ -328,23 +329,28 @@ class _QuestionCardState extends State<QuestionCard>
       ),
     );
   }
-}
 
-Future<void> _saveAnswer(
-  BuildContext context, {
-  required String? insightId,
-  required InsightAnnotation insightAnnotation,
-}) async {
-  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-  await LoadingDialog.run<Status>(
-    context: context,
-    title: appLocalizations.saving_answer,
-    future: OpenFoodAPIClient.postInsightAnnotation(
-      insightId,
-      insightAnnotation,
-      deviceId: OpenFoodAPIConfiguration.uuid,
-    ),
-  );
+  Future<void> _saveAnswer({
+    required String? barcode,
+    required String? insightId,
+    required InsightAnnotation insightAnnotation,
+  }) async {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    await LoadingDialog.run<Status>(
+      context: context,
+      title: appLocalizations.saving_answer,
+      future: OpenFoodAPIClient.postInsightAnnotation(
+        insightId,
+        insightAnnotation,
+        deviceId: OpenFoodAPIConfiguration.uuid,
+        queryType: OpenFoodAPIConfiguration.globalQueryType,
+        user: OpenFoodAPIConfiguration.globalUser,
+      ),
+    );
+    if (barcode != null && insightId != null) {
+      await ProductQueryModel.cacheInsightAnnotationVoted(barcode, insightId);
+    }
+  }
 }
 
 class CongratsWidget extends StatelessWidget {
@@ -385,7 +391,7 @@ class CongratsWidget extends StatelessWidget {
                       SmoothActionButton(
                         text: appLocalizations.sign_in,
                         onPressed: () async {
-                          Navigator.pop<Widget>(context);
+                          Navigator.maybePop<Widget>(context);
                           await Navigator.push<Widget>(
                             context,
                             MaterialPageRoute<Widget>(
@@ -411,7 +417,7 @@ class CongratsWidget extends StatelessWidget {
               }),
           TextButton(
             child: Text(appLocalizations.close),
-            onPressed: () => Navigator.pop<Widget>(context),
+            onPressed: () => Navigator.maybePop<Widget>(context),
           ),
         ],
       ),

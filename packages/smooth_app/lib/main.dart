@@ -74,7 +74,7 @@ class _SmoothAppState extends State<SmoothApp> {
   Future<void> _init() async {
     systemDarkmodeOn = brightness == Brightness.dark;
     _userPreferences = await UserPreferences.getUserPreferences();
-    _localDatabase = await LocalDatabase.getLocalDatabase();
+    _localDatabase = await LocalDatabase.initLocalDatabase();
     _productPreferences = ProductPreferences(
       ProductPreferencesSelection(
         setImportance: _userPreferences.setImportance,

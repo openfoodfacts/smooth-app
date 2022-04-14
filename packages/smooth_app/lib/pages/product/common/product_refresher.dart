@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
@@ -63,8 +64,9 @@ class ProductRefresher {
         language: ProductQuery.getLanguage(),
         country: ProductQuery.getCountry(),
       );
-      final ProductResult result =
-          await OpenFoodAPIClient.getProduct(configuration);
+      final ProductResult result = await OpenFoodAPIClient.getProduct(
+          configuration,
+          queryType: OpenFoodAPIConfiguration.globalQueryType);
       if (result.product != null) {
         await DaoProduct(localDatabase).put(result.product!);
         return true;

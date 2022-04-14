@@ -49,7 +49,7 @@ class LoadingDialog<T> {
             actions: <SmoothActionButton>[
               SmoothActionButton(
                 text: appLocalizations!.close,
-                onPressed: () => Navigator.pop(context),
+                onPressed: () => Navigator.maybePop(context),
               ),
             ],
           );
@@ -69,7 +69,7 @@ class LoadingDialog<T> {
             (final T value) => _popDialog(context, value),
           );
           // TODO(monsieurtanuki): is that safe? If the future finishes before the "return" call?
-          return _getDialog(context, title);
+          return _getDialog(context, title, future);
         },
       );
 
@@ -87,13 +87,31 @@ class LoadingDialog<T> {
   Widget _getDialog(
     final BuildContext context,
     final String title,
+    final Future<T> future,
   ) {
     final AppLocalizations? appLocalizations = AppLocalizations.of(context);
     return SmoothAlertDialog(
       close: false,
-      body: ListTile(
-        leading: const CircularProgressIndicator(),
-        title: Text(title),
+      body: FutureBuilder<T>(
+        future: future,
+        builder: (BuildContext context, AsyncSnapshot<T> snapshot) {
+          if (snapshot.hasData) {
+            _popDialog(context, null);
+            return ListTile(
+              leading: const CircularProgressIndicator(),
+              title: Text(title),
+            );
+          } else if (snapshot.hasError) {
+            return ListTile(
+              title: Text(appLocalizations!.error_occurred),
+            );
+          } else {
+            return ListTile(
+              leading: const CircularProgressIndicator(),
+              title: Text(title),
+            );
+          }
+        },
       ),
       actions: <SmoothActionButton>[
         SmoothActionButton(

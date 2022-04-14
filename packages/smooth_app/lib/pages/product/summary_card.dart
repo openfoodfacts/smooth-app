@@ -9,6 +9,7 @@ import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
 import 'package:smooth_app/cards/product_cards/question_card.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/data_models/product_query_model.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/category_product_query.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -71,14 +72,11 @@ class _SummaryCardState extends State<SummaryCard> {
 
   // For some reason, special case for "label" attributes
   final Set<String> _attributesToExcludeIfStatusIsUnknown = <String>{};
-  Future<List<RobotoffQuestion>>? _productQuestions;
+  bool _annotationVoted = false;
 
   @override
   void initState() {
     super.initState();
-    if (widget.showUnansweredQuestions) {
-      _loadProductQuestions();
-    }
   }
 
   @override
@@ -452,18 +450,15 @@ class _SummaryCardState extends State<SummaryCard> {
 
   Widget _buildProductQuestionsWidget() {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-    if (_productQuestions == null) {
-      return EMPTY_WIDGET;
-    }
     return FutureBuilder<List<RobotoffQuestion>>(
-        future: _productQuestions,
+        future: _loadProductQuestions(),
         builder: (
           BuildContext context,
           AsyncSnapshot<List<RobotoffQuestion>> snapshot,
         ) {
           final List<RobotoffQuestion> questions =
               snapshot.data ?? <RobotoffQuestion>[];
-          if (questions.isNotEmpty) {
+          if (questions.isNotEmpty && !_annotationVoted) {
             return InkWell(
               onTap: () async {
                 await Navigator.push<Widget>(
@@ -513,14 +508,25 @@ class _SummaryCardState extends State<SummaryCard> {
   Future<void> _updateProductUponAnswers() async {
     // Reload the product questions, they might have been answered.
     // Or the backend may have new ones.
-    await _loadProductQuestions();
+    final List<RobotoffQuestion> questions =
+        await _loadProductQuestions() ?? <RobotoffQuestion>[];
+    if (questions.isEmpty) {
+      await ProductQueryModel.removeInsightAnnotationsSavedForProdcut(
+          widget._product.barcode!);
+    }
+    _annotationVoted =
+        await ProductQueryModel.haveInsightAnnotationsVoted(questions);
     // Reload the product as it may have been updated because of the
     // new answers.
     widget.refreshProductCallback?.call(context);
   }
 
-  Future<void> _loadProductQuestions() async {
-    _productQuestions = RobotoffQuestionsQuery(widget._product.barcode!)
-        .getRobotoffQuestionsForProduct();
+  Future<List<RobotoffQuestion>>? _loadProductQuestions() async {
+    final List<RobotoffQuestion> questions =
+        await RobotoffQuestionsQuery(widget._product.barcode!)
+            .getRobotoffQuestionsForProduct();
+    _annotationVoted =
+        await ProductQueryModel.haveInsightAnnotationsVoted(questions);
+    return questions;
   }
 }
