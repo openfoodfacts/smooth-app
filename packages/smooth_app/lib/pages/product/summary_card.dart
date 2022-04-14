@@ -103,11 +103,9 @@ class _SummaryCardState extends State<SummaryCard> {
   Widget _buildLimitedSizeSummaryCard(double parentHeight) {
     totalPrintableRows = parentHeight ~/ SUMMARY_CARD_ROW_HEIGHT;
     return Padding(
-      padding: const EdgeInsets.only(
-        right: SMALL_SPACE,
-        left: SMALL_SPACE,
-        top: VERY_SMALL_SPACE,
-        bottom: VERY_SMALL_SPACE,
+      padding: const EdgeInsets.symmetric(
+        horizontal: SMALL_SPACE,
+        vertical: VERY_SMALL_SPACE,
       ),
       child: Stack(
         children: <Widget>[
