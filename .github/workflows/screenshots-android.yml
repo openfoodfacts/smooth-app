@@ -49,7 +49,7 @@ jobs:
         run: ci/pub_upgrade.sh
         
       - name: Run screenshot generation
-        run: flutter drive --driver=test_driver/screenshot_driver.dart --target=integration_test/app_test.dart
+        run: cd ./packages/smooth_app/ && flutter drive --driver=test_driver/screenshot_driver.dart --target=integration_test/app_test.dart
 
       - name: Bump version
         uses: maierj/fastlane-action@v2.2.0
