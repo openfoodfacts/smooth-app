@@ -161,6 +161,14 @@
     "sign_up_page_confirm_password_hint": "אימות סיסמה",
     "sign_up_page_confirm_password_error_empty": "נא לאשר את הסיסמה",
     "sign_up_page_confirm_password_error_invalid": "הסיסמאות שונות זו מזו",
+    "sign_up_page_agree_text": "מוסכמים עלי",
+    "@sign_up_page_agree_text": {
+        "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
+    },
+    "sign_up_page_terms_text": "תנאי השימוש והתרומה של Open Food Facts",
+    "@sign_up_page_terms_text": {
+        "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
+    },
     "sign_up_page_agree_url": "https://world-he.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
@@ -382,6 +390,12 @@
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
+    "confirm_button_label": "אישור",
+    "front_packaging_photo_title": "תמונת חזית האריזה",
+    "ingredients_photo_title": "תמונת רכיבים",
+    "nutritional_facts_photo_title": "תמונת פירוט תזונתי",
+    "recycling_photo_title": "תמונת מיחזור",
+    "other_interesting_photo_title": "תמונה מעניינת נוספת",
     "front_photo_uploaded": "תמונת החזית נשלחה",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "תמונת רכיבים",
@@ -768,5 +782,8 @@
     "edit_product_form_save": "עריכה",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
-    }
+    },
+    "completed_basic_details_btn_text": "השלמת הפרטים הבסיסיים",
+    "not_implemented_snackbar_text": "לא מיושם עדיין",
+    "category_picker_page_appbar_text": "קטגוריות"
 }
