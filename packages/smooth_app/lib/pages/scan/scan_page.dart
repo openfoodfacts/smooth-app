@@ -36,20 +36,14 @@ class _ScanPageState extends State<ScanPage> {
     setState(() {});
   }
 
-  Future<PermissionStatus> _permissionCheck(
-    UserPreferences userPreferences,
-  ) async {
+  Future<PermissionStatus> _permissionCheck() async {
     final PermissionStatus status = await Permission.camera.status;
 
     // If is denied, is not restricted by for example parental control and is
     // not already declined once
     if (status.isDenied &&
-        !status.isRestricted &&
-        !userPreferences.cameraDeclinedOnce) {
+        !status.isRestricted) {
       final PermissionStatus newStatus = await Permission.camera.request();
-      if (!newStatus.isGranted && !newStatus.isLimited) {
-        userPreferences.setCameraDecline(true);
-      }
       return newStatus;
     } else {
       return status;
@@ -64,7 +58,7 @@ class _ScanPageState extends State<ScanPage> {
     }
 
     return FutureBuilder<PermissionStatus>(
-      future: _permissionCheck(userPreferences),
+      future: _permissionCheck(),
       builder: (
         BuildContext context,
         AsyncSnapshot<PermissionStatus> snapshot,
