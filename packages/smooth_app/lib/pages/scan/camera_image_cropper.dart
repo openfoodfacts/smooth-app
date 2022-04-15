@@ -237,9 +237,9 @@ class _CameraImageCropperImplIOS extends CameraImageCropper {
 
   @override
   Size getSize() => Size(
-    _width.toDouble(),
-    _height.toDouble(),
-  );
+        _width.toDouble(),
+        _height.toDouble(),
+      );
 
   // Same implementation as [CameraImageFullGetter]
   @override
