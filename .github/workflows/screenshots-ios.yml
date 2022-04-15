@@ -49,7 +49,7 @@ jobs:
       - name: Run ChromeDriver
         run: |
           export DISPLAY=:99
-          chromedriver --url-base=/wd/hub & --remote-debugging-port=4444 &
+          chromedriver --url-base=/wd/hub --remote-debugging-port=4444 &
           sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
 
       - name: Run screenshot generation for iOS
