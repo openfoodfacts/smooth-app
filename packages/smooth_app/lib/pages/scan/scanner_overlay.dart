@@ -9,14 +9,20 @@ import 'package:smooth_app/widgets/smooth_product_carousel.dart';
 /// This builds all the essential widgets which are displayed above the camera
 /// preview, like the [SmoothProductCarousel], the [SmoothViewFinder] and the
 /// clear and compare buttons row.
+///
+/// The camera preview should be passed to [backgroundChild].
+/// If no [topChild] is passed, a [SmoothViewFinder] with be displayed (= visor)
 class ScannerOverlay extends StatelessWidget {
   const ScannerOverlay({
-    required this.child,
+    this.topChild,
+    this.backgroundChild,
   });
 
-  final Widget child;
+  final Widget? backgroundChild;
+  final Widget? topChild;
 
   static const double carouselHeightPct = 0.55;
+  static const double carouselBottomPadding = 10.0;
   static const double scannerWidthPct = 0.6;
   static const double scannerHeightPct = 0.33;
   static const double buttonRowHeightPx = 48;
@@ -30,10 +36,7 @@ class ScannerOverlay extends StatelessWidget {
         BoxConstraints constraints,
       ) {
         final Size screenSize = MediaQuery.of(context).size;
-        final Size scannerSize = Size(
-          screenSize.width * ScannerOverlay.scannerWidthPct,
-          screenSize.width * ScannerOverlay.scannerHeightPct,
-        );
+
         final double carouselHeight =
             constraints.maxHeight * ScannerOverlay.carouselHeightPct;
         final double buttonRowHeight = model.getBarcodes().isNotEmpty
@@ -42,38 +45,42 @@ class ScannerOverlay extends StatelessWidget {
         final double availableScanHeight =
             constraints.maxHeight - carouselHeight - buttonRowHeight;
 
-        // Padding for the qr code scanner. This ensures the scanner has equal spacing between buttons and carousel.
-        final EdgeInsets qrScannerPadding = EdgeInsets.only(
-            top: (availableScanHeight - scannerSize.height) / 2 +
-                buttonRowHeight);
+        final Size scannerContainerSize = Size(
+          screenSize.width,
+          availableScanHeight - carouselBottomPadding,
+        );
+        final Size scannerSize = Size(
+          screenSize.width * ScannerOverlay.scannerWidthPct,
+          screenSize.width * ScannerOverlay.scannerHeightPct,
+        );
 
         return Container(
           color: Colors.black,
           child: Stack(
             children: <Widget>[
               //Scanner
-              SmoothRevealAnimation(
-                delay: 400,
-                startOffset: Offset.zero,
-                animationCurve: Curves.easeInOutBack,
-                child: child,
-              ),
+              if (backgroundChild != null)
+                SmoothRevealAnimation(
+                  delay: 400,
+                  startOffset: Offset.zero,
+                  animationCurve: Curves.easeInOutBack,
+                  child: backgroundChild!,
+                ),
               // Scanning area overlay
               SmoothRevealAnimation(
                 delay: 400,
                 startOffset: const Offset(0.0, 0.1),
                 animationCurve: Curves.easeInOutBack,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    Padding(
-                      padding: qrScannerPadding,
-                      child: SmoothViewFinder(
-                        boxSize: scannerSize,
-                        lineLength: screenSize.width * 0.8,
-                      ),
+                child: ConstrainedBox(
+                  constraints: BoxConstraints.tight(
+                    scannerContainerSize,
+                  ),
+                  child: Center(
+                    child: topChild ?? SmoothViewFinder(
+                      boxSize: scannerSize,
+                      lineLength: screenSize.width * 0.8,
                     ),
-                  ],
+                  ),
                 ),
               ),
               // Product carousel
@@ -87,7 +94,8 @@ class ScannerOverlay extends StatelessWidget {
                     const SafeArea(top: true, child: ScanHeader()),
                     const Spacer(),
                     Padding(
-                      padding: const EdgeInsets.only(bottom: 10.0),
+                      padding:
+                          const EdgeInsets.only(bottom: carouselBottomPadding),
                       child: SmoothProductCarousel(
                         containSearchCard: true,
                         height: carouselHeight,

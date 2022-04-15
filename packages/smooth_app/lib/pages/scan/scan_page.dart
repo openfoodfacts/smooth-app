@@ -41,8 +41,7 @@ class _ScanPageState extends State<ScanPage> {
 
     // If is denied, is not restricted by for example parental control and is
     // not already declined once
-    if (status.isDenied &&
-        !status.isRestricted) {
+    if (status.isDenied && !status.isRestricted) {
       final PermissionStatus newStatus = await Permission.camera.request();
       return newStatus;
     } else {
@@ -71,35 +70,55 @@ class _ScanPageState extends State<ScanPage> {
           return Center(child: Text(appLocalizations.permission_photo_error));
         }
 
-        // TODO(M123): show no camera access screen
-        if (snapshot.data!.isDenied ||
-            snapshot.data!.isPermanentlyDenied ||
-            snapshot.data!.isRestricted) {
-          Center(
-            child: Text(appLocalizations.permission_photo_denied),
+        final PermissionStatus status = snapshot.data!;
+
+        Widget? topChild;
+        Widget? backgroundChild;
+
+        if (!status.isGranted) {
+          topChild = PermissionDeniedWidget(
+            status: status,
           );
-        }
-
-        final Widget child;
-
-        if (userPreferences.getFlag(
+        } else if (userPreferences.getFlag(
               UserPreferencesDevMode.userPreferencesFlagUseMLKit,
             ) ??
             true) {
-          child = const MLKitScannerPage();
+          backgroundChild = const MLKitScannerPage();
         } else {
-          child = const ContinuousScanPage();
+          backgroundChild = const ContinuousScanPage();
         }
 
         return ChangeNotifierProvider<ContinuousScanModel>(
           create: (BuildContext context) => _model!,
           child: Scaffold(
             body: ScannerOverlay(
-              child: child,
+              backgroundChild: backgroundChild,
+              topChild: topChild,
             ),
           ),
         );
       },
+    );
+  }
+}
+
+class PermissionDeniedWidget extends StatelessWidget {
+  const PermissionDeniedWidget({
+    required this.status,
+    Key? key,
+  }) : super(key: key);
+
+  final PermissionStatus status;
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+
+    return Container(
+      color: Colors.red,
+      child: Center(
+        child: Text(appLocalizations.permission_photo_denied),
+      ),
     );
   }
 }
