@@ -47,7 +47,18 @@ jobs:
 
       - name: Get dependencies
         run: ci/pub_upgrade.sh
-        
+
+      - name: Install ChromeDriver
+        uses: nanasess/setup-chromedriver@v1
+        #with:
+          # Optional: do not specify to match Chrome's version
+          # chromedriver-version: '88.0.4324.96'
+      - name: Run ChromeDriver
+        run: |
+          export DISPLAY=:99
+          chromedriver --url-base=/wd/hub &
+          sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
+          
       - name: Run screenshot generation
         run: cd ./packages/smooth_app/ && flutter drive --driver=test_driver/screenshot_driver.dart --target=integration_test/app_test.dart
 
