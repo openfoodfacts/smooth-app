@@ -102,47 +102,53 @@ class _SummaryCardState extends State<SummaryCard> {
 
   Widget _buildLimitedSizeSummaryCard(double parentHeight) {
     totalPrintableRows = parentHeight ~/ SUMMARY_CARD_ROW_HEIGHT;
-    return Stack(
-      children: <Widget>[
-        ClipRRect(
-          borderRadius: ROUNDED_BORDER_RADIUS,
-          child: OverflowBox(
-            alignment: AlignmentDirectional.topStart,
-            minHeight: parentHeight,
-            maxHeight: double.infinity,
-            child: buildProductSmoothCard(
-              header: _buildProductCompatibilityHeader(context),
-              body: Padding(
-                padding: SMOOTH_CARD_PADDING,
-                child: _buildSummaryCardContent(context),
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: SMALL_SPACE,
+        vertical: VERY_SMALL_SPACE,
+      ),
+      child: Stack(
+        children: <Widget>[
+          ClipRRect(
+            borderRadius: ROUNDED_BORDER_RADIUS,
+            child: OverflowBox(
+              alignment: AlignmentDirectional.topStart,
+              minHeight: parentHeight,
+              maxHeight: double.infinity,
+              child: buildProductSmoothCard(
+                header: _buildProductCompatibilityHeader(context),
+                body: Padding(
+                  padding: SMOOTH_CARD_PADDING,
+                  child: _buildSummaryCardContent(context),
+                ),
+                margin: EdgeInsets.zero,
               ),
-              margin: EdgeInsets.zero,
             ),
           ),
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
-            Container(
-              padding: const EdgeInsets.symmetric(
-                vertical: SMALL_SPACE,
-              ),
-              decoration: BoxDecoration(
-                color: Theme.of(context).cardColor,
-                borderRadius:
-                    const BorderRadius.vertical(bottom: ROUNDED_RADIUS),
-              ),
-              child: Center(
-                child: Text(
-                  AppLocalizations.of(context)!.tab_for_more,
-                  style: Theme.of(context).primaryTextTheme.bodyText1,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  vertical: SMALL_SPACE,
+                ),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).cardColor,
+                  borderRadius:
+                      const BorderRadius.vertical(bottom: ROUNDED_RADIUS),
+                ),
+                child: Center(
+                  child: Text(
+                    AppLocalizations.of(context)!.tab_for_more,
+                    style: Theme.of(context).primaryTextTheme.bodyText1,
+                  ),
                 ),
               ),
-            ),
-          ],
-        ),
-      ],
+            ],
+          ),
+        ],
+      ),
     );
   }
 
