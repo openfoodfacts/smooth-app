@@ -161,6 +161,14 @@
     "sign_up_page_confirm_password_hint": "Conferma la Password",
     "sign_up_page_confirm_password_error_empty": "Sei pregato di confermare la password",
     "sign_up_page_confirm_password_error_invalid": "Le password non corrispondono",
+    "sign_up_page_agree_text": "Acconsento ai termini d'uso e di",
+    "@sign_up_page_agree_text": {
+        "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
+    },
+    "sign_up_page_terms_text": "contributo di Open Food Facts",
+    "@sign_up_page_terms_text": {
+        "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
+    },
     "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
@@ -382,6 +390,12 @@
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
+    "confirm_button_label": "Conferma",
+    "front_packaging_photo_title": "Foto dell'Imballaggio Anteriore",
+    "ingredients_photo_title": "Foto degli Ingredienti",
+    "nutritional_facts_photo_title": "Foto dei Valori Nutrizionali",
+    "recycling_photo_title": "Foto di Riciclaggio",
+    "other_interesting_photo_title": "Altra Foto Interessante",
     "front_photo_uploaded": "Foto frontale caricata",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Foto degli ingredienti",
@@ -768,5 +782,8 @@
     "edit_product_form_save": "Modifica",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
-    }
+    },
+    "completed_basic_details_btn_text": "Completa i dettagli di base",
+    "not_implemented_snackbar_text": "Non ancora implementato",
+    "category_picker_page_appbar_text": "Categorie"
 }
