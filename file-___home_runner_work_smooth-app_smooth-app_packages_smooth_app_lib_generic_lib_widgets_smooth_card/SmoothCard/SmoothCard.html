@@ -52,7 +52,7 @@
     <section class="multi-line-signature">const
       <span class="name ">SmoothCard</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-child">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">child</span>, </span></li>
 <li><span class="parameter" id="-param-color"><span class="type-annotation">dynamic</span> <span class="parameter-name">color</span>, </span></li>
-<li><span class="parameter" id="-param-margin"><span class="type-annotation">dynamic</span> <span class="parameter-name">margin</span> = <span class="default-value">const EdgeInsets.only(right: SMALL_SPACE, left: SMALL_SPACE, top: VERY_SMALL_SPACE, bottom: VERY_SMALL_SPACE)</span>, </span></li>
+<li><span class="parameter" id="-param-margin"><span class="type-annotation">dynamic</span> <span class="parameter-name">margin</span> = <span class="default-value">const EdgeInsets.symmetric(horizontal: SMALL_SPACE, vertical: VERY_SMALL_SPACE)</span>, </span></li>
 <li><span class="parameter" id="-param-padding"><span class="type-annotation">dynamic</span> <span class="parameter-name">padding</span> = <span class="default-value">const EdgeInsets.all(5.0)</span>, </span></li>
 <li><span class="parameter" id="-param-elevation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">elevation</span> = <span class="default-value">8</span>}</span></li>
 </ol>)
@@ -67,11 +67,9 @@
   <pre class="language-dart"><code class="language-dart">const SmoothCard({
   required this.child,
   this.color,
-  this.margin = const EdgeInsets.only(
-    right: SMALL_SPACE,
-    left: SMALL_SPACE,
-    top: VERY_SMALL_SPACE,
-    bottom: VERY_SMALL_SPACE,
+  this.margin = const EdgeInsets.symmetric(
+    horizontal: SMALL_SPACE,
+    vertical: VERY_SMALL_SPACE,
   ),
   this.padding = const EdgeInsets.all(5.0),
   this.elevation = 8,
