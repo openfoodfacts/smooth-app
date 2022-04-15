@@ -11,15 +11,14 @@ import 'package:smooth_app/widgets/smooth_product_carousel.dart';
 /// clear and compare buttons row.
 ///
 /// The camera preview should be passed to [backgroundChild].
-/// If no [topChild] is passed, a [SmoothViewFinder] with be displayed (= visor)
 class ScannerOverlay extends StatelessWidget {
   const ScannerOverlay({
-    this.topChild,
+    required this.topChild,
     this.backgroundChild,
   });
 
   final Widget? backgroundChild;
-  final Widget? topChild;
+  final Widget topChild;
 
   static const double carouselHeightPct = 0.55;
   static const double carouselBottomPadding = 10.0;
@@ -49,10 +48,6 @@ class ScannerOverlay extends StatelessWidget {
           screenSize.width,
           availableScanHeight - carouselBottomPadding,
         );
-        final Size scannerSize = Size(
-          screenSize.width * ScannerOverlay.scannerWidthPct,
-          screenSize.width * ScannerOverlay.scannerHeightPct,
-        );
 
         return Container(
           color: Colors.black,
@@ -75,12 +70,7 @@ class ScannerOverlay extends StatelessWidget {
                   constraints: BoxConstraints.tight(
                     scannerContainerSize,
                   ),
-                  child: Center(
-                    child: topChild ?? SmoothViewFinder(
-                      boxSize: scannerSize,
-                      lineLength: screenSize.width * 0.8,
-                    ),
-                  ),
+                  child: Center(child: topChild),
                 ),
               ),
               // Product carousel
@@ -108,6 +98,25 @@ class ScannerOverlay extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+}
+
+class ScannerVisorWidget extends StatelessWidget {
+  const ScannerVisorWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
+
+    final Size scannerSize = Size(
+      screenSize.width * ScannerOverlay.scannerWidthPct,
+      screenSize.width * ScannerOverlay.scannerHeightPct,
+    );
+
+    return SmoothViewFinder(
+      boxSize: scannerSize,
+      lineLength: screenSize.width * 0.8,
     );
   }
 }

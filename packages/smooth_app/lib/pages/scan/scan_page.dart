@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -5,10 +7,15 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/helpers/permission_helper.dart';
 import 'package:smooth_app/pages/scan/continuous_scan_page.dart';
 import 'package:smooth_app/pages/scan/ml_kit_scan_page.dart';
 import 'package:smooth_app/pages/scan/scanner_overlay.dart';
 import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
+import 'package:smooth_app/widgets/smooth_product_carousel.dart';
 
 class ScanPage extends StatefulWidget {
   const ScanPage();
@@ -36,89 +43,161 @@ class _ScanPageState extends State<ScanPage> {
     setState(() {});
   }
 
-  Future<PermissionStatus> _permissionCheck() async {
-    final PermissionStatus status = await Permission.camera.status;
-
-    // If is denied, is not restricted by for example parental control and is
-    // not already declined once
-    if (status.isDenied && !status.isRestricted) {
-      final PermissionStatus newStatus = await Permission.camera.request();
-      return newStatus;
-    } else {
-      return status;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
-    final UserPreferences userPreferences = context.read<UserPreferences>();
     if (_model == null) {
       return const Center(child: CircularProgressIndicator());
     }
 
-    return FutureBuilder<PermissionStatus>(
-      future: _permissionCheck(),
-      builder: (
-        BuildContext context,
-        AsyncSnapshot<PermissionStatus> snapshot,
-      ) {
-        final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-
-        if (!snapshot.hasData) {
-          return const Center(child: CircularProgressIndicator());
-        } else if (snapshot.hasError) {
-          return Center(child: Text(appLocalizations.permission_photo_error));
-        }
-
-        final PermissionStatus status = snapshot.data!;
-
-        Widget? topChild;
-        Widget? backgroundChild;
-
-        if (!status.isGranted) {
-          topChild = PermissionDeniedWidget(
-            status: status,
-          );
-        } else if (userPreferences.getFlag(
-              UserPreferencesDevMode.userPreferencesFlagUseMLKit,
-            ) ??
-            true) {
-          backgroundChild = const MLKitScannerPage();
-        } else {
-          backgroundChild = const ContinuousScanPage();
-        }
-
-        return ChangeNotifierProvider<ContinuousScanModel>(
-          create: (BuildContext context) => _model!,
-          child: Scaffold(
-            body: ScannerOverlay(
-              backgroundChild: backgroundChild,
-              topChild: topChild,
+    return Scaffold(
+      body: MultiProvider(
+        providers: <ChangeNotifierProvider<ChangeNotifier>>[
+          ChangeNotifierProvider<PermissionListener>(
+            create: (_) => PermissionListener(
+              permission: Permission.camera,
             ),
           ),
-        );
+          ChangeNotifierProvider<ContinuousScanModel>(
+            create: (BuildContext context) => _model!,
+          )
+        ],
+        child: const ScannerOverlay(
+          backgroundChild: _ScanPageBackgroundWidget(),
+          topChild: _ScanPageTopWidget(),
+        ),
+      ),
+    );
+  }
+}
+
+class _ScanPageBackgroundWidget extends StatelessWidget {
+  const _ScanPageBackgroundWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<PermissionListener>(
+      builder: (BuildContext context, PermissionListener listener, _) {
+        final UserPreferences userPreferences = context.read<UserPreferences>();
+
+        if (listener.value.isGranted) {
+          if (userPreferences.getFlag(
+                UserPreferencesDevMode.userPreferencesFlagUseMLKit,
+              ) ??
+              true) {
+            return const MLKitScannerPage();
+          } else {
+            return const ContinuousScanPage();
+          }
+        } else {
+          return const SizedBox();
+        }
       },
     );
   }
 }
 
-class PermissionDeniedWidget extends StatelessWidget {
-  const PermissionDeniedWidget({
-    required this.status,
-    Key? key,
-  }) : super(key: key);
-
-  final PermissionStatus status;
+class _ScanPageTopWidget extends StatelessWidget {
+  const _ScanPageTopWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    return Consumer<PermissionListener>(
+      builder: (BuildContext context, PermissionListener listener, _) {
+        if (listener.value.isGranted) {
+          return const ScannerVisorWidget();
+        } else {
+          final AppLocalizations localizations = AppLocalizations.of(context)!;
 
-    return Container(
-      color: Colors.red,
-      child: Center(
-        child: Text(appLocalizations.permission_photo_denied),
-      ),
+          return SafeArea(
+            child: LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints constraints) {
+                return Container(
+                  alignment: Alignment.topCenter,
+                  constraints: BoxConstraints.tightForFinite(
+                    height: math.min(constraints.maxHeight * 0.9, 200),
+                  ),
+                  child: SmoothCard(
+                    margin: SmoothProductCarousel.carouselItemHorizontalPadding
+                        .add(SmoothProductCarousel.carouselItemInternalPadding),
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: Column(
+                        children: <Widget>[
+                          Icon(
+                            Icons.warning_rounded,
+                            size: constraints.maxHeight * 0.15,
+                          ),
+                          Expanded(
+                            child: SingleChildScrollView(
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 10.0,
+                                  vertical: 10.0,
+                                ),
+                                child: Text(
+                                  localizations.permission_photo_denied_message(
+                                    localizations.app_name,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(
+                                    height: 1.4,
+                                    fontSize: 16.0,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          SmoothActionButton(
+                            text: localizations.permission_photo_denied_button,
+                            onPressed: () => _askPermission(context),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
+          );
+        }
+      },
     );
+  }
+
+  Future<void> _askPermission(BuildContext context) {
+    return Provider.of<PermissionListener>(
+      context,
+      listen: false,
+    ).askPermission(() async {
+      return showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            final AppLocalizations localizations =
+                AppLocalizations.of(context)!;
+
+            return SmoothAlertDialog(
+              title:
+                  localizations.permission_photo_denied_dialog_settings_title,
+              body: Text(
+                localizations.permission_photo_denied_dialog_settings_message,
+                style: const TextStyle(
+                  height: 1.6,
+                ),
+              ),
+              actions: <SmoothActionButton>[
+                SmoothActionButton(
+                  text: localizations
+                      .permission_photo_denied_dialog_settings_button_cancel,
+                  onPressed: () => Navigator.of(context).pop(false),
+                ),
+                SmoothActionButton(
+                  text: localizations
+                      .permission_photo_denied_dialog_settings_button_open,
+                  onPressed: () => Navigator.of(context).pop(true),
+                ),
+              ],
+            );
+          });
+    });
   }
 }
