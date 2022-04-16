@@ -119,7 +119,7 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
   }
 
   Future<void> _startLiveFeed() async {
-    if (_controller != null || cameras.isEmpty) {
+    if (_controller != null) {
       return;
     }
 

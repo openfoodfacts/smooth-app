@@ -67,9 +67,8 @@ class _CountrySelectorState extends State<CountrySelector> {
                 selectedItemBuilder: (BuildContext context) {
                   return _countryList
                       .map(
-                        (Country country) => _CountrySelectorItem(
-                          country: country,
-                          parentWidth: parentWidth,
+                        (Country country) => Text(
+                          country.name,
                         ),
                       )
                       .toList(growable: false);
@@ -80,13 +79,16 @@ class _CountrySelectorState extends State<CountrySelector> {
 
                   return DropdownMenuItem<Country>(
                     value: country,
-                    child: DefaultTextStyle.merge(
-                      child: _CountrySelectorItem(
-                        country: country,
-                        parentWidth: parentWidth,
-                      ),
-                      style: TextStyle(
-                        fontWeight: isSelected ? FontWeight.bold : null,
+                    child: Container(
+                      // Set the maxWidth so the dropdown arrow icon doesn't overflow.
+                      // 48 dp is needed to account for dropdown arrow icon and padding.
+                      constraints: BoxConstraints(maxWidth: parentWidth - 48)
+                          .normalize(),
+                      child: Text(
+                        country.name,
+                        style: TextStyle(
+                          fontWeight: isSelected ? FontWeight.bold : null,
+                        ),
                       ),
                     ),
                   );
@@ -170,29 +172,5 @@ class _CountrySelectorState extends State<CountrySelector> {
       }
     }
     return countries;
-  }
-}
-
-class _CountrySelectorItem extends StatelessWidget {
-  const _CountrySelectorItem({
-    required this.country,
-    required this.parentWidth,
-    Key? key,
-  })  : assert(parentWidth >= 0),
-        super(key: key);
-
-  final Country country;
-  final double parentWidth;
-
-  @override
-  Widget build(BuildContext context) {
-    return ConstrainedBox(
-      // Set the maxWidth so the dropdown arrow icon doesn't overflow.
-      // 48 dp is needed to account for dropdown arrow icon and padding.
-      constraints: BoxConstraints(maxWidth: parentWidth - 48).normalize(),
-      child: Text(
-        country.name,
-      ),
-    );
   }
 }

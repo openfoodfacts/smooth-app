@@ -5,6 +5,8 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/product/common/product_list_page.dart';
 
+import 'product/common/product_list_history_page.dart';
+
 class HistoryPage extends StatefulWidget {
   const HistoryPage();
   @override
@@ -26,6 +28,6 @@ class _HistoryPageState extends State<HistoryPage> {
 
   @override
   Widget build(BuildContext context) {
-    return ProductListPage(productList);
+    return ProductHistListPage(productList);
   }
 }

@@ -161,14 +161,6 @@
     "sign_up_page_confirm_password_hint": "Potwierdź hasło",
     "sign_up_page_confirm_password_error_empty": "Proszę potwierdź hasło",
     "sign_up_page_confirm_password_error_invalid": "Hasła nie zgadzają się (nie są identyczne)",
-    "sign_up_page_agree_text": "Zgadzam się z",
-    "@sign_up_page_agree_text": {
-        "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
-    },
-    "sign_up_page_terms_text": "warunkami użytkowania i wkładu w Open Food Facts",
-    "@sign_up_page_terms_text": {
-        "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
-    },
     "sign_up_page_agree_url": "https://world-pl.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
@@ -390,12 +382,6 @@
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
-    "confirm_button_label": "Potwierdź",
-    "front_packaging_photo_title": "Zdjęcie opakowania z przodu",
-    "ingredients_photo_title": "Zdjęcie listy składników",
-    "nutritional_facts_photo_title": "Zdjęcie wartości odżywczych",
-    "recycling_photo_title": "Zdjęcie informacji o recyklingu",
-    "other_interesting_photo_title": "Inne, interesujące zdjęcie",
     "front_photo_uploaded": "Front photo uploaded",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Zdjęcie listy składników",
@@ -782,8 +768,5 @@
     "edit_product_form_save": "Edytuj",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
-    },
-    "completed_basic_details_btn_text": "Uzupełnij podstawowe informacje",
-    "not_implemented_snackbar_text": "Jeszcze niezaimplementowane",
-    "category_picker_page_appbar_text": "Kategorie"
+    }
 }
