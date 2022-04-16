@@ -114,18 +114,29 @@ class _ScanPageTopWidget extends StatelessWidget {
                 return Container(
                   alignment: Alignment.topCenter,
                   constraints: BoxConstraints.tightForFinite(
+                    width: constraints.maxWidth *
+                        SmoothProductCarousel.carouselViewPortFraction,
                     height: math.min(constraints.maxHeight * 0.9, 200),
                   ),
+                  padding: SmoothProductCarousel.carouselItemInternalPadding,
                   child: SmoothCard(
-                    margin: SmoothProductCarousel.carouselItemHorizontalPadding
-                        .add(SmoothProductCarousel.carouselItemInternalPadding),
+                    padding: const EdgeInsetsDirectional.only(
+                      top: 10.0,
+                      start: 8.0,
+                      end: 8.0,
+                      bottom: 5.0,
+                    ),
                     child: Align(
                       alignment: Alignment.topCenter,
                       child: Column(
                         children: <Widget>[
-                          Icon(
-                            Icons.warning_rounded,
-                            size: constraints.maxHeight * 0.15,
+                          Text(
+                            localizations.permission_photo_denied_title,
+                            style: const TextStyle(
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            textAlign: TextAlign.center,
                           ),
                           Expanded(
                             child: SingleChildScrollView(
@@ -141,7 +152,7 @@ class _ScanPageTopWidget extends StatelessWidget {
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(
                                     height: 1.4,
-                                    fontSize: 16.0,
+                                    fontSize: 15.5,
                                   ),
                                 ),
                               ),

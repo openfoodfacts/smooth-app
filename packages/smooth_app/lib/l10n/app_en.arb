@@ -728,6 +728,7 @@
   "@permission_photo_error": {
     "description": "When the camera/photo permission failed to be acquired (!= denied)"
   },
+  "permission_photo_denied_title": "Allow camera use to scan barcodes",
   "permission_photo_denied_message": "For an enhanced experience, please allow {appName} to access your camera. You will be able to directly scan barcodes.",
   "@permission_photo_denied_message": {
     "description": "When the camera/photo permission is denied by user",
