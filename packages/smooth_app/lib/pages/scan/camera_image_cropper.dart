@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'dart:typed_data';
+
 import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -56,12 +57,27 @@ abstract class CameraImageCropper extends AbstractCameraImageGetter {
         super(
           cameraImage,
           cameraDescription,
-        );
+        ) {
+    _computeCropParameters();
+  }
 
   final double width01;
   final double height01;
 
-  int _getEven(final double value) => 2 * (value ~/ 2);
+  late int _width;
+  late int _height;
+
+  void _computeCropParameters() {
+    if (orientation == 0) {
+      _width = _computeWidth();
+      _height = _computeHeight();
+    } else if (orientation == 90) {
+      _width = _computeWidth();
+      _height = _computeHeight();
+    } else {
+      throw Exception('Orientation $orientation not dealt with for the moment');
+    }
+  }
 
   int _computeWidth() {
     if (orientation == 0) {
@@ -83,11 +99,19 @@ abstract class CameraImageCropper extends AbstractCameraImageGetter {
     throw Exception('Orientation $orientation not dealt with for the moment');
   }
 
+  int _getEven(final double value) => 2 * (value ~/ 2);
+
   int get fullWidth => cameraImage.width;
 
   int get fullHeight => cameraImage.height;
 
   int get orientation => cameraDescription.sensorOrientation;
+
+  @override
+  Size getSize() => Size(
+        _width.toDouble(),
+        _height.toDouble(),
+      );
 }
 
 class _CameraImageCropperImplDefault extends CameraImageCropper {
@@ -103,31 +127,25 @@ class _CameraImageCropperImplDefault extends CameraImageCropper {
           cameraDescription,
           width01: width01,
           height01: height01,
-        ) {
-    _computeCropParameters();
-  }
+        );
 
   final double left01;
   final double top01;
   late int _left;
   late int _top;
-  late int _width;
-  late int _height;
 
+  @override
   void _computeCropParameters() {
+    super._computeCropParameters();
     assert(left01 >= 0 && left01 < 1);
     assert(top01 >= 0 && top01 < 1);
     assert(left01 + width01 <= 1);
     assert(top01 + height01 <= 1);
 
     if (orientation == 0) {
-      _width = _computeWidth();
-      _height = _computeHeight();
       _left = _getEven(fullWidth * left01);
       _top = _getEven(fullHeight * top01);
     } else if (orientation == 90) {
-      _width = _computeWidth();
-      _height = _computeHeight();
       _left = _getEven(fullWidth * top01);
       _top = _getEven(fullHeight * left01);
     } else {
@@ -216,30 +234,7 @@ class _CameraImageCropperImplIOS extends CameraImageCropper {
           cameraDescription,
           width01: width01,
           height01: height01,
-        ) {
-    _computeCropParameters();
-  }
-
-  late int _width;
-  late int _height;
-
-  void _computeCropParameters() {
-    if (orientation == 0) {
-      _width = _computeWidth();
-      _height = _computeHeight();
-    } else if (orientation == 90) {
-      _width = _computeWidth();
-      _height = _computeHeight();
-    } else {
-      throw Exception('Orientation $orientation not dealt with for the moment');
-    }
-  }
-
-  @override
-  Size getSize() => Size(
-        _width.toDouble(),
-        _height.toDouble(),
-      );
+        );
 
   // Same implementation as [CameraImageFullGetter]
   @override
