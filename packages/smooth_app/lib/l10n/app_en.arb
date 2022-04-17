@@ -438,10 +438,20 @@
     "@selecting_photo": {
         "description": "Progress indicator when the users takes a photo"
     },
-    "uploading_image": "Uploading photo to the server",
+    "uploading_image": "Uploading {photoType} image to Open Food Facts",
     "@uploading_image": {
-        "description": "Message when a new picture is uploading to the server"
+        "description": "Message when a new picture is uploading to the server",
+        "placeholders": {
+            "photoType": {
+                "type": "String"
+            }
+        }
     },
+    "uploading_image_type_front": "front",
+    "uploading_image_type_ingredients": "ingredients",
+    "uploading_image_type_nutrition": "nutrition",
+    "uploading_image_type_packaging": "packaging",
+    "uploading_image_type_other": "other",
     "score_add_missing_ingredients": "Add missing ingredients",
     "score_add_missing_nutrition_facts": "Add missing nutrition facts",
     "score_add_missing_product_category": "Add missing product category",
