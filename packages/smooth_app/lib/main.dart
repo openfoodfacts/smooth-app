@@ -13,6 +13,7 @@ import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
+import 'package:smooth_app/cache/files/files_cache.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
@@ -64,6 +65,7 @@ late ProductPreferences _productPreferences;
 late LocalDatabase _localDatabase;
 late ThemeProvider _themeProvider;
 final ContinuousScanModel _continuousScanModel = ContinuousScanModel();
+late FilesCache _filesCache;
 bool _init1done = false;
 
 // Had to split init in 2 methods, for test/screenshots reasons.
@@ -94,6 +96,7 @@ Future<bool> _init1() async {
     ),
     daoString: DaoString(_localDatabase),
   );
+  _filesCache = await FilesCacheManager.get();
 
   AnalyticsHelper.setCrashReports(_userPreferences.crashReports);
   AnalyticsHelper.setAnalyticsReports(_userPreferences.analyticsReports);
@@ -169,6 +172,7 @@ class _SmoothAppState extends State<SmoothApp> {
             provide<ThemeProvider>(_themeProvider),
             provide<UserManagementProvider>(_userManagementProvider),
             provide<ContinuousScanModel>(_continuousScanModel),
+            provide<FilesCache>(_filesCache),
           ],
           builder: _buildApp,
         );
