@@ -13,7 +13,7 @@
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
     "save": "저장",
-    "save_confirmation": "Are you sure you want to save?",
+    "save_confirmation": "정말로 저장하시겠습니까?",
     "skip": "건너뛰기",
     "cancel": "취소",
     "@cancel": {},
@@ -39,7 +39,7 @@
     "@label_web": {},
     "learnMore": "더보기",
     "@learnMore": {},
-    "general_confirmation": "Are you sure?",
+    "general_confirmation": "확실한가요?",
     "incompatible": "부적합",
     "@incompatible": {
         "description": "Short label for product list view: the product is incompatible with your preferences"
@@ -161,6 +161,14 @@
     "sign_up_page_confirm_password_hint": "비밀번호 확인",
     "sign_up_page_confirm_password_error_empty": "비밀번호를 확인하십시오",
     "sign_up_page_confirm_password_error_invalid": "비밀번호가 일치하지 않습니다",
+    "sign_up_page_agree_text": "I agree to the Open Food Facts",
+    "@sign_up_page_agree_text": {
+        "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
+    },
+    "sign_up_page_terms_text": "terms of use and contribution",
+    "@sign_up_page_terms_text": {
+        "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
+    },
     "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
@@ -355,7 +363,7 @@
     },
     "nutrition": "영양",
     "@nutrition": {},
-    "nutrition_page_close_confirmation": "Are you sure you want to close without saving?",
+    "nutrition_page_close_confirmation": "저장하지 않고 종료하시겠습니까?",
     "nutrition_facts_photo": "영양 성분 사진",
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
@@ -382,6 +390,12 @@
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
+    "confirm_button_label": "Confirm",
+    "front_packaging_photo_title": "Front Packaging Photo",
+    "ingredients_photo_title": "Ingredients Photo",
+    "nutritional_facts_photo_title": "Nutritional Facts Photo",
+    "recycling_photo_title": "Recycling Photo",
+    "other_interesting_photo_title": "Other Interesting Photo",
     "front_photo_uploaded": "전면 사진 갱신됨",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "재료 사진",
@@ -768,5 +782,8 @@
     "edit_product_form_save": "수정",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
-    }
+    },
+    "completed_basic_details_btn_text": "Complete basic details",
+    "not_implemented_snackbar_text": "Not implemented yet",
+    "category_picker_page_appbar_text": "카테고리"
 }
