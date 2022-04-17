@@ -11,6 +11,9 @@ const double VERY_LARGE_SPACE = 20.0;
 /// Default icon size, cf. [Icon]
 const double DEFAULT_ICON_SIZE = 24.0;
 
+/// Default icon size, cf. goldens.dart
+const double MINIMUM_TARGET_SIZE = 48.0;
+
 /// Background, e.g SmoothCard
 const Radius ROUNDED_RADIUS = Radius.circular(20.0);
 //ignore: non_constant_identifier_names

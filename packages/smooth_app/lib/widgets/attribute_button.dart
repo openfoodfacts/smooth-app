@@ -37,53 +37,49 @@ class AttributeButton extends StatelessWidget {
     final double importanceWidth = widgetWidth / 4;
     final TextStyle style = themeData.textTheme.headline3!;
     final String? info = attribute.settingNote;
-    final List<Widget> labelChildren = <Widget>[];
-    final List<Widget> importanceChildren = <Widget>[];
+    final List<Widget> children = <Widget>[];
     for (final String importanceId in _importanceIds) {
-      Future<void> selectImportance() async {
-        await productPreferences.setImportance(attribute.id!, importanceId);
-        await showDialog<void>(
-          context: context,
-          builder: (BuildContext context) {
+      children.add(
+        GestureDetector(
+          onTap: () async {
+            await productPreferences.setImportance(attribute.id!, importanceId);
             final AppLocalizations? appLocalizations =
                 AppLocalizations.of(context);
-            return SmoothAlertDialog(
-              body: Text(
-                  'blah blah blah importance "$importanceId"'), // TODO(monsieurtanuki): find translations
-              actions: <SmoothActionButton>[
-                SmoothActionButton(
-                  text: appLocalizations!.close,
-                  onPressed: () => Navigator.pop(context),
-                ),
-              ],
+            await showDialog<void>(
+              context: context,
+              builder: (BuildContext context) => SmoothAlertDialog(
+                body: Text(
+                    'blah blah blah importance "$importanceId"'), // TODO(monsieurtanuki): find translations
+                actions: <SmoothActionButton>[
+                  SmoothActionButton(
+                    text: appLocalizations!.close,
+                    onPressed: () => Navigator.pop(context),
+                  ),
+                ],
+              ),
             );
           },
-        );
-      }
-
-      labelChildren.add(
-        GestureDetector(
-          onTap: () async => selectImportance(),
           child: SizedBox(
             width: importanceWidth,
-            child: AutoSizeText(
-              productPreferences
-                  .getPreferenceImportanceFromImportanceId(importanceId)!
-                  .name!,
-              maxLines: 2,
-              textAlign: TextAlign.center,
-            ),
-          ),
-        ),
-      );
-      importanceChildren.add(
-        SizedBox(
-          width: importanceWidth,
-          child: Center(
-            child: Radio<String>(
-              groupValue: currentImportanceId,
-              value: importanceId,
-              onChanged: (final String? value) async => selectImportance(),
+            height: MINIMUM_TARGET_SIZE,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                AutoSizeText(
+                  productPreferences
+                      .getPreferenceImportanceFromImportanceId(importanceId)!
+                      .name!,
+                  maxLines: 1,
+                  textAlign: TextAlign.center,
+                ),
+                Icon(
+                  currentImportanceId == importanceId
+                      ? Icons.radio_button_checked
+                      : Icons.radio_button_off,
+                  color: themeData.colorScheme.primary,
+                ),
+              ],
             ),
           ),
         ),
@@ -99,27 +95,30 @@ class AttributeButton extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           GestureDetector(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                if (info != null) const Icon(Icons.info_outline),
-                Container(
-                  padding: info == null
-                      ? null
-                      : const EdgeInsets.only(left: SMALL_SPACE),
-                  child: SizedBox(
-                    width: widgetWidth -
-                        SMALL_SPACE -
-                        (iconThemeData.size ?? DEFAULT_ICON_SIZE),
-                    child: AutoSizeText(
-                      attribute.settingName ?? attribute.name!,
-                      maxLines: 2,
-                      style: style,
+            child: SizedBox(
+              height: MINIMUM_TARGET_SIZE,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  if (info != null) const Icon(Icons.info_outline),
+                  Container(
+                    padding: info == null
+                        ? null
+                        : const EdgeInsets.only(left: SMALL_SPACE),
+                    child: SizedBox(
+                      width: widgetWidth -
+                          SMALL_SPACE -
+                          (iconThemeData.size ?? DEFAULT_ICON_SIZE),
+                      child: AutoSizeText(
+                        attribute.settingName ?? attribute.name!,
+                        maxLines: 2,
+                        style: style,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
             onTap: info == null
                 ? null
@@ -143,12 +142,7 @@ class AttributeButton extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: labelChildren,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: importanceChildren,
+            children: children,
           ),
         ],
       ),
