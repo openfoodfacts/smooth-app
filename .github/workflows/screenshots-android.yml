@@ -9,6 +9,12 @@ jobs:
   screenshots:
     name: Generate screenshots for Android
     runs-on: macos-latest
+    strategy:
+      matrix:
+        language: [fr, en]
+        country: [FR, UK]
+        platform: [ios, android]
+        device: [iPhone8Plus]
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -60,9 +66,7 @@ jobs:
           sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
           
       - name: Run screenshot generation
-        #run: cd ./packages/smooth_app/ && flutter drive --driver=test_driver/screenshot_driver.dart --target=integration_test/app_test.dart
-        run: cd ./packages/smooth_app/ && flutter drive --driver=test_driver/screenshot_driver.dart --target=integration_test/app_test.dart --dart-define=LANGUAGE=fr --dart-define=COUNTRY=FR #--dart-define=PLATFORM=ios --dart-define=DEVICE=iPhone8Plus
-
+        run: cd ./packages/smooth_app/ && flutter drive --driver=test_driver/screenshot_driver.dart --target=integration_test/app_test.dart --dart-define=LANGUAGE=${{ matrix.language }} --dart-define=COUNTRY=${{ matrix.country }} --dart-define=PLATFORM=${{ matrix.platform }} --dart-define=DEVICE=${{ matrix.device }}
       - name: Bump version
         uses: maierj/fastlane-action@v2.2.0
         with:
