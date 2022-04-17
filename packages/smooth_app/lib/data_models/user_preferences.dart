@@ -24,7 +24,6 @@ class UserPreferences extends ChangeNotifier {
       'lastVisitedOnboardingPage';
   static const String _TAG_PREFIX_FLAG = 'FLAG_PREFIX_';
   static const String _TAG_DEV_MODE = 'devMode';
-  static const String _TAG_CAMERA_DECLINE = 'declined_camera_use_once';
   static const String _TAG_CRASH_REPORTS = 'crash_reports';
   static const String _TAG_ANALYTICS_REPORTS = 'analytics_reports';
   static const String _TAG_EXCLUDED_ATTRIBUTE_IDS = 'excluded_attributes';
@@ -89,13 +88,6 @@ class UserPreferences extends ChangeNotifier {
         ? OnboardingPage.NOT_STARTED
         : OnboardingPage.values[pageIndex];
   }
-
-  Future<void> setCameraDecline(final bool declined) async {
-    _sharedPreferences.setBool(_TAG_CAMERA_DECLINE, declined);
-  }
-
-  bool get cameraDeclinedOnce =>
-      _sharedPreferences.getBool(_TAG_CAMERA_DECLINE) ?? false;
 
   String _getFlagTag(final String key) => _TAG_PREFIX_FLAG + key;
 

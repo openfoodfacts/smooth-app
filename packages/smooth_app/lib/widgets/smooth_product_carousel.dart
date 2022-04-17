@@ -23,6 +23,12 @@ class SmoothProductCarousel extends StatefulWidget {
   final bool containSearchCard;
   final double height;
 
+  static const EdgeInsets carouselItemHorizontalPadding =
+      EdgeInsets.symmetric(horizontal: 20.0);
+  static const EdgeInsets carouselItemInternalPadding =
+      EdgeInsets.symmetric(horizontal: 2.0);
+  static const double carouselViewPortFraction = 0.91;
+
   @override
   State<SmoothProductCarousel> createState() => _SmoothProductCarouselState();
 }
@@ -57,7 +63,7 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
       itemCount: barcodes.length + _searchCardAdjustment,
       itemBuilder: (BuildContext context, int itemIndex, int itemRealIndex) {
         return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 2.0),
+          padding: SmoothProductCarousel.carouselItemInternalPadding,
           child: widget.containSearchCard && itemIndex == 0
               ? SearchCard(height: widget.height)
               : _getWidget(itemIndex - _searchCardAdjustment),
@@ -66,7 +72,7 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
       carouselController: _controller,
       options: CarouselOptions(
         enlargeCenterPage: false,
-        viewportFraction: 0.91,
+        viewportFraction: SmoothProductCarousel.carouselViewPortFraction,
         height: widget.height,
         enableInfiniteScroll: false,
         onPageChanged: (int index, CarouselPageChangedReason reason) {
@@ -129,7 +135,7 @@ class SearchCard extends StatelessWidget {
     return SmoothCard(
       color: Theme.of(context).colorScheme.background.withOpacity(0.85),
       elevation: 0,
-      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      padding: SmoothProductCarousel.carouselItemHorizontalPadding,
       child: SizedBox(
         height: height,
         child: Column(
