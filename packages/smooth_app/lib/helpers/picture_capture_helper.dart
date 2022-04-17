@@ -26,7 +26,10 @@ Future<bool> uploadCapturedPicture(
       ProductQuery.getUser(),
       image,
     ),
-    title: appLocalizations.uploading_image,
+    title: _imageFieldLabel(
+      appLocalizations,
+      imageField,
+    ),
   );
   if (result == null || result.error != null || result.status != 'status ok') {
     await LoadingDialog.error(
@@ -37,6 +40,26 @@ Future<bool> uploadCapturedPicture(
   }
   await _updateContinuousScanModel(context, barcode);
   return true;
+}
+
+String _imageFieldLabel(
+  AppLocalizations appLocalizations,
+  ImageField field,
+) {
+  switch (field) {
+    case ImageField.FRONT:
+      return appLocalizations.uploading_image_type_front;
+    case ImageField.INGREDIENTS:
+      return appLocalizations.uploading_image_type_ingredients;
+    case ImageField.NUTRITION:
+      return appLocalizations.uploading_image_type_nutrition;
+    case ImageField.PACKAGING:
+      return appLocalizations.uploading_image_type_packaging;
+    case ImageField.OTHER:
+      return appLocalizations.uploading_image_type_other;
+    default:
+      return appLocalizations.uploading_image_type_generic;
+  }
 }
 
 Future<void> _updateContinuousScanModel(
