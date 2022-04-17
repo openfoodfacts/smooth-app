@@ -79,10 +79,7 @@ Widget build(BuildContext context) {
       BoxConstraints constraints,
     ) {
       final Size screenSize = MediaQuery.of(context).size;
-      final Size scannerSize = Size(
-        screenSize.width * ScannerOverlay.scannerWidthPct,
-        screenSize.width * ScannerOverlay.scannerHeightPct,
-      );
+
       final double carouselHeight =
           constraints.maxHeight * ScannerOverlay.carouselHeightPct;
       final double buttonRowHeight = model.getBarcodes().isNotEmpty
@@ -91,38 +88,33 @@ Widget build(BuildContext context) {
       final double availableScanHeight =
           constraints.maxHeight - carouselHeight - buttonRowHeight;
 
-      &#47;&#47; Padding for the qr code scanner. This ensures the scanner has equal spacing between buttons and carousel.
-      final EdgeInsets qrScannerPadding = EdgeInsets.only(
-          top: (availableScanHeight - scannerSize.height) &#47; 2 +
-              buttonRowHeight);
+      final Size scannerContainerSize = Size(
+        screenSize.width,
+        availableScanHeight - carouselBottomPadding,
+      );
 
       return Container(
         color: Colors.black,
         child: Stack(
           children: &lt;Widget&gt;[
             &#47;&#47;Scanner
-            SmoothRevealAnimation(
-              delay: 400,
-              startOffset: Offset.zero,
-              animationCurve: Curves.easeInOutBack,
-              child: child,
-            ),
+            if (backgroundChild != null)
+              SmoothRevealAnimation(
+                delay: 400,
+                startOffset: Offset.zero,
+                animationCurve: Curves.easeInOutBack,
+                child: backgroundChild!,
+              ),
             &#47;&#47; Scanning area overlay
             SmoothRevealAnimation(
               delay: 400,
               startOffset: const Offset(0.0, 0.1),
               animationCurve: Curves.easeInOutBack,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: &lt;Widget&gt;[
-                  Padding(
-                    padding: qrScannerPadding,
-                    child: SmoothViewFinder(
-                      boxSize: scannerSize,
-                      lineLength: screenSize.width * 0.8,
-                    ),
-                  ),
-                ],
+              child: ConstrainedBox(
+                constraints: BoxConstraints.tight(
+                  scannerContainerSize,
+                ),
+                child: Center(child: topChild),
               ),
             ),
             &#47;&#47; Product carousel
@@ -136,7 +128,8 @@ Widget build(BuildContext context) {
                   const SafeArea(top: true, child: ScanHeader()),
                   const Spacer(),
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 10.0),
+                    padding:
+                        const EdgeInsets.only(bottom: carouselBottomPadding),
                     child: SmoothProductCarousel(
                       containSearchCard: true,
                       height: carouselHeight,
@@ -181,9 +174,10 @@ Widget build(BuildContext context) {
     <li class="section-title">
       <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_scanner_overlay/ScannerOverlay-class.html#instance-properties">Properties</a>
     </li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_scanner_overlay/ScannerOverlay/child.html">child</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_scanner_overlay/ScannerOverlay/backgroundChild.html">backgroundChild</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_scanner_overlay/ScannerOverlay/topChild.html">topChild</a></li>
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_scanner_overlay/ScannerOverlay-class.html#instance-methods">Methods</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_scanner_overlay/ScannerOverlay/build.html">build</a></li>
@@ -198,6 +192,7 @@ Widget build(BuildContext context) {
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_scanner_overlay/ScannerOverlay-class.html#constants">Constants</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_scanner_overlay/ScannerOverlay/buttonRowHeightPx-constant.html">buttonRowHeightPx</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_scanner_overlay/ScannerOverlay/carouselBottomPadding-constant.html">carouselBottomPadding</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_scanner_overlay/ScannerOverlay/carouselHeightPct-constant.html">carouselHeightPct</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_scanner_overlay/ScannerOverlay/scannerHeightPct-constant.html">scannerHeightPct</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_scanner_overlay/ScannerOverlay/scannerWidthPct-constant.html">scannerWidthPct</a></li>

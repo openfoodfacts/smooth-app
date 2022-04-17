@@ -85,10 +85,7 @@
       ProductQuery.getUser(),
       image,
     ),
-    title: _imageFieldLabel(
-      appLocalizations,
-      imageField,
-    ),
+    title: appLocalizations.uploading_image,
   );
   if (result == null || result.error != null || result.status != &#39;status ok&#39;) {
     await LoadingDialog.error(
