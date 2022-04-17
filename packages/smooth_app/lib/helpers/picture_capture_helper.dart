@@ -26,11 +26,9 @@ Future<bool> uploadCapturedPicture(
       ProductQuery.getUser(),
       image,
     ),
-    title: appLocalizations.uploading_image(
-      _imageFieldLabel(
-        appLocalizations,
-        imageField,
-      ),
+    title: _imageFieldLabel(
+      appLocalizations,
+      imageField,
     ),
   );
   if (result == null || result.error != null || result.status != 'status ok') {
@@ -59,6 +57,8 @@ String _imageFieldLabel(
       return appLocalizations.uploading_image_type_packaging;
     case ImageField.OTHER:
       return appLocalizations.uploading_image_type_other;
+    default:
+      return appLocalizations.uploading_image_type_generic;
   }
 }
 
