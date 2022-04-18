@@ -18,7 +18,7 @@ enum FilesCacheType {
   longLiving,
 }
 
-/// Files caches work will a [String] key.
+/// Files caches work with a [String] key.
 /// This key being the filename.
 typedef FilesCache = CacheManager<String, Uint8List>;
 
