@@ -20,7 +20,6 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
-    final Size size = MediaQuery.of(context).size;
     final bool isDarkMode =
         Provider.of<ThemeProvider>(context, listen: false).isDarkMode(context);
     return SmoothSimpleButton(
@@ -34,10 +33,8 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
                 : Colors.blue,
           ),
           const Spacer(),
-          ConstrainedBox(
-            constraints: BoxConstraints(
-              maxWidth: size.width * 0.5,
-            ),
+          Expanded(
+            flex: 10,
             child: AutoSizeText(
               text,
               maxLines: 2,
