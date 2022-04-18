@@ -34,15 +34,13 @@ class FilesCacheManager {
   /// If no [type] is provided, the default implementation will rely on a long
   /// living cache
   static Future<FilesCache> get({
-    String? name = 'default',
+    String name = _DEFAULT_CACHE_NAME,
     FilesCacheType type = FilesCacheType.longLiving,
   }) async {
-    final String cacheName = name ?? _DEFAULT_CACHE_NAME;
-
-    if (!_singletons.containsKey(cacheName)) {
+    if (!_singletons.containsKey(name)) {
       final _FilesCacheManagerImpl cache = _FilesCacheManagerImpl(type);
       await cache._init(name);
-      _singletons[cacheName] = cache;
+      _singletons[name] = cache;
     }
 
     return _singletons[name]!;
