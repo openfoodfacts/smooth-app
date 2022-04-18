@@ -86,13 +86,16 @@ Widget build(BuildContext context) {
               : Colors.blue,
         ),
         const Spacer(),
-        Text(
-          text,
-          textAlign: TextAlign.center,
-          style: themeData.textTheme.bodyText2!.copyWith(
-            color: isDarkMode
-                ? Theme.of(context).colorScheme.onPrimary
-                : Colors.blue,
+        Expanded(
+          flex: 10,
+          child: AutoSizeText(
+            text,
+            maxLines: 2,
+            style: themeData.textTheme.bodyText2!.copyWith(
+              color: isDarkMode
+                  ? Theme.of(context).colorScheme.onPrimary
+                  : Colors.blue,
+            ),
           ),
         ),
         const Spacer(),
