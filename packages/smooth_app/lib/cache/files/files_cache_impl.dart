@@ -7,7 +7,7 @@ class _ShortLivingFilesCacheManagerImpl extends _FilesCacheManagerImpl {
   _ShortLivingFilesCacheManagerImpl._() : super._();
 
   @override
-  Future<void> _init(String? name) async {
+  Future<void> _init(String name) async {
     return _initCache(name, await getTemporaryDirectory());
   }
 }
@@ -17,7 +17,7 @@ class _LongLivingFilesCacheManagerImpl extends _FilesCacheManagerImpl {
   _LongLivingFilesCacheManagerImpl._() : super._();
 
   @override
-  Future<void> _init(String? name) async {
+  Future<void> _init(String name) async {
     return _initCache(name, await getApplicationDocumentsDirectory());
   }
 }
@@ -37,10 +37,10 @@ abstract class _FilesCacheManagerImpl extends FilesCache {
   static const String _DEFAULT_FOLDER_NAME = 'default';
   late Directory _directory;
 
-  Future<void> _init(String? name);
+  Future<void> _init(String name);
 
   /// Please never call this method call directly, but use instead [_init].
-  Future<void> _initCache(String? name, Directory directory) async {
+  Future<void> _initCache(String name, Directory directory) async {
     _directory = Directory(
       join(
         directory.absolute.path,
