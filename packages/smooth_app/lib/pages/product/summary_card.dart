@@ -125,25 +125,27 @@ class _SummaryCardState extends State<SummaryCard> {
               ),
             ),
           ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
-            Container(
-              padding: const EdgeInsets.symmetric(
-                vertical: SMALL_SPACE,
-              ),
-              decoration: BoxDecoration(
-                color: Theme.of(context).cardColor,
-                borderRadius:
-                    const BorderRadius.vertical(bottom: ROUNDED_RADIUS),
-              ),
-              child: Center(
-                child: Text(
-                  AppLocalizations.of(context)!.tab_for_more,
-                  style: Theme.of(context).primaryTextTheme.bodyText1?.copyWith(
-                        color: PRIMARY_BLUE_COLOR,
-                      ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  vertical: SMALL_SPACE,
+                ),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).cardColor,
+                  borderRadius:
+                      const BorderRadius.vertical(bottom: ROUNDED_RADIUS),
+                ),
+                child: Center(
+                  child: Text(
+                    AppLocalizations.of(context)!.tab_for_more,
+                    style:
+                        Theme.of(context).primaryTextTheme.bodyText1?.copyWith(
+                              color: PRIMARY_BLUE_COLOR,
+                            ),
+                  ),
                 ),
               ),
             ],
