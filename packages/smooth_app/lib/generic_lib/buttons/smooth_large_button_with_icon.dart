@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
@@ -32,13 +33,16 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
                 : Colors.blue,
           ),
           const Spacer(),
-          Text(
-            text,
-            textAlign: TextAlign.center,
-            style: themeData.textTheme.bodyText2!.copyWith(
-              color: isDarkMode
-                  ? Theme.of(context).colorScheme.onPrimary
-                  : Colors.blue,
+          Expanded(
+            flex: 10,
+            child: AutoSizeText(
+              text,
+              maxLines: 2,
+              style: themeData.textTheme.bodyText2!.copyWith(
+                color: isDarkMode
+                    ? Theme.of(context).colorScheme.onPrimary
+                    : Colors.blue,
+              ),
             ),
           ),
           const Spacer(),

@@ -35,12 +35,14 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
   final Map<ImageField, List<File>> _uploadedImages =
       <ImageField, List<File>>{};
 
+  bool _isProductLoaded = false;
+
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final ThemeData themeData = Theme.of(context);
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(automaticallyImplyLeading: !_isProductLoaded),
       body: Padding(
         padding: const EdgeInsets.only(
           top: VERY_LARGE_SPACE,
@@ -75,7 +77,10 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
                 alignment: Alignment.bottomRight,
                 child: SmoothActionButton(
                   text: appLocalizations.finish,
-                  onPressed: () => Navigator.pop(context),
+                  onPressed: () {
+                    Navigator.maybePop(
+                        context, _isProductLoaded ? widget.barcode : null);
+                  },
                 ),
               ),
             ),
@@ -138,7 +143,9 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
           if (finalPhoto != null) {
             _uploadedImages[imageType] = _uploadedImages[imageType] ?? <File>[];
             _uploadedImages[imageType]!.add(initialPhoto);
-            setState(() {});
+            setState(() {
+              _isProductLoaded = true;
+            });
           }
           initialPhoto.delete();
         },

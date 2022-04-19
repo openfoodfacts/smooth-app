@@ -46,7 +46,7 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
     return Dismissible(
       key: Key(query),
       direction: DismissDirection.endToStart,
-      onDismissed: (DismissDirection direction) =>
+      onDismissed: (DismissDirection direction) async =>
           _handleDismissed(context, query),
       background: Container(color: RED_COLOR),
       child: ListTile(
@@ -62,6 +62,9 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
   }
 
   Future<void> _handleDismissed(BuildContext context, String query) async {
+    // we need an immediate action for the display refresh
+    _queries.remove(query);
+    // and we need to impact the database too
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     await DaoStringList(localDatabase).remove(query);
     setState(() {});

@@ -49,7 +49,6 @@ class _ProductListPageState extends State<ProductListPage> {
         break;
       case ProductListType.HTTP_SEARCH_CATEGORY:
       case ProductListType.HTTP_SEARCH_KEYWORDS:
-      case ProductListType.HTTP_SEARCH_GROUP:
         dismissible = false;
     }
     return Scaffold(
@@ -80,7 +79,7 @@ class _ProductListPageState extends State<ProductListPage> {
                           context,
                           MaterialPageRoute<Widget>(
                             builder: (BuildContext context) =>
-                                PersonalizedRankingPage.fromItems(
+                                PersonalizedRankingPage(
                               products: list,
                               title: appLocalizations.product_list_your_ranking,
                             ),

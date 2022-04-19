@@ -1,9 +1,7 @@
 # Docs: https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically
-
 version: 2
-
+enable-beta-ecosystems: true
 updates:
-
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
@@ -13,8 +11,9 @@ updates:
     commit-message:
       prefix: "chore"
       include: "scope"
+      
   - package-ecosystem: "bundler"
-    directory: "/"
+    directory: "packages/smooth_app/android"
     schedule:
       interval: "daily"
     labels:
@@ -22,3 +21,21 @@ updates:
     commit-message:
       prefix: "chore"
       include: "scope"
+      
+  - package-ecosystem: "bundler"
+    directory: "packages/smooth_app/ios"
+    schedule:
+      interval: "daily"
+    labels:
+      - "dependencies"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+  - package-ecosystem: "pub"
+    directory: "/packages/smooth_app/"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+#end

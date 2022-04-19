@@ -7,7 +7,6 @@ import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
-import 'package:smooth_app/cards/product_cards/question_card.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/category_product_query.dart';
@@ -24,6 +23,7 @@ import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/helpers/smooth_matched_product.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
+import 'package:smooth_app/pages/question_page.dart';
 
 const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS,
@@ -102,24 +102,29 @@ class _SummaryCardState extends State<SummaryCard> {
 
   Widget _buildLimitedSizeSummaryCard(double parentHeight) {
     totalPrintableRows = parentHeight ~/ SUMMARY_CARD_ROW_HEIGHT;
-    return Stack(
-      children: <Widget>[
-        ClipRRect(
-          borderRadius: ROUNDED_BORDER_RADIUS,
-          child: OverflowBox(
-            alignment: AlignmentDirectional.topStart,
-            minHeight: parentHeight,
-            maxHeight: double.infinity,
-            child: buildProductSmoothCard(
-              header: _buildProductCompatibilityHeader(context),
-              body: Padding(
-                padding: SMOOTH_CARD_PADDING,
-                child: _buildSummaryCardContent(context),
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: SMALL_SPACE,
+        vertical: VERY_SMALL_SPACE,
+      ),
+      child: Stack(
+        children: <Widget>[
+          ClipRRect(
+            borderRadius: ROUNDED_BORDER_RADIUS,
+            child: OverflowBox(
+              alignment: AlignmentDirectional.topStart,
+              minHeight: parentHeight,
+              maxHeight: double.infinity,
+              child: buildProductSmoothCard(
+                header: _buildProductCompatibilityHeader(context),
+                body: Padding(
+                  padding: SMOOTH_CARD_PADDING,
+                  child: _buildSummaryCardContent(context),
+                ),
+                margin: EdgeInsets.zero,
               ),
-              margin: EdgeInsets.zero,
             ),
           ),
-        ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.end,
@@ -141,18 +146,25 @@ class _SummaryCardState extends State<SummaryCard> {
                       ),
                 ),
               ),
-            ),
-          ],
-        ),
-      ],
+            ],
+          ),
+        ],
+      ),
     );
   }
 
   Widget _buildSummaryCardContent(BuildContext context) {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final AppLocalizations localizations = AppLocalizations.of(context)!;
-    final List<Attribute> scoreAttributes =
-        getPopulatedAttributes(widget._product, SCORE_ATTRIBUTE_IDS);
+    final UserPreferences userPreferences = context.read<UserPreferences>();
+
+    final List<String> excludedAttributeIds =
+        userPreferences.getExcludedAttributeIds();
+    final List<Attribute> scoreAttributes = getPopulatedAttributes(
+      widget._product,
+      SCORE_ATTRIBUTE_IDS,
+      excludedAttributeIds,
+    );
 
     // Header takes 1 row.
     // Product Title Tile takes 2 rows to render.
@@ -257,26 +269,25 @@ class _SummaryCardState extends State<SummaryCard> {
                 name: categoryLabel!,
                 localDatabase: localDatabase,
                 productQuery: CategoryProductQuery(
-                  categoryTag: widget._product.categoriesTags!.last,
-                  size: 500,
+                  widget._product.categoriesTags!.last,
                 ),
                 context: context,
               ),
             ),
         if ((statesTags.contains('en:product-name-to-be-completed')) ||
             (statesTags.contains('en:quantity-to-be-completed')))
-          addPanelButton(
-              'Complete basic details', // TODO(vik4114): localization
+          addPanelButton(localizations.completed_basic_details_btn_text,
               onPressed: () => _showNotImplemented(context)),
       ],
     );
   }
 
   void _showNotImplemented(BuildContext context) {
+    final AppLocalizations localizations = AppLocalizations.of(context)!;
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Not implemented yet'),
-        duration: Duration(seconds: 2),
+      SnackBar(
+        content: Text(localizations.not_implemented_snackbar_text),
+        duration: const Duration(seconds: 2),
       ),
     );
   }
@@ -465,7 +476,7 @@ class _SummaryCardState extends State<SummaryCard> {
                 await Navigator.push<Widget>(
                   context,
                   MaterialPageRoute<Widget>(
-                    builder: (BuildContext context) => QuestionCard(
+                    builder: (BuildContext context) => QuestionPage(
                       product: widget._product,
                       questions: questions,
                       updateProductUponAnswers: _updateProductUponAnswers,

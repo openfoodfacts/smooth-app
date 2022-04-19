@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 
@@ -18,10 +19,11 @@ class SmoothActionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
     return SmoothSimpleButton(
-      child: Text(
+      child: AutoSizeText(
         text,
         style: themeData.textTheme.bodyText2!
             .copyWith(color: themeData.colorScheme.onPrimary),
+        maxLines: 1,
       ),
       onPressed: onPressed,
       height: height,

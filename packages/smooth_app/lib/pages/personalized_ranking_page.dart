@@ -3,7 +3,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
-import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/smooth_it_model.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
@@ -14,12 +13,7 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/smooth_matched_product.dart';
 
 class PersonalizedRankingPage extends StatefulWidget {
-  PersonalizedRankingPage({
-    required final ProductList productList,
-    required this.title,
-  }) : products = productList.getList();
-
-  const PersonalizedRankingPage.fromItems({
+  const PersonalizedRankingPage({
     required this.products,
     required this.title,
   });

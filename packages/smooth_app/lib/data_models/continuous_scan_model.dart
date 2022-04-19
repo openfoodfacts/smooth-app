@@ -60,7 +60,7 @@ class ContinuousScanModel with ChangeNotifier {
       _states.clear();
       _latestScannedBarcode = null;
       await refreshProductList();
-      for (final String barcode in _productList.barcodes.reversed) {
+      for (final String barcode in _productList.barcodes) {
         _barcodes.add(barcode);
         _states[barcode] = ScannedProductState.CACHED;
         _latestScannedBarcode = barcode;
@@ -105,6 +105,13 @@ class ContinuousScanModel with ChangeNotifier {
     _addBarcode(code);
   }
 
+  Future<bool> onCreateProduct(String? barcode) async {
+    if (barcode == null) {
+      return false;
+    }
+    return _addBarcode(barcode);
+  }
+
   Future<void> retryBarcodeFetch(String barcode) async {
     _setBarcodeState(barcode, ScannedProductState.LOADING);
     await _updateBarcode(barcode);
@@ -113,7 +120,9 @@ class ContinuousScanModel with ChangeNotifier {
   Future<bool> _addBarcode(final String barcode) async {
     final ScannedProductState? state = getBarcodeState(barcode);
     if (state == null) {
-      _barcodes.add(barcode);
+      if (!_barcodes.contains(barcode)) {
+        _barcodes.add(barcode);
+      }
       _setBarcodeState(barcode, ScannedProductState.LOADING);
       _cacheOrLoadBarcode(barcode);
       return true;
