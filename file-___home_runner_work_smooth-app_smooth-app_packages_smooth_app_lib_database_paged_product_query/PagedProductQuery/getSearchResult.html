@@ -77,7 +77,7 @@ Future&lt;SearchResult&gt; getSearchResult() async =&gt;
         fields: ProductQuery.fields,
         parametersList: &lt;Parameter&gt;[
           PageSize(size: pageSize),
-          Page(page: _pageNumber),
+          PageNumber(page: _pageNumber),
           getParameter(),
         ],
         language: ProductQuery.getLanguage(),
