@@ -29,11 +29,14 @@ class ContinuousScanModel with ChangeNotifier {
 
   String? _latestScannedBarcode;
   String? _latestFoundBarcode;
+  String? _latestConsultedBarcode;
   String? _barcodeTrustCheck; // TODO(monsieurtanuki): could probably be removed
   late DaoProduct _daoProduct;
   late DaoProductList _daoProductList;
 
   ProductList get productList => _productList;
+
+  String? get latestConsultedBarcode => _latestConsultedBarcode;
 
   List<String> getBarcodes() => _barcodes;
 
@@ -96,7 +99,8 @@ class ContinuousScanModel with ChangeNotifier {
       _barcodeTrustCheck = code;
       return;
     }
-    if (_latestScannedBarcode == code) {
+    if (_latestScannedBarcode == code || _barcodes.contains(code)) {
+      setLastConsultedBarcode(code);
       return;
     }
     AnalyticsHelper.trackScannedProduct(barcode: code);
@@ -125,6 +129,7 @@ class ContinuousScanModel with ChangeNotifier {
       }
       _setBarcodeState(barcode, ScannedProductState.LOADING);
       _cacheOrLoadBarcode(barcode);
+      setLastConsultedBarcode(barcode);
       return true;
     }
     if (state == ScannedProductState.FOUND ||
@@ -137,6 +142,7 @@ class ContinuousScanModel with ChangeNotifier {
       if (state == ScannedProductState.CACHED) {
         _updateBarcode(barcode);
       }
+      setLastConsultedBarcode(barcode);
       return true;
     }
     return false;
@@ -227,5 +233,12 @@ class ContinuousScanModel with ChangeNotifier {
   Future<void> refresh() async {
     await _refresh();
     notifyListeners();
+  }
+
+  void setLastConsultedBarcode(String? barcode) {
+    _latestConsultedBarcode = barcode;
+    if (barcode != null) {
+      notifyListeners();
+    }
   }
 }

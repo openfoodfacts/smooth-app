@@ -84,10 +84,14 @@ class PageManagerState extends State<PageManager> {
           onTap: (int index) {
             if (_currentPage == BottomNavigationTab.Scan &&
                 _pageKeys[index] == BottomNavigationTab.Scan) {
-              InheritedDataManager.of(context).resetShowSearchCard(true);
+              if (!InheritedDataManager.of(context).showSearchCard) {
+                InheritedDataManager.of(context).resetShowSearchCard(true);
+              }
               _selectTab(_pageKeys[index], index);
             } else {
-              InheritedDataManager.of(context).resetShowSearchCard(false);
+              if (InheritedDataManager.of(context).showSearchCard) {
+                InheritedDataManager.of(context).resetShowSearchCard(false);
+              }
               _selectTab(_pageKeys[index], index);
             }
           },
