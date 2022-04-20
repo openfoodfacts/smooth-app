@@ -27,7 +27,7 @@ abstract class PagedProductQuery implements ProductQuery {
           fields: ProductQuery.fields,
           parametersList: <Parameter>[
             PageSize(size: pageSize),
-            Page(page: _pageNumber),
+            PageNumber(page: _pageNumber),
             getParameter(),
           ],
           language: ProductQuery.getLanguage(),

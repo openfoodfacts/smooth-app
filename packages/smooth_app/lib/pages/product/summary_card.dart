@@ -141,7 +141,10 @@ class _SummaryCardState extends State<SummaryCard> {
                 child: Center(
                   child: Text(
                     AppLocalizations.of(context)!.tab_for_more,
-                    style: Theme.of(context).primaryTextTheme.bodyText1,
+                    style:
+                        Theme.of(context).primaryTextTheme.bodyText1?.copyWith(
+                              color: PRIMARY_BLUE_COLOR,
+                            ),
                   ),
                 ),
               ),
