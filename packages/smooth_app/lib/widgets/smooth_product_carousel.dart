@@ -84,8 +84,10 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
         enableInfiniteScroll: false,
         onPageChanged: (int index, CarouselPageChangedReason reason) {
           _lastIndex = index;
-          if (InheritedDataManager.of(context).showSearchCard) {
-            InheritedDataManager.of(context).resetShowSearchCard(false);
+          final InheritedDataManagerState inheritedDataManager =
+              InheritedDataManager.of(context);
+          if (inheritedDataManager.showSearchCard) {
+            inheritedDataManager.resetShowSearchCard(false);
           }
           if (index > 0) {
             if (reason == CarouselPageChangedReason.manual) {

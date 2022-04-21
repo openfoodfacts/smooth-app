@@ -35,9 +35,17 @@ class ContinuousScanModel with ChangeNotifier {
   late DaoProductList _daoProductList;
 
   ProductList get productList => _productList;
-  String? get latestConsultedBarcode => _latestConsultedBarcode;
 
   List<String> getBarcodes() => _barcodes;
+
+  String? get latestConsultedBarcode => _latestConsultedBarcode;
+
+  set lastConsultedBarcode(String? barcode) {
+    _latestConsultedBarcode = barcode;
+    if (barcode != null) {
+      notifyListeners();
+    }
+  }
 
   Future<ContinuousScanModel?> load(final LocalDatabase localDatabase) async {
     try {
@@ -232,12 +240,5 @@ class ContinuousScanModel with ChangeNotifier {
   Future<void> refresh() async {
     await _refresh();
     notifyListeners();
-  }
-
-  set lastConsultedBarcode(String? barcode) {
-    _latestConsultedBarcode = barcode;
-    if (barcode != null) {
-      notifyListeners();
-    }
   }
 }
