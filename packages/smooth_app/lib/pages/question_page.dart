@@ -338,15 +338,16 @@ class _QuestionPageState extends State<QuestionPage>
     required InsightAnnotation insightAnnotation,
   }) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+
     await LoadingDialog.run<Status>(
       context: context,
       title: appLocalizations.saving_answer,
+      // TODO(monsieurtanuki): remove that line when fixed in [off-dart #451](https://github.com/openfoodfacts/openfoodfacts-dart/pull/451)
       future: OpenFoodAPIClient.postInsightAnnotation(
         insightId,
         insightAnnotation,
         deviceId: OpenFoodAPIConfiguration.uuid,
         user: OpenFoodAPIConfiguration.globalUser,
-        //TODO(monsieurtanuki): remove that line when fixed in [off-dart #451](https://github.com/openfoodfacts/openfoodfacts-dart/pull/451)
       ),
     );
     if (barcode != null && insightId != null) {
