@@ -5,11 +5,12 @@ import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
-import 'package:smooth_app/data_models/product_query_model.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
+import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
 
 class QuestionPage extends StatefulWidget {
@@ -344,12 +345,16 @@ class _QuestionPageState extends State<QuestionPage>
         insightId,
         insightAnnotation,
         deviceId: OpenFoodAPIConfiguration.uuid,
-        queryType: OpenFoodAPIConfiguration.globalQueryType,
         user: OpenFoodAPIConfiguration.globalUser,
+        //TODO(monsieurtanuki): remove that line when fixed in [off-dart #451](https://github.com/openfoodfacts/openfoodfacts-dart/pull/451)
       ),
     );
     if (barcode != null && insightId != null) {
-      await ProductQueryModel.cacheInsightAnnotationVoted(barcode, insightId);
+      final LocalDatabase localDatabase = context.read<LocalDatabase>();
+      final RobotoffInsightHelper robotoffInsightHelper =
+          RobotoffInsightHelper(localDatabase);
+      await robotoffInsightHelper.cacheInsightAnnotationVoted(
+          barcode, insightId);
     }
   }
 }

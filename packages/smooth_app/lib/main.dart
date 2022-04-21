@@ -70,7 +70,7 @@ Future<bool> _init1() async {
     return false;
   }
   _userPreferences = await UserPreferences.getUserPreferences();
-  _localDatabase = await LocalDatabase.initLocalDatabase();
+  _localDatabase = await LocalDatabase.getLocalDatabase();
   _productPreferences = ProductPreferences(
     ProductPreferencesSelection(
       setImportance: _userPreferences.setImportance,

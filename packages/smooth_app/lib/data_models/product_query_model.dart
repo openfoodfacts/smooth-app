@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
-import 'package:smooth_app/database/dao_robotoff_insight_map.dart';
+import 'package:smooth_app/database/dao_string_list_map.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/database/robotoff_questions_query.dart';
@@ -160,53 +160,6 @@ class ProductQueryModel with ChangeNotifier {
                   ?.contains(category) ??
               false)
           .toList();
-    }
-  }
-
-  static Future<void> cacheInsightAnnotationVoted(
-      String barcode, String insightId) async {
-    final LocalDatabase localDatabase =
-        LocalDatabase.getLocalDatabaseInstance();
-    await DaoRobotoffInsightMap(localDatabase).add(barcode, insightId);
-  }
-
-  static Future<bool> haveInsightAnnotationsVoted(
-      List<RobotoffQuestion> questions) async {
-    final LocalDatabase localDatabase =
-        LocalDatabase.getLocalDatabaseInstance();
-    final Map<String, List<String>> votedHist =
-        await DaoRobotoffInsightMap(localDatabase).getAll();
-    bool result = false;
-    for (final String barcode in votedHist.keys) {
-      final List<String> insights = votedHist[barcode] ?? <String>[];
-      if (questions.every((RobotoffQuestion question) =>
-          insights.contains(question.insightId))) {
-        result = true;
-        break;
-      }
-    }
-    return result;
-  }
-
-  static Future<void> removeInsightAnnotationsSavedForProdcut(
-      String barcode) async {
-    final LocalDatabase localDatabase =
-        LocalDatabase.getLocalDatabaseInstance();
-    await DaoRobotoffInsightMap(localDatabase).removeKey(barcode);
-  }
-
-  static Future<void> clearInsightAnnotationsSaved() async {
-    final LocalDatabase localDatabase =
-        LocalDatabase.getLocalDatabaseInstance();
-    final Map<String, List<String>> records =
-        await DaoRobotoffInsightMap(localDatabase).getAll();
-    for (final String barcode in records.keys) {
-      final List<RobotoffQuestion> questions =
-          await RobotoffQuestionsQuery(barcode)
-              .getRobotoffQuestionsForProduct();
-      if (questions.isEmpty) {
-        await DaoRobotoffInsightMap(localDatabase).removeKey(barcode);
-      }
     }
   }
 }

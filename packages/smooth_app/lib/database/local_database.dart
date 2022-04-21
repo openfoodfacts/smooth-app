@@ -6,14 +6,12 @@ import 'package:smooth_app/database/abstract_dao.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
-import 'package:smooth_app/database/dao_robotoff_insight_map.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
+import 'package:smooth_app/database/dao_string_list_map.dart';
 
 class LocalDatabase extends ChangeNotifier {
   LocalDatabase._();
-
-  static late final LocalDatabase _localDatabase = LocalDatabase._();
 
   /// Notify listeners
   /// Comments added only in order to avoid a "warning"
@@ -22,15 +20,16 @@ class LocalDatabase extends ChangeNotifier {
   @override
   void notifyListeners() => super.notifyListeners();
 
-  static Future<LocalDatabase> initLocalDatabase() async {
+  static Future<LocalDatabase> getLocalDatabase() async {
     await Hive.initFlutter();
+    final LocalDatabase localDatabase = LocalDatabase._();
     final List<AbstractDao> daos = <AbstractDao>[
-      DaoProduct(_localDatabase),
-      DaoProductList(_localDatabase),
-      DaoStringList(_localDatabase),
-      DaoString(_localDatabase),
-      DaoInt(_localDatabase),
-      DaoRobotoffInsightMap(_localDatabase),
+      DaoProduct(localDatabase),
+      DaoProductList(localDatabase),
+      DaoStringList(localDatabase),
+      DaoString(localDatabase),
+      DaoInt(localDatabase),
+      DaoStringListMap(localDatabase),
     ];
     for (final AbstractDao dao in daos) {
       dao.registerAdapter();
@@ -38,11 +37,7 @@ class LocalDatabase extends ChangeNotifier {
     for (final AbstractDao dao in daos) {
       await dao.init();
     }
-    return _localDatabase;
-  }
-
-  static LocalDatabase getLocalDatabaseInstance() {
-    return _localDatabase;
+    return localDatabase;
   }
 
   static int nowInMillis() => DateTime.now().millisecondsSinceEpoch;

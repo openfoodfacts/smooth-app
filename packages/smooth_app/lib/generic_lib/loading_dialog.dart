@@ -64,10 +64,6 @@ class LoadingDialog<T> {
       showDialog<T>(
         context: context,
         builder: (BuildContext context) {
-          future.then<void>(
-            (final T value) => _popDialog(context, value),
-          );
-          // TODO(monsieurtanuki): is that safe? If the future finishes before the "return" call?
           return _getDialog(context, title, future);
         },
       );
@@ -94,11 +90,8 @@ class LoadingDialog<T> {
         future: future,
         builder: (BuildContext context, AsyncSnapshot<T> snapshot) {
           if (snapshot.hasData) {
-            _popDialog(context, null);
-            return ListTile(
-              leading: const CircularProgressIndicator(),
-              title: Text(title),
-            );
+            _popDialog(context, snapshot.data);
+            return Container();
           } else if (snapshot.hasError) {
             return ListTile(
               title: Text(appLocalizations!.error_occurred),

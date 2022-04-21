@@ -2,9 +2,8 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
 import 'package:smooth_app/database/local_database.dart';
 
-class DaoRobotoffInsightMap extends AbstractDao {
-  DaoRobotoffInsightMap(final LocalDatabase localDatabase)
-      : super(localDatabase);
+class DaoStringListMap extends AbstractDao {
+  DaoStringListMap(final LocalDatabase localDatabase) : super(localDatabase);
 
   static const String _hiveBoxName = 'robotoffMap';
   static const String _key = 'votedHistory';
@@ -59,7 +58,7 @@ class DaoRobotoffInsightMap extends AbstractDao {
     return false;
   }
 
-  Future<bool> removeInsight(final String insightId) async {
+  Future<bool> removeStringValue(final String insightId) async {
     final Map<String, List<String>> value = await getAll();
     bool needNotify = false;
     for (final String barcode in value.keys) {
@@ -78,16 +77,16 @@ class DaoRobotoffInsightMap extends AbstractDao {
     return false;
   }
 
-  Future<bool> existsInsight(final String insightId) async {
+  Future<bool> containsStringValue(final String insightId) async {
     final Map<String, List<String>> value = await getAll();
-    bool esixts = false;
+    bool exists = false;
     for (final String barcode in value.keys) {
       final List<String> insights = value[barcode] ?? <String>[];
       if (insights.contains(insightId)) {
-        esixts = true;
+        exists = true;
         break;
       }
     }
-    return esixts;
+    return exists;
   }
 }

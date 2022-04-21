@@ -8,7 +8,6 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/data_models/product_query_model.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/category_product_query.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -20,6 +19,7 @@ import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
+import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/helpers/smooth_matched_product.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
@@ -510,12 +510,14 @@ class _SummaryCardState extends State<SummaryCard> {
     // Or the backend may have new ones.
     final List<RobotoffQuestion> questions =
         await _loadProductQuestions() ?? <RobotoffQuestion>[];
+    final RobotoffInsightHelper robotoffInsightHelper =
+        RobotoffInsightHelper(context.read<LocalDatabase>());
     if (questions.isEmpty) {
-      await ProductQueryModel.removeInsightAnnotationsSavedForProdcut(
-          widget._product.barcode!);
+      await robotoffInsightHelper
+          .removeInsightAnnotationsSavedForProdcut(widget._product.barcode!);
     }
     _annotationVoted =
-        await ProductQueryModel.haveInsightAnnotationsVoted(questions);
+        await robotoffInsightHelper.haveInsightAnnotationsVoted(questions);
     // Reload the product as it may have been updated because of the
     // new answers.
     widget.refreshProductCallback?.call(context);
@@ -525,8 +527,10 @@ class _SummaryCardState extends State<SummaryCard> {
     final List<RobotoffQuestion> questions =
         await RobotoffQuestionsQuery(widget._product.barcode!)
             .getRobotoffQuestionsForProduct();
+    final RobotoffInsightHelper robotoffInsightHelper =
+        RobotoffInsightHelper(context.read<LocalDatabase>());
     _annotationVoted =
-        await ProductQueryModel.haveInsightAnnotationsVoted(questions);
+        await robotoffInsightHelper.haveInsightAnnotationsVoted(questions);
     return questions;
   }
 }
