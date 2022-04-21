@@ -12,11 +12,9 @@ class SmoothCard extends StatelessWidget {
   const SmoothCard({
     required this.child,
     this.color,
-    this.margin = const EdgeInsets.only(
-      right: SMALL_SPACE,
-      left: SMALL_SPACE,
-      top: VERY_SMALL_SPACE,
-      bottom: VERY_SMALL_SPACE,
+    this.margin = const EdgeInsets.symmetric(
+      horizontal: SMALL_SPACE,
+      vertical: VERY_SMALL_SPACE,
     ),
     this.padding = const EdgeInsets.all(5.0),
     this.elevation = 8,
@@ -37,8 +35,8 @@ class SmoothCard extends StatelessWidget {
 
   final Widget child;
   final Color? color;
-  final EdgeInsets? margin;
-  final EdgeInsets? padding;
+  final EdgeInsetsGeometry? margin;
+  final EdgeInsetsGeometry? padding;
   final double elevation;
 
   @override

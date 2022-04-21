@@ -1,4 +1,5 @@
 {
+    "app_name": "Smoothie",
     "@Utils": {},
     "yes": "Da",
     "@yes": {},
@@ -161,6 +162,14 @@
     "sign_up_page_confirm_password_hint": "Confirmați parola",
     "sign_up_page_confirm_password_error_empty": "Vă rugăm să confirmați parola dvs",
     "sign_up_page_confirm_password_error_invalid": "Parolele nu se potrivesc",
+    "sign_up_page_agree_text": "Sunt de acord cu Open Food Facts",
+    "@sign_up_page_agree_text": {
+        "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
+    },
+    "sign_up_page_terms_text": "termeni de utilizare și contribuție",
+    "@sign_up_page_terms_text": {
+        "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
+    },
     "sign_up_page_agree_url": "https://world-ro.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
@@ -288,7 +297,7 @@
     "ranking_subtitle_match_yes": "O bună potrivire pentru tine",
     "ranking_subtitle_match_no": "Potrivire foarte slabă",
     "ranking_subtitle_match_maybe": "Potrivire necunoscută",
-    "reloaded_with_new_preferences": "Reloaded with your new preferences",
+    "reloaded_with_new_preferences": "Reîncărcat cu noile preferințe",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
     },
@@ -376,17 +385,23 @@
     "@add_product_information_button_label": {},
     "new_product": "Produs Nou",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Front of product photo",
+    "front_packaging_photo_button_label": "Fotografie frontală a produsului",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Confirm front of product photo",
+    "confirm_front_packaging_photo_button_label": "Confirmați fotografia frontală a produsului",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
+    "confirm_button_label": "Confirmați",
+    "front_packaging_photo_title": "Fotografie ambalaj frontal",
+    "ingredients_photo_title": "Fotografie cu ingredientele",
+    "nutritional_facts_photo_title": "Fotografie cu datele nutriționale",
+    "recycling_photo_title": "Imaginea cu metoda de reciclare",
+    "other_interesting_photo_title": "O altă fotografie interesantă",
     "front_photo_uploaded": "Fotografia frontală a fost încărcată",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Foto ingrediente",
     "@ingredients_photo_button_label": {},
-    "confirm_ingredients_photo_button_label": "Confirm ingredients photo",
+    "confirm_ingredients_photo_button_label": "Confirmați fotografia cu ingredientele",
     "@confirm_ingredients_photo_button_label": {
         "description": "Button clicking on which confirms the picture of ingredients that user just took."
     },
@@ -394,11 +409,11 @@
     "@ingredients_photo_uploaded": {},
     "nutritional_facts_photo_button_label": "Foto cu informații nutriționale",
     "@nutritional_facts_photo_button_label": {},
-    "confirm_nutritional_facts_photo_button_label": "Confirm nutrition facts photo",
+    "confirm_nutritional_facts_photo_button_label": "Confirmați fotografia cu informațiile nutriționale",
     "@confirm_nutritional_facts_photo_button_label": {
         "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
     },
-    "nutritional_facts_photo_uploaded": "Nutrition facts photo uploaded",
+    "nutritional_facts_photo_uploaded": "Fotografie cu informații nutriționale încărcate",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Fotografia cu informații despre reciclare",
     "@recycling_photo_button_label": {},
@@ -427,6 +442,30 @@
     "uploading_image": "Uploading photo to the server",
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
+    },
+    "uploading_image_type_front": "Uploading front image to Open Food Facts",
+    "@uploading_image_type_front": {
+        "description": "Message when a new front picture is being uploaded to the server"
+    },
+    "uploading_image_type_ingredients": "Uploading ingredients image to Open Food Facts",
+    "@uploading_image_type_ingredients": {
+        "description": "Message when a new ingredients picture is being uploaded to the server"
+    },
+    "uploading_image_type_nutrition": "Uploading nutrition image to Open Food Facts",
+    "@uploading_image_type_nutrition": {
+        "description": "Message when a new nutrition picture is being uploaded to the server"
+    },
+    "uploading_image_type_packaging": "Uploading packaging image to Open Food Facts",
+    "@uploading_image_type_packaging": {
+        "description": "Message when a new packaging picture is being uploaded to the server"
+    },
+    "uploading_image_type_other": "Uploading other image to Open Food Facts",
+    "@uploading_image_type_other": {
+        "description": "Message when a new other picture is being uploaded to the server"
+    },
+    "uploading_image_type_generic": "Uploading image to Open Food Facts",
+    "@uploading_image_type_generic": {
+        "description": "Message when a new picture is being uploaded to the server"
     },
     "score_add_missing_ingredients": "Adăugați ingredientele lipsă",
     "score_add_missing_nutrition_facts": "Adăugați informațiile nutriționale care lipsesc",
@@ -529,7 +568,7 @@
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_incompatible": "Does not match",
+    "product_compatibility_incompatible": "Nu se potrivește",
     "@product_compatibility_incompatible": {
         "description": "Product compatibility summary title"
     },
@@ -611,11 +650,11 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide if you want to send anonymous analytics.",
+    "consent_analytics_body1": "Ajutați voluntarii Open Food Facts să îmbunătățească aplicația. Tu decizi dacă vrei să trimiți analize anonime.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
-    "consent_analytics_body2": "If you change your mind, this option can be enabled and disabled at any time from the settings.",
+    "consent_analytics_body2": "Dacă vă răzgândiți, această opțiune poate fi activată și dezactivată în orice moment din setări.",
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
@@ -636,7 +675,7 @@
             }
         }
     },
-    "onboarding_welcome_loading_dialog_title": "Loading your first example product",
+    "onboarding_welcome_loading_dialog_title": "Se încarcă primul exemplu de produs",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },
@@ -652,15 +691,15 @@
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
-    "product_list_empty_message": "Products you scan will appear here and you can check detailed information about them",
+    "product_list_empty_message": "Produsele pe care le scanați vor apărea aici și puteți verifica informații detaliate despre ele",
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress": "Refreshing products in your History",
+    "product_list_reloading_in_progress": "Reîmprospătarea produselor din istoricul tău",
     "@product_list_reloading_in_progress": {
         "description": "Message to show while loading previous scanned items"
     },
-    "product_list_reloading_success": "Product refresh complete",
+    "product_list_reloading_success": "Actualizare produs finalizată",
     "@product_list_reloading_success": {
         "description": "Message to show once previous scanned items are loaded"
     },
@@ -680,7 +719,7 @@
     "@email_subject_account_deletion": {
         "description": "Email subject for an account deletion"
     },
-    "email_body_account_deletion": "Hi there, please delete my Open Food Facts account: {userId}",
+    "email_body_account_deletion": "Bună ziua, vă rog să ștergeți contul meu Open Food Facts: {userId}",
     "@email_body_account_deletion": {
         "description": "Email body for an account deletion",
         "placeholders": {
@@ -693,7 +732,7 @@
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "When enabled, crash reports will be sent to the Open Food Facts bug system automatically, so that we can fix bugs and improve the app.",
+    "crash_reporting_toggle_subtitle": "Când sunt activate, rapoartele de eroare vor fi trimise automat către sistemul de erori Open Food Facts, astfel încât să putem remedia erorile și să îmbunătățim aplicația.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
@@ -713,6 +752,24 @@
     "@permission_photo_error": {
         "description": "When the camera/photo permission failed to be acquired (!= denied)"
     },
+    "permission_photo_denied_title": "Allow camera use to scan barcodes",
+    "permission_photo_denied_message": "For an enhanced experience, please allow {appName} to access your camera. You will be able to directly scan barcodes.",
+    "@permission_photo_denied_message": {
+        "description": "When the camera/photo permission is denied by user",
+        "placeholders": {
+            "appName": {
+                "type": "String"
+            }
+        }
+    },
+    "permission_photo_denied_button": "Allow",
+    "@permission_photo_denied_button": {
+        "description": "When the camera/photo permission is denied by user"
+    },
+    "permission_photo_denied_dialog_settings_title": "Permission denied",
+    "permission_photo_denied_dialog_settings_message": "As you've previously denied the camera permission, you must allow it manually from the Settings.",
+    "permission_photo_denied_dialog_settings_button_open": "Open Settings",
+    "permission_photo_denied_dialog_settings_button_cancel": "Anulare",
     "permission_photo_denied": "Nu este permis accesul la cameră",
     "@permission_photo_denied": {
         "description": "When the camera/photo permission is denied by user"
@@ -768,5 +825,8 @@
     "edit_product_form_save": "Modificare",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
-    }
+    },
+    "completed_basic_details_btn_text": "Detalii de bază complete",
+    "not_implemented_snackbar_text": "Neimplementat încă",
+    "category_picker_page_appbar_text": "Categorii"
 }
