@@ -156,6 +156,14 @@
     "sign_up_page_username_error_empty": "Please enter a username",
     "sign_up_page_username_error_invalid": "Please enter a valid username",
     "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters",
+    "sign_up_page_username_length_invalid": "Username must be less than {value} characters",
+    "@sign_up_page_username_length_invalid": {
+        "placeholders": {
+        "value": {
+            "type": "int"
+        }
+        }
+    },
     "sign_up_page_password_hint": "Password",
     "sign_up_page_password_error_empty": "Please enter a password",
     "sign_up_page_password_error_invalid": "Please enter a valid password (at least 6 characters)",

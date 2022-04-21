@@ -120,7 +120,8 @@ class _SignUpPageState extends State<SignUpPage> {
                 if (!UserManagementHelper.isUsernameLengthValid(
                     _userController.trimmedText)) {
                   const int maxLength = OpenFoodAPIClient.USER_NAME_MAX_LENGTH;
-                  return 'Username must be less than $maxLength characters'; // TODO(vik4114): localization and translation
+                  return appLocalizations
+                      .sign_up_page_username_length_invalid(maxLength);
                 }
                 return null;
               },
