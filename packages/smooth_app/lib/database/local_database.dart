@@ -8,6 +8,7 @@ import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
+import 'package:smooth_app/database/dao_string_list_map.dart';
 
 class LocalDatabase extends ChangeNotifier {
   LocalDatabase._();
@@ -28,6 +29,7 @@ class LocalDatabase extends ChangeNotifier {
       DaoStringList(localDatabase),
       DaoString(localDatabase),
       DaoInt(localDatabase),
+      DaoStringListMap(localDatabase),
     ];
     for (final AbstractDao dao in daos) {
       dao.registerAdapter();
