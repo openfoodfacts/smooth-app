@@ -297,7 +297,7 @@ class _ProductListPageState extends State<ProductListPage> {
       freshProducts.forEach(productList.refresh);
       final RobotoffInsightHelper robotoffInsightHelper =
           RobotoffInsightHelper(localDatabase);
-      robotoffInsightHelper.clearInsightAnnotationsSaved();
+      await robotoffInsightHelper.clearInsightAnnotationsSaved();
       return true;
     } catch (e) {
       //
