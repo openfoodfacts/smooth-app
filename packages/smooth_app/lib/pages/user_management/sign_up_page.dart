@@ -117,6 +117,10 @@ class _SignUpPageState extends State<SignUpPage> {
                     _userController.trimmedText)) {
                   return appLocalizations.sign_up_page_username_description;
                 }
+                if (!UserManagementHelper.isUsernameLengthValid(
+                    _userController.trimmedText)) {
+                  return 'Username must be less than 20 characters'; // TODO(vik4114): localization
+                }
                 return null;
               },
             ),

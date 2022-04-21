@@ -20,6 +20,9 @@ class UserManagementHelper {
   static bool isUsernameValid(final String username) =>
       username.isNotEmpty && _userRegex.hasMatch(username);
 
+  static bool isUsernameLengthValid(final String username) =>
+      username.length <= 20;
+
   static bool isPasswordValid(final String password) => password.length >= 6;
 }
 
