@@ -73,6 +73,7 @@
     DaoStringList(localDatabase),
     DaoString(localDatabase),
     DaoInt(localDatabase),
+    DaoStringListMap(localDatabase),
   ];
   for (final AbstractDao dao in daos) {
     dao.registerAdapter();

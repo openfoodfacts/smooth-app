@@ -89,7 +89,7 @@
           actions: &lt;SmoothActionButton&gt;[
             SmoothActionButton(
               text: appLocalizations!.close,
-              onPressed: () =&gt; Navigator.pop(context),
+              onPressed: () =&gt; Navigator.maybePop(context),
             ),
           ],
         );

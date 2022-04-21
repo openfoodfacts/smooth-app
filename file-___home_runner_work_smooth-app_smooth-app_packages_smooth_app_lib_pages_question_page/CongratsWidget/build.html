@@ -105,7 +105,7 @@ Widget build(BuildContext context) {
                     SmoothActionButton(
                       text: appLocalizations.sign_in,
                       onPressed: () async {
-                        Navigator.pop&lt;Widget&gt;(context);
+                        Navigator.maybePop&lt;Widget&gt;(context);
                         await Navigator.push&lt;Widget&gt;(
                           context,
                           MaterialPageRoute&lt;Widget&gt;(
@@ -131,7 +131,7 @@ Widget build(BuildContext context) {
             }),
         TextButton(
           child: Text(appLocalizations.close),
-          onPressed: () =&gt; Navigator.pop&lt;Widget&gt;(context),
+          onPressed: () =&gt; Navigator.maybePop&lt;Widget&gt;(context),
         ),
       ],
     ),
