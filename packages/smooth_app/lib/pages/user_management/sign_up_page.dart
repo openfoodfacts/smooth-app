@@ -119,7 +119,8 @@ class _SignUpPageState extends State<SignUpPage> {
                 }
                 if (!UserManagementHelper.isUsernameLengthValid(
                     _userController.trimmedText)) {
-                  return 'Username must be less than 20 characters'; // TODO(vik4114): localization
+                  const int maxLength = OpenFoodAPIClient.USER_NAME_MAX_LENGTH;
+                  return 'Username must be less than $maxLength characters'; // TODO(vik4114): localization and translation
                 }
                 return null;
               },

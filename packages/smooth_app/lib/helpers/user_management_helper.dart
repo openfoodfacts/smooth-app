@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 
 class UserManagementHelper {
   UserManagementHelper._();
@@ -21,7 +22,7 @@ class UserManagementHelper {
       username.isNotEmpty && _userRegex.hasMatch(username);
 
   static bool isUsernameLengthValid(final String username) =>
-      username.length <= 20;
+      username.length <= OpenFoodAPIClient.USER_NAME_MAX_LENGTH;
 
   static bool isPasswordValid(final String password) => password.length >= 6;
 }
