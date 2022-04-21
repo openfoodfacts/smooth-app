@@ -89,11 +89,11 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
           }
           if (index > 0) {
             if (reason == CarouselPageChangedReason.manual) {
-              _model.setLastConsultedBarcode(
-                  barcodes[index - _searchCardAdjustment]);
+              _model.lastConsultedBarcode =
+                  barcodes[index - _searchCardAdjustment];
             }
           } else if (index == 0) {
-            _model.setLastConsultedBarcode(null);
+            _model.lastConsultedBarcode = null;
           }
         },
       ),
