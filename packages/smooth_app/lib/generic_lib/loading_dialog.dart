@@ -17,12 +17,14 @@ class LoadingDialog<T> {
     required final BuildContext context,
     required final Future<T> future,
     final String? title,
+    final bool? dismissible,
   }) {
     final AppLocalizations? appLocalizations = AppLocalizations.of(context);
     return LoadingDialog<T>._()._run(
       context: context,
       future: future,
       title: title ?? appLocalizations!.loading_dialog_default_title,
+      dismissible: dismissible ?? true,
     );
   }
 
@@ -60,8 +62,10 @@ class LoadingDialog<T> {
     required final BuildContext context,
     required final Future<T> future,
     required final String title,
+    final bool? dismissible,
   }) async =>
       showDialog<T>(
+        barrierDismissible: dismissible ?? true,
         context: context,
         builder: (BuildContext context) {
           return _getDialog(context, title, future);
