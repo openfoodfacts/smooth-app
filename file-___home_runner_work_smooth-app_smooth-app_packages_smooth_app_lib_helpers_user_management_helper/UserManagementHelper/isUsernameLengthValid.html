@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the isEmailValid method from the UserManagementHelper class, for the Dart programming language.">
-  <title>isEmailValid method - UserManagementHelper class - user_management_helper library - Dart API</title>
+  <meta name="description" content="API docs for the isUsernameLengthValid method from the UserManagementHelper class, for the Dart programming language.">
+  <title>isUsernameLengthValid method - UserManagementHelper class - user_management_helper library - Dart API</title>
 
 
   
@@ -32,9 +32,9 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_user_management_helper/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_user_management_helper-library.html">user_management_helper</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_user_management_helper/UserManagementHelper-class.html">UserManagementHelper</a></li>
-    <li class="self-crumb">isEmailValid method</li>
+    <li class="self-crumb">isUsernameLengthValid method</li>
   </ol>
-  <div class="self-name">isEmailValid</div>
+  <div class="self-name">isUsernameLengthValid</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,7 +45,7 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">isEmailValid</span> method 
+<h1><span class="kind-method">isUsernameLengthValid</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
@@ -53,7 +53,7 @@
       
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
-<span class="name ">isEmailValid</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="isEmailValid-param-email"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">email</span></span></li>
+<span class="name ">isUsernameLengthValid</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="isUsernameLengthValid-param-username"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">username</span></span></li>
 </ol>)
 
       
@@ -65,8 +65,8 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static bool isEmailValid(final String email) =&gt;
-    email.isNotEmpty &amp;&amp; _emailRegex.hasMatch(email);</code></pre>
+  <pre class="language-dart"><code class="language-dart">static bool isUsernameLengthValid(final String username) =&gt;
+    username.length &lt;= OpenFoodAPIClient.USER_NAME_MAX_LENGTH;</code></pre>
 </section>
 
 
@@ -83,7 +83,7 @@
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_user_management_helper/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_user_management_helper-library.html">user_management_helper</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_user_management_helper/UserManagementHelper-class.html">UserManagementHelper</a></li>
-  <li class="self-crumb">isEmailValid method</li>
+  <li class="self-crumb">isUsernameLengthValid method</li>
 </ol>
 
 
