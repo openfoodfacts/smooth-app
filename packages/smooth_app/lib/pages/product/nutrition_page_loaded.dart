@@ -279,36 +279,83 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
           final List<OrderedNutrient> leftovers = List<OrderedNutrient>.from(
             _nutritionContainer.getLeftoverNutrients(),
           );
-
           leftovers.sort((final OrderedNutrient a, final OrderedNutrient b) =>
               a.name!.compareTo(b.name!));
+          final List<OrderedNutrient> leftovers2 = <OrderedNutrient>[];
+          leftovers2.addAll(leftovers);
 
           final OrderedNutrient? selected = await showDialog<OrderedNutrient>(
               context: context,
               builder: (BuildContext context) {
-                final List<Widget> children = <Widget>[];
-                for (final OrderedNutrient nutrient in leftovers) {
-                  children.add(
-                    ListTile(
-                      title: Text(nutrient.name!),
-                      onTap: () => Navigator.pop(context, nutrient),
-                    ),
-                  );
-                }
-                return AlertDialog(
-                  title: Text(appLocalizations.nutrition_page_add_nutrient),
-                  content: SizedBox(
-                    // TODO(monsieurtanuki): proper sizes
-                    width: 300,
-                    height: 400,
-                    child: ListView(children: children),
-                  ),
-                  actions: <Widget>[
-                    ElevatedButton(
-                      onPressed: () => Navigator.pop(context),
-                      child: Text(appLocalizations.cancel),
-                    ),
-                  ],
+                return StatefulBuilder(
+                  builder: (BuildContext context,
+                      void Function(VoidCallback fn) setState) {
+                    return AlertDialog(
+                      title: Text(appLocalizations.nutrition_page_add_nutrient),
+                      content: SizedBox(
+                        // TODO(monsieurtanuki): proper sizes
+                        width: 300,
+                        height: 400,
+                        child: Column(
+                          children: <Widget>[
+                            TextField(
+                              decoration: const InputDecoration(
+                                prefixIcon: Icon(Icons.search),
+                                border: UnderlineInputBorder(),
+                                labelText: 'Search', // TODO(aman): translate
+                              ),
+                              onChanged: (String query) {
+                                final List<OrderedNutrient> searchList =
+                                    leftovers;
+                                if (query.isNotEmpty) {
+                                  final List<OrderedNutrient> filteredList =
+                                      <OrderedNutrient>[];
+                                  for (final OrderedNutrient item
+                                      in searchList) {
+                                    if (item.name!
+                                        .toLowerCase()
+                                        .contains(query.toLowerCase())) {
+                                      filteredList.add(item);
+                                    }
+                                  }
+                                  setState(() {
+                                    leftovers.clear();
+                                    leftovers.addAll(filteredList);
+                                  });
+                                  return;
+                                } else {
+                                  setState(() {
+                                    leftovers.clear();
+                                    leftovers.addAll(leftovers2);
+                                  });
+                                }
+                              },
+                            ),
+                            Expanded(
+                              child: ListView.builder(
+                                  itemCount: leftovers.length,
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    final OrderedNutrient nutrient =
+                                        leftovers[index];
+                                    return ListTile(
+                                      title: Text(nutrient.name!),
+                                      onTap: () =>
+                                          Navigator.of(context).pop(nutrient),
+                                    );
+                                  }),
+                            ),
+                          ],
+                        ),
+                      ),
+                      actions: <Widget>[
+                        ElevatedButton(
+                          onPressed: () => Navigator.pop(context),
+                          child: Text(appLocalizations.cancel),
+                        ),
+                      ],
+                    );
+                  },
                 );
               });
           if (selected != null) {
