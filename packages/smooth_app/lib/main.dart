@@ -82,7 +82,6 @@ Future<bool> _init1() async {
     system: Platform.operatingSystemVersion,
     url: 'https://world.openfoodfacts.org/',
   );
-  OpenFoodAPIConfiguration.uuid = '';
   _userPreferences = await UserPreferences.getUserPreferences();
   _localDatabase = await LocalDatabase.getLocalDatabase();
   _productPreferences = ProductPreferences(
