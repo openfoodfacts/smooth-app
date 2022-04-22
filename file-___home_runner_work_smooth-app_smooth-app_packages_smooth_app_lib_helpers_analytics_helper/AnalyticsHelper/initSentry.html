@@ -75,6 +75,8 @@
           &#39;https:&#47;&#47;22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io&#47;5376745&#39;;
       options.sentryClientName =
           &#39;sentry.dart.smoothie&#47;${packageInfo.version}&#39;;
+      &#47;&#47; To set a uniform sample rate
+      options.tracesSampleRate = 1.0;
       options.beforeSend = _beforeSend;
     },
     appRunner: appRunner,
