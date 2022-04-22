@@ -23,6 +23,7 @@ class OnboardingLoader {
           future: _downloadData(),
           title: AppLocalizations.of(context)!
               .onboarding_welcome_loading_dialog_title,
+          dismissible: false,
         );
         return;
       case OnboardingPage.NOT_STARTED:
