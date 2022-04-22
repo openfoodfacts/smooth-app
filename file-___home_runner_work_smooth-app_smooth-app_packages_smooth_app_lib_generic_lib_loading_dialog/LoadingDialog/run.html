@@ -55,7 +55,8 @@
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T?</span>&gt;</span></span>
 <span class="name ">run</span>&lt;<wbr><span class="type-parameter">T</span>&gt;(<wbr><ol class="parameter-list"><li><span class="parameter" id="run-param-context">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">context</span>, </span></li>
 <li><span class="parameter" id="run-param-future"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">future</span>, </span></li>
-<li><span class="parameter" id="run-param-title"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">title</span>}</span></li>
+<li><span class="parameter" id="run-param-title"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">title</span>, </span></li>
+<li><span class="parameter" id="run-param-dismissible"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">dismissible</span>}</span></li>
 </ol>)
 
       
@@ -74,12 +75,14 @@
   required final BuildContext context,
   required final Future&lt;T&gt; future,
   final String? title,
+  final bool? dismissible,
 }) {
   final AppLocalizations? appLocalizations = AppLocalizations.of(context);
   return LoadingDialog&lt;T&gt;._()._run(
     context: context,
     future: future,
     title: title ?? appLocalizations!.loading_dialog_default_title,
+    dismissible: dismissible ?? true,
   );
 }</code></pre>
 </section>
