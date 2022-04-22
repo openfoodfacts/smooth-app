@@ -629,6 +629,11 @@
     "add_basic_details_brand_name_error": "Please enter the brand name",
     "weight_gram": "Weight in gram",
     "add_basic_details_weight_gram_error": "Please enter the weight",
-    "barcode": "Barcode"
+    "barcode": "Barcode",
+    "basic_details_add_success": "Basic details added succesfully",
+    "basic_details_add_error": "Unable to add basic details. Please try again after some time",
+    "@basic_details_add_error":{
+        "description": "Error message when error occurs while submitting basic details"
+    }
 }
 

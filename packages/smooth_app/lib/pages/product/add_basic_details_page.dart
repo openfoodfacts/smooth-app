@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
+import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 
 class AddBasicDetailsPage extends StatefulWidget {
@@ -96,10 +99,11 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                   appLocalizations.cancel,
                   () => Navigator.pop(context),
                 ),
-                _buildButton(appLocalizations.save, () async {
+                _buildButton(appLocalizations.save, () {
                   if (!_formKey.currentState!.validate()) {
                     return;
                   }
+                  saveData();
                 }),
               ],
             ),
@@ -107,6 +111,41 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
         ),
       ),
     );
+  }
+
+  void _errormessageAlert(final String message) => showDialog<void>(
+        context: context,
+        builder: (BuildContext context) => SmoothAlertDialog(
+          close: false,
+          body: ListTile(
+            leading: const Icon(Icons.error_outline, color: Colors.red),
+            title: Text(message),
+          ),
+          actions: <SmoothActionButton>[
+            SmoothActionButton(
+              text: AppLocalizations.of(context)!.close,
+              onPressed: () => Navigator.pop(context),
+            ),
+          ],
+        ),
+      );
+
+  Future<void> saveData() async {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    widget.product.productName = _productNameController.text;
+    widget.product.quantity = _weightController.text;
+    widget.product.brands = _brandNameController.text;
+    final Status status = await OpenFoodAPIClient.saveProduct(
+      ProductQuery.getUser(),
+      widget.product,
+    );
+    if (status.error != null) {
+      _errormessageAlert(appLocalizations.basic_details_add_error);
+      return;
+    }
+    ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(appLocalizations.basic_details_add_success)));
+    Navigator.pop(context);
   }
 
   Widget _buildButton(String btnLabel, void Function() onPressFunc) {
