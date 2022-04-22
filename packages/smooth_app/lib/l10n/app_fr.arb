@@ -409,6 +409,8 @@
     "@ingredients_photo_uploaded": {},
     "nutritional_facts_photo_button_label": "Photo des informations nutritionnelles",
     "@nutritional_facts_photo_button_label": {},
+    "nutritional_facts_input_button_label": "Insérer les informations nutritionnelles",
+    "nutritional_facts_added": "Informations nutritionnelles ajoutées",
     "confirm_nutritional_facts_photo_button_label": "Confirmer la photo de la valeur nutritive",
     "@confirm_nutritional_facts_photo_button_label": {
         "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
