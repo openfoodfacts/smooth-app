@@ -77,7 +77,7 @@ Future<bool> _init1() async {
   final PackageInfo packageInfo = await PackageInfo.fromPlatform();
 
   OpenFoodAPIConfiguration.userAgent = UserAgent(
-    name: packageInfo.appName,
+    name: 'Smoothie - ${packageInfo.appName}',
     version: '${packageInfo.version}+${packageInfo.buildNumber}',
     system: Platform.operatingSystemVersion,
     url: 'https://world.openfoodfacts.org/',
