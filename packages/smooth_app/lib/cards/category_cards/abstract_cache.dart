@@ -37,6 +37,15 @@ abstract class AbstractCache extends StatelessWidget {
 
   @protected
   String? getFullFilename() {
+    final String? filename = getFilename();
+    if (filename == null) {
+      return null;
+    }
+    return 'assets/cache/$filename';
+  }
+
+  @protected
+  String? getFilename() {
     if (iconUrl == null) {
       return null;
     }
@@ -44,8 +53,7 @@ abstract class AbstractCache extends StatelessWidget {
     if (position == -1) {
       return null;
     }
-    final String filename = iconUrl!.substring(position + 1);
-    return 'assets/cache/$filename';
+    return iconUrl!.substring(position + 1);
   }
 
   @protected

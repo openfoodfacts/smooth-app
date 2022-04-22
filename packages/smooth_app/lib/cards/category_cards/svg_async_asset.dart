@@ -5,7 +5,13 @@ import 'package:smooth_app/cards/category_cards/abstract_async_asset.dart';
 
 /// Widget with async load of SVG asset file
 ///
-/// SVG files may need to be optimized before being stored in the cache folder.
+/// SVG files may need to be optimized before being stored in the cache folders.
+/// There are two cache folders:
+/// * assets/cache, where most files should be put
+/// * assets/cacheTintable, where only colorless files should be put
+/// As an example, vegetarian.svg is in both folders:
+/// * the assets/cache version has different colors - no color should be applied
+/// * the assets/cacheTintable version works with a color applied to it
 /// E.g. with https://jakearchibald.github.io/svgomg/
 /// C.f. https://github.com/openfoodfacts/smooth-app/issues/52
 class SvgAsyncAsset extends AbstractAsyncAsset {

@@ -21,6 +21,18 @@ class SvgCache extends AbstractCache {
   final Color? color;
 
   @override
+  String? getFullFilename() {
+    final String? filename = getFilename();
+    if (filename == null) {
+      return null;
+    }
+    if (color == null) {
+      return 'assets/cache/$filename';
+    }
+    return 'assets/cacheTintable/$filename';
+  }
+
+  @override
   Widget build(BuildContext context) {
     final String? fullFilename = getFullFilename();
     if (fullFilename == null) {
