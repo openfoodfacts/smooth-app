@@ -19,6 +19,7 @@ import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
+import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/helpers/smooth_matched_product.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
@@ -71,14 +72,11 @@ class _SummaryCardState extends State<SummaryCard> {
 
   // For some reason, special case for "label" attributes
   final Set<String> _attributesToExcludeIfStatusIsUnknown = <String>{};
-  Future<List<RobotoffQuestion>>? _productQuestions;
+  bool _annotationVoted = false;
 
   @override
   void initState() {
     super.initState();
-    if (widget.showUnansweredQuestions) {
-      _loadProductQuestions();
-    }
   }
 
   @override
@@ -141,7 +139,10 @@ class _SummaryCardState extends State<SummaryCard> {
                 child: Center(
                   child: Text(
                     AppLocalizations.of(context)!.tab_for_more,
-                    style: Theme.of(context).primaryTextTheme.bodyText1,
+                    style:
+                        Theme.of(context).primaryTextTheme.bodyText1?.copyWith(
+                              color: PRIMARY_BLUE_COLOR,
+                            ),
                   ),
                 ),
               ),
@@ -458,18 +459,15 @@ class _SummaryCardState extends State<SummaryCard> {
 
   Widget _buildProductQuestionsWidget() {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-    if (_productQuestions == null) {
-      return EMPTY_WIDGET;
-    }
     return FutureBuilder<List<RobotoffQuestion>>(
-        future: _productQuestions,
+        future: _loadProductQuestions(),
         builder: (
           BuildContext context,
           AsyncSnapshot<List<RobotoffQuestion>> snapshot,
         ) {
           final List<RobotoffQuestion> questions =
               snapshot.data ?? <RobotoffQuestion>[];
-          if (questions.isNotEmpty) {
+          if (questions.isNotEmpty && !_annotationVoted) {
             return InkWell(
               onTap: () async {
                 await Navigator.push<Widget>(
@@ -519,14 +517,29 @@ class _SummaryCardState extends State<SummaryCard> {
   Future<void> _updateProductUponAnswers() async {
     // Reload the product questions, they might have been answered.
     // Or the backend may have new ones.
-    await _loadProductQuestions();
+    final List<RobotoffQuestion> questions =
+        await _loadProductQuestions() ?? <RobotoffQuestion>[];
+    final RobotoffInsightHelper robotoffInsightHelper =
+        RobotoffInsightHelper(context.read<LocalDatabase>());
+    if (questions.isEmpty) {
+      await robotoffInsightHelper
+          .removeInsightAnnotationsSavedForProdcut(widget._product.barcode!);
+    }
+    _annotationVoted =
+        await robotoffInsightHelper.haveInsightAnnotationsVoted(questions);
     // Reload the product as it may have been updated because of the
     // new answers.
     widget.refreshProductCallback?.call(context);
   }
 
-  Future<void> _loadProductQuestions() async {
-    _productQuestions = RobotoffQuestionsQuery(widget._product.barcode!)
-        .getRobotoffQuestionsForProduct();
+  Future<List<RobotoffQuestion>>? _loadProductQuestions() async {
+    final List<RobotoffQuestion> questions =
+        await RobotoffQuestionsQuery(widget._product.barcode!)
+            .getRobotoffQuestionsForProduct();
+    final RobotoffInsightHelper robotoffInsightHelper =
+        RobotoffInsightHelper(context.read<LocalDatabase>());
+    _annotationVoted =
+        await robotoffInsightHelper.haveInsightAnnotationsVoted(questions);
+    return questions;
   }
 }

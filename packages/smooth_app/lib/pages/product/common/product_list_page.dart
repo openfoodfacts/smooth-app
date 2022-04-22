@@ -10,6 +10,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
+import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
@@ -294,6 +295,9 @@ class _ProductListPageState extends State<ProductListPage> {
       }
       await DaoProduct(localDatabase).putAll(freshProducts);
       freshProducts.forEach(productList.refresh);
+      final RobotoffInsightHelper robotoffInsightHelper =
+          RobotoffInsightHelper(localDatabase);
+      await robotoffInsightHelper.clearInsightAnnotationsSaved();
       return true;
     } catch (e) {
       //

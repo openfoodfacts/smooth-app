@@ -1,5 +1,5 @@
 {
-  "app_name": "Smoothie",
+    "app_name": "Smoothie",
     "@Utils": {},
     "yes": "Yes",
     "@yes": {},
@@ -156,6 +156,14 @@
     "sign_up_page_username_error_empty": "Please enter a username",
     "sign_up_page_username_error_invalid": "Please enter a valid username",
     "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters",
+    "sign_up_page_username_length_invalid": "Username must be less than {value} characters",
+    "@sign_up_page_username_length_invalid": {
+        "placeholders": {
+        "value": {
+            "type": "int"
+        }
+        }
+    },
     "sign_up_page_password_hint": "Password",
     "sign_up_page_password_error_empty": "Please enter a password",
     "sign_up_page_password_error_invalid": "Please enter a valid password (at least 6 characters)",
@@ -273,7 +281,7 @@
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "question_sign_in_text": "Sign in to your Open Food Facts account to claim your contribution and to increase your creditability",
+    "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contribution",
     "@Personal preferences": {},
     "myPreferences": "My preferences",
     "@myPreferences": {
@@ -385,9 +393,9 @@
     "@add_product_information_button_label": {},
     "new_product": "New Product",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Front of product photo",
+    "front_packaging_photo_button_label": "Product's front photo",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Confirm front of product photo",
+    "confirm_front_packaging_photo_button_label": "Confirm Product's front photo upload",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
@@ -439,10 +447,10 @@
     "@selecting_photo": {
         "description": "Progress indicator when the users takes a photo"
     },
-  "uploading_image": "Uploading photo to the server",
-  "@uploading_image": {
-    "description": "Message when a new picture is uploading to the server"
-  },
+    "uploading_image": "Uploading photo to the server",
+    "@uploading_image": {
+        "description": "Message when a new picture is uploading to the server"
+    },
     "uploading_image_type_front": "Uploading front image to Open Food Facts",
     "@uploading_image_type_front": {
         "description": "Message when a new front picture is being uploaded to the server"
@@ -650,7 +658,7 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide if you want to send anonymous analytics.",
+    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide whether to submit anonymous analytics.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
@@ -687,11 +695,11 @@
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
-    "product_list_empty_title": "Start scanning !",
+    "product_list_empty_title": "Start scanning!",
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
-    "product_list_empty_message": "Products you scan will appear here and you can check detailed information about them",
+    "product_list_empty_message": "Scanned products will appear here and you can check detailed information about them",
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
@@ -732,7 +740,7 @@
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "When enabled, crash reports will be sent to the Open Food Facts bug system automatically, so that we can fix bugs and improve the app.",
+    "crash_reporting_toggle_subtitle": "When enabled, crash reports are automatically submitted to Open Food Facts' error tracking system, so that bugs can be fixed and thus improve the app.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
@@ -752,24 +760,24 @@
     "@permission_photo_error": {
         "description": "When the camera/photo permission failed to be acquired (!= denied)"
     },
-  "permission_photo_denied_title": "Allow camera use to scan barcodes",
-  "permission_photo_denied_message": "For an enhanced experience, please allow {appName} to access your camera. You will be able to directly scan barcodes.",
-  "@permission_photo_denied_message": {
-    "description": "When the camera/photo permission is denied by user",
-    "placeholders": {
-      "appName": {
-        "type": "String"
-      }
-    }
-  },
-  "permission_photo_denied_button": "Allow",
-  "@permission_photo_denied_button": {
-    "description": "When the camera/photo permission is denied by user"
-  },
-  "permission_photo_denied_dialog_settings_title": "Permission denied",
-  "permission_photo_denied_dialog_settings_message": "As you've previously denied the camera permission, you must allow it manually from the Settings.",
-  "permission_photo_denied_dialog_settings_button_open": "Open settings",
-  "permission_photo_denied_dialog_settings_button_cancel": "Cancel",
+    "permission_photo_denied_title": "Allow camera use to scan barcodes",
+    "permission_photo_denied_message": "For an enhanced experience, please allow {appName} to access your camera. You will be able to directly scan barcodes.",
+    "@permission_photo_denied_message": {
+        "description": "When the camera/photo permission is denied by user",
+        "placeholders": {
+            "appName": {
+                "type": "String"
+            }
+        }
+    },
+    "permission_photo_denied_button": "Allow",
+    "@permission_photo_denied_button": {
+        "description": "When the camera/photo permission is denied by user"
+    },
+    "permission_photo_denied_dialog_settings_title": "Permission denied",
+    "permission_photo_denied_dialog_settings_message": "As you've previously denied the camera permission, you must allow it manually from the Settings.",
+    "permission_photo_denied_dialog_settings_button_open": "Open settings",
+    "permission_photo_denied_dialog_settings_button_cancel": "Cancel",
     "permission_photo_denied": "No camera access granted",
     "@permission_photo_denied": {
         "description": "When the camera/photo permission is denied by user"

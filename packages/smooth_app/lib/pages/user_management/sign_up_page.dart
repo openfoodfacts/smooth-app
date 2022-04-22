@@ -117,6 +117,12 @@ class _SignUpPageState extends State<SignUpPage> {
                     _userController.trimmedText)) {
                   return appLocalizations.sign_up_page_username_description;
                 }
+                if (!UserManagementHelper.isUsernameLengthValid(
+                    _userController.trimmedText)) {
+                  const int maxLength = OpenFoodAPIClient.USER_NAME_MAX_LENGTH;
+                  return appLocalizations
+                      .sign_up_page_username_length_invalid(maxLength);
+                }
                 return null;
               },
             ),

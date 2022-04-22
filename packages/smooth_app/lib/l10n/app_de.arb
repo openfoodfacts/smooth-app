@@ -1,4 +1,5 @@
 {
+    "app_name": "Smoothie",
     "@Utils": {},
     "yes": "Ja",
     "@yes": {},
@@ -438,6 +439,10 @@
     "@selecting_photo": {
         "description": "Progress indicator when the users takes a photo"
     },
+    "uploading_image": "Uploading photo to the server",
+    "@uploading_image": {
+        "description": "Message when a new picture is uploading to the server"
+    },
     "uploading_image_type_front": "Uploading front image to Open Food Facts",
     "@uploading_image_type_front": {
         "description": "Message when a new front picture is being uploaded to the server"
@@ -747,6 +752,24 @@
     "@permission_photo_error": {
         "description": "When the camera/photo permission failed to be acquired (!= denied)"
     },
+    "permission_photo_denied_title": "Allow camera use to scan barcodes",
+    "permission_photo_denied_message": "For an enhanced experience, please allow {appName} to access your camera. You will be able to directly scan barcodes.",
+    "@permission_photo_denied_message": {
+        "description": "When the camera/photo permission is denied by user",
+        "placeholders": {
+            "appName": {
+                "type": "String"
+            }
+        }
+    },
+    "permission_photo_denied_button": "Allow",
+    "@permission_photo_denied_button": {
+        "description": "When the camera/photo permission is denied by user"
+    },
+    "permission_photo_denied_dialog_settings_title": "Permission denied",
+    "permission_photo_denied_dialog_settings_message": "As you've previously denied the camera permission, you must allow it manually from the Settings.",
+    "permission_photo_denied_dialog_settings_button_open": "Einstellungen öffnen",
+    "permission_photo_denied_dialog_settings_button_cancel": "Abbrechen",
     "permission_photo_denied": "Zugriff auf Kamera noch nicht gewährt",
     "@permission_photo_denied": {
         "description": "When the camera/photo permission is denied by user"
