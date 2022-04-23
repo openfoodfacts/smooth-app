@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:smooth_app/cards/category_cards/abstract_async_asset.dart';
+import 'package:smooth_app/cards/category_cards/asset_cache_helper.dart';
 
 /// Widget with async load of SVG asset file
 ///
@@ -14,41 +14,50 @@ import 'package:smooth_app/cards/category_cards/abstract_async_asset.dart';
 /// * the assets/cacheTintable version works with a color applied to it
 /// E.g. with https://jakearchibald.github.io/svgomg/
 /// C.f. https://github.com/openfoodfacts/smooth-app/issues/52
-class SvgAsyncAsset extends AbstractAsyncAsset {
-  const SvgAsyncAsset(
-    final String fullFilename,
-    final String url, {
-    final double? width,
-    final double? height,
-    this.color,
-  }) : super(
-          fullFilename,
-          url,
-          width: width,
-          height: height,
-        );
+class SvgAsyncAsset extends StatefulWidget {
+  const SvgAsyncAsset(this.assetCacheHelper);
 
-  final Color? color;
+  final AssetCacheHelper assetCacheHelper;
+
+  @override
+  State<SvgAsyncAsset> createState() => _SvgAsyncAssetState();
+}
+
+class _SvgAsyncAssetState extends State<SvgAsyncAsset> {
+  late final Future<String> _loading = _load();
+
+  Future<String> _load() async {
+    for (final String cachedFilename
+        in widget.assetCacheHelper.cachedFilenames) {
+      try {
+        return await rootBundle.loadString(cachedFilename);
+      } catch (e) {
+        //
+      }
+    }
+    throw widget.assetCacheHelper.loadException();
+  }
 
   @override
   Widget build(BuildContext context) => FutureBuilder<String>(
-        future: rootBundle.loadString(fullFilename),
+        future: _loading,
         builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             if (snapshot.data != null) {
               return SvgPicture.string(
                 snapshot.data!,
-                width: width,
-                height: height,
-                color: color,
+                width: widget.assetCacheHelper.width,
+                height: widget.assetCacheHelper.height,
+                color: widget.assetCacheHelper.color,
                 fit: BoxFit.contain,
-                placeholderBuilder: (BuildContext context) => getEmptySpace(),
+                placeholderBuilder: (BuildContext context) =>
+                    widget.assetCacheHelper.getEmptySpace(),
               );
             } else {
-              notFound();
+              widget.assetCacheHelper.notFound();
             }
           }
-          return getEmptySpace();
+          return widget.assetCacheHelper.getEmptySpace();
         },
       );
 }
