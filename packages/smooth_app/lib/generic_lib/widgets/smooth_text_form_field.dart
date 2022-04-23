@@ -78,6 +78,7 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
       decoration: InputDecoration(
         prefixIcon: widget.prefixIcon,
         filled: true,
+        hintMaxLines: 2,
         hintStyle: TextStyle(
           color: widget.textColor,
           fontSize: widget.hintTextFontSize ?? 20.0,
