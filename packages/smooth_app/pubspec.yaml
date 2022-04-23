@@ -39,7 +39,7 @@ dependencies:
   qr_code_scanner: ^0.7.0
   rubber: ^1.0.1
   sentry_flutter: ^6.4.0 # careful with upgrading cf: https://github.com/openfoodfacts/smooth-app/issues/1300
-  url_launcher: ^6.0.20
+  url_launcher: ^6.1.0
   visibility_detector: ^0.2.2
   camera: ^0.9.4+19
   percent_indicator: ^4.0.0
