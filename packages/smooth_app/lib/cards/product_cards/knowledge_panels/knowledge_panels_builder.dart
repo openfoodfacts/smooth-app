@@ -154,6 +154,9 @@ class KnowledgePanelsBuilder {
         }
       }
     }
-    return Column(children: knowledgePanelElementWidgets);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: knowledgePanelElementWidgets,
+    );
   }
 }
