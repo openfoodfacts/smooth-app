@@ -314,8 +314,10 @@ class _SummaryCardState extends State<SummaryCard> {
       child: Center(
         child: Text(
           helper.getHeaderText(AppLocalizations.of(context)!),
-          style:
-              Theme.of(context).textTheme.subtitle1!.apply(color: Colors.white),
+          style: Theme.of(context)
+              .textTheme
+              .subtitle1!
+              .apply(color: Theme.of(context).colorScheme.onBackground),
         ),
       ),
     );
