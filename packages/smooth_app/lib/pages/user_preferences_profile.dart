@@ -149,7 +149,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
               subject: appLocalizations.email_subject_account_deletion,
               body: appLocalizations.email_body_account_deletion(userId),
             );
-            await launch('$mailtoLink');
+            await launchUrl(Uri.parse('$mailtoLink'));
           },
           title: Text(appLocalizations.account_delete),
           leading: const Icon(Icons.delete),
