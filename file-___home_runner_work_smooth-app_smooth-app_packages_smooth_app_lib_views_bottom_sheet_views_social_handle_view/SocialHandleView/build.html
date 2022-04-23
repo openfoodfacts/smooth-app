@@ -117,7 +117,7 @@ Widget build(BuildContext context) {
                 body:
                     &#39;Version:${packageInfo.version}+${packageInfo.buildNumber} running on ${Platform.operatingSystem}(${Platform.operatingSystemVersion})&#39;,
               );
-              await launch(&#39;$mailtoLink&#39;);
+              await launchUrl(Uri.parse(&#39;$mailtoLink&#39;));
             },
           ),
         ],

@@ -79,8 +79,8 @@ NO  <a href="https://de.openfoodfacts.org/">https://de.openfoodfacts.org/</a>...
 
   AnalyticsHelper.trackOpenLink(url: url);
 
-  if (await canLaunch(url)) {
-    await launch(url);
+  if (await canLaunchUrl(Uri.parse(url))) {
+    await launchUrl(Uri.parse(url));
   } else {
     throw &#39;Could not launch $url&#39;;
   }
