@@ -44,8 +44,16 @@ We are always looking for new contributors, if you're willing to help please let
 - [UX mockups are located here](https://www.figma.com/file/lhRhMulB4Ek9NYDWl3FxAo/Fellowship-Jam-file?node-id=12%3A358). Please be aware that some of them have not been validated, so don't rush in implementing them. 
 - [Continuous Integration documentation](.github/workflows/README.md)
 
-## V1 Roadmap
-- [ ] Minimal editing/addition value proposition
+## V1 Roadmap (We're aiming for a May 23rd 2022 release, to be in time for a media launch around June 10th, and a high-profile presence at Vivatech on June 15th)
+- [ ] We should be able to ship the Smoothie code to the main listing on Android and iOS
+- [ ] The app should be able to scan very well
+- [ ] Minimal Road to Scores (you should be able to get Nutri-Score and Eco-Score on any unknown/uncomplete product in 2 minutes, using editing and/or product addition
+  - [ ] Initial photo taking (mostly done), good ingredient extraction (partially done), Nutrition input (done), Category input
+- [ ] Personalization system that does not feel weird during setup, where people understand consequence, and where ranking match their expectations even in stretch cases (lack of data on some product, selecting Nutri-Score and all Low-in Nutrients…), where red-lines are clearly shown (allergens) with potential caveats, where solutions are proposed and warning issued in case of lack of data.
+- [ ] Database migration for existing Android and iOS users (minimum: history, credentials, if possible with allergen alerts, lists)
+- [ ] A Welcome scan card that can broadcast a message from the Open Food Facts team per country/language (Tagline)
+- [ ] On-page photo refresh capabilities
+- [ ] Revamped settings that are less cluttered, and can make way in the future for things the user will go see more often.
 - [ ] [V1 tracking](https://github.com/orgs/openfoodfacts/projects/7)
 
 ## V2 - Later Roadmap
