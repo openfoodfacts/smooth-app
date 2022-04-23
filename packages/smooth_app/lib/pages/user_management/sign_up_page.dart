@@ -202,10 +202,10 @@ class _SignUpPageState extends State<SignUpPage> {
                         ..onTap = () async {
                           final String url =
                               appLocalizations.sign_up_page_agree_url;
-                          if (await canLaunch(url)) {
-                            await launch(
-                              url,
-                              forceSafariVC: false,
+                          if (await canLaunchUrl(Uri.parse(url))) {
+                            await launchUrl(
+                              Uri.parse(url),
+                              mode: LaunchMode.platformDefault,
                             );
                           }
                         },
