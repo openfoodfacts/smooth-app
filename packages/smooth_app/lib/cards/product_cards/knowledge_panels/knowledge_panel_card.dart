@@ -31,7 +31,7 @@ class KnowledgePanelCard extends StatelessWidget {
       child: KnowledgePanelSummaryCard(panel),
       onTap: () {
         AnalyticsHelper.trackKnowledgePanelOpen(
-          knowledgePanelName: panel.topics.toString(),
+          knowledgePanelName: panel.titleElement.toString(),
         );
         Navigator.push<Widget>(
           context,
