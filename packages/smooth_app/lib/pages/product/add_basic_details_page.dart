@@ -21,6 +21,17 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   final TextEditingController _weightController = TextEditingController();
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  @override
+  void initState() {
+    super.initState();
+    initializeProduct();
+  }
+
+  void initializeProduct() {
+    _productNameController.text = widget.product.productName ?? '';
+    _weightController.text = widget.product.quantity ?? '';
+    _brandNameController.text = widget.product.brands ?? '';
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -116,7 +127,6 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   void _errormessageAlert(final String message) => showDialog<void>(
         context: context,
         builder: (BuildContext context) => SmoothAlertDialog(
-          close: false,
           body: ListTile(
             leading: const Icon(Icons.error_outline, color: Colors.red),
             title: Text(message),
