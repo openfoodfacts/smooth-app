@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io' show Platform;
 
 import 'package:camera/camera.dart';
 import 'package:device_preview/device_preview.dart';
@@ -7,7 +8,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:openfoodfacts/model/UserAgent.dart';
 import 'package:openfoodfacts/personalized_search/product_preferences_selection.dart';
+import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
@@ -69,6 +73,15 @@ Future<bool> _init1() async {
   if (_init1done) {
     return false;
   }
+
+  final PackageInfo packageInfo = await PackageInfo.fromPlatform();
+
+  OpenFoodAPIConfiguration.userAgent = UserAgent(
+    name: 'Smoothie - ${packageInfo.appName}',
+    version: '${packageInfo.version}+${packageInfo.buildNumber}',
+    system: Platform.operatingSystemVersion,
+    url: 'https://world.openfoodfacts.org/',
+  );
   _userPreferences = await UserPreferences.getUserPreferences();
   _localDatabase = await LocalDatabase.getLocalDatabase();
   _productPreferences = ProductPreferences(
