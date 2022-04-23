@@ -3,22 +3,17 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
-import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/smooth_it_model.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/smooth_matched_product.dart';
 
 class PersonalizedRankingPage extends StatefulWidget {
-  PersonalizedRankingPage({
-    required final ProductList productList,
-    required this.title,
-  }) : products = productList.getList();
-
-  const PersonalizedRankingPage.fromItems({
+  const PersonalizedRankingPage({
     required this.products,
     required this.title,
   });
@@ -154,6 +149,17 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
     final AppLocalizations appLocalizations,
   ) =>
       Dismissible(
+        direction: DismissDirection.endToStart,
+        background: Container(
+          alignment: Alignment.centerRight,
+          margin: const EdgeInsets.symmetric(vertical: 14),
+          color: RED_COLOR,
+          padding: const EdgeInsets.only(right: 30),
+          child: const Icon(
+            Icons.delete,
+            color: Colors.white,
+          ),
+        ),
         key: Key(matchedProduct.product.barcode!),
         onDismissed: (final DismissDirection direction) async {
           final bool removed = widget.products.remove(matchedProduct.product);

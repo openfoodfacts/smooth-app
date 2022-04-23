@@ -3,13 +3,11 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/ProductImage.dart';
-import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/confirm_and_upload_picture.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
 
 const EdgeInsets _ROW_PADDING_TOP = EdgeInsets.only(top: VERY_LARGE_SPACE);
 
@@ -37,12 +35,14 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
   final Map<ImageField, List<File>> _uploadedImages =
       <ImageField, List<File>>{};
 
+  bool _isProductLoaded = false;
+
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final ThemeData themeData = Theme.of(context);
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(automaticallyImplyLeading: !_isProductLoaded),
       body: Padding(
         padding: const EdgeInsets.only(
           top: VERY_LARGE_SPACE,
@@ -77,7 +77,10 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
                 alignment: Alignment.bottomRight,
                 child: SmoothActionButton(
                   text: appLocalizations.finish,
-                  onPressed: () => Navigator.pop(context),
+                  onPressed: () {
+                    Navigator.maybePop(
+                        context, _isProductLoaded ? widget.barcode : null);
+                  },
                 ),
               ),
             ),
@@ -115,13 +118,11 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
   }
 
   Widget _buildAddImageButton(BuildContext context, ImageField imageType) {
-    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     return Padding(
       padding: _ROW_PADDING_TOP,
       child: SmoothLargeButtonWithIcon(
         text: _getAddPhotoButtonText(context, imageType),
         icon: Icons.camera_alt,
-        isDarkMode: themeProvider.darkTheme,
         onPressed: () async {
           final File? initialPhoto = await startImageCropping(context);
           if (initialPhoto == null) {
@@ -142,7 +143,9 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
           if (finalPhoto != null) {
             _uploadedImages[imageType] = _uploadedImages[imageType] ?? <File>[];
             _uploadedImages[imageType]!.add(initialPhoto);
-            setState(() {});
+            setState(() {
+              _isProductLoaded = true;
+            });
           }
           initialPhoto.delete();
         },

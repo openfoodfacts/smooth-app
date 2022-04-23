@@ -39,19 +39,27 @@ class SmoothProductCardFound extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
+    final ProductPreferences productPreferences =
+        context.watch<ProductPreferences>();
     final Size screenSize = MediaQuery.of(context).size;
 
+    final List<String> excludedAttributeIds =
+        userPreferences.getExcludedAttributeIds();
     final List<Widget> scores = <Widget>[];
     final double iconSize = IconWidgetSizer.getIconSizeFromContext(context);
-    final List<Attribute> attributes =
-        getPopulatedAttributes(product, SCORE_ATTRIBUTE_IDS);
+    final List<Attribute> attributes = getPopulatedAttributes(
+      product,
+      SCORE_ATTRIBUTE_IDS,
+      excludedAttributeIds,
+    );
     for (final Attribute attribute in attributes) {
       scores.add(SvgIconChip(attribute.iconUrl!, height: iconSize));
     }
     final MatchedProduct matchedProduct = MatchedProduct.getMatchedProduct(
       product,
-      context.watch<ProductPreferences>(),
-      context.watch<UserPreferences>(),
+      productPreferences,
+      userPreferences,
     );
     final ProductCompatibilityHelper helper =
         ProductCompatibilityHelper(matchedProduct);

@@ -3,7 +3,8 @@ name: Crowdin Action
 on:
   push:
     branches: [ crowdin-trigger ]
-
+  schedule:
+  - cron: "0 22 * * *"
 jobs:
   synchronize-with-crowdin:
     runs-on: ubuntu-latest
@@ -14,7 +15,7 @@ jobs:
       uses: actions/checkout@v3
 
     - name: crowdin action
-      uses: crowdin/github-action@1.4.7
+      uses: crowdin/github-action@1.4.8
       continue-on-error: true
       with:
         # Upload sources to Crowdin
@@ -71,11 +72,6 @@ jobs:
         #base_url: 'https://crowdin.com'
         # Path to your project directory on a local machine
         #base_path: '/openfoodfacts'
-        # Path to the source files
-        # source: # optional
-        source: 'packages/smooth_app/lib/l10n/app_en.arb'
-        # Path to the translation files
-        translation: 'packages/smooth_app/lib/l10n/app_%two_letters_code%.arb'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}

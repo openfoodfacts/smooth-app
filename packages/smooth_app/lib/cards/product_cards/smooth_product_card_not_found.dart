@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/product/add_new_product_page.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
 
 class SmoothProductCardNotFound extends StatelessWidget {
   const SmoothProductCardNotFound({
@@ -14,21 +12,20 @@ class SmoothProductCardNotFound extends StatelessWidget {
     this.elevation = 0.0,
   });
 
-  final VoidCallback? callback;
+  final Function(String?)? callback;
   final double elevation;
   final String barcode;
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
       return SmoothCard(
         elevation: elevation,
         child: Padding(
           padding: EdgeInsets.symmetric(
-            vertical: constraints.maxHeight * 0.25,
+            vertical: constraints.maxHeight * 0.10,
             horizontal: constraints.maxWidth * 0.05,
           ),
           child: Column(
@@ -51,17 +48,16 @@ class SmoothProductCardNotFound extends StatelessWidget {
                   text: appLocalizations.add_product_information_button_label,
                   icon: Icons.add,
                   padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
-                  isDarkMode: themeProvider.darkTheme,
-                  onPressed: () {
-                    Navigator.push<Widget>(
+                  onPressed: () async {
+                    final String? result = await Navigator.push<String>(
                       context,
-                      MaterialPageRoute<Widget>(
+                      MaterialPageRoute<String>(
                         builder: (BuildContext context) =>
                             AddNewProductPage(barcode),
                       ),
                     );
                     if (callback != null) {
-                      callback!();
+                      await callback!(result);
                     }
                   },
                 ),

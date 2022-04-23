@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Product.dart';
@@ -15,7 +16,6 @@ class EditProductPage extends StatefulWidget {
 }
 
 class _EditProductPageState extends State<EditProductPage> {
-  // TODO(monsieurtanuki): translations
   int _changes = 0;
 
   @override
@@ -23,8 +23,9 @@ class _EditProductPageState extends State<EditProductPage> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: AutoSizeText(
           widget.product.productName ?? appLocalizations.unknownProductName,
+          maxLines: 2,
         ),
       ),
       body: WillPopScope(
@@ -36,35 +37,39 @@ class _EditProductPageState extends State<EditProductPage> {
           return result;
         },
         child: ListView(
-          children: <ListTile>[
+          children: <Widget>[
             ListTile(
-              title: const Text(
-                  'Barcode'), // TODO(vik4114): Localization and translations
+              title: Text(
+                appLocalizations.edit_product_form_item_barcode,
+              ),
               subtitle: widget.product.barcode == null
                   ? null
                   : Text(widget.product.barcode!),
             ),
-            _getListTile(
-              title: 'Basic details',
-              subtitle: 'Product name, brand, quantity',
+            _ListTitleItem(
+              title: appLocalizations.edit_product_form_item_details_title,
+              subtitle:
+                  appLocalizations.edit_product_form_item_details_subtitle,
             ),
-            _getListTile(
-              title: 'Photos',
-              subtitle: 'Add or refresh photos',
+            _ListTitleItem(
+              title: appLocalizations.edit_product_form_item_photos_title,
+              subtitle: appLocalizations.edit_product_form_item_photos_subtitle,
             ),
-            _getListTile(
-              title: 'Labels & Certifications',
-              subtitle: 'Environmental, Quality labels, ...',
+            _ListTitleItem(
+              title: appLocalizations.edit_product_form_item_labels_title,
+              subtitle: appLocalizations.edit_product_form_item_labels_subtitle,
             ),
-            _getListTile(
-              title: 'Ingredients & Origins',
+            _ListTitleItem(
+              title: appLocalizations.edit_product_form_item_ingredients_title,
             ),
-            _getListTile(
-              title: 'Packaging',
+            _ListTitleItem(
+              title: appLocalizations.edit_product_form_item_packaging_title,
             ),
-            _getListTile(
-              title: 'Nutrition facts',
-              subtitle: 'Nutrition, alcohol content, ...',
+            _ListTitleItem(
+              title:
+                  appLocalizations.edit_product_form_item_nutrition_facts_title,
+              subtitle: appLocalizations
+                  .edit_product_form_item_nutrition_facts_subtitle,
               onTap: () async {
                 final OrderedNutrientsCache? cache =
                     await OrderedNutrientsCache.getCache(context);
@@ -90,19 +95,31 @@ class _EditProductPageState extends State<EditProductPage> {
       ),
     );
   }
+}
 
-  ListTile _getListTile({
-    required final String title,
-    final String? subtitle,
-    final VoidCallback? onTap,
-  }) =>
-      ListTile(
-        onTap: onTap,
-        title: Text(title),
-        subtitle: subtitle == null ? null : Text(subtitle),
-        leading: ElevatedButton(
-          child: const Text('Edit'),
-          onPressed: onTap,
-        ),
-      );
+class _ListTitleItem extends StatelessWidget {
+  const _ListTitleItem({
+    required final this.title,
+    this.subtitle,
+    this.onTap,
+    Key? key,
+  }) : super(key: key);
+
+  final String title;
+  final String? subtitle;
+  final VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations? appLocalizations = AppLocalizations.of(context);
+    return ListTile(
+      onTap: onTap,
+      title: Text(title),
+      subtitle: subtitle == null ? null : Text(subtitle!),
+      leading: ElevatedButton(
+        child: Text(appLocalizations!.edit_product_form_save),
+        onPressed: onTap,
+      ),
+    );
+  }
 }
