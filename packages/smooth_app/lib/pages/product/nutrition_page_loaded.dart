@@ -281,9 +281,8 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
           );
           leftovers.sort((final OrderedNutrient a, final OrderedNutrient b) =>
               a.name!.compareTo(b.name!));
-          final List<OrderedNutrient> leftovers2 = <OrderedNutrient>[];
-          leftovers2.addAll(leftovers);
-
+          List<OrderedNutrient> filteredList =
+              List<OrderedNutrient>.from(leftovers);
           final OrderedNutrient? selected = await showDialog<OrderedNutrient>(
               context: context,
               builder: (BuildContext context) {
@@ -299,45 +298,32 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
                         child: Column(
                           children: <Widget>[
                             TextField(
-                              decoration: const InputDecoration(
-                                prefixIcon: Icon(Icons.search),
-                                border: UnderlineInputBorder(),
-                                labelText: 'Search', // TODO(aman): translate
+                              decoration: InputDecoration(
+                                prefixIcon: const Icon(Icons.search),
+                                border: const UnderlineInputBorder(),
+                                labelText: appLocalizations.search,
                               ),
                               onChanged: (String query) {
-                                final List<OrderedNutrient> searchList =
-                                    leftovers;
-                                if (query.isNotEmpty) {
-                                  final List<OrderedNutrient> filteredList =
-                                      <OrderedNutrient>[];
-                                  for (final OrderedNutrient item
-                                      in searchList) {
-                                    if (item.name!
-                                        .toLowerCase()
-                                        .contains(query.toLowerCase())) {
-                                      filteredList.add(item);
-                                    }
-                                  }
-                                  setState(() {
-                                    leftovers.clear();
-                                    leftovers.addAll(filteredList);
-                                  });
-                                  return;
-                                } else {
-                                  setState(() {
-                                    leftovers.clear();
-                                    leftovers.addAll(leftovers2);
-                                  });
-                                }
+                                setState(
+                                  () {
+                                    filteredList = leftovers
+                                        .where((OrderedNutrient item) => item
+                                            .name!
+                                            .toLowerCase()
+                                            .contains(query.toLowerCase()))
+                                        .toList();
+                                  },
+                                );
                               },
                             ),
                             Expanded(
                               child: ListView.builder(
-                                  itemCount: leftovers.length,
+                                  shrinkWrap: true,
+                                  itemCount: filteredList.length,
                                   itemBuilder:
                                       (BuildContext context, int index) {
                                     final OrderedNutrient nutrient =
-                                        leftovers[index];
+                                        filteredList[index];
                                     return ListTile(
                                       title: Text(nutrient.name!),
                                       onTap: () =>
