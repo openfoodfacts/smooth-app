@@ -84,7 +84,7 @@ Widget build(BuildContext context) {
     child: KnowledgePanelSummaryCard(panel),
     onTap: () {
       AnalyticsHelper.trackKnowledgePanelOpen(
-        knowledgePanelName: panel.topics.toString(),
+        knowledgePanelName: panel.titleElement.toString(),
       );
       Navigator.push&lt;Widget&gt;(
         context,
