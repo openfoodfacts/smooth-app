@@ -3,7 +3,8 @@ name: Crowdin Action
 on:
   push:
     branches: [ crowdin-trigger ]
-
+  schedule:
+  - cron: "0 22 * * *"
 jobs:
   synchronize-with-crowdin:
     runs-on: ubuntu-latest
