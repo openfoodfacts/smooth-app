@@ -59,6 +59,8 @@ class AnalyticsHelper {
             'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745';
         options.sentryClientName =
             'sentry.dart.smoothie/${packageInfo.version}';
+        // To set a uniform sample rate
+        options.tracesSampleRate = 1.0;
         options.beforeSend = _beforeSend;
       },
       appRunner: appRunner,
