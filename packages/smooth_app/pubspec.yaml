@@ -92,6 +92,7 @@ flutter:
     - assets/app/
     - assets/cache/
     - assets/categories/
+    - assets/cacheTintable/
     - assets/data/
     - assets/home/
     - assets/labels/

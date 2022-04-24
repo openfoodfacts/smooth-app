@@ -35,8 +35,30 @@ abstract class AbstractCache extends StatelessWidget {
   final double? height;
   final bool displayAssetWhileWaiting;
 
+  /// Returns a list of possible related cached filenames.
   @protected
-  String? getFullFilename() {
+  List<String> getCachedFilenames() {
+    final List<String> result = <String>[];
+    final String? filename = getFilename();
+    if (filename == null) {
+      return result;
+    }
+    result.add(getCacheFilename(filename));
+    return result;
+  }
+
+  /// Returns the path to the asset cached file (not tintable version).
+  @protected
+  String getCacheFilename(final String filename) => 'assets/cache/$filename';
+
+  /// Returns the path to the asset cached tintable file.
+  @protected
+  String getCacheTintableFilename(final String filename) =>
+      'assets/cacheTintable/$filename';
+
+  /// Returns the simple filename of the icon url (without the full path).
+  @protected
+  String? getFilename() {
     if (iconUrl == null) {
       return null;
     }
@@ -44,8 +66,7 @@ abstract class AbstractCache extends StatelessWidget {
     if (position == -1) {
       return null;
     }
-    final String filename = iconUrl!.substring(position + 1);
-    return 'assets/cache/$filename';
+    return iconUrl!.substring(position + 1);
   }
 
   @protected
