@@ -43,6 +43,8 @@ We are always looking for new contributors, if you're willing to help please let
 - [Smoothie marketing automation repository](https://github.com/openfoodfacts/fastlane-descriptions-smoothie/pulls)
 - [UX mockups are located here](https://www.figma.com/file/lhRhMulB4Ek9NYDWl3FxAo/Fellowship-Jam-file?node-id=12%3A358). Please be aware that some of them have not been validated, so don't rush in implementing them. 
 - [Continuous Integration documentation](.github/workflows/README.md)
+- [Smoothie Landing page](https://github.com/openfoodfacts/smoothielanding)
+- Private app signing for iOS certificates repository - please ask @teolemon
 
 ## V1 Roadmap (We're aiming for a May 23rd 2022 release, to be in time for a media launch around June 10th, and a high-profile presence at Vivatech on June 15th)
 - [ ] We should be able to ship the Smoothie code to the main listing on Android and iOS
