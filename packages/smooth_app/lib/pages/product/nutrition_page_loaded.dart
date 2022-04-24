@@ -279,36 +279,69 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
           final List<OrderedNutrient> leftovers = List<OrderedNutrient>.from(
             _nutritionContainer.getLeftoverNutrients(),
           );
-
           leftovers.sort((final OrderedNutrient a, final OrderedNutrient b) =>
               a.name!.compareTo(b.name!));
-
+          List<OrderedNutrient> filteredList =
+              List<OrderedNutrient>.from(leftovers);
           final OrderedNutrient? selected = await showDialog<OrderedNutrient>(
               context: context,
               builder: (BuildContext context) {
-                final List<Widget> children = <Widget>[];
-                for (final OrderedNutrient nutrient in leftovers) {
-                  children.add(
-                    ListTile(
-                      title: Text(nutrient.name!),
-                      onTap: () => Navigator.pop(context, nutrient),
-                    ),
-                  );
-                }
-                return AlertDialog(
-                  title: Text(appLocalizations.nutrition_page_add_nutrient),
-                  content: SizedBox(
-                    // TODO(monsieurtanuki): proper sizes
-                    width: 300,
-                    height: 400,
-                    child: ListView(children: children),
-                  ),
-                  actions: <Widget>[
-                    ElevatedButton(
-                      onPressed: () => Navigator.pop(context),
-                      child: Text(appLocalizations.cancel),
-                    ),
-                  ],
+                return StatefulBuilder(
+                  builder: (BuildContext context,
+                      void Function(VoidCallback fn) setState) {
+                    return AlertDialog(
+                      title: Text(appLocalizations.nutrition_page_add_nutrient),
+                      content: SizedBox(
+                        // TODO(monsieurtanuki): proper sizes
+                        width: 300,
+                        height: 400,
+                        child: Column(
+                          children: <Widget>[
+                            TextField(
+                              decoration: InputDecoration(
+                                prefixIcon: const Icon(Icons.search),
+                                border: const UnderlineInputBorder(),
+                                labelText: appLocalizations.search,
+                              ),
+                              onChanged: (String query) {
+                                setState(
+                                  () {
+                                    filteredList = leftovers
+                                        .where((OrderedNutrient item) => item
+                                            .name!
+                                            .toLowerCase()
+                                            .contains(query.toLowerCase()))
+                                        .toList();
+                                  },
+                                );
+                              },
+                            ),
+                            Expanded(
+                              child: ListView.builder(
+                                  shrinkWrap: true,
+                                  itemCount: filteredList.length,
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    final OrderedNutrient nutrient =
+                                        filteredList[index];
+                                    return ListTile(
+                                      title: Text(nutrient.name!),
+                                      onTap: () =>
+                                          Navigator.of(context).pop(nutrient),
+                                    );
+                                  }),
+                            ),
+                          ],
+                        ),
+                      ),
+                      actions: <Widget>[
+                        ElevatedButton(
+                          onPressed: () => Navigator.pop(context),
+                          child: Text(appLocalizations.cancel),
+                        ),
+                      ],
+                    );
+                  },
                 );
               });
           if (selected != null) {

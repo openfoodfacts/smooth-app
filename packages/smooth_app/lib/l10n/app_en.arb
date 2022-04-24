@@ -159,9 +159,9 @@
     "sign_up_page_username_length_invalid": "Username must be less than {value} characters",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
-        "value": {
-            "type": "int"
-        }
+            "value": {
+                "type": "int"
+            }
         }
     },
     "sign_up_page_password_hint": "Password",
