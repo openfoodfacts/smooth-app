@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the getFullFilename method from the AbstractCache class, for the Dart programming language.">
-  <title>getFullFilename method - AbstractCache class - abstract_cache library - Dart API</title>
+  <meta name="description" content="API docs for the getCachedFilenames method from the AbstractCache class, for the Dart programming language.">
+  <title>getCachedFilenames method - AbstractCache class - abstract_cache library - Dart API</title>
 
 
   
@@ -32,9 +32,9 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_abstract_cache/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_abstract_cache-library.html">abstract_cache</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_abstract_cache/AbstractCache-class.html">AbstractCache</a></li>
-    <li class="self-crumb">getFullFilename method</li>
+    <li class="self-crumb">getCachedFilenames method</li>
   </ol>
-  <div class="self-name">getFullFilename</div>
+  <div class="self-name">getCachedFilenames</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,36 +45,37 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">getFullFilename</span> method 
+<h1><span class="kind-method">getCachedFilenames</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
       
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span>
-<span class="name ">getFullFilename</span>(<wbr>)
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span>
+<span class="name ">getCachedFilenames</span>(<wbr>)
 
       
 
     </section>
     
+<section class="desc markdown">
+  <p>Returns a list of possible related cached filenames.</p>
+</section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@protected
-String? getFullFilename() {
-  if (iconUrl == null) {
-    return null;
+List&lt;String&gt; getCachedFilenames() {
+  final List&lt;String&gt; result = &lt;String&gt;[];
+  final String? filename = getFilename();
+  if (filename == null) {
+    return result;
   }
-  final int position = iconUrl!.lastIndexOf(&#39;&#47;&#39;);
-  if (position == -1) {
-    return null;
-  }
-  final String filename = iconUrl!.substring(position + 1);
-  return &#39;assets&#47;cache&#47;$filename&#39;;
+  result.add(getCacheFilename(filename));
+  return result;
 }</code></pre>
 </section>
 
@@ -92,7 +93,7 @@ String? getFullFilename() {
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_abstract_cache/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_abstract_cache-library.html">abstract_cache</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_abstract_cache/AbstractCache-class.html">AbstractCache</a></li>
-  <li class="self-crumb">getFullFilename method</li>
+  <li class="self-crumb">getCachedFilenames method</li>
 </ol>
 
 
@@ -115,9 +116,12 @@ String? getFullFilename() {
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_abstract_cache/AbstractCache/width.html">width</a></li>
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_abstract_cache/AbstractCache-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_abstract_cache/AbstractCache/getCachedFilenames.html">getCachedFilenames</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_abstract_cache/AbstractCache/getCacheFilename.html">getCacheFilename</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_abstract_cache/AbstractCache/getCacheTintableFilename.html">getCacheTintableFilename</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_abstract_cache/AbstractCache/getCircularProgressIndicator.html">getCircularProgressIndicator</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_abstract_cache/AbstractCache/getDefaultUnknown.html">getDefaultUnknown</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_abstract_cache/AbstractCache/getFullFilename.html">getFullFilename</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_abstract_cache/AbstractCache/getFilename.html">getFilename</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 

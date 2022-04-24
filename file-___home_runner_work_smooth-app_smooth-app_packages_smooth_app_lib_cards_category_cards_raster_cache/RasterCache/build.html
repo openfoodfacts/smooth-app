@@ -72,8 +72,8 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final String? fullFilename = getFullFilename();
-  if (fullFilename == null) {
+  final List&lt;String&gt; fullFilenames = getCachedFilenames();
+  if (fullFilenames.isEmpty) {
     return getDefaultUnknown();
   }
   return Image.network(
@@ -90,8 +90,14 @@ Widget build(BuildContext context) {
         return child;
       }
       return displayAssetWhileWaiting
-          ? RasterAsyncAsset(fullFilename, iconUrl!,
-              width: width, height: height)
+          ? RasterAsyncAsset(
+              AssetCacheHelper(
+                fullFilenames,
+                iconUrl!,
+                width: width,
+                height: height,
+              ),
+            )
           : getCircularProgressIndicator();
     },
   );

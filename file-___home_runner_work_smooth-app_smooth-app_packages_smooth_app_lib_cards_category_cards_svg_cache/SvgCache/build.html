@@ -72,8 +72,8 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final String? fullFilename = getFullFilename();
-  if (fullFilename == null) {
+  final List&lt;String&gt; cachedFilenames = getCachedFilenames();
+  if (cachedFilenames.isEmpty) {
     return getDefaultUnknown();
   }
   return SvgPicture.network(
@@ -84,11 +84,13 @@ Widget build(BuildContext context) {
     fit: BoxFit.contain,
     placeholderBuilder: (BuildContext context) =&gt; displayAssetWhileWaiting
         ? SvgAsyncAsset(
-            fullFilename,
-            iconUrl!,
-            width: width,
-            height: height,
-            color: color,
+            AssetCacheHelper(
+              cachedFilenames,
+              iconUrl!,
+              width: width,
+              height: height,
+              color: color,
+            ),
           )
         : getCircularProgressIndicator(),
   );
@@ -129,6 +131,7 @@ Widget build(BuildContext context) {
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_svg_cache/SvgCache-class.html#instance-methods">Methods</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_svg_cache/SvgCache/build.html">build</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_svg_cache/SvgCache/getCachedFilenames.html">getCachedFilenames</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
