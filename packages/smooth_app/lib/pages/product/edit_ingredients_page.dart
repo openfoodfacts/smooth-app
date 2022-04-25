@@ -19,13 +19,11 @@ import 'package:smooth_app/pages/product/common/product_refresher.dart';
 class EditIngredientsPage extends StatefulWidget {
   const EditIngredientsPage({
     Key? key,
-    this.imageIngredientsUrl,
     required this.product,
     this.refreshProductCallback,
   }) : super(key: key);
 
   final Product product;
-  final String? imageIngredientsUrl;
   final Function(BuildContext)? refreshProductCallback;
 
   @override
@@ -176,7 +174,7 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
         ),
       );
     } else {
-      if (widget.imageIngredientsUrl != null) {
+      if (widget.product.imageIngredientsUrl != null) {
         children.add(ConstrainedBox(
           constraints: const BoxConstraints.expand(),
           child: _buildZoomableImage(
