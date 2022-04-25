@@ -81,6 +81,7 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
         hintStyle: TextStyle(
           color: widget.textColor,
           fontSize: widget.hintTextFontSize ?? 20.0,
+          overflow: TextOverflow.ellipsis,
         ),
         hintText: widget.hintText,
         fillColor: widget.backgroundColor,

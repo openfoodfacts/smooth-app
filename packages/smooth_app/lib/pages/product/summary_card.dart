@@ -53,6 +53,8 @@ class SummaryCard extends StatefulWidget {
 
   /// If false, the card will be clipped to a smaller version so it can fit on
   /// smaller screens.
+  /// It should only be clickable in the full / in product page version
+  /// Buttons should only be visible in full mode
   final bool isFullVersion;
 
   /// If true, the summary card will try to load unanswered questions about this
@@ -83,20 +85,21 @@ class _SummaryCardState extends State<SummaryCard> {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints constraints) {
-      if (widget.isFullVersion) {
-        return buildProductSmoothCard(
-          header: _buildProductCompatibilityHeader(context),
-          body: Padding(
-            padding: SMOOTH_CARD_PADDING,
-            child: _buildSummaryCardContent(context),
-          ),
-          margin: EdgeInsets.zero,
-        );
-      } else {
-        return _buildLimitedSizeSummaryCard(constraints.maxHeight);
-      }
-    });
+      builder: (BuildContext context, BoxConstraints constraints) {
+        if (widget.isFullVersion) {
+          return buildProductSmoothCard(
+            header: _buildProductCompatibilityHeader(context),
+            body: Padding(
+              padding: SMOOTH_CARD_PADDING,
+              child: _buildSummaryCardContent(context),
+            ),
+            margin: EdgeInsets.zero,
+          );
+        } else {
+          return _buildLimitedSizeSummaryCard(constraints.maxHeight);
+        }
+      },
+    );
   }
 
   Widget _buildLimitedSizeSummaryCard(double parentHeight) {
@@ -244,39 +247,42 @@ class _SummaryCardState extends State<SummaryCard> {
     }
     final List<String> statesTags =
         widget._product.statesTags ?? List<String>.empty();
-    return Column(
-      children: <Widget>[
-        ProductTitleCard(widget._product, widget.isFullVersion),
-        for (final Attribute attribute in scoreAttributes)
-          ScoreCard(
-            iconUrl: attribute.iconUrl,
-            description:
-                attribute.descriptionShort ?? attribute.description ?? '',
-            cardEvaluation: getCardEvaluationFromAttribute(attribute),
-          ),
-        _buildProductQuestionsWidget(),
-        attributesContainer,
-        if (statesTags.contains('en:categories-to-be-completed'))
+
+    final List<Widget> summaryCardButtons = <Widget>[];
+
+    if (widget.isFullVersion) {
+      // Complete category
+      if (statesTags.contains('en:categories-to-be-completed')) {
+        summaryCardButtons.add(
           addPanelButton(localizations.score_add_missing_product_category,
               onPressed: () => _showNotImplemented(context)),
-        if (widget.isFullVersion)
-          if (categoryTag != null && categoryLabel != null)
-            addPanelButton(
-              localizations.product_search_same_category,
-              iconData: Icons.leaderboard,
-              onPressed: () async => ProductQueryPageHelper().openBestChoice(
-                color: Colors.deepPurple,
-                heroTag: 'search_bar',
-                name: categoryLabel!,
-                localDatabase: localDatabase,
-                productQuery: CategoryProductQuery(
-                  widget._product.categoriesTags!.last,
-                ),
-                context: context,
+        );
+      }
+
+      // Compare to category
+      if (categoryTag != null && categoryLabel != null) {
+        summaryCardButtons.add(
+          addPanelButton(
+            localizations.product_search_same_category,
+            iconData: Icons.leaderboard,
+            onPressed: () async => ProductQueryPageHelper().openBestChoice(
+              color: Colors.deepPurple,
+              heroTag: 'search_bar',
+              name: categoryLabel!,
+              localDatabase: localDatabase,
+              productQuery: CategoryProductQuery(
+                widget._product.categoriesTags!.last,
               ),
+              context: context,
             ),
-        if ((statesTags.contains('en:product-name-to-be-completed')) ||
-            (statesTags.contains('en:quantity-to-be-completed')))
+          ),
+        );
+      }
+
+      // Complete basic details
+      if (statesTags.contains('en:product-name-to-be-completed') ||
+          statesTags.contains('en:quantity-to-be-completed')) {
+        summaryCardButtons.add(
           addPanelButton(
             localizations.completed_basic_details_btn_text,
             onPressed: () async {
@@ -289,17 +295,24 @@ class _SummaryCardState extends State<SummaryCard> {
               );
             },
           ),
-      ],
-    );
-  }
+        );
+      }
+    }
 
-  void _showNotImplemented(BuildContext context) {
-    final AppLocalizations localizations = AppLocalizations.of(context)!;
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(localizations.not_implemented_snackbar_text),
-        duration: const Duration(seconds: 2),
-      ),
+    return Column(
+      children: <Widget>[
+        ProductTitleCard(widget._product, widget.isFullVersion),
+        for (final Attribute attribute in scoreAttributes)
+          ScoreCard(
+            iconUrl: attribute.iconUrl,
+            description:
+                attribute.descriptionShort ?? attribute.description ?? '',
+            cardEvaluation: getCardEvaluationFromAttribute(attribute),
+          ),
+        if (widget.isFullVersion) _buildProductQuestionsWidget(),
+        attributesContainer,
+        ...summaryCardButtons,
+      ],
     );
   }
 
@@ -552,5 +565,15 @@ class _SummaryCardState extends State<SummaryCard> {
     _annotationVoted =
         await robotoffInsightHelper.haveInsightAnnotationsVoted(questions);
     return questions;
+  }
+
+  void _showNotImplemented(BuildContext context) {
+    final AppLocalizations localizations = AppLocalizations.of(context)!;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(localizations.not_implemented_snackbar_text),
+        duration: const Duration(seconds: 2),
+      ),
+    );
   }
 }

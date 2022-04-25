@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/cards/category_cards/abstract_cache.dart';
+import 'package:smooth_app/cards/category_cards/asset_cache_helper.dart';
 import 'package:smooth_app/cards/category_cards/raster_async_asset.dart';
 
 /// Widget that displays a png/jpeg from network (and cache while waiting).
@@ -18,8 +19,8 @@ class RasterCache extends AbstractCache {
 
   @override
   Widget build(BuildContext context) {
-    final String? fullFilename = getFullFilename();
-    if (fullFilename == null) {
+    final List<String> fullFilenames = getCachedFilenames();
+    if (fullFilenames.isEmpty) {
       return getDefaultUnknown();
     }
     return Image.network(
@@ -36,8 +37,14 @@ class RasterCache extends AbstractCache {
           return child;
         }
         return displayAssetWhileWaiting
-            ? RasterAsyncAsset(fullFilename, iconUrl!,
-                width: width, height: height)
+            ? RasterAsyncAsset(
+                AssetCacheHelper(
+                  fullFilenames,
+                  iconUrl!,
+                  width: width,
+                  height: height,
+                ),
+              )
             : getCircularProgressIndicator();
       },
     );

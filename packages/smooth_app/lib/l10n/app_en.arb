@@ -152,16 +152,16 @@
     "sign_up_page_email_hint": "E-mail",
     "sign_up_page_email_error_empty": "E-mail is required",
     "sign_up_page_email_error_invalid": "Invalid e-mail",
-    "sign_up_page_username_hint": "Username",
+    "sign_up_page_username_hint": "Username: Publicly visible",
     "sign_up_page_username_error_empty": "Please enter a username",
     "sign_up_page_username_error_invalid": "Please enter a valid username",
     "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters",
     "sign_up_page_username_length_invalid": "Username must be less than {value} characters",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
-        "value": {
-            "type": "int"
-        }
+            "value": {
+                "type": "int"
+            }
         }
     },
     "sign_up_page_password_hint": "Password",
@@ -837,7 +837,7 @@
     "completed_basic_details_btn_text": "Complete basic details",
     "not_implemented_snackbar_text": "Not implemented yet",
     "category_picker_page_appbar_text": "Categories",
-     "basic_details": "Basic Details",
+    "basic_details": "Basic Details",
     "product_name": "Product Name",
     "add_basic_details_product_name_error": "Please enter the product name",
     "brand_name": "Brand name",
