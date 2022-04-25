@@ -361,7 +361,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       );
 
   Future<bool> _showCancelPopup(AppLocalizations localizations) async {
-    if (!isEdited()) {
+    if (!_isEdited()) {
       Navigator.pop(context, true);
       return false;
     }
@@ -443,7 +443,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     }
   }
 
-  bool isEdited() {
+  bool _isEdited() {
     for (final String key in _controllers.keys) {
       final TextEditingController controller = _controllers[key]!;
       if (_nutritionContainer.getValue(key) != null) {
