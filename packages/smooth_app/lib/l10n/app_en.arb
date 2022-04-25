@@ -785,5 +785,9 @@
     },
     "completed_basic_details_btn_text": "Complete basic details",
     "not_implemented_snackbar_text": "Not implemented yet",
-    "category_picker_page_appbar_text": "Categories"
+    "category_picker_page_appbar_text": "Categories",
+    "edit_ingredients_extrait_text_tooltip": "Extract text",
+    "@edit_ingredients_extrait_text_tooltip": {
+        "description": "Tooltip displayed when the user long-presses the button"
+    }
 }

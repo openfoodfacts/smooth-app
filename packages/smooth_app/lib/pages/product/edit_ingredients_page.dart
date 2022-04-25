@@ -37,27 +37,13 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
   bool _updatingImage = false;
   bool _updatingIngredients = false;
 
-  static String _getIngredientsString(List<Ingredient>? ingredients) {
-    return ingredients == null ? '' : ingredients.join(', ');
-  }
-
   @override
   void initState() {
     super.initState();
-    _controller.text = _getIngredientsString(widget.product.ingredients);
+    _controller.text = widget.product.ingredientsText ?? '';
   }
 
-  @override
-  void didUpdateWidget(EditIngredientsPage oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    final String productIngredients =
-        _getIngredientsString(widget.product.ingredients);
-    if (productIngredients != _controller.text) {
-      _controller.text = productIngredients;
-    }
-  }
-
-  Future<void> _onSubmitField(String string) async {
+  Future<void> _onSubmitField() async {
     final User user = ProductQuery.getUser();
 
     setState(() {
@@ -65,7 +51,7 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
     });
 
     try {
-      await _updateIngredientsText(string, user);
+      await _updateIngredientsText(_controller.text, user);
     } catch (error) {
       final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
       _showError(appLocalizations.ingredients_editing_error);
@@ -76,13 +62,13 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
     });
   }
 
-  Future<void> _onTapGetImage() async {
+  Future<void> _onTapGetImage(bool isNewImage) async {
     setState(() {
       _updatingImage = true;
     });
 
     try {
-      await _getImage();
+      await _getImage(isNewImage);
     } catch (error) {
       final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
       _showError(appLocalizations.ingredients_editing_image_error);
@@ -108,26 +94,29 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
   //
   // Returns a Future that resolves successfully only if everything succeeds,
   // otherwise it will resolve with the relevant error.
-  Future<void> _getImage() async {
-    final File? croppedImageFile = await startImageCropping(context);
+  Future<void> _getImage(bool isNewImage) async {
+    bool isUploaded = true;
+    if (isNewImage) {
+      final File? croppedImageFile = await startImageCropping(context);
 
-    // If the user cancels.
-    if (croppedImageFile == null) {
-      return;
+      // If the user cancels.
+      if (croppedImageFile == null) {
+        return;
+      }
+
+      // Update the image to load the new image file.
+      setState(() {
+        _imageProvider = FileImage(croppedImageFile);
+      });
+
+      isUploaded = await uploadCapturedPicture(
+        context,
+        barcode: widget.product.barcode!,
+        imageField: ImageField.INGREDIENTS,
+        imageUri: croppedImageFile.uri,
+      );
+      croppedImageFile.delete();
     }
-
-    // Update the image to load the new image file.
-    setState(() {
-      _imageProvider = FileImage(croppedImageFile);
-    });
-
-    final bool isUploaded = await uploadCapturedPicture(
-      context,
-      barcode: widget.product.barcode!,
-      imageField: ImageField.INGREDIENTS,
-      imageUri: croppedImageFile.uri,
-    );
-    croppedImageFile.delete();
 
     if (!isUploaded) {
       throw Exception('Image could not be uploaded.');
@@ -152,8 +141,6 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
       setState(() {
         _controller.text = nextIngredients;
       });
-
-      await _updateIngredientsText(nextIngredients, user);
     }
   }
 
@@ -251,8 +238,8 @@ class _EditIngredientsBody extends StatelessWidget {
   final TextEditingController controller;
   final bool updatingIngredients;
   final String? imageIngredientsUrl;
-  final Future<void> Function() onTapGetImage;
-  final Future<void> Function(String) onSubmitField;
+  final Future<void> Function(bool) onTapGetImage;
+  final Future<void> Function() onSubmitField;
 
   @override
   Widget build(BuildContext context) {
@@ -279,37 +266,40 @@ class _EditIngredientsBody extends StatelessWidget {
                   child: _ActionButtons(
                     getImage: onTapGetImage,
                     hasImage: imageIngredientsUrl != null,
+                    confirm: onSubmitField,
                   ),
                 ),
               ),
             ),
             Flexible(
               flex: 1,
-              child: Container(
-                color: Colors.black,
-                child: Theme(
-                  data: darkTheme,
-                  child: DefaultTextStyle(
-                    style: const TextStyle(color: Colors.white),
-                    child: Padding(
-                      padding: const EdgeInsets.all(LARGE_SPACE),
-                      child: Column(
-                        children: <Widget>[
-                          TextField(
-                            enabled: !updatingIngredients,
-                            controller: controller,
-                            decoration: const InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: ANGULAR_BORDER_RADIUS,
+              child: SingleChildScrollView(
+                child: Container(
+                  color: Colors.black,
+                  child: Theme(
+                    data: darkTheme,
+                    child: DefaultTextStyle(
+                      style: const TextStyle(color: Colors.white),
+                      child: Padding(
+                        padding: const EdgeInsets.all(LARGE_SPACE),
+                        child: Column(
+                          children: <Widget>[
+                            TextField(
+                              enabled: !updatingIngredients,
+                              controller: controller,
+                              decoration: const InputDecoration(
+                                border: OutlineInputBorder(
+                                  borderRadius: ANGULAR_BORDER_RADIUS,
+                                ),
                               ),
+                              maxLines: null,
+                              textInputAction: TextInputAction.done,
+                              onSubmitted: (_) => onSubmitField,
                             ),
-                            maxLines: null,
-                            textInputAction: TextInputAction.done,
-                            onSubmitted: onSubmitField,
-                          ),
-                          Text(appLocalizations
-                              .ingredients_editing_instructions),
-                        ],
+                            Text(appLocalizations
+                                .ingredients_editing_instructions),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -329,21 +319,32 @@ class _ActionButtons extends StatelessWidget {
     Key? key,
     required this.hasImage,
     required this.getImage,
+    required this.confirm,
   }) : super(key: key);
 
   final bool hasImage;
-  final VoidCallback getImage;
+  final Future<void> Function(bool) getImage;
+  final Future<void> Function() confirm;
 
   @override
   Widget build(BuildContext context) {
     final ColorScheme colorScheme = Theme.of(context).buttonTheme.colorScheme!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final List<Widget> children = hasImage
         ? <Widget>[
+            FloatingActionButton.small(
+              tooltip: appLocalizations.edit_ingredients_extrait_text_tooltip,
+              backgroundColor: colorScheme.background,
+              foregroundColor: colorScheme.onBackground,
+              onPressed: () => getImage(false),
+              child: const Icon(Icons.document_scanner_outlined),
+            ),
+            const SizedBox(width: MEDIUM_SPACE),
             FloatingActionButton.small(
               tooltip: 'Retake photo',
               backgroundColor: colorScheme.background,
               foregroundColor: colorScheme.onBackground,
-              onPressed: getImage,
+              onPressed: () => getImage(true),
               child: const Icon(Icons.refresh),
             ),
             const SizedBox(width: MEDIUM_SPACE),
@@ -351,7 +352,8 @@ class _ActionButtons extends StatelessWidget {
               tooltip: 'Confirm',
               backgroundColor: colorScheme.primary,
               foregroundColor: colorScheme.onPrimary,
-              onPressed: () {
+              onPressed: () async {
+                await confirm();
                 Navigator.pop(context);
               },
               child: const Icon(Icons.check),
@@ -362,7 +364,7 @@ class _ActionButtons extends StatelessWidget {
               tooltip: 'Take photo',
               backgroundColor: colorScheme.background,
               foregroundColor: colorScheme.onBackground,
-              onPressed: getImage,
+              onPressed: () => getImage(true),
               child: const Icon(Icons.camera_alt),
             ),
           ];
