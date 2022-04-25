@@ -1,4 +1,5 @@
 {
+    "app_name": "Smoothie",
     "@Utils": {},
     "yes": "Ja",
     "@yes": {},
@@ -150,17 +151,33 @@
     "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
     "sign_up_page_email_hint": "E-mail",
     "sign_up_page_email_error_empty": "E-mail is required",
-    "sign_up_page_email_error_invalid": "This e-mail is invalid",
-    "sign_up_page_username_hint": "Gebruikersnaam",
+    "sign_up_page_email_error_invalid": "Ongeldig e-mailadres",
+    "sign_up_page_username_hint": "Username: Publicly visible",
     "sign_up_page_username_error_empty": "Please enter a username",
     "sign_up_page_username_error_invalid": "Please enter a valid username",
     "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters",
+    "sign_up_page_username_length_invalid": "Gebruikersnaam moet langer zijn dan {{count}} tekens",
+    "@sign_up_page_username_length_invalid": {
+        "placeholders": {
+            "value": {
+                "type": "int"
+            }
+        }
+    },
     "sign_up_page_password_hint": "Wachtwoord",
     "sign_up_page_password_error_empty": "Please enter a password",
     "sign_up_page_password_error_invalid": "Please enter a valid password (at least 6 characters)",
     "sign_up_page_confirm_password_hint": "Confirm Password",
     "sign_up_page_confirm_password_error_empty": "Please confirm the password",
     "sign_up_page_confirm_password_error_invalid": "Passwords don't match",
+    "sign_up_page_agree_text": "I agree to the Open Food Facts",
+    "@sign_up_page_agree_text": {
+        "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
+    },
+    "sign_up_page_terms_text": "terms of use and contribution",
+    "@sign_up_page_terms_text": {
+        "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
+    },
     "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
@@ -264,7 +281,7 @@
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "question_sign_in_text": "Sign in to your Open Food Facts account to claim your contribution and to increase your creditability",
+    "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contribution",
     "@Personal preferences": {},
     "myPreferences": "Mijn voorkeuren",
     "@myPreferences": {
@@ -376,12 +393,18 @@
     "@add_product_information_button_label": {},
     "new_product": "Nieuw Product",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Front of product photo",
+    "front_packaging_photo_button_label": "Product's front photo",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Confirm front of product photo",
+    "confirm_front_packaging_photo_button_label": "Confirm Product's front photo upload",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
+    "confirm_button_label": "Confirm",
+    "front_packaging_photo_title": "Front Packaging Photo",
+    "ingredients_photo_title": "Ingredients Photo",
+    "nutritional_facts_photo_title": "Nutritional Facts Photo",
+    "recycling_photo_title": "Recycling Photo",
+    "other_interesting_photo_title": "Other Interesting Photo",
     "front_photo_uploaded": "Front photo uploaded",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Ingrediënten foto",
@@ -427,6 +450,30 @@
     "uploading_image": "Uploading photo to the server",
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
+    },
+    "uploading_image_type_front": "Uploading front image to Open Food Facts",
+    "@uploading_image_type_front": {
+        "description": "Message when a new front picture is being uploaded to the server"
+    },
+    "uploading_image_type_ingredients": "Uploading ingredients image to Open Food Facts",
+    "@uploading_image_type_ingredients": {
+        "description": "Message when a new ingredients picture is being uploaded to the server"
+    },
+    "uploading_image_type_nutrition": "Uploading nutrition image to Open Food Facts",
+    "@uploading_image_type_nutrition": {
+        "description": "Message when a new nutrition picture is being uploaded to the server"
+    },
+    "uploading_image_type_packaging": "Uploading packaging image to Open Food Facts",
+    "@uploading_image_type_packaging": {
+        "description": "Message when a new packaging picture is being uploaded to the server"
+    },
+    "uploading_image_type_other": "Uploading other image to Open Food Facts",
+    "@uploading_image_type_other": {
+        "description": "Message when a new other picture is being uploaded to the server"
+    },
+    "uploading_image_type_generic": "Uploading image to Open Food Facts",
+    "@uploading_image_type_generic": {
+        "description": "Message when a new picture is being uploaded to the server"
     },
     "score_add_missing_ingredients": "Add missing ingredients",
     "score_add_missing_nutrition_facts": "Add missing nutrition facts",
@@ -611,7 +658,7 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide if you want to send anonymous analytics.",
+    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide whether to submit anonymous analytics.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
@@ -648,11 +695,11 @@
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
-    "product_list_empty_title": "Start scanning !",
+    "product_list_empty_title": "Start scanning!",
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
-    "product_list_empty_message": "Products you scan will appear here and you can check detailed information about them",
+    "product_list_empty_message": "Scanned products will appear here and you can check detailed information about them",
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
@@ -693,7 +740,7 @@
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "When enabled, crash reports will be sent to the Open Food Facts bug system automatically, so that we can fix bugs and improve the app.",
+    "crash_reporting_toggle_subtitle": "When enabled, crash reports are automatically submitted to Open Food Facts' error tracking system, so that bugs can be fixed and thus improve the app.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
@@ -713,6 +760,24 @@
     "@permission_photo_error": {
         "description": "When the camera/photo permission failed to be acquired (!= denied)"
     },
+    "permission_photo_denied_title": "Allow camera use to scan barcodes",
+    "permission_photo_denied_message": "For an enhanced experience, please allow {appName} to access your camera. You will be able to directly scan barcodes.",
+    "@permission_photo_denied_message": {
+        "description": "When the camera/photo permission is denied by user",
+        "placeholders": {
+            "appName": {
+                "type": "String"
+            }
+        }
+    },
+    "permission_photo_denied_button": "Allow",
+    "@permission_photo_denied_button": {
+        "description": "When the camera/photo permission is denied by user"
+    },
+    "permission_photo_denied_dialog_settings_title": "Permission denied",
+    "permission_photo_denied_dialog_settings_message": "As you've previously denied the camera permission, you must allow it manually from the Settings.",
+    "permission_photo_denied_dialog_settings_button_open": "Open instellingen",
+    "permission_photo_denied_dialog_settings_button_cancel": "Annuleer",
     "permission_photo_denied": "No camera access granted",
     "@permission_photo_denied": {
         "description": "When the camera/photo permission is denied by user"
@@ -768,5 +833,8 @@
     "edit_product_form_save": "Bewerken",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
-    }
+    },
+    "completed_basic_details_btn_text": "Complete basic details",
+    "not_implemented_snackbar_text": "Not implemented yet",
+    "category_picker_page_appbar_text": "Categorieën"
 }

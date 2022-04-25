@@ -1,4 +1,5 @@
 {
+    "app_name": "Smoothie",
     "@Utils": {},
     "yes": "Ja",
     "@yes": {},
@@ -151,16 +152,32 @@
     "sign_up_page_email_hint": "E-mail",
     "sign_up_page_email_error_empty": "E-mail er obligatorisk",
     "sign_up_page_email_error_invalid": "Ugyldig e-mail",
-    "sign_up_page_username_hint": "Brugernavn",
+    "sign_up_page_username_hint": "Username: Publicly visible",
     "sign_up_page_username_error_empty": "Indtast et brugernavn",
     "sign_up_page_username_error_invalid": "Angiv et gyldigt brugernavn",
     "sign_up_page_username_description": "Brugernavn må ikke indeholde mellemrum, versaler eller specialtegn",
+    "sign_up_page_username_length_invalid": "Brugernavn må ikke overstige {value} tegn",
+    "@sign_up_page_username_length_invalid": {
+        "placeholders": {
+            "value": {
+                "type": "int"
+            }
+        }
+    },
     "sign_up_page_password_hint": "Adgangskode",
     "sign_up_page_password_error_empty": "Angiv adgangskode",
     "sign_up_page_password_error_invalid": "Angiv en gyldig adgangskode (mindst 6 tegn)",
     "sign_up_page_confirm_password_hint": "Bekræft adgangskode",
     "sign_up_page_confirm_password_error_empty": "Bekræft adgangskoden",
     "sign_up_page_confirm_password_error_invalid": "Adgangskoder matcher ikke",
+    "sign_up_page_agree_text": "Jeg accepterer Open Food Facts'",
+    "@sign_up_page_agree_text": {
+        "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
+    },
+    "sign_up_page_terms_text": "vilkår for brug og bidrag",
+    "@sign_up_page_terms_text": {
+        "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
+    },
     "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
@@ -264,7 +281,7 @@
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "question_sign_in_text": "Sign in to your Open Food Facts account to claim your contribution and to increase your creditability",
+    "question_sign_in_text": "Log ind på Open Food Facts-kontoen for at gemme bidrag",
     "@Personal preferences": {},
     "myPreferences": "Mine præferencer",
     "@myPreferences": {
@@ -376,12 +393,18 @@
     "@add_product_information_button_label": {},
     "new_product": "Nyt produkt",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Forsidefoto af produkt",
+    "front_packaging_photo_button_label": "Produktforsidefoto",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Bekræft forsidefoto af produkt",
+    "confirm_front_packaging_photo_button_label": "Bekræft upload af Produktforsidefoto",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
+    "confirm_button_label": "Bekræft",
+    "front_packaging_photo_title": "Emballageforsidefoto",
+    "ingredients_photo_title": "Ingrediensfoto",
+    "nutritional_facts_photo_title": "Næringsfaktafoto",
+    "recycling_photo_title": "Genbrugsfoto",
+    "other_interesting_photo_title": "Øvrige interessante fotos",
     "front_photo_uploaded": "Forsidefoto uploadet",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Ingrediensfoto",
@@ -427,6 +450,30 @@
     "uploading_image": "Uploader foto til server",
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
+    },
+    "uploading_image_type_front": "Uploader forsidefoto til OFF",
+    "@uploading_image_type_front": {
+        "description": "Message when a new front picture is being uploaded to the server"
+    },
+    "uploading_image_type_ingredients": "Uploader ingrediensfoto til Open Food Facts",
+    "@uploading_image_type_ingredients": {
+        "description": "Message when a new ingredients picture is being uploaded to the server"
+    },
+    "uploading_image_type_nutrition": "Uploader ernæringsfoto til Open Food Facts",
+    "@uploading_image_type_nutrition": {
+        "description": "Message when a new nutrition picture is being uploaded to the server"
+    },
+    "uploading_image_type_packaging": "Uploader emballagefoto til Open Food Facts",
+    "@uploading_image_type_packaging": {
+        "description": "Message when a new packaging picture is being uploaded to the server"
+    },
+    "uploading_image_type_other": "Uploader andet foto til Open Food Facts",
+    "@uploading_image_type_other": {
+        "description": "Message when a new other picture is being uploaded to the server"
+    },
+    "uploading_image_type_generic": "Uploader foto til Open Food Facts",
+    "@uploading_image_type_generic": {
+        "description": "Message when a new picture is being uploaded to the server"
     },
     "score_add_missing_ingredients": "Tilføj manglende ingredienser",
     "score_add_missing_nutrition_facts": "Tilføj manglende ernæringsfakta",
@@ -652,7 +699,7 @@
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
-    "product_list_empty_message": "Indskannede produkt vises her, hvor deres detaljerede oplysninger kan tjekkes",
+    "product_list_empty_message": "Indskannede produkter vises her, hvor deres detaljerede oplysninger kan tjekkes",
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
@@ -713,6 +760,24 @@
     "@permission_photo_error": {
         "description": "When the camera/photo permission failed to be acquired (!= denied)"
     },
+    "permission_photo_denied_title": "Tillad kameraadgang for stregkodeskanning",
+    "permission_photo_denied_message": "Giv {appName} adgang til kameraet. Det vil forbedre brugeroplevelsen, da dette muliggør direkte stregkodeskanning.",
+    "@permission_photo_denied_message": {
+        "description": "When the camera/photo permission is denied by user",
+        "placeholders": {
+            "appName": {
+                "type": "String"
+            }
+        }
+    },
+    "permission_photo_denied_button": "Tillad",
+    "@permission_photo_denied_button": {
+        "description": "When the camera/photo permission is denied by user"
+    },
+    "permission_photo_denied_dialog_settings_title": "Tilladelse nægtet",
+    "permission_photo_denied_dialog_settings_message": "Da kameraadgang tidligere blev nægtet, skal tilladelsen gives manuelt via Indstillinger.",
+    "permission_photo_denied_dialog_settings_button_open": "Åbn indstillinger",
+    "permission_photo_denied_dialog_settings_button_cancel": "Annullér",
     "permission_photo_denied": "Ingen kameraadgang tildelt",
     "@permission_photo_denied": {
         "description": "When the camera/photo permission is denied by user"
@@ -768,5 +833,8 @@
     "edit_product_form_save": "Redigér",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
-    }
+    },
+    "completed_basic_details_btn_text": "Udfyld basisoplysninger",
+    "not_implemented_snackbar_text": "Endnu ikke implementeret",
+    "category_picker_page_appbar_text": "Kategorier"
 }

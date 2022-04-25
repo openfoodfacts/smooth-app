@@ -63,8 +63,9 @@ class ProductRefresher {
         language: ProductQuery.getLanguage(),
         country: ProductQuery.getCountry(),
       );
-      final ProductResult result =
-          await OpenFoodAPIClient.getProduct(configuration);
+      final ProductResult result = await OpenFoodAPIClient.getProduct(
+        configuration,
+      );
       if (result.product != null) {
         await DaoProduct(localDatabase).put(result.product!);
         return true;

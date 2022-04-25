@@ -17,12 +17,14 @@ class LoadingDialog<T> {
     required final BuildContext context,
     required final Future<T> future,
     final String? title,
+    final bool? dismissible,
   }) {
     final AppLocalizations? appLocalizations = AppLocalizations.of(context);
     return LoadingDialog<T>._()._run(
       context: context,
       future: future,
       title: title ?? appLocalizations!.loading_dialog_default_title,
+      dismissible: dismissible ?? true,
     );
   }
 
@@ -48,7 +50,7 @@ class LoadingDialog<T> {
             actions: <SmoothActionButton>[
               SmoothActionButton(
                 text: appLocalizations!.close,
-                onPressed: () => Navigator.pop(context),
+                onPressed: () => Navigator.maybePop(context),
               ),
             ],
           );
@@ -60,15 +62,13 @@ class LoadingDialog<T> {
     required final BuildContext context,
     required final Future<T> future,
     required final String title,
+    final bool? dismissible,
   }) async =>
       showDialog<T>(
+        barrierDismissible: dismissible ?? true,
         context: context,
         builder: (BuildContext context) {
-          future.then<void>(
-            (final T value) => _popDialog(context, value),
-          );
-          // TODO(monsieurtanuki): is that safe? If the future finishes before the "return" call?
-          return _getDialog(context, title);
+          return _getDialog(context, title, future);
         },
       );
 
@@ -86,12 +86,27 @@ class LoadingDialog<T> {
   Widget _getDialog(
     final BuildContext context,
     final String title,
+    final Future<T> future,
   ) {
     final AppLocalizations? appLocalizations = AppLocalizations.of(context);
     return SmoothAlertDialog(
-      body: ListTile(
-        leading: const CircularProgressIndicator(),
-        title: Text(title),
+      body: FutureBuilder<T>(
+        future: future,
+        builder: (BuildContext context, AsyncSnapshot<T> snapshot) {
+          if (snapshot.hasData) {
+            _popDialog(context, snapshot.data);
+            return Container();
+          } else if (snapshot.hasError) {
+            return ListTile(
+              title: Text(appLocalizations!.error_occurred),
+            );
+          } else {
+            return ListTile(
+              leading: const CircularProgressIndicator(),
+              title: Text(title),
+            );
+          }
+        },
       ),
       actions: <SmoothActionButton>[
         SmoothActionButton(

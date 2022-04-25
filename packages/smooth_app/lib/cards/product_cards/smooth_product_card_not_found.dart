@@ -25,7 +25,7 @@ class SmoothProductCardNotFound extends StatelessWidget {
         elevation: elevation,
         child: Padding(
           padding: EdgeInsets.symmetric(
-            vertical: constraints.maxHeight * 0.25,
+            vertical: constraints.maxHeight * 0.10,
             horizontal: constraints.maxWidth * 0.05,
           ),
           child: Column(
