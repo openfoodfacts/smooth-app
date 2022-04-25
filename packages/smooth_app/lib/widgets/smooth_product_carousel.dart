@@ -54,7 +54,7 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
       } else if (_model.latestConsultedBarcode != null &&
           _model.latestConsultedBarcode!.isNotEmpty) {
         final int indexBarcode =
-            barcodes.indexOf(_model.latestConsultedBarcode ?? '');
+            barcodes.indexOf(_model.latestConsultedBarcode!);
         final int indexCarousel = indexBarcode + _searchCardAdjustment;
         _controller.animateToPage(indexCarousel);
       } else {
