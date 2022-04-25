@@ -360,28 +360,33 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         label: Text(appLocalizations.nutrition_page_add_nutrient),
       );
 
-  Future<bool> _showCancelPopup(AppLocalizations localizations) async =>
-      await showDialog<bool>(
-        context: context,
-        builder: (BuildContext context) => AlertDialog(
-          shape: const RoundedRectangleBorder(
-            borderRadius: ROUNDED_BORDER_RADIUS,
+  Future<bool> _showCancelPopup(AppLocalizations localizations) async {
+    if (!isEdited()) {
+      Navigator.pop(context, true);
+      return false;
+    }
+    return await showDialog<bool>(
+          context: context,
+          builder: (BuildContext context) => AlertDialog(
+            shape: const RoundedRectangleBorder(
+              borderRadius: ROUNDED_BORDER_RADIUS,
+            ),
+            title: Text(localizations.general_confirmation),
+            content: Text(localizations.nutrition_page_close_confirmation),
+            actions: <TextButton>[
+              TextButton(
+                child: Text(localizations.cancel.toUpperCase()),
+                onPressed: () => Navigator.pop(context, false),
+              ),
+              TextButton(
+                child: Text(localizations.close.toUpperCase()),
+                onPressed: () => Navigator.pop(context, true),
+              ),
+            ],
           ),
-          title: Text(localizations.general_confirmation),
-          content: Text(localizations.nutrition_page_close_confirmation),
-          actions: <TextButton>[
-            TextButton(
-              child: Text(localizations.cancel.toUpperCase()),
-              onPressed: () => Navigator.pop(context, false),
-            ),
-            TextButton(
-              child: Text(localizations.close.toUpperCase()),
-              onPressed: () => Navigator.pop(context, true),
-            ),
-          ],
-        ),
-      ) ??
-      false;
+        ) ??
+        false;
+  }
 
   Future<void> _validateAndSave(final AppLocalizations localizations,
       final LocalDatabase localDatabase) async {
@@ -436,5 +441,18 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     if (savedAndRefreshed) {
       Navigator.of(context).pop(true);
     }
+  }
+
+  bool isEdited() {
+    for (final String key in _controllers.keys) {
+      final TextEditingController controller = _controllers[key]!;
+      if (_nutritionContainer.getValue(key) != null) {
+        if (_numberFormat.format(_nutritionContainer.getValue(key)) !=
+            controller.value.text) {
+          return true;
+        }
+      }
+    }
+    return false;
   }
 }
