@@ -290,7 +290,7 @@ class _ProductPageState extends State<ProductPage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
+          children: <Widget>[
             _buildActionBarItem(
               Icons.bookmark_border,
               'Add to list', // TODO(monsieurtanuki): localize
