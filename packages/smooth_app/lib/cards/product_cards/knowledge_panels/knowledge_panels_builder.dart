@@ -151,7 +151,6 @@ class KnowledgePanelsBuilder {
                 MaterialPageRoute<bool>(
                   builder: (BuildContext context) => EditIngredientsPage(
                     product: product,
-                    imageIngredientsUrl: product.imageIngredientsUrl,
                     refreshProductCallback: refreshProductCallback,
                   ),
                 ),
