@@ -152,7 +152,7 @@
     "sign_up_page_email_hint": "דוא״ל",
     "sign_up_page_email_error_empty": "צריך דוא״ל",
     "sign_up_page_email_error_invalid": "דוא״ל שגוי",
-    "sign_up_page_username_hint": "Username: Publicly visible",
+    "sign_up_page_username_hint": "שם משתמש: גלוי לציבור",
     "sign_up_page_username_error_empty": "נא למלא שם משתמש",
     "sign_up_page_username_error_invalid": "נא למלא שם משתמש תקף",
     "sign_up_page_username_description": "שם המשתמש לא יכול להכיל רווחים, רישיות או תווים מיוחדים",

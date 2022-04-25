@@ -567,7 +567,7 @@
     "no_prodcut_in_list": "لا يوجد منتج في هذه القائمة",
     "no_product_in_section": "لا يوجد منتج في هذا القسم",
     "recently_seen_products": "السجل",
-    "clear": "محو",
+    "clear": "G",
     "@clear": {
         "description": "Clears a product list"
     },
