@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
+import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:provider/provider.dart';
@@ -25,6 +26,8 @@ import 'package:smooth_app/helpers/smooth_matched_product.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/question_page.dart';
+
+import '../../cards/product_cards/knowledge_panels/knowledge_panel_full_loading_page.dart';
 
 const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS,
@@ -74,10 +77,7 @@ class _SummaryCardState extends State<SummaryCard> {
   final Set<String> _attributesToExcludeIfStatusIsUnknown = <String>{};
   bool _annotationVoted = false;
 
-  @override
-  void initState() {
-    super.initState();
-  }
+  KnowledgePanels? knowledgePanels;
 
   @override
   Widget build(BuildContext context) {
@@ -388,17 +388,38 @@ class _SummaryCardState extends State<SummaryCard> {
       return null;
     }
     return LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints constraints) {
-      return SizedBox(
-          width: constraints.maxWidth / 2,
-          child: Row(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        return InkWell(
+          enableFeedback: widget.isFullVersion,
+          onTap: () async {
+            if (!widget.isFullVersion || attribute.panelId == null) {
+              return;
+            }
+
+            Navigator.push<Widget>(
+              context,
+              MaterialPageRoute<Widget>(
+                builder: (BuildContext context) =>
+                    KnowledgePanelFullLoadingPage(
+                  panelId: attribute.panelId!,
+                ),
+              ),
+            );
+          },
+          child: SizedBox(
+            width: constraints.maxWidth / 2,
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 attributeIcon,
                 Expanded(child: Text(attributeDisplayTitle).selectable()),
-              ]));
-    });
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
 
   /// Returns the mandatory attributes, ordered by attribute group order

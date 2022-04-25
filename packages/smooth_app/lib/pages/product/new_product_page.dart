@@ -4,7 +4,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panels_builder.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/data_models/product_list.dart';
@@ -21,7 +20,7 @@ import 'package:smooth_app/pages/product/category_cache.dart';
 import 'package:smooth_app/pages/product/category_picker_page.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/edit_product_page.dart';
-import 'package:smooth_app/pages/product/knowledge_panel_product_cards.dart';
+import 'package:smooth_app/pages/product/product_knowledge_panels.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
 import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
@@ -35,8 +34,6 @@ class ProductPage extends StatefulWidget {
   @override
   State<ProductPage> createState() => _ProductPageState();
 }
-
-enum ProductPageMenuItem { WEB, REFRESH }
 
 class _ProductPageState extends State<ProductPage> {
   late Product _product;
@@ -60,28 +57,33 @@ class _ProductPageState extends State<ProductPage> {
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
     final MaterialColor materialColor = SmoothTheme.getMaterialColor(context);
-    return Scaffold(
-      backgroundColor: SmoothTheme.getColor(
-        colorScheme,
-        materialColor,
-        ColorDestination.SURFACE_BACKGROUND,
-      ),
-      floatingActionButton: scrollingUp
-          ? FloatingActionButton(
-              backgroundColor: colorScheme.primary,
-              onPressed: () {
-                Navigator.maybePop(context);
-              },
-              child: Icon(
-                ConstantIcons.instance.getBackIcon(),
-                color: Colors.white,
-              ),
-            )
-          : null,
-      floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
-      body: Stack(
-        children: <Widget>[
-          NotificationListener<UserScrollNotification>(
+    return FutureProvider<KnowledgePanels?>(
+      initialData: null,
+      create: (_) => KnowledgePanelsQuery(
+        barcode: _product.barcode!,
+      ).getKnowledgePanels(),
+      child: Scaffold(
+        backgroundColor: SmoothTheme.getColor(
+          colorScheme,
+          materialColor,
+          ColorDestination.SURFACE_BACKGROUND,
+        ),
+        floatingActionButton: scrollingUp
+            ? FloatingActionButton(
+                backgroundColor: colorScheme.primary,
+                onPressed: () {
+                  Navigator.maybePop(context);
+                },
+                child: Icon(
+                  ConstantIcons.instance.getBackIcon(),
+                  color: Colors.white,
+                ),
+              )
+            : null,
+        floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
+        body: Stack(
+          children: <Widget>[
+            NotificationListener<UserScrollNotification>(
               onNotification: (UserScrollNotification notification) {
                 if (notification.direction == ScrollDirection.forward) {
                   if (!scrollingUp) {
@@ -98,8 +100,10 @@ class _ProductPageState extends State<ProductPage> {
                 }
                 return true;
               },
-              child: _buildProductBody(context)),
-        ],
+              child: _buildProductBody(context),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -167,7 +171,10 @@ class _ProductPageState extends State<ProductPage> {
             ),
           ),
         ),
-        _buildKnowledgePanelCards(),
+        ProductPageKnowledgePanels(
+          product: _product,
+          setState: setState,
+        ),
         Padding(
           padding: const EdgeInsets.all(SMALL_SPACE),
           child: SmoothActionButton(
@@ -227,56 +234,9 @@ class _ProductPageState extends State<ProductPage> {
                 setState(() {});
               }
             },
-            child: const Text('Additional Button'),
+            child: const Text('Additional Button (CategoryPicker)'),
           ),
       ]),
-    );
-  }
-
-  FutureBuilder<KnowledgePanels> _buildKnowledgePanelCards() {
-    // Note that this will make a new request on every rebuild.
-    // TODO(jasmeet): Avoid additional requests on rebuilds.
-    final Future<KnowledgePanels> knowledgePanels = KnowledgePanelsQuery(
-      barcode: _product.barcode!,
-    ).getKnowledgePanels();
-    return FutureBuilder<KnowledgePanels>(
-        future: knowledgePanels,
-        builder:
-            (BuildContext context, AsyncSnapshot<KnowledgePanels> snapshot) {
-          List<Widget> knowledgePanelWidgets = <Widget>[];
-          if (snapshot.hasData) {
-            // Render all KnowledgePanels
-            knowledgePanelWidgets =
-                KnowledgePanelsBuilder(setState: () => setState(() {}))
-                    .buildAll(
-              snapshot.data!,
-              context: context,
-              product: _product,
-            );
-          } else if (snapshot.hasError) {
-            // TODO(jasmeet): Retry the request.
-            // Do nothing for now.
-          } else {
-            // Query results not available yet.
-            knowledgePanelWidgets = <Widget>[_buildLoadingWidget()];
-          }
-          return KnowledgePanelProductCards(knowledgePanelWidgets);
-        });
-  }
-
-  Widget _buildLoadingWidget() {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: const <Widget>[
-          SizedBox(
-            child: CircularProgressIndicator(),
-            width: 60,
-            height: 60,
-          ),
-        ],
-      ),
     );
   }
 }
