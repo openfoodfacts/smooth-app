@@ -17,10 +17,16 @@ import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
 ///
 /// Panels display large data like all health data or environment data.
 class KnowledgePanelsBuilder {
-  const KnowledgePanelsBuilder({this.setState});
+  const KnowledgePanelsBuilder({
+    this.setState,
+    this.refreshProductCallback,
+  });
 
   /// Would for instance refresh the product page.
   final VoidCallback? setState;
+
+  /// Callback to refresh the product when necessary.
+  final Function(BuildContext)? refreshProductCallback;
 
   /// Builds all panels.
   ///
@@ -138,18 +144,19 @@ class KnowledgePanelsBuilder {
           // When the flag is removed, this should be the following:
           // if (product.statesTags?.contains('en:ingredients-to-be-completed') ?? false) {
           knowledgePanelElementWidgets.add(
-            addPanelButton(
-              appLocalizations.score_add_missing_ingredients,
-              onPressed: () async => Navigator.push<Widget>(
+            addPanelButton(appLocalizations.score_add_missing_ingredients,
+                onPressed: () async {
+              await Navigator.push<bool>(
                 context,
-                MaterialPageRoute<Widget>(
+                MaterialPageRoute<bool>(
                   builder: (BuildContext context) => EditIngredientsPage(
                     product: product,
                     imageIngredientsUrl: product.imageIngredientsUrl,
+                    refreshProductCallback: refreshProductCallback,
                   ),
                 ),
-              ),
-            ),
+              );
+            }),
           );
         }
       }

@@ -8,12 +8,11 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Page for editing the ingredients of a product and the image of the
 /// ingredients.
@@ -22,10 +21,12 @@ class EditIngredientsPage extends StatefulWidget {
     Key? key,
     this.imageIngredientsUrl,
     required this.product,
+    this.refreshProductCallback,
   }) : super(key: key);
 
   final Product product;
   final String? imageIngredientsUrl;
+  final Function(BuildContext)? refreshProductCallback;
 
   @override
   State<EditIngredientsPage> createState() => _EditIngredientsPageState();
@@ -115,6 +116,7 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
         imageField: ImageField.INGREDIENTS,
         imageUri: croppedImageFile.uri,
       );
+
       croppedImageFile.delete();
     }
 
@@ -152,6 +154,9 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
       localDatabase: localDatabase,
       product: widget.product,
     );
+    if (savedAndRefreshed) {
+      await widget.refreshProductCallback?.call(context);
+    }
     if (!savedAndRefreshed) {
       throw Exception("Couldn't save the product.");
     }
@@ -174,7 +179,8 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
       if (widget.imageIngredientsUrl != null) {
         children.add(ConstrainedBox(
           constraints: const BoxConstraints.expand(),
-          child: _buildZoomableImage(NetworkImage(widget.imageIngredientsUrl!)),
+          child: _buildZoomableImage(
+              NetworkImage(widget.product.imageIngredientsUrl!)),
         ));
       } else {
         children.add(Container(color: Colors.white));
@@ -188,7 +194,7 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
     } else {
       children.add(_EditIngredientsBody(
         controller: _controller,
-        imageIngredientsUrl: widget.imageIngredientsUrl,
+        imageIngredientsUrl: widget.product.imageIngredientsUrl,
         onTapGetImage: _onTapGetImage,
         onSubmitField: _onSubmitField,
         updatingIngredients: _updatingIngredients,
@@ -243,135 +249,85 @@ class _EditIngredientsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
-    final ThemeData darkTheme = SmoothTheme.getThemeData(
-      Brightness.dark,
-      themeProvider.colorTag,
-    );
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
 
     return Align(
       alignment: Alignment.bottomLeft,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
-            Flexible(
-              flex: 1,
-              child: Align(
-                alignment: Alignment.bottomRight,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          Flexible(
+            flex: 1,
+            child: Align(
+              alignment: Alignment.bottomRight,
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    bottom: LARGE_SPACE, right: SMALL_SPACE),
+                child: SmoothActionButton(
+                  text:
+                      appLocalizations.edit_ingredients_refresh_photo_btn_text,
+                  onPressed: () => onTapGetImage(true),
+                ),
+              ),
+            ),
+          ),
+          Flexible(
+            flex: 1,
+            child: SingleChildScrollView(
+              child: Container(
+                color: Theme.of(context).colorScheme.background,
                 child: Padding(
-                  padding: const EdgeInsets.only(bottom: LARGE_SPACE),
-                  child: _ActionButtons(
-                    getImage: onTapGetImage,
-                    hasImage: imageIngredientsUrl != null,
-                    confirm: onSubmitField,
-                  ),
-                ),
-              ),
-            ),
-            Flexible(
-              flex: 1,
-              child: SingleChildScrollView(
-                child: Container(
-                  color: Colors.black,
-                  child: Theme(
-                    data: darkTheme,
-                    child: DefaultTextStyle(
-                      style: const TextStyle(color: Colors.white),
-                      child: Padding(
-                        padding: const EdgeInsets.all(LARGE_SPACE),
-                        child: Column(
-                          children: <Widget>[
-                            TextField(
-                              enabled: !updatingIngredients,
-                              controller: controller,
-                              decoration: const InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderRadius: ANGULAR_BORDER_RADIUS,
-                                ),
-                              ),
-                              maxLines: null,
-                              textInputAction: TextInputAction.done,
-                              onSubmitted: (_) => onSubmitField,
-                            ),
-                            Text(appLocalizations
-                                .ingredients_editing_instructions),
-                          ],
-                        ),
+                  padding: const EdgeInsets.all(LARGE_SPACE),
+                  child: Column(
+                    children: <Widget>[
+                      SmoothActionButton(
+                        text: appLocalizations
+                            .edit_ingredients_extrait_ingredients_btn_text,
+                        onPressed: () => onTapGetImage(false),
                       ),
-                    ),
+                      const SizedBox(height: MEDIUM_SPACE),
+                      TextField(
+                        enabled: !updatingIngredients,
+                        controller: controller,
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: ANGULAR_BORDER_RADIUS,
+                          ),
+                        ),
+                        maxLines: null,
+                        textInputAction: TextInputAction.done,
+                        onSubmitted: (_) => onSubmitField,
+                      ),
+                      Text(appLocalizations.ingredients_editing_instructions,
+                          style: Theme.of(context).textTheme.caption),
+                      const SizedBox(height: MEDIUM_SPACE),
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            SmoothActionButton(
+                              text: appLocalizations.cancel,
+                              onPressed: () {
+                                Navigator.pop(context, false);
+                              },
+                            ),
+                            const SizedBox(width: LARGE_SPACE),
+                            SmoothActionButton(
+                              text: appLocalizations.save,
+                              onPressed: () async {
+                                await onSubmitField();
+                                Navigator.pop(context, true);
+                              },
+                            ),
+                          ]),
+                      const SizedBox(height: MEDIUM_SPACE),
+                    ],
                   ),
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
-    );
-  }
-}
-
-/// The actions for the page in a row of FloatingActionButtons.
-class _ActionButtons extends StatelessWidget {
-  const _ActionButtons({
-    Key? key,
-    required this.hasImage,
-    required this.getImage,
-    required this.confirm,
-  }) : super(key: key);
-
-  final bool hasImage;
-  final Future<void> Function(bool) getImage;
-  final Future<void> Function() confirm;
-
-  @override
-  Widget build(BuildContext context) {
-    final ColorScheme colorScheme = Theme.of(context).buttonTheme.colorScheme!;
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-    final List<Widget> children = hasImage
-        ? <Widget>[
-            FloatingActionButton.small(
-              tooltip: appLocalizations.edit_ingredients_extrait_text_tooltip,
-              backgroundColor: colorScheme.background,
-              foregroundColor: colorScheme.onBackground,
-              onPressed: () => getImage(false),
-              child: const Icon(Icons.document_scanner_outlined),
-            ),
-            const SizedBox(width: MEDIUM_SPACE),
-            FloatingActionButton.small(
-              tooltip: 'Retake photo',
-              backgroundColor: colorScheme.background,
-              foregroundColor: colorScheme.onBackground,
-              onPressed: () => getImage(true),
-              child: const Icon(Icons.refresh),
-            ),
-            const SizedBox(width: MEDIUM_SPACE),
-            FloatingActionButton.small(
-              tooltip: 'Confirm',
-              backgroundColor: colorScheme.primary,
-              foregroundColor: colorScheme.onPrimary,
-              onPressed: () async {
-                await confirm();
-                Navigator.pop(context);
-              },
-              child: const Icon(Icons.check),
-            ),
-          ]
-        : <Widget>[
-            FloatingActionButton.small(
-              tooltip: 'Take photo',
-              backgroundColor: colorScheme.background,
-              foregroundColor: colorScheme.onBackground,
-              onPressed: () => getImage(true),
-              child: const Icon(Icons.camera_alt),
-            ),
-          ];
-
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: children,
     );
   }
 }
