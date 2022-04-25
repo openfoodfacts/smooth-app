@@ -14,6 +14,7 @@ import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
+import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 
 class ProductListPage extends StatefulWidget {
   const ProductListPage(this.productList);
@@ -46,6 +47,7 @@ class _ProductListPageState extends State<ProductListPage> {
     switch (productList.listType) {
       case ProductListType.SCAN_SESSION:
       case ProductListType.HISTORY:
+      case ProductListType.USER:
         dismissible = productList.barcodes.isNotEmpty;
         break;
       case ProductListType.HTTP_SEARCH_CATEGORY:
@@ -57,6 +59,42 @@ class _ProductListPageState extends State<ProductListPage> {
         elevation: 0,
         backgroundColor: colorScheme.background,
         foregroundColor: colorScheme.onBackground,
+        actions: _selectionMode
+            ? null
+            : <Widget>[
+                PopupMenuButton<String>(
+                  onSelected: (final String action) async {
+                    switch (action) {
+                      case 'clear':
+                        await daoProductList.clear(productList);
+                        await daoProductList.get(productList);
+                        setState(() {});
+                        break;
+                      case 'rename':
+                        final ProductList? renamedProductList =
+                            await ProductListUserDialogHelper(daoProductList)
+                                .showRename(context, productList);
+                        if (renamedProductList == null) {
+                          return;
+                        }
+                        setState(() => productList = renamedProductList);
+                        break;
+                    }
+                  },
+                  itemBuilder: (BuildContext context) =>
+                      <PopupMenuEntry<String>>[
+                    const PopupMenuItem<String>(
+                      value: 'clear',
+                      child: Text('Clear'), // TODO(monsieurtanuki): localize
+                    ),
+                    if (productList.listType == ProductListType.USER)
+                      const PopupMenuItem<String>(
+                        value: 'rename',
+                        child: Text('Rename'), // TODO(monsieurtanuki): localize
+                      ),
+                  ],
+                )
+              ],
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
@@ -116,7 +154,9 @@ class _ProductListPageState extends State<ProductListPage> {
           ],
         ),
       ),
-      body: products.isEmpty
+      body: products.isEmpty &&
+              (productList.listType == ProductListType.HISTORY ||
+                  productList.listType == ProductListType.SCAN_SESSION)
           ? Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
