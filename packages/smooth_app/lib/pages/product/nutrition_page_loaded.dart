@@ -362,8 +362,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
 
   Future<bool> _showCancelPopup(AppLocalizations localizations) async {
     if (!_isEdited()) {
-      Navigator.pop(context, true);
-      return false;
+      return true;
     }
     return await showDialog<bool>(
           context: context,
