@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/helpers/extension_on_text_helper.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
 
 class ProductTitleCard extends StatelessWidget {
   const ProductTitleCard(this.product, this.isSelectable, {this.dense = false});
@@ -20,7 +21,7 @@ class ProductTitleCard extends StatelessWidget {
         dense: dense,
         contentPadding: EdgeInsets.zero,
         title: Text(
-          _getProductName(appLocalizations),
+          getProductName(product, appLocalizations),
           style: themeData.textTheme.headline4,
         ).selectable(isSelectable: isSelectable),
         subtitle: Text(product.brands ?? appLocalizations.unknownBrand),
@@ -31,7 +32,4 @@ class ProductTitleCard extends StatelessWidget {
       ),
     );
   }
-
-  String _getProductName(final AppLocalizations appLocalizations) =>
-      product.productName ?? appLocalizations.unknownProductName;
 }
