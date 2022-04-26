@@ -133,8 +133,7 @@ Widget build(BuildContext context) {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: &lt;Widget&gt;[
                     Text(
-                      product.productName ??
-                          appLocalizations.unknownProductName,
+                      getProductName(product, appLocalizations),
                       overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.headline4,
                     ),

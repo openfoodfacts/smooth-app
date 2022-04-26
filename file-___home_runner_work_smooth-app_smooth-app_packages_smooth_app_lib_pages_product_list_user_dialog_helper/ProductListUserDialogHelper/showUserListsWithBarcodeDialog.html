@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the showUserListsWithBarcodeDialog method from the ProductListUserDialogHelper class, for the Dart programming language.">
+  <title>showUserListsWithBarcodeDialog method - ProductListUserDialogHelper class - product_list_user_dialog_helper library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_list_user_dialog_helper/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_list_user_dialog_helper-library.html">product_list_user_dialog_helper</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_list_user_dialog_helper/ProductListUserDialogHelper-class.html">ProductListUserDialogHelper</a></li>
+    <li class="self-crumb">showUserListsWithBarcodeDialog method</li>
+  </ol>
+  <div class="self-name">showUserListsWithBarcodeDialog</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">showUserListsWithBarcodeDialog</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>&gt;</span></span>
+<span class="name ">showUserListsWithBarcodeDialog</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="showUserListsWithBarcodeDialog-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span>, </span></li>
+<li><span class="parameter" id="showUserListsWithBarcodeDialog-param-product"><span class="type-annotation">dynamic</span> <span class="parameter-name">product</span></span></li>
+</ol>)
+
+      
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Shows all user lists with "contains <code>barcode</code>?" checkboxes.</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Future&lt;bool&gt; showUserListsWithBarcodeDialog(
+  final BuildContext context,
+  final Product product,
+) async {
+  final String barcode = product.barcode!;
+  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+  final List&lt;String&gt; all = daoProductList.getUserLists();
+  final List&lt;String&gt; withBarcode =
+      daoProductList.getUserLists(withBarcode: barcode);
+  final Set&lt;String&gt; newWithBarcode = &lt;String&gt;{};
+  newWithBarcode.addAll(withBarcode);
+  bool addedLists = false;
+  final bool? result = await showDialog&lt;bool&gt;(
+    context: context,
+    builder: (final BuildContext context) =&gt; StatefulBuilder(
+      builder:
+          (BuildContext context, void Function(VoidCallback fn) setState) =&gt;
+              AlertDialog(
+        title: Text(getProductName(product, appLocalizations)),
+        content: all.isEmpty
+            ? Container()
+            : SizedBox(
+                &#47;&#47; TODO(monsieurtanuki): proper sizes
+                width: 300,
+                height: 400,
+                child: StatefulBuilder(
+                  builder: (BuildContext context,
+                      void Function(VoidCallback fn) setState) {
+                    final List&lt;Widget&gt; children = &lt;Widget&gt;[];
+                    for (final String name in all) {
+                      children.add(
+                        ListTile(
+                          leading: Icon(
+                            newWithBarcode.contains(name)
+                                ? Icons.check_box
+                                : Icons.check_box_outline_blank,
+                          ),
+                          title: Text(name),
+                          onTap: () =&gt; setState(
+                            () =&gt; newWithBarcode.contains(name)
+                                ? newWithBarcode.remove(name)
+                                : newWithBarcode.add(name),
+                          ),
+                        ),
+                      );
+                    }
+                    return ListView(children: children);
+                  },
+                ),
+              ),
+        actions: &lt;Widget&gt;[
+          TextButton(
+            onPressed: () =&gt; Navigator.pop(context),
+            child: Text(appLocalizations.cancel),
+          ),
+          ElevatedButton(
+            onPressed: () async {
+              final ProductList? productList =
+                  await showCreateUserListDialog(context);
+              if (productList != null) {
+                all.clear();
+                all.addAll(daoProductList.getUserLists());
+                setState(() =&gt; addedLists = true);
+              }
+            },
+            child: Text(appLocalizations.user_list_button_new),
+          ),
+          ElevatedButton(
+            onPressed: () =&gt; Navigator.pop(context, true),
+            child: Text(appLocalizations.okay),
+          ),
+        ],
+      ),
+    ),
+  );
+  if (addedLists == false &amp;&amp; result != true) {
+    return false;
+  }
+  final Set&lt;String&gt; possibleChanges = &lt;String&gt;{};
+  possibleChanges.addAll(withBarcode);
+  possibleChanges.addAll(newWithBarcode);
+  for (final String name in possibleChanges) {
+    if (withBarcode.contains(name) &amp;&amp; newWithBarcode.contains(name)) {
+      continue;
+    }
+    if ((!withBarcode.contains(name)) &amp;&amp; (!newWithBarcode.contains(name))) {
+      continue;
+    }
+    final ProductList productList = ProductList.user(name);
+    await daoProductList.set(
+        productList, barcode, newWithBarcode.contains(name));
+  }
+  return true;
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">smooth_app</a></li>
+  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_list_user_dialog_helper/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_list_user_dialog_helper-library.html">product_list_user_dialog_helper</a></li>
+  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_list_user_dialog_helper/ProductListUserDialogHelper-class.html">ProductListUserDialogHelper</a></li>
+  <li class="self-crumb">showUserListsWithBarcodeDialog method</li>
+</ol>
+
+
+    <h5>ProductListUserDialogHelper class</h5>
+    <ol>
+
+    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_list_user_dialog_helper/ProductListUserDialogHelper-class.html#constructors">Constructors</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_list_user_dialog_helper/ProductListUserDialogHelper/ProductListUserDialogHelper.html">ProductListUserDialogHelper</a></li>
+
+
+    <li class="section-title">
+      <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_list_user_dialog_helper/ProductListUserDialogHelper-class.html#instance-properties">Properties</a>
+    </li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_list_user_dialog_helper/ProductListUserDialogHelper/daoProductList.html">daoProductList</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+
+    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_list_user_dialog_helper/ProductListUserDialogHelper-class.html#instance-methods">Methods</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_list_user_dialog_helper/ProductListUserDialogHelper/showCreateUserListDialog.html">showCreateUserListDialog</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_list_user_dialog_helper/ProductListUserDialogHelper/showRenameUserListDialog.html">showRenameUserListDialog</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_list_user_dialog_helper/ProductListUserDialogHelper/showUserListsWithBarcodeDialog.html">showUserListsWithBarcodeDialog</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
+
+    <li class="section-title inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_list_user_dialog_helper/ProductListUserDialogHelper-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    smooth_app
+      0.0.0
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+
