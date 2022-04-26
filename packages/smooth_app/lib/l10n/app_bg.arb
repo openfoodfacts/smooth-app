@@ -152,11 +152,11 @@
     "sign_up_page_email_hint": "Имейл",
     "sign_up_page_email_error_empty": "Изисква се имейл",
     "sign_up_page_email_error_invalid": "Невалиден имейл",
-    "sign_up_page_username_hint": "Username: Publicly visible",
+    "sign_up_page_username_hint": "Потребителско име: публично видимо",
     "sign_up_page_username_error_empty": "Моля, въведи потребителско име",
     "sign_up_page_username_error_invalid": "Въведи валидно потребителско име",
     "sign_up_page_username_description": "Потребителското име не може да съдържа интервали, главни или специални знаци",
-    "sign_up_page_username_length_invalid": "Username must be less than {value} characters",
+    "sign_up_page_username_length_invalid": "Потребителското име трябва да е по-малко от {value} знака",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
             "value": {
@@ -170,11 +170,11 @@
     "sign_up_page_confirm_password_hint": "Потвърди паролата",
     "sign_up_page_confirm_password_error_empty": "Моля, потвърди паролата",
     "sign_up_page_confirm_password_error_invalid": "Паролите не съвпадат",
-    "sign_up_page_agree_text": "I agree to the Open Food Facts",
+    "sign_up_page_agree_text": "Съгласен съм с",
     "@sign_up_page_agree_text": {
         "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
     },
-    "sign_up_page_terms_text": "terms of use and contribution",
+    "sign_up_page_terms_text": "условията за ползване и принос на Open Food Facts",
     "@sign_up_page_terms_text": {
         "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
     },
@@ -683,7 +683,7 @@
             }
         }
     },
-    "onboarding_welcome_loading_dialog_title": "Loading your first example product",
+    "onboarding_welcome_loading_dialog_title": "Зареждане на първия ти примерен продукт",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },

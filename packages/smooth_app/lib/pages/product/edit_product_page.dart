@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
 
@@ -24,7 +25,7 @@ class _EditProductPageState extends State<EditProductPage> {
     return Scaffold(
       appBar: AppBar(
         title: AutoSizeText(
-          widget.product.productName ?? appLocalizations.unknownProductName,
+          getProductName(widget.product, appLocalizations),
           maxLines: 2,
         ),
       ),

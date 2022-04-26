@@ -152,7 +152,7 @@
     "sign_up_page_email_hint": "E-Mail-Adresse",
     "sign_up_page_email_error_empty": "E-Mail-Adresse erforderlich",
     "sign_up_page_email_error_invalid": "Ungültige E-Mail-Adresse",
-    "sign_up_page_username_hint": "Username: Publicly visible",
+    "sign_up_page_username_hint": "Benutzername: Öffentlich sichtbar",
     "sign_up_page_username_error_empty": "Bitte einen Benutzernamen eingeben",
     "sign_up_page_username_error_invalid": "Bitte einen gültigen Benutzernamen eingeben",
     "sign_up_page_username_description": "Der Benutzername darf keine Leerzeichen, Großbuchstaben oder Sonderzeichen enthalten",

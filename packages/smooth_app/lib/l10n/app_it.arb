@@ -151,12 +151,12 @@
     "sign_up_page_display_name_error_empty": "Sei pregato di inserire il nome visualizzato che desideri usare",
     "sign_up_page_email_hint": "Email",
     "sign_up_page_email_error_empty": "L'email è necessaria",
-    "sign_up_page_email_error_invalid": "Invalid e-mail",
-    "sign_up_page_username_hint": "Username: Publicly visible",
+    "sign_up_page_email_error_invalid": "E-mail non valida",
+    "sign_up_page_username_hint": "Nome utente: Visibile pubblicamente",
     "sign_up_page_username_error_empty": "Sei pregato di inserire un nome utente",
     "sign_up_page_username_error_invalid": "Sei pregato di inserire un nome utente valido",
     "sign_up_page_username_description": "Il nome utente non può contenere spazi, maiuscole o caratteri speciali",
-    "sign_up_page_username_length_invalid": "Username must be less than {value} characters",
+    "sign_up_page_username_length_invalid": "Il nome utente deve contenere meno di {value} caratteri",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
             "value": {
@@ -281,7 +281,7 @@
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contribution",
+    "question_sign_in_text": "Accedi al tuo conto Open Food Facts per ottenere credito per il tuo contributo",
     "@Personal preferences": {},
     "myPreferences": "Le Mie preferenze",
     "@myPreferences": {
@@ -393,9 +393,9 @@
     "@add_product_information_button_label": {},
     "new_product": "Nuovo prodotto",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Product's front photo",
+    "front_packaging_photo_button_label": "Foto frontale del prodotto",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Confirm Product's front photo upload",
+    "confirm_front_packaging_photo_button_label": "Conferma caricamento foto frontale del prodotto",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
@@ -658,7 +658,7 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide whether to submit anonymous analytics.",
+    "consent_analytics_body1": "Aiuta i volontari di Open Food Facts a migliorare l'app. Decidi tu se vuoi inviare statistiche anonime.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
@@ -695,11 +695,11 @@
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
-    "product_list_empty_title": "Start scanning!",
+    "product_list_empty_title": "Inizia la scansione!",
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
-    "product_list_empty_message": "Scanned products will appear here and you can check detailed information about them",
+    "product_list_empty_message": "I prodotti scansionati appariranno qui e potrai controllare le informazioni dettagliate su di essi",
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
@@ -740,7 +740,7 @@
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "When enabled, crash reports are automatically submitted to Open Food Facts' error tracking system, so that bugs can be fixed and thus improve the app.",
+    "crash_reporting_toggle_subtitle": "Quando abilitati, i rapporti sugli arresti anomali vengono inviati automaticamente al sistema di tracciamento degli errori di Open Food Facts, in modo che i bug possano essere corretti e quindi migliorare l'app.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },

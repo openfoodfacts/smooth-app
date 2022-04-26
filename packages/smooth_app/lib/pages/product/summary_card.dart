@@ -352,13 +352,13 @@ class _SummaryCardState extends State<SummaryCard> {
   }
 
   Widget _getHeader(ProductCompatibilityHelper helper) {
+    final Widget text = Text(
+      helper.getHeaderText(AppLocalizations.of(context)!),
+      style: Theme.of(context).textTheme.subtitle1!.apply(color: Colors.white),
+    );
     if (widget.isFullVersion) {
       return Center(
-        child: Text(
-          helper.getHeaderText(AppLocalizations.of(context)!),
-          style:
-              Theme.of(context).textTheme.subtitle1!.apply(color: Colors.white),
-        ),
+        child: text,
       );
     }
     final ContinuousScanModel model = context.watch<ContinuousScanModel>();
@@ -366,13 +366,7 @@ class _SummaryCardState extends State<SummaryCard> {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: <Widget>[
         Center(
-          child: Text(
-            helper.getHeaderText(AppLocalizations.of(context)!),
-            style: Theme.of(context)
-                .textTheme
-                .subtitle1!
-                .apply(color: Colors.white),
-          ),
+          child: text,
         ),
         InkWell(
           onTap: () {
