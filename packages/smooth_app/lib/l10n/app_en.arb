@@ -837,7 +837,7 @@
     "completed_basic_details_btn_text": "Complete basic details",
     "not_implemented_snackbar_text": "Not implemented yet",
     "category_picker_page_appbar_text": "Categories",
-    "user_list_dialog_new_title": "New user list",
+    "user_list_dialog_new_title": "New list of products",
     "@user_list_dialog_new_title": {
         "description": "Title of the 'new user list' dialog"
     },
