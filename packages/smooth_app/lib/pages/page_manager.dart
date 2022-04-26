@@ -82,12 +82,18 @@ class PageManagerState extends State<PageManager> {
           selectedItemColor: Colors.white,
           backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
           onTap: (int index) {
+            final InheritedDataManagerState inheritedDataManager =
+                InheritedDataManager.of(context);
             if (_currentPage == BottomNavigationTab.Scan &&
                 _pageKeys[index] == BottomNavigationTab.Scan) {
-              InheritedDataManager.of(context).resetShowSearchCard(true);
+              if (!inheritedDataManager.showSearchCard) {
+                inheritedDataManager.resetShowSearchCard(true);
+              }
               _selectTab(_pageKeys[index], index);
             } else {
-              InheritedDataManager.of(context).resetShowSearchCard(false);
+              if (inheritedDataManager.showSearchCard) {
+                inheritedDataManager.resetShowSearchCard(false);
+              }
               _selectTab(_pageKeys[index], index);
             }
           },
