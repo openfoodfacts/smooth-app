@@ -86,6 +86,8 @@ class ProductQueryPageHelper {
         return appLocalizations.scan;
       case ProductListType.HISTORY:
         return appLocalizations.recently_seen_products;
+      case ProductListType.USER:
+        return productList.parameters;
     }
   }
 }

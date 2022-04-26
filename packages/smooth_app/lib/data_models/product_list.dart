@@ -12,6 +12,9 @@ enum ProductListType {
 
   /// History of products seen by the end-user
   HISTORY,
+
+  /// End-user product list
+  USER,
 }
 
 extension ProductListTypeExtension on ProductListType {
@@ -20,6 +23,7 @@ extension ProductListTypeExtension on ProductListType {
     ProductListType.HTTP_SEARCH_CATEGORY: 'http/search/category',
     ProductListType.SCAN_SESSION: 'scan_session',
     ProductListType.HISTORY: 'history',
+    ProductListType.USER: 'user',
   };
 
   String get key => _keys[this]!;
@@ -58,6 +62,12 @@ class ProductList {
   ProductList.history() : this._(listType: ProductListType.HISTORY);
 
   ProductList.scanSession() : this._(listType: ProductListType.SCAN_SESSION);
+
+  ProductList.user(final String name)
+      : this._(
+          listType: ProductListType.USER,
+          parameters: name,
+        );
 
   final ProductListType listType;
   final String parameters;
@@ -141,6 +151,7 @@ class ProductList {
     switch (listType) {
       case ProductListType.HTTP_SEARCH_KEYWORDS:
       case ProductListType.HTTP_SEARCH_CATEGORY:
+      case ProductListType.USER:
         return false;
       case ProductListType.SCAN_SESSION:
       case ProductListType.HISTORY:
@@ -152,6 +163,7 @@ class ProductList {
     switch (listType) {
       case ProductListType.SCAN_SESSION:
       case ProductListType.HISTORY:
+      case ProductListType.USER:
         return parameters;
       case ProductListType.HTTP_SEARCH_KEYWORDS:
       case ProductListType.HTTP_SEARCH_CATEGORY:
