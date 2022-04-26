@@ -152,7 +152,7 @@
     "sign_up_page_email_hint": "E-mail de contacto",
     "sign_up_page_email_error_empty": "Se requiere un correo electrónico",
     "sign_up_page_email_error_invalid": "Email inválido",
-    "sign_up_page_username_hint": "Username: Publicly visible",
+    "sign_up_page_username_hint": "Nombre de usuario: públicamente visible",
     "sign_up_page_username_error_empty": "Por favor, introduzca un nombre de usuario",
     "sign_up_page_username_error_invalid": "Por favor ingrese un nombre de usuario válido",
     "sign_up_page_username_description": "El nombre de usuario no puede contener espacios, mayúsculas o caracteres especiales",
