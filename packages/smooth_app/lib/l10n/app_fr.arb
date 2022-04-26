@@ -152,11 +152,11 @@
     "sign_up_page_email_hint": "Courriel",
     "sign_up_page_email_error_empty": "Une adresse est requise",
     "sign_up_page_email_error_invalid": "Invalid e-mail",
-    "sign_up_page_username_hint": "Username: Publicly visible",
+    "sign_up_page_username_hint": "Nom d'utilisateur : visible publiquement",
     "sign_up_page_username_error_empty": "Veuillez saisir un nom d'utilisateur",
     "sign_up_page_username_error_invalid": "Veuillez saisir un nom d'utilisateur valide",
     "sign_up_page_username_description": "Le nom d'utilisateur ne peut pas contenir d'espaces, de majuscules ou de caractères spéciaux",
-    "sign_up_page_username_length_invalid": "Username must be less than {value} characters",
+    "sign_up_page_username_length_invalid": "Le nom d'utilisateur doit avoir moins de {value} caractères",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
             "value": {
@@ -170,11 +170,11 @@
     "sign_up_page_confirm_password_hint": "Confirmez le mot de passe",
     "sign_up_page_confirm_password_error_empty": "Veuillez confirmer le mot de passe",
     "sign_up_page_confirm_password_error_invalid": "Les mots de passe ne correspondent pas",
-    "sign_up_page_agree_text": "I agree to the Open Food Facts",
+    "sign_up_page_agree_text": "Je suis d'accord avec les ",
     "@sign_up_page_agree_text": {
         "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
     },
-    "sign_up_page_terms_text": "terms of use and contribution",
+    "sign_up_page_terms_text": "conditions d'utilisation et de contribution d'Open Food Facts",
     "@sign_up_page_terms_text": {
         "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
     },
@@ -393,16 +393,16 @@
     "@add_product_information_button_label": {},
     "new_product": "Nouveau Produit",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Product's front photo",
+    "front_packaging_photo_button_label": "Photo du produit de face",
     "@front_packaging_photo_button_label": {},
     "confirm_front_packaging_photo_button_label": "Confirm Product's front photo upload",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
     "confirm_button_label": "Confirmer",
-    "front_packaging_photo_title": "Front Packaging Photo",
-    "ingredients_photo_title": "Ingredients Photo",
-    "nutritional_facts_photo_title": "Nutritional Facts Photo",
+    "front_packaging_photo_title": "Photo de l'emballage de face",
+    "ingredients_photo_title": "Photo des ingrédients",
+    "nutritional_facts_photo_title": "Photo des valeurs nutritionnelles",
     "recycling_photo_title": "Recycling Photo",
     "other_interesting_photo_title": "Other Interesting Photo",
     "front_photo_uploaded": "Photo de la face avant téléchargée",
@@ -447,15 +447,15 @@
     "@selecting_photo": {
         "description": "Progress indicator when the users takes a photo"
     },
-    "uploading_image": "Uploading photo to the server",
+    "uploading_image": "Envoi de la photo sur le serveur",
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
-    "uploading_image_type_front": "Uploading front image to Open Food Facts",
+    "uploading_image_type_front": "Envoi de la photo de face à Open Food Facts",
     "@uploading_image_type_front": {
         "description": "Message when a new front picture is being uploaded to the server"
     },
-    "uploading_image_type_ingredients": "Uploading ingredients image to Open Food Facts",
+    "uploading_image_type_ingredients": "Envoi de la photo des ingrédients à Open Food Facts",
     "@uploading_image_type_ingredients": {
         "description": "Message when a new ingredients picture is being uploaded to the server"
     },
@@ -471,7 +471,7 @@
     "@uploading_image_type_other": {
         "description": "Message when a new other picture is being uploaded to the server"
     },
-    "uploading_image_type_generic": "Uploading image to Open Food Facts",
+    "uploading_image_type_generic": "Envoi de l'image à Open Food Facts",
     "@uploading_image_type_generic": {
         "description": "Message when a new picture is being uploaded to the server"
     },
@@ -658,7 +658,7 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide whether to submit anonymous analytics.",
+    "consent_analytics_body1": "Aidez les bénévoles d'Open Food Facts à améliorer l'application. C'est vous qui décidez d'envoyer des données analytiques anonymes.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
@@ -695,11 +695,11 @@
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
-    "product_list_empty_title": "Start scanning!",
+    "product_list_empty_title": "Lancez le scan !",
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
-    "product_list_empty_message": "Scanned products will appear here and you can check detailed information about them",
+    "product_list_empty_message": "Les produits scannés apparaîtront ici et vous pourrez vérifier leurs informations détaillées",
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
@@ -740,7 +740,7 @@
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "When enabled, crash reports are automatically submitted to Open Food Facts' error tracking system, so that bugs can be fixed and thus improve the app.",
+    "crash_reporting_toggle_subtitle": "Quand ils sont activés, les rapports de plantage sont automatiquement envoyés au système de suivi des erreurs d'Open Food Facts pour améliorer l'application en corrigeant les bugs.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
@@ -760,7 +760,7 @@
     "@permission_photo_error": {
         "description": "When the camera/photo permission failed to be acquired (!= denied)"
     },
-    "permission_photo_denied_title": "Allow camera use to scan barcodes",
+    "permission_photo_denied_title": "Autoriser l'utilisation de l'appareil photo pour scanner les codes-barres",
     "permission_photo_denied_message": "Pour une expérience améliorée, veuillez autoriser {appName} à accéder à votre caméra. Vous pourrez scanner directement les codes-barres.",
     "@permission_photo_denied_message": {
         "description": "When the camera/photo permission is denied by user",
@@ -775,7 +775,7 @@
         "description": "When the camera/photo permission is denied by user"
     },
     "permission_photo_denied_dialog_settings_title": "Permission refusée",
-    "permission_photo_denied_dialog_settings_message": "As you've previously denied the camera permission, you must allow it manually from the Settings.",
+    "permission_photo_denied_dialog_settings_message": "Ayant refusé l'utilisation de la caméra, vous devez l'autoriser manuellement dans les paramètres.",
     "permission_photo_denied_dialog_settings_button_open": "Ouvrir les paramètres",
     "permission_photo_denied_dialog_settings_button_cancel": "Annuler",
     "permission_photo_denied": "Aucun accès à la caméra autorisé",
