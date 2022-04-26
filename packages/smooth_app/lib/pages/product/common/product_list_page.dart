@@ -31,6 +31,9 @@ class _ProductListPageState extends State<ProductListPage> {
   final Set<String> _selectedBarcodes = <String>{};
   bool _selectionMode = false;
 
+  static const String _popupActionClear = 'clear';
+  static const String _popupActionRename = 'rename';
+
   @override
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
@@ -65,15 +68,15 @@ class _ProductListPageState extends State<ProductListPage> {
                 PopupMenuButton<String>(
                   onSelected: (final String action) async {
                     switch (action) {
-                      case 'clear':
+                      case _popupActionClear:
                         await daoProductList.clear(productList);
                         await daoProductList.get(productList);
                         setState(() {});
                         break;
-                      case 'rename':
+                      case _popupActionRename:
                         final ProductList? renamedProductList =
                             await ProductListUserDialogHelper(daoProductList)
-                                .showRename(context, productList);
+                                .showRenameUserListDialog(context, productList);
                         if (renamedProductList == null) {
                           return;
                         }
@@ -83,14 +86,14 @@ class _ProductListPageState extends State<ProductListPage> {
                   },
                   itemBuilder: (BuildContext context) =>
                       <PopupMenuEntry<String>>[
-                    const PopupMenuItem<String>(
-                      value: 'clear',
-                      child: Text('Clear'), // TODO(monsieurtanuki): localize
+                    PopupMenuItem<String>(
+                      value: _popupActionClear,
+                      child: Text(appLocalizations.user_list_popup_clear),
                     ),
                     if (productList.listType == ProductListType.USER)
-                      const PopupMenuItem<String>(
-                        value: 'rename',
-                        child: Text('Rename'), // TODO(monsieurtanuki): localize
+                      PopupMenuItem<String>(
+                        value: _popupActionRename,
+                        child: Text(appLocalizations.user_list_popup_rename),
                       ),
                   ],
                 )

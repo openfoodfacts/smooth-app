@@ -275,11 +275,8 @@ class _ProductPageState extends State<ProductPage> {
   Future<void> _editList() async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
-    final bool refreshed =
-        await ProductListUserDialogHelper(daoProductList).showBarcode(
-      context,
-      widget.product.barcode!,
-    );
+    final bool refreshed = await ProductListUserDialogHelper(daoProductList)
+        .showUserListsWithBarcodeDialog(context, widget.product);
     if (refreshed) {
       setState(() {});
     }
@@ -293,12 +290,12 @@ class _ProductPageState extends State<ProductPage> {
           children: <Widget>[
             _buildActionBarItem(
               Icons.bookmark_border,
-              'Add to list', // TODO(monsieurtanuki): localize
+              appLocalizations.user_list_button_add_product,
               _editList,
             ),
             _buildActionBarItem(
               Icons.edit,
-              'Edit', // TODO(monsieurtanuki): localize
+              appLocalizations.edit_product_label,
               () async {
                 final bool? refreshed = await Navigator.push<bool>(
                   context,
@@ -375,7 +372,7 @@ class _ProductPageState extends State<ProductPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             ListTile(
-              title: const Text('Lists'), // TODO(monsieurtanuki): localize
+              title: Text(appLocalizations.user_list_subtitle_product),
               trailing: const Icon(Icons.bookmark),
               onTap: _editList,
             ),

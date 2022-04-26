@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
 
 /// Dialog helper class for user product list.
 class ProductListUserDialogHelper {
@@ -10,7 +12,8 @@ class ProductListUserDialogHelper {
 
   final DaoProductList daoProductList;
 
-  Future<ProductList?> showCreate(
+  /// Shows a "create list" dialog; returns the new [ProductList] if relevant.
+  Future<ProductList?> showCreateUserListDialog(
     final BuildContext context,
   ) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
@@ -22,22 +25,21 @@ class ProductListUserDialogHelper {
     final String? title = await showDialog<String>(
       context: context,
       builder: (final BuildContext context) => AlertDialog(
-        title: const Text('New user list'), // TODO(monsieurtanuki): localize
+        title: Text(appLocalizations.user_list_dialog_new_title),
         content: Form(
           key: _formKey,
           child: SmoothTextFormField(
             type: TextFieldTypes.PLAIN_TEXT,
             controller: _textEditingController,
-            hintText: appLocalizations
-                .username_or_email, // TODO(monsieurtanuki): localize
+            hintText: appLocalizations.user_list_name_hint,
             textInputAction: TextInputAction.done,
             validator: (String? value) {
               final List<String> lists = daoProductList.getUserLists();
               if (value == null || value.isEmpty) {
-                return appLocalizations.login_page_username_or_email;
+                return appLocalizations.user_list_name_error_empty;
               }
               if (lists.contains(value)) {
-                return 'name already exists'; // TODO(monsieurtanuki): localize
+                return appLocalizations.user_list_name_error_already;
               }
               return null;
             },
@@ -68,10 +70,12 @@ class ProductListUserDialogHelper {
     return productList;
   }
 
-  Future<bool> showBarcode(
+  /// Shows all user lists with "contains [barcode]?" checkboxes.
+  Future<bool> showUserListsWithBarcodeDialog(
     final BuildContext context,
-    final String barcode,
+    final Product product,
   ) async {
+    final String barcode = product.barcode!;
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final List<String> all = daoProductList.getUserLists();
     final List<String> withBarcode =
@@ -85,7 +89,7 @@ class ProductListUserDialogHelper {
         builder:
             (BuildContext context, void Function(VoidCallback fn) setState) =>
                 AlertDialog(
-          title: Text('Product $barcode'), // TODO(monsieurtanuki): localize
+          title: Text(getProductName(product, appLocalizations)),
           content: all.isEmpty
               ? Container()
               : SizedBox(
@@ -124,14 +128,15 @@ class ProductListUserDialogHelper {
             ),
             ElevatedButton(
               onPressed: () async {
-                final ProductList? productList = await showCreate(context);
+                final ProductList? productList =
+                    await showCreateUserListDialog(context);
                 if (productList != null) {
                   all.clear();
                   all.addAll(daoProductList.getUserLists());
                   setState(() => addedLists = true);
                 }
               },
-              child: const Text('new list'), // TODO(monsieurtanuki): localize
+              child: Text(appLocalizations.user_list_button_new),
             ),
             ElevatedButton(
               onPressed: () => Navigator.pop(context, true),
@@ -161,7 +166,8 @@ class ProductListUserDialogHelper {
     return true;
   }
 
-  Future<ProductList?> showRename(
+  /// Shows a "rename list" dialog; returns renamed [ProductList] if relevant.
+  Future<ProductList?> showRenameUserListDialog(
     final BuildContext context,
     final ProductList initialProductList,
   ) async {
@@ -175,22 +181,24 @@ class ProductListUserDialogHelper {
     final String? newName = await showDialog<String>(
       context: context,
       builder: (final BuildContext context) => AlertDialog(
-        title: const Text('Rename user list'), // TODO(monsieurtanuki): localize
+        title: Text(appLocalizations.user_list_dialog_rename_title),
         content: Form(
           key: _formKey,
           child: SmoothTextFormField(
             type: TextFieldTypes.PLAIN_TEXT,
             controller: _textEditingController,
-            hintText: appLocalizations
-                .username_or_email, // TODO(monsieurtanuki): localize
+            hintText: appLocalizations.user_list_name_hint,
             textInputAction: TextInputAction.done,
             validator: (String? value) {
               final List<String> lists = daoProductList.getUserLists();
               if (value == null || value.isEmpty) {
-                return appLocalizations.login_page_username_or_email;
+                return appLocalizations.user_list_name_error_empty;
               }
-              if (lists.contains(value) && value != initialName) {
-                return 'name already exists';
+              if (lists.contains(value)) {
+                if (value != initialName) {
+                  return appLocalizations.user_list_name_error_already;
+                }
+                return appLocalizations.user_list_name_error_same;
               }
               return null;
             },
