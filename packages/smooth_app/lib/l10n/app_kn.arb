@@ -836,5 +836,49 @@
     },
     "completed_basic_details_btn_text": "Complete basic details",
     "not_implemented_snackbar_text": "Not implemented yet",
-    "category_picker_page_appbar_text": "ವರ್ಗಗಳು"
+    "category_picker_page_appbar_text": "ವರ್ಗಗಳು",
+    "user_list_dialog_new_title": "New list of products",
+    "@user_list_dialog_new_title": {
+        "description": "Title of the 'new user list' dialog"
+    },
+    "user_list_dialog_rename_title": "Rename list",
+    "@user_list_dialog_rename_title": {
+        "description": "Title of the 'rename user list' dialog"
+    },
+    "user_list_subtitle_product": "Lists",
+    "@user_list_subtitle_product": {
+        "description": "Subtitle of a paragraph about user lists in a product context"
+    },
+    "user_list_button_new": "New list",
+    "@user_list_button_new": {
+        "description": "Short label of a 'new list' button"
+    },
+    "user_list_button_add_product": "Add to list",
+    "@user_list_button_add_product": {
+        "description": "Short label of an 'add to list' button from a product context"
+    },
+    "user_list_popup_clear": "ತೆರವು ಮಾಡಿ",
+    "@user_list_popup_clear": {
+        "description": "Short label of a 'clear list' popup"
+    },
+    "user_list_popup_rename": "Rename",
+    "@user_list_popup_rename": {
+        "description": "Short label of a 'rename list' popup"
+    },
+    "user_list_name_hint": "My list",
+    "@user_list_name_hint": {
+        "description": "Hint of a user list name text-field in a 'user list' dialog"
+    },
+    "user_list_name_error_empty": "The name cannot be empty",
+    "@user_list_name_error_empty": {
+        "description": "Validation error about the name that cannot be empty"
+    },
+    "user_list_name_error_already": "That name is already used",
+    "@user_list_name_error_already": {
+        "description": "Validation error about the name that is already used for another list"
+    },
+    "user_list_name_error_same": "That is the same name",
+    "@user_list_name_error_same": {
+        "description": "Validation error about the renamed name that is the same as the initial list name"
+    }
 }
