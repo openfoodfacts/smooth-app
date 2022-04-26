@@ -371,10 +371,9 @@ class _ProductPageState extends State<ProductPage> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            ListTile(
-              title: Text(appLocalizations.user_list_subtitle_product),
-              trailing: const Icon(Icons.bookmark),
-              onTap: _editList,
+            Text(
+              appLocalizations.user_list_subtitle_product,
+              style: Theme.of(context).textTheme.headline3,
             ),
             Wrap(
               alignment: WrapAlignment.start,
