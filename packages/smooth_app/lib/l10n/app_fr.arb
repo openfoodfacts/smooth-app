@@ -170,11 +170,11 @@
     "sign_up_page_confirm_password_hint": "Confirmez le mot de passe",
     "sign_up_page_confirm_password_error_empty": "Veuillez confirmer le mot de passe",
     "sign_up_page_confirm_password_error_invalid": "Les mots de passe ne correspondent pas",
-    "sign_up_page_agree_text": "Je suis d'accord avec les conditions d'utilisation d'Open Food Facts",
+    "sign_up_page_agree_text": "Je suis d'accord avec les ",
     "@sign_up_page_agree_text": {
         "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
     },
-    "sign_up_page_terms_text": "terms of use and contribution",
+    "sign_up_page_terms_text": "conditions d'utilisation et de contribution d'Open Food Facts",
     "@sign_up_page_terms_text": {
         "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
     },
