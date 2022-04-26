@@ -193,7 +193,7 @@ class _ProductPageState extends State<ProductPage> {
             ),
           ),
         ),
-                ProductPageKnowledgePanels(
+        ProductPageKnowledgePanels(
           product: _product,
           setState: setState,
         ),
@@ -245,22 +245,6 @@ class _ProductPageState extends State<ProductPage> {
             child: const Text('Additional Button (CategoryPicker)'),
           ),
       ]),
-    );
-  }
-
-  Widget _buildLoadingWidget() {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: const <Widget>[
-          SizedBox(
-            child: CircularProgressIndicator(),
-            width: 60,
-            height: 60,
-          ),
-        ],
-      ),
     );
   }
 
@@ -380,5 +364,4 @@ class _ProductPageState extends State<ProductPage> {
       ),
     );
   }
-
 }
