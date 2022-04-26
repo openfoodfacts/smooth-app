@@ -10,7 +10,6 @@ import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
-import 'package:smooth_app/database/knowledge_panels_query.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
@@ -25,6 +24,9 @@ import 'package:smooth_app/pages/product/summary_card.dart';
 import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
+
+import '../../data_models/data_provider.dart';
+import '../../database/knowledge_panels_query.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage(this.product);
@@ -57,11 +59,26 @@ class _ProductPageState extends State<ProductPage> {
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
     final MaterialColor materialColor = SmoothTheme.getMaterialColor(context);
-    return FutureProvider<KnowledgePanels?>(
-      initialData: null,
-      create: (_) => KnowledgePanelsQuery(
-        barcode: _product.barcode!,
-      ).getKnowledgePanels(),
+
+    final DataProvider<Map<String, KnowledgePanels?>> knowledgePanelsProvider =
+        context.read<DataProvider<Map<String, KnowledgePanels?>>>();
+
+    KnowledgePanelsQuery(
+      barcode: _product.barcode!,
+    ).getKnowledgePanels().then((KnowledgePanels value) {
+      final Map<String, KnowledgePanels?> data = knowledgePanelsProvider.value;
+      data.putIfAbsent(_product.barcode!, () => value);
+      knowledgePanelsProvider.setValue(data);
+    });
+
+    return WillPopScope(
+      onWillPop: () async {
+        final Map<String, KnowledgePanels?> data =
+            knowledgePanelsProvider.value;
+        data.remove(_product.barcode);
+        knowledgePanelsProvider.setValue(data);
+        return true;
+      },
       child: Scaffold(
         backgroundColor: SmoothTheme.getColor(
           colorScheme,

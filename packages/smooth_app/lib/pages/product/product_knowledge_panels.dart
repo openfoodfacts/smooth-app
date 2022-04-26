@@ -5,6 +5,8 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panels_builder.dart';
 import 'package:smooth_app/pages/product/knowledge_panel_product_cards.dart';
 
+import '../../data_models/data_provider.dart';
+
 // Just to be called from the product page with the right provider set up
 class ProductPageKnowledgePanels extends StatelessWidget {
   const ProductPageKnowledgePanels({
@@ -17,7 +19,10 @@ class ProductPageKnowledgePanels extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final KnowledgePanels? knowledgePanels = context.watch<KnowledgePanels?>();
+    final KnowledgePanels? knowledgePanels = context
+        .select<DataProvider<Map<String, KnowledgePanels?>>, KnowledgePanels?>(
+            (DataProvider<Map<String, KnowledgePanels?>> value) =>
+                value.value[product.barcode]);
 
     List<Widget> knowledgePanelWidgets = <Widget>[];
 

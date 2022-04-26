@@ -8,11 +8,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:openfoodfacts/model/UserAgent.dart';
 import 'package:openfoodfacts/personalized_search/product_preferences_selection.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
+import 'package:provider/single_child_widget.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
@@ -24,6 +26,8 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+
+import 'data_models/data_provider.dart';
 
 List<CameraDescription> cameras = <CameraDescription>[];
 
@@ -161,12 +165,18 @@ class _SmoothAppState extends State<SmoothApp> {
         }
 
         return MultiProvider(
-          providers: <ChangeNotifierProvider<ChangeNotifier>>[
+          providers: <SingleChildWidget>[
             provide<UserPreferences>(_userPreferences),
             provide<ProductPreferences>(_productPreferences),
             provide<LocalDatabase>(_localDatabase),
             provide<ThemeProvider>(_themeProvider),
             provide<UserManagementProvider>(_userManagementProvider),
+            //Needs to be created here to be visible after calling Navigator.push
+            provide<DataProvider<Map<String, KnowledgePanels?>>>(
+              DataProvider<Map<String, KnowledgePanels?>>(
+                <String, KnowledgePanels?>{},
+              ),
+            ),
           ],
           builder: _buildApp,
         );
