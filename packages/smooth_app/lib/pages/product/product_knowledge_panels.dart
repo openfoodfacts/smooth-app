@@ -23,7 +23,7 @@ class ProductPageKnowledgePanels extends StatelessWidget {
             (DataProvider<Map<String, KnowledgePanels?>> value) =>
                 value.value[product.barcode]);
 
-    List<Widget> knowledgePanelWidgets = <Widget>[];
+    final List<Widget> knowledgePanelWidgets;
 
     if (knowledgePanels != null) {
       // Render all KnowledgePanels
