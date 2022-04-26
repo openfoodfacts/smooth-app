@@ -14,7 +14,6 @@ import 'package:openfoodfacts/personalized_search/product_preferences_selection.
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
-import 'package:provider/single_child_widget.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/data_provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
@@ -164,7 +163,7 @@ class _SmoothAppState extends State<SmoothApp> {
         }
 
         return MultiProvider(
-          providers: <SingleChildWidget>[
+          providers: <ChangeNotifierProvider<ChangeNotifier>>[
             provide<UserPreferences>(_userPreferences),
             provide<ProductPreferences>(_productPreferences),
             provide<LocalDatabase>(_localDatabase),
