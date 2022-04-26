@@ -4,8 +4,7 @@ import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_full_page.dart';
-
-import '../../../data_models/data_provider.dart';
+import 'package:smooth_app/data_models/data_provider.dart';
 
 class KnowledgePanelFullLoadingPage extends StatelessWidget {
   const KnowledgePanelFullLoadingPage(

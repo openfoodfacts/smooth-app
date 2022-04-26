@@ -3,9 +3,8 @@ import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panels_builder.dart';
+import 'package:smooth_app/data_models/data_provider.dart';
 import 'package:smooth_app/pages/product/knowledge_panel_product_cards.dart';
-
-import '../../data_models/data_provider.dart';
 
 // Just to be called from the product page with the right provider set up
 class ProductPageKnowledgePanels extends StatelessWidget {
