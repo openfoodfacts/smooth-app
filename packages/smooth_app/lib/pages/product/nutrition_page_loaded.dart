@@ -383,7 +383,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
                 onPressed: () => Navigator.pop(context, false),
               ),
               TextButton(
-                child: Text(localizations.close.toUpperCase()),
+                child: Text(localizations.okay.toUpperCase()),
                 // returns true to onWillPop after the alert dialog is closed with close button
                 //letting return to the previous screen
                 onPressed: () => Navigator.pop(context, true),
