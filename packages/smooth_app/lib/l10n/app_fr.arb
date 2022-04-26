@@ -416,6 +416,8 @@
     "ingredients_photo_uploaded": "Photo des ingrédients téléchargée",
     "@ingredients_photo_uploaded": {},
     "nutritional_facts_photo_button_label": "Photo des informations nutritionnelles",
+    "nutritional_facts_input_button_label": "Insérer les informations nutritionnelles",
+    "nutritional_facts_added": "Informations nutritionnelles ajoutées",
     "@nutritional_facts_photo_button_label": {},
     "confirm_nutritional_facts_photo_button_label": "Confirmer la photo de la valeur nutritive",
     "@confirm_nutritional_facts_photo_button_label": {
