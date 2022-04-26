@@ -161,6 +161,14 @@ class DaoProductList extends AbstractDao {
     await _put(_getKey(productList), newList);
   }
 
+  Future<void> pop(final ProductList productList, final String barcode) async {
+    final _BarcodeList? list = await _get(productList);
+    final List<String> barcodes = list!.barcodes;
+    barcodes.remove(barcode);
+    final _BarcodeList newList = _BarcodeList.now(barcodes);
+    await _put(_getKey(productList), newList);
+  }
+
   Future<void> clear(final ProductList productList) async =>
       _getBox().delete(_getKey(productList));
 

@@ -237,6 +237,15 @@ class ContinuousScanModel with ChangeNotifier {
     await refresh();
   }
 
+  Future<void> removeBarcode(
+    final String barcode,
+  ) async {
+    await _daoProductList.pop(productList, barcode);
+    await _daoProductList.pop(_history, barcode);
+    await refresh();
+    notifyListeners();
+  }
+
   Future<void> refresh() async {
     await _refresh();
     notifyListeners();
