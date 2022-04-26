@@ -111,6 +111,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
           ),
         ),
       ),
+      //return a boolean to decide whether to return to previous page or not
       onWillPop: () => _showCancelPopup(localizations),
     );
   }
@@ -361,6 +362,8 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       );
 
   Future<bool> _showCancelPopup(AppLocalizations localizations) async {
+    //if no changes made then returns true to the onWillPop
+    // allowing it to let the user return back to previous screen
     if (!_isEdited()) {
       return true;
     }
@@ -375,15 +378,21 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
             actions: <TextButton>[
               TextButton(
                 child: Text(localizations.cancel.toUpperCase()),
+                // returns false to onWillPop after the alert dialog is closed with cancel button
+                //blocking return to the previous screen
                 onPressed: () => Navigator.pop(context, false),
               ),
               TextButton(
                 child: Text(localizations.close.toUpperCase()),
+                // returns true to onWillPop after the alert dialog is closed with close button
+                //letting return to the previous screen
                 onPressed: () => Navigator.pop(context, true),
               ),
             ],
           ),
         ) ??
+        // in case alert dialog is closed, a false is return
+        // blocking the return to the previous screen
         false;
   }
 
@@ -448,10 +457,13 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       if (_nutritionContainer.getValue(key) != null) {
         if (_numberFormat.format(_nutritionContainer.getValue(key)) !=
             controller.value.text) {
+          //if any controller is not equal to the value in the container
+          // then the form is edited, return true
           return true;
         }
       }
     }
+    //else form is not edited just return false
     return false;
   }
 }
