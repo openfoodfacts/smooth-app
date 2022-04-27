@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
@@ -49,21 +50,24 @@ class _ScanPageState extends State<ScanPage> {
       return const Center(child: CircularProgressIndicator());
     }
 
-    return Scaffold(
-      body: MultiProvider(
-        providers: <ChangeNotifierProvider<ChangeNotifier>>[
-          ChangeNotifierProvider<PermissionListener>(
-            create: (_) => PermissionListener(
-              permission: Permission.camera,
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle.light,
+      child: Scaffold(
+        body: MultiProvider(
+          providers: <ChangeNotifierProvider<ChangeNotifier>>[
+            ChangeNotifierProvider<PermissionListener>(
+              create: (_) => PermissionListener(
+                permission: Permission.camera,
+              ),
             ),
+            ChangeNotifierProvider<ContinuousScanModel>(
+              create: (BuildContext context) => _model!,
+            )
+          ],
+          child: const ScannerOverlay(
+            backgroundChild: _ScanPageBackgroundWidget(),
+            topChild: _ScanPageTopWidget(),
           ),
-          ChangeNotifierProvider<ContinuousScanModel>(
-            create: (BuildContext context) => _model!,
-          )
-        ],
-        child: const ScannerOverlay(
-          backgroundChild: _ScanPageBackgroundWidget(),
-          topChild: _ScanPageTopWidget(),
         ),
       ),
     );
