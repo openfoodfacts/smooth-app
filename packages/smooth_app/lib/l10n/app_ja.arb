@@ -152,7 +152,7 @@
     "sign_up_page_email_hint": "メールアドレス",
     "sign_up_page_email_error_empty": "メールアドレスは必須です",
     "sign_up_page_email_error_invalid": "無効なメールアドレス",
-    "sign_up_page_username_hint": "Username: Publicly visible",
+    "sign_up_page_username_hint": "ユーザー名：一般公開中",
     "sign_up_page_username_error_empty": "ユーザー名を入力してください",
     "sign_up_page_username_error_invalid": "有効なユーザー名を入力してください",
     "sign_up_page_username_description": "ユーザー名にスペース、大文字、または特殊文字を含めることはできません",
