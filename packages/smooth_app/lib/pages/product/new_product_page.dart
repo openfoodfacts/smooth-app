@@ -39,11 +39,10 @@ class ProductPage extends StatefulWidget {
   State<ProductPage> createState() => _ProductPageState();
 }
 
-enum ProductPageMenuItem { WEB, REFRESH }
-
 class _ProductPageState extends State<ProductPage> {
   late Product _product;
   late ProductPreferences _productPreferences;
+  late final Future<KnowledgePanels> knowledgePanels;
   bool scrollingUp = true;
 
   @override
@@ -54,6 +53,9 @@ class _ProductPageState extends State<ProductPage> {
     AnalyticsHelper.trackProductPageOpen(
       product: _product,
     );
+    knowledgePanels = KnowledgePanelsQuery(
+      barcode: _product.barcode!,
+    ).getKnowledgePanels();
   }
 
   @override
@@ -170,6 +172,7 @@ class _ProductPageState extends State<ProductPage> {
               isFullVersion: true,
               showUnansweredQuestions: true,
               refreshProductCallback: _refreshProduct,
+              knowledgePanels: knowledgePanels,
             ),
           ),
         ),
@@ -226,11 +229,6 @@ class _ProductPageState extends State<ProductPage> {
   }
 
   FutureBuilder<KnowledgePanels> _buildKnowledgePanelCards() {
-    // Note that this will make a new request on every rebuild.
-    // TODO(jasmeet): Avoid additional requests on rebuilds.
-    final Future<KnowledgePanels> knowledgePanels = KnowledgePanelsQuery(
-      barcode: _product.barcode!,
-    ).getKnowledgePanels();
     return FutureBuilder<KnowledgePanels>(
         future: knowledgePanels,
         builder:

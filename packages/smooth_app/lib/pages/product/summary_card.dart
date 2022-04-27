@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
+import 'package:openfoodfacts/model/KnowledgePanel.dart';
+import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:provider/provider.dart';
@@ -14,6 +16,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/database/robotoff_questions_query.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/helpers/extension_on_text_helper.dart';
@@ -25,6 +28,8 @@ import 'package:smooth_app/helpers/smooth_matched_product.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/question_page.dart';
+
+import '../../cards/product_cards/knowledge_panels/knowledge_panel_page.dart';
 
 const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS,
@@ -45,10 +50,14 @@ class SummaryCard extends StatefulWidget {
     this.isFullVersion = false,
     this.showUnansweredQuestions = false,
     this.refreshProductCallback,
+    this.knowledgePanels,
   });
 
   final Product _product;
   final ProductPreferences _productPreferences;
+
+  /// Just needed in full version to make the attributes clickable
+  final Future<KnowledgePanels>? knowledgePanels;
 
   /// If false, the card will be clipped to a smaller version so it can fit on
   /// smaller screens.
@@ -403,17 +412,70 @@ class _SummaryCardState extends State<SummaryCard> {
       return null;
     }
     return LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints constraints) {
-      return SizedBox(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        KnowledgePanels? knowledgePanels;
+        bool done = false;
+
+        if (widget.isFullVersion &&
+            widget.knowledgePanels != null &&
+            attribute.panelId != null) {
+          // We are calling this outside of the onTap to not open
+          // the loading dialog if the knowledge panel is already loaded
+          widget.knowledgePanels?.then((KnowledgePanels panels) {
+            done = true;
+            knowledgePanels = panels;
+          });
+        }
+
+        return SizedBox(
           width: constraints.maxWidth / 2,
-          child: Row(
+          child: InkWell(
+            enableFeedback: widget.isFullVersion &&
+                widget.knowledgePanels != null &&
+                attribute.panelId != null,
+            onTap: () async {
+              if (!widget.isFullVersion ||
+                  widget.knowledgePanels == null ||
+                  attribute.panelId == null) {
+                return;
+              }
+
+              if (!done) {
+                knowledgePanels = await LoadingDialog.run<KnowledgePanels>(
+                  context: context,
+                  future: widget.knowledgePanels!,
+                );
+              }
+
+              final KnowledgePanel? knowledgePanel =
+                  knowledgePanels?.panelIdToPanelMap[attribute.panelId];
+
+              if (knowledgePanel == null || knowledgePanels == null) {
+                return;
+              }
+
+              Navigator.push<Widget>(
+                context,
+                MaterialPageRoute<Widget>(
+                  builder: (BuildContext context) => KnowledgePanelPage(
+                    panel: knowledgePanel,
+                    allPanels: knowledgePanels!,
+                  ),
+                ),
+              );
+            },
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 attributeIcon,
                 Expanded(child: Text(attributeDisplayTitle).selectable()),
-              ]));
-    });
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
 
   /// Returns the mandatory attributes, ordered by attribute group order
