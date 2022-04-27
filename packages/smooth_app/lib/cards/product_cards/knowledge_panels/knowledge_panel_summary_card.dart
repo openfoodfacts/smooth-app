@@ -21,14 +21,6 @@ class KnowledgePanelSummaryCard extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: VERY_SMALL_SPACE),
-              child: Text(
-                knowledgePanel.topics!.first.substring(0, 1).toUpperCase() +
-                    knowledgePanel.topics!.first.substring(1),
-                style: themeData.textTheme.headline3,
-              ),
-            ),
             ScoreCard(
               iconUrl: knowledgePanel.titleElement!.iconUrl,
               description: knowledgePanel.titleElement!.title,
