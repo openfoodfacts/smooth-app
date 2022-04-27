@@ -272,7 +272,12 @@ class _EditIngredientsBody extends StatelessWidget {
             flex: 1,
             child: SingleChildScrollView(
               child: Container(
-                color: Theme.of(context).colorScheme.background,
+                decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.background,
+                    borderRadius: const BorderRadius.only(
+                      topLeft: ANGULAR_RADIUS,
+                      topRight: ANGULAR_RADIUS,
+                    )),
                 child: Padding(
                   padding: const EdgeInsets.all(LARGE_SPACE),
                   child: Column(
@@ -295,6 +300,7 @@ class _EditIngredientsBody extends StatelessWidget {
                         textInputAction: TextInputAction.done,
                         onSubmitted: (_) => onSubmitField,
                       ),
+                      const SizedBox(height: SMALL_SPACE),
                       Text(appLocalizations.ingredients_editing_instructions,
                           style: Theme.of(context).textTheme.caption),
                       const SizedBox(height: MEDIUM_SPACE),
