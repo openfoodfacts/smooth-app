@@ -8,6 +8,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
+import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_page.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
@@ -28,8 +29,6 @@ import 'package:smooth_app/helpers/smooth_matched_product.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/question_page.dart';
-
-import '../../cards/product_cards/knowledge_panels/knowledge_panel_page.dart';
 
 const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS,

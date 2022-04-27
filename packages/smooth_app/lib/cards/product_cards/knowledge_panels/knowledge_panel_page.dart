@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
-
-import '../../../generic_lib/design_constants.dart';
-import '../../../generic_lib/widgets/smooth_card.dart';
-import '../../../themes/smooth_theme.dart';
-import 'knowledge_panel_expanded_card.dart';
+import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_expanded_card.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
 
 class KnowledgePanelPage extends StatelessWidget {
   const KnowledgePanelPage({
