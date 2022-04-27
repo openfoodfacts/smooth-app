@@ -154,8 +154,7 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
     );
     if (savedAndRefreshed) {
       await widget.refreshProductCallback?.call(context);
-    }
-    if (!savedAndRefreshed) {
+    } else {
       throw Exception("Couldn't save the product.");
     }
   }
@@ -305,7 +304,7 @@ class _EditIngredientsBody extends StatelessWidget {
                             SmoothActionButton(
                               text: appLocalizations.cancel,
                               onPressed: () {
-                                Navigator.pop(context, false);
+                                Navigator.pop(context);
                               },
                             ),
                             const SizedBox(width: LARGE_SPACE),
@@ -313,7 +312,7 @@ class _EditIngredientsBody extends StatelessWidget {
                               text: appLocalizations.save,
                               onPressed: () async {
                                 await onSubmitField();
-                                Navigator.pop(context, true);
+                                Navigator.pop(context);
                               },
                             ),
                           ]),
