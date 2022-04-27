@@ -18,76 +18,80 @@ class ConsentAnalytics extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     const String assetName = 'assets/onboarding/analytics.svg';
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          SizedBox(
-            height: size.height * 0.2,
-            width: size.width * 0.45,
-            child: SvgPicture.asset(
-              assetName,
-              semanticsLabel: 'Analytics Icons',
-              fit: BoxFit.contain,
-            ),
+      body: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              SizedBox(
+                height: size.height * 0.2,
+                width: size.width * 0.45,
+                child: SvgPicture.asset(
+                  assetName,
+                  semanticsLabel: 'Analytics Icons',
+                  fit: BoxFit.contain,
+                ),
+              ),
+
+              SizedBox(height: size.height * 0.01),
+
+              Center(
+                child: Text(
+                  appLocalizations.consent_analytics_title,
+                  style: Theme.of(context).textTheme.displayMedium,
+                ),
+              ),
+
+              SizedBox(height: size.height * 0.04),
+
+              ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxWidth: size.width * 0.8,
+                ),
+                child: Text(
+                  appLocalizations.consent_analytics_body1,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.displaySmall,
+                ),
+              ),
+
+              SizedBox(height: size.height * 0.02),
+
+              ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxWidth: size.width * 0.8,
+                ),
+                child: Text(
+                  appLocalizations.consent_analytics_body2,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.displaySmall,
+                ),
+              ),
+
+              SizedBox(height: size.height * 0.02),
+
+              // Authorize Button
+              _buildButton(
+                context,
+                Colors.green,
+                appLocalizations.authorize_button_label,
+                Icons.check,
+                true,
+              ),
+
+              SizedBox(height: size.height * 0.01),
+
+              // Reject button
+              _buildButton(
+                context,
+                Colors.red,
+                appLocalizations.refuse_button_label,
+                Icons.close,
+                false,
+              ),
+            ],
           ),
-
-          SizedBox(height: size.height * 0.01),
-
-          Center(
-            child: Text(
-              appLocalizations.consent_analytics_title,
-              style: Theme.of(context).textTheme.displayMedium,
-            ),
-          ),
-
-          SizedBox(height: size.height * 0.04),
-
-          ConstrainedBox(
-            constraints: BoxConstraints(
-              maxWidth: size.width * 0.8,
-            ),
-            child: Text(
-              appLocalizations.consent_analytics_body1,
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.displaySmall,
-            ),
-          ),
-
-          SizedBox(height: size.height * 0.02),
-
-          ConstrainedBox(
-            constraints: BoxConstraints(
-              maxWidth: size.width * 0.8,
-            ),
-            child: Text(
-              appLocalizations.consent_analytics_body2,
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.displaySmall,
-            ),
-          ),
-
-          SizedBox(height: size.height * 0.02),
-
-          // Authorize Button
-          _buildButton(
-            context,
-            Colors.green,
-            appLocalizations.authorize_button_label,
-            Icons.check,
-            true,
-          ),
-
-          SizedBox(height: size.height * 0.01),
-
-          // Reject button
-          _buildButton(
-            context,
-            Colors.red,
-            appLocalizations.refuse_button_label,
-            Icons.close,
-            false,
-          ),
-        ],
+        ),
       ),
     );
   }
