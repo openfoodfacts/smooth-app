@@ -15,4 +15,4 @@ jobs:
           project-url: https://github.com/orgs/openfoodfacts/projects/11
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
           labeled: mockups available, needs mockup
-          label-operator: AND
+          label-operator: OR
