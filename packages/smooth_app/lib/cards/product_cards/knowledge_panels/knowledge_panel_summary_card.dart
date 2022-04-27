@@ -15,7 +15,6 @@ class KnowledgePanelSummaryCard extends StatelessWidget {
     if (knowledgePanel.titleElement == null) {
       return EMPTY_WIDGET;
     }
-    final ThemeData themeData = Theme.of(context);
     switch (knowledgePanel.titleElement!.type) {
       case TitleElementType.GRADE:
         return Column(
