@@ -304,20 +304,20 @@ class _SummaryCardState extends State<SummaryCard> {
         for (final Attribute attribute in scoreAttributes)
           Builder(builder: (BuildContext context) {
             KnowledgePanels? knowledgePanels;
-            bool done = false;
+            bool loaded = false;
 
             if (allowAttributeOpening(attribute)) {
               // We are calling this outside of the onTap to not open
               // the loading dialog if the knowledge panel is already loaded
               widget.knowledgePanels?.then((KnowledgePanels panels) {
-                done = true;
+                loaded = true;
                 knowledgePanels = panels;
               });
             }
             return InkWell(
               onTap: () async => openFullKnowledgePanel(
                 attribute: attribute,
-                done: done,
+                done: loaded,
                 knowledgePanels: knowledgePanels,
               ),
               child: ScoreCard(
@@ -433,13 +433,13 @@ class _SummaryCardState extends State<SummaryCard> {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
         KnowledgePanels? knowledgePanels;
-        bool done = false;
+        bool loaded = false;
 
         if (allowAttributeOpening(attribute)) {
           // We are calling this outside of the onTap to not open
           // the loading dialog if the knowledge panel is already loaded
           widget.knowledgePanels?.then((KnowledgePanels panels) {
-            done = true;
+            loaded = true;
             knowledgePanels = panels;
           });
         }
@@ -452,7 +452,7 @@ class _SummaryCardState extends State<SummaryCard> {
                 attribute.panelId != null,
             onTap: () async => openFullKnowledgePanel(
               attribute: attribute,
-              done: done,
+              done: loaded,
               knowledgePanels: knowledgePanels,
             ),
             child: Row(
@@ -646,7 +646,7 @@ class _SummaryCardState extends State<SummaryCard> {
     final KnowledgePanel? knowledgePanel =
         knowledgePanels?.panelIdToPanelMap[attribute.panelId];
 
-    if (knowledgePanel == null || knowledgePanels == null) {
+    if (knowledgePanel == null) {
       return;
     }
 
