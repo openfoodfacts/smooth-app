@@ -7,8 +7,6 @@ import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
-import 'package:smooth_app/data_models/continuous_scan_model.dart';
-
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/category_product_query.dart';
@@ -328,7 +326,13 @@ class _SummaryCardState extends State<SummaryCard> {
       ),
       alignment: Alignment.topLeft,
       padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
-      child: _getHeader(helper),
+      child: Center(
+        child: Text(
+          helper.getHeaderText(AppLocalizations.of(context)!),
+          style:
+              Theme.of(context).textTheme.subtitle1!.apply(color: Colors.white),
+        ),
+      ),
     );
   }
 
@@ -346,33 +350,6 @@ class _SummaryCardState extends State<SummaryCard> {
             runSpacing: 16,
             children: attributeChips,
           ),
-        ),
-      ],
-    );
-  }
-
-  Widget _getHeader(ProductCompatibilityHelper helper) {
-    final Widget text = Text(
-      helper.getHeaderText(AppLocalizations.of(context)!),
-      style: Theme.of(context).textTheme.subtitle1!.apply(color: Colors.white),
-    );
-    if (widget.isFullVersion) {
-      return Center(
-        child: text,
-      );
-    }
-    final ContinuousScanModel model = context.watch<ContinuousScanModel>();
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: <Widget>[
-        Center(
-          child: text,
-        ),
-        InkWell(
-          onTap: () {
-            model.removeBarcode(widget._product.barcode!);
-          },
-          child: const Icon(Icons.clear_rounded),
         ),
       ],
     );
