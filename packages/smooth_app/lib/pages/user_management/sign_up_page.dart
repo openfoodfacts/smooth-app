@@ -117,6 +117,12 @@ class _SignUpPageState extends State<SignUpPage> {
                     _userController.trimmedText)) {
                   return appLocalizations.sign_up_page_username_description;
                 }
+                if (!UserManagementHelper.isUsernameLengthValid(
+                    _userController.trimmedText)) {
+                  const int maxLength = OpenFoodAPIClient.USER_NAME_MAX_LENGTH;
+                  return appLocalizations
+                      .sign_up_page_username_length_invalid(maxLength);
+                }
                 return null;
               },
             ),
@@ -196,10 +202,10 @@ class _SignUpPageState extends State<SignUpPage> {
                         ..onTap = () async {
                           final String url =
                               appLocalizations.sign_up_page_agree_url;
-                          if (await canLaunch(url)) {
-                            await launch(
-                              url,
-                              forceSafariVC: false,
+                          if (await canLaunchUrl(Uri.parse(url))) {
+                            await launchUrl(
+                              Uri.parse(url),
+                              mode: LaunchMode.platformDefault,
                             );
                           }
                         },

@@ -27,7 +27,10 @@ class NutritionPageLoaded extends StatefulWidget {
 }
 
 class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
-  late final RegExp _decimalRegExp;
+  // we admit both decimal points
+  // anyway, the keyboard will only show one
+  static final RegExp _decimalRegExp = RegExp(r'[0-9,.]');
+
   late final NumberFormat _numberFormat;
   late final NutritionContainer _nutritionContainer;
 
@@ -55,9 +58,6 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       product: widget.product,
     );
     _numberFormat = NumberFormat('####0.#####', ProductQuery.getLocaleString());
-    _decimalRegExp = _numberFormat.format(1.2).contains('.')
-        ? RegExp(r'[0-9\.]') // TODO(monsieurtanuki): check if . or \.
-        : RegExp(r'[0-9,]');
   }
 
   @override
@@ -111,6 +111,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
           ),
         ),
       ),
+      //return a boolean to decide whether to return to previous page or not
       onWillPop: () => _showCancelPopup(localizations),
     );
   }
@@ -279,36 +280,69 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
           final List<OrderedNutrient> leftovers = List<OrderedNutrient>.from(
             _nutritionContainer.getLeftoverNutrients(),
           );
-
           leftovers.sort((final OrderedNutrient a, final OrderedNutrient b) =>
               a.name!.compareTo(b.name!));
-
+          List<OrderedNutrient> filteredList =
+              List<OrderedNutrient>.from(leftovers);
           final OrderedNutrient? selected = await showDialog<OrderedNutrient>(
               context: context,
               builder: (BuildContext context) {
-                final List<Widget> children = <Widget>[];
-                for (final OrderedNutrient nutrient in leftovers) {
-                  children.add(
-                    ListTile(
-                      title: Text(nutrient.name!),
-                      onTap: () => Navigator.pop(context, nutrient),
-                    ),
-                  );
-                }
-                return AlertDialog(
-                  title: Text(appLocalizations.nutrition_page_add_nutrient),
-                  content: SizedBox(
-                    // TODO(monsieurtanuki): proper sizes
-                    width: 300,
-                    height: 400,
-                    child: ListView(children: children),
-                  ),
-                  actions: <Widget>[
-                    ElevatedButton(
-                      onPressed: () => Navigator.pop(context),
-                      child: Text(appLocalizations.cancel),
-                    ),
-                  ],
+                return StatefulBuilder(
+                  builder: (BuildContext context,
+                      void Function(VoidCallback fn) setState) {
+                    return AlertDialog(
+                      title: Text(appLocalizations.nutrition_page_add_nutrient),
+                      content: SizedBox(
+                        // TODO(monsieurtanuki): proper sizes
+                        width: 300,
+                        height: 400,
+                        child: Column(
+                          children: <Widget>[
+                            TextField(
+                              decoration: InputDecoration(
+                                prefixIcon: const Icon(Icons.search),
+                                border: const UnderlineInputBorder(),
+                                labelText: appLocalizations.search,
+                              ),
+                              onChanged: (String query) {
+                                setState(
+                                  () {
+                                    filteredList = leftovers
+                                        .where((OrderedNutrient item) => item
+                                            .name!
+                                            .toLowerCase()
+                                            .contains(query.toLowerCase()))
+                                        .toList();
+                                  },
+                                );
+                              },
+                            ),
+                            Expanded(
+                              child: ListView.builder(
+                                  shrinkWrap: true,
+                                  itemCount: filteredList.length,
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    final OrderedNutrient nutrient =
+                                        filteredList[index];
+                                    return ListTile(
+                                      title: Text(nutrient.name!),
+                                      onTap: () =>
+                                          Navigator.of(context).pop(nutrient),
+                                    );
+                                  }),
+                            ),
+                          ],
+                        ),
+                      ),
+                      actions: <Widget>[
+                        ElevatedButton(
+                          onPressed: () => Navigator.pop(context),
+                          child: Text(appLocalizations.cancel),
+                        ),
+                      ],
+                    );
+                  },
                 );
               });
           if (selected != null) {
@@ -327,28 +361,40 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         label: Text(appLocalizations.nutrition_page_add_nutrient),
       );
 
-  Future<bool> _showCancelPopup(AppLocalizations localizations) async =>
-      await showDialog<bool>(
-        context: context,
-        builder: (BuildContext context) => AlertDialog(
-          shape: const RoundedRectangleBorder(
-            borderRadius: ROUNDED_BORDER_RADIUS,
+  Future<bool> _showCancelPopup(AppLocalizations localizations) async {
+    //if no changes made then returns true to the onWillPop
+    // allowing it to let the user return back to previous screen
+    if (!_isEdited()) {
+      return true;
+    }
+    return await showDialog<bool>(
+          context: context,
+          builder: (BuildContext context) => AlertDialog(
+            shape: const RoundedRectangleBorder(
+              borderRadius: ROUNDED_BORDER_RADIUS,
+            ),
+            title: Text(localizations.general_confirmation),
+            content: Text(localizations.nutrition_page_close_confirmation),
+            actions: <TextButton>[
+              TextButton(
+                child: Text(localizations.cancel.toUpperCase()),
+                // returns false to onWillPop after the alert dialog is closed with cancel button
+                //blocking return to the previous screen
+                onPressed: () => Navigator.pop(context, false),
+              ),
+              TextButton(
+                child: Text(localizations.okay.toUpperCase()),
+                // returns true to onWillPop after the alert dialog is closed with close button
+                //letting return to the previous screen
+                onPressed: () => Navigator.pop(context, true),
+              ),
+            ],
           ),
-          title: Text(localizations.general_confirmation),
-          content: Text(localizations.nutrition_page_close_confirmation),
-          actions: <TextButton>[
-            TextButton(
-              child: Text(localizations.cancel.toUpperCase()),
-              onPressed: () => Navigator.pop(context, false),
-            ),
-            TextButton(
-              child: Text(localizations.close.toUpperCase()),
-              onPressed: () => Navigator.pop(context, true),
-            ),
-          ],
-        ),
-      ) ??
-      false;
+        ) ??
+        // in case alert dialog is closed, a false is return
+        // blocking the return to the previous screen
+        false;
+  }
 
   Future<void> _validateAndSave(final AppLocalizations localizations,
       final LocalDatabase localDatabase) async {
@@ -403,5 +449,21 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     if (savedAndRefreshed) {
       Navigator.of(context).pop(true);
     }
+  }
+
+  bool _isEdited() {
+    for (final String key in _controllers.keys) {
+      final TextEditingController controller = _controllers[key]!;
+      if (_nutritionContainer.getValue(key) != null) {
+        if (_numberFormat.format(_nutritionContainer.getValue(key)) !=
+            controller.value.text) {
+          //if any controller is not equal to the value in the container
+          // then the form is edited, return true
+          return true;
+        }
+      }
+    }
+    //else form is not edited just return false
+    return false;
   }
 }

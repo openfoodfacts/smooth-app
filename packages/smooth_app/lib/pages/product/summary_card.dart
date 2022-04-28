@@ -19,6 +19,7 @@ import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
+import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/helpers/smooth_matched_product.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
@@ -51,6 +52,8 @@ class SummaryCard extends StatefulWidget {
 
   /// If false, the card will be clipped to a smaller version so it can fit on
   /// smaller screens.
+  /// It should only be clickable in the full / in product page version
+  /// Buttons should only be visible in full mode
   final bool isFullVersion;
 
   /// If true, the summary card will try to load unanswered questions about this
@@ -71,33 +74,31 @@ class _SummaryCardState extends State<SummaryCard> {
 
   // For some reason, special case for "label" attributes
   final Set<String> _attributesToExcludeIfStatusIsUnknown = <String>{};
-  Future<List<RobotoffQuestion>>? _productQuestions;
+  bool _annotationVoted = false;
 
   @override
   void initState() {
     super.initState();
-    if (widget.showUnansweredQuestions) {
-      _loadProductQuestions();
-    }
   }
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints constraints) {
-      if (widget.isFullVersion) {
-        return buildProductSmoothCard(
-          header: _buildProductCompatibilityHeader(context),
-          body: Padding(
-            padding: SMOOTH_CARD_PADDING,
-            child: _buildSummaryCardContent(context),
-          ),
-          margin: EdgeInsets.zero,
-        );
-      } else {
-        return _buildLimitedSizeSummaryCard(constraints.maxHeight);
-      }
-    });
+      builder: (BuildContext context, BoxConstraints constraints) {
+        if (widget.isFullVersion) {
+          return buildProductSmoothCard(
+            header: _buildProductCompatibilityHeader(context),
+            body: Padding(
+              padding: SMOOTH_CARD_PADDING,
+              child: _buildSummaryCardContent(context),
+            ),
+            margin: EdgeInsets.zero,
+          );
+        } else {
+          return _buildLimitedSizeSummaryCard(constraints.maxHeight);
+        }
+      },
+    );
   }
 
   Widget _buildLimitedSizeSummaryCard(double parentHeight) {
@@ -141,7 +142,10 @@ class _SummaryCardState extends State<SummaryCard> {
                 child: Center(
                   child: Text(
                     AppLocalizations.of(context)!.tab_for_more,
-                    style: Theme.of(context).primaryTextTheme.bodyText1,
+                    style:
+                        Theme.of(context).primaryTextTheme.bodyText1?.copyWith(
+                              color: PRIMARY_BLUE_COLOR,
+                            ),
                   ),
                 ),
               ),
@@ -242,6 +246,50 @@ class _SummaryCardState extends State<SummaryCard> {
     }
     final List<String> statesTags =
         widget._product.statesTags ?? List<String>.empty();
+
+    final List<Widget> summaryCardButtons = <Widget>[];
+
+    if (widget.isFullVersion) {
+      // Complete category
+      if (statesTags.contains('en:categories-to-be-completed')) {
+        summaryCardButtons.add(
+          addPanelButton(localizations.score_add_missing_product_category,
+              onPressed: () => _showNotImplemented(context)),
+        );
+      }
+
+      // Compare to category
+      if (categoryTag != null && categoryLabel != null) {
+        summaryCardButtons.add(
+          addPanelButton(
+            localizations.product_search_same_category,
+            iconData: Icons.leaderboard,
+            onPressed: () async => ProductQueryPageHelper().openBestChoice(
+              color: Colors.deepPurple,
+              heroTag: 'search_bar',
+              name: categoryLabel!,
+              localDatabase: localDatabase,
+              productQuery: CategoryProductQuery(
+                widget._product.categoriesTags!.last,
+              ),
+              context: context,
+            ),
+          ),
+        );
+      }
+
+      // Complete basic details
+      if (statesTags.contains('en:product-name-to-be-completed') ||
+          statesTags.contains('en:quantity-to-be-completed')) {
+        summaryCardButtons.add(
+          addPanelButton(
+            localizations.completed_basic_details_btn_text,
+            onPressed: () => _showNotImplemented(context),
+          ),
+        );
+      }
+    }
+
     return Column(
       children: <Widget>[
         ProductTitleCard(widget._product, widget.isFullVersion),
@@ -252,42 +300,10 @@ class _SummaryCardState extends State<SummaryCard> {
                 attribute.descriptionShort ?? attribute.description ?? '',
             cardEvaluation: getCardEvaluationFromAttribute(attribute),
           ),
-        _buildProductQuestionsWidget(),
+        if (widget.isFullVersion) _buildProductQuestionsWidget(),
         attributesContainer,
-        if (statesTags.contains('en:categories-to-be-completed'))
-          addPanelButton(localizations.score_add_missing_product_category,
-              onPressed: () => _showNotImplemented(context)),
-        if (widget.isFullVersion)
-          if (categoryTag != null && categoryLabel != null)
-            addPanelButton(
-              localizations.product_search_same_category,
-              iconData: Icons.leaderboard,
-              onPressed: () async => ProductQueryPageHelper().openBestChoice(
-                color: Colors.deepPurple,
-                heroTag: 'search_bar',
-                name: categoryLabel!,
-                localDatabase: localDatabase,
-                productQuery: CategoryProductQuery(
-                  widget._product.categoriesTags!.last,
-                ),
-                context: context,
-              ),
-            ),
-        if ((statesTags.contains('en:product-name-to-be-completed')) ||
-            (statesTags.contains('en:quantity-to-be-completed')))
-          addPanelButton(localizations.completed_basic_details_btn_text,
-              onPressed: () => _showNotImplemented(context)),
+        ...summaryCardButtons,
       ],
-    );
-  }
-
-  void _showNotImplemented(BuildContext context) {
-    final AppLocalizations localizations = AppLocalizations.of(context)!;
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(localizations.not_implemented_snackbar_text),
-        duration: const Duration(seconds: 2),
-      ),
     );
   }
 
@@ -458,18 +474,15 @@ class _SummaryCardState extends State<SummaryCard> {
 
   Widget _buildProductQuestionsWidget() {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-    if (_productQuestions == null) {
-      return EMPTY_WIDGET;
-    }
     return FutureBuilder<List<RobotoffQuestion>>(
-        future: _productQuestions,
+        future: _loadProductQuestions(),
         builder: (
           BuildContext context,
           AsyncSnapshot<List<RobotoffQuestion>> snapshot,
         ) {
           final List<RobotoffQuestion> questions =
               snapshot.data ?? <RobotoffQuestion>[];
-          if (questions.isNotEmpty) {
+          if (questions.isNotEmpty && !_annotationVoted) {
             return InkWell(
               onTap: () async {
                 await Navigator.push<Widget>(
@@ -519,14 +532,39 @@ class _SummaryCardState extends State<SummaryCard> {
   Future<void> _updateProductUponAnswers() async {
     // Reload the product questions, they might have been answered.
     // Or the backend may have new ones.
-    await _loadProductQuestions();
+    final List<RobotoffQuestion> questions =
+        await _loadProductQuestions() ?? <RobotoffQuestion>[];
+    final RobotoffInsightHelper robotoffInsightHelper =
+        RobotoffInsightHelper(context.read<LocalDatabase>());
+    if (questions.isEmpty) {
+      await robotoffInsightHelper
+          .removeInsightAnnotationsSavedForProdcut(widget._product.barcode!);
+    }
+    _annotationVoted =
+        await robotoffInsightHelper.haveInsightAnnotationsVoted(questions);
     // Reload the product as it may have been updated because of the
     // new answers.
     widget.refreshProductCallback?.call(context);
   }
 
-  Future<void> _loadProductQuestions() async {
-    _productQuestions = RobotoffQuestionsQuery(widget._product.barcode!)
-        .getRobotoffQuestionsForProduct();
+  Future<List<RobotoffQuestion>>? _loadProductQuestions() async {
+    final List<RobotoffQuestion> questions =
+        await RobotoffQuestionsQuery(widget._product.barcode!)
+            .getRobotoffQuestionsForProduct();
+    final RobotoffInsightHelper robotoffInsightHelper =
+        RobotoffInsightHelper(context.read<LocalDatabase>());
+    _annotationVoted =
+        await robotoffInsightHelper.haveInsightAnnotationsVoted(questions);
+    return questions;
+  }
+
+  void _showNotImplemented(BuildContext context) {
+    final AppLocalizations localizations = AppLocalizations.of(context)!;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(localizations.not_implemented_snackbar_text),
+        duration: const Duration(seconds: 2),
+      ),
+    );
   }
 }
