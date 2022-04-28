@@ -114,7 +114,10 @@ class ProductListUserDialogHelper {
                         ),
                       );
                     }
-                    return ListView(children: children);
+                    return ListView(
+                      shrinkWrap: true,
+                      children: children,
+                    );
                   },
                 ),
           actions: <Widget>[
