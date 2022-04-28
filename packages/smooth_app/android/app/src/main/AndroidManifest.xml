@@ -24,7 +24,7 @@
     </queries>
 
    <application
-        android:label="Smoothie"
+        android:label="OpenFoodFacts"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity
