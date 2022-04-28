@@ -837,6 +837,14 @@
     "completed_basic_details_btn_text": "Complete basic details",
     "not_implemented_snackbar_text": "Not implemented yet",
     "category_picker_page_appbar_text": "카테고리",
+    "edit_ingredients_extrait_ingredients_btn_text": "성분 추출",
+    "@edit_ingredients_extrait_ingredients_btn_text": {
+        "description": "Ingredients edition - Extract ingredients"
+    },
+    "edit_ingredients_refresh_photo_btn_text": "Refresh photo",
+    "@edit_ingredients_refresh_photo_btn_text": {
+        "description": "Ingredients edition - Refresh photo"
+    },
     "user_list_dialog_new_title": "New list of products",
     "@user_list_dialog_new_title": {
         "description": "Title of the 'new user list' dialog"
