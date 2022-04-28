@@ -305,8 +305,8 @@ class _ProductPageState extends State<ProductPage> {
                         EditProductPage(_product),
                   ),
                 );
-                if (refreshed ?? false) {
-                  setState(() {});
+                if (refreshed == true) {
+                  await _refreshProduct(context);
                 }
               },
             ),
