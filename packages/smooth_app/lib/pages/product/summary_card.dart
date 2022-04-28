@@ -447,9 +447,7 @@ class _SummaryCardState extends State<SummaryCard> {
         return SizedBox(
           width: constraints.maxWidth / 2,
           child: InkWell(
-            enableFeedback: widget.isFullVersion &&
-                widget.knowledgePanels != null &&
-                attribute.panelId != null,
+            enableFeedback: allowAttributeOpening(attribute),
             onTap: () async => openFullKnowledgePanel(
               attribute: attribute,
               done: loaded,
