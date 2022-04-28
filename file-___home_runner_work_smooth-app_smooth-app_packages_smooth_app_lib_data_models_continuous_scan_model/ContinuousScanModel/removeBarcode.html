@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the productList property from the ContinuousScanModel class, for the Dart programming language.">
-  <title>productList property - ContinuousScanModel class - continuous_scan_model library - Dart API</title>
+  <meta name="description" content="API docs for the removeBarcode method from the ContinuousScanModel class, for the Dart programming language.">
+  <title>removeBarcode method - ContinuousScanModel class - continuous_scan_model library - Dart API</title>
 
 
   
@@ -32,9 +32,9 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_continuous_scan_model/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_continuous_scan_model-library.html">continuous_scan_model</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_continuous_scan_model/ContinuousScanModel-class.html">ContinuousScanModel</a></li>
-    <li class="self-crumb">productList property</li>
+    <li class="self-crumb">removeBarcode method</li>
   </ol>
-  <div class="self-name">productList</div>
+  <div class="self-name">removeBarcode</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,29 +45,37 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-property">productList</span> property 
+<h1><span class="kind-method">removeBarcode</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
+    <section class="multi-line-signature">
+      
 
-        
-<section id="getter">
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+<span class="name ">removeBarcode</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="removeBarcode-param-barcode"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">barcode</span></span></li>
+</ol>)
 
-<section class="multi-line-signature">
-  <span class="returntype">dynamic</span>
-  <span class="name ">productList</span>
-  
+      
 
-</section>
-
+    </section>
+    
 
 
-
+    
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">ProductList get productList =&gt; _productList;</code></pre>
-</section>
-
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; removeBarcode(
+  final String barcode,
+) async {
+  await _daoProductList.set(
+    productList,
+    barcode,
+    false,
+  );
+  await refresh();
+  notifyListeners();
+}</code></pre>
 </section>
 
 
@@ -84,7 +92,7 @@
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_continuous_scan_model/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_continuous_scan_model-library.html">continuous_scan_model</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_continuous_scan_model/ContinuousScanModel-class.html">ContinuousScanModel</a></li>
-  <li class="self-crumb">productList property</li>
+  <li class="self-crumb">removeBarcode method</li>
 </ol>
 
 

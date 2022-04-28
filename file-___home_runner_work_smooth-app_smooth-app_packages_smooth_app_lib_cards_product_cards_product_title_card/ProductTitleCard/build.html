@@ -74,6 +74,35 @@
 Widget build(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
   final ThemeData themeData = Theme.of(context);
+  Widget subtitle;
+  Widget trailingWidget;
+  if (!isSelectable) {
+    final ContinuousScanModel model = context.watch&lt;ContinuousScanModel&gt;();
+    subtitle = RichText(
+      text: TextSpan(children: &lt;InlineSpan&gt;[
+        TextSpan(
+          text: product.brands ?? appLocalizations.unknownBrand,
+        ),
+        const TextSpan(text: &#39; , &#39;),
+        TextSpan(
+          text: product.quantity ?? &#39;&#39;,
+          style: themeData.textTheme.headline3,
+        ),
+      ]),
+    );
+    trailingWidget = InkWell(
+      onTap: () {
+        model.removeBarcode(product.barcode!);
+      },
+      child: const Icon(Icons.clear_rounded),
+    );
+  } else {
+    subtitle = Text(product.brands ?? appLocalizations.unknownBrand);
+    trailingWidget = Text(
+      product.quantity ?? &#39;&#39;,
+      style: themeData.textTheme.headline3,
+    ).selectable(isSelectable: isSelectable);
+  }
   return Align(
     alignment: Alignment.topLeft,
     child: ListTile(
@@ -83,11 +112,8 @@ Widget build(BuildContext context) {
         getProductName(product, appLocalizations),
         style: themeData.textTheme.headline4,
       ).selectable(isSelectable: isSelectable),
-      subtitle: Text(product.brands ?? appLocalizations.unknownBrand),
-      trailing: Text(
-        product.quantity ?? &#39;&#39;,
-        style: themeData.textTheme.headline3,
-      ).selectable(isSelectable: isSelectable),
+      subtitle: subtitle,
+      trailing: trailingWidget,
     ),
   );
 }</code></pre>
