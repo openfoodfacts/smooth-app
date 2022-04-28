@@ -8,24 +8,23 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Page for editing the ingredients of a product and the image of the
 /// ingredients.
 class EditIngredientsPage extends StatefulWidget {
   const EditIngredientsPage({
     Key? key,
-    this.imageIngredientsUrl,
     required this.product,
+    this.refreshProductCallback,
   }) : super(key: key);
 
   final Product product;
-  final String? imageIngredientsUrl;
+  final Function(BuildContext)? refreshProductCallback;
 
   @override
   State<EditIngredientsPage> createState() => _EditIngredientsPageState();
@@ -37,27 +36,13 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
   bool _updatingImage = false;
   bool _updatingIngredients = false;
 
-  static String _getIngredientsString(List<Ingredient>? ingredients) {
-    return ingredients == null ? '' : ingredients.join(', ');
-  }
-
   @override
   void initState() {
     super.initState();
-    _controller.text = _getIngredientsString(widget.product.ingredients);
+    _controller.text = widget.product.ingredientsText ?? '';
   }
 
-  @override
-  void didUpdateWidget(EditIngredientsPage oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    final String productIngredients =
-        _getIngredientsString(widget.product.ingredients);
-    if (productIngredients != _controller.text) {
-      _controller.text = productIngredients;
-    }
-  }
-
-  Future<void> _onSubmitField(String string) async {
+  Future<void> _onSubmitField() async {
     final User user = ProductQuery.getUser();
 
     setState(() {
@@ -65,7 +50,7 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
     });
 
     try {
-      await _updateIngredientsText(string, user);
+      await _updateIngredientsText(_controller.text, user);
     } catch (error) {
       final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
       _showError(appLocalizations.ingredients_editing_error);
@@ -76,13 +61,13 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
     });
   }
 
-  Future<void> _onTapGetImage() async {
+  Future<void> _onTapGetImage(bool isNewImage) async {
     setState(() {
       _updatingImage = true;
     });
 
     try {
-      await _getImage();
+      await _getImage(isNewImage);
     } catch (error) {
       final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
       _showError(appLocalizations.ingredients_editing_image_error);
@@ -108,26 +93,30 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
   //
   // Returns a Future that resolves successfully only if everything succeeds,
   // otherwise it will resolve with the relevant error.
-  Future<void> _getImage() async {
-    final File? croppedImageFile = await startImageCropping(context);
+  Future<void> _getImage(bool isNewImage) async {
+    bool isUploaded = true;
+    if (isNewImage) {
+      final File? croppedImageFile = await startImageCropping(context);
 
-    // If the user cancels.
-    if (croppedImageFile == null) {
-      return;
+      // If the user cancels.
+      if (croppedImageFile == null) {
+        return;
+      }
+
+      // Update the image to load the new image file.
+      setState(() {
+        _imageProvider = FileImage(croppedImageFile);
+      });
+
+      isUploaded = await uploadCapturedPicture(
+        context,
+        barcode: widget.product.barcode!,
+        imageField: ImageField.INGREDIENTS,
+        imageUri: croppedImageFile.uri,
+      );
+
+      croppedImageFile.delete();
     }
-
-    // Update the image to load the new image file.
-    setState(() {
-      _imageProvider = FileImage(croppedImageFile);
-    });
-
-    final bool isUploaded = await uploadCapturedPicture(
-      context,
-      barcode: widget.product.barcode!,
-      imageField: ImageField.INGREDIENTS,
-      imageUri: croppedImageFile.uri,
-    );
-    croppedImageFile.delete();
 
     if (!isUploaded) {
       throw Exception('Image could not be uploaded.');
@@ -152,8 +141,6 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
       setState(() {
         _controller.text = nextIngredients;
       });
-
-      await _updateIngredientsText(nextIngredients, user);
     }
   }
 
@@ -165,7 +152,9 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
       localDatabase: localDatabase,
       product: widget.product,
     );
-    if (!savedAndRefreshed) {
+    if (savedAndRefreshed) {
+      await widget.refreshProductCallback?.call(context);
+    } else {
       throw Exception("Couldn't save the product.");
     }
   }
@@ -184,10 +173,11 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
         ),
       );
     } else {
-      if (widget.imageIngredientsUrl != null) {
+      if (widget.product.imageIngredientsUrl != null) {
         children.add(ConstrainedBox(
           constraints: const BoxConstraints.expand(),
-          child: _buildZoomableImage(NetworkImage(widget.imageIngredientsUrl!)),
+          child: _buildZoomableImage(
+              NetworkImage(widget.product.imageIngredientsUrl!)),
         ));
       } else {
         children.add(Container(color: Colors.white));
@@ -201,7 +191,7 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
     } else {
       children.add(_EditIngredientsBody(
         controller: _controller,
-        imageIngredientsUrl: widget.imageIngredientsUrl,
+        imageIngredientsUrl: widget.product.imageIngredientsUrl,
         onTapGetImage: _onTapGetImage,
         onSubmitField: _onSubmitField,
         updatingIngredients: _updatingIngredients,
@@ -251,125 +241,96 @@ class _EditIngredientsBody extends StatelessWidget {
   final TextEditingController controller;
   final bool updatingIngredients;
   final String? imageIngredientsUrl;
-  final Future<void> Function() onTapGetImage;
-  final Future<void> Function(String) onSubmitField;
+  final Future<void> Function(bool) onTapGetImage;
+  final Future<void> Function() onSubmitField;
 
   @override
   Widget build(BuildContext context) {
-    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
-    final ThemeData darkTheme = SmoothTheme.getThemeData(
-      Brightness.dark,
-      themeProvider.colorTag,
-    );
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
 
     return Align(
       alignment: Alignment.bottomLeft,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
-            Flexible(
-              flex: 1,
-              child: Align(
-                alignment: Alignment.bottomRight,
-                child: Padding(
-                  padding: const EdgeInsets.only(bottom: LARGE_SPACE),
-                  child: _ActionButtons(
-                    getImage: onTapGetImage,
-                    hasImage: imageIngredientsUrl != null,
-                  ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          Flexible(
+            flex: 1,
+            child: Align(
+              alignment: Alignment.bottomRight,
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    bottom: LARGE_SPACE, right: SMALL_SPACE),
+                child: SmoothActionButton(
+                  text:
+                      appLocalizations.edit_ingredients_refresh_photo_btn_text,
+                  onPressed: () => onTapGetImage(true),
                 ),
               ),
             ),
-            Flexible(
-              flex: 1,
+          ),
+          Flexible(
+            flex: 1,
+            child: SingleChildScrollView(
               child: Container(
-                color: Colors.black,
-                child: Theme(
-                  data: darkTheme,
-                  child: DefaultTextStyle(
-                    style: const TextStyle(color: Colors.white),
-                    child: Padding(
-                      padding: const EdgeInsets.all(LARGE_SPACE),
-                      child: Column(
-                        children: <Widget>[
-                          TextField(
-                            enabled: !updatingIngredients,
-                            controller: controller,
-                            decoration: const InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: ANGULAR_BORDER_RADIUS,
-                              ),
-                            ),
-                            maxLines: null,
-                            textInputAction: TextInputAction.done,
-                            onSubmitted: onSubmitField,
-                          ),
-                          Text(appLocalizations
-                              .ingredients_editing_instructions),
-                        ],
+                decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.background,
+                    borderRadius: const BorderRadius.only(
+                      topLeft: ANGULAR_RADIUS,
+                      topRight: ANGULAR_RADIUS,
+                    )),
+                child: Padding(
+                  padding: const EdgeInsets.all(LARGE_SPACE),
+                  child: Column(
+                    children: <Widget>[
+                      SmoothActionButton(
+                        text: appLocalizations
+                            .edit_ingredients_extrait_ingredients_btn_text,
+                        onPressed: () => onTapGetImage(false),
                       ),
-                    ),
+                      const SizedBox(height: MEDIUM_SPACE),
+                      TextField(
+                        enabled: !updatingIngredients,
+                        controller: controller,
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: ANGULAR_BORDER_RADIUS,
+                          ),
+                        ),
+                        maxLines: null,
+                        textInputAction: TextInputAction.done,
+                        onSubmitted: (_) => onSubmitField,
+                      ),
+                      const SizedBox(height: SMALL_SPACE),
+                      Text(appLocalizations.ingredients_editing_instructions,
+                          style: Theme.of(context).textTheme.caption),
+                      const SizedBox(height: MEDIUM_SPACE),
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            SmoothActionButton(
+                              text: appLocalizations.cancel,
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                            ),
+                            const SizedBox(width: LARGE_SPACE),
+                            SmoothActionButton(
+                              text: appLocalizations.save,
+                              onPressed: () async {
+                                await onSubmitField();
+                                Navigator.pop(context);
+                              },
+                            ),
+                          ]),
+                      const SizedBox(height: MEDIUM_SPACE),
+                    ],
                   ),
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
-    );
-  }
-}
-
-/// The actions for the page in a row of FloatingActionButtons.
-class _ActionButtons extends StatelessWidget {
-  const _ActionButtons({
-    Key? key,
-    required this.hasImage,
-    required this.getImage,
-  }) : super(key: key);
-
-  final bool hasImage;
-  final VoidCallback getImage;
-
-  @override
-  Widget build(BuildContext context) {
-    final ColorScheme colorScheme = Theme.of(context).buttonTheme.colorScheme!;
-    final List<Widget> children = hasImage
-        ? <Widget>[
-            FloatingActionButton.small(
-              tooltip: 'Retake photo',
-              backgroundColor: colorScheme.background,
-              foregroundColor: colorScheme.onBackground,
-              onPressed: getImage,
-              child: const Icon(Icons.refresh),
-            ),
-            const SizedBox(width: MEDIUM_SPACE),
-            FloatingActionButton.small(
-              tooltip: 'Confirm',
-              backgroundColor: colorScheme.primary,
-              foregroundColor: colorScheme.onPrimary,
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Icon(Icons.check),
-            ),
-          ]
-        : <Widget>[
-            FloatingActionButton.small(
-              tooltip: 'Take photo',
-              backgroundColor: colorScheme.background,
-              foregroundColor: colorScheme.onBackground,
-              onPressed: getImage,
-              child: const Icon(Icons.camera_alt),
-            ),
-          ];
-
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: children,
     );
   }
 }
