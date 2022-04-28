@@ -43,14 +43,12 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
   }
 
   Future<void> _onSubmitField() async {
-    final User user = ProductQuery.getUser();
-
     setState(() {
       _updatingIngredients = true;
     });
 
     try {
-      await _updateIngredientsText(_controller.text, user);
+      await _updateIngredientsText(_controller.text);
     } catch (error) {
       final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
       _showError(appLocalizations.ingredients_editing_error);
@@ -144,7 +142,7 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
     }
   }
 
-  Future<void> _updateIngredientsText(String ingredientsText, User user) async {
+  Future<void> _updateIngredientsText(String ingredientsText) async {
     widget.product.ingredientsText = ingredientsText;
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final bool savedAndRefreshed = await ProductRefresher().saveAndRefresh(
