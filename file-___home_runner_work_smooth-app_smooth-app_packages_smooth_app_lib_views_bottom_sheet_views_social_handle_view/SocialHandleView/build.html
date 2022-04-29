@@ -110,10 +110,10 @@ Widget build(BuildContext context) {
             onPressed: () async {
               final PackageInfo packageInfo =
                   await PackageInfo.fromPlatform();
-              &#47;&#47; TODO(M123): Change subject name when we have a different app name
+
               final Mailto mailtoLink = Mailto(
                 to: &lt;String&gt;[&#39;contact@openfoodfacts.org&#39;],
-                subject: &#39;Smoothie help&#39;, &#47;&#47; TODO(monsieurtanuki): localize
+                subject: &#39;OpenFoodFacts (Codename: Smoothie) help&#39;,
                 body:
                     &#39;Version:${packageInfo.version}+${packageInfo.buildNumber} running on ${Platform.operatingSystem}(${Platform.operatingSystemVersion})&#39;,
               );
