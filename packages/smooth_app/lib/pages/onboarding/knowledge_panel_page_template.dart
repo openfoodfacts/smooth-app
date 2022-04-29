@@ -70,6 +70,7 @@ class _KnowledgePanelPageTemplateState
               const KnowledgePanelsBuilder().buildSingle(
             _knowledgePanels,
             widget.panelId,
+            context: context,
           )!;
           return Scaffold(
             body: Stack(
