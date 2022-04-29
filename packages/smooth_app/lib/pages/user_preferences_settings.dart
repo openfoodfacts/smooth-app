@@ -133,8 +133,7 @@ class UserPreferencesSettings extends AbstractUserPreferences {
             final PackageInfo packageInfo = await PackageInfo.fromPlatform();
             showDialog<void>(
               context: context,
-              builder: (BuildContext context) => SmoothAlertDialog.advanced(
-                close: false,
+              builder: (BuildContext context) => SmoothAlertDialog(
                 body: Column(
                   children: <Widget>[
                     ListTile(

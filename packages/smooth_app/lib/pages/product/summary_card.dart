@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
+import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
+import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_page.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
@@ -294,11 +296,16 @@ class _SummaryCardState extends State<SummaryCard> {
       children: <Widget>[
         ProductTitleCard(widget._product, widget.isFullVersion),
         for (final Attribute attribute in scoreAttributes)
-          ScoreCard(
-            iconUrl: attribute.iconUrl,
-            description:
-                attribute.descriptionShort ?? attribute.description ?? '',
-            cardEvaluation: getCardEvaluationFromAttribute(attribute),
+          InkWell(
+            onTap: () async => openFullKnowledgePanel(
+              attribute: attribute,
+            ),
+            child: ScoreCard(
+              iconUrl: attribute.iconUrl,
+              description:
+                  attribute.descriptionShort ?? attribute.description ?? '',
+              cardEvaluation: getCardEvaluationFromAttribute(attribute),
+            ),
           ),
         if (widget.isFullVersion) _buildProductQuestionsWidget(),
         attributesContainer,
@@ -403,17 +410,26 @@ class _SummaryCardState extends State<SummaryCard> {
       return null;
     }
     return LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints constraints) {
-      return SizedBox(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        return SizedBox(
           width: constraints.maxWidth / 2,
-          child: Row(
+          child: InkWell(
+            enableFeedback: allowAttributeOpening(attribute),
+            onTap: () async => openFullKnowledgePanel(
+              attribute: attribute,
+            ),
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 attributeIcon,
                 Expanded(child: Text(attributeDisplayTitle).selectable()),
-              ]));
-    });
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
 
   /// Returns the mandatory attributes, ordered by attribute group order
@@ -432,6 +448,7 @@ class _SummaryCardState extends State<SummaryCard> {
         PreferenceImportance.ID_MANDATORY,
       );
     }
+
     // now ordering by attribute group order
     for (final String attributeGroupId in _ATTRIBUTE_GROUP_ORDER) {
       final List<Attribute>? attributes =
@@ -564,6 +581,36 @@ class _SummaryCardState extends State<SummaryCard> {
       SnackBar(
         content: Text(localizations.not_implemented_snackbar_text),
         duration: const Duration(seconds: 2),
+      ),
+    );
+  }
+
+  bool allowAttributeOpening(Attribute attribute) =>
+      widget.isFullVersion &&
+      widget._product.knowledgePanels != null &&
+      attribute.panelId != null;
+
+  Future<void> openFullKnowledgePanel({
+    required final Attribute attribute,
+  }) async {
+    if (!allowAttributeOpening(attribute)) {
+      return;
+    }
+
+    final KnowledgePanel? knowledgePanel =
+        widget._product.knowledgePanels?.panelIdToPanelMap[attribute.panelId];
+
+    if (knowledgePanel == null) {
+      return;
+    }
+
+    Navigator.push<Widget>(
+      context,
+      MaterialPageRoute<Widget>(
+        builder: (BuildContext context) => KnowledgePanelPage(
+          panel: knowledgePanel,
+          allPanels: widget._product.knowledgePanels!,
+        ),
       ),
     );
   }
