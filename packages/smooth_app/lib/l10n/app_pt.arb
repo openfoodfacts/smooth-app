@@ -888,5 +888,8 @@
     "user_list_name_error_same": "That is the same name",
     "@user_list_name_error_same": {
         "description": "Validation error about the renamed name that is the same as the initial list name"
-    }
+    },
+    
+    "try_again": "Tentar novamente",
+    "there_was_an_error": "Houve um erro"
 }
