@@ -37,8 +37,6 @@ class ProductPage extends StatefulWidget {
   State<ProductPage> createState() => _ProductPageState();
 }
 
-enum ProductPageMenuItem { WEB, REFRESH }
-
 class _ProductPageState extends State<ProductPage> {
   late Product _product;
   late ProductPreferences _productPreferences;
