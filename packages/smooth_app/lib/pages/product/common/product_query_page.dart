@@ -396,7 +396,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
         padding: const EdgeInsets.all(8.0),
         child: SmoothErrorCard(
           errorMessage: errorMessage,
-          tryAgainFunction: refreshlist,
+          tryAgainFunction: retryConnection,
         ),
       ),
     );
@@ -474,14 +474,19 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
         ),
       );
 
+  Future<void> retryConnection()async{
+    setState((){
+      _model = ProductQueryModel(widget.productListSupplier);
+    });
+    return;
+  }    
+
   Future<void> refreshlist() async {
     final ProductListSupplier? refreshSupplier =
         widget.productListSupplier.getRefreshSupplier();
     setState(
       () {
-        _model = _model.loadingStatus == LoadingStatus.ERROR
-            ? ProductQueryModel(widget.productListSupplier)
-            : ProductQueryModel(refreshSupplier!);
+        _model = ProductQueryModel(refreshSupplier!);
       },
     );
     return;
