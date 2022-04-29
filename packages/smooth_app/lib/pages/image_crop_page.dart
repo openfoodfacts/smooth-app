@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:image_cropper/image_cropper.dart';
+import 'package:image_cropper_platform_interface/image_cropper_platform_interface.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -32,8 +33,7 @@ Future<File?> startImageCropping(BuildContext context) async {
       CropAspectRatioPreset.ratio4x3,
       CropAspectRatioPreset.ratio16x9
     ],
-    // ignore: always_specify_types
-    uiSettings: [
+    uiSettings: <PlatformUiSettings>[
       AndroidUiSettings(
         toolbarTitle: appLocalizations.product_edit_photo_title,
         initAspectRatio: CropAspectRatioPreset.original,
