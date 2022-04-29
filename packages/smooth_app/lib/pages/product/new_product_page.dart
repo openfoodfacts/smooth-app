@@ -40,7 +40,6 @@ class ProductPage extends StatefulWidget {
 class _ProductPageState extends State<ProductPage> {
   late Product _product;
   late ProductPreferences _productPreferences;
-  late Future<KnowledgePanels> knowledgePanels;
   bool scrollingUp = true;
 
   @override
@@ -51,9 +50,6 @@ class _ProductPageState extends State<ProductPage> {
     AnalyticsHelper.trackProductPageOpen(
       product: _product,
     );
-    knowledgePanels = KnowledgePanelsQuery(
-      barcode: _product.barcode!,
-    ).getKnowledgePanels();
   }
 
   @override
@@ -116,9 +112,6 @@ class _ProductPageState extends State<ProductPage> {
       localDatabase: localDatabase,
       refresh: true,
     );
-    knowledgePanels = KnowledgePanelsQuery(
-      barcode: _product.barcode!,
-    ).getKnowledgePanels();
     final FetchedProduct fetchedProduct =
         await productDialogHelper.openUniqueProductSearch();
     if (fetchedProduct.status == FetchedProductStatus.ok) {
@@ -173,7 +166,6 @@ class _ProductPageState extends State<ProductPage> {
               isFullVersion: true,
               showUnansweredQuestions: true,
               refreshProductCallback: _refreshProduct,
-              knowledgePanels: knowledgePanels,
             ),
           ),
         ),

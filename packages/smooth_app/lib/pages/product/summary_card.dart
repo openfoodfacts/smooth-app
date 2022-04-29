@@ -3,7 +3,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
-import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:provider/provider.dart';
@@ -17,7 +16,6 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/database/robotoff_questions_query.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/helpers/extension_on_text_helper.dart';
@@ -49,14 +47,11 @@ class SummaryCard extends StatefulWidget {
     this.isFullVersion = false,
     this.showUnansweredQuestions = false,
     this.refreshProductCallback,
-    this.knowledgePanels,
   });
 
   final Product _product;
   final ProductPreferences _productPreferences;
 
-  /// Just needed in full version to make the attributes clickable
-  final Future<KnowledgePanels>? knowledgePanels;
 
   /// If false, the card will be clipped to a smaller version so it can fit on
   /// smaller screens.
@@ -302,23 +297,9 @@ class _SummaryCardState extends State<SummaryCard> {
       children: <Widget>[
         ProductTitleCard(widget._product, widget.isFullVersion),
         for (final Attribute attribute in scoreAttributes)
-          Builder(builder: (BuildContext context) {
-            KnowledgePanels? knowledgePanels;
-            bool loaded = false;
-
-            if (allowAttributeOpening(attribute)) {
-              // We are calling this outside of the onTap to not open
-              // the loading dialog if the knowledge panel is already loaded
-              widget.knowledgePanels?.then((KnowledgePanels panels) {
-                loaded = true;
-                knowledgePanels = panels;
-              });
-            }
-            return InkWell(
+          InkWell(
               onTap: () async => openFullKnowledgePanel(
                 attribute: attribute,
-                done: loaded,
-                knowledgePanels: knowledgePanels,
               ),
               child: ScoreCard(
                 iconUrl: attribute.iconUrl,
@@ -326,8 +307,7 @@ class _SummaryCardState extends State<SummaryCard> {
                     attribute.descriptionShort ?? attribute.description ?? '',
                 cardEvaluation: getCardEvaluationFromAttribute(attribute),
               ),
-            );
-          }),
+            ),
         if (widget.isFullVersion) _buildProductQuestionsWidget(),
         attributesContainer,
         ...summaryCardButtons,
@@ -432,26 +412,12 @@ class _SummaryCardState extends State<SummaryCard> {
     }
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        KnowledgePanels? knowledgePanels;
-        bool loaded = false;
-
-        if (allowAttributeOpening(attribute)) {
-          // We are calling this outside of the onTap to not open
-          // the loading dialog if the knowledge panel is already loaded
-          widget.knowledgePanels?.then((KnowledgePanels panels) {
-            loaded = true;
-            knowledgePanels = panels;
-          });
-        }
-
         return SizedBox(
           width: constraints.maxWidth / 2,
           child: InkWell(
             enableFeedback: allowAttributeOpening(attribute),
             onTap: () async => openFullKnowledgePanel(
               attribute: attribute,
-              done: loaded,
-              knowledgePanels: knowledgePanels,
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -622,27 +588,18 @@ class _SummaryCardState extends State<SummaryCard> {
 
   bool allowAttributeOpening(Attribute attribute) =>
       widget.isFullVersion &&
-      widget.knowledgePanels != null &&
+      widget._product.knowledgePanels != null &&
       attribute.panelId != null;
 
   Future<void> openFullKnowledgePanel({
     required final Attribute attribute,
-    required bool done,
-    required KnowledgePanels? knowledgePanels,
   }) async {
     if (!allowAttributeOpening(attribute)) {
       return;
     }
 
-    if (!done) {
-      knowledgePanels = await LoadingDialog.run<KnowledgePanels>(
-        context: context,
-        future: widget.knowledgePanels!,
-      );
-    }
-
     final KnowledgePanel? knowledgePanel =
-        knowledgePanels?.panelIdToPanelMap[attribute.panelId];
+        widget._product.knowledgePanels?.panelIdToPanelMap[attribute.panelId];
 
     if (knowledgePanel == null) {
       return;
@@ -653,7 +610,7 @@ class _SummaryCardState extends State<SummaryCard> {
       MaterialPageRoute<Widget>(
         builder: (BuildContext context) => KnowledgePanelPage(
           panel: knowledgePanel,
-          allPanels: knowledgePanels!,
+          allPanels: widget._product.knowledgePanels!,
         ),
       ),
     );
