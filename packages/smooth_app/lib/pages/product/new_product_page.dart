@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panels_builder.dart';
@@ -11,7 +10,6 @@ import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
-import 'package:smooth_app/database/knowledge_panels_query.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
@@ -231,47 +229,22 @@ class _ProductPageState extends State<ProductPage> {
     );
   }
 
-  FutureBuilder<KnowledgePanels> _buildKnowledgePanelCards() {
-    return FutureBuilder<KnowledgePanels>(
-        future: knowledgePanels,
-        builder:
-            (BuildContext context, AsyncSnapshot<KnowledgePanels> snapshot) {
-          List<Widget> knowledgePanelWidgets = <Widget>[];
-          if (snapshot.hasData) {
-            // Render all KnowledgePanels
-            knowledgePanelWidgets = KnowledgePanelsBuilder(
-              setState: () => setState(() {}),
-              refreshProductCallback: _refreshProduct,
-            ).buildAll(
-              snapshot.data!,
-              context: context,
-              product: _product,
-            );
-          } else if (snapshot.hasError) {
-            // TODO(jasmeet): Retry the request.
-            // Do nothing for now.
-          } else {
-            // Query results not available yet.
-            knowledgePanelWidgets = <Widget>[_buildLoadingWidget()];
-          }
-          return KnowledgePanelProductCards(knowledgePanelWidgets);
-        });
-  }
+  Widget _buildKnowledgePanelCards() {
+    final List<Widget> knowledgePanelWidgets;
+    if (_product.knowledgePanels == null) {
+      knowledgePanelWidgets = <Widget>[];
+    } else {
+      knowledgePanelWidgets = KnowledgePanelsBuilder(
+        setState: () => setState(() {}),
+        refreshProductCallback: _refreshProduct,
+      ).buildAll(
+        _product.knowledgePanels!,
+        context: context,
+        product: _product,
+      );
+    }
+    return KnowledgePanelProductCards(knowledgePanelWidgets);
 
-  Widget _buildLoadingWidget() {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: const <Widget>[
-          SizedBox(
-            child: CircularProgressIndicator(),
-            width: 60,
-            height: 60,
-          ),
-        ],
-      ),
-    );
   }
 
   Future<void> _editList() async {
@@ -306,8 +279,8 @@ class _ProductPageState extends State<ProductPage> {
                         EditProductPage(_product),
                   ),
                 );
-                if (refreshed ?? false) {
-                  setState(() {});
+                if (refreshed == true) {
+                  await _refreshProduct(context);
                 }
               },
             ),
