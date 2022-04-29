@@ -1,5 +1,5 @@
 {
-    "app_name": "Sinh tố",
+    "app_name": "OpenFoodFacts",
     "@Utils": {},
     "yes": "Đồng ý",
     "@yes": {},
@@ -36,7 +36,7 @@
     "@error_occurred": {},
     "featureInProgress": "Chúng tôi vẫn đang xây dựng tính năng này, nhớ theo dõi nhé",
     "@featureInProgress": {},
-    "label_web": "Xem trên Web",
+    "label_web": "Xem trên web",
     "@label_web": {},
     "learnMore": "Tìm hiểu thêm",
     "@learnMore": {},
@@ -66,7 +66,7 @@
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Chọn thực phẩm tốt cho bạn và hành tinh này.",
+    "offUtility": "Choose food that is good for you and the planet.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },

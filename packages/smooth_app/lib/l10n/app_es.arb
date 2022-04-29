@@ -1,5 +1,5 @@
 {
-    "app_name": "Batido de Frutas",
+    "app_name": "OpenFoodFactsEs",
     "@Utils": {},
     "yes": "Sí",
     "@yes": {},
@@ -36,7 +36,7 @@
     "@error_occurred": {},
     "featureInProgress": "Todavía estamos trabajando en esta función, mantente atento",
     "@featureInProgress": {},
-    "label_web": "Ver en el sitio web",
+    "label_web": "Ver en la web",
     "@label_web": {},
     "learnMore": "Aprender más",
     "@learnMore": {},
@@ -66,7 +66,7 @@
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Elija los productos que son buenos para usted y para el planeta.",
+    "offUtility": "Elige alimentos que sean buenos para ti y el planeta.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
@@ -841,7 +841,7 @@
     "@edit_ingredients_extrait_ingredients_btn_text": {
         "description": "Ingredients edition - Extract ingredients"
     },
-    "edit_ingredients_refresh_photo_btn_text": "Refresh photo",
+    "edit_ingredients_refresh_photo_btn_text": "Actualizar foto",
     "@edit_ingredients_refresh_photo_btn_text": {
         "description": "Ingredients edition - Refresh photo"
     },

@@ -1,5 +1,5 @@
 {
-    "app_name": "Smoothie",
+    "app_name": "OpenFoodFactsEs",
     "@Utils": {},
     "yes": "Ναι",
     "@yes": {},
@@ -14,7 +14,7 @@
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
     "save": "Αποθήκευση",
-    "save_confirmation": "Are you sure you want to save?",
+    "save_confirmation": "Είστε βέβαιοι ότι θέλετε να αποθηκεύσετε;",
     "skip": "Skip",
     "cancel": "Ακύρωση",
     "@cancel": {},
@@ -36,11 +36,11 @@
     "@error_occurred": {},
     "featureInProgress": "Εξακολουθούμε να εργαζόμαστε σε αυτήν τη λειτουργία, μείνετε συντονισμένοι",
     "@featureInProgress": {},
-    "label_web": "Προβολή στο Διαδίκτυο",
+    "label_web": "Προβολή στον Ιστό",
     "@label_web": {},
     "learnMore": "Μάθετε περισσότερα",
     "@learnMore": {},
-    "general_confirmation": "Are you sure?",
+    "general_confirmation": "Είστε σίγουροι;",
     "incompatible": "Ασύμβατο",
     "@incompatible": {
         "description": "Short label for product list view: the product is incompatible with your preferences"
@@ -66,11 +66,11 @@
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Επιλέξτε τροφές που είναι καλές για εσάς και τον πλανήτη.",
+    "offUtility": "Επιλέξτε τροφές που κάνουν καλό σε εσάς και τον πλανήτη.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
-    "productDataUtility": "See the food data relevant to your preferences.",
+    "productDataUtility": "Δείτε τα δεδομένα τροφίμων που σχετίζονται με τις προτιμήσεις σας.",
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."
     },
