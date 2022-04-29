@@ -39,7 +39,7 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          channel: stable
+          channel: alpha
           cache: true
           cache-key: flutter2.10 #change this to force refresh cache
       - run: flutter --version
