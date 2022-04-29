@@ -236,7 +236,6 @@ class _ProductPageState extends State<ProductPage> {
       );
     }
     return KnowledgePanelProductCards(knowledgePanelWidgets);
-
   }
 
   Future<void> _editList() async {

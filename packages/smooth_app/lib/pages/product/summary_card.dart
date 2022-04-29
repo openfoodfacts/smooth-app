@@ -52,7 +52,6 @@ class SummaryCard extends StatefulWidget {
   final Product _product;
   final ProductPreferences _productPreferences;
 
-
   /// If false, the card will be clipped to a smaller version so it can fit on
   /// smaller screens.
   /// It should only be clickable in the full / in product page version
@@ -298,16 +297,16 @@ class _SummaryCardState extends State<SummaryCard> {
         ProductTitleCard(widget._product, widget.isFullVersion),
         for (final Attribute attribute in scoreAttributes)
           InkWell(
-              onTap: () async => openFullKnowledgePanel(
-                attribute: attribute,
-              ),
-              child: ScoreCard(
-                iconUrl: attribute.iconUrl,
-                description:
-                    attribute.descriptionShort ?? attribute.description ?? '',
-                cardEvaluation: getCardEvaluationFromAttribute(attribute),
-              ),
+            onTap: () async => openFullKnowledgePanel(
+              attribute: attribute,
             ),
+            child: ScoreCard(
+              iconUrl: attribute.iconUrl,
+              description:
+                  attribute.descriptionShort ?? attribute.description ?? '',
+              cardEvaluation: getCardEvaluationFromAttribute(attribute),
+            ),
+          ),
         if (widget.isFullVersion) _buildProductQuestionsWidget(),
         attributesContainer,
         ...summaryCardButtons,
