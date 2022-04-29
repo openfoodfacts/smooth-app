@@ -72,7 +72,6 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final ThemeData themeData = Theme.of(context);
   &#47;&#47; If [expanded] = true, render all panel elements (including summary), otherwise just renders panel summary.
   if (panel.expanded ?? false) {
     return KnowledgePanelExpandedCard(
@@ -89,24 +88,9 @@ Widget build(BuildContext context) {
       Navigator.push&lt;Widget&gt;(
         context,
         MaterialPageRoute&lt;Widget&gt;(
-          builder: (BuildContext context) =&gt; Scaffold(
-            backgroundColor: SmoothTheme.getColor(
-              themeData.colorScheme,
-              SmoothTheme.getMaterialColor(context),
-              ColorDestination.SURFACE_BACKGROUND,
-            ),
-            appBar: AppBar(),
-            body: SingleChildScrollView(
-              child: SmoothCard(
-                padding: const EdgeInsets.all(
-                  SMALL_SPACE,
-                ),
-                child: KnowledgePanelExpandedCard(
-                  panel: panel,
-                  allPanels: allPanels,
-                ),
-              ),
-            ),
+          builder: (BuildContext context) =&gt; KnowledgePanelPage(
+            panel: panel,
+            allPanels: allPanels,
           ),
         ),
       );
