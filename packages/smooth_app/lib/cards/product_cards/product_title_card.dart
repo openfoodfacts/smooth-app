@@ -28,7 +28,7 @@ class ProductTitleCard extends StatelessWidget {
     final Widget trailingWidget;
     final String brands = product.brands ?? appLocalizations.unknownBrand;
     final String quantity = product.quantity ?? '';
-    if (isRemovable) {
+    if (isRemovable && !isSelectable) {
       final ContinuousScanModel model = context.watch<ContinuousScanModel>();
       subtitleText = '$brands${quantity == '' ? '' : ', $quantity'}';
       trailingWidget = InkWell(
