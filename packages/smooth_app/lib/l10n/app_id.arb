@@ -1,5 +1,5 @@
 {
-    "app_name": "Smoothie",
+    "app_name": "OpenFoodFacts",
     "@Utils": {},
     "yes": "Ya",
     "@yes": {},
@@ -36,7 +36,7 @@
     "@error_occurred": {},
     "featureInProgress": "Kami masih mengerjakan fitur ini, pantau terus",
     "@featureInProgress": {},
-    "label_web": "Lihat di web",
+    "label_web": "View on the web",
     "@label_web": {},
     "learnMore": "Pelajari lebih lanjut",
     "@learnMore": {},
@@ -66,7 +66,7 @@
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Pilih makanan yang baik bagi Anda dan planet Anda.",
+    "offUtility": "Choose food that is good for you and the planet.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },

@@ -8,45 +8,40 @@ import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 
 class ProductTitleCard extends StatelessWidget {
-  const ProductTitleCard(this.product, this.isSelectable, {this.dense = false});
+  const ProductTitleCard(
+    this.product,
+    this.isSelectable, {
+    this.dense = false,
+    this.isRemovable = true,
+  });
 
   final Product product;
   final bool dense;
   final bool isSelectable;
+  final bool isRemovable;
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final ThemeData themeData = Theme.of(context);
-    Widget subtitle;
-    Widget trailingWidget;
-    if (!isSelectable) {
+    final String subtitleText;
+    final Widget trailingWidget;
+    final String brands = product.brands ?? appLocalizations.unknownBrand;
+    final String quantity = product.quantity ?? '';
+    if (isRemovable) {
       final ContinuousScanModel model = context.watch<ContinuousScanModel>();
-      subtitle = RichText(
-        text: TextSpan(children: <InlineSpan>[
-          TextSpan(
-            text: product.brands ?? appLocalizations.unknownBrand,
-          ),
-          const TextSpan(text: ' , '),
-          TextSpan(
-            text: product.quantity ?? '',
-            style: themeData.textTheme.headline3,
-          ),
-        ]),
-      );
+      subtitleText = '$brands${quantity == '' ? '' : ', $quantity'}';
       trailingWidget = InkWell(
-        onTap: () {
-          model.removeBarcode(product.barcode!);
-        },
+        onTap: () async => model.removeBarcode(product.barcode!),
         child: const Icon(
           Icons.clear_rounded,
           size: MINIMUM_TOUCH_SIZE,
         ),
       );
     } else {
-      subtitle = Text(product.brands ?? appLocalizations.unknownBrand);
+      subtitleText = brands;
       trailingWidget = Text(
-        product.quantity ?? '',
+        quantity,
         style: themeData.textTheme.headline3,
       ).selectable(isSelectable: isSelectable);
     }
@@ -59,7 +54,9 @@ class ProductTitleCard extends StatelessWidget {
           getProductName(product, appLocalizations),
           style: themeData.textTheme.headline4,
         ).selectable(isSelectable: isSelectable),
-        subtitle: subtitle,
+        subtitle: Text(
+          subtitleText,
+        ).selectable(isSelectable: isSelectable),
         trailing: trailingWidget,
       ),
     );
