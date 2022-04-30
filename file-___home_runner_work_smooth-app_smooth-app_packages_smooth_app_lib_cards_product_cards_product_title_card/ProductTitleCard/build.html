@@ -74,32 +74,21 @@
 Widget build(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
   final ThemeData themeData = Theme.of(context);
-  Widget subtitle;
-  Widget trailingWidget;
-  if (!isSelectable) {
+  final String subtitleText;
+  final Widget trailingWidget;
+  final String brands = product.brands ?? appLocalizations.unknownBrand;
+  final String quantity = product.quantity ?? &#39;&#39;;
+  if (isRemovable) {
     final ContinuousScanModel model = context.watch&lt;ContinuousScanModel&gt;();
-    subtitle = RichText(
-      text: TextSpan(children: &lt;InlineSpan&gt;[
-        TextSpan(
-          text: product.brands ?? appLocalizations.unknownBrand,
-        ),
-        const TextSpan(text: &#39; , &#39;),
-        TextSpan(
-          text: product.quantity ?? &#39;&#39;,
-          style: themeData.textTheme.headline3,
-        ),
-      ]),
-    );
+    subtitleText = &#39;$brands${quantity == &#39;&#39; ? &#39;&#39; : &#39;, $quantity&#39;}&#39;;
     trailingWidget = InkWell(
-      onTap: () {
-        model.removeBarcode(product.barcode!);
-      },
+      onTap: () async =&gt; model.removeBarcode(product.barcode!),
       child: const Icon(Icons.clear_rounded),
     );
   } else {
-    subtitle = Text(product.brands ?? appLocalizations.unknownBrand);
+    subtitleText = brands;
     trailingWidget = Text(
-      product.quantity ?? &#39;&#39;,
+      quantity,
       style: themeData.textTheme.headline3,
     ).selectable(isSelectable: isSelectable);
   }
@@ -112,7 +101,9 @@ Widget build(BuildContext context) {
         getProductName(product, appLocalizations),
         style: themeData.textTheme.headline4,
       ).selectable(isSelectable: isSelectable),
-      subtitle: subtitle,
+      subtitle: Text(
+        subtitleText,
+      ).selectable(isSelectable: isSelectable),
       trailing: trailingWidget,
     ),
   );
@@ -149,6 +140,7 @@ Widget build(BuildContext context) {
     </li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_product_title_card/ProductTitleCard/dense.html">dense</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_product_title_card/ProductTitleCard/isRemovable.html">isRemovable</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_product_title_card/ProductTitleCard/isSelectable.html">isSelectable</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_product_title_card/ProductTitleCard/product.html">product</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
