@@ -14,6 +14,7 @@ import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
+import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
@@ -110,6 +111,8 @@ class _SmoothAppState extends State<SmoothApp> {
   final UserManagementProvider _userManagementProvider =
       UserManagementProvider();
 
+  final ContinuousScanModel _continuousScanModel = ContinuousScanModel();
+
   bool systemDarkmodeOn = false;
   final Brightness brightness =
       SchedulerBinding.instance?.window.platformBrightness ?? Brightness.light;
@@ -167,6 +170,7 @@ class _SmoothAppState extends State<SmoothApp> {
             provide<LocalDatabase>(_localDatabase),
             provide<ThemeProvider>(_themeProvider),
             provide<UserManagementProvider>(_userManagementProvider),
+            provide<ContinuousScanModel>(_continuousScanModel),
           ],
           builder: _buildApp,
         );
