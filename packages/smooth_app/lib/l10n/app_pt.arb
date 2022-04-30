@@ -1,5 +1,5 @@
 {
-    "app_name": "Smoothie",
+    "app_name": "OpenFoodFacts",
     "@Utils": {},
     "yes": "Sim",
     "@yes": {},
@@ -36,7 +36,7 @@
     "@error_occurred": {},
     "featureInProgress": "Ainda estamos trabalhando nesse recurso, fique atento",
     "@featureInProgress": {},
-    "label_web": "Visualizar no navegador",
+    "label_web": "View on the web",
     "@label_web": {},
     "learnMore": "Saiba mais",
     "@learnMore": {},
@@ -66,7 +66,7 @@
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Escolha alimentos que são bons para você e para o planeta.",
+    "offUtility": "Choose food that is good for you and the planet.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },

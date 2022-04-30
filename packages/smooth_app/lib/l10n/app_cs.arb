@@ -1,5 +1,5 @@
 {
-    "app_name": "Smoothie",
+    "app_name": "OpenFoodFacts",
     "@Utils": {},
     "yes": "Ano",
     "@yes": {},
@@ -36,7 +36,7 @@
     "@error_occurred": {},
     "featureInProgress": "Na této funkci stále pracujeme, zůstaňte na příjmu",
     "@featureInProgress": {},
-    "label_web": "Zobrazit na webu",
+    "label_web": "View on the web",
     "@label_web": {},
     "learnMore": "Zjistit více",
     "@learnMore": {},
@@ -66,7 +66,7 @@
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Vybírejte si jídlo, které jsou dobré pro vás a pro planetu.",
+    "offUtility": "Choose food that is good for you and the planet.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
