@@ -83,7 +83,10 @@ Widget build(BuildContext context) {
     subtitleText = &#39;$brands${quantity == &#39;&#39; ? &#39;&#39; : &#39;, $quantity&#39;}&#39;;
     trailingWidget = InkWell(
       onTap: () async =&gt; model.removeBarcode(product.barcode!),
-      child: const Icon(Icons.clear_rounded),
+      child: const Icon(
+        Icons.clear_rounded,
+        size: MINIMUM_TOUCH_SIZE,
+      ),
     );
   } else {
     subtitleText = brands;
