@@ -40,15 +40,10 @@ class OnboardingLoader {
   }
 
   /// Actual download of all data.
-  Future<void> _downloadData() async {
-    await OnboardingDataProduct.forProduct(_localDatabase).downloadData();
-    await OnboardingDataProduct.forKnowledgePanels(_localDatabase)
-        .downloadData();
-  }
+  Future<void> _downloadData() async =>
+      OnboardingDataProduct.forProduct(_localDatabase).downloadData();
 
   /// Unloads all data that are no longer required.
-  Future<void> _unloadData() async {
-    await OnboardingDataProduct.forProduct(_localDatabase).clear();
-    await OnboardingDataProduct.forKnowledgePanels(_localDatabase).clear();
-  }
+  Future<void> _unloadData() async =>
+      OnboardingDataProduct.forProduct(_localDatabase).clear();
 }
