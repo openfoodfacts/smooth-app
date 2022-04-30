@@ -330,7 +330,9 @@ class _TableCellWidgetState extends State<TableCellWidget> {
                 );
               }).toList(),
               onChanged: (KnowledgePanelTableColumn? selectedColumn) {
-                widget.cell.columnGroup!.currentColumn = selectedColumn;
+                setState(() {
+                  widget.cell.columnGroup!.currentColumn = selectedColumn;
+                });
                 int i = 0;
                 for (final KnowledgePanelTableColumn column
                     in widget.tableElement.columns) {

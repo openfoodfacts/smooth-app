@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panels_builder.dart';
@@ -11,18 +10,20 @@ import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
-import 'package:smooth_app/database/knowledge_panels_query.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/product/category_cache.dart';
 import 'package:smooth_app/pages/product/category_picker_page.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
+import 'package:smooth_app/pages/product/common/product_list_page.dart';
 import 'package:smooth_app/pages/product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/knowledge_panel_product_cards.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
+import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -35,8 +36,6 @@ class ProductPage extends StatefulWidget {
   @override
   State<ProductPage> createState() => _ProductPageState();
 }
-
-enum ProductPageMenuItem { WEB, REFRESH }
 
 class _ProductPageState extends State<ProductPage> {
   late Product _product;
@@ -139,7 +138,10 @@ class _ProductPageState extends State<ProductPage> {
 
   Widget _buildProductBody(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final DaoProductList daoProductList = DaoProductList(localDatabase);
+    final List<String> productListNames =
+        daoProductList.getUserLists(withBarcode: widget.product.barcode);
     return RefreshIndicator(
       onRefresh: () => _refreshProduct(context),
       child: ListView(children: <Widget>[
@@ -168,23 +170,9 @@ class _ProductPageState extends State<ProductPage> {
           ),
         ),
         _buildKnowledgePanelCards(),
-        Padding(
-          padding: const EdgeInsets.all(SMALL_SPACE),
-          child: SmoothActionButton(
-            text: appLocalizations.edit_product_label,
-            onPressed: () async {
-              final bool? refreshed = await Navigator.push<bool>(
-                context,
-                MaterialPageRoute<bool>(
-                  builder: (BuildContext context) => EditProductPage(_product),
-                ),
-              );
-              if (refreshed ?? false) {
-                setState(() {});
-              }
-            },
-          ),
-        ),
+        _buildActionBar(appLocalizations),
+        if (productListNames.isNotEmpty)
+          _buildListWidget(appLocalizations, productListNames, daoProductList),
         if (context.read<UserPreferences>().getFlag(
                 UserPreferencesDevMode.userPreferencesFlagAdditionalButton) ??
             false)
@@ -233,49 +221,135 @@ class _ProductPageState extends State<ProductPage> {
     );
   }
 
-  FutureBuilder<KnowledgePanels> _buildKnowledgePanelCards() {
-    // Note that this will make a new request on every rebuild.
-    // TODO(jasmeet): Avoid additional requests on rebuilds.
-    final Future<KnowledgePanels> knowledgePanels = KnowledgePanelsQuery(
-      barcode: _product.barcode!,
-    ).getKnowledgePanels();
-    return FutureBuilder<KnowledgePanels>(
-        future: knowledgePanels,
-        builder:
-            (BuildContext context, AsyncSnapshot<KnowledgePanels> snapshot) {
-          List<Widget> knowledgePanelWidgets = <Widget>[];
-          if (snapshot.hasData) {
-            // Render all KnowledgePanels
-            knowledgePanelWidgets =
-                KnowledgePanelsBuilder(setState: () => setState(() {}))
-                    .buildAll(
-              snapshot.data!,
-              context: context,
-              product: _product,
-            );
-          } else if (snapshot.hasError) {
-            // TODO(jasmeet): Retry the request.
-            // Do nothing for now.
-          } else {
-            // Query results not available yet.
-            knowledgePanelWidgets = <Widget>[_buildLoadingWidget()];
-          }
-          return KnowledgePanelProductCards(knowledgePanelWidgets);
-        });
+  Widget _buildKnowledgePanelCards() {
+    final List<Widget> knowledgePanelWidgets;
+    if (_product.knowledgePanels == null) {
+      knowledgePanelWidgets = <Widget>[];
+    } else {
+      knowledgePanelWidgets = KnowledgePanelsBuilder(
+        setState: () => setState(() {}),
+        refreshProductCallback: _refreshProduct,
+      ).buildAll(
+        _product.knowledgePanels!,
+        context: context,
+        product: _product,
+      );
+    }
+    return KnowledgePanelProductCards(knowledgePanelWidgets);
   }
 
-  Widget _buildLoadingWidget() {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: const <Widget>[
-          SizedBox(
-            child: CircularProgressIndicator(),
-            width: 60,
-            height: 60,
+  Future<void> _editList() async {
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final DaoProductList daoProductList = DaoProductList(localDatabase);
+    final bool refreshed = await ProductListUserDialogHelper(daoProductList)
+        .showUserListsWithBarcodeDialog(context, widget.product);
+    if (refreshed) {
+      setState(() {});
+    }
+  }
+
+  Widget _buildActionBar(final AppLocalizations appLocalizations) => Padding(
+        padding: const EdgeInsets.all(SMALL_SPACE),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            _buildActionBarItem(
+              Icons.bookmark_border,
+              appLocalizations.user_list_button_add_product,
+              _editList,
+            ),
+            _buildActionBarItem(
+              Icons.edit,
+              appLocalizations.edit_product_label,
+              () async {
+                final bool? refreshed = await Navigator.push<bool>(
+                  context,
+                  MaterialPageRoute<bool>(
+                    builder: (BuildContext context) =>
+                        EditProductPage(_product),
+                  ),
+                );
+                if (refreshed == true) {
+                  await _refreshProduct(context);
+                }
+              },
+            ),
+          ],
+        ),
+      );
+
+  Widget _buildActionBarItem(
+    final IconData iconData,
+    final String label,
+    final Function() onPressed,
+  ) {
+    final ThemeData themeData = Theme.of(context);
+    final ColorScheme colorScheme = themeData.colorScheme;
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+        ElevatedButton(
+          onPressed: onPressed,
+          child: Icon(iconData, color: colorScheme.onPrimary),
+          style: ElevatedButton.styleFrom(
+            shape: const CircleBorder(),
+            padding: const EdgeInsets.all(
+                18), // TODO(monsieurtanuki): cf. FloatingActionButton
+            primary: colorScheme.primary,
           ),
-        ],
+        ),
+        const SizedBox(height: VERY_SMALL_SPACE),
+        Text(label),
+      ],
+    );
+  }
+
+  Widget _buildListWidget(
+    final AppLocalizations appLocalizations,
+    final List<String> productListNames,
+    final DaoProductList daoProductList,
+  ) {
+    final List<Widget> children = <Widget>[];
+    for (final String productListName in productListNames) {
+      children.add(
+        SmoothActionButton(
+          text: productListName,
+          onPressed: () async {
+            final ProductList productList = ProductList.user(productListName);
+            await daoProductList.get(productList);
+            await Navigator.push<void>(
+              context,
+              MaterialPageRoute<void>(
+                builder: (BuildContext context) => ProductListPage(productList),
+              ),
+            );
+            setState(() {});
+          },
+        ),
+      );
+    }
+    return SmoothCard(
+      child: Padding(
+        padding: const EdgeInsets.all(SMALL_SPACE),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              appLocalizations.user_list_subtitle_product,
+              style: Theme.of(context).textTheme.headline3,
+            ),
+            Wrap(
+              alignment: WrapAlignment.start,
+              direction: Axis.horizontal,
+              children: children,
+              spacing: VERY_SMALL_SPACE,
+              runSpacing: VERY_SMALL_SPACE,
+            ),
+          ],
+        ),
       ),
     );
   }

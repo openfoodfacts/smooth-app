@@ -38,7 +38,7 @@ dependencies:
   provider: ^6.0.2
   qr_code_scanner: ^0.7.0
   rubber: ^1.0.1
-  sentry_flutter: ^6.4.0 # careful with upgrading cf: https://github.com/openfoodfacts/smooth-app/issues/1300
+  sentry_flutter: ^6.5.1 # careful with upgrading cf: https://github.com/openfoodfacts/smooth-app/issues/1300
   url_launcher: ^6.1.0
   visibility_detector: ^0.2.2
   camera: ^0.9.4+20
@@ -50,7 +50,7 @@ dependencies:
     git:
       url: https://github.com/cli1005/google_ml_barcode_scanner.git
       ref: master
-  image_cropper: ^1.5.1
+  image_cropper: ^2.0.0
   auto_size_text: ^3.0.0
 
 dev_dependencies:
