@@ -96,6 +96,7 @@ class _HelperState extends State<_Helper> {
             widget.product,
             productPreferences,
             isFullVersion: _isProductExpanded,
+            isRemovable: false,
           ),
         ),
       ),
