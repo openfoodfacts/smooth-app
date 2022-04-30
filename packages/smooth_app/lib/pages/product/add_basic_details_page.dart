@@ -43,6 +43,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
       body: Form(
         key: _formKey,
         child: ListView(
+          padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
           children: <Widget>[
             Align(
               alignment: Alignment.topLeft,
