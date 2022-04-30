@@ -226,7 +226,6 @@
     },
     "support_join_slack": "Ask for help in our Slack channel",
     "support_via_email": "Send us an e-mail",
-
     "termsOfUse": "Terms of use",
     "@termsOfUse": {},
     "about_this_app": "About this app",

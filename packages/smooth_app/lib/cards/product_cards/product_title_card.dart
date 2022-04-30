@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 
@@ -32,7 +33,10 @@ class ProductTitleCard extends StatelessWidget {
       subtitleText = '$brands${quantity == '' ? '' : ', $quantity'}';
       trailingWidget = InkWell(
         onTap: () async => model.removeBarcode(product.barcode!),
-        child: const Icon(Icons.clear_rounded),
+        child: const Icon(
+          Icons.clear_rounded,
+          size: MINIMUM_TOUCH_SIZE,
+        ),
       );
     } else {
       subtitleText = brands;
