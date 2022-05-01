@@ -53,24 +53,6 @@ class WelcomePage extends StatelessWidget {
                         top: MEDIUM_SPACE,
                         bottom: LARGE_SPACE,
                       ),
-                      inputDecoration: InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: ROUNDED_BORDER_RADIUS,
-                          borderSide: BorderSide(
-                            color: Theme.of(context).primaryColorDark,
-                            width: 2.0,
-                          ),
-                        ),
-                        border: const OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color.fromARGB(255, 235, 235, 235),
-                          ),
-                          borderRadius: ROUNDED_BORDER_RADIUS,
-                        ),
-                        filled: Theme.of(context).colorScheme.brightness ==
-                            Brightness.light,
-                        fillColor: const Color.fromARGB(255, 235, 235, 235),
-                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: SMALL_SPACE),
