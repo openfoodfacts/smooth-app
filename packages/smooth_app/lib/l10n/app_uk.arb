@@ -1,5 +1,5 @@
 {
-    "app_name": "Smoothie",
+    "app_name": "OpenFoodFacts",
     "@Utils": {},
     "yes": "Так",
     "@yes": {},
@@ -36,7 +36,7 @@
     "@error_occurred": {},
     "featureInProgress": "Ми все ще працюємо над цією функцією, стежте за оновленнями",
     "@featureInProgress": {},
-    "label_web": "Переглянути в Інтернеті",
+    "label_web": "View on the web",
     "@label_web": {},
     "learnMore": "Докладніше",
     "@learnMore": {},
@@ -66,7 +66,7 @@
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Обирайте продукти, що є корисними як для вас, так і для планети.",
+    "offUtility": "Choose food that is good for you and the planet.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },

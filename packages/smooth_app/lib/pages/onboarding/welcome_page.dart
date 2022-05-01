@@ -20,67 +20,76 @@ class WelcomePage extends StatelessWidget {
     final double sidePadding = MediaQuery.of(context).size.width * .08;
 
     return Scaffold(
-      body: Stack(children: <Widget>[
-        Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: sidePadding,
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              const Spacer(flex: 1),
-              Flexible(
-                flex: 4,
-                child: Text(appLocalizations.whatIsOff, style: headlineStyle),
-              ),
-              Flexible(
-                flex: 3,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.only(left: SMALL_SPACE),
-                      child: Text(
-                        appLocalizations.country_chooser_label,
-                        style: bodyTextStyle,
-                      ),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.white,
-                          width: 1,
-                        ),
-                        borderRadius: BorderRadius.circular(
-                          SMALL_SPACE,
-                        ),
-                      ),
-                      margin:
-                          const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
-                      child: CountrySelector(
-                        initialCountryCode: WidgetsBinding
-                            .instance?.window.locale.countryCode
-                            ?.toLowerCase(),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: SMALL_SPACE),
-                      child: Text(
-                        appLocalizations.country_selection_explanation,
-                        style: bodyTextStyle,
-                      ),
-                    ),
-                  ],
+      body: Column(children: <Widget>[
+        Expanded(
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: sidePadding,
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                const Spacer(flex: 1),
+                Flexible(
+                  flex: 4,
+                  child: Text(
+                    appLocalizations.whatIsOff,
+                    style: headlineStyle,
+                  ),
                 ),
-              ),
-            ],
+                Flexible(
+                  flex: 3,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsetsDirectional.only(
+                          start: SMALL_SPACE,
+                        ),
+                        child: Text(
+                          appLocalizations.country_chooser_label,
+                          style: bodyTextStyle,
+                        ),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.white,
+                            width: 1,
+                          ),
+                          borderRadius: BorderRadius.circular(
+                            SMALL_SPACE,
+                          ),
+                        ),
+                        margin:
+                            const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
+                        child: CountrySelector(
+                          initialCountryCode: WidgetsBinding
+                              .instance?.window.locale.countryCode
+                              ?.toLowerCase(),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsetsDirectional.only(
+                          start: SMALL_SPACE,
+                          bottom: VERY_SMALL_SPACE,
+                        ),
+                        child: Text(
+                          appLocalizations.country_selection_explanation,
+                          style: bodyTextStyle,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
-        const Positioned(
-          child: Align(
-            alignment: Alignment.bottomCenter,
-            child: NextButton(OnboardingPage.WELCOME),
-          ),
+        const Align(
+          alignment: Alignment.bottomCenter,
+          child: NextButton(OnboardingPage.WELCOME),
         ),
       ]),
       backgroundColor: Theme.of(context).appBarTheme.backgroundColor,

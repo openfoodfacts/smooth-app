@@ -47,6 +47,7 @@ class SummaryCard extends StatefulWidget {
     this.isFullVersion = false,
     this.showUnansweredQuestions = false,
     this.refreshProductCallback,
+    this.isRemovable = true,
   });
 
   final Product _product;
@@ -61,6 +62,9 @@ class SummaryCard extends StatefulWidget {
   /// If true, the summary card will try to load unanswered questions about this
   /// product and give a prompt to answer those questions.
   final bool showUnansweredQuestions;
+
+  /// If true, there will be a button to remove the product from the carousel.
+  final bool isRemovable;
 
   /// Callback to refresh the product when necessary.
   final Function(BuildContext)? refreshProductCallback;
@@ -294,7 +298,11 @@ class _SummaryCardState extends State<SummaryCard> {
 
     return Column(
       children: <Widget>[
-        ProductTitleCard(widget._product, widget.isFullVersion),
+        ProductTitleCard(
+          widget._product,
+          widget.isFullVersion,
+          isRemovable: widget.isRemovable,
+        ),
         for (final Attribute attribute in scoreAttributes)
           InkWell(
             onTap: () async => openFullKnowledgePanel(
