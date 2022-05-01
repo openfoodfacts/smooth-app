@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mailto/mailto.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -14,6 +16,7 @@ import 'package:smooth_app/pages/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/onboarding/country_selector.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../data_models/product_preferences.dart';
 
 /// Collapsed/expanded display of profile for the preferences page.
 class UserPreferencesProfile extends AbstractUserPreferences {
@@ -77,6 +80,8 @@ class UserPreferencesSection extends StatefulWidget {
 }
 
 class _UserPreferencesPageState extends State<UserPreferencesSection> {
+  String? _language =  LanguageHelper.toJson(ProductQuery.getLanguage());
+
   void _confirmLogout(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context)!;
     showDialog<void>(
@@ -192,6 +197,27 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
       <Widget>[
         CountrySelector(
           initialCountryCode: widget.userPreferences.userCountryCode,
+        ),
+        ListTile(
+          leading: const Icon(Icons.language),
+          title: DropdownButton<String>(
+            value: _language,
+            elevation: 16,
+            isExpanded: true,
+            onChanged: (String? newValue) {
+              _language = newValue;
+              ProductQuery.setLanguage(_language!);
+              context.read<ProductPreferences>().refresh(_language!);
+              setState(() {});
+            },
+            items: AppLocalizations.supportedLocales.map((Locale locale) {
+              var _locale = locale.toString();
+              return DropdownMenuItem<String>(
+                value: _locale,
+                child: Text(_locale),
+              );
+            }).toList(),
+          ),
         ),
         SwitchListTile(
           title: Text(appLocalizations.crash_reporting_toggle_title),
