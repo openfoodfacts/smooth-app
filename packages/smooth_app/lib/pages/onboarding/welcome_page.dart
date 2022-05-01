@@ -45,13 +45,22 @@ class WelcomePage extends StatelessWidget {
                         style: bodyTextStyle,
                       ),
                     ),
-                    CountrySelector(
-                      initialCountryCode: WidgetsBinding
-                          .instance?.window.locale.countryCode
-                          ?.toLowerCase(),
-                      padding: const EdgeInsets.only(
-                        top: MEDIUM_SPACE,
-                        bottom: LARGE_SPACE,
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.white,
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(
+                          SMALL_SPACE,
+                        ),
+                      ),
+                      margin:
+                          const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
+                      child: CountrySelector(
+                        initialCountryCode: WidgetsBinding
+                            .instance?.window.locale.countryCode
+                            ?.toLowerCase(),
                       ),
                     ),
                     Padding(

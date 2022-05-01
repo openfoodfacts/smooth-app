@@ -4,17 +4,14 @@ import 'package:iso_countries/iso_countries.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 
 /// A selector for selecting user's country.
 class CountrySelector extends StatefulWidget {
   const CountrySelector({
     required this.initialCountryCode,
-    this.padding,
   });
-
   final String? initialCountryCode;
-
-  final EdgeInsetsGeometry? padding;
 
   @override
   State<CountrySelector> createState() => _CountrySelectorState();
@@ -70,18 +67,27 @@ class _CountrySelectorState extends State<CountrySelector> {
                       void Function(VoidCallback fn) setState) {
                     return AlertDialog(
                       title: const Text('Choose your country'),
+                      // TODO(aman): translations
                       content: SizedBox(
-                        // TODO(monsieurtanuki): proper sizes
                         width: 300,
-                        // height: 600,
                         child: Column(
                           children: <Widget>[
                             TextField(
                               decoration: InputDecoration(
-                                prefixIcon: const Icon(Icons.search),
-                                border: const UnderlineInputBorder(),
-                                labelText: appLocalizations.search,
+                                focusedBorder: const OutlineInputBorder(
+                                  borderRadius: ROUNDED_BORDER_RADIUS,
+                                ),
+                                border: const OutlineInputBorder(
+                                  borderSide: BorderSide(),
+                                  borderRadius: ROUNDED_BORDER_RADIUS,
+                                ),
+                                filled:
+                                    Theme.of(context).colorScheme.brightness ==
+                                        Brightness.light,
+                                fillColor:
+                                    const Color.fromARGB(255, 235, 235, 235),
                               ),
+                              autofocus: true,
                               onChanged: (String query) {
                                 setState(
                                   () {
@@ -137,20 +143,14 @@ class _CountrySelectorState extends State<CountrySelector> {
             );
           },
           child: Container(
-            margin: widget.padding,
             decoration: BoxDecoration(
-              color: Theme.of(context).cardColor,
               borderRadius: BorderRadius.circular(10),
-              border: Border.all(
-                color: Theme.of(context).cardColor,
-                width: 1,
-              ),
             ),
             child: ListTile(
-              tileColor: Theme.of(context).primaryColor,
+              leading: const Icon(Icons.public),
               title: Text(
                 _chosenValue.name,
-                style: Theme.of(context).textTheme.headline6,
+                style: Theme.of(context).textTheme.headline3,
               ),
               trailing: const Icon(Icons.arrow_drop_down),
             ),
