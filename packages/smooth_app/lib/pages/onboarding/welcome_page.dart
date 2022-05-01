@@ -59,8 +59,9 @@ class WelcomePage extends StatelessWidget {
                             width: 1,
                           ),
                           borderRadius: BorderRadius.circular(
-                            SMALL_SPACE,
+                            LARGE_SPACE,
                           ),
+                          color: Theme.of(context).cardColor,
                         ),
                         margin:
                             const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
