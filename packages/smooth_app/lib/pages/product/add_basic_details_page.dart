@@ -43,7 +43,6 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
       body: Form(
         key: _formKey,
         child: ListView(
-          padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
           children: <Widget>[
             Align(
               alignment: Alignment.topLeft,
@@ -56,53 +55,60 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
             SizedBox(height: size.height * 0.02),
             if (widget.product.barcode != null)
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: size.width * 0.1),
-                child: Text(
-                  '${appLocalizations.barcode}: ${widget.product.barcode!}',
-                  style: TextStyle(
-                    color: colorScheme.onBackground,
-                    fontWeight: FontWeight.bold,
-                  ),
+                padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
+                child: Column(
+                  children: <Widget>[
+                    Text(
+                      '${appLocalizations.barcode}: ${widget.product.barcode!}',
+                      style: TextStyle(
+                        color: colorScheme.onBackground,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: size.height * 0.02),
+                    SmoothTextFormField(
+                      controller: _productNameController,
+                      type: TextFieldTypes.PLAIN_TEXT,
+                      hintText: appLocalizations.product_name,
+                      validator: (String? value) {
+                        if (value == null || value.isEmpty) {
+                          return appLocalizations
+                              .add_basic_details_product_name_error;
+                        }
+                        return null;
+                      },
+                    ),
+                    SizedBox(height: size.height * 0.02),
+                    SmoothTextFormField(
+                      controller: _brandNameController,
+                      type: TextFieldTypes.PLAIN_TEXT,
+                      hintText: appLocalizations.brand_name,
+                      validator: (String? value) {
+                        if (value == null || value.isEmpty) {
+                          return appLocalizations
+                              .add_basic_details_brand_name_error;
+                        }
+                        return null;
+                      },
+                    ),
+                    SizedBox(height: size.height * 0.02),
+                    SmoothTextFormField(
+                      controller: _weightController,
+                      type: TextFieldTypes.PLAIN_TEXT,
+                      hintText: appLocalizations.weight_gram,
+                      textInputType: TextInputType.number,
+                      validator: (String? value) {
+                        if (value == null || value.isEmpty) {
+                          return appLocalizations
+                              .add_basic_details_weight_gram_error;
+                        }
+                        return null;
+                      },
+                    ),
+                    SizedBox(height: size.height * 0.05),
+                  ],
                 ),
               ),
-            SizedBox(height: size.height * 0.02),
-            SmoothTextFormField(
-              controller: _productNameController,
-              type: TextFieldTypes.PLAIN_TEXT,
-              hintText: appLocalizations.product_name,
-              validator: (String? value) {
-                if (value == null || value.isEmpty) {
-                  return appLocalizations.add_basic_details_product_name_error;
-                }
-                return null;
-              },
-            ),
-            SizedBox(height: size.height * 0.02),
-            SmoothTextFormField(
-              controller: _brandNameController,
-              type: TextFieldTypes.PLAIN_TEXT,
-              hintText: appLocalizations.brand_name,
-              validator: (String? value) {
-                if (value == null || value.isEmpty) {
-                  return appLocalizations.add_basic_details_brand_name_error;
-                }
-                return null;
-              },
-            ),
-            SizedBox(height: size.height * 0.02),
-            SmoothTextFormField(
-              controller: _weightController,
-              type: TextFieldTypes.PLAIN_TEXT,
-              hintText: appLocalizations.weight_gram,
-              textInputType: TextInputType.number,
-              validator: (String? value) {
-                if (value == null || value.isEmpty) {
-                  return appLocalizations.add_basic_details_weight_gram_error;
-                }
-                return null;
-              },
-            ),
-            SizedBox(height: size.height * 0.05),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.center,
