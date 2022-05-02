@@ -43,8 +43,8 @@ class UserManagementProvider with ChangeNotifier {
     final String? userId;
     final String? password;
     try {
-       userId = await DaoSecuredString.get(_USER_ID);
-        password = await DaoSecuredString.get(_PASSWORD);
+      userId = await DaoSecuredString.get(_USER_ID);
+      password = await DaoSecuredString.get(_PASSWORD);
     } on PlatformException {
       return;
     }
