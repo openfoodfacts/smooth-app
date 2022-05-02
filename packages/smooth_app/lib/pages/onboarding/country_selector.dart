@@ -4,7 +4,9 @@ import 'package:iso_countries/iso_countries.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/product_query.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 
 /// A selector for selecting user's country.
 class CountrySelector extends StatefulWidget {
@@ -47,6 +49,7 @@ class _CountrySelectorState extends State<CountrySelector> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final TextEditingController _countryController = TextEditingController();
     return FutureBuilder<void>(
       future: _initFuture,
       builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
@@ -65,37 +68,26 @@ class _CountrySelectorState extends State<CountrySelector> {
                 return StatefulBuilder(
                   builder: (BuildContext context,
                       void Function(VoidCallback fn) setState) {
-                    return AlertDialog(
-                      title: const Text('Choose your country'),
-                      // TODO(aman): translations
-                      content: SizedBox(
-                        width: 300,
+                    return SmoothAlertDialog.advanced(
+                      close: false,
+                      maxHeight: MediaQuery.of(context).size.height,
+                      body: SizedBox(
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height,
                         child: Column(
                           children: <Widget>[
-                            TextField(
-                              decoration: InputDecoration(
-                                focusedBorder: const OutlineInputBorder(
-                                  borderRadius: ROUNDED_BORDER_RADIUS,
-                                ),
-                                border: const OutlineInputBorder(
-                                  borderSide: BorderSide(),
-                                  borderRadius: ROUNDED_BORDER_RADIUS,
-                                ),
-                                filled:
-                                    Theme.of(context).colorScheme.brightness ==
-                                        Brightness.light,
-                                fillColor:
-                                    const Color.fromARGB(255, 235, 235, 235),
-                              ),
-                              autofocus: true,
-                              onChanged: (String query) {
+                            SmoothTextFormField(
+                              type: TextFieldTypes.PLAIN_TEXT,
+                              prefixIcon: const Icon(Icons.search),
+                              controller: _countryController,
+                              onChanged: (String? query) {
                                 setState(
                                   () {
                                     filteredList = _countryList
                                         .where(
                                           (Country item) =>
                                               item.name.toLowerCase().contains(
-                                                    query.toLowerCase(),
+                                                    query!.toLowerCase(),
                                                   ) |
                                               item.countryCode
                                                   .toLowerCase()
@@ -107,33 +99,34 @@ class _CountrySelectorState extends State<CountrySelector> {
                                   },
                                 );
                               },
+                              hintText: appLocalizations.search,
                             ),
                             Expanded(
                               child: ListView.builder(
-                                  shrinkWrap: true,
-                                  itemCount: filteredList.length,
-                                  itemBuilder:
-                                      (BuildContext context, int index) {
-                                    final Country country = filteredList[index];
-                                    return ListTile(
-                                      title: Text(country.name),
-                                      onTap: () async {
-                                        _chosenValue = country;
-                                        await _setUserCountry(
-                                            _chosenValue.countryCode);
-                                        setState(() {});
-                                        Navigator.of(context).pop();
-                                      },
-                                    );
-                                  }),
+                                shrinkWrap: true,
+                                itemCount: filteredList.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  final Country country = filteredList[index];
+                                  return ListTile(
+                                    title: Text(country.name),
+                                    onTap: () async {
+                                      _chosenValue = country;
+                                      await _setUserCountry(
+                                          _chosenValue.countryCode);
+                                      setState(() {});
+                                      Navigator.of(context).pop();
+                                    },
+                                  );
+                                },
+                              ),
                             ),
                           ],
                         ),
                       ),
-                      actions: <Widget>[
-                        ElevatedButton(
+                      actions: <SmoothActionButton>[
+                        SmoothActionButton(
                           onPressed: () => Navigator.pop(context),
-                          child: Text(appLocalizations.cancel),
+                          text: appLocalizations.cancel,
                         ),
                       ],
                     );
