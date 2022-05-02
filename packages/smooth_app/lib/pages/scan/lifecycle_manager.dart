@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:smooth_app/widgets/screen_visibility.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 /// This Widgets tracks if the child is currently visible on screen and if the
@@ -9,11 +10,13 @@ class LifeCycleManager extends StatefulWidget {
     required this.onResume,
     required this.onPause,
     required this.child,
+    this.onStart,
     Key? key,
   }) : super(key: key);
 
   final Function() onResume;
   final Function() onPause;
+  final Function()? onStart;
   final Widget child;
 
   @override
@@ -22,29 +25,16 @@ class LifeCycleManager extends StatefulWidget {
 
 class LifeCycleManagerState extends State<LifeCycleManager>
     with WidgetsBindingObserver {
-  double visibleFraction = 100.0;
   AppLifecycleState appLifecycleState = AppLifecycleState.resumed;
-
-  void checkLifeCycle() {
-    if (appLifecycleState == AppLifecycleState.inactive ||
-        visibleFraction == 0.0) {
-      widget.onPause.call();
-    } else if (appLifecycleState == AppLifecycleState.resumed &&
-        visibleFraction > 0.0) {
-      widget.onResume.call();
-    }
-  }
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance!.addObserver(this);
-  }
 
-  @override
-  void dispose() {
-    WidgetsBinding.instance!.removeObserver(this);
-    super.dispose();
+    if (widget.onStart != null) {
+      WidgetsBinding.instance!.addPostFrameCallback((_) => widget.onStart!());
+    }
   }
 
   // Lifecycle changes are not handled by either of the used plugin. This means
@@ -55,7 +45,33 @@ class LifeCycleManagerState extends State<LifeCycleManager>
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     appLifecycleState = state;
-    checkLifeCycle();
+    onLifeCycleChanged();
+  }
+
+  void onLifeCycleChanged() {
+    switch (appLifecycleState) {
+      case AppLifecycleState.resumed:
+        widget.onResume();
+        break;
+      case AppLifecycleState.inactive:
+      case AppLifecycleState.paused:
+      case AppLifecycleState.detached:
+        widget.onPause();
+        break;
+    }
+    if (appLifecycleState == AppLifecycleState.inactive) {
+      widget.onPause();
+    } else if (appLifecycleState == AppLifecycleState.resumed) {
+      widget.onResume();
+    }
+  }
+
+  void onVisibilityChanged(bool visible) {
+    if (visible) {
+      widget.onResume();
+    } else {
+      widget.onPause();
+    }
   }
 
   @override
@@ -63,10 +79,15 @@ class LifeCycleManagerState extends State<LifeCycleManager>
     return VisibilityDetector(
       key: const ValueKey<String>('VisibilityDetector'),
       onVisibilityChanged: (VisibilityInfo info) {
-        visibleFraction = info.visibleFraction;
-        checkLifeCycle();
+        onVisibilityChanged(info.visible);
       },
       child: widget.child,
     );
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance!.removeObserver(this);
+    super.dispose();
   }
 }
