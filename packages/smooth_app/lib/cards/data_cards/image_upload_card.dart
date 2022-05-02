@@ -67,8 +67,19 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
     if (_imageProvider != null) {
       return GestureDetector(
         child: Center(
-            child:
-                Image(image: _imageProvider!, fit: BoxFit.cover, height: 1000)),
+          child: Image(
+            image: _imageProvider!,
+            fit: BoxFit.cover,
+            height: 1000,
+            errorBuilder: (BuildContext context, Object exception,
+                StackTrace? stackTrace) {
+              return Image.asset(
+                  'assets/app/smoothie-icon-transparent.1200x1200.png',
+                  fit: BoxFit.cover,
+                  height: 1000);
+            },
+          ),
+        ),
         onTap: () {
           // if _imageFullProvider is null, we are displaying a small network image in the carousel
           // we need to load the full resolution image
