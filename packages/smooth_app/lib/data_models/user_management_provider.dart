@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:smooth_app/database/dao_secured_string.dart';
@@ -39,8 +40,14 @@ class UserManagementProvider with ChangeNotifier {
 
   /// Mounts already stored credentials, called at app startup
   Future<void> mountCredentials() async {
-    final String? userId = await DaoSecuredString.get(_USER_ID);
-    final String? password = await DaoSecuredString.get(_PASSWORD);
+    final String? userId;
+    final String? password;
+    try {
+       userId = await DaoSecuredString.get(_USER_ID);
+        password = await DaoSecuredString.get(_PASSWORD);
+    } on PlatformException {
+      return;
+    }
 
     if (userId == null || password == null) {
       _finishedLoading = true;
