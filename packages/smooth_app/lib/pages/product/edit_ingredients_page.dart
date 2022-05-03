@@ -43,14 +43,12 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
   }
 
   Future<void> _onSubmitField() async {
-    final User user = ProductQuery.getUser();
-
     setState(() {
       _updatingIngredients = true;
     });
 
     try {
-      await _updateIngredientsText(_controller.text, user);
+      await _updateIngredientsText(_controller.text);
     } catch (error) {
       final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
       _showError(appLocalizations.ingredients_editing_error);
@@ -144,7 +142,7 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
     }
   }
 
-  Future<void> _updateIngredientsText(String ingredientsText, User user) async {
+  Future<void> _updateIngredientsText(String ingredientsText) async {
     widget.product.ingredientsText = ingredientsText;
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final bool savedAndRefreshed = await ProductRefresher().saveAndRefresh(
@@ -195,6 +193,7 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
         onTapGetImage: _onTapGetImage,
         onSubmitField: _onSubmitField,
         updatingIngredients: _updatingIngredients,
+        hasImageProvider: _imageProvider != null,
       ));
     }
 
@@ -236,6 +235,7 @@ class _EditIngredientsBody extends StatelessWidget {
     required this.onSubmitField,
     required this.onTapGetImage,
     required this.updatingIngredients,
+    required this.hasImageProvider,
   }) : super(key: key);
 
   final TextEditingController controller;
@@ -243,6 +243,17 @@ class _EditIngredientsBody extends StatelessWidget {
   final String? imageIngredientsUrl;
   final Future<void> Function(bool) onTapGetImage;
   final Future<void> Function() onSubmitField;
+  final bool hasImageProvider;
+
+  Widget _getExtraitIngredientsBtn(AppLocalizations appLocalizations) {
+    if (hasImageProvider || imageIngredientsUrl != null) {
+      return SmoothActionButton(
+        text: appLocalizations.edit_ingredients_extrait_ingredients_btn_text,
+        onPressed: () => onTapGetImage(false),
+      );
+    }
+    return Container();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -282,11 +293,7 @@ class _EditIngredientsBody extends StatelessWidget {
                   padding: const EdgeInsets.all(LARGE_SPACE),
                   child: Column(
                     children: <Widget>[
-                      SmoothActionButton(
-                        text: appLocalizations
-                            .edit_ingredients_extrait_ingredients_btn_text,
-                        onPressed: () => onTapGetImage(false),
-                      ),
+                      _getExtraitIngredientsBtn(appLocalizations),
                       const SizedBox(height: MEDIUM_SPACE),
                       TextField(
                         enabled: !updatingIngredients,
