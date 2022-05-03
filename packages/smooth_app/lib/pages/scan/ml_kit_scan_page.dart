@@ -131,7 +131,7 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
     );
 
     // If the controller is initialized update the UI.
-    _controller?.addListener(cameraListener);
+    _controller?.addListener(_cameraListener);
 
     try {
       await _controller?.initialize();
@@ -151,7 +151,7 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
     }
   }
 
-  void cameraListener() {
+  void _cameraListener() {
     if (mounted) {
       setState(() {});
 
@@ -172,7 +172,7 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
       setState(() {});
     }
 
-    _controller?.removeListener(cameraListener);
+    _controller?.removeListener(_cameraListener);
     await _controller?.dispose();
     await barcodeScanner?.close();
 

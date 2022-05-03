@@ -45,10 +45,10 @@ class LifeCycleManagerState extends State<LifeCycleManager>
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     appLifecycleState = state;
-    onLifeCycleChanged();
+    _onLifeCycleChanged();
   }
 
-  void onLifeCycleChanged() {
+  void _onLifeCycleChanged() {
     switch (appLifecycleState) {
       case AppLifecycleState.resumed:
         widget.onResume();
