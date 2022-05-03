@@ -1,5 +1,6 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:smooth_app/database/dao_secured_string.dart';
@@ -39,14 +40,24 @@ class UserManagementProvider with ChangeNotifier {
   }
 
   /// Mounts already stored credentials, called at app startup
-  Future<void> mountCredentials() async {
-    final String? userId;
-    final String? password;
+  Future<void> mountCredentials(BuildContext context) async {
+    String? userId;
+    String? password;
+
     try {
       userId = await DaoSecuredString.get(_USER_ID);
       password = await DaoSecuredString.get(_PASSWORD);
     } on PlatformException {
-      return;
+      /// Decrypting the values can go wrong if, for example, the app was
+      /// manually overwritten from an external apk.
+      DaoSecuredString.remove(key: _USER_ID);
+      DaoSecuredString.remove(key: _PASSWORD);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(AppLocalizations.of(context)!.you_have_been_logged_out),
+          duration: const Duration(seconds: 2),
+        ),
+      );
     }
 
     if (userId == null || password == null) {

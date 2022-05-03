@@ -194,7 +194,8 @@ class _SmoothAppState extends State<SmoothApp> {
         themeProvider.colorTag,
       ),
       themeMode: themeProvider.currentThemeMode,
-      home: SmoothAppGetLanguage(appWidget),
+      // We need to wrap it inside a Scaffold to show error Snackbar's
+      home: Scaffold(body: SmoothAppGetLanguage(appWidget)),
     );
   }
 
@@ -227,7 +228,7 @@ class SmoothAppGetLanguage extends StatelessWidget {
     final LocalDatabase _localDatabase = context.read<LocalDatabase>();
     AnalyticsHelper.trackStart(_localDatabase, context);
 
-    context.read<UserManagementProvider>().mountCredentials();
+    context.read<UserManagementProvider>().mountCredentials(context);
 
     return appWidget;
   }
