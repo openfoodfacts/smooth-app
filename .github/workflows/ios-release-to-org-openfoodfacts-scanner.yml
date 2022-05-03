@@ -48,13 +48,13 @@ jobs:
       - name: Decrypt iOS AuthKey file
         run: pwd && ls && cd ./packages/smooth_app/ios/fastlane/envfiles && ./decrypt_secrets.sh && ls
         env:
-          AUTH_KEY_FILE_DECRYPTKEY: ${{ secrets.AUTH_KEY_FILE_DECRYPTKEY }}
+          AUTH_KEY_FILE_DECRYPTKEY: ${{ secrets.SCANNER_AUTH_KEY_FILE_DECRYPTKEY }}
 
       - name: Decrypt Android API JSON file
         run: cd ./packages/smooth_app/android/fastlane/envfiles && chmod +x ./decrypt_secrets.sh && ./decrypt_secrets.sh && ls
         env:
-          API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
-          STORE_JKS_DECRYPTKEY: ${{ secrets.STORE_JKS_DECRYPTKEY }}
+          API_JSON_FILE_DECRYPTKEY: ${{ secrets.SCANNER_API_JSON_FILE_DECRYPTKEY }}
+          STORE_JKS_DECRYPTKEY: ${{ secrets.SCANNER_STORE_JKS_DECRYPTKEY }}
 
       # We are using the android version code here to have the version codes from iOS and android in sync 
       # in order for Sentry and other tools to work properly
@@ -70,16 +70,16 @@ jobs:
         run: cd ./packages/smooth_app && flutter build ios --release --no-codesign
         env:
           GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-          FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
-          FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
-          MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
-          MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL }}
-          MATCH_KEYCHAIN_PASSWORD: ${{ secrets.MATCH_KEYCHAIN_PASSWORD }}
-          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-          PILOT_APPLE_ID: ${{ secrets.PILOT_APPLE_ID }}
-          SPACESHIP_CONNECT_API_ISSUER_ID: ${{ secrets.SPACESHIP_CONNECT_API_ISSUER_ID }}
-          SPACESHIP_CONNECT_API_KEY_ID: ${{ secrets.SPACESHIP_CONNECT_API_KEY_ID }}
+          SENTRY_AUTH_TOKEN: ${{ secrets.SCANNER_SENTRY_AUTH_TOKEN }}
+          FASTLANE_USER: ${{ secrets.SCANNER_FASTLANE_USER }}
+          FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.SCANNER_FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
+          MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.SCANNER_MATCH_GIT_BASIC_AUTHORIZATION }}
+          MATCH_GIT_URL: ${{ secrets.SCANNER_MATCH_GIT_URL }}
+          MATCH_KEYCHAIN_PASSWORD: ${{ secrets.SCANNER_MATCH_KEYCHAIN_PASSWORD }}
+          MATCH_PASSWORD: ${{ secrets.SCANNER_MATCH_PASSWORD }}
+          PILOT_APPLE_ID: ${{ secrets.SCANNER_PILOT_APPLE_ID }}
+          SPACESHIP_CONNECT_API_ISSUER_ID: ${{ secrets.SCANNER_SPACESHIP_CONNECT_API_ISSUER_ID }}
+          SPACESHIP_CONNECT_API_KEY_ID: ${{ secrets.SCANNER_SPACESHIP_CONNECT_API_KEY_ID }}
           SPACESHIP_CONNECT_API_KEY_FILEPATH: ./fastlane/envfiles/AuthKey_KDAUTTM76R.p8
           CI_RELEASE: true
 
