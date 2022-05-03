@@ -37,7 +37,7 @@ class _ScanPageState extends State<ScanPage> {
     if (_model == null) {
       _model = context.read<ContinuousScanModel>();
     } else {
-      await _model?.refresh();
+      await _model!.refresh();
     }
     setState(() {});
   }
