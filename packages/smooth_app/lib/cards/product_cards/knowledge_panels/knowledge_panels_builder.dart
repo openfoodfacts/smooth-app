@@ -7,6 +7,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_element_card.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/edit_ingredients_page.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
@@ -17,10 +18,16 @@ import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
 ///
 /// Panels display large data like all health data or environment data.
 class KnowledgePanelsBuilder {
-  const KnowledgePanelsBuilder({this.setState});
+  const KnowledgePanelsBuilder({
+    this.setState,
+    this.refreshProductCallback,
+  });
 
   /// Would for instance refresh the product page.
   final VoidCallback? setState;
+
+  /// Callback to refresh the product when necessary.
+  final Function(BuildContext)? refreshProductCallback;
 
   /// Builds all panels.
   ///
@@ -59,8 +66,9 @@ class KnowledgePanelsBuilder {
   /// Typical use case so far: onboarding, where we focus on one panel only.
   Widget? buildSingle(
     final KnowledgePanels knowledgePanels,
-    final String panelId,
-  ) {
+    final String panelId, {
+    final BuildContext? context,
+  }) {
     if (knowledgePanels.panelIdToPanelMap['root'] == null) {
       return null;
     }
@@ -75,7 +83,11 @@ class KnowledgePanelsBuilder {
       if (panelId != panelElement.panelElement!.panelId) {
         continue;
       }
-      return _buildPanel(panelElement, knowledgePanels);
+      return _buildPanel(
+        panelElement,
+        knowledgePanels,
+        context: context,
+      );
     }
     return null;
   }
@@ -91,6 +103,15 @@ class KnowledgePanelsBuilder {
         knowledgePanels.panelIdToPanelMap[panelId]!;
     // [knowledgePanelElementWidgets] are a set of widgets inside the root panel.
     final List<Widget> knowledgePanelElementWidgets = <Widget>[];
+    if (context != null) {
+      knowledgePanelElementWidgets.add(Padding(
+        padding: const EdgeInsets.symmetric(vertical: VERY_SMALL_SPACE),
+        child: Text(
+          rootPanel.titleElement!.title,
+          style: Theme.of(context).textTheme.headline3,
+        ),
+      ));
+    }
     for (final KnowledgePanelElement knowledgePanelElement
         in rootPanel.elements ?? <KnowledgePanelElement>[]) {
       knowledgePanelElementWidgets.add(KnowledgePanelElementCard(
@@ -140,12 +161,12 @@ class KnowledgePanelsBuilder {
           knowledgePanelElementWidgets.add(
             addPanelButton(
               appLocalizations.score_add_missing_ingredients,
-              onPressed: () async => Navigator.push<Widget>(
+              onPressed: () async => Navigator.push<bool>(
                 context,
-                MaterialPageRoute<Widget>(
+                MaterialPageRoute<bool>(
                   builder: (BuildContext context) => EditIngredientsPage(
                     product: product,
-                    imageIngredientsUrl: product.imageIngredientsUrl,
+                    refreshProductCallback: refreshProductCallback,
                   ),
                 ),
               ),

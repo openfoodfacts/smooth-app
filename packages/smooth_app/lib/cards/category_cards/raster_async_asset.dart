@@ -1,38 +1,49 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:smooth_app/cards/category_cards/abstract_async_asset.dart';
+import 'package:smooth_app/cards/category_cards/asset_cache_helper.dart';
 
 /// Widget with async load of raster asset file (png, jpeg).
-class RasterAsyncAsset extends AbstractAsyncAsset {
-  const RasterAsyncAsset(
-    final String fullFilename,
-    final String url, {
-    final double? width,
-    final double? height,
-  }) : super(
-          fullFilename,
-          url,
-          width: width,
-          height: height,
-        );
+class RasterAsyncAsset extends StatefulWidget {
+  const RasterAsyncAsset(this.assetCacheHelper);
+
+  final AssetCacheHelper assetCacheHelper;
+
+  @override
+  State<RasterAsyncAsset> createState() => _RasterAsyncAssetState();
+}
+
+class _RasterAsyncAssetState extends State<RasterAsyncAsset> {
+  late final Future<ByteData> _loading = _load();
+
+  Future<ByteData> _load() {
+    for (final String cachedFilename
+        in widget.assetCacheHelper.cachedFilenames) {
+      try {
+        return rootBundle.load(cachedFilename);
+      } catch (e) {
+        //
+      }
+    }
+    throw widget.assetCacheHelper.loadException();
+  }
 
   @override
   Widget build(BuildContext context) => FutureBuilder<ByteData>(
-        future: rootBundle.load(fullFilename),
+        future: _loading,
         builder: (BuildContext context, AsyncSnapshot<ByteData> snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             if (snapshot.data != null) {
               return Image.memory(
                 snapshot.data!.buffer.asUint8List(),
-                width: width,
-                height: height,
+                width: widget.assetCacheHelper.width,
+                height: widget.assetCacheHelper.height,
                 fit: BoxFit.contain,
               );
             } else {
-              notFound();
+              widget.assetCacheHelper.notFound();
             }
           }
-          return getEmptySpace();
+          return widget.assetCacheHelper.getEmptySpace();
         },
       );
 }

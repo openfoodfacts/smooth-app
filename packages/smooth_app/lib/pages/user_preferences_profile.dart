@@ -192,11 +192,8 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
 
     result.addAll(
       <Widget>[
-        ListTile(
-          leading: const Icon(Icons.public),
-          title: CountrySelector(
-            initialCountryCode: widget.userPreferences.userCountryCode,
-          ),
+        CountrySelector(
+          initialCountryCode: widget.userPreferences.userCountryCode,
         ),
         SwitchListTile(
           title: Text(appLocalizations.crash_reporting_toggle_title),

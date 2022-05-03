@@ -14,6 +14,7 @@ import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
+import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
@@ -64,6 +65,7 @@ late UserPreferences _userPreferences;
 late ProductPreferences _productPreferences;
 late LocalDatabase _localDatabase;
 late ThemeProvider _themeProvider;
+final ContinuousScanModel _continuousScanModel = ContinuousScanModel();
 bool _init1done = false;
 
 // Had to split init in 2 methods, for test/screenshots reasons.
@@ -84,6 +86,7 @@ Future<bool> _init1() async {
   );
   _userPreferences = await UserPreferences.getUserPreferences();
   _localDatabase = await LocalDatabase.getLocalDatabase();
+  await _continuousScanModel.load(_localDatabase);
   _productPreferences = ProductPreferences(
     ProductPreferencesSelection(
       setImportance: _userPreferences.setImportance,
@@ -167,6 +170,7 @@ class _SmoothAppState extends State<SmoothApp> {
             provide<LocalDatabase>(_localDatabase),
             provide<ThemeProvider>(_themeProvider),
             provide<UserManagementProvider>(_userManagementProvider),
+            provide<ContinuousScanModel>(_continuousScanModel),
           ],
           builder: _buildApp,
         );

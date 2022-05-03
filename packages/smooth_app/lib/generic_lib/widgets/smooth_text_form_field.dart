@@ -21,6 +21,7 @@ class SmoothTextFormField extends StatefulWidget {
     this.hintTextFontSize,
     this.prefixIcon,
     this.textInputType,
+    this.onChanged,
   }) : super(key: key);
 
   final TextFieldTypes type;
@@ -35,6 +36,7 @@ class SmoothTextFormField extends StatefulWidget {
   final double? hintTextFontSize;
   final Color? backgroundColor;
   final TextInputType? textInputType;
+  final void Function(String?)? onChanged;
 
   @override
   State<SmoothTextFormField> createState() => _SmoothTextFormFieldState();
@@ -65,22 +67,24 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
       autocorrect: _autocorrect,
       autofillHints: widget.autofillHints,
       autovalidateMode: AutovalidateMode.onUserInteraction,
-      onChanged: (String data) {
-        // Rebuilds for changing the eye icon
-        if (widget.type == TextFieldTypes.PASSWORD) {
-          if (data.isEmpty) {
-            setState(() {});
-          } else if (data.isNotEmpty && data.length > 1) {
-            setState(() {});
-          }
-        }
-      },
+      onChanged: widget.onChanged ??
+          (String data) {
+            // Rebuilds for changing the eye icon
+            if (widget.type == TextFieldTypes.PASSWORD) {
+              if (data.isEmpty) {
+                setState(() {});
+              } else if (data.isNotEmpty && data.length > 1) {
+                setState(() {});
+              }
+            }
+          },
       decoration: InputDecoration(
         prefixIcon: widget.prefixIcon,
         filled: true,
         hintStyle: TextStyle(
           color: widget.textColor,
           fontSize: widget.hintTextFontSize ?? 20.0,
+          overflow: TextOverflow.ellipsis,
         ),
         hintText: widget.hintText,
         fillColor: widget.backgroundColor,
