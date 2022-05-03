@@ -65,6 +65,7 @@ late UserPreferences _userPreferences;
 late ProductPreferences _productPreferences;
 late LocalDatabase _localDatabase;
 late ThemeProvider _themeProvider;
+late ContinuousScanModel _continuousScanModel;
 bool _init1done = false;
 
 // Had to split init in 2 methods, for test/screenshots reasons.
@@ -85,6 +86,7 @@ Future<bool> _init1() async {
   );
   _userPreferences = await UserPreferences.getUserPreferences();
   _localDatabase = await LocalDatabase.getLocalDatabase();
+  _continuousScanModel = ContinuousScanModel();
   _productPreferences = ProductPreferences(
     ProductPreferencesSelection(
       setImportance: _userPreferences.setImportance,
@@ -110,8 +112,6 @@ Future<bool> _init1() async {
 class _SmoothAppState extends State<SmoothApp> {
   final UserManagementProvider _userManagementProvider =
       UserManagementProvider();
-
-  final ContinuousScanModel _continuousScanModel = ContinuousScanModel();
 
   bool systemDarkmodeOn = false;
   final Brightness brightness =

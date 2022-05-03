@@ -36,9 +36,8 @@ class _ScanPageState extends State<ScanPage> {
 
   Future<void> _updateModel() async {
     if (_model == null) {
-      _model = await context
-          .read<ContinuousScanModel>()
-          .load(context.read<LocalDatabase>());
+      _model = context.read<ContinuousScanModel>();
+      _model!.load(context.read<LocalDatabase>());
     } else {
       await _model?.refresh();
     }
