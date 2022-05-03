@@ -78,7 +78,7 @@ Widget build(BuildContext context) {
   final Widget trailingWidget;
   final String brands = product.brands ?? appLocalizations.unknownBrand;
   final String quantity = product.quantity ?? &#39;&#39;;
-  if (isRemovable) {
+  if (isRemovable &amp;&amp; !isSelectable) {
     final ContinuousScanModel model = context.watch&lt;ContinuousScanModel&gt;();
     subtitleText = &#39;$brands${quantity == &#39;&#39; ? &#39;&#39; : &#39;, $quantity&#39;}&#39;;
     trailingWidget = InkWell(
