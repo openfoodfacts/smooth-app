@@ -3,7 +3,7 @@ name: App Store release
 on:
   push:
     branches:
-      - 'release-to-org-openfoodfacts-scanner/*'
+      - 'android-release-to-org-openfoodfacts-scanner/*'
 
 jobs:
   testflight-release:
