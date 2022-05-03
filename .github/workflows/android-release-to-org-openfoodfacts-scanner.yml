@@ -3,7 +3,7 @@ name: Google Play release
 on:
   push:
     branches:
-      - 'android-release-to-org-openfoodfacts-scanner/*'
+      - 'android-release-to-org-openfoodfacts-scanner'
     
 jobs:
   deploy_android:
