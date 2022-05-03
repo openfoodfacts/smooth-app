@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:smooth_app/database/dao_secured_string.dart';
@@ -40,7 +39,7 @@ class UserManagementProvider with ChangeNotifier {
   }
 
   /// Mounts already stored credentials, called at app startup
-  Future<void> mountCredentials(BuildContext context) async {
+  Future<void> mountCredentials() async {
     String? userId;
     String? password;
 
@@ -52,12 +51,7 @@ class UserManagementProvider with ChangeNotifier {
       /// manually overwritten from an external apk.
       DaoSecuredString.remove(key: _USER_ID);
       DaoSecuredString.remove(key: _PASSWORD);
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(AppLocalizations.of(context)!.you_have_been_logged_out),
-          duration: const Duration(seconds: 2),
-        ),
-      );
+      debugPrint('Credentials query failed, you have been logged out');
     }
 
     if (userId == null || password == null) {

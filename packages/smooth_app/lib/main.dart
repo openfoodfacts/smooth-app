@@ -227,6 +227,8 @@ class SmoothAppGetLanguage extends StatelessWidget {
     final LocalDatabase _localDatabase = context.read<LocalDatabase>();
     AnalyticsHelper.trackStart(_localDatabase, context);
 
+    context.read<UserManagementProvider>().mountCredentials();
+
     return appWidget;
   }
 }

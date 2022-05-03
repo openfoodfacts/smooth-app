@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:provider/provider.dart';
-import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/pages/scan/inherited_data_manager.dart';
 import 'package:smooth_app/widgets/tab_navigator.dart';
 
@@ -59,11 +57,6 @@ class PageManagerState extends State<PageManager> {
       _buildOffstageNavigator(BottomNavigationTab.Scan),
       _buildOffstageNavigator(BottomNavigationTab.History),
     ];
-
-    // Mounting the user credentials, needs to be done after build of the first
-    // Scaffold to be able to show a optional error Snackbar
-    WidgetsBinding.instance?.addPostFrameCallback((_) =>
-        context.read<UserManagementProvider>().mountCredentials(context));
 
     final ThemeData themeData = Theme.of(context);
     final bool brightnessCheck = themeData.brightness == Brightness.light;
