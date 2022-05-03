@@ -7,7 +7,6 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
@@ -37,7 +36,6 @@ class _ScanPageState extends State<ScanPage> {
   Future<void> _updateModel() async {
     if (_model == null) {
       _model = context.read<ContinuousScanModel>();
-      _model!.load(context.read<LocalDatabase>());
     } else {
       await _model?.refresh();
     }

@@ -86,7 +86,7 @@ Future<bool> _init1() async {
   );
   _userPreferences = await UserPreferences.getUserPreferences();
   _localDatabase = await LocalDatabase.getLocalDatabase();
-  _continuousScanModel = ContinuousScanModel();
+  _continuousScanModel = (await ContinuousScanModel().load(_localDatabase))!;
   _productPreferences = ProductPreferences(
     ProductPreferencesSelection(
       setImportance: _userPreferences.setImportance,
