@@ -35,9 +35,10 @@ class _ScanPageState extends State<ScanPage> {
   }
 
   Future<void> _updateModel() async {
-    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     if (_model == null) {
-      _model = await ContinuousScanModel().load(localDatabase);
+      _model = await context
+          .read<ContinuousScanModel>()
+          .load(context.read<LocalDatabase>());
     } else {
       await _model?.refresh();
     }
