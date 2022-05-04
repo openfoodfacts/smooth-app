@@ -6,11 +6,7 @@ import 'package:smooth_app/database/dao_secured_string.dart';
 
 class UserManagementProvider with ChangeNotifier {
   static const String _USER_ID = 'user_id';
-  static const String _PASSWORD = 'pasword';
-
-  bool _finishedLoading = false;
-
-  bool get isLoading => !_finishedLoading;
+  static const String _PASSWORD = 'password';
 
   /// Checks credentials and conditionally saves them
   Future<bool> login(User user) async {
@@ -23,6 +19,7 @@ class UserManagementProvider with ChangeNotifier {
 
     if (rightCredentials) {
       await putUser(user);
+      notifyListeners();
     }
 
     return rightCredentials && await credentialsInStorage();
@@ -39,7 +36,7 @@ class UserManagementProvider with ChangeNotifier {
   }
 
   /// Mounts already stored credentials, called at app startup
-  Future<void> mountCredentials() async {
+  static Future<void> mountCredentials() async {
     String? userId;
     String? password;
 
@@ -55,15 +52,11 @@ class UserManagementProvider with ChangeNotifier {
     }
 
     if (userId == null || password == null) {
-      _finishedLoading = true;
-      notifyListeners();
       return;
     }
 
     final User user = User(userId: userId, password: password);
     OpenFoodAPIConfiguration.globalUser = user;
-    _finishedLoading = true;
-    notifyListeners();
   }
 
   /// Checks if any credentials exist in storage
