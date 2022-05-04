@@ -852,6 +852,7 @@
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
+    "completed_basic_details_btn_text": "Complete basic details",
     "not_implemented_snackbar_text": "Not implemented yet",
     "category_picker_page_appbar_text": "Categories",
     "edit_ingredients_extrait_ingredients_btn_text": "Extract ingredients",
