@@ -3,9 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/helpers/product_list_import_export.dart';
@@ -139,52 +137,6 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
                 userPreferencesFlagEditIngredients, value);
             ScaffoldMessenger.of(context)
                 .showSnackBar(const SnackBar(content: Text('Ok')));
-          },
-        ),
-        ListTile(
-          title: const Text('Export History'),
-          onTap: () async {
-            final LocalDatabase localDatabase = context.read<LocalDatabase>();
-            final Map<String, dynamic> export =
-                await DaoProductList(localDatabase).export(
-              ProductList.history(),
-            );
-            final List<Widget> children = <Widget>[];
-            for (final String barcode in export.keys) {
-              final bool? exists = export[barcode] as bool?;
-              children.add(
-                ListTile(
-                  leading: Icon(exists == null
-                      ? Icons.error
-                      : exists
-                          ? Icons.check
-                          : Icons.help_outline),
-                  title: Text(barcode),
-                  subtitle: Text(exists == null
-                      ? 'exception'
-                      : exists
-                          ? 'product found'
-                          : 'product NOT found'),
-                ),
-              );
-            }
-            showDialog<void>(
-              context: context,
-              builder: (BuildContext context) => AlertDialog(
-                title: const Text('export history'),
-                content: SizedBox(
-                  height: 400,
-                  width: 300,
-                  child: ListView(children: children),
-                ),
-                actions: <Widget>[
-                  ElevatedButton(
-                    child: Text(AppLocalizations.of(context)!.okay),
-                    onPressed: () => Navigator.pop(context),
-                  ),
-                ],
-              ),
-            );
           },
         ),
         ListTile(

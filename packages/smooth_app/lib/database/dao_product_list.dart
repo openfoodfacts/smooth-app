@@ -200,28 +200,40 @@ class DaoProductList extends AbstractDao {
     final ProductList productList,
     final String barcode,
     final bool include,
+  ) async =>
+      await setAll(productList, <String>[barcode], include) > 0;
+
+  /// Adds or removes a barcode within a product list (depending on [include])
+  ///
+  /// Returns the number of actually added/removed items.
+  Future<int> setAll(
+    final ProductList productList,
+    final Iterable<String> barcodes,
+    final bool include,
   ) async {
     final _BarcodeList? list = await _get(productList);
-    final List<String> barcodes;
-    if (list == null) {
-      barcodes = <String>[];
-    } else {
-      barcodes = list.barcodes;
-    }
-    if (barcodes.contains(barcode)) {
-      if (include) {
-        return false;
+    final List<String> barcodeBuffer =
+        list == null ? <String>[] : list.barcodes;
+    int count = 0;
+    for (final String barcode in barcodes) {
+      if (barcodeBuffer.contains(barcode)) {
+        if (!include) {
+          barcodeBuffer.remove(barcode);
+          count++;
+        }
+      } else {
+        if (include) {
+          barcodeBuffer.add(barcode);
+          count++;
+        }
       }
-      barcodes.remove(barcode);
-    } else {
-      if (!include) {
-        return false;
-      }
-      barcodes.add(barcode);
     }
-    final _BarcodeList newList = _BarcodeList.now(barcodes);
+    if (count == 0) {
+      return count;
+    }
+    final _BarcodeList newList = _BarcodeList.now(barcodeBuffer);
     await _put(_getKey(productList), newList);
-    return true;
+    return count;
   }
 
   Future<ProductList> rename(
@@ -235,28 +247,6 @@ class DaoProductList extends AbstractDao {
     await delete(initialList);
     await get(newList);
     return newList;
-  }
-
-  /// Exports a list - typically for debug purposes
-  Future<Map<String, dynamic>> export(final ProductList productList) async {
-    final Map<String, dynamic> result = <String, dynamic>{};
-    final _BarcodeList? list = await _get(productList);
-    if (list == null) {
-      return result;
-    }
-    final List<String> barcodes = list.barcodes;
-    final DaoProduct daoProduct = DaoProduct(localDatabase);
-    for (final String barcode in barcodes) {
-      late bool? present;
-      try {
-        final Product? product = await daoProduct.get(barcode);
-        present = product != null;
-      } catch (e) {
-        present = null;
-      }
-      result[barcode] = present;
-    }
-    return result;
   }
 
   /// Returns the names of the user lists.

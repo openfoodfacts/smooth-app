@@ -20,6 +20,7 @@ dependencies:
   flutter_widget_from_html_core: any
   fwfh_selectable_text: ^0.8.3+1
   flutter_secure_storage: ^5.0.2
+  clipboard: ^0.1.3
   hive: ^2.1.0
   hive_flutter: ^1.1.0
   http: ^0.13.4

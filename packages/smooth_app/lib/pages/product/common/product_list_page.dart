@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -12,6 +13,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
+import 'package:smooth_app/pages/product/common/product_list_clipboard_helper.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
@@ -25,14 +27,22 @@ class ProductListPage extends StatefulWidget {
   State<ProductListPage> createState() => _ProductListPageState();
 }
 
+enum _SelectionMode {
+  none,
+  compare,
+  copy,
+}
+
 class _ProductListPageState extends State<ProductListPage> {
   late ProductList productList;
   bool first = true;
   final Set<String> _selectedBarcodes = <String>{};
-  bool _selectionMode = false;
+  _SelectionMode _selectionMode = _SelectionMode.none;
 
   static const String _popupActionClear = 'clear';
   static const String _popupActionRename = 'rename';
+  static const String _popupActionCopy = 'copy';
+  static const String _popupActionPaste = 'paste';
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +72,7 @@ class _ProductListPageState extends State<ProductListPage> {
         elevation: 0,
         backgroundColor: colorScheme.background,
         foregroundColor: colorScheme.onBackground,
-        actions: _selectionMode
+        actions: _selectionMode != _SelectionMode.none
             ? null
             : <Widget>[
                 PopupMenuButton<String>(
@@ -82,18 +92,55 @@ class _ProductListPageState extends State<ProductListPage> {
                         }
                         setState(() => productList = renamedProductList);
                         break;
+                      case _popupActionCopy:
+                        setState(() => _selectionMode = _SelectionMode.copy);
+                        break;
+                      case _popupActionPaste:
+                        final int? result =
+                            await ProductListClipboardHelper(productList)
+                                .paste(localDatabase);
+                        final String message;
+                        if (result == null) {
+                          message = 'Error while pasting from the clipboard';
+                        } else if (result == 0) {
+                          message = 'No new barcode found in the clipboard';
+                        } else {
+                          message = '$result pasted from clipboard';
+                        }
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text(message)),
+                        );
+                        if (result != null && result > 0) {
+                          setState(() {});
+                        }
+                        break;
                     }
                   },
                   itemBuilder: (BuildContext context) =>
                       <PopupMenuEntry<String>>[
-                    PopupMenuItem<String>(
-                      value: _popupActionClear,
-                      child: Text(appLocalizations.user_list_popup_clear),
-                    ),
+                    if (!productList.isEmpty())
+                      _buildPopupMenuItem(
+                        _popupActionClear,
+                        appLocalizations.user_list_popup_clear,
+                        CupertinoIcons.clear_circled,
+                      ),
                     if (productList.listType == ProductListType.USER)
-                      PopupMenuItem<String>(
-                        value: _popupActionRename,
-                        child: Text(appLocalizations.user_list_popup_rename),
+                      _buildPopupMenuItem(
+                        _popupActionRename,
+                        appLocalizations.user_list_popup_rename,
+                        Icons.edit,
+                      ),
+                    if (!productList.isEmpty())
+                      _buildPopupMenuItem(
+                        _popupActionCopy,
+                        'Copy', // TODO(monsieurtanuki): localize
+                        Icons.copy,
+                      ),
+                    if (productList.listType == ProductListType.USER)
+                      _buildPopupMenuItem(
+                        _popupActionPaste,
+                        'Paste', // TODO(monsieurtanuki): localize
+                        Icons.paste,
                       ),
                   ],
                 )
@@ -101,7 +148,7 @@ class _ProductListPageState extends State<ProductListPage> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            if (_selectionMode)
+            if (_selectionMode == _SelectionMode.compare)
               ElevatedButton(
                 child: Text(
                   appLocalizations.plural_compare_x_products(
@@ -127,16 +174,38 @@ class _ProductListPageState extends State<ProductListPage> {
                             ),
                           ),
                         );
-                        setState(() => _selectionMode = false);
+                        setState(() => _selectionMode = _SelectionMode.none);
                       }
                     : null,
               ),
-            if (_selectionMode)
+            if (_selectionMode == _SelectionMode.copy)
               ElevatedButton(
-                onPressed: () => setState(() => _selectionMode = false),
+                child: Text(
+                    'copy ${_selectedBarcodes.length} products'), // TODO(monsieurtanuki): localize
+                onPressed: _selectedBarcodes
+                        .isNotEmpty // copy button is enabled only if 1 or more products have been selected
+                    ? () async {
+                        final bool result =
+                            await ProductListClipboardHelper(productList)
+                                .copy(_selectedBarcodes);
+                        final String message = result
+                            ? 'Copied to clipboard'
+                            : 'Error while copying to the clipboard';
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text(message)),
+                        );
+                        setState(() => _selectionMode = _SelectionMode.none);
+                      }
+                    : null,
+              ),
+            if (_selectionMode != _SelectionMode.none)
+              ElevatedButton(
+                onPressed: () => setState(
+                  () => _selectionMode = _SelectionMode.none,
+                ),
                 child: Text(appLocalizations.cancel),
               ),
-            if (!_selectionMode)
+            if (_selectionMode == _SelectionMode.none)
               Flexible(
                 child: Text(
                   ProductQueryPageHelper.getProductListLabel(
@@ -147,11 +216,13 @@ class _ProductListPageState extends State<ProductListPage> {
                   overflow: TextOverflow.fade,
                 ),
               ),
-            if ((!_selectionMode) && products.isNotEmpty)
+            if (_selectionMode == _SelectionMode.none && products.length >= 2)
               Flexible(
                 child: ElevatedButton(
                   child: Text(appLocalizations.compare_products_mode),
-                  onPressed: () => setState(() => _selectionMode = true),
+                  onPressed: () => setState(
+                    () => _selectionMode = _SelectionMode.compare,
+                  ),
                 ),
               ),
           ],
@@ -187,8 +258,9 @@ class _ProductListPageState extends State<ProductListPage> {
             )
           : RefreshIndicator(
               //if it is in selectmode then refresh indicator is not shown
-              notificationPredicate:
-                  _selectionMode ? (_) => false : (_) => true,
+              notificationPredicate: _selectionMode != _SelectionMode.none
+                  ? (_) => false
+                  : (_) => true,
               onRefresh: () async => _refreshListProducts(
                 products,
                 localDatabase,
@@ -210,15 +282,16 @@ class _ProductListPageState extends State<ProductListPage> {
                         },
                       );
                   final Widget child = GestureDetector(
-                    onTap: _selectionMode ? onTap : null,
+                    onTap: _selectionMode != _SelectionMode.none ? onTap : null,
                     child: Container(
                       padding: EdgeInsets.symmetric(
-                        horizontal: _selectionMode ? 0 : 12.0,
+                        horizontal:
+                            _selectionMode != _SelectionMode.none ? 0 : 12.0,
                         vertical: 8.0,
                       ),
                       child: Row(
                         children: <Widget>[
-                          if (_selectionMode)
+                          if (_selectionMode != _SelectionMode.none)
                             Icon(
                               selected
                                   ? Icons.check_box
@@ -227,9 +300,12 @@ class _ProductListPageState extends State<ProductListPage> {
                           Expanded(
                             child: ProductListItemSimple(
                               product: product,
-                              onTap: _selectionMode ? onTap : null,
-                              onLongPress: !_selectionMode
-                                  ? () => setState(() => _selectionMode = true)
+                              onTap: _selectionMode != _SelectionMode.none
+                                  ? onTap
+                                  : null,
+                              onLongPress: _selectionMode == _SelectionMode.none
+                                  ? () => setState(() =>
+                                      _selectionMode = _SelectionMode.compare)
                                   : null,
                             ),
                           ),
@@ -263,7 +339,8 @@ class _ProductListPageState extends State<ProductListPage> {
                           SnackBar(
                             content: Text(
                               removed
-                                  ? appLocalizations.product_removed_history
+                                  ? appLocalizations
+                                      .product_removed_history // TODO(monsieurtanuki): not always "from history"
                                   : appLocalizations.product_could_not_remove,
                             ),
                             duration: const Duration(seconds: 3),
@@ -347,4 +424,20 @@ class _ProductListPageState extends State<ProductListPage> {
     }
     return false;
   }
+
+  PopupMenuItem<T> _buildPopupMenuItem<T>(
+    final T value,
+    final String title,
+    final IconData icon,
+  ) =>
+      PopupMenuItem<T>(
+        value: value,
+        child: Row(
+          children: <Widget>[
+            Icon(icon),
+            const SizedBox(width: SMALL_SPACE),
+            Text(title),
+          ],
+        ),
+      );
 }
