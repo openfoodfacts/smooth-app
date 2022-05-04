@@ -6,7 +6,7 @@ import 'package:smooth_app/database/dao_secured_string.dart';
 
 class UserManagementProvider with ChangeNotifier {
   static const String _USER_ID = 'user_id';
-  static const String _PASSWORD = 'password';
+  static const String _PASSWORD = 'pasword';
 
   /// Checks credentials and conditionally saves them
   Future<bool> login(User user) async {
