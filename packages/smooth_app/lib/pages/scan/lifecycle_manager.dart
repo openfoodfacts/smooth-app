@@ -66,7 +66,7 @@ class LifeCycleManagerState extends State<LifeCycleManager>
     }
   }
 
-  void onVisibilityChanged(bool visible) {
+  void _onVisibilityChanged(bool visible) {
     if (visible) {
       widget.onResume();
     } else {
