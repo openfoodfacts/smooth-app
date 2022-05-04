@@ -15,7 +15,9 @@ import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
 import 'package:smooth_app/widgets/screen_visibility.dart';
 
 class MLKitScannerPage extends StatelessWidget {
-  const MLKitScannerPage({Key? key}) : super(key: key);
+  const MLKitScannerPage({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +35,16 @@ class _MLKitScannerPageContent extends StatefulWidget {
 }
 
 class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
+  /// If the camera is being closed (when [stoppingCamera] == true) and this
+  /// Widget is visible again, we add a post frame callback to detect if the
+  /// Widget is still visible
+  ///
+  /// If the time took by the "post frame callback" is less than this duration,
+  /// we considered, that the camera should be reinitialized
+  ///
+  /// On a 60Hz display, one frame =~ 16 ms => 100 ms =~ 6 frames.
+  static const int _postFrameCallBackMinDelay = 100; // in milliseconds
+
   static const int _SKIPPED_FRAMES = 10;
   BarcodeScanner? barcodeScanner;
   late ContinuousScanModel _model;
@@ -41,7 +53,8 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
   CameraDescription? _camera;
   bool isBusy = false;
 
-  // Used when rebuilding to stop the camera
+  /// Flag used to prevent the camera from being initialized.
+  /// When set to [false], [_startLiveStream] can be called.
   bool stoppingCamera = false;
 
   //We don't scan every image for performance reasons
@@ -68,6 +81,8 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
     _model = context.watch<ContinuousScanModel>();
     _userPreferences = context.watch<UserPreferences>();
 
+    // [_startLiveFeed] is called both with [onResume] and [onPause] to cover
+    // all entry points
     return LifeCycleManager(
       onStart: _startLiveFeed,
       onResume: _startLiveFeed,
@@ -179,6 +194,17 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
     barcodeScanner = null;
     _controller = null;
 
+    _restartCameraIfNecessary();
+  }
+
+  /// The camera is fully closed at this step.
+  /// However, the user may have "reopened" this Widget during this
+  /// operation. In this case, [_startLiveFeed] should be called.
+  ///
+  /// To detect this behavior, we compute the time took by
+  /// [addPostFrameCallback]. If it's less than a few frames, it means the
+  /// camera should be restarted immediately
+  void _restartCameraIfNecessary() {
     if (mounted && ScreenVisibilityDetector.visible(context)) {
       final DateTime referentialTime = DateTime.now();
 
@@ -187,7 +213,7 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
             DateTime.now().difference(referentialTime).inMilliseconds;
 
         // The screen is still visible, we should restart the camera
-        if (diff < 60) {
+        if (diff < _postFrameCallBackMinDelay) {
           _startLiveFeed();
         }
       });
@@ -196,6 +222,8 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
 
   @override
   void dispose() {
+    // /!\ This call is a Future, which may leads to some issues.
+    // This should be handled by [_restartCameraIfNecessary]
     _stopImageStream();
     super.dispose();
   }

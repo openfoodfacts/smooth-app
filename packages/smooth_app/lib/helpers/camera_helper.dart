@@ -5,15 +5,16 @@ class CameraHelper {
 
   static List<CameraDescription>? _cameras;
 
+  /// Mandatory method to call before [findBestCamera]
   static Future<void> init() async {
     _cameras = await availableCameras();
   }
 
-  // Find the most relevant camera to use if none of these criteria are met,
-  // the default value of [_cameraIndex] will be used to select the first
-  // camera in the global cameras list.
-  // if non matching is found we fall back to the first in the list
-  // initValue of [_cameraIndex]
+  /// Find the most relevant camera to use if none of these criteria are met,
+  /// the default value of [_cameraIndex] will be used to select the first
+  /// camera in the global cameras list.
+  /// if non matching is found we fall back to the first in the list
+  /// initValue of [_cameraIndex]/
   static CameraDescription? findBestCamera({
     CameraLensDirection cameraLensDirection = CameraLensDirection.back,
   }) {

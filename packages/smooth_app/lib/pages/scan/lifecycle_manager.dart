@@ -3,8 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:smooth_app/widgets/screen_visibility.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
-/// This Widgets tracks if the child is currently visible on screen and if the
-/// app gets minimized/resumed by the system
+/// This Widgets tracks both the app lifecycle and the screen visibility
+/// [onStart] will be called only when the Widget is displayed for the first time
+/// (= during the [initState] phase)
+/// [onResume] will be called once the app is reopened (eg: the app is minimized
+/// and brought back to front) or this part of the Widget tree is visible again
+/// [onPause] will be called once the app is minimized or if this part of the
+/// tree is invisible
 class LifeCycleManager extends StatefulWidget {
   const LifeCycleManager({
     required this.onResume,
@@ -58,11 +63,6 @@ class LifeCycleManagerState extends State<LifeCycleManager>
       case AppLifecycleState.detached:
         widget.onPause();
         break;
-    }
-    if (appLifecycleState == AppLifecycleState.inactive) {
-      widget.onPause();
-    } else if (appLifecycleState == AppLifecycleState.resumed) {
-      widget.onResume();
     }
   }
 
