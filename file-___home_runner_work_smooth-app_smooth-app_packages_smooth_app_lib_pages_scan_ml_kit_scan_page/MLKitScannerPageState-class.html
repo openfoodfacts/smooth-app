@@ -81,17 +81,6 @@
 
 </dd>
 
-        <dt id="cameraLensDirection" class="property">
-  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_ml_kit_scan_page/MLKitScannerPageState/cameraLensDirection.html">cameraLensDirection</a></span>
-  <span class="signature">&#8596; dynamic</span> 
-
-</dt>
-<dd>
-   
-  <div class="features">read / write</div>
-
-</dd>
-
         <dt id="frameCounter" class="property">
   <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_ml_kit_scan_page/MLKitScannerPageState/frameCounter.html">frameCounter</a></span>
   <span class="signature">&#8596; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> 
@@ -125,6 +114,17 @@
 
 </dd>
 
+        <dt id="isCameraNotInitialized" class="property">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_ml_kit_scan_page/MLKitScannerPageState/isCameraNotInitialized.html">isCameraNotInitialized</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> 
+
+</dt>
+<dd>
+   
+  <div class="features">read-only</div>
+
+</dd>
+
         <dt id="runtimeType" class="property inherited">
   <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></span>
   <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Type-class.html">Type</a></span> 
@@ -142,7 +142,8 @@
 
 </dt>
 <dd>
-   
+  Flag used to prevent the camera from being initialized.
+When set to <code>false</code>, <code>_startLiveStream</code> can be called. 
   <div class="features">read / write</div>
 
 </dd>
@@ -156,6 +157,19 @@
         <dt id="build" class="callable">
   <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_ml_kit_scan_page/MLKitScannerPageState/build.html">build</a></span><span class="signature">(<wbr><span class="parameter" id="build-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span></span>)
     <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd>
+   
+  
+
+</dd>
+
+        <dt id="didChangeDependencies" class="callable">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_ml_kit_scan_page/MLKitScannerPageState/didChangeDependencies.html">didChangeDependencies</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
   </span>
   
 
@@ -287,15 +301,16 @@
       <a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_ml_kit_scan_page/MLKitScannerPageState-class.html#instance-properties">Properties</a>
     </li>
     <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_ml_kit_scan_page/MLKitScannerPageState/barcodeScanner.html">barcodeScanner</a></li>
-    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_ml_kit_scan_page/MLKitScannerPageState/cameraLensDirection.html">cameraLensDirection</a></li>
     <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_ml_kit_scan_page/MLKitScannerPageState/frameCounter.html">frameCounter</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_ml_kit_scan_page/MLKitScannerPageState/isBusy.html">isBusy</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_ml_kit_scan_page/MLKitScannerPageState/isCameraNotInitialized.html">isCameraNotInitialized</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
     <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_ml_kit_scan_page/MLKitScannerPageState/stoppingCamera.html">stoppingCamera</a></li>
 
     <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_ml_kit_scan_page/MLKitScannerPageState-class.html#instance-methods">Methods</a></li>
     <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_ml_kit_scan_page/MLKitScannerPageState/build.html">build</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_ml_kit_scan_page/MLKitScannerPageState/didChangeDependencies.html">didChangeDependencies</a></li>
     <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_ml_kit_scan_page/MLKitScannerPageState/dispose.html">dispose</a></li>
     <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_ml_kit_scan_page/MLKitScannerPageState/initState.html">initState</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>

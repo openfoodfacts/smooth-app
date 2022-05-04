@@ -99,11 +99,15 @@ Widget build(BuildContext context) {
           children: &lt;Widget&gt;[
             &#47;&#47;Scanner
             if (backgroundChild != null)
+              &#47;&#47; Force the child to take the full space, otherwise the
+              &#47;&#47; [VisibilityDetector] may return incorrect results
               SmoothRevealAnimation(
                 delay: 400,
                 startOffset: Offset.zero,
                 animationCurve: Curves.easeInOutBack,
-                child: backgroundChild!,
+                child: SizedBox.expand(
+                  child: backgroundChild,
+                ),
               ),
             &#47;&#47; Scanning area overlay
             SmoothRevealAnimation(
