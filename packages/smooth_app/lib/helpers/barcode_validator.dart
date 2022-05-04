@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:google_ml_barcode_scanner/google_ml_barcode_scanner.dart'
     as MlKit;
 import 'package:qr_code_scanner/qr_code_scanner.dart' as QrCodeScanner;
@@ -39,10 +40,12 @@ void showInvalidBarcodeSnackbar(BuildContext context) {
 
   disallowShowInvalidBarcodeSnackbar();
 
+  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+
   ScaffoldMessenger.of(context)
       .showSnackBar(
-        const SnackBar(
-          content: Text('Yay! A SnackBar!'),
+        SnackBar(
+          content: Text(appLocalizations.not_valid_barcode),
         ),
       )
       .closed
