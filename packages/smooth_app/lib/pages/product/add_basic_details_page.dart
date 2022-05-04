@@ -6,6 +6,7 @@ import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 
 class AddBasicDetailsPage extends StatefulWidget {
@@ -20,14 +21,15 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   final TextEditingController _brandNameController = TextEditingController();
   final TextEditingController _weightController = TextEditingController();
 
+  final double _heightSpace = LARGE_SPACE;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   void initState() {
     super.initState();
-    initializeProduct();
+    _initializeProduct();
   }
 
-  void initializeProduct() {
+  void _initializeProduct() {
     _productNameController.text = widget.product.productName ?? '';
     _weightController.text = widget.product.quantity ?? '';
     _brandNameController.text = widget.product.brands ?? '';
@@ -52,7 +54,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                 onUpload: (_) {},
               ),
             ),
-            SizedBox(height: size.height * 0.02),
+            SizedBox(height: _heightSpace),
             if (widget.product.barcode != null)
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
@@ -65,7 +67,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: size.height * 0.02),
+                    SizedBox(height: _heightSpace),
                     SmoothTextFormField(
                       controller: _productNameController,
                       type: TextFieldTypes.PLAIN_TEXT,
@@ -78,7 +80,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                         return null;
                       },
                     ),
-                    SizedBox(height: size.height * 0.02),
+                    SizedBox(height: _heightSpace),
                     SmoothTextFormField(
                       controller: _brandNameController,
                       type: TextFieldTypes.PLAIN_TEXT,
@@ -91,7 +93,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                         return null;
                       },
                     ),
-                    SizedBox(height: size.height * 0.02),
+                    SizedBox(height: _heightSpace),
                     SmoothTextFormField(
                       controller: _weightController,
                       type: TextFieldTypes.PLAIN_TEXT,
@@ -105,7 +107,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                         return null;
                       },
                     ),
-                    SizedBox(height: size.height * 0.05),
+                    SizedBox(height: _heightSpace),
                   ],
                 ),
               ),
@@ -113,16 +115,27 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                _buildButton(
-                  appLocalizations.cancel,
-                  () => Navigator.pop(context),
+                SmoothActionButton(
+                  text: appLocalizations.cancel,
+                  onPressed: () => Navigator.pop(context),
                 ),
-                _buildButton(appLocalizations.save, () {
-                  if (!_formKey.currentState!.validate()) {
-                    return;
-                  }
-                  saveData();
-                }),
+                SmoothActionButton(
+                    text: appLocalizations.save,
+                    onPressed: () async {
+                      if (!_formKey.currentState!.validate()) {
+                        return;
+                      }
+                      final Status? status = await _saveData();
+                      if (status == null || status.error != null) {
+                        _errormessageAlert(
+                            appLocalizations.basic_details_add_error);
+                        return;
+                      }
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text(
+                              appLocalizations.basic_details_add_success)));
+                      Navigator.pop(context);
+                    }),
               ],
             ),
           ],
@@ -147,39 +160,22 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
         ),
       );
 
-  Future<void> saveData() async {
+  Future<Status?> _saveData() async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-    widget.product.productName = _productNameController.text;
-    widget.product.quantity = _weightController.text;
-    widget.product.brands = _brandNameController.text;
-    final Status status = await OpenFoodAPIClient.saveProduct(
-      ProductQuery.getUser(),
-      widget.product,
+    final Product product = Product(
+      productName: _productNameController.text,
+      quantity: _weightController.text,
+      brands: _brandNameController.text,
+      barcode: widget.product.barcode,
     );
-    if (status.error != null) {
-      _errormessageAlert(appLocalizations.basic_details_add_error);
-      return;
-    }
-    ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(appLocalizations.basic_details_add_success)));
-    Navigator.pop(context);
-  }
-
-  Widget _buildButton(String btnLabel, void Function() onPressFunc) {
-    final Size size = MediaQuery.of(context).size;
-    return ElevatedButton(
-      style: ButtonStyle(
-        minimumSize: MaterialStateProperty.all<Size>(
-          Size(size.width * 0.3, size.height * 0.05),
-        ),
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-          const RoundedRectangleBorder(
-            borderRadius: CIRCULAR_BORDER_RADIUS,
-          ),
-        ),
+    final Status? status = await LoadingDialog.run<Status>(
+      context: context,
+      future: OpenFoodAPIClient.saveProduct(
+        ProductQuery.getUser(),
+        product,
       ),
-      onPressed: onPressFunc,
-      child: Text(btnLabel),
+      title: appLocalizations.nutrition_page_update_running,
     );
+    return status;
   }
 }
