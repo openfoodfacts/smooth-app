@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
+import 'package:smooth_app/helpers/barcode_validator.dart';
 import 'package:smooth_app/pages/scan/lifecycle_manager.dart';
 
 class ContinuousScanPage extends StatefulWidget {
@@ -45,8 +46,11 @@ class _ContinuousScanPageState extends State<ContinuousScanPage> {
 
   void setupScanner(QRViewController controller) {
     _controller = controller;
-    _controller?.scannedDataStream
-        .listen((Barcode barcode) => _model.onScan(barcode.code));
+    _controller?.scannedDataStream.listen((Barcode barcode) {
+      isValidBarcodeQrcodeScanner(barcode)
+          ? _model.onScan(barcode.code)
+          : showInvalidBarcodeSnackbar(context);
+    });
   }
 
   //Used when navigating away from the QRView itself

@@ -6,6 +6,7 @@ import 'package:google_ml_barcode_scanner/google_ml_barcode_scanner.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/helpers/barcode_validator.dart';
 import 'package:smooth_app/main.dart';
 import 'package:smooth_app/pages/scan/abstract_camera_image_getter.dart';
 import 'package:smooth_app/pages/scan/camera_image_cropper.dart';
@@ -259,8 +260,10 @@ class MLKitScannerPageState extends State<MLKitScannerPage> {
         await barcodeScanner!.processImage(inputImage);
 
     for (final Barcode barcode in barcodes) {
-      _model
-          .onScan(barcode.value.rawValue); // TODO(monsieurtanuki): add "await"?
+      // TODO(monsieurtanuki): add "await"?
+      isValidBarcodeMlKit(barcode)
+          ? _model.onScan(barcode.value.rawValue)
+          : showInvalidBarcodeSnackbar(context);
     }
   }
 }
