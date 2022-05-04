@@ -888,5 +888,6 @@
     "user_list_name_error_same": "That is the same name",
     "@user_list_name_error_same": {
         "description": "Validation error about the renamed name that is the same as the initial list name"
-    }
+    },
+    "not_valid_barcode":"Código de barras inválido"
 }
