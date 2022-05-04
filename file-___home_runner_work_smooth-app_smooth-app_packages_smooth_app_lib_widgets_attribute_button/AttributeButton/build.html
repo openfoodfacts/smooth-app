@@ -73,43 +73,121 @@
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   final ThemeData themeData = Theme.of(context);
-  String importanceId =
+  final IconThemeData iconThemeData = IconTheme.of(context);
+  final String currentImportanceId =
       productPreferences.getImportanceIdForAttributeId(attribute.id!);
-  &#47;&#47; We switch from 4 to 3 choices: very important is downgraded to important
-  if (importanceId == PreferenceImportance.ID_VERY_IMPORTANT) {
-    importanceId = PreferenceImportance.ID_IMPORTANT;
-  }
   const double horizontalPadding = LARGE_SPACE;
-  final double screenWidth =
+  final double widgetWidth =
       MediaQuery.of(context).size.width - 2 * horizontalPadding;
+  final double importanceWidth = widgetWidth &#47; 4;
   final TextStyle style = themeData.textTheme.headline3!;
-  return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: horizontalPadding),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: &lt;Widget&gt;[
-        SizedBox(
-          width: screenWidth * .45,
-          child: Text(attribute.name!, style: style),
-        ),
-        SizedBox(
-          width: screenWidth * .45,
-          child: ElevatedButton(
-            child: AutoSizeText(
-              productPreferences
-                  .getPreferenceImportanceFromImportanceId(importanceId)!
-                  .name!,
-              style: style.copyWith(color: Colors.white),
-              maxLines: 1,
+  final String? info = attribute.settingNote;
+  final List&lt;Widget&gt; children = &lt;Widget&gt;[];
+  for (final String importanceId in _importanceIds) {
+    children.add(
+      GestureDetector(
+        onTap: () async {
+          await productPreferences.setImportance(attribute.id!, importanceId);
+          final AppLocalizations? appLocalizations =
+              AppLocalizations.of(context);
+          await showDialog&lt;void&gt;(
+            context: context,
+            builder: (BuildContext context) =&gt; SmoothAlertDialog(
+              body: Text(
+                  &#39;blah blah blah importance &quot;$importanceId&quot;&#39;), &#47;&#47; TODO(monsieurtanuki): find translations
+              actions: &lt;SmoothActionButton&gt;[
+                SmoothActionButton(
+                  text: appLocalizations!.close,
+                  onPressed: () =&gt; Navigator.pop(context),
+                ),
+              ],
             ),
-            style: ElevatedButton.styleFrom(
-              primary: _colors[importanceId],
-              onPrimary: Colors.white,
-            ),
-            onPressed: () async =&gt; productPreferences.setImportance(
-                attribute.id!, _nextValues[importanceId]!),
+          );
+        },
+        child: SizedBox(
+          width: importanceWidth,
+          height: MINIMUM_TARGET_SIZE,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: &lt;Widget&gt;[
+              AutoSizeText(
+                productPreferences
+                    .getPreferenceImportanceFromImportanceId(importanceId)!
+                    .name!,
+                maxLines: 1,
+                textAlign: TextAlign.center,
+              ),
+              Icon(
+                currentImportanceId == importanceId
+                    ? Icons.radio_button_checked
+                    : Icons.radio_button_off,
+                color: themeData.colorScheme.primary,
+              ),
+            ],
           ),
+        ),
+      ),
+    );
+  }
+  return Padding(
+    padding: const EdgeInsets.symmetric(
+      vertical: SMALL_SPACE,
+      horizontal: horizontalPadding,
+    ),
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: &lt;Widget&gt;[
+        GestureDetector(
+          child: SizedBox(
+            height: MINIMUM_TARGET_SIZE,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: &lt;Widget&gt;[
+                if (info != null) const Icon(Icons.info_outline),
+                Container(
+                  padding: info == null
+                      ? null
+                      : const EdgeInsets.only(left: SMALL_SPACE),
+                  child: SizedBox(
+                    width: widgetWidth -
+                        SMALL_SPACE -
+                        (iconThemeData.size ?? DEFAULT_ICON_SIZE),
+                    child: AutoSizeText(
+                      attribute.settingName ?? attribute.name!,
+                      maxLines: 2,
+                      style: style,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          onTap: info == null
+              ? null
+              : () async =&gt; showDialog&lt;void&gt;(
+                    context: context,
+                    builder: (BuildContext context) {
+                      final AppLocalizations? appLocalizations =
+                          AppLocalizations.of(context);
+                      return SmoothAlertDialog(
+                        body: Text(info),
+                        actions: &lt;SmoothActionButton&gt;[
+                          SmoothActionButton(
+                            text: appLocalizations!.close,
+                            onPressed: () =&gt; Navigator.pop(context),
+                          ),
+                        ],
+                      );
+                    },
+                  ),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: children,
         ),
       ],
     ),
