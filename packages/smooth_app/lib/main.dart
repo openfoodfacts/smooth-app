@@ -84,6 +84,7 @@ Future<bool> _init1() async {
     system: Platform.operatingSystemVersion,
     url: 'https://world.openfoodfacts.org/',
   );
+  await UserManagementProvider.mountCredentials();
   _userPreferences = await UserPreferences.getUserPreferences();
   _localDatabase = await LocalDatabase.getLocalDatabase();
   await _continuousScanModel.load(_localDatabase);
@@ -182,6 +183,7 @@ class _SmoothAppState extends State<SmoothApp> {
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final Widget appWidget = OnboardingFlowNavigator(_userPreferences)
         .getPageWidget(context, _userPreferences.lastVisitedOnboardingPage);
+
     return MaterialApp(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
@@ -230,8 +232,6 @@ class SmoothAppGetLanguage extends StatelessWidget {
 
     final LocalDatabase _localDatabase = context.read<LocalDatabase>();
     AnalyticsHelper.trackStart(_localDatabase, context);
-
-    context.read<UserManagementProvider>().mountCredentials();
 
     return appWidget;
   }
