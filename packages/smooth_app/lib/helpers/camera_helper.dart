@@ -1,7 +1,7 @@
 import 'package:camera/camera.dart';
 
 class CameraHelper {
-  CameraHelper._();
+  const CameraHelper._();
 
   static List<CameraDescription>? _cameras;
 
