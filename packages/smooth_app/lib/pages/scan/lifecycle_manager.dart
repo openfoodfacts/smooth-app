@@ -79,7 +79,7 @@ class LifeCycleManagerState extends State<LifeCycleManager>
     return VisibilityDetector(
       key: const ValueKey<String>('VisibilityDetector'),
       onVisibilityChanged: (VisibilityInfo info) {
-        onVisibilityChanged(info.visible);
+        _onVisibilityChanged(info.visible);
       },
       child: widget.child,
     );
