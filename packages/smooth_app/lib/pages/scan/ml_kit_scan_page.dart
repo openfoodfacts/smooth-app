@@ -52,6 +52,7 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
   CameraController? _controller;
   CameraDescription? _camera;
   bool isBusy = false;
+  double _previewScale = 1.0;
 
   /// Flag used to prevent the camera from being initialized.
   /// When set to [false], [_startLiveStream] can be called.
@@ -104,15 +105,19 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
     // this is actually size.aspectRatio / (1 / camera.aspectRatio)
     // because camera preview size is received as landscape
     // but we're calculating for portrait orientation
-    double scale = size.aspectRatio * _controller!.value.aspectRatio;
+    _previewScale = size.aspectRatio * _controller!.value.aspectRatio;
 
-    // to prevent scaling down, invert the value
-    if (scale < 1.0) {
-      scale = 1.0 / scale;
+    if (_previewScale < 1.0) {
+      // To prevent scaling down, invert the value
+      _previewScale = 1.0 / _previewScale;
+    } else {
+      // Scale up the size if the preview doesn't take the full width or height
+      _previewScale = _controller!.value.aspectRatio - size.aspectRatio;
     }
 
     return Transform.scale(
-      scale: scale,
+      alignment: Alignment.topCenter,
+      scale: _previewScale,
       child: Center(
         key: ValueKey<bool>(stoppingCamera),
         child: CameraPreview(
@@ -260,8 +265,15 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
     switch (scanMode) {
       case DevModeScanMode.PREPROCESS_HALF_IMAGE:
       case DevModeScanMode.SCAN_HALF_IMAGE:
-        // Half center top
-        return const Offset(0.5, 0.25);
+        // Half center top focus point
+
+        if (_previewScale == 1.0) {
+          return const Offset(0.5, 0.25);
+        } else {
+          // Since we use a [Alignment.topCenter] alignment for the preview, we
+          // have to recompute the position of the focus point
+          return Offset(0.5, 0.25 / _previewScale);
+        }
       case DevModeScanMode.CAMERA_ONLY:
       case DevModeScanMode.PREPROCESS_FULL_IMAGE:
       case DevModeScanMode.SCAN_FULL_IMAGE:
