@@ -22,13 +22,22 @@ bool isValidBarcodeQrcodeScanner(QrCodeScanner.Barcode barcode) {
   return !invalidBarcodesQrCodeScanner.contains(barcode.format);
 }
 
-bool _canShowInvalidebarcodeSnackbar = true;
+bool _canShowInvalidBarcodeSnackbar = true;
+
+void disallowShowInvalidBarcodeSnackbar() {
+  _canShowInvalidBarcodeSnackbar = false;
+}
+
+void allowShowInvalidBarcodeSnackbar() {
+  _canShowInvalidBarcodeSnackbar = true;
+}
 
 void showInvalidBarcodeSnackbar(BuildContext context) {
-  if (!_canShowInvalidebarcodeSnackbar) {
+  if (!_canShowInvalidBarcodeSnackbar) {
     return;
   }
-  _canShowInvalidebarcodeSnackbar = false;
+
+  disallowShowInvalidBarcodeSnackbar();
 
   ScaffoldMessenger.of(context)
       .showSnackBar(
@@ -37,7 +46,5 @@ void showInvalidBarcodeSnackbar(BuildContext context) {
         ),
       )
       .closed
-      .then((_) {
-    _canShowInvalidebarcodeSnackbar = true;
-  });
+      .then((_) => allowShowInvalidBarcodeSnackbar());
 }
