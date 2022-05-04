@@ -474,12 +474,11 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
         ),
       );
 
-  Future<void> retryConnection()async{
-    setState((){
+  void retryConnection() {
+    setState(() {
       _model = ProductQueryModel(widget.productListSupplier);
     });
-    return;
-  }    
+  }
 
   Future<void> refreshlist() async {
     final ProductListSupplier? refreshSupplier =
