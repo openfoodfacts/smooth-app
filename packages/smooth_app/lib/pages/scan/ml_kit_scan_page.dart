@@ -1,16 +1,16 @@
+import 'dart:async';
+
 import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_ml_barcode_scanner/google_ml_barcode_scanner.dart';
 import 'package:provider/provider.dart';
+import 'package:rxdart/rxdart.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
-import 'package:smooth_app/pages/scan/abstract_camera_image_getter.dart';
-import 'package:smooth_app/pages/scan/camera_image_cropper.dart';
-import 'package:smooth_app/pages/scan/camera_image_full_getter.dart';
 import 'package:smooth_app/pages/scan/lifecycle_manager.dart';
+import 'package:smooth_app/pages/scan/mkit_scan_helper.dart';
 import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
 import 'package:smooth_app/widgets/screen_visibility.dart';
 
@@ -28,7 +28,9 @@ class MLKitScannerPage extends StatelessWidget {
 }
 
 class _MLKitScannerPageContent extends StatefulWidget {
-  const _MLKitScannerPageContent({Key? key}) : super(key: key);
+  const _MLKitScannerPageContent({
+    Key? key,
+  }) : super(key: key);
 
   @override
   MLKitScannerPageState createState() => MLKitScannerPageState();
@@ -45,31 +47,38 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
   /// On a 60Hz display, one frame =~ 16 ms => 100 ms =~ 6 frames.
   static const int _postFrameCallBackMinDelay = 100; // in milliseconds
 
-  static const int _SKIPPED_FRAMES = 10;
-  BarcodeScanner? barcodeScanner;
+  /// Subject notifying when a new image is available
+  PublishSubject<CameraImage> _subject = PublishSubject<CameraImage>();
+
+  /// Stream calling the barcode detection
+  StreamSubscription<String>? _streamSubscription;
+  MLKitScanDecoder? _barcodeDecoder;
+
   late ContinuousScanModel _model;
   late UserPreferences _userPreferences;
   CameraController? _controller;
   CameraDescription? _camera;
-  bool isBusy = false;
   double _previewScale = 1.0;
 
   /// Flag used to prevent the camera from being initialized.
   /// When set to [false], [_startLiveStream] can be called.
   bool stoppingCamera = false;
 
-  //We don't scan every image for performance reasons
-  int frameCounter = 0;
-
   @override
   void initState() {
     super.initState();
     _camera = CameraHelper.findBestCamera();
+    _subject = PublishSubject<CameraImage>();
   }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
+
+    if (mounted) {
+      _model = context.watch<ContinuousScanModel>();
+      _userPreferences = context.watch<UserPreferences>();
+    }
 
     // Relaunch the feed after a hot reload
     if (_controller == null) {
@@ -79,15 +88,12 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
 
   @override
   Widget build(BuildContext context) {
-    _model = context.watch<ContinuousScanModel>();
-    _userPreferences = context.watch<UserPreferences>();
-
     // [_startLiveFeed] is called both with [onResume] and [onPause] to cover
     // all entry points
     return LifeCycleManager(
       onStart: _startLiveFeed,
       onResume: _startLiveFeed,
-      onPause: _stopImageStream,
+      onPause: () => _stopImageStream(onlyPause: true),
       child: _buildScannerWidget(),
     );
   }
@@ -96,7 +102,7 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
     // Showing the black scanner background + the icon when the scanner is
     // loading or stopped
     if (isCameraNotInitialized) {
-      return const SizedBox();
+      return const SizedBox.shrink();
     }
 
     final Size size = MediaQuery.of(context).size;
@@ -140,7 +146,6 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
       return;
     }
 
-    barcodeScanner = GoogleMlKit.vision.barcodeScanner();
     stoppingCamera = false;
 
     _controller = CameraController(
@@ -151,14 +156,49 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
     );
 
     // If the controller is initialized update the UI.
+    _barcodeDecoder ??= MLKitScanDecoder(
+      camera: _camera!,
+      scanMode: DevModeScanModeExtension.fromIndex(
+        _userPreferences.getDevModeIndex(
+          UserPreferencesDevMode.userPreferencesEnumScanMode,
+        ),
+      ),
+    );
     _controller?.addListener(_cameraListener);
+
+    // Restart the subscription if necessary
+    if (_streamSubscription?.isPaused == true) {
+      _streamSubscription!.resume();
+    } else {
+      _streamSubscription = _subject
+          // TODO(g123k): Improve this duration by computing an average
+          //  computation duration
+          .throttleTime(
+            const Duration(milliseconds: 200),
+          )
+          .asyncMap<List<String>?>(
+            (CameraImage image) => _barcodeDecoder?.processImage(image),
+          )
+          .where(
+            (List<String>? barcodes) => barcodes?.isNotEmpty == true,
+          )
+          // TODO(g123k): What should we do with multiple barcodes?
+          .map(
+            (List<String>? barcodes) => barcodes!.first,
+          )
+          .listen(
+            (String barcode) => _model.onScan(barcode),
+          );
+    }
 
     try {
       await _controller?.initialize();
       await _controller?.setFocusMode(FocusMode.auto);
       await _controller?.setFocusPoint(_focusPoint);
       await _controller?.lockCaptureOrientation(DeviceOrientation.portraitUp);
-      await _controller?.startImageStream(_processCameraImage);
+      await _controller?.startImageStream(
+        (CameraImage image) => _subject.add(image),
+      );
     } on CameraException catch (e) {
       if (kDebugMode) {
         // TODO(M123): Show error message
@@ -166,15 +206,11 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
       }
     }
 
-    if (mounted) {
-      setState(() {});
-    }
+    _redrawScreen();
   }
 
   void _cameraListener() {
     if (mounted) {
-      setState(() {});
-
       if (_controller?.value.hasError == true) {
         // TODO(M123): Handle errors better
         debugPrint(_controller!.value.errorDescription);
@@ -182,24 +218,35 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
     }
   }
 
-  Future<void> _stopImageStream() async {
+  Future<void> _stopImageStream({bool onlyPause = false}) async {
     if (stoppingCamera) {
       return;
     }
 
     stoppingCamera = true;
-    if (mounted) {
-      setState(() {});
-    }
+    _redrawScreen();
 
     _controller?.removeListener(_cameraListener);
-    await _controller?.dispose();
-    await barcodeScanner?.close();
 
-    barcodeScanner = null;
+    if (onlyPause) {
+      _streamSubscription?.pause();
+    } else {
+      await _streamSubscription?.cancel();
+    }
+
+    await _controller?.dispose();
+    await _barcodeDecoder?.dispose();
+
+    _barcodeDecoder = null;
     _controller = null;
 
     _restartCameraIfNecessary();
+  }
+
+  void _redrawScreen() {
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   /// The camera is fully closed at this step.
@@ -229,31 +276,8 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
   void dispose() {
     // /!\ This call is a Future, which may leads to some issues.
     // This should be handled by [_restartCameraIfNecessary]
-    _stopImageStream();
+    _stopImageStream(onlyPause: false);
     super.dispose();
-  }
-
-  // Convert the [CameraImage] to a [InputImage] and checking this for barcodes
-  // with help from ML Kit
-  Future<void> _processCameraImage(CameraImage image) async {
-    //Only scanning every xth image, but not resetting until the current one
-    //is done, so that we don't have idle time when the scanning takes longer
-    // TODO(M123): Can probably be merged with isBusy + checking if we should
-    // Count when ML Kit is busy
-    if (frameCounter < _SKIPPED_FRAMES) {
-      frameCounter++;
-      return;
-    }
-
-    if (isBusy || barcodeScanner == null) {
-      return;
-    }
-    isBusy = true;
-    frameCounter = 0;
-
-    await _scan(image);
-
-    isBusy = false;
   }
 
   Offset? get _focusPoint {
@@ -280,52 +304,6 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
       default:
         // Center
         return const Offset(0.5, 0.5);
-    }
-  }
-
-  Future<void> _scan(final CameraImage image) async {
-    final DevModeScanMode scanMode = DevModeScanModeExtension.fromIndex(
-      _userPreferences
-          .getDevModeIndex(UserPreferencesDevMode.userPreferencesEnumScanMode),
-    );
-
-    final AbstractCameraImageGetter getter;
-    switch (scanMode) {
-      case DevModeScanMode.CAMERA_ONLY:
-        return;
-      case DevModeScanMode.PREPROCESS_FULL_IMAGE:
-      case DevModeScanMode.SCAN_FULL_IMAGE:
-        getter = CameraImageFullGetter(image, _camera!);
-        break;
-      case DevModeScanMode.PREPROCESS_HALF_IMAGE:
-      case DevModeScanMode.SCAN_HALF_IMAGE:
-        getter = CameraImageCropper(
-          image,
-          _camera!,
-          left01: 0,
-          top01: 0,
-          width01: 1,
-          height01: .5,
-        );
-        break;
-    }
-    final InputImage inputImage = getter.getInputImage();
-
-    switch (scanMode) {
-      case DevModeScanMode.CAMERA_ONLY:
-      case DevModeScanMode.PREPROCESS_FULL_IMAGE:
-      case DevModeScanMode.PREPROCESS_HALF_IMAGE:
-        return;
-      case DevModeScanMode.SCAN_FULL_IMAGE:
-      case DevModeScanMode.SCAN_HALF_IMAGE:
-        break;
-    }
-    final List<Barcode> barcodes =
-        await barcodeScanner!.processImage(inputImage);
-
-    for (final Barcode barcode in barcodes) {
-      _model
-          .onScan(barcode.value.rawValue); // TODO(monsieurtanuki): add "await"?
     }
   }
 }
