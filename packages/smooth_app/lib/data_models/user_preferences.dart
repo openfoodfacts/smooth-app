@@ -91,11 +91,13 @@ class UserPreferences extends ChangeNotifier {
   }
 
   Future<void> setAppLanguageCode(String languageCode) async {
-    setDevModeString(UserPreferencesDevMode.userPreferencesAppLanguageCode, languageCode);
+    setDevModeString(
+        UserPreferencesDevMode.userPreferencesAppLanguageCode, languageCode);
     notifyListeners();
   }
 
-  String? get appLanguageCode => getDevModeString(UserPreferencesDevMode.userPreferencesAppLanguageCode);
+  String? get appLanguageCode =>
+      getDevModeString(UserPreferencesDevMode.userPreferencesAppLanguageCode);
 
   String _getFlagTag(final String key) => _TAG_PREFIX_FLAG + key;
 

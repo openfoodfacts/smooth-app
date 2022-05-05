@@ -280,7 +280,8 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         ListTile(
           leading: const Icon(Icons.language),
           title: DropdownButton<String>(
-            value: userPreferences.appLanguageCode ?? Localizations.localeOf(context).toString(),
+            value: userPreferences.appLanguageCode ??
+                Localizations.localeOf(context).toString(),
             elevation: 16,
             isExpanded: true,
             onChanged: (String? languageCode) async {

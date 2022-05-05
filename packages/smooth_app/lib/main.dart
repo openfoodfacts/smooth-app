@@ -182,8 +182,7 @@ class _SmoothAppState extends State<SmoothApp> {
         .getPageWidget(context, _userPreferences.lastVisitedOnboardingPage);
     final Locale locale = Locale(
         context.select((UserPreferences _up) => _up.appLanguageCode) ??
-            Localizations.localeOf(context).toString()
-    );
+            Localizations.localeOf(context).toString());
 
     return MaterialApp(
       locale: locale,
