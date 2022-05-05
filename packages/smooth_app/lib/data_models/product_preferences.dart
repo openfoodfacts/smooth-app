@@ -63,8 +63,6 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
 
   /// Refreshes the references with network data.
   Future<void> refresh(final String languageCode) async {
-    _isNetwork = false;
-
     if (_isNetwork) {
       return;
     }
