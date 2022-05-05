@@ -8,17 +8,56 @@ class ProductCompatibilityHelper {
 
   final MatchedProduct matchedProduct;
 
-  Color getBackgroundColor() {
-    switch (matchedProduct.status) {
-      case null:
-      case MatchedProductStatus.UNKNOWN:
-        return GREY_COLOR;
-      case MatchedProductStatus.NO:
-        return RED_COLOR;
-      case MatchedProductStatus.YES:
-        return LIGHT_GREEN_COLOR;
+  Color getHeaderBackgroundColor(bool darkMode) {
+    if (!darkMode) {
+      switch (matchedProduct.status) {
+        case null:
+        case MatchedProductStatus.UNKNOWN:
+          return LIGHT_GREY_COLOR;
+        case MatchedProductStatus.NO:
+          return RED_COLOR;
+        case MatchedProductStatus.YES:
+          return LIGHT_GREEN_COLOR;
+      }
+    } else {
+      switch (matchedProduct.status) {
+        case null:
+        case MatchedProductStatus.UNKNOWN:
+          return PRIMARY_GREY_COLOR;
+        case MatchedProductStatus.NO:
+          return RED_COLOR;
+        case MatchedProductStatus.YES:
+          return DARK_GREEN_COLOR;
+      }
     }
   }
+
+  Color getButtonColor(bool darkMode) {
+    if (darkMode) {
+      switch (matchedProduct.status) {
+        case null:
+        case MatchedProductStatus.UNKNOWN:
+          return LIGHT_GREY_COLOR;
+        case MatchedProductStatus.NO:
+          return RED_COLOR;
+        case MatchedProductStatus.YES:
+          return LIGHT_GREEN_COLOR;
+      }
+    } else {
+      switch (matchedProduct.status) {
+        case null:
+        case MatchedProductStatus.UNKNOWN:
+          return PRIMARY_GREY_COLOR;
+        case MatchedProductStatus.NO:
+          return RED_COLOR;
+        case MatchedProductStatus.YES:
+          return DARK_GREEN_COLOR;
+      }
+    }
+  }
+
+  Color getHeaderForegroundColor(bool darkMode) =>
+      darkMode ? Colors.white : Colors.black;
 
   String getHeaderText(final AppLocalizations appLocalizations) {
     switch (matchedProduct.status) {
