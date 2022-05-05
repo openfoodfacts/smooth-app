@@ -61,23 +61,22 @@ class AttributeButton extends StatelessWidget {
           },
           child: SizedBox(
             width: importanceWidth,
-            height: MINIMUM_TARGET_SIZE,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                AutoSizeText(
-                  productPreferences
-                      .getPreferenceImportanceFromImportanceId(importanceId)!
-                      .name!,
-                  maxLines: 1,
-                  textAlign: TextAlign.center,
-                ),
                 Icon(
                   currentImportanceId == importanceId
                       ? Icons.radio_button_checked
                       : Icons.radio_button_off,
                   color: themeData.colorScheme.primary,
+                ),
+                AutoSizeText(
+                  productPreferences
+                      .getPreferenceImportanceFromImportanceId(importanceId)!
+                      .name!,
+                  maxLines: 2,
+                  textAlign: TextAlign.center,
                 ),
               ],
             ),
@@ -141,7 +140,7 @@ class AttributeButton extends StatelessWidget {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: children,
           ),
         ],
