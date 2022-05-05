@@ -87,10 +87,11 @@ class _ProductListPageState extends State<ProductListPage> {
                                   text: appLocalizations.yes,
                                 ),
                                 SmoothActionButton(
-                                    onPressed: () {
-                                      Navigator.of(context).pop();
-                                    },
-                                    text: appLocalizations.no),
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  text: appLocalizations.no,
+                                ),
                               ],
                             );
                           },
