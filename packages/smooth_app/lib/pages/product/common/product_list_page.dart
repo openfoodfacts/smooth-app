@@ -75,7 +75,8 @@ class _ProductListPageState extends State<ProductListPage> {
                           context: context,
                           builder: (BuildContext context) {
                             return SmoothAlertDialog(
-                              body: Text(appLocalizations.general_confirmation),
+                              body: const Text(
+                                  'Do you really want to clear'), // TODO(aman): translations
                               actions: <SmoothActionButton>[
                                 SmoothActionButton(
                                   onPressed: () async {
