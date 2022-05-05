@@ -153,9 +153,11 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
                   ListTile(
                     leading:
                         Image.asset(&#39;assets&#47;app&#47;smoothie-icon.1200x1200.png&#39;),
-                    title: Text(
-                      packageInfo.appName,
-                      style: themeData.textTheme.headline1,
+                    title: FittedBox(
+                      child: Text(
+                        packageInfo.appName,
+                        style: themeData.textTheme.headline1,
+                      ),
                     ),
                     subtitle: Text(
                       &#39;${packageInfo.version}+${packageInfo.buildNumber}&#39;,
