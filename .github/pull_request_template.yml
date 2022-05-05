@@ -1,10 +1,16 @@
 ### What
-- description of the PR
+<!-- description of the PR -->
+- Changed x to achieve y
 
 ### Screenshot
-(Insert a screenshot to provide visual record of your changes, if visible)
+<!-- Insert a screenshot to provide visual record of your changes, if visible -->
+
 ### Fixes bug(s)
-- #1, #2 and #3 (change by appropriate issues)
+<!-- change by appropriate issues. -->
+<!-- Please use a linking keyword https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword -->
+- Fixes: #1
+- Closes: #2
+
 ### Part of 
 - https://github.com/openfoodfacts/smooth-app/issues/525
-(please be as granular as possible)
+<!-- please be as granular as possible -->

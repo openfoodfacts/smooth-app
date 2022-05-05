@@ -1,5 +1,5 @@
 {
-    "app_name": "Periuţă",
+    "app_name": "OpenFoodFacts",
     "@Utils": {},
     "yes": "Da",
     "@yes": {},
@@ -36,7 +36,7 @@
     "@error_occurred": {},
     "featureInProgress": "Încă lucrăm la această funcție, rămâneți pe fază",
     "@featureInProgress": {},
-    "label_web": "Vizualizare pe Web",
+    "label_web": "Vizualizați-l pe web",
     "@label_web": {},
     "learnMore": "Afla mai mult",
     "@learnMore": {},
@@ -66,7 +66,7 @@
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Alege produsele care sunt bune pentru tine și pentru 🌍 planetă.",
+    "offUtility": "Alege alimente care sunt bune pentru tine și planetă.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
@@ -836,5 +836,57 @@
     },
     "completed_basic_details_btn_text": "Detalii de bază complete",
     "not_implemented_snackbar_text": "Neimplementat încă",
-    "category_picker_page_appbar_text": "Categorii"
+    "category_picker_page_appbar_text": "Categorii",
+    "edit_ingredients_extrait_ingredients_btn_text": "Extrageți ingredientele",
+    "@edit_ingredients_extrait_ingredients_btn_text": {
+        "description": "Ingredients edition - Extract ingredients"
+    },
+    "edit_ingredients_refresh_photo_btn_text": "Reîmprospătați fotografia",
+    "@edit_ingredients_refresh_photo_btn_text": {
+        "description": "Ingredients edition - Refresh photo"
+    },
+    "user_list_dialog_new_title": "Noua listă de produse",
+    "@user_list_dialog_new_title": {
+        "description": "Title of the 'new user list' dialog"
+    },
+    "user_list_dialog_rename_title": "Redenumiți lista",
+    "@user_list_dialog_rename_title": {
+        "description": "Title of the 'rename user list' dialog"
+    },
+    "user_list_subtitle_product": "Liste",
+    "@user_list_subtitle_product": {
+        "description": "Subtitle of a paragraph about user lists in a product context"
+    },
+    "user_list_button_new": "Listă nouă",
+    "@user_list_button_new": {
+        "description": "Short label of a 'new list' button"
+    },
+    "user_list_button_add_product": "Adaugă la listă",
+    "@user_list_button_add_product": {
+        "description": "Short label of an 'add to list' button from a product context"
+    },
+    "user_list_popup_clear": "Ștergeți",
+    "@user_list_popup_clear": {
+        "description": "Short label of a 'clear list' popup"
+    },
+    "user_list_popup_rename": "Redenumiți",
+    "@user_list_popup_rename": {
+        "description": "Short label of a 'rename list' popup"
+    },
+    "user_list_name_hint": "Lista mea",
+    "@user_list_name_hint": {
+        "description": "Hint of a user list name text-field in a 'user list' dialog"
+    },
+    "user_list_name_error_empty": "Numele nu poate fi lăsat necompletat",
+    "@user_list_name_error_empty": {
+        "description": "Validation error about the name that cannot be empty"
+    },
+    "user_list_name_error_already": "Acest nume este deja folosit",
+    "@user_list_name_error_already": {
+        "description": "Validation error about the name that is already used for another list"
+    },
+    "user_list_name_error_same": "Este același nume",
+    "@user_list_name_error_same": {
+        "description": "Validation error about the renamed name that is the same as the initial list name"
+    }
 }

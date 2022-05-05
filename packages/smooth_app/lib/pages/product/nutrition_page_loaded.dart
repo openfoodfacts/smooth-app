@@ -27,7 +27,10 @@ class NutritionPageLoaded extends StatefulWidget {
 }
 
 class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
-  late final RegExp _decimalRegExp;
+  // we admit both decimal points
+  // anyway, the keyboard will only show one
+  static final RegExp _decimalRegExp = RegExp(r'[0-9,.]');
+
   late final NumberFormat _numberFormat;
   late final NutritionContainer _nutritionContainer;
 
@@ -55,9 +58,6 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       product: widget.product,
     );
     _numberFormat = NumberFormat('####0.#####', ProductQuery.getLocaleString());
-    _decimalRegExp = _numberFormat.format(1.2).contains('.')
-        ? RegExp(r'[0-9\.]') // TODO(monsieurtanuki): check if . or \.
-        : RegExp(r'[0-9,]');
   }
 
   @override
