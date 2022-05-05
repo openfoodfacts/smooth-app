@@ -744,7 +744,7 @@ packages:
       name: percent_indicator
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.0.0"
+    version: "4.0.1"
   permission_handler:
     dependency: "direct main"
     description:
