@@ -242,24 +242,29 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
       padding: _ROW_PADDING_TOP,
       child: SmoothLargeButtonWithIcon(
         text:
-        AppLocalizations.of(context)!.nutritional_facts_input_button_label,
+            AppLocalizations.of(context)!.nutritional_facts_input_button_label,
         icon: Icons.edit,
         onPressed: () async {
           final OrderedNutrientsCache? cache =
-          await OrderedNutrientsCache.getCache(context);
+              await OrderedNutrientsCache.getCache(context);
           if (cache == null) {
+            final SnackBar snackBar = SnackBar(
+              content: Text(
+                  AppLocalizations.of(context)!.nutrition_cache_loading_error),
+            );
+            ScaffoldMessenger.of(context).showSnackBar(snackBar);
             return;
           }
 
           final bool result = await Navigator.push<bool>(
-            context,
-            MaterialPageRoute<bool>(
-              builder: (BuildContext context) => NutritionPageLoaded(
-                Product(barcode: widget.barcode),
-                cache.orderedNutrients,
-              ),
-            ),
-          ) ??
+                context,
+                MaterialPageRoute<bool>(
+                  builder: (BuildContext context) => NutritionPageLoaded(
+                    Product(barcode: widget.barcode),
+                    cache.orderedNutrients,
+                  ),
+                ),
+              ) ??
               false;
 
           setState(() {

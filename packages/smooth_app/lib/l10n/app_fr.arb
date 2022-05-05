@@ -415,6 +415,7 @@
     },
     "ingredients_photo_uploaded": "Photo des ingrédients téléchargée",
     "@ingredients_photo_uploaded": {},
+    "nutrition_cache_loading_error": "Impossible de charger les nutriments depuis le cache",
     "nutritional_facts_photo_button_label": "Photo des informations nutritionnelles",
     "nutritional_facts_input_button_label": "Insérer les informations nutritionnelles",
     "nutritional_facts_added": "Informations nutritionnelles ajoutées",
