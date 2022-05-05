@@ -1,5 +1,5 @@
 {
-    "app_name": "Frullato",
+    "app_name": "OpenFoodFacts",
     "@Utils": {},
     "yes": "Sì",
     "@yes": {},
@@ -36,7 +36,7 @@
     "@error_occurred": {},
     "featureInProgress": "Stiamo ancora lavorando a questa funzionalità, rimanete sintonizzati",
     "@featureInProgress": {},
-    "label_web": "Visualizza sul Web",
+    "label_web": "Visualizza sul web",
     "@label_web": {},
     "learnMore": "Ulteriori informazioni",
     "@learnMore": {},
@@ -66,7 +66,7 @@
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Scegli gli alimenti che fanno bene a te e il pianeta.",
+    "offUtility": "Scegli il cibo che fa bene a te e al pianeta.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
@@ -836,5 +836,57 @@
     },
     "completed_basic_details_btn_text": "Completa i dettagli di base",
     "not_implemented_snackbar_text": "Non ancora implementato",
-    "category_picker_page_appbar_text": "Categorie"
+    "category_picker_page_appbar_text": "Categorie",
+    "edit_ingredients_extrait_ingredients_btn_text": "Estrai ingredienti",
+    "@edit_ingredients_extrait_ingredients_btn_text": {
+        "description": "Ingredients edition - Extract ingredients"
+    },
+    "edit_ingredients_refresh_photo_btn_text": "Aggiorna foto",
+    "@edit_ingredients_refresh_photo_btn_text": {
+        "description": "Ingredients edition - Refresh photo"
+    },
+    "user_list_dialog_new_title": "Nuovo elenco di prodotti",
+    "@user_list_dialog_new_title": {
+        "description": "Title of the 'new user list' dialog"
+    },
+    "user_list_dialog_rename_title": "Rinomina lista",
+    "@user_list_dialog_rename_title": {
+        "description": "Title of the 'rename user list' dialog"
+    },
+    "user_list_subtitle_product": "Elenchi",
+    "@user_list_subtitle_product": {
+        "description": "Subtitle of a paragraph about user lists in a product context"
+    },
+    "user_list_button_new": "Nuovo elenco",
+    "@user_list_button_new": {
+        "description": "Short label of a 'new list' button"
+    },
+    "user_list_button_add_product": "Aggiungi alla lista",
+    "@user_list_button_add_product": {
+        "description": "Short label of an 'add to list' button from a product context"
+    },
+    "user_list_popup_clear": "Cancella",
+    "@user_list_popup_clear": {
+        "description": "Short label of a 'clear list' popup"
+    },
+    "user_list_popup_rename": "Rinomina",
+    "@user_list_popup_rename": {
+        "description": "Short label of a 'rename list' popup"
+    },
+    "user_list_name_hint": "La mia lista",
+    "@user_list_name_hint": {
+        "description": "Hint of a user list name text-field in a 'user list' dialog"
+    },
+    "user_list_name_error_empty": "Il nome non può essere vuoto",
+    "@user_list_name_error_empty": {
+        "description": "Validation error about the name that cannot be empty"
+    },
+    "user_list_name_error_already": "Questo nome è già in uso",
+    "@user_list_name_error_already": {
+        "description": "Validation error about the name that is already used for another list"
+    },
+    "user_list_name_error_same": "Questo è lo stesso nome",
+    "@user_list_name_error_same": {
+        "description": "Validation error about the renamed name that is the same as the initial list name"
+    }
 }
