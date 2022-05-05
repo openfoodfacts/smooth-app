@@ -71,7 +71,7 @@ class _ProductListPageState extends State<ProductListPage> {
                   onSelected: (final String action) async {
                     switch (action) {
                       case _popupActionClear:
-                        showDialog<bool>(
+                        await showDialog<bool>(
                           context: context,
                           builder: (BuildContext context) {
                             return SmoothAlertDialog(
