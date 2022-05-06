@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:io' show Platform;
 
-import 'package:camera/camera.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -22,11 +21,10 @@ import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
-
-List<CameraDescription> cameras = <CameraDescription>[];
 
 late bool _screenshots;
 
@@ -84,6 +82,7 @@ Future<bool> _init1() async {
     system: Platform.operatingSystemVersion,
     url: 'https://world.openfoodfacts.org/',
   );
+  await UserManagementProvider.mountCredentials();
   _userPreferences = await UserPreferences.getUserPreferences();
   _localDatabase = await LocalDatabase.getLocalDatabase();
   await _continuousScanModel.load(_localDatabase);
@@ -102,8 +101,7 @@ Future<bool> _init1() async {
   _themeProvider = ThemeProvider(_userPreferences);
   ProductQuery.setQueryType(_userPreferences);
 
-  cameras = await availableCameras();
-
+  await CameraHelper.init();
   await ProductQuery.setUuid(_localDatabase);
   _init1done = true;
   return true;
@@ -182,6 +180,7 @@ class _SmoothAppState extends State<SmoothApp> {
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final Widget appWidget = OnboardingFlowNavigator(_userPreferences)
         .getPageWidget(context, _userPreferences.lastVisitedOnboardingPage);
+
     return MaterialApp(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
@@ -230,8 +229,6 @@ class SmoothAppGetLanguage extends StatelessWidget {
 
     final LocalDatabase _localDatabase = context.read<LocalDatabase>();
     AnalyticsHelper.trackStart(_localDatabase, context);
-
-    context.read<UserManagementProvider>().mountCredentials();
 
     return appWidget;
   }
