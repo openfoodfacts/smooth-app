@@ -133,16 +133,17 @@ class UserPreferencesSettings extends AbstractUserPreferences {
             final PackageInfo packageInfo = await PackageInfo.fromPlatform();
             showDialog<void>(
               context: context,
-              builder: (BuildContext context) => SmoothAlertDialog.advanced(
-                close: false,
+              builder: (BuildContext context) => SmoothAlertDialog(
                 body: Column(
                   children: <Widget>[
                     ListTile(
                       leading:
                           Image.asset('assets/app/smoothie-icon.1200x1200.png'),
-                      title: Text(
-                        packageInfo.appName,
-                        style: themeData.textTheme.headline1,
+                      title: FittedBox(
+                        child: Text(
+                          packageInfo.appName,
+                          style: themeData.textTheme.headline1,
+                        ),
                       ),
                       subtitle: Text(
                         '${packageInfo.version}+${packageInfo.buildNumber}',

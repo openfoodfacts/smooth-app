@@ -26,7 +26,7 @@ jobs:
           ruby-version: 3.0.2
       
       - name: Setup Java JDK
-        uses: actions/setup-java@v3.1.1
+        uses: actions/setup-java@v3.3.0
         with:
           distribution: 'zulu'
           java-version: 11
@@ -36,11 +36,14 @@ jobs:
         with:
           channel: stable
           cache: true
-          cache-key: flutter2.10 #change this to force refresh cache
+          cache-key: flutter2.10 # change this to force refresh cache
       - run: flutter --version
 
       - name: Get dependencies
         run: ci/pub_upgrade.sh
+
+      - name: "Update Sentry, see: https://github.com/openfoodfacts/smooth-app/issues/1300"
+        run: cd ./packages/smooth_app/ios && pod update Sentry
       
       - name: Bundle install
         run: cd ./packages/smooth_app/ios && gem install bundler:1.17.3 && bundle install

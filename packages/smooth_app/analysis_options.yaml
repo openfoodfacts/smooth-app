@@ -28,6 +28,7 @@ linter:
     always_put_control_body_on_new_line: true
     always_require_non_null_named_parameters: true
     always_specify_types: true
+    always_use_package_imports: true
     annotate_overrides: true
     avoid_bool_literals_in_conditional_expressions: true
     avoid_classes_with_only_static_members: true

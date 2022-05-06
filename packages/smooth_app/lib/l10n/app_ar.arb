@@ -1,5 +1,5 @@
 {
-    "app_name": "Smoothie",
+    "app_name": "OpenFoodFacts",
     "@Utils": {},
     "yes": "نعم",
     "@yes": {},
@@ -36,7 +36,7 @@
     "@error_occurred": {},
     "featureInProgress": "لا زلنا نعمل على هذه الميزة. ترقبوا",
     "@featureInProgress": {},
-    "label_web": "عرض على الويب",
+    "label_web": "View on the web",
     "@label_web": {},
     "learnMore": "لمعرفة المزيد",
     "@learnMore": {},
@@ -66,7 +66,7 @@
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "اختر الأطعمة المفيدة لك وللكوكب.",
+    "offUtility": "Choose food that is good for you and the planet.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
@@ -151,11 +151,19 @@
     "sign_up_page_display_name_error_empty": "يرجاء إدخال الإسم العرض الذي تود استخدامه",
     "sign_up_page_email_hint": "البريد الإلكتروني",
     "sign_up_page_email_error_empty": "البريد الإلكتروني مطلوب",
-    "sign_up_page_email_error_invalid": "هذا البريد الإلكتروني غير صالح",
-    "sign_up_page_username_hint": "اسم المستخدم",
+    "sign_up_page_email_error_invalid": "Invalid e-mail",
+    "sign_up_page_username_hint": "Username: Publicly visible",
     "sign_up_page_username_error_empty": "برجاء إدخال اسم المستخدم",
     "sign_up_page_username_error_invalid": "برجاء إدخال اسم مستخدم صحيح",
     "sign_up_page_username_description": "لا يمكن أن يحتوي اسم المستخدم على مسافات، أو أحرف استهلالية، أو رموزا خاصة",
+    "sign_up_page_username_length_invalid": "اسم المستخدم يجب أن يكون أقل من {value} أحرف",
+    "@sign_up_page_username_length_invalid": {
+        "placeholders": {
+            "value": {
+                "type": "int"
+            }
+        }
+    },
     "sign_up_page_password_hint": "كلمة المرور",
     "sign_up_page_password_error_empty": "برجاء إخال كلمة مرور",
     "sign_up_page_password_error_invalid": "برجاء إدخال كلمة مرور (6 أحرف على الأقل)",
@@ -273,7 +281,7 @@
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "question_sign_in_text": "Sign in to your Open Food Facts account to claim your contribution and to increase your creditability",
+    "question_sign_in_text": "قم بتسجيل الدخول إلى حساب Open Food Facts الخاص بك للحصول على رصيد لمساهمتك",
     "@Personal preferences": {},
     "myPreferences": "خياراتي",
     "@myPreferences": {
@@ -385,9 +393,9 @@
     "@add_product_information_button_label": {},
     "new_product": "منتج جديد",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Front of product photo",
+    "front_packaging_photo_button_label": "الصورة الأمامية للمنتج",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Confirm front of product photo",
+    "confirm_front_packaging_photo_button_label": "تأكيد تحميل الصورة الأمامية للمنتج",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
@@ -439,31 +447,31 @@
     "@selecting_photo": {
         "description": "Progress indicator when the users takes a photo"
     },
-    "uploading_image": "Uploading photo to the server",
+    "uploading_image": "تحميل الصورة على الخادم",
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
-    "uploading_image_type_front": "Uploading front image to Open Food Facts",
+    "uploading_image_type_front": "تحميل الصورة الأمامية إلى Open Food Facts",
     "@uploading_image_type_front": {
         "description": "Message when a new front picture is being uploaded to the server"
     },
-    "uploading_image_type_ingredients": "Uploading ingredients image to Open Food Facts",
+    "uploading_image_type_ingredients": "تحميل صورة المكونات إلى Open Food Facts",
     "@uploading_image_type_ingredients": {
         "description": "Message when a new ingredients picture is being uploaded to the server"
     },
-    "uploading_image_type_nutrition": "Uploading nutrition image to Open Food Facts",
+    "uploading_image_type_nutrition": "تحميل صورة المكونات الغذائية إلى Open Food Facts",
     "@uploading_image_type_nutrition": {
         "description": "Message when a new nutrition picture is being uploaded to the server"
     },
-    "uploading_image_type_packaging": "Uploading packaging image to Open Food Facts",
+    "uploading_image_type_packaging": "تحميل صورة التغليف إلى Open Food Facts",
     "@uploading_image_type_packaging": {
         "description": "Message when a new packaging picture is being uploaded to the server"
     },
-    "uploading_image_type_other": "Uploading other image to Open Food Facts",
+    "uploading_image_type_other": "تحميل صورة أخرى إلى Open Food Facts",
     "@uploading_image_type_other": {
         "description": "Message when a new other picture is being uploaded to the server"
     },
-    "uploading_image_type_generic": "Uploading image to Open Food Facts",
+    "uploading_image_type_generic": "تحميل الصورة إلى Open Food Facts",
     "@uploading_image_type_generic": {
         "description": "Message when a new picture is being uploaded to the server"
     },
@@ -650,7 +658,7 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide if you want to send anonymous analytics.",
+    "consent_analytics_body1": "ساعد المتطوعين في Open Food Facts لتحسين التطبيق. أنت تقرر ما إذا كنت تريد تقديم تحليلات مجهولة.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
@@ -691,7 +699,7 @@
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
-    "product_list_empty_message": "Products you scan will appear here and you can check detailed information about them",
+    "product_list_empty_message": "ستظهر المنتجات الممسوحة ضوئيًا هنا ويمكنك التحقق من المعلومات التفصيلية عنها",
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
@@ -732,7 +740,7 @@
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "When enabled, crash reports will be sent to the Open Food Facts bug system automatically, so that we can fix bugs and improve the app.",
+    "crash_reporting_toggle_subtitle": "عند التمكين، يتم إرسال تقارير الأعطال تلقائيًا إلى نظام تتبع الأخطاء في Open Food Facts، بحيث يمكن إصلاح الأخطاء وبالتالي تحسين التطبيق.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
@@ -752,8 +760,8 @@
     "@permission_photo_error": {
         "description": "When the camera/photo permission failed to be acquired (!= denied)"
     },
-    "permission_photo_denied_title": "Allow camera use to scan barcodes",
-    "permission_photo_denied_message": "For an enhanced experience, please allow {appName} to access your camera. You will be able to directly scan barcodes.",
+    "permission_photo_denied_title": "السماح باستخدام الكاميرا لمسح الباركود",
+    "permission_photo_denied_message": "للحصول على تجربة محسّنة ، يُرجى السماح لـ {appName} بالوصول إلى الكاميرا. سوف تكون قادرا على مسح الباركود مباشرة.",
     "@permission_photo_denied_message": {
         "description": "When the camera/photo permission is denied by user",
         "placeholders": {
@@ -762,12 +770,12 @@
             }
         }
     },
-    "permission_photo_denied_button": "Allow",
+    "permission_photo_denied_button": "سماح",
     "@permission_photo_denied_button": {
         "description": "When the camera/photo permission is denied by user"
     },
-    "permission_photo_denied_dialog_settings_title": "Permission denied",
-    "permission_photo_denied_dialog_settings_message": "As you've previously denied the camera permission, you must allow it manually from the Settings.",
+    "permission_photo_denied_dialog_settings_title": "تم رفض الإذن",
+    "permission_photo_denied_dialog_settings_message": "نظرًا لأنك رفضت مسبقًا إذن الكاميرا ،يجب أن تسمح بذلك يدويًا من الإعدادات.",
     "permission_photo_denied_dialog_settings_button_open": "Open settings",
     "permission_photo_denied_dialog_settings_button_cancel": "إلغاء",
     "permission_photo_denied": "لم يتم منح الوصول إلى الكاميرا",
@@ -828,5 +836,61 @@
     },
     "completed_basic_details_btn_text": "Complete basic details",
     "not_implemented_snackbar_text": "Not implemented yet",
-    "category_picker_page_appbar_text": "الفئات"
+    "category_picker_page_appbar_text": "الفئات",
+    "edit_ingredients_extrait_ingredients_btn_text": "استخراج المكونات",
+    "@edit_ingredients_extrait_ingredients_btn_text": {
+        "description": "Ingredients edition - Extract ingredients"
+    },
+    "edit_ingredients_refresh_photo_btn_text": "Refresh photo",
+    "@edit_ingredients_refresh_photo_btn_text": {
+        "description": "Ingredients edition - Refresh photo"
+    },
+    "user_list_dialog_new_title": "New list of products",
+    "@user_list_dialog_new_title": {
+        "description": "Title of the 'new user list' dialog"
+    },
+    "user_list_dialog_rename_title": "Rename list",
+    "@user_list_dialog_rename_title": {
+        "description": "Title of the 'rename user list' dialog"
+    },
+    "user_list_subtitle_product": "Lists",
+    "@user_list_subtitle_product": {
+        "description": "Subtitle of a paragraph about user lists in a product context"
+    },
+    "user_list_button_new": "New list",
+    "@user_list_button_new": {
+        "description": "Short label of a 'new list' button"
+    },
+    "user_list_button_add_product": "أضف إلى القائمة",
+    "@user_list_button_add_product": {
+        "description": "Short label of an 'add to list' button from a product context"
+    },
+    "user_list_popup_clear": "محو",
+    "@user_list_popup_clear": {
+        "description": "Short label of a 'clear list' popup"
+    },
+    "user_list_popup_rename": "Rename",
+    "@user_list_popup_rename": {
+        "description": "Short label of a 'rename list' popup"
+    },
+    "user_list_name_hint": "My list",
+    "@user_list_name_hint": {
+        "description": "Hint of a user list name text-field in a 'user list' dialog"
+    },
+    "user_list_name_error_empty": "The name cannot be empty",
+    "@user_list_name_error_empty": {
+        "description": "Validation error about the name that cannot be empty"
+    },
+    "user_list_name_error_already": "That name is already used",
+    "@user_list_name_error_already": {
+        "description": "Validation error about the name that is already used for another list"
+    },
+    "user_list_name_error_same": "That is the same name",
+    "@user_list_name_error_same": {
+        "description": "Validation error about the renamed name that is the same as the initial list name"
+    },
+    "confirm_clear": "Do you really want to clear?",
+    "@confirm_clear": {
+        "description": "Asking about whether to clear the list or not"
+    }
 }

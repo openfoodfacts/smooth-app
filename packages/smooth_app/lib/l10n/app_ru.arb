@@ -1,5 +1,5 @@
 {
-    "app_name": "Smoothie",
+    "app_name": "OpenFoodFacts",
     "@Utils": {},
     "yes": "Да",
     "@yes": {},
@@ -36,7 +36,7 @@
     "@error_occurred": {},
     "featureInProgress": "Мы все еще работаем над этой функцией, следите за обновлениями",
     "@featureInProgress": {},
-    "label_web": "Посмотреть в Интернете",
+    "label_web": "View on the web",
     "@label_web": {},
     "learnMore": "Докладніше",
     "@learnMore": {},
@@ -45,7 +45,7 @@
     "@incompatible": {
         "description": "Short label for product list view: the product is incompatible with your preferences"
     },
-    "compatible": "Compatible",
+    "compatible": "Совместимый",
     "@compatible": {
         "description": "Short label for product list view: the product is compatible with your preferences"
     },
@@ -62,28 +62,28 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Добро пожаловать в Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "whatIsOff": "Open Food Facts — это глобальная некоммерческая организация, основанная местными сообществами.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Choose foods that are good for you and the planet.",
+    "offUtility": "Choose food that is good for you and the planet.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
-    "productDataUtility": "See the food data relevant to your preferences.",
+    "productDataUtility": "Смотрите данные о еде, соответствующие вашим предпочтениям.",
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."
     },
-    "healthCardUtility": "Choose foods that are good for you.",
+    "healthCardUtility": "▶ Выбирайте продукты, которые полезны для вас.",
     "@healthCardUtility": {
         "description": "Description of what a user can use the health data in a product for."
     },
-    "ecoCardUtility": "Choose foods that are good for the planet.",
+    "ecoCardUtility": "Выбирайте продукты, полезные для планеты.",
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
-    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
+    "sign_in_text": "Войдите в свою учетную запись Open Food Facts, чтобы сохранить свои взносы",
     "incorrect_credentials": "Неверное имя пользователя или пароль.",
     "login": "Имя пользователя",
     "@login": {
@@ -151,22 +151,30 @@
     "sign_up_page_display_name_error_empty": "Пожалуйста, введите имя пользователя",
     "sign_up_page_email_hint": "E-mail",
     "sign_up_page_email_error_empty": "Введите адрес электронной почты",
-    "sign_up_page_email_error_invalid": "Неверный адрес электронной почты",
-    "sign_up_page_username_hint": "Имя пользователя",
+    "sign_up_page_email_error_invalid": "Неверный e-mail",
+    "sign_up_page_username_hint": "Имя пользователя: Общедоступно",
     "sign_up_page_username_error_empty": "Введите имя пользователя",
     "sign_up_page_username_error_invalid": "Пожалуйста, введите корректное имя пользователя",
     "sign_up_page_username_description": "Имя пользователя не может содержать пробелы, заглавные буквы или специальные символы",
+    "sign_up_page_username_length_invalid": "В имени пользователя должно быть менее {value} символов",
+    "@sign_up_page_username_length_invalid": {
+        "placeholders": {
+            "value": {
+                "type": "int"
+            }
+        }
+    },
     "sign_up_page_password_hint": "Пароль",
     "sign_up_page_password_error_empty": "Введите пароль",
     "sign_up_page_password_error_invalid": "Пароль должен содержать не менее 6 символов",
     "sign_up_page_confirm_password_hint": "Подтвердите пароль",
     "sign_up_page_confirm_password_error_empty": "Пожалуйста, подтверлите пароль",
     "sign_up_page_confirm_password_error_invalid": "Пароли не совпадают",
-    "sign_up_page_agree_text": "I agree to the Open Food Facts",
+    "sign_up_page_agree_text": "Я согласен с Open Food Facts",
     "@sign_up_page_agree_text": {
         "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
     },
-    "sign_up_page_terms_text": "terms of use and contribution",
+    "sign_up_page_terms_text": "условия использования и вклад",
     "@sign_up_page_terms_text": {
         "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
     },
@@ -178,7 +186,7 @@
     "@donate_url": {
         "description": "Please insert the right url from the website here."
     },
-    "sign_up_page_agree_error_invalid": "When creating an account, agreeing to the Terms of Use is mandatory, however, anonymous contributions can still be made through the app",
+    "sign_up_page_agree_error_invalid": "При создании учетной записи согласие с Условиями использования является обязательным, однако анонимные взносы по-прежнему можно делать через приложение",
     "@sign_up_page_agree_error_invalid": {
         "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
     },
@@ -217,7 +225,7 @@
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
     "support_join_slack": "Попросите о помощи в нашем канале Slack",
-    "support_via_email": "Send us an e-mail",
+    "support_via_email": "Отправьте нам электронное письмо",
     "termsOfUse": "Условия использования",
     "@termsOfUse": {},
     "about_this_app": "О приложении",
@@ -273,7 +281,7 @@
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "question_sign_in_text": "Войдите в свою учетную запись Open Food Facts, чтобы заявить о своем вкладе и повысить свое признание",
+    "question_sign_in_text": "Войдите в свою учетную запись Open Food Facts, чтобы получить признание за свой вклад",
     "@Personal preferences": {},
     "myPreferences": "Мои настройки",
     "@myPreferences": {
@@ -294,15 +302,15 @@
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
     "ranking_tab_all": "Все",
-    "ranking_subtitle_match_yes": "A great match for you",
-    "ranking_subtitle_match_no": "Very poor match",
+    "ranking_subtitle_match_yes": "Хорошо подходит для вас",
+    "ranking_subtitle_match_no": "Плохо подходит для вас",
     "ranking_subtitle_match_maybe": "Неизвестное солвпадение",
-    "reloaded_with_new_preferences": "Reloaded with your new preferences",
+    "reloaded_with_new_preferences": "Перезагружено с вашими новыми настройками",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
     },
     "@other": {},
-    "profile_navbar_label": "Profile",
+    "profile_navbar_label": "Профиль",
     "@profile_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
@@ -314,7 +322,7 @@
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the history and compare mode"
     },
-    "category": "Filter by category",
+    "category": "Фильтр по категориям",
     "@category": {
         "description": "From a product list, there's a category filter: this is its title"
     },
@@ -335,7 +343,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Tap to see more info...",
+    "tab_for_more": "Нажмите для просмотра...",
     "@Product": {},
     "product": "Продукт",
     "@product": {},
@@ -343,21 +351,21 @@
     "@unknownBrand": {},
     "unknownProductName": "Неизвестный продукт",
     "@unknownProductName": {},
-    "label_refresh": "Refresh",
+    "label_refresh": "Обновить",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
-    "image": "Image",
+    "image": "Изображение",
     "front_photo": "Фото спереди",
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
     },
     "ingredients": "Состав",
     "@ingredients": {},
-    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen, use parentheses for ingredients of an ingredient, and indicate allergens between underscores.",
-    "ingredients_editing_error": "Failed to save the ingredients.",
-    "ingredients_editing_image_error": "Failed to get a new ingredients image.",
-    "ingredients_editing_title": "Edit Ingredients",
+    "ingredients_editing_instructions": "Сохраняйте первоначальный порядок. Укажите процент, если он указан. Разделяйте запятой или дефисом, используйте круглые скобки для ингредиентов и указывайте аллергены между символами подчеркивания.",
+    "ingredients_editing_error": "Не удалось сохранить ингредиенты.",
+    "ingredients_editing_image_error": "Не удалось получить изображение нового ингредиента.",
+    "ingredients_editing_title": "Изменить ингредиенты",
     "ingredients_photo": "Фото состава",
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
@@ -377,7 +385,7 @@
     "@packaging_information_photo": {},
     "missing_product": "Вы нашли новый продукт!",
     "@missing_product": {},
-    "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
+    "add_product_take_photos": "Сфотографируйте упаковку, чтобы добавить этот продукт в Open Food Facts",
     "@add_product_take_photos": {},
     "add_product_take_photos_descriptive": "Пожалуйста, сделайте несколько фотографий, а движок Open Food Facts сделает все остальное!",
     "@add_product_take_photos_descriptive": {},
@@ -385,47 +393,47 @@
     "@add_product_information_button_label": {},
     "new_product": "Новый продукт",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Front of product photo",
+    "front_packaging_photo_button_label": "Фронтальная фотография продукта",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Confirm front of product photo",
+    "confirm_front_packaging_photo_button_label": "Подтвердите загрузку передней фотографии продукта",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
-    "confirm_button_label": "Confirm",
-    "front_packaging_photo_title": "Front Packaging Photo",
-    "ingredients_photo_title": "Ingredients Photo",
-    "nutritional_facts_photo_title": "Nutritional Facts Photo",
-    "recycling_photo_title": "Recycling Photo",
-    "other_interesting_photo_title": "Other Interesting Photo",
-    "front_photo_uploaded": "Front photo uploaded",
+    "confirm_button_label": "Подтвердить",
+    "front_packaging_photo_title": "Фото упаковки спереди",
+    "ingredients_photo_title": "Фото состава",
+    "nutritional_facts_photo_title": "Фото информации о пищевой ценности",
+    "recycling_photo_title": "Изображение сведений о переработке",
+    "other_interesting_photo_title": "Другое интересное фото",
+    "front_photo_uploaded": "Загружено переднее фото",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Фото состава",
     "@ingredients_photo_button_label": {},
-    "confirm_ingredients_photo_button_label": "Confirm ingredients photo",
+    "confirm_ingredients_photo_button_label": "Подтвердить фото ингредиентов",
     "@confirm_ingredients_photo_button_label": {
         "description": "Button clicking on which confirms the picture of ingredients that user just took."
     },
-    "ingredients_photo_uploaded": "Ingredients photo uploaded",
+    "ingredients_photo_uploaded": "Фото ингредиентов загружено",
     "@ingredients_photo_uploaded": {},
     "nutritional_facts_photo_button_label": "Фото информации о пищевой ценности",
     "@nutritional_facts_photo_button_label": {},
-    "confirm_nutritional_facts_photo_button_label": "Confirm nutrition facts photo",
+    "confirm_nutritional_facts_photo_button_label": "Подтвердите фото пищевой ценности",
     "@confirm_nutritional_facts_photo_button_label": {
         "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
     },
-    "nutritional_facts_photo_uploaded": "Nutrition facts photo uploaded",
+    "nutritional_facts_photo_uploaded": "Фото информации о пищевой ценности загружено",
     "@nutritional_facts_photo_uploaded": {},
-    "recycling_photo_button_label": "Recycling information photo",
+    "recycling_photo_button_label": "Информационное фото по переработке",
     "@recycling_photo_button_label": {},
-    "confirm_recycling_photo_button_label": "Confirm Recycling information photo",
+    "confirm_recycling_photo_button_label": "Подтвердите фотографию по переработке",
     "@confirm_recycling_photo_button_label": {
         "description": "Button clicking on which confirms the picture of recycling information that user just took."
     },
-    "recycling_photo_uploaded": "Recycling photo uploaded",
+    "recycling_photo_uploaded": "Фотография утилизации загружена",
     "@recycling_photo_uploaded": {},
     "other_interesting_photo_button_label": "Other interesting photos",
     "@other_interesting_photo_button_label": {},
-    "confirm_other_interesting_photo_button_label": "Confirm photo",
+    "confirm_other_interesting_photo_button_label": "Подтвердить",
     "@confirm_other_interesting_photo_button_label": {
         "description": "Button clicking on which confirms a miscellaneous photo of the product."
     },
@@ -439,15 +447,15 @@
     "@selecting_photo": {
         "description": "Progress indicator when the users takes a photo"
     },
-    "uploading_image": "Uploading photo to the server",
+    "uploading_image": "Фото выгружается на сервер",
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
-    "uploading_image_type_front": "Uploading front image to Open Food Facts",
+    "uploading_image_type_front": "Загрузка фронтального изображения в Open Food Facts",
     "@uploading_image_type_front": {
         "description": "Message when a new front picture is being uploaded to the server"
     },
-    "uploading_image_type_ingredients": "Uploading ingredients image to Open Food Facts",
+    "uploading_image_type_ingredients": "Загрузка листа ингредиентов в Open Food Facts",
     "@uploading_image_type_ingredients": {
         "description": "Message when a new ingredients picture is being uploaded to the server"
     },
@@ -650,7 +658,7 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Помогите волонтерам Open Food Facts улучшить приложение. Вы сами решаете, хотите ли вы отправлять анонимную аналитику.",
+    "consent_analytics_body1": "Помогите волонтерам Open Food Facts улучшить приложение. Вы сами решаете, отправлять ли анонимную аналитику.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
@@ -691,7 +699,7 @@
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
-    "product_list_empty_message": "Сканируемые вами продукты появятся здесь, и вы сможете просмотреть подробную информацию о них",
+    "product_list_empty_message": "Отсканированные продукты появятся здесь, и вы сможете просмотреть подробную информацию о них",
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
@@ -732,7 +740,7 @@
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "When enabled, crash reports will be sent to the Open Food Facts bug system automatically, so that we can fix bugs and improve the app.",
+    "crash_reporting_toggle_subtitle": "When enabled, crash reports are automatically submitted to Open Food Facts' error tracking system, so that bugs can be fixed and thus improve the app.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
@@ -752,8 +760,8 @@
     "@permission_photo_error": {
         "description": "When the camera/photo permission failed to be acquired (!= denied)"
     },
-    "permission_photo_denied_title": "Allow camera use to scan barcodes",
-    "permission_photo_denied_message": "For an enhanced experience, please allow {appName} to access your camera. You will be able to directly scan barcodes.",
+    "permission_photo_denied_title": "Разрешите использование камеры для сканирования штрихкодов",
+    "permission_photo_denied_message": "Для расширения возможностей разрешите {appName} доступ к вашей камере. Вы сможете сканировать штрихкоды напрямую.",
     "@permission_photo_denied_message": {
         "description": "When the camera/photo permission is denied by user",
         "placeholders": {
@@ -762,12 +770,12 @@
             }
         }
     },
-    "permission_photo_denied_button": "Allow",
+    "permission_photo_denied_button": "Разрешить",
     "@permission_photo_denied_button": {
         "description": "When the camera/photo permission is denied by user"
     },
-    "permission_photo_denied_dialog_settings_title": "Permission denied",
-    "permission_photo_denied_dialog_settings_message": "As you've previously denied the camera permission, you must allow it manually from the Settings.",
+    "permission_photo_denied_dialog_settings_title": "Отказано в доступе",
+    "permission_photo_denied_dialog_settings_message": "Поскольку ранее вы отказали в доступе к камере, вы должны разрешить его вручную в настройках.",
     "permission_photo_denied_dialog_settings_button_open": "Открыть настройки",
     "permission_photo_denied_dialog_settings_button_cancel": "Отмена",
     "permission_photo_denied": "Нет доступа к камере",
@@ -828,5 +836,61 @@
     },
     "completed_basic_details_btn_text": "Complete basic details",
     "not_implemented_snackbar_text": "Not implemented yet",
-    "category_picker_page_appbar_text": "Категории"
+    "category_picker_page_appbar_text": "Категории",
+    "edit_ingredients_extrait_ingredients_btn_text": "Распознать ингредиенты",
+    "@edit_ingredients_extrait_ingredients_btn_text": {
+        "description": "Ingredients edition - Extract ingredients"
+    },
+    "edit_ingredients_refresh_photo_btn_text": "Обновить фото",
+    "@edit_ingredients_refresh_photo_btn_text": {
+        "description": "Ingredients edition - Refresh photo"
+    },
+    "user_list_dialog_new_title": "Новый список продуктов",
+    "@user_list_dialog_new_title": {
+        "description": "Title of the 'new user list' dialog"
+    },
+    "user_list_dialog_rename_title": "Переименование списка",
+    "@user_list_dialog_rename_title": {
+        "description": "Title of the 'rename user list' dialog"
+    },
+    "user_list_subtitle_product": "Списки",
+    "@user_list_subtitle_product": {
+        "description": "Subtitle of a paragraph about user lists in a product context"
+    },
+    "user_list_button_new": "Новый список",
+    "@user_list_button_new": {
+        "description": "Short label of a 'new list' button"
+    },
+    "user_list_button_add_product": "Добавить в список",
+    "@user_list_button_add_product": {
+        "description": "Short label of an 'add to list' button from a product context"
+    },
+    "user_list_popup_clear": "Очистить",
+    "@user_list_popup_clear": {
+        "description": "Short label of a 'clear list' popup"
+    },
+    "user_list_popup_rename": "Переименовать",
+    "@user_list_popup_rename": {
+        "description": "Short label of a 'rename list' popup"
+    },
+    "user_list_name_hint": "Мой список",
+    "@user_list_name_hint": {
+        "description": "Hint of a user list name text-field in a 'user list' dialog"
+    },
+    "user_list_name_error_empty": "Название не может быть пустым",
+    "@user_list_name_error_empty": {
+        "description": "Validation error about the name that cannot be empty"
+    },
+    "user_list_name_error_already": "Это название уже используется",
+    "@user_list_name_error_already": {
+        "description": "Validation error about the name that is already used for another list"
+    },
+    "user_list_name_error_same": "Это то же самое название",
+    "@user_list_name_error_same": {
+        "description": "Validation error about the renamed name that is the same as the initial list name"
+    },
+    "confirm_clear": "Do you really want to clear?",
+    "@confirm_clear": {
+        "description": "Asking about whether to clear the list or not"
+    }
 }

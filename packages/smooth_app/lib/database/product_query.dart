@@ -100,6 +100,7 @@ abstract class ProductQuery {
         ProductField.NUTRIMENT_ENERGY_UNIT,
         ProductField.ADDITIVES,
         ProductField.INGREDIENTS_ANALYSIS_TAGS,
+        ProductField.INGREDIENTS_TEXT,
         ProductField.LABELS_TAGS,
         ProductField.LABELS_TAGS_IN_LANGUAGES,
         ProductField.ENVIRONMENT_IMPACT_LEVELS,
@@ -111,6 +112,7 @@ abstract class ProductQuery {
         ProductField.ECOSCORE_DATA,
         ProductField.ECOSCORE_GRADE,
         ProductField.ECOSCORE_SCORE,
+        ProductField.KNOWLEDGE_PANELS,
       ];
 
   Future<SearchResult> getSearchResult();

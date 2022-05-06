@@ -4,8 +4,8 @@ import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:openfoodfacts/personalized_search/product_preferences_manager.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
-import 'attributes_card_helper.dart';
 
 /// Match and score of a [Product] vs. Preferences
 ///

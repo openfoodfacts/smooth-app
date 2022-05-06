@@ -55,11 +55,15 @@ class ScannerOverlay extends StatelessWidget {
             children: <Widget>[
               //Scanner
               if (backgroundChild != null)
+                // Force the child to take the full space, otherwise the
+                // [VisibilityDetector] may return incorrect results
                 SmoothRevealAnimation(
                   delay: 400,
                   startOffset: Offset.zero,
                   animationCurve: Curves.easeInOutBack,
-                  child: backgroundChild!,
+                  child: SizedBox.expand(
+                    child: backgroundChild,
+                  ),
                 ),
               // Scanning area overlay
               SmoothRevealAnimation(

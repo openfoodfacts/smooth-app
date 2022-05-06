@@ -1,7 +1,7 @@
 {
-    "app_name": "Smoothie",
+    "app_name": "OpenFoodFacts",
     "@Utils": {},
-    "yes": "Có",
+    "yes": "Đồng ý",
     "@yes": {},
     "add": "Thêm vào",
     "@add": {},
@@ -14,7 +14,7 @@
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
     "save": "Lưu",
-    "save_confirmation": "Are you sure you want to save?",
+    "save_confirmation": "Bạn chắc chắc muốn lưu?",
     "skip": "Skip",
     "cancel": "Huỷ",
     "@cancel": {},
@@ -26,7 +26,7 @@
     "@stop": {},
     "finish": "Finish",
     "@finish": {},
-    "reset_food_prefs": "Đặt lại tùy chọn thực phẩm",
+    "reset_food_prefs": "Đặt lại sở thích ăn uống",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
     },
@@ -36,16 +36,16 @@
     "@error_occurred": {},
     "featureInProgress": "Chúng tôi vẫn đang xây dựng tính năng này, nhớ theo dõi nhé",
     "@featureInProgress": {},
-    "label_web": "Xem trên Web",
+    "label_web": "Xem trên web",
     "@label_web": {},
     "learnMore": "Tìm hiểu thêm",
     "@learnMore": {},
-    "general_confirmation": "Are you sure?",
-    "incompatible": "Không tương thích",
+    "general_confirmation": "Bạn chắc chứ?",
+    "incompatible": "Không phù hợp",
     "@incompatible": {
         "description": "Short label for product list view: the product is incompatible with your preferences"
     },
-    "compatible": "Tương thích",
+    "compatible": "Phù hợp",
     "@compatible": {
         "description": "Short label for product list view: the product is compatible with your preferences"
     },
@@ -60,17 +60,17 @@
         "description": "Looking for: ${BARCODE}"
     },
     "@Introduction screen": {},
-    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
+    "welcomeToOpenFoodFacts": "Chào mừng đến với Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
     "whatIsOff": "Open Food Facts là dự án toàn cầu phi lợi nhuận được bảo trợ bởi các cộng đồng địa phương.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Chọn thực phẩm tốt cho bạn và hành tinh này.",
+    "offUtility": "Choose food that is good for you and the planet.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
-    "productDataUtility": "Xem các dữ liệu thực phẩm liên quan đến sở thích của bạn.",
+    "productDataUtility": "Xem dữ liệu thực phẩm liên quan đến sở thích của bạn.",
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."
     },
@@ -89,7 +89,7 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
-    "login_page_username_or_email": "Please enter username or e-mail",
+    "login_page_username_or_email": "Vui lòng nhập tên người dùng hoặc e-mail",
     "login_page_password_error_empty": "Vui lòng nhập mật khẩu",
     "create_account": "Tạo tài khoản",
     "@create_account": {
@@ -99,11 +99,11 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_out": "Đăng xuất",
+    "sign_out": "Thoát",
     "@sign_out": {
         "description": "Button label: For sign out"
     },
-    "sign_out_confirmation": "Bạn có chắc muốn đăng xuất không?",
+    "sign_out_confirmation": "Bạn có chắc muốn thoát không?",
     "@sign_out_confirmation": {
         "description": "Pop up title: Reassuring if the user really want to sign out"
     },
@@ -152,21 +152,29 @@
     "sign_up_page_email_hint": "E-mail",
     "sign_up_page_email_error_empty": "Email là bắt buộc",
     "sign_up_page_email_error_invalid": "Email không hợp lệ",
-    "sign_up_page_username_hint": "Tên người dùng",
+    "sign_up_page_username_hint": "Tên người dùng: Hiển thị công khai",
     "sign_up_page_username_error_empty": "Vui lòng nhập tên đăng nhập",
     "sign_up_page_username_error_invalid": "Vui lòng nhập tên đăng nhập hợp lệ",
     "sign_up_page_username_description": "Tên đăng nhập không bao gồm khoảng cách, chữ viết hoa và các kí tự đặc biệt",
+    "sign_up_page_username_length_invalid": "Tên người dùng phải ít hơn {value} ký tự",
+    "@sign_up_page_username_length_invalid": {
+        "placeholders": {
+            "value": {
+                "type": "int"
+            }
+        }
+    },
     "sign_up_page_password_hint": "Mật khẩu",
     "sign_up_page_password_error_empty": "Vui lòng nhập mật khẩu",
     "sign_up_page_password_error_invalid": "Vui lòng nhập mật khẩu hợp lệ (ít nhất 6 kí tự)",
     "sign_up_page_confirm_password_hint": "Xác nhận mật khẩu",
     "sign_up_page_confirm_password_error_empty": "Vui lòng xác nhận mật khẩu",
     "sign_up_page_confirm_password_error_invalid": "Mật khẩu không khớp",
-    "sign_up_page_agree_text": "I agree to the Open Food Facts",
+    "sign_up_page_agree_text": "Tôi đồng ý với Open Food Facts",
     "@sign_up_page_agree_text": {
         "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
     },
-    "sign_up_page_terms_text": "terms of use and contribution",
+    "sign_up_page_terms_text": "điều khoản sử dụng và đóng góp",
     "@sign_up_page_terms_text": {
         "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
     },
@@ -185,7 +193,7 @@
     "sign_up_page_producer_checkbox": "Tôi là nhà sản xuất thực phẩm",
     "sign_up_page_producer_hint": "Nhà sản xuất/thương hiệu",
     "sign_up_page_producer_error_empty": "Vui lòng nhập tên nhà sản xuất hoặc thương hiệu",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
+    "sign_up_page_subscribe_checkbox": "Tôi muốn đăng kí nhận bản tin từ Open Food Facts (bạn có thể hủy đăng kí bất kì lúc nào)",
     "@Settings": {},
     "settingsTitle": "Cài đặt",
     "@settingsTitle": {
@@ -203,7 +211,7 @@
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch (light)"
     },
-    "darkmode_system_default": "System default",
+    "darkmode_system_default": "Mặc định hệ thống",
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
@@ -217,7 +225,7 @@
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
     "support_join_slack": "Yêu cầu hỗ trợ trên kênh Slack của chúng tôi",
-    "support_via_email": "Send us an e-mail",
+    "support_via_email": "Gửi email tới chúng tôi",
     "termsOfUse": "Điều khoản sử dụng",
     "@termsOfUse": {},
     "about_this_app": "Thông tin về ứng dụng",
@@ -269,18 +277,18 @@
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
     },
-    "contribute_to_get_rewards": "Help improve food transparency and get rewards",
+    "contribute_to_get_rewards": "Giúp cải thiện tính minh bạch của thực phẩm và nhận phần thưởng",
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "question_sign_in_text": "Sign in to your Open Food Facts account to claim your contribution and to increase your creditability",
+    "question_sign_in_text": "Đăng nhập vào tài khoản Open Foof Facts của bạn để lưu những đóng góp của mình",
     "@Personal preferences": {},
     "myPreferences": "Tuỳ chọn của tôi",
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "Thông tin của bạn",
-    "myPreferences_profile_subtitle": "Change app settings and get advice.",
+    "myPreferences_profile_subtitle": "Thay đổi cài đặt ứng dụng và nhận chỉ dẫn.",
     "myPreferences_settings_title": "Cài đặt ứng dụng",
     "myPreferences_settings_subtitle": "Chế độ tối, Chủ đề, ...",
     "myPreferences_food_title": "Sở thích ăn uống",
@@ -297,7 +305,7 @@
     "ranking_subtitle_match_yes": "Phù hợp nhất cho bạn",
     "ranking_subtitle_match_no": "Độ phù hợp thấp",
     "ranking_subtitle_match_maybe": "Độ phù hợp không xác định",
-    "reloaded_with_new_preferences": "Reloaded with your new preferences",
+    "reloaded_with_new_preferences": "Đã tải lại với các tùy chọn mới",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
     },
@@ -354,17 +362,17 @@
     },
     "ingredients": "Thành phần",
     "@ingredients": {},
-    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen, use parentheses for ingredients of an ingredient, and indicate allergens between underscores.",
-    "ingredients_editing_error": "Failed to save the ingredients.",
-    "ingredients_editing_image_error": "Failed to get a new ingredients image.",
-    "ingredients_editing_title": "Edit Ingredients",
+    "ingredients_editing_instructions": "Giữ thứ tự ban đầu. Cho biết tỷ lệ phần trăm khi được chỉ định. Phân tách bằng dấu phẩy hoặc dấu gạch ngang, sử dụng dấu ngoặc đơn cho các thành phần của một thành phần và chỉ ra chất gây dị ứng giữa các dấu gạch dưới.",
+    "ingredients_editing_error": "Không thể lưu các thành phần.",
+    "ingredients_editing_image_error": "Không lấy được hình ảnh nguyên liệu mới.",
+    "ingredients_editing_title": "Chỉnh sửa nguyên liệu",
     "ingredients_photo": "Ảnh chụp thành phần",
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
     "nutrition": "Dinh dưỡng",
     "@nutrition": {},
-    "nutrition_page_close_confirmation": "Are you sure you want to close without saving?",
+    "nutrition_page_close_confirmation": "Bạn chắc chắn muốn thoát mà không lưu?",
     "nutrition_facts_photo": "Ảnh chụp thông tin dinh dưỡng",
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
@@ -377,31 +385,31 @@
     "@packaging_information_photo": {},
     "missing_product": "Bạn đã tìm thấy một sản phẩm mới!",
     "@missing_product": {},
-    "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
+    "add_product_take_photos": "Chụp ảnh bao bì để thêm sản phẩm này vào Open Food Facts",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Please take some photos and the Open Food Facts engine can work out the rest!",
+    "add_product_take_photos_descriptive": "Vui lòng chụp thêm một vài bức ảnh và Open Food Facts sẽ có thể xử lý các phần việc còn lại!",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Add product information",
     "@add_product_information_button_label": {},
     "new_product": "Sản phẩm mới",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Front of product photo",
+    "front_packaging_photo_button_label": "Ảnh mặt trước của sản phẩm",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Confirm front of product photo",
+    "confirm_front_packaging_photo_button_label": "Xác nhận tải lên ảnh mặt trước của sản phẩm",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
-    "confirm_button_label": "Confirm",
-    "front_packaging_photo_title": "Front Packaging Photo",
-    "ingredients_photo_title": "Ingredients Photo",
-    "nutritional_facts_photo_title": "Nutritional Facts Photo",
-    "recycling_photo_title": "Recycling Photo",
-    "other_interesting_photo_title": "Other Interesting Photo",
+    "confirm_button_label": "Xác nhận",
+    "front_packaging_photo_title": "Ảnh bao bì phía trước",
+    "ingredients_photo_title": "Ảnh thành phần",
+    "nutritional_facts_photo_title": "Ảnh thông tin dinh dưỡng",
+    "recycling_photo_title": "Ảnh quy định tái chế",
+    "other_interesting_photo_title": "Các hình ảnh thú vị khác",
     "front_photo_uploaded": "Đã tải ảnh mặt trước lên",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Ảnh chụp thành phần",
     "@ingredients_photo_button_label": {},
-    "confirm_ingredients_photo_button_label": "Confirm ingredients photo",
+    "confirm_ingredients_photo_button_label": "Xác nhận ảnh thành phần",
     "@confirm_ingredients_photo_button_label": {
         "description": "Button clicking on which confirms the picture of ingredients that user just took."
     },
@@ -409,11 +417,11 @@
     "@ingredients_photo_uploaded": {},
     "nutritional_facts_photo_button_label": "Ảnh chụp thông tin dinh dưỡng",
     "@nutritional_facts_photo_button_label": {},
-    "confirm_nutritional_facts_photo_button_label": "Confirm nutrition facts photo",
+    "confirm_nutritional_facts_photo_button_label": "Xác nhận ảnh thông tin dinh dưỡng",
     "@confirm_nutritional_facts_photo_button_label": {
         "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
     },
-    "nutritional_facts_photo_uploaded": "Nutrition facts photo uploaded",
+    "nutritional_facts_photo_uploaded": "Ảnh thông tin dinh dưỡng đã được tải lên",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Ảnh thông tin tái chế",
     "@recycling_photo_button_label": {},
@@ -439,31 +447,31 @@
     "@selecting_photo": {
         "description": "Progress indicator when the users takes a photo"
     },
-    "uploading_image": "Uploading photo to the server",
+    "uploading_image": "Đang tải ảnh lên hệ thống",
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
-    "uploading_image_type_front": "Uploading front image to Open Food Facts",
+    "uploading_image_type_front": "Tải hình ảnh mặt trước lên Open Food Facts",
     "@uploading_image_type_front": {
         "description": "Message when a new front picture is being uploaded to the server"
     },
-    "uploading_image_type_ingredients": "Uploading ingredients image to Open Food Facts",
+    "uploading_image_type_ingredients": "Tải hình ảnh nguyên liệu lên Open Food Facts",
     "@uploading_image_type_ingredients": {
         "description": "Message when a new ingredients picture is being uploaded to the server"
     },
-    "uploading_image_type_nutrition": "Uploading nutrition image to Open Food Facts",
+    "uploading_image_type_nutrition": "Tải hình ảnh thông tin dinh dưỡng lên Open Food Facts",
     "@uploading_image_type_nutrition": {
         "description": "Message when a new nutrition picture is being uploaded to the server"
     },
-    "uploading_image_type_packaging": "Uploading packaging image to Open Food Facts",
+    "uploading_image_type_packaging": "Tải hình ảnh bao bì lên Open Food Facts",
     "@uploading_image_type_packaging": {
         "description": "Message when a new packaging picture is being uploaded to the server"
     },
-    "uploading_image_type_other": "Uploading other image to Open Food Facts",
+    "uploading_image_type_other": "Tải hình ảnh khác lên Open Food Facts",
     "@uploading_image_type_other": {
         "description": "Message when a new other picture is being uploaded to the server"
     },
-    "uploading_image_type_generic": "Uploading image to Open Food Facts",
+    "uploading_image_type_generic": "Tải hình ảnh lên Open Food Facts",
     "@uploading_image_type_generic": {
         "description": "Message when a new picture is being uploaded to the server"
     },
@@ -500,7 +508,7 @@
         "description": "The product data couldn't be refreshed"
     },
     "product_internet_error": "Không thể nạp thông tin về sản phẩm này do lỗi kết nối mạng.",
-    "cached_results_from": "Show results from:",
+    "cached_results_from": "Hiển thị kết quả từ:",
     "@cached_results_from": {
         "description": "Cached results from: x time ago (time ago should not be added to the string)"
     },
@@ -531,7 +539,7 @@
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
+    "product_improvement_origins_to_be_completed": "Điểm số sinh thái tính đến nguồn gốc của các thành phần. Vui lòng chụp ảnh danh sách thành phần và / hoặc bất kỳ yêu cầu địa lý nào hoặc chỉnh sửa sản phẩm, để các thông tin có thể được xem xét.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
@@ -543,11 +551,11 @@
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
-    "product_removed_comparison": "Product removed from comparison",
+    "product_removed_comparison": "Sản phẩm bị xóa khỏi phần so sánh",
     "@product_removed_comparison": {
         "description": "Product got removed from comparison list"
     },
-    "product_removed_history": "Product removed from history",
+    "product_removed_history": "Sản phẩm bị xóa khỏi lịch sử",
     "@product_removed_history": {
         "description": "Product got removed from history"
     },
@@ -563,12 +571,12 @@
     "@clear": {
         "description": "Clears a product list"
     },
-    "really_clear": "Do you really want to delete this list?",
-    "product_compatibility_unknown": "Compatibility Unknown",
+    "really_clear": "Bạn có thực sự muốn xoá danh sách này?",
+    "product_compatibility_unknown": "Khả năng tương thích không xác định",
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_incompatible": "Does not match",
+    "product_compatibility_incompatible": "Không phù hợp",
     "@product_compatibility_incompatible": {
         "description": "Product compatibility summary title"
     },
@@ -584,35 +592,35 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural, one {} =1{one day ago} other{{count} days ago}}",
+    "plural_ago_days": "{count,plural, =1{một ngày trước} other{{count} ngày trước}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural, one {} =1{one hour ago} other{{count} hours ago}}",
+    "plural_ago_hours": "{count,plural, =1{một giờ trước} other{{count} giờ trước}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural, one {} =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
+    "plural_ago_minutes": "{count,plural, =0{gần một phút trước} =1{một phút trước} other{{count} phút trước}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, one {} =1{one month ago} other{{count} months ago}}",
+    "plural_ago_months": "{count,plural, =1{một tháng trước} other{{count} tháng trước}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, one {} =1{one week ago} other{{count} weeks ago}}",
+    "plural_ago_weeks": "{count,plural, =1{một tuần trước} other{{count} tuần trước}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
@@ -631,18 +639,18 @@
         "description": "Button to switch to 'compare products mode'"
     },
     "retry_button_label": "Thử lại",
-    "connect_with_us": "Connect with us",
+    "connect_with_us": "Kết nối với chúng tôi",
     "instagram": "Instagram",
     "twitter": "Twitter",
     "blog": "Blog",
     "faq": "FAQ",
     "discover": "Khám phá",
-    "how_to_contribute": "How to Contribute",
-    "main_app_color": "Theme",
+    "how_to_contribute": "Làm thế nào để đóng góp",
+    "main_app_color": "Giao diện",
     "@main_app_color": {
         "description": "Heading for the section to pick the main app color"
     },
-    "hint_knowledge_panel_message": "Your can tap on any part of the card to get more details about what you see. Try it now!",
+    "hint_knowledge_panel_message": "Bạn có thể nhấn vào bất kì vị trí nào trên thẻ để xem chi tiết hơn về những gì bạn đang xem. Thử ngay!",
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
     },
@@ -650,23 +658,23 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide if you want to send anonymous analytics.",
+    "consent_analytics_body1": "Giúp các tình nguyện viên của Open Food Facts cải thiện ứng dụng. Bạn có quyền lựa chọn ẩn danh hoặc không.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
-    "consent_analytics_body2": "If you change your mind, this option can be enabled and disabled at any time from the settings.",
+    "consent_analytics_body2": "Nếu bạn thay đổi ý định, lựa chọn này có thể được bật hoặc tắt bất kì lúc nào trong phần cài đặt.",
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "authorize_button_label": "Authorize",
+    "authorize_button_label": "Cho phép",
     "@authorize": {
         "description": "Button to accept the request of sending the anonymous analytics"
     },
-    "refuse_button_label": "Refuse",
+    "refuse_button_label": "Từ chối",
     "@refuse": {
         "description": "Button to decline the request of sending the anonymous analytics"
     },
-    "knowledge_panel_text_source": "Go further on {source_name}",
+    "knowledge_panel_text_source": "Nhiều hơn trên {source_name}",
     "@knowledge_panel_text_source": {
         "description": "Source field within a text knowledge panel.",
         "placeholders": {
@@ -675,51 +683,51 @@
             }
         }
     },
-    "onboarding_welcome_loading_dialog_title": "Loading your first example product",
+    "onboarding_welcome_loading_dialog_title": "Đang tải lên sản phẩm mẫu đầu tiên của bạn",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },
-    "product_list_your_ranking": "Your ranking",
+    "product_list_your_ranking": "Xếp hạng của bạn",
     "@product_list_your_ranking": {
         "description": "Your ranking screen title"
     },
-    "product_list_empty_icon_desc": "History not available",
+    "product_list_empty_icon_desc": "Lịch sử không có sẵn",
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
-    "product_list_empty_title": "Start scanning !",
+    "product_list_empty_title": "Bắt đầu quét!",
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
-    "product_list_empty_message": "Products you scan will appear here and you can check detailed information about them",
+    "product_list_empty_message": "Các sản phẩm bạn quét sẽ xuất hiện ở đây và bạn có thể kiểm tra thông tin chi tiết về chúng",
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress": "Refreshing products in your History",
+    "product_list_reloading_in_progress": "Làm mới các sản phẩm trong Lịch sử của bạn",
     "@product_list_reloading_in_progress": {
         "description": "Message to show while loading previous scanned items"
     },
-    "product_list_reloading_success": "Product refresh complete",
+    "product_list_reloading_success": "Làm mới sản phẩm hoàn tất",
     "@product_list_reloading_success": {
         "description": "Message to show once previous scanned items are loaded"
     },
-    "loading_dialog_default_title": "Downloading data",
+    "loading_dialog_default_title": "Đang tải xuống dữ liệu",
     "@loading_dialog_default_title": {
         "description": "Default loading dialog title"
     },
-    "loading_dialog_default_error_message": "Could not download data",
+    "loading_dialog_default_error_message": "Không thể tải dữ liệu",
     "@loading_dialog_default_error_message": {
         "description": "Default loading dialog error message"
     },
-    "account_delete": "Delete account",
+    "account_delete": "Xoá tài khoản",
     "@account_delete": {
         "description": "Delete account button (user profile)"
     },
-    "email_subject_account_deletion": "Delete account",
+    "email_subject_account_deletion": "Xoá tài khoản",
     "@email_subject_account_deletion": {
         "description": "Email subject for an account deletion"
     },
-    "email_body_account_deletion": "Hi there, please delete my Open Food Facts account: {userId}",
+    "email_body_account_deletion": "Xin chào, vui lòng xóa tài khoản Open Food Facts của tôi: {userId}",
     "@email_body_account_deletion": {
         "description": "Email body for an account deletion",
         "placeholders": {
@@ -732,7 +740,7 @@
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "When enabled, crash reports will be sent to the Open Food Facts bug system automatically, so that we can fix bugs and improve the app.",
+    "crash_reporting_toggle_subtitle": "Khi được bật, báo cáo sự cố sẽ tự động được gửi đến hệ thống theo dõi lỗi của Open Food Facts, để các lỗi có thể được sửa và từ đó cải thiện ứng dụng.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
@@ -752,8 +760,8 @@
     "@permission_photo_error": {
         "description": "When the camera/photo permission failed to be acquired (!= denied)"
     },
-    "permission_photo_denied_title": "Allow camera use to scan barcodes",
-    "permission_photo_denied_message": "For an enhanced experience, please allow {appName} to access your camera. You will be able to directly scan barcodes.",
+    "permission_photo_denied_title": "Cho phép sử dụng máy ảnh để quét mã vạch",
+    "permission_photo_denied_message": "Để có trải nghiệm nâng cao, vui lòng cho phép {appName} truy cập vào máy ảnh của bạn. Bạn sẽ có thể quét trực tiếp mã vạch.",
     "@permission_photo_denied_message": {
         "description": "When the camera/photo permission is denied by user",
         "placeholders": {
@@ -762,15 +770,15 @@
             }
         }
     },
-    "permission_photo_denied_button": "Allow",
+    "permission_photo_denied_button": "Cho phép",
     "@permission_photo_denied_button": {
         "description": "When the camera/photo permission is denied by user"
     },
-    "permission_photo_denied_dialog_settings_title": "Permission denied",
-    "permission_photo_denied_dialog_settings_message": "As you've previously denied the camera permission, you must allow it manually from the Settings.",
+    "permission_photo_denied_dialog_settings_title": "Quyền truy cập bị từ chối",
+    "permission_photo_denied_dialog_settings_message": "Vì trước đây bạn đã từ chối quyền đối với máy ảnh, bạn phải cho phép nó theo cách thủ công từ Cài đặt.",
     "permission_photo_denied_dialog_settings_button_open": "Open settings",
     "permission_photo_denied_dialog_settings_button_cancel": "Huỷ",
-    "permission_photo_denied": "No camera access granted",
+    "permission_photo_denied": "Không có quyền truy cập máy ảnh",
     "@permission_photo_denied": {
         "description": "When the camera/photo permission is denied by user"
     },
@@ -782,11 +790,11 @@
     "@edit_product_form_item_barcode": {
         "description": "Product edition - Barcode"
     },
-    "edit_product_form_item_details_title": "Basic details",
+    "edit_product_form_item_details_title": "Thông tin cơ bản",
     "@edit_product_form_item_details_title": {
         "description": "Product edition - Basic Details - Title"
     },
-    "edit_product_form_item_details_subtitle": "Product name, brand, quantity",
+    "edit_product_form_item_details_subtitle": "Tên sản phẩm, thương hiệu, số lượng",
     "@edit_product_form_item_details_subtitle": {
         "description": "Product edition - Basic Details - Title"
     },
@@ -794,19 +802,19 @@
     "@edit_product_form_item_photos_title": {
         "description": "Product edition - Photos - Title"
     },
-    "edit_product_form_item_photos_subtitle": "Add or refresh photos",
+    "edit_product_form_item_photos_subtitle": "Thêm hoặc làm mới ảnh",
     "@edit_product_form_item_photos_subtitle": {
         "description": "Product edition - Photos - SubTitle"
     },
-    "edit_product_form_item_labels_title": "Labels & Certifications",
+    "edit_product_form_item_labels_title": "Nhãn & Giấy chứng nhận",
     "@edit_product_form_item_labels_title": {
         "description": "Product edition - Labels - Title"
     },
-    "edit_product_form_item_labels_subtitle": "Environmental, Quality labels, ...",
+    "edit_product_form_item_labels_subtitle": "Nhãn Môi trường, Chất lượng, ...",
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
-    "edit_product_form_item_ingredients_title": "Ingredients & Origins",
+    "edit_product_form_item_ingredients_title": "Thành phần & Nguồn gốc",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
     },
@@ -818,7 +826,7 @@
     "@edit_product_form_item_nutrition_facts_title": {
         "description": "Product edition - Nutrition facts - Title"
     },
-    "edit_product_form_item_nutrition_facts_subtitle": "Nutrition, alcohol content…",
+    "edit_product_form_item_nutrition_facts_subtitle": "Dinh dưỡng, độ cồn…",
     "@edit_product_form_item_nutrition_facts_subtitle": {
         "description": "Product edition - Nutrition facts - SubTitle"
     },
@@ -826,7 +834,63 @@
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
-    "completed_basic_details_btn_text": "Complete basic details",
-    "not_implemented_snackbar_text": "Not implemented yet",
-    "category_picker_page_appbar_text": "Thể loại"
+    "completed_basic_details_btn_text": "Hoàn thành thông tin cơ bản",
+    "not_implemented_snackbar_text": "Chưa thực hiện",
+    "category_picker_page_appbar_text": "Thể loại",
+    "edit_ingredients_extrait_ingredients_btn_text": "Trích xuất thành phần",
+    "@edit_ingredients_extrait_ingredients_btn_text": {
+        "description": "Ingredients edition - Extract ingredients"
+    },
+    "edit_ingredients_refresh_photo_btn_text": "Refresh photo",
+    "@edit_ingredients_refresh_photo_btn_text": {
+        "description": "Ingredients edition - Refresh photo"
+    },
+    "user_list_dialog_new_title": "Danh sách sản phẩm mới",
+    "@user_list_dialog_new_title": {
+        "description": "Title of the 'new user list' dialog"
+    },
+    "user_list_dialog_rename_title": "Đổi tên danh sách",
+    "@user_list_dialog_rename_title": {
+        "description": "Title of the 'rename user list' dialog"
+    },
+    "user_list_subtitle_product": "Danh sách",
+    "@user_list_subtitle_product": {
+        "description": "Subtitle of a paragraph about user lists in a product context"
+    },
+    "user_list_button_new": "Danh sách mới",
+    "@user_list_button_new": {
+        "description": "Short label of a 'new list' button"
+    },
+    "user_list_button_add_product": "Thêm vào danh sách",
+    "@user_list_button_add_product": {
+        "description": "Short label of an 'add to list' button from a product context"
+    },
+    "user_list_popup_clear": "Clear",
+    "@user_list_popup_clear": {
+        "description": "Short label of a 'clear list' popup"
+    },
+    "user_list_popup_rename": "Đổi tên",
+    "@user_list_popup_rename": {
+        "description": "Short label of a 'rename list' popup"
+    },
+    "user_list_name_hint": "Danh sách của tôi",
+    "@user_list_name_hint": {
+        "description": "Hint of a user list name text-field in a 'user list' dialog"
+    },
+    "user_list_name_error_empty": "Tên không được để trống",
+    "@user_list_name_error_empty": {
+        "description": "Validation error about the name that cannot be empty"
+    },
+    "user_list_name_error_already": "Tên đã được sử dụng",
+    "@user_list_name_error_already": {
+        "description": "Validation error about the name that is already used for another list"
+    },
+    "user_list_name_error_same": "Tên bị trùng",
+    "@user_list_name_error_same": {
+        "description": "Validation error about the renamed name that is the same as the initial list name"
+    },
+    "confirm_clear": "Do you really want to clear?",
+    "@confirm_clear": {
+        "description": "Asking about whether to clear the list or not"
+    }
 }

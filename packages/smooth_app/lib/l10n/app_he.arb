@@ -1,5 +1,5 @@
 {
-    "app_name": "Smoothie",
+    "app_name": "OpenFoodFacts",
     "@Utils": {},
     "yes": "כן",
     "@yes": {},
@@ -36,7 +36,7 @@
     "@error_occurred": {},
     "featureInProgress": "אנו עדיין עובדים על היכולת הזאת, מוטב לבדוק אותה שוב",
     "@featureInProgress": {},
-    "label_web": "הצגה באינטרנט",
+    "label_web": "הצגה בדפדפן",
     "@label_web": {},
     "learnMore": "מידע נוסף",
     "@learnMore": {},
@@ -66,7 +66,7 @@
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "מאפשרים לך לבחור מזון שטוב לך ולכדור הארץ.",
+    "offUtility": "בחירה במזון שטוב לך ולכדור הארץ.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
@@ -151,11 +151,19 @@
     "sign_up_page_display_name_error_empty": "נא למלא את שם התצוגה המיועד",
     "sign_up_page_email_hint": "דוא״ל",
     "sign_up_page_email_error_empty": "צריך דוא״ל",
-    "sign_up_page_email_error_invalid": "כתובת דוא״ל זו שגויה",
-    "sign_up_page_username_hint": "שם משתמש",
+    "sign_up_page_email_error_invalid": "דוא״ל שגוי",
+    "sign_up_page_username_hint": "שם משתמש: גלוי לציבור",
     "sign_up_page_username_error_empty": "נא למלא שם משתמש",
     "sign_up_page_username_error_invalid": "נא למלא שם משתמש תקף",
     "sign_up_page_username_description": "שם המשתמש לא יכול להכיל רווחים, רישיות או תווים מיוחדים",
+    "sign_up_page_username_length_invalid": "אורך שם המשתמש חייב להיות קצר מ־{value} תווים",
+    "@sign_up_page_username_length_invalid": {
+        "placeholders": {
+            "value": {
+                "type": "int"
+            }
+        }
+    },
     "sign_up_page_password_hint": "סיסמה",
     "sign_up_page_password_error_empty": "נא למלא סיסמה",
     "sign_up_page_password_error_invalid": "נא למלא סיסמה תקפה (6 תווים לפחות)",
@@ -273,7 +281,7 @@
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "question_sign_in_text": "עליך להיכנס לחשבון שלך ב־Open Food Facts כדי לקבל הוקרה על התרומות שלך ולהמשיך לשפר אותה בעתיד",
+    "question_sign_in_text": "כדאי להיכנס לחשבונך ב־Open Food Facts כדי לקבל הוקרה על התרומות שלך",
     "@Personal preferences": {},
     "myPreferences": "ההעדפות שלי",
     "@myPreferences": {
@@ -385,9 +393,9 @@
     "@add_product_information_button_label": {},
     "new_product": "מוצר חדש",
     "@new_product": {},
-    "front_packaging_photo_button_label": "תמונת חזית מוצר",
+    "front_packaging_photo_button_label": "תמונת החזית של המוצר",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "אימות תמונת חזית מוצר",
+    "confirm_front_packaging_photo_button_label": "אישור העלאת תמונת החזית של המוצר",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
@@ -439,7 +447,7 @@
     "@selecting_photo": {
         "description": "Progress indicator when the users takes a photo"
     },
-    "uploading_image": "Uploading photo to the server",
+    "uploading_image": "התמונה נשלחת לשרת",
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
@@ -650,7 +658,7 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "סיוע למתנדבי Open Food Facts בשיפור היישומון. מותר לך להחליט אם מקובל עליך לשלוח מדדים בעילום שם.",
+    "consent_analytics_body1": "סיוע למתנדבי Open Food Facts בשיפור היישומון. לבחירתך אם מקובל עליך להגיש מדדים בעילום שם.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
@@ -687,7 +695,7 @@
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
-    "product_list_empty_title": "התחלת הסריקה!",
+    "product_list_empty_title": "הבה נתחיל בסריקה!",
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
@@ -732,7 +740,7 @@
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "כשהאפשרות פעילה, דוחות הקריסה יישלחו למערכת התקלות של Open Food Facts אוטומטית כדי שנוכל לתקן תקלות ולשפר את היישומון.",
+    "crash_reporting_toggle_subtitle": "כשהאפשרות פעילה, דוחות קריסה מוגשות אוטומטית למערכת מעקב השגיאות של Open Food Facts, כדי שניתן יהיה לתקן תקלות ובכך לשפר את היישומון.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
@@ -752,8 +760,8 @@
     "@permission_photo_error": {
         "description": "When the camera/photo permission failed to be acquired (!= denied)"
     },
-    "permission_photo_denied_title": "Allow camera use to scan barcodes",
-    "permission_photo_denied_message": "For an enhanced experience, please allow {appName} to access your camera. You will be able to directly scan barcodes.",
+    "permission_photo_denied_title": "לאפשר למצלמה לסרוק ברקודים",
+    "permission_photo_denied_message": "לשיפור החוויה, נא לאפשר ל־{appName} לגשת למצלמה שלך. תהיה לך אפשרות לסרוק ברקודים ישירות.",
     "@permission_photo_denied_message": {
         "description": "When the camera/photo permission is denied by user",
         "placeholders": {
@@ -762,12 +770,12 @@
             }
         }
     },
-    "permission_photo_denied_button": "Allow",
+    "permission_photo_denied_button": "לאפשר",
     "@permission_photo_denied_button": {
         "description": "When the camera/photo permission is denied by user"
     },
-    "permission_photo_denied_dialog_settings_title": "Permission denied",
-    "permission_photo_denied_dialog_settings_message": "As you've previously denied the camera permission, you must allow it manually from the Settings.",
+    "permission_photo_denied_dialog_settings_title": "ההרשאה נדחתה",
+    "permission_photo_denied_dialog_settings_message": "כיוון שדחית את הרשאת המצלמה, יהיה עליך לאפשר אותה ידנית דרך ההגדרות.",
     "permission_photo_denied_dialog_settings_button_open": "פתיחת הגדרות",
     "permission_photo_denied_dialog_settings_button_cancel": "ביטול",
     "permission_photo_denied": "הגישה למצלמה לא אושרה",
@@ -828,5 +836,61 @@
     },
     "completed_basic_details_btn_text": "השלמת הפרטים הבסיסיים",
     "not_implemented_snackbar_text": "לא מיושם עדיין",
-    "category_picker_page_appbar_text": "קטגוריות"
+    "category_picker_page_appbar_text": "קטגוריות",
+    "edit_ingredients_extrait_ingredients_btn_text": "חילוץ רכיבים",
+    "@edit_ingredients_extrait_ingredients_btn_text": {
+        "description": "Ingredients edition - Extract ingredients"
+    },
+    "edit_ingredients_refresh_photo_btn_text": "רענון תמונה",
+    "@edit_ingredients_refresh_photo_btn_text": {
+        "description": "Ingredients edition - Refresh photo"
+    },
+    "user_list_dialog_new_title": "רשימת מוצרים חדשה",
+    "@user_list_dialog_new_title": {
+        "description": "Title of the 'new user list' dialog"
+    },
+    "user_list_dialog_rename_title": "שינוי שם רשימה",
+    "@user_list_dialog_rename_title": {
+        "description": "Title of the 'rename user list' dialog"
+    },
+    "user_list_subtitle_product": "רשימות",
+    "@user_list_subtitle_product": {
+        "description": "Subtitle of a paragraph about user lists in a product context"
+    },
+    "user_list_button_new": "רשימה חדשה",
+    "@user_list_button_new": {
+        "description": "Short label of a 'new list' button"
+    },
+    "user_list_button_add_product": "הוספה לרשימה",
+    "@user_list_button_add_product": {
+        "description": "Short label of an 'add to list' button from a product context"
+    },
+    "user_list_popup_clear": "פינוי",
+    "@user_list_popup_clear": {
+        "description": "Short label of a 'clear list' popup"
+    },
+    "user_list_popup_rename": "שינוי שם",
+    "@user_list_popup_rename": {
+        "description": "Short label of a 'rename list' popup"
+    },
+    "user_list_name_hint": "הרשימה שלי",
+    "@user_list_name_hint": {
+        "description": "Hint of a user list name text-field in a 'user list' dialog"
+    },
+    "user_list_name_error_empty": "השם לא יכול להישאר ריק",
+    "@user_list_name_error_empty": {
+        "description": "Validation error about the name that cannot be empty"
+    },
+    "user_list_name_error_already": "השם הזה כבר בשימוש",
+    "@user_list_name_error_already": {
+        "description": "Validation error about the name that is already used for another list"
+    },
+    "user_list_name_error_same": "זה אותו השם",
+    "@user_list_name_error_same": {
+        "description": "Validation error about the renamed name that is the same as the initial list name"
+    },
+    "confirm_clear": "Do you really want to clear?",
+    "@confirm_clear": {
+        "description": "Asking about whether to clear the list or not"
+    }
 }

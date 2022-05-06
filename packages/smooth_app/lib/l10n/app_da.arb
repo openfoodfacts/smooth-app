@@ -1,5 +1,5 @@
 {
-    "app_name": "Smoothie",
+    "app_name": "OpenFoodFacts",
     "@Utils": {},
     "yes": "Ja",
     "@yes": {},
@@ -36,7 +36,7 @@
     "@error_occurred": {},
     "featureInProgress": "Der arbejdes stadig på denne funktion, hold dig opdateret",
     "@featureInProgress": {},
-    "label_web": "Se på nettet",
+    "label_web": "View on the web",
     "@label_web": {},
     "learnMore": "Få mere at vide",
     "@learnMore": {},
@@ -66,7 +66,7 @@
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Vælg fødevarer, som er gode for dig og planeten.",
+    "offUtility": "Choose food that is good for you and the planet.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
@@ -152,10 +152,18 @@
     "sign_up_page_email_hint": "E-mail",
     "sign_up_page_email_error_empty": "E-mail er obligatorisk",
     "sign_up_page_email_error_invalid": "Ugyldig e-mail",
-    "sign_up_page_username_hint": "Brugernavn",
+    "sign_up_page_username_hint": "Brugernavn: Offentligt synligt",
     "sign_up_page_username_error_empty": "Indtast et brugernavn",
     "sign_up_page_username_error_invalid": "Angiv et gyldigt brugernavn",
     "sign_up_page_username_description": "Brugernavn må ikke indeholde mellemrum, versaler eller specialtegn",
+    "sign_up_page_username_length_invalid": "Brugernavn må ikke overstige {value} tegn",
+    "@sign_up_page_username_length_invalid": {
+        "placeholders": {
+            "value": {
+                "type": "int"
+            }
+        }
+    },
     "sign_up_page_password_hint": "Adgangskode",
     "sign_up_page_password_error_empty": "Angiv adgangskode",
     "sign_up_page_password_error_invalid": "Angiv en gyldig adgangskode (mindst 6 tegn)",
@@ -247,7 +255,7 @@
     "@contribute_improve_header": {
         "description": "Button label + page title: Ways to improve the database"
     },
-    "contribute_improve_text": "Databasen er kernen i projektet. Det er let og meget hurtigt at hjælpe. Man kan downloade appen til sin mobil og begynde at tilføje/forbedre produkter.\n\nDerudover tilbyder OFF-webstedet mange bidragsmuligheder: ",
+    "contribute_improve_text": "Databasen er kernen i projektet. Det er let og meget hurtigt at hjælpe. Man kan downloade appen til sin mobil og begynde at tilføje/forbedre produkter.\n\nDerudover tilbyder Open Food Facts-webstedet mange bidragsmuligheder: ",
     "@contribute_improve_text": {},
     "contribute_translate_header": "Oversæt",
     "@contribute_translate_header": {
@@ -257,7 +265,7 @@
     "@contribute_translate_link_text": {
         "description": "Button label: Opens the Crowdin translation portal"
     },
-    "contribute_translate_text": "Open Food Facts er et globalt projekt indeholdende produkter fra flere end 160 lande. OFF er oversat til snesevis af sprog med indhold i konstant udvikling.",
+    "contribute_translate_text": "Open Food Facts er et globalt projekt indeholdende produkter fra flere end 160 lande. Open Food Facts er oversat til snesevis af sprog med indhold i konstant udvikling.",
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Oversættelser er en af projektets nøgleopgaver",
     "@contribute_translate_text_2": {},
@@ -273,7 +281,7 @@
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "question_sign_in_text": "Sign in to your Open Food Facts account to claim your contribution and to increase your creditability",
+    "question_sign_in_text": "Log ind på Open Food Facts-kontoen for at gemme bidrag",
     "@Personal preferences": {},
     "myPreferences": "Mine præferencer",
     "@myPreferences": {
@@ -377,17 +385,17 @@
     "@packaging_information_photo": {},
     "missing_product": "Nyt produkt blev fundet!",
     "@missing_product": {},
-    "add_product_take_photos": "Tag emballagefotos for at føje dette produkt til OFF-databasen",
+    "add_product_take_photos": "Tag emballagefotos for at føje dette produkt til Open Food Facts-databasen",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Snup nogle fotos, hvorefter OFF-motoren klarer resten!",
+    "add_product_take_photos_descriptive": "Snup nogle fotos, hvorefter Open Food Facts-motoren klarer resten!",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Tilføj produkt eller oplysning",
     "@add_product_information_button_label": {},
     "new_product": "Nyt produkt",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Forsidefoto af produkt",
+    "front_packaging_photo_button_label": "Produktforsidefoto",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Bekræft forsidefoto af produkt",
+    "confirm_front_packaging_photo_button_label": "Bekræft upload af Produktforsidefoto",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
@@ -439,11 +447,11 @@
     "@selecting_photo": {
         "description": "Progress indicator when the users takes a photo"
     },
-    "uploading_image": "Uploading photo to the server",
+    "uploading_image": "Uploader foto til server",
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
-    "uploading_image_type_front": "Uploader forsidefoto til OFF",
+    "uploading_image_type_front": "Uploader forsidefoto til Open Food Facts",
     "@uploading_image_type_front": {
         "description": "Message when a new front picture is being uploaded to the server"
     },
@@ -451,19 +459,19 @@
     "@uploading_image_type_ingredients": {
         "description": "Message when a new ingredients picture is being uploaded to the server"
     },
-    "uploading_image_type_nutrition": "Uploading nutrition image to Open Food Facts",
+    "uploading_image_type_nutrition": "Uploader ernæringsfoto til Open Food Facts",
     "@uploading_image_type_nutrition": {
         "description": "Message when a new nutrition picture is being uploaded to the server"
     },
-    "uploading_image_type_packaging": "Uploading packaging image to Open Food Facts",
+    "uploading_image_type_packaging": "Uploader emballagefoto til Open Food Facts",
     "@uploading_image_type_packaging": {
         "description": "Message when a new packaging picture is being uploaded to the server"
     },
-    "uploading_image_type_other": "Uploading other image to Open Food Facts",
+    "uploading_image_type_other": "Uploader andet foto til Open Food Facts",
     "@uploading_image_type_other": {
         "description": "Message when a new other picture is being uploaded to the server"
     },
-    "uploading_image_type_generic": "Uploading image to Open Food Facts",
+    "uploading_image_type_generic": "Uploader foto til Open Food Facts",
     "@uploading_image_type_generic": {
         "description": "Message when a new picture is being uploaded to the server"
     },
@@ -650,7 +658,7 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Hjælp OFF-frivillige med at forbedre appen. Man afgør selv, om der skal indsendes anonyme analysedata.",
+    "consent_analytics_body1": "Hjælp Open Food Facts-frivillige med at forbedre appen. Man afgør selv, om der skal indsendes anonyme analysedata.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
@@ -691,7 +699,7 @@
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
-    "product_list_empty_message": "Indskannede produkt vises her, hvor deres detaljerede oplysninger kan tjekkes",
+    "product_list_empty_message": "Indskannede produkter vises her, hvor deres detaljerede oplysninger kan tjekkes",
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
@@ -719,7 +727,7 @@
     "@email_subject_account_deletion": {
         "description": "Email subject for an account deletion"
     },
-    "email_body_account_deletion": "Hej, slet venligst min OFF-konto: {userId}",
+    "email_body_account_deletion": "Hej, slet venligst min Open Food Facts-konto: {userId}",
     "@email_body_account_deletion": {
         "description": "Email body for an account deletion",
         "placeholders": {
@@ -740,7 +748,7 @@
     "@send_anonymous_toggle_title": {
         "description": "Title for the Send anonymous data toggle"
     },
-    "send_anonymous_data_toggle_subtitle": "Når aktiveret, indsendes visse anonyme oplysninger om app-brug til OFF-serverne, så vi kan forstå, hvordan og i hvilket omfang funktioner bruges mhp.at forbedre disse.",
+    "send_anonymous_data_toggle_subtitle": "Når aktiveret, indsendes visse anonyme oplysninger om app-brug til Open Food Facts-serverne, så vi kan forstå, hvordan og i hvilket omfang funktioner bruges mhp. at forbedre disse.",
     "@send_anonymous_toggle_subtitle": {
         "description": "SubTitle for the Send anonymous data toggle"
     },
@@ -752,8 +760,8 @@
     "@permission_photo_error": {
         "description": "When the camera/photo permission failed to be acquired (!= denied)"
     },
-    "permission_photo_denied_title": "Allow camera use to scan barcodes",
-    "permission_photo_denied_message": "For an enhanced experience, please allow {appName} to access your camera. You will be able to directly scan barcodes.",
+    "permission_photo_denied_title": "Tillad kameraadgang for stregkodeskanning",
+    "permission_photo_denied_message": "Giv {appName} adgang til kameraet. Det vil forbedre brugeroplevelsen, da dette muliggør direkte stregkodeskanning.",
     "@permission_photo_denied_message": {
         "description": "When the camera/photo permission is denied by user",
         "placeholders": {
@@ -762,12 +770,12 @@
             }
         }
     },
-    "permission_photo_denied_button": "Allow",
+    "permission_photo_denied_button": "Tillad",
     "@permission_photo_denied_button": {
         "description": "When the camera/photo permission is denied by user"
     },
-    "permission_photo_denied_dialog_settings_title": "Permission denied",
-    "permission_photo_denied_dialog_settings_message": "As you've previously denied the camera permission, you must allow it manually from the Settings.",
+    "permission_photo_denied_dialog_settings_title": "Tilladelse nægtet",
+    "permission_photo_denied_dialog_settings_message": "Da kameraadgang tidligere blev nægtet, skal tilladelsen gives manuelt via Indstillinger.",
     "permission_photo_denied_dialog_settings_button_open": "Åbn indstillinger",
     "permission_photo_denied_dialog_settings_button_cancel": "Annullér",
     "permission_photo_denied": "Ingen kameraadgang tildelt",
@@ -828,5 +836,61 @@
     },
     "completed_basic_details_btn_text": "Udfyld basisoplysninger",
     "not_implemented_snackbar_text": "Endnu ikke implementeret",
-    "category_picker_page_appbar_text": "Kategorier"
+    "category_picker_page_appbar_text": "Kategorier",
+    "edit_ingredients_extrait_ingredients_btn_text": "Udtræk ingredienser",
+    "@edit_ingredients_extrait_ingredients_btn_text": {
+        "description": "Ingredients edition - Extract ingredients"
+    },
+    "edit_ingredients_refresh_photo_btn_text": "Opfrisk foto",
+    "@edit_ingredients_refresh_photo_btn_text": {
+        "description": "Ingredients edition - Refresh photo"
+    },
+    "user_list_dialog_new_title": "Ny produktliste",
+    "@user_list_dialog_new_title": {
+        "description": "Title of the 'new user list' dialog"
+    },
+    "user_list_dialog_rename_title": "Omdøb liste",
+    "@user_list_dialog_rename_title": {
+        "description": "Title of the 'rename user list' dialog"
+    },
+    "user_list_subtitle_product": "Lister",
+    "@user_list_subtitle_product": {
+        "description": "Subtitle of a paragraph about user lists in a product context"
+    },
+    "user_list_button_new": "Ny liste",
+    "@user_list_button_new": {
+        "description": "Short label of a 'new list' button"
+    },
+    "user_list_button_add_product": "Føj til liste",
+    "@user_list_button_add_product": {
+        "description": "Short label of an 'add to list' button from a product context"
+    },
+    "user_list_popup_clear": "Ryd",
+    "@user_list_popup_clear": {
+        "description": "Short label of a 'clear list' popup"
+    },
+    "user_list_popup_rename": "Omdøb",
+    "@user_list_popup_rename": {
+        "description": "Short label of a 'rename list' popup"
+    },
+    "user_list_name_hint": "Min liste",
+    "@user_list_name_hint": {
+        "description": "Hint of a user list name text-field in a 'user list' dialog"
+    },
+    "user_list_name_error_empty": "Navn er obligatorisk",
+    "@user_list_name_error_empty": {
+        "description": "Validation error about the name that cannot be empty"
+    },
+    "user_list_name_error_already": "Navn bruges allerede",
+    "@user_list_name_error_already": {
+        "description": "Validation error about the name that is already used for another list"
+    },
+    "user_list_name_error_same": "Det er samme navn",
+    "@user_list_name_error_same": {
+        "description": "Validation error about the renamed name that is the same as the initial list name"
+    },
+    "confirm_clear": "Do you really want to clear?",
+    "@confirm_clear": {
+        "description": "Asking about whether to clear the list or not"
+    }
 }
