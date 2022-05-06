@@ -11,7 +11,7 @@ class SmoothActionButton extends StatelessWidget {
   });
 
   final String text;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final double minWidth;
   final double height;
 
