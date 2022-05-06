@@ -123,7 +123,7 @@ class SmoothProductCardFound extends StatelessWidget {
                             helper.getSubtitle(appLocalizations),
                             style: themeData.textTheme.bodyText2!.apply(
                                 color: helper
-                                    .getHeaderForegroundColor(isDarkMode)),
+                                    .getButtonForegroundColor(isDarkMode)),
                           ),
                         ],
                       ),
