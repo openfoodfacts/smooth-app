@@ -62,7 +62,7 @@ class _CountrySelectorState extends State<CountrySelector> {
         return GestureDetector(
           onTap: () async {
             List<Country> filteredList = List<Country>.from(_countryList);
-            await showDialog<Country>(
+            final Country? country = await showDialog<Country>(
               context: context,
               builder: (BuildContext context) {
                 return StatefulBuilder(
@@ -109,12 +109,8 @@ class _CountrySelectorState extends State<CountrySelector> {
                                   final Country country = filteredList[index];
                                   return ListTile(
                                     title: Text(country.name),
-                                    onTap: () async {
-                                      _chosenValue = country;
-                                      await _setUserCountry(
-                                          _chosenValue.countryCode);
-                                      setState(() {});
-                                      Navigator.of(context).pop();
+                                    onTap: () {
+                                      Navigator.of(context).pop(country);
                                     },
                                   );
                                 },
@@ -134,6 +130,11 @@ class _CountrySelectorState extends State<CountrySelector> {
                 );
               },
             );
+            if (country != null) {
+              _chosenValue = country;
+              await _setUserCountry(_chosenValue.countryCode);
+            }
+            setState(() {});
           },
           child: Container(
             decoration: BoxDecoration(
