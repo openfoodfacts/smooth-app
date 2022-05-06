@@ -8,12 +8,11 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
-import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/product_list_import_export.dart';
 import 'package:smooth_app/pages/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/scan/ml_kit_scan_page.dart';
+import 'package:smooth_app/pages/user_preferences_dialog_editor.dart';
 
 /// Collapsed/expanded display of "dev mode" for the preferences page.
 ///
@@ -125,7 +124,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         ListTile(
-          title: const Text('Change camera post frame callback'),
+          title: const Text('Change camera post frame callback duration'),
           onTap: () async => _changeCameraPostFrameCallbackDuration(),
         ),
         SwitchListTile(
@@ -317,7 +316,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   }
 
   Future<void> _changeCameraPostFrameCallbackDuration() async {
-    const int minValue = MLKitScannerPageState.postFrameCallBackMinDelay;
+    const int minValue = MLKitScannerPageState.postFrameCallbackStandardDelay;
     final int initialValue = userPreferences.getDevModeIndex(
           userPreferencesCameraPostFrameDuration,
         ) ??
@@ -326,7 +325,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
     final int? result = await showDialog<int>(
         context: context,
         builder: (BuildContext context) {
-          return _EditValueDialog<int>(
+          return UserPreferencesEditValueDialog<int>(
             label: 'Camera post frame callback duration',
             initialValue: initialValue,
             converter: (String value) => int.tryParse(value) ?? 0,
@@ -394,88 +393,3 @@ extension DevModeScanModeExtension on DevModeScanMode {
     throw Exception('Unknown index $index');
   }
 }
-
-/// Generic value editor
-/// [label] is the name of the dialog
-/// [initialValue] is the current value (null is accepted)
-/// [converter] is a mandatory converter between the String entered by the user
-/// and the expected type [T]
-/// The result will be sent through the [Navigator]
-class _EditValueDialog<T> extends StatefulWidget {
-  const _EditValueDialog({
-    required this.label,
-    required this.initialValue,
-    required this.converter,
-    this.validator,
-    this.keyboardType,
-    this.textAlignment,
-    Key? key,
-  }) : super(key: key);
-
-  final String label;
-  final _EditorValueConverter<T> converter;
-  final T? initialValue;
-  final _EditorValueValidator<T>? validator;
-  final TextInputType? keyboardType;
-  final TextAlign? textAlignment;
-
-  @override
-  State<_EditValueDialog<T>> createState() => _EditValueDialogState<T>();
-}
-
-class _EditValueDialogState<T> extends State<_EditValueDialog<T>> {
-  late TextEditingController _controller;
-  late bool _isValid;
-  T? _currentValue;
-
-  @override
-  void initState() {
-    super.initState();
-
-    _currentValue = widget.initialValue;
-    _controller = TextEditingController(
-      text: widget.initialValue?.toString(),
-    );
-
-    _isValid = widget.validator?.call(_currentValue) ?? true;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-
-    return SmoothAlertDialog(
-      title: widget.label,
-      body: TextField(
-        autofocus: true,
-        controller: _controller,
-        onChanged: (String value) {
-          _currentValue = widget.converter(value);
-
-          setState(() {
-            _isValid = widget.validator?.call(_currentValue) ?? true;
-          });
-        },
-        decoration: InputDecoration(
-          hintText: widget.label,
-        ),
-        textAlign: widget.textAlignment ?? TextAlign.start,
-        keyboardType: widget.keyboardType ?? TextInputType.text,
-      ),
-      actions: <SmoothActionButton>[
-        SmoothActionButton(
-          text: appLocalizations.cancel,
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-        SmoothActionButton(
-          text: appLocalizations.okay,
-          onPressed:
-              _isValid ? () => Navigator.of(context).pop(_currentValue) : null,
-        )
-      ],
-    );
-  }
-}
-
-typedef _EditorValueConverter<T> = T Function(String newValue);
-typedef _EditorValueValidator<T> = bool Function(T? newValue);

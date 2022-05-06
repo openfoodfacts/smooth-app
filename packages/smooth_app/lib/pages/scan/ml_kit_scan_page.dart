@@ -43,7 +43,7 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
   /// we considered, that the camera should be reinitialized
   ///
   /// On a 60Hz display, one frame =~ 16 ms => 100 ms =~ 6 frames.
-  static const int postFrameCallBackMinDelay = 100; // in milliseconds
+  static const int postFrameCallbackStandardDelay = 100; // in milliseconds
 
   static const int _SKIPPED_FRAMES = 10;
   BarcodeScanner? barcodeScanner;
@@ -229,7 +229,7 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
       _userPreferences.getDevModeIndex(
         UserPreferencesDevMode.userPreferencesCameraPostFrameDuration,
       ) ??
-      MLKitScannerPageState.postFrameCallBackMinDelay;
+      MLKitScannerPageState.postFrameCallbackStandardDelay;
 
   @override
   void dispose() {
