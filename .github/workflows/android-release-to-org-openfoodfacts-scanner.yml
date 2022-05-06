@@ -35,7 +35,7 @@ jobs:
         run: cd ./packages/smooth_app/android/fastlane/envfiles && chmod +x ./decrypt_secrets.sh && ./decrypt_secrets.sh && ls
         env:
           API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
-          STORE_JKS_DECRYPTKEY: ${{ secrets.STORE_JKS_DECRYPTKEY }}
+          STORE_JKS_DECRYPTKEY: ${{ secrets.DECRYPT_FOR_SCANNER_FILE }}
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
