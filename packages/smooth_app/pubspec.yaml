@@ -52,6 +52,7 @@ dependencies:
       ref: master
   image_cropper: ^2.0.1
   auto_size_text: ^3.0.0
+  path_provider: ^2.0.9
 
 dev_dependencies:
   integration_test:
