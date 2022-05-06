@@ -58,7 +58,6 @@ jobs:
 
       - name: Build AAB
         run: echo $SIGN_STORE_PATH && pwd && cd ./packages/smooth_app/ && pwd && flutter build appbundle --release
-                 # Todo: change package name in pubspec.yaml
         env:
          SIGN_STORE_PATH: ./../fastlane/envfiles/keystore.jks
          SIGN_STORE_PASSWORD: ${{ secrets.SIGN_STORE_PASSWORD }}
@@ -70,7 +69,6 @@ jobs:
         with:
           lane: closed_beta
           subdirectory: packages/smooth_app/android
-         # Todo: change package name
         env:
          SIGN_STORE_PATH: ./../fastlane/envfiles/keystore.jks
          SIGN_STORE_PASSWORD: ${{ secrets.SIGN_STORE_PASSWORD }}
