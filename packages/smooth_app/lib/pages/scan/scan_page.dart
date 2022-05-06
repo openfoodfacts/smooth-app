@@ -51,17 +51,10 @@ class _ScanPageState extends State<ScanPage> {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle.light,
       child: Scaffold(
-        body: MultiProvider(
-          providers: <ChangeNotifierProvider<ChangeNotifier>>[
-            ChangeNotifierProvider<PermissionListener>(
-              create: (_) => PermissionListener(
-                permission: Permission.camera,
-              ),
-            ),
-            ChangeNotifierProvider<ContinuousScanModel>(
-              create: (BuildContext context) => _model!,
-            )
-          ],
+        body: ChangeNotifierProvider<PermissionListener>(
+          create: (_) => PermissionListener(
+            permission: Permission.camera,
+          ),
           child: const ScannerOverlay(
             backgroundChild: _ScanPageBackgroundWidget(),
             topChild: _ScanPageTopWidget(),
