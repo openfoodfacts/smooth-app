@@ -14,7 +14,7 @@
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
     "save": "Запис",
-    "save_confirmation": "Are you sure you want to save?",
+    "save_confirmation": "Сигурен ли си, че искаш да запазиш?",
     "skip": "Пропусни",
     "cancel": "Отмени",
     "@cancel": {},
@@ -451,7 +451,7 @@
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
-    "uploading_image_type_front": "Uploading front image to Open Food Facts",
+    "uploading_image_type_front": "Качване на снимката на предната страна на продукта в Open Food Facts",
     "@uploading_image_type_front": {
         "description": "Message when a new front picture is being uploaded to the server"
     },
@@ -463,11 +463,11 @@
     "@uploading_image_type_nutrition": {
         "description": "Message when a new nutrition picture is being uploaded to the server"
     },
-    "uploading_image_type_packaging": "Uploading packaging image to Open Food Facts",
+    "uploading_image_type_packaging": "Качване на снимката на вида на опаковката в Open Food Facts",
     "@uploading_image_type_packaging": {
         "description": "Message when a new packaging picture is being uploaded to the server"
     },
-    "uploading_image_type_other": "Uploading other image to Open Food Facts",
+    "uploading_image_type_other": "Качване на друга снимка в Open Food Facts",
     "@uploading_image_type_other": {
         "description": "Message when a new other picture is being uploaded to the server"
     },
@@ -703,7 +703,7 @@
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress": "Refreshing products in your History",
+    "product_list_reloading_in_progress": "Актуализация на продуктите в историята",
     "@product_list_reloading_in_progress": {
         "description": "Message to show while loading previous scanned items"
     },
