@@ -62,7 +62,7 @@ jobs:
          SIGN_STORE_PATH: ./../fastlane/envfiles/keystore.jks.gpg
          SIGN_STORE_PASSWORD: ${{ secrets.SIGN_STORE_PASSWORD }}
          SIGN_KEY_ALIAS: ${{ secrets.SIGN_KEY_ALIAS }}
-         SIGN_KEY_PASSWORD: ${{ secrets.SIGN_KEY_PASSWORD }}
+         SIGN_KEY_PASSWORD: ${{ secrets.DECRYPT_FOR_SCANNER_FILE }}
 
       - name: Release AAB
         uses: maierj/fastlane-action@v2.2.0
@@ -73,5 +73,5 @@ jobs:
          SIGN_STORE_PATH: ./../fastlane/envfiles/keystore.jks.gpg
          SIGN_STORE_PASSWORD: ${{ secrets.SIGN_STORE_PASSWORD }}
          SIGN_KEY_ALIAS: ${{ secrets.SIGN_KEY_ALIAS }}
-         SIGN_KEY_PASSWORD: ${{ secrets.SIGN_KEY_PASSWORD }}
+         SIGN_KEY_PASSWORD: ${{ secrets.DECRYPT_FOR_SCANNER_FILE }}
 
