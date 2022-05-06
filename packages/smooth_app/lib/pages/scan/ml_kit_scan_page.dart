@@ -190,7 +190,7 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
     }
 
     stoppingCamera = true;
-    if (mounted) {
+    if (!fromDispose && mounted) {
       setState(() {});
     }
 
