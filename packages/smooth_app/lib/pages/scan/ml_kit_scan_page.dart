@@ -182,7 +182,9 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
     }
   }
 
-  Future<void> _stopImageStream() async {
+  Future<void> _stopImageStream({
+    bool fromDispose = false,
+  }) async {
     if (stoppingCamera) {
       return;
     }
@@ -229,7 +231,7 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
   void dispose() {
     // /!\ This call is a Future, which may leads to some issues.
     // This should be handled by [_restartCameraIfNecessary]
-    _stopImageStream();
+    _stopImageStream(fromDispose: true);
     super.dispose();
   }
 
