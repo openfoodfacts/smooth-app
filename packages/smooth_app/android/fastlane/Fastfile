@@ -29,9 +29,11 @@ platform :android do
         track: 'internal',
         aab: '../build/app/outputs/bundle/release/app-release.aab',
         skip_upload_metadata: true,
+        package_name: "org.openfoodfacts.scanner"
         skip_upload_images: true,
         skip_upload_screenshots: true,
         skip_upload_changelogs: true,
+        skip_upload_apk: true,
         #release_status: "draft",
         version_code: flutter_version(pubspec_location: '../pubspec.yaml')["version_code"],
       )
