@@ -1,4 +1,4 @@
-name: App Store release
+name: App Store release to org.openfoodfacts.scanner
 
 on:
   push:
