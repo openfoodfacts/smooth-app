@@ -893,5 +893,4 @@
     "@confirm_clear": {
         "description": "Asking about whether to clear the list or not"
     }
-
 }
