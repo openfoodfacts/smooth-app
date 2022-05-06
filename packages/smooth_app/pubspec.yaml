@@ -50,7 +50,7 @@ dependencies:
     git:
       url: https://github.com/cli1005/google_ml_barcode_scanner.git
       ref: master
-  image_cropper: ^2.0.1
+  image_cropper: ^2.0.2
   auto_size_text: ^3.0.0
 
 dev_dependencies:
