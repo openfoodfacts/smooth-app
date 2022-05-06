@@ -25,6 +25,7 @@ import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/helpers/smooth_matched_product.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/question_page.dart';
 
@@ -290,7 +291,15 @@ class _SummaryCardState extends State<SummaryCard> {
         summaryCardButtons.add(
           addPanelButton(
             localizations.completed_basic_details_btn_text,
-            onPressed: () => _showNotImplemented(context),
+            onPressed: () async {
+              await Navigator.push<bool>(
+                context,
+                MaterialPageRoute<bool>(
+                  builder: (BuildContext context) =>
+                      AddBasicDetailsPage(widget._product),
+                ),
+              );
+            },
           ),
         );
       }
