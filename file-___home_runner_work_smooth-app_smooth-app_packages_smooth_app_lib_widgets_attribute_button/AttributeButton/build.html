@@ -73,14 +73,13 @@
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   final ThemeData themeData = Theme.of(context);
-  final IconThemeData iconThemeData = IconTheme.of(context);
   final String currentImportanceId =
       productPreferences.getImportanceIdForAttributeId(attribute.id!);
   const double horizontalPadding = LARGE_SPACE;
   final double widgetWidth =
       MediaQuery.of(context).size.width - 2 * horizontalPadding;
   final double importanceWidth = widgetWidth &#47; 4;
-  final TextStyle style = themeData.textTheme.headline3!;
+  final TextStyle style = themeData.textTheme.headline4!;
   final String? info = attribute.settingNote;
   final List&lt;Widget&gt; children = &lt;Widget&gt;[];
   for (final String importanceId in _importanceIds) {
@@ -104,25 +103,25 @@ Widget build(BuildContext context) {
             ),
           );
         },
-        child: SizedBox(
+        child: Container(
           width: importanceWidth,
-          height: MINIMUM_TARGET_SIZE,
+          constraints: const BoxConstraints(minHeight: MINIMUM_TARGET_SIZE),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: &lt;Widget&gt;[
-              AutoSizeText(
-                productPreferences
-                    .getPreferenceImportanceFromImportanceId(importanceId)!
-                    .name!,
-                maxLines: 1,
-                textAlign: TextAlign.center,
-              ),
               Icon(
                 currentImportanceId == importanceId
                     ? Icons.radio_button_checked
                     : Icons.radio_button_off,
                 color: themeData.colorScheme.primary,
+              ),
+              AutoSizeText(
+                productPreferences
+                    .getPreferenceImportanceFromImportanceId(importanceId)!
+                    .name!,
+                maxLines: 2,
+                textAlign: TextAlign.center,
               ),
             ],
           ),
@@ -139,31 +138,12 @@ Widget build(BuildContext context) {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: &lt;Widget&gt;[
-        GestureDetector(
-          child: SizedBox(
-            height: MINIMUM_TARGET_SIZE,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: &lt;Widget&gt;[
-                if (info != null) const Icon(Icons.info_outline),
-                Container(
-                  padding: info == null
-                      ? null
-                      : const EdgeInsets.only(left: SMALL_SPACE),
-                  child: SizedBox(
-                    width: widgetWidth -
-                        SMALL_SPACE -
-                        (iconThemeData.size ?? DEFAULT_ICON_SIZE),
-                    child: AutoSizeText(
-                      attribute.settingName ?? attribute.name!,
-                      maxLines: 2,
-                      style: style,
-                    ),
-                  ),
-                ),
-              ],
-            ),
+        ListTile(
+          trailing: info == null ? null : const Icon(Icons.info_outline),
+          title: AutoSizeText(
+            attribute.settingName ?? attribute.name!,
+            maxLines: 2,
+            style: style,
           ),
           onTap: info == null
               ? null
@@ -186,7 +166,7 @@ Widget build(BuildContext context) {
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: children,
         ),
       ],
