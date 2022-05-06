@@ -42,7 +42,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "org.openfoodfacts.app"
+        applicationId "org.openfoodfacts.scanner"
         minSdkVersion 21
         targetSdkVersion 31
         versionCode flutterVersionCode.toInteger()
