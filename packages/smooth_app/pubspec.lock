@@ -77,21 +77,21 @@ packages:
       name: built_value
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "8.2.0"
+    version: "8.2.3"
   camera:
     dependency: "direct main"
     description:
       name: camera
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.9.4+20"
+    version: "0.9.4+21"
   camera_platform_interface:
     dependency: transitive
     description:
       name: camera_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.5"
+    version: "2.1.6"
   camera_web:
     dependency: transitive
     description:
@@ -154,7 +154,7 @@ packages:
       name: cross_file
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.2"
+    version: "0.3.3"
   crypto:
     dependency: transitive
     description:
@@ -340,7 +340,7 @@ packages:
       name: flutter_widget_from_html_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.8.5+1"
+    version: "0.8.5+3"
   freezed_annotation:
     dependency: transitive
     description:
@@ -366,7 +366,7 @@ packages:
       name: fwfh_text_style
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.7.3+1"
+    version: "2.7.3+2"
   glob:
     dependency: transitive
     description:
@@ -431,7 +431,7 @@ packages:
       name: image_cropper
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.1"
+    version: "2.0.2"
   image_cropper_for_web:
     dependency: transitive
     description:
@@ -473,7 +473,7 @@ packages:
       name: image_picker_ios
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.8.4+11"
+    version: "0.8.5"
   image_picker_platform_interface:
     dependency: transitive
     description:
@@ -513,7 +513,7 @@ packages:
       name: json_annotation
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.4.0"
+    version: "4.5.0"
   latlong2:
     dependency: "direct main"
     description:
@@ -702,7 +702,7 @@ packages:
       name: path_provider_android
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.12"
+    version: "2.0.13"
   path_provider_ios:
     dependency: transitive
     description:
@@ -856,7 +856,7 @@ packages:
       name: quiver
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.1+1"
+    version: "3.1.0"
   rubber:
     dependency: "direct main"
     description:
@@ -1050,7 +1050,7 @@ packages:
       name: url_launcher_android
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.0.15"
+    version: "6.0.16"
   url_launcher_ios:
     dependency: transitive
     description:
@@ -1141,7 +1141,7 @@ packages:
       name: win32
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.5.1"
+    version: "2.5.2"
   wkt_parser:
     dependency: transitive
     description:
