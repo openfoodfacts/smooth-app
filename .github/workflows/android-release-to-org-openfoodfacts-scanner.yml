@@ -1,4 +1,4 @@
-name: Google Play release
+name: Google Play release to org.openfoodfacts.scanner
 
 on:
   push:
