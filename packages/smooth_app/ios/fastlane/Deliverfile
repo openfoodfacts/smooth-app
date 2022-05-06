@@ -1,4 +1,4 @@
-app_identifier ENV["PACKAGE_NAME"]
+app_identifier "org.openfoodfacts.scanner"
 username ENV["APPLE_ID"]
 app_icon "./fastlane/metadata/Icon-App-iTunes.png"
 screenshots_path "./fastlane/screenshots"
