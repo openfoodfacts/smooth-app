@@ -33,8 +33,8 @@ jobs:
       - name: Decrypt API JSON file
         run: cd ./packages/smooth_app/android/fastlane/envfiles && chmod +x ./decrypt_secrets.sh && ./decrypt_secrets.sh && ls
         env:
-          API_JSON_FILE_DECRYPTKEY: ${{ secrets.SCANNER_API_JSON_FILE_DECRYPTKEY }}
-          STORE_JKS_DECRYPTKEY: ${{ secrets.SCANNER_STORE_JKS_DECRYPTKEY }}
+          API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
+          STORE_JKS_DECRYPTKEY: ${{ secrets.STORE_JKS_DECRYPTKEY }}
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
@@ -60,9 +60,9 @@ jobs:
                  # Todo: change package name in pubspec.yaml
         env:
          SIGN_STORE_PATH: ./../fastlane/envfiles/keystore.jks
-         SIGN_STORE_PASSWORD: ${{ secrets.SCANNER_SIGN_STORE_PASSWORD }}
-         SIGN_KEY_ALIAS: ${{ secrets.SCANNER_SIGN_KEY_ALIAS }}
-         SIGN_KEY_PASSWORD: ${{ secrets.SCANNER_SIGN_KEY_PASSWORD }}
+         SIGN_STORE_PASSWORD: ${{ secrets.SIGN_STORE_PASSWORD }}
+         SIGN_KEY_ALIAS: ${{ secrets.SIGN_KEY_ALIAS }}
+         SIGN_KEY_PASSWORD: ${{ secrets.SIGN_KEY_PASSWORD }}
 
       - name: Release AAB
         uses: maierj/fastlane-action@v2.2.0
@@ -72,7 +72,7 @@ jobs:
          # Todo: change package name
         env:
          SIGN_STORE_PATH: ./../fastlane/envfiles/keystore.jks
-         SIGN_STORE_PASSWORD: ${{ secrets.SCANNER_SIGN_STORE_PASSWORD }}
-         SIGN_KEY_ALIAS: ${{ secrets.SCANNER_SIGN_KEY_ALIAS }}
-         SIGN_KEY_PASSWORD: ${{ secrets.SCANNER_SIGN_KEY_PASSWORD }}
+         SIGN_STORE_PASSWORD: ${{ secrets.SIGN_STORE_PASSWORD }}
+         SIGN_KEY_ALIAS: ${{ secrets.SIGN_KEY_ALIAS }}
+         SIGN_KEY_PASSWORD: ${{ secrets.SIGN_KEY_PASSWORD }}
 
