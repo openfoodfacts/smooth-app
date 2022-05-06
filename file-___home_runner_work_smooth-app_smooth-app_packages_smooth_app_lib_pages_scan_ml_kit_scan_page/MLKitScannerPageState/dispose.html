@@ -73,7 +73,7 @@
 void dispose() {
   &#47;&#47; &#47;!\ This call is a Future, which may leads to some issues.
   &#47;&#47; This should be handled by [_restartCameraIfNecessary]
-  _stopImageStream();
+  _stopImageStream(fromDispose: true);
   super.dispose();
 }</code></pre>
 </section>
