@@ -7,14 +7,14 @@ on:
 
 jobs:
   testflight-release:
-    name: Build and deploy to TestFlight testers
+    name: Build and deploy to TestFlight testers (org.openfoodfacts.scanner)
     runs-on: macos-latest
     steps:
       - name: Checkout sources
         uses: actions/checkout@v3
 
       - name: Set env
-       run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
        #run: echo "RELEASE_VERSION=590" >> $GITHUB_ENV
 
       - name: Version
@@ -51,11 +51,6 @@ jobs:
         env:
           AUTH_KEY_FILE_DECRYPTKEY: ${{ secrets.AUTH_KEY_FILE_DECRYPTKEY }}
 
-      - name: Decrypt Android API JSON file
-        run: cd ./packages/smooth_app/android/fastlane/envfiles && chmod +x ./decrypt_secrets.sh && ./decrypt_secrets.sh && ls
-        env:
-          API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
-          STORE_JKS_DECRYPTKEY: ${{ secrets.STORE_JKS_DECRYPTKEY }}
 
       # We are using the android version code here to have the version codes from iOS and android in sync 
       # in order for Sentry and other tools to work properly
