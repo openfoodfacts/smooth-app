@@ -12,6 +12,7 @@ import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/scan/lifecycle_manager.dart';
 import 'package:smooth_app/pages/scan/mkit_scan_helper.dart';
+import 'package:smooth_app/widgets/lifecycle_aware_widget.dart';
 import 'package:smooth_app/widgets/screen_visibility.dart';
 
 class MLKitScannerPage extends StatelessWidget {
@@ -27,7 +28,7 @@ class MLKitScannerPage extends StatelessWidget {
   }
 }
 
-class _MLKitScannerPageContent extends StatefulWidget {
+class _MLKitScannerPageContent extends LifecycleAwareStatefulWidget {
   const _MLKitScannerPageContent({
     Key? key,
   }) : super(key: key);
@@ -36,7 +37,8 @@ class _MLKitScannerPageContent extends StatefulWidget {
   MLKitScannerPageState createState() => MLKitScannerPageState();
 }
 
-class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
+class MLKitScannerPageState
+    extends LifecycleAwareState<_MLKitScannerPageContent> {
   /// If the camera is being closed (when [stoppingCamera] == true) and this
   /// Widget is visible again, we add a post frame callback to detect if the
   /// Widget is still visible
@@ -93,7 +95,7 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
     return LifeCycleManager(
       onStart: _startLiveFeed,
       onResume: _startLiveFeed,
-      onPause: () => _stopImageStream(onlyPause: true),
+      onPause: () => _stopImageStream(fromPauseEvent: true),
       child: _buildScannerWidget(),
     );
   }
@@ -217,7 +219,7 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
     }
   }
 
-  Future<void> _stopImageStream({bool onlyPause = false}) async {
+  Future<void> _stopImageStream({bool fromPauseEvent = false}) async {
     if (stoppingCamera) {
       return;
     }
@@ -227,7 +229,7 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
 
     _controller?.removeListener(_cameraListener);
 
-    if (onlyPause) {
+    if (fromPauseEvent) {
       _streamSubscription?.pause();
     } else {
       await _streamSubscription?.cancel();
@@ -243,9 +245,7 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
   }
 
   void _redrawScreen() {
-    if (mounted) {
-      setState(() {});
-    }
+    setStateSafe(() {});
   }
 
   /// The camera is fully closed at this step.
@@ -281,7 +281,7 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
   void dispose() {
     // /!\ This call is a Future, which may leads to some issues.
     // This should be handled by [_restartCameraIfNecessary]
-    _stopImageStream(onlyPause: false);
+    _stopImageStream(fromPauseEvent: false);
     super.dispose();
   }
 

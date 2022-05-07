@@ -46,7 +46,7 @@ class MLKitScanDecoder {
 }
 
 /// Main class allowing to communicate with [_MLKitScanDecoderIsolate]
-/// The communication is bi-directionnal:
+/// The communication is bi-directional:
 /// -> From the main Isolate to the "decoder" Isolate
 ///   -> Send the configuration (camera description + scan mode)
 ///   -> Send a camera image to decode
