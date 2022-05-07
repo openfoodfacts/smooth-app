@@ -150,11 +150,20 @@ class _MLKitScanDecoderMainIsolate {
 
 // ignore: avoid_classes_with_only_static_members
 class _MLKitScanDecoderIsolate {
+  // Only accept 1D barcodes. More info on:
+  // [https://www.scandit.com/blog/types-barcodes-choosing-right-barcode/]
   static final BarcodeScanner _barcodeScanner =
       GoogleMlKit.vision.barcodeScanner(
     <BarcodeFormat>[
       BarcodeFormat.ean8,
       BarcodeFormat.ean13,
+      BarcodeFormat.upca,
+      BarcodeFormat.upce,
+      BarcodeFormat.code39,
+      BarcodeFormat.code93,
+      BarcodeFormat.code128,
+      BarcodeFormat.itf,
+      BarcodeFormat.codabar,
     ],
   );
 
