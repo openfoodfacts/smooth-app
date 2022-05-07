@@ -9,5 +9,5 @@ gpg --quiet --batch --yes --decrypt --passphrase="$API_JSON_FILE_DECRYPTKEY" \
 ls
 echo "keystore decypher"
 
-gpg --quiet --batch --yes --decrypt --passphrase=\Q$STORE_JKS_DECRYPTKEY\E \
+gpg --quiet --batch --yes --decrypt --passphrase=$STORE_JKS_DECRYPTKEY \
 --output ./keystore.jks keystore.jks.gpg
