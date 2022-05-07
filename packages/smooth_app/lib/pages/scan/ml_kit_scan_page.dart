@@ -52,16 +52,17 @@ class MLKitScannerPageState
 
   /// To improve battery life & lower the CPU consumption, we decode barcodes
   /// every [_processingTimeWindows] time windows.
-  /// A time window is the average time a decoding takes
 
   /// Until the first barcode is decoded, this is default timeout
   static const int _defaultProcessingTime = 50; // in milliseconds
   /// Minimal processing windows between two decodings
   static const int _processingTimeWindows = 5;
 
+  /// A time window is the average time decodings took
+  final AverageList<int> _averageProcessingTime = AverageList<int>();
+
   /// Subject notifying when a new image is available
   PublishSubject<CameraImage> _subject = PublishSubject<CameraImage>();
-  final AverageList<int> _averageProcessingTime = AverageList<int>();
 
   /// Stream calling the barcode detection
   StreamSubscription<List<String>?>? _streamSubscription;
