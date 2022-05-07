@@ -1,2 +1,8 @@
 project_id_env: CROWDIN_PROJECT_ID
 api_token_env: CROWDIN_PERSONAL_TOKEN
+files:
+  - source: 'packages/smooth_app/lib/l10n/app_en.arb'
+    translation: 'packages/smooth_app/lib/l10n/app_%two_letters_code%.arb'
+  - source: 'packages/smooth_app/ios/Runner/en.lproj/InfoPlist.strings'
+    translation: 'packages/smooth_app/ios/Runner/%two_letters_code%.lproj/InfoPlist.strings'
+    

@@ -83,7 +83,6 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
       context: context,
       builder: (BuildContext context) {
         return SmoothAlertDialog(
-          close: false,
           title: localizations.sign_out,
           body: Text(
             localizations.sign_out_confirmation,
@@ -110,8 +109,9 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
 
   @override
   Widget build(BuildContext context) {
-    final UserManagementProvider userManagementProvider =
-        context.watch<UserManagementProvider>();
+    // We need to listen to reflect login's from outside of the preferences page
+    // e.g. question card, ...
+    context.watch<UserManagementProvider>();
 
     final ThemeData theme = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
@@ -119,10 +119,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
 
     final List<Widget> result = <Widget>[];
 
-    if (userManagementProvider.isLoading) {
-      //Loading
-      result.add(const Center(child: CircularProgressIndicator()));
-    } else if (OpenFoodAPIConfiguration.globalUser != null) {
+    if (OpenFoodAPIConfiguration.globalUser != null) {
       //Credentials
       final String userId = OpenFoodAPIConfiguration.globalUser!.userId;
       result.add(
@@ -150,7 +147,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
               subject: appLocalizations.email_subject_account_deletion,
               body: appLocalizations.email_body_account_deletion(userId),
             );
-            await launch('$mailtoLink');
+            await launchUrl(Uri.parse('$mailtoLink'));
           },
           title: Text(appLocalizations.account_delete),
           leading: const Icon(Icons.delete),
@@ -193,11 +190,8 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
 
     result.addAll(
       <Widget>[
-        ListTile(
-          leading: const Icon(Icons.public),
-          title: CountrySelector(
-            initialCountryCode: widget.userPreferences.userCountryCode,
-          ),
+        CountrySelector(
+          initialCountryCode: widget.userPreferences.userCountryCode,
         ),
         SwitchListTile(
           title: Text(appLocalizations.crash_reporting_toggle_title),

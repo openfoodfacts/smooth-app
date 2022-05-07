@@ -10,17 +10,24 @@ import 'package:smooth_app/cards/product_cards/smooth_product_card_not_found.dar
 import 'package:smooth_app/cards/product_cards/smooth_product_card_thanks.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/pages/scan/inherited_data_manager.dart';
 import 'package:smooth_app/pages/scan/scan_product_card.dart';
 import 'package:smooth_app/pages/scan/search_page.dart';
 
 class SmoothProductCarousel extends StatefulWidget {
   const SmoothProductCarousel({
-    this.showSearchCard = false,
+    this.containSearchCard = false,
     required this.height,
   });
 
-  final bool showSearchCard;
+  final bool containSearchCard;
   final double height;
+
+  static const EdgeInsets carouselItemHorizontalPadding =
+      EdgeInsets.symmetric(horizontal: 20.0);
+  static const EdgeInsets carouselItemInternalPadding =
+      EdgeInsets.symmetric(horizontal: 2.0);
+  static const double carouselViewPortFraction = 0.91;
 
   @override
   State<SmoothProductCarousel> createState() => _SmoothProductCarouselState();
@@ -29,29 +36,48 @@ class SmoothProductCarousel extends StatefulWidget {
 class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
   final CarouselController _controller = CarouselController();
   List<String> barcodes = <String>[];
+  bool _returnToSearchCard = false;
+  int _lastIndex = 0;
 
-  int get _searchCardAdjustment => widget.showSearchCard ? 1 : 0;
+  int get _searchCardAdjustment => widget.containSearchCard ? 1 : 0;
+  late ContinuousScanModel _model;
+
+  @override
+  void initState() {
+    super.initState();
+    _lastIndex = _searchCardAdjustment;
+  }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    final ContinuousScanModel model = context.watch<ContinuousScanModel>();
-    setState(() {
-      barcodes = model.getBarcodes();
-    });
+    _model = context.watch<ContinuousScanModel>();
+    barcodes = _model.getBarcodes();
+    _returnToSearchCard = InheritedDataManager.of(context).showSearchCard;
     if (_controller.ready) {
-      _controller.animateToPage(barcodes.length - 1 + _searchCardAdjustment);
+      if (_returnToSearchCard && widget.containSearchCard && _lastIndex > 0) {
+        _controller.animateToPage(0);
+      } else if (_model.latestConsultedBarcode != null &&
+          _model.latestConsultedBarcode!.isNotEmpty) {
+        final int indexBarcode =
+            barcodes.indexOf(_model.latestConsultedBarcode!);
+        final int indexCarousel = indexBarcode + _searchCardAdjustment;
+        _controller.animateToPage(indexCarousel);
+      } else {
+        _controller.animateToPage(0);
+      }
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    barcodes = _model.getBarcodes();
     return CarouselSlider.builder(
       itemCount: barcodes.length + _searchCardAdjustment,
       itemBuilder: (BuildContext context, int itemIndex, int itemRealIndex) {
         return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 2.0),
-          child: widget.showSearchCard && itemIndex == 0
+          padding: SmoothProductCarousel.carouselItemInternalPadding,
+          child: widget.containSearchCard && itemIndex == 0
               ? SearchCard(height: widget.height)
               : _getWidget(itemIndex - _searchCardAdjustment),
         );
@@ -59,9 +85,25 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
       carouselController: _controller,
       options: CarouselOptions(
         enlargeCenterPage: false,
-        viewportFraction: 0.91,
+        viewportFraction: SmoothProductCarousel.carouselViewPortFraction,
         height: widget.height,
         enableInfiniteScroll: false,
+        onPageChanged: (int index, CarouselPageChangedReason reason) {
+          _lastIndex = index;
+          final InheritedDataManagerState inheritedDataManager =
+              InheritedDataManager.of(context);
+          if (inheritedDataManager.showSearchCard) {
+            inheritedDataManager.resetShowSearchCard(false);
+          }
+          if (index > 0) {
+            if (reason == CarouselPageChangedReason.manual) {
+              _model.lastConsultedBarcode =
+                  barcodes[index - _searchCardAdjustment];
+            }
+          } else if (index == 0) {
+            _model.lastConsultedBarcode = null;
+          }
+        },
       ),
     );
   }
@@ -77,21 +119,24 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
       return Container();
     }
     final String barcode = barcodes[index];
-    final ContinuousScanModel model = context.watch<ContinuousScanModel>();
-    switch (model.getBarcodeState(barcode)!) {
+    switch (_model.getBarcodeState(barcode)!) {
       case ScannedProductState.FOUND:
       case ScannedProductState.CACHED:
-        final Product product = model.getProduct(barcode);
+        final Product product = _model.getProduct(barcode);
         return ScanProductCard(product);
       case ScannedProductState.LOADING:
         return SmoothProductCardLoading(barcode: barcode);
       case ScannedProductState.NOT_FOUND:
         return SmoothProductCardNotFound(
           barcode: barcode,
-          callback: () {
+          callback: (String? barcodeLoaded) async {
             // Remove the "Add New Product" card. The user may have added it
             // already.
-            model.getBarcodes().remove(barcode);
+            if (barcodeLoaded == null) {
+              _model.getBarcodes().remove(barcode);
+            } else {
+              await _model.refresh();
+            }
             setState(() {});
           },
         );
@@ -114,7 +159,7 @@ class SearchCard extends StatelessWidget {
     return SmoothCard(
       color: Theme.of(context).colorScheme.background.withOpacity(0.85),
       elevation: 0,
-      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      padding: SmoothProductCarousel.carouselItemHorizontalPadding,
       child: SizedBox(
         height: height,
         child: Column(

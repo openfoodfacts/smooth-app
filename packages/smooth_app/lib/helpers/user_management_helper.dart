@@ -1,3 +1,6 @@
+import 'package:flutter/widgets.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
+
 class UserManagementHelper {
   UserManagementHelper._();
 
@@ -18,5 +21,12 @@ class UserManagementHelper {
   static bool isUsernameValid(final String username) =>
       username.isNotEmpty && _userRegex.hasMatch(username);
 
+  static bool isUsernameLengthValid(final String username) =>
+      username.length <= OpenFoodAPIClient.USER_NAME_MAX_LENGTH;
+
   static bool isPasswordValid(final String password) => password.length >= 6;
+}
+
+extension UserManagementTextController on TextEditingController {
+  String get trimmedText => text.trim();
 }

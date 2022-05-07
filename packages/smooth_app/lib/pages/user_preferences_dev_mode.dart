@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_list.dart';
@@ -7,6 +8,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/helpers/product_list_import_export.dart';
 import 'package:smooth_app/pages/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 
@@ -37,7 +39,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   static const String userPreferencesFlagProd = '__devWorkingOnProd';
   static const String userPreferencesTestEnvHost = '__testEnvHost';
   static const String userPreferencesFlagUseMLKit = '__useMLKit';
-  static const String userPreferencesFlagLenientMatching = '__lenientMatching';
+  static const String userPreferencesFlagStrongMatching = '__lenientMatching';
   static const String userPreferencesFlagAdditionalButton =
       '__additionalButtonOnProductPage';
   static const String userPreferencesFlagEditIngredients = '__editIngredients';
@@ -186,15 +188,30 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         ListTile(
+          title: const Text('Import History'),
+          subtitle:
+              const Text('Will clear history and put 3 products in there'),
+          onTap: () async {
+            final LocalDatabase localDatabase = context.read<LocalDatabase>();
+            await ProductListImportExport().import(
+              ProductListImportExport.TMP_IMPORT,
+              localDatabase,
+            );
+            ScaffoldMessenger.of(context)
+                .showSnackBar(const SnackBar(content: Text('Done')));
+            localDatabase.notifyListeners();
+          },
+        ),
+        ListTile(
           title: const Text('Switch between strong and lenient matching'),
           subtitle: Text(
             'Current matching level is '
-            '${(userPreferences.getFlag(userPreferencesFlagLenientMatching) ?? false) ? 'strong' : 'lenient'}',
+            '${(userPreferences.getFlag(userPreferencesFlagStrongMatching) ?? false) ? 'strong' : 'lenient'}',
           ),
           onTap: () async {
             await userPreferences.setFlag(
-                userPreferencesFlagLenientMatching,
-                !(userPreferences.getFlag(userPreferencesFlagLenientMatching) ??
+                userPreferencesFlagStrongMatching,
+                !(userPreferences.getFlag(userPreferencesFlagStrongMatching) ??
                     false));
             setState(() {});
           },
@@ -241,6 +258,22 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               );
               setState(() {});
             }
+          },
+        ),
+        SwitchListTile(
+          title: const Text('Exclude ecoscore'),
+          value: userPreferences
+              .getExcludedAttributeIds()
+              .contains(Attribute.ATTRIBUTE_ECOSCORE),
+          onChanged: (bool value) async {
+            const String tag = Attribute.ATTRIBUTE_ECOSCORE;
+            final List<String> list = userPreferences.getExcludedAttributeIds();
+            list.removeWhere((final String element) => element == tag);
+            if (value) {
+              list.add(tag);
+            }
+            await userPreferences.setExcludedAttributeIds(list);
+            setState(() {});
           },
         ),
       ];

@@ -4,8 +4,8 @@ import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:openfoodfacts/personalized_search/product_preferences_manager.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
-import 'attributes_card_helper.dart';
 
 /// Match and score of a [Product] vs. Preferences
 ///
@@ -25,12 +25,25 @@ abstract class MatchedProduct {
     final Product product,
     final ProductPreferencesManager productPreferencesManager,
     final UserPreferences userPreferences,
-  ) =>
-      userPreferences.getFlag(
-                  UserPreferencesDevMode.userPreferencesFlagLenientMatching) ??
-              false
-          ? _StrongMatchedProduct(product, productPreferencesManager)
-          : _LenientMatchedProduct(product, productPreferencesManager);
+  ) {
+    final List<String> excludedAttributeIds =
+        userPreferences.getExcludedAttributeIds();
+    if (userPreferences.getFlag(
+          UserPreferencesDevMode.userPreferencesFlagStrongMatching,
+        ) ??
+        false) {
+      return _StrongMatchedProduct(
+        product,
+        productPreferencesManager,
+        excludedAttributeIds,
+      );
+    }
+    return _LenientMatchedProduct(
+      product,
+      productPreferencesManager,
+      excludedAttributeIds,
+    );
+  }
 
   final Product product;
   double get score;
@@ -61,6 +74,7 @@ class _StrongMatchedProduct extends MatchedProduct {
   _StrongMatchedProduct(
     final Product product,
     final ProductPreferencesManager productPreferencesManager,
+    final List<String> excludedAttributeIds,
   ) : super(product) {
     final List<AttributeGroup>? attributeGroups = product.attributeGroups;
     if (attributeGroups == null) {
@@ -71,6 +85,9 @@ class _StrongMatchedProduct extends MatchedProduct {
     for (final AttributeGroup group in attributeGroups) {
       if (group.attributes != null) {
         for (final Attribute attribute in group.attributes!) {
+          if (excludedAttributeIds.contains(attribute.id)) {
+            continue;
+          }
           final PreferenceImportance? preferenceImportance =
               productPreferencesManager.getPreferenceImportanceFromImportanceId(
             productPreferencesManager.getImportanceIdForAttributeId(
@@ -126,6 +143,7 @@ class _LenientMatchedProduct extends MatchedProduct {
   _LenientMatchedProduct(
     final Product product,
     final ProductPreferencesManager productPreferencesManager,
+    final List<String> excludedAttributeIds,
   ) : super(product) {
     _score = 0.0;
     int numAttributesComputed = 0;
@@ -133,6 +151,9 @@ class _LenientMatchedProduct extends MatchedProduct {
       for (final AttributeGroup group in product.attributeGroups!) {
         if (group.attributes != null) {
           for (final Attribute attribute in group.attributes!) {
+            if (excludedAttributeIds.contains(attribute.id)) {
+              continue;
+            }
             final String importanceLevel = productPreferencesManager
                 .getImportanceIdForAttributeId(attribute.id!);
             // Check whether any mandatory attribute is incompatible
