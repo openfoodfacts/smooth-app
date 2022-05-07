@@ -889,7 +889,7 @@
     "@user_list_name_error_same": {
         "description": "Validation error about the renamed name that is the same as the initial list name"
     },
-    "confirm_clear": "Do you really want to clear?",
+    "confirm_clear": "Вы действительно хотите очистить?",
     "@confirm_clear": {
         "description": "Asking about whether to clear the list or not"
     }
