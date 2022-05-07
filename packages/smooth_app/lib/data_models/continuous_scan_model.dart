@@ -97,23 +97,25 @@ class ContinuousScanModel with ChangeNotifier {
 
   Product getProduct(final String barcode) => _productList.getProduct(barcode);
 
-  Future<void> onScan(String? code) async {
+  /// Adds a barcode
+  /// Will return if this barcode is successfully added
+  Future<bool> onScan(String? code) async {
     if (code == null) {
-      return;
+      return false;
     }
 
     if (_barcodeTrustCheck != code) {
       _barcodeTrustCheck = code;
-      return;
+      return false;
     }
     if (_latestScannedBarcode == code || _barcodes.contains(code)) {
       lastConsultedBarcode = code;
-      return;
+      return false;
     }
     AnalyticsHelper.trackScannedProduct(barcode: code);
 
     _latestScannedBarcode = code;
-    _addBarcode(code);
+    return _addBarcode(code);
   }
 
   Future<bool> onCreateProduct(String? barcode) async {

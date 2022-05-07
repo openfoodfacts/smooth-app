@@ -9,6 +9,7 @@ import 'package:rxdart/rxdart.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
+import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/scan/lifecycle_manager.dart';
 import 'package:smooth_app/pages/scan/mkit_scan_helper.dart';
@@ -49,11 +50,21 @@ class MLKitScannerPageState
   /// On a 60Hz display, one frame =~ 16 ms => 100 ms =~ 6 frames.
   static const int postFrameCallbackStandardDelay = 100; // in milliseconds
 
+  /// To improve battery life & lower the CPU consumption, we decode barcodes
+  /// every [_processingTimeWindows] time windows.
+  /// A time window is the average time a decoding takes
+
+  /// Until the first barcode is decoded, this is default timeout
+  static const int _defaultProcessingTime = 50; // in milliseconds
+  /// Minimal processing windows between two decodings
+  static const int _processingTimeWindows = 5;
+
   /// Subject notifying when a new image is available
   PublishSubject<CameraImage> _subject = PublishSubject<CameraImage>();
+  final AverageList<int> _averageProcessingTime = AverageList<int>();
 
   /// Stream calling the barcode detection
-  StreamSubscription<String>? _streamSubscription;
+  StreamSubscription<List<String>?>? _streamSubscription;
   MLKitScanDecoder? _barcodeDecoder;
 
   late ContinuousScanModel _model;
@@ -171,25 +182,31 @@ class MLKitScannerPageState
     if (_streamSubscription?.isPaused == true) {
       _streamSubscription!.resume();
     } else {
-      _streamSubscription = _subject
-          // TODO(g123k): Improve this duration by computing an average
-          //  computation duration
+      _subject
           .throttleTime(
-            const Duration(milliseconds: 200),
+            Duration(
+              milliseconds:
+                  _averageProcessingTime.average(_defaultProcessingTime) *
+                      _processingTimeWindows,
+            ),
           )
-          .asyncMap<List<String>?>(
-            (CameraImage image) => _barcodeDecoder?.processImage(image),
-          )
+          .asyncMap((CameraImage image) async {
+            final DateTime start = DateTime.now();
+
+            final List<String?>? res =
+                await _barcodeDecoder?.processImage(image);
+
+            _averageProcessingTime.add(
+              DateTime.now().difference(start).inMilliseconds,
+            );
+
+            return res;
+          })
           .where(
-            (List<String>? barcodes) => barcodes?.isNotEmpty == true,
+            (List<String?>? barcodes) => barcodes?.isNotEmpty == true,
           )
-          // TODO(g123k): What should we do with multiple barcodes?
-          .map(
-            (List<String>? barcodes) => barcodes!.first,
-          )
-          .listen(
-            (String barcode) => _model.onScan(barcode),
-          );
+          .cast<List<String>>()
+          .listen(_onNewBarcodeDetected);
     }
 
     try {
@@ -208,6 +225,14 @@ class MLKitScannerPageState
     }
 
     _redrawScreen();
+  }
+
+  Future<void> _onNewBarcodeDetected(List<String> barcodes) async {
+    for (final String barcode in barcodes) {
+      if (await _model.onScan(barcode)) {
+        HapticFeedback.lightImpact();
+      }
+    }
   }
 
   void _cameraListener() {
