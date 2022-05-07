@@ -905,6 +905,10 @@
     "confirm_clear": "Do you really want to clear?",
     "@confirm_clear": {
         "description": "Asking about whether to clear the list or not"
+    },
+    "importance_label": "importance",
+    "@importance_label": {
+        "description": "Used when user selects a food preference"
     }
 }
 
