@@ -97,17 +97,30 @@ Widget build(BuildContext context) {
   }
   return Align(
     alignment: Alignment.topLeft,
-    child: ListTile(
-      dense: dense,
-      contentPadding: EdgeInsets.zero,
-      title: Text(
-        getProductName(product, appLocalizations),
-        style: themeData.textTheme.headline4,
-      ).selectable(isSelectable: isSelectable),
-      subtitle: Text(
-        subtitleText,
-      ).selectable(isSelectable: isSelectable),
-      trailing: trailingWidget,
+    child: InkWell(
+      onTap: () async {
+        if (getProductName(product, appLocalizations) ==
+            appLocalizations.unknownProductName) {
+          await Navigator.push&lt;bool&gt;(
+            context,
+            MaterialPageRoute&lt;bool&gt;(
+              builder: (BuildContext context) =&gt; AddBasicDetailsPage(product),
+            ),
+          );
+        }
+      },
+      child: ListTile(
+        dense: dense,
+        contentPadding: EdgeInsets.zero,
+        title: Text(
+          getProductName(product, appLocalizations),
+          style: themeData.textTheme.headline4,
+        ).selectable(isSelectable: isSelectable),
+        subtitle: Text(
+          subtitleText,
+        ).selectable(isSelectable: isSelectable),
+        trailing: trailingWidget,
+      ),
     ),
   );
 }</code></pre>
