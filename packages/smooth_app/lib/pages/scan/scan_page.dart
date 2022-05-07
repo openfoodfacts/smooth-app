@@ -1,12 +1,12 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
@@ -34,11 +34,10 @@ class _ScanPageState extends State<ScanPage> {
   }
 
   Future<void> _updateModel() async {
-    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     if (_model == null) {
-      _model = await ContinuousScanModel().load(localDatabase);
+      _model = context.read<ContinuousScanModel>();
     } else {
-      await _model?.refresh();
+      await _model!.refresh();
     }
     setState(() {});
   }
@@ -49,21 +48,17 @@ class _ScanPageState extends State<ScanPage> {
       return const Center(child: CircularProgressIndicator());
     }
 
-    return Scaffold(
-      body: MultiProvider(
-        providers: <ChangeNotifierProvider<ChangeNotifier>>[
-          ChangeNotifierProvider<PermissionListener>(
-            create: (_) => PermissionListener(
-              permission: Permission.camera,
-            ),
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle.light,
+      child: Scaffold(
+        body: ChangeNotifierProvider<PermissionListener>(
+          create: (_) => PermissionListener(
+            permission: Permission.camera,
           ),
-          ChangeNotifierProvider<ContinuousScanModel>(
-            create: (BuildContext context) => _model!,
-          )
-        ],
-        child: const ScannerOverlay(
-          backgroundChild: _ScanPageBackgroundWidget(),
-          topChild: _ScanPageTopWidget(),
+          child: const ScannerOverlay(
+            backgroundChild: _ScanPageBackgroundWidget(),
+            topChild: _ScanPageTopWidget(),
+          ),
         ),
       ),
     );

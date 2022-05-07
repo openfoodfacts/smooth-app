@@ -49,7 +49,7 @@ class _KnowledgePanelPageTemplateState
 
   Future<void> _init() async {
     final Product product =
-        await OnboardingDataProduct.forKnowledgePanels(widget.localDatabase)
+        await OnboardingDataProduct.forProduct(widget.localDatabase)
             .getData(rootBundle);
     _knowledgePanels = product.knowledgePanels!;
   }
@@ -70,6 +70,7 @@ class _KnowledgePanelPageTemplateState
               const KnowledgePanelsBuilder().buildSingle(
             _knowledgePanels,
             widget.panelId,
+            context: context,
           )!;
           return Scaffold(
             body: Stack(

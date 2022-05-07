@@ -1,5 +1,5 @@
 {
-    "app_name": "Smoothie",
+    "app_name": "OpenFoodFacts",
     "@Utils": {},
     "yes": "Da",
     "@yes": {},
@@ -36,7 +36,7 @@
     "@error_occurred": {},
     "featureInProgress": "Încă lucrăm la această funcție, rămâneți pe fază",
     "@featureInProgress": {},
-    "label_web": "Vizualizare pe Web",
+    "label_web": "Vizualizați-l pe web",
     "@label_web": {},
     "learnMore": "Afla mai mult",
     "@learnMore": {},
@@ -66,7 +66,7 @@
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Alege produsele care sunt bune pentru tine și pentru 🌍 planetă.",
+    "offUtility": "Alege alimente care sunt bune pentru tine și planetă.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
@@ -151,11 +151,19 @@
     "sign_up_page_display_name_error_empty": "Vă rugăm să introduceți numele afișat pe care doriți să îl utilizați",
     "sign_up_page_email_hint": "E-mail",
     "sign_up_page_email_error_empty": "E-mailul este necesar",
-    "sign_up_page_email_error_invalid": "Acest e-mail este invalid",
-    "sign_up_page_username_hint": "Nume de utilizator",
+    "sign_up_page_email_error_invalid": "E-mail invalid",
+    "sign_up_page_username_hint": "Username: Publicly visible",
     "sign_up_page_username_error_empty": "Vă rugăm să introduceți un nume de utilizator",
     "sign_up_page_username_error_invalid": "Vă rugăm să introduceți un nume de utilizator valid",
     "sign_up_page_username_description": "Numele de utilizator nu poate conține spații, majuscule sau caractere speciale",
+    "sign_up_page_username_length_invalid": "Numele de utilizator trebuie să aibă mai puțin de {value} caractere",
+    "@sign_up_page_username_length_invalid": {
+        "placeholders": {
+            "value": {
+                "type": "int"
+            }
+        }
+    },
     "sign_up_page_password_hint": "Parolă",
     "sign_up_page_password_error_empty": "Vă rugăm să introduceți o parolă",
     "sign_up_page_password_error_invalid": "Vă rugăm să introduceți o parolă validă (cel puțin 6 caractere)",
@@ -273,7 +281,7 @@
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "question_sign_in_text": "Conectați-vă la contul dvs. Open Food Facts pentru a vă revendica contribuția și pentru a vă spori credibilitatea",
+    "question_sign_in_text": "Conectați-vă la contul dvs. Open Food Facts pentru a obține credit pentru contribuția dvs",
     "@Personal preferences": {},
     "myPreferences": "Preferințe",
     "@myPreferences": {
@@ -385,9 +393,9 @@
     "@add_product_information_button_label": {},
     "new_product": "Produs Nou",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Fotografie frontală a produsului",
+    "front_packaging_photo_button_label": "Poza din față a produsului",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Confirmați fotografia frontală a produsului",
+    "confirm_front_packaging_photo_button_label": "Confirmați încărcarea fotografiei din față a produsului",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
@@ -439,31 +447,31 @@
     "@selecting_photo": {
         "description": "Progress indicator when the users takes a photo"
     },
-    "uploading_image": "Uploading photo to the server",
+    "uploading_image": "Încărcarea fotografiei pe server",
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
-    "uploading_image_type_front": "Uploading front image to Open Food Facts",
+    "uploading_image_type_front": "Se încarcă imaginea din față în Open Food Facts",
     "@uploading_image_type_front": {
         "description": "Message when a new front picture is being uploaded to the server"
     },
-    "uploading_image_type_ingredients": "Uploading ingredients image to Open Food Facts",
+    "uploading_image_type_ingredients": "Se încarcă imaginea ingredientelor în Open Food Facts",
     "@uploading_image_type_ingredients": {
         "description": "Message when a new ingredients picture is being uploaded to the server"
     },
-    "uploading_image_type_nutrition": "Uploading nutrition image to Open Food Facts",
+    "uploading_image_type_nutrition": "Se încarcă imaginea nutrițională în Open Food Facts",
     "@uploading_image_type_nutrition": {
         "description": "Message when a new nutrition picture is being uploaded to the server"
     },
-    "uploading_image_type_packaging": "Uploading packaging image to Open Food Facts",
+    "uploading_image_type_packaging": "Se încarcă imaginea ambalajului în Open Food Facts",
     "@uploading_image_type_packaging": {
         "description": "Message when a new packaging picture is being uploaded to the server"
     },
-    "uploading_image_type_other": "Uploading other image to Open Food Facts",
+    "uploading_image_type_other": "Încărcarea unei alte imagini în Open Food Facts",
     "@uploading_image_type_other": {
         "description": "Message when a new other picture is being uploaded to the server"
     },
-    "uploading_image_type_generic": "Uploading image to Open Food Facts",
+    "uploading_image_type_generic": "Se încarcă imaginea în Open Food Facts",
     "@uploading_image_type_generic": {
         "description": "Message when a new picture is being uploaded to the server"
     },
@@ -650,7 +658,7 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Ajutați voluntarii Open Food Facts să îmbunătățească aplicația. Tu decizi dacă vrei să trimiți analize anonime.",
+    "consent_analytics_body1": "Ajutați voluntarii Open Food Facts să îmbunătățească aplicația. Dumneavoastră decideți dacă trimiteți analize anonime.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
@@ -687,11 +695,11 @@
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
-    "product_list_empty_title": "Începe scanarea!",
+    "product_list_empty_title": "Începeți scanarea!",
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
-    "product_list_empty_message": "Produsele pe care le scanați vor apărea aici și puteți verifica informații detaliate despre ele",
+    "product_list_empty_message": "Produsele scanate vor apărea aici și puteți verifica informații detaliate despre ele",
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
@@ -732,7 +740,7 @@
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "Când sunt activate, rapoartele de eroare vor fi trimise automat către sistemul de erori Open Food Facts, astfel încât să putem remedia erorile și să îmbunătățim aplicația.",
+    "crash_reporting_toggle_subtitle": "Când sunt activate, rapoartele de blocare sunt trimise automat la sistemul de urmărire a erorilor Open Food Facts, astfel încât erorile să poată fi remediate și astfel să îmbunătățească aplicația.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
@@ -752,8 +760,8 @@
     "@permission_photo_error": {
         "description": "When the camera/photo permission failed to be acquired (!= denied)"
     },
-    "permission_photo_denied_title": "Allow camera use to scan barcodes",
-    "permission_photo_denied_message": "For an enhanced experience, please allow {appName} to access your camera. You will be able to directly scan barcodes.",
+    "permission_photo_denied_title": "Permiteți utilizarea camerei pentru a scana coduri de bare",
+    "permission_photo_denied_message": "Pentru o experiență îmbunătățită, permiteți utilizatorului {appName} să vă acceseze camera. Veți putea scana direct codurile de bare.",
     "@permission_photo_denied_message": {
         "description": "When the camera/photo permission is denied by user",
         "placeholders": {
@@ -762,12 +770,12 @@
             }
         }
     },
-    "permission_photo_denied_button": "Allow",
+    "permission_photo_denied_button": "Permite",
     "@permission_photo_denied_button": {
         "description": "When the camera/photo permission is denied by user"
     },
-    "permission_photo_denied_dialog_settings_title": "Permission denied",
-    "permission_photo_denied_dialog_settings_message": "As you've previously denied the camera permission, you must allow it manually from the Settings.",
+    "permission_photo_denied_dialog_settings_title": "Acces refuzat",
+    "permission_photo_denied_dialog_settings_message": "Deoarece ați refuzat anterior permisiunea camerei, trebuie să o permiteți manual din Setări.",
     "permission_photo_denied_dialog_settings_button_open": "Open Settings",
     "permission_photo_denied_dialog_settings_button_cancel": "Anulare",
     "permission_photo_denied": "Nu este permis accesul la cameră",
@@ -828,5 +836,61 @@
     },
     "completed_basic_details_btn_text": "Detalii de bază complete",
     "not_implemented_snackbar_text": "Neimplementat încă",
-    "category_picker_page_appbar_text": "Categorii"
+    "category_picker_page_appbar_text": "Categorii",
+    "edit_ingredients_extrait_ingredients_btn_text": "Extrageți ingredientele",
+    "@edit_ingredients_extrait_ingredients_btn_text": {
+        "description": "Ingredients edition - Extract ingredients"
+    },
+    "edit_ingredients_refresh_photo_btn_text": "Reîmprospătați fotografia",
+    "@edit_ingredients_refresh_photo_btn_text": {
+        "description": "Ingredients edition - Refresh photo"
+    },
+    "user_list_dialog_new_title": "Noua listă de produse",
+    "@user_list_dialog_new_title": {
+        "description": "Title of the 'new user list' dialog"
+    },
+    "user_list_dialog_rename_title": "Redenumiți lista",
+    "@user_list_dialog_rename_title": {
+        "description": "Title of the 'rename user list' dialog"
+    },
+    "user_list_subtitle_product": "Liste",
+    "@user_list_subtitle_product": {
+        "description": "Subtitle of a paragraph about user lists in a product context"
+    },
+    "user_list_button_new": "Listă nouă",
+    "@user_list_button_new": {
+        "description": "Short label of a 'new list' button"
+    },
+    "user_list_button_add_product": "Adaugă la listă",
+    "@user_list_button_add_product": {
+        "description": "Short label of an 'add to list' button from a product context"
+    },
+    "user_list_popup_clear": "Ștergeți",
+    "@user_list_popup_clear": {
+        "description": "Short label of a 'clear list' popup"
+    },
+    "user_list_popup_rename": "Redenumiți",
+    "@user_list_popup_rename": {
+        "description": "Short label of a 'rename list' popup"
+    },
+    "user_list_name_hint": "Lista mea",
+    "@user_list_name_hint": {
+        "description": "Hint of a user list name text-field in a 'user list' dialog"
+    },
+    "user_list_name_error_empty": "Numele nu poate fi lăsat necompletat",
+    "@user_list_name_error_empty": {
+        "description": "Validation error about the name that cannot be empty"
+    },
+    "user_list_name_error_already": "Acest nume este deja folosit",
+    "@user_list_name_error_already": {
+        "description": "Validation error about the name that is already used for another list"
+    },
+    "user_list_name_error_same": "Este același nume",
+    "@user_list_name_error_same": {
+        "description": "Validation error about the renamed name that is the same as the initial list name"
+    },
+    "confirm_clear": "Do you really want to clear?",
+    "@confirm_clear": {
+        "description": "Asking about whether to clear the list or not"
+    }
 }

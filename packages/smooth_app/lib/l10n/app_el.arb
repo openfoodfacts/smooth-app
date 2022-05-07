@@ -1,5 +1,5 @@
 {
-    "app_name": "Smoothie",
+    "app_name": "OpenFoodFactsEs",
     "@Utils": {},
     "yes": "Ναι",
     "@yes": {},
@@ -14,7 +14,7 @@
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
     "save": "Αποθήκευση",
-    "save_confirmation": "Are you sure you want to save?",
+    "save_confirmation": "Είστε βέβαιοι ότι θέλετε να αποθηκεύσετε;",
     "skip": "Skip",
     "cancel": "Ακύρωση",
     "@cancel": {},
@@ -36,11 +36,11 @@
     "@error_occurred": {},
     "featureInProgress": "Εξακολουθούμε να εργαζόμαστε σε αυτήν τη λειτουργία, μείνετε συντονισμένοι",
     "@featureInProgress": {},
-    "label_web": "Προβολή στο Διαδίκτυο",
+    "label_web": "Προβολή στον Ιστό",
     "@label_web": {},
     "learnMore": "Μάθετε περισσότερα",
     "@learnMore": {},
-    "general_confirmation": "Are you sure?",
+    "general_confirmation": "Είστε σίγουροι;",
     "incompatible": "Ασύμβατο",
     "@incompatible": {
         "description": "Short label for product list view: the product is incompatible with your preferences"
@@ -60,17 +60,17 @@
         "description": "Looking for: ${BARCODE}"
     },
     "@Introduction screen": {},
-    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
+    "welcomeToOpenFoodFacts": "Καλώς ήρθατε στο Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
     "whatIsOff": "Το Open Food Facts είναι ένας παγκόσμιος μη κερδοσκοπικός οργανισμός που υποστηρίζεται από τις τοπικές κοινότητες.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Επιλέξτε τροφές που είναι καλές για εσάς και τον πλανήτη.",
+    "offUtility": "Επιλέξτε τροφές που κάνουν καλό σε εσάς και τον πλανήτη.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
-    "productDataUtility": "See the food data relevant to your preferences.",
+    "productDataUtility": "Δείτε τα δεδομένα τροφίμων που σχετίζονται με τις προτιμήσεις σας.",
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."
     },
@@ -89,7 +89,7 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
-    "login_page_username_or_email": "Please enter username or e-mail",
+    "login_page_username_or_email": "Παρακαλώ εισάγετε όνομα χρήστη ή e-mail",
     "login_page_password_error_empty": "Πληκτρολογήστε τον κωδικό σας",
     "create_account": "Δημιουργήστε λογαριασμό",
     "@create_account": {
@@ -152,10 +152,18 @@
     "sign_up_page_email_hint": "E-mail",
     "sign_up_page_email_error_empty": "Απαιτείται e-mail",
     "sign_up_page_email_error_invalid": "Μη έγκυρο e-mail",
-    "sign_up_page_username_hint": "Όνομα χρήστη",
+    "sign_up_page_username_hint": "Όνομα χρήστη: Ορατό προς όλους",
     "sign_up_page_username_error_empty": "Παρακαλώ εισάγετε ένα όνομα χρήστη",
     "sign_up_page_username_error_invalid": "Παρακαλώ εισάγετε ένα έγκυρο όνομα χρήστη",
     "sign_up_page_username_description": "Το όνομα χρήστη δεν μπορεί να περιέχει κενά, κεφαλαία ή ειδικούς χαρακτήρες",
+    "sign_up_page_username_length_invalid": "Username must be less than {value} characters",
+    "@sign_up_page_username_length_invalid": {
+        "placeholders": {
+            "value": {
+                "type": "int"
+            }
+        }
+    },
     "sign_up_page_password_hint": "Κωδικός χρήστη",
     "sign_up_page_password_error_empty": "Πληκτρολογήστε τον κωδικό σας",
     "sign_up_page_password_error_invalid": "Παρακαλούμε εισάγετε έναν έγκυρο κωδικό πρόσβασης (τουλάχιστον 6 χαρακτήρες)",
@@ -185,7 +193,7 @@
     "sign_up_page_producer_checkbox": "Είμαι παραγωγός τροφίμων",
     "sign_up_page_producer_hint": "Παραγωγός/επωνυμία",
     "sign_up_page_producer_error_empty": "Εισαγάγετε έναν παραγωγό ή μια επωνυμία",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
+    "sign_up_page_subscribe_checkbox": "Θα ήθελα να εγγραφώ στο newsletter του Open Food Facts (Μπορείτε να απεγγραφείτε από αυτό ανά πάσα στιγμή)",
     "@Settings": {},
     "settingsTitle": "Ρυθμίσεις",
     "@settingsTitle": {
@@ -203,7 +211,7 @@
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch (light)"
     },
-    "darkmode_system_default": "System default",
+    "darkmode_system_default": "Προεπιλογή συστήματος",
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
@@ -217,7 +225,7 @@
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
     "support_join_slack": "Ask for help in our Slack channel",
-    "support_via_email": "Send us an e-mail",
+    "support_via_email": "Στείλτε μας e-mail",
     "termsOfUse": "Όροι χρήσης",
     "@termsOfUse": {},
     "about_this_app": "About this app",
@@ -269,18 +277,18 @@
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
     },
-    "contribute_to_get_rewards": "Help improve food transparency and get rewards",
+    "contribute_to_get_rewards": "Βοηθήστε στη βελτίωση της διαφάνειας των τροφίμων και κερδίστε ανταμοιβές",
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "question_sign_in_text": "Sign in to your Open Food Facts account to claim your contribution and to increase your creditability",
+    "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contribution",
     "@Personal preferences": {},
     "myPreferences": "My preferences",
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "Your Profile",
-    "myPreferences_profile_subtitle": "Change app settings and get advice.",
+    "myPreferences_profile_subtitle": "Αλλάξτε τις ρυθμίσεις της εφαρμογής και λάβετε συμβουλές.",
     "myPreferences_settings_title": "App Settings",
     "myPreferences_settings_subtitle": "Dark mode, Theme, ...",
     "myPreferences_food_title": "Food Preferences",
@@ -355,9 +363,9 @@
     "ingredients": "Συστατικά",
     "@ingredients": {},
     "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen, use parentheses for ingredients of an ingredient, and indicate allergens between underscores.",
-    "ingredients_editing_error": "Failed to save the ingredients.",
-    "ingredients_editing_image_error": "Failed to get a new ingredients image.",
-    "ingredients_editing_title": "Edit Ingredients",
+    "ingredients_editing_error": "Απέτυχε η αποθήκευση του συστατικού.",
+    "ingredients_editing_image_error": "Αποτυχία λήψης νέας εικόνας συστατικών.",
+    "ingredients_editing_title": "Επεξεργασία Συστατικών",
     "ingredients_photo": "Ingredients photo",
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
@@ -377,17 +385,17 @@
     "@packaging_information_photo": {},
     "missing_product": "You found a new product!",
     "@missing_product": {},
-    "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
+    "add_product_take_photos": "Φωτογραφίστε τη συσκευασία για να προσθέσετε αυτό το προϊόν στο Open Food Facts",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Please take some photos and the Open Food Facts engine can work out the rest!",
+    "add_product_take_photos_descriptive": "Τραβήξτε μερικές φωτογραφίες και η μηχανή Open Food Facts μπορεί να βρει τα υπόλοιπα!",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Add product information",
     "@add_product_information_button_label": {},
     "new_product": "Νέο Προϊόν",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Front of product photo",
+    "front_packaging_photo_button_label": "Product's front photo",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Confirm front of product photo",
+    "confirm_front_packaging_photo_button_label": "Confirm Product's front photo upload",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
@@ -500,7 +508,7 @@
         "description": "The product data couldn't be refreshed"
     },
     "product_internet_error": "Impossible to fetch information about this product due to a network error.",
-    "cached_results_from": "Show results from:",
+    "cached_results_from": "Εμφάνιση αποτελεσμάτων από:",
     "@cached_results_from": {
         "description": "Cached results from: x time ago (time ago should not be added to the string)"
     },
@@ -531,7 +539,7 @@
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
+    "product_improvement_origins_to_be_completed": "Το Eco-Score λαμβάνει υπόψη την προέλευση των συστατικών. Τραβήξτε μια φωτογραφία της λίστας συστατικών και/ή οποιουδήποτε γεωγραφικού ισχυρισμού ή επεξεργαστείτε το προϊόν, ώστε να μπορούν να ληφθούν υπόψη.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
@@ -543,11 +551,11 @@
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
-    "product_removed_comparison": "Product removed from comparison",
+    "product_removed_comparison": "Το προϊόν αφαιρέθηκε από τη σύγκριση",
     "@product_removed_comparison": {
         "description": "Product got removed from comparison list"
     },
-    "product_removed_history": "Product removed from history",
+    "product_removed_history": "Το προϊόν αφαιρέθηκε από το ιστορικό",
     "@product_removed_history": {
         "description": "Product got removed from history"
     },
@@ -563,8 +571,8 @@
     "@clear": {
         "description": "Clears a product list"
     },
-    "really_clear": "Do you really want to delete this list?",
-    "product_compatibility_unknown": "Compatibility Unknown",
+    "really_clear": "Θέλετε πραγματικά να διαγράψετε αυτή τη λίστα;",
+    "product_compatibility_unknown": "Άγνωστη συμβατότητα",
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
     },
@@ -631,18 +639,18 @@
         "description": "Button to switch to 'compare products mode'"
     },
     "retry_button_label": "Προσπαθήστε ξανά",
-    "connect_with_us": "Connect with us",
+    "connect_with_us": "Συνδεθείτε μαζί μας",
     "instagram": "Instagram",
     "twitter": "Twitter",
     "blog": "Blog",
-    "faq": "FAQ",
+    "faq": "Συχνές ερωτήσεις",
     "discover": "Ανακαλύψτε",
-    "how_to_contribute": "How to Contribute",
-    "main_app_color": "Theme",
+    "how_to_contribute": "Πως να συνεισφέρετε",
+    "main_app_color": "Θέμα",
     "@main_app_color": {
         "description": "Heading for the section to pick the main app color"
     },
-    "hint_knowledge_panel_message": "Your can tap on any part of the card to get more details about what you see. Try it now!",
+    "hint_knowledge_panel_message": "Μπορείτε να πατήσετε σε οποιοδήποτε μέρος της κάρτας για περισσότερες λεπτομέρειες σχετικά με το τι βλέπετε. Δοκιμάστε το τώρα!",
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
     },
@@ -650,7 +658,7 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide if you want to send anonymous analytics.",
+    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide whether to submit anonymous analytics.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
@@ -658,15 +666,15 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "authorize_button_label": "Authorize",
+    "authorize_button_label": "Εξουσιοδότηση",
     "@authorize": {
         "description": "Button to accept the request of sending the anonymous analytics"
     },
-    "refuse_button_label": "Refuse",
+    "refuse_button_label": "Απόρριψη",
     "@refuse": {
         "description": "Button to decline the request of sending the anonymous analytics"
     },
-    "knowledge_panel_text_source": "Go further on {source_name}",
+    "knowledge_panel_text_source": "Προχωρήστε περαιτέρω στο {source_name}",
     "@knowledge_panel_text_source": {
         "description": "Source field within a text knowledge panel.",
         "placeholders": {
@@ -679,19 +687,19 @@
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },
-    "product_list_your_ranking": "Your ranking",
+    "product_list_your_ranking": "Η κατάταξή σας",
     "@product_list_your_ranking": {
         "description": "Your ranking screen title"
     },
-    "product_list_empty_icon_desc": "History not available",
+    "product_list_empty_icon_desc": "Μη διαθέσιμο ιστορικό",
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
-    "product_list_empty_title": "Start scanning !",
+    "product_list_empty_title": "Start scanning!",
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
-    "product_list_empty_message": "Products you scan will appear here and you can check detailed information about them",
+    "product_list_empty_message": "Scanned products will appear here and you can check detailed information about them",
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
@@ -703,19 +711,19 @@
     "@product_list_reloading_success": {
         "description": "Message to show once previous scanned items are loaded"
     },
-    "loading_dialog_default_title": "Downloading data",
+    "loading_dialog_default_title": "Λήψη δεδομένων",
     "@loading_dialog_default_title": {
         "description": "Default loading dialog title"
     },
-    "loading_dialog_default_error_message": "Could not download data",
+    "loading_dialog_default_error_message": "Δεν ήταν δυνατή η λήψη δεδομένων",
     "@loading_dialog_default_error_message": {
         "description": "Default loading dialog error message"
     },
-    "account_delete": "Delete account",
+    "account_delete": "Διαγραφή λογαριασμού",
     "@account_delete": {
         "description": "Delete account button (user profile)"
     },
-    "email_subject_account_deletion": "Delete account",
+    "email_subject_account_deletion": "Διαγραφή λογαριασμού",
     "@email_subject_account_deletion": {
         "description": "Email subject for an account deletion"
     },
@@ -732,7 +740,7 @@
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "When enabled, crash reports will be sent to the Open Food Facts bug system automatically, so that we can fix bugs and improve the app.",
+    "crash_reporting_toggle_subtitle": "When enabled, crash reports are automatically submitted to Open Food Facts' error tracking system, so that bugs can be fixed and thus improve the app.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
@@ -770,7 +778,7 @@
     "permission_photo_denied_dialog_settings_message": "As you've previously denied the camera permission, you must allow it manually from the Settings.",
     "permission_photo_denied_dialog_settings_button_open": "Ανοίξτε τις ρυθμίσεις",
     "permission_photo_denied_dialog_settings_button_cancel": "Ακύρωση",
-    "permission_photo_denied": "No camera access granted",
+    "permission_photo_denied": "Δεν έχει χορηγηθεί πρόσβαση στην κάμερα",
     "@permission_photo_denied": {
         "description": "When the camera/photo permission is denied by user"
     },
@@ -782,11 +790,11 @@
     "@edit_product_form_item_barcode": {
         "description": "Product edition - Barcode"
     },
-    "edit_product_form_item_details_title": "Basic details",
+    "edit_product_form_item_details_title": "Βασικές Πληροφορίες",
     "@edit_product_form_item_details_title": {
         "description": "Product edition - Basic Details - Title"
     },
-    "edit_product_form_item_details_subtitle": "Product name, brand, quantity",
+    "edit_product_form_item_details_subtitle": "Ονομασία προϊόντος, μάρκα, ποσότητα",
     "@edit_product_form_item_details_subtitle": {
         "description": "Product edition - Basic Details - Title"
     },
@@ -794,19 +802,19 @@
     "@edit_product_form_item_photos_title": {
         "description": "Product edition - Photos - Title"
     },
-    "edit_product_form_item_photos_subtitle": "Add or refresh photos",
+    "edit_product_form_item_photos_subtitle": "Προσθήκη ή ανανέωση φωτογραφιών",
     "@edit_product_form_item_photos_subtitle": {
         "description": "Product edition - Photos - SubTitle"
     },
-    "edit_product_form_item_labels_title": "Labels & Certifications",
+    "edit_product_form_item_labels_title": "Ετικέτες & Πιστοποιήσεις",
     "@edit_product_form_item_labels_title": {
         "description": "Product edition - Labels - Title"
     },
-    "edit_product_form_item_labels_subtitle": "Environmental, Quality labels, ...",
+    "edit_product_form_item_labels_subtitle": "Περιβαλλοντικές, ποιοτικές ετικέτες, ...",
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
-    "edit_product_form_item_ingredients_title": "Ingredients & Origins",
+    "edit_product_form_item_ingredients_title": "Συστατικά & Προέλευση",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
     },
@@ -818,7 +826,7 @@
     "@edit_product_form_item_nutrition_facts_title": {
         "description": "Product edition - Nutrition facts - Title"
     },
-    "edit_product_form_item_nutrition_facts_subtitle": "Nutrition, alcohol content…",
+    "edit_product_form_item_nutrition_facts_subtitle": "Διατροφή, περιεκτικότητα σε αλκοόλ…",
     "@edit_product_form_item_nutrition_facts_subtitle": {
         "description": "Product edition - Nutrition facts - SubTitle"
     },
@@ -828,5 +836,61 @@
     },
     "completed_basic_details_btn_text": "Complete basic details",
     "not_implemented_snackbar_text": "Not implemented yet",
-    "category_picker_page_appbar_text": "Κατηγορίες"
+    "category_picker_page_appbar_text": "Κατηγορίες",
+    "edit_ingredients_extrait_ingredients_btn_text": "Extract ingredients",
+    "@edit_ingredients_extrait_ingredients_btn_text": {
+        "description": "Ingredients edition - Extract ingredients"
+    },
+    "edit_ingredients_refresh_photo_btn_text": "Refresh photo",
+    "@edit_ingredients_refresh_photo_btn_text": {
+        "description": "Ingredients edition - Refresh photo"
+    },
+    "user_list_dialog_new_title": "Νέα λίστα προϊόντων",
+    "@user_list_dialog_new_title": {
+        "description": "Title of the 'new user list' dialog"
+    },
+    "user_list_dialog_rename_title": "Μετονομασία λίστας",
+    "@user_list_dialog_rename_title": {
+        "description": "Title of the 'rename user list' dialog"
+    },
+    "user_list_subtitle_product": "Λίστες",
+    "@user_list_subtitle_product": {
+        "description": "Subtitle of a paragraph about user lists in a product context"
+    },
+    "user_list_button_new": "Νέα λίστα",
+    "@user_list_button_new": {
+        "description": "Short label of a 'new list' button"
+    },
+    "user_list_button_add_product": "Add to list",
+    "@user_list_button_add_product": {
+        "description": "Short label of an 'add to list' button from a product context"
+    },
+    "user_list_popup_clear": "Εκκαθάριση",
+    "@user_list_popup_clear": {
+        "description": "Short label of a 'clear list' popup"
+    },
+    "user_list_popup_rename": "Μετονομασία",
+    "@user_list_popup_rename": {
+        "description": "Short label of a 'rename list' popup"
+    },
+    "user_list_name_hint": "Η λίστα μου",
+    "@user_list_name_hint": {
+        "description": "Hint of a user list name text-field in a 'user list' dialog"
+    },
+    "user_list_name_error_empty": "Το όνομα δεν μπορεί να είναι άδειο",
+    "@user_list_name_error_empty": {
+        "description": "Validation error about the name that cannot be empty"
+    },
+    "user_list_name_error_already": "Αυτό το όνομα χρησιμοποιείται ήδη",
+    "@user_list_name_error_already": {
+        "description": "Validation error about the name that is already used for another list"
+    },
+    "user_list_name_error_same": "Αυτό είναι το ίδιο όνομα",
+    "@user_list_name_error_same": {
+        "description": "Validation error about the renamed name that is the same as the initial list name"
+    },
+    "confirm_clear": "Do you really want to clear?",
+    "@confirm_clear": {
+        "description": "Asking about whether to clear the list or not"
+    }
 }

@@ -1,20 +1,20 @@
 {
-    "app_name": "Smoothie",
+    "app_name": "OpenFoodFacts",
     "@Utils": {},
     "yes": "ถูกต้อง",
     "@yes": {},
     "add": "เพิ่ม",
     "@add": {},
-    "okay": "Okay",
+    "okay": "โอเค",
     "@okay": {},
-    "applyButtonText": "Apply",
+    "applyButtonText": "ใช้",
     "@applyButtonText": {},
     "next_label": "ถัดไป",
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
     "save": "บันทึก",
-    "save_confirmation": "Are you sure you want to save?",
+    "save_confirmation": "คุณแน่ใจว่าต้องการจะบันทึกใช่มั้ย",
     "skip": "Skip",
     "cancel": "ยกเลิก",
     "@cancel": {},
@@ -22,30 +22,30 @@
     "@close": {},
     "no": "ไม่ใช่",
     "@no": {},
-    "stop": "Stop",
+    "stop": "หยุด",
     "@stop": {},
     "finish": "Finish",
     "@finish": {},
-    "reset_food_prefs": "Reset food preferences",
+    "reset_food_prefs": "ล้างค่าการกำหนดลักษณะ",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
     },
     "error": "บางอย่างผิดพลาด",
     "@error": {},
-    "error_occurred": "An error occurred",
+    "error_occurred": "เกิดความผิดพลาด",
     "@error_occurred": {},
-    "featureInProgress": "We're still working on this feature, stay tuned",
+    "featureInProgress": "เรากำลังพัฒนากับฟีเจอร์นี้เจอกันเร็วๆนี้",
     "@featureInProgress": {},
-    "label_web": "View on the Web",
+    "label_web": "View on the web",
     "@label_web": {},
-    "learnMore": "Learn more",
+    "learnMore": "ดูเพิ่มเติม",
     "@learnMore": {},
-    "general_confirmation": "Are you sure?",
-    "incompatible": "Incompatible",
+    "general_confirmation": "แน่ใจมั้ย",
+    "incompatible": "ระบบไม่รองรับ",
     "@incompatible": {
         "description": "Short label for product list view: the product is incompatible with your preferences"
     },
-    "compatible": "Compatible",
+    "compatible": "ใช้งานได้",
     "@compatible": {
         "description": "Short label for product list view: the product is compatible with your preferences"
     },
@@ -55,43 +55,43 @@
     },
     "licenses": "Licences",
     "@licenses": {},
-    "looking_for": "Looking for",
+    "looking_for": "กำลังหา",
     "@looking_for": {
         "description": "Looking for: ${BARCODE}"
     },
     "@Introduction screen": {},
-    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
+    "welcomeToOpenFoodFacts": "ยินดีต้อนรับสู่ โอเพ้น ฟู๊ด แฟค",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "whatIsOff": "โอเพ้นฟู๊ดแฟคเป็น องค์กรไม่แสวงหาผลกำไร ทำงานด้วยการเคลื่อนไหวของชุมชนท้องถิ่น",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Choose foods that are good for you and the planet.",
+    "offUtility": "Choose food that is good for you and the planet.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
-    "productDataUtility": "See the food data relevant to your preferences.",
+    "productDataUtility": "ดูข้อมูลอาหาร ที่คุณสนใจ(ความต้องการ)",
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."
     },
-    "healthCardUtility": "Choose foods that are good for you.",
+    "healthCardUtility": "เลือกอาหารที่ดีที่สุดสำหรับคุณ",
     "@healthCardUtility": {
         "description": "Description of what a user can use the health data in a product for."
     },
-    "ecoCardUtility": "Choose foods that are good for the planet.",
+    "ecoCardUtility": "เลือกอาหารที่ดีมีประโยชน์ที่ดีกับโลกใบนี้",
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
-    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
-    "incorrect_credentials": "Incorrect username or password.",
+    "sign_in_text": "ล๊อคอินเข้าสู่ โอเพ้น ฟู๊ด แฟค แอคเค้าท์ เพื่อบันทึกงานของคุณ",
+    "incorrect_credentials": "ชื่อและพาสเวิร์ดไม่ถูกต้อง",
     "login": "ชื่อผู้ใช้",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
-    "login_page_username_or_email": "Please enter username or e-mail",
-    "login_page_password_error_empty": "Please enter a password",
-    "create_account": "Create account",
+    "login_page_username_or_email": "กรุณากรอกชื่อแอคเค้าท์ หรือ อีเมล์",
+    "login_page_password_error_empty": "ใส่รหัสผ่าน",
+    "create_account": "สร้าง แอคเค้าท์",
     "@create_account": {
         "description": "Button label: Opens a page where a new user can register"
     },
@@ -99,20 +99,20 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_out": "Sign out",
+    "sign_out": "ล๊อคเอ้าท์",
     "@sign_out": {
         "description": "Button label: For sign out"
     },
-    "sign_out_confirmation": "Are you sure you want to sign out?",
+    "sign_out_confirmation": "คุณแน่ใจว่าจะล๊อคเอ้าท์?",
     "@sign_out_confirmation": {
         "description": "Pop up title: Reassuring if the user really want to sign out"
     },
     "password": "รหัสผ่าน",
-    "forgot_password": "Forgot password",
+    "forgot_password": "ชืมรหัสผ่าน",
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset e-mail can be requested"
     },
-    "view_profile": "View profile",
+    "view_profile": "ดูโปรไฟล์",
     "@view_profile": {
         "description": "Button label: For to show your account"
     },
@@ -120,53 +120,61 @@
     "@reset_password": {
         "description": "Forgot password page title"
     },
-    "reset_password_explanation_text": "In case of a forgotten password, enter your username or e-mail address to receive instructions for a password reset. Also, remember to check the Spam folder.",
-    "username_or_email": "Username or e-mail",
+    "reset_password_explanation_text": "ถ้าหากชืมรหัสผ่านให้กรอก ชื่อแอคเค้าท์ หรือ อีเมล์ เพื่อรับ ข้อมูล ขั้นตอนการตั้งค่ารหัสใหม่ กรุณาเปิดกล่องจดหมายขยะด้วย",
+    "username_or_email": "ชื่อผู้ใช้ หรือ อีเมล์",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
-    "reset_password_done": "An e-mail with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
-    "send_reset_password_mail": "Change password",
+    "reset_password_done": "อีเมล์ที่มีลิงค์สำหรับ ตั้งค่ารหัสผ่านใหม่ได้ถูกส่งไปยังอีเมล์ที่ท่านใช้สมัครแอคเค้าท์เรียบร้อยแล้ว กรุณาเช็คกล่องจดหมายที่ไม่ต้องการด้วย",
+    "send_reset_password_mail": "เปลี่ยนรหัส",
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset e-mail request"
     },
-    "enter_some_text": "Please enter some text",
+    "enter_some_text": "กรุณาเขียนข้อความ",
     "@enter_some_text": {
         "description": "Error when a required text field is empty"
     },
-    "sign_up_page_title": "Sign Up",
+    "sign_up_page_title": "สมัคร",
     "@sign_up_page_title": {
         "description": "Header"
     },
-    "sign_up_page_action_button": "Sign Up",
+    "sign_up_page_action_button": "สมัคร",
     "@sign_up_page_action_button": {
         "description": "Button for signing up"
     },
-    "sign_up_page_action_doing_it": "Signing up...",
+    "sign_up_page_action_doing_it": "กำลังสมัคร",
     "@sign_up_page_action_doing_it": {
         "description": "Progress indicator dialog during the actual signing up process"
     },
-    "sign_up_page_action_ok": "Congratulations! Your account has just been created.",
+    "sign_up_page_action_ok": "ยินดีด้วยแอคเค้าท์ของคุณสร้างเสร็จเรียบร้อย",
     "sign_up_page_display_name_hint": "ชื่อ",
-    "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
-    "sign_up_page_email_hint": "E-mail",
-    "sign_up_page_email_error_empty": "E-mail is required",
-    "sign_up_page_email_error_invalid": "This e-mail is invalid",
-    "sign_up_page_username_hint": "ชื่อผู้ใช้",
-    "sign_up_page_username_error_empty": "Please enter a username",
-    "sign_up_page_username_error_invalid": "Please enter a valid username",
-    "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters",
+    "sign_up_page_display_name_error_empty": "กรุณาตั้งชื่อเล่น ที่คุณต้องการ",
+    "sign_up_page_email_hint": "อีเม",
+    "sign_up_page_email_error_empty": "ต้องระบุอีเมล์",
+    "sign_up_page_email_error_invalid": "Invalid e-mail",
+    "sign_up_page_username_hint": "Username: Publicly visible",
+    "sign_up_page_username_error_empty": "กรุณา ใส่ชื่อแอคเค้าท์",
+    "sign_up_page_username_error_invalid": "ชื่อไม่ถูกต้อง",
+    "sign_up_page_username_description": "การตั้งชื่อไม่อนุญาตให้มีช่องว่าง อักษรตัวใหญ่ และ เครื่องหมายต่างๆ",
+    "sign_up_page_username_length_invalid": "Username must be less than {value} characters",
+    "@sign_up_page_username_length_invalid": {
+        "placeholders": {
+            "value": {
+                "type": "int"
+            }
+        }
+    },
     "sign_up_page_password_hint": "รหัสผ่าน",
-    "sign_up_page_password_error_empty": "Please enter a password",
-    "sign_up_page_password_error_invalid": "Please enter a valid password (at least 6 characters)",
-    "sign_up_page_confirm_password_hint": "Confirm Password",
-    "sign_up_page_confirm_password_error_empty": "Please confirm the password",
-    "sign_up_page_confirm_password_error_invalid": "Passwords don't match",
-    "sign_up_page_agree_text": "I agree to the Open Food Facts",
+    "sign_up_page_password_error_empty": "ใส่รหัสผ่าน",
+    "sign_up_page_password_error_invalid": "รหัสผ่านของคุณไม่ถูกต้อง(ต้องมีความยาวอย่างน้อย6ตัว)",
+    "sign_up_page_confirm_password_hint": "ยืนยันรหัส",
+    "sign_up_page_confirm_password_error_empty": "กรุณยืนยันรหัสผ่าน",
+    "sign_up_page_confirm_password_error_invalid": "รหัสผ่านไม่ตรงกัน",
+    "sign_up_page_agree_text": "ฉันยินดียอมรับข้อแม้ที่สมัคร โอเพ้น ฟู๊ด แทรค",
     "@sign_up_page_agree_text": {
         "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
     },
-    "sign_up_page_terms_text": "terms of use and contribution",
+    "sign_up_page_terms_text": "ข้อมูลและเงื่อนไขการใช้งาน",
     "@sign_up_page_terms_text": {
         "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
     },
@@ -273,7 +281,7 @@
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "question_sign_in_text": "Sign in to your Open Food Facts account to claim your contribution and to increase your creditability",
+    "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contribution",
     "@Personal preferences": {},
     "myPreferences": "My preferences",
     "@myPreferences": {
@@ -348,98 +356,98 @@
         "description": "Refresh the cached product"
     },
     "image": "Image",
-    "front_photo": "Front photo",
+    "front_photo": "รูปหน้าตรง",
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
     },
     "ingredients": "ส่วนผสม",
     "@ingredients": {},
-    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen, use parentheses for ingredients of an ingredient, and indicate allergens between underscores.",
-    "ingredients_editing_error": "Failed to save the ingredients.",
-    "ingredients_editing_image_error": "Failed to get a new ingredients image.",
-    "ingredients_editing_title": "Edit Ingredients",
-    "ingredients_photo": "Ingredients photo",
+    "ingredients_editing_instructions": "เก็บข้อมูลอันเดิมไว้. ระบุจำนวนเปอร์เซ็นต์ที่ต้องการ. แยก เครื่องหมายจุลภาคหรือ วงเล็บสำหรับระบุส่วนผสมต่างๆ และ ระบุสารก่อให้เกิดอาการแพ้ ล่างบรรทัด",
+    "ingredients_editing_error": "ไม่สามาบันทึกส่วนผสมได้",
+    "ingredients_editing_image_error": "ไม่สามารถใส่รูปภาพของส่วนผสมได้",
+    "ingredients_editing_title": "แก้ไขส่วนผสม",
+    "ingredients_photo": "รูปภาพของส่วนประกอบของอาหาร",
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
     "nutrition": "อาหารการกิน",
     "@nutrition": {},
-    "nutrition_page_close_confirmation": "Are you sure you want to close without saving?",
-    "nutrition_facts_photo": "Nutrition facts photo",
+    "nutrition_page_close_confirmation": "คุณแน่ใจว่าค้องการปิด(ไม่ได้บันทึก)",
+    "nutrition_facts_photo": "ข้อมูลโภชนาการ",
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
     },
-    "packaging_information": "Packaging information",
+    "packaging_information": "รายละเอียดการบรรจุ",
     "@packaging_information": {
         "description": "Button label: For adding a picture of the packaging of a product"
     },
-    "packaging_information_photo": "Packaging information photo",
+    "packaging_information_photo": "รูปภาพข้อมูลภาชนะบรรจุ",
     "@packaging_information_photo": {},
-    "missing_product": "You found a new product!",
+    "missing_product": "คุณพบสินค้าใหม่",
     "@missing_product": {},
-    "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
+    "add_product_take_photos": "ถ่ายรูป ลักษณะบรรจุภัณฑ์ของสินค้า โอเพ้น ฟู๊ดแฟค",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Please take some photos and the Open Food Facts engine can work out the rest!",
+    "add_product_take_photos_descriptive": "กรุณาถ่ายรูปและ ระบบการผลิตของ โอเพ้นฟู๊ด แฟค ว่าทำงานได้อย่างมีประสิทธิภาพ",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Add product information",
     "@add_product_information_button_label": {},
-    "new_product": "New Product",
+    "new_product": "สินค้าใหม่",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Front of product photo",
+    "front_packaging_photo_button_label": "Product's front photo",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Confirm front of product photo",
+    "confirm_front_packaging_photo_button_label": "Confirm Product's front photo upload",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
-    "confirm_button_label": "Confirm",
-    "front_packaging_photo_title": "Front Packaging Photo",
-    "ingredients_photo_title": "Ingredients Photo",
-    "nutritional_facts_photo_title": "Nutritional Facts Photo",
-    "recycling_photo_title": "Recycling Photo",
-    "other_interesting_photo_title": "Other Interesting Photo",
-    "front_photo_uploaded": "Front photo uploaded",
+    "confirm_button_label": "ยืนยัน",
+    "front_packaging_photo_title": "รูปถ่ายด้านหน้าของบรรจุภัณฑ์",
+    "ingredients_photo_title": "รูปภาพส่วนประกอบของอาหาร",
+    "nutritional_facts_photo_title": "ข้อมูลโภชนาการ",
+    "recycling_photo_title": "การนำกลับไปใช้ใหม่",
+    "other_interesting_photo_title": "รูปอื่นๆที่น่าสนใจ",
+    "front_photo_uploaded": "รูปภาพด้านหน้าอัพโหลดเรียบร้อย",
     "@front_photo_uploaded": {},
-    "ingredients_photo_button_label": "Ingredients photo",
+    "ingredients_photo_button_label": "รูปภาพของส่วนประกอบของอาหาร",
     "@ingredients_photo_button_label": {},
-    "confirm_ingredients_photo_button_label": "Confirm ingredients photo",
+    "confirm_ingredients_photo_button_label": "ยืนยันรูปภาพส่วนประกอบของอาหาร",
     "@confirm_ingredients_photo_button_label": {
         "description": "Button clicking on which confirms the picture of ingredients that user just took."
     },
-    "ingredients_photo_uploaded": "Ingredients photo uploaded",
+    "ingredients_photo_uploaded": "รูปภส่วนประกอบของอาหารถูกอัพโหลดแล้ว",
     "@ingredients_photo_uploaded": {},
-    "nutritional_facts_photo_button_label": "Nutrition facts photo",
+    "nutritional_facts_photo_button_label": "ข้อมูลโภชนาการ",
     "@nutritional_facts_photo_button_label": {},
-    "confirm_nutritional_facts_photo_button_label": "Confirm nutrition facts photo",
+    "confirm_nutritional_facts_photo_button_label": "ยืนยันรูปภาพข้อมูลโภชนาการ",
     "@confirm_nutritional_facts_photo_button_label": {
         "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
     },
-    "nutritional_facts_photo_uploaded": "Nutrition facts photo uploaded",
+    "nutritional_facts_photo_uploaded": "รูปภาพโภชนาการอาหารอัพโหลดแล้ว",
     "@nutritional_facts_photo_uploaded": {},
-    "recycling_photo_button_label": "Recycling information photo",
+    "recycling_photo_button_label": "ข้อมูลการรีไซเคิล",
     "@recycling_photo_button_label": {},
-    "confirm_recycling_photo_button_label": "Confirm Recycling information photo",
+    "confirm_recycling_photo_button_label": "ยืนยันรูปภาพข้อมูลการรีไซเคิล",
     "@confirm_recycling_photo_button_label": {
         "description": "Button clicking on which confirms the picture of recycling information that user just took."
     },
-    "recycling_photo_uploaded": "Recycling photo uploaded",
+    "recycling_photo_uploaded": "รูปภาพรีไซเคิลอัพโหลดแล้ว",
     "@recycling_photo_uploaded": {},
-    "other_interesting_photo_button_label": "Other interesting photos",
+    "other_interesting_photo_button_label": "รูปภาพอื่นๆที่น่าสนใจ",
     "@other_interesting_photo_button_label": {},
-    "confirm_other_interesting_photo_button_label": "Confirm photo",
+    "confirm_other_interesting_photo_button_label": "ยืนยันรูปภาพ",
     "@confirm_other_interesting_photo_button_label": {
         "description": "Button clicking on which confirms a miscellaneous photo of the product."
     },
-    "other_photo_uploaded": "Miscellaneous photo uploaded",
+    "other_photo_uploaded": "รูปภาพข้อมูลทั่วไป",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "Retake",
     "@retake_photo_button_label": {
         "description": "Button clicking on which allows users to retake the last photo they took."
     },
-    "selecting_photo": "Selecting photo",
+    "selecting_photo": "กำลังเลือกรูป",
     "@selecting_photo": {
         "description": "Progress indicator when the users takes a photo"
     },
-    "uploading_image": "Uploading photo to the server",
+    "uploading_image": "อัพโหลดรูแขึ้นระบบ",
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
@@ -650,7 +658,7 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide if you want to send anonymous analytics.",
+    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide whether to submit anonymous analytics.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
@@ -687,11 +695,11 @@
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
-    "product_list_empty_title": "Start scanning !",
+    "product_list_empty_title": "Start scanning!",
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
-    "product_list_empty_message": "Products you scan will appear here and you can check detailed information about them",
+    "product_list_empty_message": "Scanned products will appear here and you can check detailed information about them",
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
@@ -732,7 +740,7 @@
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "When enabled, crash reports will be sent to the Open Food Facts bug system automatically, so that we can fix bugs and improve the app.",
+    "crash_reporting_toggle_subtitle": "When enabled, crash reports are automatically submitted to Open Food Facts' error tracking system, so that bugs can be fixed and thus improve the app.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
@@ -828,5 +836,61 @@
     },
     "completed_basic_details_btn_text": "Complete basic details",
     "not_implemented_snackbar_text": "Not implemented yet",
-    "category_picker_page_appbar_text": "หมวดหมู่"
+    "category_picker_page_appbar_text": "หมวดหมู่",
+    "edit_ingredients_extrait_ingredients_btn_text": "Extract ingredients",
+    "@edit_ingredients_extrait_ingredients_btn_text": {
+        "description": "Ingredients edition - Extract ingredients"
+    },
+    "edit_ingredients_refresh_photo_btn_text": "Refresh photo",
+    "@edit_ingredients_refresh_photo_btn_text": {
+        "description": "Ingredients edition - Refresh photo"
+    },
+    "user_list_dialog_new_title": "New list of products",
+    "@user_list_dialog_new_title": {
+        "description": "Title of the 'new user list' dialog"
+    },
+    "user_list_dialog_rename_title": "Rename list",
+    "@user_list_dialog_rename_title": {
+        "description": "Title of the 'rename user list' dialog"
+    },
+    "user_list_subtitle_product": "Lists",
+    "@user_list_subtitle_product": {
+        "description": "Subtitle of a paragraph about user lists in a product context"
+    },
+    "user_list_button_new": "New list",
+    "@user_list_button_new": {
+        "description": "Short label of a 'new list' button"
+    },
+    "user_list_button_add_product": "Add to list",
+    "@user_list_button_add_product": {
+        "description": "Short label of an 'add to list' button from a product context"
+    },
+    "user_list_popup_clear": "ล้างข้อมูล",
+    "@user_list_popup_clear": {
+        "description": "Short label of a 'clear list' popup"
+    },
+    "user_list_popup_rename": "Rename",
+    "@user_list_popup_rename": {
+        "description": "Short label of a 'rename list' popup"
+    },
+    "user_list_name_hint": "My list",
+    "@user_list_name_hint": {
+        "description": "Hint of a user list name text-field in a 'user list' dialog"
+    },
+    "user_list_name_error_empty": "The name cannot be empty",
+    "@user_list_name_error_empty": {
+        "description": "Validation error about the name that cannot be empty"
+    },
+    "user_list_name_error_already": "That name is already used",
+    "@user_list_name_error_already": {
+        "description": "Validation error about the name that is already used for another list"
+    },
+    "user_list_name_error_same": "That is the same name",
+    "@user_list_name_error_same": {
+        "description": "Validation error about the renamed name that is the same as the initial list name"
+    },
+    "confirm_clear": "Do you really want to clear?",
+    "@confirm_clear": {
+        "description": "Asking about whether to clear the list or not"
+    }
 }

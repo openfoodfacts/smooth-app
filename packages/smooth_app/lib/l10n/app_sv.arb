@@ -1,5 +1,5 @@
 {
-    "app_name": "Smoothie",
+    "app_name": "OpenFoodFacts",
     "@Utils": {},
     "yes": "Ja",
     "@yes": {},
@@ -14,7 +14,7 @@
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
     "save": "Spara",
-    "save_confirmation": "Are you sure you want to save?",
+    "save_confirmation": "Är du säker på att du vill spara?",
     "skip": "Hoppa over",
     "cancel": "Annulera",
     "@cancel": {},
@@ -36,11 +36,11 @@
     "@error_occurred": {},
     "featureInProgress": "Vi arbetar fortfarande med den här funktionen, håll ögonen öppna",
     "@featureInProgress": {},
-    "label_web": "Visa på webben",
+    "label_web": "View on the web",
     "@label_web": {},
     "learnMore": "Läs mer",
     "@learnMore": {},
-    "general_confirmation": "Are you sure?",
+    "general_confirmation": "Är du säker?",
     "incompatible": "Inkompatibel",
     "@incompatible": {
         "description": "Short label for product list view: the product is incompatible with your preferences"
@@ -66,7 +66,7 @@
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Välj mat som är bra för dig och planeten.",
+    "offUtility": "Choose food that is good for you and the planet.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
@@ -89,7 +89,7 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
-    "login_page_username_or_email": "Please enter username or e-mail",
+    "login_page_username_or_email": "Vänligen ange användarnamn eller e-post",
     "login_page_password_error_empty": "Vänligen ange ett lösenord",
     "create_account": "Skapa konto",
     "@create_account": {
@@ -151,22 +151,30 @@
     "sign_up_page_display_name_error_empty": "Ange det visningsnamn du vill använda",
     "sign_up_page_email_hint": "E-post",
     "sign_up_page_email_error_empty": "E-post krävs",
-    "sign_up_page_email_error_invalid": "Den här e-postadressen är ogiltig",
-    "sign_up_page_username_hint": "Användarnamn",
+    "sign_up_page_email_error_invalid": "Invalid e-mail",
+    "sign_up_page_username_hint": "Username: Publicly visible",
     "sign_up_page_username_error_empty": "Ange ett användarnamn",
     "sign_up_page_username_error_invalid": "Ange ett giltigt användarnamn",
-    "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters",
+    "sign_up_page_username_description": "Användarnamnet får inte innehålla mellanslag, versaler eller specialtecken",
+    "sign_up_page_username_length_invalid": "Username must be less than {value} characters",
+    "@sign_up_page_username_length_invalid": {
+        "placeholders": {
+            "value": {
+                "type": "int"
+            }
+        }
+    },
     "sign_up_page_password_hint": "Lösenord",
     "sign_up_page_password_error_empty": "Vänligen ange ett lösenord",
-    "sign_up_page_password_error_invalid": "Please enter a valid password (at least 6 characters)",
-    "sign_up_page_confirm_password_hint": "Confirm Password",
-    "sign_up_page_confirm_password_error_empty": "Please confirm the password",
-    "sign_up_page_confirm_password_error_invalid": "Passwords don't match",
-    "sign_up_page_agree_text": "I agree to the Open Food Facts",
+    "sign_up_page_password_error_invalid": "Vänligen ange ett giltigt lösenord (minst 6 tecken)",
+    "sign_up_page_confirm_password_hint": "Bekräfta Lösenord",
+    "sign_up_page_confirm_password_error_empty": "Vänligen bekräfta ditt lösenord",
+    "sign_up_page_confirm_password_error_invalid": "Lösenorden matchar inte",
+    "sign_up_page_agree_text": "Jag samtycker till Open Food Facts",
     "@sign_up_page_agree_text": {
         "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
     },
-    "sign_up_page_terms_text": "terms of use and contribution",
+    "sign_up_page_terms_text": "användarvillkor och bidrag",
     "@sign_up_page_terms_text": {
         "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
     },
@@ -178,14 +186,14 @@
     "@donate_url": {
         "description": "Please insert the right url from the website here."
     },
-    "sign_up_page_agree_error_invalid": "When creating an account, agreeing to the Terms of Use is mandatory, however, anonymous contributions can still be made through the app",
+    "sign_up_page_agree_error_invalid": "När du skapar ett konto är det obligatoriskt att acceptera användarvillkoren, men anonyma bidrag kan fortfarande göras via appen",
     "@sign_up_page_agree_error_invalid": {
         "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
     },
-    "sign_up_page_producer_checkbox": "I am a food producer",
+    "sign_up_page_producer_checkbox": "Jag är en livsmedelsproducent",
     "sign_up_page_producer_hint": "Producent/märke",
-    "sign_up_page_producer_error_empty": "Please enter a producer or a brand name",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
+    "sign_up_page_producer_error_empty": "Ange en producent eller ett varumärke",
+    "sign_up_page_subscribe_checkbox": "Jag vill prenumerera på Open Food Facts nyhetsbrev (Du kan avregistrera dig när som helst)",
     "@Settings": {},
     "settingsTitle": "Inställningar",
     "@settingsTitle": {
@@ -203,24 +211,24 @@
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch (light)"
     },
-    "darkmode_system_default": "System default",
+    "darkmode_system_default": "Systemets standardinställning",
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
-    "thanks_for_contributing": "Thanks for contributing",
+    "thanks_for_contributing": "Tack för att du bidrar",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
-    "contributors": "Medverkande",
+    "contributors": "Bidragsgivare",
     "support": "Stod",
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
-    "support_join_slack": "Ask for help in our Slack channel",
-    "support_via_email": "Send us an e-mail",
+    "support_join_slack": "Be om hjälp i vår Slack-kanal",
+    "support_via_email": "Skicka ett e-postmeddelande till oss",
     "termsOfUse": "Användningsvillkor",
     "@termsOfUse": {},
-    "about_this_app": "About this app",
+    "about_this_app": "Om appen",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
     },
@@ -229,7 +237,7 @@
     "@contribute": {
         "description": "Button label: Shows multiple ways how users can contribute to OFF"
     },
-    "contribute_sw_development": "Software development",
+    "contribute_sw_development": "Mjukvaruutveckling",
     "@contribute_sw_development": {
         "description": "Button label + page title: Ways to help"
     },
@@ -261,31 +269,31 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Översättningar är ett av projektets viktigaste uppgifter",
     "@contribute_translate_text_2": {},
-    "tap_to_answer": "Tap here to answer questions",
+    "tap_to_answer": "Tryck här för att svara på frågor",
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "saving_answer": "Saving your answer",
+    "saving_answer": "Sparar ditt svar",
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
     },
-    "contribute_to_get_rewards": "Help improve food transparency and get rewards",
+    "contribute_to_get_rewards": "Hjälp till att förbättra mat-transparens och få belöningar",
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "question_sign_in_text": "Sign in to your Open Food Facts account to claim your contribution and to increase your creditability",
+    "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contribution",
     "@Personal preferences": {},
     "myPreferences": "Mina preferenser",
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
-    "myPreferences_profile_title": "Your Profile",
-    "myPreferences_profile_subtitle": "Change app settings and get advice.",
+    "myPreferences_profile_title": "Din profil",
+    "myPreferences_profile_subtitle": "Ändra appinställningar och få råd.",
     "myPreferences_settings_title": "Appinställningar",
-    "myPreferences_settings_subtitle": "Dark mode, Theme, ...",
-    "myPreferences_food_title": "Food Preferences",
-    "myPreferences_food_subtitle": "Choose what information about food matters most to you.",
-    "confirmResetPreferences": "Reset your food preferences?",
+    "myPreferences_settings_subtitle": "Mörkt läge, Tema, ...",
+    "myPreferences_food_title": "Matpreferenser",
+    "myPreferences_food_subtitle": "Välj vilken information om mat som är viktigast för dig.",
+    "confirmResetPreferences": "Återställa dina matpreferenser?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
     },
@@ -294,10 +302,10 @@
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
     "ranking_tab_all": "Alla",
-    "ranking_subtitle_match_yes": "A great match for you",
-    "ranking_subtitle_match_no": "Very poor match",
-    "ranking_subtitle_match_maybe": "Unknown match",
-    "reloaded_with_new_preferences": "Reloaded with your new preferences",
+    "ranking_subtitle_match_yes": "En bra match för dig",
+    "ranking_subtitle_match_no": "Mycket dålig matchning",
+    "ranking_subtitle_match_maybe": "Okänd matchning",
+    "reloaded_with_new_preferences": "Laddades om med dina nya inställningar",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
     },
@@ -335,7 +343,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Tap to see more info...",
+    "tab_for_more": "Tryck för att se mer information...",
     "@Product": {},
     "product": "Produkt",
     "@product": {},
@@ -354,17 +362,17 @@
     },
     "ingredients": "Ingredienser",
     "@ingredients": {},
-    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen, use parentheses for ingredients of an ingredient, and indicate allergens between underscores.",
-    "ingredients_editing_error": "Failed to save the ingredients.",
-    "ingredients_editing_image_error": "Failed to get a new ingredients image.",
-    "ingredients_editing_title": "Edit Ingredients",
+    "ingredients_editing_instructions": "Behåll den ursprungliga ordningen. Ange procenttalet när det anges. Separera med ett kommatecken eller bindestreck, använd parenteser för ingredienser i en ingrediens och ange allergener mellan understreck.",
+    "ingredients_editing_error": "Det gick inte att spara ingredienserna.",
+    "ingredients_editing_image_error": "Det gick inte att hämta en ny ingrediensbild.",
+    "ingredients_editing_title": "Redigera ingredienser",
     "ingredients_photo": "Foto på ingredienser",
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
     "nutrition": "Näring",
     "@nutrition": {},
-    "nutrition_page_close_confirmation": "Are you sure you want to close without saving?",
+    "nutrition_page_close_confirmation": "Är du säker på att du vill stänga utan att spara?",
     "nutrition_facts_photo": "Foto på näringsfakta",
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
@@ -375,111 +383,111 @@
     },
     "packaging_information_photo": "Foto på förpackningsinformation",
     "@packaging_information_photo": {},
-    "missing_product": "You found a new product!",
+    "missing_product": "Du har hittat en ny produkt!",
     "@missing_product": {},
-    "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
+    "add_product_take_photos": "Ta foton av förpackningen för att lägga till denna produkt i Open Food Facts",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Please take some photos and the Open Food Facts engine can work out the rest!",
+    "add_product_take_photos_descriptive": "Ta gärna några bilder så kan Open Food Facts-motorn fixa resten!",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Lägg till produktinformation",
     "@add_product_information_button_label": {},
-    "new_product": "New Product",
+    "new_product": "Ny produkt",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Front of product photo",
+    "front_packaging_photo_button_label": "Product's front photo",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Confirm front of product photo",
+    "confirm_front_packaging_photo_button_label": "Confirm Product's front photo upload",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
-    "confirm_button_label": "Confirm",
-    "front_packaging_photo_title": "Front Packaging Photo",
-    "ingredients_photo_title": "Ingredients Photo",
-    "nutritional_facts_photo_title": "Nutritional Facts Photo",
-    "recycling_photo_title": "Recycling Photo",
-    "other_interesting_photo_title": "Other Interesting Photo",
-    "front_photo_uploaded": "Front photo uploaded",
+    "confirm_button_label": "Bekräfta",
+    "front_packaging_photo_title": "Foto på Förpackningens Framsida",
+    "ingredients_photo_title": "Foto på Ingredienser",
+    "nutritional_facts_photo_title": "Foto på Näringsfakta",
+    "recycling_photo_title": "Bild på återvinningsinformation",
+    "other_interesting_photo_title": "Annat intressant foto",
+    "front_photo_uploaded": "Framsidefoto uppladdat",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Foto på ingredienser",
     "@ingredients_photo_button_label": {},
-    "confirm_ingredients_photo_button_label": "Confirm ingredients photo",
+    "confirm_ingredients_photo_button_label": "Bekräfta ingrediensfoto",
     "@confirm_ingredients_photo_button_label": {
         "description": "Button clicking on which confirms the picture of ingredients that user just took."
     },
-    "ingredients_photo_uploaded": "Ingredients photo uploaded",
+    "ingredients_photo_uploaded": "Ingrediensfoto uppladdat",
     "@ingredients_photo_uploaded": {},
     "nutritional_facts_photo_button_label": "Foto på näringsfakta",
     "@nutritional_facts_photo_button_label": {},
-    "confirm_nutritional_facts_photo_button_label": "Confirm nutrition facts photo",
+    "confirm_nutritional_facts_photo_button_label": "Bekräfta foto på näringsfakta",
     "@confirm_nutritional_facts_photo_button_label": {
         "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
     },
-    "nutritional_facts_photo_uploaded": "Nutrition facts photo uploaded",
+    "nutritional_facts_photo_uploaded": "Foto på näringsfakta uppladdat",
     "@nutritional_facts_photo_uploaded": {},
-    "recycling_photo_button_label": "Recycling information photo",
+    "recycling_photo_button_label": "Foto på återvinningsinformation",
     "@recycling_photo_button_label": {},
-    "confirm_recycling_photo_button_label": "Confirm Recycling information photo",
+    "confirm_recycling_photo_button_label": "Bekräfta foto på återvinningsinformation",
     "@confirm_recycling_photo_button_label": {
         "description": "Button clicking on which confirms the picture of recycling information that user just took."
     },
-    "recycling_photo_uploaded": "Recycling photo uploaded",
+    "recycling_photo_uploaded": "Återvinningsfoto uppladdat",
     "@recycling_photo_uploaded": {},
-    "other_interesting_photo_button_label": "Other interesting photos",
+    "other_interesting_photo_button_label": "Andra intressanta foton",
     "@other_interesting_photo_button_label": {},
-    "confirm_other_interesting_photo_button_label": "Confirm photo",
+    "confirm_other_interesting_photo_button_label": "Bekräfta foto",
     "@confirm_other_interesting_photo_button_label": {
         "description": "Button clicking on which confirms a miscellaneous photo of the product."
     },
-    "other_photo_uploaded": "Miscellaneous photo uploaded",
+    "other_photo_uploaded": "Övrigt foto uppladdat",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "Ta om",
     "@retake_photo_button_label": {
         "description": "Button clicking on which allows users to retake the last photo they took."
     },
-    "selecting_photo": "Selecting photo",
+    "selecting_photo": "Väljer foto",
     "@selecting_photo": {
         "description": "Progress indicator when the users takes a photo"
     },
-    "uploading_image": "Uploading photo to the server",
+    "uploading_image": "Laddar upp fotot till servern",
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
-    "uploading_image_type_front": "Uploading front image to Open Food Facts",
+    "uploading_image_type_front": "Laddar upp bild på framsida till Open Food Facts",
     "@uploading_image_type_front": {
         "description": "Message when a new front picture is being uploaded to the server"
     },
-    "uploading_image_type_ingredients": "Uploading ingredients image to Open Food Facts",
+    "uploading_image_type_ingredients": "Laddar upp ingrediensbild till Open Food Facts",
     "@uploading_image_type_ingredients": {
         "description": "Message when a new ingredients picture is being uploaded to the server"
     },
-    "uploading_image_type_nutrition": "Uploading nutrition image to Open Food Facts",
+    "uploading_image_type_nutrition": "Laddar upp näringsbild till Open Food Facts",
     "@uploading_image_type_nutrition": {
         "description": "Message when a new nutrition picture is being uploaded to the server"
     },
-    "uploading_image_type_packaging": "Uploading packaging image to Open Food Facts",
+    "uploading_image_type_packaging": "Laddar upp förpackningsbild till Open Food Facts",
     "@uploading_image_type_packaging": {
         "description": "Message when a new packaging picture is being uploaded to the server"
     },
-    "uploading_image_type_other": "Uploading other image to Open Food Facts",
+    "uploading_image_type_other": "Laddar upp en annan bild till Open Food Facts",
     "@uploading_image_type_other": {
         "description": "Message when a new other picture is being uploaded to the server"
     },
-    "uploading_image_type_generic": "Uploading image to Open Food Facts",
+    "uploading_image_type_generic": "Laddar upp bild till Open Food Facts",
     "@uploading_image_type_generic": {
         "description": "Message when a new picture is being uploaded to the server"
     },
     "score_add_missing_ingredients": "Lägg till saknade ingredienser",
-    "score_add_missing_nutrition_facts": "Add missing nutrition facts",
+    "score_add_missing_nutrition_facts": "Lägg till saknade näringsfakta",
     "score_add_missing_product_category": "Lägg till saknad produktkategori",
-    "score_update_nutrition_facts": "Update nutrition facts",
+    "score_update_nutrition_facts": "Uppdatera näringsfakta",
     "nutrition_page_title": "Näringsfakta",
-    "nutrition_page_unspecified": "Nutrition facts are not specified on the product",
+    "nutrition_page_unspecified": "Näringsfakta anges inte på produkten",
     "nutrition_page_per_100g": "per 100g",
     "nutrition_page_per_serving": "per portion",
     "nutrition_page_add_nutrient": "Lägg till ett näringsämne",
     "nutrition_page_serving_size": "Portionsstorlek",
-    "nutrition_page_invalid_number": "Invalid number",
-    "nutrition_page_update_running": "Updating the product on the server...",
-    "nutrition_page_update_done": "Product updated!",
+    "nutrition_page_invalid_number": "Ogiltigt nummer",
+    "nutrition_page_update_running": "Uppdaterar produkten på servern...",
+    "nutrition_page_update_done": "Produkt uppdaterad!",
     "more_photos": "Fler intressanta bilder",
     "@more_photos": {},
     "no_product_found": "Ingen produkt hittades",
@@ -499,59 +507,59 @@
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
     },
-    "product_internet_error": "Impossible to fetch information about this product due to a network error.",
-    "cached_results_from": "Show results from:",
+    "product_internet_error": "Omöjligt att hämta information om denna produkt på grund av ett nätverksfel.",
+    "cached_results_from": "Visa resultat från:",
     "@cached_results_from": {
         "description": "Cached results from: x time ago (time ago should not be added to the string)"
     },
     "@Product Addition": {},
     "added_product_thanks": "Tack för att du lägger till denna produkt!",
     "@added_product_thanks": {},
-    "product_search_same_category": "Compare to Category",
+    "product_search_same_category": "Jämför med kategori",
     "@product_search_same_category": {
         "description": "Button looking for the other products within the same category. Less than 30 characters"
     },
-    "product_improvement_add_category": "Add a category to calculate the Nutri-Score.",
+    "product_improvement_add_category": "Lägg till en kategori för att beräkna Nutri-Score.",
     "@product_improvement_add_category": {
         "description": "Message for ProductImprovement.ADD_CATEGORY"
     },
-    "product_improvement_add_nutrition_facts": "Add nutrition facts to calculate the Nutri-Score.",
+    "product_improvement_add_nutrition_facts": "Lägg till näringsfakta för att beräkna Nutri-Score.",
     "@product_improvement_add_nutrition_facts": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
     },
-    "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to calculate the Nutri-Score.",
+    "product_improvement_add_nutrition_facts_and_category": "Lägg till näringsfakta och en kategori för att beräkna Nutri-Score.",
     "@product_improvement_add_nutrition_facts_and_category": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
     },
-    "product_improvement_categories_but_no_nutriscore": "The Nutri-Score for this product can't be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.",
+    "product_improvement_categories_but_no_nutriscore": "Nutri-Score för denna produkt kan inte beräknas, vilket kan bero på t.ex. en kategori som inte är standard. Om detta anses vara ett fel, vänligen kontakta oss.",
     "@product_improvement_categories_but_no_nutriscore": {
         "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
-    "product_improvement_obsolete_nutrition_image": "The nutrition image is obsolete: please refresh it.",
+    "product_improvement_obsolete_nutrition_image": "Näringsbilden är föråldrad: vänligen förnya den.",
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
+    "product_improvement_origins_to_be_completed": "Eco-Score tar hänsyn till ingrediensernas ursprung. Ta en bild av ingredienslistan och/eller eventuella geografiska anspråk eller redigera produkten, så att de kan beaktas.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
-    "country_chooser_label": "Please choose a country",
+    "country_chooser_label": "Välj ett land",
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },
-    "country_selection_explanation": "Some environmental features are location-specific",
+    "country_selection_explanation": "Vissa miljöegenskaper är platsspecifika",
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
-    "product_removed_comparison": "Product removed from comparison",
+    "product_removed_comparison": "Produkt borttagen från jämförelse",
     "@product_removed_comparison": {
         "description": "Product got removed from comparison list"
     },
-    "product_removed_history": "Product removed from history",
+    "product_removed_history": "Produkt borttagen från historik",
     "@product_removed_history": {
         "description": "Product got removed from history"
     },
-    "product_could_not_remove": "Could not remove product",
+    "product_could_not_remove": "Kunde inte ta bort produkt",
     "@product_could_not_remove": {
         "description": "Could not remove product from a list"
     },
@@ -563,16 +571,16 @@
     "@clear": {
         "description": "Clears a product list"
     },
-    "really_clear": "Do you really want to delete this list?",
-    "product_compatibility_unknown": "Compatibility Unknown",
+    "really_clear": "Vill du verkligen radera den här listan?",
+    "product_compatibility_unknown": "Kompatibilitet Okänd",
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_incompatible": "Does not match",
+    "product_compatibility_incompatible": "Matchar inte",
     "@product_compatibility_incompatible": {
         "description": "Product compatibility summary title"
     },
-    "product_compatibility_good": "Good Match",
+    "product_compatibility_good": "Bra matchning",
     "@product_compatibility_good": {
         "description": "Product compatibility summary title"
     },
@@ -631,18 +639,18 @@
         "description": "Button to switch to 'compare products mode'"
     },
     "retry_button_label": "Försök igen",
-    "connect_with_us": "Connect with us",
+    "connect_with_us": "Kontakta oss",
     "instagram": "Instagram",
     "twitter": "Twitter",
-    "blog": "Blog",
+    "blog": "Blogg",
     "faq": "FAQ",
     "discover": "Upptäck",
-    "how_to_contribute": "How to Contribute",
+    "how_to_contribute": "Hur man bidrar",
     "main_app_color": "Tema",
     "@main_app_color": {
         "description": "Heading for the section to pick the main app color"
     },
-    "hint_knowledge_panel_message": "Your can tap on any part of the card to get more details about what you see. Try it now!",
+    "hint_knowledge_panel_message": "Du kan trycka på valfri del av kortet för att få mer information om vad du ser. Prova det nu!",
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
     },
@@ -650,23 +658,23 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide if you want to send anonymous analytics.",
+    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide whether to submit anonymous analytics.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
-    "consent_analytics_body2": "If you change your mind, this option can be enabled and disabled at any time from the settings.",
+    "consent_analytics_body2": "Om du ändrar dig kan det här alternativet aktiveras och inaktiveras när som helst från inställningarna.",
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "authorize_button_label": "Authorize",
+    "authorize_button_label": "Auktorisera",
     "@authorize": {
         "description": "Button to accept the request of sending the anonymous analytics"
     },
-    "refuse_button_label": "Refuse",
+    "refuse_button_label": "Neka",
     "@refuse": {
         "description": "Button to decline the request of sending the anonymous analytics"
     },
-    "knowledge_panel_text_source": "Go further on {source_name}",
+    "knowledge_panel_text_source": "Gå vidare på {source_name}",
     "@knowledge_panel_text_source": {
         "description": "Source field within a text knowledge panel.",
         "placeholders": {
@@ -675,51 +683,51 @@
             }
         }
     },
-    "onboarding_welcome_loading_dialog_title": "Loading your first example product",
+    "onboarding_welcome_loading_dialog_title": "Laddar din första exempelprodukt",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },
-    "product_list_your_ranking": "Your ranking",
+    "product_list_your_ranking": "Din placering är",
     "@product_list_your_ranking": {
         "description": "Your ranking screen title"
     },
-    "product_list_empty_icon_desc": "History not available",
+    "product_list_empty_icon_desc": "Historik inte tillgänglig",
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
-    "product_list_empty_title": "Start scanning !",
+    "product_list_empty_title": "Start scanning!",
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
-    "product_list_empty_message": "Products you scan will appear here and you can check detailed information about them",
+    "product_list_empty_message": "Scanned products will appear here and you can check detailed information about them",
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress": "Refreshing products in your History",
+    "product_list_reloading_in_progress": "Uppdaterar produkter i din historik",
     "@product_list_reloading_in_progress": {
         "description": "Message to show while loading previous scanned items"
     },
-    "product_list_reloading_success": "Product refresh complete",
+    "product_list_reloading_success": "Produktuppdatering slutförd",
     "@product_list_reloading_success": {
         "description": "Message to show once previous scanned items are loaded"
     },
-    "loading_dialog_default_title": "Downloading data",
+    "loading_dialog_default_title": "Laddar ner data",
     "@loading_dialog_default_title": {
         "description": "Default loading dialog title"
     },
-    "loading_dialog_default_error_message": "Could not download data",
+    "loading_dialog_default_error_message": "Kunde inte ladda ner data",
     "@loading_dialog_default_error_message": {
         "description": "Default loading dialog error message"
     },
-    "account_delete": "Delete account",
+    "account_delete": "Radera konto",
     "@account_delete": {
         "description": "Delete account button (user profile)"
     },
-    "email_subject_account_deletion": "Delete account",
+    "email_subject_account_deletion": "Radera konto",
     "@email_subject_account_deletion": {
         "description": "Email subject for an account deletion"
     },
-    "email_body_account_deletion": "Hi there, please delete my Open Food Facts account: {userId}",
+    "email_body_account_deletion": "Hej där, vänligen radera mitt Open Food Facts konto: {userId}",
     "@email_body_account_deletion": {
         "description": "Email body for an account deletion",
         "placeholders": {
@@ -732,7 +740,7 @@
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "When enabled, crash reports will be sent to the Open Food Facts bug system automatically, so that we can fix bugs and improve the app.",
+    "crash_reporting_toggle_subtitle": "When enabled, crash reports are automatically submitted to Open Food Facts' error tracking system, so that bugs can be fixed and thus improve the app.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
@@ -752,8 +760,8 @@
     "@permission_photo_error": {
         "description": "When the camera/photo permission failed to be acquired (!= denied)"
     },
-    "permission_photo_denied_title": "Allow camera use to scan barcodes",
-    "permission_photo_denied_message": "For an enhanced experience, please allow {appName} to access your camera. You will be able to directly scan barcodes.",
+    "permission_photo_denied_title": "Tillåt kameraanvändning för att skanna streckkoder",
+    "permission_photo_denied_message": "För en förbättrad upplevelse, låt {appName} komma åt din kamera. Du kommer att kunna skanna streckkoder direkt.",
     "@permission_photo_denied_message": {
         "description": "When the camera/photo permission is denied by user",
         "placeholders": {
@@ -762,15 +770,15 @@
             }
         }
     },
-    "permission_photo_denied_button": "Allow",
+    "permission_photo_denied_button": "Tillåt",
     "@permission_photo_denied_button": {
         "description": "When the camera/photo permission is denied by user"
     },
-    "permission_photo_denied_dialog_settings_title": "Permission denied",
-    "permission_photo_denied_dialog_settings_message": "As you've previously denied the camera permission, you must allow it manually from the Settings.",
+    "permission_photo_denied_dialog_settings_title": "Åtkomst nekad",
+    "permission_photo_denied_dialog_settings_message": "Eftersom du tidigare har nekat kameratillstånd måste du tillåta det manuellt från Inställningar.",
     "permission_photo_denied_dialog_settings_button_open": "Öppna inställningar",
     "permission_photo_denied_dialog_settings_button_cancel": "Annulera",
-    "permission_photo_denied": "No camera access granted",
+    "permission_photo_denied": "Ingen kameraåtkomst beviljad",
     "@permission_photo_denied": {
         "description": "When the camera/photo permission is denied by user"
     },
@@ -782,11 +790,11 @@
     "@edit_product_form_item_barcode": {
         "description": "Product edition - Barcode"
     },
-    "edit_product_form_item_details_title": "Basic details",
+    "edit_product_form_item_details_title": "Grundläggande uppgifter",
     "@edit_product_form_item_details_title": {
         "description": "Product edition - Basic Details - Title"
     },
-    "edit_product_form_item_details_subtitle": "Product name, brand, quantity",
+    "edit_product_form_item_details_subtitle": "Produktnamn, varumärke, kvantitet",
     "@edit_product_form_item_details_subtitle": {
         "description": "Product edition - Basic Details - Title"
     },
@@ -794,19 +802,19 @@
     "@edit_product_form_item_photos_title": {
         "description": "Product edition - Photos - Title"
     },
-    "edit_product_form_item_photos_subtitle": "Add or refresh photos",
+    "edit_product_form_item_photos_subtitle": "Lägg till eller uppdatera foton",
     "@edit_product_form_item_photos_subtitle": {
         "description": "Product edition - Photos - SubTitle"
     },
-    "edit_product_form_item_labels_title": "Labels & Certifications",
+    "edit_product_form_item_labels_title": "Etiketter & Certifieringar",
     "@edit_product_form_item_labels_title": {
         "description": "Product edition - Labels - Title"
     },
-    "edit_product_form_item_labels_subtitle": "Environmental, Quality labels, ...",
+    "edit_product_form_item_labels_subtitle": "Miljö, Kvalitetsmärkning, ...",
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
-    "edit_product_form_item_ingredients_title": "Ingredients & Origins",
+    "edit_product_form_item_ingredients_title": "Ingredienser & Ursprung",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
     },
@@ -818,7 +826,7 @@
     "@edit_product_form_item_nutrition_facts_title": {
         "description": "Product edition - Nutrition facts - Title"
     },
-    "edit_product_form_item_nutrition_facts_subtitle": "Nutrition, alcohol content…",
+    "edit_product_form_item_nutrition_facts_subtitle": "Näring, alkoholhalt…",
     "@edit_product_form_item_nutrition_facts_subtitle": {
         "description": "Product edition - Nutrition facts - SubTitle"
     },
@@ -826,7 +834,63 @@
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
-    "completed_basic_details_btn_text": "Complete basic details",
-    "not_implemented_snackbar_text": "Not implemented yet",
-    "category_picker_page_appbar_text": "Kategorier"
+    "completed_basic_details_btn_text": "Komplettera grundläggande uppgifter",
+    "not_implemented_snackbar_text": "Inte implementerat ännu",
+    "category_picker_page_appbar_text": "Kategorier",
+    "edit_ingredients_extrait_ingredients_btn_text": "Extrahera ingredienser",
+    "@edit_ingredients_extrait_ingredients_btn_text": {
+        "description": "Ingredients edition - Extract ingredients"
+    },
+    "edit_ingredients_refresh_photo_btn_text": "Refresh photo",
+    "@edit_ingredients_refresh_photo_btn_text": {
+        "description": "Ingredients edition - Refresh photo"
+    },
+    "user_list_dialog_new_title": "New list of products",
+    "@user_list_dialog_new_title": {
+        "description": "Title of the 'new user list' dialog"
+    },
+    "user_list_dialog_rename_title": "Rename list",
+    "@user_list_dialog_rename_title": {
+        "description": "Title of the 'rename user list' dialog"
+    },
+    "user_list_subtitle_product": "Lists",
+    "@user_list_subtitle_product": {
+        "description": "Subtitle of a paragraph about user lists in a product context"
+    },
+    "user_list_button_new": "New list",
+    "@user_list_button_new": {
+        "description": "Short label of a 'new list' button"
+    },
+    "user_list_button_add_product": "Lägg till i lista",
+    "@user_list_button_add_product": {
+        "description": "Short label of an 'add to list' button from a product context"
+    },
+    "user_list_popup_clear": "Rensa",
+    "@user_list_popup_clear": {
+        "description": "Short label of a 'clear list' popup"
+    },
+    "user_list_popup_rename": "Rename",
+    "@user_list_popup_rename": {
+        "description": "Short label of a 'rename list' popup"
+    },
+    "user_list_name_hint": "My list",
+    "@user_list_name_hint": {
+        "description": "Hint of a user list name text-field in a 'user list' dialog"
+    },
+    "user_list_name_error_empty": "The name cannot be empty",
+    "@user_list_name_error_empty": {
+        "description": "Validation error about the name that cannot be empty"
+    },
+    "user_list_name_error_already": "That name is already used",
+    "@user_list_name_error_already": {
+        "description": "Validation error about the name that is already used for another list"
+    },
+    "user_list_name_error_same": "That is the same name",
+    "@user_list_name_error_same": {
+        "description": "Validation error about the renamed name that is the same as the initial list name"
+    },
+    "confirm_clear": "Do you really want to clear?",
+    "@confirm_clear": {
+        "description": "Asking about whether to clear the list or not"
+    }
 }

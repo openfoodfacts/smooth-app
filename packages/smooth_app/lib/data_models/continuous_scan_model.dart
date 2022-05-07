@@ -29,6 +29,7 @@ class ContinuousScanModel with ChangeNotifier {
 
   String? _latestScannedBarcode;
   String? _latestFoundBarcode;
+  String? _latestConsultedBarcode;
   String? _barcodeTrustCheck; // TODO(monsieurtanuki): could probably be removed
   late DaoProduct _daoProduct;
   late DaoProductList _daoProductList;
@@ -36,6 +37,15 @@ class ContinuousScanModel with ChangeNotifier {
   ProductList get productList => _productList;
 
   List<String> getBarcodes() => _barcodes;
+
+  String? get latestConsultedBarcode => _latestConsultedBarcode;
+
+  set lastConsultedBarcode(String? barcode) {
+    _latestConsultedBarcode = barcode;
+    if (barcode != null) {
+      notifyListeners();
+    }
+  }
 
   Future<ContinuousScanModel?> load(final LocalDatabase localDatabase) async {
     try {
@@ -96,7 +106,8 @@ class ContinuousScanModel with ChangeNotifier {
       _barcodeTrustCheck = code;
       return;
     }
-    if (_latestScannedBarcode == code) {
+    if (_latestScannedBarcode == code || _barcodes.contains(code)) {
+      lastConsultedBarcode = code;
       return;
     }
     AnalyticsHelper.trackScannedProduct(barcode: code);
@@ -125,6 +136,7 @@ class ContinuousScanModel with ChangeNotifier {
       }
       _setBarcodeState(barcode, ScannedProductState.LOADING);
       _cacheOrLoadBarcode(barcode);
+      lastConsultedBarcode = barcode;
       return true;
     }
     if (state == ScannedProductState.FOUND ||
@@ -137,6 +149,7 @@ class ContinuousScanModel with ChangeNotifier {
       if (state == ScannedProductState.CACHED) {
         _updateBarcode(barcode);
       }
+      lastConsultedBarcode = barcode;
       return true;
     }
     return false;
@@ -222,6 +235,18 @@ class ContinuousScanModel with ChangeNotifier {
   Future<void> clearScanSession() async {
     await _daoProductList.clear(productList);
     await refresh();
+  }
+
+  Future<void> removeBarcode(
+    final String barcode,
+  ) async {
+    await _daoProductList.set(
+      productList,
+      barcode,
+      false,
+    );
+    await refresh();
+    notifyListeners();
   }
 
   Future<void> refresh() async {
