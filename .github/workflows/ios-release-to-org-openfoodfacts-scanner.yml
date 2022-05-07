@@ -50,7 +50,8 @@ jobs:
         run: cd ./packages/smooth_app/android/fastlane/envfiles && chmod +x ./decrypt_secrets.sh && ./decrypt_secrets.sh && ls
         env:
           API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
-          DECRYPT_FOR_SCANNER_FILE: ${{ secrets.DECRYPT_FOR_SCANNER_FILE }}
+          DECRYPT_GPG_KEYSTORE: ${{ secrets.DECRYPT_GPG_KEYSTORE }}
+          STORE_JKS_DECRYPTKEY: ${{ secrets.NEW_CYPHER }}
 
       - name: Decrypt iOS AuthKey file
         run: pwd && ls && cd ./packages/smooth_app/ios/fastlane/envfiles && ./decrypt_secrets.sh && ls
