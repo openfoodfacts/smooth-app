@@ -38,13 +38,6 @@ jobs:
           DECRYPT_GPG_KEYSTORE: ${{ secrets.DECRYPT_GPG_KEYSTORE }}
           STORE_JKS_DECRYPTKEY: ${{ secrets.STORE_JKS_DECRYPTKEY }}
 
-      - name: Decrypt k JSON file
-        run: gpg --quiet --batch --yes --decrypt --passphrase='$STORE_JKS_DECRYPTKEY' --output ./packages/smooth_app/android/fastlane/envfiles/keystore.jks ./packages/smooth_app/android/fastlane/envfiles/keystore.jks.gpg
-        env:
-          API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
-          DECRYPT_GPG_KEYSTORE: ${{ secrets.DECRYPT_GPG_KEYSTORE }}
-          STORE_JKS_DECRYPTKEY: ${{ secrets.STORE_JKS_DECRYPTKEY }}
-
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
