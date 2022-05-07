@@ -27,7 +27,7 @@ class MLKitScanDecoder {
   /// A null result is sent when the [scanMode] is unsupported or if a current
   /// decoding is already in progress
   /// Otherwise a list of decoded barcoded is returned
-  /// Note: This list may be empty if not barcoded is detected
+  /// Note: This list may be empty if no barcode is detected
   Future<List<String>?> processImage(CameraImage image) async {
     // ignore: missing_enum_constant_in_switch
     switch (scanMode) {
