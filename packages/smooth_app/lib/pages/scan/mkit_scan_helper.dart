@@ -102,7 +102,7 @@ class _MLKitScanDecoderMainIsolate {
   /// Flag used when the Isolate is both started and ready to receive images
   bool _isIsolateInitialized = false;
 
-  /// When an image is provided, this [Completer] allows to notify to response
+  /// When an image is provided, this [Completer] allows to notify the response
   Completer<List<String>?>? _completer;
 
   /// When the Isolate is started, we have to wait until [_isIsolateInitialized]
@@ -110,7 +110,7 @@ class _MLKitScanDecoderMainIsolate {
   /// decoded.
   CameraImage? _queuedImage;
 
-  /// Decode barcodes from a [CameraImage]
+  /// Decodes barcodes from a [CameraImage]
   /// A null result will be sent until the Isolate isn't ready
   Future<List<String>?> decode(CameraImage image) async {
     // If a decoding process is running -> ignore new requests
@@ -150,7 +150,7 @@ class _MLKitScanDecoderMainIsolate {
 
 // ignore: avoid_classes_with_only_static_members
 class _MLKitScanDecoderIsolate {
-  // Only accept 1D barcodes. More info on:
+  // Only 1D barcodes. More info on:
   // [https://www.scandit.com/blog/types-barcodes-choosing-right-barcode/]
   static final BarcodeScanner _barcodeScanner =
       GoogleMlKit.vision.barcodeScanner(
@@ -267,7 +267,7 @@ class _MLKitScanDecoderIsolate {
 }
 
 /// [Isolate]s don't support custom classes.
-/// This extension export raw data from a [CameraImage], to be able to call
+/// This extension exports raw data from a [CameraImage], to be able to call
 /// [CameraImage.fromPlatformData]
 extension _CameraImageExtension on CameraImage {
   Map<String, dynamic> export() => <String, dynamic>{
@@ -292,7 +292,7 @@ extension _CameraImageExtension on CameraImage {
 }
 
 /// [Isolate]s don't support custom classes.
-/// This extension export raw data from a [CameraDescription], to be able to
+/// This extension exports raw data from a [CameraDescription], to be able to
 /// call the [CameraDescription] constructor via [_CameraDescriptionUtils.import].
 extension _CameraDescriptionExtension on CameraDescription {
   Map<String, dynamic> export() => <String, dynamic>{
