@@ -142,7 +142,7 @@ class _ScanPageTopWidget extends StatelessWidget {
                                 ),
                                 child: Text(
                                   localizations.permission_photo_denied_message(
-                                    localizations.app_name,
+                                    'OpenFoodFacts',
                                   ),
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(
