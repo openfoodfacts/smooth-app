@@ -52,8 +52,8 @@ jobs:
           script: yes | flutter doctor --android-licenses \
             && ls \
             && flutter drive -d emulator-5554 \
-            --driver=./integration_test/app_test.dart \
-            --target=./integration_test/app_test.dart 
+            --driver=test_driver/screenshot_driver.dart \
+            --target=integration_test/app_test.dart 
 #            --dart-define=LANGUAGE=${{ matrix.language }} \
 #            --dart-define=COUNTRY=${{ matrix.country }} \
 #            --dart-define=PLATFORM=${{ matrix.platform }} \
