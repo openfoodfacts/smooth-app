@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the ProductCompatibilityHelper constructor from the Class ProductCompatibilityHelper class from the product_compatibility_helper library, for the Dart programming language.">
-  <title>ProductCompatibilityHelper constructor - ProductCompatibilityHelper class - product_compatibility_helper library - Dart API</title>
+  <meta name="description" content="API docs for the getButtonColor method from the ProductCompatibilityHelper class, for the Dart programming language.">
+  <title>getButtonColor method - ProductCompatibilityHelper class - product_compatibility_helper library - Dart API</title>
 
 
   
@@ -32,9 +32,9 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_compatibility_helper/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_compatibility_helper-library.html">product_compatibility_helper</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_compatibility_helper/ProductCompatibilityHelper-class.html">ProductCompatibilityHelper</a></li>
-    <li class="self-crumb">ProductCompatibilityHelper const constructor</li>
+    <li class="self-crumb">getButtonColor method</li>
   </ol>
-  <div class="self-name">ProductCompatibilityHelper</div>
+  <div class="self-name">getButtonColor</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,22 +45,33 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-constructor">ProductCompatibilityHelper</span> constructor 
+<h1><span class="kind-method">getButtonColor</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
-    <section class="multi-line-signature">const
-      <span class="name ">ProductCompatibilityHelper</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-matchedProduct"><span class="type-annotation">dynamic</span> <span class="parameter-name">matchedProduct</span></span></li>
-</ol>)
-    </section>
+    <section class="multi-line-signature">
+      
 
+<span class="returntype">dynamic</span>
+<span class="name ">getButtonColor</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getButtonColor-param-darkMode"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">darkMode</span></span></li>
+</ol>)
+
+      
+
+    </section>
     
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">const ProductCompatibilityHelper(this.matchedProduct);</code></pre>
+  <pre class="language-dart"><code class="language-dart">Color getButtonColor(bool darkMode) {
+  if (darkMode) {
+    return _getLightColors();
+  } else {
+    return _getDarkColors();
+  }
+}</code></pre>
 </section>
 
 
@@ -77,7 +88,7 @@
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_compatibility_helper/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_compatibility_helper-library.html">product_compatibility_helper</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_compatibility_helper/ProductCompatibilityHelper-class.html">ProductCompatibilityHelper</a></li>
-  <li class="self-crumb">ProductCompatibilityHelper const constructor</li>
+  <li class="self-crumb">getButtonColor method</li>
 </ol>
 
 
@@ -113,7 +124,7 @@
 
 </ol>
 
-  </div><!--/.sidebar-offcanvas-left-->
+  </div><!--/.sidebar-offcanvas-->
 
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
   </div><!--/.sidebar-offcanvas-->

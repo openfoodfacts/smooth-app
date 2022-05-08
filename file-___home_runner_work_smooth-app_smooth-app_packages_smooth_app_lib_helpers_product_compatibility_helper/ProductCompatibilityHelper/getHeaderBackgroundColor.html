@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the getBackgroundColor method from the ProductCompatibilityHelper class, for the Dart programming language.">
-  <title>getBackgroundColor method - ProductCompatibilityHelper class - product_compatibility_helper library - Dart API</title>
+  <meta name="description" content="API docs for the getHeaderBackgroundColor method from the ProductCompatibilityHelper class, for the Dart programming language.">
+  <title>getHeaderBackgroundColor method - ProductCompatibilityHelper class - product_compatibility_helper library - Dart API</title>
 
 
   
@@ -32,9 +32,9 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_compatibility_helper/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_compatibility_helper-library.html">product_compatibility_helper</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_compatibility_helper/ProductCompatibilityHelper-class.html">ProductCompatibilityHelper</a></li>
-    <li class="self-crumb">getBackgroundColor method</li>
+    <li class="self-crumb">getHeaderBackgroundColor method</li>
   </ol>
-  <div class="self-name">getBackgroundColor</div>
+  <div class="self-name">getHeaderBackgroundColor</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,7 +45,7 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">getBackgroundColor</span> method 
+<h1><span class="kind-method">getHeaderBackgroundColor</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
@@ -53,7 +53,8 @@
       
 
 <span class="returntype">dynamic</span>
-<span class="name ">getBackgroundColor</span>(<wbr>)
+<span class="name ">getHeaderBackgroundColor</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getHeaderBackgroundColor-param-darkMode"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">darkMode</span></span></li>
+</ol>)
 
       
 
@@ -64,15 +65,11 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Color getBackgroundColor() {
-  switch (matchedProduct.status) {
-    case null:
-    case MatchedProductStatus.UNKNOWN:
-      return GREY_COLOR;
-    case MatchedProductStatus.NO:
-      return RED_COLOR;
-    case MatchedProductStatus.YES:
-      return LIGHT_GREEN_COLOR;
+  <pre class="language-dart"><code class="language-dart">Color getHeaderBackgroundColor(bool darkMode) {
+  if (darkMode) {
+    return _getDarkColors();
+  } else {
+    return _getLightColors();
   }
 }</code></pre>
 </section>
@@ -91,7 +88,7 @@
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_compatibility_helper/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_compatibility_helper-library.html">product_compatibility_helper</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_compatibility_helper/ProductCompatibilityHelper-class.html">ProductCompatibilityHelper</a></li>
-  <li class="self-crumb">getBackgroundColor method</li>
+  <li class="self-crumb">getHeaderBackgroundColor method</li>
 </ol>
 
 
@@ -110,7 +107,10 @@
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_compatibility_helper/ProductCompatibilityHelper-class.html#instance-methods">Methods</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_compatibility_helper/ProductCompatibilityHelper/getBackgroundColor.html">getBackgroundColor</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_compatibility_helper/ProductCompatibilityHelper/getButtonColor.html">getButtonColor</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_compatibility_helper/ProductCompatibilityHelper/getButtonForegroundColor.html">getButtonForegroundColor</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_compatibility_helper/ProductCompatibilityHelper/getHeaderBackgroundColor.html">getHeaderBackgroundColor</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_compatibility_helper/ProductCompatibilityHelper/getHeaderForegroundColor.html">getHeaderForegroundColor</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_compatibility_helper/ProductCompatibilityHelper/getHeaderText.html">getHeaderText</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_compatibility_helper/ProductCompatibilityHelper/getSubtitle.html">getSubtitle</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>

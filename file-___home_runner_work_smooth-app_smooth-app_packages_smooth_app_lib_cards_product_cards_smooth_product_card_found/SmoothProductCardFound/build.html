@@ -77,7 +77,8 @@ Widget build(BuildContext context) {
   final ProductPreferences productPreferences =
       context.watch&lt;ProductPreferences&gt;();
   final Size screenSize = MediaQuery.of(context).size;
-
+  final ThemeData themeData = Theme.of(context);
+  final bool isDarkMode = themeData.colorScheme.brightness == Brightness.dark;
   final List&lt;String&gt; excludedAttributeIds =
       userPreferences.getExcludedAttributeIds();
   final List&lt;Widget&gt; scores = &lt;Widget&gt;[];
@@ -135,25 +136,27 @@ Widget build(BuildContext context) {
                     Text(
                       getProductName(product, appLocalizations),
                       overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.headline4,
+                      style: themeData.textTheme.headline4,
                     ),
                     Text(
                       product.brands ?? appLocalizations.unknownBrand,
                       overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.subtitle1,
+                      style: themeData.textTheme.subtitle1,
                     ),
                     Row(
                       children: &lt;Widget&gt;[
                         Icon(
                           Icons.circle,
                           size: 15,
-                          color: helper.getBackgroundColor(),
+                          color: helper.getButtonColor(isDarkMode),
                         ),
                         const Padding(
                             padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
                         Text(
                           helper.getSubtitle(appLocalizations),
-                          style: Theme.of(context).textTheme.bodyText2,
+                          style: themeData.textTheme.bodyText2!.apply(
+                              color: helper
+                                  .getButtonForegroundColor(isDarkMode)),
                         ),
                       ],
                     ),
