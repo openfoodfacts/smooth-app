@@ -1163,7 +1163,8 @@
     },
     "category_picker_screen_title": "Categories",
     "@category_picker_screen_title": {
-        "description": "Categories picker screen title",
+        "description": "Categories picker screen title"
+    },
     "basic_details": "Basic Details",
     "product_name": "Product Name",
     "add_basic_details_product_name_error": "Please enter the product name",
