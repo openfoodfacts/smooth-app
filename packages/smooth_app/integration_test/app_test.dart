@@ -55,36 +55,27 @@ void main() {
 
         await app.main(screenshots: true);
         await tester.pumpAndSettle();
-
-        sleep(const Duration(seconds: 30));
         await _takeScreenshot(
             tester, binding, 'test-screenshot-onboarding-home');
-        sleep(const Duration(seconds: 10));
 
         await tester.tap(find.byKey(const Key('next')));
         await tester.pumpAndSettle();
-
         await _takeScreenshot(
             tester, binding, 'test-screenshot-onboarding-scan');
         sleep(const Duration(seconds: 10));
 
         await tester.tap(find.byKey(const Key('next')));
         await tester.pumpAndSettle();
-
         await _takeScreenshot(
             tester, binding, 'test-screenshot-onboarding-health');
-        sleep(const Duration(seconds: 10));
 
         await tester.tap(find.byKey(const Key('next')));
         await tester.pumpAndSettle();
-
         await _takeScreenshot(
             tester, binding, 'test-screenshot-onboarding-eco');
-        sleep(const Duration(seconds: 10));
 
         await tester.tap(find.byKey(const Key('next')));
         await tester.pumpAndSettle();
-
         await _takeScreenshot(
             tester, binding, 'test-screenshot-onboarding-prefs');
         sleep(const Duration(seconds: 10));
