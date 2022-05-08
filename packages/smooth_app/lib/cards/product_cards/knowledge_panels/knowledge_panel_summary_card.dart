@@ -17,12 +17,17 @@ class KnowledgePanelSummaryCard extends StatelessWidget {
     }
     switch (knowledgePanel.titleElement!.type) {
       case TitleElementType.GRADE:
-        return ScoreCard(
-          iconUrl: knowledgePanel.titleElement!.iconUrl,
-          description: knowledgePanel.titleElement!.title,
-          cardEvaluation: getCardEvaluationFromKnowledgePanelTitleElement(
-            knowledgePanel.titleElement!,
-          ),
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            ScoreCard(
+              iconUrl: knowledgePanel.titleElement!.iconUrl,
+              description: knowledgePanel.titleElement!.title,
+              cardEvaluation: getCardEvaluationFromKnowledgePanelTitleElement(
+                knowledgePanel.titleElement!,
+              ),
+            ),
+          ],
         );
       case null:
       case TitleElementType.UNKNOWN:

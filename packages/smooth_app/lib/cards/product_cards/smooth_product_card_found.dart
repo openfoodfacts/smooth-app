@@ -39,19 +39,28 @@ class SmoothProductCardFound extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
+    final ProductPreferences productPreferences =
+        context.watch<ProductPreferences>();
     final Size screenSize = MediaQuery.of(context).size;
-
+    final ThemeData themeData = Theme.of(context);
+    final bool isDarkMode = themeData.colorScheme.brightness == Brightness.dark;
+    final List<String> excludedAttributeIds =
+        userPreferences.getExcludedAttributeIds();
     final List<Widget> scores = <Widget>[];
     final double iconSize = IconWidgetSizer.getIconSizeFromContext(context);
-    final List<Attribute> attributes =
-        getPopulatedAttributes(product, SCORE_ATTRIBUTE_IDS);
+    final List<Attribute> attributes = getPopulatedAttributes(
+      product,
+      SCORE_ATTRIBUTE_IDS,
+      excludedAttributeIds,
+    );
     for (final Attribute attribute in attributes) {
       scores.add(SvgIconChip(attribute.iconUrl!, height: iconSize));
     }
     final MatchedProduct matchedProduct = MatchedProduct.getMatchedProduct(
       product,
-      context.watch<ProductPreferences>(),
-      context.watch<UserPreferences>(),
+      productPreferences,
+      userPreferences,
     );
     final ProductCompatibilityHelper helper =
         ProductCompatibilityHelper(matchedProduct);
@@ -91,28 +100,29 @@ class SmoothProductCardFound extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        product.productName ??
-                            appLocalizations.unknownProductName,
+                        getProductName(product, appLocalizations),
                         overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context).textTheme.headline4,
+                        style: themeData.textTheme.headline4,
                       ),
                       Text(
                         product.brands ?? appLocalizations.unknownBrand,
                         overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context).textTheme.subtitle1,
+                        style: themeData.textTheme.subtitle1,
                       ),
                       Row(
                         children: <Widget>[
                           Icon(
                             Icons.circle,
                             size: 15,
-                            color: helper.getBackgroundColor(),
+                            color: helper.getButtonColor(isDarkMode),
                           ),
                           const Padding(
                               padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
                           Text(
                             helper.getSubtitle(appLocalizations),
-                            style: Theme.of(context).textTheme.bodyText2,
+                            style: themeData.textTheme.bodyText2!.apply(
+                                color: helper
+                                    .getButtonForegroundColor(isDarkMode)),
                           ),
                         ],
                       ),
@@ -121,8 +131,11 @@ class SmoothProductCardFound extends StatelessWidget {
                 ),
               ),
               const Padding(padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
-              Column(
-                children: scores,
+              Padding(
+                padding: const EdgeInsets.all(VERY_SMALL_SPACE),
+                child: Column(
+                  children: scores,
+                ),
               ),
             ],
           ),

@@ -18,14 +18,12 @@ class KnowledgePanelTitleCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
     Color? colorFromEvaluation;
-    if (evaluation != null &&
-        (knowledgePanelTitleElement.iconColorFromEvaluation ?? false)) {
-      colorFromEvaluation = _getColorFromEvaluation(evaluation!);
-    }
-    if (evaluation != null &&
-        _getColorFromEvaluation(evaluation!) == null &&
-        themeData.brightness == Brightness.dark) {
-      colorFromEvaluation = Colors.white;
+    if (knowledgePanelTitleElement.iconColorFromEvaluation ?? false) {
+      if (themeData.brightness == Brightness.dark) {
+        colorFromEvaluation = _getColorFromEvaluationDarkMode(evaluation);
+      } else {
+        colorFromEvaluation = _getColorFromEvaluation(evaluation);
+      }
     }
     List<Widget> iconWidget;
     if (knowledgePanelTitleElement.iconUrl != null) {
@@ -47,7 +45,10 @@ class KnowledgePanelTitleCard extends StatelessWidget {
       iconWidget = <Widget>[];
     }
     return Padding(
-      padding: const EdgeInsets.only(top: SMALL_SPACE),
+      padding: const EdgeInsets.only(
+        top: VERY_SMALL_SPACE,
+        bottom: VERY_SMALL_SPACE,
+      ),
       child: Row(
         children: <Widget>[
           ...iconWidget,
@@ -79,18 +80,33 @@ class KnowledgePanelTitleCard extends StatelessWidget {
     );
   }
 
-  Color? _getColorFromEvaluation(Evaluation evaluation) {
+  Color _getColorFromEvaluation(Evaluation? evaluation) {
     switch (evaluation) {
       case Evaluation.BAD:
         return RED_COLOR;
-      case Evaluation.NEUTRAL:
-        return GREY_COLOR;
       case Evaluation.AVERAGE:
         return LIGHT_ORANGE_COLOR;
       case Evaluation.GOOD:
         return LIGHT_GREEN_COLOR;
+      case null:
+      case Evaluation.NEUTRAL:
       case Evaluation.UNKNOWN:
-        return null;
+        return PRIMARY_GREY_COLOR;
+    }
+  }
+
+  Color _getColorFromEvaluationDarkMode(Evaluation? evaluation) {
+    switch (evaluation) {
+      case Evaluation.BAD:
+        return RED_COLOR;
+      case Evaluation.AVERAGE:
+        return LIGHT_ORANGE_COLOR;
+      case Evaluation.GOOD:
+        return LIGHT_GREEN_COLOR;
+      case null:
+      case Evaluation.NEUTRAL:
+      case Evaluation.UNKNOWN:
+        return LIGHT_GREY_COLOR;
     }
   }
 }

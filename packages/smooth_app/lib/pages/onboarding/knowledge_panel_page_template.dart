@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panels_builder.dart';
-import 'package:smooth_app/data_models/onboarding_data_knowledge_panels.dart';
+import 'package:smooth_app/data_models/onboarding_data_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/onboarding/common/tooltip_shape_border.dart';
@@ -46,9 +47,12 @@ class _KnowledgePanelPageTemplateState
     _initFuture = _init();
   }
 
-  Future<dynamic> _init() async => _knowledgePanels =
-      await OnboardingDataKnowledgePanels(widget.localDatabase)
-          .getData(rootBundle);
+  Future<void> _init() async {
+    final Product product =
+        await OnboardingDataProduct.forProduct(widget.localDatabase)
+            .getData(rootBundle);
+    _knowledgePanels = product.knowledgePanels!;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +61,12 @@ class _KnowledgePanelPageTemplateState
         future: _initFuture,
         builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
           if (snapshot.hasError) {
-            return Text('Fatal Error: ${snapshot.error}');
+            final AppLocalizations appLocalizations =
+                AppLocalizations.of(context)!;
+            return Text(
+              appLocalizations
+                  .knowledge_panel_page_loading_error(snapshot.error),
+            );
           }
           if (snapshot.connectionState != ConnectionState.done) {
             return const Center(child: CircularProgressIndicator());
@@ -66,6 +75,7 @@ class _KnowledgePanelPageTemplateState
               const KnowledgePanelsBuilder().buildSingle(
             _knowledgePanels,
             widget.panelId,
+            context: context,
           )!;
           return Scaffold(
             body: Stack(

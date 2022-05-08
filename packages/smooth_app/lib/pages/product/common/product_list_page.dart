@@ -8,12 +8,16 @@ import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
+import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/scan/scan_page.dart';
+import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 
 class ProductListPage extends StatefulWidget {
   const ProductListPage(this.productList);
@@ -29,6 +33,9 @@ class _ProductListPageState extends State<ProductListPage> {
   bool first = true;
   final Set<String> _selectedBarcodes = <String>{};
   bool _selectionMode = false;
+
+  static const String _popupActionClear = 'clear';
+  static const String _popupActionRename = 'rename';
 
   @override
   Widget build(BuildContext context) {
@@ -46,11 +53,11 @@ class _ProductListPageState extends State<ProductListPage> {
     switch (productList.listType) {
       case ProductListType.SCAN_SESSION:
       case ProductListType.HISTORY:
+      case ProductListType.USER:
         dismissible = productList.barcodes.isNotEmpty;
         break;
       case ProductListType.HTTP_SEARCH_CATEGORY:
       case ProductListType.HTTP_SEARCH_KEYWORDS:
-      case ProductListType.HTTP_SEARCH_GROUP:
         dismissible = false;
     }
     return Scaffold(
@@ -58,6 +65,65 @@ class _ProductListPageState extends State<ProductListPage> {
         elevation: 0,
         backgroundColor: colorScheme.background,
         foregroundColor: colorScheme.onBackground,
+        actions: _selectionMode
+            ? null
+            : <Widget>[
+                PopupMenuButton<String>(
+                  onSelected: (final String action) async {
+                    switch (action) {
+                      case _popupActionClear:
+                        await showDialog<bool>(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return SmoothAlertDialog(
+                              body: Text(appLocalizations.confirm_clear),
+                              actions: <SmoothActionButton>[
+                                SmoothActionButton(
+                                  onPressed: () async {
+                                    await daoProductList.clear(productList);
+                                    await daoProductList.get(productList);
+                                    setState(() {});
+                                    Navigator.of(context).pop();
+                                  },
+                                  text: appLocalizations.yes,
+                                ),
+                                SmoothActionButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  text: appLocalizations.no,
+                                ),
+                              ],
+                            );
+                          },
+                        );
+
+                        break;
+                      case _popupActionRename:
+                        final ProductList? renamedProductList =
+                            await ProductListUserDialogHelper(daoProductList)
+                                .showRenameUserListDialog(context, productList);
+                        if (renamedProductList == null) {
+                          return;
+                        }
+                        setState(() => productList = renamedProductList);
+                        break;
+                    }
+                  },
+                  itemBuilder: (BuildContext context) =>
+                      <PopupMenuEntry<String>>[
+                    PopupMenuItem<String>(
+                      value: _popupActionClear,
+                      child: Text(appLocalizations.user_list_popup_clear),
+                    ),
+                    if (productList.listType == ProductListType.USER)
+                      PopupMenuItem<String>(
+                        value: _popupActionRename,
+                        child: Text(appLocalizations.user_list_popup_rename),
+                      ),
+                  ],
+                )
+              ],
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
@@ -81,9 +147,9 @@ class _ProductListPageState extends State<ProductListPage> {
                           context,
                           MaterialPageRoute<Widget>(
                             builder: (BuildContext context) =>
-                                PersonalizedRankingPage.fromItems(
+                                PersonalizedRankingPage(
                               products: list,
-                              title: 'Your ranking', // TODO(X): Translate
+                              title: appLocalizations.product_list_your_ranking,
                             ),
                           ),
                         );
@@ -117,7 +183,9 @@ class _ProductListPageState extends State<ProductListPage> {
           ],
         ),
       ),
-      body: products.isEmpty
+      body: products.isEmpty &&
+              (productList.listType == ProductListType.HISTORY ||
+                  productList.listType == ProductListType.SCAN_SESSION)
           ? Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -127,18 +195,18 @@ class _ProductListPageState extends State<ProductListPage> {
                     Icons.find_in_page_rounded,
                     color: colorScheme.primary,
                     size: VERY_LARGE_SPACE * 10,
-                    semanticLabel: 'History not available',
+                    semanticLabel: appLocalizations.product_list_empty_icon_desc,
                   ),
                 ),
                 Text(
-                  'Start scanning !', // TODO(bhattabhi013): localization
+                  appLocalizations.product_list_empty_title,
                   style: themeData.textTheme.headlineLarge
                       ?.apply(color: colorScheme.onBackground),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(VERY_LARGE_SPACE),
                   child: Text(
-                    'Product you scan in will appear here and you can check detailed information about them', // TODO(bhattabhi013): localization
+                    appLocalizations.product_list_empty_message,
                     style: TextStyle(
                       color: colorScheme.onBackground,
                     ),
@@ -153,6 +221,7 @@ class _ProductListPageState extends State<ProductListPage> {
               onRefresh: () async => _refreshListProducts(
                 products,
                 localDatabase,
+                appLocalizations,
               ),
               child: ListView.builder(
                 itemCount: products.length,
@@ -248,11 +317,11 @@ class _ProductListPageState extends State<ProductListPage> {
   Future<void> _refreshListProducts(
     final List<Product> products,
     final LocalDatabase localDatabase,
+    final AppLocalizations appLocalizations,
   ) async {
     final bool? done = await LoadingDialog.run<bool>(
       context: context,
-      title:
-          'refreshing the history products', // TODO(monsieurtanuki): localize
+      title: appLocalizations.product_list_reloading_in_progress,
       future: _reloadProducts(products, localDatabase),
     );
     switch (done) {
@@ -260,9 +329,9 @@ class _ProductListPageState extends State<ProductListPage> {
         return;
       case true:
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Just refreshed'), // TODO(monsieurtanuki): localize
-            duration: Duration(seconds: 2),
+          SnackBar(
+            content: Text(appLocalizations.product_list_reloading_success),
+            duration: const Duration(seconds: 2),
           ),
         );
         setState(() {});
@@ -298,6 +367,9 @@ class _ProductListPageState extends State<ProductListPage> {
       }
       await DaoProduct(localDatabase).putAll(freshProducts);
       freshProducts.forEach(productList.refresh);
+      final RobotoffInsightHelper robotoffInsightHelper =
+          RobotoffInsightHelper(localDatabase);
+      await robotoffInsightHelper.clearInsightAnnotationsSaved();
       return true;
     } catch (e) {
       //

@@ -41,7 +41,9 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
     // picture as sometimes the picture can be blurry.
     return Scaffold(
       backgroundColor: Colors.black,
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text(_getAppBarTitle(context, widget.imageType)),
+      ),
       body: Stack(
         children: <Widget>[
           Positioned(
@@ -102,11 +104,27 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
     );
   }
 
+  String _getAppBarTitle(BuildContext context, ImageField imageType) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    switch (imageType) {
+      case ImageField.FRONT:
+        return appLocalizations.front_packaging_photo_title;
+      case ImageField.INGREDIENTS:
+        return appLocalizations.ingredients_photo_title;
+      case ImageField.NUTRITION:
+        return appLocalizations.nutritional_facts_photo_title;
+      case ImageField.PACKAGING:
+        return appLocalizations.recycling_photo_title;
+      case ImageField.OTHER:
+        return appLocalizations.other_interesting_photo_title;
+    }
+  }
+
   String _getConfirmButtonText(BuildContext context, ImageField imageType) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     switch (imageType) {
       case ImageField.FRONT:
-        return appLocalizations.confirm_front_packaging_photo_button_label;
+        return appLocalizations.confirm_button_label;
       case ImageField.INGREDIENTS:
         return appLocalizations.confirm_ingredients_photo_button_label;
       case ImageField.NUTRITION:

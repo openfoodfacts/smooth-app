@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:iso_countries/iso_countries.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 
 /// A selector for selecting user's country.
 class CountrySelector extends StatefulWidget {
   const CountrySelector({
     required this.initialCountryCode,
-    this.inputDecoration,
-    this.padding,
   });
-
   final String? initialCountryCode;
-  final InputDecoration? inputDecoration;
-  final EdgeInsetsGeometry? padding;
 
   @override
   State<CountrySelector> createState() => _CountrySelectorState();
@@ -48,48 +47,112 @@ class _CountrySelectorState extends State<CountrySelector> {
   }
 
   @override
-  Widget build(BuildContext context) => FutureBuilder<void>(
-        future: _initFuture,
-        builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
-          if (snapshot.hasError) {
-            return Text('Fatal Error: ${snapshot.error}');
-          }
-          if (snapshot.connectionState != ConnectionState.done) {
-            return const CircularProgressIndicator();
-          }
-          return LayoutBuilder(
-              builder: (BuildContext context, BoxConstraints constraints) {
-            final double parentWidth = constraints.maxWidth;
-            return Container(
-              padding: widget.padding,
-              child: DropdownButtonFormField<Country>(
-                value: _chosenValue,
-                decoration: widget.inputDecoration,
-                items: _countryList
-                    .map<DropdownMenuItem<Country>>((Country country) {
-                  return DropdownMenuItem<Country>(
-                    value: country,
-                    child: Container(
-                      // Set the maxWidth so the dropdown arrow icon doesn't overflow.
-                      // 48 dp is needed to account for dropdown arrow icon and padding.
-                      constraints: BoxConstraints(maxWidth: parentWidth - 48)
-                          .normalize(),
-                      child: Text(country.name),
-                    ),
-                  );
-                }).toList(),
-                onChanged: (Country? value) async {
-                  if (value != null) {
-                    _chosenValue = value;
-                    await _setUserCountry(_chosenValue.countryCode);
-                    setState(() {});
-                  }
-                },
-              ),
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final TextEditingController _countryController = TextEditingController();
+    return FutureBuilder<void>(
+      future: _initFuture,
+      builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
+        if (snapshot.hasError) {
+          return Text('Fatal Error: ${snapshot.error}');
+        } else if (snapshot.connectionState != ConnectionState.done) {
+          return const CircularProgressIndicator();
+        }
+
+        return GestureDetector(
+          onTap: () async {
+            List<Country> filteredList = List<Country>.from(_countryList);
+            final Country? country = await showDialog<Country>(
+              context: context,
+              builder: (BuildContext context) {
+                return StatefulBuilder(
+                  builder: (BuildContext context,
+                      void Function(VoidCallback fn) setState) {
+                    return SmoothAlertDialog.advanced(
+                      close: false,
+                      maxHeight: MediaQuery.of(context).size.height,
+                      body: SizedBox(
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height,
+                        child: Column(
+                          children: <Widget>[
+                            SmoothTextFormField(
+                              type: TextFieldTypes.PLAIN_TEXT,
+                              prefixIcon: const Icon(Icons.search),
+                              controller: _countryController,
+                              onChanged: (String? query) {
+                                setState(
+                                  () {
+                                    filteredList = _countryList
+                                        .where(
+                                          (Country item) =>
+                                              item.name.toLowerCase().contains(
+                                                    query!.toLowerCase(),
+                                                  ) |
+                                              item.countryCode
+                                                  .toLowerCase()
+                                                  .contains(
+                                                    query.toLowerCase(),
+                                                  ),
+                                        )
+                                        .toList();
+                                  },
+                                );
+                              },
+                              hintText: appLocalizations.search,
+                            ),
+                            Expanded(
+                              child: ListView.builder(
+                                shrinkWrap: true,
+                                itemCount: filteredList.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  final Country country = filteredList[index];
+                                  return ListTile(
+                                    title: Text(country.name),
+                                    onTap: () {
+                                      Navigator.of(context).pop(country);
+                                    },
+                                  );
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      actions: <SmoothActionButton>[
+                        SmoothActionButton(
+                          onPressed: () => Navigator.pop(context),
+                          text: appLocalizations.cancel,
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
             );
-          });
-        },
-      );
+            if (country != null) {
+              _chosenValue = country;
+              await _setUserCountry(_chosenValue.countryCode);
+            }
+            setState(() {});
+          },
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: ListTile(
+              leading: const Icon(Icons.public),
+              title: Text(
+                _chosenValue.name,
+                style: Theme.of(context).textTheme.headline3,
+              ),
+              trailing: const Icon(Icons.arrow_drop_down),
+            ),
+          ),
+        );
+      },
+    );
+  }
 
   /// Sanitize the country list by removing countries that are not in [OpenFoodFactsCountry]
   /// and providing a fallback English name for countries that are in [OpenFoodFactsCountry]

@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -10,6 +11,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/nutrition_container.dart';
 
@@ -25,7 +27,10 @@ class NutritionPageLoaded extends StatefulWidget {
 }
 
 class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
-  late final RegExp _decimalRegExp;
+  // we admit both decimal points
+  // anyway, the keyboard will only show one
+  static final RegExp _decimalRegExp = RegExp(r'[0-9,.]');
+
   late final NumberFormat _numberFormat;
   late final NutritionContainer _nutritionContainer;
 
@@ -53,9 +58,6 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       product: widget.product,
     );
     _numberFormat = NumberFormat('####0.#####', ProductQuery.getLocaleString());
-    _decimalRegExp = _numberFormat.format(1.2).contains('.')
-        ? RegExp(r'[0-9\.]') // TODO(monsieurtanuki): check if . or \.
-        : RegExp(r'[0-9,]');
   }
 
   @override
@@ -68,35 +70,49 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations localizations = AppLocalizations.of(context)!;
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final List<Widget> children = <Widget>[];
-    children.add(_switchNoNutrition(appLocalizations));
+    children.add(_switchNoNutrition(localizations));
     if (!_unspecified) {
-      children.add(_getServingField(appLocalizations));
-      children.add(_getServingSwitch(appLocalizations));
+      children.add(_getServingField(localizations));
+      children.add(_getServingSwitch(localizations));
       for (final OrderedNutrient orderedNutrient
           in _nutritionContainer.getDisplayableNutrients()) {
         children.add(
-          _getNutrientRow(appLocalizations, orderedNutrient),
+          _getNutrientRow(localizations, orderedNutrient),
         );
       }
-      children.add(_addNutrientButton(appLocalizations));
+      children.add(_addNutrientButton(localizations));
     }
-    children.add(_addCancelSaveButtons(
-      appLocalizations,
-      localDatabase,
-    ));
 
-    return Scaffold(
-      appBar: AppBar(title: Text(appLocalizations.nutrition_page_title)),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Form(
-          key: _formKey,
-          child: ListView(children: children),
+    return WillPopScope(
+      child: Scaffold(
+        appBar: AppBar(
+          title: AutoSizeText(
+            localizations.nutrition_page_title,
+            maxLines: 2,
+          ),
+          actions: <Widget>[
+            IconButton(
+              onPressed: () => _validateAndSave(localizations, localDatabase),
+              icon: const Icon(Icons.check),
+            )
+          ],
+        ),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: LARGE_SPACE,
+            vertical: SMALL_SPACE,
+          ),
+          child: Form(
+            key: _formKey,
+            child: ListView(children: children),
+          ),
         ),
       ),
+      //return a boolean to decide whether to return to previous page or not
+      onWillPop: () => _showCancelPopup(localizations),
     );
   }
 
@@ -216,7 +232,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   }
 
   Widget _getServingSwitch(final AppLocalizations appLocalizations) => Row(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Text(appLocalizations.nutrition_page_per_100g),
@@ -229,11 +245,15 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         ],
       );
 
-  Widget _switchNoNutrition(final AppLocalizations appLocalizations) =>
-      Container(
+  Widget _switchNoNutrition(final AppLocalizations localizations) => SmoothCard(
         color: Theme.of(context).colorScheme.primary,
+        padding: const EdgeInsets.symmetric(
+          horizontal: MEDIUM_SPACE,
+          vertical: SMALL_SPACE,
+        ),
+        margin: EdgeInsets.zero,
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Switch(
@@ -243,9 +263,9 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
             ),
             SizedBox(
               width: getColumnSizeFromContext(context, 0.6),
-              child: Text(
-                appLocalizations.nutrition_page_unspecified,
-                style: const TextStyle(color: Colors.white),
+              child: AutoSizeText(
+                localizations.nutrition_page_unspecified,
+                style: Theme.of(context).primaryTextTheme.bodyText1,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),
@@ -262,65 +282,156 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
           );
           leftovers.sort((final OrderedNutrient a, final OrderedNutrient b) =>
               a.name!.compareTo(b.name!));
+          List<OrderedNutrient> filteredList =
+              List<OrderedNutrient>.from(leftovers);
           final OrderedNutrient? selected = await showDialog<OrderedNutrient>(
               context: context,
               builder: (BuildContext context) {
-                final List<Widget> children = <Widget>[];
-                for (final OrderedNutrient nutrient in leftovers) {
-                  children.add(
-                    ListTile(
-                      title: Text(nutrient.name!),
-                      onTap: () => Navigator.pop(context, nutrient),
-                    ),
-                  );
-                }
-                return AlertDialog(
-                  title: Text(appLocalizations.nutrition_page_add_nutrient),
-                  content: SizedBox(
-                    // TODO(monsieurtanuki): proper sizes
-                    width: 300,
-                    height: 400,
-                    child: ListView(children: children),
-                  ),
-                  actions: <Widget>[
-                    ElevatedButton(
-                      onPressed: () => Navigator.pop(context),
-                      child: Text(appLocalizations.cancel),
-                    ),
-                  ],
+                return StatefulBuilder(
+                  builder: (BuildContext context,
+                      void Function(VoidCallback fn) setState) {
+                    return AlertDialog(
+                      title: Text(appLocalizations.nutrition_page_add_nutrient),
+                      content: SizedBox(
+                        // TODO(monsieurtanuki): proper sizes
+                        width: 300,
+                        height: 400,
+                        child: Column(
+                          children: <Widget>[
+                            TextField(
+                              decoration: InputDecoration(
+                                prefixIcon: const Icon(Icons.search),
+                                border: const UnderlineInputBorder(),
+                                labelText: appLocalizations.search,
+                              ),
+                              onChanged: (String query) {
+                                setState(
+                                  () {
+                                    filteredList = leftovers
+                                        .where((OrderedNutrient item) => item
+                                            .name!
+                                            .toLowerCase()
+                                            .contains(query.toLowerCase()))
+                                        .toList();
+                                  },
+                                );
+                              },
+                            ),
+                            Expanded(
+                              child: ListView.builder(
+                                  shrinkWrap: true,
+                                  itemCount: filteredList.length,
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    final OrderedNutrient nutrient =
+                                        filteredList[index];
+                                    return ListTile(
+                                      title: Text(nutrient.name!),
+                                      onTap: () =>
+                                          Navigator.of(context).pop(nutrient),
+                                    );
+                                  }),
+                            ),
+                          ],
+                        ),
+                      ),
+                      actions: <Widget>[
+                        ElevatedButton(
+                          onPressed: () => Navigator.pop(context),
+                          child: Text(appLocalizations.cancel),
+                        ),
+                      ],
+                    );
+                  },
                 );
               });
           if (selected != null) {
             setState(() => _nutritionContainer.add(selected));
           }
         },
+        style: ButtonStyle(
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            const RoundedRectangleBorder(
+              borderRadius: ROUNDED_BORDER_RADIUS,
+              side: BorderSide.none,
+            ),
+          ),
+        ),
         icon: const Icon(Icons.add),
         label: Text(appLocalizations.nutrition_page_add_nutrient),
       );
 
-  Widget _addCancelSaveButtons(
-    final AppLocalizations appLocalizations,
-    final LocalDatabase localDatabase,
-  ) =>
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          ElevatedButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text(appLocalizations.cancel),
+  Future<bool> _showCancelPopup(AppLocalizations localizations) async {
+    //if no changes made then returns true to the onWillPop
+    // allowing it to let the user return back to previous screen
+    if (!_isEdited()) {
+      return true;
+    }
+    return await showDialog<bool>(
+          context: context,
+          builder: (BuildContext context) => AlertDialog(
+            shape: const RoundedRectangleBorder(
+              borderRadius: ROUNDED_BORDER_RADIUS,
+            ),
+            title: Text(localizations.general_confirmation),
+            content: Text(localizations.nutrition_page_close_confirmation),
+            actions: <TextButton>[
+              TextButton(
+                child: Text(localizations.cancel.toUpperCase()),
+                // returns false to onWillPop after the alert dialog is closed with cancel button
+                //blocking return to the previous screen
+                onPressed: () => Navigator.pop(context, false),
+              ),
+              TextButton(
+                child: Text(localizations.okay.toUpperCase()),
+                // returns true to onWillPop after the alert dialog is closed with close button
+                //letting return to the previous screen
+                onPressed: () => Navigator.pop(context, true),
+              ),
+            ],
           ),
-          ElevatedButton(
-            onPressed: () async {
-              if (!_formKey.currentState!.validate()) {
-                return;
-              }
-              await _save(localDatabase);
-            },
-            child: Text(appLocalizations.save),
-          ),
-        ],
-      );
+        ) ??
+        // in case alert dialog is closed, a false is return
+        // blocking the return to the previous screen
+        false;
+  }
+
+  Future<void> _validateAndSave(final AppLocalizations localizations,
+      final LocalDatabase localDatabase) async {
+    if (!_formKey.currentState!.validate()) {
+      return;
+    }
+
+    await _showSavePopup(localizations, localDatabase);
+  }
+
+  Future<void> _showSavePopup(
+      AppLocalizations localizations, LocalDatabase localDatabase) async {
+    final bool shouldSave = await showDialog<bool>(
+            context: context,
+            builder: (BuildContext context) => AlertDialog(
+                  title: Text(localizations.general_confirmation),
+                  content: Text(localizations.save_confirmation),
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: ROUNDED_BORDER_RADIUS,
+                  ),
+                  actions: <TextButton>[
+                    TextButton(
+                      child: Text(localizations.cancel.toUpperCase()),
+                      onPressed: () => Navigator.pop(context, false),
+                    ),
+                    TextButton(
+                      child: Text(localizations.save.toUpperCase()),
+                      onPressed: () => Navigator.pop(context, true),
+                    ),
+                  ],
+                )) ??
+        false;
+
+    if (shouldSave) {
+      _save(localDatabase);
+    }
+  }
 
   Future<void> _save(final LocalDatabase localDatabase) async {
     for (final String key in _controllers.keys) {
@@ -338,5 +449,21 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     if (savedAndRefreshed) {
       Navigator.of(context).pop(true);
     }
+  }
+
+  bool _isEdited() {
+    for (final String key in _controllers.keys) {
+      final TextEditingController controller = _controllers[key]!;
+      if (_nutritionContainer.getValue(key) != null) {
+        if (_numberFormat.format(_nutritionContainer.getValue(key)) !=
+            controller.value.text) {
+          //if any controller is not equal to the value in the container
+          // then the form is edited, return true
+          return true;
+        }
+      }
+    }
+    //else form is not edited just return false
+    return false;
   }
 }

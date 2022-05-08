@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
 import 'package:smooth_app/database/product_query.dart';
 
@@ -14,20 +12,23 @@ enum LoadingStatus {
 }
 
 class ProductQueryModel with ChangeNotifier {
-  ProductQueryModel(this.supplier) {
+  ProductQueryModel(this._supplier) {
+    _clear();
     _asyncLoad();
   }
 
-  final ProductListSupplier supplier;
+  ProductListSupplier _supplier;
+
+  ProductListSupplier get supplier => _supplier;
 
   static const String _CATEGORY_ALL = 'all';
-  String currentCategory = _CATEGORY_ALL;
+  late String currentCategory;
 
-  LoadingStatus _loadingStatus = LoadingStatus.LOADING;
+  late LoadingStatus _loadingStatus;
   String? _loadingError;
-  List<Product>? _products;
+  final List<Product> _products = <Product>[];
   List<Product>? displayProducts;
-  bool isNotEmpty() => _products != null && _products!.isNotEmpty;
+  bool isNotEmpty() => _products.isNotEmpty;
 
   /// <Label, Label (count)> [Map]
   final Map<String, String> categories = <String, String>{};
@@ -41,15 +42,55 @@ class ProductQueryModel with ChangeNotifier {
   String? get loadingError => _loadingError;
   LoadingStatus get loadingStatus => _loadingStatus;
 
-  Future<void> _asyncLoad() async {
+  void _clear() {
+    currentCategory = _CATEGORY_ALL;
+    _loadingStatus = LoadingStatus.LOADING;
+    _loadingError = null;
+    _products.clear();
+    displayProducts = null;
+    categories.clear();
+    _categoriesCounter.clear();
+    sortedCategories.clear();
+  }
+
+  Future<bool> _asyncLoad() async {
     _loadingError = await supplier.asyncLoad();
     if (_loadingError != null) {
       _loadingStatus = LoadingStatus.ERROR;
     } else {
       _loadingStatus = LoadingStatus.LOADED;
-      _products = supplier.getProductList().getList();
+      _products.addAll(supplier.partialProductList.getProducts());
     }
     notifyListeners();
+    return _loadingStatus == LoadingStatus.LOADED;
+  }
+
+  Future<bool> loadNextPage() async {
+    final ProductListSupplier? refreshSupplier = supplier.getRefreshSupplier();
+    if (refreshSupplier != null) {
+      // in that case, we were on a database supplier, on an empty page
+      _supplier = refreshSupplier;
+    } else {
+      // in that case, we were on a back-end supplier, on a loaded page
+      supplier.productQuery.toNextPage();
+    }
+    return _asyncLoad();
+  }
+
+  // TODO(monsieurtanuki): don't clear everything if it fails?
+  Future<bool> loadFromTop() async {
+    _clear();
+
+    final ProductListSupplier? refreshSupplier = supplier.getRefreshSupplier();
+    if (refreshSupplier != null) {
+      // in that case, we were on a database supplier
+      _supplier = refreshSupplier;
+    } else {
+      // in that case, we were already on a back-end supplier
+    }
+    await supplier.clear();
+    supplier.productQuery.toTopPage();
+    return _asyncLoad();
   }
 
   /// Sorts the products by category.
@@ -61,14 +102,11 @@ class ProductQueryModel with ChangeNotifier {
     }
     _loadingStatus = LoadingStatus.POST_LOAD_STARTED;
 
-    final ProductList productList = supplier.getProductList();
-    _products = productList.getList();
-
     displayProducts = _products;
 
     categories[_CATEGORY_ALL] = translationForAll;
 
-    for (final Product product in _products!) {
+    for (final Product product in _products) {
       if (product.categoriesTagsInLanguages != null) {
         final List<String>? translatedCategories =
             product.categoriesTagsInLanguages![ProductQuery.getLanguage()];
@@ -113,7 +151,7 @@ class ProductQueryModel with ChangeNotifier {
     if (category == _CATEGORY_ALL) {
       displayProducts = _products;
     } else {
-      displayProducts = _products!
+      displayProducts = _products
           .where((Product product) =>
               product.categoriesTagsInLanguages?[ProductQuery.getLanguage()]
                   ?.contains(category) ??

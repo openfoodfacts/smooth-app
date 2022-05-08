@@ -33,15 +33,20 @@ class _PreferencesPageState extends State<PreferencesPage> {
     _initFuture = _init();
   }
 
-  Future<dynamic> _init() async => _product =
-      await OnboardingDataProduct(widget._localDatabase).getData(rootBundle);
+  Future<void> _init() async =>
+      _product = await OnboardingDataProduct.forProduct(widget._localDatabase)
+          .getData(rootBundle);
 
   @override
   Widget build(BuildContext context) => FutureBuilder<void>(
         future: _initFuture,
         builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
           if (snapshot.hasError) {
-            return Text('Fatal Error: ${snapshot.error}');
+            final AppLocalizations appLocalizations =
+                AppLocalizations.of(context)!;
+            return Text(
+              appLocalizations.preferences_page_loading_error(snapshot.error),
+            );
           }
           if (snapshot.connectionState != ConnectionState.done) {
             return const Center(child: CircularProgressIndicator());
@@ -95,6 +100,7 @@ class _HelperState extends State<_Helper> {
             widget.product,
             productPreferences,
             isFullVersion: _isProductExpanded,
+            isRemovable: false,
           ),
         ),
       ),

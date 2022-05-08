@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -44,10 +45,14 @@ class _CategoryPickerPageState extends State<CategoryPickerPage> {
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     return Scaffold(
       appBar: AppBar(
-          title: const Text('categories')), // TODO(monsieurtanuki): localize
+        title: Text(
+          appLocalizations.category_picker_screen_title,
+        ),
+      ),
       body: ListView.builder(
         itemBuilder: (final BuildContext context, final int index) {
           final String tag = _tags[index];

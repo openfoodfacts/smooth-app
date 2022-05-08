@@ -8,6 +8,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
+import 'package:smooth_app/pages/product/add_new_product_page.dart';
 
 /// Dialog helper for product barcode search
 class ProductDialogHelper {
@@ -47,7 +48,6 @@ class ProductDialogHelper {
         context: context,
         builder: (BuildContext context) {
           return SmoothAlertDialog(
-            close: false,
             body: Text(
               refresh
                   ? AppLocalizations.of(context)!.could_not_refresh
@@ -60,9 +60,13 @@ class ProductDialogHelper {
               ),
               SmoothActionButton(
                 text: AppLocalizations.of(context)!.contribute,
-
-                onPressed: () => Navigator.pop(
-                    context), // TODO(monsieurtanuki): to be implemented
+                onPressed: () => Navigator.push<bool?>(
+                  context,
+                  MaterialPageRoute<bool?>(
+                    builder: (BuildContext context) =>
+                        AddNewProductPage(barcode),
+                  ),
+                ),
               ),
             ],
           );
@@ -77,7 +81,6 @@ class ProductDialogHelper {
   void _openErrorMessage(final String message) => showDialog<void>(
         context: context,
         builder: (BuildContext context) => SmoothAlertDialog(
-          close: false,
           body: getErrorMessage(message),
           actions: <SmoothActionButton>[
             SmoothActionButton(
@@ -95,7 +98,6 @@ class ProductDialogHelper {
       case FetchedProductStatus.ok:
         throw Exception("You're not supposed to call this if the status is ok");
       case FetchedProductStatus.userCancelled:
-        _openErrorMessage(appLocalizations.product_internet_cancel);
         return;
       case FetchedProductStatus.internetError:
         _openErrorMessage(appLocalizations.product_internet_error);

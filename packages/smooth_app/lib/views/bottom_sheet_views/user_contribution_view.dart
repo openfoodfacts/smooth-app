@@ -7,48 +7,69 @@ import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
-import 'package:smooth_app/widgets/modal_bottomsheet_header.dart';
+import 'package:smooth_app/helpers/list_helper.dart';
 
 class UserContributionView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final List<ListHelper> tileData = <ListHelper>[
+      //Contribute
+      ListHelper(
+        onTap: () => _contribute(context),
+        title: appLocalizations.contribute_improve_header,
+      ),
+
+      //Develop
+      ListHelper(
+        onTap: () => _develop(context),
+        title: appLocalizations.contribute_sw_development,
+      ),
+
+      //Translate
+      ListHelper(
+        onTap: () => _translate(context),
+        title: appLocalizations.contribute_translate_header,
+      ),
+
+      //Donate
+      ListHelper(
+        icon: const Icon(Icons.open_in_new),
+        onTap: () => _donate(context),
+        title: appLocalizations.contribute_donate_header,
+      ),
+
+      //Contributors list
+      ListHelper(
+        onTap: () => _contributors(context),
+        title: appLocalizations.contributors,
+      ),
+    ];
     return Material(
       child: SizedBox(
-        height: MediaQuery.of(context).size.height * 0.8,
-        child: ListView(
-          shrinkWrap: true,
-          scrollDirection: Axis.vertical,
+        height: MediaQuery.of(context).size.height * 0.9,
+        child: Column(
           children: <Widget>[
-            ModalBottomSheetHeader(
-                title: AppLocalizations.of(context)!.contribute),
-            SmoothListTile(
-              text: AppLocalizations.of(context)!.contribute_improve_header,
-              onPressed: () => _contribute(context),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              margin: const EdgeInsets.only(top: 20.0, bottom: 24.0),
+              child: Text(
+                appLocalizations.contribute,
+                style: Theme.of(context).textTheme.headline1,
+              ),
             ),
-
-            //Develop
-            SmoothListTile(
-              text: AppLocalizations.of(context)!.contribute_sw_development,
-              onPressed: () => _develop(context),
-            ),
-
-            //Translate
-            SmoothListTile(
-              text: AppLocalizations.of(context)!.contribute_translate_header,
-              onPressed: () => _translate(context),
-            ),
-
-            //Donate
-            SmoothListTile(
-              text: AppLocalizations.of(context)!.contribute_donate_header,
-              leadingWidget: const Icon(Icons.open_in_new),
-              onPressed: () => _donate(context),
-            ),
-
-            //Contributors list
-            SmoothListTile(
-              text: AppLocalizations.of(context)!.contributors,
-              onPressed: () => _contributors(context),
+            Expanded(
+              child: ListView.builder(
+                scrollDirection: Axis.vertical,
+                itemCount: tileData.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return SmoothListTile(
+                    text: tileData[index].title,
+                    onPressed: tileData[index].onTap,
+                    leadingWidget: tileData[index].icon,
+                  );
+                },
+              ),
             ),
           ],
         ),
@@ -60,13 +81,15 @@ class UserContributionView extends StatelessWidget {
     return showDialog<void>(
       context: context,
       builder: (BuildContext context) {
-        return SmoothAlertDialog(
-          close: true,
-          title: AppLocalizations.of(context)!.contribute_improve_header,
+        final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+        return SmoothAlertDialog.advanced(
+          close: false,
+          maxHeight: MediaQuery.of(context).size.height * 0.35,
+          title: appLocalizations.contribute_improve_header,
           body: Column(
             children: <Widget>[
               Text(
-                AppLocalizations.of(context)!.contribute_improve_text,
+                appLocalizations.contribute_improve_text,
               ),
               const SizedBox(
                 height: 10,
@@ -76,8 +99,7 @@ class UserContributionView extends StatelessWidget {
                     'https://world.openfoodfacts.org/state/to-be-completed',
                     false),
                 child: Text(
-                  AppLocalizations.of(context)!
-                      .contribute_improve_ProductsToBeCompleted,
+                  appLocalizations.contribute_improve_ProductsToBeCompleted,
                 ),
               ),
             ],
@@ -87,7 +109,7 @@ class UserContributionView extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context, rootNavigator: true).pop('dialog');
               },
-              text: AppLocalizations.of(context)!.okay,
+              text: appLocalizations.okay,
               minWidth: 100,
             ),
           ],
@@ -100,18 +122,20 @@ class UserContributionView extends StatelessWidget {
     return showDialog<void>(
       context: context,
       builder: (BuildContext context) {
-        return SmoothAlertDialog(
-          title: AppLocalizations.of(context)!.contribute_sw_development,
+        final AppLocalizations applocalization = AppLocalizations.of(context)!;
+        return SmoothAlertDialog.advanced(
+          maxHeight: MediaQuery.of(context).size.height * 0.35,
+          title: applocalization.contribute_sw_development,
           body: Column(
             children: <Widget>[
               Text(
-                AppLocalizations.of(context)!.contribute_develop_text,
+                applocalization.contribute_develop_text,
               ),
               const SizedBox(
                 height: 20,
               ),
               Text(
-                AppLocalizations.of(context)!.contribute_develop_text_2,
+                applocalization.contribute_develop_text_2,
               ),
               const SizedBox(
                 height: 10,
@@ -146,7 +170,7 @@ class UserContributionView extends StatelessWidget {
           actions: <SmoothActionButton>[
             SmoothActionButton(
               onPressed: () => Navigator.pop(context),
-              text: AppLocalizations.of(context)!.okay,
+              text: applocalization.okay,
               minWidth: 100,
             ),
           ],
@@ -159,15 +183,17 @@ class UserContributionView extends StatelessWidget {
     return showDialog<void>(
       context: context,
       builder: (BuildContext context) {
-        return SmoothAlertDialog(
-          title: AppLocalizations.of(context)!.contribute_translate_header,
+        final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+        return SmoothAlertDialog.advanced(
+          title: appLocalizations.contribute_translate_header,
+          maxHeight: MediaQuery.of(context).size.height * 0.25,
           body: Column(
             children: <Widget>[
               Text(
-                AppLocalizations.of(context)!.contribute_translate_text,
+                appLocalizations.contribute_translate_text,
               ),
               Text(
-                AppLocalizations.of(context)!.contribute_translate_text_2,
+                appLocalizations.contribute_translate_text_2,
               ),
             ],
           ),
@@ -175,8 +201,7 @@ class UserContributionView extends StatelessWidget {
             SmoothActionButton(
               onPressed: () => LaunchUrlHelper.launchURL(
                   'https://translate.openfoodfacts.org/', false),
-              text:
-                  AppLocalizations.of(context)!.contribute_translate_link_text,
+              text: appLocalizations.contribute_translate_link_text,
               minWidth: 200,
             ),
           ],
@@ -196,8 +221,9 @@ class UserContributionView extends StatelessWidget {
     return showDialog<void>(
       context: context,
       builder: (BuildContext context) {
-        return SmoothAlertDialog(
+        return SmoothAlertDialog.advanced(
           title: AppLocalizations.of(context)!.contributors,
+          maxHeight: MediaQuery.of(context).size.height * 0.45,
           body: FutureBuilder<http.Response>(
             future: http.get(
               Uri.https(
@@ -209,32 +235,27 @@ class UserContributionView extends StatelessWidget {
               if (snap.hasData) {
                 final List<dynamic> contributors =
                     jsonDecode(snap.data!.body) as List<dynamic>;
-
-                return SingleChildScrollView(
-                  child: Wrap(
-                    crossAxisAlignment: WrapCrossAlignment.center,
-                    children: contributors.map((dynamic contributorsData) {
-                      final ContributorsModel _contributor =
-                          ContributorsModel.fromJson(
-                              contributorsData as Map<String, dynamic>);
-
-                      return Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: InkWell(
-                          onTap: () {
-                            LaunchUrlHelper.launchURL(
-                                _contributor.profilePath, false);
-                          },
-                          child: CircleAvatar(
-                            foregroundImage:
-                                NetworkImage(_contributor.avatarUrl),
-                            backgroundColor:
-                                Theme.of(context).colorScheme.primary,
-                          ),
+                return Wrap(
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  children: contributors.map((dynamic contributorsData) {
+                    final ContributorsModel _contributor =
+                        ContributorsModel.fromJson(
+                            contributorsData as Map<String, dynamic>);
+                    return Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: InkWell(
+                        onTap: () {
+                          LaunchUrlHelper.launchURL(
+                              _contributor.profilePath, false);
+                        },
+                        child: CircleAvatar(
+                          foregroundImage: NetworkImage(_contributor.avatarUrl),
+                          backgroundColor:
+                              Theme.of(context).colorScheme.primary,
                         ),
-                      );
-                    }).toList(),
-                  ),
+                      ),
+                    );
+                  }).toList(growable: false),
                 );
               }
 

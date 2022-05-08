@@ -10,7 +10,8 @@ import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Next button showed at the bottom of the onboarding flow.
 class NextButton extends StatelessWidget {
-  const NextButton(this.currentPage);
+  // we need a Key for the test/screenshots
+  const NextButton(this.currentPage) : super(key: const Key('next'));
 
   final OnboardingPage currentPage;
 
@@ -37,7 +38,7 @@ class NextButton extends StatelessWidget {
               backgroundColor: Theme.of(context).cardColor,
               shape: const RoundedRectangleBorder(
                   borderRadius: ANGULAR_BORDER_RADIUS),
-              primary: Colors.white,
+              primary: const Color.fromRGBO(75, 0, 130, 1.0),
             ),
             onPressed: () async {
               await OnboardingLoader(localDatabase)

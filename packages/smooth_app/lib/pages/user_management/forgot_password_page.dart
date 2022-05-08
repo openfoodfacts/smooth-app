@@ -148,7 +148,10 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                               showDialog<void>(
                                 context: context,
                                 builder: (BuildContext context) => AlertDialog(
-                                  title: const Text('Ready for the dev mode?'),
+                                  title: Text(
+                                    appLocalizations
+                                        .enable_dev_mode_dialog_title,
+                                  ),
                                   actions: <Widget>[
                                     TextButton(
                                       child: Text(appLocalizations.yes),
