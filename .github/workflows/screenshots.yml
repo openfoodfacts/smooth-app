@@ -43,7 +43,7 @@ jobs:
       - run: flutter --version
 
       - name: Get dependencies
-        run: ci/pub_upgrade.sh
+        run: ../../ci/pub_upgrade.sh
 
       - name: Run Flutter Driver basic tests
         uses: reactivecircus/android-emulator-runner@v2
