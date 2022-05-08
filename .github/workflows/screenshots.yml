@@ -45,12 +45,13 @@ jobs:
       - name: Get dependencies
         run: ../../ci/pub_upgrade.sh
 
-      - name: Run Flutter Driver basic tests
+      - name: Generate screenshots
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 30
           target: default
           arch: x86_64
+          working-directory: ./packages/smooth_app
           script: yes | flutter doctor --android-licenses \
             && flutter drive -d emulator-5554 \
             --driver=test_driver/screenshot_driver.dart \
