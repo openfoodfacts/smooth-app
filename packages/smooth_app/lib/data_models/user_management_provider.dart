@@ -1,4 +1,5 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:smooth_app/database/dao_secured_string.dart';
@@ -6,10 +7,6 @@ import 'package:smooth_app/database/dao_secured_string.dart';
 class UserManagementProvider with ChangeNotifier {
   static const String _USER_ID = 'user_id';
   static const String _PASSWORD = 'pasword';
-
-  bool _finishedLoading = false;
-
-  bool get isLoading => !_finishedLoading;
 
   /// Checks credentials and conditionally saves them
   Future<bool> login(User user) async {
@@ -22,6 +19,7 @@ class UserManagementProvider with ChangeNotifier {
 
     if (rightCredentials) {
       await putUser(user);
+      notifyListeners();
     }
 
     return rightCredentials && await credentialsInStorage();
@@ -38,20 +36,27 @@ class UserManagementProvider with ChangeNotifier {
   }
 
   /// Mounts already stored credentials, called at app startup
-  Future<void> mountCredentials() async {
-    final String? userId = await DaoSecuredString.get(_USER_ID);
-    final String? password = await DaoSecuredString.get(_PASSWORD);
+  static Future<void> mountCredentials() async {
+    String? userId;
+    String? password;
+
+    try {
+      userId = await DaoSecuredString.get(_USER_ID);
+      password = await DaoSecuredString.get(_PASSWORD);
+    } on PlatformException {
+      /// Decrypting the values can go wrong if, for example, the app was
+      /// manually overwritten from an external apk.
+      DaoSecuredString.remove(key: _USER_ID);
+      DaoSecuredString.remove(key: _PASSWORD);
+      debugPrint('Credentials query failed, you have been logged out');
+    }
 
     if (userId == null || password == null) {
-      _finishedLoading = true;
-      notifyListeners();
       return;
     }
 
     final User user = User(userId: userId, password: password);
     OpenFoodAPIConfiguration.globalUser = user;
-    _finishedLoading = true;
-    notifyListeners();
   }
 
   /// Checks if any credentials exist in storage

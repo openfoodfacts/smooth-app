@@ -6,6 +6,7 @@ import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 
 class ProductTitleCard extends StatelessWidget {
   const ProductTitleCard(
@@ -47,17 +48,30 @@ class ProductTitleCard extends StatelessWidget {
     }
     return Align(
       alignment: Alignment.topLeft,
-      child: ListTile(
-        dense: dense,
-        contentPadding: EdgeInsets.zero,
-        title: Text(
-          getProductName(product, appLocalizations),
-          style: themeData.textTheme.headline4,
-        ).selectable(isSelectable: isSelectable),
-        subtitle: Text(
-          subtitleText,
-        ).selectable(isSelectable: isSelectable),
-        trailing: trailingWidget,
+      child: InkWell(
+        onTap: () async {
+          if (getProductName(product, appLocalizations) ==
+              appLocalizations.unknownProductName) {
+            await Navigator.push<bool>(
+              context,
+              MaterialPageRoute<bool>(
+                builder: (BuildContext context) => AddBasicDetailsPage(product),
+              ),
+            );
+          }
+        },
+        child: ListTile(
+          dense: dense,
+          contentPadding: EdgeInsets.zero,
+          title: Text(
+            getProductName(product, appLocalizations),
+            style: themeData.textTheme.headline4,
+          ).selectable(isSelectable: isSelectable),
+          subtitle: Text(
+            subtitleText,
+          ).selectable(isSelectable: isSelectable),
+          trailing: trailingWidget,
+        ),
       ),
     );
   }
