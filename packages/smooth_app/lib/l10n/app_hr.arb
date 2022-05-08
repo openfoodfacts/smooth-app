@@ -1,51 +1,51 @@
 {
-    "app_name": "Smoothie",
+    "app_name": "OpenFoodFacts",
     "@Utils": {},
-    "yes": "Yes",
+    "yes": "Da",
     "@yes": {},
     "add": "Dodaj",
     "@add": {},
-    "okay": "Okay",
+    "okay": "Dobro",
     "@okay": {},
-    "applyButtonText": "Apply",
+    "applyButtonText": "Primijeni",
     "@applyButtonText": {},
     "next_label": "Next",
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
     "save": "Spremi",
-    "save_confirmation": "Are you sure you want to save?",
+    "save_confirmation": "Jeste li sigurni da želite spremiti?",
     "skip": "Skip",
     "cancel": "Otkaži",
     "@cancel": {},
     "close": "Zatvori",
     "@close": {},
-    "no": "No",
+    "no": "Ne",
     "@no": {},
-    "stop": "Stop",
+    "stop": "Zaustavi",
     "@stop": {},
     "finish": "Finish",
     "@finish": {},
-    "reset_food_prefs": "Reset food preferences",
+    "reset_food_prefs": "Resetiraj preferencije hrane",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
     },
     "error": "Dogodila se greška.",
     "@error": {},
-    "error_occurred": "An error occurred",
+    "error_occurred": "Dogodila se pogreška",
     "@error_occurred": {},
-    "featureInProgress": "We're still working on this feature, stay tuned",
+    "featureInProgress": "Još uvijek radimo na ovom svojstvu, ostanite s nama",
     "@featureInProgress": {},
-    "label_web": "View on the Web",
+    "label_web": "Pogledajte na webu",
     "@label_web": {},
-    "learnMore": "Learn more",
+    "learnMore": "Saznajte više",
     "@learnMore": {},
-    "general_confirmation": "Are you sure?",
-    "incompatible": "Incompatible",
+    "general_confirmation": "Jeste li sigurni?",
+    "incompatible": "Nespojivo",
     "@incompatible": {
         "description": "Short label for product list view: the product is incompatible with your preferences"
     },
-    "compatible": "Compatible",
+    "compatible": "Kompatibilno",
     "@compatible": {
         "description": "Short label for product list view: the product is compatible with your preferences"
     },
@@ -55,18 +55,18 @@
     },
     "licenses": "Licences",
     "@licenses": {},
-    "looking_for": "Looking for",
+    "looking_for": "Tražim",
     "@looking_for": {
         "description": "Looking for: ${BARCODE}"
     },
     "@Introduction screen": {},
-    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
+    "welcomeToOpenFoodFacts": "Dobrodošli na otvorene činjenice o hrani",
     "@welcomeToOpenFoodFacts": {},
     "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Choose foods that are good for you and the planet.",
+    "offUtility": "Choose food that is good for you and the planet.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
@@ -888,5 +888,22 @@
     "user_list_name_error_same": "That is the same name",
     "@user_list_name_error_same": {
         "description": "Validation error about the renamed name that is the same as the initial list name"
+    },
+    "basic_details": "Basic Details",
+    "product_name": "Product Name",
+    "add_basic_details_product_name_error": "Please enter the product name",
+    "brand_name": "Brand name",
+    "add_basic_details_brand_name_error": "Please enter the brand name",
+    "weight_gram": "Weight in gram",
+    "add_basic_details_weight_gram_error": "Please enter the weight",
+    "barcode": "Bar kod",
+    "basic_details_add_success": "Basic details added succesfully",
+    "basic_details_add_error": "Unable to add basic details. Please try again after some time",
+    "@basic_details_add_error": {
+        "description": "Error message when error occurs while submitting basic details"
+    },
+    "confirm_clear": "Do you really want to clear?",
+    "@confirm_clear": {
+        "description": "Asking about whether to clear the list or not"
     }
 }

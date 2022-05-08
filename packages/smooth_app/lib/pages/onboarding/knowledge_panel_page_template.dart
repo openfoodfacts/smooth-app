@@ -49,7 +49,7 @@ class _KnowledgePanelPageTemplateState
 
   Future<void> _init() async {
     final Product product =
-        await OnboardingDataProduct.forKnowledgePanels(widget.localDatabase)
+        await OnboardingDataProduct.forProduct(widget.localDatabase)
             .getData(rootBundle);
     _knowledgePanels = product.knowledgePanels!;
   }
@@ -61,7 +61,12 @@ class _KnowledgePanelPageTemplateState
         future: _initFuture,
         builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
           if (snapshot.hasError) {
-            return Text('Fatal Error: ${snapshot.error}');
+            final AppLocalizations appLocalizations =
+                AppLocalizations.of(context)!;
+            return Text(
+              appLocalizations
+                  .knowledge_panel_page_loading_error(snapshot.error),
+            );
           }
           if (snapshot.connectionState != ConnectionState.done) {
             return const Center(child: CircularProgressIndicator());

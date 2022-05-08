@@ -25,6 +25,7 @@ import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/helpers/smooth_matched_product.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/question_page.dart';
 
@@ -47,6 +48,7 @@ class SummaryCard extends StatefulWidget {
     this.isFullVersion = false,
     this.showUnansweredQuestions = false,
     this.refreshProductCallback,
+    this.isRemovable = true,
   });
 
   final Product _product;
@@ -61,6 +63,9 @@ class SummaryCard extends StatefulWidget {
   /// If true, the summary card will try to load unanswered questions about this
   /// product and give a prompt to answer those questions.
   final bool showUnansweredQuestions;
+
+  /// If true, there will be a button to remove the product from the carousel.
+  final bool isRemovable;
 
   /// Callback to refresh the product when necessary.
   final Function(BuildContext)? refreshProductCallback;
@@ -227,7 +232,6 @@ class _SummaryCardState extends State<SummaryCard> {
         );
       }
     }
-
     final Widget attributesContainer = Container(
       alignment: Alignment.topLeft,
       margin: const EdgeInsets.only(bottom: 16),
@@ -286,7 +290,15 @@ class _SummaryCardState extends State<SummaryCard> {
         summaryCardButtons.add(
           addPanelButton(
             localizations.completed_basic_details_btn_text,
-            onPressed: () => _showNotImplemented(context),
+            onPressed: () async {
+              await Navigator.push<bool>(
+                context,
+                MaterialPageRoute<bool>(
+                  builder: (BuildContext context) =>
+                      AddBasicDetailsPage(widget._product),
+                ),
+              );
+            },
           ),
         );
       }
@@ -294,7 +306,11 @@ class _SummaryCardState extends State<SummaryCard> {
 
     return Column(
       children: <Widget>[
-        ProductTitleCard(widget._product, widget.isFullVersion),
+        ProductTitleCard(
+          widget._product,
+          widget.isFullVersion,
+          isRemovable: widget.isRemovable,
+        ),
         for (final Attribute attribute in scoreAttributes)
           InkWell(
             onTap: () async => openFullKnowledgePanel(
@@ -322,9 +338,11 @@ class _SummaryCardState extends State<SummaryCard> {
     );
     final ProductCompatibilityHelper helper =
         ProductCompatibilityHelper(matchedProduct);
+    final bool isDarkMode =
+        Theme.of(context).colorScheme.brightness == Brightness.dark;
     return Container(
       decoration: BoxDecoration(
-        color: helper.getBackgroundColor(),
+        color: helper.getHeaderBackgroundColor(isDarkMode),
         // Ensure that the header has the same circular radius as the SmoothCard.
         borderRadius: const BorderRadius.only(
           topLeft: ROUNDED_RADIUS,
@@ -336,8 +354,10 @@ class _SummaryCardState extends State<SummaryCard> {
       child: Center(
         child: Text(
           helper.getHeaderText(AppLocalizations.of(context)!),
-          style:
-              Theme.of(context).textTheme.subtitle1!.apply(color: Colors.white),
+          style: Theme.of(context)
+              .textTheme
+              .subtitle1!
+              .apply(color: helper.getHeaderForegroundColor(isDarkMode)),
         ),
       ),
     );

@@ -2,12 +2,15 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/model/ProductImage.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/confirm_and_upload_picture.dart';
+import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
+import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
 
 const EdgeInsets _ROW_PADDING_TOP = EdgeInsets.only(top: VERY_LARGE_SPACE);
 
@@ -35,6 +38,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
   final Map<ImageField, List<File>> _uploadedImages =
       <ImageField, List<File>>{};
 
+  bool _nutritionFactsAdded = false;
   bool _isProductLoaded = false;
 
   @override
@@ -69,6 +73,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
                         .apply(color: themeData.colorScheme.onSurface),
                   ),
                   ..._buildImageCaptureRows(context),
+                  _buildNutritionInputButton(),
                 ],
               ),
             ),
@@ -205,5 +210,68 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
 
   bool _isImageUploadedForType(ImageField imageType) {
     return (_uploadedImages[imageType] ?? <File>[]).isNotEmpty;
+  }
+
+  Widget _buildNutritionInputButton() {
+    if (_nutritionFactsAdded) {
+      return Padding(
+          padding: _ROW_PADDING_TOP,
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              const SizedBox(
+                width: 50.0,
+                child: Icon(
+                  Icons.check,
+                  color: Colors.greenAccent,
+                ),
+              ),
+              Expanded(
+                child: Center(
+                  child: Text(
+                      AppLocalizations.of(context)!.nutritional_facts_added,
+                      style: Theme.of(context).textTheme.bodyText1),
+                ),
+              ),
+            ],
+          ));
+    }
+
+    return Padding(
+      padding: _ROW_PADDING_TOP,
+      child: SmoothLargeButtonWithIcon(
+        text:
+            AppLocalizations.of(context)!.nutritional_facts_input_button_label,
+        icon: Icons.edit,
+        onPressed: () async {
+          final OrderedNutrientsCache? cache =
+              await OrderedNutrientsCache.getCache(context);
+          if (cache == null) {
+            final SnackBar snackBar = SnackBar(
+              content: Text(
+                  AppLocalizations.of(context)!.nutrition_cache_loading_error),
+            );
+            ScaffoldMessenger.of(context).showSnackBar(snackBar);
+            return;
+          }
+
+          final bool result = await Navigator.push<bool>(
+                context,
+                MaterialPageRoute<bool>(
+                  builder: (BuildContext context) => NutritionPageLoaded(
+                    Product(barcode: widget.barcode),
+                    cache.orderedNutrients,
+                  ),
+                ),
+              ) ??
+              false;
+
+          setState(() {
+            _nutritionFactsAdded = result;
+          });
+        },
+      ),
+    );
   }
 }

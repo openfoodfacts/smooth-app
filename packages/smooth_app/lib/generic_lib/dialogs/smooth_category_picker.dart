@@ -4,6 +4,7 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/LanguageHelper.dart';
 
@@ -99,6 +100,7 @@ class _SmoothCategoryPickerState<T extends Comparable<T>>
       initialData: null,
       builder:
           (BuildContext context, AsyncSnapshot<SmoothCategory<T>?> snapshot) {
+        final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
         final SmoothCategory<T>? category = snapshot.data;
         if (category == null) {
           return Container(
@@ -107,11 +109,17 @@ class _SmoothCategoryPickerState<T extends Comparable<T>>
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  // TODO(gspencergoog): Internationalize this.
-                  'No Category Found for ${widget.currentPath.map<String>((T item) => item.toString()).join(' > ')}',
+                  appLocalizations.category_picker_no_category_found_message(
+                    widget.currentPath
+                        .map<String>((T item) => item.toString())
+                        .join(' > '),
+                  ),
                 ),
                 TextButton(
-                    child: const Text('BACK'),
+                    child: Text(
+                      appLocalizations.category_picker_no_category_found_button
+                          .toUpperCase(),
+                    ),
                     onPressed: () {
                       setState(() {
                         widget.onPathChanged(widget.currentPath

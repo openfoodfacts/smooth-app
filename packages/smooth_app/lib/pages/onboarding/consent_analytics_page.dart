@@ -28,7 +28,8 @@ class ConsentAnalytics extends StatelessWidget {
                 width: size.width * 0.45,
                 child: SvgPicture.asset(
                   assetName,
-                  semanticsLabel: 'Analytics Icons',
+                  semanticsLabel:
+                      appLocalizations.analytics_consent_image_semantic_label,
                   fit: BoxFit.contain,
                 ),
               ),
