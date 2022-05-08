@@ -11,6 +11,8 @@ import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/helpers/product_list_import_export.dart';
 import 'package:smooth_app/pages/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
+import 'package:smooth_app/pages/scan/ml_kit_scan_page.dart';
+import 'package:smooth_app/pages/user_preferences_dialog_editor.dart';
 
 /// Collapsed/expanded display of "dev mode" for the preferences page.
 ///
@@ -44,6 +46,8 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
       '__additionalButtonOnProductPage';
   static const String userPreferencesFlagEditIngredients = '__editIngredients';
   static const String userPreferencesEnumScanMode = '__scanMode';
+  static const String userPreferencesCameraPostFrameDuration =
+      '__cameraPostFrameDuration';
 
   final TextEditingController _textFieldController = TextEditingController();
 
@@ -118,6 +122,10 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             ScaffoldMessenger.of(context)
                 .showSnackBar(const SnackBar(content: Text('Ok')));
           },
+        ),
+        ListTile(
+          title: const Text('Change camera post frame callback duration'),
+          onTap: () async => _changeCameraPostFrameCallbackDuration(),
         ),
         SwitchListTile(
           title: const Text('Additional button on product page'),
@@ -303,6 +311,37 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
       await userPreferences.setDevModeString(
           userPreferencesTestEnvHost, _textFieldController.text);
       ProductQuery.setQueryType(userPreferences);
+      setState(() {});
+    }
+  }
+
+  Future<void> _changeCameraPostFrameCallbackDuration() async {
+    const int minValue = MLKitScannerPageState.postFrameCallbackStandardDelay;
+    final int initialValue = userPreferences.getDevModeIndex(
+          userPreferencesCameraPostFrameDuration,
+        ) ??
+        minValue;
+
+    final int? result = await showDialog<int>(
+        context: context,
+        builder: (BuildContext context) {
+          return UserPreferencesEditValueDialog<int>(
+            label: 'Camera post frame callback duration',
+            initialValue: initialValue,
+            converter: (String value) => int.tryParse(value) ?? 0,
+            validator: (int? newValue) =>
+                newValue != null && newValue >= minValue,
+            textAlignment: TextAlign.center,
+            keyboardType: TextInputType.number,
+          );
+        });
+
+    if (result is int && result > minValue) {
+      userPreferences.setDevModeIndex(
+        userPreferencesCameraPostFrameDuration,
+        result,
+      );
+
       setState(() {});
     }
   }
