@@ -339,9 +339,11 @@ class _SummaryCardState extends State<SummaryCard> {
     );
     final ProductCompatibilityHelper helper =
         ProductCompatibilityHelper(matchedProduct);
+    final bool isDarkMode =
+        Theme.of(context).colorScheme.brightness == Brightness.dark;
     return Container(
       decoration: BoxDecoration(
-        color: helper.getBackgroundColor(),
+        color: helper.getHeaderBackgroundColor(isDarkMode),
         // Ensure that the header has the same circular radius as the SmoothCard.
         borderRadius: const BorderRadius.only(
           topLeft: ROUNDED_RADIUS,
@@ -353,8 +355,10 @@ class _SummaryCardState extends State<SummaryCard> {
       child: Center(
         child: Text(
           helper.getHeaderText(AppLocalizations.of(context)!),
-          style:
-              Theme.of(context).textTheme.subtitle1!.apply(color: Colors.white),
+          style: Theme.of(context)
+              .textTheme
+              .subtitle1!
+              .apply(color: helper.getHeaderForegroundColor(isDarkMode)),
         ),
       ),
     );
