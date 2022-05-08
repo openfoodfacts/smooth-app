@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_category_picker.dart';
@@ -93,6 +94,8 @@ void main() {
       bool requestedNewCategory = false;
       await tester.pumpWidget(
         MaterialApp(
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
           home: SmoothCategoryPicker<String>(
             categoryFinder: getCategory,
             currentPath: currentCategoryPath,
@@ -120,6 +123,8 @@ void main() {
       expect(requestedNewCategory, isFalse);
       await tester.pumpWidget(
         MaterialApp(
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
           home: SmoothCategoryPicker<String>(
             categoryFinder: getCategory,
             currentPath: currentCategoryPath,
@@ -152,6 +157,8 @@ void main() {
       bool requestedNewCategory = false;
       await tester.pumpWidget(
         MaterialApp(
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
           home: SmoothCategoryPicker<String>(
             categoryFinder: getCategory,
             currentPath: currentCategoryPath,
@@ -181,6 +188,8 @@ void main() {
       List<String> newCategoryPath = <String>[];
       await tester.pumpWidget(
         MaterialApp(
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
           home: SmoothCategoryPicker<String>(
             categoryFinder: getCategory,
             currentPath: currentCategoryPath,
@@ -209,6 +218,8 @@ void main() {
       List<String> newCategoryPath = <String>[];
       await tester.pumpWidget(
         MaterialApp(
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
           home: SmoothCategoryPicker<String>(
             categoryFinder: getCategory,
             currentPath: currentCategoryPath,
@@ -241,6 +252,8 @@ void main() {
       };
       await tester.pumpWidget(
         MaterialApp(
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
           home: Scaffold(
             body: SmoothCategoryDisplay<String>(
               categories: currentCategories,
@@ -272,6 +285,8 @@ void main() {
       expect(find.byIcon(Icons.cancel), findsNothing);
       await tester.pumpWidget(
         MaterialApp(
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
           home: Scaffold(
             body: SmoothCategoryDisplay<String>(
               categories: currentCategories,

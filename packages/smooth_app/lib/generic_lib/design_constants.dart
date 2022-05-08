@@ -9,6 +9,12 @@ const double LARGE_SPACE = 16.0;
 const double VERY_LARGE_SPACE = 20.0;
 const double MINIMUM_TOUCH_SIZE = 48.0;
 
+/// Default icon size, cf. [Icon]
+const double DEFAULT_ICON_SIZE = 24.0;
+
+/// Default icon size, cf. goldens.dart
+const double MINIMUM_TARGET_SIZE = 48.0;
+
 /// Background, e.g SmoothCard
 const Radius ROUNDED_RADIUS = Radius.circular(20.0);
 //ignore: non_constant_identifier_names
@@ -38,6 +44,8 @@ const Color DARK_YELLOW_COLOR = Color(0xFFC88F01);
 const Color LIGHT_ORANGE_COLOR = Color(0xFFF2994A);
 const Color DARK_ORANGE_COLOR = Color(0xFFE07312);
 const Color RED_COLOR = Color(0xFFEB5757);
+const Color LIGHT_RED_COLOR = Color(0xFFFFCBCB);
+const Color DARK_RED_COLOR = Color(0xFFFF0000);
 
 /// Widget Background Colors
 const Color RED_BACKGROUND_COLOR = Color.fromRGBO(255, 204, 204, 1);
