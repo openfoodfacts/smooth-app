@@ -43,7 +43,8 @@ class SmoothProductCardFound extends StatelessWidget {
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
     final Size screenSize = MediaQuery.of(context).size;
-
+    final ThemeData themeData = Theme.of(context);
+    final bool isDarkMode = themeData.colorScheme.brightness == Brightness.dark;
     final List<String> excludedAttributeIds =
         userPreferences.getExcludedAttributeIds();
     final List<Widget> scores = <Widget>[];
@@ -101,25 +102,27 @@ class SmoothProductCardFound extends StatelessWidget {
                       Text(
                         getProductName(product, appLocalizations),
                         overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context).textTheme.headline4,
+                        style: themeData.textTheme.headline4,
                       ),
                       Text(
                         product.brands ?? appLocalizations.unknownBrand,
                         overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context).textTheme.subtitle1,
+                        style: themeData.textTheme.subtitle1,
                       ),
                       Row(
                         children: <Widget>[
                           Icon(
                             Icons.circle,
                             size: 15,
-                            color: helper.getBackgroundColor(),
+                            color: helper.getButtonColor(isDarkMode),
                           ),
                           const Padding(
                               padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
                           Text(
                             helper.getSubtitle(appLocalizations),
-                            style: Theme.of(context).textTheme.bodyText2,
+                            style: themeData.textTheme.bodyText2!.apply(
+                                color: helper
+                                    .getButtonForegroundColor(isDarkMode)),
                           ),
                         ],
                       ),

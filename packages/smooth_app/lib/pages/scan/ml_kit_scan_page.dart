@@ -43,7 +43,7 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
   /// we considered, that the camera should be reinitialized
   ///
   /// On a 60Hz display, one frame =~ 16 ms => 100 ms =~ 6 frames.
-  static const int _postFrameCallBackMinDelay = 100; // in milliseconds
+  static const int postFrameCallbackStandardDelay = 100; // in milliseconds
 
   static const int _SKIPPED_FRAMES = 10;
   BarcodeScanner? barcodeScanner;
@@ -116,7 +116,6 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
     }
 
     return Transform.scale(
-      alignment: Alignment.topCenter,
       scale: _previewScale,
       child: Center(
         key: ValueKey<bool>(stoppingCamera),
@@ -182,13 +181,17 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
     }
   }
 
-  Future<void> _stopImageStream() async {
+  /// Stop the camera feed
+  /// [fromDispose] allows us to know if we can call [setState]
+  Future<void> _stopImageStream({
+    bool fromDispose = false,
+  }) async {
     if (stoppingCamera) {
       return;
     }
 
     stoppingCamera = true;
-    if (mounted) {
+    if (mounted && !fromDispose) {
       setState(() {});
     }
 
@@ -218,18 +221,24 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
             DateTime.now().difference(referentialTime).inMilliseconds;
 
         // The screen is still visible, we should restart the camera
-        if (diff < _postFrameCallBackMinDelay) {
+        if (diff < _minPostFrameCallbackDelay) {
           _startLiveFeed();
         }
       });
     }
   }
 
+  int get _minPostFrameCallbackDelay =>
+      _userPreferences.getDevModeIndex(
+        UserPreferencesDevMode.userPreferencesCameraPostFrameDuration,
+      ) ??
+      MLKitScannerPageState.postFrameCallbackStandardDelay;
+
   @override
   void dispose() {
     // /!\ This call is a Future, which may leads to some issues.
     // This should be handled by [_restartCameraIfNecessary]
-    _stopImageStream();
+    _stopImageStream(fromDispose: true);
     super.dispose();
   }
 
