@@ -39,7 +39,7 @@ jobs:
         with:
           channel: stable
           cache: true
-          cache-key: flutter2.10 #change this to force refresh cache
+          cache-key: flutter2.10 # change this to force refresh cache
       - run: flutter --version
 
       - name: Get dependencies
@@ -51,10 +51,10 @@ jobs:
           api-level: 30
           target: default
           arch: x86_64
-          working-directory: ./packages/smooth_app
+          working-directory: packages/smooth_app/
           script: yes | flutter doctor --android-licenses \
             && flutter drive -d emulator-5554 \
-            --driver=packages/smooth_app/test_driver/screenshot_driver.dart \
+            --driver=packages\smooth_app\integration_test\app_test.dart \
             --target=packages/smooth_app/integration_test/app_test.dart \
 #            --dart-define=LANGUAGE=${{ matrix.language }} \
 #            --dart-define=COUNTRY=${{ matrix.country }} \
