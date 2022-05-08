@@ -5,16 +5,16 @@
     "@yes": {},
     "add": "যোগ",
     "@add": {},
-    "okay": "Okay",
+    "okay": "ওকে",
     "@okay": {},
-    "applyButtonText": "Apply",
+    "applyButtonText": "এ্যাপ্লাই করুন",
     "@applyButtonText": {},
     "next_label": "Next",
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
     "save": "সংরক্ষণ করুন",
-    "save_confirmation": "Are you sure you want to save?",
+    "save_confirmation": "আপনি সেভ করতে চান?",
     "skip": "Skip",
     "cancel": "Cancel",
     "@cancel": {},
@@ -22,30 +22,30 @@
     "@close": {},
     "no": "না",
     "@no": {},
-    "stop": "Stop",
+    "stop": "স্টপ",
     "@stop": {},
     "finish": "Finish",
     "@finish": {},
-    "reset_food_prefs": "Reset food preferences",
+    "reset_food_prefs": "খাবারের পছন্দ তালিকা পুনরায় নির্বাচন করুন",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
     },
     "error": "Something went wrong",
     "@error": {},
-    "error_occurred": "An error occurred",
+    "error_occurred": "কোথাও একটি ভুল হয়েছে",
     "@error_occurred": {},
-    "featureInProgress": "We're still working on this feature, stay tuned",
+    "featureInProgress": "আমরা এই ফিচারটি নিয়ে এখনো কাজ করছি, সাথেই থাকুন",
     "@featureInProgress": {},
-    "label_web": "View on the web",
+    "label_web": "আমাদের ওয়েবসাইটে দেখুন",
     "@label_web": {},
-    "learnMore": "Learn more",
+    "learnMore": "আরও জানুন",
     "@learnMore": {},
-    "general_confirmation": "Are you sure?",
-    "incompatible": "Incompatible",
+    "general_confirmation": "আপনি কি নিশ্চিত?",
+    "incompatible": "উপযুক্ত নয়",
     "@incompatible": {
         "description": "Short label for product list view: the product is incompatible with your preferences"
     },
-    "compatible": "Compatible",
+    "compatible": "উপযুক্ত",
     "@compatible": {
         "description": "Short label for product list view: the product is compatible with your preferences"
     },
@@ -55,43 +55,43 @@
     },
     "licenses": "Licences",
     "@licenses": {},
-    "looking_for": "Looking for",
+    "looking_for": "আমি খুঁজছি",
     "@looking_for": {
         "description": "Looking for: ${BARCODE}"
     },
     "@Introduction screen": {},
-    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
+    "welcomeToOpenFoodFacts": "ওপেন ফুড ফ্যাক্টসে আপনাকে স্বাগতম",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "whatIsOff": "ওপেন ফুড ফ্যাক্টস স্থানীয়ভাবে পরিচালিত একটি আন্তর্জাতিক অলাভজনক প্রতিষ্ঠান।",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Choose food that is good for you and the planet.",
+    "offUtility": "এমন খাবার বাছাই করুন যা আপনার জন্য ভালো এবং পৃথিবীর জন্যও ভালো।",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
-    "productDataUtility": "See the food data relevant to your preferences.",
+    "productDataUtility": "আপনার পছন্দসই খাবার সংশ্লিষ্ট তথ্যাবলি দেখুন।",
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."
     },
-    "healthCardUtility": "Choose foods that are good for you.",
+    "healthCardUtility": "আপনার জন্য ভালো খাবার পছন্দ করুন।",
     "@healthCardUtility": {
         "description": "Description of what a user can use the health data in a product for."
     },
-    "ecoCardUtility": "Choose foods that are good for the planet.",
+    "ecoCardUtility": "এমন খাবার বাছাই করুন যা পৃথিবীর জন্যও উপকারি।",
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
-    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
-    "incorrect_credentials": "Incorrect username or password.",
+    "sign_in_text": "আপনার কন্ট্রিবিউশনগুলো সেভ করতে ওপেন ফুড ফ্যাক্টসে আপনার একাউন্টে সাইন ইন করুন।",
+    "incorrect_credentials": "আপনি ভুল ইউজারনেম অথবা পাসওয়ার্ড দিয়েছেন।",
     "login": "Login",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
-    "login_page_username_or_email": "Please enter username or e-mail",
+    "login_page_username_or_email": "অনুগ্রহ করে আপনার ইউজারনেম অথবা ইমেল লিখুন।",
     "login_page_password_error_empty": "Please enter a password",
-    "create_account": "Create account",
+    "create_account": "অ্যাকাউন্ট তৈরি করুন",
     "@create_account": {
         "description": "Button label: Opens a page where a new user can register"
     },
@@ -99,20 +99,20 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_out": "Sign out",
+    "sign_out": "সাইন আউট করুন",
     "@sign_out": {
         "description": "Button label: For sign out"
     },
-    "sign_out_confirmation": "Are you sure you want to sign out?",
+    "sign_out_confirmation": "আপনি কি নিশ্চিত যে আপনি লগ-আউট করতে চান?",
     "@sign_out_confirmation": {
         "description": "Pop up title: Reassuring if the user really want to sign out"
     },
     "password": "পাসওয়ার্ড",
-    "forgot_password": "Forgot password",
+    "forgot_password": "পাসওয়ার্ড ভুলে গেছেন?",
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset e-mail can be requested"
     },
-    "view_profile": "View profile",
+    "view_profile": "আপনার প্রোফাইল দেখুন",
     "@view_profile": {
         "description": "Button label: For to show your account"
     },
@@ -888,6 +888,19 @@
     "user_list_name_error_same": "That is the same name",
     "@user_list_name_error_same": {
         "description": "Validation error about the renamed name that is the same as the initial list name"
+    },
+    "basic_details": "Basic Details",
+    "product_name": "Product Name",
+    "add_basic_details_product_name_error": "Please enter the product name",
+    "brand_name": "Brand name",
+    "add_basic_details_brand_name_error": "Please enter the brand name",
+    "weight_gram": "Weight in gram",
+    "add_basic_details_weight_gram_error": "Please enter the weight",
+    "barcode": "বারকোড",
+    "basic_details_add_success": "Basic details added succesfully",
+    "basic_details_add_error": "Unable to add basic details. Please try again after some time",
+    "@basic_details_add_error": {
+        "description": "Error message when error occurs while submitting basic details"
     },
     "confirm_clear": "Do you really want to clear?",
     "@confirm_clear": {
