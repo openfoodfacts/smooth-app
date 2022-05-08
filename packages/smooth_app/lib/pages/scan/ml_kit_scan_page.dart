@@ -116,7 +116,6 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
     }
 
     return Transform.scale(
-      alignment: Alignment.topCenter,
       scale: _previewScale,
       child: Center(
         key: ValueKey<bool>(stoppingCamera),
