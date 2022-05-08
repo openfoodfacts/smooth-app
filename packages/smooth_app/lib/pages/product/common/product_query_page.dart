@@ -105,7 +105,11 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                 searchCategory: _model.currentCategory,
                 searchCount: _model.displayProducts?.length,
               );
-              return _getNotEmptyScreen(screenSize, themeData);
+              return _getNotEmptyScreen(
+                screenSize,
+                themeData,
+                appLocalizations,
+              );
             }
             _showRefreshSnackBar(_scaffoldKeyEmpty);
             return _getEmptyScreen(
@@ -180,6 +184,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
   Widget _getNotEmptyScreen(
     final Size screenSize,
     final ThemeData themeData,
+    final AppLocalizations appLocalizations,
   ) =>
       ScaffoldMessenger(
         key: _scaffoldKeyNotEmpty,
@@ -231,7 +236,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
             children: <Widget>[
               _getHero(screenSize, themeData),
               RefreshIndicator(
-                onRefresh: () => refreshlist(),
+                onRefresh: () => refreshList(),
                 child: CustomScrollView(
                   controller: _scrollController,
                   slivers: <Widget>[
@@ -320,15 +325,21 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                             );
                             final Widget child;
                             if (next == 0) {
-                              child = Text(// TODO(monsieurtanuki): localize
-                                  "You've downloaded all the $totalSize products.");
+                              child = Text(
+                                appLocalizations.product_search_no_more_results(
+                                  totalSize,
+                                ),
+                              );
                             } else {
                               child = ElevatedButton.icon(
                                 icon: const Icon(Icons.download_rounded),
                                 label: Text(
-                                  'Download $next more products'
-                                  '\n'
-                                  'Already downloaded $already out of $totalSize.',
+                                  appLocalizations
+                                      .product_search_button_download_more(
+                                    next,
+                                    already,
+                                    totalSize,
+                                  ),
                                 ),
                                 onPressed: () async {
                                   final bool? error =
@@ -462,7 +473,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
         ),
       );
 
-  Future<void> refreshlist() async {
+  Future<void> refreshList() async {
     final ProductListSupplier? refreshSupplier =
         widget.productListSupplier.getRefreshSupplier();
     setState(
