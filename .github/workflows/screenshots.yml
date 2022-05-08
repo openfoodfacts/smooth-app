@@ -12,12 +12,12 @@ jobs:
     defaults:
       run:
         working-directory: ./packages/smooth_app
-    strategy:
-      matrix:
-        language: [fr, en]
-        country: [FR, UK]
-        platform: [ios, android]
-        device: [iPhone8Plus]
+    #strategy:
+    #  matrix:
+    #    language: [fr, en]
+    #    country: [FR, UK]
+    #    platform: [ios, android]
+    #    device: [iPhone8Plus]
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -55,10 +55,10 @@ jobs:
             && flutter drive -d emulator-5554 \
             --driver=test_driver/screenshot_driver.dart \
             --target=integration_test/app_test.dart \
-            --dart-define=LANGUAGE=${{ matrix.language }} \
-            --dart-define=COUNTRY=${{ matrix.country }} \
-            --dart-define=PLATFORM=${{ matrix.platform }} \
-            --dart-define=DEVICE=${{ matrix.device }}
+#            --dart-define=LANGUAGE=${{ matrix.language }} \
+#            --dart-define=COUNTRY=${{ matrix.country }} \
+#            --dart-define=PLATFORM=${{ matrix.platform }} \
+#            --dart-define=DEVICE=${{ matrix.device }}
           
 #      - name: Build AAB
 #        run: echo $SIGN_STORE_PATH && pwd && cd ./packages/smooth_app/ && pwd && flutter build appbundle --release
