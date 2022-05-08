@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/permission_helper.dart';
@@ -142,7 +143,7 @@ class _ScanPageTopWidget extends StatelessWidget {
                                 ),
                                 child: Text(
                                   localizations.permission_photo_denied_message(
-                                    'OpenFoodFacts',
+                                    APP_NAME,
                                   ),
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(
