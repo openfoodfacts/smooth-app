@@ -415,8 +415,11 @@
     },
     "ingredients_photo_uploaded": "Ingredients photo uploaded",
     "@ingredients_photo_uploaded": {},
+    "nutrition_cache_loading_error": "Unable to load nutrients from cache",
     "nutritional_facts_photo_button_label": "Nutrition facts photo",
     "@nutritional_facts_photo_button_label": {},
+    "nutritional_facts_input_button_label": "Input nutrition facts",
+    "nutritional_facts_added": "Nutrition facts added",
     "confirm_nutritional_facts_photo_button_label": "Confirm nutrition facts photo",
     "@confirm_nutritional_facts_photo_button_label": {
         "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
