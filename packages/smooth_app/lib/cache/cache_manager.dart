@@ -2,29 +2,29 @@ import 'package:flutter/foundation.dart';
 
 /// Abstract class defining a cache containing items of type [T] and accessible
 /// via a unique key of type [K]
-abstract class CacheManager<K, T> extends ChangeNotifier {
-  /// Save an item
+abstract class CacheMap<K, T> extends ChangeNotifier {
+  /// Saves an item
   /// Returns [true] if the item was saved
-  Future<bool> save(
+  Future<bool> put(
     K key,
     T item, {
     bool overrideExistingItem = true,
   });
 
-  /// Get an item by its key
+  /// Gets an item by its key
   /// Returns [null] if it doesn't exist
   Future<T?> get(K key);
 
-  /// Returns if an item is available in the cache
-  Future<bool> has(K key);
+  /// Returns if an item is available in the cache by giving its [key]
+  Future<bool> containsKey(K key);
 
   /// Returns the number of items
-  Future<int> get count;
+  Future<int> get length;
 
-  /// Remove an item by its key
+  /// Removes an item by its key
   /// Returns [true] if the item existed and is now removed
   Future<bool> remove(K key);
 
-  /// Remove all items
+  /// Removes all items
   Future<void> clear();
 }

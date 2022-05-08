@@ -7,7 +7,7 @@ import 'package:smooth_app/cache/cache_manager.dart';
 
 part 'files_cache_impl.dart';
 
-enum FilesCacheType {
+enum FileCacheType {
   /// Implementation based on [getTemporaryDirectory]
   /// There is no guarantee that files stored will persist over time
   shortLiving,
@@ -20,25 +20,32 @@ enum FilesCacheType {
 
 /// Files caches work with a [String] key.
 /// This key being the filename.
-typedef FilesCache = CacheManager<String, Uint8List>;
+typedef FileCache = CacheMap<String, Uint8List>;
 
 /// Cache allowing to store files in the device persistent storage
-class FilesCacheManager {
-  const FilesCacheManager._();
+class FileCacheManager {
+  const FileCacheManager._();
 
-  static const String _DEFAULT_CACHE_NAME = 'default';
-  static final Map<String, FilesCache> _singletons = <String, FilesCache>{};
+  static const String _defaultCacheName = 'default';
+  static final Map<String, FileCache> _singletons = <String, FileCache>{};
 
-  /// Get a [FilesCache] by giving its [name] and its [type]
+  /// Returns a "default" implementation based on a [FileCacheType.longLiving]
+  /// implementation
+  static Future<FileCache> getDefault() => get(
+        name: _defaultCacheName,
+        type: FileCacheType.longLiving,
+      );
+
+  /// Get a [FileCache] by giving its [name] and its [type]
   /// If no [name] is provided, the default cache will be returned
   /// If no [type] is provided, the default implementation will rely on a long
   /// living cache
-  static Future<FilesCache> get({
-    String name = _DEFAULT_CACHE_NAME,
-    FilesCacheType type = FilesCacheType.longLiving,
+  static Future<FileCache> get({
+    required String name,
+    required FileCacheType type,
   }) async {
     if (!_singletons.containsKey(name)) {
-      final _FilesCacheManagerImpl cache = _FilesCacheManagerImpl(type);
+      final _FileCacheManagerImpl cache = _FileCacheManagerImpl(type);
       await cache._init(name);
       _singletons[name] = cache;
     }
@@ -46,8 +53,8 @@ class FilesCacheManager {
     return _singletons[name]!;
   }
 
-  static void release(FilesCache manager) {
-    _singletons.removeWhere((_, FilesCache cache) => cache == manager);
+  static void release(FileCache manager) {
+    _singletons.removeWhere((_, FileCache cache) => cache == manager);
   }
 
   static void dispose() {

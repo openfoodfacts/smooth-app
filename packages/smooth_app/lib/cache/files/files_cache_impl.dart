@@ -1,10 +1,9 @@
-// ignore_for_file: avoid_classes_with_only_static_members
 // ignore_for_file: avoid_slow_async_io
 part of 'files_cache.dart';
 
 /// Implementation based on [getTemporaryDirectory]
-class _ShortLivingFilesCacheManagerImpl extends _FilesCacheManagerImpl {
-  _ShortLivingFilesCacheManagerImpl._() : super._();
+class _ShortLivingFileCacheManagerImpl extends _FileCacheManagerImpl {
+  _ShortLivingFileCacheManagerImpl._() : super._();
 
   @override
   Future<void> _init(String name) async {
@@ -13,7 +12,7 @@ class _ShortLivingFilesCacheManagerImpl extends _FilesCacheManagerImpl {
 }
 
 /// Implementation based on [getApplicationDocumentsDirectory]
-class _LongLivingFilesCacheManagerImpl extends _FilesCacheManagerImpl {
+class _LongLivingFilesCacheManagerImpl extends _FileCacheManagerImpl {
   _LongLivingFilesCacheManagerImpl._() : super._();
 
   @override
@@ -22,19 +21,18 @@ class _LongLivingFilesCacheManagerImpl extends _FilesCacheManagerImpl {
   }
 }
 
-abstract class _FilesCacheManagerImpl extends FilesCache {
-  factory _FilesCacheManagerImpl(FilesCacheType type) {
+abstract class _FileCacheManagerImpl extends FileCache {
+  factory _FileCacheManagerImpl(FileCacheType type) {
     switch (type) {
-      case FilesCacheType.shortLiving:
-        return _ShortLivingFilesCacheManagerImpl._();
-      case FilesCacheType.longLiving:
+      case FileCacheType.shortLiving:
+        return _ShortLivingFileCacheManagerImpl._();
+      case FileCacheType.longLiving:
         return _LongLivingFilesCacheManagerImpl._();
     }
   }
 
-  _FilesCacheManagerImpl._() : super();
+  _FileCacheManagerImpl._() : super();
 
-  static const String _DEFAULT_FOLDER_NAME = 'default';
   late Directory _directory;
 
   Future<void> _init(String name);
@@ -45,7 +43,7 @@ abstract class _FilesCacheManagerImpl extends FilesCache {
       join(
         directory.absolute.path,
         'temporary_files_cache',
-        name ?? _DEFAULT_FOLDER_NAME,
+        name,
       ),
     );
 
@@ -65,17 +63,17 @@ abstract class _FilesCacheManagerImpl extends FilesCache {
   }
 
   @override
-  Future<bool> has(String key) {
+  Future<bool> containsKey(String key) {
     return _getFilePath(key).exists();
   }
 
   @override
-  Future<bool> save(
+  Future<bool> put(
     String key,
     Uint8List item, {
     bool overrideExistingItem = true,
   }) async {
-    if (await has(key) && !overrideExistingItem) {
+    if (await containsKey(key) && !overrideExistingItem) {
       return false;
     }
 
@@ -92,16 +90,18 @@ abstract class _FilesCacheManagerImpl extends FilesCache {
       return false;
     }
 
+    notifyListeners();
     return true;
   }
 
   @override
-  Future<int> get count => _directory.list().length;
+  Future<int> get length => _directory.list().length;
 
   @override
   Future<bool> remove(String key) async {
-    if (await has(key)) {
+    if (await containsKey(key)) {
       await _getFilePath(key).delete();
+      notifyListeners();
       return true;
     }
 
@@ -117,5 +117,7 @@ abstract class _FilesCacheManagerImpl extends FilesCache {
     for (final FileSystemEntity file in files) {
       await file.delete();
     }
+
+    notifyListeners();
   }
 }

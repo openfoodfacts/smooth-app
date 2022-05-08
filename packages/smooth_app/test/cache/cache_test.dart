@@ -14,13 +14,18 @@ void main() {
   const String fileKey = 'hello';
 
   test('Add file', () async {
-    final FilesCache cache = await FilesCacheManager.get();
-    await cache.save(fileKey, Uint8List.fromList(testFileContent.codeUnits));
-    expect(await cache.has(fileKey), true);
+    final FileCache cache = await FileCacheManager.getDefault();
+    expect(
+        await cache.put(fileKey, Uint8List.fromList(testFileContent.codeUnits)),
+        true);
+    expect(await cache.containsKey(fileKey), true);
   });
   test('Get file', () async {
-    final FilesCache cache = await FilesCacheManager.get();
-    await cache.save(fileKey, Uint8List.fromList(testFileContent.codeUnits));
+    final FileCache cache = await FileCacheManager.getDefault();
+    expect(
+      await cache.put(fileKey, Uint8List.fromList(testFileContent.codeUnits)),
+      true,
+    );
     final Uint8List? content = await cache.get(fileKey);
 
     expect(
@@ -31,15 +36,17 @@ void main() {
   });
 
   test('Remove file', () async {
-    final FilesCache cache = await FilesCacheManager.get();
-    await cache.save(fileKey, Uint8List.fromList(testFileContent.codeUnits));
-    await cache.remove(fileKey);
-    expect(await cache.has(fileKey), false);
+    final FileCache cache = await FileCacheManager.getDefault();
+    expect(
+        await cache.put(fileKey, Uint8List.fromList(testFileContent.codeUnits)),
+        true);
+    expect(await cache.remove(fileKey), true);
+    expect(await cache.containsKey(fileKey), false);
   });
 
   test('Clear cache', () async {
-    final FilesCache cache = await FilesCacheManager.get();
+    final FileCache cache = await FileCacheManager.getDefault();
     await cache.clear();
-    expect(await cache.count, 0);
+    expect(await cache.length, 0);
   });
 }
