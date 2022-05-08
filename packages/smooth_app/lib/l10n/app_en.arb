@@ -1135,7 +1135,7 @@
     "@enable_dev_mode_dialog_title": {
         "description": "Dialog title to enable the developer mode"
     },
-    "analytics_consent_image_semantic_label": "Analytics Icon",
+    "analytics_consent_image_semantic_label": "Analytics icon",
     "@analytics_consent_image_semantic_label": {
         "description": "Consent Analytics icon semantics label"
     },
