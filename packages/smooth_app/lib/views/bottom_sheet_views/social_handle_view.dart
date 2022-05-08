@@ -55,9 +55,13 @@ class SocialHandleView extends StatelessWidget {
 
                 final Mailto mailtoLink = Mailto(
                   to: <String>['contact@openfoodfacts.org'],
-                  subject: 'OpenFoodFacts (Codename: Smoothie) help',
-                  body:
-                      'Version:${packageInfo.version}+${packageInfo.buildNumber} running on ${Platform.operatingSystem}(${Platform.operatingSystemVersion})',
+                  subject: appLocalizations.support_via_email_subject,
+                  body: appLocalizations.support_via_email_content(
+                    packageInfo.version,
+                    packageInfo.buildNumber,
+                    Platform.operatingSystem,
+                    Platform.operatingSystemVersion,
+                  ),
                 );
                 await launchUrl(Uri.parse('$mailtoLink'));
               },

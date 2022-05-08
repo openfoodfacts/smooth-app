@@ -108,19 +108,25 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
   /// The downloaded strings are automatically stored in the database.
   Future<bool> _loadFromNetwork(String languageCode) async {
     try {
+      final bool differentLanguages;
+      if (daoString != null) {
+        final String? latestLanguage =
+            await daoString!.get(_DAO_STRING_KEY_LANGUAGE);
+        differentLanguages = latestLanguage != languageCode;
+      } else {
+        differentLanguages = true;
+      }
       final String importanceUrl =
           AvailablePreferenceImportances.getUrl(languageCode);
       final String attributeGroupUrl =
           AvailableAttributeGroups.getUrl(languageCode);
-      final DownloadableString downloadableImportance;
-      downloadableImportance =
+      final DownloadableString downloadableImportance =
           DownloadableString(Uri.parse(importanceUrl), dao: daoString);
       final bool differentImportance = await downloadableImportance.download();
       final DownloadableString downloadableAttributes =
           DownloadableString(Uri.parse(attributeGroupUrl), dao: daoString);
       final bool differentAttributes = await downloadableAttributes.download();
-      // the downloaded values are identical to what was stored locally.
-      if ((!differentImportance) && (!differentAttributes)) {
+      if (!(differentImportance || differentAttributes || differentLanguages)) {
         return false;
       }
       final String preferenceImportancesString = downloadableImportance.value!;
