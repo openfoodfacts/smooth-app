@@ -97,12 +97,11 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                     SmoothTextFormField(
                       controller: _weightController,
                       type: TextFieldTypes.PLAIN_TEXT,
-                      hintText: appLocalizations.weight_gram,
-                      textInputType: TextInputType.number,
+                      hintText: appLocalizations.quantity,
                       validator: (String? value) {
                         if (value == null || value.isEmpty) {
                           return appLocalizations
-                              .add_basic_details_weight_gram_error;
+                              .add_basic_details_quantity_error;
                         }
                         return null;
                       },
