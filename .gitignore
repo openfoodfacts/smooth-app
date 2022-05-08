@@ -247,3 +247,6 @@ app_tzl.arb
 app_val.arb 
 app_vec.arb
 app_vls.arb  
+
+# Screenshots
+packages/smooth_app/screenshots/
