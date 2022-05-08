@@ -14,7 +14,7 @@
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
     "save": "Запис",
-    "save_confirmation": "Are you sure you want to save?",
+    "save_confirmation": "Сигурен ли си, че искаш да запазиш?",
     "skip": "Пропусни",
     "cancel": "Отмени",
     "@cancel": {},
@@ -451,7 +451,7 @@
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
-    "uploading_image_type_front": "Uploading front image to Open Food Facts",
+    "uploading_image_type_front": "Качване на снимката на предната страна на продукта в Open Food Facts",
     "@uploading_image_type_front": {
         "description": "Message when a new front picture is being uploaded to the server"
     },
@@ -463,11 +463,11 @@
     "@uploading_image_type_nutrition": {
         "description": "Message when a new nutrition picture is being uploaded to the server"
     },
-    "uploading_image_type_packaging": "Uploading packaging image to Open Food Facts",
+    "uploading_image_type_packaging": "Качване на снимката на вида на опаковката в Open Food Facts",
     "@uploading_image_type_packaging": {
         "description": "Message when a new packaging picture is being uploaded to the server"
     },
-    "uploading_image_type_other": "Uploading other image to Open Food Facts",
+    "uploading_image_type_other": "Качване на друга снимка в Open Food Facts",
     "@uploading_image_type_other": {
         "description": "Message when a new other picture is being uploaded to the server"
     },
@@ -703,7 +703,7 @@
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress": "Refreshing products in your History",
+    "product_list_reloading_in_progress": "Актуализация на продуктите в историята",
     "@product_list_reloading_in_progress": {
         "description": "Message to show while loading previous scanned items"
     },
@@ -888,6 +888,19 @@
     "user_list_name_error_same": "Това е същото име",
     "@user_list_name_error_same": {
         "description": "Validation error about the renamed name that is the same as the initial list name"
+    },
+    "basic_details": "Basic Details",
+    "product_name": "Product Name",
+    "add_basic_details_product_name_error": "Please enter the product name",
+    "brand_name": "Brand name",
+    "add_basic_details_brand_name_error": "Please enter the brand name",
+    "weight_gram": "Weight in gram",
+    "add_basic_details_weight_gram_error": "Please enter the weight",
+    "barcode": "Баркод",
+    "basic_details_add_success": "Basic details added succesfully",
+    "basic_details_add_error": "Unable to add basic details. Please try again after some time",
+    "@basic_details_add_error": {
+        "description": "Error message when error occurs while submitting basic details"
     },
     "confirm_clear": "Do you really want to clear?",
     "@confirm_clear": {

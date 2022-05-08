@@ -415,7 +415,10 @@
     },
     "ingredients_photo_uploaded": "Photo des ingrédients téléchargée",
     "@ingredients_photo_uploaded": {},
+    "nutrition_cache_loading_error": "Impossible de charger les nutriments depuis le cache",
     "nutritional_facts_photo_button_label": "Photo des informations nutritionnelles",
+    "nutritional_facts_input_button_label": "Insérer les informations nutritionnelles",
+    "nutritional_facts_added": "Informations nutritionnelles ajoutées",
     "@nutritional_facts_photo_button_label": {},
     "confirm_nutritional_facts_photo_button_label": "Confirmer la photo de la valeur nutritive",
     "@confirm_nutritional_facts_photo_button_label": {
@@ -889,7 +892,20 @@
     "@user_list_name_error_same": {
         "description": "Validation error about the renamed name that is the same as the initial list name"
     },
-    "confirm_clear": "Do you really want to clear?",
+    "basic_details": "Basic Details",
+    "product_name": "Product Name",
+    "add_basic_details_product_name_error": "Please enter the product name",
+    "brand_name": "Brand name",
+    "add_basic_details_brand_name_error": "Please enter the brand name",
+    "weight_gram": "Weight in gram",
+    "add_basic_details_weight_gram_error": "Please enter the weight",
+    "barcode": "Code-barres",
+    "basic_details_add_success": "Basic details added succesfully",
+    "basic_details_add_error": "Unable to add basic details. Please try again after some time",
+    "@basic_details_add_error": {
+        "description": "Error message when error occurs while submitting basic details"
+    },
+    "confirm_clear": "Voulez-vous vraiment effacer ?",
     "@confirm_clear": {
         "description": "Asking about whether to clear the list or not"
     }

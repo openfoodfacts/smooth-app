@@ -66,7 +66,7 @@
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Choose food that is good for you and the planet.",
+    "offUtility": "Lựa chọn thực phẩm tốt cho bạn và hành tinh này.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
@@ -841,7 +841,7 @@
     "@edit_ingredients_extrait_ingredients_btn_text": {
         "description": "Ingredients edition - Extract ingredients"
     },
-    "edit_ingredients_refresh_photo_btn_text": "Refresh photo",
+    "edit_ingredients_refresh_photo_btn_text": "Làm mới ảnh",
     "@edit_ingredients_refresh_photo_btn_text": {
         "description": "Ingredients edition - Refresh photo"
     },
@@ -889,7 +889,20 @@
     "@user_list_name_error_same": {
         "description": "Validation error about the renamed name that is the same as the initial list name"
     },
-    "confirm_clear": "Do you really want to clear?",
+    "basic_details": "Basic Details",
+    "product_name": "Product Name",
+    "add_basic_details_product_name_error": "Please enter the product name",
+    "brand_name": "Brand name",
+    "add_basic_details_brand_name_error": "Please enter the brand name",
+    "weight_gram": "Weight in gram",
+    "add_basic_details_weight_gram_error": "Please enter the weight",
+    "barcode": "Mã vạch",
+    "basic_details_add_success": "Basic details added succesfully",
+    "basic_details_add_error": "Unable to add basic details. Please try again after some time",
+    "@basic_details_add_error": {
+        "description": "Error message when error occurs while submitting basic details"
+    },
+    "confirm_clear": "Bạn thực sự muốn xóa?",
     "@confirm_clear": {
         "description": "Asking about whether to clear the list or not"
     }

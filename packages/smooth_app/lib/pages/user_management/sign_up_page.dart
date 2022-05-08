@@ -43,7 +43,6 @@ class _SignUpPageState extends State<SignUpPage> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final Size size = MediaQuery.of(context).size;
 
-    // TODO(monsieurtanuki): translations
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -187,7 +186,6 @@ class _SignUpPageState extends State<SignUpPage> {
               title: RichText(
                 text: TextSpan(
                   children: <InlineSpan>[
-                    // TODO(monsieurtanuki): refactor
                     TextSpan(
                       text: appLocalizations.sign_up_page_agree_text,
                       style: TextStyle(color: theme.colorScheme.onBackground),
