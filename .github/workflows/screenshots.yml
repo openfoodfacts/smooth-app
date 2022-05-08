@@ -1,4 +1,4 @@
-name: Generate screenshots for Android
+name: Generate screenshots
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     
 jobs:
   screenshots:
-    name: Generate screenshots for Android
+    name: Generate screenshots
     runs-on: macos-latest
     defaults:
       run:
@@ -33,9 +33,6 @@ jobs:
         with:
           bundler-cache: true
           ruby-version: 3.0.2
-
-      - name: Install Dependencies
-        run: gem install bundler && bundle install
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
