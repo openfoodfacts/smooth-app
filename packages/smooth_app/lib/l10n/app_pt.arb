@@ -890,7 +890,7 @@
         "description": "Validation error about the renamed name that is the same as the initial list name"
     }, 
     "try_again": "Tentar novamente",
-    "there_was_an_error": "Houve um erro"
+    "there_was_an_error": "Houve um erro",
     "basic_details": "Basic Details",
     "product_name": "Product Name",
     "add_basic_details_product_name_error": "Please enter the product name",
