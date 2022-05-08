@@ -113,9 +113,13 @@ Widget build(BuildContext context) {
 
               final Mailto mailtoLink = Mailto(
                 to: &lt;String&gt;[&#39;contact@openfoodfacts.org&#39;],
-                subject: &#39;OpenFoodFacts (Codename: Smoothie) help&#39;,
-                body:
-                    &#39;Version:${packageInfo.version}+${packageInfo.buildNumber} running on ${Platform.operatingSystem}(${Platform.operatingSystemVersion})&#39;,
+                subject: appLocalizations.support_via_email_subject,
+                body: appLocalizations.support_via_email_content(
+                  packageInfo.version,
+                  packageInfo.buildNumber,
+                  Platform.operatingSystem,
+                  Platform.operatingSystemVersion,
+                ),
               );
               await launchUrl(Uri.parse(&#39;$mailtoLink&#39;));
             },

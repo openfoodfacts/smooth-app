@@ -72,7 +72,9 @@
   <pre class="language-dart"><code class="language-dart">@override
 List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
       ListTile(
-        title: const Text(&#39;Remove dev mode&#39;),
+        title: Text(
+          appLocalizations.dev_preferences_disable_mode,
+        ),
         onTap: () async {
           &#47;&#47; resetting back to &quot;no dev mode&quot;
           await userPreferences.setDevMode(0);
@@ -83,21 +85,26 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
         },
       ),
       ListTile(
-        title: const Text(&#39;Restart onboarding&#39;),
-        subtitle:
-            const Text(&#39;You then have to restart Flutter to see it again.&#39;),
+        title: Text(
+          appLocalizations.dev_preferences_reset_onboarding_title,
+        ),
+        subtitle: Text(
+          appLocalizations.dev_preferences_reset_onboarding_subtitle,
+        ),
         onTap: () async {
           userPreferences
               .setLastVisitedOnboardingPage(OnboardingPage.NOT_STARTED);
-          ScaffoldMessenger.of(context)
-              .showSnackBar(const SnackBar(content: Text(&#39;Ok&#39;)));
+          _showSuccessMessage();
         },
       ),
       ListTile(
-        title: const Text(
-            &#39;Switch between openfoodfacts.org (PROD) and test env&#39;),
+        title: Text(
+          appLocalizations.dev_preferences_environment_switch_title,
+        ),
         subtitle: Text(
-          &#39;Current query type is ${OpenFoodAPIConfiguration.globalQueryType}&#39;,
+          appLocalizations.dev_preferences_environment_switch_subtitle(
+            OpenFoodAPIConfiguration.globalQueryType.toString(),
+          ),
         ),
         onTap: () async {
           await userPreferences.setFlag(userPreferencesFlagProd,
@@ -107,20 +114,27 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
         },
       ),
       ListTile(
-        title: const Text(&#39;Test env parameters&#39;),
+        title: Text(
+          appLocalizations.dev_preferences_test_environment_title,
+        ),
         subtitle: Text(
-          &#39;Current base URL of test env is ${OpenFoodAPIConfiguration.uriScheme}:&#47;&#47;${OpenFoodAPIConfiguration.uriTestHost}&#47;&#39;,
+          appLocalizations.dev_preferences_test_environment_subtitle(
+            &#39;${OpenFoodAPIConfiguration.uriScheme}:&#47;&#47;${OpenFoodAPIConfiguration.uriTestHost}&#47;&#39;,
+          ),
         ),
         onTap: () async =&gt; _changeTestEnvHost(),
       ),
       SwitchListTile(
-        title: const Text(&#39;Use ML Kit&#39;),
-        subtitle: const Text(&#39;then you have to restart this app&#39;),
+        title: Text(
+          appLocalizations.dev_preferences_ml_kit_title,
+        ),
+        subtitle: Text(
+          appLocalizations.dev_preferences_ml_kit_subtitle,
+        ),
         value: userPreferences.getFlag(userPreferencesFlagUseMLKit) ?? true,
         onChanged: (bool value) async {
           await userPreferences.setFlag(userPreferencesFlagUseMLKit, value);
-          ScaffoldMessenger.of(context)
-              .showSnackBar(const SnackBar(content: Text(&#39;Ok&#39;)));
+          _showSuccessMessage();
         },
       ),
       ListTile(
@@ -128,29 +142,33 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
         onTap: () async =&gt; _changeCameraPostFrameCallbackDuration(),
       ),
       SwitchListTile(
-        title: const Text(&#39;Additional button on product page&#39;),
+        title: Text(
+          appLocalizations.dev_preferences_product_additional_features_title,
+        ),
         value: userPreferences.getFlag(userPreferencesFlagAdditionalButton) ??
             false,
         onChanged: (bool value) async {
           await userPreferences.setFlag(
               userPreferencesFlagAdditionalButton, value);
-          ScaffoldMessenger.of(context)
-              .showSnackBar(const SnackBar(content: Text(&#39;Ok&#39;)));
+          _showSuccessMessage();
         },
       ),
       SwitchListTile(
-        title: const Text(&#39;Edit ingredients via a knowledge panel button&#39;),
+        title: Text(
+          appLocalizations.dev_preferences_edit_ingredients_title,
+        ),
         value: userPreferences.getFlag(userPreferencesFlagEditIngredients) ??
             false,
         onChanged: (bool value) async {
           await userPreferences.setFlag(
               userPreferencesFlagEditIngredients, value);
-          ScaffoldMessenger.of(context)
-              .showSnackBar(const SnackBar(content: Text(&#39;Ok&#39;)));
+          _showSuccessMessage();
         },
       ),
       ListTile(
-        title: const Text(&#39;Export History&#39;),
+        title: Text(
+          appLocalizations.dev_preferences_export_history_title,
+        ),
         onTap: () async {
           final LocalDatabase localDatabase = context.read&lt;LocalDatabase&gt;();
           final Map&lt;String, dynamic&gt; export =
@@ -169,17 +187,22 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
                         : Icons.help_outline),
                 title: Text(barcode),
                 subtitle: Text(exists == null
-                    ? &#39;exception&#39;
+                    ? appLocalizations
+                        .dev_preferences_export_history_progress_error
                     : exists
-                        ? &#39;product found&#39;
-                        : &#39;product NOT found&#39;),
+                        ? appLocalizations
+                            .dev_preferences_export_history_progress_found
+                        : appLocalizations
+                            .dev_preferences_export_history_progress_not_found),
               ),
             );
           }
           showDialog&lt;void&gt;(
             context: context,
             builder: (BuildContext context) =&gt; AlertDialog(
-              title: const Text(&#39;export history&#39;),
+              title: Text(
+                appLocalizations.dev_preferences_export_history_dialog_title,
+              ),
               content: SizedBox(
                 height: 400,
                 width: 300,
@@ -187,7 +210,9 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
               ),
               actions: &lt;Widget&gt;[
                 ElevatedButton(
-                  child: Text(AppLocalizations.of(context)!.okay),
+                  child: Text(
+                    appLocalizations.dev_preferences_button_positive,
+                  ),
                   onPressed: () =&gt; Navigator.pop(context),
                 ),
               ],
@@ -196,25 +221,40 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
         },
       ),
       ListTile(
-        title: const Text(&#39;Import History&#39;),
-        subtitle:
-            const Text(&#39;Will clear history and put 3 products in there&#39;),
+        title: Text(
+          appLocalizations.dev_preferences_import_history_title,
+        ),
+        subtitle: Text(
+          appLocalizations.dev_preferences_import_history_subtitle,
+        ),
         onTap: () async {
           final LocalDatabase localDatabase = context.read&lt;LocalDatabase&gt;();
           await ProductListImportExport().import(
             ProductListImportExport.TMP_IMPORT,
             localDatabase,
           );
-          ScaffoldMessenger.of(context)
-              .showSnackBar(const SnackBar(content: Text(&#39;Done&#39;)));
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                appLocalizations
+                    .dev_preferences_import_history_result_success,
+              ),
+            ),
+          );
           localDatabase.notifyListeners();
         },
       ),
       ListTile(
-        title: const Text(&#39;Switch between strong and lenient matching&#39;),
+        title: Text(
+          appLocalizations.dev_mode_matching_mode_title,
+        ),
         subtitle: Text(
-          &#39;Current matching level is &#39;
-          &#39;${(userPreferences.getFlag(userPreferencesFlagStrongMatching) ?? false) ? &#39;strong&#39; : &#39;lenient&#39;}&#39;,
+          appLocalizations.dev_mode_matching_mode_subtitle(
+            (userPreferences.getFlag(userPreferencesFlagStrongMatching) ??
+                    false)
+                ? appLocalizations.dev_mode_matching_mode_value_strong
+                : appLocalizations.dev_mode_matching_mode_value_lenient,
+          ),
         ),
         onTap: () async {
           await userPreferences.setFlag(
@@ -225,17 +265,24 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
         },
       ),
       ListTile(
-        title: const Text(&#39;Scan Mode&#39;),
+        title: Text(
+          appLocalizations.dev_mode_scan_mode_title,
+        ),
         subtitle: Text(
-          &#39;Current scan mode is :&quot;&#39;
-          &#39;${DevModeScanModeExtension.fromIndex(userPreferences.getDevModeIndex(userPreferencesEnumScanMode)).label}&#39;
-          &#39;&quot;&#39;,
+          appLocalizations
+              .dev_mode_scan_mode_subtitle(DevModeScanModeExtension.fromIndex(
+            userPreferences.getDevModeIndex(
+              userPreferencesEnumScanMode,
+            ),
+          ).localizedLabel(appLocalizations)),
         ),
         onTap: () async {
           final DevModeScanMode? scanMode = await showDialog&lt;DevModeScanMode&gt;(
             context: context,
             builder: (BuildContext context) =&gt; AlertDialog(
-              title: const Text(&#39;Scan Mode&#39;),
+              title: Text(
+                appLocalizations.dev_mode_scan_mode_dialog_title,
+              ),
               content: SizedBox(
                 height: 400,
                 width: 300,
@@ -245,7 +292,7 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
                     final DevModeScanMode scanMode =
                         DevModeScanMode.values[index];
                     return ListTile(
-                      title: Text(scanMode.label),
+                      title: Text(scanMode.localizedLabel(appLocalizations)),
                       onTap: () =&gt; Navigator.pop(context, scanMode),
                     );
                   },
@@ -253,7 +300,9 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
               ),
               actions: &lt;Widget&gt;[
                 ElevatedButton(
-                  child: const Text(&#39;cancel&#39;),
+                  child: Text(
+                    appLocalizations.dev_preferences_button_negative,
+                  ),
                   onPressed: () =&gt; Navigator.pop(context),
                 ),
               ],
@@ -269,7 +318,9 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
         },
       ),
       SwitchListTile(
-        title: const Text(&#39;Exclude ecoscore&#39;),
+        title: Text(
+          appLocalizations.dev_mode_hide_ecoscore_title,
+        ),
         value: userPreferences
             .getExcludedAttributeIds()
             .contains(Attribute.ATTRIBUTE_ECOSCORE),
