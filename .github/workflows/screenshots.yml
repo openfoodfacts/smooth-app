@@ -48,11 +48,11 @@ jobs:
           api-level: 30
           target: default
           arch: x86_64
-          working-directory: packages/smooth_app/
           script: yes | flutter doctor --android-licenses \
+            && cd packages/smooth_app \
             && flutter drive -d emulator-5554 \
-            --driver=packages/smooth_app/integration_test/app_test.dart \
-            --target=packages/smooth_app/integration_test/app_test.dart 
+            --driver=./integration_test/app_test.dart \
+            --target=./integration_test/app_test.dart 
 #            --dart-define=LANGUAGE=${{ matrix.language }} \
 #            --dart-define=COUNTRY=${{ matrix.country }} \
 #            --dart-define=PLATFORM=${{ matrix.platform }} \
