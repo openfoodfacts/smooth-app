@@ -9,9 +9,6 @@ jobs:
   screenshots:
     name: Generate screenshots
     runs-on: macos-latest
-    defaults:
-      run:
-        working-directory: ./packages/smooth_app
     #strategy:
     #  matrix:
     #    language: [fr, en]
@@ -43,7 +40,7 @@ jobs:
       - run: flutter --version
 
       - name: Get dependencies
-        run: ../../ci/pub_upgrade.sh
+        run: ci/pub_upgrade.sh
 
       - name: Generate screenshots
         uses: reactivecircus/android-emulator-runner@v2
@@ -53,10 +50,9 @@ jobs:
           arch: x86_64
           working-directory: packages/smooth_app/
           script: yes | flutter doctor --android-licenses \
-            && ls \
             && flutter drive -d emulator-5554 \
             --driver=packages/smooth_app/integration_test/app_test.dart \
-            --target=packages/smooth_app/integration_test/app_test.dart \
+            --target=packages/smooth_app/integration_test/app_test.dart 
 #            --dart-define=LANGUAGE=${{ matrix.language }} \
 #            --dart-define=COUNTRY=${{ matrix.country }} \
 #            --dart-define=PLATFORM=${{ matrix.platform }} \
