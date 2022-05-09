@@ -46,6 +46,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
       '__additionalButtonOnProductPage';
   static const String userPreferencesFlagEditIngredients = '__editIngredients';
   static const String userPreferencesEnumScanMode = '__scanMode';
+  static const String userPreferencesAppLanguageCode = '__appLanguage';
   static const String userPreferencesCameraPostFrameDuration =
       '__cameraPostFrameDuration';
 
@@ -332,6 +333,35 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               list.add(tag);
             }
             await userPreferences.setExcludedAttributeIds(list);
+            setState(() {});
+          },
+        ),
+        ListTile(
+          leading: const Icon(Icons.language),
+          title: DropdownButton<String>(
+            value: userPreferences.appLanguageCode ??
+                Localizations.localeOf(context).toString(),
+            elevation: 16,
+            isExpanded: true,
+            onChanged: (String? languageCode) async {
+              await userPreferences.setAppLanguageCode(languageCode);
+              setState(() {});
+            },
+            items: AppLocalizations.supportedLocales.map((Locale locale) {
+              final String _locale = locale.toString();
+              return DropdownMenuItem<String>(
+                value: _locale,
+                child: Text(_locale),
+              );
+            }).toList(),
+          ),
+        ),
+        ListTile(
+          title: Text(
+            appLocalizations.dev_preferences_reset_app_language,
+          ),
+          onTap: () async {
+            await userPreferences.setAppLanguageCode(null);
             setState(() {});
           },
         ),
