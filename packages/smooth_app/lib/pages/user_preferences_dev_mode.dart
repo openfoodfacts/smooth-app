@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
@@ -345,7 +344,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             elevation: 16,
             isExpanded: true,
             onChanged: (String? languageCode) async {
-              await userPreferences.setAppLanguageCode(languageCode!);
+              await userPreferences.setAppLanguageCode(languageCode);
               setState(() {});
             },
             items: AppLocalizations.supportedLocales.map((Locale locale) {
@@ -362,8 +361,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             appLocalizations.dev_preferences_reset_app_language,
           ),
           onTap: () async {
-            await userPreferences
-                .setAppLanguageCode(Platform.localeName.substring(0, 2));
+            await userPreferences.setAppLanguageCode(null);
             setState(() {});
           },
         ),

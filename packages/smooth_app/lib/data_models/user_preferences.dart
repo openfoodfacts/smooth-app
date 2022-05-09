@@ -90,9 +90,14 @@ class UserPreferences extends ChangeNotifier {
         : OnboardingPage.values[pageIndex];
   }
 
-  Future<void> setAppLanguageCode(String languageCode) async {
-    setDevModeString(
-        UserPreferencesDevMode.userPreferencesAppLanguageCode, languageCode);
+  Future<void> setAppLanguageCode(String? languageCode) async {
+    if (languageCode == null) {
+      await _sharedPreferences
+          .remove(UserPreferencesDevMode.userPreferencesAppLanguageCode);
+    } else {
+      await setDevModeString(
+          UserPreferencesDevMode.userPreferencesAppLanguageCode, languageCode);
+    }
     notifyListeners();
   }
 
