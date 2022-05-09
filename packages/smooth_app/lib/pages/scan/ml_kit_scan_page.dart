@@ -265,9 +265,9 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
     isBusy = false;
   }
 
-  Offset? get _focusPoint {
-    // Whatever the scan mode is, we always want the focus point to be on
-    // "half-top" of the screen
+  /// Whatever the scan mode is, we always want the focus point to be on
+  /// "half-top" of the screen
+  Offset get _focusPoint {
     if (_previewScale == 1.0) {
       return const Offset(0.5, 0.25);
     } else {
