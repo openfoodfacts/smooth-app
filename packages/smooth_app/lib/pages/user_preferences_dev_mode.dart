@@ -13,6 +13,7 @@ import 'package:smooth_app/pages/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/scan/ml_kit_scan_page.dart';
 import 'package:smooth_app/pages/user_preferences_dialog_editor.dart';
+import 'package:smooth_app/pages/user_preferences_page.dart';
 
 /// Collapsed/expanded display of "dev mode" for the preferences page.
 ///
@@ -52,16 +53,16 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   final TextEditingController _textFieldController = TextEditingController();
 
   @override
-  bool isCollapsedByDefault() => true;
+  PreferencePageType? getPreferencePageType() => PreferencePageType.DEV_MODE;
 
   @override
-  String getPreferenceFlagKey() => 'devMode';
+  String getTitleString() => appLocalizations.dev_preferences_screen_title;
 
   @override
   Widget getTitle() => Container(
         color: Colors.red,
         child: Text(
-          appLocalizations.dev_preferences_screen_title,
+          getTitleString(),
           style: themeData.textTheme.headline2!.copyWith(color: Colors.white),
         ),
       );
@@ -339,6 +340,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
 
   ScaffoldFeatureController<SnackBar, SnackBarClosedReason>
       _showSuccessMessage() {
+    setState(() {});
     return ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(appLocalizations.dev_preferences_button_positive),

@@ -9,6 +9,7 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/abstract_user_preferences.dart';
+import 'package:smooth_app/pages/user_preferences_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/views/bottom_sheet_views/faq_handle_view.dart';
@@ -41,16 +42,10 @@ class UserPreferencesSettings extends AbstractUserPreferences {
   ];
 
   @override
-  bool isCollapsedByDefault() => true;
+  PreferencePageType? getPreferencePageType() => PreferencePageType.SETTINGS;
 
   @override
-  String getPreferenceFlagKey() => 'settings';
-
-  @override
-  Widget getTitle() => Text(
-        appLocalizations.myPreferences_settings_title,
-        style: themeData.textTheme.headline2,
-      );
+  String getTitleString() => appLocalizations.myPreferences_settings_title;
 
   @override
   Widget? getSubtitle() =>
