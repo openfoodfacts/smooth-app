@@ -335,6 +335,35 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
           setState(() {});
         },
       ),
+      ListTile(
+        leading: const Icon(Icons.language),
+        title: DropdownButton&lt;String&gt;(
+          value: userPreferences.appLanguageCode ??
+              Localizations.localeOf(context).toString(),
+          elevation: 16,
+          isExpanded: true,
+          onChanged: (String? languageCode) async {
+            await userPreferences.setAppLanguageCode(languageCode);
+            setState(() {});
+          },
+          items: AppLocalizations.supportedLocales.map((Locale locale) {
+            final String _locale = locale.toString();
+            return DropdownMenuItem&lt;String&gt;(
+              value: _locale,
+              child: Text(_locale),
+            );
+          }).toList(),
+        ),
+      ),
+      ListTile(
+        title: Text(
+          appLocalizations.dev_preferences_reset_app_language,
+        ),
+        onTap: () async {
+          await userPreferences.setAppLanguageCode(null);
+          setState(() {});
+        },
+      ),
     ];</code></pre>
 </section>
 
@@ -385,6 +414,7 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
 
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_user_preferences_dev_mode/UserPreferencesDevMode-class.html#constants">Constants</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesAppLanguageCode-constant.html">userPreferencesAppLanguageCode</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesCameraPostFrameDuration-constant.html">userPreferencesCameraPostFrameDuration</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesEnumScanMode-constant.html">userPreferencesEnumScanMode</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagAdditionalButton-constant.html">userPreferencesFlagAdditionalButton</a></li>
