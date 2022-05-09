@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
@@ -355,6 +356,16 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               );
             }).toList(),
           ),
+        ),
+        ListTile(
+          title: Text(
+            appLocalizations.dev_preferences_reset_app_language,
+          ),
+          onTap: () async {
+            await userPreferences
+                .setAppLanguageCode(Platform.localeName.substring(0, 2));
+            setState(() {});
+          },
         ),
       ];
 

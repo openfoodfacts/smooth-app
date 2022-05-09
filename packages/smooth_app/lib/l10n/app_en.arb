@@ -989,6 +989,10 @@
     "@dev_preferences_export_history_title": {
         "description": "User dev preferences - Export history - Title"
     },
+    "dev_preferences_reset_app_language": "Reset App Language",
+    "@dev_preferences_reset_app_language": {
+        "description": "User dev preferences - Reset App Language - Title"
+    },
     "dev_preferences_export_history_progress_error": "exception",
     "@dev_preferences_export_history_progress_error": {
         "description": "User dev preferences - Export history - Item - Error"
