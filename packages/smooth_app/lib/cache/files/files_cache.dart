@@ -1,12 +1,8 @@
-import 'dart:io';
 import 'dart:typed_data';
 
-import 'package:flutter/cupertino.dart';
-import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:smooth_app/cache/cache_manager.dart';
-
-part 'files_cache_impl.dart';
+import 'package:smooth_app/cache/files/file_cache_manager_impl.dart';
 
 /// Files caches work with a [String] key.
 /// This key being the filename.
@@ -20,7 +16,8 @@ class FileCacheManager {
   static FileCache? _longLivingCache;
 
   static FileCache get temporary {
-    _temporaryCache ??= _ShortLivingFileCacheManagerImpl(
+    _temporaryCache = FileCacheManagerImpl(
+      rootDirectory: getTemporaryDirectory(),
       subFolderName: 'temp',
     );
 
@@ -28,8 +25,9 @@ class FileCacheManager {
   }
 
   static FileCache get persistent {
-    _longLivingCache ??= _LongLivingFilesCacheManagerImpl(
-      subFolderName: 'files',
+    _longLivingCache = FileCacheManagerImpl(
+      rootDirectory: getApplicationDocumentsDirectory(),
+      subFolderName: 'persistent',
     );
 
     return _longLivingCache!;

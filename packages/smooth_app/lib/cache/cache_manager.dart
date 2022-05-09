@@ -1,8 +1,6 @@
-import 'package:flutter/foundation.dart';
-
 /// Abstract class defining a cache containing items of type [T] and accessible
 /// via a unique key of type [K]
-abstract class CacheMap<K, T> extends ChangeNotifier {
+abstract class CacheMap<K, T> {
   /// Saves an item
   /// Returns [true] if the item was saved
   Future<bool> put(
