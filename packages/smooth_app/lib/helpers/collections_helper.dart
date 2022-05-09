@@ -3,7 +3,7 @@ import 'dart:collection';
 import 'package:collection/collection.dart';
 
 /// List of [num] with a max length of [_maxCapacity], where we can easily
-/// compute the average value
+/// compute the average value of all elements.
 class AverageList<T extends num> with ListMixin<T> {
   static const int _maxCapacity = 10;
   final List<T> _elements = <T>[];
@@ -28,11 +28,14 @@ class AverageList<T extends num> with ListMixin<T> {
   void operator []=(int index, T value) {
     if (index > _maxCapacity) {
       throw UnsupportedError('The index is above the capacity!');
+    } else {
+      _elements[index] = value;
     }
   }
 
   @override
   void add(T element) {
+    // The first element is always the latest added
     _elements.insert(0, element);
 
     if (_elements.length >= _maxCapacity) {

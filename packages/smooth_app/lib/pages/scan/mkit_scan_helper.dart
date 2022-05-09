@@ -29,12 +29,14 @@ class MLKitScanDecoder {
   /// Otherwise a list of decoded barcoded is returned
   /// Note: This list may be empty if no barcode is detected
   Future<List<String>?> processImage(CameraImage image) async {
-    // ignore: missing_enum_constant_in_switch
     switch (scanMode) {
       case DevModeScanMode.CAMERA_ONLY:
       case DevModeScanMode.PREPROCESS_FULL_IMAGE:
       case DevModeScanMode.PREPROCESS_HALF_IMAGE:
         return null;
+      case DevModeScanMode.SCAN_FULL_IMAGE:
+      case DevModeScanMode.SCAN_HALF_IMAGE:
+      // OK -> continue
     }
 
     return _mainIsolate.decode(image);

@@ -98,7 +98,7 @@ class ContinuousScanModel with ChangeNotifier {
   Product getProduct(final String barcode) => _productList.getProduct(barcode);
 
   /// Adds a barcode
-  /// Will return if this barcode is successfully added
+  /// Will return [true] if this barcode is successfully added
   Future<bool> onScan(String? code) async {
     if (code == null) {
       return false;
