@@ -3,60 +3,64 @@ part of 'files_cache.dart';
 
 /// Implementation based on [getTemporaryDirectory]
 class _ShortLivingFileCacheManagerImpl extends _FileCacheManagerImpl {
-  _ShortLivingFileCacheManagerImpl._() : super._();
-
-  @override
-  Future<void> _init(String name) async {
-    return _initCache(name, await getTemporaryDirectory());
-  }
+  _ShortLivingFileCacheManagerImpl({
+    required String subFolderName,
+  }) : super._(
+          rootDirectory: getTemporaryDirectory(),
+          subFolderName: subFolderName,
+        );
 }
 
 /// Implementation based on [getApplicationDocumentsDirectory]
 class _LongLivingFilesCacheManagerImpl extends _FileCacheManagerImpl {
-  _LongLivingFilesCacheManagerImpl._() : super._();
-
-  @override
-  Future<void> _init(String name) async {
-    return _initCache(name, await getApplicationDocumentsDirectory());
-  }
+  _LongLivingFilesCacheManagerImpl({
+    required String subFolderName,
+  }) : super._(
+          rootDirectory: getApplicationDocumentsDirectory(),
+          subFolderName: subFolderName,
+        );
 }
 
-abstract class _FileCacheManagerImpl extends FileCache {
-  factory _FileCacheManagerImpl(FileCacheType type) {
-    switch (type) {
-      case FileCacheType.shortLiving:
-        return _ShortLivingFileCacheManagerImpl._();
-      case FileCacheType.longLiving:
-        return _LongLivingFilesCacheManagerImpl._();
+class _FileCacheManagerImpl extends FileCache {
+  _FileCacheManagerImpl._({
+    required this.rootDirectory,
+    required this.subFolderName,
+  }) : assert(subFolderName.isNotEmpty);
+
+  final Future<Directory> rootDirectory;
+  final String subFolderName;
+
+  /// This field will be lazily assigned after a call to [_initCache]
+  Directory? _directory;
+
+  @protected
+  Future<void> _initCache() async {
+    if (_directory == null) {
+      _directory = Directory(
+        join(
+          await rootDirectory.then((Directory d) => d.absolute.path),
+          'files_cache',
+          subFolderName,
+        ),
+      );
+      await _directory!.create(recursive: true);
     }
   }
 
-  _FileCacheManagerImpl._() : super();
-
-  late Directory _directory;
-
-  Future<void> _init(String name);
-
-  /// Please never call this method call directly, but use instead [_init].
-  Future<void> _initCache(String name, Directory directory) async {
-    _directory = Directory(
-      join(
-        directory.absolute.path,
-        'files_cache',
-        name,
-      ),
-    );
-
-    await _directory.create(recursive: true);
+  Future<void> _ensureInitialized() async {
+    if (_directory == null) {
+      await _initCache();
+    }
   }
 
-  File _getFilePath(String key) {
-    return File(join(_directory.absolute.path, key));
+  Future<File> _getFilePath(String key) async {
+    await _ensureInitialized();
+    return File(join(_directory!.absolute.path, key));
   }
 
   @override
-  Future<Uint8List?> get(String key) {
-    final File file = _getFilePath(key);
+  Future<Uint8List?> get(String key) async {
+    final File file = await _getFilePath(key);
     return file
         .exists()
         .then((bool exists) => exists ? file.readAsBytes() : null);
@@ -64,7 +68,7 @@ abstract class _FileCacheManagerImpl extends FileCache {
 
   @override
   Future<bool> containsKey(String key) {
-    return _getFilePath(key).exists();
+    return _getFilePath(key).then((File file) => file.exists());
   }
 
   @override
@@ -78,7 +82,7 @@ abstract class _FileCacheManagerImpl extends FileCache {
     }
 
     // Will erase existing file
-    final File file = _getFilePath(key);
+    final File file = await _getFilePath(key);
 
     try {
       await file.writeAsBytes(
@@ -95,12 +99,12 @@ abstract class _FileCacheManagerImpl extends FileCache {
   }
 
   @override
-  Future<int> get length => _directory.list().length;
+  Future<int> get length => _directory!.list().length;
 
   @override
   Future<bool> remove(String key) async {
     if (await containsKey(key)) {
-      await _getFilePath(key).delete();
+      await _getFilePath(key).then((File file) => file.delete());
       notifyListeners();
       return true;
     }
@@ -110,9 +114,11 @@ abstract class _FileCacheManagerImpl extends FileCache {
 
   @override
   Future<void> clear() async {
+    await _ensureInitialized();
+
     // Only delete content, not the folder itself
     final List<FileSystemEntity> files =
-        await _directory.list(recursive: true).toList();
+        await _directory!.list(recursive: true).toList();
 
     for (final FileSystemEntity file in files) {
       await file.delete();

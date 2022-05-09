@@ -10,18 +10,23 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   PathProviderPlatform.instance = MockedPathProviderPlatform();
 
+  _runTests(FileCacheManager.temporary, 'Temporary');
+  _runTests(FileCacheManager.persistent, 'Persistent');
+}
+
+void _runTests(FileCache cache, String debugLabel) {
   const String testFileContent = 'Hello World';
   const String fileKey = 'hello';
+  final String label = '[$debugLabel]';
 
-  test('Add file', () async {
-    final FileCache cache = await FileCacheManager.getDefault();
+  test('$label Add file', () async {
+    final FileCache cache = FileCacheManager.temporary;
     expect(
         await cache.put(fileKey, Uint8List.fromList(testFileContent.codeUnits)),
         true);
     expect(await cache.containsKey(fileKey), true);
   });
-  test('Get file', () async {
-    final FileCache cache = await FileCacheManager.getDefault();
+  test('$label Get file', () async {
     expect(
       await cache.put(fileKey, Uint8List.fromList(testFileContent.codeUnits)),
       true,
@@ -35,8 +40,7 @@ void main() {
         testFileContent);
   });
 
-  test('Remove file', () async {
-    final FileCache cache = await FileCacheManager.getDefault();
+  test('$label Remove file', () async {
     expect(
         await cache.put(fileKey, Uint8List.fromList(testFileContent.codeUnits)),
         true);
@@ -44,8 +48,7 @@ void main() {
     expect(await cache.containsKey(fileKey), false);
   });
 
-  test('Clear cache', () async {
-    final FileCache cache = await FileCacheManager.getDefault();
+  test('$label Clear cache', () async {
     await cache.clear();
     expect(await cache.length, 0);
   });

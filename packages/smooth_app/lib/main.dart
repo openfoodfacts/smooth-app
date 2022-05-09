@@ -65,7 +65,6 @@ late ProductPreferences _productPreferences;
 late LocalDatabase _localDatabase;
 late ThemeProvider _themeProvider;
 final ContinuousScanModel _continuousScanModel = ContinuousScanModel();
-late FileCache _filesCache;
 bool _init1done = false;
 
 // Had to split init in 2 methods, for test/screenshots reasons.
@@ -96,7 +95,6 @@ Future<bool> _init1() async {
     ),
     daoString: DaoString(_localDatabase),
   );
-  _filesCache = await FileCacheManager.getDefault();
 
   AnalyticsHelper.setCrashReports(_userPreferences.crashReports);
   AnalyticsHelper.setAnalyticsReports(_userPreferences.analyticsReports);
@@ -172,7 +170,6 @@ class _SmoothAppState extends State<SmoothApp> {
             provide<ThemeProvider>(_themeProvider),
             provide<UserManagementProvider>(_userManagementProvider),
             provide<ContinuousScanModel>(_continuousScanModel),
-            provide<FileCache>(_filesCache),
           ],
           builder: _buildApp,
         );
