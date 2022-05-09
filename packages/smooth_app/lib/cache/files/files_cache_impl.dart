@@ -42,7 +42,7 @@ abstract class _FileCacheManagerImpl extends FileCache {
     _directory = Directory(
       join(
         directory.absolute.path,
-        'temporary_files_cache',
+        'files_cache',
         name,
       ),
     );
