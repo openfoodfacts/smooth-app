@@ -74,9 +74,8 @@
   if (list == null) {
     return result;
   }
-  final List&lt;String&gt; barcodes = list.barcodes;
   final DaoProduct daoProduct = DaoProduct(localDatabase);
-  for (final String barcode in barcodes) {
+  for (final String barcode in list.barcodes) {
     late bool? present;
     try {
       final Product? product = await daoProduct.get(barcode);

@@ -81,7 +81,7 @@
   if (list == null) {
     barcodes = &lt;String&gt;[];
   } else {
-    barcodes = list.barcodes;
+    barcodes = _getSafeBarcodeListCopy(list.barcodes);
   }
   if (barcodes.contains(barcode)) {
     if (include) {

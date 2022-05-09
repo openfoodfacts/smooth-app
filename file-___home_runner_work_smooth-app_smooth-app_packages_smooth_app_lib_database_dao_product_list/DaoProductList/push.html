@@ -80,7 +80,7 @@
   if (list == null) {
     barcodes = &lt;String&gt;[];
   } else {
-    barcodes = list.barcodes;
+    barcodes = _getSafeBarcodeListCopy(list.barcodes);
   }
   barcodes.remove(barcode); &#47;&#47; removes a potential duplicate
   barcodes.add(barcode);
