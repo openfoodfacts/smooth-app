@@ -266,29 +266,14 @@ class MLKitScannerPageState extends State<_MLKitScannerPageContent> {
   }
 
   Offset? get _focusPoint {
-    final DevModeScanMode scanMode = DevModeScanModeExtension.fromIndex(
-      _userPreferences
-          .getDevModeIndex(UserPreferencesDevMode.userPreferencesEnumScanMode),
-    );
-
-    switch (scanMode) {
-      case DevModeScanMode.PREPROCESS_HALF_IMAGE:
-      case DevModeScanMode.SCAN_HALF_IMAGE:
-        // Half center top focus point
-
-        if (_previewScale == 1.0) {
-          return const Offset(0.5, 0.25);
-        } else {
-          // Since we use a [Alignment.topCenter] alignment for the preview, we
-          // have to recompute the position of the focus point
-          return Offset(0.5, 0.25 / _previewScale);
-        }
-      case DevModeScanMode.CAMERA_ONLY:
-      case DevModeScanMode.PREPROCESS_FULL_IMAGE:
-      case DevModeScanMode.SCAN_FULL_IMAGE:
-      default:
-        // Center
-        return const Offset(0.5, 0.5);
+    // Whatever the scan mode is, we always want the focus point to be on
+    // "half-top" of the screen
+    if (_previewScale == 1.0) {
+      return const Offset(0.5, 0.25);
+    } else {
+      // Since we use a [Alignment.topCenter] alignment for the preview, we
+      // have to recompute the position of the focus point
+      return Offset(0.5, 0.25 / _previewScale);
     }
   }
 
