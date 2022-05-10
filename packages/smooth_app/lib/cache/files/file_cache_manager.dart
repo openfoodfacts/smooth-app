@@ -8,7 +8,11 @@ import 'package:smooth_app/cache/files/file_cache_manager_impl.dart';
 /// This key being the filename.
 typedef FileCache = CacheMap<String, Uint8List>;
 
-/// Cache allowing to store files in the device persistent storage
+/// Cache allowing to store files in the device persistent storage.
+///
+/// Each cache is lazily created/loaded, meaning that even if [temporary] or
+/// [persistent] is called, nothing will be created until a sub-method
+/// like [get], [length]… is used.
 class FileCacheManager {
   const FileCacheManager._();
 
@@ -16,7 +20,7 @@ class FileCacheManager {
   static FileCache? _longLivingCache;
 
   static FileCache get temporary {
-    _temporaryCache = FileCacheManagerImpl(
+    _temporaryCache ??= FileCacheImpl(
       rootDirectory: getTemporaryDirectory(),
       subFolderName: 'temp',
     );
@@ -25,7 +29,7 @@ class FileCacheManager {
   }
 
   static FileCache get persistent {
-    _longLivingCache = FileCacheManagerImpl(
+    _longLivingCache ??= FileCacheImpl(
       rootDirectory: getApplicationDocumentsDirectory(),
       subFolderName: 'persistent',
     );

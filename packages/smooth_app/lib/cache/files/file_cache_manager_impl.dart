@@ -3,10 +3,12 @@ import 'dart:typed_data';
 
 import 'package:flutter/foundation.dart';
 import 'package:path/path.dart';
-import 'package:smooth_app/cache/files/files_cache.dart';
+import 'package:smooth_app/cache/files/file_cache_manager.dart';
 
-class FileCacheManagerImpl extends FileCache {
-  FileCacheManagerImpl({
+/// A FileCache implementation where files are stored in
+/// [rootDirectory]/files_cache/[subFolderName]
+class FileCacheImpl extends FileCache {
+  FileCacheImpl({
     required this.rootDirectory,
     required this.subFolderName,
   }) : assert(subFolderName.isNotEmpty);
