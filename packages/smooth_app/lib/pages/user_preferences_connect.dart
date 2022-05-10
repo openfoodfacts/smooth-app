@@ -60,13 +60,10 @@ class UserPreferencesConnect extends AbstractUserPreferences {
             final PackageInfo packageInfo = await PackageInfo.fromPlatform();
             final Mailto mailtoLink = Mailto(
               to: <String>['contact@openfoodfacts.org'],
-              subject: appLocalizations.support_via_email_subject,
-              body: appLocalizations.support_via_email_content(
-                packageInfo.version,
-                packageInfo.buildNumber,
-                Platform.operatingSystem,
-                Platform.operatingSystemVersion,
-              ),
+// This shouldn't be translated as its a debug message to OpenFoodFacts
+              subject: 'Smoothie help',
+              body:
+                  'Version:${packageInfo.version}+${packageInfo.buildNumber} running on ${Platform.operatingSystem}(${Platform.operatingSystemVersion})',
             );
             await launchUrl(Uri.parse('$mailtoLink'));
           },
