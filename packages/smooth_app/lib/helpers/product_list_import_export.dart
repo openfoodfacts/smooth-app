@@ -60,6 +60,6 @@ class ProductListImportExport {
     }
     final ProductList productList = ProductList.history();
     productList.set(barcodes, products);
-    await daoProductList.put(productList);
+    daoProductList.put(productList);
   }
 }

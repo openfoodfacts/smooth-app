@@ -8,6 +8,7 @@ class UserPreferencesListTile extends StatelessWidget {
     this.subtitle,
     this.icon,
     this.onTap,
+    this.onLongPress,
     this.isCompactTitle = false,
   });
 
@@ -15,6 +16,7 @@ class UserPreferencesListTile extends StatelessWidget {
   final Widget? subtitle;
   final Widget? icon;
   final VoidCallback? onTap;
+  final VoidCallback? onLongPress;
   final bool isCompactTitle;
 
   @override
@@ -47,11 +49,12 @@ class UserPreferencesListTile extends StatelessWidget {
         ],
       ),
     );
-    if (onTap == null) {
+    if (onTap == null && onLongPress == null) {
       return displayed;
     }
     return InkWell(
       onTap: onTap,
+      onLongPress: onLongPress,
       child: displayed,
     );
   }

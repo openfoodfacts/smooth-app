@@ -131,8 +131,7 @@ class _ProductPageState extends State<ProductPage> {
   Future<void> _updateLocalDatabaseWithProductHistory(
       BuildContext context, Product product) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    await DaoProductList(localDatabase)
-        .push(ProductList.history(), product.barcode!);
+    DaoProductList(localDatabase).push(ProductList.history(), product.barcode!);
     localDatabase.notifyListeners();
   }
 

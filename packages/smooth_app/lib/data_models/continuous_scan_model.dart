@@ -226,21 +226,21 @@ class ContinuousScanModel with ChangeNotifier {
     _productList.refresh(product);
     if (_latestFoundBarcode != product.barcode!) {
       _latestFoundBarcode = product.barcode;
-      await _daoProductList.push(productList, _latestFoundBarcode!);
-      await _daoProductList.push(_history, _latestFoundBarcode!);
+      _daoProductList.push(productList, _latestFoundBarcode!);
+      _daoProductList.push(_history, _latestFoundBarcode!);
     }
     _setBarcodeState(product.barcode!, state);
   }
 
   Future<void> clearScanSession() async {
-    await _daoProductList.clear(productList);
+    _daoProductList.clear(productList);
     await refresh();
   }
 
   Future<void> removeBarcode(
     final String barcode,
   ) async {
-    await _daoProductList.set(
+    _daoProductList.set(
       productList,
       barcode,
       false,
