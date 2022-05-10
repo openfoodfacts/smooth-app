@@ -3,8 +3,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/abstract_user_preferences.dart';
-import 'package:smooth_app/pages/all_user_product_list_page.dart';
-import 'package:smooth_app/pages/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/user_preferences_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -105,15 +103,6 @@ class UserPreferencesSettings extends AbstractUserPreferences {
             ),
           ),
         ),
-        _getListTile(
-          title: 'Lists',
-          onTap: () async => Navigator.push<void>(
-            context,
-            MaterialPageRoute<void>(
-              builder: (BuildContext context) => const AllUserProductList(),
-            ),
-          ),
-        ),
       ];
 
   Widget _getColorButton(
@@ -138,15 +127,5 @@ class UserPreferencesSettings extends AbstractUserPreferences {
             ColorDestination.BUTTON_FOREGROUND,
           ),
         ),
-      );
-
-  Widget _getListTile({
-    required final String title,
-    final VoidCallback? onTap,
-  }) =>
-      UserPreferencesListTile(
-        title: Text(title, style: themeData.textTheme.headline4),
-        onTap: onTap,
-        icon: getForwardIcon(),
       );
 }
