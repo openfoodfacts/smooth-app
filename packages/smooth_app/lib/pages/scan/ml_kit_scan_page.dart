@@ -237,11 +237,9 @@ class MLKitScannerPageState
   }
 
   void _cameraListener() {
-    if (mounted) {
-      if (_controller?.value.hasError == true) {
-        // TODO(M123): Handle errors better
-        debugPrint(_controller!.value.errorDescription);
-      }
+    if (_controller?.value.hasError == true) {
+      // TODO(M123): Handle errors better
+      debugPrint(_controller!.value.errorDescription);
     }
   }
 
