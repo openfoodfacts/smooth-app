@@ -62,6 +62,9 @@ class ScoreCard extends StatelessWidget {
             ),
             flex: 3,
           ),
+          const Icon(
+            Icons.keyboard_arrow_down_outlined,
+          ),
         ],
       ),
       decoration: BoxDecoration(
