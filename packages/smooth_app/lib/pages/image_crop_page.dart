@@ -39,7 +39,7 @@ Future<File?> startImageCropping(BuildContext context) async {
         lockAspectRatio: false,
         statusBarColor: themeColor,
         toolbarColor: themeColor,
-        toolbarWidgetColor: Colors.white,
+        toolbarWidgetColor: themeColor,
         activeControlsWidgetColor: Theme.of(context).colorScheme.primary,
         backgroundColor: themeColor,
       ),
