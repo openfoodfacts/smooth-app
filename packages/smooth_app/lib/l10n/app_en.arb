@@ -906,9 +906,17 @@
     "@confirm_clear": {
         "description": "Asking about whether to clear the list or not"
     },
-    "importance_label": "importance",
+    "importance_label": "{name} importance: {id}",
     "@importance_label": {
-        "description": "Used when user selects a food preference"
+        "description": "Used when user selects a food preference",
+         "placeholders": {
+            "name": {
+                "type": "String"
+            },
+            "id": {
+                "type": "String"
+            }
+        }
     }
 }
 
