@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/animations/smooth_animated_collapse_arrow.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/pages/user_preferences_list_tile.dart';
+import 'package:smooth_app/pages/user_preferences_page.dart';
+import 'package:smooth_app/themes/constant_icons.dart';
 
-/// Abstraction of a collapsed/expanded display for the preferences page.
+/// Abstraction of a display for the preference pages.
 abstract class AbstractUserPreferences {
   AbstractUserPreferences({
     required this.setState,
@@ -22,17 +24,18 @@ abstract class AbstractUserPreferences {
   final AppLocalizations appLocalizations;
   final ThemeData themeData;
 
-  /// Flag Key to store the collapsed/expanded status
-  @protected
-  String getPreferenceFlagKey();
+  /// Returns the type of the corresponding page if relevant, or else null.
+  PreferencePageType? getPreferencePageType();
 
-  /// At init time, should we be collapsed?
-  @protected
-  bool isCollapsedByDefault();
+  /// Title of the header, always visible.
+  String getTitleString();
 
   /// Title of the header, always visible.
   @protected
-  Widget getTitle();
+  Widget getTitle() => Text(
+        getTitleString(),
+        style: themeData.textTheme.headline2,
+      );
 
   /// Subtitle of the header, always visible.
   @protected
@@ -42,73 +45,68 @@ abstract class AbstractUserPreferences {
   @protected
   bool isCompactTitle() => false;
 
-  /// Returns the header.
-  Widget _getHeader(final UserPreferences userPreferences) => InkWell(
-        onTap: () => _switchCollapsed(userPreferences),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: LARGE_SPACE,
-            vertical: SMALL_SPACE,
-          ),
-          child: _getHeaderHelper(userPreferences),
-        ),
+  Widget getOnlyHeader() => InkWell(
+        onTap: () async => runHeaderAction(),
+        child: getHeaderHelper(false),
+      );
+
+  Icon getForwardIcon() => Icon(ConstantIcons.instance.getForwardIcon());
+
+  /// Returns the tappable header.
+  @protected
+  Widget getHeader() => InkWell(
+        onTap: () async => runHeaderAction(),
+        child: getHeaderHelper(true),
       );
 
   /// Returns the header (helper) (no padding, no tapping).
-  Widget _getHeaderHelper(final UserPreferences userPreferences) {
-    final Widget title = Row(
-      mainAxisAlignment: isCompactTitle()
-          ? MainAxisAlignment.start
-          : MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        getTitle(),
-        SmoothAnimatedCollapseArrow(collapsed: _isCollapsed(userPreferences))
-      ],
-    );
-    final Widget? subtitle = getSubtitle();
-    if (subtitle == null) {
-      return title;
-    }
-    return Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          const SizedBox(
-            height: SMALL_SPACE,
-          ),
-          title,
-          const SizedBox(
-            height: VERY_SMALL_SPACE,
-          ),
-          subtitle
-        ]);
-  }
+  @protected
+  Widget getHeaderHelper(final bool? collapsed) => UserPreferencesListTile(
+        title: getTitle(),
+        subtitle: getSubtitle(),
+        isCompactTitle: isCompactTitle(),
+        icon: isCompactTitle()
+            ? SmoothAnimatedCollapseArrow(collapsed: collapsed!)
+            : collapsed != null
+                ? getForwardIcon()
+                : null,
+      );
 
   /// Body of the content.
   @protected
   List<Widget> getBody();
 
-  /// Returns the header, and the body if expanded.
-  List<Widget> getContent() {
+  /// Returns possibly the header and the body.
+  List<Widget> getContent({
+    final bool withHeader = true,
+    final bool withBody = true,
+  }) {
     final List<Widget> result = <Widget>[];
-    result.add(_getHeader(userPreferences));
-    if (!_isCollapsed(userPreferences)) {
+    if (withHeader) {
+      result.add(getHeader());
+    }
+    if (withBody) {
       result.addAll(getBody());
     }
     return result;
   }
 
-  /// Is the body collapsed?
-  bool _isCollapsed(final UserPreferences userPreferences) =>
-      userPreferences.getFlag(getPreferenceFlagKey()) ?? isCollapsedByDefault();
-
-  /// Switches the collapsed/expanded status.
-  Future<void> _switchCollapsed(final UserPreferences userPreferences) async {
-    userPreferences.setFlag(
-      getPreferenceFlagKey(),
-      !_isCollapsed(userPreferences),
-    );
-    setState(() {});
+  /// Returns a slightly different version of [getContent] for the onboarding.
+  List<Widget> getOnboardingContent() {
+    final List<Widget> result = <Widget>[];
+    result.add(getHeaderHelper(null));
+    result.addAll(getBody());
+    return result;
   }
+
+  /// Returns the action when we tap on the header.
+  @protected
+  Future<void> runHeaderAction() async => Navigator.push<Widget>(
+        context,
+        MaterialPageRoute<Widget>(
+          builder: (BuildContext context) => UserPreferencesPage(
+            type: getPreferencePageType(),
+          ),
+        ),
+      );
 }
