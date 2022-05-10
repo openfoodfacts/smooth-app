@@ -1,20 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_list_tile.dart';
-import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/user_preferences_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
-import 'package:smooth_app/views/bottom_sheet_views/faq_handle_view.dart';
-import 'package:smooth_app/views/bottom_sheet_views/social_handle_view.dart';
-import 'package:smooth_app/views/bottom_sheet_views/user_contribution_view.dart';
 
 /// Collapsed/expanded display of settings for the preferences page.
 class UserPreferencesSettings extends AbstractUserPreferences {
@@ -110,116 +101,6 @@ class UserPreferencesSettings extends AbstractUserPreferences {
                 themeProvider,
               ),
             ),
-          ),
-        ),
-        SmoothListTile(
-          text: appLocalizations.contribute,
-          onPressed: () => showCupertinoModalBottomSheet<Widget>(
-            expand: false,
-            context: context,
-            backgroundColor: Colors.transparent,
-            bounce: true,
-            builder: (BuildContext context) => UserContributionView(),
-          ),
-        ),
-        SmoothListTile(
-          text: appLocalizations.about_this_app,
-          onPressed: () async {
-            final PackageInfo packageInfo = await PackageInfo.fromPlatform();
-            showDialog<void>(
-              context: context,
-              builder: (BuildContext context) => SmoothAlertDialog(
-                body: Column(
-                  children: <Widget>[
-                    ListTile(
-                      leading:
-                          Image.asset('assets/app/smoothie-icon.1200x1200.png'),
-                      title: FittedBox(
-                        child: Text(
-                          packageInfo.appName,
-                          style: themeData.textTheme.headline1,
-                        ),
-                      ),
-                      subtitle: Text(
-                        '${packageInfo.version}+${packageInfo.buildNumber}',
-                        style: themeData.textTheme.subtitle2,
-                      ),
-                    ),
-                    Divider(color: themeData.colorScheme.onSurface),
-                    const SizedBox(height: 20),
-                    Text(appLocalizations.whatIsOff),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        TextButton(
-                          onPressed: () => LaunchUrlHelper.launchURL(
-                              'https://openfoodfacts.org/who-we-are', true),
-                          child: Text(
-                            appLocalizations.learnMore,
-                            style: const TextStyle(
-                              color: Colors.blue,
-                            ),
-                          ),
-                        ),
-                        TextButton(
-                          onPressed: () => LaunchUrlHelper.launchURL(
-                              'https://openfoodfacts.org/terms-of-use', true),
-                          child: Text(
-                            appLocalizations.termsOfUse,
-                            style: const TextStyle(
-                              color: Colors.blue,
-                            ),
-                          ),
-                        )
-                      ],
-                    )
-                  ],
-                ),
-                actions: <SmoothActionButton>[
-                  SmoothActionButton(
-                    onPressed: () async {
-                      showLicensePage(
-                        context: context,
-                        applicationName: packageInfo.appName,
-                        applicationVersion: packageInfo.version,
-                        applicationIcon: Image.asset(
-                          'assets/app/smoothie-icon.1200x1200.png',
-                          height: MediaQuery.of(context).size.height * 0.1,
-                        ),
-                      );
-                    },
-                    text: appLocalizations.licenses,
-                    minWidth: 100,
-                  ),
-                  SmoothActionButton(
-                    onPressed: () =>
-                        Navigator.of(context, rootNavigator: true).pop(),
-                    text: appLocalizations.okay,
-                    minWidth: 100,
-                  ),
-                ],
-              ),
-            );
-          },
-        ),
-        SmoothListTile(
-          text: AppLocalizations.of(context)!.connect_with_us,
-          onPressed: () => showCupertinoModalBottomSheet<Widget>(
-            expand: false,
-            context: context,
-            backgroundColor: Colors.transparent,
-            bounce: true,
-            builder: (BuildContext context) => SocialHandleView(),
-          ),
-        ),
-        SmoothListTile(
-          text: appLocalizations.faq,
-          onPressed: () => showCupertinoModalBottomSheet<Widget>(
-            expand: false,
-            context: context,
-            backgroundColor: Colors.transparent,
-            bounce: true,
-            builder: (BuildContext context) => FaqHandleView(),
           ),
         ),
       ];

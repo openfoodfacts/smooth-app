@@ -5,7 +5,10 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/abstract_user_preferences.dart';
+import 'package:smooth_app/pages/user_preferences_connect.dart';
+import 'package:smooth_app/pages/user_preferences_contribute.dart';
 import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
+import 'package:smooth_app/pages/user_preferences_faq.dart';
 import 'package:smooth_app/pages/user_preferences_food.dart';
 import 'package:smooth_app/pages/user_preferences_profile.dart';
 import 'package:smooth_app/pages/user_preferences_settings.dart';
@@ -16,6 +19,9 @@ enum PreferencePageType {
   FOOD,
   DEV_MODE,
   SETTINGS,
+  CONTRIBUTE,
+  FAQ,
+  CONNECT,
 }
 
 /// Preferences page: main or detailed.
@@ -75,6 +81,30 @@ class _UserPreferencesPageState extends State<UserPreferencesPage> {
             appLocalizations: appLocalizations,
             themeData: themeData,
           );
+        case PreferencePageType.CONTRIBUTE:
+          return UserPreferencesContribute(
+            setState: setState,
+            context: context,
+            userPreferences: userPreferences,
+            appLocalizations: appLocalizations,
+            themeData: themeData,
+          );
+        case PreferencePageType.FAQ:
+          return UserPreferencesFaq(
+            setState: setState,
+            context: context,
+            userPreferences: userPreferences,
+            appLocalizations: appLocalizations,
+            themeData: themeData,
+          );
+        case PreferencePageType.CONNECT:
+          return UserPreferencesConnect(
+            setState: setState,
+            context: context,
+            userPreferences: userPreferences,
+            appLocalizations: appLocalizations,
+            themeData: themeData,
+          );
       }
     }
 
@@ -85,6 +115,9 @@ class _UserPreferencesPageState extends State<UserPreferencesPage> {
         PreferencePageType.PROFILE,
         PreferencePageType.FOOD,
         PreferencePageType.SETTINGS,
+        PreferencePageType.CONTRIBUTE,
+        PreferencePageType.FAQ,
+        PreferencePageType.CONNECT,
         if (userPreferences.devMode > 0) PreferencePageType.DEV_MODE,
       ];
       for (final PreferencePageType type in items) {

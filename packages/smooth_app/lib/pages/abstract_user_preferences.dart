@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/animations/smooth_animated_collapse_arrow.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/pages/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/user_preferences_page.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 
@@ -47,58 +47,30 @@ abstract class AbstractUserPreferences {
 
   Widget getOnlyHeader() => InkWell(
         onTap: () async => runHeaderAction(),
-        child: _getHeaderWidget(false),
+        child: getHeaderHelper(false),
       );
+
+  Icon getForwardIcon() => Icon(ConstantIcons.instance.getForwardIcon());
 
   /// Returns the tappable header.
   @protected
   Widget getHeader() => InkWell(
         onTap: () async => runHeaderAction(),
-        child: _getHeaderWidget(true),
-      );
-
-  Widget _getHeaderWidget(final bool? collapsed) => Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: LARGE_SPACE,
-          vertical: SMALL_SPACE,
-        ),
-        child: getHeaderHelper(collapsed),
+        child: getHeaderHelper(true),
       );
 
   /// Returns the header (helper) (no padding, no tapping).
   @protected
-  Widget getHeaderHelper(final bool? collapsed) {
-    final Widget title = Row(
-      mainAxisAlignment: isCompactTitle()
-          ? MainAxisAlignment.start
-          : MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        getTitle(),
-        if (isCompactTitle())
-          SmoothAnimatedCollapseArrow(collapsed: collapsed!)
-        else if (collapsed != null)
-          Icon(ConstantIcons.instance.getForwardIcon())
-      ],
-    );
-    final Widget? subtitle = getSubtitle();
-    if (subtitle == null) {
-      return title;
-    }
-    return Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          const SizedBox(
-            height: SMALL_SPACE,
-          ),
-          title,
-          const SizedBox(
-            height: VERY_SMALL_SPACE,
-          ),
-          subtitle
-        ]);
-  }
+  Widget getHeaderHelper(final bool? collapsed) => UserPreferencesListTile(
+        title: getTitle(),
+        subtitle: getSubtitle(),
+        isCompactTitle: isCompactTitle(),
+        icon: isCompactTitle()
+            ? SmoothAnimatedCollapseArrow(collapsed: collapsed!)
+            : collapsed != null
+                ? getForwardIcon()
+                : null,
+      );
 
   /// Body of the content.
   @protected
@@ -122,7 +94,7 @@ abstract class AbstractUserPreferences {
   /// Returns a slightly different version of [getContent] for the onboarding.
   List<Widget> getOnboardingContent() {
     final List<Widget> result = <Widget>[];
-    result.add(_getHeaderWidget(null));
+    result.add(getHeaderHelper(null));
     result.addAll(getBody());
     return result;
   }
