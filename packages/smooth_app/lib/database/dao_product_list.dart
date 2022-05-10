@@ -14,7 +14,7 @@ const int _uselessTotalSizeValue = 0;
 
 /// An immutable barcode list; e.g. my search yesterday about "Nutella"
 class _BarcodeList {
-  _BarcodeList(
+  const _BarcodeList(
     this.timestamp,
     this.barcodes,
     this.totalSize,
@@ -180,7 +180,7 @@ class DaoProductList extends AbstractDao {
     if (list == null) {
       barcodes = <String>[];
     } else {
-      barcodes = list.barcodes;
+      barcodes = _getSafeBarcodeListCopy(list.barcodes);
     }
     barcodes.remove(barcode); // removes a potential duplicate
     barcodes.add(barcode);
@@ -206,7 +206,7 @@ class DaoProductList extends AbstractDao {
     if (list == null) {
       barcodes = <String>[];
     } else {
-      barcodes = list.barcodes;
+      barcodes = _getSafeBarcodeListCopy(list.barcodes);
     }
     if (barcodes.contains(barcode)) {
       if (include) {
@@ -244,9 +244,8 @@ class DaoProductList extends AbstractDao {
     if (list == null) {
       return result;
     }
-    final List<String> barcodes = list.barcodes;
     final DaoProduct daoProduct = DaoProduct(localDatabase);
-    for (final String barcode in barcodes) {
+    for (final String barcode in list.barcodes) {
       late bool? present;
       try {
         final Product? product = await daoProduct.get(barcode);
@@ -281,4 +280,26 @@ class DaoProductList extends AbstractDao {
     }
     return result;
   }
+
+  /// Returns a write-safe copy of [_BarcodeList] barcodes.
+  ///
+  /// cf. https://github.com/openfoodfacts/smooth-app/issues/1786
+  /// As we're using hive, all the data are loaded at init time. And not
+  /// systematically refreshed at each [get] call.
+  /// Therefore, when we need a barcode list from [_BarcodeList] with the intent
+  /// to add/remove a barcode to/from that list, we can avoid concurrency issues
+  /// by copying the barcode list instead of reusing it.
+  /// Example:
+  /// BAD
+  /// ```dart
+  /// List<String> barcodes = _barcodeList.barcodes;
+  /// barcodes.add('1234'); // dangerous if somewhere else we parse the list
+  /// ```
+  /// GOOD
+  /// ```dart
+  /// List<String> barcodes = _getSafeBarcodeListCopy(_barcodeList.barcodes);
+  /// barcodes.add('1234'); // no risk at all
+  /// ```
+  List<String> _getSafeBarcodeListCopy(final List<String> barcodes) =>
+      List<String>.from(barcodes);
 }
