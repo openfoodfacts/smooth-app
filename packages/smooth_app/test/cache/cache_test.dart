@@ -2,7 +2,7 @@ import 'dart:typed_data';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:path_provider_platform_interface/path_provider_platform_interface.dart';
-import 'package:smooth_app/cache/files/files_cache.dart';
+import 'package:smooth_app/cache/files/file_cache_manager.dart';
 
 import '../utils/path_provider_mock.dart';
 
