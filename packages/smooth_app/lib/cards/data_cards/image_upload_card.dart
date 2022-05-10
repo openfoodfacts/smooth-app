@@ -56,6 +56,7 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
 
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
     // We can already have an _imageProvider for a file that is going to be uploaded
     // or an imageUrl for a network image
     // or no image yet
@@ -67,8 +68,19 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
     if (_imageProvider != null) {
       return GestureDetector(
         child: Center(
-            child:
-                Image(image: _imageProvider!, fit: BoxFit.cover, height: 1000)),
+          child: Image(
+            image: _imageProvider!,
+            fit: BoxFit.cover,
+            height: 1000,
+            errorBuilder: (BuildContext context, Object exception,
+                StackTrace? stackTrace) {
+              return Icon(
+                Icons.wifi_off,
+                size: screenSize.width / 3,
+              );
+            },
+          ),
+        ),
         onTap: () {
           // if _imageFullProvider is null, we are displaying a small network image in the carousel
           // we need to load the full resolution image

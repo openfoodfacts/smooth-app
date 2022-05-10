@@ -113,7 +113,7 @@ class _HelperState extends State<_Helper> {
         userPreferences: userPreferences,
         appLocalizations: appLocalizations,
         themeData: Theme.of(context),
-      ).getContent(),
+      ).getOnboardingContent(),
     );
     return Scaffold(
       body: Stack(
