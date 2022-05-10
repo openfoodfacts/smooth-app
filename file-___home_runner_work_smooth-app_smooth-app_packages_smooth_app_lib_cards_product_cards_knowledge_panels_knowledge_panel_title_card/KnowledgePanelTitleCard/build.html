@@ -109,9 +109,9 @@ Widget build(BuildContext context) {
       children: &lt;Widget&gt;[
         ...iconWidget,
         Expanded(
-            flex: IconWidgetSizer.getRemainingWidgetFlex(),
-            child: LayoutBuilder(
-                builder: (BuildContext context, BoxConstraints constraints) {
+          flex: IconWidgetSizer.getRemainingWidgetFlex(),
+          child: LayoutBuilder(
+            builder: (BuildContext context, BoxConstraints constraints) {
               return Wrap(
                 direction: Axis.vertical,
                 children: &lt;Widget&gt;[
@@ -130,7 +130,12 @@ Widget build(BuildContext context) {
                     ),
                 ],
               );
-            })),
+            },
+          ),
+        ),
+        const Icon(
+          Icons.keyboard_arrow_down_outlined,
+        ),
       ],
     ),
   );
