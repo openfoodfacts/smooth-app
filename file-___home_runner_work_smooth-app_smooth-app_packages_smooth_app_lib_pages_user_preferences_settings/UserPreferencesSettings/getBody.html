@@ -131,116 +131,6 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
           ),
         ),
       ),
-      SmoothListTile(
-        text: appLocalizations.contribute,
-        onPressed: () =&gt; showCupertinoModalBottomSheet&lt;Widget&gt;(
-          expand: false,
-          context: context,
-          backgroundColor: Colors.transparent,
-          bounce: true,
-          builder: (BuildContext context) =&gt; UserContributionView(),
-        ),
-      ),
-      SmoothListTile(
-        text: appLocalizations.about_this_app,
-        onPressed: () async {
-          final PackageInfo packageInfo = await PackageInfo.fromPlatform();
-          showDialog&lt;void&gt;(
-            context: context,
-            builder: (BuildContext context) =&gt; SmoothAlertDialog(
-              body: Column(
-                children: &lt;Widget&gt;[
-                  ListTile(
-                    leading:
-                        Image.asset(&#39;assets&#47;app&#47;smoothie-icon.1200x1200.png&#39;),
-                    title: FittedBox(
-                      child: Text(
-                        packageInfo.appName,
-                        style: themeData.textTheme.headline1,
-                      ),
-                    ),
-                    subtitle: Text(
-                      &#39;${packageInfo.version}+${packageInfo.buildNumber}&#39;,
-                      style: themeData.textTheme.subtitle2,
-                    ),
-                  ),
-                  Divider(color: themeData.colorScheme.onSurface),
-                  const SizedBox(height: 20),
-                  Text(appLocalizations.whatIsOff),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: &lt;Widget&gt;[
-                      TextButton(
-                        onPressed: () =&gt; LaunchUrlHelper.launchURL(
-                            &#39;https:&#47;&#47;openfoodfacts.org&#47;who-we-are&#39;, true),
-                        child: Text(
-                          appLocalizations.learnMore,
-                          style: const TextStyle(
-                            color: Colors.blue,
-                          ),
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () =&gt; LaunchUrlHelper.launchURL(
-                            &#39;https:&#47;&#47;openfoodfacts.org&#47;terms-of-use&#39;, true),
-                        child: Text(
-                          appLocalizations.termsOfUse,
-                          style: const TextStyle(
-                            color: Colors.blue,
-                          ),
-                        ),
-                      )
-                    ],
-                  )
-                ],
-              ),
-              actions: &lt;SmoothActionButton&gt;[
-                SmoothActionButton(
-                  onPressed: () async {
-                    showLicensePage(
-                      context: context,
-                      applicationName: packageInfo.appName,
-                      applicationVersion: packageInfo.version,
-                      applicationIcon: Image.asset(
-                        &#39;assets&#47;app&#47;smoothie-icon.1200x1200.png&#39;,
-                        height: MediaQuery.of(context).size.height * 0.1,
-                      ),
-                    );
-                  },
-                  text: appLocalizations.licenses,
-                  minWidth: 100,
-                ),
-                SmoothActionButton(
-                  onPressed: () =&gt;
-                      Navigator.of(context, rootNavigator: true).pop(),
-                  text: appLocalizations.okay,
-                  minWidth: 100,
-                ),
-              ],
-            ),
-          );
-        },
-      ),
-      SmoothListTile(
-        text: AppLocalizations.of(context)!.connect_with_us,
-        onPressed: () =&gt; showCupertinoModalBottomSheet&lt;Widget&gt;(
-          expand: false,
-          context: context,
-          backgroundColor: Colors.transparent,
-          bounce: true,
-          builder: (BuildContext context) =&gt; SocialHandleView(),
-        ),
-      ),
-      SmoothListTile(
-        text: appLocalizations.faq,
-        onPressed: () =&gt; showCupertinoModalBottomSheet&lt;Widget&gt;(
-          expand: false,
-          context: context,
-          backgroundColor: Colors.transparent,
-          bounce: true,
-          builder: (BuildContext context) =&gt; FaqHandleView(),
-        ),
-      ),
     ];</code></pre>
 </section>
 
@@ -278,10 +168,9 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_user_preferences_settings/UserPreferencesSettings-class.html#instance-methods">Methods</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_user_preferences_settings/UserPreferencesSettings/getBody.html">getBody</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_user_preferences_settings/UserPreferencesSettings/getPreferenceFlagKey.html">getPreferenceFlagKey</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_user_preferences_settings/UserPreferencesSettings/getPreferencePageType.html">getPreferencePageType</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_user_preferences_settings/UserPreferencesSettings/getSubtitle.html">getSubtitle</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_user_preferences_settings/UserPreferencesSettings/getTitle.html">getTitle</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_user_preferences_settings/UserPreferencesSettings/isCollapsedByDefault.html">isCollapsedByDefault</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_user_preferences_settings/UserPreferencesSettings/getTitleString.html">getTitleString</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 

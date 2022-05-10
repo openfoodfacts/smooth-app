@@ -68,7 +68,7 @@
   <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; removeBarcode(
   final String barcode,
 ) async {
-  await _daoProductList.set(
+  _daoProductList.set(
     productList,
     barcode,
     false,

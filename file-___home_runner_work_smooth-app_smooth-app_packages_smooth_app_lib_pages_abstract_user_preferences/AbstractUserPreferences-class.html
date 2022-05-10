@@ -51,7 +51,7 @@
 
     
 <section class="desc markdown">
-  <p>Abstraction of a collapsed/expanded display for the preferences page.</p>
+  <p>Abstraction of a display for the preference pages.</p>
 </section>
 
 
@@ -170,27 +170,92 @@
 </dd>
 
         <dt id="getContent" class="callable">
-  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getContent.html">getContent</a></span><span class="signature">(<wbr>)
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getContent.html">getContent</a></span><span class="signature">(<wbr><span class="parameter" id="getContent-param-withHeader">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">withHeader</span> = <span class="default-value">true</span>, </span><span class="parameter" id="getContent-param-withBody"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">withBody</span> = <span class="default-value">true</span>}</span>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a></span>
   </span>
   
 
 </dt>
 <dd>
-  Returns the header, and the body if expanded. 
+  Returns possibly the header and the body. 
   
 
 </dd>
 
-        <dt id="getPreferenceFlagKey" class="callable">
-  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getPreferenceFlagKey.html">getPreferenceFlagKey</a></span><span class="signature">(<wbr>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+        <dt id="getForwardIcon" class="callable">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getForwardIcon.html">getForwardIcon</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; dynamic</span>
   </span>
   
 
 </dt>
 <dd>
-  Flag Key to store the collapsed/expanded status 
+   
+  
+
+</dd>
+
+        <dt id="getHeader" class="callable">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getHeader.html">getHeader</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the tappable header. 
+  
+
+</dd>
+
+        <dt id="getHeaderHelper" class="callable">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getHeaderHelper.html">getHeaderHelper</a></span><span class="signature">(<wbr><span class="parameter" id="getHeaderHelper-param-collapsed"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">collapsed</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the header (helper) (no padding, no tapping). 
+  
+
+</dd>
+
+        <dt id="getOnboardingContent" class="callable">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getOnboardingContent.html">getOnboardingContent</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a slightly different version of <a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getContent.html">getContent</a> for the onboarding. 
+  
+
+</dd>
+
+        <dt id="getOnlyHeader" class="callable">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getOnlyHeader.html">getOnlyHeader</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd>
+   
+  
+
+</dd>
+
+        <dt id="getPreferencePageType" class="callable">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getPreferencePageType.html">getPreferencePageType</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the type of the corresponding page if relevant, or else null. 
   
 
 </dd>
@@ -221,15 +286,15 @@
 
 </dd>
 
-        <dt id="isCollapsedByDefault" class="callable">
-  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/isCollapsedByDefault.html">isCollapsedByDefault</a></span><span class="signature">(<wbr>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+        <dt id="getTitleString" class="callable">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getTitleString.html">getTitleString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
   </span>
   
 
 </dt>
 <dd>
-  At init time, should we be collapsed? 
+  Title of the header, always visible. 
   
 
 </dd>
@@ -257,6 +322,19 @@
 <dd class="inherited">
   Invoked when a non-existent method or property is accessed. <a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">[...]</a>
   <div class="features">inherited</div>
+
+</dd>
+
+        <dt id="runHeaderAction" class="callable">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/runHeaderAction.html">runHeaderAction</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the action when we tap on the header. 
+  
 
 </dd>
 
@@ -351,12 +429,18 @@
     <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences-class.html#instance-methods">Methods</a></li>
     <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getBody.html">getBody</a></li>
     <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getContent.html">getContent</a></li>
-    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getPreferenceFlagKey.html">getPreferenceFlagKey</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getForwardIcon.html">getForwardIcon</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getHeader.html">getHeader</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getHeaderHelper.html">getHeaderHelper</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getOnboardingContent.html">getOnboardingContent</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getOnlyHeader.html">getOnlyHeader</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getPreferencePageType.html">getPreferencePageType</a></li>
     <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getSubtitle.html">getSubtitle</a></li>
     <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getTitle.html">getTitle</a></li>
-    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/isCollapsedByDefault.html">isCollapsedByDefault</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getTitleString.html">getTitleString</a></li>
     <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/isCompactTitle.html">isCompactTitle</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/runHeaderAction.html">runHeaderAction</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
     <li class="section-title inherited"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences-class.html#operators">Operators</a></li>

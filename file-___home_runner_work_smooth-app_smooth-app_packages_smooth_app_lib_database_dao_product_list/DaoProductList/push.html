@@ -52,7 +52,7 @@
     <section class="multi-line-signature">
       
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+<span class="returntype">void</span>
 <span class="name ">push</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="push-param-productList"><span class="type-annotation">dynamic</span> <span class="parameter-name">productList</span>, </span></li>
 <li><span class="parameter" id="push-param-barcode"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">barcode</span></span></li>
 </ol>)
@@ -74,8 +74,8 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; push(final ProductList productList, final String barcode) async {
-  final _BarcodeList? list = await _get(productList);
+  <pre class="language-dart"><code class="language-dart">void push(final ProductList productList, final String barcode) {
+  final _BarcodeList? list = _get(productList);
   final List&lt;String&gt; barcodes;
   if (list == null) {
     barcodes = &lt;String&gt;[];
@@ -85,7 +85,7 @@
   barcodes.remove(barcode); &#47;&#47; removes a potential duplicate
   barcodes.add(barcode);
   final _BarcodeList newList = _BarcodeList.now(barcodes);
-  await _put(_getKey(productList), newList);
+  _put(_getKey(productList), newList);
 }</code></pre>
 </section>
 
@@ -125,6 +125,7 @@
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_product_list/DaoProductList/delete.html">delete</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_product_list/DaoProductList/export.html">export</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_product_list/DaoProductList/get.html">get</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_product_list/DaoProductList/getLength.html">getLength</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_product_list/DaoProductList/getTimestamp.html">getTimestamp</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_product_list/DaoProductList/getUserLists.html">getUserLists</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_product_list/DaoProductList/init.html">init</a></li>

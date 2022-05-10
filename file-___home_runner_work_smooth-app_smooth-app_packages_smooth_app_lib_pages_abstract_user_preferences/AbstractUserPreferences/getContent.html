@@ -53,24 +53,31 @@
       
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a></span>
-<span class="name ">getContent</span>(<wbr>)
+<span class="name ">getContent</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getContent-param-withHeader">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">withHeader</span> = <span class="default-value">true</span>, </span></li>
+<li><span class="parameter" id="getContent-param-withBody"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">withBody</span> = <span class="default-value">true</span>}</span></li>
+</ol>)
 
       
 
     </section>
     
 <section class="desc markdown">
-  <p>Returns the header, and the body if expanded.</p>
+  <p>Returns possibly the header and the body.</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">List&lt;Widget&gt; getContent() {
+  <pre class="language-dart"><code class="language-dart">List&lt;Widget&gt; getContent({
+  final bool withHeader = true,
+  final bool withBody = true,
+}) {
   final List&lt;Widget&gt; result = &lt;Widget&gt;[];
-  result.add(_getHeader(userPreferences));
-  if (!_isCollapsed(userPreferences)) {
+  if (withHeader) {
+    result.add(getHeader());
+  }
+  if (withBody) {
     result.addAll(getBody());
   }
   return result;
@@ -116,12 +123,18 @@
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences-class.html#instance-methods">Methods</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getBody.html">getBody</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getContent.html">getContent</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getPreferenceFlagKey.html">getPreferenceFlagKey</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getForwardIcon.html">getForwardIcon</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getHeader.html">getHeader</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getHeaderHelper.html">getHeaderHelper</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getOnboardingContent.html">getOnboardingContent</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getOnlyHeader.html">getOnlyHeader</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getPreferencePageType.html">getPreferencePageType</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getSubtitle.html">getSubtitle</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getTitle.html">getTitle</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/isCollapsedByDefault.html">isCollapsedByDefault</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/getTitleString.html">getTitleString</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/isCompactTitle.html">isCompactTitle</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences/runHeaderAction.html">runHeaderAction</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
     <li class="section-title inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_abstract_user_preferences/AbstractUserPreferences-class.html#operators">Operators</a></li>
