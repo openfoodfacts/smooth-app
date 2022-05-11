@@ -47,8 +47,8 @@ abstract class ProductQuery {
   /// Sets the uuid id as "final variable", for instance for API queries.
   ///
   /// To be called at main / init.
-  static Future<void> setUuid(final LocalDatabase _localDatabase) async {
-    final DaoString uuidString = DaoString(_localDatabase);
+  static Future<void> setUuid(final LocalDatabase localDatabase) async {
+    final DaoString uuidString = DaoString(localDatabase);
     String? uuid = await uuidString.get(_UUID_NAME);
 
     if (uuid == null) {

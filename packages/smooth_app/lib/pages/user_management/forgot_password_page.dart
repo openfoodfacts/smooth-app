@@ -183,15 +183,6 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                         Navigator.pop(context);
                       }
                     },
-                    child: Text(
-                      _send
-                          ? appLocalizations.close
-                          : appLocalizations.send_reset_password_mail,
-                      style: theme.textTheme.bodyText2?.copyWith(
-                        fontSize: 18.0,
-                        color: theme.colorScheme.surface,
-                      ),
-                    ),
                     style: ButtonStyle(
                       minimumSize: MaterialStateProperty.all<Size>(
                         Size(size.width * 0.5, theme.buttonTheme.height + 10),
@@ -200,6 +191,15 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                         const RoundedRectangleBorder(
                           borderRadius: CIRCULAR_BORDER_RADIUS,
                         ),
+                      ),
+                    ),
+                    child: Text(
+                      _send
+                          ? appLocalizations.close
+                          : appLocalizations.send_reset_password_mail,
+                      style: theme.textTheme.bodyText2?.copyWith(
+                        fontSize: 18.0,
+                        color: theme.colorScheme.surface,
                       ),
                     ),
                   ),

@@ -292,13 +292,13 @@ class _ProductPageState extends State<ProductPage> {
       children: <Widget>[
         ElevatedButton(
           onPressed: onPressed,
-          child: Icon(iconData, color: colorScheme.onPrimary),
           style: ElevatedButton.styleFrom(
             shape: const CircleBorder(),
             padding: const EdgeInsets.all(
                 18), // TODO(monsieurtanuki): cf. FloatingActionButton
             primary: colorScheme.primary,
           ),
+          child: Icon(iconData, color: colorScheme.onPrimary),
         ),
         const SizedBox(height: VERY_SMALL_SPACE),
         Text(label),
@@ -344,9 +344,9 @@ class _ProductPageState extends State<ProductPage> {
             Wrap(
               alignment: WrapAlignment.start,
               direction: Axis.horizontal,
-              children: children,
               spacing: VERY_SMALL_SPACE,
               runSpacing: VERY_SMALL_SPACE,
+              children: children,
             ),
           ],
         ),

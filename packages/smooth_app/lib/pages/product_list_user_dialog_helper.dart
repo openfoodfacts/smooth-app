@@ -18,19 +18,19 @@ class ProductListUserDialogHelper {
   ) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
 
-    final TextEditingController _textEditingController =
+    final TextEditingController textEditingController =
         TextEditingController();
-    final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+    final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
     final String? title = await showDialog<String>(
       context: context,
       builder: (final BuildContext context) => AlertDialog(
         title: Text(appLocalizations.user_list_dialog_new_title),
         content: Form(
-          key: _formKey,
+          key: formKey,
           child: SmoothTextFormField(
             type: TextFieldTypes.PLAIN_TEXT,
-            controller: _textEditingController,
+            controller: textEditingController,
             hintText: appLocalizations.user_list_name_hint,
             textInputAction: TextInputAction.done,
             validator: (String? value) {
@@ -52,10 +52,10 @@ class ProductListUserDialogHelper {
           ),
           ElevatedButton(
             onPressed: () {
-              if (!_formKey.currentState!.validate()) {
+              if (!formKey.currentState!.validate()) {
                 return;
               }
-              Navigator.pop(context, _textEditingController.text);
+              Navigator.pop(context, textEditingController.text);
             },
             child: Text(appLocalizations.okay),
           ),
@@ -172,21 +172,21 @@ class ProductListUserDialogHelper {
     final ProductList initialProductList,
   ) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-    final TextEditingController _textEditingController =
+    final TextEditingController textEditingController =
         TextEditingController();
-    final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+    final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
     final String initialName = initialProductList.parameters;
-    _textEditingController.text = initialName;
+    textEditingController.text = initialName;
     final String? newName = await showDialog<String>(
       context: context,
       builder: (final BuildContext context) => AlertDialog(
         title: Text(appLocalizations.user_list_dialog_rename_title),
         content: Form(
-          key: _formKey,
+          key: formKey,
           child: SmoothTextFormField(
             type: TextFieldTypes.PLAIN_TEXT,
-            controller: _textEditingController,
+            controller: textEditingController,
             hintText: appLocalizations.user_list_name_hint,
             textInputAction: TextInputAction.done,
             validator: (String? value) {
@@ -211,10 +211,10 @@ class ProductListUserDialogHelper {
           ),
           ElevatedButton(
             onPressed: () {
-              if (!_formKey.currentState!.validate()) {
+              if (!formKey.currentState!.validate()) {
                 return;
               }
-              Navigator.pop(context, _textEditingController.text);
+              Navigator.pop(context, textEditingController.text);
             },
             child: Text(appLocalizations.okay),
           ),

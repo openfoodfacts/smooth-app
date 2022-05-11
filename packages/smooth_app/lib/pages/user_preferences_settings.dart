@@ -77,16 +77,16 @@ class UserPreferencesSettings extends AbstractUserPreferences {
                 },
                 items: <DropdownMenuItem<String>>[
                   DropdownMenuItem<String>(
-                    child: Text(appLocalizations.darkmode_system_default),
                     value: THEME_SYSTEM_DEFAULT,
+                    child: Text(appLocalizations.darkmode_system_default),
                   ),
                   DropdownMenuItem<String>(
-                    child: Text(appLocalizations.darkmode_light),
                     value: THEME_LIGHT,
+                    child: Text(appLocalizations.darkmode_light),
                   ),
                   DropdownMenuItem<String>(
-                    child: Text(appLocalizations.darkmode_dark),
                     value: THEME_DARK,
+                    child: Text(appLocalizations.darkmode_dark),
                   )
                 ],
               ),

@@ -42,8 +42,8 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     BuildContext context,
     double adjustmentFactor,
   ) {
-    final double _columnSize = MediaQuery.of(context).size.width;
-    return _columnSize * adjustmentFactor;
+    final double columnSize = MediaQuery.of(context).size.width;
+    return columnSize * adjustmentFactor;
   }
 
   final Map<String, TextEditingController> _controllers =

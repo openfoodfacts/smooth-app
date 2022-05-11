@@ -128,11 +128,6 @@ class _ProductListPageState extends State<ProductListPage> {
           children: <Widget>[
             if (_selectionMode)
               ElevatedButton(
-                child: Text(
-                  appLocalizations.plural_compare_x_products(
-                    _selectedBarcodes.length,
-                  ),
-                ),
                 onPressed: _selectedBarcodes.length >=
                         2 // compare button is enabled only if 2 or more products have been selected
                     ? () async {
@@ -155,6 +150,11 @@ class _ProductListPageState extends State<ProductListPage> {
                         setState(() => _selectionMode = false);
                       }
                     : null,
+                child: Text(
+                  appLocalizations.plural_compare_x_products(
+                    _selectedBarcodes.length,
+                  ),
+                ),
               ),
             if (_selectionMode)
               ElevatedButton(

@@ -132,8 +132,8 @@ class _ListTitleItem extends StatelessWidget {
       title: Text(title),
       subtitle: subtitle == null ? null : Text(subtitle!),
       leading: ElevatedButton(
-        child: Text(appLocalizations!.edit_product_form_save),
         onPressed: onTap,
+        child: Text(appLocalizations!.edit_product_form_save),
       ),
     );
   }

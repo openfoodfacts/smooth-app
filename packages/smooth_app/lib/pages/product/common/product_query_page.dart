@@ -310,7 +310,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                     ),
                     SliverList(
                       delegate: SliverChildBuilderDelegate(
-                        (BuildContext _context, int index) {
+                        (BuildContext context, int index) {
                           if (index >= _model.displayProducts!.length) {
                             // final button
                             final int already = _model.displayProducts!.length;
@@ -376,7 +376,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                                   themeData.brightness == Brightness.light
                                       ? 0.0
                                       : 4.0,
-                            ).build(_context),
+                            ).build(context),
                           );
                         },
                         childCount: _model.displayProducts!.length + 1,

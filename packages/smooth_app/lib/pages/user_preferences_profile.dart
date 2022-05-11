@@ -166,13 +166,6 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
                 ),
               );
             },
-            child: Text(
-              appLocalizations.sign_in,
-              style: theme.textTheme.bodyText2?.copyWith(
-                fontSize: 18.0,
-                color: theme.colorScheme.surface,
-              ),
-            ),
             style: ButtonStyle(
               minimumSize: MaterialStateProperty.all<Size>(
                 Size(size.width * 0.5, theme.buttonTheme.height + 10),
@@ -181,6 +174,13 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
                 const RoundedRectangleBorder(
                   borderRadius: CIRCULAR_BORDER_RADIUS,
                 ),
+              ),
+            ),
+            child: Text(
+              appLocalizations.sign_in,
+              style: theme.textTheme.bodyText2?.copyWith(
+                fontSize: 18.0,
+                color: theme.colorScheme.surface,
               ),
             ),
           ),

@@ -238,7 +238,7 @@ class UserContributionView extends StatelessWidget {
                 return Wrap(
                   crossAxisAlignment: WrapCrossAlignment.center,
                   children: contributors.map((dynamic contributorsData) {
-                    final ContributorsModel _contributor =
+                    final ContributorsModel contributor =
                         ContributorsModel.fromJson(
                             contributorsData as Map<String, dynamic>);
                     return Padding(
@@ -246,10 +246,10 @@ class UserContributionView extends StatelessWidget {
                       child: InkWell(
                         onTap: () {
                           LaunchUrlHelper.launchURL(
-                              _contributor.profilePath, false);
+                              contributor.profilePath, false);
                         },
                         child: CircleAvatar(
-                          foregroundImage: NetworkImage(_contributor.avatarUrl),
+                          foregroundImage: NetworkImage(contributor.avatarUrl),
                           backgroundColor:
                               Theme.of(context).colorScheme.primary,
                         ),

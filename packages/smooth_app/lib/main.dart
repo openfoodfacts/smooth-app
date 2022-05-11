@@ -227,8 +227,8 @@ class SmoothAppGetLanguage extends StatelessWidget {
     ProductQuery.setLanguage(languageCode);
     context.read<ProductPreferences>().refresh(languageCode);
 
-    final LocalDatabase _localDatabase = context.read<LocalDatabase>();
-    AnalyticsHelper.trackStart(_localDatabase, context);
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    AnalyticsHelper.trackStart(localDatabase, context);
 
     return appWidget;
   }

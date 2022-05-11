@@ -262,13 +262,6 @@ class _SignUpPageState extends State<SignUpPage> {
             const SizedBox(height: space),
             ElevatedButton(
               onPressed: () async => _signUp(),
-              child: Text(
-                appLocalizations.sign_up_page_action_button,
-                style: theme.textTheme.bodyText2?.copyWith(
-                  fontSize: 18.0,
-                  color: theme.colorScheme.surface,
-                ),
-              ),
               style: ButtonStyle(
                 minimumSize: MaterialStateProperty.all<Size>(
                   Size(size.width * 0.5, theme.buttonTheme.height + 10),
@@ -277,6 +270,13 @@ class _SignUpPageState extends State<SignUpPage> {
                   const RoundedRectangleBorder(
                     borderRadius: CIRCULAR_BORDER_RADIUS,
                   ),
+                ),
+              ),
+              child: Text(
+                appLocalizations.sign_up_page_action_button,
+                style: theme.textTheme.bodyText2?.copyWith(
+                  fontSize: 18.0,
+                  color: theme.colorScheme.surface,
                 ),
               ),
             ),

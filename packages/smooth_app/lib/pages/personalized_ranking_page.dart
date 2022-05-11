@@ -232,13 +232,13 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
           ? null
           : Container(
               padding: const EdgeInsets.all(8),
+              color: color,
               child: Center(
                 child: Text(
                   subtitle,
                   style: const TextStyle(color: Colors.white),
                 ),
               ),
-              color: color,
             );
 
   String? _getSubtitle(
