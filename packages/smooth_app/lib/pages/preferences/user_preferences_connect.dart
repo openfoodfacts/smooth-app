@@ -6,9 +6,9 @@ import 'package:mailto/mailto.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
-import 'package:smooth_app/pages/abstract_user_preferences.dart';
-import 'package:smooth_app/pages/user_preferences_list_tile.dart';
-import 'package:smooth_app/pages/user_preferences_page.dart';
+import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 /// Display of "Connect" for the preferences page.

@@ -133,7 +133,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                           content: Text(
                               appLocalizations.basic_details_add_success)));
-                      Navigator.pop(context);
+                      Navigator.pop(context, true);
                     }),
               ],
             ),
