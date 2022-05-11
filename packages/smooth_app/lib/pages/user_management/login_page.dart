@@ -52,6 +52,9 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     if (login) {
+      if (!mounted) {
+        return;
+      }
       Navigator.pop(context);
     } else {
       setState(() {
@@ -71,7 +74,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Size size = MediaQuery.of(context).size;
     final bool isDarkMode =
         Provider.of<ThemeProvider>(context, listen: false).isDarkMode(context);
@@ -230,6 +233,9 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         );
                         if (registered == true) {
+                          if (!mounted) {
+                            return;
+                          }
                           Navigator.of(context).pop();
                         }
                       },

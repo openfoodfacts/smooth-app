@@ -39,7 +39,9 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
         _imageProvider = FileImage(croppedImageFile);
         _imageFullProvider = _imageProvider;
       });
-
+      if (!mounted) {
+        return;
+      }
       final bool isUploaded = await uploadCapturedPicture(
         context,
         barcode: widget.product
@@ -48,6 +50,9 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
         imageUri: croppedImageFile.uri,
       );
       croppedImageFile.delete();
+      if (!mounted) {
+        return;
+      }
       if (isUploaded) {
         widget.onUpload(context);
       }

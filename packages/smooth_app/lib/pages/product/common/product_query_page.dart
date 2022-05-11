@@ -80,7 +80,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
       value: _model,
       builder: (BuildContext context, Widget? wtf) {
         context.watch<ProductQueryModel>();
-        final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+        final AppLocalizations appLocalizations = AppLocalizations.of(context);
         final Size screenSize = MediaQuery.of(context).size;
         final ThemeData themeData = Theme.of(context);
         if (_model.loadingStatus == LoadingStatus.LOADED) {
@@ -258,7 +258,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                                 Icons.filter_list,
                                 color: widget.mainColor,
                               ),
-                              label: Text(AppLocalizations.of(context)!.filter,
+                              label: Text(AppLocalizations.of(context).filter,
                                   style: themeData.textTheme.subtitle1!
                                       .copyWith(color: widget.mainColor)),
                               style: TextButton.styleFrom(
@@ -434,7 +434,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
         ProductQueryPageHelper.getDurationStringFromTimestamp(
             _lastUpdate!, context);
     final String message =
-        '${AppLocalizations.of(context)!.cached_results_from} $lastTime';
+        '${AppLocalizations.of(context).cached_results_from} $lastTime';
     _lastUpdate = null;
 
     Future<void>.delayed(
@@ -444,7 +444,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
           content: Text(message),
           duration: const Duration(seconds: 5),
           action: SnackBarAction(
-            label: AppLocalizations.of(context)!.label_refresh,
+            label: AppLocalizations.of(context).label_refresh,
             onPressed: () async {
               final bool? error = await LoadingDialog.run<bool>(
                 context: context,

@@ -56,7 +56,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
       productPreferences,
       context.watch<UserPreferences>(),
     );
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<Color> colors = <Color>[];
     final List<String> titles = <String>[];
     final List<List<MatchedProduct>> matchedProductsList =

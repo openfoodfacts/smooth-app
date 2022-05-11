@@ -105,7 +105,7 @@ class _ProductPageState extends State<ProductPage> {
 
   Future<void> _refreshProduct(BuildContext context) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ProductDialogHelper productDialogHelper = ProductDialogHelper(
       barcode: _product.barcode!,
       context: context,
@@ -115,6 +115,9 @@ class _ProductPageState extends State<ProductPage> {
     final FetchedProduct fetchedProduct =
         await productDialogHelper.openUniqueProductSearch();
     if (fetchedProduct.status == FetchedProductStatus.ok) {
+      if (!mounted) {
+        return;
+      }
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(appLocalizations.product_refreshed),
@@ -122,6 +125,9 @@ class _ProductPageState extends State<ProductPage> {
         ),
       );
       setState(() => _product = fetchedProduct.product!);
+      if (!mounted) {
+        return;
+      }
       await _updateLocalDatabaseWithProductHistory(context, _product);
     } else {
       productDialogHelper.openError(fetchedProduct);
@@ -137,7 +143,7 @@ class _ProductPageState extends State<ProductPage> {
   }
 
   Widget _buildProductBody(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
     final List<String> productListNames =
@@ -198,6 +204,9 @@ class _ProductPageState extends State<ProductPage> {
               );
               if (siblingsData == null) {
                 // TODO(monsieurtanuki): what shall we do?
+                return;
+              }
+              if (!mounted) {
                 return;
               }
               final String? newTag = await Navigator.push<String>(
@@ -271,6 +280,9 @@ class _ProductPageState extends State<ProductPage> {
                   ),
                 );
                 if (refreshed == true) {
+                  if (!mounted) {
+                    return;
+                  }
                   await _refreshProduct(context);
                 }
               },
@@ -319,6 +331,9 @@ class _ProductPageState extends State<ProductPage> {
           onPressed: () async {
             final ProductList productList = ProductList.user(productListName);
             await daoProductList.get(productList);
+            if (!mounted) {
+              return;
+            }
             await Navigator.push<void>(
               context,
               MaterialPageRoute<void>(

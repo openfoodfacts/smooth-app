@@ -15,7 +15,7 @@ class ConsentAnalytics extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     const String assetName = 'assets/onboarding/analytics.svg';
     return Scaffold(
       body: Center(
@@ -105,10 +105,12 @@ class ConsentAnalytics extends StatelessWidget {
   ) async {
     await userPreferences.setCrashReports(accept);
     await userPreferences.setAnalyticsReports(accept);
+    //ignore: use_build_context_synchronously
     await OnboardingLoader(localDatabase).runAtNextTime(
       OnboardingPage.CONSENT_PAGE,
       context,
     );
+    //ignore: use_build_context_synchronously
     OnboardingFlowNavigator(userPreferences).navigateToPage(
       context,
       OnboardingFlowNavigator.getNextPage(OnboardingPage.CONSENT_PAGE),

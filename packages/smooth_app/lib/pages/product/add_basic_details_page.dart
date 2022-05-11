@@ -37,7 +37,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Size size = MediaQuery.of(context).size;
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
@@ -130,6 +130,9 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                             appLocalizations.basic_details_add_error);
                         return;
                       }
+                      if (!mounted) {
+                        return;
+                      }
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                           content: Text(
                               appLocalizations.basic_details_add_success)));
@@ -152,7 +155,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
           ),
           actions: <SmoothActionButton>[
             SmoothActionButton(
-              text: AppLocalizations.of(context)!.close,
+              text: AppLocalizations.of(context).close,
               onPressed: () => Navigator.pop(context),
             ),
           ],
@@ -160,7 +163,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
       );
 
   Future<Status?> _saveData() async {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Product product = Product(
       productName: _productNameController.text,
       quantity: _weightController.text,

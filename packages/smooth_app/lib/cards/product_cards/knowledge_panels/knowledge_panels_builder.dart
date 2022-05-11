@@ -124,7 +124,7 @@ class KnowledgePanelsBuilder {
         final bool nutritionAddOrUpdate = product.statesTags
                 ?.contains('en:nutrition-facts-to-be-completed') ??
             false;
-        final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+        final AppLocalizations appLocalizations = AppLocalizations.of(context);
         knowledgePanelElementWidgets.add(
           addPanelButton(
             nutritionAddOrUpdate
@@ -137,6 +137,7 @@ class KnowledgePanelsBuilder {
               if (cache == null) {
                 return;
               }
+              //ignore: use_build_context_synchronously
               final bool? refreshed = await Navigator.push<bool>(
                 context,
                 MaterialPageRoute<bool>(

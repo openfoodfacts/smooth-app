@@ -148,7 +148,7 @@ class _SummaryCardState extends State<SummaryCard> {
                 ),
                 child: Center(
                   child: Text(
-                    AppLocalizations.of(context)!.tab_for_more,
+                    AppLocalizations.of(context).tab_for_more,
                     style:
                         Theme.of(context).primaryTextTheme.bodyText1?.copyWith(
                               color: PRIMARY_BLUE_COLOR,
@@ -165,7 +165,7 @@ class _SummaryCardState extends State<SummaryCard> {
 
   Widget _buildSummaryCardContent(BuildContext context) {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final AppLocalizations localizations = AppLocalizations.of(context)!;
+    final AppLocalizations localizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.read<UserPreferences>();
 
     final List<String> excludedAttributeIds =
@@ -353,7 +353,7 @@ class _SummaryCardState extends State<SummaryCard> {
       padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
       child: Center(
         child: Text(
-          helper.getHeaderText(AppLocalizations.of(context)!),
+          helper.getHeaderText(AppLocalizations.of(context)),
           style: Theme.of(context)
               .textTheme
               .subtitle1!
@@ -510,7 +510,7 @@ class _SummaryCardState extends State<SummaryCard> {
   }
 
   Widget _buildProductQuestionsWidget() {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return FutureBuilder<List<RobotoffQuestion>>(
         future: _loadProductQuestions(),
         builder: (
@@ -571,6 +571,9 @@ class _SummaryCardState extends State<SummaryCard> {
     // Or the backend may have new ones.
     final List<RobotoffQuestion> questions =
         await _loadProductQuestions() ?? <RobotoffQuestion>[];
+    if (!mounted) {
+      return;
+    }
     final RobotoffInsightHelper robotoffInsightHelper =
         RobotoffInsightHelper(context.read<LocalDatabase>());
     if (questions.isEmpty) {
@@ -581,6 +584,9 @@ class _SummaryCardState extends State<SummaryCard> {
         await robotoffInsightHelper.haveInsightAnnotationsVoted(questions);
     // Reload the product as it may have been updated because of the
     // new answers.
+    if (!mounted) {
+      return;
+    }
     widget.refreshProductCallback?.call(context);
   }
 
@@ -588,7 +594,9 @@ class _SummaryCardState extends State<SummaryCard> {
     final List<RobotoffQuestion> questions =
         await RobotoffQuestionsQuery(widget._product.barcode!)
             .getRobotoffQuestionsForProduct();
+
     final RobotoffInsightHelper robotoffInsightHelper =
+        //ignore: use_build_context_synchronously
         RobotoffInsightHelper(context.read<LocalDatabase>());
     _annotationVoted =
         await robotoffInsightHelper.haveInsightAnnotationsVoted(questions);
@@ -596,7 +604,7 @@ class _SummaryCardState extends State<SummaryCard> {
   }
 
   void _showNotImplemented(BuildContext context) {
-    final AppLocalizations localizations = AppLocalizations.of(context)!;
+    final AppLocalizations localizations = AppLocalizations.of(context);
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(localizations.not_implemented_snackbar_text),

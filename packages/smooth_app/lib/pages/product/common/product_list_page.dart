@@ -42,7 +42,7 @@ class _ProductListPageState extends State<ProductListPage> {
     final DaoProductList daoProductList = DaoProductList(localDatabase);
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     if (first) {
       first = false;
       productList = widget.productList;
@@ -82,6 +82,9 @@ class _ProductListPageState extends State<ProductListPage> {
                                     await daoProductList.clear(productList);
                                     await daoProductList.get(productList);
                                     setState(() {});
+                                    if (!mounted) {
+                                      return;
+                                    }
                                     Navigator.of(context).pop();
                                   },
                                   text: appLocalizations.yes,
@@ -284,6 +287,9 @@ class _ProductListPageState extends State<ProductListPage> {
                           _selectedBarcodes.remove(product.barcode);
                           setState(() => products.removeAt(index));
                         }
+                        if (!mounted) {
+                          return;
+                        }
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text(
@@ -324,6 +330,9 @@ class _ProductListPageState extends State<ProductListPage> {
       case null: // user clicked on "stop"
         return;
       case true:
+        if (!mounted) {
+          return;
+        }
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(appLocalizations.product_list_reloading_success),

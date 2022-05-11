@@ -19,14 +19,14 @@ class TrackingDatabaseHelper {
   }
 
   int? getPreviousVisitUnix() {
-    const String latestVisit = 'previousVisitUnix';
+    const String latestVisitKey = 'previousVisitUnix';
 
     final DaoInt daoInt = DaoInt(_localDatabase);
 
-    final int? latestVisit = daoInt.get(latestVisit);
+    final int? latestVisit = daoInt.get(latestVisitKey);
 
     daoInt.put(
-      latestVisit,
+      latestVisitKey,
       DateTime.now().millisecondsSinceEpoch,
     );
 
@@ -34,15 +34,15 @@ class TrackingDatabaseHelper {
   }
 
   int? getFirstVisitUnix() {
-    const String firstVisit = 'firstVisitUnix';
+    const String firstVisitKey = 'firstVisitUnix';
 
     final DaoInt daoInt = DaoInt(_localDatabase);
 
-    final int? firstVisit = daoInt.get(firstVisit);
+    final int? firstVisit = daoInt.get(firstVisitKey);
 
     if (firstVisit == null) {
       daoInt.put(
-        firstVisit,
+        firstVisitKey,
         DateTime.now().millisecondsSinceEpoch,
       );
     }

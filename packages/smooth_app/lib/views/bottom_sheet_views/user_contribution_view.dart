@@ -12,7 +12,7 @@ import 'package:smooth_app/helpers/list_helper.dart';
 class UserContributionView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<ListHelper> tileData = <ListHelper>[
       //Contribute
       ListHelper(
@@ -81,7 +81,7 @@ class UserContributionView extends StatelessWidget {
     return showDialog<void>(
       context: context,
       builder: (BuildContext context) {
-        final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+        final AppLocalizations appLocalizations = AppLocalizations.of(context);
         return SmoothAlertDialog.advanced(
           close: false,
           maxHeight: MediaQuery.of(context).size.height * 0.35,
@@ -122,7 +122,7 @@ class UserContributionView extends StatelessWidget {
     return showDialog<void>(
       context: context,
       builder: (BuildContext context) {
-        final AppLocalizations applocalization = AppLocalizations.of(context)!;
+        final AppLocalizations applocalization = AppLocalizations.of(context);
         return SmoothAlertDialog.advanced(
           maxHeight: MediaQuery.of(context).size.height * 0.35,
           title: applocalization.contribute_sw_development,
@@ -183,7 +183,7 @@ class UserContributionView extends StatelessWidget {
     return showDialog<void>(
       context: context,
       builder: (BuildContext context) {
-        final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+        final AppLocalizations appLocalizations = AppLocalizations.of(context);
         return SmoothAlertDialog.advanced(
           title: appLocalizations.contribute_translate_header,
           maxHeight: MediaQuery.of(context).size.height * 0.25,
@@ -212,7 +212,7 @@ class UserContributionView extends StatelessWidget {
 
   Future<void> _donate(BuildContext context) async {
     await LaunchUrlHelper.launchURL(
-      AppLocalizations.of(context)!.donate_url,
+      AppLocalizations.of(context).donate_url,
       false,
     );
   }
@@ -222,7 +222,7 @@ class UserContributionView extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return SmoothAlertDialog.advanced(
-          title: AppLocalizations.of(context)!.contributors,
+          title: AppLocalizations.of(context).contributors,
           maxHeight: MediaQuery.of(context).size.height * 0.45,
           body: FutureBuilder<http.Response>(
             future: http.get(
@@ -266,7 +266,7 @@ class UserContributionView extends StatelessWidget {
             SmoothActionButton(
               onPressed: () => LaunchUrlHelper.launchURL(
                   'https://github.com/openfoodfacts/smooth-app', false),
-              text: AppLocalizations.of(context)!.contribute,
+              text: AppLocalizations.of(context).contribute,
               minWidth: 200,
             ),
           ],

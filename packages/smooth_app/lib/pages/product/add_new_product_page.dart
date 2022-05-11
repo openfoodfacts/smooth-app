@@ -43,7 +43,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ThemeData themeData = Theme.of(context);
     return Scaffold(
       appBar: AppBar(automaticallyImplyLeading: !_isProductLoaded),
@@ -135,6 +135,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
           }
           // Photo can change in the ConfirmAndUploadPicture widget, the user
           // may choose to retake the image.
+          //ignore: use_build_context_synchronously
           final File? finalPhoto = await Navigator.push<File?>(
             context,
             MaterialPageRoute<File?>(
@@ -176,7 +177,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
   }
 
   String _getAddPhotoButtonText(BuildContext context, ImageField imageType) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     switch (imageType) {
       case ImageField.FRONT:
         return appLocalizations.front_packaging_photo_button_label;
@@ -193,7 +194,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
 
   String _getPhotoUploadedLabelText(
       BuildContext context, ImageField imageType) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     switch (imageType) {
       case ImageField.FRONT:
         return appLocalizations.front_photo_uploaded;
@@ -230,7 +231,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
               Expanded(
                 child: Center(
                   child: Text(
-                      AppLocalizations.of(context)!.nutritional_facts_added,
+                      AppLocalizations.of(context).nutritional_facts_added,
                       style: Theme.of(context).textTheme.bodyText1),
                 ),
               ),
@@ -241,21 +242,28 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
     return Padding(
       padding: _ROW_PADDING_TOP,
       child: SmoothLargeButtonWithIcon(
-        text:
-            AppLocalizations.of(context)!.nutritional_facts_input_button_label,
+        text: AppLocalizations.of(context).nutritional_facts_input_button_label,
         icon: Icons.edit,
         onPressed: () async {
           final OrderedNutrientsCache? cache =
               await OrderedNutrientsCache.getCache(context);
           if (cache == null) {
+            if (!mounted) {
+              return;
+            }
             final SnackBar snackBar = SnackBar(
               content: Text(
-                  AppLocalizations.of(context)!.nutrition_cache_loading_error),
+                  AppLocalizations.of(context).nutrition_cache_loading_error),
             );
+            if (!mounted) {
+              return;
+            }
             ScaffoldMessenger.of(context).showSnackBar(snackBar);
             return;
           }
-
+          if (!mounted) {
+            return;
+          }
           final bool result = await Navigator.push<bool>(
                 context,
                 MaterialPageRoute<bool>(

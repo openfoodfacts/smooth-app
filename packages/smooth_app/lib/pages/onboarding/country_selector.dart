@@ -48,7 +48,7 @@ class _CountrySelectorState extends State<CountrySelector> {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final TextEditingController countryController = TextEditingController();
     return FutureBuilder<void>(
       future: _initFuture,

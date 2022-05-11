@@ -16,7 +16,7 @@ class ProductListUserDialogHelper {
   Future<ProductList?> showCreateUserListDialog(
     final BuildContext context,
   ) async {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     final TextEditingController textEditingController =
         TextEditingController();
@@ -76,7 +76,7 @@ class ProductListUserDialogHelper {
     final Product product,
   ) async {
     final String barcode = product.barcode!;
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<String> all = daoProductList.getUserLists();
     final List<String> withBarcode =
         daoProductList.getUserLists(withBarcode: barcode);
@@ -171,7 +171,7 @@ class ProductListUserDialogHelper {
     final BuildContext context,
     final ProductList initialProductList,
   ) async {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final TextEditingController textEditingController =
         TextEditingController();
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();

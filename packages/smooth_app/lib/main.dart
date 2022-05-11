@@ -129,9 +129,16 @@ class _SmoothAppState extends State<SmoothApp> {
   Future<bool> _init2() async {
     await _init1();
     systemDarkmodeOn = brightness == Brightness.dark;
+    if (!mounted) {
+      return false;
+    }
     await _productPreferences.init(DefaultAssetBundle.of(context));
     if (!_screenshots) {
       await _userPreferences.init(_productPreferences);
+    }
+
+    if (!mounted) {
+      return false;
     }
     AnalyticsHelper.initMatomo(context, _screenshots);
     return true;

@@ -39,7 +39,7 @@ class _KnowledgePanelPageTemplateState
   late Future<void> _initFuture;
   late KnowledgePanels _knowledgePanels;
   bool _isHintDismissed = false;
-  late final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+  late final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
   @override
   void initState() {
@@ -62,7 +62,7 @@ class _KnowledgePanelPageTemplateState
         builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
           if (snapshot.hasError) {
             final AppLocalizations appLocalizations =
-                AppLocalizations.of(context)!;
+                AppLocalizations.of(context);
             return Text(
               appLocalizations
                   .knowledge_panel_page_loading_error(snapshot.error),

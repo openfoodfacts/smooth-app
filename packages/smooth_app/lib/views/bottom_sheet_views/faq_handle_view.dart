@@ -14,27 +14,27 @@ class FaqHandleView extends StatelessWidget {
           shrinkWrap: true,
           scrollDirection: Axis.vertical,
           children: <Widget>[
-            ModalBottomSheetHeader(title: AppLocalizations.of(context)!.faq),
+            ModalBottomSheetHeader(title: AppLocalizations.of(context).faq),
             SmoothListTile(
-              text: AppLocalizations.of(context)!.faq,
+              text: AppLocalizations.of(context).faq,
               leadingWidget: const Icon(Icons.open_in_new),
               onPressed: () =>
                   _launchUrl(context, 'https://world.openfoodfacts.org/faq'),
             ),
             SmoothListTile(
-              text: AppLocalizations.of(context)!.discover,
+              text: AppLocalizations.of(context).discover,
               leadingWidget: const Icon(Icons.open_in_new),
               onPressed: () => _launchUrl(
                   context, 'https://world.openfoodfacts.org/discover'),
             ),
             SmoothListTile(
-              text: AppLocalizations.of(context)!.how_to_contribute,
+              text: AppLocalizations.of(context).how_to_contribute,
               leadingWidget: const Icon(Icons.open_in_new),
               onPressed: () => _launchUrl(
                   context, 'https://world.openfoodfacts.org/contribute'),
             ),
             SmoothListTile(
-              text: AppLocalizations.of(context)!.support,
+              text: AppLocalizations.of(context).support,
               leadingWidget: const Icon(Icons.open_in_new),
               onPressed: () =>
                   _launchUrl(context, 'https://support.openfoodfacts.org/help'),

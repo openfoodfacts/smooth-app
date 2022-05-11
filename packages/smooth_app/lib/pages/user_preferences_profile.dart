@@ -78,7 +78,7 @@ class UserPreferencesSection extends StatefulWidget {
 
 class _UserPreferencesPageState extends State<UserPreferencesSection> {
   void _confirmLogout(BuildContext context) {
-    final AppLocalizations localizations = AppLocalizations.of(context)!;
+    final AppLocalizations localizations = AppLocalizations.of(context);
     showDialog<void>(
       context: context,
       builder: (BuildContext context) {
@@ -114,7 +114,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
     context.watch<UserManagementProvider>();
 
     final ThemeData theme = Theme.of(context);
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Size size = MediaQuery.of(context).size;
 
     final List<Widget> result = <Widget>[];

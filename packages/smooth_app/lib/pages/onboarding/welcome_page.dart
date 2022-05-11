@@ -11,7 +11,7 @@ class WelcomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final TextStyle headlineStyle =
         Theme.of(context).textTheme.headline2!.apply(color: Colors.white);
     final TextStyle bodyTextStyle =

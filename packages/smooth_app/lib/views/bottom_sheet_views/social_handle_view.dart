@@ -14,7 +14,7 @@ class SocialHandleView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return Material(
       child: SizedBox(
         height: MediaQuery.of(context).size.height * 0.8,
