@@ -7,7 +7,7 @@ environment:
   sdk: ">=2.15.1 <3.0.0"
 
 dependencies:
-  flutter_lints: ^1.0.4
+  flutter_lints: ^2.0.1
   carousel_slider: ^4.1.1
   cupertino_icons: ^1.0.4
   device_preview: ^1.0.0
@@ -23,7 +23,7 @@ dependencies:
   hive: ^2.1.0
   hive_flutter: ^1.1.0
   http: ^0.13.4
-  image_picker: ^0.8.5
+  image_picker: ^0.8.5+2
   iso_countries: 2.1.0
   latlong2: ^0.8.1
   matomo_forever: ^1.0.0+1
@@ -40,7 +40,7 @@ dependencies:
   rubber: ^1.0.1
   sentry_flutter: ^6.5.1 # careful with upgrading cf: https://github.com/openfoodfacts/smooth-app/issues/1300
   url_launcher: ^6.1.0
-  visibility_detector: ^0.2.2
+  visibility_detector: ^0.3.3
   camera: ^0.9.4+20
   percent_indicator: ^4.0.1
   mailto: ^2.0.0
