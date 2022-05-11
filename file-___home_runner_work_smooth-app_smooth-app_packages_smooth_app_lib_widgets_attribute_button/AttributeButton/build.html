@@ -93,10 +93,12 @@ Widget build(BuildContext context) {
             context: context,
             builder: (BuildContext context) =&gt; SmoothAlertDialog(
               body: Text(
-                  &#39;blah blah blah importance &quot;$importanceId&quot;&#39;), &#47;&#47; TODO(monsieurtanuki): find translations
+                appLocalizations!.importance_label(
+                    attribute.name.toString(), importanceId),
+              ),
               actions: &lt;SmoothActionButton&gt;[
                 SmoothActionButton(
-                  text: appLocalizations!.close,
+                  text: appLocalizations.close,
                   onPressed: () =&gt; Navigator.pop(context),
                 ),
               ],
