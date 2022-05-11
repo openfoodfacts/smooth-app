@@ -908,7 +908,7 @@
     },
     "importance_label": "{name} importance: {id}",
     "@importance_label": {
-        "description": "Used when user selects a food preference",
+        "description": "Used when user selects a food preference. example: Vegan importance; mandatory",
          "placeholders": {
             "name": {
                 "type": "String"
