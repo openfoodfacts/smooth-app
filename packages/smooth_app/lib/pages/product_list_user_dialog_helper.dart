@@ -18,8 +18,7 @@ class ProductListUserDialogHelper {
   ) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    final TextEditingController textEditingController =
-        TextEditingController();
+    final TextEditingController textEditingController = TextEditingController();
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
     final String? title = await showDialog<String>(
@@ -171,8 +170,7 @@ class ProductListUserDialogHelper {
     final ProductList initialProductList,
   ) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final TextEditingController textEditingController =
-        TextEditingController();
+    final TextEditingController textEditingController = TextEditingController();
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
     final String initialName = initialProductList.parameters;

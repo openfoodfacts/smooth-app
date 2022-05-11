@@ -179,8 +179,7 @@ class _ScanPageTopWidget extends StatelessWidget {
       return showDialog(
           context: context,
           builder: (BuildContext context) {
-            final AppLocalizations localizations =
-                AppLocalizations.of(context);
+            final AppLocalizations localizations = AppLocalizations.of(context);
 
             return SmoothAlertDialog(
               title:
