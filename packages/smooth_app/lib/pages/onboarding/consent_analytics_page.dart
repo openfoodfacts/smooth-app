@@ -80,9 +80,8 @@ class ConsentAnalytics extends StatelessWidget {
   BottomAppBar _buildBottomAppBar(
       BuildContext context, AppLocalizations appLocalizations) {
     return BottomAppBar(
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: ButtonBar(
+        alignment: MainAxisAlignment.spaceBetween,
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
           _buildButton(
