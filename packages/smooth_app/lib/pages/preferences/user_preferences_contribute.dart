@@ -8,9 +8,9 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
-import 'package:smooth_app/pages/abstract_user_preferences.dart';
-import 'package:smooth_app/pages/user_preferences_list_tile.dart';
-import 'package:smooth_app/pages/user_preferences_page.dart';
+import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 
 /// Display of "Contribute" for the preferences page.
 class UserPreferencesContribute extends AbstractUserPreferences {

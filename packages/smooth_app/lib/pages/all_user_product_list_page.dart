@@ -3,9 +3,9 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/product/common/product_list_page.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
-import 'package:smooth_app/pages/user_preferences_list_tile.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 
 /// Page that lists all user product lists.

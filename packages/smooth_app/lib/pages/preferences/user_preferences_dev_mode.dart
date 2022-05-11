@@ -9,11 +9,11 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/helpers/product_list_import_export.dart';
-import 'package:smooth_app/pages/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
+import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dialog_editor.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/scan/ml_kit_scan_page.dart';
-import 'package:smooth_app/pages/user_preferences_dialog_editor.dart';
-import 'package:smooth_app/pages/user_preferences_page.dart';
 
 /// Collapsed/expanded display of "dev mode" for the preferences page.
 ///

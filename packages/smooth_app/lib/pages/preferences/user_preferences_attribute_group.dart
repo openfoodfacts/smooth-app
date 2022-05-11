@@ -5,8 +5,8 @@ import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/pages/abstract_collapsible_user_preferences.dart';
-import 'package:smooth_app/pages/user_preferences_page.dart';
+import 'package:smooth_app/pages/preferences/abstract_collapsible_user_preferences.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/widgets/attribute_button.dart';
 
