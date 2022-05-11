@@ -8,6 +8,7 @@ import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
+import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/confirm_and_upload_picture.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
@@ -39,6 +40,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
       <ImageField, List<File>>{};
 
   bool _nutritionFactsAdded = false;
+  bool _basicDetailsAdded = false;
   bool _isProductLoaded = false;
 
   @override
@@ -74,12 +76,13 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
                   ),
                   ..._buildImageCaptureRows(context),
                   _buildNutritionInputButton(),
+                  _buildaddInputDetailsButton()
                 ],
               ),
             ),
             Positioned(
               child: Align(
-                alignment: Alignment.bottomRight,
+                alignment: Alignment.topRight,
                 child: SmoothActionButton(
                   text: appLocalizations.finish,
                   onPressed: () {
@@ -269,6 +272,55 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
 
           setState(() {
             _nutritionFactsAdded = result;
+          });
+        },
+      ),
+    );
+  }
+
+  Widget _buildaddInputDetailsButton() {
+    if (_basicDetailsAdded) {
+      return Padding(
+          padding: _ROW_PADDING_TOP,
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              const SizedBox(
+                width: 50.0,
+                child: Icon(
+                  Icons.check,
+                  color: Colors.greenAccent,
+                ),
+              ),
+              Expanded(
+                child: Center(
+                  child: Text(
+                      AppLocalizations.of(context)!.basic_details_add_success,
+                      style: Theme.of(context).textTheme.bodyText1),
+                ),
+              ),
+            ],
+          ));
+    }
+
+    return Padding(
+      padding: _ROW_PADDING_TOP,
+      child: SmoothLargeButtonWithIcon(
+        text: AppLocalizations.of(context)!.completed_basic_details_btn_text,
+        icon: Icons.edit,
+        onPressed: () async {
+          final bool result = await Navigator.push<bool>(
+                context,
+                MaterialPageRoute<bool>(
+                  builder: (BuildContext context) => AddBasicDetailsPage(
+                    Product(barcode: widget.barcode),
+                  ),
+                ),
+              ) ??
+              false;
+          setState(() {
+            _basicDetailsAdded = result;
           });
         },
       ),
