@@ -4,10 +4,10 @@ import 'dart:isolate';
 import 'package:camera/camera.dart';
 import 'package:flutter_isolate/flutter_isolate.dart';
 import 'package:google_ml_barcode_scanner/google_ml_barcode_scanner.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/scan/abstract_camera_image_getter.dart';
 import 'package:smooth_app/pages/scan/camera_image_cropper.dart';
 import 'package:smooth_app/pages/scan/camera_image_full_getter.dart';
-import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
 
 /// ML Kit bar code decoder (within an Isolate)
 class MLKitScanDecoder {
