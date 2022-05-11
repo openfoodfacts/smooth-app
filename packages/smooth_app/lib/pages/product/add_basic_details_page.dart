@@ -98,13 +98,6 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                       controller: _weightController,
                       type: TextFieldTypes.PLAIN_TEXT,
                       hintText: appLocalizations.quantity,
-                      validator: (String? value) {
-                        if (value == null || value.isEmpty) {
-                          return appLocalizations
-                              .add_basic_details_quantity_error;
-                        }
-                        return null;
-                      },
                     ),
                     SizedBox(height: _heightSpace),
                   ],

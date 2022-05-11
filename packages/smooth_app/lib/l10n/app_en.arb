@@ -1156,7 +1156,6 @@
     "brand_name": "Brand name",
     "add_basic_details_brand_name_error": "Please enter the brand name",
     "quantity": "Quantity and weight",
-    "add_basic_details_quantity_error": "Please enter the quantity and weight",
     "barcode": "Barcode",
     "basic_details_add_success": "Basic details added succesfully",
     "basic_details_add_error": "Unable to add basic details. Please try again after some time",
