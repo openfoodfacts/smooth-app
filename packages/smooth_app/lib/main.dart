@@ -187,8 +187,11 @@ class _SmoothAppState extends State<SmoothApp> {
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final Widget appWidget = OnboardingFlowNavigator(_userPreferences)
         .getPageWidget(context, _userPreferences.lastVisitedOnboardingPage);
+    final String? languageCode =
+        context.select((UserPreferences _up) => _up.appLanguageCode);
 
     return MaterialApp(
+      locale: languageCode != null ? Locale(languageCode) : null,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       debugShowCheckedModeBanner: !(kReleaseMode || _screenshots),

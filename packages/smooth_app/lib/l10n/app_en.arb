@@ -225,24 +225,6 @@
     },
     "support_join_slack": "Ask for help in our Slack channel",
     "support_via_email": "Send us an e-mail",
-    "support_via_email_subject": "Smoothie help",
-    "support_via_email_content": "Version:{version}+{buildNumber} running on {operatingSystem}({operatingSystemVersion})",
-    "@support_via_email_content": {
-        "placeholders": {
-            "version": {
-                "type": "String"
-            },
-            "buildNumber": {
-                "type": "String"
-            },
-            "operatingSystem": {
-                "type": "String"
-            },
-            "operatingSystemVersion": {
-                "type": "String"
-            }
-        }
-    },
     "termsOfUse": "Terms of use",
     "@termsOfUse": {},
     "about_this_app": "About this app",
@@ -988,6 +970,10 @@
     "@dev_preferences_export_history_title": {
         "description": "User dev preferences - Export history - Title"
     },
+    "dev_preferences_reset_app_language": "Reset App Language",
+    "@dev_preferences_reset_app_language": {
+        "description": "User dev preferences - Reset App Language - Title"
+    },
     "dev_preferences_export_history_progress_error": "exception",
     "@dev_preferences_export_history_progress_error": {
         "description": "User dev preferences - Export history - Item - Error"
@@ -1170,7 +1156,6 @@
     "brand_name": "Brand name",
     "add_basic_details_brand_name_error": "Please enter the brand name",
     "quantity": "Quantity and weight",
-    "add_basic_details_quantity_error": "Please enter the quantity and weight",
     "barcode": "Barcode",
     "basic_details_add_success": "Basic details added succesfully",
     "basic_details_add_error": "Unable to add basic details. Please try again after some time",
@@ -1180,5 +1165,17 @@
     "confirm_clear": "Do you really want to clear?",
     "@confirm_clear": {
         "description": "Asking about whether to clear the list or not"
+    },
+    "importance_label": "{name} importance: {id}",
+    "@importance_label": {
+        "description": "Used when user selects a food preference. example: Vegan importance; mandatory",
+         "placeholders": {
+            "name": {
+                "type": "String"
+            },
+            "id": {
+                "type": "String"
+            }
+        }
     }
 }

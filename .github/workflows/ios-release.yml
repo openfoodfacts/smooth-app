@@ -62,7 +62,7 @@ jobs:
       # We are using the android version code here to have the version codes from iOS and android in sync 
       # in order for Sentry and other tools to work properly
       - name: Bump version
-        uses: maierj/fastlane-action@v2.2.0
+        uses: maierj/fastlane-action@v2.2.1
         with:
           lane: setVersion
           subdirectory: packages/smooth_app/android

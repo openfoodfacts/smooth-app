@@ -66,6 +66,9 @@ class ScoreCard extends StatelessWidget {
               ),
             ),
           ),
+          const Icon(
+            Icons.keyboard_arrow_down_outlined,
+          ),
         ],
       ),
     );

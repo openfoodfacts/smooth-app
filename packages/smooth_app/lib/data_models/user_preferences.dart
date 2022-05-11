@@ -3,6 +3,7 @@ import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 
 class UserPreferences extends ChangeNotifier {
   UserPreferences._shared(final SharedPreferences sharedPreferences)
@@ -88,6 +89,20 @@ class UserPreferences extends ChangeNotifier {
         ? OnboardingPage.NOT_STARTED
         : OnboardingPage.values[pageIndex];
   }
+
+  Future<void> setAppLanguageCode(String? languageCode) async {
+    if (languageCode == null) {
+      await _sharedPreferences
+          .remove(UserPreferencesDevMode.userPreferencesAppLanguageCode);
+    } else {
+      await setDevModeString(
+          UserPreferencesDevMode.userPreferencesAppLanguageCode, languageCode);
+    }
+    notifyListeners();
+  }
+
+  String? get appLanguageCode =>
+      getDevModeString(UserPreferencesDevMode.userPreferencesAppLanguageCode);
 
   String _getFlagTag(final String key) => _TAG_PREFIX_FLAG + key;
 

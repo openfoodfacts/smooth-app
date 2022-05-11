@@ -79,7 +79,7 @@ class _ProductListPageState extends State<ProductListPage> {
                               actions: <SmoothActionButton>[
                                 SmoothActionButton(
                                   onPressed: () async {
-                                    await daoProductList.clear(productList);
+                                    daoProductList.clear(productList);
                                     await daoProductList.get(productList);
                                     setState(() {});
                                     if (!mounted) {
@@ -283,7 +283,7 @@ class _ProductListPageState extends State<ProductListPage> {
                         final bool removed =
                             productList.remove(product.barcode!);
                         if (removed) {
-                          await daoProductList.put(productList);
+                          daoProductList.put(productList);
                           _selectedBarcodes.remove(product.barcode);
                           setState(() => products.removeAt(index));
                         }
