@@ -7,11 +7,11 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/scan/abstract_camera_image_getter.dart';
 import 'package:smooth_app/pages/scan/camera_image_cropper.dart';
 import 'package:smooth_app/pages/scan/camera_image_full_getter.dart';
 import 'package:smooth_app/pages/scan/lifecycle_manager.dart';
-import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
 import 'package:smooth_app/widgets/screen_visibility.dart';
 
 class MLKitScannerPage extends StatelessWidget {

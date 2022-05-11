@@ -4,9 +4,9 @@ import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/pages/abstract_user_preferences.dart';
-import 'package:smooth_app/pages/user_preferences_attribute_group.dart';
-import 'package:smooth_app/pages/user_preferences_page.dart';
+import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_attribute_group.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 
 /// Collapsed/expanded display of attribute groups for the preferences page.
 class UserPreferencesFood extends AbstractUserPreferences {
