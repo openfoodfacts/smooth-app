@@ -67,7 +67,7 @@ class WelcomePage extends StatelessWidget {
                             const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
                         child: CountrySelector(
                           initialCountryCode: WidgetsBinding
-                              .instance?.window.locale.countryCode
+                              .instance.window.locale.countryCode
                               ?.toLowerCase(),
                         ),
                       ),

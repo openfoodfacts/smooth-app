@@ -113,7 +113,7 @@ class _SmoothAppState extends State<SmoothApp> {
 
   bool systemDarkmodeOn = false;
   final Brightness brightness =
-      SchedulerBinding.instance?.window.platformBrightness ?? Brightness.light;
+      SchedulerBinding.instance.window.platformBrightness;
 
   // We store the argument of FutureBuilder to avoid re-initialization on
   // subsequent builds. This enables hot reloading. See
