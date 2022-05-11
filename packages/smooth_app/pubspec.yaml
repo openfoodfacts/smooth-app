@@ -37,11 +37,13 @@ dependencies:
   uuid: ^3.0.6
   provider: ^6.0.2
   qr_code_scanner: ^0.7.0
+  rxdart: ^0.27.3
+  flutter_isolate: ^2.0.2
   rubber: ^1.0.1
   sentry_flutter: ^6.5.1 # careful with upgrading cf: https://github.com/openfoodfacts/smooth-app/issues/1300
   url_launcher: ^6.1.0
   visibility_detector: ^0.2.2
-  camera: ^0.9.4+20
+  camera: ^0.9.4+21
   percent_indicator: ^4.0.1
   mailto: ^2.0.0
   flutter_native_splash: ^2.1.6
