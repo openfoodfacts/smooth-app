@@ -188,7 +188,7 @@ class _SmoothAppState extends State<SmoothApp> {
     final Widget appWidget = OnboardingFlowNavigator(_userPreferences)
         .getPageWidget(context, _userPreferences.lastVisitedOnboardingPage);
     final String? languageCode =
-        context.select((UserPreferences _up) => _up.appLanguageCode);
+        context.select((UserPreferences up) => up.appLanguageCode);
 
     return MaterialApp(
       locale: languageCode != null ? Locale(languageCode) : null,

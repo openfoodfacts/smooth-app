@@ -50,7 +50,7 @@ class AttributeButton extends StatelessWidget {
               context: context,
               builder: (BuildContext context) => SmoothAlertDialog(
                 body: Text(
-                  appLocalizations!.importance_label(
+                  appLocalizations.importance_label(
                       attribute.name.toString(), importanceId),
                 ),
                 actions: <SmoothActionButton>[

@@ -304,7 +304,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
               Expanded(
                 child: Center(
                   child: Text(
-                      AppLocalizations.of(context)!.basic_details_add_success,
+                      AppLocalizations.of(context).basic_details_add_success,
                       style: Theme.of(context).textTheme.bodyText1),
                 ),
               ),
@@ -315,7 +315,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
     return Padding(
       padding: _ROW_PADDING_TOP,
       child: SmoothLargeButtonWithIcon(
-        text: AppLocalizations.of(context)!.completed_basic_details_btn_text,
+        text: AppLocalizations.of(context).completed_basic_details_btn_text,
         icon: Icons.edit,
         onPressed: () async {
           final bool result = await Navigator.push<bool>(

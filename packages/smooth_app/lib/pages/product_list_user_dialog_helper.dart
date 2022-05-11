@@ -231,7 +231,7 @@ class ProductListUserDialogHelper {
     final BuildContext context,
     final ProductList productList,
   ) async {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     final bool? deleted = await showDialog<bool>(
       context: context,

@@ -350,10 +350,10 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               setState(() {});
             },
             items: AppLocalizations.supportedLocales.map((Locale locale) {
-              final String _locale = locale.toString();
+              final String localeString = locale.toString();
               return DropdownMenuItem<String>(
-                value: _locale,
-                child: Text(_locale),
+                value: localeString,
+                child: Text(localeString),
               );
             }).toList(),
           ),

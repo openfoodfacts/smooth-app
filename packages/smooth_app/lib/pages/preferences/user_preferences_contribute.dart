@@ -66,7 +66,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
         context: context,
         builder: (BuildContext context) {
           final AppLocalizations appLocalizations =
-              AppLocalizations.of(context)!;
+              AppLocalizations.of(context);
           return SmoothAlertDialog.advanced(
             close: false,
             maxHeight: MediaQuery.of(context).size.height * 0.35,
@@ -106,7 +106,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
         context: context,
         builder: (BuildContext context) {
           final AppLocalizations appLocalizations =
-              AppLocalizations.of(context)!;
+              AppLocalizations.of(context);
           return SmoothAlertDialog.advanced(
             close: false,
             maxHeight: MediaQuery.of(context).size.height * 0.35,
@@ -155,7 +155,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
         context: context,
         builder: (BuildContext context) {
           final AppLocalizations appLocalizations =
-              AppLocalizations.of(context)!;
+              AppLocalizations.of(context);
           return SmoothAlertDialog.advanced(
             title: appLocalizations.contribute_translate_header,
             maxHeight: MediaQuery.of(context).size.height * 0.25,
@@ -182,7 +182,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
       );
 
   Future<void> _donate() async => LaunchUrlHelper.launchURL(
-        AppLocalizations.of(context)!.donate_url,
+        AppLocalizations.of(context).donate_url,
         false,
       );
 
@@ -190,7 +190,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
         context: context,
         builder: (BuildContext context) {
           return SmoothAlertDialog.advanced(
-            title: AppLocalizations.of(context)!.contributors,
+            title: AppLocalizations.of(context).contributors,
             maxHeight: MediaQuery.of(context).size.height * 0.45,
             body: FutureBuilder<http.Response>(
               future: http.get(
@@ -207,7 +207,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                   return Wrap(
                     crossAxisAlignment: WrapCrossAlignment.center,
                     children: contributors.map((dynamic contributorsData) {
-                      final ContributorsModel _contributor =
+                      final ContributorsModel contributor =
                           ContributorsModel.fromJson(
                               contributorsData as Map<String, dynamic>);
                       return Padding(
@@ -215,11 +215,11 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                         child: InkWell(
                           onTap: () {
                             LaunchUrlHelper.launchURL(
-                                _contributor.profilePath, false);
+                                contributor.profilePath, false);
                           },
                           child: CircleAvatar(
                             foregroundImage:
-                                NetworkImage(_contributor.avatarUrl),
+                                NetworkImage(contributor.avatarUrl),
                             backgroundColor:
                                 Theme.of(context).colorScheme.primary,
                           ),
@@ -236,7 +236,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
               SmoothActionButton(
                 onPressed: () => LaunchUrlHelper.launchURL(
                     'https://github.com/openfoodfacts/smooth-app', false),
-                text: AppLocalizations.of(context)!.contribute,
+                text: AppLocalizations.of(context).contribute,
                 minWidth: 200,
               ),
             ],
