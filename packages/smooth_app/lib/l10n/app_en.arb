@@ -928,9 +928,9 @@
     "@dev_preferences_environment_switch_subtitle": {
         "description": "User dev preferences - Environment (prod/test) switcher - Subtitle",
         "placeholders": {
-          "query": {
-            "type": "String"
-          }
+            "query": {
+                "type": "String"
+            }
         }
     },
     "dev_preferences_test_environment_title": "Test env parameters",
@@ -941,14 +941,14 @@
     "@dev_preferences_test_environment_subtitle": {
         "description": "User dev preferences - Info about test environment - Value",
         "placeholders": {
-          "url": {
-            "type": "String"
-          }
+            "url": {
+                "type": "String"
+            }
         }
     },
     "dev_preferences_test_environment_dialog_title": "Test Env Host",
     "@dev_preferences_test_environment_dialog_title": {
-      "description": "User dev preferences - Info about test environment - Dialog title"
+        "description": "User dev preferences - Info about test environment - Dialog title"
     },
     "dev_preferences_ml_kit_title": "Use ML Kit",
     "@dev_preferences_ml_kit_title": {
@@ -1018,9 +1018,9 @@
     "@dev_mode_matching_mode_subtitle": {
         "description": "User dev preferences - Matching mode - Subtitle",
         "placeholders": {
-          "mode": {
-            "type": "String"
-          }
+            "mode": {
+                "type": "String"
+            }
         }
     },
     "dev_mode_matching_mode_value_strong": "Strong",
@@ -1039,9 +1039,9 @@
     "@dev_mode_scan_mode_subtitle": {
         "description": "User dev preferences - Scan mode - Subtitle",
         "placeholders": {
-          "mode": {
-            "type": "String"
-          }
+            "mode": {
+                "type": "String"
+            }
         }
     },
     "dev_mode_scan_mode_dialog_title": "Scan Mode",
@@ -1076,9 +1076,9 @@
     "@product_search_no_more_results": {
         "description": "Product search list - No more results available",
         "placeholders": {
-          "totalSize": {
-            "type": "int"
-          }
+            "totalSize": {
+                "type": "int"
+            }
         }
     },
     "product_search_button_download_more": "Download {count} more products\nAlready downloaded {downloaded} out of {totalSize}.",
@@ -1088,10 +1088,10 @@
             "count": {
                 "type": "int"
             },
-          "downloaded": {
+            "downloaded": {
                 "type": "int"
             },
-          "totalSize": {
+            "totalSize": {
                 "type": "int"
             }
         }
@@ -1169,7 +1169,7 @@
     "importance_label": "{name} importance: {id}",
     "@importance_label": {
         "description": "Used when user selects a food preference. example: Vegan importance; mandatory",
-         "placeholders": {
+        "placeholders": {
             "name": {
                 "type": "String"
             },
