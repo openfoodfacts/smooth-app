@@ -8,7 +8,9 @@ import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
@@ -69,9 +71,32 @@ class _ProductListPageState extends State<ProductListPage> {
                   onSelected: (final String action) async {
                     switch (action) {
                       case _popupActionClear:
-                        await daoProductList.clear(productList);
-                        await daoProductList.get(productList);
-                        setState(() {});
+                        await showDialog<bool>(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return SmoothAlertDialog(
+                              body: Text(appLocalizations.confirm_clear),
+                              actions: <SmoothActionButton>[
+                                SmoothActionButton(
+                                  onPressed: () async {
+                                    daoProductList.clear(productList);
+                                    await daoProductList.get(productList);
+                                    setState(() {});
+                                    Navigator.of(context).pop();
+                                  },
+                                  text: appLocalizations.yes,
+                                ),
+                                SmoothActionButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  text: appLocalizations.no,
+                                ),
+                              ],
+                            );
+                          },
+                        );
+
                         break;
                       case _popupActionRename:
                         final ProductList? renamedProductList =
@@ -255,7 +280,7 @@ class _ProductListPageState extends State<ProductListPage> {
                         final bool removed =
                             productList.remove(product.barcode!);
                         if (removed) {
-                          await daoProductList.put(productList);
+                          daoProductList.put(productList);
                           _selectedBarcodes.remove(product.barcode);
                           setState(() => products.removeAt(index));
                         }

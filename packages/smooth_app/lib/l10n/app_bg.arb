@@ -1,5 +1,5 @@
 {
-    "app_name": "Smoothie",
+    "app_name": "OpenFoodFactsBG",
     "@Utils": {},
     "yes": "Да",
     "@yes": {},
@@ -14,7 +14,7 @@
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
     "save": "Запис",
-    "save_confirmation": "Are you sure you want to save?",
+    "save_confirmation": "Сигурен ли си, че искаш да запазиш?",
     "skip": "Пропусни",
     "cancel": "Отмени",
     "@cancel": {},
@@ -66,7 +66,7 @@
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Избери храни, които са полезни за теб и планетата.",
+    "offUtility": "Избери храна, която е полезна за теб и за планетата.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
@@ -393,7 +393,7 @@
     "@add_product_information_button_label": {},
     "new_product": "Нов продукт",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Product's front photo",
+    "front_packaging_photo_button_label": "Снимка на продукта отпред",
     "@front_packaging_photo_button_label": {},
     "confirm_front_packaging_photo_button_label": "Confirm Product's front photo upload",
     "@confirm_front_packaging_photo_button_label": {
@@ -451,27 +451,27 @@
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
-    "uploading_image_type_front": "Uploading front image to Open Food Facts",
+    "uploading_image_type_front": "Качване на снимката на предната страна на продукта в Open Food Facts",
     "@uploading_image_type_front": {
         "description": "Message when a new front picture is being uploaded to the server"
     },
-    "uploading_image_type_ingredients": "Uploading ingredients image to Open Food Facts",
+    "uploading_image_type_ingredients": "Качване на снимката на съставките в Open Food Facts",
     "@uploading_image_type_ingredients": {
         "description": "Message when a new ingredients picture is being uploaded to the server"
     },
-    "uploading_image_type_nutrition": "Uploading nutrition image to Open Food Facts",
+    "uploading_image_type_nutrition": "Качване на снимката на хранителните стойности в Open Food Facts",
     "@uploading_image_type_nutrition": {
         "description": "Message when a new nutrition picture is being uploaded to the server"
     },
-    "uploading_image_type_packaging": "Uploading packaging image to Open Food Facts",
+    "uploading_image_type_packaging": "Качване на снимката на вида на опаковката в Open Food Facts",
     "@uploading_image_type_packaging": {
         "description": "Message when a new packaging picture is being uploaded to the server"
     },
-    "uploading_image_type_other": "Uploading other image to Open Food Facts",
+    "uploading_image_type_other": "Качване на друга снимка в Open Food Facts",
     "@uploading_image_type_other": {
         "description": "Message when a new other picture is being uploaded to the server"
     },
-    "uploading_image_type_generic": "Uploading image to Open Food Facts",
+    "uploading_image_type_generic": "Качване на снимката в Open Food Facts",
     "@uploading_image_type_generic": {
         "description": "Message when a new picture is being uploaded to the server"
     },
@@ -658,7 +658,7 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide whether to submit anonymous analytics.",
+    "consent_analytics_body1": "Помогни на доброволците на Open Food Facts да подобрят приложението. Ти решаваш дали искаш да изпращаш анонимни данни.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
@@ -703,7 +703,7 @@
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress": "Refreshing products in your History",
+    "product_list_reloading_in_progress": "Актуализация на продуктите в историята",
     "@product_list_reloading_in_progress": {
         "description": "Message to show while loading previous scanned items"
     },
@@ -740,7 +740,7 @@
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "When enabled, crash reports are automatically submitted to Open Food Facts' error tracking system, so that bugs can be fixed and thus improve the app.",
+    "crash_reporting_toggle_subtitle": "Когато е активирано, докладите за сривове се изпращат автоматично до системата за проследяване на грешки на Open Food Facts, така че те да бъдат коригирани и да се подобри приложението.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
@@ -836,5 +836,74 @@
     },
     "completed_basic_details_btn_text": "Попълни основните подробности",
     "not_implemented_snackbar_text": "Все още не е внедрено",
-    "category_picker_page_appbar_text": "Категории"
+    "category_picker_page_appbar_text": "Категории",
+    "edit_ingredients_extrait_ingredients_btn_text": "Извлечи съставките",
+    "@edit_ingredients_extrait_ingredients_btn_text": {
+        "description": "Ingredients edition - Extract ingredients"
+    },
+    "edit_ingredients_refresh_photo_btn_text": "Обнови снимката",
+    "@edit_ingredients_refresh_photo_btn_text": {
+        "description": "Ingredients edition - Refresh photo"
+    },
+    "user_list_dialog_new_title": "Нов списък с продукти",
+    "@user_list_dialog_new_title": {
+        "description": "Title of the 'new user list' dialog"
+    },
+    "user_list_dialog_rename_title": "Преименувай списъка",
+    "@user_list_dialog_rename_title": {
+        "description": "Title of the 'rename user list' dialog"
+    },
+    "user_list_subtitle_product": "Списъци",
+    "@user_list_subtitle_product": {
+        "description": "Subtitle of a paragraph about user lists in a product context"
+    },
+    "user_list_button_new": "Нов списък",
+    "@user_list_button_new": {
+        "description": "Short label of a 'new list' button"
+    },
+    "user_list_button_add_product": "Добави към списък",
+    "@user_list_button_add_product": {
+        "description": "Short label of an 'add to list' button from a product context"
+    },
+    "user_list_popup_clear": "Изчисти",
+    "@user_list_popup_clear": {
+        "description": "Short label of a 'clear list' popup"
+    },
+    "user_list_popup_rename": "Преименувай",
+    "@user_list_popup_rename": {
+        "description": "Short label of a 'rename list' popup"
+    },
+    "user_list_name_hint": "Моят списък",
+    "@user_list_name_hint": {
+        "description": "Hint of a user list name text-field in a 'user list' dialog"
+    },
+    "user_list_name_error_empty": "Името е задължително",
+    "@user_list_name_error_empty": {
+        "description": "Validation error about the name that cannot be empty"
+    },
+    "user_list_name_error_already": "Това име вече е заето",
+    "@user_list_name_error_already": {
+        "description": "Validation error about the name that is already used for another list"
+    },
+    "user_list_name_error_same": "Това е същото име",
+    "@user_list_name_error_same": {
+        "description": "Validation error about the renamed name that is the same as the initial list name"
+    },
+    "basic_details": "Basic Details",
+    "product_name": "Product Name",
+    "add_basic_details_product_name_error": "Please enter the product name",
+    "brand_name": "Brand name",
+    "add_basic_details_brand_name_error": "Please enter the brand name",
+    "weight_gram": "Weight in gram",
+    "add_basic_details_weight_gram_error": "Please enter the weight",
+    "barcode": "Баркод",
+    "basic_details_add_success": "Basic details added succesfully",
+    "basic_details_add_error": "Unable to add basic details. Please try again after some time",
+    "@basic_details_add_error": {
+        "description": "Error message when error occurs while submitting basic details"
+    },
+    "confirm_clear": "Do you really want to clear?",
+    "@confirm_clear": {
+        "description": "Asking about whether to clear the list or not"
+    }
 }

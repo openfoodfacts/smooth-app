@@ -10,8 +10,9 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
-import 'package:smooth_app/pages/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/onboarding/country_selector.dart';
+import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -32,10 +33,10 @@ class UserPreferencesProfile extends AbstractUserPreferences {
         );
 
   @override
-  bool isCollapsedByDefault() => true;
+  PreferencePageType? getPreferencePageType() => PreferencePageType.PROFILE;
 
   @override
-  String getPreferenceFlagKey() => 'profile';
+  String getTitleString() => appLocalizations.myPreferences_profile_title;
 
   @override
   Widget getTitle() => Text(
@@ -109,8 +110,9 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
 
   @override
   Widget build(BuildContext context) {
-    final UserManagementProvider userManagementProvider =
-        context.watch<UserManagementProvider>();
+    // We need to listen to reflect login's from outside of the preferences page
+    // e.g. question card, ...
+    context.watch<UserManagementProvider>();
 
     final ThemeData theme = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
@@ -118,10 +120,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
 
     final List<Widget> result = <Widget>[];
 
-    if (userManagementProvider.isLoading) {
-      //Loading
-      result.add(const Center(child: CircularProgressIndicator()));
-    } else if (OpenFoodAPIConfiguration.globalUser != null) {
+    if (OpenFoodAPIConfiguration.globalUser != null) {
       //Credentials
       final String userId = OpenFoodAPIConfiguration.globalUser!.userId;
       result.add(
@@ -192,11 +191,8 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
 
     result.addAll(
       <Widget>[
-        ListTile(
-          leading: const Icon(Icons.public),
-          title: CountrySelector(
-            initialCountryCode: widget.userPreferences.userCountryCode,
-          ),
+        CountrySelector(
+          initialCountryCode: widget.userPreferences.userCountryCode,
         ),
         SwitchListTile(
           title: Text(appLocalizations.crash_reporting_toggle_title),

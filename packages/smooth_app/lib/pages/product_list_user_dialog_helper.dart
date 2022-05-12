@@ -66,7 +66,7 @@ class ProductListUserDialogHelper {
       return null;
     }
     final ProductList productList = ProductList.user(title);
-    await daoProductList.put(productList);
+    daoProductList.put(productList);
     return productList;
   }
 
@@ -159,8 +159,7 @@ class ProductListUserDialogHelper {
         continue;
       }
       final ProductList productList = ProductList.user(name);
-      await daoProductList.set(
-          productList, barcode, newWithBarcode.contains(name));
+      daoProductList.set(productList, barcode, newWithBarcode.contains(name));
     }
     return true;
   }
@@ -224,5 +223,37 @@ class ProductListUserDialogHelper {
       return null;
     }
     return daoProductList.rename(initialProductList, newName);
+  }
+
+  /// Shows a "delete list" dialog; returns true if deleted.
+  Future<bool> showDeleteUserListDialog(
+    final BuildContext context,
+    final ProductList productList,
+  ) async {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+
+    final bool? deleted = await showDialog<bool>(
+      context: context,
+      builder: (final BuildContext context) => AlertDialog(
+        title: const Text('Delete list?'),
+        content: Text(productList.parameters),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text(appLocalizations.cancel),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pop(context, true);
+            },
+            child: Text(appLocalizations.okay),
+          ),
+        ],
+      ),
+    );
+    if (deleted == null) {
+      return false;
+    }
+    return daoProductList.delete(productList);
   }
 }

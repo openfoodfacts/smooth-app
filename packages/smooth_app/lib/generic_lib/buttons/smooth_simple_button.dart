@@ -13,7 +13,7 @@ class SmoothSimpleButton extends StatelessWidget {
   });
 
   final Widget child;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final double minWidth;
   final double height;
   final BorderRadius borderRadius;
@@ -34,7 +34,7 @@ class SmoothSimpleButton extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: borderRadius,
       ),
-      onPressed: () => onPressed(),
+      onPressed: onPressed,
     );
   }
 }

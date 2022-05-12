@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:io' show Platform;
 
-import 'package:camera/camera.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +13,7 @@ import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
+import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
@@ -21,11 +21,10 @@ import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
-
-List<CameraDescription> cameras = <CameraDescription>[];
 
 late bool _screenshots;
 
@@ -64,6 +63,7 @@ late UserPreferences _userPreferences;
 late ProductPreferences _productPreferences;
 late LocalDatabase _localDatabase;
 late ThemeProvider _themeProvider;
+final ContinuousScanModel _continuousScanModel = ContinuousScanModel();
 bool _init1done = false;
 
 // Had to split init in 2 methods, for test/screenshots reasons.
@@ -82,8 +82,10 @@ Future<bool> _init1() async {
     system: Platform.operatingSystemVersion,
     url: 'https://world.openfoodfacts.org/',
   );
+  await UserManagementProvider.mountCredentials();
   _userPreferences = await UserPreferences.getUserPreferences();
   _localDatabase = await LocalDatabase.getLocalDatabase();
+  await _continuousScanModel.load(_localDatabase);
   _productPreferences = ProductPreferences(
     ProductPreferencesSelection(
       setImportance: _userPreferences.setImportance,
@@ -99,8 +101,7 @@ Future<bool> _init1() async {
   _themeProvider = ThemeProvider(_userPreferences);
   ProductQuery.setQueryType(_userPreferences);
 
-  cameras = await availableCameras();
-
+  await CameraHelper.init();
   await ProductQuery.setUuid(_localDatabase);
   _init1done = true;
   return true;
@@ -167,6 +168,7 @@ class _SmoothAppState extends State<SmoothApp> {
             provide<LocalDatabase>(_localDatabase),
             provide<ThemeProvider>(_themeProvider),
             provide<UserManagementProvider>(_userManagementProvider),
+            provide<ContinuousScanModel>(_continuousScanModel),
           ],
           builder: _buildApp,
         );
@@ -178,7 +180,11 @@ class _SmoothAppState extends State<SmoothApp> {
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final Widget appWidget = OnboardingFlowNavigator(_userPreferences)
         .getPageWidget(context, _userPreferences.lastVisitedOnboardingPage);
+    final String? languageCode =
+        context.select((UserPreferences _up) => _up.appLanguageCode);
+
     return MaterialApp(
+      locale: languageCode != null ? Locale(languageCode) : null,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       debugShowCheckedModeBanner: !(kReleaseMode || _screenshots),
@@ -226,8 +232,6 @@ class SmoothAppGetLanguage extends StatelessWidget {
 
     final LocalDatabase _localDatabase = context.read<LocalDatabase>();
     AnalyticsHelper.trackStart(_localDatabase, context);
-
-    context.read<UserManagementProvider>().mountCredentials();
 
     return appWidget;
   }
