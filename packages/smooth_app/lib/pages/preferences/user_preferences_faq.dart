@@ -38,7 +38,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
   List<Widget> getBody() => <Widget>[
         _getListTile(
           title: appLocalizations.faq,
-          url: 'https://world.openfoodfacts.org/faq',
+          url: 'https://support.openfoodfacts.org/help',
         ),
         _getListTile(
           title: appLocalizations.discover,
@@ -47,10 +47,6 @@ class UserPreferencesFaq extends AbstractUserPreferences {
         _getListTile(
           title: appLocalizations.how_to_contribute,
           url: 'https://world.openfoodfacts.org/contribute',
-        ),
-        _getListTile(
-          title: appLocalizations.support,
-          url: 'https://support.openfoodfacts.org/help',
         ),
         _getListTile(
           title: appLocalizations.about_this_app,
