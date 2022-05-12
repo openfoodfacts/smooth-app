@@ -23,7 +23,7 @@ class _EditProductPageState extends State<EditProductPage> {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
         title: AutoSizeText(
@@ -101,6 +101,9 @@ class _EditProductPageState extends State<EditProductPage> {
                 if (cache == null) {
                   return;
                 }
+                if (!mounted) {
+                  return;
+                }
                 final bool? refreshed = await Navigator.push<bool>(
                   context,
                   MaterialPageRoute<bool>(
@@ -136,14 +139,14 @@ class _ListTitleItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations? appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return ListTile(
       onTap: onTap,
       title: Text(title),
       subtitle: subtitle == null ? null : Text(subtitle!),
       leading: ElevatedButton(
-        child: Text(appLocalizations!.edit_product_form_save),
         onPressed: onTap,
+        child: Text(appLocalizations.edit_product_form_save),
       ),
     );
   }

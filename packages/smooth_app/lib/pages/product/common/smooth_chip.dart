@@ -43,16 +43,16 @@ class SmoothChip extends StatelessWidget {
         iconData == null ? null : Icon(iconData, color: foregroundColor);
     if (text == null) {
       return ElevatedButton(
-        child: icon,
         onPressed: onPressed,
         style: buttonStyle,
+        child: icon,
       );
     }
     if (icon == null) {
       return ElevatedButton(
-        child: text,
         onPressed: onPressed,
         style: buttonStyle,
+        child: text,
       );
     }
     return ElevatedButton.icon(

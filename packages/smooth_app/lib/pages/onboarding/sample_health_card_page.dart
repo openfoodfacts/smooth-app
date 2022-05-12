@@ -11,7 +11,7 @@ class SampleHealthCardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => KnowledgePanelPageTemplate(
-        headerTitle: AppLocalizations.of(context)!.healthCardUtility,
+        headerTitle: AppLocalizations.of(context).healthCardUtility,
         page: OnboardingPage.HEALTH_CARD_EXAMPLE,
         panelId: 'health_card',
         localDatabase: _localDatabase,

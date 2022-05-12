@@ -283,7 +283,7 @@ class MLKitScannerPageState
     if (mounted && ScreenVisibilityDetector.visible(context)) {
       final DateTime referentialTime = DateTime.now();
 
-      WidgetsBinding.instance?.addPostFrameCallback((_) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
         final int diff =
             DateTime.now().difference(referentialTime).inMilliseconds;
 

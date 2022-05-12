@@ -43,7 +43,7 @@ class _PreferencesPageState extends State<PreferencesPage> {
         builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
           if (snapshot.hasError) {
             final AppLocalizations appLocalizations =
-                AppLocalizations.of(context)!;
+                AppLocalizations.of(context);
             return Text(
               appLocalizations.preferences_page_loading_error(snapshot.error),
             );
@@ -74,7 +74,7 @@ class _HelperState extends State<_Helper> {
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
     final UserPreferences userPreferences = context.watch<UserPreferences>();
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<Widget> pageData = <Widget>[
       Padding(
         padding: const EdgeInsets.only(

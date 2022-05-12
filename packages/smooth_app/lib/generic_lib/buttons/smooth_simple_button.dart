@@ -25,16 +25,16 @@ class SmoothSimpleButton extends StatelessWidget {
     final ThemeData themeData = Theme.of(context);
     return MaterialButton(
       color: buttonColor ?? themeData.colorScheme.primary,
-      child: Padding(
-        padding: padding,
-        child: child,
-      ),
       height: height,
       minWidth: minWidth,
       shape: RoundedRectangleBorder(
         borderRadius: borderRadius,
       ),
       onPressed: onPressed,
+      child: Padding(
+        padding: padding,
+        child: child,
+      ),
     );
   }
 }

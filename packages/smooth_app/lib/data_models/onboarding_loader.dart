@@ -21,7 +21,7 @@ class OnboardingLoader {
         await LoadingDialog.run<void>(
           context: context,
           future: _downloadData(),
-          title: AppLocalizations.of(context)!
+          title: AppLocalizations.of(context)
               .onboarding_welcome_loading_dialog_title,
           dismissible: false,
         );
