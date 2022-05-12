@@ -10,21 +10,8 @@ jobs:
         shell: bash
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          channel: stable
-          cache: true
-          cache-key: flutter3.00 # change this to force refresh cache
-
-      - run: flutter --version
-      
-      # Get dependencies.
-      - name: Get dependencies
-        run: ci/pub_upgrade.sh
+      - name: Setup env
+      - uses: ./.github/workflows/shared/setup-environment.yml
       
       # Check for formatting issues
       - name: Check for formatting issues (run "flutter format . ")
