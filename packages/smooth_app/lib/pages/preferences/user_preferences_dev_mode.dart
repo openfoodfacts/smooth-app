@@ -235,6 +235,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               ProductListImportExport.TMP_IMPORT,
               localDatabase,
             );
+            //ignore: use_build_context_synchronously
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(
@@ -349,10 +350,10 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               setState(() {});
             },
             items: AppLocalizations.supportedLocales.map((Locale locale) {
-              final String _locale = locale.toString();
+              final String localeString = locale.toString();
               return DropdownMenuItem<String>(
-                value: _locale,
-                child: Text(_locale),
+                value: localeString,
+                child: Text(localeString),
               );
             }).toList(),
           ),

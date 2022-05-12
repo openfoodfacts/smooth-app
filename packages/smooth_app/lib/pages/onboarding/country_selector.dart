@@ -48,8 +48,8 @@ class _CountrySelectorState extends State<CountrySelector> {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-    final TextEditingController _countryController = TextEditingController();
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final TextEditingController countryController = TextEditingController();
     return FutureBuilder<void>(
       future: _initFuture,
       builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
@@ -79,7 +79,7 @@ class _CountrySelectorState extends State<CountrySelector> {
                             SmoothTextFormField(
                               type: TextFieldTypes.PLAIN_TEXT,
                               prefixIcon: const Icon(Icons.search),
-                              controller: _countryController,
+                              controller: countryController,
                               onChanged: (String? query) {
                                 setState(
                                   () {

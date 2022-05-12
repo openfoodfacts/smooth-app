@@ -11,7 +11,7 @@ class WelcomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final TextStyle headlineStyle =
         Theme.of(context).textTheme.headline2!.apply(color: Colors.white);
     final TextStyle bodyTextStyle =
@@ -67,7 +67,7 @@ class WelcomePage extends StatelessWidget {
                             const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
                         child: CountrySelector(
                           initialCountryCode: WidgetsBinding
-                              .instance?.window.locale.countryCode
+                              .instance.window.locale.countryCode
                               ?.toLowerCase(),
                         ),
                       ),

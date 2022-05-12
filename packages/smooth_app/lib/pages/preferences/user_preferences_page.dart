@@ -41,7 +41,7 @@ class UserPreferencesPage extends StatefulWidget {
 class _UserPreferencesPageState extends State<UserPreferencesPage> {
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final ThemeData themeData = Theme.of(context);
