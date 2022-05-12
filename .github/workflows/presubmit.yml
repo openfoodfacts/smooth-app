@@ -14,7 +14,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Setup env
-        uses: ./.github/workflows/shared/setup-environment.yml
+        uses: ../.github/workflows/shared/setup-environment.yml
       
       # Check for formatting issues
       - name: Check for formatting issues (run "flutter format . ")
@@ -25,12 +25,6 @@ jobs:
         run: flutter analyze --fatal-infos --fatal-warnings .
       
       # Run tests
-      - name: Run Tests with coverage
+      - name: Run Tests
         run: ci/testing.sh
-      
-      - name: Upload coverage to codecov
-        uses: codecov/codecov-action@v3
-        with:
-          fail_ci_if_error: true
-          verbose: true
 
