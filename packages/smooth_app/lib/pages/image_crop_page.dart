@@ -1,88 +1,52 @@
 import 'dart:io';
-import 'dart:typed_data';
 
-import 'package:crop_your_image/crop_your_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
-class ImageCropPage extends StatelessWidget {
-  ImageCropPage({Key? key}) : super(key: key);
-
-  final CropController _controller = CropController();
+Future<File?> startImageCropping(BuildContext context) async {
+  final bool isDarktheme =
+      Provider.of<ThemeProvider>(context, listen: false).isDarkMode(context);
+  final Color? themeColor = isDarktheme
+      ? Colors.black
+      : Theme.of(context).appBarTheme.backgroundColor;
   final ImagePicker picker = ImagePicker();
-
-  Future<Uint8List?> pickImage() async {
-    final XFile? pickedXFile = await picker.pickImage(
-      source: ImageSource.camera,
-    );
-    if (pickedXFile == null) {
-      // User didn't pick any image.
-      return null;
-    }
-
-    return pickedXFile.readAsBytes();
+  final XFile? pickedXFile = await picker.pickImage(
+    source: ImageSource.camera,
+  );
+  if (pickedXFile == null) {
+    return null;
   }
 
-  @override
-  Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-    context.watch<ThemeProvider>();
+  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
 
-    return Scaffold(
-        body: FutureBuilder<Uint8List?>(
-          future: pickImage(),
-          builder: (
-            BuildContext context,
-            AsyncSnapshot<Uint8List?> snap,
-          ) {
-            if (snap.connectionState != ConnectionState.done) {
-              return const Center(child: CircularProgressIndicator());
-            }
-
-            if (snap.data == null) {
-              Navigator.pop(context);
-            }
-
-            return Crop(
-              image: snap.data!,
-              controller: _controller,
-              onCropped: (Uint8List image) async {
-                final Directory tempDir = await getTemporaryDirectory();
-                final String tempPath = tempDir.path;
-                final String filePath = '$tempPath/upload_img_file.tmp';
-                final File file = await File(filePath).writeAsBytes(image);
-
-                Navigator.pop(context, file);
-              },
-              initialSize: 0.5,
-              baseColor: theme.colorScheme.primary,
-              maskColor: Colors.white.withAlpha(100),
-              cornerDotBuilder: (double size, EdgeAlignment edgeAlignment) =>
-                  DotControl(color: theme.colorScheme.primary),
-            );
-          },
-        ),
-        bottomNavigationBar: BottomAppBar(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              IconButton(
-                icon: const Icon(Icons.cancel_outlined),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
-              IconButton(
-                icon: const Icon(Icons.done),
-                onPressed: () {
-                  _controller.crop();
-                },
-              )
-            ],
-          ),
-        ));
-  }
+  final CroppedFile? croppedFile = await ImageCropper().cropImage(
+    sourcePath: pickedXFile.path,
+    aspectRatioPresets: <CropAspectRatioPreset>[
+      CropAspectRatioPreset.square,
+      CropAspectRatioPreset.ratio3x2,
+      CropAspectRatioPreset.original,
+      CropAspectRatioPreset.ratio4x3,
+      CropAspectRatioPreset.ratio16x9
+    ],
+    uiSettings: <PlatformUiSettings>[
+      AndroidUiSettings(
+        toolbarTitle: appLocalizations.product_edit_photo_title,
+        initAspectRatio: CropAspectRatioPreset.original,
+        lockAspectRatio: false,
+        statusBarColor: themeColor,
+        toolbarColor: themeColor,
+        toolbarWidgetColor: themeColor,
+        activeControlsWidgetColor: Theme.of(context).colorScheme.primary,
+        backgroundColor: themeColor,
+      ),
+      IOSUiSettings(
+        minimumAspectRatio: 1.0,
+      ),
+    ],
+  );
+  return File(croppedFile!.path);
 }

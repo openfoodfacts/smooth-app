@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_app/widgets/smooth_html_widget.dart';
+import 'package:smooth_app/generic_lib/smooth_html_widget.dart';
 
 /// Displays in widgets a HTML page
 class HtmlPage extends StatelessWidget {

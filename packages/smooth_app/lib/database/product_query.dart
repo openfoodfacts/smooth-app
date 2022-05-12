@@ -2,10 +2,12 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:openfoodfacts/utils/QueryType.dart';
-import 'package:platform_device_id/platform_device_id.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
+import 'package:smooth_app/database/dao_string.dart';
+import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
+import 'package:uuid/uuid.dart';
 
 abstract class ProductQuery {
   /// Returns the global language for API queries.
@@ -40,14 +42,21 @@ abstract class ProductQuery {
       '_'
       '${getCountry()!.iso2Code.toUpperCase()}';
 
-  /// Device Id, potentially used as API uuid.
-  static String? deviceId;
+  static const String _UUID_NAME = 'UUID_NAME';
 
-  /// Sets the device id as "final variable", for instance for API queries.
+  /// Sets the uuid id as "final variable", for instance for API queries.
   ///
   /// To be called at main / init.
-  static Future<void> setDeviceId() async => OpenFoodAPIConfiguration.uuid =
-      deviceId = await PlatformDeviceId.getDeviceId;
+  static Future<void> setUuid(final LocalDatabase _localDatabase) async {
+    final DaoString uuidString = DaoString(_localDatabase);
+    String? uuid = await uuidString.get(_UUID_NAME);
+
+    if (uuid == null) {
+      uuid = const Uuid().v4();
+      uuidString.put(_UUID_NAME, uuid);
+    }
+    OpenFoodAPIConfiguration.uuid = uuid;
+  }
 
   static User getUser() =>
       OpenFoodAPIConfiguration.globalUser ??
@@ -58,12 +67,18 @@ abstract class ProductQuery {
       );
 
   /// Sets the query type according to the current [UserPreferences]
-  static void setQueryType(final UserPreferences userPreferences) =>
-      OpenFoodAPIConfiguration.globalQueryType = userPreferences
-                  .getFlag(UserPreferencesDevMode.userPreferencesFlagProd) ??
-              true
-          ? QueryType.PROD
-          : QueryType.TEST;
+  static void setQueryType(final UserPreferences userPreferences) {
+    OpenFoodAPIConfiguration.globalQueryType = userPreferences
+                .getFlag(UserPreferencesDevMode.userPreferencesFlagProd) ??
+            true
+        ? QueryType.PROD
+        : QueryType.TEST;
+    final String? testEnvHost = userPreferences
+        .getDevModeString(UserPreferencesDevMode.userPreferencesTestEnvHost);
+    if (testEnvHost != null) {
+      OpenFoodAPIConfiguration.uriTestHost = testEnvHost;
+    }
+  }
 
   static List<ProductField> get fields => <ProductField>[
         ProductField.NAME,
@@ -85,6 +100,7 @@ abstract class ProductQuery {
         ProductField.NUTRIMENT_ENERGY_UNIT,
         ProductField.ADDITIVES,
         ProductField.INGREDIENTS_ANALYSIS_TAGS,
+        ProductField.INGREDIENTS_TEXT,
         ProductField.LABELS_TAGS,
         ProductField.LABELS_TAGS_IN_LANGUAGES,
         ProductField.ENVIRONMENT_IMPACT_LEVELS,
@@ -96,6 +112,7 @@ abstract class ProductQuery {
         ProductField.ECOSCORE_DATA,
         ProductField.ECOSCORE_GRADE,
         ProductField.ECOSCORE_SCORE,
+        ProductField.KNOWLEDGE_PANELS,
       ];
 
   Future<SearchResult> getSearchResult();

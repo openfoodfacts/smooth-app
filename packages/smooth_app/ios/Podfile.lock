@@ -1,11 +1,9 @@
 PODS:
   - camera (0.0.1):
     - Flutter
-  - device_info_plus (0.0.1):
-    - Flutter
-  - fk_user_agent (2.0.0):
-    - Flutter
   - Flutter (1.0.0)
+  - flutter_native_splash (0.0.1):
+    - Flutter
   - flutter_secure_storage (3.3.1):
     - Flutter
   - google_ml_barcode_scanner (0.0.1):
@@ -40,13 +38,17 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilitiesComponents (1.1.0):
     - GoogleUtilities/Logger
-  - GTMSessionFetcher/Core (1.7.0)
+  - GTMSessionFetcher/Core (1.7.1)
   - image_cropper (0.0.4):
     - Flutter
-    - TOCropViewController (~> 2.6.0)
-  - image_picker (0.0.1):
+    - TOCropViewController (~> 2.6.1)
+  - image_picker_ios (0.0.1):
+    - Flutter
+  - integration_test (0.0.1):
     - Flutter
   - iso_countries (0.0.1):
+    - Flutter
+  - matomo_forever (0.0.1):
     - Flutter
   - MLImage (1.0.0-beta1)
   - MLKitBarcodeScanning (1.3.0):
@@ -78,39 +80,40 @@ PODS:
     - Flutter
   - path_provider_ios (0.0.1):
     - Flutter
-  - "permission_handler (5.1.0+2)":
+  - permission_handler_apple (9.0.4):
     - Flutter
   - PromisesObjC (2.0.0)
-  - Protobuf (3.19.1)
+  - Protobuf (3.19.4)
   - qr_code_scanner (0.2.0):
     - Flutter
     - MTBBarcodeScanner
-  - Sentry (7.5.4):
-    - Sentry/Core (= 7.5.4)
-  - Sentry/Core (7.5.4)
+  - Sentry (7.11.0):
+    - Sentry/Core (= 7.11.0)
+  - Sentry/Core (7.11.0)
   - sentry_flutter (0.0.1):
     - Flutter
     - FlutterMacOS
-    - Sentry (~> 7.5.1)
+    - Sentry (~> 7.11.0)
   - shared_preferences_ios (0.0.1):
     - Flutter
-  - TOCropViewController (2.6.0)
+  - TOCropViewController (2.6.1)
   - url_launcher_ios (0.0.1):
     - Flutter
 
 DEPENDENCIES:
   - camera (from `.symlinks/plugins/camera/ios`)
-  - device_info_plus (from `.symlinks/plugins/device_info_plus/ios`)
-  - fk_user_agent (from `.symlinks/plugins/fk_user_agent/ios`)
   - Flutter (from `Flutter`)
+  - flutter_native_splash (from `.symlinks/plugins/flutter_native_splash/ios`)
   - flutter_secure_storage (from `.symlinks/plugins/flutter_secure_storage/ios`)
   - google_ml_barcode_scanner (from `.symlinks/plugins/google_ml_barcode_scanner/ios`)
   - image_cropper (from `.symlinks/plugins/image_cropper/ios`)
-  - image_picker (from `.symlinks/plugins/image_picker/ios`)
+  - image_picker_ios (from `.symlinks/plugins/image_picker_ios/ios`)
+  - integration_test (from `.symlinks/plugins/integration_test/ios`)
   - iso_countries (from `.symlinks/plugins/iso_countries/ios`)
+  - matomo_forever (from `.symlinks/plugins/matomo_forever/ios`)
   - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
   - path_provider_ios (from `.symlinks/plugins/path_provider_ios/ios`)
-  - permission_handler (from `.symlinks/plugins/permission_handler/ios`)
+  - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
   - qr_code_scanner (from `.symlinks/plugins/qr_code_scanner/ios`)
   - sentry_flutter (from `.symlinks/plugins/sentry_flutter/ios`)
   - shared_preferences_ios (from `.symlinks/plugins/shared_preferences_ios/ios`)
@@ -138,28 +141,30 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   camera:
     :path: ".symlinks/plugins/camera/ios"
-  device_info_plus:
-    :path: ".symlinks/plugins/device_info_plus/ios"
-  fk_user_agent:
-    :path: ".symlinks/plugins/fk_user_agent/ios"
   Flutter:
     :path: Flutter
+  flutter_native_splash:
+    :path: ".symlinks/plugins/flutter_native_splash/ios"
   flutter_secure_storage:
     :path: ".symlinks/plugins/flutter_secure_storage/ios"
   google_ml_barcode_scanner:
     :path: ".symlinks/plugins/google_ml_barcode_scanner/ios"
   image_cropper:
     :path: ".symlinks/plugins/image_cropper/ios"
-  image_picker:
-    :path: ".symlinks/plugins/image_picker/ios"
+  image_picker_ios:
+    :path: ".symlinks/plugins/image_picker_ios/ios"
+  integration_test:
+    :path: ".symlinks/plugins/integration_test/ios"
   iso_countries:
     :path: ".symlinks/plugins/iso_countries/ios"
+  matomo_forever:
+    :path: ".symlinks/plugins/matomo_forever/ios"
   package_info_plus:
     :path: ".symlinks/plugins/package_info_plus/ios"
   path_provider_ios:
     :path: ".symlinks/plugins/path_provider_ios/ios"
-  permission_handler:
-    :path: ".symlinks/plugins/permission_handler/ios"
+  permission_handler_apple:
+    :path: ".symlinks/plugins/permission_handler_apple/ios"
   qr_code_scanner:
     :path: ".symlinks/plugins/qr_code_scanner/ios"
   sentry_flutter:
@@ -170,10 +175,9 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
 
 SPEC CHECKSUMS:
-  camera: fe33292aff715a981eb34d7ce7b35b54337ff34c
-  device_info_plus: e5c5da33f982a436e103237c0c85f9031142abed
-  fk_user_agent: 1f47ec39291e8372b1d692b50084b0d54103c545
+  camera: 9993f92f2c793e87b65e35f3a23c70582afb05b1
   Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
+  flutter_native_splash: 52501b97d1c0a5f898d687f1646226c1f93c56ef
   flutter_secure_storage: 7953c38a04c3fdbb00571bcd87d8e3b5ceb9daec
   google_ml_barcode_scanner: 469be1279c5ab275846f0957c85015b7b30d0c16
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
@@ -181,10 +185,12 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 8bef7c7c5cf7291c687cf5354f39f9db6399ad34
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   GoogleUtilitiesComponents: 679b2c881db3b615a2777504623df6122dd20afe
-  GTMSessionFetcher: 43748f93435c2aa068b1cbe39655aaf600652e91
-  image_cropper: f1668dd8d2cad2d357955caad15a40547856edcb
-  image_picker: 9aa50e1d8cdacdbed739e925b7eea16d014367e6
+  GTMSessionFetcher: 4577a4cc914a5a07c40a8a0ad0acc22080418c2d
+  image_cropper: 60c2789d1f1a78c873235d4319ca0c34a69f2d98
+  image_picker_ios: b786a5dcf033a8336a657191401bfdf12017dabb
+  integration_test: a1e7d09bd98eca2fc37aefd79d4f41ad37bdbbe5
   iso_countries: eb09d40f388e4c65e291e0bb36a701dfe7de6c74
+  matomo_forever: 7e5e5fd8f355f64979591282cad4e858fa4c9fae
   MLImage: 647f3d580c10b3c9a3f6154f5d7baead60c42a0c
   MLKitBarcodeScanning: 6b998bd1cfe471ae407a7f647d649494617787c0
   MLKitCommon: 6d6be0a2e9a6340aad1c1f2b9449c11dee8af70f
@@ -192,17 +198,17 @@ SPEC CHECKSUMS:
   MTBBarcodeScanner: f453b33c4b7dfe545d8c6484ed744d55671788cb
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   package_info_plus: 6c92f08e1f853dc01228d6f553146438dafcd14e
-  path_provider_ios: 7d7ce634493af4477d156294792024ec3485acd5
-  permission_handler: ccb20a9fad0ee9b1314a52b70b76b473c5f8dab0
+  path_provider_ios: 14f3d2fd28c4fdb42f44e0f751d12861c43cee02
+  permission_handler_apple: 44366e37eaf29454a1e7b1b7d736c2cceaeb17ce
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
-  Protobuf: 3724efa50cb2846d7ccebc8691c574e85fd74471
+  Protobuf: 235750e4696ff59fb07d949a9dbbc92b3c0700fe
   qr_code_scanner: bb67d64904c3b9658ada8c402e8b4d406d5d796e
-  Sentry: 5c5dd4005f3b7b9765d5a8871232cddbd0d888b7
-  sentry_flutter: 4cd99764f9fe01c9415790d1f3fb1c7fd3a5cbe9
-  shared_preferences_ios: aef470a42dc4675a1cdd50e3158b42e3d1232b32
-  TOCropViewController: 3105367e808b7d3d886a74ff59bf4804e7d3ab38
-  url_launcher_ios: 02f1989d4e14e998335b02b67a7590fa34f971af
+  Sentry: 0c5cd63d714187b4a39c331c1f0eb04ba7868341
+  sentry_flutter: efb3df2c203cd03aad255892a8d628a458656d14
+  shared_preferences_ios: 548a61f8053b9b8a49ac19c1ffbc8b92c50d68ad
+  TOCropViewController: edfd4f25713d56905ad1e0b9f5be3fbe0f59c863
+  url_launcher_ios: 839c58cdb4279282219f5e248c3321761ff3c4de
 
-PODFILE CHECKSUM: 44851e8812fbef8a9247b04a7982ad14c3a95f6a
+PODFILE CHECKSUM: e1ffd3daa5042cd516081f94f61b857c0deb822d
 
-COCOAPODS: 1.11.0
+COCOAPODS: 1.11.3

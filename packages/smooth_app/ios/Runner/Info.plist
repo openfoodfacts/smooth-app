@@ -4,6 +4,8 @@
 	<dict>
 		<key>CFBundleDevelopmentRegion</key>
 		<string>$(DEVELOPMENT_LANGUAGE)</string>
+		<key>CFBundleDisplayName</key>
+		<string>OpenFoodFacts</string>
 		<key>CFBundleExecutable</key>
 		<string>$(EXECUTABLE_NAME)</string>
 		<key>CFBundleIdentifier</key>
@@ -11,7 +13,7 @@
 		<key>CFBundleInfoDictionaryVersion</key>
 		<string>6.0</string>
 		<key>CFBundleName</key>
-		<string>Smoothie</string>
+		<string>OpenFoodFacts</string>
 		<key>CFBundlePackageType</key>
 		<string>APPL</string>
 		<key>CFBundleShortVersionString</key>
@@ -34,17 +36,9 @@
 		<array>
 			<string>UIInterfaceOrientationPortrait</string>
 			<string>UIInterfaceOrientationPortraitUpsideDown</string>
-			<string>UIInterfaceOrientationLandscapeLeft</string>
-			<string>UIInterfaceOrientationLandscapeRight</string>
 		</array>
 		<key>UIViewControllerBasedStatusBarAppearance</key>
 		<false/>
-		<key>CFBundleLocalizations</key>
-		<array>
-			<string>en</string>
-			<string>ja</string>
-			<string>zh-Hant</string>
-		</array>
 		<key>UIStatusBarHidden</key>
 		<false/>
 		<key>NSPhotoLibraryUsageDescription</key>
@@ -52,10 +46,12 @@
 		<key>NSCameraUsageDescription</key>
 		<string>This app needs Camera Usage for scanning barcodes and cropping photos</string>
 		<key>LSApplicationQueriesSchemes</key>
-        <array>
-          <string>https</string>
-          <string>http</string>
-          <string>mailto</string>
-        </array>
+		<array>
+			<string>https</string>
+			<string>http</string>
+			<string>mailto</string>
+		</array>
+		<key>UIRequiresFullScreen</key>
+		<true/>
 	</dict>
 </plist>

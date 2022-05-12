@@ -1,10 +1,6 @@
 import 'package:openfoodfacts/model/Product.dart';
-import 'package:openfoodfacts/utils/PnnsGroups.dart';
 
 enum ProductListType {
-  /// API search for [PnnsGroup2Filter] related food groups
-  HTTP_SEARCH_GROUP,
-
   /// API search by [SearchTerms] keywords
   HTTP_SEARCH_KEYWORDS,
 
@@ -16,74 +12,83 @@ enum ProductListType {
 
   /// History of products seen by the end-user
   HISTORY,
+
+  /// End-user product list
+  USER,
 }
 
 extension ProductListTypeExtension on ProductListType {
   static const Map<ProductListType, String> _keys = <ProductListType, String>{
-    ProductListType.HTTP_SEARCH_GROUP: 'http/search/group',
     ProductListType.HTTP_SEARCH_KEYWORDS: 'http/search/keywords',
     ProductListType.HTTP_SEARCH_CATEGORY: 'http/search/category',
     ProductListType.SCAN_SESSION: 'scan_session',
     ProductListType.HISTORY: 'history',
+    ProductListType.USER: 'user',
   };
 
   String get key => _keys[this]!;
 }
 
 class ProductList {
-  ProductList._({required this.listType, this.parameters = ''});
+  ProductList._({
+    required this.listType,
+    this.parameters = '',
+    this.pageSize = 0,
+    this.pageNumber = 0,
+  });
 
-  ProductList.keywordSearch(final String keywords)
-      : this._(
+  ProductList.keywordSearch(
+    final String keywords, {
+    required int pageSize,
+    required int pageNumber,
+  }) : this._(
           listType: ProductListType.HTTP_SEARCH_KEYWORDS,
           parameters: keywords,
+          pageSize: pageSize,
+          pageNumber: pageNumber,
         );
 
-  ProductList.categorySearch(final String category)
-      : this._(
+  ProductList.categorySearch(
+    final String category, {
+    required int pageSize,
+    required int pageNumber,
+  }) : this._(
           listType: ProductListType.HTTP_SEARCH_CATEGORY,
           parameters: category,
-        );
-
-  ProductList.groupSearch(final PnnsGroup2 group)
-      : this._(
-          listType: ProductListType.HTTP_SEARCH_GROUP,
-          parameters: group.id,
+          pageSize: pageSize,
+          pageNumber: pageNumber,
         );
 
   ProductList.history() : this._(listType: ProductListType.HISTORY);
 
   ProductList.scanSession() : this._(listType: ProductListType.SCAN_SESSION);
 
+  ProductList.user(final String name)
+      : this._(
+          listType: ProductListType.USER,
+          parameters: name,
+        );
+
   final ProductListType listType;
   final String parameters;
 
+  /// Page size at query time.
+  final int? pageSize;
+
+  /// Page number at query time.
+  final int? pageNumber;
+
+  /// "Total size" returned by the query.
+  int totalSize = 0;
+
   final List<String> _barcodes = <String>[];
   final Map<String, Product> _products = <String, Product>{};
-
-  /// API search for [PnnsGroup2Filter] related food groups
-  static const String LIST_TYPE_HTTP_SEARCH_GROUP = 'http/search/group';
-
-  /// API search by [SearchTerms] keywords
-  static const String LIST_TYPE_HTTP_SEARCH_KEYWORDS = 'http/search/keywords';
-
-  /// API search for [CategoryProductQuery] category
-  static const String LIST_TYPE_HTTP_SEARCH_CATEGORY = 'http/search/category';
-
-  /// Current scan session; can be easily cleared by the end-user
-  static const String LIST_TYPE_SCAN_SESSION = 'scan_session';
-
-  /// History of products seen by the end-user
-  static const String LIST_TYPE_HISTORY = 'history';
 
   List<String> get barcodes => _barcodes;
 
   bool isEmpty() => _barcodes.isEmpty;
 
   Product getProduct(final String barcode) => _products[barcode]!;
-
-  bool isSameAs(final ProductList other) =>
-      listType == other.listType && parameters == other.parameters;
 
   void refresh(final Product product) {
     final String? barcode = product.barcode;
@@ -144,13 +149,25 @@ class ProductList {
 
   bool _isReversed() {
     switch (listType) {
-      case ProductListType.HTTP_SEARCH_GROUP:
       case ProductListType.HTTP_SEARCH_KEYWORDS:
       case ProductListType.HTTP_SEARCH_CATEGORY:
+      case ProductListType.USER:
         return false;
       case ProductListType.SCAN_SESSION:
       case ProductListType.HISTORY:
         return true;
+    }
+  }
+
+  String getParametersKey() {
+    switch (listType) {
+      case ProductListType.SCAN_SESSION:
+      case ProductListType.HISTORY:
+      case ProductListType.USER:
+        return parameters;
+      case ProductListType.HTTP_SEARCH_KEYWORDS:
+      case ProductListType.HTTP_SEARCH_CATEGORY:
+        return '$parameters,$pageSize,$pageNumber';
     }
   }
 }

@@ -7,11 +7,11 @@ import 'package:smooth_app/data_models/onboarding_data_product.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/onboarding/next_button.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_food.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
-import 'package:smooth_app/pages/user_preferences_food.dart';
 
 class PreferencesPage extends StatefulWidget {
   const PreferencesPage(this._localDatabase) : super();
@@ -33,18 +33,23 @@ class _PreferencesPageState extends State<PreferencesPage> {
     _initFuture = _init();
   }
 
-  Future<dynamic> _init() async => _product =
-      await OnboardingDataProduct(widget._localDatabase).getData(rootBundle);
+  Future<void> _init() async =>
+      _product = await OnboardingDataProduct.forProduct(widget._localDatabase)
+          .getData(rootBundle);
 
   @override
   Widget build(BuildContext context) => FutureBuilder<void>(
         future: _initFuture,
         builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
           if (snapshot.hasError) {
-            return Text('Fatal Error: ${snapshot.error}');
+            final AppLocalizations appLocalizations =
+                AppLocalizations.of(context)!;
+            return Text(
+              appLocalizations.preferences_page_loading_error(snapshot.error),
+            );
           }
           if (snapshot.connectionState != ConnectionState.done) {
-            return const CircularProgressIndicator();
+            return const Center(child: CircularProgressIndicator());
           }
           return _Helper(_product);
         },
@@ -79,9 +84,7 @@ class _HelperState extends State<_Helper> {
         ),
         child: Text(
           appLocalizations.productDataUtility,
-          style: Theme.of(context).textTheme.headline2!.apply(
-                color: Colors.black,
-              ),
+          style: Theme.of(context).textTheme.displayMedium,
         ),
       ),
       Container(
@@ -97,6 +100,7 @@ class _HelperState extends State<_Helper> {
             widget.product,
             productPreferences,
             isFullVersion: _isProductExpanded,
+            isRemovable: false,
           ),
         ),
       ),
@@ -109,7 +113,7 @@ class _HelperState extends State<_Helper> {
         userPreferences: userPreferences,
         appLocalizations: appLocalizations,
         themeData: Theme.of(context),
-      ).getContent(),
+      ).getOnboardingContent(),
     );
     return Scaffold(
       body: Stack(
@@ -123,11 +127,9 @@ class _HelperState extends State<_Helper> {
             shrinkWrap: true,
             children: pageData,
           ),
-          const Positioned(
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: NextButton(OnboardingPage.PREFERENCES_PAGE),
-            ),
+          const Align(
+            alignment: Alignment.bottomCenter,
+            child: NextButton(OnboardingPage.PREFERENCES_PAGE),
           ),
         ],
       ),

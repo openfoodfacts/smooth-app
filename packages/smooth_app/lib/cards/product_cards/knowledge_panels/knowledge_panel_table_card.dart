@@ -3,8 +3,9 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/smooth_html_widget.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
-import 'package:smooth_app/widgets/smooth_html_widget.dart';
 
 // Cells with a lot of text can get very large, we don't want to allocate
 // most of [availableWidth] to columns with large cells. So we cap the cell length
@@ -289,7 +290,7 @@ class _TableCellWidgetState extends State<TableCellWidget> {
         ''';
       cellText = '<div style=$htmlStyle>${widget.cell.text}</div>';
     }
-    return InkWell(
+    return GestureDetector(
       onTap: () => setState(() {
         _isExpanded = true;
       }),
@@ -329,7 +330,9 @@ class _TableCellWidgetState extends State<TableCellWidget> {
                 );
               }).toList(),
               onChanged: (KnowledgePanelTableColumn? selectedColumn) {
-                widget.cell.columnGroup!.currentColumn = selectedColumn;
+                setState(() {
+                  widget.cell.columnGroup!.currentColumn = selectedColumn;
+                });
                 int i = 0;
                 for (final KnowledgePanelTableColumn column
                     in widget.tableElement.columns) {

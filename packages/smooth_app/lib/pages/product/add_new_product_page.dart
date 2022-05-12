@@ -2,14 +2,16 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/model/ProductImage.dart';
-import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
-import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
+import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/confirm_and_upload_picture.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
+import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
 
 const EdgeInsets _ROW_PADDING_TOP = EdgeInsets.only(top: VERY_LARGE_SPACE);
 
@@ -37,12 +39,16 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
   final Map<ImageField, List<File>> _uploadedImages =
       <ImageField, List<File>>{};
 
+  bool _nutritionFactsAdded = false;
+  bool _basicDetailsAdded = false;
+  bool _isProductLoaded = false;
+
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final ThemeData themeData = Theme.of(context);
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(automaticallyImplyLeading: !_isProductLoaded),
       body: Padding(
         padding: const EdgeInsets.only(
           top: VERY_LARGE_SPACE,
@@ -69,15 +75,20 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
                         .apply(color: themeData.colorScheme.onSurface),
                   ),
                   ..._buildImageCaptureRows(context),
+                  _buildNutritionInputButton(),
+                  _buildaddInputDetailsButton()
                 ],
               ),
             ),
             Positioned(
               child: Align(
-                alignment: Alignment.bottomRight,
+                alignment: Alignment.topRight,
                 child: SmoothActionButton(
                   text: appLocalizations.finish,
-                  onPressed: () => Navigator.pop(context),
+                  onPressed: () {
+                    Navigator.maybePop(
+                        context, _isProductLoaded ? widget.barcode : null);
+                  },
                 ),
               ),
             ),
@@ -115,20 +126,13 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
   }
 
   Widget _buildAddImageButton(BuildContext context, ImageField imageType) {
-    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     return Padding(
       padding: _ROW_PADDING_TOP,
       child: SmoothLargeButtonWithIcon(
         text: _getAddPhotoButtonText(context, imageType),
         icon: Icons.camera_alt,
-        isDarkMode: themeProvider.darkTheme,
         onPressed: () async {
-          final File? initialPhoto = await Navigator.push<File?>(
-            context,
-            MaterialPageRoute<File?>(
-              builder: (BuildContext context) => ImageCropPage(),
-            ),
-          );
+          final File? initialPhoto = await startImageCropping(context);
           if (initialPhoto == null) {
             return;
           }
@@ -147,7 +151,9 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
           if (finalPhoto != null) {
             _uploadedImages[imageType] = _uploadedImages[imageType] ?? <File>[];
             _uploadedImages[imageType]!.add(initialPhoto);
-            setState(() {});
+            setState(() {
+              _isProductLoaded = true;
+            });
           }
           initialPhoto.delete();
         },
@@ -207,5 +213,117 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
 
   bool _isImageUploadedForType(ImageField imageType) {
     return (_uploadedImages[imageType] ?? <File>[]).isNotEmpty;
+  }
+
+  Widget _buildNutritionInputButton() {
+    if (_nutritionFactsAdded) {
+      return Padding(
+          padding: _ROW_PADDING_TOP,
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              const SizedBox(
+                width: 50.0,
+                child: Icon(
+                  Icons.check,
+                  color: Colors.greenAccent,
+                ),
+              ),
+              Expanded(
+                child: Center(
+                  child: Text(
+                      AppLocalizations.of(context)!.nutritional_facts_added,
+                      style: Theme.of(context).textTheme.bodyText1),
+                ),
+              ),
+            ],
+          ));
+    }
+
+    return Padding(
+      padding: _ROW_PADDING_TOP,
+      child: SmoothLargeButtonWithIcon(
+        text:
+            AppLocalizations.of(context)!.nutritional_facts_input_button_label,
+        icon: Icons.edit,
+        onPressed: () async {
+          final OrderedNutrientsCache? cache =
+              await OrderedNutrientsCache.getCache(context);
+          if (cache == null) {
+            final SnackBar snackBar = SnackBar(
+              content: Text(
+                  AppLocalizations.of(context)!.nutrition_cache_loading_error),
+            );
+            ScaffoldMessenger.of(context).showSnackBar(snackBar);
+            return;
+          }
+
+          final bool result = await Navigator.push<bool>(
+                context,
+                MaterialPageRoute<bool>(
+                  builder: (BuildContext context) => NutritionPageLoaded(
+                    Product(barcode: widget.barcode),
+                    cache.orderedNutrients,
+                  ),
+                ),
+              ) ??
+              false;
+
+          setState(() {
+            _nutritionFactsAdded = result;
+          });
+        },
+      ),
+    );
+  }
+
+  Widget _buildaddInputDetailsButton() {
+    if (_basicDetailsAdded) {
+      return Padding(
+          padding: _ROW_PADDING_TOP,
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              const SizedBox(
+                width: 50.0,
+                child: Icon(
+                  Icons.check,
+                  color: Colors.greenAccent,
+                ),
+              ),
+              Expanded(
+                child: Center(
+                  child: Text(
+                      AppLocalizations.of(context)!.basic_details_add_success,
+                      style: Theme.of(context).textTheme.bodyText1),
+                ),
+              ),
+            ],
+          ));
+    }
+
+    return Padding(
+      padding: _ROW_PADDING_TOP,
+      child: SmoothLargeButtonWithIcon(
+        text: AppLocalizations.of(context)!.completed_basic_details_btn_text,
+        icon: Icons.edit,
+        onPressed: () async {
+          final bool result = await Navigator.push<bool>(
+                context,
+                MaterialPageRoute<bool>(
+                  builder: (BuildContext context) => AddBasicDetailsPage(
+                    Product(barcode: widget.barcode),
+                  ),
+                ),
+              ) ??
+              false;
+          setState(() {
+            _basicDetailsAdded = result;
+          });
+        },
+      ),
+    );
   }
 }

@@ -3,6 +3,7 @@ import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 
 class UserPreferences extends ChangeNotifier {
   UserPreferences._shared(final SharedPreferences sharedPreferences)
@@ -17,14 +18,16 @@ class UserPreferences extends ChangeNotifier {
 
   static const String _TAG_PREFIX_IMPORTANCE = 'IMPORTANCE_AS_STRING';
   static const String _TAG_INIT = 'init';
-  static const String _TAG_THEME_DARK = 'themeDark';
+  static const String _TAG_CURRENT_THEME_MODE = 'currentThemeMode';
   static const String _TAG_THEME_COLOR_TAG = 'themeColorTag';
   static const String _TAG_USER_COUNTRY_CODE = 'userCountry';
   static const String _TAG_LAST_VISITED_ONBOARDING_PAGE =
       'lastVisitedOnboardingPage';
   static const String _TAG_PREFIX_FLAG = 'FLAG_PREFIX_';
   static const String _TAG_DEV_MODE = 'devMode';
-  static const String _TAG_CAMERA_DECLINE = 'declined_camera_use_once';
+  static const String _TAG_CRASH_REPORTS = 'crash_reports';
+  static const String _TAG_ANALYTICS_REPORTS = 'analytics_reports';
+  static const String _TAG_EXCLUDED_ATTRIBUTE_IDS = 'excluded_attributes';
 
   Future<void> init(final ProductPreferences productPreferences) async {
     if (_sharedPreferences.getBool(_TAG_INIT) != null) {
@@ -48,22 +51,28 @@ class UserPreferences extends ChangeNotifier {
       _sharedPreferences.getString(_getImportanceTag(attributeId)) ??
       PreferenceImportance.ID_NOT_IMPORTANT;
 
-  Future<void> resetImportances(
-    final ProductPreferences productPreferences,
-  ) async =>
-      productPreferences.resetImportances();
+  Future<void> setTheme(final String theme) async =>
+      _sharedPreferences.setString(_TAG_CURRENT_THEME_MODE, theme);
 
-  Future<void> setThemeDark(final bool state) async =>
-      _sharedPreferences.setBool(_TAG_THEME_DARK, state);
+  Future<void> setCrashReports(final bool state) async =>
+      _sharedPreferences.setBool(_TAG_CRASH_REPORTS, state);
 
-  bool get isThemeDark => _sharedPreferences.getBool(_TAG_THEME_DARK) ?? false;
+  bool get crashReports =>
+      _sharedPreferences.getBool(_TAG_CRASH_REPORTS) ?? true;
+
+  Future<void> setAnalyticsReports(final bool state) async =>
+      _sharedPreferences.setBool(_TAG_ANALYTICS_REPORTS, state);
+
+  bool get analyticsReports =>
+      _sharedPreferences.getBool(_TAG_ANALYTICS_REPORTS) ?? true;
 
   Future<void> setThemeColorTag(final String colorTag) async =>
       _sharedPreferences.setString(_TAG_THEME_COLOR_TAG, colorTag);
 
   String get themeColorTag =>
       _sharedPreferences.getString(_TAG_THEME_COLOR_TAG) ?? 'COLOR_TAG_BLUE';
-
+  String get currentTheme =>
+      _sharedPreferences.getString(_TAG_CURRENT_THEME_MODE) ?? 'System Default';
   Future<void> setUserCountry(final String countryCode) async =>
       _sharedPreferences.setString(_TAG_USER_COUNTRY_CODE, countryCode);
 
@@ -81,12 +90,19 @@ class UserPreferences extends ChangeNotifier {
         : OnboardingPage.values[pageIndex];
   }
 
-  Future<void> setCameraDecline(final bool declined) async {
-    _sharedPreferences.setBool(_TAG_CAMERA_DECLINE, declined);
+  Future<void> setAppLanguageCode(String? languageCode) async {
+    if (languageCode == null) {
+      await _sharedPreferences
+          .remove(UserPreferencesDevMode.userPreferencesAppLanguageCode);
+    } else {
+      await setDevModeString(
+          UserPreferencesDevMode.userPreferencesAppLanguageCode, languageCode);
+    }
+    notifyListeners();
   }
 
-  bool get cameraDeclinedOnce =>
-      _sharedPreferences.getBool(_TAG_CAMERA_DECLINE) ?? false;
+  String? get appLanguageCode =>
+      getDevModeString(UserPreferencesDevMode.userPreferencesAppLanguageCode);
 
   String _getFlagTag(final String key) => _TAG_PREFIX_FLAG + key;
 
@@ -101,8 +117,26 @@ class UserPreferences extends ChangeNotifier {
   bool? getFlag(final String key) =>
       _sharedPreferences.getBool(_getFlagTag(key));
 
+  List<String> getExcludedAttributeIds() =>
+      _sharedPreferences.getStringList(_TAG_EXCLUDED_ATTRIBUTE_IDS) ??
+      <String>[];
+
+  Future<void> setExcludedAttributeIds(final List<String> value) async =>
+      _sharedPreferences.setStringList(_TAG_EXCLUDED_ATTRIBUTE_IDS, value);
+
   Future<void> setDevMode(final int value) async =>
       _sharedPreferences.setInt(_TAG_DEV_MODE, value);
 
   int get devMode => _sharedPreferences.getInt(_TAG_DEV_MODE) ?? 0;
+
+  Future<void> setDevModeIndex(final String tag, final int index) async =>
+      _sharedPreferences.setInt(tag, index);
+
+  int? getDevModeIndex(final String tag) => _sharedPreferences.getInt(tag);
+
+  Future<void> setDevModeString(final String tag, final String value) async =>
+      _sharedPreferences.setString(tag, value);
+
+  String? getDevModeString(final String tag) =>
+      _sharedPreferences.getString(tag);
 }

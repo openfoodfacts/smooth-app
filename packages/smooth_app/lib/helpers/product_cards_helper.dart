@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
-import 'package:smooth_app/helpers/ui_helpers.dart';
 
 String getProductName(Product product, AppLocalizations appLocalizations) =>
     product.productName ?? appLocalizations.unknownProductName;
@@ -24,8 +24,13 @@ Widget buildProductSmoothCard({
   return SmoothCard(
     margin: margin,
     padding: padding,
-    header: header,
-    child: body,
+    child: Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        if (header != null) header,
+        body,
+      ],
+    ),
   );
 }
 
@@ -33,10 +38,14 @@ Widget buildProductSmoothCard({
 List<Attribute> getPopulatedAttributes(
   final Product product,
   final List<String> attributeIds,
+  final List<String> excludedAttributeIds,
 ) {
   final List<Attribute> result = <Attribute>[];
   final Map<String, Attribute> attributes = product.getAttributes(attributeIds);
   for (final String attributeId in attributeIds) {
+    if (excludedAttributeIds.contains(attributeId)) {
+      continue;
+    }
     Attribute? attribute = attributes[attributeId];
 // Some attributes selected in the user preferences might be unavailable for some products
     if (attribute == null) {
@@ -65,6 +74,13 @@ Widget addPanelButton(
       width: double.infinity,
       child: ElevatedButton.icon(
         icon: Icon(iconData ?? Icons.add),
+        style: ButtonStyle(
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            const RoundedRectangleBorder(
+              borderRadius: ROUNDED_BORDER_RADIUS,
+            ),
+          ),
+        ),
         label: Text(label),
         onPressed: onPressed,
       ),

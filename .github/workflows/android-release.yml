@@ -1,15 +1,16 @@
 name: Google Play release
 
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - 'release/*'
     
 jobs:
   deploy_android:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set env
         run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
@@ -17,11 +18,11 @@ jobs:
       - name: Version
         run: echo ${{ env.RELEASE_VERSION }}
 
-      - name: Setup Java jdk
-        uses: actions/setup-java@v2.5.0
+      - name: Setup Java JDK
+        uses: actions/setup-java@v3.3.0
         with:
           distribution: 'zulu'
-          java-version: 12.x
+          java-version: 11
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
@@ -30,25 +31,24 @@ jobs:
           ruby-version: 3.0.2
 
       - name: Decrypt API JSON file
-        run: cd ./packages/smooth_app/android/fastlane/envfiles && chmod +x ./decrypt_secrets.sh && ./decrypt_secrets.sh
+        run: cd ./packages/smooth_app/android/fastlane/envfiles && chmod +x ./decrypt_secrets.sh && ./decrypt_secrets.sh && ls
         env:
           API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
           STORE_JKS_DECRYPTKEY: ${{ secrets.STORE_JKS_DECRYPTKEY }}
 
-      - uses: actions/checkout@v2
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: stable
           cache: true
-          cache-key: flutter #change this to force refresh cache
+          cache-key: flutter2.10 #change this to force refresh cache
       - run: flutter --version
 
       - name: Get dependencies
         run: ci/pub_upgrade.sh
 
       - name: Bump version
-        uses: maierj/fastlane-action@v2.1.0
+        uses: maierj/fastlane-action@v2.2.1
         with:
           lane: setVersion
           subdirectory: packages/smooth_app/android
@@ -64,7 +64,7 @@ jobs:
          SIGN_KEY_PASSWORD: ${{ secrets.SIGN_KEY_PASSWORD }}
 
       - name: Release AAB
-        uses: maierj/fastlane-action@v2.1.0
+        uses: maierj/fastlane-action@v2.2.1
         with:
           lane: closed_beta
           subdirectory: packages/smooth_app/android
@@ -73,4 +73,3 @@ jobs:
          SIGN_STORE_PASSWORD: ${{ secrets.SIGN_STORE_PASSWORD }}
          SIGN_KEY_ALIAS: ${{ secrets.SIGN_KEY_ALIAS }}
          SIGN_KEY_PASSWORD: ${{ secrets.SIGN_KEY_PASSWORD }}
-

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 
 enum TextFieldTypes {
   PLAIN_TEXT,
@@ -20,6 +21,7 @@ class SmoothTextFormField extends StatefulWidget {
     this.hintTextFontSize,
     this.prefixIcon,
     this.textInputType,
+    this.onChanged,
   }) : super(key: key);
 
   final TextFieldTypes type;
@@ -34,6 +36,7 @@ class SmoothTextFormField extends StatefulWidget {
   final double? hintTextFontSize;
   final Color? backgroundColor;
   final TextInputType? textInputType;
+  final void Function(String?)? onChanged;
 
   @override
   State<SmoothTextFormField> createState() => _SmoothTextFormFieldState();
@@ -63,31 +66,34 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
       enableSuggestions: _enableSuggestions,
       autocorrect: _autocorrect,
       autofillHints: widget.autofillHints,
-      onChanged: (String data) {
-        // Rebuilds for changing the eye icon
-        if (widget.type == TextFieldTypes.PASSWORD) {
-          if (data.isEmpty) {
-            setState(() {});
-          } else if (data.isNotEmpty && data.length > 1) {
-            setState(() {});
-          }
-        }
-      },
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      onChanged: widget.onChanged ??
+          (String data) {
+            // Rebuilds for changing the eye icon
+            if (widget.type == TextFieldTypes.PASSWORD) {
+              if (data.isEmpty) {
+                setState(() {});
+              } else if (data.isNotEmpty && data.length > 1) {
+                setState(() {});
+              }
+            }
+          },
       decoration: InputDecoration(
         prefixIcon: widget.prefixIcon,
         filled: true,
         hintStyle: TextStyle(
           color: widget.textColor,
           fontSize: widget.hintTextFontSize ?? 20.0,
+          overflow: TextOverflow.ellipsis,
         ),
         hintText: widget.hintText,
         fillColor: widget.backgroundColor,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(40.0),
+        border: const OutlineInputBorder(
+          borderRadius: CIRCULAR_BORDER_RADIUS,
         ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(40.0),
-          borderSide: const BorderSide(
+        enabledBorder: const OutlineInputBorder(
+          borderRadius: CIRCULAR_BORDER_RADIUS,
+          borderSide: BorderSide(
             color: Colors.transparent,
             width: 5.0,
           ),
@@ -103,6 +109,7 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
                     : const Icon(Icons.visibility),
               )
             : null,
+        errorMaxLines: 2,
       ),
     );
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 
 class SearchHistoryView extends StatefulWidget {
   const SearchHistoryView({
@@ -45,9 +46,9 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
     return Dismissible(
       key: Key(query),
       direction: DismissDirection.endToStart,
-      onDismissed: (DismissDirection direction) =>
+      onDismissed: (DismissDirection direction) async =>
           _handleDismissed(context, query),
-      background: Container(color: Colors.red),
+      background: Container(color: RED_COLOR),
       child: ListTile(
         leading: const SizedBox(
           height: double.infinity, // Vertically center the icon.
@@ -61,6 +62,9 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
   }
 
   Future<void> _handleDismissed(BuildContext context, String query) async {
+    // we need an immediate action for the display refresh
+    _queries.remove(query);
+    // and we need to impact the database too
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     await DaoStringList(localDatabase).remove(query);
     setState(() {});

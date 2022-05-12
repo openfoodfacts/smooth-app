@@ -2,14 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
-
-const Widget EMPTY_WIDGET = SizedBox.shrink();
-
-const double VERY_SMALL_SPACE = 4.0;
-const double SMALL_SPACE = 8.0;
-const double MEDIUM_SPACE = 12.0;
-const double LARGE_SPACE = 16.0;
-const double VERY_LARGE_SPACE = 20.0;
+import 'package:smooth_app/generic_lib/design_constants.dart';
 
 /// Main attributes, to be displayed on top
 const List<String> SCORE_ATTRIBUTE_IDS = <String>[
@@ -43,12 +36,12 @@ Color? getTextColorFromKnowledgePanelElementEvaluation(Evaluation evaluation) {
       // Use default color for unknown.
       return null;
     case Evaluation.AVERAGE:
-      return Colors.grey;
+      return GREY_COLOR;
     case Evaluation.NEUTRAL:
-      return Colors.orange;
+      return DARK_ORANGE_COLOR;
     case Evaluation.BAD:
-      return Colors.red;
+      return RED_COLOR;
     case Evaluation.GOOD:
-      return Colors.green;
+      return DARK_GREEN_COLOR;
   }
 }

@@ -1,6 +1,7 @@
 import 'package:openfoodfacts/model/Product.dart';
-import 'package:openfoodfacts/personalized_search/matched_product.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/helpers/smooth_matched_product.dart';
 
 /// Tabs where ranked products are displayed
 enum MatchTab {
@@ -17,9 +18,13 @@ class SmoothItModel {
   void refresh(
     final List<Product> products,
     final ProductPreferences productPreferences,
+    final UserPreferences userPreferences,
   ) {
-    final List<MatchedProduct> allProducts =
-        MatchedProduct.sort(products, productPreferences);
+    final List<MatchedProduct> allProducts = MatchedProduct.sort(
+      products,
+      productPreferences,
+      userPreferences,
+    );
     _categorizedProducts.clear();
     _categorizedProducts[MatchTab.ALL] = allProducts;
     for (final MatchedProduct matchedProduct in allProducts) {

@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:openfoodfacts/utils/PnnsGroups.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/database/paged_product_query.dart';
 import 'package:smooth_app/pages/product/common/product_query_page.dart';
 
 class ProductQueryPageHelper {
   Future<void> openBestChoice({
-    required final ProductQuery productQuery,
+    required final PagedProductQuery productQuery,
     required final LocalDatabase localDatabase,
     required final Color color,
     required final String heroTag,
@@ -77,9 +76,6 @@ class ProductQueryPageHelper {
       {final bool verbose = true}) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     switch (productList.listType) {
-      case ProductListType.HTTP_SEARCH_GROUP:
-        return '${_getGroupName(productList.parameters, appLocalizations)}'
-            '${verbose ? ' ${appLocalizations.category_search}' : ''}';
       case ProductListType.HTTP_SEARCH_KEYWORDS:
         return '${productList.parameters}'
             '${verbose ? ' ${appLocalizations.category_search}' : ''}';
@@ -90,16 +86,8 @@ class ProductQueryPageHelper {
         return appLocalizations.scan;
       case ProductListType.HISTORY:
         return appLocalizations.recently_seen_products;
+      case ProductListType.USER:
+        return productList.parameters;
     }
-  }
-
-  static String _getGroupName(
-      final String groupId, final AppLocalizations appLocalizations) {
-    for (final PnnsGroup2 group2 in PnnsGroup2.values) {
-      if (group2.id == groupId) {
-        return group2.name;
-      }
-    }
-    return '${appLocalizations.not_found} $groupId';
   }
 }

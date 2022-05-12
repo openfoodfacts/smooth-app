@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -66,13 +67,14 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final Size size = MediaQuery.of(context).size;
+    final bool isDarkMode =
+        Provider.of<ThemeProvider>(context, listen: false).isDarkMode(context);
 
     // Needs to be changed
-    if (themeProvider.darkTheme) {
+    if (isDarkMode) {
       _textFieldBackgroundColor = Colors.white10;
     }
 
@@ -146,7 +148,10 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                               showDialog<void>(
                                 context: context,
                                 builder: (BuildContext context) => AlertDialog(
-                                  title: const Text('Ready for the dev mode?'),
+                                  title: Text(
+                                    appLocalizations
+                                        .enable_dev_mode_dialog_title,
+                                  ),
                                   actions: <Widget>[
                                     TextButton(
                                       child: Text(appLocalizations.yes),
@@ -192,8 +197,8 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                         Size(size.width * 0.5, theme.buttonTheme.height + 10),
                       ),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(300.0),
+                        const RoundedRectangleBorder(
+                          borderRadius: CIRCULAR_BORDER_RADIUS,
                         ),
                       ),
                     ),

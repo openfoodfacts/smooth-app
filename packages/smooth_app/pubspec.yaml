@@ -1,58 +1,69 @@
 name: smooth_app
 description: A new official Open Food Facts application build with great user experience in mind.
-version: 0.0.1+6
+version: 0.0.0
 publish_to: "none"
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.15.1 <3.0.0"
 
 dependencies:
   flutter_lints: ^1.0.4
-  carousel_slider: ^4.0.0
+  carousel_slider: ^4.1.1
   cupertino_icons: ^1.0.4
   device_preview: ^1.0.0
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  flutter_svg: ^1.0.2
+  flutter_svg: ^1.0.3
   flutter_map: ^0.14.0
-  flutter_widget_from_html_core: ^0.8.4
+  flutter_widget_from_html_core: any
+  fwfh_selectable_text: ^0.8.3+1
   flutter_secure_storage: ^5.0.2
-  hive: ^2.0.5
+  hive: ^2.1.0
   hive_flutter: ^1.1.0
   http: ^0.13.4
-  image_picker: ^0.8.4+4
+  image_picker: ^0.8.5
   iso_countries: 2.1.0
   latlong2: ^0.8.1
-  matomo: ^1.1.0
-  modal_bottom_sheet: ^2.0.0
-  openfoodfacts: ^1.12.0
-#  openfoodfacts:
-#    path: ../../../openfoodfacts-dart
-  package_info_plus: ^1.3.0
-  permission_handler: ^8.3.0
+  matomo_forever: ^1.0.0+1
+  modal_bottom_sheet: ^2.0.1
+  openfoodfacts: ^1.16.0
+  #  openfoodfacts:
+  #    path: ../../../openfoodfacts-dart
+  package_info_plus: ^1.4.2
+  permission_handler: ^9.2.0
   photo_view: ^0.13.0
-  platform_device_id: ^1.0.1
+  uuid: ^3.0.6
   provider: ^6.0.2
-  qr_code_scanner: ^0.6.1
+  qr_code_scanner: ^0.7.0
+  rxdart: ^0.27.3
+  flutter_isolate: ^2.0.2
   rubber: ^1.0.1
-  sentry_flutter: ^6.2.2
-  url_launcher: ^6.0.18
+  sentry_flutter: ^6.5.1 # careful with upgrading cf: https://github.com/openfoodfacts/smooth-app/issues/1300
+  url_launcher: ^6.1.0
   visibility_detector: ^0.2.2
-  google_ml_barcode_scanner: ^0.0.2
-  camera: ^0.9.4+5
-  percent_indicator: ^4.0.0
-  crop_your_image: ^0.6.0+1
+  camera: ^0.9.4+21
+  percent_indicator: ^4.0.1
+  mailto: ^2.0.0
+  flutter_native_splash: ^2.1.6
+  # Fork from cli1005 with iOS fix cf: https://github.com/openfoodfacts/smooth-app/issues/1155
+  google_ml_barcode_scanner:
+    git:
+      url: https://github.com/cli1005/google_ml_barcode_scanner.git
+      ref: master
+  image_cropper: ^2.0.2
+  auto_size_text: ^3.0.0
 
-
-  
 dev_dependencies:
+  integration_test:
+    sdk: flutter
+  flutter_driver:
+    sdk: flutter
   flutter_launcher_icons: ^0.9.2
-  flutter_native_splash: ^1.3.2 # careful with 1.3.3 because it needs dart 2.15.1 min
   flutter_test:
     sdk: flutter
-  mockito: ^5.0.17
+  mockito: ^5.1.0
   path: ^1.8.0 # careful with 1.8.1 because of https://github.com/flutter/flutter/issues/95478
 
 # 'flutter pub run flutter_launcher_icons:main' to update
@@ -83,6 +94,7 @@ flutter:
     - assets/app/
     - assets/cache/
     - assets/categories/
+    - assets/cacheTintable/
     - assets/data/
     - assets/home/
     - assets/labels/

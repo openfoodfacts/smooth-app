@@ -5,8 +5,14 @@ android:
 assets cache:
 - packages/smooth_app/assets/cache/
 
+dependancies:
+- packages/smooth_app/pubspec.yaml
+
 ios:
 - packages/smooth_app/ios/**/*
+
+asset cache:
+- packages/smooth_app/assets/cache/**/*
 
 web:
 - packages/smooth_app/web/**/*
@@ -39,6 +45,10 @@ scan:
 - packages/smooth_app/lib/pages/scan/scan_page.dart
 - packages/smooth_app/lib/pages/scan/scanner_overlay.dart
 - packages/smooth_app/lib/pages/scan/lifecycle_manager.dart
+- packages/smooth_app/lib/pages/scan/abstract_camera_image_getter.dart
+- packages/smooth_app/lib/pages/scan/camera_image_cropper.dart
+- packages/smooth_app/lib/pages/scan/camera_image_full_getter.dart
+- packages/smooth_app/lib/pages/scan/ml_kit_scan_page.dart
 
 mlkit:
 - packages/smooth_app/lib/pages/scan/ml_kit_scan_page.dart
@@ -54,6 +64,14 @@ knowledge panels:
 
 robotoff:
 - packages/smooth_app/lib/database/robotoff_questions_query.dart
+- packages/smooth_app/lib/cards/product_cards/question_card.dart
+
+summary card:
+- packages/smooth_app/lib/pages/product/summary_card.dart
+
+analytics:
+- packages/smooth_app/lib/pages/onboarding/consent_analytics_page.dart
+- packages/smooth_app/assets/onboarding/analytics.svg
 
 goldens:
 - packages/smooth_app/test/pages/goldens
@@ -89,3 +107,6 @@ ranking:
 
 generic lib:
 - packages/smooth_app/lib/generic_lib
+
+photo cropping:
+- packages/smooth_app/lib/pages/image_crop_page.dart

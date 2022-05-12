@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_app/data_models/onboarding_data_knowledge_panels.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/data_models/onboarding_data_product.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
-import 'package:smooth_app/widgets/loading_dialog.dart';
 
 /// Helper around data we download, store and reuse at onboarding.
 class OnboardingLoader {
@@ -21,7 +21,9 @@ class OnboardingLoader {
         await LoadingDialog.run<void>(
           context: context,
           future: _downloadData(),
-          title: 'Loading internet data', // TODO(monsieurtanuki): localize
+          title: AppLocalizations.of(context)!
+              .onboarding_welcome_loading_dialog_title,
+          dismissible: false,
         );
         return;
       case OnboardingPage.NOT_STARTED:
@@ -29,6 +31,7 @@ class OnboardingLoader {
       case OnboardingPage.HEALTH_CARD_EXAMPLE:
       case OnboardingPage.ECO_CARD_EXAMPLE:
       case OnboardingPage.PREFERENCES_PAGE:
+      case OnboardingPage.CONSENT_PAGE:
         return;
       case OnboardingPage.ONBOARDING_COMPLETE:
         await _unloadData();
@@ -37,14 +40,10 @@ class OnboardingLoader {
   }
 
   /// Actual download of all data.
-  Future<void> _downloadData() async {
-    await OnboardingDataProduct(_localDatabase).downloadData();
-    await OnboardingDataKnowledgePanels(_localDatabase).downloadData();
-  }
+  Future<void> _downloadData() async =>
+      OnboardingDataProduct.forProduct(_localDatabase).downloadData();
 
   /// Unloads all data that are no longer required.
-  Future<void> _unloadData() async {
-    await OnboardingDataProduct(_localDatabase).clear();
-    await OnboardingDataKnowledgePanels(_localDatabase).clear();
-  }
+  Future<void> _unloadData() async =>
+      OnboardingDataProduct.forProduct(_localDatabase).clear();
 }

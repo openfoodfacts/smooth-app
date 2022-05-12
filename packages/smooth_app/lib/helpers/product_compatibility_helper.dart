@@ -1,21 +1,56 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:openfoodfacts/personalized_search/matched_product.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/smooth_matched_product.dart';
 
 class ProductCompatibilityHelper {
   const ProductCompatibilityHelper(this.matchedProduct);
 
   final MatchedProduct matchedProduct;
 
-  Color getBackgroundColor() {
+  Color getHeaderBackgroundColor(bool darkMode) {
+    if (darkMode) {
+      return _getDarkColors();
+    } else {
+      return _getLightColors();
+    }
+  }
+
+  Color getButtonColor(bool darkMode) {
+    if (darkMode) {
+      return _getLightColors();
+    } else {
+      return _getDarkColors();
+    }
+  }
+
+  Color getHeaderForegroundColor(bool darkMode) =>
+      darkMode ? Colors.white : Colors.black;
+
+  Color getButtonForegroundColor(bool darkMode) =>
+      darkMode ? Colors.white : Colors.black;
+
+  Color _getDarkColors() {
     switch (matchedProduct.status) {
       case null:
       case MatchedProductStatus.UNKNOWN:
-        return Colors.grey;
+        return PRIMARY_GREY_COLOR;
       case MatchedProductStatus.NO:
-        return Colors.red;
+        return DARK_RED_COLOR;
       case MatchedProductStatus.YES:
-        return Colors.green;
+        return DARK_GREEN_COLOR;
+    }
+  }
+
+  Color _getLightColors() {
+    switch (matchedProduct.status) {
+      case null:
+      case MatchedProductStatus.UNKNOWN:
+        return LIGHT_GREY_COLOR;
+      case MatchedProductStatus.NO:
+        return LIGHT_RED_COLOR;
+      case MatchedProductStatus.YES:
+        return LIGHT_GREEN_COLOR;
     }
   }
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 
 class SmoothSimpleButton extends StatelessWidget {
   const SmoothSimpleButton({
@@ -6,13 +7,13 @@ class SmoothSimpleButton extends StatelessWidget {
     required this.onPressed,
     this.minWidth = 15,
     this.height = 20,
-    this.borderRadius = const BorderRadius.all(Radius.circular(15.0)),
+    this.borderRadius = ROUNDED_BORDER_RADIUS,
     this.padding = const EdgeInsets.all(10),
     this.buttonColor,
   });
 
   final Widget child;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final double minWidth;
   final double height;
   final BorderRadius borderRadius;
@@ -33,7 +34,7 @@ class SmoothSimpleButton extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: borderRadius,
       ),
-      onPressed: () => onPressed(),
+      onPressed: onPressed,
     );
   }
 }
