@@ -1,18 +1,18 @@
 
 name: Setup env
 
-on:
-  workflow_call:
-    jobs:
-      flutter:
-          - name: Setup Flutter
-            uses: subosito/flutter-action@v2
-            with:
-              channel: stable
-              cache: true
-              cache-key: flutter3.00 # change this to force refresh cache
-      flutter_version:
-          - run: flutter --version
-      dependencies:
-          - name: Get dependencies
-            run: ci/pub_upgrade.sh
+runs:
+  using: "composite"
+  steps:
+      
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        channel: stable
+        cache: true
+        cache-key: flutter3.00 # change this to force refresh cache
+
+    - run: flutter --version
+
+    - name: Get dependencies
+      run: ci/pub_upgrade.sh
