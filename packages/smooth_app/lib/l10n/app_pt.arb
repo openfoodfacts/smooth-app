@@ -1152,8 +1152,6 @@
     },
     "try_again": "Tentar novamente",
     "there_was_an_error": "Houve um erro",
-    "weight_gram": "Weight in gram",
-    "add_basic_details_weight_gram_error": "Please enter the weight",
     "basic_details": "Detalhes Básicos",
     "product_name": "Nome do Produto",
     "add_basic_details_product_name_error": "Por favor, digite o nome do produto",
