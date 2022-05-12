@@ -292,48 +292,42 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
                       void Function(VoidCallback fn) setState) {
                     return AlertDialog(
                       title: Text(appLocalizations.nutrition_page_add_nutrient),
-                      content: SizedBox(
-                        // TODO(monsieurtanuki): proper sizes
-                        width: 300,
-                        height: 400,
-                        child: Column(
-                          children: <Widget>[
-                            TextField(
-                              decoration: InputDecoration(
-                                prefixIcon: const Icon(Icons.search),
-                                border: const UnderlineInputBorder(),
-                                labelText: appLocalizations.search,
-                              ),
-                              onChanged: (String query) {
-                                setState(
-                                  () {
-                                    filteredList = leftovers
-                                        .where((OrderedNutrient item) => item
-                                            .name!
-                                            .toLowerCase()
-                                            .contains(query.toLowerCase()))
-                                        .toList();
-                                  },
-                                );
-                              },
+                      content: Column(
+                        children: <Widget>[
+                          TextField(
+                            decoration: InputDecoration(
+                              prefixIcon: const Icon(Icons.search),
+                              border: const UnderlineInputBorder(),
+                              labelText: appLocalizations.search,
                             ),
-                            Expanded(
-                              child: ListView.builder(
-                                  shrinkWrap: true,
-                                  itemCount: filteredList.length,
-                                  itemBuilder:
-                                      (BuildContext context, int index) {
-                                    final OrderedNutrient nutrient =
-                                        filteredList[index];
-                                    return ListTile(
-                                      title: Text(nutrient.name!),
-                                      onTap: () =>
-                                          Navigator.of(context).pop(nutrient),
-                                    );
-                                  }),
-                            ),
-                          ],
-                        ),
+                            onChanged: (String query) {
+                              setState(
+                                () {
+                                  filteredList = leftovers
+                                      .where((OrderedNutrient item) => item
+                                          .name!
+                                          .toLowerCase()
+                                          .contains(query.toLowerCase()))
+                                      .toList();
+                                },
+                              );
+                            },
+                          ),
+                          Expanded(
+                            child: ListView.builder(
+                                shrinkWrap: true,
+                                itemCount: filteredList.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  final OrderedNutrient nutrient =
+                                      filteredList[index];
+                                  return ListTile(
+                                    title: Text(nutrient.name!),
+                                    onTap: () =>
+                                        Navigator.of(context).pop(nutrient),
+                                  );
+                                }),
+                          ),
+                        ],
                       ),
                       actions: <Widget>[
                         ElevatedButton(
