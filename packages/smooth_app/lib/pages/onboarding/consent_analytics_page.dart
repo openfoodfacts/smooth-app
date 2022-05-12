@@ -85,19 +85,21 @@ class ConsentAnalytics extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
           _buildButton(
-              context,
-              appLocalizations.refuse_button_label,
-              const Icon(
-                Icons.close_rounded,
-              ),
-              false),
+            context,
+            appLocalizations.refuse_button_label,
+            const Icon(
+              Icons.close_rounded,
+            ),
+            false,
+          ),
           _buildButton(
-              context,
-              appLocalizations.authorize_button_label,
-              const Icon(
-                Icons.check_rounded,
-              ),
-              true),
+            context,
+            appLocalizations.authorize_button_label,
+            const Icon(
+              Icons.check_rounded,
+            ),
+            true,
+          ),
         ],
       ),
     );
