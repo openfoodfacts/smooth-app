@@ -89,10 +89,11 @@ class ProductListUserDialogHelper {
         builder:
             (BuildContext context, void Function(VoidCallback fn) setState) =>
                 AlertDialog(
-          scrollable: true,
           title: Text(getProductName(product, appLocalizations)),
           content: all.isEmpty
-              ? Container()
+              ? ListView(
+                  shrinkWrap: true,
+                )
               : StatefulBuilder(
                   builder: (BuildContext context,
                       void Function(VoidCallback fn) setState) {
