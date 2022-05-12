@@ -60,7 +60,7 @@ class _UserPreferencesEditValueDialogState<T>
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return SmoothAlertDialog(
       title: widget.label,

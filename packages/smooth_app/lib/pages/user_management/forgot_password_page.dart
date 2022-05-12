@@ -33,7 +33,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   String _message = '';
 
   Future<void> _resetPassword() async {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     if (!_formKey.currentState!.validate()) {
       return;
     }
@@ -67,7 +67,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final Size size = MediaQuery.of(context).size;
     final bool isDarkMode =
@@ -157,6 +157,9 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                                       child: Text(appLocalizations.yes),
                                       onPressed: () async {
                                         await userPreferences.setDevMode(1);
+                                        if (!mounted) {
+                                          return;
+                                        }
                                         Navigator.pop(context);
                                       },
                                     ),
@@ -183,15 +186,6 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                         Navigator.pop(context);
                       }
                     },
-                    child: Text(
-                      _send
-                          ? appLocalizations.close
-                          : appLocalizations.send_reset_password_mail,
-                      style: theme.textTheme.bodyText2?.copyWith(
-                        fontSize: 18.0,
-                        color: theme.colorScheme.surface,
-                      ),
-                    ),
                     style: ButtonStyle(
                       minimumSize: MaterialStateProperty.all<Size>(
                         Size(size.width * 0.5, theme.buttonTheme.height + 10),
@@ -200,6 +194,15 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                         const RoundedRectangleBorder(
                           borderRadius: CIRCULAR_BORDER_RADIUS,
                         ),
+                      ),
+                    ),
+                    child: Text(
+                      _send
+                          ? appLocalizations.close
+                          : appLocalizations.send_reset_password_mail,
+                      style: theme.textTheme.bodyText2?.copyWith(
+                        fontSize: 18.0,
+                        color: theme.colorScheme.surface,
                       ),
                     ),
                   ),

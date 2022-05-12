@@ -11,7 +11,7 @@ class SampleEcoCardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => KnowledgePanelPageTemplate(
-        headerTitle: AppLocalizations.of(context)!.ecoCardUtility,
+        headerTitle: AppLocalizations.of(context).ecoCardUtility,
         page: OnboardingPage.ECO_CARD_EXAMPLE,
         panelId: 'environment_card',
         localDatabase: _localDatabase,

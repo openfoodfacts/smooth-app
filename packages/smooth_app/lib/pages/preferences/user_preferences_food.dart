@@ -4,8 +4,9 @@ import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/pages/abstract_user_preferences.dart';
-import 'package:smooth_app/pages/user_preferences_attribute_group.dart';
+import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_attribute_group.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 
 /// Collapsed/expanded display of attribute groups for the preferences page.
 class UserPreferencesFood extends AbstractUserPreferences {
@@ -36,16 +37,10 @@ class UserPreferencesFood extends AbstractUserPreferences {
   ];
 
   @override
-  bool isCollapsedByDefault() => false;
+  PreferencePageType? getPreferencePageType() => PreferencePageType.FOOD;
 
   @override
-  String getPreferenceFlagKey() => 'attributes';
-
-  @override
-  Widget getTitle() => Text(
-        appLocalizations.myPreferences_food_title,
-        style: themeData.textTheme.headline2,
-      );
+  String getTitleString() => appLocalizations.myPreferences_food_title;
 
   @override
   Widget? getSubtitle() => Text(appLocalizations.myPreferences_food_subtitle);
@@ -89,7 +84,7 @@ class UserPreferencesFood extends AbstractUserPreferences {
   }
 
   void _confirmReset(BuildContext context) {
-    final AppLocalizations localizations = AppLocalizations.of(context)!;
+    final AppLocalizations localizations = AppLocalizations.of(context);
     showDialog<void>(
       context: context,
       builder: (BuildContext context) {
@@ -100,6 +95,7 @@ class UserPreferencesFood extends AbstractUserPreferences {
               child: Text(localizations.yes),
               onPressed: () async {
                 await context.read<ProductPreferences>().resetImportances();
+                //ignore: use_build_context_synchronously
                 Navigator.pop(context);
               },
             ),

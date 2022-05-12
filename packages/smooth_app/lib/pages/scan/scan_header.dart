@@ -15,7 +15,7 @@ class ScanHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ContinuousScanModel model = context.watch<ContinuousScanModel>();
 
     final ButtonStyle buttonStyle = ButtonStyle(

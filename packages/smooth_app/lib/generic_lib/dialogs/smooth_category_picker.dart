@@ -100,7 +100,7 @@ class _SmoothCategoryPickerState<T extends Comparable<T>>
       initialData: null,
       builder:
           (BuildContext context, AsyncSnapshot<SmoothCategory<T>?> snapshot) {
-        final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+        final AppLocalizations appLocalizations = AppLocalizations.of(context);
         final SmoothCategory<T>? category = snapshot.data;
         if (category == null) {
           return Container(

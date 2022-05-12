@@ -42,31 +42,34 @@ class ScoreCard extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 8.0),
       padding: const EdgeInsets.all(8.0),
+      decoration: BoxDecoration(
+        color: backgroundColor,
+        borderRadius: ROUNDED_BORDER_RADIUS,
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           if (iconChip != null)
             Expanded(
+              flex: 1,
               child: Padding(
                 padding: const EdgeInsets.only(right: 8.0),
                 child: iconChip,
               ),
-              flex: 1,
             ),
           Expanded(
+            flex: 3,
             child: Center(
               child: Text(
                 description,
                 style: themeData.textTheme.headline4!.apply(color: textColor),
               ),
             ),
-            flex: 3,
+          ),
+          const Icon(
+            Icons.keyboard_arrow_down_outlined,
           ),
         ],
-      ),
-      decoration: BoxDecoration(
-        color: backgroundColor,
-        borderRadius: ROUNDED_BORDER_RADIUS,
       ),
     );
   }

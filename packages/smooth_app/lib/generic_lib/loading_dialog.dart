@@ -19,11 +19,11 @@ class LoadingDialog<T> {
     final String? title,
     final bool? dismissible,
   }) {
-    final AppLocalizations? appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return LoadingDialog<T>._()._run(
       context: context,
       future: future,
-      title: title ?? appLocalizations!.loading_dialog_default_title,
+      title: title ?? appLocalizations.loading_dialog_default_title,
       dismissible: dismissible ?? true,
     );
   }
@@ -38,18 +38,18 @@ class LoadingDialog<T> {
       showDialog<void>(
         context: context,
         builder: (BuildContext context) {
-          final AppLocalizations? appLocalizations =
+          final AppLocalizations appLocalizations =
               AppLocalizations.of(context);
           return SmoothAlertDialog(
             body: ListTile(
               leading: const Icon(Icons.error),
               title: Text(
-                title ?? appLocalizations!.loading_dialog_default_error_message,
+                title ?? appLocalizations.loading_dialog_default_error_message,
               ),
             ),
             actions: <SmoothActionButton>[
               SmoothActionButton(
-                text: appLocalizations!.close,
+                text: appLocalizations.close,
                 onPressed: () => Navigator.maybePop(context),
               ),
             ],
@@ -88,7 +88,7 @@ class LoadingDialog<T> {
     final String title,
     final Future<T> future,
   ) {
-    final AppLocalizations? appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return SmoothAlertDialog(
       body: FutureBuilder<T>(
         future: future,
@@ -98,7 +98,7 @@ class LoadingDialog<T> {
             // We cannot check hasData because data can be null or void.
             if (snapshot.hasError) {
               return ListTile(
-                title: Text(appLocalizations!.error_occurred),
+                title: Text(appLocalizations.error_occurred),
               );
             }
             _popDialog(context, snapshot.data);
@@ -113,7 +113,7 @@ class LoadingDialog<T> {
       ),
       actions: <SmoothActionButton>[
         SmoothActionButton(
-          text: appLocalizations!.stop,
+          text: appLocalizations.stop,
           onPressed: () => _popDialog(context, null),
         ),
       ],

@@ -88,8 +88,8 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
         children: <Widget>[
           for (List<Widget> row in rowsWidgets)
             Row(
-              children: row,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: row,
             )
         ],
       );
