@@ -73,7 +73,7 @@
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   final Size screenSize = MediaQuery.of(context).size;
-  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+  final AppLocalizations appLocalizations = AppLocalizations.of(context);
   final UserPreferences userPreferences = context.watch&lt;UserPreferences&gt;();
   final LocalDatabase localDatabase = context.watch&lt;LocalDatabase&gt;();
   &#47;&#47; Side padding is 8% of total width.
@@ -98,6 +98,7 @@ Widget build(BuildContext context) {
           onPressed: () async {
             await OnboardingLoader(localDatabase)
                 .runAtNextTime(currentPage, context);
+            &#47;&#47;ignore: use_build_context_synchronously
             OnboardingFlowNavigator(userPreferences).navigateToPage(
                 context, OnboardingFlowNavigator.getNextPage(currentPage));
           },

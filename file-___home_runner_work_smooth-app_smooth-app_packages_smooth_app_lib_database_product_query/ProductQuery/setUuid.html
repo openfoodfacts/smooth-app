@@ -53,7 +53,7 @@
       
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
-<span class="name ">setUuid</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="setUuid-param-_localDatabase"><span class="type-annotation">dynamic</span> <span class="parameter-name">_localDatabase</span></span></li>
+<span class="name ">setUuid</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="setUuid-param-localDatabase"><span class="type-annotation">dynamic</span> <span class="parameter-name">localDatabase</span></span></li>
 </ol>)
 
       
@@ -69,8 +69,8 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; setUuid(final LocalDatabase _localDatabase) async {
-  final DaoString uuidString = DaoString(_localDatabase);
+  <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; setUuid(final LocalDatabase localDatabase) async {
+  final DaoString uuidString = DaoString(localDatabase);
   String? uuid = await uuidString.get(_UUID_NAME);
 
   if (uuid == null) {

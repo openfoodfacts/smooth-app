@@ -74,7 +74,7 @@
   final Product product,
 ) async {
   final String barcode = product.barcode!;
-  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+  final AppLocalizations appLocalizations = AppLocalizations.of(context);
   final List&lt;String&gt; all = daoProductList.getUserLists();
   final List&lt;String&gt; withBarcode =
       daoProductList.getUserLists(withBarcode: barcode);

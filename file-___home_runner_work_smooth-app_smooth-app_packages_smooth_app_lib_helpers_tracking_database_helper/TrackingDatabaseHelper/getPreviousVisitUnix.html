@@ -65,14 +65,14 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">int? getPreviousVisitUnix() {
-  const String _latestVisit = &#39;previousVisitUnix&#39;;
+  const String latestVisitKey = &#39;previousVisitUnix&#39;;
 
   final DaoInt daoInt = DaoInt(_localDatabase);
 
-  final int? latestVisit = daoInt.get(_latestVisit);
+  final int? latestVisit = daoInt.get(latestVisitKey);
 
   daoInt.put(
-    _latestVisit,
+    latestVisitKey,
     DateTime.now().millisecondsSinceEpoch,
   );
 

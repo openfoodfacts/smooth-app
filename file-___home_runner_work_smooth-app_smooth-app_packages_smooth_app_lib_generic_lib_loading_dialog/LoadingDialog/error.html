@@ -77,18 +77,18 @@
     showDialog&lt;void&gt;(
       context: context,
       builder: (BuildContext context) {
-        final AppLocalizations? appLocalizations =
+        final AppLocalizations appLocalizations =
             AppLocalizations.of(context);
         return SmoothAlertDialog(
           body: ListTile(
             leading: const Icon(Icons.error),
             title: Text(
-              title ?? appLocalizations!.loading_dialog_default_error_message,
+              title ?? appLocalizations.loading_dialog_default_error_message,
             ),
           ),
           actions: &lt;SmoothActionButton&gt;[
             SmoothActionButton(
-              text: appLocalizations!.close,
+              text: appLocalizations.close,
               onPressed: () =&gt; Navigator.maybePop(context),
             ),
           ],

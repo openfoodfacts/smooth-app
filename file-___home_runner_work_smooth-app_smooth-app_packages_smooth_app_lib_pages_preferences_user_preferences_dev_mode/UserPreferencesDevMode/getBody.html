@@ -233,6 +233,7 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
             ProductListImportExport.TMP_IMPORT,
             localDatabase,
           );
+          &#47;&#47;ignore: use_build_context_synchronously
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(
@@ -347,10 +348,10 @@ List&lt;Widget&gt; getBody() =&gt; &lt;Widget&gt;[
             setState(() {});
           },
           items: AppLocalizations.supportedLocales.map((Locale locale) {
-            final String _locale = locale.toString();
+            final String localeString = locale.toString();
             return DropdownMenuItem&lt;String&gt;(
-              value: _locale,
-              child: Text(_locale),
+              value: localeString,
+              child: Text(localeString),
             );
           }).toList(),
         ),

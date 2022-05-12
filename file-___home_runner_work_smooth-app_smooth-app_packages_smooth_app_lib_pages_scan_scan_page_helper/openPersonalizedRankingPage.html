@@ -66,6 +66,7 @@
   <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; openPersonalizedRankingPage(BuildContext context) async {
   final ContinuousScanModel model = context.read&lt;ContinuousScanModel&gt;();
   await model.refreshProductList();
+  &#47;&#47;ignore: use_build_context_synchronously
   await Navigator.push&lt;Widget&gt;(
     context,
     MaterialPageRoute&lt;Widget&gt;(

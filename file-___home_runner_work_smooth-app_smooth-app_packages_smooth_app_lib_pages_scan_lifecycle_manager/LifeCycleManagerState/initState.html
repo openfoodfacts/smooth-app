@@ -72,10 +72,10 @@
   <pre class="language-dart"><code class="language-dart">@override
 void initState() {
   super.initState();
-  WidgetsBinding.instance!.addObserver(this);
+  WidgetsBinding.instance.addObserver(this);
 
   if (widget.onStart != null) {
-    WidgetsBinding.instance!.addPostFrameCallback((_) =&gt; widget.onStart!());
+    WidgetsBinding.instance.addPostFrameCallback((_) =&gt; widget.onStart!());
   }
 }</code></pre>
 </section>

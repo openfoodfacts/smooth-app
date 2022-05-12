@@ -72,7 +72,7 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+  final AppLocalizations appLocalizations = AppLocalizations.of(context);
   return ChangeNotifierProvider&lt;SelectedCategoryModel&gt;(
     create: (BuildContext context) =&gt;
         SelectedCategoryModel(categories, categoriesList),
@@ -204,7 +204,7 @@ Widget build(BuildContext context) {
                               horizontal: 12.0, vertical: 20.0),
                           child: SmoothMainButton(
                             text:
-                                AppLocalizations.of(context)!.applyButtonText,
+                                AppLocalizations.of(context).applyButtonText,
                             onPressed: () {
                               Navigator.pop(context);
                               callback(

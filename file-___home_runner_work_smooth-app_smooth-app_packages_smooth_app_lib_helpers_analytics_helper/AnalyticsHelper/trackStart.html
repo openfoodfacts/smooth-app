@@ -53,7 +53,7 @@
       
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>&gt;</span></span>
-<span class="name ">trackStart</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="trackStart-param-_localDatabase"><span class="type-annotation">dynamic</span> <span class="parameter-name">_localDatabase</span>, </span></li>
+<span class="name ">trackStart</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="trackStart-param-localDatabase"><span class="type-annotation">dynamic</span> <span class="parameter-name">localDatabase</span>, </span></li>
 <li><span class="parameter" id="trackStart-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span></span></li>
 </ol>)
 
@@ -67,9 +67,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static Future&lt;bool&gt; trackStart(
-    LocalDatabase _localDatabase, BuildContext context) async {
+    LocalDatabase localDatabase, BuildContext context) async {
   final TrackingDatabaseHelper trackingDatabaseHelper =
-      TrackingDatabaseHelper(_localDatabase);
+      TrackingDatabaseHelper(localDatabase);
   final Size size = MediaQuery.of(context).size;
   final Map&lt;String, String&gt; data = &lt;String, String&gt;{};
 

@@ -72,7 +72,7 @@
   required ImageField imageField,
   required Uri imageUri,
 }) async {
-  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+  final AppLocalizations appLocalizations = AppLocalizations.of(context);
   final SendImage image = SendImage(
     lang: ProductQuery.getLanguage(),
     barcode: barcode,
@@ -94,6 +94,7 @@
     );
     return false;
   }
+  &#47;&#47;ignore: use_build_context_synchronously
   await _updateContinuousScanModel(context, barcode);
   return true;
 }</code></pre>

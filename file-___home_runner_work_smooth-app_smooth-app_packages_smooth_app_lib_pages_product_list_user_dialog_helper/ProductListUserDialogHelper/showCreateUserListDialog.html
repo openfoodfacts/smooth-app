@@ -71,21 +71,20 @@
   <pre class="language-dart"><code class="language-dart">Future&lt;ProductList?&gt; showCreateUserListDialog(
   final BuildContext context,
 ) async {
-  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+  final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-  final TextEditingController _textEditingController =
-      TextEditingController();
-  final GlobalKey&lt;FormState&gt; _formKey = GlobalKey&lt;FormState&gt;();
+  final TextEditingController textEditingController = TextEditingController();
+  final GlobalKey&lt;FormState&gt; formKey = GlobalKey&lt;FormState&gt;();
 
   final String? title = await showDialog&lt;String&gt;(
     context: context,
     builder: (final BuildContext context) =&gt; AlertDialog(
       title: Text(appLocalizations.user_list_dialog_new_title),
       content: Form(
-        key: _formKey,
+        key: formKey,
         child: SmoothTextFormField(
           type: TextFieldTypes.PLAIN_TEXT,
-          controller: _textEditingController,
+          controller: textEditingController,
           hintText: appLocalizations.user_list_name_hint,
           textInputAction: TextInputAction.done,
           validator: (String? value) {
@@ -107,10 +106,10 @@
         ),
         ElevatedButton(
           onPressed: () {
-            if (!_formKey.currentState!.validate()) {
+            if (!formKey.currentState!.validate()) {
               return;
             }
-            Navigator.pop(context, _textEditingController.text);
+            Navigator.pop(context, textEditingController.text);
           },
           child: Text(appLocalizations.okay),
         ),

@@ -76,6 +76,10 @@ Widget build(BuildContext context) {
   final bool isDarkMode =
       Provider.of&lt;ThemeProvider&gt;(context, listen: false).isDarkMode(context);
   return SmoothSimpleButton(
+    minWidth: double.infinity,
+    padding: padding ?? const EdgeInsets.all(10),
+    buttonColor: isDarkMode ? Colors.grey : const Color(0xffeaf5fb),
+    onPressed: onPressed,
     child: Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: &lt;Widget&gt;[
@@ -101,10 +105,6 @@ Widget build(BuildContext context) {
         const Spacer(),
       ],
     ),
-    minWidth: double.infinity,
-    padding: padding ?? const EdgeInsets.all(10),
-    buttonColor: isDarkMode ? Colors.grey : const Color(0xffeaf5fb),
-    onPressed: onPressed,
   );
 }</code></pre>
 </section>

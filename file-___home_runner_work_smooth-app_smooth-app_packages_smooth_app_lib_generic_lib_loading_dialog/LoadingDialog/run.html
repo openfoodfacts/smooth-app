@@ -77,11 +77,11 @@
   final String? title,
   final bool? dismissible,
 }) {
-  final AppLocalizations? appLocalizations = AppLocalizations.of(context);
+  final AppLocalizations appLocalizations = AppLocalizations.of(context);
   return LoadingDialog&lt;T&gt;._()._run(
     context: context,
     future: future,
-    title: title ?? appLocalizations!.loading_dialog_default_title,
+    title: title ?? appLocalizations.loading_dialog_default_title,
     dismissible: dismissible ?? true,
   );
 }</code></pre>

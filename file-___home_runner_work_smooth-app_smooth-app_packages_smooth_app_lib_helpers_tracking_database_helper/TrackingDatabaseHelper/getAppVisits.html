@@ -68,13 +68,13 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">int getAppVisits() {
-  const String _userVisits = &#39;appVisits&#39;;
+  const String userVisits = &#39;appVisits&#39;;
 
   final DaoInt daoInt = DaoInt(_localDatabase);
 
-  int visits = daoInt.get(_userVisits) ?? 0;
+  int visits = daoInt.get(userVisits) ?? 0;
   visits++;
-  daoInt.put(_userVisits, visits);
+  daoInt.put(userVisits, visits);
 
   return visits;
 }</code></pre>

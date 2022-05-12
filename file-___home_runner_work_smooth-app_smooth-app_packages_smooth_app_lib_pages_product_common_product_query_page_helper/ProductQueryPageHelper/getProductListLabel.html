@@ -70,7 +70,7 @@
   <pre class="language-dart"><code class="language-dart">static String getProductListLabel(
     final ProductList productList, final BuildContext context,
     {final bool verbose = true}) {
-  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+  final AppLocalizations appLocalizations = AppLocalizations.of(context);
   switch (productList.listType) {
     case ProductListType.HTTP_SEARCH_KEYWORDS:
       return &#39;${productList.parameters}&#39;

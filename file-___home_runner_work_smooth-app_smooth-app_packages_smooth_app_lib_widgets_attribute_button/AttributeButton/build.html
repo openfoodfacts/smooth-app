@@ -87,13 +87,15 @@ Widget build(BuildContext context) {
       GestureDetector(
         onTap: () async {
           await productPreferences.setImportance(attribute.id!, importanceId);
-          final AppLocalizations? appLocalizations =
+
+          final AppLocalizations appLocalizations =
+              &#47;&#47;ignore: use_build_context_synchronously
               AppLocalizations.of(context);
           await showDialog&lt;void&gt;(
             context: context,
             builder: (BuildContext context) =&gt; SmoothAlertDialog(
               body: Text(
-                appLocalizations!.importance_label(
+                appLocalizations.importance_label(
                     attribute.name.toString(), importanceId),
               ),
               actions: &lt;SmoothActionButton&gt;[
@@ -152,13 +154,13 @@ Widget build(BuildContext context) {
               : () async =&gt; showDialog&lt;void&gt;(
                     context: context,
                     builder: (BuildContext context) {
-                      final AppLocalizations? appLocalizations =
+                      final AppLocalizations appLocalizations =
                           AppLocalizations.of(context);
                       return SmoothAlertDialog(
                         body: Text(info),
                         actions: &lt;SmoothActionButton&gt;[
                           SmoothActionButton(
-                            text: appLocalizations!.close,
+                            text: appLocalizations.close,
                             onPressed: () =&gt; Navigator.pop(context),
                           ),
                         ],

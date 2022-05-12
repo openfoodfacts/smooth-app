@@ -72,8 +72,8 @@
           daoProduct: DaoProduct(localDatabase),
         ).getFetchedProduct(),
         title: refresh
-            ? AppLocalizations.of(context)!.refreshing_product
-            : &#39;${AppLocalizations.of(context)!.looking_for}: $barcode&#39;) ??
+            ? AppLocalizations.of(context).refreshing_product
+            : &#39;${AppLocalizations.of(context).looking_for}: $barcode&#39;) ??
     FetchedProduct.error(FetchedProductStatus.userCancelled);</code></pre>
 </section>
 

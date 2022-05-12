@@ -69,7 +69,7 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void openError(final FetchedProduct fetchedProduct) {
-  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+  final AppLocalizations appLocalizations = AppLocalizations.of(context);
   switch (fetchedProduct.status) {
     case FetchedProductStatus.ok:
       throw Exception(&quot;You&#39;re not supposed to call this if the status is ok&quot;);
