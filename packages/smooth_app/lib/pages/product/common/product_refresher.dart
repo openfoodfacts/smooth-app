@@ -15,7 +15,7 @@ class ProductRefresher {
     required final LocalDatabase localDatabase,
     required final Product product,
   }) async {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final bool? savedAndRefreshed = await LoadingDialog.run<bool>(
       future: _saveAndRefresh(product, localDatabase),
       context: context,

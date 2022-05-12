@@ -35,10 +35,10 @@ class LifeCycleManagerState extends State<LifeCycleManager>
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance!.addObserver(this);
+    WidgetsBinding.instance.addObserver(this);
 
     if (widget.onStart != null) {
-      WidgetsBinding.instance!.addPostFrameCallback((_) => widget.onStart!());
+      WidgetsBinding.instance.addPostFrameCallback((_) => widget.onStart!());
     }
   }
 
@@ -87,7 +87,7 @@ class LifeCycleManagerState extends State<LifeCycleManager>
 
   @override
   void dispose() {
-    WidgetsBinding.instance!.removeObserver(this);
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
 }

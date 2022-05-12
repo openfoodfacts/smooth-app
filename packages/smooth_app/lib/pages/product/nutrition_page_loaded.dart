@@ -42,8 +42,8 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     BuildContext context,
     double adjustmentFactor,
   ) {
-    final double _columnSize = MediaQuery.of(context).size.width;
-    return _columnSize * adjustmentFactor;
+    final double columnSize = MediaQuery.of(context).size.width;
+    return columnSize * adjustmentFactor;
   }
 
   final Map<String, TextEditingController> _controllers =
@@ -70,7 +70,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations localizations = AppLocalizations.of(context)!;
+    final AppLocalizations localizations = AppLocalizations.of(context);
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final List<Widget> children = <Widget>[];
     children.add(_switchNoNutrition(localizations));
@@ -447,6 +447,9 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       product: inputProduct,
     );
     if (savedAndRefreshed) {
+      if (!mounted) {
+        return;
+      }
       Navigator.of(context).pop(true);
     }
   }

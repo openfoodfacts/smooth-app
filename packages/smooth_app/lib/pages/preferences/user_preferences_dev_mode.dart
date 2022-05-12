@@ -9,10 +9,11 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/helpers/product_list_import_export.dart';
-import 'package:smooth_app/pages/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
+import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dialog_editor.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/scan/ml_kit_scan_page.dart';
-import 'package:smooth_app/pages/user_preferences_dialog_editor.dart';
 
 /// Collapsed/expanded display of "dev mode" for the preferences page.
 ///
@@ -46,22 +47,23 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
       '__additionalButtonOnProductPage';
   static const String userPreferencesFlagEditIngredients = '__editIngredients';
   static const String userPreferencesEnumScanMode = '__scanMode';
+  static const String userPreferencesAppLanguageCode = '__appLanguage';
   static const String userPreferencesCameraPostFrameDuration =
       '__cameraPostFrameDuration';
 
   final TextEditingController _textFieldController = TextEditingController();
 
   @override
-  bool isCollapsedByDefault() => true;
+  PreferencePageType? getPreferencePageType() => PreferencePageType.DEV_MODE;
 
   @override
-  String getPreferenceFlagKey() => 'devMode';
+  String getTitleString() => appLocalizations.dev_preferences_screen_title;
 
   @override
   Widget getTitle() => Container(
         color: Colors.red,
         child: Text(
-          appLocalizations.dev_preferences_screen_title,
+          getTitleString(),
           style: themeData.textTheme.headline2!.copyWith(color: Colors.white),
         ),
       );
@@ -233,6 +235,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               ProductListImportExport.TMP_IMPORT,
               localDatabase,
             );
+            //ignore: use_build_context_synchronously
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(
@@ -335,10 +338,40 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             setState(() {});
           },
         ),
+        ListTile(
+          leading: const Icon(Icons.language),
+          title: DropdownButton<String>(
+            value: userPreferences.appLanguageCode ??
+                Localizations.localeOf(context).toString(),
+            elevation: 16,
+            isExpanded: true,
+            onChanged: (String? languageCode) async {
+              await userPreferences.setAppLanguageCode(languageCode);
+              setState(() {});
+            },
+            items: AppLocalizations.supportedLocales.map((Locale locale) {
+              final String localeString = locale.toString();
+              return DropdownMenuItem<String>(
+                value: localeString,
+                child: Text(localeString),
+              );
+            }).toList(),
+          ),
+        ),
+        ListTile(
+          title: Text(
+            appLocalizations.dev_preferences_reset_app_language,
+          ),
+          onTap: () async {
+            await userPreferences.setAppLanguageCode(null);
+            setState(() {});
+          },
+        ),
       ];
 
   ScaffoldFeatureController<SnackBar, SnackBarClosedReason>
       _showSuccessMessage() {
+    setState(() {});
     return ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(appLocalizations.dev_preferences_button_positive),

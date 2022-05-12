@@ -47,7 +47,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     //When all are empty there shouldn't be a way to access this page
     if (images.isEmpty) {

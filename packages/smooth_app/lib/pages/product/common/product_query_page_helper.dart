@@ -20,6 +20,7 @@ class ProductQueryPageHelper {
       productQuery,
       localDatabase,
     );
+    //ignore: use_build_context_synchronously
     Navigator.push<Widget>(
       context,
       MaterialPageRoute<Widget>(
@@ -68,13 +69,13 @@ class ProductQueryPageHelper {
       final int timestamp, BuildContext context) {
     final int now = LocalDatabase.nowInMillis();
     final int seconds = ((now - timestamp) / 1000).floor();
-    return getDurationStringFromSeconds(seconds, AppLocalizations.of(context)!);
+    return getDurationStringFromSeconds(seconds, AppLocalizations.of(context));
   }
 
   static String getProductListLabel(
       final ProductList productList, final BuildContext context,
       {final bool verbose = true}) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     switch (productList.listType) {
       case ProductListType.HTTP_SEARCH_KEYWORDS:
         return '${productList.parameters}'
