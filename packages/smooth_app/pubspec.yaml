@@ -36,7 +36,11 @@ dependencies:
   photo_view: ^0.13.0
   uuid: ^3.0.6
   provider: ^6.0.2
-  qr_code_scanner: ^0.7.0
+  # Using a fork with fixes for flutter 3 until they are applied to the package
+  qr_code_scanner:
+    git:
+      url: https://github.com/xeinebiu/qr_code_scanner.git
+      ref: fix_break_changes_platform
   rubber: ^1.0.1
   sentry_flutter: ^6.5.1 # careful with upgrading cf: https://github.com/openfoodfacts/smooth-app/issues/1300
   url_launcher: ^6.1.2
