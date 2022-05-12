@@ -10,6 +10,9 @@ jobs:
         shell: bash
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
       - name: Setup env
         uses: ./.github/workflows/shared/setup-environment.yml
       
