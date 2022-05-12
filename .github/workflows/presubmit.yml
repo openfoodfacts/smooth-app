@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Setup env
-      - uses: ./.github/workflows/shared/setup-environment.yml
+        uses: ./.github/workflows/shared/setup-environment.yml
       
       # Check for formatting issues
       - name: Check for formatting issues (run "flutter format . ")
