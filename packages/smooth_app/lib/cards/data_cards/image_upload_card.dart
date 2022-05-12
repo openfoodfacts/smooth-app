@@ -51,7 +51,6 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
       );
       croppedImageFile.delete();
       if (isUploaded) {
-        await widget.onUpload(context);
         if (widget.productImageData.imageField == ImageField.OTHER) {
           final AppLocalizations appLocalizations =
               AppLocalizations.of(context)!;
@@ -66,6 +65,8 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
             ),
           );
         }
+      } else {
+        await widget.onUpload(context);
       }
     }
   }
