@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/helpers/picture_capture_helper.dart';
@@ -33,13 +34,14 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
     final File? croppedImageFile = await startImageCropping(context);
 
     if (croppedImageFile != null) {
-      setState(() {
-        // Update the image to load the new image file
-        // The same full resolution image is used for both the carousel and the image page
-        _imageProvider = FileImage(croppedImageFile);
-        _imageFullProvider = _imageProvider;
-      });
-
+      if (widget.productImageData.imageField != ImageField.OTHER) {
+        setState(() {
+          // Update the image to load the new image file
+          // The same full resolution image is used for both the carousel and the image page
+          _imageProvider = FileImage(croppedImageFile);
+          _imageFullProvider = _imageProvider;
+        });
+      }
       final bool isUploaded = await uploadCapturedPicture(
         context,
         barcode: widget.product
@@ -49,7 +51,21 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
       );
       croppedImageFile.delete();
       if (isUploaded) {
-        widget.onUpload(context);
+        await widget.onUpload(context);
+        if (widget.productImageData.imageField == ImageField.OTHER) {
+          final AppLocalizations appLocalizations =
+              AppLocalizations.of(context)!;
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(appLocalizations.other_photo_uploaded),
+              duration: const Duration(seconds: 3),
+              action: SnackBarAction(
+                label: appLocalizations.more_photos,
+                onPressed: _getImage,
+              ),
+            ),
+          );
+        }
       }
     }
   }
