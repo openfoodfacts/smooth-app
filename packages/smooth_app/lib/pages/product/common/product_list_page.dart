@@ -42,7 +42,7 @@ class _ProductListPageState extends State<ProductListPage> {
     final DaoProductList daoProductList = DaoProductList(localDatabase);
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     if (first) {
       first = false;
       productList = widget.productList;
@@ -79,9 +79,12 @@ class _ProductListPageState extends State<ProductListPage> {
                               actions: <SmoothActionButton>[
                                 SmoothActionButton(
                                   onPressed: () async {
-                                    await daoProductList.clear(productList);
+                                    daoProductList.clear(productList);
                                     await daoProductList.get(productList);
                                     setState(() {});
+                                    if (!mounted) {
+                                      return;
+                                    }
                                     Navigator.of(context).pop();
                                   },
                                   text: appLocalizations.yes,
@@ -128,11 +131,6 @@ class _ProductListPageState extends State<ProductListPage> {
           children: <Widget>[
             if (_selectionMode)
               ElevatedButton(
-                child: Text(
-                  appLocalizations.plural_compare_x_products(
-                    _selectedBarcodes.length,
-                  ),
-                ),
                 onPressed: _selectedBarcodes.length >=
                         2 // compare button is enabled only if 2 or more products have been selected
                     ? () async {
@@ -155,6 +153,11 @@ class _ProductListPageState extends State<ProductListPage> {
                         setState(() => _selectionMode = false);
                       }
                     : null,
+                child: Text(
+                  appLocalizations.plural_compare_x_products(
+                    _selectedBarcodes.length,
+                  ),
+                ),
               ),
             if (_selectionMode)
               ElevatedButton(
@@ -280,9 +283,12 @@ class _ProductListPageState extends State<ProductListPage> {
                         final bool removed =
                             productList.remove(product.barcode!);
                         if (removed) {
-                          await daoProductList.put(productList);
+                          daoProductList.put(productList);
                           _selectedBarcodes.remove(product.barcode);
                           setState(() => products.removeAt(index));
+                        }
+                        if (!mounted) {
+                          return;
                         }
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
@@ -324,6 +330,9 @@ class _ProductListPageState extends State<ProductListPage> {
       case null: // user clicked on "stop"
         return;
       case true:
+        if (!mounted) {
+          return;
+        }
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(appLocalizations.product_list_reloading_success),

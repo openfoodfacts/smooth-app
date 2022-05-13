@@ -105,9 +105,9 @@ class AnalyticsHelper {
   }
 
   static Future<bool> trackStart(
-      LocalDatabase _localDatabase, BuildContext context) async {
+      LocalDatabase localDatabase, BuildContext context) async {
     final TrackingDatabaseHelper trackingDatabaseHelper =
-        TrackingDatabaseHelper(_localDatabase);
+        TrackingDatabaseHelper(localDatabase);
     final Size size = MediaQuery.of(context).size;
     final Map<String, String> data = <String, String>{};
 

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+const String APP_NAME = 'OpenFoodFacts';
+
 const Widget EMPTY_WIDGET = SizedBox.shrink();
 
 const double VERY_SMALL_SPACE = 4.0;

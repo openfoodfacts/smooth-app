@@ -71,6 +71,10 @@ class SmoothAlertDialog extends StatelessWidget {
   Widget _buildCross(final bool isPlaceHolder, final BuildContext context) {
     if (close) {
       return Visibility(
+        maintainSize: true,
+        maintainAnimation: true,
+        maintainState: true,
+        visible: !isPlaceHolder,
         child: InkWell(
           child: const Icon(
             Icons.close,
@@ -78,10 +82,6 @@ class SmoothAlertDialog extends StatelessWidget {
           ),
           onTap: () => Navigator.of(context, rootNavigator: true).pop('dialog'),
         ),
-        maintainSize: true,
-        maintainAnimation: true,
-        maintainState: true,
-        visible: !isPlaceHolder,
       );
     } else {
       return Container();

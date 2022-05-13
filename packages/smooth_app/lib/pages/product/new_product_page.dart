@@ -16,6 +16,7 @@ import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/category_cache.dart';
 import 'package:smooth_app/pages/product/category_picker_page.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
@@ -24,7 +25,6 @@ import 'package:smooth_app/pages/product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/knowledge_panel_product_cards.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
-import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
@@ -40,12 +40,15 @@ class ProductPage extends StatefulWidget {
 class _ProductPageState extends State<ProductPage> {
   late Product _product;
   late ProductPreferences _productPreferences;
+  late ScrollController _scrollController;
+  bool _mustScrollToTheEnd = false;
   bool scrollingUp = true;
 
   @override
   void initState() {
     super.initState();
     _product = widget.product;
+    _scrollController = ScrollController();
     _updateLocalDatabaseWithProductHistory(context, _product);
     AnalyticsHelper.trackProductPageOpen(
       product: _product,
@@ -54,6 +57,11 @@ class _ProductPageState extends State<ProductPage> {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (_mustScrollToTheEnd) {
+        _scrollToTheEnd();
+      }
+    });
     // All watchers defined here:
     _productPreferences = context.watch<ProductPreferences>();
     final ThemeData themeData = Theme.of(context);
@@ -103,9 +111,18 @@ class _ProductPageState extends State<ProductPage> {
     );
   }
 
+  void _scrollToTheEnd() {
+    _scrollController.animateTo(
+      _scrollController.position.maxScrollExtent,
+      curve: Curves.easeOut,
+      duration: const Duration(milliseconds: 500),
+    );
+    _mustScrollToTheEnd = false;
+  }
+
   Future<void> _refreshProduct(BuildContext context) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ProductDialogHelper productDialogHelper = ProductDialogHelper(
       barcode: _product.barcode!,
       context: context,
@@ -114,6 +131,9 @@ class _ProductPageState extends State<ProductPage> {
     );
     final FetchedProduct fetchedProduct =
         await productDialogHelper.openUniqueProductSearch();
+    if (!mounted) {
+      return;
+    }
     if (fetchedProduct.status == FetchedProductStatus.ok) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -131,93 +151,102 @@ class _ProductPageState extends State<ProductPage> {
   Future<void> _updateLocalDatabaseWithProductHistory(
       BuildContext context, Product product) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    await DaoProductList(localDatabase)
-        .push(ProductList.history(), product.barcode!);
+    DaoProductList(localDatabase).push(ProductList.history(), product.barcode!);
     localDatabase.notifyListeners();
   }
 
   Widget _buildProductBody(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
     final List<String> productListNames =
         daoProductList.getUserLists(withBarcode: widget.product.barcode);
     return RefreshIndicator(
       onRefresh: () => _refreshProduct(context),
-      child: ListView(children: <Widget>[
-        Align(
-          heightFactor: 0.7,
-          alignment: Alignment.topLeft,
-          child: ProductImageCarousel(
-            _product,
-            height: 200,
-            onUpload: _refreshProduct,
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: SMALL_SPACE,
-          ),
-          child: Hero(
-            tag: _product.barcode ?? '',
-            child: SummaryCard(
+      child: ListView(
+        controller: _scrollController,
+        children: <Widget>[
+          Align(
+            heightFactor: 0.7,
+            alignment: Alignment.topLeft,
+            child: ProductImageCarousel(
               _product,
-              _productPreferences,
-              isFullVersion: true,
-              showUnansweredQuestions: true,
-              refreshProductCallback: _refreshProduct,
+              height: 200,
+              onUpload: _refreshProduct,
             ),
           ),
-        ),
-        _buildKnowledgePanelCards(),
-        _buildActionBar(appLocalizations),
-        if (productListNames.isNotEmpty)
-          _buildListWidget(appLocalizations, productListNames, daoProductList),
-        if (context.read<UserPreferences>().getFlag(
-                UserPreferencesDevMode.userPreferencesFlagAdditionalButton) ??
-            false)
-          ElevatedButton(
-            onPressed: () async {
-              if (_product.categoriesTags == null) {
-                // TODO(monsieurtanuki): that's another story: how to set an initial category?
-                return;
-              }
-              if (_product.categoriesTags!.length < 2) {
-                // TODO(monsieurtanuki): no father, we need to do something with roots
-                return;
-              }
-              final String currentTag =
-                  _product.categoriesTags![_product.categoriesTags!.length - 1];
-              final String fatherTag =
-                  _product.categoriesTags![_product.categoriesTags!.length - 2];
-              final CategoryCache categoryCache =
-                  CategoryCache(ProductQuery.getLanguage()!);
-              final Map<String, TaxonomyCategory>? siblingsData =
-                  await categoryCache.getCategorySiblingsAndFather(
-                fatherTag: fatherTag,
-              );
-              if (siblingsData == null) {
-                // TODO(monsieurtanuki): what shall we do?
-                return;
-              }
-              final String? newTag = await Navigator.push<String>(
-                context,
-                MaterialPageRoute<String>(
-                  builder: (BuildContext context) => CategoryPickerPage(
-                    barcode: _product.barcode!,
-                    initialMap: siblingsData,
-                    initialTree: _product.categoriesTags!,
-                    categoryCache: categoryCache,
-                  ),
-                ),
-              );
-              if (newTag != null && newTag != currentTag) {
-                setState(() {});
-              }
-            },
-            child: const Text('Additional Button'),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: SMALL_SPACE,
+            ),
+            child: Hero(
+              tag: _product.barcode ?? '',
+              child: SummaryCard(
+                _product,
+                _productPreferences,
+                isFullVersion: true,
+                showUnansweredQuestions: true,
+                refreshProductCallback: _refreshProduct,
+              ),
+            ),
           ),
-      ]),
+          _buildKnowledgePanelCards(),
+          _buildActionBar(appLocalizations),
+          if (productListNames.isNotEmpty)
+            _buildListWidget(
+              appLocalizations,
+              productListNames,
+              daoProductList,
+            ),
+          if (context.read<UserPreferences>().getFlag(
+                  UserPreferencesDevMode.userPreferencesFlagAdditionalButton) ??
+              false)
+            ElevatedButton(
+              onPressed: () async {
+                if (_product.categoriesTags == null) {
+                  // TODO(monsieurtanuki): that's another story: how to set an initial category?
+                  return;
+                }
+                if (_product.categoriesTags!.length < 2) {
+                  // TODO(monsieurtanuki): no father, we need to do something with roots
+                  return;
+                }
+                final String currentTag = _product
+                    .categoriesTags![_product.categoriesTags!.length - 1];
+                final String fatherTag = _product
+                    .categoriesTags![_product.categoriesTags!.length - 2];
+                final CategoryCache categoryCache =
+                    CategoryCache(ProductQuery.getLanguage()!);
+                final Map<String, TaxonomyCategory>? siblingsData =
+                    await categoryCache.getCategorySiblingsAndFather(
+                  fatherTag: fatherTag,
+                );
+                if (siblingsData == null) {
+                  // TODO(monsieurtanuki): what shall we do?
+                  return;
+                }
+                if (!mounted) {
+                  return;
+                }
+                final String? newTag = await Navigator.push<String>(
+                  context,
+                  MaterialPageRoute<String>(
+                    builder: (BuildContext context) => CategoryPickerPage(
+                      barcode: _product.barcode!,
+                      initialMap: siblingsData,
+                      initialTree: _product.categoriesTags!,
+                      categoryCache: categoryCache,
+                    ),
+                  ),
+                );
+                if (newTag != null && newTag != currentTag) {
+                  setState(() {});
+                }
+              },
+              child: const Text('Additional Button'),
+            ),
+        ],
+      ),
     );
   }
 
@@ -244,6 +273,7 @@ class _ProductPageState extends State<ProductPage> {
     final bool refreshed = await ProductListUserDialogHelper(daoProductList)
         .showUserListsWithBarcodeDialog(context, widget.product);
     if (refreshed) {
+      _mustScrollToTheEnd = true;
       setState(() {});
     }
   }
@@ -271,6 +301,9 @@ class _ProductPageState extends State<ProductPage> {
                   ),
                 );
                 if (refreshed == true) {
+                  if (!mounted) {
+                    return;
+                  }
                   await _refreshProduct(context);
                 }
               },
@@ -292,13 +325,13 @@ class _ProductPageState extends State<ProductPage> {
       children: <Widget>[
         ElevatedButton(
           onPressed: onPressed,
-          child: Icon(iconData, color: colorScheme.onPrimary),
           style: ElevatedButton.styleFrom(
             shape: const CircleBorder(),
             padding: const EdgeInsets.all(
                 18), // TODO(monsieurtanuki): cf. FloatingActionButton
             primary: colorScheme.primary,
           ),
+          child: Icon(iconData, color: colorScheme.onPrimary),
         ),
         const SizedBox(height: VERY_SMALL_SPACE),
         Text(label),
@@ -319,6 +352,9 @@ class _ProductPageState extends State<ProductPage> {
           onPressed: () async {
             final ProductList productList = ProductList.user(productListName);
             await daoProductList.get(productList);
+            if (!mounted) {
+              return;
+            }
             await Navigator.push<void>(
               context,
               MaterialPageRoute<void>(
@@ -344,9 +380,9 @@ class _ProductPageState extends State<ProductPage> {
             Wrap(
               alignment: WrapAlignment.start,
               direction: Axis.horizontal,
-              children: children,
               spacing: VERY_SMALL_SPACE,
               runSpacing: VERY_SMALL_SPACE,
+              children: children,
             ),
           ],
         ),

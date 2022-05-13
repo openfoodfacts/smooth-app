@@ -53,7 +53,7 @@ Future<void> _onSubmittedBarcode(
       searchCategory: 'barcode',
       searchCount: 1,
     );
-
+    //ignore: use_build_context_synchronously
     Navigator.push<Widget>(
       context,
       MaterialPageRoute<Widget>(
@@ -148,7 +148,7 @@ class _SearchFieldState extends State<SearchField> {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations localizations = AppLocalizations.of(context)!;
+    final AppLocalizations localizations = AppLocalizations.of(context);
     return TextField(
       textInputAction: TextInputAction.search,
       controller: _textController,

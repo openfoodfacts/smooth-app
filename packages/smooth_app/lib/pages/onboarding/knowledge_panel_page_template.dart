@@ -39,7 +39,7 @@ class _KnowledgePanelPageTemplateState
   late Future<void> _initFuture;
   late KnowledgePanels _knowledgePanels;
   bool _isHintDismissed = false;
-  late final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+  late final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
   @override
   void initState() {
@@ -62,7 +62,7 @@ class _KnowledgePanelPageTemplateState
         builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
           if (snapshot.hasError) {
             final AppLocalizations appLocalizations =
-                AppLocalizations.of(context)!;
+                AppLocalizations.of(context);
             return Text(
               appLocalizations
                   .knowledge_panel_page_loading_error(snapshot.error),
@@ -79,6 +79,7 @@ class _KnowledgePanelPageTemplateState
           )!;
           return Scaffold(
             body: Stack(
+              fit: StackFit.expand,
               children: <Widget>[
                 ListView(
                   // bottom padding is very large because [NextButton] is stacked on top of the page.
@@ -110,7 +111,6 @@ class _KnowledgePanelPageTemplateState
                   ),
                 ),
               ],
-              fit: StackFit.expand,
             ),
             backgroundColor: SmoothTheme.getColor(
               Theme.of(context).colorScheme,
@@ -124,6 +124,9 @@ class _KnowledgePanelPageTemplateState
   List<Widget> _buildHintPopup() {
     final Widget hintPopup = InkWell(
       child: Card(
+        margin: const EdgeInsets.symmetric(horizontal: 30),
+        color: Theme.of(context).hintColor.withOpacity(0.9),
+        shape: const TooltipShapeBorder(arrowArc: 0.5),
         child: Container(
           margin: const EdgeInsets.fromLTRB(20, 10, 20, 10),
           child: Text(
@@ -131,9 +134,6 @@ class _KnowledgePanelPageTemplateState
             style: TextStyle(color: Theme.of(context).cardColor),
           ),
         ),
-        margin: const EdgeInsets.symmetric(horizontal: 30),
-        color: Theme.of(context).hintColor.withOpacity(0.9),
-        shape: const TooltipShapeBorder(arrowArc: 0.5),
       ),
       onTap: () {
         setState(() {

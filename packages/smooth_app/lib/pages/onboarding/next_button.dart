@@ -18,7 +18,7 @@ class NextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     // Side padding is 8% of total width.
@@ -43,6 +43,7 @@ class NextButton extends StatelessWidget {
             onPressed: () async {
               await OnboardingLoader(localDatabase)
                   .runAtNextTime(currentPage, context);
+              //ignore: use_build_context_synchronously
               OnboardingFlowNavigator(userPreferences).navigateToPage(
                   context, OnboardingFlowNavigator.getNextPage(currentPage));
             },

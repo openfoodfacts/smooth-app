@@ -14,7 +14,7 @@ const int _uselessTotalSizeValue = 0;
 
 /// An immutable barcode list; e.g. my search yesterday about "Nutella"
 class _BarcodeList {
-  _BarcodeList(
+  const _BarcodeList(
     this.timestamp,
     this.barcodes,
     this.totalSize,
@@ -85,11 +85,11 @@ class DaoProductList extends AbstractDao {
 
   Box<_BarcodeList> _getBox() => Hive.box<_BarcodeList>(_hiveBoxName);
 
-  Future<_BarcodeList?> _get(final ProductList productList) async =>
+  _BarcodeList? _get(final ProductList productList) =>
       _getBox().get(_getKey(productList));
 
-  Future<int?> getTimestamp(final ProductList productList) async =>
-      (await _get(productList))?.timestamp;
+  int? getTimestamp(final ProductList productList) =>
+      _get(productList)?.timestamp;
 
   // Why the "base64" part? Because of #753!
   // "HiveError: String keys need to be ASCII Strings with a max length of 255"
@@ -126,10 +126,10 @@ class DaoProductList extends AbstractDao {
     throw Exception('Unknown product list type: "$value" from "$key"');
   }
 
-  Future<void> _put(final String key, final _BarcodeList barcodeList) async =>
+  void _put(final String key, final _BarcodeList barcodeList) =>
       _getBox().put(key, barcodeList);
 
-  Future<void> put(final ProductList productList) async =>
+  void put(final ProductList productList) =>
       _put(_getKey(productList), _BarcodeList.fromProductList(productList));
 
   Future<bool> delete(final ProductList productList) async {
@@ -144,7 +144,7 @@ class DaoProductList extends AbstractDao {
 
   /// Loads the barcodes AND all the products.
   Future<void> get(final ProductList productList) async {
-    final _BarcodeList? list = await _get(productList);
+    final _BarcodeList? list = _get(productList);
     final List<String> barcodes = <String>[];
     final Map<String, Product> products = <String, Product>{};
     productList.totalSize = list?.totalSize ?? 0;
@@ -169,44 +169,53 @@ class DaoProductList extends AbstractDao {
     productList.set(barcodes, products);
   }
 
+  /// Returns the number of barcodes quickly but without product check.
+  int getLength(final ProductList productList) {
+    final _BarcodeList? list = _get(productList);
+    if (list == null || list.barcodes.isEmpty) {
+      return 0;
+    }
+    return list.barcodes.length;
+  }
+
   /// Moves a barcode to the end of the list.
   ///
   /// One barcode duplicate is potentially removed:
   /// * If the barcode was already there, it's moved to the end of the list.
   /// * If the barcode wasn't there, it's added to the end of the list.
-  Future<void> push(final ProductList productList, final String barcode) async {
-    final _BarcodeList? list = await _get(productList);
+  void push(final ProductList productList, final String barcode) {
+    final _BarcodeList? list = _get(productList);
     final List<String> barcodes;
     if (list == null) {
       barcodes = <String>[];
     } else {
-      barcodes = list.barcodes;
+      barcodes = _getSafeBarcodeListCopy(list.barcodes);
     }
     barcodes.remove(barcode); // removes a potential duplicate
     barcodes.add(barcode);
     final _BarcodeList newList = _BarcodeList.now(barcodes);
-    await _put(_getKey(productList), newList);
+    _put(_getKey(productList), newList);
   }
 
-  Future<void> clear(final ProductList productList) async {
+  void clear(final ProductList productList) {
     final _BarcodeList newList = _BarcodeList.now(<String>[]);
-    await _put(_getKey(productList), newList);
+    _put(_getKey(productList), newList);
   }
 
   /// Adds or removes a barcode within a product list (depending on [include])
   ///
   /// Returns true if there was a change in the list.
-  Future<bool> set(
+  bool set(
     final ProductList productList,
     final String barcode,
     final bool include,
-  ) async {
-    final _BarcodeList? list = await _get(productList);
+  ) {
+    final _BarcodeList? list = _get(productList);
     final List<String> barcodes;
     if (list == null) {
       barcodes = <String>[];
     } else {
-      barcodes = list.barcodes;
+      barcodes = _getSafeBarcodeListCopy(list.barcodes);
     }
     if (barcodes.contains(barcode)) {
       if (include) {
@@ -220,7 +229,7 @@ class DaoProductList extends AbstractDao {
       barcodes.add(barcode);
     }
     final _BarcodeList newList = _BarcodeList.now(barcodes);
-    await _put(_getKey(productList), newList);
+    _put(_getKey(productList), newList);
     return true;
   }
 
@@ -229,9 +238,8 @@ class DaoProductList extends AbstractDao {
     final String newName,
   ) async {
     final ProductList newList = ProductList.user(newName);
-    final _BarcodeList list =
-        (await _get(initialList)) ?? _BarcodeList.now(<String>[]);
-    await _put(_getKey(newList), list);
+    final _BarcodeList list = _get(initialList) ?? _BarcodeList.now(<String>[]);
+    _put(_getKey(newList), list);
     await delete(initialList);
     await get(newList);
     return newList;
@@ -240,13 +248,12 @@ class DaoProductList extends AbstractDao {
   /// Exports a list - typically for debug purposes
   Future<Map<String, dynamic>> export(final ProductList productList) async {
     final Map<String, dynamic> result = <String, dynamic>{};
-    final _BarcodeList? list = await _get(productList);
+    final _BarcodeList? list = _get(productList);
     if (list == null) {
       return result;
     }
-    final List<String> barcodes = list.barcodes;
     final DaoProduct daoProduct = DaoProduct(localDatabase);
-    for (final String barcode in barcodes) {
+    for (final String barcode in list.barcodes) {
       late bool? present;
       try {
         final Product? product = await daoProduct.get(barcode);
@@ -281,4 +288,26 @@ class DaoProductList extends AbstractDao {
     }
     return result;
   }
+
+  /// Returns a write-safe copy of [_BarcodeList] barcodes.
+  ///
+  /// cf. https://github.com/openfoodfacts/smooth-app/issues/1786
+  /// As we're using hive, all the data are loaded at init time. And not
+  /// systematically refreshed at each [get] call.
+  /// Therefore, when we need a barcode list from [_BarcodeList] with the intent
+  /// to add/remove a barcode to/from that list, we can avoid concurrency issues
+  /// by copying the barcode list instead of reusing it.
+  /// Example:
+  /// BAD
+  /// ```dart
+  /// List<String> barcodes = _barcodeList.barcodes;
+  /// barcodes.add('1234'); // dangerous if somewhere else we parse the list
+  /// ```
+  /// GOOD
+  /// ```dart
+  /// List<String> barcodes = _getSafeBarcodeListCopy(_barcodeList.barcodes);
+  /// barcodes.add('1234'); // no risk at all
+  /// ```
+  List<String> _getSafeBarcodeListCopy(final List<String> barcodes) =>
+      List<String>.from(barcodes);
 }

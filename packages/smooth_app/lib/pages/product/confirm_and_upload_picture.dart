@@ -35,7 +35,7 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     // Picture is captured, show it to the user one last time and ask for
     // confirmation before uploading. Also present an option to retake the
     // picture as sometimes the picture can be blurry.
@@ -66,6 +66,9 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                           final File? retakenPhoto =
                               await startImageCropping(context);
                           if (retakenPhoto == null) {
+                            if (!mounted) {
+                              return;
+                            }
                             // User chose not to upload the image.
                             Navigator.pop(context);
                             return;
@@ -88,6 +91,9 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                           imageField: widget.imageType,
                           imageUri: photo.uri,
                         );
+                        if (!mounted) {
+                          return;
+                        }
                         Navigator.pop(
                           context,
                           isPhotoUploaded ? photo : null,
@@ -105,7 +111,7 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
   }
 
   String _getAppBarTitle(BuildContext context, ImageField imageType) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     switch (imageType) {
       case ImageField.FRONT:
         return appLocalizations.front_packaging_photo_title;
@@ -121,7 +127,7 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
   }
 
   String _getConfirmButtonText(BuildContext context, ImageField imageType) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     switch (imageType) {
       case ImageField.FRONT:
         return appLocalizations.confirm_button_label;

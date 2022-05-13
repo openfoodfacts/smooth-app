@@ -25,7 +25,8 @@ class KnowledgePanelPage extends StatelessWidget {
         ColorDestination.SURFACE_BACKGROUND,
       ),
       appBar: AppBar(
-        title: Text(panel.titleElement!.title),
+        title:
+            panel.titleElement == null ? null : Text(panel.titleElement!.title),
       ),
       body: SingleChildScrollView(
         child: SmoothCard(

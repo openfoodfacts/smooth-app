@@ -113,7 +113,7 @@ class _SmoothAppState extends State<SmoothApp> {
 
   bool systemDarkmodeOn = false;
   final Brightness brightness =
-      SchedulerBinding.instance?.window.platformBrightness ?? Brightness.light;
+      SchedulerBinding.instance.window.platformBrightness;
 
   // We store the argument of FutureBuilder to avoid re-initialization on
   // subsequent builds. This enables hot reloading. See
@@ -129,9 +129,16 @@ class _SmoothAppState extends State<SmoothApp> {
   Future<bool> _init2() async {
     await _init1();
     systemDarkmodeOn = brightness == Brightness.dark;
+    if (!mounted) {
+      return false;
+    }
     await _productPreferences.init(DefaultAssetBundle.of(context));
     if (!_screenshots) {
       await _userPreferences.init(_productPreferences);
+    }
+
+    if (!mounted) {
+      return false;
     }
     AnalyticsHelper.initMatomo(context, _screenshots);
     return true;
@@ -180,8 +187,11 @@ class _SmoothAppState extends State<SmoothApp> {
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final Widget appWidget = OnboardingFlowNavigator(_userPreferences)
         .getPageWidget(context, _userPreferences.lastVisitedOnboardingPage);
+    final String? languageCode =
+        context.select((UserPreferences up) => up.appLanguageCode);
 
     return MaterialApp(
+      locale: languageCode != null ? Locale(languageCode) : null,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       debugShowCheckedModeBanner: !(kReleaseMode || _screenshots),
@@ -227,8 +237,8 @@ class SmoothAppGetLanguage extends StatelessWidget {
     ProductQuery.setLanguage(languageCode);
     context.read<ProductPreferences>().refresh(languageCode);
 
-    final LocalDatabase _localDatabase = context.read<LocalDatabase>();
-    AnalyticsHelper.trackStart(_localDatabase, context);
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    AnalyticsHelper.trackStart(localDatabase, context);
 
     return appWidget;
   }

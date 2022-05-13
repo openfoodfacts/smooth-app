@@ -5,12 +5,13 @@ import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/pages/abstract_user_preferences.dart';
+import 'package:smooth_app/pages/preferences/abstract_collapsible_user_preferences.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/widgets/attribute_button.dart';
 
 /// Collapsed/expanded display of an attribute group for the preferences page.
-class UserPreferencesAttributeGroup extends AbstractUserPreferences {
+class UserPreferencesAttributeGroup extends AbstractCollapsibleUserPreferences {
   UserPreferencesAttributeGroup({
     required this.productPreferences,
     required this.group,
@@ -31,22 +32,22 @@ class UserPreferencesAttributeGroup extends AbstractUserPreferences {
   final AttributeGroup group;
 
   @override
-  bool isCollapsedByDefault() => false;
+  PreferencePageType? getPreferencePageType() => null;
 
   @override
   String getPreferenceFlagKey() => 'attribute:${group.id}';
 
   @override
+  String getTitleString() => group.name ?? appLocalizations.unknown;
+
+  @override
   Widget getTitle() => Text(
-        group.name ?? appLocalizations.unknown,
+        getTitleString(),
         style: themeData.textTheme.headline6,
       );
 
   @override
   Widget? getSubtitle() => null;
-
-  @override
-  bool isCompactTitle() => true;
 
   @override
   List<Widget> getBody() {
