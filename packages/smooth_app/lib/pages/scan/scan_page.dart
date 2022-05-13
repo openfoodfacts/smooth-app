@@ -8,13 +8,14 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/permission_helper.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/scan/continuous_scan_page.dart';
 import 'package:smooth_app/pages/scan/ml_kit_scan_page.dart';
 import 'package:smooth_app/pages/scan/scanner_overlay.dart';
-import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
 import 'package:smooth_app/widgets/smooth_product_carousel.dart';
 
 class ScanPage extends StatefulWidget {
@@ -101,7 +102,7 @@ class _ScanPageTopWidget extends StatelessWidget {
         if (listener.value.isGranted) {
           return const ScannerVisorWidget();
         } else {
-          final AppLocalizations localizations = AppLocalizations.of(context)!;
+          final AppLocalizations localizations = AppLocalizations.of(context);
 
           return SafeArea(
             child: LayoutBuilder(
@@ -142,7 +143,7 @@ class _ScanPageTopWidget extends StatelessWidget {
                                 ),
                                 child: Text(
                                   localizations.permission_photo_denied_message(
-                                    localizations.app_name,
+                                    APP_NAME,
                                   ),
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(
@@ -178,8 +179,7 @@ class _ScanPageTopWidget extends StatelessWidget {
       return showDialog(
           context: context,
           builder: (BuildContext context) {
-            final AppLocalizations localizations =
-                AppLocalizations.of(context)!;
+            final AppLocalizations localizations = AppLocalizations.of(context);
 
             return SmoothAlertDialog(
               title:

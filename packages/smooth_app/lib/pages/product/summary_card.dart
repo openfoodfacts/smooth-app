@@ -25,6 +25,7 @@ import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/helpers/smooth_matched_product.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/question_page.dart';
 
@@ -147,7 +148,7 @@ class _SummaryCardState extends State<SummaryCard> {
                 ),
                 child: Center(
                   child: Text(
-                    AppLocalizations.of(context)!.tab_for_more,
+                    AppLocalizations.of(context).tab_for_more,
                     style:
                         Theme.of(context).primaryTextTheme.bodyText1?.copyWith(
                               color: PRIMARY_BLUE_COLOR,
@@ -164,7 +165,7 @@ class _SummaryCardState extends State<SummaryCard> {
 
   Widget _buildSummaryCardContent(BuildContext context) {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final AppLocalizations localizations = AppLocalizations.of(context)!;
+    final AppLocalizations localizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.read<UserPreferences>();
 
     final List<String> excludedAttributeIds =
@@ -231,7 +232,6 @@ class _SummaryCardState extends State<SummaryCard> {
         );
       }
     }
-
     final Widget attributesContainer = Container(
       alignment: Alignment.topLeft,
       margin: const EdgeInsets.only(bottom: 16),
@@ -290,7 +290,15 @@ class _SummaryCardState extends State<SummaryCard> {
         summaryCardButtons.add(
           addPanelButton(
             localizations.completed_basic_details_btn_text,
-            onPressed: () => _showNotImplemented(context),
+            onPressed: () async {
+              await Navigator.push<bool>(
+                context,
+                MaterialPageRoute<bool>(
+                  builder: (BuildContext context) =>
+                      AddBasicDetailsPage(widget._product),
+                ),
+              );
+            },
           ),
         );
       }
@@ -330,9 +338,11 @@ class _SummaryCardState extends State<SummaryCard> {
     );
     final ProductCompatibilityHelper helper =
         ProductCompatibilityHelper(matchedProduct);
+    final bool isDarkMode =
+        Theme.of(context).colorScheme.brightness == Brightness.dark;
     return Container(
       decoration: BoxDecoration(
-        color: helper.getBackgroundColor(),
+        color: helper.getHeaderBackgroundColor(isDarkMode),
         // Ensure that the header has the same circular radius as the SmoothCard.
         borderRadius: const BorderRadius.only(
           topLeft: ROUNDED_RADIUS,
@@ -343,9 +353,11 @@ class _SummaryCardState extends State<SummaryCard> {
       padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
       child: Center(
         child: Text(
-          helper.getHeaderText(AppLocalizations.of(context)!),
-          style:
-              Theme.of(context).textTheme.subtitle1!.apply(color: Colors.white),
+          helper.getHeaderText(AppLocalizations.of(context)),
+          style: Theme.of(context)
+              .textTheme
+              .subtitle1!
+              .apply(color: helper.getHeaderForegroundColor(isDarkMode)),
         ),
       ),
     );
@@ -498,7 +510,7 @@ class _SummaryCardState extends State<SummaryCard> {
   }
 
   Widget _buildProductQuestionsWidget() {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return FutureBuilder<List<RobotoffQuestion>>(
         future: _loadProductQuestions(),
         builder: (
@@ -559,6 +571,9 @@ class _SummaryCardState extends State<SummaryCard> {
     // Or the backend may have new ones.
     final List<RobotoffQuestion> questions =
         await _loadProductQuestions() ?? <RobotoffQuestion>[];
+    if (!mounted) {
+      return;
+    }
     final RobotoffInsightHelper robotoffInsightHelper =
         RobotoffInsightHelper(context.read<LocalDatabase>());
     if (questions.isEmpty) {
@@ -569,6 +584,9 @@ class _SummaryCardState extends State<SummaryCard> {
         await robotoffInsightHelper.haveInsightAnnotationsVoted(questions);
     // Reload the product as it may have been updated because of the
     // new answers.
+    if (!mounted) {
+      return;
+    }
     widget.refreshProductCallback?.call(context);
   }
 
@@ -576,7 +594,9 @@ class _SummaryCardState extends State<SummaryCard> {
     final List<RobotoffQuestion> questions =
         await RobotoffQuestionsQuery(widget._product.barcode!)
             .getRobotoffQuestionsForProduct();
+
     final RobotoffInsightHelper robotoffInsightHelper =
+        //ignore: use_build_context_synchronously
         RobotoffInsightHelper(context.read<LocalDatabase>());
     _annotationVoted =
         await robotoffInsightHelper.haveInsightAnnotationsVoted(questions);
@@ -584,7 +604,7 @@ class _SummaryCardState extends State<SummaryCard> {
   }
 
   void _showNotImplemented(BuildContext context) {
-    final AppLocalizations localizations = AppLocalizations.of(context)!;
+    final AppLocalizations localizations = AppLocalizations.of(context);
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(localizations.not_implemented_snackbar_text),

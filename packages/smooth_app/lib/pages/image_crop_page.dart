@@ -18,15 +18,13 @@ Future<File?> startImageCropping(BuildContext context,
   late XFile? pickedXFile;
   if (existingImage == null) {
     final ImagePicker picker = ImagePicker();
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     pickedXFile = await picker.pickImage(
       source: ImageSource.camera,
     );
     if (pickedXFile == null) {
       return null;
     }
-  }
-
-  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
 
   final CroppedFile? croppedFile = await ImageCropper().cropImage(
     sourcePath: existingImage?.path ?? pickedXFile!.path,
@@ -44,7 +42,8 @@ Future<File?> startImageCropping(BuildContext context,
         lockAspectRatio: false,
         statusBarColor: themeColor,
         toolbarColor: themeColor,
-        toolbarWidgetColor: Colors.white,
+        toolbarWidgetColor: themeColor,
+        //ignore: use_build_context_synchronously
         activeControlsWidgetColor: Theme.of(context).colorScheme.primary,
         backgroundColor: themeColor,
       ),

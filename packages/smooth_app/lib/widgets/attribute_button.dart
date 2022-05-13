@@ -42,16 +42,20 @@ class AttributeButton extends StatelessWidget {
         GestureDetector(
           onTap: () async {
             await productPreferences.setImportance(attribute.id!, importanceId);
-            final AppLocalizations? appLocalizations =
+
+            final AppLocalizations appLocalizations =
+                //ignore: use_build_context_synchronously
                 AppLocalizations.of(context);
             await showDialog<void>(
               context: context,
               builder: (BuildContext context) => SmoothAlertDialog(
                 body: Text(
-                    'blah blah blah importance "$importanceId"'), // TODO(monsieurtanuki): find translations
+                  appLocalizations.importance_label(
+                      attribute.name.toString(), importanceId),
+                ),
                 actions: <SmoothActionButton>[
                   SmoothActionButton(
-                    text: appLocalizations!.close,
+                    text: appLocalizations.close,
                     onPressed: () => Navigator.pop(context),
                   ),
                 ],
@@ -105,13 +109,13 @@ class AttributeButton extends StatelessWidget {
                 : () async => showDialog<void>(
                       context: context,
                       builder: (BuildContext context) {
-                        final AppLocalizations? appLocalizations =
+                        final AppLocalizations appLocalizations =
                             AppLocalizations.of(context);
                         return SmoothAlertDialog(
                           body: Text(info),
                           actions: <SmoothActionButton>[
                             SmoothActionButton(
-                              text: appLocalizations!.close,
+                              text: appLocalizations.close,
                               onPressed: () => Navigator.pop(context),
                             ),
                           ],

@@ -18,7 +18,7 @@ class SmoothProductCardNotFound extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
       return SmoothCard(
