@@ -414,11 +414,11 @@
     },
     "ingredients_photo_uploaded": "\"İçindekiler\" fotoğrafı yüklendi",
     "@ingredients_photo_uploaded": {},
-    "nutrition_cache_loading_error": "Unable to load nutrients from cache",
+    "nutrition_cache_loading_error": "Besin değerleri önbellekten yüklenemiyor",
     "nutritional_facts_photo_button_label": "Besin değerleri fotoğrafı",
     "@nutritional_facts_photo_button_label": {},
-    "nutritional_facts_input_button_label": "Input nutrition facts",
-    "nutritional_facts_added": "Nutrition facts added",
+    "nutritional_facts_input_button_label": "Besin değerleri gir",
+    "nutritional_facts_added": "Besin değerleri eklendi",
     "confirm_nutritional_facts_photo_button_label": "Besin değerleri fotoğrafını onayla",
     "@confirm_nutritional_facts_photo_button_label": {
         "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
@@ -533,7 +533,7 @@
     "@product_improvement_add_nutrition_facts_and_category": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
     },
-    "product_improvement_categories_but_no_nutriscore": "The Nutri-Score for this product can't be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.",
+    "product_improvement_categories_but_no_nutriscore": "Bu ürün için Nutri-Score hesaplanamıyor, bunun nedeni örneğin standart olmayan bir kategori olabilir. Bu bir hata olarak kabul edilirse, lütfen bizimle iletişime geçin.",
     "@product_improvement_categories_but_no_nutriscore": {
         "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
