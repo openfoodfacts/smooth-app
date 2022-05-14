@@ -164,7 +164,7 @@ class SearchCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations localizations = AppLocalizations.of(context)!;
+    final AppLocalizations localizations = AppLocalizations.of(context);
     return SmoothCard(
       color: Theme.of(context).colorScheme.background.withOpacity(0.85),
       elevation: 0,

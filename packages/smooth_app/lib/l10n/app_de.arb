@@ -1,5 +1,4 @@
 {
-    "app_name": "OpenFoodFactsDe",
     "@Utils": {},
     "yes": "Ja",
     "@yes": {},
@@ -415,8 +414,11 @@
     },
     "ingredients_photo_uploaded": "Foto der Zutatenliste hochgeladen",
     "@ingredients_photo_uploaded": {},
+    "nutrition_cache_loading_error": "Kann Nährstoffe nicht aus Cache laden",
     "nutritional_facts_photo_button_label": "Foto der Nährwertangaben",
     "@nutritional_facts_photo_button_label": {},
+    "nutritional_facts_input_button_label": "Nährwertangaben eingeben",
+    "nutritional_facts_added": "Nährwertangaben hinzugefügt",
     "confirm_nutritional_facts_photo_button_label": "Foto der Nährwertangaben bestätigen",
     "@confirm_nutritional_facts_photo_button_label": {
         "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
@@ -889,21 +891,291 @@
     "@user_list_name_error_same": {
         "description": "Validation error about the renamed name that is the same as the initial list name"
     },
-    "basic_details": "Basic Details",
-    "product_name": "Product Name",
-    "add_basic_details_product_name_error": "Please enter the product name",
-    "brand_name": "Brand name",
-    "add_basic_details_brand_name_error": "Please enter the brand name",
-    "weight_gram": "Weight in gram",
-    "add_basic_details_weight_gram_error": "Please enter the weight",
+    "category_picker_no_category_found_message": "Keine Kategorie für {items} gefunden",
+    "@category_picker_no_category_found_message": {
+        "description": "Label when no category is available",
+        "placeholders": {
+            "items": {
+                "type": "String"
+            }
+        }
+    },
+    "category_picker_no_category_found_button": "Zurück",
+    "@category_picker_no_category_found_button": {
+        "description": "Button label when no category is available"
+    },
+    "dev_preferences_screen_title": "Entwicklermodus",
+    "@dev_preferences_screen_title": {
+        "description": "User dev preferences - Title"
+    },
+    "dev_preferences_disable_mode": "Entwicklermodus entfernen",
+    "@dev_preferences_disable_mode": {
+        "description": "User dev preferences - Remove dev mode label"
+    },
+    "dev_preferences_reset_onboarding_title": "Intro erneut starten",
+    "@dev_preferences_reset_onboarding_title": {
+        "description": "User dev preferences - Reset onboarding - Title"
+    },
+    "dev_preferences_reset_onboarding_subtitle": "Sie müssen dann Flutter neu starten, um es erneut zu sehen.",
+    "@dev_preferences_reset_onboarding_subtitle": {
+        "description": "User dev preferences - Reset onboarding - Subtitle"
+    },
+    "dev_preferences_environment_switch_title": "Wechseln zwischen openfoodfacts.org (PROD) und Testumgebung",
+    "@dev_preferences_environment_switch_title": {
+        "description": "User dev preferences - Environment (prod/test) switcher - Title"
+    },
+    "dev_preferences_environment_switch_subtitle": "Aktueller Abfragetyp ist {query}",
+    "@dev_preferences_environment_switch_subtitle": {
+        "description": "User dev preferences - Environment (prod/test) switcher - Subtitle",
+        "placeholders": {
+            "query": {
+                "type": "String"
+            }
+        }
+    },
+    "dev_preferences_test_environment_title": "Testumgebungsparameter",
+    "@dev_preferences_test_environment_title": {
+        "description": "User dev preferences - Info about test environment - Title"
+    },
+    "dev_preferences_test_environment_subtitle": "Die aktuelle Basis-URL der Testumgebung ist {url}",
+    "@dev_preferences_test_environment_subtitle": {
+        "description": "User dev preferences - Info about test environment - Value",
+        "placeholders": {
+            "url": {
+                "type": "String"
+            }
+        }
+    },
+    "dev_preferences_test_environment_dialog_title": "Testumgebungshost",
+    "@dev_preferences_test_environment_dialog_title": {
+        "description": "User dev preferences - Info about test environment - Dialog title"
+    },
+    "dev_preferences_ml_kit_title": "ML Kit verwenden",
+    "@dev_preferences_ml_kit_title": {
+        "description": "User dev preferences - Enable ML Kit - Title"
+    },
+    "dev_preferences_ml_kit_subtitle": "dann musst du diese App neu starten",
+    "@dev_preferences_ml_kit_subtitle": {
+        "description": "User dev preferences - Enable ML Kit - Subtitle"
+    },
+    "dev_preferences_product_additional_features_title": "Zusätzliche Schaltfläche auf der Produktseite",
+    "@dev_preferences_product_additional_features_title": {
+        "description": "User dev preferences - Additional buttons on product page - Title"
+    },
+    "dev_preferences_edit_ingredients_title": "Bearbeiten Sie Zutaten über eine Knowledge-Panel-Schaltfläche",
+    "@dev_preferences_edit_ingredients_title": {
+        "description": "User dev preferences - Additional buttons on product page - Subtitle"
+    },
+    "dev_preferences_export_history_title": "Verlauf exportieren",
+    "@dev_preferences_export_history_title": {
+        "description": "User dev preferences - Export history - Title"
+    },
+    "dev_preferences_reset_app_language": "App-Sprache zurücksetzen",
+    "@dev_preferences_reset_app_language": {
+        "description": "User dev preferences - Reset App Language - Title"
+    },
+    "dev_preferences_export_history_progress_error": "ausnahme",
+    "@dev_preferences_export_history_progress_error": {
+        "description": "User dev preferences - Export history - Item - Error"
+    },
+    "dev_preferences_export_history_progress_found": "artikel gefunden",
+    "@dev_preferences_export_history_progress_found": {
+        "description": "User dev preferences - Export history - Item - Found"
+    },
+    "dev_preferences_export_history_progress_not_found": "produkt nicht gefunden",
+    "@dev_preferences_export_history_progress_not_found": {
+        "description": "User dev preferences - Export history - Item - Not found"
+    },
+    "dev_preferences_export_history_dialog_title": "Verlauf exportieren",
+    "@dev_preferences_export_history_dialog_title": {
+        "description": "User dev preferences - Export history - Dialog title"
+    },
+    "dev_preferences_button_positive": "OK",
+    "@dev_preferences_button_positive": {
+        "description": "User dev preferences - Positive button label"
+    },
+    "dev_preferences_button_negative": "Abbrechen",
+    "@dev_preferences_button_negative": {
+        "description": "User dev preferences - Negative button label"
+    },
+    "dev_preferences_import_history_title": "Verlauf importieren",
+    "@dev_preferences_import_history_title": {
+        "description": "User dev preferences - Import history - Title"
+    },
+    "dev_preferences_import_history_subtitle": "Wird den Verlauf löschen und 3 Produkte einfügen",
+    "@dev_preferences_import_history_subtitle": {
+        "description": "User dev preferences - Import history - Subtitle"
+    },
+    "dev_preferences_import_history_result_success": "Fertig",
+    "@dev_preferences_import_history_result_success": {
+        "description": "User dev preferences - Import history - Result successful"
+    },
+    "dev_mode_matching_mode_title": "Wechseln Sie zwischen starker und nachsichtiger Übereinstimmung",
+    "@dev_mode_matching_mode_title": {
+        "description": "User dev preferences - Matching mode - Title"
+    },
+    "dev_mode_matching_mode_subtitle": "Die aktuelle Übereinstimmungsstufe ist {mode}",
+    "@dev_mode_matching_mode_subtitle": {
+        "description": "User dev preferences - Matching mode - Subtitle",
+        "placeholders": {
+            "mode": {
+                "type": "String"
+            }
+        }
+    },
+    "dev_mode_matching_mode_value_strong": "Stark",
+    "@dev_mode_matching_mode_value_strong": {
+        "description": "User dev preferences - Matching mode - Value - Strong"
+    },
+    "dev_mode_matching_mode_value_lenient": "Nachsichtig",
+    "@dev_mode_matching_mode_value_lenient": {
+        "description": "User dev preferences - Matching mode - Value - Lenient"
+    },
+    "dev_mode_scan_mode_title": "Scanmodus",
+    "@dev_mode_scan_mode_title": {
+        "description": "User dev preferences - Scan mode - Title"
+    },
+    "dev_mode_scan_mode_subtitle": "Aktueller Scanmodus ist: „{mode}“",
+    "@dev_mode_scan_mode_subtitle": {
+        "description": "User dev preferences - Scan mode - Subtitle",
+        "placeholders": {
+            "mode": {
+                "type": "String"
+            }
+        }
+    },
+    "dev_mode_scan_mode_dialog_title": "Scanmodus",
+    "@dev_mode_scan_mode_dialog_title": {
+        "description": "User dev preferences - Scan mode - Dialog Title"
+    },
+    "dev_mode_hide_ecoscore_title": "Ecoscore ausschließen",
+    "@dev_mode_hide_ecoscore_title": {
+        "description": "User dev preferences - Disable Ecoscore - Title"
+    },
+    "dev_mode_scan_camera_only": "Nur Kamerastream, kein Scannen",
+    "@dev_mode_scan_camera_only": {
+        "description": "Scan mode - Camera only"
+    },
+    "dev_mode_scan_preprocess_full_image": "Kamerastream und vollständige Bildvorverarbeitung, kein Scannen",
+    "@dev_mode_scan_preprocess_full_image": {
+        "description": "Scan mode - Preprocess full image"
+    },
+    "dev_mode_scan_preprocess_half_image": "Kamerastream und halbe Bildvorverarbeitung, kein Scannen",
+    "@dev_mode_scan_preprocess_half_image": {
+        "description": "Scan mode - Preprocess half image"
+    },
+    "dev_mode_scan_scan_full_image": "Vollständige Bildsuche",
+    "@dev_mode_scan_scan_full_image": {
+        "description": "Scan mode - Scan full image"
+    },
+    "dev_mode_scan_scan_half_image": "Halbe Bildsuche",
+    "@dev_mode_scan_scan_half_image": {
+        "description": "Scan mode - Scan half image"
+    },
+    "product_search_no_more_results": "Sie haben alle $totalSize Produkte heruntergeladen.",
+    "@product_search_no_more_results": {
+        "description": "Product search list - No more results available",
+        "placeholders": {
+            "totalSize": {
+                "type": "int"
+            }
+        }
+    },
+    "product_search_button_download_more": "Downloade {count} weitere Produkte\nBereits heruntergeladen {downloaded} von {totalSize}.",
+    "@product_search_button_download_more": {
+        "description": "Product search list - Button to download more results",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            },
+            "downloaded": {
+                "type": "int"
+            },
+            "totalSize": {
+                "type": "int"
+            }
+        }
+    },
+    "edit_product_action_retake_picture": "Foto wiederholen",
+    "@edit_product_action_retake_picture": {
+        "description": "Product edition - FAB actions - retake a picture"
+    },
+    "edit_product_action_take_picture": "Foto aufnehmen",
+    "@edit_product_action_take_picture": {
+        "description": "Product edition - FAB actions - take a picture"
+    },
+    "edit_product_action_confirm": "Bestätigen",
+    "@edit_product_action_confirm": {
+        "description": "Product edition - FAB actions - confirm"
+    },
+    "signup_page_terms_of_use_line1": "Ich stimme den Open Food Facts zu ",
+    "@signup_page_terms_of_use_line1": {
+        "description": "User consent for terms of use (line 1)"
+    },
+    "signup_page_terms_of_use_line2": "bedingungen von Open Food Facts zu",
+    "@signup_page_terms_of_use_line2": {
+        "description": "User consent for terms of use (line 2)"
+    },
+    "enable_dev_mode_dialog_title": "Bereit für den Entwicklermodus?",
+    "@enable_dev_mode_dialog_title": {
+        "description": "Dialog title to enable the developer mode"
+    },
+    "analytics_consent_image_semantic_label": "Analysesymbol",
+    "@analytics_consent_image_semantic_label": {
+        "description": "Consent Analytics icon semantics label"
+    },
+    "knowledge_panel_page_loading_error": "Schwerer Fehler: {error}",
+    "@knowledge_panel_page_loading_error": {
+        "description": "Knowledge panel page template - Error while loading future",
+        "placeholders": {
+            "error": {
+                "type": "Object?"
+            }
+        }
+    },
+    "preferences_page_loading_error": "Schwerer Fehler: {error}",
+    "@preferences_page_loading_error": {
+        "description": "Preferences page - Error while loading future",
+        "placeholders": {
+            "error": {
+                "type": "Object?"
+            }
+        }
+    },
+    "summary_card_button_add_basic_details": "Allgemeine Angaben vervollständigen",
+    "@summary_card_button_add_basic_details": {
+        "description": "Summary card - Button to add details about the product"
+    },
+    "category_picker_screen_title": "Kategorien",
+    "@category_picker_screen_title": {
+        "description": "Categories picker screen title"
+    },
+    "basic_details": "Allgemeine Details",
+    "product_name": "Produktname",
+    "add_basic_details_product_name_error": "Bitte den Produktnamen eingeben",
+    "brand_name": "Markenname",
+    "add_basic_details_brand_name_error": "Bitte den Markennamen eingeben",
+    "quantity": "Menge und Gewicht",
     "barcode": "Strichcode",
-    "basic_details_add_success": "Basic details added succesfully",
-    "basic_details_add_error": "Unable to add basic details. Please try again after some time",
+    "basic_details_add_success": "Allgemeine Details erfolgreich hinzugefügt",
+    "basic_details_add_error": "Allgemeine Details konnten nicht hinzugefügt werden. Bitte versuche es nach einiger Zeit erneut",
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
     "confirm_clear": "Möchten Sie wirklich leeren?",
     "@confirm_clear": {
         "description": "Asking about whether to clear the list or not"
+    },
+    "importance_label": "{name} Wichtigkeit: {id}",
+    "@importance_label": {
+        "description": "Used when user selects a food preference. example: Vegan importance; mandatory",
+        "placeholders": {
+            "name": {
+                "type": "String"
+            },
+            "id": {
+                "type": "String"
+            }
+        }
     }
 }

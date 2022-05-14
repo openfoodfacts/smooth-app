@@ -42,6 +42,9 @@ class _AllUserProductListState extends State<AllUserProductList> {
                   icon: Icon(ConstantIcons.instance.getForwardIcon()),
                   onTap: () async {
                     await daoProductList.get(productList);
+                    if (!mounted) {
+                      return;
+                    }
                     await Navigator.push<void>(
                       context,
                       MaterialPageRoute<void>(

@@ -45,7 +45,7 @@ class _CategoryPickerPageState extends State<CategoryPickerPage> {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     return Scaffold(
       appBar: AppBar(
@@ -167,6 +167,9 @@ class _CategoryPickerPageState extends State<CategoryPickerPage> {
       product: product,
     );
     if (savedAndRefreshed) {
+      if (!mounted) {
+        return;
+      }
       Navigator.of(context).pop(tag);
     }
   }
