@@ -89,37 +89,33 @@ class ProductListUserDialogHelper {
             (BuildContext context, void Function(VoidCallback fn) setState) =>
                 AlertDialog(
           title: Text(getProductName(product, appLocalizations)),
-          content: all.isEmpty
-              ? Container()
-              : SizedBox(
-                  // TODO(monsieurtanuki): proper sizes
-                  width: 300,
-                  height: 400,
-                  child: StatefulBuilder(
-                    builder: (BuildContext context,
-                        void Function(VoidCallback fn) setState) {
-                      final List<Widget> children = <Widget>[];
-                      for (final String name in all) {
-                        children.add(
-                          ListTile(
-                            leading: Icon(
-                              newWithBarcode.contains(name)
-                                  ? Icons.check_box
-                                  : Icons.check_box_outline_blank,
-                            ),
-                            title: Text(name),
-                            onTap: () => setState(
-                              () => newWithBarcode.contains(name)
-                                  ? newWithBarcode.remove(name)
-                                  : newWithBarcode.add(name),
-                            ),
-                          ),
-                        );
-                      }
-                      return ListView(children: children);
-                    },
+          content: StatefulBuilder(
+            builder: (BuildContext context,
+                void Function(VoidCallback fn) setState) {
+              final List<Widget> children = <Widget>[];
+              for (final String name in all) {
+                children.add(
+                  ListTile(
+                    leading: Icon(
+                      newWithBarcode.contains(name)
+                          ? Icons.check_box
+                          : Icons.check_box_outline_blank,
+                    ),
+                    title: Text(name),
+                    onTap: () => setState(
+                      () => newWithBarcode.contains(name)
+                          ? newWithBarcode.remove(name)
+                          : newWithBarcode.add(name),
+                    ),
                   ),
-                ),
+                );
+              }
+              return ListView(
+                shrinkWrap: true,
+                children: children,
+              );
+            },
+          ),
           actions: <Widget>[
             TextButton(
               onPressed: () => Navigator.pop(context),
