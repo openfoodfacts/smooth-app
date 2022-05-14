@@ -13,6 +13,7 @@ Future<File?> startImageCropping(BuildContext context) async {
   final Color? themeColor = isDarktheme
       ? Colors.black
       : Theme.of(context).appBarTheme.backgroundColor;
+  final Color widgetColor = isDarktheme ? Colors.white : Colors.black;
 
   final ImagePicker picker = ImagePicker();
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -39,7 +40,7 @@ Future<File?> startImageCropping(BuildContext context) async {
         lockAspectRatio: false,
         statusBarColor: themeColor,
         toolbarColor: themeColor,
-        toolbarWidgetColor: themeColor,
+        toolbarWidgetColor: widgetColor,
         //ignore: use_build_context_synchronously
         activeControlsWidgetColor: Theme.of(context).colorScheme.primary,
         backgroundColor: themeColor,
