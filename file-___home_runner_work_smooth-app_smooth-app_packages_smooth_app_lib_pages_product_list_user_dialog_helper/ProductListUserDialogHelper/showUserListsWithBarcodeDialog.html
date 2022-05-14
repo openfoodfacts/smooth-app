@@ -88,37 +88,33 @@
           (BuildContext context, void Function(VoidCallback fn) setState) =&gt;
               AlertDialog(
         title: Text(getProductName(product, appLocalizations)),
-        content: all.isEmpty
-            ? Container()
-            : SizedBox(
-                &#47;&#47; TODO(monsieurtanuki): proper sizes
-                width: 300,
-                height: 400,
-                child: StatefulBuilder(
-                  builder: (BuildContext context,
-                      void Function(VoidCallback fn) setState) {
-                    final List&lt;Widget&gt; children = &lt;Widget&gt;[];
-                    for (final String name in all) {
-                      children.add(
-                        ListTile(
-                          leading: Icon(
-                            newWithBarcode.contains(name)
-                                ? Icons.check_box
-                                : Icons.check_box_outline_blank,
-                          ),
-                          title: Text(name),
-                          onTap: () =&gt; setState(
-                            () =&gt; newWithBarcode.contains(name)
-                                ? newWithBarcode.remove(name)
-                                : newWithBarcode.add(name),
-                          ),
-                        ),
-                      );
-                    }
-                    return ListView(children: children);
-                  },
+        content: StatefulBuilder(
+          builder: (BuildContext context,
+              void Function(VoidCallback fn) setState) {
+            final List&lt;Widget&gt; children = &lt;Widget&gt;[];
+            for (final String name in all) {
+              children.add(
+                ListTile(
+                  leading: Icon(
+                    newWithBarcode.contains(name)
+                        ? Icons.check_box
+                        : Icons.check_box_outline_blank,
+                  ),
+                  title: Text(name),
+                  onTap: () =&gt; setState(
+                    () =&gt; newWithBarcode.contains(name)
+                        ? newWithBarcode.remove(name)
+                        : newWithBarcode.add(name),
+                  ),
                 ),
-              ),
+              );
+            }
+            return ListView(
+              shrinkWrap: true,
+              children: children,
+            );
+          },
+        ),
         actions: &lt;Widget&gt;[
           TextButton(
             onPressed: () =&gt; Navigator.pop(context),
