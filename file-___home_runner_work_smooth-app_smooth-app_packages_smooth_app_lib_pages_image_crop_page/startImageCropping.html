@@ -69,6 +69,7 @@
   final Color? themeColor = isDarktheme
       ? Colors.black
       : Theme.of(context).appBarTheme.backgroundColor;
+  final Color widgetColor = isDarktheme ? Colors.white : Colors.black;
 
   final ImagePicker picker = ImagePicker();
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -95,7 +96,7 @@
         lockAspectRatio: false,
         statusBarColor: themeColor,
         toolbarColor: themeColor,
-        toolbarWidgetColor: themeColor,
+        toolbarWidgetColor: widgetColor,
         &#47;&#47;ignore: use_build_context_synchronously
         activeControlsWidgetColor: Theme.of(context).colorScheme.primary,
         backgroundColor: themeColor,
