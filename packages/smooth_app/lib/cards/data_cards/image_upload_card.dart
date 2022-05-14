@@ -39,7 +39,9 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
         _imageProvider = FileImage(croppedImageFile);
         _imageFullProvider = _imageProvider;
       });
-
+      if (!mounted) {
+        return;
+      }
       final bool isUploaded = await uploadCapturedPicture(
         context,
         barcode: widget.product
@@ -48,6 +50,9 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
         imageUri: croppedImageFile.uri,
       );
       croppedImageFile.delete();
+      if (!mounted) {
+        return;
+      }
       if (isUploaded) {
         widget.onUpload(context);
       }
@@ -86,9 +91,9 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
           // we need to load the full resolution image
 
           if (_imageFullProvider == null) {
-            final String _imageFullUrl =
+            final String imageFullUrl =
                 widget.productImageData.imageUrl!.replaceAll('.400.', '.full.');
-            _imageFullProvider = NetworkImage(_imageFullUrl);
+            _imageFullProvider = NetworkImage(imageFullUrl);
           }
 
           Navigator.push<Widget>(

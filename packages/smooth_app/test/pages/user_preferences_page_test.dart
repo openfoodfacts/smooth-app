@@ -23,29 +23,29 @@ void main() {
           final HttpOverrides? priorOverrides = HttpOverrides.current;
           HttpOverrides.global = MockHttpOverrides();
 
-          late UserPreferences _userPreferences;
-          late ProductPreferences _productPreferences;
-          late ThemeProvider _themeProvider;
+          late UserPreferences userPreferences;
+          late ProductPreferences productPreferences;
+          late ThemeProvider themeProvider;
 
           SharedPreferences.setMockInitialValues(mockSharedPreferences(
             colorTag: color,
             themeDark: themeDark,
           ));
 
-          _userPreferences = await UserPreferences.getUserPreferences();
-          _productPreferences = ProductPreferences(ProductPreferencesSelection(
-            setImportance: _userPreferences.setImportance,
-            getImportance: _userPreferences.getImportance,
-            notify: () => _productPreferences.notifyListeners(),
+          userPreferences = await UserPreferences.getUserPreferences();
+          productPreferences = ProductPreferences(ProductPreferencesSelection(
+            setImportance: userPreferences.setImportance,
+            getImportance: userPreferences.getImportance,
+            notify: () => productPreferences.notifyListeners(),
           ));
-          await _productPreferences.init(PlatformAssetBundle());
-          await _userPreferences.init(_productPreferences);
-          _themeProvider = ThemeProvider(_userPreferences);
+          await productPreferences.init(PlatformAssetBundle());
+          await userPreferences.init(productPreferences);
+          themeProvider = ThemeProvider(userPreferences);
 
           await tester.pumpWidget(MockSmoothApp(
-            _userPreferences,
-            _productPreferences,
-            _themeProvider,
+            userPreferences,
+            productPreferences,
+            themeProvider,
             const UserPreferencesPage(),
           ));
           await tester.pump();

@@ -7,26 +7,26 @@ class TrackingDatabaseHelper {
 
   /// Returns the amount the user has opened the app
   int getAppVisits() {
-    const String _userVisits = 'appVisits';
+    const String userVisits = 'appVisits';
 
     final DaoInt daoInt = DaoInt(_localDatabase);
 
-    int visits = daoInt.get(_userVisits) ?? 0;
+    int visits = daoInt.get(userVisits) ?? 0;
     visits++;
-    daoInt.put(_userVisits, visits);
+    daoInt.put(userVisits, visits);
 
     return visits;
   }
 
   int? getPreviousVisitUnix() {
-    const String _latestVisit = 'previousVisitUnix';
+    const String latestVisitKey = 'previousVisitUnix';
 
     final DaoInt daoInt = DaoInt(_localDatabase);
 
-    final int? latestVisit = daoInt.get(_latestVisit);
+    final int? latestVisit = daoInt.get(latestVisitKey);
 
     daoInt.put(
-      _latestVisit,
+      latestVisitKey,
       DateTime.now().millisecondsSinceEpoch,
     );
 
@@ -34,15 +34,15 @@ class TrackingDatabaseHelper {
   }
 
   int? getFirstVisitUnix() {
-    const String _firstVisit = 'firstVisitUnix';
+    const String firstVisitKey = 'firstVisitUnix';
 
     final DaoInt daoInt = DaoInt(_localDatabase);
 
-    final int? firstVisit = daoInt.get(_firstVisit);
+    final int? firstVisit = daoInt.get(firstVisitKey);
 
     if (firstVisit == null) {
       daoInt.put(
-        _firstVisit,
+        firstVisitKey,
         DateTime.now().millisecondsSinceEpoch,
       );
     }

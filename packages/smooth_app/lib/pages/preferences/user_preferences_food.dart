@@ -84,7 +84,7 @@ class UserPreferencesFood extends AbstractUserPreferences {
   }
 
   void _confirmReset(BuildContext context) {
-    final AppLocalizations localizations = AppLocalizations.of(context)!;
+    final AppLocalizations localizations = AppLocalizations.of(context);
     showDialog<void>(
       context: context,
       builder: (BuildContext context) {
@@ -95,6 +95,7 @@ class UserPreferencesFood extends AbstractUserPreferences {
               child: Text(localizations.yes),
               onPressed: () async {
                 await context.read<ProductPreferences>().resetImportances();
+                //ignore: use_build_context_synchronously
                 Navigator.pop(context);
               },
             ),

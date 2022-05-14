@@ -102,7 +102,7 @@ class _ScanPageTopWidget extends StatelessWidget {
         if (listener.value.isGranted) {
           return const ScannerVisorWidget();
         } else {
-          final AppLocalizations localizations = AppLocalizations.of(context)!;
+          final AppLocalizations localizations = AppLocalizations.of(context);
 
           return SafeArea(
             child: LayoutBuilder(
@@ -179,8 +179,7 @@ class _ScanPageTopWidget extends StatelessWidget {
       return showDialog(
           context: context,
           builder: (BuildContext context) {
-            final AppLocalizations localizations =
-                AppLocalizations.of(context)!;
+            final AppLocalizations localizations = AppLocalizations.of(context);
 
             return SmoothAlertDialog(
               title:

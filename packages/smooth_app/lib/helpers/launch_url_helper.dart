@@ -29,9 +29,8 @@ class LaunchUrlHelper {
       throw 'Error do not use local identifier in url';
     }
 
-    String? countryCode = WidgetsBinding.instance == null
-        ? null
-        : WidgetsBinding.instance!.window.locale.countryCode?.toLowerCase();
+    String? countryCode =
+        WidgetsBinding.instance.window.locale.countryCode?.toLowerCase();
 
     if (countryCode == null) {
       countryCode = 'world.';

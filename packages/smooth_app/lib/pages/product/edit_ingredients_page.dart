@@ -50,7 +50,7 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
     try {
       await _updateIngredientsText(_controller.text);
     } catch (error) {
-      final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+      final AppLocalizations appLocalizations = AppLocalizations.of(context);
       _showError(appLocalizations.ingredients_editing_error);
     }
 
@@ -67,7 +67,7 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
     try {
       await _getImage(isNewImage);
     } catch (error) {
-      final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+      final AppLocalizations appLocalizations = AppLocalizations.of(context);
       _showError(appLocalizations.ingredients_editing_image_error);
     }
 
@@ -105,7 +105,9 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
       setState(() {
         _imageProvider = FileImage(croppedImageFile);
       });
-
+      if (!mounted) {
+        return;
+      }
       isUploaded = await uploadCapturedPicture(
         context,
         barcode: widget.product.barcode!,
@@ -151,6 +153,9 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
       product: widget.product,
     );
     if (savedAndRefreshed) {
+      if (!mounted) {
+        return;
+      }
       await widget.refreshProductCallback?.call(context);
     } else {
       throw Exception("Couldn't save the product.");
@@ -159,7 +164,7 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     final List<Widget> children = <Widget>[];
 
@@ -257,7 +262,7 @@ class _EditIngredientsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return Align(
       alignment: Alignment.bottomLeft,
@@ -325,6 +330,7 @@ class _EditIngredientsBody extends StatelessWidget {
                               text: appLocalizations.save,
                               onPressed: () async {
                                 await onSubmitField();
+                                //ignore: use_build_context_synchronously
                                 Navigator.pop(context);
                               },
                             ),

@@ -53,8 +53,8 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
 
   @override
   Widget build(BuildContext context) {
-    final bool _enableSuggestions = widget.type == TextFieldTypes.PLAIN_TEXT;
-    final bool _autocorrect = widget.type == TextFieldTypes.PLAIN_TEXT;
+    final bool enableSuggestions = widget.type == TextFieldTypes.PLAIN_TEXT;
+    final bool autocorrect = widget.type == TextFieldTypes.PLAIN_TEXT;
 
     return TextFormField(
       keyboardType: widget.textInputType,
@@ -63,8 +63,8 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
       textInputAction: widget.textInputAction,
       validator: widget.validator,
       obscureText: _obscureText,
-      enableSuggestions: _enableSuggestions,
-      autocorrect: _autocorrect,
+      enableSuggestions: enableSuggestions,
+      autocorrect: autocorrect,
       autofillHints: widget.autofillHints,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       onChanged: widget.onChanged ??
