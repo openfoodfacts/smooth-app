@@ -1,3 +1,6 @@
+// We need [path_provider_platform_interface] & [plugin_platform_interface] which are not exported by the main file of the packages
+// ignore_for_file: depend_on_referenced_packages
+
 import 'dart:io';
 
 import 'package:mockito/mockito.dart';

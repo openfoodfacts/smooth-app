@@ -1,3 +1,6 @@
+// We need [path_provider_platform_interface] which is not exported by [path_provider]
+// ignore_for_file: depend_on_referenced_packages
+
 import 'dart:typed_data';
 
 import 'package:flutter_test/flutter_test.dart';
