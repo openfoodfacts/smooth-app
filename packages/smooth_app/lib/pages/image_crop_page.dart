@@ -13,9 +13,7 @@ Future<File?> startImageCropping(BuildContext context) async {
   final Color? themeColor = isDarktheme
       ? Colors.black
       : Theme.of(context).appBarTheme.backgroundColor;
-  final Color widgetColor = isDarktheme
-      ? Colors.white
-      : Colors.black;
+  final Color widgetColor = isDarktheme ? Colors.white : Colors.black;
 
   final ImagePicker picker = ImagePicker();
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
