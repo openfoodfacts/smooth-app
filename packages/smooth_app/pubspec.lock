@@ -732,7 +732,7 @@ packages:
     source: hosted
     version: "2.0.6"
   path_provider_platform_interface:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: path_provider_platform_interface
       url: "https://pub.dartlang.org"
@@ -809,7 +809,7 @@ packages:
     source: hosted
     version: "3.1.0"
   plugin_platform_interface:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: plugin_platform_interface
       url: "https://pub.dartlang.org"

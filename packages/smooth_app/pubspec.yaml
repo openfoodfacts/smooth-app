@@ -74,6 +74,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   mockito: ^5.1.0
+  path_provider_platform_interface: ^2.0.4
+  plugin_platform_interface: ^2.1.2
 
 # 'flutter pub run flutter_launcher_icons:main' to update
 flutter_icons:
