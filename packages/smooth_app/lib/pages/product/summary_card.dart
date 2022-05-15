@@ -321,6 +321,7 @@ class _SummaryCardState extends State<SummaryCard> {
               description:
                   attribute.descriptionShort ?? attribute.description ?? '',
               cardEvaluation: getCardEvaluationFromAttribute(attribute),
+              showTrailingArrow: true,
             ),
           ),
         if (widget.isFullVersion) _buildProductQuestionsWidget(),

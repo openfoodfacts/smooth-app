@@ -18,11 +18,13 @@ class ScoreCard extends StatelessWidget {
   const ScoreCard({
     required this.description,
     required this.cardEvaluation,
+    required this.showTrailingArrow,
     this.iconUrl,
   });
 
   final String? iconUrl;
   final String description;
+  final bool showTrailingArrow;
   final CardEvaluation cardEvaluation;
 
   @override
@@ -66,9 +68,10 @@ class ScoreCard extends StatelessWidget {
               ),
             ),
           ),
-          const Icon(
-            Icons.keyboard_arrow_down_outlined,
-          ),
+          if (showTrailingArrow)
+            const Icon(
+              Icons.keyboard_arrow_down_outlined,
+            ),
         ],
       ),
     );
