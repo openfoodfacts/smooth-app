@@ -53,7 +53,7 @@ jobs:
           sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
 
       - name: Run screenshot generation for iOS
-        run: cd ./packages/smooth_app/ && flutter drive --driver=test_driver/screenshot_driver.dart --target=integration_test/app_test.dart --dart-define=LANGUAGE=fr --dart-define=COUNTRY=FR --dart-define=PLATFORM=ios --dart-define=DEVICE=iPhone8Plus
+        run: cd ./packages/smooth_app/ && flutter drive --driver=test_driver/screenshot_driver.dart --target=integration_test/app_test.dart --dart-define=LANGUAGE=fr --dart-define=COUNTRY=FR --dart-define=PLATFORM=ios --dart-define=DEVICE=iPhone8Plus -d chrome
 
       - name: Bundle install
         run: cd ./packages/smooth_app/ios && gem install bundler:1.17.3 && bundle install
