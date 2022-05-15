@@ -13,7 +13,7 @@
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
     "save": "Uložit",
-    "save_confirmation": "Are you sure you want to save?",
+    "save_confirmation": "Opravdu to chcete uložit?",
     "skip": "Přeskočit",
     "cancel": "Zrušit",
     "@cancel": {},
@@ -155,7 +155,7 @@
     "sign_up_page_username_error_empty": "Prosím, zadejte své uživatelské jméno",
     "sign_up_page_username_error_invalid": "Zadejte prosím platné uživatelské jméno",
     "sign_up_page_username_description": "Uživatelské jméno nesmí obsahovat mezery, velká písmena ani speciální znaky",
-    "sign_up_page_username_length_invalid": "Username must be less than {value} characters",
+    "sign_up_page_username_length_invalid": "Uživatelské jméno musí mít méně než {value} znaků",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
             "value": {
@@ -192,7 +192,7 @@
     "sign_up_page_producer_checkbox": "Jsem výrobce potravin",
     "sign_up_page_producer_hint": "Výrobce/značka",
     "sign_up_page_producer_error_empty": "Zadejte výrobce nebo název značky",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
+    "sign_up_page_subscribe_checkbox": "Chci se přihlásit k odběru newsletteru Open Food Facts (můžete se kdykoli odhlásit)",
     "@Settings": {},
     "settingsTitle": "Nastavení",
     "@settingsTitle": {
@@ -223,7 +223,7 @@
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
-    "support_join_slack": "Ask for help in our Slack channel",
+    "support_join_slack": "Požádejte o pomoc na našem kanálu Slack",
     "support_via_email": "Pošlete nám e-mail",
     "termsOfUse": "Podmínky použití",
     "@termsOfUse": {},
@@ -250,11 +250,11 @@
     "@contribute_improve_ProductsToBeCompleted": {
         "description": "Button label: Shows a list of products which aren't completed"
     },
-    "contribute_improve_header": "Improving",
+    "contribute_improve_header": "Zlepšování",
     "@contribute_improve_header": {
         "description": "Button label + page title: Ways to improve the database"
     },
-    "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ",
+    "contribute_improve_text": "Databáze je jádrem projektu. Pomoci je snadné a velmi rychlé. Můžete si stáhnout mobilní aplikaci pro svůj telefon a začít přidávat nebo vylepšovat produkty.\n\nNa druhou stranu webová stránka Open Food Facts nabízí mnoho způsobů, jak přispět: ",
     "@contribute_improve_text": {},
     "contribute_translate_header": "Přeložit",
     "@contribute_translate_header": {
@@ -264,9 +264,9 @@
     "@contribute_translate_link_text": {
         "description": "Button label: Opens the Crowdin translation portal"
     },
-    "contribute_translate_text": "Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.",
+    "contribute_translate_text": "Open Food Facts je globální projekt, který obsahuje produkty z více než 160 zemí. Open Food Facts je přeložena do desítek jazyků s neustále se vyvíjejícím obsahem.",
     "@contribute_translate_text": {},
-    "contribute_translate_text_2": "Translations is one of the key tasks of the project",
+    "contribute_translate_text_2": "Překlady jsou jedním z klíčových úkolů projektu",
     "@contribute_translate_text_2": {},
     "tap_to_answer": "Klepnutím sem odpovíte na otázky",
     "@tap_to_answer": {
@@ -287,7 +287,7 @@
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "Váš profil",
-    "myPreferences_profile_subtitle": "Změňte nastavení aplikace a nechte si poradit.",
+    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
     "myPreferences_settings_title": "Nastavení aplikace",
     "myPreferences_settings_subtitle": "Tmavý režim, téma,...",
     "myPreferences_food_title": "Předvolby jídla",
@@ -362,8 +362,8 @@
     "ingredients": "Složení",
     "@ingredients": {},
     "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen, use parentheses for ingredients of an ingredient, and indicate allergens between underscores.",
-    "ingredients_editing_error": "Failed to save the ingredients.",
-    "ingredients_editing_image_error": "Failed to get a new ingredients image.",
+    "ingredients_editing_error": "Ingredience se nepodařilo uložit.",
+    "ingredients_editing_image_error": "Nepodařilo se získat nový obrázek ingrediencí.",
     "ingredients_editing_title": "Edit Ingredients",
     "ingredients_photo": "Ingredients photo",
     "@ingredients_photo": {
