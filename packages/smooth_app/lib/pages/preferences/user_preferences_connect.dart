@@ -76,7 +76,7 @@ class UserPreferencesConnect extends AbstractUserPreferences {
     final VoidCallback? onTap,
   }) =>
       UserPreferencesListTile(
-        title: Text(title, style: themeData.textTheme.headline4),
+        title: Text(title),
         onTap: onTap ?? () async => LaunchUrlHelper.launchURL(url!, false),
         icon: const Icon(Icons.open_in_new),
       );

@@ -59,7 +59,7 @@ class _CountrySelectorState extends State<CountrySelector> {
           return const CircularProgressIndicator();
         }
 
-        return GestureDetector(
+        return InkWell(
           onTap: () async {
             List<Country> filteredList = List<Country>.from(_countryList);
             final Country? country = await showDialog<Country>(

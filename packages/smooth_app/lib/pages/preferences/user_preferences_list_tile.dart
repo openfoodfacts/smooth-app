@@ -30,22 +30,43 @@ class UserPreferencesListTile extends StatelessWidget {
             ? MainAxisAlignment.start
             : MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[title, icon!],
+        children: <Widget>[
+          title,
+          icon!,
+        ],
       );
     }
+
+    final TextStyle textStyle = DefaultTextStyle.of(context).style;
+
     final Widget displayed = Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: LARGE_SPACE,
-        vertical: SMALL_SPACE,
+        vertical: LARGE_SPACE,
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           const SizedBox(height: SMALL_SPACE),
-          tmpTitle,
+          DefaultTextStyle.merge(
+            child: tmpTitle,
+            style: Theme.of(context).textTheme.headline4,
+          ),
           const SizedBox(height: VERY_SMALL_SPACE),
-          if (subtitle != null) subtitle!,
+          if (subtitle != null)
+            ConstrainedBox(
+              // At least two lines for the subtitle
+              constraints: BoxConstraints(
+                minHeight: (textStyle.fontSize! * 2) + 1.5 * 2,
+              ),
+              child: DefaultTextStyle.merge(
+                style: const TextStyle(
+                  height: 1.5,
+                ),
+                child: subtitle!,
+              ),
+            ),
         ],
       ),
     );

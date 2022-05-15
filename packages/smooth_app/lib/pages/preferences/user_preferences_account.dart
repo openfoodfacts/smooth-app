@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mailto/mailto.dart';
-import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
-import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/pages/onboarding/country_selector.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-/// Collapsed/expanded display of profile for the preferences page.
-class UserPreferencesProfile extends AbstractUserPreferences {
-  UserPreferencesProfile({
+class UserPreferencesAccount extends AbstractUserPreferences {
+  UserPreferencesAccount({
     required final Function(Function()) setState,
     required final BuildContext context,
     required final UserPreferences userPreferences,
@@ -33,22 +32,6 @@ class UserPreferencesProfile extends AbstractUserPreferences {
         );
 
   @override
-  PreferencePageType? getPreferencePageType() => PreferencePageType.PROFILE;
-
-  @override
-  String getTitleString() => appLocalizations.myPreferences_profile_title;
-
-  @override
-  Widget getTitle() => Text(
-        appLocalizations.myPreferences_profile_title,
-        style: themeData.textTheme.headline2,
-      );
-
-  @override
-  Widget? getSubtitle() =>
-      Text(appLocalizations.myPreferences_profile_subtitle);
-
-  @override
   List<Widget> getBody() {
     return <Widget>[
       UserPreferencesSection(
@@ -57,6 +40,122 @@ class UserPreferencesProfile extends AbstractUserPreferences {
         themeData: themeData,
       ),
     ];
+  }
+
+  @override
+  PreferencePageType? getPreferencePageType() => PreferencePageType.ACCOUNT;
+
+  @override
+  Widget getTitle() {
+    final String? userId = OpenFoodAPIConfiguration.globalUser?.userId;
+    final String title;
+
+    if (userId == null) {
+      title = appLocalizations.user_profile_title_guest;
+    } else if (userId.isEmail) {
+      title = appLocalizations.user_profile_title_id_email(userId);
+    } else {
+      title = appLocalizations.user_profile_title_id_default(userId);
+    }
+
+    return Text(
+      title,
+      style: Theme.of(context).textTheme.headline2,
+    );
+  }
+
+  @override
+  String getTitleString() {
+    return appLocalizations.myPreferences_profile_title;
+  }
+
+  @override
+  Widget? getSubtitle() {
+    if (!_isUserConnected()) {
+      return const _UserPreferencesAccountSubTitleSignOut();
+    } else {
+      return Text(appLocalizations.myPreferences_profile_subtitle);
+    }
+  }
+
+  // No arrow
+  @override
+  Icon? getForwardIcon() {
+    if (_isUserConnected()) {
+      return super.getForwardIcon();
+    } else {
+      return null;
+    }
+  }
+
+  @override
+  Future<void> runHeaderAction() async {
+    if (_isUserConnected(readOnly: true)) {
+      return super.runHeaderAction();
+    } else {
+      return Navigator.push<dynamic>(
+        context,
+        MaterialPageRoute<dynamic>(
+          builder: (BuildContext context) => const LoginPage(),
+        ),
+      );
+    }
+  }
+
+  bool _isUserConnected({bool readOnly = false}) {
+    // Ensure to be notified after a sign-in/sign-out
+    if (!readOnly) {
+      context.watch<UserManagementProvider>();
+    }
+
+    return OpenFoodAPIConfiguration.globalUser != null;
+  }
+}
+
+class _UserPreferencesAccountSubTitleSignOut extends StatelessWidget {
+  const _UserPreferencesAccountSubTitleSignOut({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final Size size = MediaQuery.of(context).size;
+    final ThemeData theme = Theme.of(context);
+
+    return Column(
+      children: <Widget>[
+        Text(appLocalizations.user_profile_subtitle_guest),
+        const SizedBox(height: LARGE_SPACE),
+        Center(
+          child: ElevatedButton(
+            onPressed: () async {
+              Navigator.push<dynamic>(
+                context,
+                MaterialPageRoute<dynamic>(
+                  builder: (BuildContext context) => const LoginPage(),
+                ),
+              );
+            },
+            style: ButtonStyle(
+              minimumSize: MaterialStateProperty.all<Size>(
+                Size(size.width * 0.5, theme.buttonTheme.height + 10),
+              ),
+              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                const RoundedRectangleBorder(
+                  borderRadius: CIRCULAR_BORDER_RADIUS,
+                ),
+              ),
+            ),
+            child: Text(
+              appLocalizations.sign_in,
+              style: theme.textTheme.bodyText2?.copyWith(
+                fontSize: 18.0,
+                color: theme.colorScheme.surface,
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
   }
 }
 
@@ -119,9 +218,10 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
     final List<Widget> result = <Widget>[];
 
     if (OpenFoodAPIConfiguration.globalUser != null) {
-      //Credentials
+      // Credentials
       final String userId = OpenFoodAPIConfiguration.globalUser!.userId;
-      result.add(
+
+      result.addAll(<Widget>[
         ListTile(
           onTap: () async => LaunchUrlHelper.launchURL(
             'https://openfoodfacts.org/editor/$userId',
@@ -130,15 +230,13 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           title: Text(appLocalizations.view_profile),
           leading: const Icon(Icons.open_in_new),
         ),
-      );
-      result.add(
+        const UserPreferencesListItemDivider(),
         ListTile(
           onTap: () => _confirmLogout(context),
           title: Text(appLocalizations.sign_out),
           leading: const Icon(Icons.clear),
         ),
-      );
-      result.add(
+        const UserPreferencesListItemDivider(),
         ListTile(
           onTap: () async {
             final Mailto mailtoLink = Mailto(
@@ -151,7 +249,8 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           title: Text(appLocalizations.account_delete),
           leading: const Icon(Icons.delete),
         ),
-      );
+        const UserPreferencesListItemDivider(),
+      ]);
     } else {
       // No credentials
       result.add(
@@ -186,40 +285,10 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
         ),
       );
     }
-
-    result.addAll(
-      <Widget>[
-        CountrySelector(
-          initialCountryCode: widget.userPreferences.userCountryCode,
-        ),
-        SwitchListTile(
-          title: Text(appLocalizations.crash_reporting_toggle_title),
-          subtitle: Text(
-            appLocalizations.crash_reporting_toggle_subtitle,
-          ),
-          isThreeLine: true,
-          value: widget.userPreferences.crashReports,
-          onChanged: (final bool value) async {
-            await widget.userPreferences.setCrashReports(value);
-            AnalyticsHelper.setCrashReports(value);
-            setState(() {});
-          },
-        ),
-        SwitchListTile(
-          title: Text(
-            appLocalizations.send_anonymous_data_toggle_title,
-          ),
-          subtitle: Text(
-            appLocalizations.send_anonymous_data_toggle_subtitle,
-          ),
-          isThreeLine: true,
-          value: MatomoTracker.instance.getOptOut(),
-          onChanged: (final bool value) async {
-            AnalyticsHelper.setAnalyticsReports(value);
-            setState(() {});
-          },
-        ),
-      ],
+    result.add(
+      CountrySelector(
+        initialCountryCode: widget.userPreferences.userCountryCode,
+      ),
     );
 
     return Column(children: result);
