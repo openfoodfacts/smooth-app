@@ -68,7 +68,7 @@ jobs:
         #--disable-gpu
           
       - name: Run screenshot generation
-        run: cd ./packages/smooth_app/ && flutter drive --driver=test_driver/screenshot_driver.dart --target=integration_test/app_test.dart --dart-define=LANGUAGE=${{ matrix.language }} --dart-define=COUNTRY=${{ matrix.country }} --dart-define=PLATFORM=${{ matrix.platform }} --dart-define=DEVICE=${{ matrix.device }}
+        run: cd ./packages/smooth_app/ && flutter drive --driver=test_driver/screenshot_driver.dart --target=integration_test/app_test.dart --dart-define=LANGUAGE=${{ matrix.language }} --dart-define=COUNTRY=${{ matrix.country }} --dart-define=PLATFORM=${{ matrix.platform }} --dart-define=DEVICE=${{ matrix.device }} -d chrome
       - name: Bump version
         uses: maierj/fastlane-action@v2.2.0
         with:
