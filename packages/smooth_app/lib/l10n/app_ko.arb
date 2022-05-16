@@ -287,7 +287,7 @@
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "내 프로필",
-    "myPreferences_profile_subtitle": "앱 설정을 바꾸고 조언을 받으세요.",
+    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
     "myPreferences_settings_title": "앱 설정",
     "myPreferences_settings_subtitle": "다크 모드, 테마, ...",
     "myPreferences_food_title": "식품 설정",
