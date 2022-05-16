@@ -10,8 +10,9 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
-import 'package:smooth_app/pages/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/onboarding/country_selector.dart';
+import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -32,10 +33,10 @@ class UserPreferencesProfile extends AbstractUserPreferences {
         );
 
   @override
-  bool isCollapsedByDefault() => true;
+  PreferencePageType? getPreferencePageType() => PreferencePageType.PROFILE;
 
   @override
-  String getPreferenceFlagKey() => 'profile';
+  String getTitleString() => appLocalizations.myPreferences_profile_title;
 
   @override
   Widget getTitle() => Text(
@@ -78,7 +79,7 @@ class UserPreferencesSection extends StatefulWidget {
 
 class _UserPreferencesPageState extends State<UserPreferencesSection> {
   void _confirmLogout(BuildContext context) {
-    final AppLocalizations localizations = AppLocalizations.of(context)!;
+    final AppLocalizations localizations = AppLocalizations.of(context);
     showDialog<void>(
       context: context,
       builder: (BuildContext context) {
@@ -114,7 +115,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
     context.watch<UserManagementProvider>();
 
     final ThemeData theme = Theme.of(context);
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Size size = MediaQuery.of(context).size;
 
     final List<Widget> result = <Widget>[];
@@ -166,13 +167,6 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
                 ),
               );
             },
-            child: Text(
-              appLocalizations.sign_in,
-              style: theme.textTheme.bodyText2?.copyWith(
-                fontSize: 18.0,
-                color: theme.colorScheme.surface,
-              ),
-            ),
             style: ButtonStyle(
               minimumSize: MaterialStateProperty.all<Size>(
                 Size(size.width * 0.5, theme.buttonTheme.height + 10),
@@ -181,6 +175,13 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
                 const RoundedRectangleBorder(
                   borderRadius: CIRCULAR_BORDER_RADIUS,
                 ),
+              ),
+            ),
+            child: Text(
+              appLocalizations.sign_in,
+              style: theme.textTheme.bodyText2?.copyWith(
+                fontSize: 18.0,
+                color: theme.colorScheme.surface,
               ),
             ),
           ),

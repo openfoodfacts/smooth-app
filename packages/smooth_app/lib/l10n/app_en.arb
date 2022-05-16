@@ -1,5 +1,4 @@
 {
-    "app_name": "OpenFoodFacts",
     "@Utils": {},
     "yes": "Yes",
     "@yes": {},
@@ -226,24 +225,6 @@
     },
     "support_join_slack": "Ask for help in our Slack channel",
     "support_via_email": "Send us an e-mail",
-    "support_via_email_subject": "Smoothie help",
-    "support_via_email_content": "Version:{version}+{buildNumber} running on {operatingSystem}({operatingSystemVersion})",
-    "@support_via_email_content": {
-        "placeholders": {
-            "version": {
-                "type": "String"
-            },
-            "buildNumber": {
-                "type": "String"
-            },
-            "operatingSystem": {
-                "type": "String"
-            },
-            "operatingSystemVersion": {
-                "type": "String"
-            }
-        }
-    },
     "termsOfUse": "Terms of use",
     "@termsOfUse": {},
     "about_this_app": "About this app",
@@ -306,7 +287,7 @@
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "Your Profile",
-    "myPreferences_profile_subtitle": "Change app settings and get advice.",
+    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
     "myPreferences_settings_title": "App Settings",
     "myPreferences_settings_subtitle": "Dark mode, Theme, ...",
     "myPreferences_food_title": "Food Preferences",
@@ -947,9 +928,9 @@
     "@dev_preferences_environment_switch_subtitle": {
         "description": "User dev preferences - Environment (prod/test) switcher - Subtitle",
         "placeholders": {
-          "query": {
-            "type": "String"
-          }
+            "query": {
+                "type": "String"
+            }
         }
     },
     "dev_preferences_test_environment_title": "Test env parameters",
@@ -960,14 +941,14 @@
     "@dev_preferences_test_environment_subtitle": {
         "description": "User dev preferences - Info about test environment - Value",
         "placeholders": {
-          "url": {
-            "type": "String"
-          }
+            "url": {
+                "type": "String"
+            }
         }
     },
     "dev_preferences_test_environment_dialog_title": "Test Env Host",
     "@dev_preferences_test_environment_dialog_title": {
-      "description": "User dev preferences - Info about test environment - Dialog title"
+        "description": "User dev preferences - Info about test environment - Dialog title"
     },
     "dev_preferences_ml_kit_title": "Use ML Kit",
     "@dev_preferences_ml_kit_title": {
@@ -988,6 +969,10 @@
     "dev_preferences_export_history_title": "Export History",
     "@dev_preferences_export_history_title": {
         "description": "User dev preferences - Export history - Title"
+    },
+    "dev_preferences_reset_app_language": "Reset App Language",
+    "@dev_preferences_reset_app_language": {
+        "description": "User dev preferences - Reset App Language - Title"
     },
     "dev_preferences_export_history_progress_error": "exception",
     "@dev_preferences_export_history_progress_error": {
@@ -1033,9 +1018,9 @@
     "@dev_mode_matching_mode_subtitle": {
         "description": "User dev preferences - Matching mode - Subtitle",
         "placeholders": {
-          "mode": {
-            "type": "String"
-          }
+            "mode": {
+                "type": "String"
+            }
         }
     },
     "dev_mode_matching_mode_value_strong": "Strong",
@@ -1054,9 +1039,9 @@
     "@dev_mode_scan_mode_subtitle": {
         "description": "User dev preferences - Scan mode - Subtitle",
         "placeholders": {
-          "mode": {
-            "type": "String"
-          }
+            "mode": {
+                "type": "String"
+            }
         }
     },
     "dev_mode_scan_mode_dialog_title": "Scan Mode",
@@ -1091,9 +1076,9 @@
     "@product_search_no_more_results": {
         "description": "Product search list - No more results available",
         "placeholders": {
-          "totalSize": {
-            "type": "int"
-          }
+            "totalSize": {
+                "type": "int"
+            }
         }
     },
     "product_search_button_download_more": "Download {count} more products\nAlready downloaded {downloaded} out of {totalSize}.",
@@ -1103,10 +1088,10 @@
             "count": {
                 "type": "int"
             },
-          "downloaded": {
+            "downloaded": {
                 "type": "int"
             },
-          "totalSize": {
+            "totalSize": {
                 "type": "int"
             }
         }
@@ -1170,8 +1155,7 @@
     "add_basic_details_product_name_error": "Please enter the product name",
     "brand_name": "Brand name",
     "add_basic_details_brand_name_error": "Please enter the brand name",
-    "weight_gram": "Weight in gram",
-    "add_basic_details_weight_gram_error": "Please enter the weight",
+    "quantity": "Quantity and weight",
     "barcode": "Barcode",
     "basic_details_add_success": "Basic details added succesfully",
     "basic_details_add_error": "Unable to add basic details. Please try again after some time",
@@ -1181,5 +1165,17 @@
     "confirm_clear": "Do you really want to clear?",
     "@confirm_clear": {
         "description": "Asking about whether to clear the list or not"
+    },
+    "importance_label": "{name} importance: {id}",
+    "@importance_label": {
+        "description": "Used when user selects a food preference. example: Vegan importance; mandatory",
+        "placeholders": {
+            "name": {
+                "type": "String"
+            },
+            "id": {
+                "type": "String"
+            }
+        }
     }
 }

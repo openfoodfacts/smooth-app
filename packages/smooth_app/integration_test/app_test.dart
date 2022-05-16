@@ -37,8 +37,7 @@ flutter drive --driver=test_driver/screenshot_driver.dart --target=integration_t
 /// Onboarding screenshots.
 void main() {
   final IntegrationTestWidgetsFlutterBinding binding =
-      IntegrationTestWidgetsFlutterBinding.ensureInitialized()
-          as IntegrationTestWidgetsFlutterBinding;
+      IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
   group('end-to-end test', () {
     testWidgets('just a single screenshot', (WidgetTester tester) async {

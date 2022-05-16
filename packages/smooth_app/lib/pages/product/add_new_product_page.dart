@@ -8,6 +8,7 @@ import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
+import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/confirm_and_upload_picture.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
@@ -39,11 +40,12 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
       <ImageField, List<File>>{};
 
   bool _nutritionFactsAdded = false;
+  bool _basicDetailsAdded = false;
   bool _isProductLoaded = false;
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ThemeData themeData = Theme.of(context);
     return Scaffold(
       appBar: AppBar(automaticallyImplyLeading: !_isProductLoaded),
@@ -74,12 +76,13 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
                   ),
                   ..._buildImageCaptureRows(context),
                   _buildNutritionInputButton(),
+                  _buildaddInputDetailsButton()
                 ],
               ),
             ),
             Positioned(
               child: Align(
-                alignment: Alignment.bottomRight,
+                alignment: Alignment.topRight,
                 child: SmoothActionButton(
                   text: appLocalizations.finish,
                   onPressed: () {
@@ -135,6 +138,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
           }
           // Photo can change in the ConfirmAndUploadPicture widget, the user
           // may choose to retake the image.
+          //ignore: use_build_context_synchronously
           final File? finalPhoto = await Navigator.push<File?>(
             context,
             MaterialPageRoute<File?>(
@@ -176,7 +180,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
   }
 
   String _getAddPhotoButtonText(BuildContext context, ImageField imageType) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     switch (imageType) {
       case ImageField.FRONT:
         return appLocalizations.front_packaging_photo_button_label;
@@ -193,7 +197,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
 
   String _getPhotoUploadedLabelText(
       BuildContext context, ImageField imageType) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     switch (imageType) {
       case ImageField.FRONT:
         return appLocalizations.front_photo_uploaded;
@@ -230,7 +234,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
               Expanded(
                 child: Center(
                   child: Text(
-                      AppLocalizations.of(context)!.nutritional_facts_added,
+                      AppLocalizations.of(context).nutritional_facts_added,
                       style: Theme.of(context).textTheme.bodyText1),
                 ),
               ),
@@ -241,21 +245,28 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
     return Padding(
       padding: _ROW_PADDING_TOP,
       child: SmoothLargeButtonWithIcon(
-        text:
-            AppLocalizations.of(context)!.nutritional_facts_input_button_label,
+        text: AppLocalizations.of(context).nutritional_facts_input_button_label,
         icon: Icons.edit,
         onPressed: () async {
           final OrderedNutrientsCache? cache =
               await OrderedNutrientsCache.getCache(context);
           if (cache == null) {
+            if (!mounted) {
+              return;
+            }
             final SnackBar snackBar = SnackBar(
               content: Text(
-                  AppLocalizations.of(context)!.nutrition_cache_loading_error),
+                  AppLocalizations.of(context).nutrition_cache_loading_error),
             );
+            if (!mounted) {
+              return;
+            }
             ScaffoldMessenger.of(context).showSnackBar(snackBar);
             return;
           }
-
+          if (!mounted) {
+            return;
+          }
           final bool result = await Navigator.push<bool>(
                 context,
                 MaterialPageRoute<bool>(
@@ -269,6 +280,55 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
 
           setState(() {
             _nutritionFactsAdded = result;
+          });
+        },
+      ),
+    );
+  }
+
+  Widget _buildaddInputDetailsButton() {
+    if (_basicDetailsAdded) {
+      return Padding(
+          padding: _ROW_PADDING_TOP,
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              const SizedBox(
+                width: 50.0,
+                child: Icon(
+                  Icons.check,
+                  color: Colors.greenAccent,
+                ),
+              ),
+              Expanded(
+                child: Center(
+                  child: Text(
+                      AppLocalizations.of(context).basic_details_add_success,
+                      style: Theme.of(context).textTheme.bodyText1),
+                ),
+              ),
+            ],
+          ));
+    }
+
+    return Padding(
+      padding: _ROW_PADDING_TOP,
+      child: SmoothLargeButtonWithIcon(
+        text: AppLocalizations.of(context).completed_basic_details_btn_text,
+        icon: Icons.edit,
+        onPressed: () async {
+          final bool result = await Navigator.push<bool>(
+                context,
+                MaterialPageRoute<bool>(
+                  builder: (BuildContext context) => AddBasicDetailsPage(
+                    Product(barcode: widget.barcode),
+                  ),
+                ),
+              ) ??
+              false;
+          setState(() {
+            _basicDetailsAdded = result;
           });
         },
       ),

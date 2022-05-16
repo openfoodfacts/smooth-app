@@ -68,7 +68,7 @@ class _KnowledgePanelTextElementCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     Widget text = SmoothHtmlWidget(
       textElement.html,

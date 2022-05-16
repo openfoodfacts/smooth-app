@@ -54,6 +54,7 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
     _model = context.watch<ContinuousScanModel>();
     barcodes = _model.getBarcodes();
     _returnToSearchCard = InheritedDataManager.of(context).showSearchCard;
+    final int cardsCount = barcodes.length + _searchCardAdjustment;
     if (_controller.ready) {
       if (_returnToSearchCard && widget.containSearchCard && _lastIndex > 0) {
         _controller.animateToPage(0);
@@ -61,8 +62,16 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
           _model.latestConsultedBarcode!.isNotEmpty) {
         final int indexBarcode =
             barcodes.indexOf(_model.latestConsultedBarcode!);
-        final int indexCarousel = indexBarcode + _searchCardAdjustment;
-        _controller.animateToPage(indexCarousel);
+        if (indexBarcode >= 0) {
+          final int indexCarousel = indexBarcode + _searchCardAdjustment;
+          _controller.animateToPage(indexCarousel);
+        } else {
+          if (_lastIndex > cardsCount) {
+            _controller.animateToPage(cardsCount);
+          } else {
+            _controller.animateToPage(_lastIndex);
+          }
+        }
       } else {
         _controller.animateToPage(0);
       }
@@ -155,7 +164,7 @@ class SearchCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations localizations = AppLocalizations.of(context)!;
+    final AppLocalizations localizations = AppLocalizations.of(context);
     return SmoothCard(
       color: Theme.of(context).colorScheme.background.withOpacity(0.85),
       elevation: 0,

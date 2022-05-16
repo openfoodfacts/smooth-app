@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/helpers/picture_capture_helper.dart';
@@ -33,13 +34,17 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
     final File? croppedImageFile = await startImageCropping(context);
 
     if (croppedImageFile != null) {
-      setState(() {
-        // Update the image to load the new image file
-        // The same full resolution image is used for both the carousel and the image page
-        _imageProvider = FileImage(croppedImageFile);
-        _imageFullProvider = _imageProvider;
-      });
-
+      if (widget.productImageData.imageField != ImageField.OTHER) {
+        setState(() {
+          // Update the image to load the new image file
+          // The same full resolution image is used for both the carousel and the image page
+          _imageProvider = FileImage(croppedImageFile);
+          _imageFullProvider = _imageProvider;
+        });
+      }
+      if (!mounted) {
+        return;
+      }
       final bool isUploaded = await uploadCapturedPicture(
         context,
         barcode: widget.product
@@ -48,14 +53,33 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
         imageUri: croppedImageFile.uri,
       );
       croppedImageFile.delete();
+      if (!mounted) {
+        return;
+      }
       if (isUploaded) {
-        widget.onUpload(context);
+        if (widget.productImageData.imageField == ImageField.OTHER) {
+          final AppLocalizations appLocalizations =
+              AppLocalizations.of(context);
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(appLocalizations.other_photo_uploaded),
+              duration: const Duration(seconds: 3),
+              action: SnackBarAction(
+                label: appLocalizations.more_photos,
+                onPressed: _getImage,
+              ),
+            ),
+          );
+        } else {
+          widget.onUpload(context);
+        }
       }
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
     // We can already have an _imageProvider for a file that is going to be uploaded
     // or an imageUrl for a network image
     // or no image yet
@@ -67,16 +91,27 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
     if (_imageProvider != null) {
       return GestureDetector(
         child: Center(
-            child:
-                Image(image: _imageProvider!, fit: BoxFit.cover, height: 1000)),
+          child: Image(
+            image: _imageProvider!,
+            fit: BoxFit.cover,
+            height: 1000,
+            errorBuilder: (BuildContext context, Object exception,
+                StackTrace? stackTrace) {
+              return Icon(
+                Icons.wifi_off,
+                size: screenSize.width / 3,
+              );
+            },
+          ),
+        ),
         onTap: () {
           // if _imageFullProvider is null, we are displaying a small network image in the carousel
           // we need to load the full resolution image
 
           if (_imageFullProvider == null) {
-            final String _imageFullUrl =
+            final String imageFullUrl =
                 widget.productImageData.imageUrl!.replaceAll('.400.', '.full.');
-            _imageFullProvider = NetworkImage(_imageFullUrl);
+            _imageFullProvider = NetworkImage(imageFullUrl);
           }
 
           Navigator.push<Widget>(
