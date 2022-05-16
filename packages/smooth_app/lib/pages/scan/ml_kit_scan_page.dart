@@ -248,7 +248,6 @@ class MLKitScannerPageState
   }
 
   Future<void> _onResumeImageStream({bool forceStartPreview = false}) async {
-    print(forceStartPreview);
     if (stoppingCamera ||
         (!forceStartPreview && ScreenVisibilityDetector.invisible(context))) {
       return;
