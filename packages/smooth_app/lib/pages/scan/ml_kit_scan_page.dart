@@ -214,6 +214,7 @@ class MLKitScannerPageState
       await _controller?.initialize();
       await _controller?.setFocusMode(FocusMode.auto);
       await _controller?.setFocusPoint(_focusPoint);
+      await _controller?.setExposurePoint(_focusPoint);
       await _controller?.lockCaptureOrientation(DeviceOrientation.portraitUp);
       await _controller?.startImageStream(
         (CameraImage image) => _subject.add(image),
