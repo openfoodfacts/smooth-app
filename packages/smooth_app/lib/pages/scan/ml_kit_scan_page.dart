@@ -117,7 +117,7 @@ class MLKitScannerPageState
   Widget _buildScannerWidget() {
     // Showing the black scanner background + the icon when the scanner is
     // loading or stopped
-    if (isCameraNotInitialized) {
+    if (!isCameraInitialized) {
       return const SizedBox.shrink();
     }
 
@@ -148,7 +148,7 @@ class MLKitScannerPageState
     );
   }
 
-  bool get isCameraNotInitialized => _controller?.isInitialized != true;
+  bool get isCameraInitialized => _controller?.isInitialized == true;
 
   Future<void> _startLiveFeed() async {
     if (_camera == null) {
@@ -267,9 +267,9 @@ class MLKitScannerPageState
       return;
     }
 
-    _controller?.pausePreview();
-
     stoppingCamera = true;
+    await _controller?.pausePreview();
+
     _redrawScreen();
 
     _controller?.removeListener(_cameraListener);
