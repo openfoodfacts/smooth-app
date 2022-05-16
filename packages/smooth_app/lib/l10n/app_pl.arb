@@ -287,7 +287,7 @@
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "Profil",
-    "myPreferences_profile_subtitle": "Zmień ustawienia aplikacji i uzyskaj porady.",
+    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
     "myPreferences_settings_title": "Ustawienia",
     "myPreferences_settings_subtitle": "Tryb ciemny, motyw, ...",
     "myPreferences_food_title": "Preferencje żywieniowe",
@@ -1166,7 +1166,7 @@
     "@confirm_clear": {
         "description": "Asking about whether to clear the list or not"
     },
-    "importance_label": "{name} importance: {id}",
+    "importance_label": "Kryterium - {name}: {id}",
     "@importance_label": {
         "description": "Used when user selects a food preference. example: Vegan importance; mandatory",
         "placeholders": {

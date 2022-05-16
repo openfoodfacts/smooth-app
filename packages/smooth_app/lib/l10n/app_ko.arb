@@ -287,7 +287,7 @@
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "내 프로필",
-    "myPreferences_profile_subtitle": "앱 설정을 바꾸고 조언을 받으세요.",
+    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
     "myPreferences_settings_title": "앱 설정",
     "myPreferences_settings_subtitle": "다크 모드, 테마, ...",
     "myPreferences_food_title": "식품 설정",
@@ -414,11 +414,11 @@
     },
     "ingredients_photo_uploaded": "재료 사진을 올렸습니다",
     "@ingredients_photo_uploaded": {},
-    "nutrition_cache_loading_error": "Unable to load nutrients from cache",
+    "nutrition_cache_loading_error": "캐시에서 영양 성분을 불러올 수 없습니다",
     "nutritional_facts_photo_button_label": "영양 성분 사진",
     "@nutritional_facts_photo_button_label": {},
-    "nutritional_facts_input_button_label": "Input nutrition facts",
-    "nutritional_facts_added": "Nutrition facts added",
+    "nutritional_facts_input_button_label": "영양 성분 입력",
+    "nutritional_facts_added": "영양 성분 추가됨",
     "confirm_nutritional_facts_photo_button_label": "Confirm nutrition facts photo",
     "@confirm_nutritional_facts_photo_button_label": {
         "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
@@ -891,7 +891,7 @@
     "@user_list_name_error_same": {
         "description": "Validation error about the renamed name that is the same as the initial list name"
     },
-    "category_picker_no_category_found_message": "No category found for {items}",
+    "category_picker_no_category_found_message": "{items}에 대한 카테고리를 찾을 수 없습니다",
     "@category_picker_no_category_found_message": {
         "description": "Label when no category is available",
         "placeholders": {
@@ -924,7 +924,7 @@
     "@dev_preferences_environment_switch_title": {
         "description": "User dev preferences - Environment (prod/test) switcher - Title"
     },
-    "dev_preferences_environment_switch_subtitle": "Current query type is {query}",
+    "dev_preferences_environment_switch_subtitle": "현재 쿼리 유형은 {query}입니다",
     "@dev_preferences_environment_switch_subtitle": {
         "description": "User dev preferences - Environment (prod/test) switcher - Subtitle",
         "placeholders": {
@@ -933,7 +933,7 @@
             }
         }
     },
-    "dev_preferences_test_environment_title": "Test env parameters",
+    "dev_preferences_test_environment_title": "테스트 환경 매개변수",
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
@@ -1124,7 +1124,7 @@
     "@analytics_consent_image_semantic_label": {
         "description": "Consent Analytics icon semantics label"
     },
-    "knowledge_panel_page_loading_error": "Fatal Error: {error}",
+    "knowledge_panel_page_loading_error": "심각한 오류 발생: {error}",
     "@knowledge_panel_page_loading_error": {
         "description": "Knowledge panel page template - Error while loading future",
         "placeholders": {
@@ -1133,7 +1133,7 @@
             }
         }
     },
-    "preferences_page_loading_error": "Fatal Error: {error}",
+    "preferences_page_loading_error": "심각한 오류 발생: {error}",
     "@preferences_page_loading_error": {
         "description": "Preferences page - Error while loading future",
         "placeholders": {
@@ -1155,7 +1155,7 @@
     "add_basic_details_product_name_error": "상품 이름을 입력하세요",
     "brand_name": "브랜드 이름",
     "add_basic_details_brand_name_error": "브랜드 이름을 입력하세요",
-    "quantity": "Quantity and weight",
+    "quantity": "수량 및 무게",
     "barcode": "바코드",
     "basic_details_add_success": "기본 정보를 성공적으로 추가했습니다",
     "basic_details_add_error": "기본 정보를 추가할 수 없습니다. 나중에 다시 시도해주세요",
@@ -1166,7 +1166,7 @@
     "@confirm_clear": {
         "description": "Asking about whether to clear the list or not"
     },
-    "importance_label": "{name} importance: {id}",
+    "importance_label": "{name} 중요도: {id}",
     "@importance_label": {
         "description": "Used when user selects a food preference. example: Vegan importance; mandatory",
         "placeholders": {
