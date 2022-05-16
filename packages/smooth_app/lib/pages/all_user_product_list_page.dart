@@ -68,7 +68,8 @@ class _AllUserProductListState extends State<AllUserProductList> {
               },
             ),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        foregroundColor: Theme.of(context).colorScheme.onPrimary,
         onPressed: () async {
           final ProductList? newProductList =
               await ProductListUserDialogHelper(daoProductList)
@@ -78,6 +79,7 @@ class _AllUserProductListState extends State<AllUserProductList> {
           }
           setState(() {});
         },
+        child: const Icon(Icons.add),
       ),
     );
   }
