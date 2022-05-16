@@ -71,7 +71,6 @@ class MLKitScannerPageState
 
   late ContinuousScanModel _model;
   late UserPreferences _userPreferences;
-  SmoothCameraController? _controller;
   CameraDescription? _camera;
   double _previewScale = 1.0;
 
@@ -170,11 +169,13 @@ class MLKitScannerPageState
       ),
     );
 
-    _controller = SmoothCameraController(
-      _camera!,
-      ResolutionPreset.medium,
-      enableAudio: false,
-      imageFormatGroup: ImageFormatGroup.yuv420,
+    CameraHelper.initController(
+      SmoothCameraController(
+        _camera!,
+        ResolutionPreset.medium,
+        enableAudio: false,
+        imageFormatGroup: ImageFormatGroup.yuv420,
+      ),
     );
 
     _controller!.addListener(_cameraListener);
@@ -279,7 +280,6 @@ class MLKitScannerPageState
     await _barcodeDecoder?.dispose();
 
     _barcodeDecoder = null;
-    _controller = null;
 
     _restartCameraIfNecessary();
   }
@@ -336,4 +336,6 @@ class MLKitScannerPageState
       return Offset(0.5, 0.25 / _previewScale);
     }
   }
+
+  SmoothCameraController? get _controller => CameraHelper.controller;
 }
