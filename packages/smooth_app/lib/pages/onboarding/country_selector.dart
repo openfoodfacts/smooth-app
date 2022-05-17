@@ -13,6 +13,7 @@ class CountrySelector extends StatefulWidget {
   const CountrySelector({
     required this.initialCountryCode,
   });
+
   final String? initialCountryCode;
 
   @override
@@ -95,25 +96,37 @@ class _CountrySelectorState extends State<CountrySelector> {
                                                     query.toLowerCase(),
                                                   ),
                                         )
-                                        .toList();
+                                        .toList(growable: false);
                                   },
                                 );
                               },
                               hintText: appLocalizations.search,
                             ),
                             Expanded(
-                              child: ListView.builder(
-                                shrinkWrap: true,
-                                itemCount: filteredList.length,
-                                itemBuilder: (BuildContext context, int index) {
-                                  final Country country = filteredList[index];
-                                  return ListTile(
-                                    title: Text(country.name),
-                                    onTap: () {
-                                      Navigator.of(context).pop(country);
-                                    },
-                                  );
-                                },
+                              child: Scrollbar(
+                                child: ListView.builder(
+                                  shrinkWrap: true,
+                                  itemCount: filteredList.length,
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    final Country country = filteredList[index];
+                                    final bool isSelected =
+                                        country == _chosenValue;
+                                    return ListTile(
+                                      title: Text(
+                                        country.name,
+                                        style: TextStyle(
+                                          fontWeight: isSelected
+                                              ? FontWeight.bold
+                                              : null,
+                                        ),
+                                      ),
+                                      onTap: () {
+                                        Navigator.of(context).pop(country);
+                                      },
+                                    );
+                                  },
+                                ),
                               ),
                             ),
                           ],

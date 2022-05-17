@@ -69,7 +69,7 @@
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
-    "productDataUtility": "Consulte los datos de los alimentos pertinentes a sus preferencias.",
+    "productDataUtility": "Consulta los datos de los alimentos relacionados con tus preferencias.",
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."
     },
@@ -88,8 +88,8 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
-    "login_page_username_or_email": "Por favor ponga su nombre de usuario o correo electrónico",
-    "login_page_password_error_empty": "Por favor, introduzca una contraseña",
+    "login_page_username_or_email": "Por favor, introduce tu nombre de usuario o correo electrónico",
+    "login_page_password_error_empty": "Por favor, introduce una contraseña",
     "create_account": "Crear una cuenta",
     "@create_account": {
         "description": "Button label: Opens a page where a new user can register"
@@ -102,7 +102,7 @@
     "@sign_out": {
         "description": "Button label: For sign out"
     },
-    "sign_out_confirmation": "¿Está seguro de que quiere cerrar sesión?",
+    "sign_out_confirmation": "¿Estás seguro de que quieres cerrar la sesión?",
     "@sign_out_confirmation": {
         "description": "Pop up title: Reassuring if the user really want to sign out"
     },
@@ -145,17 +145,17 @@
     "@sign_up_page_action_doing_it": {
         "description": "Progress indicator dialog during the actual signing up process"
     },
-    "sign_up_page_action_ok": "¡Felicidades! Su cuenta acaba de ser creada.",
+    "sign_up_page_action_ok": "¡Felicidades! Tu cuenta acaba de ser creada.",
     "sign_up_page_display_name_hint": "Nombre",
-    "sign_up_page_display_name_error_empty": "Ingrese el nombre para mostrar que desea usar",
-    "sign_up_page_email_hint": "E-mail de contacto",
+    "sign_up_page_display_name_error_empty": "Por favor, introduce el nombre que deseas mostrar",
+    "sign_up_page_email_hint": "Correo electrónico",
     "sign_up_page_email_error_empty": "Se requiere un correo electrónico",
     "sign_up_page_email_error_invalid": "Email inválido",
     "sign_up_page_username_hint": "Nombre de usuario: públicamente visible",
-    "sign_up_page_username_error_empty": "Por favor, introduzca un nombre de usuario",
-    "sign_up_page_username_error_invalid": "Por favor ingrese un nombre de usuario válido",
+    "sign_up_page_username_error_empty": "Por favor, introduce un nombre de usuario",
+    "sign_up_page_username_error_invalid": "Por favor, introduce un nombre de usuario válido",
     "sign_up_page_username_description": "El nombre de usuario no puede contener espacios, mayúsculas o caracteres especiales",
-    "sign_up_page_username_length_invalid": "El nombre de usuario debe contener menos de 32 caracteres",
+    "sign_up_page_username_length_invalid": "El nombre de usuario debe contener menos de {value} caracteres",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
             "value": {
@@ -164,10 +164,10 @@
         }
     },
     "sign_up_page_password_hint": "Contraseña",
-    "sign_up_page_password_error_empty": "Por favor, introduzca una contraseña",
-    "sign_up_page_password_error_invalid": "Ingrese una contraseña válida (al menos 6 caracteres)",
-    "sign_up_page_confirm_password_hint": "Confirmar Contraseña",
-    "sign_up_page_confirm_password_error_empty": "Por favor confirme la contraseña",
+    "sign_up_page_password_error_empty": "Por favor, introduce una contraseña",
+    "sign_up_page_password_error_invalid": "Introduce una contraseña válida (al menos 6 caracteres)",
+    "sign_up_page_confirm_password_hint": "Confirmar contraseña",
+    "sign_up_page_confirm_password_error_empty": "Por favor, confirma la contraseña",
     "sign_up_page_confirm_password_error_invalid": "Las contraseñas no coinciden",
     "sign_up_page_agree_text": "Estoy de acuerdo con Open Food Facts",
     "@sign_up_page_agree_text": {
@@ -287,7 +287,7 @@
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "Tu perfil",
-    "myPreferences_profile_subtitle": "Cambie la configuración de la aplicación y obtenga consejos.",
+    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
     "myPreferences_settings_title": "Ajustes de aplicación",
     "myPreferences_settings_subtitle": "Modo oscuro, Tema de pantalla , ...",
     "myPreferences_food_title": "Preferencias de comida",
@@ -1166,7 +1166,7 @@
     "@confirm_clear": {
         "description": "Asking about whether to clear the list or not"
     },
-    "importance_label": "{name} importance: {id}",
+    "importance_label": "{name} importancia: {id}",
     "@importance_label": {
         "description": "Used when user selects a food preference. example: Vegan importance; mandatory",
         "placeholders": {
