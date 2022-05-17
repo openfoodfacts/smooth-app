@@ -244,8 +244,8 @@ class MLKitScannerPageState
       return;
     }
 
-    _controller?.pausePreview();
     _streamSubscription?.pause();
+    await _controller?.pausePreview();
   }
 
   Future<void> _onResumeImageStream({bool forceStartPreview = false}) async {
@@ -254,12 +254,12 @@ class MLKitScannerPageState
       return;
     }
 
-    _controller?.resumePreviewIfNecessary();
-    stoppingCamera = false;
-
     if (_streamSubscription?.isPaused == true) {
       _streamSubscription!.resume();
     }
+
+    await _controller?.resumePreviewIfNecessary();
+    stoppingCamera = false;
   }
 
   Future<void> _stopImageStream() async {
@@ -273,7 +273,7 @@ class MLKitScannerPageState
     _redrawScreen();
 
     _controller?.removeListener(_cameraListener);
-
+    await _controller?.pausePreview();
     await _streamSubscription?.cancel();
 
     await _controller?.dispose();
