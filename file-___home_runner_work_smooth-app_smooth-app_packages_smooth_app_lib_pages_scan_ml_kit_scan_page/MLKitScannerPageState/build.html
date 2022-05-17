@@ -76,8 +76,10 @@ Widget build(BuildContext context) {
   &#47;&#47; all entry points
   return LifeCycleManager(
     onStart: _startLiveFeed,
-    onResume: _startLiveFeed,
-    onPause: () =&gt; _stopImageStream(fromPauseEvent: true),
+    onResume: _onResumeImageStream,
+    onVisible: () =&gt; _onResumeImageStream(forceStartPreview: true),
+    onPause: _onPauseImageStream,
+    onInvisible: _onPauseImageStream,
     child: _buildScannerWidget(),
   );
 }</code></pre>

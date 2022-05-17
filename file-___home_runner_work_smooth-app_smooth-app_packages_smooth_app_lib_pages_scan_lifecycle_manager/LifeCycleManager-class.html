@@ -55,9 +55,10 @@
 <a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_lifecycle_manager/LifeCycleManager/onStart.html">onStart</a> will be called only when the Widget is displayed for the first time
 (= during the <code>initState</code> phase)
 <a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_lifecycle_manager/LifeCycleManager/onResume.html">onResume</a> will be called once the app is reopened (eg: the app is minimized
-and brought back to front) or this part of the Widget tree is visible again
-<a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_lifecycle_manager/LifeCycleManager/onPause.html">onPause</a> will be called once the app is minimized or if this part of the
-tree is invisible</p>
+and brought back to front)
+<a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_lifecycle_manager/LifeCycleManager/onPause.html">onPause</a> will be called once the app is minimized
+<a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_lifecycle_manager/LifeCycleManager/onVisible.html">onVisible</a> will be called if this part of the tree is visible
+<a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_lifecycle_manager/LifeCycleManager/onInvisible.html">onInvisible</a> will be called if this part of the tree is invisible</p>
 </section>
 
 
@@ -67,7 +68,7 @@ tree is invisible</p>
 
       <dl class="constructor-summary-list">
         <dt id="LifeCycleManager" class="callable">
-          <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_lifecycle_manager/LifeCycleManager/LifeCycleManager.html">LifeCycleManager</a></span><span class="signature">(<span class="parameter" id="-param-onResume">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">onResume</span>(), </span><span class="parameter" id="-param-onPause"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">onPause</span>(), </span><span class="parameter" id="-param-child"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">child</span>, </span><span class="parameter" id="-param-onStart"><span class="type-annotation">dynamic</span> <span class="parameter-name">onStart</span>()?, </span><span class="parameter" id="-param-key"><span class="type-annotation">dynamic</span> <span class="parameter-name">key</span>}</span>)</span>
+          <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_lifecycle_manager/LifeCycleManager/LifeCycleManager.html">LifeCycleManager</a></span><span class="signature">(<span class="parameter" id="-param-onResume">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">onResume</span>(), </span><span class="parameter" id="-param-onPause"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">onPause</span>(), </span><span class="parameter" id="-param-child"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">child</span>, </span><span class="parameter" id="-param-onStart"><span class="type-annotation">dynamic</span> <span class="parameter-name">onStart</span>()?, </span><span class="parameter" id="-param-onVisible"><span class="type-annotation">dynamic</span> <span class="parameter-name">onVisible</span>()?, </span><span class="parameter" id="-param-onInvisible"><span class="type-annotation">dynamic</span> <span class="parameter-name">onInvisible</span>()?, </span><span class="parameter" id="-param-key"><span class="type-annotation">dynamic</span> <span class="parameter-name">key</span>}</span>)</span>
         </dt>
         <dd>
            
@@ -102,6 +103,17 @@ tree is invisible</p>
 
 </dd>
 
+        <dt id="onInvisible" class="property">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_lifecycle_manager/LifeCycleManager/onInvisible.html">onInvisible</a></span>
+  <span class="signature">&#8594; (dynamic Function?<span class="signature">()</span>?)</span> 
+
+</dt>
+<dd>
+   
+  <div class="features">final</div>
+
+</dd>
+
         <dt id="onPause" class="property">
   <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_lifecycle_manager/LifeCycleManager/onPause.html">onPause</a></span>
   <span class="signature">&#8594; dynamic Function<span class="signature">()</span></span> 
@@ -126,6 +138,17 @@ tree is invisible</p>
 
         <dt id="onStart" class="property">
   <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_lifecycle_manager/LifeCycleManager/onStart.html">onStart</a></span>
+  <span class="signature">&#8594; (dynamic Function?<span class="signature">()</span>?)</span> 
+
+</dt>
+<dd>
+   
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="onVisible" class="property">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_lifecycle_manager/LifeCycleManager/onVisible.html">onVisible</a></span>
   <span class="signature">&#8594; (dynamic Function?<span class="signature">()</span>?)</span> 
 
 </dt>
@@ -261,9 +284,11 @@ tree is invisible</p>
     </li>
     <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_lifecycle_manager/LifeCycleManager/child.html">child</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_lifecycle_manager/LifeCycleManager/onInvisible.html">onInvisible</a></li>
     <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_lifecycle_manager/LifeCycleManager/onPause.html">onPause</a></li>
     <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_lifecycle_manager/LifeCycleManager/onResume.html">onResume</a></li>
     <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_lifecycle_manager/LifeCycleManager/onStart.html">onStart</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_lifecycle_manager/LifeCycleManager/onVisible.html">onVisible</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
     <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_scan_lifecycle_manager/LifeCycleManager-class.html#instance-methods">Methods</a></li>

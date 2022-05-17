@@ -65,13 +65,7 @@
 
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">bool get isCameraNotInitialized {
-  return _controller == null ||
-      _controller!.value.isInitialized == false ||
-      stoppingCamera ||
-      _controller!.value.isPreviewPaused ||
-      !_controller!.value.isStreamingImages;
-}</code></pre>
+  <pre class="language-dart"><code class="language-dart">bool get isCameraNotInitialized =&gt; _controller?.isInitialized != true;</code></pre>
 </section>
 
 </section>
