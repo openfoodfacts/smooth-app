@@ -280,14 +280,14 @@
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contribution",
+    "question_sign_in_text": "Влез в акаунта си в Open Food Facts, за да запишеш своите приноси",
     "@Personal preferences": {},
     "myPreferences": "Моите настройки",
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "Профил",
-    "myPreferences_profile_subtitle": "Промени настройките на приложението и получи съвети.",
+    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
     "myPreferences_settings_title": "Настройки",
     "myPreferences_settings_subtitle": "Тъмен режим, Тема, ...",
     "myPreferences_food_title": "Хранителни предпочитания",
@@ -414,7 +414,7 @@
     },
     "ingredients_photo_uploaded": "Снимката на съставките е качена",
     "@ingredients_photo_uploaded": {},
-    "nutrition_cache_loading_error": "Unable to load nutrients from cache",
+    "nutrition_cache_loading_error": "Не може да се заредят хранителни вещества от кеша",
     "nutritional_facts_photo_button_label": "Снимка на хранителните стойности",
     "@nutritional_facts_photo_button_label": {},
     "nutritional_facts_input_button_label": "Въведи хранителните стойности",
@@ -974,7 +974,7 @@
     "@dev_preferences_reset_app_language": {
         "description": "User dev preferences - Reset App Language - Title"
     },
-    "dev_preferences_export_history_progress_error": "exception",
+    "dev_preferences_export_history_progress_error": "изключение",
     "@dev_preferences_export_history_progress_error": {
         "description": "User dev preferences - Export history - Item - Error"
     },
@@ -1162,7 +1162,7 @@
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
-    "confirm_clear": "Do you really want to clear?",
+    "confirm_clear": "Наистина ли искаш да изчистиш?",
     "@confirm_clear": {
         "description": "Asking about whether to clear the list or not"
     },

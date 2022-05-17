@@ -11,6 +11,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
+import 'package:smooth_app/pages/scan/camera_controller.dart';
 import 'package:smooth_app/pages/scan/lifecycle_manager.dart';
 import 'package:smooth_app/pages/scan/mkit_scan_helper.dart';
 import 'package:smooth_app/widgets/lifecycle_aware_widget.dart';
@@ -70,7 +71,6 @@ class MLKitScannerPageState
 
   late ContinuousScanModel _model;
   late UserPreferences _userPreferences;
-  CameraController? _controller;
   CameraDescription? _camera;
   double _previewScale = 1.0;
 
@@ -106,8 +106,10 @@ class MLKitScannerPageState
     // all entry points
     return LifeCycleManager(
       onStart: _startLiveFeed,
-      onResume: _startLiveFeed,
-      onPause: () => _stopImageStream(fromPauseEvent: true),
+      onResume: _onResumeImageStream,
+      onVisible: () => _onResumeImageStream(forceStartPreview: true),
+      onPause: _onPauseImageStream,
+      onInvisible: _onPauseImageStream,
       child: _buildScannerWidget(),
     );
   }
@@ -115,7 +117,7 @@ class MLKitScannerPageState
   Widget _buildScannerWidget() {
     // Showing the black scanner background + the icon when the scanner is
     // loading or stopped
-    if (isCameraNotInitialized) {
+    if (!isCameraInitialized) {
       return const SizedBox.shrink();
     }
 
@@ -146,27 +148,16 @@ class MLKitScannerPageState
     );
   }
 
-  bool get isCameraNotInitialized {
-    return _controller == null ||
-        _controller!.value.isInitialized == false ||
-        stoppingCamera ||
-        _controller!.value.isPreviewPaused ||
-        !_controller!.value.isStreamingImages;
-  }
+  bool get isCameraInitialized => _controller?.isInitialized == true;
 
   Future<void> _startLiveFeed() async {
-    if (_controller != null || _camera == null) {
+    if (_camera == null) {
       return;
+    } else if (_controller != null) {
+      return _onResumeImageStream();
     }
 
     stoppingCamera = false;
-
-    _controller = CameraController(
-      _camera!,
-      ResolutionPreset.medium,
-      enableAudio: false,
-      imageFormatGroup: ImageFormatGroup.yuv420,
-    );
 
     // If the controller is initialized update the UI.
     _barcodeDecoder ??= MLKitScanDecoder(
@@ -177,46 +168,49 @@ class MLKitScannerPageState
         ),
       ),
     );
-    _controller?.addListener(_cameraListener);
 
-    // Restart the subscription if necessary
-    if (_streamSubscription?.isPaused == true) {
-      _streamSubscription!.resume();
-    } else {
-      _subject
-          .throttleTime(
-            Duration(
-              milliseconds:
-                  _averageProcessingTime.average(_defaultProcessingTime) *
-                      _processingTimeWindows,
-            ),
-          )
-          .asyncMap((CameraImage image) async {
-            final DateTime start = DateTime.now();
+    CameraHelper.initController(
+      SmoothCameraController(
+        _camera!,
+        ResolutionPreset.medium,
+        enableAudio: false,
+        imageFormatGroup: ImageFormatGroup.yuv420,
+      ),
+    );
 
-            final List<String?>? res =
-                await _barcodeDecoder?.processImage(image);
+    _controller!.addListener(_cameraListener);
 
-            _averageProcessingTime.add(
-              DateTime.now().difference(start).inMilliseconds,
-            );
+    _subject
+        .throttleTime(
+          Duration(
+            milliseconds:
+                _averageProcessingTime.average(_defaultProcessingTime) *
+                    _processingTimeWindows,
+          ),
+        )
+        .asyncMap((CameraImage image) async {
+          final DateTime start = DateTime.now();
 
-            return res;
-          })
-          .where(
-            (List<String?>? barcodes) => barcodes?.isNotEmpty == true,
-          )
-          .cast<List<String>>()
-          .listen(_onNewBarcodeDetected);
-    }
+          final List<String?>? res = await _barcodeDecoder?.processImage(image);
+
+          _averageProcessingTime.add(
+            DateTime.now().difference(start).inMilliseconds,
+          );
+
+          return res;
+        })
+        .where(
+          (List<String?>? barcodes) => barcodes?.isNotEmpty == true,
+        )
+        .cast<List<String>>()
+        .listen(_onNewBarcodeDetected);
 
     try {
-      await _controller?.initialize();
-      await _controller?.setFocusMode(FocusMode.auto);
-      await _controller?.setFocusPoint(_focusPoint);
-      await _controller?.lockCaptureOrientation(DeviceOrientation.portraitUp);
-      await _controller?.startImageStream(
-        (CameraImage image) => _subject.add(image),
+      await _controller?.init(
+        focusMode: FocusMode.auto,
+        focusPoint: _focusPoint,
+        deviceOrientation: DeviceOrientation.portraitUp,
+        onAvailable: (CameraImage image) => _subject.add(image),
       );
     } on CameraException catch (e) {
       if (kDebugMode) {
@@ -237,33 +231,55 @@ class MLKitScannerPageState
   }
 
   void _cameraListener() {
+    _redrawScreen();
+
     if (_controller?.value.hasError == true) {
       // TODO(M123): Handle errors better
       debugPrint(_controller!.value.errorDescription);
     }
   }
 
-  Future<void> _stopImageStream({bool fromPauseEvent = false}) async {
+  Future<void> _onPauseImageStream() async {
+    if (stoppingCamera) {
+      return;
+    }
+
+    _streamSubscription?.pause();
+    await _controller?.pausePreview();
+  }
+
+  Future<void> _onResumeImageStream({bool forceStartPreview = false}) async {
+    if (stoppingCamera ||
+        (!forceStartPreview && ScreenVisibilityDetector.invisible(context))) {
+      return;
+    }
+
+    if (_streamSubscription?.isPaused == true) {
+      _streamSubscription!.resume();
+    }
+
+    await _controller?.resumePreviewIfNecessary();
+    stoppingCamera = false;
+  }
+
+  Future<void> _stopImageStream() async {
     if (stoppingCamera) {
       return;
     }
 
     stoppingCamera = true;
+    await _controller?.pausePreview();
+
     _redrawScreen();
 
     _controller?.removeListener(_cameraListener);
-
-    if (fromPauseEvent) {
-      _streamSubscription?.pause();
-    } else {
-      await _streamSubscription?.cancel();
-    }
+    await _controller?.pausePreview();
+    await _streamSubscription?.cancel();
 
     await _controller?.dispose();
     await _barcodeDecoder?.dispose();
 
     _barcodeDecoder = null;
-    _controller = null;
 
     _restartCameraIfNecessary();
   }
@@ -305,7 +321,7 @@ class MLKitScannerPageState
   void dispose() {
     // /!\ This call is a Future, which may leads to some issues.
     // This should be handled by [_restartCameraIfNecessary]
-    _stopImageStream(fromPauseEvent: false);
+    _stopImageStream();
     super.dispose();
   }
 
@@ -320,4 +336,6 @@ class MLKitScannerPageState
       return Offset(0.5, 0.25 / _previewScale);
     }
   }
+
+  SmoothCameraController? get _controller => CameraHelper.controller;
 }

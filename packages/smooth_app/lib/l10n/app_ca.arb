@@ -287,7 +287,7 @@
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "El vostre perfil",
-    "myPreferences_profile_subtitle": "Canvieu la configuració de l'aplicació i obteniu consells.",
+    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
     "myPreferences_settings_title": "Configuració de l'App",
     "myPreferences_settings_subtitle": "Dark mode, Theme, ...",
     "myPreferences_food_title": "Preferències alimentàries",

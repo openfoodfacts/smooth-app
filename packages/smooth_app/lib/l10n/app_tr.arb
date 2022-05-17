@@ -287,7 +287,7 @@
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "Profiliniz",
-    "myPreferences_profile_subtitle": "Uygulama ayarlarını değiştirin ve tavsiye alın.",
+    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
     "myPreferences_settings_title": "Uygulama Ayarları",
     "myPreferences_settings_subtitle": "Karanlık mod, Tema, ...",
     "myPreferences_food_title": "Yiyecek tercihleri",

@@ -14,6 +14,7 @@ Future<File?> startImageCropping(BuildContext context,
   final Color? themeColor = isDarktheme
       ? Colors.black
       : Theme.of(context).appBarTheme.backgroundColor;
+  final Color widgetColor = isDarktheme ? Colors.white : Colors.black;
 
   late XFile? pickedXFile;
   if (existingImage == null) {
@@ -42,7 +43,7 @@ Future<File?> startImageCropping(BuildContext context,
         lockAspectRatio: false,
         statusBarColor: themeColor,
         toolbarColor: themeColor,
-        toolbarWidgetColor: themeColor,
+        toolbarWidgetColor: widgetColor,
         //ignore: use_build_context_synchronously
         activeControlsWidgetColor: Theme.of(context).colorScheme.primary,
         backgroundColor: themeColor,

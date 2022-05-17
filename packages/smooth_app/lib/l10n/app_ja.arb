@@ -287,7 +287,7 @@
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "あなたのプロフィール",
-    "myPreferences_profile_subtitle": "アプリの設定を変更し、アドバイスを得る。",
+    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
     "myPreferences_settings_title": "アプリ設定",
     "myPreferences_settings_subtitle": "ダークモード、テーマ...",
     "myPreferences_food_title": "食品設定",
