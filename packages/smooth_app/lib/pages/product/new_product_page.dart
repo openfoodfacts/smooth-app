@@ -49,6 +49,7 @@ class _ProductPageState extends State<ProductPage> {
     super.initState();
     _product = widget.product;
     _scrollController = ScrollController();
+    _updateLocalDatabaseWithProductHistory(context, false);
     AnalyticsHelper.trackProductPageOpen(
       product: _product,
     );
@@ -110,7 +111,7 @@ class _ProductPageState extends State<ProductPage> {
     );
     return WillPopScope(
       onWillPop: () async {
-        _updateLocalDatabaseWithProductHistory(context);
+        _updateLocalDatabaseWithProductHistory(context, true);
         return true;
       },
       child: scaffold,
@@ -153,13 +154,18 @@ class _ProductPageState extends State<ProductPage> {
     }
   }
 
-  void _updateLocalDatabaseWithProductHistory(BuildContext context) {
+  void _updateLocalDatabaseWithProductHistory(
+    final BuildContext context,
+    final bool notify,
+  ) {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     DaoProductList(localDatabase).push(
       ProductList.history(),
       _product.barcode!,
     );
-    localDatabase.notifyListeners();
+    if (notify) {
+      localDatabase.notifyListeners();
+    }
   }
 
   Widget _buildProductBody(BuildContext context) {
