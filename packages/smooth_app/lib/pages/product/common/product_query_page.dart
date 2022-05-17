@@ -490,7 +490,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
     });
   }
 
-  Future<void> refreshlist() async {
+  Future<void> refreshList() async {
     final ProductListSupplier? refreshSupplier =
         widget.productListSupplier.getRefreshSupplier();
     setState(
