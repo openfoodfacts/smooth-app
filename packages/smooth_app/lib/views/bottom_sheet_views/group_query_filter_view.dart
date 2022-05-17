@@ -18,7 +18,7 @@ class GroupQueryFilterView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return ChangeNotifierProvider<SelectedCategoryModel>(
       create: (BuildContext context) =>
           SelectedCategoryModel(categories, categoriesList),
@@ -150,7 +150,7 @@ class GroupQueryFilterView extends StatelessWidget {
                                 horizontal: 12.0, vertical: 20.0),
                             child: SmoothMainButton(
                               text:
-                                  AppLocalizations.of(context)!.applyButtonText,
+                                  AppLocalizations.of(context).applyButtonText,
                               onPressed: () {
                                 Navigator.pop(context);
                                 callback(

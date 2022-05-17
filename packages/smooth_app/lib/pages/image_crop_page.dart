@@ -13,7 +13,10 @@ Future<File?> startImageCropping(BuildContext context) async {
   final Color? themeColor = isDarktheme
       ? Colors.black
       : Theme.of(context).appBarTheme.backgroundColor;
+  final Color widgetColor = isDarktheme ? Colors.white : Colors.black;
+
   final ImagePicker picker = ImagePicker();
+  final AppLocalizations appLocalizations = AppLocalizations.of(context);
   final XFile? pickedXFile = await picker.pickImage(
     source: ImageSource.camera,
   );
@@ -21,9 +24,7 @@ Future<File?> startImageCropping(BuildContext context) async {
     return null;
   }
 
-  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-
-  final File? croppedFile = await ImageCropper().cropImage(
+  final CroppedFile? croppedFile = await ImageCropper().cropImage(
     sourcePath: pickedXFile.path,
     aspectRatioPresets: <CropAspectRatioPreset>[
       CropAspectRatioPreset.square,
@@ -32,19 +33,22 @@ Future<File?> startImageCropping(BuildContext context) async {
       CropAspectRatioPreset.ratio4x3,
       CropAspectRatioPreset.ratio16x9
     ],
-    androidUiSettings: AndroidUiSettings(
-      toolbarTitle: appLocalizations.product_edit_photo_title,
-      initAspectRatio: CropAspectRatioPreset.original,
-      lockAspectRatio: false,
-      statusBarColor: themeColor,
-      toolbarColor: themeColor,
-      toolbarWidgetColor: Colors.white,
-      activeControlsWidgetColor: Theme.of(context).colorScheme.primary,
-      backgroundColor: themeColor,
-    ),
-    iosUiSettings: const IOSUiSettings(
-      minimumAspectRatio: 1.0,
-    ),
+    uiSettings: <PlatformUiSettings>[
+      AndroidUiSettings(
+        toolbarTitle: appLocalizations.product_edit_photo_title,
+        initAspectRatio: CropAspectRatioPreset.original,
+        lockAspectRatio: false,
+        statusBarColor: themeColor,
+        toolbarColor: themeColor,
+        toolbarWidgetColor: widgetColor,
+        //ignore: use_build_context_synchronously
+        activeControlsWidgetColor: Theme.of(context).colorScheme.primary,
+        backgroundColor: themeColor,
+      ),
+      IOSUiSettings(
+        minimumAspectRatio: 1.0,
+      ),
+    ],
   );
-  return croppedFile;
+  return File(croppedFile!.path);
 }

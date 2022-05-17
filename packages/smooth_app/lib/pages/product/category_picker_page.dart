@@ -45,11 +45,13 @@ class _CategoryPickerPageState extends State<CategoryPickerPage> {
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: Text(appLocalizations.category_picker_page_appbar_text),
+        title: Text(
+          appLocalizations.category_picker_screen_title,
+        ),
       ),
       body: ListView.builder(
         itemBuilder: (final BuildContext context, final int index) {
@@ -165,6 +167,9 @@ class _CategoryPickerPageState extends State<CategoryPickerPage> {
       product: product,
     );
     if (savedAndRefreshed) {
+      if (!mounted) {
+        return;
+      }
       Navigator.of(context).pop(tag);
     }
   }

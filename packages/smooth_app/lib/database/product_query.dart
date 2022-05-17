@@ -6,7 +6,7 @@ import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:uuid/uuid.dart';
 
 abstract class ProductQuery {
@@ -47,8 +47,8 @@ abstract class ProductQuery {
   /// Sets the uuid id as "final variable", for instance for API queries.
   ///
   /// To be called at main / init.
-  static Future<void> setUuid(final LocalDatabase _localDatabase) async {
-    final DaoString uuidString = DaoString(_localDatabase);
+  static Future<void> setUuid(final LocalDatabase localDatabase) async {
+    final DaoString uuidString = DaoString(localDatabase);
     String? uuid = await uuidString.get(_UUID_NAME);
 
     if (uuid == null) {
@@ -100,6 +100,7 @@ abstract class ProductQuery {
         ProductField.NUTRIMENT_ENERGY_UNIT,
         ProductField.ADDITIVES,
         ProductField.INGREDIENTS_ANALYSIS_TAGS,
+        ProductField.INGREDIENTS_TEXT,
         ProductField.LABELS_TAGS,
         ProductField.LABELS_TAGS_IN_LANGUAGES,
         ProductField.ENVIRONMENT_IMPACT_LEVELS,
@@ -111,6 +112,7 @@ abstract class ProductQuery {
         ProductField.ECOSCORE_DATA,
         ProductField.ECOSCORE_GRADE,
         ProductField.ECOSCORE_SCORE,
+        ProductField.KNOWLEDGE_PANELS,
       ];
 
   Future<SearchResult> getSearchResult();

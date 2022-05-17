@@ -37,9 +37,16 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
   final CarouselController _controller = CarouselController();
   List<String> barcodes = <String>[];
   bool _returnToSearchCard = false;
+  int _lastIndex = 0;
 
   int get _searchCardAdjustment => widget.containSearchCard ? 1 : 0;
   late ContinuousScanModel _model;
+
+  @override
+  void initState() {
+    super.initState();
+    _lastIndex = _searchCardAdjustment;
+  }
 
   @override
   void didChangeDependencies() {
@@ -47,11 +54,26 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
     _model = context.watch<ContinuousScanModel>();
     barcodes = _model.getBarcodes();
     _returnToSearchCard = InheritedDataManager.of(context).showSearchCard;
+    final int cardsCount = barcodes.length + _searchCardAdjustment;
     if (_controller.ready) {
-      if (_returnToSearchCard && widget.containSearchCard) {
+      if (_returnToSearchCard && widget.containSearchCard && _lastIndex > 0) {
         _controller.animateToPage(0);
+      } else if (_model.latestConsultedBarcode != null &&
+          _model.latestConsultedBarcode!.isNotEmpty) {
+        final int indexBarcode =
+            barcodes.indexOf(_model.latestConsultedBarcode!);
+        if (indexBarcode >= 0) {
+          final int indexCarousel = indexBarcode + _searchCardAdjustment;
+          _controller.animateToPage(indexCarousel);
+        } else {
+          if (_lastIndex > cardsCount) {
+            _controller.animateToPage(cardsCount);
+          } else {
+            _controller.animateToPage(_lastIndex);
+          }
+        }
       } else {
-        _controller.animateToPage(barcodes.length - 1 + _searchCardAdjustment);
+        _controller.animateToPage(0);
       }
     }
   }
@@ -76,8 +98,19 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
         height: widget.height,
         enableInfiniteScroll: false,
         onPageChanged: (int index, CarouselPageChangedReason reason) {
-          if (index > 0 && InheritedDataManager.of(context).showSearchCard) {
-            InheritedDataManager.of(context).resetShowSearchCard(false);
+          _lastIndex = index;
+          final InheritedDataManagerState inheritedDataManager =
+              InheritedDataManager.of(context);
+          if (inheritedDataManager.showSearchCard) {
+            inheritedDataManager.resetShowSearchCard(false);
+          }
+          if (index > 0) {
+            if (reason == CarouselPageChangedReason.manual) {
+              _model.lastConsultedBarcode =
+                  barcodes[index - _searchCardAdjustment];
+            }
+          } else if (index == 0) {
+            _model.lastConsultedBarcode = null;
           }
         },
       ),
@@ -131,7 +164,7 @@ class SearchCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations localizations = AppLocalizations.of(context)!;
+    final AppLocalizations localizations = AppLocalizations.of(context);
     return SmoothCard(
       color: Theme.of(context).colorScheme.background.withOpacity(0.85),
       elevation: 0,

@@ -29,6 +29,7 @@ class ContinuousScanModel with ChangeNotifier {
 
   String? _latestScannedBarcode;
   String? _latestFoundBarcode;
+  String? _latestConsultedBarcode;
   String? _barcodeTrustCheck; // TODO(monsieurtanuki): could probably be removed
   late DaoProduct _daoProduct;
   late DaoProductList _daoProductList;
@@ -36,6 +37,15 @@ class ContinuousScanModel with ChangeNotifier {
   ProductList get productList => _productList;
 
   List<String> getBarcodes() => _barcodes;
+
+  String? get latestConsultedBarcode => _latestConsultedBarcode;
+
+  set lastConsultedBarcode(String? barcode) {
+    _latestConsultedBarcode = barcode;
+    if (barcode != null) {
+      notifyListeners();
+    }
+  }
 
   Future<ContinuousScanModel?> load(final LocalDatabase localDatabase) async {
     try {
@@ -87,22 +97,25 @@ class ContinuousScanModel with ChangeNotifier {
 
   Product getProduct(final String barcode) => _productList.getProduct(barcode);
 
-  Future<void> onScan(String? code) async {
+  /// Adds a barcode
+  /// Will return [true] if this barcode is successfully added
+  Future<bool> onScan(String? code) async {
     if (code == null) {
-      return;
+      return false;
     }
 
     if (_barcodeTrustCheck != code) {
       _barcodeTrustCheck = code;
-      return;
+      return false;
     }
-    if (_latestScannedBarcode == code) {
-      return;
+    if (_latestScannedBarcode == code || _barcodes.contains(code)) {
+      lastConsultedBarcode = code;
+      return false;
     }
     AnalyticsHelper.trackScannedProduct(barcode: code);
 
     _latestScannedBarcode = code;
-    _addBarcode(code);
+    return _addBarcode(code);
   }
 
   Future<bool> onCreateProduct(String? barcode) async {
@@ -125,6 +138,7 @@ class ContinuousScanModel with ChangeNotifier {
       }
       _setBarcodeState(barcode, ScannedProductState.LOADING);
       _cacheOrLoadBarcode(barcode);
+      lastConsultedBarcode = barcode;
       return true;
     }
     if (state == ScannedProductState.FOUND ||
@@ -137,6 +151,7 @@ class ContinuousScanModel with ChangeNotifier {
       if (state == ScannedProductState.CACHED) {
         _updateBarcode(barcode);
       }
+      lastConsultedBarcode = barcode;
       return true;
     }
     return false;
@@ -213,15 +228,27 @@ class ContinuousScanModel with ChangeNotifier {
     _productList.refresh(product);
     if (_latestFoundBarcode != product.barcode!) {
       _latestFoundBarcode = product.barcode;
-      await _daoProductList.push(productList, _latestFoundBarcode!);
-      await _daoProductList.push(_history, _latestFoundBarcode!);
+      _daoProductList.push(productList, _latestFoundBarcode!);
+      _daoProductList.push(_history, _latestFoundBarcode!);
     }
     _setBarcodeState(product.barcode!, state);
   }
 
   Future<void> clearScanSession() async {
-    await _daoProductList.clear(productList);
+    _daoProductList.clear(productList);
     await refresh();
+  }
+
+  Future<void> removeBarcode(
+    final String barcode,
+  ) async {
+    _daoProductList.set(
+      productList,
+      barcode,
+      false,
+    );
+    await refresh();
+    notifyListeners();
   }
 
   Future<void> refresh() async {

@@ -17,8 +17,8 @@ class LaunchUrlHelper {
 
     AnalyticsHelper.trackOpenLink(url: url);
 
-    if (await canLaunch(url)) {
-      await launch(url);
+    if (await canLaunchUrl(Uri.parse(url))) {
+      await launchUrl(Uri.parse(url));
     } else {
       throw 'Could not launch $url';
     }
@@ -29,9 +29,8 @@ class LaunchUrlHelper {
       throw 'Error do not use local identifier in url';
     }
 
-    String? countryCode = WidgetsBinding.instance == null
-        ? null
-        : WidgetsBinding.instance!.window.locale.countryCode?.toLowerCase();
+    String? countryCode =
+        WidgetsBinding.instance.window.locale.countryCode?.toLowerCase();
 
     if (countryCode == null) {
       countryCode = 'world.';

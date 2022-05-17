@@ -267,7 +267,7 @@ class _QuestionPageState extends State<QuestionPage>
     required int currentQuestionIndex,
     EdgeInsets padding = const EdgeInsets.all(4),
   }) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     String buttonText;
     IconData? icon;
     switch (insightAnnotation) {
@@ -297,6 +297,9 @@ class _QuestionPageState extends State<QuestionPage>
               context: context,
               title: appLocalizations.error_occurred,
             );
+            if (!mounted) {
+              return;
+            }
             Navigator.of(context).maybePop();
             return;
           }
@@ -337,7 +340,7 @@ class _QuestionPageState extends State<QuestionPage>
     required String? insightId,
     required InsightAnnotation insightAnnotation,
   }) async {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     await LoadingDialog.run<Status>(
       context: context,
@@ -351,6 +354,9 @@ class _QuestionPageState extends State<QuestionPage>
       ),
     );
     if (barcode != null && insightId != null) {
+      if (!mounted) {
+        return;
+      }
       final LocalDatabase localDatabase = context.read<LocalDatabase>();
       final RobotoffInsightHelper robotoffInsightHelper =
           RobotoffInsightHelper(localDatabase);
@@ -365,7 +371,7 @@ class CongratsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final UserManagementProvider userManagementProvider =
         context.watch<UserManagementProvider>();
     return Center(

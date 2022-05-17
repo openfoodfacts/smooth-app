@@ -2,6 +2,9 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/product/add_basic_details_page.dart';
+import 'package:smooth_app/pages/product/edit_ingredients_page.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
 
@@ -20,11 +23,11 @@ class _EditProductPageState extends State<EditProductPage> {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
         title: AutoSizeText(
-          widget.product.productName ?? appLocalizations.unknownProductName,
+          getProductName(widget.product, appLocalizations),
           maxLines: 2,
         ),
       ),
@@ -50,6 +53,15 @@ class _EditProductPageState extends State<EditProductPage> {
               title: appLocalizations.edit_product_form_item_details_title,
               subtitle:
                   appLocalizations.edit_product_form_item_details_subtitle,
+              onTap: () async {
+                await Navigator.push<bool>(
+                  context,
+                  MaterialPageRoute<bool>(
+                    builder: (BuildContext context) =>
+                        AddBasicDetailsPage(widget.product),
+                  ),
+                );
+              },
             ),
             _ListTitleItem(
               title: appLocalizations.edit_product_form_item_photos_title,
@@ -61,6 +73,19 @@ class _EditProductPageState extends State<EditProductPage> {
             ),
             _ListTitleItem(
               title: appLocalizations.edit_product_form_item_ingredients_title,
+              onTap: () async {
+                final bool? refreshed = await Navigator.push<bool>(
+                  context,
+                  MaterialPageRoute<bool>(
+                    builder: (BuildContext context) => EditIngredientsPage(
+                      product: widget.product,
+                    ),
+                  ),
+                );
+                if (refreshed ?? false) {
+                  _changes++;
+                }
+              },
             ),
             _ListTitleItem(
               title: appLocalizations.edit_product_form_item_packaging_title,
@@ -74,6 +99,9 @@ class _EditProductPageState extends State<EditProductPage> {
                 final OrderedNutrientsCache? cache =
                     await OrderedNutrientsCache.getCache(context);
                 if (cache == null) {
+                  return;
+                }
+                if (!mounted) {
                   return;
                 }
                 final bool? refreshed = await Navigator.push<bool>(
@@ -111,14 +139,14 @@ class _ListTitleItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations? appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return ListTile(
       onTap: onTap,
       title: Text(title),
       subtitle: subtitle == null ? null : Text(subtitle!),
       leading: ElevatedButton(
-        child: Text(appLocalizations!.edit_product_form_save),
         onPressed: onTap,
+        child: Text(appLocalizations.edit_product_form_save),
       ),
     );
   }

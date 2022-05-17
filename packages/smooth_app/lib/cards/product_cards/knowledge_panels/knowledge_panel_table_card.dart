@@ -88,8 +88,8 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
         children: <Widget>[
           for (List<Widget> row in rowsWidgets)
             Row(
-              children: row,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: row,
             )
         ],
       );
@@ -330,7 +330,9 @@ class _TableCellWidgetState extends State<TableCellWidget> {
                 );
               }).toList(),
               onChanged: (KnowledgePanelTableColumn? selectedColumn) {
-                widget.cell.columnGroup!.currentColumn = selectedColumn;
+                setState(() {
+                  widget.cell.columnGroup!.currentColumn = selectedColumn;
+                });
                 int i = 0;
                 for (final KnowledgePanelTableColumn column
                     in widget.tableElement.columns) {

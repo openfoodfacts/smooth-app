@@ -6,7 +6,6 @@ import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:openfoodfacts/personalized_search/available_attribute_groups.dart';
 import 'package:openfoodfacts/personalized_search/available_preference_importances.dart';
 import 'package:openfoodfacts/personalized_search/available_product_preferences.dart';
-import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:openfoodfacts/personalized_search/product_preferences_manager.dart';
 import 'package:openfoodfacts/personalized_search/product_preferences_selection.dart';
 import 'package:smooth_app/data_models/downloadable_string.dart';
@@ -109,19 +108,25 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
   /// The downloaded strings are automatically stored in the database.
   Future<bool> _loadFromNetwork(String languageCode) async {
     try {
+      final bool differentLanguages;
+      if (daoString != null) {
+        final String? latestLanguage =
+            await daoString!.get(_DAO_STRING_KEY_LANGUAGE);
+        differentLanguages = latestLanguage != languageCode;
+      } else {
+        differentLanguages = true;
+      }
       final String importanceUrl =
           AvailablePreferenceImportances.getUrl(languageCode);
       final String attributeGroupUrl =
           AvailableAttributeGroups.getUrl(languageCode);
-      final DownloadableString downloadableImportance;
-      downloadableImportance =
+      final DownloadableString downloadableImportance =
           DownloadableString(Uri.parse(importanceUrl), dao: daoString);
       final bool differentImportance = await downloadableImportance.download();
       final DownloadableString downloadableAttributes =
           DownloadableString(Uri.parse(attributeGroupUrl), dao: daoString);
       final bool differentAttributes = await downloadableAttributes.download();
-      // the downloaded values are identical to what was stored locally.
-      if ((!differentImportance) && (!differentAttributes)) {
+      if (!(differentImportance || differentAttributes || differentLanguages)) {
         return false;
       }
       final String preferenceImportancesString = downloadableImportance.value!;
@@ -182,16 +187,6 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
     availableProductPreferences = myAvailableProductPreferences;
   }
 
-  @override
-  String getImportanceIdForAttributeId(String attributeId) =>
-      _getRefinedImportanceId(super.getImportanceIdForAttributeId(attributeId));
-
-  /// Downgrades "very important" to "important" (from 4 to 3 choices, simpler).
-  static String _getRefinedImportanceId(final String importanceId) =>
-      importanceId == PreferenceImportance.ID_VERY_IMPORTANT
-          ? PreferenceImportance.ID_IMPORTANT
-          : importanceId;
-
   Future<void> resetImportances() async {
     await clearImportances(notifyListeners: false);
     if (attributeGroups != null) {
@@ -202,7 +197,7 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
             if (attribute.id != null && defaultF != null) {
               await setImportance(
                 attribute.id!,
-                _getRefinedImportanceId(defaultF),
+                defaultF,
                 notifyListeners: false,
               );
             }

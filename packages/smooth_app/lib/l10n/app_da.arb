@@ -1,5 +1,4 @@
 {
-    "app_name": "Smoothie",
     "@Utils": {},
     "yes": "Ja",
     "@yes": {},
@@ -152,10 +151,18 @@
     "sign_up_page_email_hint": "E-mail",
     "sign_up_page_email_error_empty": "E-mail er obligatorisk",
     "sign_up_page_email_error_invalid": "Ugyldig e-mail",
-    "sign_up_page_username_hint": "Brugernavn",
+    "sign_up_page_username_hint": "Brugernavn: Offentligt synligt",
     "sign_up_page_username_error_empty": "Indtast et brugernavn",
     "sign_up_page_username_error_invalid": "Angiv et gyldigt brugernavn",
     "sign_up_page_username_description": "Brugernavn må ikke indeholde mellemrum, versaler eller specialtegn",
+    "sign_up_page_username_length_invalid": "Brugernavn må ikke overstige {value} tegn",
+    "@sign_up_page_username_length_invalid": {
+        "placeholders": {
+            "value": {
+                "type": "int"
+            }
+        }
+    },
     "sign_up_page_password_hint": "Adgangskode",
     "sign_up_page_password_error_empty": "Angiv adgangskode",
     "sign_up_page_password_error_invalid": "Angiv en gyldig adgangskode (mindst 6 tegn)",
@@ -247,7 +254,7 @@
     "@contribute_improve_header": {
         "description": "Button label + page title: Ways to improve the database"
     },
-    "contribute_improve_text": "Databasen er kernen i projektet. Det er let og meget hurtigt at hjælpe. Man kan downloade appen til sin mobil og begynde at tilføje/forbedre produkter.\n\nDerudover tilbyder OFF-webstedet mange bidragsmuligheder: ",
+    "contribute_improve_text": "Databasen er kernen i projektet. Det er let og meget hurtigt at hjælpe. Man kan downloade appen til sin mobil og begynde at tilføje/forbedre produkter.\n\nDerudover tilbyder Open Food Facts-webstedet mange bidragsmuligheder: ",
     "@contribute_improve_text": {},
     "contribute_translate_header": "Oversæt",
     "@contribute_translate_header": {
@@ -257,7 +264,7 @@
     "@contribute_translate_link_text": {
         "description": "Button label: Opens the Crowdin translation portal"
     },
-    "contribute_translate_text": "Open Food Facts er et globalt projekt indeholdende produkter fra flere end 160 lande. OFF er oversat til snesevis af sprog med indhold i konstant udvikling.",
+    "contribute_translate_text": "Open Food Facts er et globalt projekt indeholdende produkter fra flere end 160 lande. Open Food Facts er oversat til snesevis af sprog med indhold i konstant udvikling.",
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Oversættelser er en af projektets nøgleopgaver",
     "@contribute_translate_text_2": {},
@@ -273,14 +280,14 @@
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "question_sign_in_text": "Sign in to your Open Food Facts account to claim your contribution and to increase your creditability",
+    "question_sign_in_text": "Log ind på Open Food Facts-kontoen for at gemme bidrag",
     "@Personal preferences": {},
     "myPreferences": "Mine præferencer",
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "Din profil",
-    "myPreferences_profile_subtitle": "Skift app-indstillinger og få råd.",
+    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
     "myPreferences_settings_title": "App-indstillinger",
     "myPreferences_settings_subtitle": "Mørk tilstand, tema,...",
     "myPreferences_food_title": "Fødevarepræferencer",
@@ -377,17 +384,17 @@
     "@packaging_information_photo": {},
     "missing_product": "Nyt produkt blev fundet!",
     "@missing_product": {},
-    "add_product_take_photos": "Tag emballagefotos for at føje dette produkt til OFF-databasen",
+    "add_product_take_photos": "Tag emballagefotos for at føje dette produkt til Open Food Facts-databasen",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Snup nogle fotos, hvorefter OFF-motoren klarer resten!",
+    "add_product_take_photos_descriptive": "Snup nogle fotos, hvorefter Open Food Facts-motoren klarer resten!",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Tilføj produkt eller oplysning",
     "@add_product_information_button_label": {},
     "new_product": "Nyt produkt",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Forsidefoto af produkt",
+    "front_packaging_photo_button_label": "Produktforsidefoto",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Bekræft forsidefoto af produkt",
+    "confirm_front_packaging_photo_button_label": "Bekræft upload af Produktforsidefoto",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
@@ -407,8 +414,11 @@
     },
     "ingredients_photo_uploaded": "Ingrediensfoto uploadet",
     "@ingredients_photo_uploaded": {},
+    "nutrition_cache_loading_error": "Kan ikke indlæse næringsstoffer fra cache",
     "nutritional_facts_photo_button_label": "Næringsindholdsfoto",
     "@nutritional_facts_photo_button_label": {},
+    "nutritional_facts_input_button_label": "Angiv ernæringsfakta",
+    "nutritional_facts_added": "Næringsfakta tilføjet",
     "confirm_nutritional_facts_photo_button_label": "Bekræft næringsfaktafoto",
     "@confirm_nutritional_facts_photo_button_label": {
         "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
@@ -439,11 +449,11 @@
     "@selecting_photo": {
         "description": "Progress indicator when the users takes a photo"
     },
-    "uploading_image": "Uploading photo to the server",
+    "uploading_image": "Uploader foto til server",
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
-    "uploading_image_type_front": "Uploader forsidefoto til OFF",
+    "uploading_image_type_front": "Uploader forsidefoto til Open Food Facts",
     "@uploading_image_type_front": {
         "description": "Message when a new front picture is being uploaded to the server"
     },
@@ -451,19 +461,19 @@
     "@uploading_image_type_ingredients": {
         "description": "Message when a new ingredients picture is being uploaded to the server"
     },
-    "uploading_image_type_nutrition": "Uploading nutrition image to Open Food Facts",
+    "uploading_image_type_nutrition": "Uploader ernæringsfoto til Open Food Facts",
     "@uploading_image_type_nutrition": {
         "description": "Message when a new nutrition picture is being uploaded to the server"
     },
-    "uploading_image_type_packaging": "Uploading packaging image to Open Food Facts",
+    "uploading_image_type_packaging": "Uploader emballagefoto til Open Food Facts",
     "@uploading_image_type_packaging": {
         "description": "Message when a new packaging picture is being uploaded to the server"
     },
-    "uploading_image_type_other": "Uploading other image to Open Food Facts",
+    "uploading_image_type_other": "Uploader andet foto til Open Food Facts",
     "@uploading_image_type_other": {
         "description": "Message when a new other picture is being uploaded to the server"
     },
-    "uploading_image_type_generic": "Uploading image to Open Food Facts",
+    "uploading_image_type_generic": "Uploader foto til Open Food Facts",
     "@uploading_image_type_generic": {
         "description": "Message when a new picture is being uploaded to the server"
     },
@@ -650,7 +660,7 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Hjælp OFF-frivillige med at forbedre appen. Man afgør selv, om der skal indsendes anonyme analysedata.",
+    "consent_analytics_body1": "Hjælp Open Food Facts-frivillige med at forbedre appen. Man afgør selv, om der skal indsendes anonyme analysedata.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
@@ -691,7 +701,7 @@
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
-    "product_list_empty_message": "Indskannede produkt vises her, hvor deres detaljerede oplysninger kan tjekkes",
+    "product_list_empty_message": "Indskannede produkter vises her, hvor deres detaljerede oplysninger kan tjekkes",
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
@@ -719,7 +729,7 @@
     "@email_subject_account_deletion": {
         "description": "Email subject for an account deletion"
     },
-    "email_body_account_deletion": "Hej, slet venligst min OFF-konto: {userId}",
+    "email_body_account_deletion": "Hej, slet venligst min Open Food Facts-konto: {userId}",
     "@email_body_account_deletion": {
         "description": "Email body for an account deletion",
         "placeholders": {
@@ -740,7 +750,7 @@
     "@send_anonymous_toggle_title": {
         "description": "Title for the Send anonymous data toggle"
     },
-    "send_anonymous_data_toggle_subtitle": "Når aktiveret, indsendes visse anonyme oplysninger om app-brug til OFF-serverne, så vi kan forstå, hvordan og i hvilket omfang funktioner bruges mhp.at forbedre disse.",
+    "send_anonymous_data_toggle_subtitle": "Når aktiveret, indsendes visse anonyme oplysninger om app-brug til Open Food Facts-serverne, så vi kan forstå, hvordan og i hvilket omfang funktioner bruges mhp. at forbedre disse.",
     "@send_anonymous_toggle_subtitle": {
         "description": "SubTitle for the Send anonymous data toggle"
     },
@@ -752,8 +762,8 @@
     "@permission_photo_error": {
         "description": "When the camera/photo permission failed to be acquired (!= denied)"
     },
-    "permission_photo_denied_title": "Allow camera use to scan barcodes",
-    "permission_photo_denied_message": "For an enhanced experience, please allow {appName} to access your camera. You will be able to directly scan barcodes.",
+    "permission_photo_denied_title": "Tillad kameraadgang for stregkodeskanning",
+    "permission_photo_denied_message": "Giv {appName} adgang til kameraet. Det vil forbedre brugeroplevelsen, da dette muliggør direkte stregkodeskanning.",
     "@permission_photo_denied_message": {
         "description": "When the camera/photo permission is denied by user",
         "placeholders": {
@@ -762,12 +772,12 @@
             }
         }
     },
-    "permission_photo_denied_button": "Allow",
+    "permission_photo_denied_button": "Tillad",
     "@permission_photo_denied_button": {
         "description": "When the camera/photo permission is denied by user"
     },
-    "permission_photo_denied_dialog_settings_title": "Permission denied",
-    "permission_photo_denied_dialog_settings_message": "As you've previously denied the camera permission, you must allow it manually from the Settings.",
+    "permission_photo_denied_dialog_settings_title": "Tilladelse nægtet",
+    "permission_photo_denied_dialog_settings_message": "Da kameraadgang tidligere blev nægtet, skal tilladelsen gives manuelt via Indstillinger.",
     "permission_photo_denied_dialog_settings_button_open": "Åbn indstillinger",
     "permission_photo_denied_dialog_settings_button_cancel": "Annullér",
     "permission_photo_denied": "Ingen kameraadgang tildelt",
@@ -828,5 +838,344 @@
     },
     "completed_basic_details_btn_text": "Udfyld basisoplysninger",
     "not_implemented_snackbar_text": "Endnu ikke implementeret",
-    "category_picker_page_appbar_text": "Kategorier"
+    "category_picker_page_appbar_text": "Kategorier",
+    "edit_ingredients_extrait_ingredients_btn_text": "Udtræk ingredienser",
+    "@edit_ingredients_extrait_ingredients_btn_text": {
+        "description": "Ingredients edition - Extract ingredients"
+    },
+    "edit_ingredients_refresh_photo_btn_text": "Opfrisk foto",
+    "@edit_ingredients_refresh_photo_btn_text": {
+        "description": "Ingredients edition - Refresh photo"
+    },
+    "user_list_dialog_new_title": "Ny produktliste",
+    "@user_list_dialog_new_title": {
+        "description": "Title of the 'new user list' dialog"
+    },
+    "user_list_dialog_rename_title": "Omdøb liste",
+    "@user_list_dialog_rename_title": {
+        "description": "Title of the 'rename user list' dialog"
+    },
+    "user_list_subtitle_product": "Lister",
+    "@user_list_subtitle_product": {
+        "description": "Subtitle of a paragraph about user lists in a product context"
+    },
+    "user_list_button_new": "Ny liste",
+    "@user_list_button_new": {
+        "description": "Short label of a 'new list' button"
+    },
+    "user_list_button_add_product": "Føj til liste",
+    "@user_list_button_add_product": {
+        "description": "Short label of an 'add to list' button from a product context"
+    },
+    "user_list_popup_clear": "Ryd",
+    "@user_list_popup_clear": {
+        "description": "Short label of a 'clear list' popup"
+    },
+    "user_list_popup_rename": "Omdøb",
+    "@user_list_popup_rename": {
+        "description": "Short label of a 'rename list' popup"
+    },
+    "user_list_name_hint": "Min liste",
+    "@user_list_name_hint": {
+        "description": "Hint of a user list name text-field in a 'user list' dialog"
+    },
+    "user_list_name_error_empty": "Navn er obligatorisk",
+    "@user_list_name_error_empty": {
+        "description": "Validation error about the name that cannot be empty"
+    },
+    "user_list_name_error_already": "Navn bruges allerede",
+    "@user_list_name_error_already": {
+        "description": "Validation error about the name that is already used for another list"
+    },
+    "user_list_name_error_same": "Det er samme navn",
+    "@user_list_name_error_same": {
+        "description": "Validation error about the renamed name that is the same as the initial list name"
+    },
+    "category_picker_no_category_found_message": "Ingen kategori fundet for {items}",
+    "@category_picker_no_category_found_message": {
+        "description": "Label when no category is available",
+        "placeholders": {
+            "items": {
+                "type": "String"
+            }
+        }
+    },
+    "category_picker_no_category_found_button": "Tilbage",
+    "@category_picker_no_category_found_button": {
+        "description": "Button label when no category is available"
+    },
+    "dev_preferences_screen_title": "DEV-tilstand",
+    "@dev_preferences_screen_title": {
+        "description": "User dev preferences - Title"
+    },
+    "dev_preferences_disable_mode": "Fjern dev-tilstand",
+    "@dev_preferences_disable_mode": {
+        "description": "User dev preferences - Remove dev mode label"
+    },
+    "dev_preferences_reset_onboarding_title": "Genstart onboarding",
+    "@dev_preferences_reset_onboarding_title": {
+        "description": "User dev preferences - Reset onboarding - Title"
+    },
+    "dev_preferences_reset_onboarding_subtitle": "Flutter skal derefter genstartes for at se den igen.",
+    "@dev_preferences_reset_onboarding_subtitle": {
+        "description": "User dev preferences - Reset onboarding - Subtitle"
+    },
+    "dev_preferences_environment_switch_title": "Skift mellem openfoodfacts.org (PROD) og testmiljø",
+    "@dev_preferences_environment_switch_title": {
+        "description": "User dev preferences - Environment (prod/test) switcher - Title"
+    },
+    "dev_preferences_environment_switch_subtitle": "Aktuel forespørgselstype er {query}",
+    "@dev_preferences_environment_switch_subtitle": {
+        "description": "User dev preferences - Environment (prod/test) switcher - Subtitle",
+        "placeholders": {
+            "query": {
+                "type": "String"
+            }
+        }
+    },
+    "dev_preferences_test_environment_title": "Testmiljøparametre",
+    "@dev_preferences_test_environment_title": {
+        "description": "User dev preferences - Info about test environment - Title"
+    },
+    "dev_preferences_test_environment_subtitle": "Basis-URL for aktuelle testmiljø: {url}",
+    "@dev_preferences_test_environment_subtitle": {
+        "description": "User dev preferences - Info about test environment - Value",
+        "placeholders": {
+            "url": {
+                "type": "String"
+            }
+        }
+    },
+    "dev_preferences_test_environment_dialog_title": "Testmiljøvært",
+    "@dev_preferences_test_environment_dialog_title": {
+        "description": "User dev preferences - Info about test environment - Dialog title"
+    },
+    "dev_preferences_ml_kit_title": "Brug ML Kit",
+    "@dev_preferences_ml_kit_title": {
+        "description": "User dev preferences - Enable ML Kit - Title"
+    },
+    "dev_preferences_ml_kit_subtitle": "dernæst skal appen genstartes",
+    "@dev_preferences_ml_kit_subtitle": {
+        "description": "User dev preferences - Enable ML Kit - Subtitle"
+    },
+    "dev_preferences_product_additional_features_title": "Yderligere knap på produktsiden",
+    "@dev_preferences_product_additional_features_title": {
+        "description": "User dev preferences - Additional buttons on product page - Title"
+    },
+    "dev_preferences_edit_ingredients_title": "Redigér ingredienser via en videnspanelknap",
+    "@dev_preferences_edit_ingredients_title": {
+        "description": "User dev preferences - Additional buttons on product page - Subtitle"
+    },
+    "dev_preferences_export_history_title": "Eksportér historik",
+    "@dev_preferences_export_history_title": {
+        "description": "User dev preferences - Export history - Title"
+    },
+    "dev_preferences_reset_app_language": "Nulstil app-sprog",
+    "@dev_preferences_reset_app_language": {
+        "description": "User dev preferences - Reset App Language - Title"
+    },
+    "dev_preferences_export_history_progress_error": "undtagelse",
+    "@dev_preferences_export_history_progress_error": {
+        "description": "User dev preferences - Export history - Item - Error"
+    },
+    "dev_preferences_export_history_progress_found": "produkt fundet",
+    "@dev_preferences_export_history_progress_found": {
+        "description": "User dev preferences - Export history - Item - Found"
+    },
+    "dev_preferences_export_history_progress_not_found": "produkt IKKE fundet",
+    "@dev_preferences_export_history_progress_not_found": {
+        "description": "User dev preferences - Export history - Item - Not found"
+    },
+    "dev_preferences_export_history_dialog_title": "Eksporte historik",
+    "@dev_preferences_export_history_dialog_title": {
+        "description": "User dev preferences - Export history - Dialog title"
+    },
+    "dev_preferences_button_positive": "OK",
+    "@dev_preferences_button_positive": {
+        "description": "User dev preferences - Positive button label"
+    },
+    "dev_preferences_button_negative": "Annullér",
+    "@dev_preferences_button_negative": {
+        "description": "User dev preferences - Negative button label"
+    },
+    "dev_preferences_import_history_title": "Importere historik",
+    "@dev_preferences_import_history_title": {
+        "description": "User dev preferences - Import history - Title"
+    },
+    "dev_preferences_import_history_subtitle": "Rydder historikken og lægge 3 produkter i den",
+    "@dev_preferences_import_history_subtitle": {
+        "description": "User dev preferences - Import history - Subtitle"
+    },
+    "dev_preferences_import_history_result_success": "Færdiggjort",
+    "@dev_preferences_import_history_result_success": {
+        "description": "User dev preferences - Import history - Result successful"
+    },
+    "dev_mode_matching_mode_title": "Skift mellem streng og omtrentlig matchning",
+    "@dev_mode_matching_mode_title": {
+        "description": "User dev preferences - Matching mode - Title"
+    },
+    "dev_mode_matching_mode_subtitle": "Aktuelt matchningsniveau er {mode}",
+    "@dev_mode_matching_mode_subtitle": {
+        "description": "User dev preferences - Matching mode - Subtitle",
+        "placeholders": {
+            "mode": {
+                "type": "String"
+            }
+        }
+    },
+    "dev_mode_matching_mode_value_strong": "Striks",
+    "@dev_mode_matching_mode_value_strong": {
+        "description": "User dev preferences - Matching mode - Value - Strong"
+    },
+    "dev_mode_matching_mode_value_lenient": "Omtrentlig",
+    "@dev_mode_matching_mode_value_lenient": {
+        "description": "User dev preferences - Matching mode - Value - Lenient"
+    },
+    "dev_mode_scan_mode_title": "Skannningstilstand",
+    "@dev_mode_scan_mode_title": {
+        "description": "User dev preferences - Scan mode - Title"
+    },
+    "dev_mode_scan_mode_subtitle": "Aktuel scanningstilstand er: \"{mode}\"",
+    "@dev_mode_scan_mode_subtitle": {
+        "description": "User dev preferences - Scan mode - Subtitle",
+        "placeholders": {
+            "mode": {
+                "type": "String"
+            }
+        }
+    },
+    "dev_mode_scan_mode_dialog_title": "Skannningstilstand",
+    "@dev_mode_scan_mode_dialog_title": {
+        "description": "User dev preferences - Scan mode - Dialog Title"
+    },
+    "dev_mode_hide_ecoscore_title": "Udeluk ØkoScore",
+    "@dev_mode_hide_ecoscore_title": {
+        "description": "User dev preferences - Disable Ecoscore - Title"
+    },
+    "dev_mode_scan_camera_only": "Only camera stream, no scanning",
+    "@dev_mode_scan_camera_only": {
+        "description": "Scan mode - Camera only"
+    },
+    "dev_mode_scan_preprocess_full_image": "Camera stream and full image preprocessing, no scanning",
+    "@dev_mode_scan_preprocess_full_image": {
+        "description": "Scan mode - Preprocess full image"
+    },
+    "dev_mode_scan_preprocess_half_image": "Camera stream and half image preprocessing, no scanning",
+    "@dev_mode_scan_preprocess_half_image": {
+        "description": "Scan mode - Preprocess half image"
+    },
+    "dev_mode_scan_scan_full_image": "Fuldbilledskanning",
+    "@dev_mode_scan_scan_full_image": {
+        "description": "Scan mode - Scan full image"
+    },
+    "dev_mode_scan_scan_half_image": "Helvbilledskanning",
+    "@dev_mode_scan_scan_half_image": {
+        "description": "Scan mode - Scan half image"
+    },
+    "product_search_no_more_results": "Alle $totalSize produkter er downloadet.",
+    "@product_search_no_more_results": {
+        "description": "Product search list - No more results available",
+        "placeholders": {
+            "totalSize": {
+                "type": "int"
+            }
+        }
+    },
+    "product_search_button_download_more": "Download yderligere {count} produkter\nAllerede downloadet {downloaded} ud af {totalSize}.",
+    "@product_search_button_download_more": {
+        "description": "Product search list - Button to download more results",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            },
+            "downloaded": {
+                "type": "int"
+            },
+            "totalSize": {
+                "type": "int"
+            }
+        }
+    },
+    "edit_product_action_retake_picture": "Tag foto igen",
+    "@edit_product_action_retake_picture": {
+        "description": "Product edition - FAB actions - retake a picture"
+    },
+    "edit_product_action_take_picture": "Tag foto",
+    "@edit_product_action_take_picture": {
+        "description": "Product edition - FAB actions - take a picture"
+    },
+    "edit_product_action_confirm": "Bekræft",
+    "@edit_product_action_confirm": {
+        "description": "Product edition - FAB actions - confirm"
+    },
+    "signup_page_terms_of_use_line1": "Jeg accepterer Open Food Facts' ",
+    "@signup_page_terms_of_use_line1": {
+        "description": "User consent for terms of use (line 1)"
+    },
+    "signup_page_terms_of_use_line2": "vilkår for brug og bidrag",
+    "@signup_page_terms_of_use_line2": {
+        "description": "User consent for terms of use (line 2)"
+    },
+    "enable_dev_mode_dialog_title": "Klar til dev-tilstanden?",
+    "@enable_dev_mode_dialog_title": {
+        "description": "Dialog title to enable the developer mode"
+    },
+    "analytics_consent_image_semantic_label": "Analyseikon",
+    "@analytics_consent_image_semantic_label": {
+        "description": "Consent Analytics icon semantics label"
+    },
+    "knowledge_panel_page_loading_error": "Fatal fejl: {error}",
+    "@knowledge_panel_page_loading_error": {
+        "description": "Knowledge panel page template - Error while loading future",
+        "placeholders": {
+            "error": {
+                "type": "Object?"
+            }
+        }
+    },
+    "preferences_page_loading_error": "Fatal fejl: {error}",
+    "@preferences_page_loading_error": {
+        "description": "Preferences page - Error while loading future",
+        "placeholders": {
+            "error": {
+                "type": "Object?"
+            }
+        }
+    },
+    "summary_card_button_add_basic_details": "Udfyld basisoplysninger",
+    "@summary_card_button_add_basic_details": {
+        "description": "Summary card - Button to add details about the product"
+    },
+    "category_picker_screen_title": "Kategorier",
+    "@category_picker_screen_title": {
+        "description": "Categories picker screen title"
+    },
+    "basic_details": "Basisoplysninger",
+    "product_name": "Produktnavn",
+    "add_basic_details_product_name_error": "Angiv produktnavnet",
+    "brand_name": "Mærkenavn",
+    "add_basic_details_brand_name_error": "Angiv mærkenavnet",
+    "quantity": "Mængde og vægt",
+    "barcode": "Stregkode",
+    "basic_details_add_success": "Basisoplydninger tilføjet",
+    "basic_details_add_error": "Kan ikke tilføje basisoplydninger. Forsøg igen om lidt",
+    "@basic_details_add_error": {
+        "description": "Error message when error occurs while submitting basic details"
+    },
+    "confirm_clear": "Sikker på, at listen skal ryddes?",
+    "@confirm_clear": {
+        "description": "Asking about whether to clear the list or not"
+    },
+    "importance_label": "{name}-vigtighed: {id}",
+    "@importance_label": {
+        "description": "Used when user selects a food preference. example: Vegan importance; mandatory",
+        "placeholders": {
+            "name": {
+                "type": "String"
+            },
+            "id": {
+                "type": "String"
+            }
+        }
+    }
 }

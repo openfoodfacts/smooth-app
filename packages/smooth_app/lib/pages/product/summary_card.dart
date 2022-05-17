@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
+import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
+import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_page.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
@@ -23,6 +25,7 @@ import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/helpers/smooth_matched_product.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/question_page.dart';
 
@@ -45,6 +48,7 @@ class SummaryCard extends StatefulWidget {
     this.isFullVersion = false,
     this.showUnansweredQuestions = false,
     this.refreshProductCallback,
+    this.isRemovable = true,
   });
 
   final Product _product;
@@ -52,11 +56,16 @@ class SummaryCard extends StatefulWidget {
 
   /// If false, the card will be clipped to a smaller version so it can fit on
   /// smaller screens.
+  /// It should only be clickable in the full / in product page version
+  /// Buttons should only be visible in full mode
   final bool isFullVersion;
 
   /// If true, the summary card will try to load unanswered questions about this
   /// product and give a prompt to answer those questions.
   final bool showUnansweredQuestions;
+
+  /// If true, there will be a button to remove the product from the carousel.
+  final bool isRemovable;
 
   /// Callback to refresh the product when necessary.
   final Function(BuildContext)? refreshProductCallback;
@@ -82,20 +91,21 @@ class _SummaryCardState extends State<SummaryCard> {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints constraints) {
-      if (widget.isFullVersion) {
-        return buildProductSmoothCard(
-          header: _buildProductCompatibilityHeader(context),
-          body: Padding(
-            padding: SMOOTH_CARD_PADDING,
-            child: _buildSummaryCardContent(context),
-          ),
-          margin: EdgeInsets.zero,
-        );
-      } else {
-        return _buildLimitedSizeSummaryCard(constraints.maxHeight);
-      }
-    });
+      builder: (BuildContext context, BoxConstraints constraints) {
+        if (widget.isFullVersion) {
+          return buildProductSmoothCard(
+            header: _buildProductCompatibilityHeader(context),
+            body: Padding(
+              padding: SMOOTH_CARD_PADDING,
+              child: _buildSummaryCardContent(context),
+            ),
+            margin: EdgeInsets.zero,
+          );
+        } else {
+          return _buildLimitedSizeSummaryCard(constraints.maxHeight);
+        }
+      },
+    );
   }
 
   Widget _buildLimitedSizeSummaryCard(double parentHeight) {
@@ -138,7 +148,7 @@ class _SummaryCardState extends State<SummaryCard> {
                 ),
                 child: Center(
                   child: Text(
-                    AppLocalizations.of(context)!.tab_for_more,
+                    AppLocalizations.of(context).tab_for_more,
                     style:
                         Theme.of(context).primaryTextTheme.bodyText1?.copyWith(
                               color: PRIMARY_BLUE_COLOR,
@@ -155,7 +165,7 @@ class _SummaryCardState extends State<SummaryCard> {
 
   Widget _buildSummaryCardContent(BuildContext context) {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final AppLocalizations localizations = AppLocalizations.of(context)!;
+    final AppLocalizations localizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.read<UserPreferences>();
 
     final List<String> excludedAttributeIds =
@@ -222,7 +232,6 @@ class _SummaryCardState extends State<SummaryCard> {
         );
       }
     }
-
     final Widget attributesContainer = Container(
       alignment: Alignment.topLeft,
       margin: const EdgeInsets.only(bottom: 16),
@@ -243,52 +252,81 @@ class _SummaryCardState extends State<SummaryCard> {
     }
     final List<String> statesTags =
         widget._product.statesTags ?? List<String>.empty();
-    return Column(
-      children: <Widget>[
-        ProductTitleCard(widget._product, widget.isFullVersion),
-        for (final Attribute attribute in scoreAttributes)
-          ScoreCard(
-            iconUrl: attribute.iconUrl,
-            description:
-                attribute.descriptionShort ?? attribute.description ?? '',
-            cardEvaluation: getCardEvaluationFromAttribute(attribute),
-          ),
-        _buildProductQuestionsWidget(),
-        attributesContainer,
-        if (statesTags.contains('en:categories-to-be-completed'))
+
+    final List<Widget> summaryCardButtons = <Widget>[];
+
+    if (widget.isFullVersion) {
+      // Complete category
+      if (statesTags.contains('en:categories-to-be-completed')) {
+        summaryCardButtons.add(
           addPanelButton(localizations.score_add_missing_product_category,
               onPressed: () => _showNotImplemented(context)),
-        if (widget.isFullVersion)
-          if (categoryTag != null && categoryLabel != null)
-            addPanelButton(
-              localizations.product_search_same_category,
-              iconData: Icons.leaderboard,
-              onPressed: () async => ProductQueryPageHelper().openBestChoice(
-                color: Colors.deepPurple,
-                heroTag: 'search_bar',
-                name: categoryLabel!,
-                localDatabase: localDatabase,
-                productQuery: CategoryProductQuery(
-                  widget._product.categoriesTags!.last,
-                ),
-                context: context,
-              ),
-            ),
-        if ((statesTags.contains('en:product-name-to-be-completed')) ||
-            (statesTags.contains('en:quantity-to-be-completed')))
-          addPanelButton(localizations.completed_basic_details_btn_text,
-              onPressed: () => _showNotImplemented(context)),
-      ],
-    );
-  }
+        );
+      }
 
-  void _showNotImplemented(BuildContext context) {
-    final AppLocalizations localizations = AppLocalizations.of(context)!;
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(localizations.not_implemented_snackbar_text),
-        duration: const Duration(seconds: 2),
-      ),
+      // Compare to category
+      if (categoryTag != null && categoryLabel != null) {
+        summaryCardButtons.add(
+          addPanelButton(
+            localizations.product_search_same_category,
+            iconData: Icons.leaderboard,
+            onPressed: () async => ProductQueryPageHelper().openBestChoice(
+              color: Colors.deepPurple,
+              heroTag: 'search_bar',
+              name: categoryLabel!,
+              localDatabase: localDatabase,
+              productQuery: CategoryProductQuery(
+                widget._product.categoriesTags!.last,
+              ),
+              context: context,
+            ),
+          ),
+        );
+      }
+
+      // Complete basic details
+      if (statesTags.contains('en:product-name-to-be-completed') ||
+          statesTags.contains('en:quantity-to-be-completed')) {
+        summaryCardButtons.add(
+          addPanelButton(
+            localizations.completed_basic_details_btn_text,
+            onPressed: () async {
+              await Navigator.push<bool>(
+                context,
+                MaterialPageRoute<bool>(
+                  builder: (BuildContext context) =>
+                      AddBasicDetailsPage(widget._product),
+                ),
+              );
+            },
+          ),
+        );
+      }
+    }
+
+    return Column(
+      children: <Widget>[
+        ProductTitleCard(
+          widget._product,
+          widget.isFullVersion,
+          isRemovable: widget.isRemovable,
+        ),
+        for (final Attribute attribute in scoreAttributes)
+          InkWell(
+            onTap: () async => openFullKnowledgePanel(
+              attribute: attribute,
+            ),
+            child: ScoreCard(
+              iconUrl: attribute.iconUrl,
+              description:
+                  attribute.descriptionShort ?? attribute.description ?? '',
+              cardEvaluation: getCardEvaluationFromAttribute(attribute),
+            ),
+          ),
+        if (widget.isFullVersion) _buildProductQuestionsWidget(),
+        attributesContainer,
+        ...summaryCardButtons,
+      ],
     );
   }
 
@@ -300,9 +338,11 @@ class _SummaryCardState extends State<SummaryCard> {
     );
     final ProductCompatibilityHelper helper =
         ProductCompatibilityHelper(matchedProduct);
+    final bool isDarkMode =
+        Theme.of(context).colorScheme.brightness == Brightness.dark;
     return Container(
       decoration: BoxDecoration(
-        color: helper.getBackgroundColor(),
+        color: helper.getHeaderBackgroundColor(isDarkMode),
         // Ensure that the header has the same circular radius as the SmoothCard.
         borderRadius: const BorderRadius.only(
           topLeft: ROUNDED_RADIUS,
@@ -313,9 +353,11 @@ class _SummaryCardState extends State<SummaryCard> {
       padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
       child: Center(
         child: Text(
-          helper.getHeaderText(AppLocalizations.of(context)!),
-          style:
-              Theme.of(context).textTheme.subtitle1!.apply(color: Colors.white),
+          helper.getHeaderText(AppLocalizations.of(context)),
+          style: Theme.of(context)
+              .textTheme
+              .subtitle1!
+              .apply(color: helper.getHeaderForegroundColor(isDarkMode)),
         ),
       ),
     );
@@ -388,17 +430,26 @@ class _SummaryCardState extends State<SummaryCard> {
       return null;
     }
     return LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints constraints) {
-      return SizedBox(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        return SizedBox(
           width: constraints.maxWidth / 2,
-          child: Row(
+          child: InkWell(
+            enableFeedback: allowAttributeOpening(attribute),
+            onTap: () async => openFullKnowledgePanel(
+              attribute: attribute,
+            ),
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 attributeIcon,
                 Expanded(child: Text(attributeDisplayTitle).selectable()),
-              ]));
-    });
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
 
   /// Returns the mandatory attributes, ordered by attribute group order
@@ -417,6 +468,7 @@ class _SummaryCardState extends State<SummaryCard> {
         PreferenceImportance.ID_MANDATORY,
       );
     }
+
     // now ordering by attribute group order
     for (final String attributeGroupId in _ATTRIBUTE_GROUP_ORDER) {
       final List<Attribute>? attributes =
@@ -458,7 +510,7 @@ class _SummaryCardState extends State<SummaryCard> {
   }
 
   Widget _buildProductQuestionsWidget() {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return FutureBuilder<List<RobotoffQuestion>>(
         future: _loadProductQuestions(),
         builder: (
@@ -519,6 +571,9 @@ class _SummaryCardState extends State<SummaryCard> {
     // Or the backend may have new ones.
     final List<RobotoffQuestion> questions =
         await _loadProductQuestions() ?? <RobotoffQuestion>[];
+    if (!mounted) {
+      return;
+    }
     final RobotoffInsightHelper robotoffInsightHelper =
         RobotoffInsightHelper(context.read<LocalDatabase>());
     if (questions.isEmpty) {
@@ -529,6 +584,9 @@ class _SummaryCardState extends State<SummaryCard> {
         await robotoffInsightHelper.haveInsightAnnotationsVoted(questions);
     // Reload the product as it may have been updated because of the
     // new answers.
+    if (!mounted) {
+      return;
+    }
     widget.refreshProductCallback?.call(context);
   }
 
@@ -536,10 +594,52 @@ class _SummaryCardState extends State<SummaryCard> {
     final List<RobotoffQuestion> questions =
         await RobotoffQuestionsQuery(widget._product.barcode!)
             .getRobotoffQuestionsForProduct();
+
     final RobotoffInsightHelper robotoffInsightHelper =
+        //ignore: use_build_context_synchronously
         RobotoffInsightHelper(context.read<LocalDatabase>());
     _annotationVoted =
         await robotoffInsightHelper.haveInsightAnnotationsVoted(questions);
     return questions;
+  }
+
+  void _showNotImplemented(BuildContext context) {
+    final AppLocalizations localizations = AppLocalizations.of(context);
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(localizations.not_implemented_snackbar_text),
+        duration: const Duration(seconds: 2),
+      ),
+    );
+  }
+
+  bool allowAttributeOpening(Attribute attribute) =>
+      widget.isFullVersion &&
+      widget._product.knowledgePanels != null &&
+      attribute.panelId != null;
+
+  Future<void> openFullKnowledgePanel({
+    required final Attribute attribute,
+  }) async {
+    if (!allowAttributeOpening(attribute)) {
+      return;
+    }
+
+    final KnowledgePanel? knowledgePanel =
+        widget._product.knowledgePanels?.panelIdToPanelMap[attribute.panelId];
+
+    if (knowledgePanel == null) {
+      return;
+    }
+
+    Navigator.push<Widget>(
+      context,
+      MaterialPageRoute<Widget>(
+        builder: (BuildContext context) => KnowledgePanelPage(
+          panel: knowledgePanel,
+          allPanels: widget._product.knowledgePanels!,
+        ),
+      ),
+    );
   }
 }

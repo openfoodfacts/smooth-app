@@ -23,7 +23,7 @@ Smoothie. We pioneered the collaborative scanning app in 2012. With this experim
 
 This new mobile application aims to showcase Open Food Facts's power to a broad range of users through a smooth user experience and sleek user interface.
 
-<img height='175' src="https://fr.blog.openfoodfacts.org/images/smoothie2.jpg" align="left" hspace="1" vspace="1">
+<img height='175' src="https://user-images.githubusercontent.com/1689815/168430524-3adc923a-1ce3-4233-9af5-02e9d49a76ca.png" align="left" hspace="1" vspace="1">
 
 Smooth-app is developed in parallel to the [openfoodfacts-dart](https://github.com/openfoodfacts/openfoodfacts-dart) plugin, which provides a high level interface with the Open Food Facts API.
 Every new interaction with the API should be implemented in the plugin in order to provide these new features to other developers.
@@ -43,7 +43,8 @@ We are always looking for new contributors, if you're willing to help please let
 - [Smoothie marketing automation repository](https://github.com/openfoodfacts/fastlane-descriptions-smoothie/pulls)
 - [UX mockups are located here](https://www.figma.com/file/lhRhMulB4Ek9NYDWl3FxAo/Fellowship-Jam-file?node-id=12%3A358). Please be aware that some of them have not been validated, so don't rush in implementing them. 
 - [Continuous Integration documentation](.github/workflows/README.md)
-
+- [Smoothie Landing page](https://github.com/openfoodfacts/smoothielanding)
+- Private app signing for iOS certificates repository - please ask @teolemon
 ## V1 Roadmap
 - [ ] Minimal editing/addition value proposition
 - [ ] [V1 tracking](https://github.com/orgs/openfoodfacts/projects/7)

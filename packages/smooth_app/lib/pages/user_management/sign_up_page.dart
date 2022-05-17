@@ -40,10 +40,9 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Size size = MediaQuery.of(context).size;
 
-    // TODO(monsieurtanuki): translations
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -187,7 +186,6 @@ class _SignUpPageState extends State<SignUpPage> {
               title: RichText(
                 text: TextSpan(
                   children: <InlineSpan>[
-                    // TODO(monsieurtanuki): refactor
                     TextSpan(
                       text: appLocalizations.sign_up_page_agree_text,
                       style: TextStyle(color: theme.colorScheme.onBackground),
@@ -202,10 +200,10 @@ class _SignUpPageState extends State<SignUpPage> {
                         ..onTap = () async {
                           final String url =
                               appLocalizations.sign_up_page_agree_url;
-                          if (await canLaunch(url)) {
-                            await launch(
-                              url,
-                              forceSafariVC: false,
+                          if (await canLaunchUrl(Uri.parse(url))) {
+                            await launchUrl(
+                              Uri.parse(url),
+                              mode: LaunchMode.platformDefault,
                             );
                           }
                         },
@@ -264,13 +262,6 @@ class _SignUpPageState extends State<SignUpPage> {
             const SizedBox(height: space),
             ElevatedButton(
               onPressed: () async => _signUp(),
-              child: Text(
-                appLocalizations.sign_up_page_action_button,
-                style: theme.textTheme.bodyText2?.copyWith(
-                  fontSize: 18.0,
-                  color: theme.colorScheme.surface,
-                ),
-              ),
               style: ButtonStyle(
                 minimumSize: MaterialStateProperty.all<Size>(
                   Size(size.width * 0.5, theme.buttonTheme.height + 10),
@@ -279,6 +270,13 @@ class _SignUpPageState extends State<SignUpPage> {
                   const RoundedRectangleBorder(
                     borderRadius: CIRCULAR_BORDER_RADIUS,
                   ),
+                ),
+              ),
+              child: Text(
+                appLocalizations.sign_up_page_action_button,
+                style: theme.textTheme.bodyText2?.copyWith(
+                  fontSize: 18.0,
+                  color: theme.colorScheme.surface,
                 ),
               ),
             ),
@@ -308,7 +306,7 @@ class _SignUpPageState extends State<SignUpPage> {
         newsletter: _subscribe,
         orgName: _foodProducer ? _brandController.trimmedText : null,
       ),
-      title: AppLocalizations.of(context)!.sign_up_page_action_doing_it,
+      title: AppLocalizations.of(context).sign_up_page_action_doing_it,
     );
     if (status == null) {
       // probably the end user stopped the dialog
@@ -318,18 +316,24 @@ class _SignUpPageState extends State<SignUpPage> {
       await LoadingDialog.error(context: context, title: status.error);
       return;
     }
+    if (!mounted) {
+      return;
+    }
     await context.read<UserManagementProvider>().putUser(user);
     await showDialog<void>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
-        body: Text(AppLocalizations.of(context)!.sign_up_page_action_ok),
+        body: Text(AppLocalizations.of(context).sign_up_page_action_ok),
         actions: <SmoothActionButton>[
           SmoothActionButton(
-              text: AppLocalizations.of(context)!.okay,
+              text: AppLocalizations.of(context).okay,
               onPressed: () => Navigator.of(context).pop()),
         ],
       ),
     );
+    if (!mounted) {
+      return;
+    }
     Navigator.of(context).pop<bool>(true);
   }
 }
