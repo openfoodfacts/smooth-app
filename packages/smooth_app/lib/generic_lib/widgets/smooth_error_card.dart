@@ -35,12 +35,12 @@ class _SmoothErrorCardState extends State<SmoothErrorCard> {
         horizontal: _horizontalPaddingButtons,
       ),
       child: SmoothSimpleButton(
+        onPressed: widget.tryAgainFunction,
+        minWidth: double.infinity,
         child: Text(
           _appLocalizations.try_again,
           style: _buttonsTextStyle,
         ),
-        onPressed: widget.tryAgainFunction,
-        minWidth: double.infinity,
       ),
     );
   }
@@ -96,12 +96,12 @@ class _SmoothErrorCardState extends State<SmoothErrorCard> {
         horizontal: _horizontalPaddingButtons,
       ),
       child: SmoothSimpleButton(
+        onPressed: _setShowErrorText,
+        minWidth: double.infinity,
         child: Text(
           _appLocalizations.learnMore,
           style: _buttonsTextStyle,
         ),
-        onPressed: _setShowErrorText,
-        minWidth: double.infinity,
       ),
     );
   }
@@ -139,7 +139,7 @@ class _SmoothErrorCardState extends State<SmoothErrorCard> {
 
   @override
   Widget build(BuildContext context) {
-    _appLocalizations = AppLocalizations.of(context)!;
+    _appLocalizations = AppLocalizations.of(context);
 
     return Center(
       child: SmoothCard(
