@@ -74,7 +74,6 @@ dev_dependencies:
     sdk: flutter
   mockito: ^5.1.0
   path: ^1.8.0 # careful with 1.8.1 because of https://github.com/flutter/flutter/issues/95478
-  path_provider: ^2.0.9
 
 # 'flutter pub run flutter_launcher_icons:main' to update
 flutter_icons:
