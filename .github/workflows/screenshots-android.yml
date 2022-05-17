@@ -73,7 +73,7 @@ jobs:
           target: default
           arch: x86_64
           script: yes | flutter doctor --android-licenses \
-            && cd ./packages/smooth_app/
+            && cd ./packages/smooth_app/ \
             && flutter drive -d emulator-5554 \
             --driver=test_driver/screenshot_driver.dart \
             --target=integration_test/app_test.dart \
