@@ -398,14 +398,12 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
     Color currentColor,
     UserPreferences userPreferences,
   ) async {
-    // ValueChanged<Color> callback
     void changeColor(Color color) {
       currentColor = color;
     }
 
     final ThemeProvider themeProvider = context.read<ThemeProvider>();
 
-    // raise the [showDialog] widget
     final bool? apply = await showDialog<bool>(
       context: context,
       builder: (BuildContext context) {
