@@ -890,7 +890,7 @@
     "user_list_name_error_same": "That is the same name",
     "@user_list_name_error_same": {
         "description": "Validation error about the renamed name that is the same as the initial list name"
-    },
+    }, 
     "category_picker_no_category_found_message": "No category found for {items}",
     "@category_picker_no_category_found_message": {
         "description": "Label when no category is available",
@@ -1150,6 +1150,8 @@
     "@category_picker_screen_title": {
         "description": "Categories picker screen title"
     },
+    "try_again": "Tentar novamente",
+    "there_was_an_error": "Houve um erro",
     "basic_details": "Detalhes Básicos",
     "product_name": "Nome do Produto",
     "add_basic_details_product_name_error": "Por favor, digite o nome do produto",
