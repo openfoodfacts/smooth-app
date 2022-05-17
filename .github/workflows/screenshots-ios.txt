@@ -5,6 +5,10 @@ on:
       - 'screenshots/*'
 
 jobs:
+  strategy:
+    matrix:
+      device: # Device names must be shown in `xcrun simctl list devices`
+        - 'iPhone 12'  # we are not specifying the iOS version as it tends to change
   build-for-screenshots:
     name: Build the app
     runs-on: macos-latest
