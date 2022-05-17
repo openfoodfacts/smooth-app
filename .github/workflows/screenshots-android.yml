@@ -67,10 +67,12 @@ jobs:
           # &optional
         #--disable-gpu
       - name: Generate screenshots
+        timeout-minutes: 30
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 30
-          target: default
+          #target: default
+          emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim
           arch: x86_64
           script: yes | flutter doctor --android-licenses \
             && cd ./packages/smooth_app/ \
