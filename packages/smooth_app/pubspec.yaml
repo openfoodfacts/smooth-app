@@ -56,7 +56,6 @@ dependencies:
       ref: master
   image_cropper: ^2.0.2
   auto_size_text: ^3.0.0
-  path_provider: ^2.0.9
   shared_preferences: ^2.0.15
   typed_data: ^1.3.0 # careful with 1.3.1 because of flutter_driver dependence
   intl: ^0.17.0
