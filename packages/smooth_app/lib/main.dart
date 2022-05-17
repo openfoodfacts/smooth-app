@@ -22,6 +22,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
+import 'package:smooth_app/helpers/color_extension.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -201,10 +202,12 @@ class _SmoothAppState extends State<SmoothApp> {
       theme: SmoothTheme.getThemeData(
         Brightness.light,
         themeProvider.colorTag,
+        ColorExtention.fromPreferencesString(_userPreferences.customColor),
       ),
       darkTheme: SmoothTheme.getThemeData(
         Brightness.dark,
         themeProvider.colorTag,
+        ColorExtention.fromPreferencesString(_userPreferences.customColor),
       ),
       themeMode: themeProvider.currentThemeMode,
       home: SmoothAppGetLanguage(appWidget),

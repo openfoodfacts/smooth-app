@@ -84,7 +84,7 @@ packages:
       name: camera
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.9.5"
+    version: "0.9.5+1"
   camera_platform_interface:
     dependency: transitive
     description:
@@ -193,9 +193,11 @@ packages:
   device_preview:
     dependency: "direct main"
     description:
-      name: device_preview
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: device_preview
+      ref: HEAD
+      resolved-ref: "73c91514e5ab092bb7f911acc8a447e07e751120"
+      url: "https://github.com/monkeydaichan/flutter_device_preview.git"
+    source: git
     version: "1.0.0"
   fake_async:
     dependency: transitive
@@ -230,6 +232,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_colorpicker:
+    dependency: "direct main"
+    description:
+      name: flutter_colorpicker
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.3"
   flutter_driver:
     dependency: "direct dev"
     description: flutter
@@ -274,7 +283,7 @@ packages:
       name: flutter_native_splash
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.6"
+    version: "2.2.0+1"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -396,7 +405,7 @@ packages:
       name: hive
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.0"
+    version: "2.2.0"
   hive_flutter:
     dependency: "direct main"
     description:
@@ -438,14 +447,14 @@ packages:
       name: image_cropper
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.2"
+    version: "2.0.3"
   image_cropper_for_web:
     dependency: transitive
     description:
       name: image_cropper_for_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.3"
+    version: "0.0.4"
   image_cropper_platform_interface:
     dependency: transitive
     description:
@@ -604,7 +613,7 @@ packages:
       name: mockito
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.1.0"
+    version: "5.2.0"
   modal_bottom_sheet:
     dependency: "direct main"
     description:

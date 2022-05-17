@@ -10,7 +10,9 @@ class ThemeProvider with ChangeNotifier {
   ThemeProvider(this._userPreferences);
 
   final UserPreferences _userPreferences;
+
   String get currentTheme => _userPreferences.currentTheme;
+
   ThemeMode get currentThemeMode {
     if (_userPreferences.currentTheme == THEME_SYSTEM_DEFAULT) {
       return ThemeMode.system;
@@ -44,4 +46,8 @@ class ThemeProvider with ChangeNotifier {
       ? Colors.grey
       : SmoothTheme.MATERIAL_COLORS[colorTag] ??
           SmoothTheme.MATERIAL_COLORS[SmoothTheme.COLOR_TAG_BLUE]!;
+
+  void notify() {
+    notifyListeners();
+  }
 }
