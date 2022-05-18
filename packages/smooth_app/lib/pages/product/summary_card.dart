@@ -25,6 +25,7 @@ import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/helpers/smooth_matched_product.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/question_page.dart';
@@ -350,15 +351,36 @@ class _SummaryCardState extends State<SummaryCard> {
         ),
       ),
       alignment: Alignment.topLeft,
-      padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
-      child: Center(
-        child: Text(
-          helper.getHeaderText(AppLocalizations.of(context)),
-          style: Theme.of(context)
-              .textTheme
-              .subtitle1!
-              .apply(color: helper.getHeaderForegroundColor(isDarkMode)),
-        ),
+      padding: const EdgeInsets.symmetric(
+          vertical: SMALL_SPACE, horizontal: SMALL_SPACE),
+      child: Row(
+        children: <Widget>[
+          const Icon(
+            Icons.settings,
+            color: Colors.transparent,
+          ),
+          Expanded(
+            child: Center(
+              child: Text(helper.getHeaderText(AppLocalizations.of(context)),
+                  style: Theme.of(context).textTheme.subtitle1),
+            ),
+          ),
+          IconButton(
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(),
+            icon: const Icon(
+              Icons.settings,
+            ),
+            onPressed: () async => Navigator.push<Widget>(
+              context,
+              MaterialPageRoute<Widget>(
+                builder: (BuildContext context) => const UserPreferencesPage(
+                  type: PreferencePageType.FOOD,
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
