@@ -26,7 +26,7 @@ Future<File?> startImageCropping(BuildContext context,
     if (pickedXFile == null) {
       return null;
     }
-}
+   }
   final CroppedFile? croppedFile = await ImageCropper().cropImage(
     sourcePath: existingImage?.path ?? pickedXFile!.path,
     aspectRatioPresets: <CropAspectRatioPreset>[
