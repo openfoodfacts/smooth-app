@@ -7,6 +7,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
+import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_gauge.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/confirm_and_upload_picture.dart';
@@ -79,68 +80,48 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
         title: Text(title),
       ),
       backgroundColor: Colors.black,
-      floatingActionButton: widget.barcode != null
-          ? FloatingActionButton(
-              child: const Icon(Icons.edit),
-              backgroundColor: Theme.of(context).colorScheme.primary,
-              onPressed: () async {
-                final int? currentIndex = _controller.page?.toInt();
-                if (currentIndex == null && currentIndex! >= images.length) {
-                  return;
-                }
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.edit),
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        onPressed: () async {
+          final int? currentIndex = _controller.page?.toInt();
+          if (currentIndex == null && currentIndex! >= images.length) {
+            return;
+          }
 
-                final ProductImageData currentImage = images[currentIndex];
-                if (currentImage.imageUrl == null) {
-                  return;
-                }
+          final ProductImageData currentImage = images[currentIndex];
+          if (currentImage.imageUrl == null) {
+            return;
+          }
 
-                showDialog<void>(
-                  context: context,
-                  builder: (BuildContext context) => AlertDialog(
-                    content: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.min,
-                      children: const <Widget>[
-                        SizedBox(
-                          width: 80.0,
-                          height: 80.0,
-                          child: CircularProgressIndicator(),
-                        ),
-                      ],
-                    ),
-                  ),
-                );
+          final File? imageFile = await LoadingDialog.run<File>(
+              context: context,
+              future: _getCurrentImageFile(currentImage.imageUrl!));
 
-                final http.Response response =
-                    await http.get(Uri.parse(currentImage.imageUrl!));
-                final Directory tempDirectory = await getTemporaryDirectory();
-                final File imageFile =
-                    await File('${tempDirectory.path}/editing_image')
-                        .writeAsBytes(response.bodyBytes);
+          if (imageFile == null) {
+            return;
+          }
 
-                Navigator.of(context, rootNavigator: true).pop();
+          final File? newImage =
+              await startImageCropping(context, existingImage: imageFile);
+          if (newImage == null) {
+            return;
+          }
 
-                final File? newImage =
-                    await startImageCropping(context, existingImage: imageFile);
-                if (newImage == null) {
-                  return;
-                }
+          await Navigator.push<File?>(
+            context,
+            MaterialPageRoute<File?>(
+              builder: (BuildContext context) => ConfirmAndUploadPicture(
+                barcode: widget.barcode!,
+                imageType: currentImage.imageField,
+                initialPhoto: newImage,
+              ),
+            ),
+          );
 
-                await Navigator.push<File?>(
-                  context,
-                  MaterialPageRoute<File?>(
-                    builder: (BuildContext context) => ConfirmAndUploadPicture(
-                      barcode: widget.barcode!,
-                      imageType: currentImage.imageField,
-                      initialPhoto: newImage,
-                    ),
-                  ),
-                );
-
-                newImage.delete();
-              },
-            )
-          : null,
+          newImage.delete();
+        },
+      ),
       body: PhotoViewGallery.builder(
         pageController: _controller,
         scrollPhysics: const BouncingScrollPhysics(),
@@ -178,5 +159,14 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
         },
       ),
     );
+  }
+
+  Future<File> _getCurrentImageFile(String url) async {
+    final http.Response response = await http.get(Uri.parse(url));
+    final Directory tempDirectory = await getTemporaryDirectory();
+    final File imageFile = await File('${tempDirectory.path}/editing_image')
+        .writeAsBytes(response.bodyBytes);
+
+    return imageFile;
   }
 }
