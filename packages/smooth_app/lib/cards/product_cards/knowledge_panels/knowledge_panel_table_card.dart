@@ -275,16 +275,16 @@ class _TableCellWidgetState extends State<TableCellWidget> {
       style = style.apply(color: widget.cell.color);
     }
     if (widget.cell.isHeader && widget.cell.columnGroup!.columns.length == 1) {
-      return _buildHtmlCell(padding, style, false);
+      return _buildHtmlCell(padding, style, isSelectable: false);
     } else if (!widget.cell.isHeader ||
         widget.cell.columnGroup!.columns.length == 1) {
-      return _buildHtmlCell(padding, style, true);
+      return _buildHtmlCell(padding, style, isSelectable: true);
     }
     return _buildDropDownColumnHeader(padding, style);
   }
 
-  Widget _buildHtmlCell(
-      EdgeInsets padding, TextStyle style, bool isSelectable) {
+  Widget _buildHtmlCell(EdgeInsets padding, TextStyle style,
+      {required bool isSelectable}) {
     String cellText = widget.cell.text;
     if (!_isExpanded) {
       const String htmlStyle = '''
