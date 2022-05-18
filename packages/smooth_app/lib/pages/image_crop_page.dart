@@ -19,7 +19,7 @@ Future<File?> startImageCropping(BuildContext context,
   late XFile? pickedXFile;
   if (existingImage == null) {
     final ImagePicker picker = ImagePicker();
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    #final AppLocalizations appLocalizations = AppLocalizations.of(context);
     pickedXFile = await picker.pickImage(
       source: ImageSource.camera,
     );
