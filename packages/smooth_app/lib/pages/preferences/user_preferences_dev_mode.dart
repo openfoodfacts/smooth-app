@@ -41,7 +41,6 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
 
   static const String userPreferencesFlagProd = '__devWorkingOnProd';
   static const String userPreferencesTestEnvHost = '__testEnvHost';
-  static const String userPreferencesFlagUseMLKit = '__useMLKit';
   static const String userPreferencesFlagStrongMatching = '__lenientMatching';
   static const String userPreferencesFlagAdditionalButton =
       '__additionalButtonOnProductPage';
@@ -125,19 +124,6 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             ),
           ),
           onTap: () async => _changeTestEnvHost(),
-        ),
-        SwitchListTile(
-          title: Text(
-            appLocalizations.dev_preferences_ml_kit_title,
-          ),
-          subtitle: Text(
-            appLocalizations.dev_preferences_ml_kit_subtitle,
-          ),
-          value: userPreferences.getFlag(userPreferencesFlagUseMLKit) ?? true,
-          onChanged: (bool value) async {
-            await userPreferences.setFlag(userPreferencesFlagUseMLKit, value);
-            _showSuccessMessage();
-          },
         ),
         ListTile(
           title: const Text('Change camera post frame callback duration'),
