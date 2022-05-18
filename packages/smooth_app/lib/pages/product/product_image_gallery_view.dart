@@ -81,7 +81,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
       ),
       backgroundColor: Colors.black,
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.edit),
+        child: const Icon(Icons.crop),
         backgroundColor: Theme.of(context).colorScheme.primary,
         onPressed: () async {
           final int? currentIndex = _controller.page?.toInt();
