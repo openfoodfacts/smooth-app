@@ -4,10 +4,12 @@ import 'package:fwfh_selectable_text/fwfh_selectable_text.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 
 class SmoothHtmlWidget extends StatelessWidget {
-  const SmoothHtmlWidget(this.htmlString, {this.textStyle});
+  const SmoothHtmlWidget(this.htmlString,
+      {this.textStyle, this.isSelectable = true});
 
   final String htmlString;
   final TextStyle? textStyle;
+  final bool isSelectable;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,8 @@ class SmoothHtmlWidget extends StatelessWidget {
         await LaunchUrlHelper.launchURL(url, false);
         return true;
       },
-      factoryBuilder: () => SelectableHtmlWidgetFactory(),
+      factoryBuilder: () =>
+          isSelectable ? SelectableHtmlWidgetFactory() : WidgetFactory(),
       enableCaching: false,
     );
   }
