@@ -287,7 +287,7 @@
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "הפרופיל שלך",
-    "myPreferences_profile_subtitle": "החלפת הגדרה ביישומון מציעה עצה.",
+    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
     "myPreferences_settings_title": "הגדרות היישומון",
     "myPreferences_settings_subtitle": "מצב כהה, ערכת עיצוב…",
     "myPreferences_food_title": "העדפות מזון",
@@ -1166,7 +1166,7 @@
     "@confirm_clear": {
         "description": "Asking about whether to clear the list or not"
     },
-    "importance_label": "{name} importance: {id}",
+    "importance_label": "חשיבות {name}: {id}",
     "@importance_label": {
         "description": "Used when user selects a food preference. example: Vegan importance; mandatory",
         "placeholders": {

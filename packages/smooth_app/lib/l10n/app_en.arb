@@ -287,7 +287,7 @@
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "Your Profile",
-    "myPreferences_profile_subtitle": "Change app settings and get advice.",
+    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
     "myPreferences_settings_title": "App Settings",
     "myPreferences_settings_subtitle": "Dark mode, Theme, ...",
     "myPreferences_food_title": "Food Preferences",
@@ -629,7 +629,7 @@
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, other{Compare {count} Products}",
+    "plural_compare_x_products": "{count,plural, =1{Compare one Product} other{Compare {count} Products}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {
@@ -891,6 +891,14 @@
     "@user_list_name_error_same": {
         "description": "Validation error about the renamed name that is the same as the initial list name"
     },
+    "try_again": "Try Again",
+    "@try_again":{
+        "description": "Label for buttons that try to repeat a failed action"
+    },
+    "there_was_an_error": "There was an error",
+    "@there_was_an_error":{
+        "description": "Label that presents a error"
+    },
     "category_picker_no_category_found_message": "No category found for {items}",
     "@category_picker_no_category_found_message": {
         "description": "Label when no category is available",
@@ -1072,7 +1080,7 @@
     "@dev_mode_scan_scan_half_image": {
         "description": "Scan mode - Scan half image"
     },
-    "product_search_no_more_results": "You've downloaded all the $totalSize products.",
+    "product_search_no_more_results": "You've downloaded all the {totalSize} products.",
     "@product_search_no_more_results": {
         "description": "Product search list - No more results available",
         "placeholders": {
