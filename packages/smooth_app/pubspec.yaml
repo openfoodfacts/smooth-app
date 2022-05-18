@@ -45,15 +45,11 @@ dependencies:
   sentry_flutter: ^6.5.1 # careful with upgrading cf: https://github.com/openfoodfacts/smooth-app/issues/1300
   url_launcher: ^6.1.2
   visibility_detector: ^0.3.3
-  camera: ^0.9.5
+  camera: ^0.9.5+1
   percent_indicator: ^4.2.2
   mailto: ^2.0.0
   flutter_native_splash: ^2.1.6
-  # Fork from cli1005 with iOS fix cf: https://github.com/openfoodfacts/smooth-app/issues/1155
-  google_ml_barcode_scanner:
-    git:
-      url: https://github.com/cli1005/google_ml_barcode_scanner.git
-      ref: master
+  google_mlkit_barcode_scanning: ^0.3.0
   image_cropper: ^2.0.2
   auto_size_text: ^3.0.0
   shared_preferences: ^2.0.15

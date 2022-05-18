@@ -1,7 +1,8 @@
 import 'dart:typed_data';
+
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:google_ml_barcode_scanner/google_ml_barcode_scanner.dart';
+import 'package:google_mlkit_barcode_scanning/google_mlkit_barcode_scanning.dart';
 
 /// Abstract getter of Camera Image, for barcode scan.
 ///
@@ -14,12 +15,12 @@ abstract class AbstractCameraImageGetter {
 
   InputImage getInputImage() {
     final InputImageRotation imageRotation =
-        InputImageRotationMethods.fromRawValue(
+        InputImageRotationValue.fromRawValue(
                 cameraDescription.sensorOrientation) ??
-            InputImageRotation.Rotation_0deg;
+            InputImageRotation.rotation0deg;
 
     final InputImageFormat inputImageFormat =
-        InputImageFormatMethods.fromRawValue(
+        InputImageFormatValue.fromRawValue(
       int.parse(cameraImage.format.raw.toString()),
     )!;
 

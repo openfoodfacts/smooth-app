@@ -84,7 +84,7 @@ packages:
       name: camera
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.9.5"
+    version: "0.9.5+1"
   camera_platform_interface:
     dependency: transitive
     description:
@@ -381,15 +381,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.2"
-  google_ml_barcode_scanner:
+  google_mlkit_barcode_scanning:
     dependency: "direct main"
     description:
-      path: "."
-      ref: master
-      resolved-ref: "5427e2a735be24b5f6b646a2554c636845ce9597"
-      url: "https://github.com/cli1005/google_ml_barcode_scanner.git"
-    source: git
-    version: "0.0.2"
+      name: google_mlkit_barcode_scanning
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.3.0"
+  google_mlkit_commons:
+    dependency: transitive
+    description:
+      name: google_mlkit_commons
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.0"
   hive:
     dependency: "direct main"
     description:
