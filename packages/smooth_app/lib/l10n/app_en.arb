@@ -891,6 +891,14 @@
     "@user_list_name_error_same": {
         "description": "Validation error about the renamed name that is the same as the initial list name"
     },
+    "try_again": "Try Again",
+    "@try_again":{
+        "description": "Label for buttons that try to repeat a failed action"
+    },
+    "there_was_an_error": "There was an error",
+    "@there_was_an_error":{
+        "description": "Label that presents a error"
+    },
     "category_picker_no_category_found_message": "No category found for {items}",
     "@category_picker_no_category_found_message": {
         "description": "Label when no category is available",
