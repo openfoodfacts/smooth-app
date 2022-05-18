@@ -68,8 +68,6 @@ class _AllUserProductListState extends State<AllUserProductList> {
               },
             ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        foregroundColor: Theme.of(context).colorScheme.onPrimary,
         onPressed: () async {
           final ProductList? newProductList =
               await ProductListUserDialogHelper(daoProductList)

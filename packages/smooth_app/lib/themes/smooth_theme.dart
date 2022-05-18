@@ -122,8 +122,8 @@ class SmoothTheme {
       ),
       textTheme: _TEXT_THEME,
       floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor: myColorScheme.secondary,
-        foregroundColor: myColorScheme.onSecondary,
+        backgroundColor: myColorScheme.primary,
+        foregroundColor: myColorScheme.onPrimary,
       ),
       appBarTheme: AppBarTheme(
         color: brightness == Brightness.dark ? null : myColorScheme.primary,
