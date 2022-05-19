@@ -93,10 +93,10 @@ abstract class AbstractUserPreferences {
 
   /// Returns a slightly different version of [getContent] for the onboarding.
   List<Widget> getOnboardingContent() {
-    final List<Widget> result = <Widget>[];
-    result.add(getHeaderHelper(null));
-    result.addAll(getBody());
-    return result;
+    return <Widget>[
+      getHeaderHelper(null),
+      ...getBody(),
+    ];
   }
 
   /// Returns the action when we tap on the header.

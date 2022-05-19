@@ -60,5 +60,9 @@ class CameraHelper {
     _controller ??= controller;
   }
 
+  static void destroyControllerInstance() {
+    _controller = null;
+  }
+
   static SmoothCameraController? get controller => _controller;
 }

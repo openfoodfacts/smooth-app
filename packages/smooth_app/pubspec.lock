@@ -123,12 +123,14 @@ packages:
   camera:
     dependency: "direct main"
     description:
-      name: camera
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "packages/camera/camera"
+      ref: camera_fix_debug
+      resolved-ref: "175e5acdcf9ef198819d953a29700450aca8e7a8"
+      url: "https://github.com/g123k/plugins.git"
+    source: git
     version: "0.9.6"
   camera_platform_interface:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: camera_platform_interface
       url: "https://pub.dartlang.org"
