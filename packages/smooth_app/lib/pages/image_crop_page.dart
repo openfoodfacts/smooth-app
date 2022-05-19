@@ -15,18 +15,19 @@ Future<File?> startImageCropping(BuildContext context,
       ? Colors.black
       : Theme.of(context).appBarTheme.backgroundColor;
   final Color widgetColor = isDarktheme ? Colors.white : Colors.black;
+  final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
   late XFile? pickedXFile;
   if (existingImage == null) {
     final ImagePicker picker = ImagePicker();
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     pickedXFile = await picker.pickImage(
       source: ImageSource.camera,
     );
     if (pickedXFile == null) {
       return null;
     }
-   }
+  }
+
   final CroppedFile? croppedFile = await ImageCropper().cropImage(
     sourcePath: existingImage?.path ?? pickedXFile!.path,
     aspectRatioPresets: <CropAspectRatioPreset>[

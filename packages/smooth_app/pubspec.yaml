@@ -74,7 +74,6 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   mockito: ^5.1.0
-  path: ^1.8.0 # careful with 1.8.1 because of https://github.com/flutter/flutter/issues/95478
   path_provider_platform_interface: ^2.0.4
   plugin_platform_interface: ^2.1.2
 

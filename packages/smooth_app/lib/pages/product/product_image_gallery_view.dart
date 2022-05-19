@@ -81,7 +81,6 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
       ),
       backgroundColor: Colors.black,
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.crop),
         backgroundColor: Theme.of(context).colorScheme.primary,
         onPressed: () async {
           final int? currentIndex = _controller.page?.toInt();
@@ -102,12 +101,17 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
             return;
           }
 
+          if (!mounted) {
+            return;
+          }
+
           final File? newImage =
               await startImageCropping(context, existingImage: imageFile);
           if (newImage == null) {
             return;
           }
 
+          // ignore: use_build_context_synchronously
           await Navigator.push<File?>(
             context,
             MaterialPageRoute<File?>(
@@ -121,6 +125,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
 
           newImage.delete();
         },
+        child: const Icon(Icons.crop),
       ),
       body: PhotoViewGallery.builder(
         pageController: _controller,
