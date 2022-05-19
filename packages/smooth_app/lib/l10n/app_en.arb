@@ -629,7 +629,7 @@
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, other{Compare {count} Products}",
+    "plural_compare_x_products": "{count,plural, =1{Compare one Product} other{Compare {count} Products}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {
@@ -890,6 +890,14 @@
     "user_list_name_error_same": "That is the same name",
     "@user_list_name_error_same": {
         "description": "Validation error about the renamed name that is the same as the initial list name"
+    },
+    "try_again": "Try Again",
+    "@try_again":{
+        "description": "Label for buttons that try to repeat a failed action"
+    },
+    "there_was_an_error": "There was an error",
+    "@there_was_an_error":{
+        "description": "Label that presents a error"
     },
     "category_picker_no_category_found_message": "No category found for {items}",
     "@category_picker_no_category_found_message": {

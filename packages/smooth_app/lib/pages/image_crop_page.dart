@@ -7,25 +7,29 @@ import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
-Future<File?> startImageCropping(BuildContext context) async {
+Future<File?> startImageCropping(BuildContext context,
+    {File? existingImage}) async {
   final bool isDarktheme =
       Provider.of<ThemeProvider>(context, listen: false).isDarkMode(context);
   final Color? themeColor = isDarktheme
       ? Colors.black
       : Theme.of(context).appBarTheme.backgroundColor;
   final Color widgetColor = isDarktheme ? Colors.white : Colors.black;
-
-  final ImagePicker picker = ImagePicker();
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
-  final XFile? pickedXFile = await picker.pickImage(
-    source: ImageSource.camera,
-  );
-  if (pickedXFile == null) {
-    return null;
+
+  late XFile? pickedXFile;
+  if (existingImage == null) {
+    final ImagePicker picker = ImagePicker();
+    pickedXFile = await picker.pickImage(
+      source: ImageSource.camera,
+    );
+    if (pickedXFile == null) {
+      return null;
+    }
   }
 
   final CroppedFile? croppedFile = await ImageCropper().cropImage(
-    sourcePath: pickedXFile.path,
+    sourcePath: existingImage?.path ?? pickedXFile!.path,
     aspectRatioPresets: <CropAspectRatioPreset>[
       CropAspectRatioPreset.square,
       CropAspectRatioPreset.ratio3x2,

@@ -1,14 +1,14 @@
 {
     "@Utils": {},
-    "yes": "Da",
+    "yes": "Yes",
     "@yes": {},
-    "add": "Dodajte",
+    "add": "Додај",
     "@add": {},
-    "okay": "U redu",
+    "okay": "Okay",
     "@okay": {},
-    "applyButtonText": "Primeni",
+    "applyButtonText": "Apply",
     "@applyButtonText": {},
-    "next_label": "Sledeće",
+    "next_label": "Next",
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
@@ -19,49 +19,49 @@
     "@cancel": {},
     "close": "Zatvori",
     "@close": {},
-    "no": "Ne",
+    "no": "No",
     "@no": {},
-    "stop": "Stani",
+    "stop": "Stop",
     "@stop": {},
     "finish": "Finish",
     "@finish": {},
-    "reset_food_prefs": "Resetujte preferencije hrane",
+    "reset_food_prefs": "Reset food preferences",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
     },
     "error": "Something went wrong",
     "@error": {},
-    "error_occurred": "Došlo je do greške",
+    "error_occurred": "An error occurred",
     "@error_occurred": {},
-    "featureInProgress": "I dalje radimo na ovoj funkciji, budite u toku",
+    "featureInProgress": "We're still working on this feature, stay tuned",
     "@featureInProgress": {},
     "label_web": "View on the web",
     "@label_web": {},
-    "learnMore": "Saznajte Više",
+    "learnMore": "Learn more",
     "@learnMore": {},
     "general_confirmation": "Are you sure?",
-    "incompatible": "Nekompatibilno",
+    "incompatible": "Incompatible",
     "@incompatible": {
         "description": "Short label for product list view: the product is incompatible with your preferences"
     },
-    "compatible": "Kompatibilan",
+    "compatible": "Compatible",
     "@compatible": {
         "description": "Short label for product list view: the product is compatible with your preferences"
     },
-    "unknown": "Nepoznato",
+    "unknown": "Unknown",
     "@unknown": {
         "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
     },
     "licenses": "Licences",
     "@licenses": {},
-    "looking_for": "Tražimo",
+    "looking_for": "Looking for",
     "@looking_for": {
         "description": "Looking for: ${BARCODE}"
     },
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts je globalna neprofitna organizacija koju pokreću lokalne zajednice.",
+    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
@@ -69,11 +69,11 @@
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
-    "productDataUtility": "Pogledajte podatke o hrani koji su relevantni za vaše preferencije.",
+    "productDataUtility": "See the food data relevant to your preferences.",
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."
     },
-    "healthCardUtility": "Birajte hranu koja je dobra za vas.",
+    "healthCardUtility": "Choose foods that are good for you.",
     "@healthCardUtility": {
         "description": "Description of what a user can use the health data in a product for."
     },
@@ -94,7 +94,7 @@
     "@create_account": {
         "description": "Button label: Opens a page where a new user can register"
     },
-    "sign_in": "Prijavite se",
+    "sign_in": "Sign in",
     "@sign_in": {
         "description": "Button label: For sign in"
     },
@@ -115,7 +115,7 @@
     "@view_profile": {
         "description": "Button label: For to show your account"
     },
-    "reset_password": "Resetuj lozinku",
+    "reset_password": "Reset password",
     "@reset_password": {
         "description": "Forgot password page title"
     },
@@ -218,14 +218,14 @@
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
-    "contributors": "Saradnici",
+    "contributors": "Contributors",
     "support": "Support",
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
     "support_join_slack": "Ask for help in our Slack channel",
     "support_via_email": "Send us an e-mail",
-    "termsOfUse": "Uslovi korišćenja",
+    "termsOfUse": "Terms of use",
     "@termsOfUse": {},
     "about_this_app": "About this app",
     "@about_this_app": {
@@ -244,7 +244,7 @@
     "@contribute_develop_text": {},
     "contribute_develop_text_2": "You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.",
     "@contribute_develop_text_2": {},
-    "contribute_donate_header": "Donirajte Open Food Facts",
+    "contribute_donate_header": "Donate to Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "Products to be completed",
     "@contribute_improve_ProductsToBeCompleted": {
@@ -282,7 +282,7 @@
     },
     "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contribution",
     "@Personal preferences": {},
-    "myPreferences": "Moje preference",
+    "myPreferences": "My preferences",
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
@@ -296,7 +296,7 @@
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
     },
-    "myPersonalizedRanking": "Moje personalizovano rangiranje",
+    "myPersonalizedRanking": "My personalized ranking",
     "@myPersonalizedRanking": {
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
@@ -334,7 +334,7 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Skeniraj",
+    "scan": "Scan",
     "@scan": {
         "description": "Page title: List type: Scanned products"
     },
@@ -344,7 +344,7 @@
     },
     "tab_for_more": "Tap to see more info...",
     "@Product": {},
-    "product": "Proizvod",
+    "product": "Производ",
     "@product": {},
     "unknownBrand": "Unknown brand",
     "@unknownBrand": {},
@@ -359,7 +359,7 @@
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
     },
-    "ingredients": "Sastojci",
+    "ingredients": "Ingredients",
     "@ingredients": {},
     "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen, use parentheses for ingredients of an ingredient, and indicate allergens between underscores.",
     "ingredients_editing_error": "Failed to save the ingredients.",
@@ -484,7 +484,7 @@
     "nutrition_page_title": "Nutrition Facts",
     "nutrition_page_unspecified": "Nutrition facts are not specified on the product",
     "nutrition_page_per_100g": "per 100g",
-    "nutrition_page_per_serving": "po porciji",
+    "nutrition_page_per_serving": "per serving",
     "nutrition_page_add_nutrient": "Add a nutrient",
     "nutrition_page_serving_size": "Porcija",
     "nutrition_page_invalid_number": "Invalid number",
@@ -495,7 +495,7 @@
     "no_product_found": "No product found",
     "@no_product_found": {},
     "not_found": "not found:",
-    "searchPanelHeader": "Pretraži ili skeniraj svoj prvi artikal",
+    "searchPanelHeader": "Search or scan your first product",
     "@Product query status": {},
     "refreshing_product": "Refreshing product",
     "@refreshing_product": {
@@ -629,7 +629,7 @@
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, other{Compare {count} Products}",
+    "plural_compare_x_products": "{count,plural, =1{Compare one Product} other{Compare {count} Products}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {
@@ -640,13 +640,13 @@
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },
-    "retry_button_label": "Pokušaj ponovo",
+    "retry_button_label": "Retry",
     "connect_with_us": "Connect with us",
     "instagram": "Instagram",
     "twitter": "Twitter",
     "blog": "Blog",
     "faq": "FAQ",
-    "discover": "Otkrij",
+    "discover": "Discover",
     "how_to_contribute": "How to Contribute",
     "main_app_color": "Theme",
     "@main_app_color": {
@@ -758,7 +758,7 @@
     "@product_edit_photo_title": {
         "description": "Toolbar Title while editing a photo (Android only)"
     },
-    "permission_photo_error": "Greška",
+    "permission_photo_error": "Error",
     "@permission_photo_error": {
         "description": "When the camera/photo permission failed to be acquired (!= denied)"
     },
@@ -1072,7 +1072,7 @@
     "@dev_mode_scan_scan_half_image": {
         "description": "Scan mode - Scan half image"
     },
-    "product_search_no_more_results": "You've downloaded all the $totalSize products.",
+    "product_search_no_more_results": "You've downloaded all the {totalSize} products.",
     "@product_search_no_more_results": {
         "description": "Product search list - No more results available",
         "placeholders": {

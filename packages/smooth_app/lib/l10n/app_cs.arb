@@ -364,25 +364,25 @@
     "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen, use parentheses for ingredients of an ingredient, and indicate allergens between underscores.",
     "ingredients_editing_error": "Ingredience se nepodařilo uložit.",
     "ingredients_editing_image_error": "Nepodařilo se získat nový obrázek ingrediencí.",
-    "ingredients_editing_title": "Edit Ingredients",
-    "ingredients_photo": "Ingredients photo",
+    "ingredients_editing_title": "Upravit ingredience",
+    "ingredients_photo": "Fotografie ingrediencí",
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
     "nutrition": "Výživové údaje",
     "@nutrition": {},
-    "nutrition_page_close_confirmation": "Are you sure you want to close without saving?",
-    "nutrition_facts_photo": "Nutrition facts photo",
+    "nutrition_page_close_confirmation": "Opravdu chcete zavřít bez uložení?",
+    "nutrition_facts_photo": "Fotografie výživových faktů",
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
     },
-    "packaging_information": "Packaging information",
+    "packaging_information": "Informace o balení",
     "@packaging_information": {
         "description": "Button label: For adding a picture of the packaging of a product"
     },
     "packaging_information_photo": "Packaging information photo",
     "@packaging_information_photo": {},
-    "missing_product": "You found a new product!",
+    "missing_product": "Našli jste nový produkt!",
     "@missing_product": {},
     "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
     "@add_product_take_photos": {},
@@ -390,32 +390,32 @@
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Add product information",
     "@add_product_information_button_label": {},
-    "new_product": "New Product",
+    "new_product": "Nový produkt",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Product's front photo",
+    "front_packaging_photo_button_label": "Přední fotka produktu",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Confirm Product's front photo upload",
+    "confirm_front_packaging_photo_button_label": "Potvrďte nahrání přední fotografie produktu",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
-    "confirm_button_label": "Confirm",
+    "confirm_button_label": "Potvrdit",
     "front_packaging_photo_title": "Front Packaging Photo",
-    "ingredients_photo_title": "Ingredients Photo",
-    "nutritional_facts_photo_title": "Nutritional Facts Photo",
+    "ingredients_photo_title": "Fotografie ingrediencí",
+    "nutritional_facts_photo_title": "Fotografie nutričních údajů",
     "recycling_photo_title": "Recycling Photo",
-    "other_interesting_photo_title": "Other Interesting Photo",
-    "front_photo_uploaded": "Front photo uploaded",
+    "other_interesting_photo_title": "Další zajímavá fotka",
+    "front_photo_uploaded": "Přední fotka nahrána",
     "@front_photo_uploaded": {},
-    "ingredients_photo_button_label": "Ingredients photo",
+    "ingredients_photo_button_label": "Fotografie ingrediencí",
     "@ingredients_photo_button_label": {},
-    "confirm_ingredients_photo_button_label": "Confirm ingredients photo",
+    "confirm_ingredients_photo_button_label": "Potvrdit fotografii ingrediencí",
     "@confirm_ingredients_photo_button_label": {
         "description": "Button clicking on which confirms the picture of ingredients that user just took."
     },
     "ingredients_photo_uploaded": "Ingredients photo uploaded",
     "@ingredients_photo_uploaded": {},
     "nutrition_cache_loading_error": "Unable to load nutrients from cache",
-    "nutritional_facts_photo_button_label": "Nutrition facts photo",
+    "nutritional_facts_photo_button_label": "Fotografie výživových faktů",
     "@nutritional_facts_photo_button_label": {},
     "nutritional_facts_input_button_label": "Zadejte fakta o výživě",
     "nutritional_facts_added": "Byly přidány údaje o výživě",
@@ -629,7 +629,7 @@
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, other{Compare {count} Products}",
+    "plural_compare_x_products": "{count,plural, =1{Compare one Product} other{Compare {count} Products}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {
@@ -721,11 +721,11 @@
     "@loading_dialog_default_error_message": {
         "description": "Default loading dialog error message"
     },
-    "account_delete": "Delete account",
+    "account_delete": "Smazat účet",
     "@account_delete": {
         "description": "Delete account button (user profile)"
     },
-    "email_subject_account_deletion": "Delete account",
+    "email_subject_account_deletion": "Smazat účet",
     "@email_subject_account_deletion": {
         "description": "Email subject for an account deletion"
     },
@@ -772,7 +772,7 @@
             }
         }
     },
-    "permission_photo_denied_button": "Allow",
+    "permission_photo_denied_button": "Povolit",
     "@permission_photo_denied_button": {
         "description": "When the camera/photo permission is denied by user"
     },
@@ -780,7 +780,7 @@
     "permission_photo_denied_dialog_settings_message": "As you've previously denied the camera permission, you must allow it manually from the Settings.",
     "permission_photo_denied_dialog_settings_button_open": "Otevřít nastavení",
     "permission_photo_denied_dialog_settings_button_cancel": "Zrušit",
-    "permission_photo_denied": "No camera access granted",
+    "permission_photo_denied": "Není povolen přístup ke kameře",
     "@permission_photo_denied": {
         "description": "When the camera/photo permission is denied by user"
     },
@@ -792,11 +792,11 @@
     "@edit_product_form_item_barcode": {
         "description": "Product edition - Barcode"
     },
-    "edit_product_form_item_details_title": "Basic details",
+    "edit_product_form_item_details_title": "Základní detaily",
     "@edit_product_form_item_details_title": {
         "description": "Product edition - Basic Details - Title"
     },
-    "edit_product_form_item_details_subtitle": "Product name, brand, quantity",
+    "edit_product_form_item_details_subtitle": "Název produktu, značka, množství",
     "@edit_product_form_item_details_subtitle": {
         "description": "Product edition - Basic Details - Title"
     },
@@ -804,19 +804,19 @@
     "@edit_product_form_item_photos_title": {
         "description": "Product edition - Photos - Title"
     },
-    "edit_product_form_item_photos_subtitle": "Add or refresh photos",
+    "edit_product_form_item_photos_subtitle": "Přidat nebo obnovit fotky",
     "@edit_product_form_item_photos_subtitle": {
         "description": "Product edition - Photos - SubTitle"
     },
-    "edit_product_form_item_labels_title": "Labels & Certifications",
+    "edit_product_form_item_labels_title": "Štítky a certifikace",
     "@edit_product_form_item_labels_title": {
         "description": "Product edition - Labels - Title"
     },
-    "edit_product_form_item_labels_subtitle": "Environmental, Quality labels, ...",
+    "edit_product_form_item_labels_subtitle": "Ekologické, kvalitativní značky,...",
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
-    "edit_product_form_item_ingredients_title": "Ingredients & Origins",
+    "edit_product_form_item_ingredients_title": "Složení a původ",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
     },
@@ -828,7 +828,7 @@
     "@edit_product_form_item_nutrition_facts_title": {
         "description": "Product edition - Nutrition facts - Title"
     },
-    "edit_product_form_item_nutrition_facts_subtitle": "Nutrition, alcohol content…",
+    "edit_product_form_item_nutrition_facts_subtitle": "Výživa, obsah alkoholu…",
     "@edit_product_form_item_nutrition_facts_subtitle": {
         "description": "Product edition - Nutrition facts - SubTitle"
     },
@@ -837,7 +837,7 @@
         "description": "Product edition - Nutrition facts - Save button"
     },
     "completed_basic_details_btn_text": "Complete basic details",
-    "not_implemented_snackbar_text": "Not implemented yet",
+    "not_implemented_snackbar_text": "Zatím neimplementováno",
     "category_picker_page_appbar_text": "Kategorie",
     "edit_ingredients_extrait_ingredients_btn_text": "Aut. rozpoznat složení",
     "@edit_ingredients_extrait_ingredients_btn_text": {
@@ -1064,7 +1064,7 @@
     "@dev_mode_scan_preprocess_half_image": {
         "description": "Scan mode - Preprocess half image"
     },
-    "dev_mode_scan_scan_full_image": "Full image scanning",
+    "dev_mode_scan_scan_full_image": "Skenování celého obrázku",
     "@dev_mode_scan_scan_full_image": {
         "description": "Scan mode - Scan full image"
     },
@@ -1072,7 +1072,7 @@
     "@dev_mode_scan_scan_half_image": {
         "description": "Scan mode - Scan half image"
     },
-    "product_search_no_more_results": "You've downloaded all the $totalSize products.",
+    "product_search_no_more_results": "You've downloaded all the {totalSize} products.",
     "@product_search_no_more_results": {
         "description": "Product search list - No more results available",
         "placeholders": {
@@ -1104,7 +1104,7 @@
     "@edit_product_action_take_picture": {
         "description": "Product edition - FAB actions - take a picture"
     },
-    "edit_product_action_confirm": "Confirm",
+    "edit_product_action_confirm": "Potvrdit",
     "@edit_product_action_confirm": {
         "description": "Product edition - FAB actions - confirm"
     },

@@ -3,7 +3,7 @@ import 'dart:isolate';
 
 import 'package:camera/camera.dart';
 import 'package:flutter_isolate/flutter_isolate.dart';
-import 'package:google_ml_barcode_scanner/google_ml_barcode_scanner.dart';
+import 'package:google_mlkit_barcode_scanning/google_mlkit_barcode_scanning.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/scan/abstract_camera_image_getter.dart';
 import 'package:smooth_app/pages/scan/camera_image_cropper.dart';
@@ -154,9 +154,8 @@ class _MLKitScanDecoderMainIsolate {
 class _MLKitScanDecoderIsolate {
   // Only 1D barcodes. More info on:
   // [https://www.scandit.com/blog/types-barcodes-choosing-right-barcode/]
-  static final BarcodeScanner _barcodeScanner =
-      GoogleMlKit.vision.barcodeScanner(
-    <BarcodeFormat>[
+  static final BarcodeScanner _barcodeScanner = BarcodeScanner(
+    formats: <BarcodeFormat>[
       BarcodeFormat.ean8,
       BarcodeFormat.ean13,
       BarcodeFormat.upca,
@@ -243,12 +242,12 @@ class _MLKitScanDecoderIsolate {
 
   static String? _changeBarcodeType(Barcode barcode) {
     //EAN13 begins with 0 is detected as UPC-A by google_ml_barcode_scanner v0.0.2
-    if (barcode.value.format == BarcodeFormat.upca) {
-      if (barcode.value.rawValue != null) {
-        return '0${barcode.value.rawValue}';
+    if (barcode.format == BarcodeFormat.upca) {
+      if (barcode.rawValue != null) {
+        return '0${barcode.rawValue}';
       }
     }
-    return barcode.value.rawValue;
+    return barcode.rawValue;
   }
 
   static InputImage _cropImage(CameraImage image) {
