@@ -8,13 +8,47 @@ class ProductCompatibilityHelper {
 
   final MatchedProduct matchedProduct;
 
-  Color getBackgroundColor() {
+  Color getHeaderBackgroundColor(bool darkMode) {
+    if (darkMode) {
+      return _getDarkColors();
+    } else {
+      return _getLightColors();
+    }
+  }
+
+  Color getButtonColor(bool darkMode) {
+    if (darkMode) {
+      return _getLightColors();
+    } else {
+      return _getDarkColors();
+    }
+  }
+
+  Color getHeaderForegroundColor(bool darkMode) =>
+      darkMode ? Colors.white : Colors.black;
+
+  Color getButtonForegroundColor(bool darkMode) =>
+      darkMode ? Colors.white : Colors.black;
+
+  Color _getDarkColors() {
     switch (matchedProduct.status) {
       case null:
       case MatchedProductStatus.UNKNOWN:
-        return GREY_COLOR;
+        return PRIMARY_GREY_COLOR;
       case MatchedProductStatus.NO:
-        return RED_COLOR;
+        return DARK_RED_COLOR;
+      case MatchedProductStatus.YES:
+        return DARK_GREEN_COLOR;
+    }
+  }
+
+  Color _getLightColors() {
+    switch (matchedProduct.status) {
+      case null:
+      case MatchedProductStatus.UNKNOWN:
+        return LIGHT_GREY_COLOR;
+      case MatchedProductStatus.NO:
+        return LIGHT_RED_COLOR;
       case MatchedProductStatus.YES:
         return LIGHT_GREEN_COLOR;
     }

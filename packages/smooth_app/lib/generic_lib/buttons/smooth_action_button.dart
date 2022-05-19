@@ -11,7 +11,7 @@ class SmoothActionButton extends StatelessWidget {
   });
 
   final String text;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final double minWidth;
   final double height;
 
@@ -19,15 +19,15 @@ class SmoothActionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
     return SmoothSimpleButton(
+      onPressed: onPressed,
+      height: height,
+      minWidth: minWidth,
       child: AutoSizeText(
         text,
         style: themeData.textTheme.bodyText2!
             .copyWith(color: themeData.colorScheme.onPrimary),
         maxLines: 1,
       ),
-      onPressed: onPressed,
-      height: height,
-      minWidth: minWidth,
     );
   }
 }

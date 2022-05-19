@@ -10,8 +10,8 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/onboarding/next_button.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_food.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
-import 'package:smooth_app/pages/user_preferences_food.dart';
 
 class PreferencesPage extends StatefulWidget {
   const PreferencesPage(this._localDatabase) : super();
@@ -42,7 +42,11 @@ class _PreferencesPageState extends State<PreferencesPage> {
         future: _initFuture,
         builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
           if (snapshot.hasError) {
-            return Text('Fatal Error: ${snapshot.error}');
+            final AppLocalizations appLocalizations =
+                AppLocalizations.of(context);
+            return Text(
+              appLocalizations.preferences_page_loading_error(snapshot.error),
+            );
           }
           if (snapshot.connectionState != ConnectionState.done) {
             return const Center(child: CircularProgressIndicator());
@@ -70,7 +74,7 @@ class _HelperState extends State<_Helper> {
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
     final UserPreferences userPreferences = context.watch<UserPreferences>();
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<Widget> pageData = <Widget>[
       Padding(
         padding: const EdgeInsets.only(
@@ -109,7 +113,7 @@ class _HelperState extends State<_Helper> {
         userPreferences: userPreferences,
         appLocalizations: appLocalizations,
         themeData: Theme.of(context),
-      ).getContent(),
+      ).getOnboardingContent(),
     );
     return Scaffold(
       body: Stack(

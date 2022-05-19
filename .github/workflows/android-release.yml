@@ -41,14 +41,14 @@ jobs:
         with:
           channel: stable
           cache: true
-          cache-key: flutter2.10 #change this to force refresh cache
+          cache-key: flutter3.00 # change this to force refresh cache
       - run: flutter --version
 
       - name: Get dependencies
         run: ci/pub_upgrade.sh
 
       - name: Bump version
-        uses: maierj/fastlane-action@v2.2.0
+        uses: maierj/fastlane-action@v2.2.1
         with:
           lane: setVersion
           subdirectory: packages/smooth_app/android
@@ -64,7 +64,7 @@ jobs:
          SIGN_KEY_PASSWORD: ${{ secrets.SIGN_KEY_PASSWORD }}
 
       - name: Release AAB
-        uses: maierj/fastlane-action@v2.2.0
+        uses: maierj/fastlane-action@v2.2.1
         with:
           lane: closed_beta
           subdirectory: packages/smooth_app/android

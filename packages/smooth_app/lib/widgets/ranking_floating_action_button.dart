@@ -31,7 +31,7 @@ class RankingFloatingActionButton extends StatelessWidget {
                 color: color,
               ),
               label: Text(
-                AppLocalizations.of(context)!.myPersonalizedRanking,
+                AppLocalizations.of(context).myPersonalizedRanking,
                 style: TextStyle(color: color),
               ),
               backgroundColor: Colors.white,

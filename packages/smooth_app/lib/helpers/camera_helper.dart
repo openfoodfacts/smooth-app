@@ -1,9 +1,14 @@
 import 'package:camera/camera.dart';
+import 'package:smooth_app/pages/scan/camera_controller.dart';
 
 class CameraHelper {
   const CameraHelper._();
 
   static List<CameraDescription>? _cameras;
+
+  /// Ensure we have a single instance of this controller
+  /// /!\ Lazy-loaded
+  static SmoothCameraController? _controller;
 
   /// Mandatory method to call before [findBestCamera]
   static Future<void> init() async {
@@ -48,4 +53,12 @@ class CameraHelper {
 
     return _cameras![cameraIndex];
   }
+
+  /// Init the controller
+  /// And prevents the redefinition of it
+  static void initController(SmoothCameraController controller) {
+    _controller ??= controller;
+  }
+
+  static SmoothCameraController? get controller => _controller;
 }

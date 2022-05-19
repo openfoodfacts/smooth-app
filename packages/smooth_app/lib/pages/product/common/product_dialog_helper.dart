@@ -40,8 +40,8 @@ class ProductDialogHelper {
             daoProduct: DaoProduct(localDatabase),
           ).getFetchedProduct(),
           title: refresh
-              ? AppLocalizations.of(context)!.refreshing_product
-              : '${AppLocalizations.of(context)!.looking_for}: $barcode') ??
+              ? AppLocalizations.of(context).refreshing_product
+              : '${AppLocalizations.of(context).looking_for}: $barcode') ??
       FetchedProduct.error(FetchedProductStatus.userCancelled);
 
   void _openProductNotFoundDialog() => showDialog<Widget>(
@@ -50,16 +50,16 @@ class ProductDialogHelper {
           return SmoothAlertDialog(
             body: Text(
               refresh
-                  ? AppLocalizations.of(context)!.could_not_refresh
-                  : '${AppLocalizations.of(context)!.no_product_found}: $barcode',
+                  ? AppLocalizations.of(context).could_not_refresh
+                  : '${AppLocalizations.of(context).no_product_found}: $barcode',
             ),
             actions: <SmoothActionButton>[
               SmoothActionButton(
-                text: AppLocalizations.of(context)!.close,
+                text: AppLocalizations.of(context).close,
                 onPressed: () => Navigator.pop(context),
               ),
               SmoothActionButton(
-                text: AppLocalizations.of(context)!.contribute,
+                text: AppLocalizations.of(context).contribute,
                 onPressed: () => Navigator.push<bool?>(
                   context,
                   MaterialPageRoute<bool?>(
@@ -84,7 +84,7 @@ class ProductDialogHelper {
           body: getErrorMessage(message),
           actions: <SmoothActionButton>[
             SmoothActionButton(
-              text: AppLocalizations.of(context)!.close,
+              text: AppLocalizations.of(context).close,
               onPressed: () => Navigator.pop(context),
             ),
           ],
@@ -93,7 +93,7 @@ class ProductDialogHelper {
 
   /// Opens an error dialog; to be used only if the status is not ok.
   void openError(final FetchedProduct fetchedProduct) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     switch (fetchedProduct.status) {
       case FetchedProductStatus.ok:
         throw Exception("You're not supposed to call this if the status is ok");

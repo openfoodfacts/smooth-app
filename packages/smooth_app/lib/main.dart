@@ -22,6 +22,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
+import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -59,6 +60,7 @@ class SmoothApp extends StatefulWidget {
   State<SmoothApp> createState() => _SmoothAppState();
 }
 
+late SmoothAppDataImporter _appDataImporter;
 late UserPreferences _userPreferences;
 late ProductPreferences _productPreferences;
 late LocalDatabase _localDatabase;
@@ -85,6 +87,8 @@ Future<bool> _init1() async {
   await UserManagementProvider.mountCredentials();
   _userPreferences = await UserPreferences.getUserPreferences();
   _localDatabase = await LocalDatabase.getLocalDatabase();
+  _appDataImporter = SmoothAppDataImporter(_localDatabase);
+  _appDataImporter.startMigrationAsync();
   await _continuousScanModel.load(_localDatabase);
   _productPreferences = ProductPreferences(
     ProductPreferencesSelection(
@@ -113,7 +117,7 @@ class _SmoothAppState extends State<SmoothApp> {
 
   bool systemDarkmodeOn = false;
   final Brightness brightness =
-      SchedulerBinding.instance?.window.platformBrightness ?? Brightness.light;
+      SchedulerBinding.instance.window.platformBrightness;
 
   // We store the argument of FutureBuilder to avoid re-initialization on
   // subsequent builds. This enables hot reloading. See
@@ -129,9 +133,16 @@ class _SmoothAppState extends State<SmoothApp> {
   Future<bool> _init2() async {
     await _init1();
     systemDarkmodeOn = brightness == Brightness.dark;
+    if (!mounted) {
+      return false;
+    }
     await _productPreferences.init(DefaultAssetBundle.of(context));
     if (!_screenshots) {
       await _userPreferences.init(_productPreferences);
+    }
+
+    if (!mounted) {
+      return false;
     }
     AnalyticsHelper.initMatomo(context, _screenshots);
     return true;
@@ -169,6 +180,7 @@ class _SmoothAppState extends State<SmoothApp> {
             provide<ThemeProvider>(_themeProvider),
             provide<UserManagementProvider>(_userManagementProvider),
             provide<ContinuousScanModel>(_continuousScanModel),
+            provide<SmoothAppDataImporter>(_appDataImporter),
           ],
           builder: _buildApp,
         );
@@ -180,8 +192,11 @@ class _SmoothAppState extends State<SmoothApp> {
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final Widget appWidget = OnboardingFlowNavigator(_userPreferences)
         .getPageWidget(context, _userPreferences.lastVisitedOnboardingPage);
+    final String? languageCode =
+        context.select((UserPreferences up) => up.appLanguageCode);
 
     return MaterialApp(
+      locale: languageCode != null ? Locale(languageCode) : null,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       debugShowCheckedModeBanner: !(kReleaseMode || _screenshots),
@@ -227,8 +242,8 @@ class SmoothAppGetLanguage extends StatelessWidget {
     ProductQuery.setLanguage(languageCode);
     context.read<ProductPreferences>().refresh(languageCode);
 
-    final LocalDatabase _localDatabase = context.read<LocalDatabase>();
-    AnalyticsHelper.trackStart(_localDatabase, context);
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    AnalyticsHelper.trackStart(localDatabase, context);
 
     return appWidget;
   }

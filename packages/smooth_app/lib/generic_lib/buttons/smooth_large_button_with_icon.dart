@@ -23,6 +23,10 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
     final bool isDarkMode =
         Provider.of<ThemeProvider>(context, listen: false).isDarkMode(context);
     return SmoothSimpleButton(
+      minWidth: double.infinity,
+      padding: padding ?? const EdgeInsets.all(10),
+      buttonColor: isDarkMode ? Colors.grey : const Color(0xffeaf5fb),
+      onPressed: onPressed,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
@@ -48,10 +52,6 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
           const Spacer(),
         ],
       ),
-      minWidth: double.infinity,
-      padding: padding ?? const EdgeInsets.all(10),
-      buttonColor: isDarkMode ? Colors.grey : const Color(0xffeaf5fb),
-      onPressed: onPressed,
     );
   }
 }

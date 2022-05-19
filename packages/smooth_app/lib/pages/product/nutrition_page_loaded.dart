@@ -42,8 +42,8 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     BuildContext context,
     double adjustmentFactor,
   ) {
-    final double _columnSize = MediaQuery.of(context).size.width;
-    return _columnSize * adjustmentFactor;
+    final double columnSize = MediaQuery.of(context).size.width;
+    return columnSize * adjustmentFactor;
   }
 
   final Map<String, TextEditingController> _controllers =
@@ -70,7 +70,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations localizations = AppLocalizations.of(context)!;
+    final AppLocalizations localizations = AppLocalizations.of(context);
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final List<Widget> children = <Widget>[];
     children.add(_switchNoNutrition(localizations));
@@ -292,48 +292,42 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
                       void Function(VoidCallback fn) setState) {
                     return AlertDialog(
                       title: Text(appLocalizations.nutrition_page_add_nutrient),
-                      content: SizedBox(
-                        // TODO(monsieurtanuki): proper sizes
-                        width: 300,
-                        height: 400,
-                        child: Column(
-                          children: <Widget>[
-                            TextField(
-                              decoration: InputDecoration(
-                                prefixIcon: const Icon(Icons.search),
-                                border: const UnderlineInputBorder(),
-                                labelText: appLocalizations.search,
-                              ),
-                              onChanged: (String query) {
-                                setState(
-                                  () {
-                                    filteredList = leftovers
-                                        .where((OrderedNutrient item) => item
-                                            .name!
-                                            .toLowerCase()
-                                            .contains(query.toLowerCase()))
-                                        .toList();
-                                  },
-                                );
-                              },
+                      content: Column(
+                        children: <Widget>[
+                          TextField(
+                            decoration: InputDecoration(
+                              prefixIcon: const Icon(Icons.search),
+                              border: const UnderlineInputBorder(),
+                              labelText: appLocalizations.search,
                             ),
-                            Expanded(
-                              child: ListView.builder(
-                                  shrinkWrap: true,
-                                  itemCount: filteredList.length,
-                                  itemBuilder:
-                                      (BuildContext context, int index) {
-                                    final OrderedNutrient nutrient =
-                                        filteredList[index];
-                                    return ListTile(
-                                      title: Text(nutrient.name!),
-                                      onTap: () =>
-                                          Navigator.of(context).pop(nutrient),
-                                    );
-                                  }),
-                            ),
-                          ],
-                        ),
+                            onChanged: (String query) {
+                              setState(
+                                () {
+                                  filteredList = leftovers
+                                      .where((OrderedNutrient item) => item
+                                          .name!
+                                          .toLowerCase()
+                                          .contains(query.toLowerCase()))
+                                      .toList();
+                                },
+                              );
+                            },
+                          ),
+                          Expanded(
+                            child: ListView.builder(
+                                shrinkWrap: true,
+                                itemCount: filteredList.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  final OrderedNutrient nutrient =
+                                      filteredList[index];
+                                  return ListTile(
+                                    title: Text(nutrient.name!),
+                                    onTap: () =>
+                                        Navigator.of(context).pop(nutrient),
+                                  );
+                                }),
+                          ),
+                        ],
                       ),
                       actions: <Widget>[
                         ElevatedButton(
@@ -447,6 +441,9 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       product: inputProduct,
     );
     if (savedAndRefreshed) {
+      if (!mounted) {
+        return;
+      }
       Navigator.of(context).pop(true);
     }
   }

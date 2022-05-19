@@ -9,10 +9,10 @@ import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/edit_ingredients_page.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
-import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
 
 /// Builds "knowledge panels" panels.
 ///
@@ -124,7 +124,7 @@ class KnowledgePanelsBuilder {
         final bool nutritionAddOrUpdate = product.statesTags
                 ?.contains('en:nutrition-facts-to-be-completed') ??
             false;
-        final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+        final AppLocalizations appLocalizations = AppLocalizations.of(context);
         knowledgePanelElementWidgets.add(
           addPanelButton(
             nutritionAddOrUpdate
@@ -137,6 +137,7 @@ class KnowledgePanelsBuilder {
               if (cache == null) {
                 return;
               }
+              //ignore: use_build_context_synchronously
               final bool? refreshed = await Navigator.push<bool>(
                 context,
                 MaterialPageRoute<bool>(
