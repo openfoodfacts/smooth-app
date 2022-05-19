@@ -104,13 +104,16 @@ class SmoothTheme {
   ) {
     ColorScheme myColorScheme;
     if (brightness == Brightness.dark) {
-      myColorScheme = const ColorScheme.dark();
+      myColorScheme = const ColorScheme.dark(
+        secondary: Color(0xffbb86fc),
+      );
     } else {
       final MaterialColor materialColor =
           MATERIAL_COLORS[colorTag] ?? MATERIAL_COLORS[COLOR_TAG_BLUE]!;
       myColorScheme = ColorScheme.light(
         primary: materialColor[600]!,
         primaryContainer: materialColor[900],
+        secondary: materialColor[600]!,
       );
     }
 
@@ -122,8 +125,8 @@ class SmoothTheme {
       ),
       textTheme: _TEXT_THEME,
       floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor: myColorScheme.primary,
-        foregroundColor: myColorScheme.onPrimary,
+        backgroundColor: myColorScheme.secondary,
+        foregroundColor: myColorScheme.onSecondary,
       ),
       appBarTheme: AppBarTheme(
         color: brightness == Brightness.dark ? null : myColorScheme.primary,
