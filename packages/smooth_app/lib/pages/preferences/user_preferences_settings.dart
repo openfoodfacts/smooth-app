@@ -85,7 +85,7 @@ class UserPreferencesSettings extends AbstractUserPreferences {
         StatefulBuilder(
           builder:
               (BuildContext context, void Function(VoidCallback fn) setState) {
-            bool shouldColorThemeShown = true;
+            final bool shouldColorThemeShown;
 
             final ThemeMode themeMode =
                 context.select<ThemeProvider, ThemeMode>(
