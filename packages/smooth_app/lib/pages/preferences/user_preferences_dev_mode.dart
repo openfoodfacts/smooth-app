@@ -8,7 +8,8 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
-import 'package:smooth_app/helpers/product_list_import_export.dart';
+import 'package:smooth_app/helpers/data_importer/product_list_import_export.dart';
+import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dialog_editor.dart';
@@ -208,6 +209,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             );
           },
         ),
+        _dataImporterTile(),
         ListTile(
           title: Text(
             appLocalizations.dev_preferences_import_history_title,
@@ -217,7 +219,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           ),
           onTap: () async {
             final LocalDatabase localDatabase = context.read<LocalDatabase>();
-            await ProductListImportExport().import(
+            await ProductListImportExport().importFromJSON(
               ProductListImportExport.TMP_IMPORT,
               localDatabase,
             );
@@ -354,6 +356,29 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
       ];
+
+  ListTile _dataImporterTile() {
+    final SmoothAppDataImporterStatus status =
+        context.read<SmoothAppDataImporter>().status;
+
+    return ListTile(
+      title: Text(
+        appLocalizations.dev_preferences_migration_title,
+      ),
+      subtitle: Text(
+        appLocalizations.dev_preferences_migration_subtitle(
+          status.printableLabel(appLocalizations),
+        ),
+      ),
+      onTap: status.canInitiateMigration
+          ? () {
+              context.read<SmoothAppDataImporter>().startMigrationAsync(
+                    forceMigration: true,
+                  );
+            }
+          : null,
+    );
+  }
 
   ScaffoldFeatureController<SnackBar, SnackBarClosedReason>
       _showSuccessMessage() {
