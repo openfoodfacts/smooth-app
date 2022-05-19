@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:camera/camera.dart';
+import 'package:camera_platform_interface/camera_platform_interface.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -24,6 +27,9 @@ class SmoothCameraController extends CameraController {
   /// Status of the controller
   bool _isInitialized;
 
+  /// Listen to camera closed events
+  StreamSubscription<CameraClosingEvent>? _closeListener;
+
   Future<void> init({
     required FocusMode focusMode,
     required Offset focusPoint,
@@ -38,6 +44,12 @@ class SmoothCameraController extends CameraController {
       await lockCaptureOrientation(deviceOrientation);
       await startImageStream(onAvailable);
       _isInitialized = true;
+
+      _closeListener = CameraPlatform.instance
+          .onCameraClosing(cameraId)
+          .listen((CameraClosingEvent event) async {
+        value = value.markAsClosed();
+      });
     }
   }
 
@@ -55,10 +67,9 @@ class SmoothCameraController extends CameraController {
   }
 
   @override
-  Future<void> pausePreview() {
-    final Future<void> pausePreviewResult = super.pausePreview();
+  Future<void> pausePreview() async {
+    await super.pausePreview();
     _isPaused = true;
-    return pausePreviewResult;
   }
 
   Future<void> resumePreviewIfNecessary() async {
@@ -70,27 +81,36 @@ class SmoothCameraController extends CameraController {
   /// Please use [resumePreviewIfNecessary] instead
   @protected
   @override
-  Future<void> resumePreview() {
-    final Future<void> resumePreviewResult = super.resumePreview();
+  Future<void> resumePreview() async {
+    await super.resumePreview();
     _isPaused = false;
-    return resumePreviewResult;
   }
 
   @override
-  Future<void> stopImageStream() {
-    final Future<void> stopImageStreamResult = super.stopImageStream();
+  Future<void> stopImageStream() async {
+    await super.stopImageStream();
     _isPaused = false;
-    return stopImageStreamResult;
   }
 
   @override
-  Future<void> dispose() {
-    final Future<void> disposeResult = super.dispose();
-    _isPaused = false;
+  Future<void> dispose() async {
+    _closeListener?.cancel();
     _isInitialized = false;
-    return disposeResult;
+    await super.dispose();
+    _isPaused = false;
   }
 
   bool get isPaused => _isPaused;
+
   bool get isInitialized => _isInitialized;
+}
+
+extension CameraValueExtension on CameraValue {
+  static const String _cameraClosedDescription = 'Camera closed';
+
+  CameraValue markAsClosed() => copyWith(
+        errorDescription: _cameraClosedDescription,
+      );
+
+  bool get isClosed => errorDescription == _cameraClosedDescription;
 }

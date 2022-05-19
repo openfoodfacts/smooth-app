@@ -234,8 +234,14 @@ class MLKitScannerPageState
     _redrawScreen();
 
     if (_controller?.value.hasError == true) {
-      // TODO(M123): Handle errors better
-      debugPrint(_controller!.value.errorDescription);
+      // May happen if another application claims the camera
+      // In that case, we have to destroy everything
+      if (_controller!.value.isClosed) {
+        _stopImageStream();
+      } else {
+        // TODO(M123): Handle errors better
+        debugPrint(_controller!.value.errorDescription);
+      }
     }
   }
 
@@ -252,6 +258,11 @@ class MLKitScannerPageState
     if (stoppingCamera ||
         (!forceStartPreview && ScreenVisibilityDetector.invisible(context))) {
       return;
+    }
+
+    // Relaunch the controller if it was destroyed in background
+    if (_controller == null) {
+      return _startLiveFeed();
     }
 
     if (_streamSubscription?.isPaused == true) {
@@ -278,9 +289,11 @@ class MLKitScannerPageState
 
     await _controller?.dispose();
     await _barcodeDecoder?.dispose();
+    CameraHelper.destroyControllerInstance();
 
     _barcodeDecoder = null;
 
+    stoppingCamera = false;
     _restartCameraIfNecessary();
   }
 
