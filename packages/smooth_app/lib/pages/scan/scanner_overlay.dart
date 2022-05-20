@@ -203,28 +203,24 @@ class _ScannerOverlayDelegate extends MultiChildLayoutDelegate {
   /// Actions: top of the screen and limit the height
   /// Returns the height
   double _layoutAndPositionActions(Size size) {
-    if (hasChild(_LayoutIds.actions)) {
-      final Size actionsSize = layoutChild(
-        _LayoutIds.actions,
-        BoxConstraints(
-          minWidth: size.width,
-          maxWidth: size.width,
-          maxHeight: size.height * 0.2,
-        ),
-      );
+    final Size actionsSize = layoutChild(
+      _LayoutIds.actions,
+      BoxConstraints(
+        minWidth: size.width,
+        maxWidth: size.width,
+        maxHeight: size.height * 0.2,
+      ),
+    );
 
-      positionChild(
-        _LayoutIds.actions,
-        Offset(
-          0,
-          devicePadding.top,
-        ),
-      );
+    positionChild(
+      _LayoutIds.actions,
+      Offset(
+        0,
+        devicePadding.top,
+      ),
+    );
 
-      return actionsSize.height;
-    } else {
-      return 0.0;
-    }
+    return actionsSize.height;
   }
 
   @override
