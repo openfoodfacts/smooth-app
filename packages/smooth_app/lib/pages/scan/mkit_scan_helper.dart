@@ -241,11 +241,9 @@ class _MLKitScanDecoderIsolate {
   }
 
   static String? _changeBarcodeType(Barcode barcode) {
-    //EAN13 begins with 0 is detected as UPC-A by google_ml_barcode_scanner v0.0.2
-    if (barcode.format == BarcodeFormat.upca) {
-      if (barcode.rawValue != null) {
-        return '0${barcode.rawValue}';
-      }
+    //EAN13 begins with 0 is detected as UPC-A by google_mlkit_barcode_scanning v0.3.0
+    if (barcode.format == BarcodeFormat.upca && barcode.rawValue != null) {
+      return '0${barcode.rawValue}';
     }
     return barcode.rawValue;
   }
