@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
+import 'package:matomo_tracker/src/visitor.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -74,9 +75,15 @@ class AnalyticsHelper {
     MatomoTracker.instance.initialize(
       url: 'https://analytics.openfoodfacts.org/matomo.php',
       siteId: 2,
-      visitorId: kDebugMode ? 'smoothie-debug' : OpenFoodAPIConfiguration.uuid,
+      visitorId: uuid,
+    );
+    MatomoTracker.instance.visitor = Visitor(
+      id: uuid,
+      userId: OpenFoodAPIConfiguration.globalUser?.userId,
     );
   }
+
+  static String get uuid => kDebugMode ? 'smoothie-debug' : OpenFoodAPIConfiguration.uuid
 
   // TODO(m123): Matomo removes leading 0 from the barcode
   static void trackScannedProduct({required String barcode}) =>
