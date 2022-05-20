@@ -12,6 +12,7 @@ import 'package:smooth_app/data_models/product_list_supplier.dart';
 import 'package:smooth_app/data_models/product_query_model.dart';
 import 'package:smooth_app/generic_lib/animations/smooth_reveal_animation.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_error_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
@@ -122,15 +123,8 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
               ),
             );
           case LoadingStatus.ERROR:
-            return _getEmptyScreen(
-              screenSize,
-              themeData,
-              _getEmptyText(
-                themeData,
-                widget.mainColor,
-                '${appLocalizations.error_occurred}: ${_model.loadingError}',
-              ),
-            );
+            return _getErrorWidget(
+                screenSize, themeData, '${_model.loadingError}');
         }
       },
     );
@@ -147,7 +141,6 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
           body: Stack(
             children: <Widget>[
               _getHero(screenSize, themeData),
-              Center(child: emptiness),
               CustomScrollView(
                 slivers: <Widget>[
                   SliverAppBar(
@@ -176,6 +169,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                       })),
                 ],
               ),
+              Center(child: emptiness),
             ],
           ),
         ),
@@ -401,6 +395,24 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
         padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 96.0),
       ));
 
+  Widget _getErrorWidget(
+    final Size screenSize,
+    final ThemeData themeData,
+    final String errorMessage,
+  ) {
+    return _getEmptyScreen(
+      screenSize,
+      themeData,
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: SmoothErrorCard(
+          errorMessage: errorMessage,
+          tryAgainFunction: retryConnection,
+        ),
+      ),
+    );
+  }
+
   Widget _getEmptyText(
     final ThemeData themeData,
     final Color color,
@@ -472,12 +484,19 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
           onPressed: () => Navigator.pop(context),
         ),
       );
+  void retryConnection() {
+    setState(() {
+      _model = ProductQueryModel(widget.productListSupplier);
+    });
+  }
 
   Future<void> refreshList() async {
     final ProductListSupplier? refreshSupplier =
         widget.productListSupplier.getRefreshSupplier();
     setState(
-      () => _model = ProductQueryModel(refreshSupplier!),
+      () {
+        _model = ProductQueryModel(refreshSupplier!);
+      },
     );
     return;
   }

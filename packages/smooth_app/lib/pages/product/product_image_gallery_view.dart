@@ -1,17 +1,26 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:http/http.dart' as http;
+import 'package:path_provider/path_provider.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
+import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_gauge.dart';
+import 'package:smooth_app/pages/image_crop_page.dart';
+import 'package:smooth_app/pages/product/confirm_and_upload_picture.dart';
 
 class ProductImageGalleryView extends StatefulWidget {
   const ProductImageGalleryView({
+    this.barcode,
     required this.title,
     required this.productImageData,
     required this.allProductImagesData,
   });
 
+  final String? barcode;
   final String title;
   final ProductImageData productImageData;
   final List<ProductImageData> allProductImagesData;
@@ -46,6 +55,12 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
   }
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
@@ -65,6 +80,53 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
         title: Text(title),
       ),
       backgroundColor: Colors.black,
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        onPressed: () async {
+          final int? currentIndex = _controller.page?.toInt();
+          if (currentIndex == null && currentIndex! >= images.length) {
+            return;
+          }
+
+          final ProductImageData currentImage = images[currentIndex];
+          if (currentImage.imageUrl == null) {
+            return;
+          }
+
+          final File? imageFile = await LoadingDialog.run<File>(
+              context: context,
+              future: _getCurrentImageFile(currentImage.imageUrl!));
+
+          if (imageFile == null) {
+            return;
+          }
+
+          if (!mounted) {
+            return;
+          }
+
+          final File? newImage =
+              await startImageCropping(context, existingImage: imageFile);
+          if (newImage == null) {
+            return;
+          }
+
+          // ignore: use_build_context_synchronously
+          await Navigator.push<File?>(
+            context,
+            MaterialPageRoute<File?>(
+              builder: (BuildContext context) => ConfirmAndUploadPicture(
+                barcode: widget.barcode!,
+                imageType: currentImage.imageField,
+                initialPhoto: newImage,
+              ),
+            ),
+          );
+
+          newImage.delete();
+        },
+        child: const Icon(Icons.crop),
+      ),
       body: PhotoViewGallery.builder(
         pageController: _controller,
         scrollPhysics: const BouncingScrollPhysics(),
@@ -102,5 +164,14 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
         },
       ),
     );
+  }
+
+  Future<File> _getCurrentImageFile(String url) async {
+    final http.Response response = await http.get(Uri.parse(url));
+    final Directory tempDirectory = await getTemporaryDirectory();
+    final File imageFile = await File('${tempDirectory.path}/editing_image')
+        .writeAsBytes(response.bodyBytes);
+
+    return imageFile;
   }
 }

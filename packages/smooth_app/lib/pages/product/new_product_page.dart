@@ -49,7 +49,7 @@ class _ProductPageState extends State<ProductPage> {
     super.initState();
     _product = widget.product;
     _scrollController = ScrollController();
-    _updateLocalDatabaseWithProductHistory(context, _product);
+    _updateLocalDatabaseWithProductHistory(context, false);
     AnalyticsHelper.trackProductPageOpen(
       product: _product,
     );
@@ -67,7 +67,7 @@ class _ProductPageState extends State<ProductPage> {
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
     final MaterialColor materialColor = SmoothTheme.getMaterialColor(context);
-    return Scaffold(
+    final Scaffold scaffold = Scaffold(
       backgroundColor: SmoothTheme.getColor(
         colorScheme,
         materialColor,
@@ -109,6 +109,13 @@ class _ProductPageState extends State<ProductPage> {
         ],
       ),
     );
+    return WillPopScope(
+      onWillPop: () async {
+        _updateLocalDatabaseWithProductHistory(context, true);
+        return true;
+      },
+      child: scaffold,
+    );
   }
 
   void _scrollToTheEnd() {
@@ -142,17 +149,23 @@ class _ProductPageState extends State<ProductPage> {
         ),
       );
       setState(() => _product = fetchedProduct.product!);
-      await _updateLocalDatabaseWithProductHistory(context, _product);
     } else {
       productDialogHelper.openError(fetchedProduct);
     }
   }
 
-  Future<void> _updateLocalDatabaseWithProductHistory(
-      BuildContext context, Product product) async {
+  void _updateLocalDatabaseWithProductHistory(
+    final BuildContext context,
+    final bool notify,
+  ) {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    DaoProductList(localDatabase).push(ProductList.history(), product.barcode!);
-    localDatabase.notifyListeners();
+    DaoProductList(localDatabase).push(
+      ProductList.history(),
+      _product.barcode!,
+    );
+    if (notify) {
+      localDatabase.notifyListeners();
+    }
   }
 
   Widget _buildProductBody(BuildContext context) {

@@ -287,7 +287,7 @@
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "El vostre perfil",
-    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
+    "myPreferences_profile_subtitle": "Gestiona el compte de col·laborador d'Open Food Facts.",
     "myPreferences_settings_title": "Configuració de l'App",
     "myPreferences_settings_subtitle": "Dark mode, Theme, ...",
     "myPreferences_food_title": "Preferències alimentàries",
@@ -629,7 +629,7 @@
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, other{Compare {count} Products}",
+    "plural_compare_x_products": "{count,plural, =1{Compare one Product} other{Compare {count} Products}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {
@@ -1072,7 +1072,7 @@
     "@dev_mode_scan_scan_half_image": {
         "description": "Scan mode - Scan half image"
     },
-    "product_search_no_more_results": "You've downloaded all the $totalSize products.",
+    "product_search_no_more_results": "Has baixat tots els {totalSize} productes.",
     "@product_search_no_more_results": {
         "description": "Product search list - No more results available",
         "placeholders": {

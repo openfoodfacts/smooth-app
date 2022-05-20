@@ -1,0 +1,13 @@
+name: data_importer_shared
+description: A starting point for Dart libraries or applications.
+publish_to: none
+
+environment:
+  sdk: '>=2.16.0 <3.0.0'
+
+dev_dependencies:
+  flutter_lints: ^1.0.0
+  flutter_driver:
+    sdk: flutter
+  flutter_test:
+    sdk: flutter
