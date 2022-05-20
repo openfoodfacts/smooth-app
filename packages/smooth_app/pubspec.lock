@@ -722,7 +722,7 @@ packages:
     description:
       path: "."
       ref: main
-      resolved-ref: c2e61f01852616b3e2b64307e34091243d0f4df0
+      resolved-ref: "02d4682323539d41ce104295808553be631a3f74"
       url: "https://github.com/M123-dev/matomo-tracker.git"
     source: git
     version: "1.0.3+1"

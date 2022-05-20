@@ -59,11 +59,6 @@ class UserPreferences extends ChangeNotifier {
   bool get crashReports =>
       _sharedPreferences.getBool(_TAG_CRASH_REPORTS) ?? true;
 
-  // 'matomo_opt_out' is the string used in package:MatomoTracker, we need to access this value to show in the preferences,3
-  // It can be changed via AnalyticsHelper.setAnalyticsReports
-  bool get analyticsReports =>
-      _sharedPreferences.getBool('matomo_opt_out') ?? true;
-
   Future<void> setThemeColorTag(final String colorTag) async =>
       _sharedPreferences.setString(_TAG_THEME_COLOR_TAG, colorTag);
 
