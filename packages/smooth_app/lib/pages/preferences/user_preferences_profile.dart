@@ -217,7 +217,6 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           isThreeLine: true,
           value: widget.userPreferences.analyticsReports,
           onChanged: (final bool value) async {
-            await widget.userPreferences.setAnalyticsReports(value);
             AnalyticsHelper.setAnalyticsReports(value);
             setState(() {});
           },

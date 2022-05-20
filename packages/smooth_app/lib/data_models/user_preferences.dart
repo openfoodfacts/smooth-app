@@ -26,7 +26,6 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_PREFIX_FLAG = 'FLAG_PREFIX_';
   static const String _TAG_DEV_MODE = 'devMode';
   static const String _TAG_CRASH_REPORTS = 'crash_reports';
-  static const String _TAG_ANALYTICS_REPORTS = 'analytics_reports';
   static const String _TAG_EXCLUDED_ATTRIBUTE_IDS = 'excluded_attributes';
 
   Future<void> init(final ProductPreferences productPreferences) async {
@@ -60,11 +59,10 @@ class UserPreferences extends ChangeNotifier {
   bool get crashReports =>
       _sharedPreferences.getBool(_TAG_CRASH_REPORTS) ?? true;
 
-  Future<void> setAnalyticsReports(final bool state) async =>
-      _sharedPreferences.setBool(_TAG_ANALYTICS_REPORTS, state);
-
+  // 'matomo_opt_out' is the string used in package:MatomoTracker, we need to access this value to show in the preferences,3
+  // It can be changed via AnalyticsHelper.setAnalyticsReports
   bool get analyticsReports =>
-      _sharedPreferences.getBool(_TAG_ANALYTICS_REPORTS) ?? true;
+      _sharedPreferences.getBool('matomo_opt_out') ?? true;
 
   Future<void> setThemeColorTag(final String colorTag) async =>
       _sharedPreferences.setString(_TAG_THEME_COLOR_TAG, colorTag);
