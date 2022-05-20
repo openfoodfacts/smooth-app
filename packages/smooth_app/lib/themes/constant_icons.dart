@@ -21,8 +21,8 @@ class ConstantIcons {
       _isApple() ? CupertinoIcons.square_arrow_up : Icons.share;
 
   IconData getBackIcon() =>
-      _isApple() ? Icons.arrow_back_ios : Icons.arrow_back;
+      _isApple() ? CupertinoIcons.back : Icons.arrow_back;
 
   IconData getForwardIcon() =>
-      _isApple() ? Icons.arrow_forward_ios : Icons.arrow_forward;
+      _isApple() ? CupertinoIcons.forward : Icons.arrow_forward;
 }
