@@ -39,50 +39,53 @@ class AttributeButton extends StatelessWidget {
     final List<Widget> children = <Widget>[];
     for (final String importanceId in _importanceIds) {
       children.add(
-        GestureDetector(
-          onTap: () async {
-            await productPreferences.setImportance(attribute.id!, importanceId);
+        Expanded(
+          child: InkWell(
+            onTap: () async {
+              await productPreferences.setImportance(
+                  attribute.id!, importanceId);
 
-            final AppLocalizations appLocalizations =
-                //ignore: use_build_context_synchronously
-                AppLocalizations.of(context);
-            await showDialog<void>(
-              context: context,
-              builder: (BuildContext context) => SmoothAlertDialog(
-                body: Text(
-                  appLocalizations.importance_label(
-                      attribute.name.toString(), importanceId),
+              final AppLocalizations appLocalizations =
+                  //ignore: use_build_context_synchronously
+                  AppLocalizations.of(context);
+              await showDialog<void>(
+                context: context,
+                builder: (BuildContext context) => SmoothAlertDialog(
+                  body: Text(
+                    appLocalizations.importance_label(
+                        attribute.name.toString(), importanceId),
+                  ),
+                  actions: <SmoothActionButton>[
+                    SmoothActionButton(
+                      text: appLocalizations.close,
+                      onPressed: () => Navigator.pop(context),
+                    ),
+                  ],
                 ),
-                actions: <SmoothActionButton>[
-                  SmoothActionButton(
-                    text: appLocalizations.close,
-                    onPressed: () => Navigator.pop(context),
+              );
+            },
+            child: Container(
+              width: importanceWidth,
+              constraints: const BoxConstraints(minHeight: MINIMUM_TARGET_SIZE),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Icon(
+                    currentImportanceId == importanceId
+                        ? Icons.radio_button_checked
+                        : Icons.radio_button_off,
+                    color: themeData.colorScheme.primary,
+                  ),
+                  AutoSizeText(
+                    productPreferences
+                        .getPreferenceImportanceFromImportanceId(importanceId)!
+                        .name!,
+                    maxLines: 2,
+                    textAlign: TextAlign.center,
                   ),
                 ],
               ),
-            );
-          },
-          child: Container(
-            width: importanceWidth,
-            constraints: const BoxConstraints(minHeight: MINIMUM_TARGET_SIZE),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Icon(
-                  currentImportanceId == importanceId
-                      ? Icons.radio_button_checked
-                      : Icons.radio_button_off,
-                  color: themeData.colorScheme.primary,
-                ),
-                AutoSizeText(
-                  productPreferences
-                      .getPreferenceImportanceFromImportanceId(importanceId)!
-                      .name!,
-                  maxLines: 2,
-                  textAlign: TextAlign.center,
-                ),
-              ],
             ),
           ),
         ),

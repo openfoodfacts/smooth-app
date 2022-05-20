@@ -1006,6 +1006,21 @@
     "@dev_preferences_button_negative": {
         "description": "User dev preferences - Negative button label"
     },
+    "dev_preferences_migration_title": "Data migration from V1",
+    "dev_preferences_migration_subtitle": "Status: {status}",
+    "@dev_preferences_migration_subtitle": {
+        "placeholders": {
+            "status": {
+                "type": "String"
+            }
+        }
+    },
+    "dev_preferences_migration_status_already_done": "success or fresh install",
+    "dev_preferences_migration_status_success": "success",
+    "dev_preferences_migration_status_error": "error",
+    "dev_preferences_migration_status_in_progress": "in progress",
+    "dev_preferences_migration_status_required": "required (click to start)",
+    "dev_preferences_migration_status_not_started": "unknown",
     "dev_preferences_import_history_title": "Import History",
     "@dev_preferences_import_history_title": {
         "description": "User dev preferences - Import history - Title"

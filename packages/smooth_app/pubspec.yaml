@@ -1,6 +1,6 @@
 name: smooth_app
 description: A new official Open Food Facts application build with great user experience in mind.
-version: 0.0.0
+version: 0.0.0+600
 publish_to: "none"
 
 environment:
@@ -36,24 +36,21 @@ dependencies:
   photo_view: ^0.13.0
   uuid: ^3.0.6
   provider: ^6.0.2
-  # Using a fork with fixes for flutter 3 until they are applied to the package
-  qr_code_scanner:
-    git:
-      url: https://github.com/xeinebiu/qr_code_scanner.git
-      ref: fix_break_changes_platform
   rubber: ^1.0.1
   sentry_flutter: ^6.5.1 # careful with upgrading cf: https://github.com/openfoodfacts/smooth-app/issues/1300
   url_launcher: ^6.1.2
   visibility_detector: ^0.3.3
-  camera: ^0.9.5
+  # Until the PR is merged, we have a fork of the camera plugin: https://github.com/openfoodfacts/smooth-app/issues/1892
+  camera:
+    git:
+      url: 'https://github.com/g123k/plugins.git'
+      ref: 'camera_fix_debug'
+      path: 'packages/camera/camera'
+  camera_platform_interface: any
   percent_indicator: ^4.2.2
   mailto: ^2.0.0
   flutter_native_splash: ^2.1.6
-  # Fork from cli1005 with iOS fix cf: https://github.com/openfoodfacts/smooth-app/issues/1155
-  google_ml_barcode_scanner:
-    git:
-      url: https://github.com/cli1005/google_ml_barcode_scanner.git
-      ref: master
+  google_mlkit_barcode_scanning: ^0.3.0
   image_cropper: ^2.0.2
   auto_size_text: ^3.0.0
   shared_preferences: ^2.0.15
@@ -64,6 +61,12 @@ dependencies:
   collection: ^1.16.0
   path: ^1.8.0 # careful with 1.8.1 because of https://github.com/flutter/flutter/issues/95478
   path_provider: ^2.0.10
+  data_importer_shared:
+    path: ../data_importer_shared
+  data_importer:
+    path: ../data_importer
+  # Dependency used in data_importer, but as it's transitive, the only solution is to embed it here
+  realm: 0.2.1+alpha
 
 dev_dependencies:
   integration_test:
