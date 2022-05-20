@@ -11,8 +11,6 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
-import 'package:smooth_app/helpers/color_extension.dart';
-import 'package:smooth_app/helpers/product_list_import_export.dart';
 import 'package:smooth_app/helpers/data_importer/product_list_import_export.dart';
 import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
@@ -20,7 +18,6 @@ import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dialog_editor.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/scan/ml_kit_scan_page.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Collapsed/expanded display of "dev mode" for the preferences page.
@@ -97,7 +94,6 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           title: const Text('Choose primary color'),
           onTap: () => _changePrimaryColor(
             context,
-            const Color(0x005d646e),
             userPreferences,
           ),
         ),
@@ -407,11 +403,12 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
 
   Future<void> _changePrimaryColor(
     BuildContext context,
-    Color currentColor,
     UserPreferences userPreferences,
   ) async {
+    Color? newColor;
+
     void changeColor(Color color) {
-      currentColor = color;
+      newColor = color;
     }
 
     final ThemeProvider themeProvider = context.read<ThemeProvider>();
@@ -423,7 +420,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           title: 'Pick a color!',
           body: SingleChildScrollView(
             child: ColorPicker(
-              pickerColor: currentColor,
+              pickerColor: themeProvider.color,
               onColorChanged: changeColor,
             ),
           ),
@@ -439,12 +436,10 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
       },
     );
 
-    if (apply == null) {
+    if (apply == null || newColor == null) {
       return;
     }
-    userPreferences.setThemeColorTag(SmoothTheme.COLOR_TAG_CUSTOM);
-    userPreferences.setCustomColor(currentColor.toPreferencesString);
-    themeProvider.notify();
+    await themeProvider.setColor(newColor!);
   }
 
   Future<void> _changeTestEnvHost() async {

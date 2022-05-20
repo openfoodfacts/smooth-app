@@ -28,13 +28,16 @@ class ThemeProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  String get colorTag => _userPreferences.themeColorTag;
+  Color get color => _userPreferences.customColor ?? Colors.lightBlue;
 
-  Future<void> setColorTag(final String value) async {
-    if (colorTag == value) {
+  MaterialColor get customMaterialColor =>
+      SmoothTheme.getMaterialColorFromColor(color);
+
+  Future<void> setColor(final Color newColor) async {
+    if (color == newColor) {
       return;
     }
-    await _userPreferences.setThemeColorTag(value);
+    await _userPreferences.setCustomColor(newColor);
     notifyListeners();
   }
 
@@ -44,10 +47,5 @@ class ThemeProvider with ChangeNotifier {
 
   MaterialColor materialColor(BuildContext context) => isDarkMode(context)
       ? Colors.grey
-      : SmoothTheme.MATERIAL_COLORS[colorTag] ??
-          SmoothTheme.MATERIAL_COLORS[SmoothTheme.COLOR_TAG_BLUE]!;
-
-  void notify() {
-    notifyListeners();
-  }
+      : SmoothTheme.getMaterialColorFromColor(color);
 }

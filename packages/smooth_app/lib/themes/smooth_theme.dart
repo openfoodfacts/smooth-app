@@ -16,6 +16,11 @@ class SmoothTheme {
   @visibleForTesting
   const SmoothTheme();
 
+  /// Theme color tags
+  static const String COLOR_TAG_BLUE = 'blue';
+  static const String COLOR_TAG_GREEN = 'green';
+  static const String COLOR_TAG_BROWN = 'brown';
+
   /// The singleton for the theme.
   static SmoothTheme get instance => _instance ??= const SmoothTheme();
   static SmoothTheme? _instance;
@@ -25,12 +30,6 @@ class SmoothTheme {
   static set instance(SmoothTheme testInstance) => _instance = testInstance;
 
   static const double ADDITIONAL_OPACITY_FOR_DARK = .3;
-
-  /// Theme color tags
-  static const String COLOR_TAG_BLUE = 'blue';
-  static const String COLOR_TAG_GREEN = 'green';
-  static const String COLOR_TAG_BROWN = 'brown';
-  static const String COLOR_TAG_CUSTOM = 'custom';
 
   /// Theme material colors
   static const Map<String, MaterialColor> MATERIAL_COLORS =
@@ -95,38 +94,37 @@ class SmoothTheme {
     if (MediaQuery.platformBrightnessOf(context) == Brightness.dark) {
       return Colors.grey;
     }
-    return MATERIAL_COLORS[themeProvider.colorTag] ??
-        MATERIAL_COLORS[COLOR_TAG_BLUE]!;
+    return themeProvider.customMaterialColor;
   }
 
   static ThemeData getThemeData(
     final Brightness brightness,
-    final String colorTag,
-    final Color? primaryColor,
+    final ThemeProvider themeProvider,
   ) {
-    ColorScheme myColorScheme;
+    ColorScheme myColorScheme = ColorScheme.fromSwatch(
+      primarySwatch: themeProvider.customMaterialColor,
+      brightness: brightness,
+      // The standard values from the ThemeData.dark & ThemeDate.light constructors
+      backgroundColor: brightness == Brightness.light
+          ? Colors.white
+          : const Color(0xff121212),
+    );
 
-    if (brightness == Brightness.dark) {
-      myColorScheme = const ColorScheme.dark();
-    } else {
-      final MaterialColor materialColor =
-          MATERIAL_COLORS[colorTag] ?? MATERIAL_COLORS[COLOR_TAG_BLUE]!;
-
-      myColorScheme = ColorScheme.light(
-        primary: materialColor[600]!,
-        primaryContainer: materialColor[900],
+    // TODO(Marvin): Remove when we have a fixed color
+    // Fix for current standart color (LightBlue) text color being black not white on certain areas
+    if (themeProvider.color == const Color(0xff03a9f4)) {
+      myColorScheme = myColorScheme.copyWith(
+        onPrimary: Colors.white,
       );
+      if (brightness == Brightness.dark) {
+        myColorScheme = myColorScheme.copyWith(
+          onBackground: Colors.white,
+        );
+      }
     }
 
-    if (primaryColor != null && colorTag == SmoothTheme.COLOR_TAG_CUSTOM) {
-      myColorScheme = ColorScheme.fromSwatch(
-        primarySwatch: SmoothTheme.getMaterialColorFromColor(primaryColor),
-        brightness: brightness,
-        // The standard values from the ThemeData.dark & ThemeDate.light constructors
-        backgroundColor: brightness == Brightness.light
-            ? Colors.white
-            : const Color(0xff121212),
-      );
+    if (myColorScheme.primary == Colors.lightBlue) {
+      myColorScheme = myColorScheme.copyWith(onPrimaryContainer: Colors.white);
     }
 
     return ThemeData(
