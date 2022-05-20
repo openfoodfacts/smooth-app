@@ -13,6 +13,8 @@ import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/color_extension.dart';
 import 'package:smooth_app/helpers/product_list_import_export.dart';
+import 'package:smooth_app/helpers/data_importer/product_list_import_export.dart';
+import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dialog_editor.dart';
@@ -47,7 +49,6 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
 
   static const String userPreferencesFlagProd = '__devWorkingOnProd';
   static const String userPreferencesTestEnvHost = '__testEnvHost';
-  static const String userPreferencesFlagUseMLKit = '__useMLKit';
   static const String userPreferencesFlagStrongMatching = '__lenientMatching';
   static const String userPreferencesFlagAdditionalButton =
       '__additionalButtonOnProductPage';
@@ -140,19 +141,6 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           ),
           onTap: () async => _changeTestEnvHost(),
         ),
-        SwitchListTile(
-          title: Text(
-            appLocalizations.dev_preferences_ml_kit_title,
-          ),
-          subtitle: Text(
-            appLocalizations.dev_preferences_ml_kit_subtitle,
-          ),
-          value: userPreferences.getFlag(userPreferencesFlagUseMLKit) ?? true,
-          onChanged: (bool value) async {
-            await userPreferences.setFlag(userPreferencesFlagUseMLKit, value);
-            _showSuccessMessage();
-          },
-        ),
         ListTile(
           title: const Text('Change camera post frame callback duration'),
           onTap: () async => _changeCameraPostFrameCallbackDuration(),
@@ -236,6 +224,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             );
           },
         ),
+        _dataImporterTile(),
         ListTile(
           title: Text(
             appLocalizations.dev_preferences_import_history_title,
@@ -245,7 +234,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           ),
           onTap: () async {
             final LocalDatabase localDatabase = context.read<LocalDatabase>();
-            await ProductListImportExport().import(
+            await ProductListImportExport().importFromJSON(
               ProductListImportExport.TMP_IMPORT,
               localDatabase,
             );
@@ -382,6 +371,29 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
       ];
+
+  ListTile _dataImporterTile() {
+    final SmoothAppDataImporterStatus status =
+        context.read<SmoothAppDataImporter>().status;
+
+    return ListTile(
+      title: Text(
+        appLocalizations.dev_preferences_migration_title,
+      ),
+      subtitle: Text(
+        appLocalizations.dev_preferences_migration_subtitle(
+          status.printableLabel(appLocalizations),
+        ),
+      ),
+      onTap: status.canInitiateMigration
+          ? () {
+              context.read<SmoothAppDataImporter>().startMigrationAsync(
+                    forceMigration: true,
+                  );
+            }
+          : null,
+    );
+  }
 
   ScaffoldFeatureController<SnackBar, SnackBarClosedReason>
       _showSuccessMessage() {

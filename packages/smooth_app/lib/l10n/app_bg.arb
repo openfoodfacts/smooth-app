@@ -264,7 +264,7 @@
     "@contribute_translate_link_text": {
         "description": "Button label: Opens the Crowdin translation portal"
     },
-    "contribute_translate_text": "Open Food Facts е глобален проект, съдържащ продукти от повече от 160 страни. Open Food Facts е преведен на десетки езици, с постоянно развиващо се съдържание.",
+    "contribute_translate_text": "Open Food Facts е глобален проект, съдържащ продукти от над 160 страни. Open Food Facts е преведен на десетки езици, с постоянно развиващо се съдържание.",
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Преводите са една от ключовите задачи на проекта",
     "@contribute_translate_text_2": {},
@@ -287,7 +287,7 @@
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "Профил",
-    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
+    "myPreferences_profile_subtitle": "Управлявай своя акаунт на сътрудник в Open Food Facts.",
     "myPreferences_settings_title": "Настройки",
     "myPreferences_settings_subtitle": "Тъмен режим, Тема, ...",
     "myPreferences_food_title": "Хранителни предпочитания",
@@ -355,7 +355,7 @@
         "description": "Refresh the cached product"
     },
     "image": "Снимка",
-    "front_photo": "Предна снимка",
+    "front_photo": "Снимка отпред",
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
     },
@@ -629,7 +629,7 @@
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, =other{Сравни {count} продукта}",
+    "plural_compare_x_products": "{count,plural, =1{Compare one Product} other{Compare {count} Products}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {
@@ -904,11 +904,11 @@
     "@category_picker_no_category_found_button": {
         "description": "Button label when no category is available"
     },
-    "dev_preferences_screen_title": "DEV Mode",
+    "dev_preferences_screen_title": "Режим на разработчик",
     "@dev_preferences_screen_title": {
         "description": "User dev preferences - Title"
     },
-    "dev_preferences_disable_mode": "Remove dev mode",
+    "dev_preferences_disable_mode": "Премахване на режим на разработчик",
     "@dev_preferences_disable_mode": {
         "description": "User dev preferences - Remove dev mode label"
     },
@@ -966,7 +966,7 @@
     "@dev_preferences_edit_ingredients_title": {
         "description": "User dev preferences - Additional buttons on product page - Subtitle"
     },
-    "dev_preferences_export_history_title": "Export History",
+    "dev_preferences_export_history_title": "Експортирай историята",
     "@dev_preferences_export_history_title": {
         "description": "User dev preferences - Export history - Title"
     },
@@ -986,7 +986,7 @@
     "@dev_preferences_export_history_progress_not_found": {
         "description": "User dev preferences - Export history - Item - Not found"
     },
-    "dev_preferences_export_history_dialog_title": "Export history",
+    "dev_preferences_export_history_dialog_title": "Експортирай историята",
     "@dev_preferences_export_history_dialog_title": {
         "description": "User dev preferences - Export history - Dialog title"
     },
@@ -998,7 +998,7 @@
     "@dev_preferences_button_negative": {
         "description": "User dev preferences - Negative button label"
     },
-    "dev_preferences_import_history_title": "Import History",
+    "dev_preferences_import_history_title": "Импортирай историята",
     "@dev_preferences_import_history_title": {
         "description": "User dev preferences - Import history - Title"
     },
@@ -1072,7 +1072,7 @@
     "@dev_mode_scan_scan_half_image": {
         "description": "Scan mode - Scan half image"
     },
-    "product_search_no_more_results": "Изтегли всички $totalSize продукта.",
+    "product_search_no_more_results": "Изтегли всички {totalSize} продукта.",
     "@product_search_no_more_results": {
         "description": "Product search list - No more results available",
         "placeholders": {
@@ -1116,7 +1116,7 @@
     "@signup_page_terms_of_use_line2": {
         "description": "User consent for terms of use (line 2)"
     },
-    "enable_dev_mode_dialog_title": "Ready for the dev mode?",
+    "enable_dev_mode_dialog_title": "Готов ли си за режим на разработчик?",
     "@enable_dev_mode_dialog_title": {
         "description": "Dialog title to enable the developer mode"
     },

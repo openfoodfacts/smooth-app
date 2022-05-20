@@ -121,6 +121,7 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
                 productImageData: widget.productImageData,
                 allProductImagesData: widget.allProductImagesData,
                 title: widget.productImageData.title,
+                barcode: widget.product.barcode,
               ),
             ),
           );
