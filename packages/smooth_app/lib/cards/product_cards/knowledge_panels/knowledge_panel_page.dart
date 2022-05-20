@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_expanded_card.dart';
@@ -6,7 +7,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
-class KnowledgePanelPage extends StatelessWidget {
+class KnowledgePanelPage extends StatefulWidget {
   const KnowledgePanelPage({
     required this.panel,
     required this.allPanels,
@@ -14,6 +15,19 @@ class KnowledgePanelPage extends StatelessWidget {
 
   final KnowledgePanel panel;
   final KnowledgePanels allPanels;
+
+  @override
+  State<KnowledgePanelPage> createState() => _KnowledgePanelPageState();
+}
+
+class _KnowledgePanelPageState extends State<KnowledgePanelPage>
+    with TraceableClientMixin {
+  @override
+  String get traceName =>
+      'Opened full knowledge panel page ${widget.panel.titleElement?.title}';
+
+  @override
+  String get traceTitle => 'knowledge_panel_page';
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +39,9 @@ class KnowledgePanelPage extends StatelessWidget {
         ColorDestination.SURFACE_BACKGROUND,
       ),
       appBar: AppBar(
-        title:
-            panel.titleElement == null ? null : Text(panel.titleElement!.title),
+        title: widget.panel.titleElement == null
+            ? null
+            : Text(widget.panel.titleElement!.title),
       ),
       body: SingleChildScrollView(
         child: SmoothCard(
@@ -34,8 +49,8 @@ class KnowledgePanelPage extends StatelessWidget {
             SMALL_SPACE,
           ),
           child: KnowledgePanelExpandedCard(
-            panel: panel,
-            allPanels: allPanels,
+            panel: widget.panel,
+            allPanels: widget.allPanels,
           ),
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/ProductListQueryConfiguration.dart';
 import 'package:provider/provider.dart';
@@ -27,7 +28,8 @@ class ProductListPage extends StatefulWidget {
   State<ProductListPage> createState() => _ProductListPageState();
 }
 
-class _ProductListPageState extends State<ProductListPage> {
+class _ProductListPageState extends State<ProductListPage>
+    with TraceableClientMixin {
   late ProductList productList;
   bool first = true;
   final Set<String> _selectedBarcodes = <String>{};
@@ -35,6 +37,12 @@ class _ProductListPageState extends State<ProductListPage> {
 
   static const String _popupActionClear = 'clear';
   static const String _popupActionRename = 'rename';
+
+  @override
+  String get traceName => 'Opened list page ${widget.productList.listType}';
+
+  @override
+  String get traceTitle => 'list_page';
 
   @override
   Widget build(BuildContext context) {

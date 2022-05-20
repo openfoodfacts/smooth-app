@@ -100,7 +100,6 @@ Future<bool> _init1() async {
   );
 
   AnalyticsHelper.setCrashReports(_userPreferences.crashReports);
-  AnalyticsHelper.setAnalyticsReports(_userPreferences.analyticsReports);
   ProductQuery.setCountry(_userPreferences.userCountryCode);
   _themeProvider = ThemeProvider(_userPreferences);
   ProductQuery.setQueryType(_userPreferences);
@@ -241,9 +240,6 @@ class SmoothAppGetLanguage extends StatelessWidget {
     final String languageCode = Localizations.localeOf(context).languageCode;
     ProductQuery.setLanguage(languageCode);
     context.read<ProductPreferences>().refresh(languageCode);
-
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    AnalyticsHelper.trackStart(localDatabase, context);
 
     return appWidget;
   }
