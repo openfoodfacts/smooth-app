@@ -68,7 +68,6 @@ class _AllUserProductListState extends State<AllUserProductList> {
               },
             ),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
         onPressed: () async {
           final ProductList? newProductList =
               await ProductListUserDialogHelper(daoProductList)
@@ -78,6 +77,7 @@ class _AllUserProductListState extends State<AllUserProductList> {
           }
           setState(() {});
         },
+        child: const Icon(Icons.add),
       ),
     );
   }
