@@ -629,7 +629,7 @@
             "count": {}
         }
     },
-    "plural_compare_x_products": "{contar, plural, = 1{Compare one Product} otro{Compare {count} Products}",
+    "plural_compare_x_products": "{count, plural, =1{Compare one Product} other{Compare {count} Products}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {
