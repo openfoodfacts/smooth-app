@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:provider/provider.dart';
@@ -52,6 +53,12 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
       '__cameraPostFrameDuration';
 
   final TextEditingController _textFieldController = TextEditingController();
+
+  static const LocalizationsDelegate<MaterialLocalizations> delegate =
+      GlobalMaterialLocalizations.delegate;
+  final List<Locale> _supportedLanguageCodes = AppLocalizations.supportedLocales
+      .where((Locale locale) => delegate.isSupported(locale))
+      .toList();
 
   @override
   PreferencePageType? getPreferencePageType() => PreferencePageType.DEV_MODE;
@@ -337,7 +344,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               await userPreferences.setAppLanguageCode(languageCode);
               setState(() {});
             },
-            items: AppLocalizations.supportedLocales.map((Locale locale) {
+            items: _supportedLanguageCodes.map((Locale locale) {
               final String localeString = locale.toString();
               return DropdownMenuItem<String>(
                 value: localeString,
