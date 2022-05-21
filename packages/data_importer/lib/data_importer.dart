@@ -145,7 +145,13 @@ class ApplicationDataImporter {
         final ImportableUserData? importLists =
             await platformImporter.importLists();
         if (importLists != null) {
-          await importer.importLists(importLists.toUserData(MAX_HISTORY_ITEMS));
+          final bool res = await importer.importLists(
+            importLists.toUserData(MAX_HISTORY_ITEMS),
+          );
+
+          if (!res) {
+            throw Exception('Migration failed!');
+          }
         }
       } catch (err) {
         await _markListsMigrationAsFailed(err);
