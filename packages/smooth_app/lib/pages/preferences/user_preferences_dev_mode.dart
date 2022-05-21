@@ -436,10 +436,9 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
       },
     );
 
-    if (apply == null || newColor == null) {
-      return;
+    if (apply != null && newColor != null) {
+      await themeProvider.setColor(newColor!);
     }
-    await themeProvider.setColor(newColor!);
   }
 
   Future<void> _changeTestEnvHost() async {
