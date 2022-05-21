@@ -125,38 +125,46 @@ class KnowledgePanelsBuilder {
                 ?.contains('en:nutrition-facts-to-be-completed') ??
             false;
         final AppLocalizations appLocalizations = AppLocalizations.of(context);
-        knowledgePanelElementWidgets.add(
-          addPanelButton(
-            nutritionAddOrUpdate
-                ? appLocalizations.score_add_missing_nutrition_facts
-                : appLocalizations.score_update_nutrition_facts,
-            iconData: nutritionAddOrUpdate ? Icons.add : Icons.edit,
-            onPressed: () async {
-              final OrderedNutrientsCache? cache =
-                  await OrderedNutrientsCache.getCache(context);
-              if (cache == null) {
-                return;
-              }
-              //ignore: use_build_context_synchronously
-              final bool? refreshed = await Navigator.push<bool>(
-                context,
-                MaterialPageRoute<bool>(
-                  builder: (BuildContext context) => NutritionPageLoaded(
-                    product,
-                    cache.orderedNutrients,
+        if (nutritionAddOrUpdate) {
+          knowledgePanelElementWidgets.add(
+            addPanelButton(
+              nutritionAddOrUpdate
+                  ? appLocalizations.score_add_missing_nutrition_facts
+                  : appLocalizations.score_update_nutrition_facts,
+              iconData: nutritionAddOrUpdate ? Icons.add : Icons.edit,
+              onPressed: () async {
+                final OrderedNutrientsCache? cache =
+                    await OrderedNutrientsCache.getCache(context);
+                if (cache == null) {
+                  return;
+                }
+                //ignore: use_build_context_synchronously
+                final bool? refreshed = await Navigator.push<bool>(
+                  context,
+                  MaterialPageRoute<bool>(
+                    builder: (BuildContext context) => NutritionPageLoaded(
+                      product,
+                      cache.orderedNutrients,
+                    ),
                   ),
-                ),
-              );
-              if (refreshed ?? false) {
-                setState?.call();
-              }
-              // TODO(monsieurtanuki): refresh the data if changed
-            },
-          ),
-        );
-        if (context.read<UserPreferences>().getFlag(
-                UserPreferencesDevMode.userPreferencesFlagEditIngredients) ??
-            false) {
+                );
+                if (refreshed ?? false) {
+                  setState?.call();
+                }
+                // TODO(monsieurtanuki): refresh the data if changed
+              },
+            ),
+          );
+        }
+
+        final bool needEditIngredients = context
+                .read<UserPreferences>()
+                .getFlag(UserPreferencesDevMode
+                    .userPreferencesFlagEditIngredients) ??
+            false;
+        if ((product.ingredientsText == null ||
+                product.ingredientsText!.isEmpty) &&
+            needEditIngredients) {
           // When the flag is removed, this should be the following:
           // if (product.statesTags?.contains('en:ingredients-to-be-completed') ?? false) {
           knowledgePanelElementWidgets.add(

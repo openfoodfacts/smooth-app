@@ -75,7 +75,6 @@ class _ProductPageState extends State<ProductPage> {
       ),
       floatingActionButton: scrollingUp
           ? FloatingActionButton(
-              backgroundColor: colorScheme.primary,
               onPressed: () {
                 Navigator.maybePop(context);
               },

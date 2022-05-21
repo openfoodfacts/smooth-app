@@ -287,7 +287,7 @@
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "Your Profile",
-    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
+    "myPreferences_profile_subtitle": "Beheer uw Open Food Facts-bijdragersaccount.",
     "myPreferences_settings_title": "App Settings",
     "myPreferences_settings_subtitle": "Dark mode, Theme, ...",
     "myPreferences_food_title": "Food Preferences",
@@ -629,7 +629,7 @@
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, =1{Compare one Product} other{Compare {count} Products}",
+    "plural_compare_x_products": "{count,plural, =1{Compare one Product} other{Vergelijk {count} producten}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {
@@ -891,6 +891,14 @@
     "@user_list_name_error_same": {
         "description": "Validation error about the renamed name that is the same as the initial list name"
     },
+    "try_again": "Probeer opnieuw",
+    "@try_again": {
+        "description": "Label for buttons that try to repeat a failed action"
+    },
+    "there_was_an_error": "Er is een fout opgetreden!",
+    "@there_was_an_error": {
+        "description": "Label that presents a error"
+    },
     "category_picker_no_category_found_message": "No category found for {items}",
     "@category_picker_no_category_found_message": {
         "description": "Label when no category is available",
@@ -970,7 +978,7 @@
     "@dev_preferences_export_history_title": {
         "description": "User dev preferences - Export history - Title"
     },
-    "dev_preferences_reset_app_language": "Reset App Language",
+    "dev_preferences_reset_app_language": "App-taal resetten",
     "@dev_preferences_reset_app_language": {
         "description": "User dev preferences - Reset App Language - Title"
     },
@@ -998,6 +1006,21 @@
     "@dev_preferences_button_negative": {
         "description": "User dev preferences - Negative button label"
     },
+    "dev_preferences_migration_title": "Gegevensmigratie van V1",
+    "dev_preferences_migration_subtitle": "Status: {status}",
+    "@dev_preferences_migration_subtitle": {
+        "placeholders": {
+            "status": {
+                "type": "String"
+            }
+        }
+    },
+    "dev_preferences_migration_status_already_done": "succes of nieuwe installatie",
+    "dev_preferences_migration_status_success": "geslaagd",
+    "dev_preferences_migration_status_error": "fout",
+    "dev_preferences_migration_status_in_progress": "in behandeling",
+    "dev_preferences_migration_status_required": "vereist (klik om te beginnen)",
+    "dev_preferences_migration_status_not_started": "onbekend",
     "dev_preferences_import_history_title": "Import History",
     "@dev_preferences_import_history_title": {
         "description": "User dev preferences - Import history - Title"
@@ -1072,7 +1095,7 @@
     "@dev_mode_scan_scan_half_image": {
         "description": "Scan mode - Scan half image"
     },
-    "product_search_no_more_results": "You've downloaded all the {totalSize} products.",
+    "product_search_no_more_results": "Je hebt alle {totalSize} producten gedownload.",
     "@product_search_no_more_results": {
         "description": "Product search list - No more results available",
         "placeholders": {
@@ -1166,7 +1189,7 @@
     "@confirm_clear": {
         "description": "Asking about whether to clear the list or not"
     },
-    "importance_label": "{name} importance: {id}",
+    "importance_label": "{name} belangrijkheid: {id}",
     "@importance_label": {
         "description": "Used when user selects a food preference. example: Vegan importance; mandatory",
         "placeholders": {

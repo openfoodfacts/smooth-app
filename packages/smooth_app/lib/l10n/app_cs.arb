@@ -52,7 +52,7 @@
     "@unknown": {
         "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
     },
-    "licenses": "Licences",
+    "licenses": "Licence",
     "@licenses": {},
     "looking_for": "Hledáte",
     "@looking_for": {
@@ -218,7 +218,7 @@
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
-    "contributors": "Contributors",
+    "contributors": "Přispěvatelé",
     "support": "Podpora",
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
@@ -388,7 +388,7 @@
     "@add_product_take_photos": {},
     "add_product_take_photos_descriptive": "Please take some photos and the Open Food Facts engine can work out the rest!",
     "@add_product_take_photos_descriptive": {},
-    "add_product_information_button_label": "Add product information",
+    "add_product_information_button_label": "Přidat informace o produktu",
     "@add_product_information_button_label": {},
     "new_product": "Nový produkt",
     "@new_product": {},
@@ -477,12 +477,12 @@
     "@uploading_image_type_generic": {
         "description": "Message when a new picture is being uploaded to the server"
     },
-    "score_add_missing_ingredients": "Add missing ingredients",
-    "score_add_missing_nutrition_facts": "Add missing nutrition facts",
-    "score_add_missing_product_category": "Add missing product category",
-    "score_update_nutrition_facts": "Update nutrition facts",
+    "score_add_missing_ingredients": "Přidejte chybějící přísady",
+    "score_add_missing_nutrition_facts": "Přidejte chybějící výživová fakta",
+    "score_add_missing_product_category": "Přidejte chybějící kategorii produktu",
+    "score_update_nutrition_facts": "Aktualizujte výživová fakta",
     "nutrition_page_title": "Nutriční hodnoty",
-    "nutrition_page_unspecified": "Nutrition facts are not specified on the product",
+    "nutrition_page_unspecified": "Výživové údaje nejsou u produktu uvedeny",
     "nutrition_page_per_100g": "na 100 g",
     "nutrition_page_per_serving": "v jedné porci",
     "nutrition_page_add_nutrient": "Přidejte živinu",
@@ -492,7 +492,7 @@
     "nutrition_page_update_done": "Produkt aktualizován!",
     "more_photos": "Další zajímavé fotky",
     "@more_photos": {},
-    "no_product_found": "No product found",
+    "no_product_found": "Nebyl nalezen žádný produkt",
     "@no_product_found": {},
     "not_found": "nenalezeno:",
     "searchPanelHeader": "Vyhledejte nebo naskenujte svůj první produkt",
@@ -521,27 +521,27 @@
     "@product_search_same_category": {
         "description": "Button looking for the other products within the same category. Less than 30 characters"
     },
-    "product_improvement_add_category": "Add a category to calculate the Nutri-Score.",
+    "product_improvement_add_category": "Přidejte kategorii pro výpočet Nutri-Score.",
     "@product_improvement_add_category": {
         "description": "Message for ProductImprovement.ADD_CATEGORY"
     },
-    "product_improvement_add_nutrition_facts": "Add nutrition facts to calculate the Nutri-Score.",
+    "product_improvement_add_nutrition_facts": "Přidejte výživové údaje pro výpočet Nutri-Score.",
     "@product_improvement_add_nutrition_facts": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
     },
-    "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to calculate the Nutri-Score.",
+    "product_improvement_add_nutrition_facts_and_category": "Přidejte výživové údaje a kategorii pro výpočet Nutri-Score.",
     "@product_improvement_add_nutrition_facts_and_category": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
     },
-    "product_improvement_categories_but_no_nutriscore": "The Nutri-Score for this product can't be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.",
+    "product_improvement_categories_but_no_nutriscore": "Nutri-score pro tento produkt nelze vypočítat, což může být způsobeno např. nestandardní kategorií. Pokud je to považováno za chybu, kontaktujte nás.",
     "@product_improvement_categories_but_no_nutriscore": {
         "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
-    "product_improvement_obsolete_nutrition_image": "The nutrition image is obsolete: please refresh it.",
+    "product_improvement_obsolete_nutrition_image": "Obrázek výživy je zastaralý: obnovte jej.",
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
+    "product_improvement_origins_to_be_completed": "Eko-skóre bere v úvahu původ ingrediencí. Vyfoťte prosím seznam ingrediencí a/nebo jakékoli geografické tvrzení nebo upravte produkt, aby mohly být zohledněny.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
@@ -549,11 +549,11 @@
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },
-    "country_selection_explanation": "Some environmental features are location-specific",
+    "country_selection_explanation": "Některé prvky prostředí jsou specifické pro dané místo",
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
-    "product_removed_comparison": "Product removed from comparison",
+    "product_removed_comparison": "Produkt byl odstraněn ze srovnání",
     "@product_removed_comparison": {
         "description": "Product got removed from comparison list"
     },
@@ -567,14 +567,14 @@
     },
     "@Lists": {},
     "no_prodcut_in_list": "V tomto seznamu není žádný produkt",
-    "no_product_in_section": "There is no product in this section",
+    "no_product_in_section": "V této sekci není žádný produkt",
     "recently_seen_products": "Historie",
     "clear": "Vymazat",
     "@clear": {
         "description": "Clears a product list"
     },
-    "really_clear": "Do you really want to delete this list?",
-    "product_compatibility_unknown": "Compatibility Unknown",
+    "really_clear": "Opravdu chcete tento seznam smazat?",
+    "product_compatibility_unknown": "Kompatibilita neznámá",
     "@product_compatibility_unknown": {
         "description": "Product compatibility summary title"
     },
@@ -594,7 +594,7 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural, one {} =1{one day ago} other{{count} days ago}}",
+    "plural_ago_days": "před {count,plural, one {} few {{count} dny} many {{count} dny} =1{jedním dnem} other{{count} dny}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
@@ -697,7 +697,7 @@
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
-    "product_list_empty_title": "Start scanning!",
+    "product_list_empty_title": "Začněte skenovat!",
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
@@ -713,11 +713,11 @@
     "@product_list_reloading_success": {
         "description": "Message to show once previous scanned items are loaded"
     },
-    "loading_dialog_default_title": "Downloading data",
+    "loading_dialog_default_title": "Stahování dat",
     "@loading_dialog_default_title": {
         "description": "Default loading dialog title"
     },
-    "loading_dialog_default_error_message": "Could not download data",
+    "loading_dialog_default_error_message": "Nelze stáhnout data",
     "@loading_dialog_default_error_message": {
         "description": "Default loading dialog error message"
     },
@@ -891,6 +891,14 @@
     "@user_list_name_error_same": {
         "description": "Validation error about the renamed name that is the same as the initial list name"
     },
+    "try_again": "Try Again",
+    "@try_again": {
+        "description": "Label for buttons that try to repeat a failed action"
+    },
+    "there_was_an_error": "There was an error",
+    "@there_was_an_error": {
+        "description": "Label that presents a error"
+    },
     "category_picker_no_category_found_message": "Pro {items} nebyla nalezena žádná kategorie",
     "@category_picker_no_category_found_message": {
         "description": "Label when no category is available",
@@ -998,6 +1006,21 @@
     "@dev_preferences_button_negative": {
         "description": "User dev preferences - Negative button label"
     },
+    "dev_preferences_migration_title": "Data migration from V1",
+    "dev_preferences_migration_subtitle": "Status: {status}",
+    "@dev_preferences_migration_subtitle": {
+        "placeholders": {
+            "status": {
+                "type": "String"
+            }
+        }
+    },
+    "dev_preferences_migration_status_already_done": "success or fresh install",
+    "dev_preferences_migration_status_success": "success",
+    "dev_preferences_migration_status_error": "error",
+    "dev_preferences_migration_status_in_progress": "in progress",
+    "dev_preferences_migration_status_required": "required (click to start)",
+    "dev_preferences_migration_status_not_started": "unknown",
     "dev_preferences_import_history_title": "Historie importu",
     "@dev_preferences_import_history_title": {
         "description": "User dev preferences - Import history - Title"

@@ -110,21 +110,18 @@ class SmoothTheme {
           : const Color(0xff121212),
     );
 
+    if (brightness == Brightness.dark) {
+      myColorScheme = myColorScheme.copyWith(
+        secondary: myColorScheme.primary,
+      );
+    }
+
     // TODO(Marvin): Remove when we have a fixed color
     // Fix for current standart color (LightBlue) text color being black not white on certain areas
     if (themeProvider.color == const Color(0xff03a9f4)) {
       myColorScheme = myColorScheme.copyWith(
         onPrimary: Colors.white,
       );
-      if (brightness == Brightness.dark) {
-        myColorScheme = myColorScheme.copyWith(
-          onBackground: Colors.white,
-        );
-      }
-    }
-
-    if (myColorScheme.primary == Colors.lightBlue) {
-      myColorScheme = myColorScheme.copyWith(onPrimaryContainer: Colors.white);
     }
 
     return ThemeData(
