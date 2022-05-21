@@ -205,11 +205,11 @@ class _SmoothAppState extends State<SmoothApp> {
       ],
       theme: SmoothTheme.getThemeData(
         Brightness.light,
-        themeProvider.colorTag,
+        themeProvider,
       ),
       darkTheme: SmoothTheme.getThemeData(
         Brightness.dark,
-        themeProvider.colorTag,
+        themeProvider,
       ),
       themeMode: themeProvider.currentThemeMode,
       home: SmoothAppGetLanguage(appWidget),
