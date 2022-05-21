@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math' as math;
 
 import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
@@ -72,7 +73,12 @@ class MLKitScannerPageState
   late ContinuousScanModel _model;
   late UserPreferences _userPreferences;
   CameraDescription? _camera;
+
+  /// Camera preview scale
   double _previewScale = 1.0;
+
+  /// Allow to detect if we have to recompute the [_previewScale]
+  BoxConstraints? _contentConstraints;
 
   /// Flag used to prevent the camera from being initialized.
   /// When set to [false], [_startLiveStream] can be called.
@@ -121,31 +127,59 @@ class MLKitScannerPageState
       return const SizedBox.shrink();
     }
 
-    final Size size = MediaQuery.of(context).size;
-    // From: https://stackoverflow.com/questions/49946153/flutter-camera-appears-stretched/61487358#61487358:
-    // calculate scale depending on screen and camera ratios
-    // this is actually size.aspectRatio / (1 / camera.aspectRatio)
-    // because camera preview size is received as landscape
-    // but we're calculating for portrait orientation
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        _computePreviewScale(constraints);
+
+        return Transform.scale(
+          scale: _previewScale,
+          child: Center(
+            key: ValueKey<bool>(stoppingCamera),
+            child: CameraPreview(
+              _controller!,
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  void _computePreviewScale(BoxConstraints constraints) {
+    // Only recompute if necessary
+    if (_contentConstraints == constraints) {
+      return;
+    }
+
+    final Size size = constraints.biggest;
+
+    final double previewWidth;
+    final double previewHeight;
+
     _previewScale = size.aspectRatio * _controller!.value.aspectRatio;
 
     if (_previewScale < 1.0) {
       // To prevent scaling down, invert the value
       _previewScale = 1.0 / _previewScale;
+    } else if (_previewScale == 1.0) {
+      // Same aspect ratio, but may still require scale up / down
+      if (_camera?.sensorOrientation == 90) {
+        previewWidth = _controller!.value.previewSize!.height;
+        previewHeight = _controller!.value.previewSize!.width;
+      } else {
+        previewWidth = _controller!.value.previewSize!.width;
+        previewHeight = _controller!.value.previewSize!.height;
+      }
+
+      _previewScale = math.max(
+        size.width / previewWidth,
+        size.height / previewHeight,
+      );
     } else {
       // Scale up the size if the preview doesn't take the full width or height
       _previewScale = _controller!.value.aspectRatio - size.aspectRatio;
     }
 
-    return Transform.scale(
-      scale: _previewScale,
-      child: Center(
-        key: ValueKey<bool>(stoppingCamera),
-        child: CameraPreview(
-          _controller!,
-        ),
-      ),
-    );
+    _contentConstraints = constraints;
   }
 
   bool get isCameraInitialized => _controller?.isInitialized == true;
