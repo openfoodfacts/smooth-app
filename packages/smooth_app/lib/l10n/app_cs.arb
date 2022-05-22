@@ -242,7 +242,7 @@
     },
     "contribute_develop_text": "The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.",
     "@contribute_develop_text": {},
-    "contribute_develop_text_2": "You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.",
+    "contribute_develop_text_2": "Můžete se připojit k chatovací místnosti Open Food Facts Slack, což je preferovaný způsob, kde klást otázky.",
     "@contribute_develop_text_2": {},
     "contribute_donate_header": "Přispět Open Food Facts",
     "@contribute_donate_header": {},
@@ -300,7 +300,7 @@
     "@myPersonalizedRanking": {
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
-    "ranking_tab_all": "All",
+    "ranking_tab_all": "Vše",
     "ranking_subtitle_match_yes": "A great match for you",
     "ranking_subtitle_match_no": "Very poor match",
     "ranking_subtitle_match_maybe": "Unknown match",
@@ -325,7 +325,7 @@
     "@category": {
         "description": "From a product list, there's a category filter: this is its title"
     },
-    "category_all": "All",
+    "category_all": "Vše",
     "@category_al": {
         "description": "Top meta-entry on a category filter"
     },
@@ -361,7 +361,7 @@
     },
     "ingredients": "Složení",
     "@ingredients": {},
-    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen, use parentheses for ingredients of an ingredient, and indicate allergens between underscores.",
+    "ingredients_editing_instructions": "Zachovejte původní řazení. Při specifikaci uveďte procento. Oddělte je čárkou nebo pomlčkou, použijte závorky pro složky přísady a označte alergeny mezi podtržítka.",
     "ingredients_editing_error": "Ingredience se nepodařilo uložit.",
     "ingredients_editing_image_error": "Nepodařilo se získat nový obrázek ingrediencí.",
     "ingredients_editing_title": "Upravit ingredience",
@@ -380,13 +380,13 @@
     "@packaging_information": {
         "description": "Button label: For adding a picture of the packaging of a product"
     },
-    "packaging_information_photo": "Packaging information photo",
+    "packaging_information_photo": "Informační foto balení",
     "@packaging_information_photo": {},
     "missing_product": "Našli jste nový produkt!",
     "@missing_product": {},
-    "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
+    "add_product_take_photos": "Vyfoťte obal a přidejte tento produkt do Open Food Facts",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Please take some photos and the Open Food Facts engine can work out the rest!",
+    "add_product_take_photos_descriptive": "Udělejte prosím nějaké fotky a nástroj Open Food Facts dokáže vyřešit zbytek!",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Přidat informace o produktu",
     "@add_product_information_button_label": {},
@@ -399,10 +399,10 @@
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
     "confirm_button_label": "Potvrdit",
-    "front_packaging_photo_title": "Front Packaging Photo",
+    "front_packaging_photo_title": "Fotografie předního obalu",
     "ingredients_photo_title": "Fotografie ingrediencí",
     "nutritional_facts_photo_title": "Fotografie nutričních údajů",
-    "recycling_photo_title": "Recycling Photo",
+    "recycling_photo_title": "Fotografie recyklace",
     "other_interesting_photo_title": "Další zajímavá fotka",
     "front_photo_uploaded": "Přední fotka nahrána",
     "@front_photo_uploaded": {},
@@ -412,9 +412,9 @@
     "@confirm_ingredients_photo_button_label": {
         "description": "Button clicking on which confirms the picture of ingredients that user just took."
     },
-    "ingredients_photo_uploaded": "Ingredients photo uploaded",
+    "ingredients_photo_uploaded": "Fotografie ingrediencí nahrána",
     "@ingredients_photo_uploaded": {},
-    "nutrition_cache_loading_error": "Unable to load nutrients from cache",
+    "nutrition_cache_loading_error": "Nelze načíst živiny z mezipaměti",
     "nutritional_facts_photo_button_label": "Fotografie výživových faktů",
     "@nutritional_facts_photo_button_label": {},
     "nutritional_facts_input_button_label": "Zadejte fakta o výživě",
@@ -423,57 +423,57 @@
     "@confirm_nutritional_facts_photo_button_label": {
         "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
     },
-    "nutritional_facts_photo_uploaded": "Nutrition facts photo uploaded",
+    "nutritional_facts_photo_uploaded": "Fotografie nutričních údajů byla nahrána",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Informační fotografie o recyklaci",
     "@recycling_photo_button_label": {},
-    "confirm_recycling_photo_button_label": "Confirm Recycling information photo",
+    "confirm_recycling_photo_button_label": "Potvrďte foto s informacemi o recyklaci",
     "@confirm_recycling_photo_button_label": {
         "description": "Button clicking on which confirms the picture of recycling information that user just took."
     },
-    "recycling_photo_uploaded": "Recycling photo uploaded",
+    "recycling_photo_uploaded": "Nahrána fotografie recyklace",
     "@recycling_photo_uploaded": {},
-    "other_interesting_photo_button_label": "Other interesting photos",
+    "other_interesting_photo_button_label": "Další zajímavé fotky",
     "@other_interesting_photo_button_label": {},
     "confirm_other_interesting_photo_button_label": "Potvrdit fotku",
     "@confirm_other_interesting_photo_button_label": {
         "description": "Button clicking on which confirms a miscellaneous photo of the product."
     },
-    "other_photo_uploaded": "Miscellaneous photo uploaded",
+    "other_photo_uploaded": "Různé fotografie nahrány",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "Pořídit znovu",
     "@retake_photo_button_label": {
         "description": "Button clicking on which allows users to retake the last photo they took."
     },
-    "selecting_photo": "Selecting photo",
+    "selecting_photo": "Výběr fotografie",
     "@selecting_photo": {
         "description": "Progress indicator when the users takes a photo"
     },
-    "uploading_image": "Uploading photo to the server",
+    "uploading_image": "Nahrávání fotografie na server",
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
-    "uploading_image_type_front": "Uploading front image to Open Food Facts",
+    "uploading_image_type_front": "Nahrávání předního obrázku do Open Food Facts",
     "@uploading_image_type_front": {
         "description": "Message when a new front picture is being uploaded to the server"
     },
-    "uploading_image_type_ingredients": "Uploading ingredients image to Open Food Facts",
+    "uploading_image_type_ingredients": "Nahrávání obrázku přísad do Open Food Facts",
     "@uploading_image_type_ingredients": {
         "description": "Message when a new ingredients picture is being uploaded to the server"
     },
-    "uploading_image_type_nutrition": "Uploading nutrition image to Open Food Facts",
+    "uploading_image_type_nutrition": "Nahrávání obrázku výživy do Open Food Facts",
     "@uploading_image_type_nutrition": {
         "description": "Message when a new nutrition picture is being uploaded to the server"
     },
-    "uploading_image_type_packaging": "Uploading packaging image to Open Food Facts",
+    "uploading_image_type_packaging": "Nahrávání obrázku balení do Open Food Facts",
     "@uploading_image_type_packaging": {
         "description": "Message when a new packaging picture is being uploaded to the server"
     },
-    "uploading_image_type_other": "Uploading other image to Open Food Facts",
+    "uploading_image_type_other": "Nahrání jiného obrázku do Open Food Facts",
     "@uploading_image_type_other": {
         "description": "Message when a new other picture is being uploaded to the server"
     },
-    "uploading_image_type_generic": "Uploading image to Open Food Facts",
+    "uploading_image_type_generic": "Nahrávání obrázku do Open Food Facts",
     "@uploading_image_type_generic": {
         "description": "Message when a new picture is being uploaded to the server"
     },
@@ -656,7 +656,7 @@
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
     },
-    "consent_analytics_title": "Send anonymous analytics",
+    "consent_analytics_title": "Odesílejte anonymní analýzy",
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
@@ -685,7 +685,7 @@
             }
         }
     },
-    "onboarding_welcome_loading_dialog_title": "Loading your first example product",
+    "onboarding_welcome_loading_dialog_title": "Načítám váš první příklad produktu",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },
@@ -701,15 +701,15 @@
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
-    "product_list_empty_message": "Scanned products will appear here and you can check detailed information about them",
+    "product_list_empty_message": "Zde se zobrazí naskenované produkty a můžete si o nich zkontrolovat podrobné informace",
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress": "Refreshing products in your History",
+    "product_list_reloading_in_progress": "Obnovování produktů ve Vaší historii",
     "@product_list_reloading_in_progress": {
         "description": "Message to show while loading previous scanned items"
     },
-    "product_list_reloading_success": "Product refresh complete",
+    "product_list_reloading_success": "Aktualizace produktu dokončena",
     "@product_list_reloading_success": {
         "description": "Message to show once previous scanned items are loaded"
     },
@@ -729,7 +729,7 @@
     "@email_subject_account_deletion": {
         "description": "Email subject for an account deletion"
     },
-    "email_body_account_deletion": "Hi there, please delete my Open Food Facts account: {userId}",
+    "email_body_account_deletion": "Dobrý den, smažte prosím můj účet Open Food Facts: {userId}",
     "@email_body_account_deletion": {
         "description": "Email body for an account deletion",
         "placeholders": {
@@ -742,7 +742,7 @@
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "When enabled, crash reports are automatically submitted to Open Food Facts' error tracking system, so that bugs can be fixed and thus improve the app.",
+    "crash_reporting_toggle_subtitle": "Pokud je tato možnost povolena, zprávy o selhání se automaticky odesílají do systému sledování chyb Open Food Facts, aby bylo možné opravit chyby a vylepšit tak aplikaci.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
@@ -762,8 +762,8 @@
     "@permission_photo_error": {
         "description": "When the camera/photo permission failed to be acquired (!= denied)"
     },
-    "permission_photo_denied_title": "Allow camera use to scan barcodes",
-    "permission_photo_denied_message": "For an enhanced experience, please allow {appName} to access your camera. You will be able to directly scan barcodes.",
+    "permission_photo_denied_title": "Povolit použití fotoaparátu ke skenování čárových kódů",
+    "permission_photo_denied_message": "Pro lepší zážitek povolte {appName} přístup ke kameře. Budete moci přímo skenovat čárové kódy.",
     "@permission_photo_denied_message": {
         "description": "When the camera/photo permission is denied by user",
         "placeholders": {
@@ -777,7 +777,7 @@
         "description": "When the camera/photo permission is denied by user"
     },
     "permission_photo_denied_dialog_settings_title": "Přístup odepřen",
-    "permission_photo_denied_dialog_settings_message": "As you've previously denied the camera permission, you must allow it manually from the Settings.",
+    "permission_photo_denied_dialog_settings_message": "Protože jste dříve odepřeli povolení fotoaparátu, musíte jej povolit ručně v Nastavení.",
     "permission_photo_denied_dialog_settings_button_open": "Otevřít nastavení",
     "permission_photo_denied_dialog_settings_button_cancel": "Zrušit",
     "permission_photo_denied": "Není povolen přístup ke kameře",
@@ -891,11 +891,11 @@
     "@user_list_name_error_same": {
         "description": "Validation error about the renamed name that is the same as the initial list name"
     },
-    "try_again": "Try Again",
+    "try_again": "Zkuste to znovu",
     "@try_again": {
         "description": "Label for buttons that try to repeat a failed action"
     },
-    "there_was_an_error": "There was an error",
+    "there_was_an_error": "Došlo k chybě",
     "@there_was_an_error": {
         "description": "Label that presents a error"
     },
@@ -1006,8 +1006,8 @@
     "@dev_preferences_button_negative": {
         "description": "User dev preferences - Negative button label"
     },
-    "dev_preferences_migration_title": "Data migration from V1",
-    "dev_preferences_migration_subtitle": "Status: {status}",
+    "dev_preferences_migration_title": "Migrace dat z V1",
+    "dev_preferences_migration_subtitle": "Stav: {status}",
     "@dev_preferences_migration_subtitle": {
         "placeholders": {
             "status": {
@@ -1015,12 +1015,12 @@
             }
         }
     },
-    "dev_preferences_migration_status_already_done": "success or fresh install",
-    "dev_preferences_migration_status_success": "success",
-    "dev_preferences_migration_status_error": "error",
-    "dev_preferences_migration_status_in_progress": "in progress",
-    "dev_preferences_migration_status_required": "required (click to start)",
-    "dev_preferences_migration_status_not_started": "unknown",
+    "dev_preferences_migration_status_already_done": "úspěšná nebo čerstvá instalace",
+    "dev_preferences_migration_status_success": "úspěch",
+    "dev_preferences_migration_status_error": "chyba",
+    "dev_preferences_migration_status_in_progress": "probíhá",
+    "dev_preferences_migration_status_required": "vyžadováno (kliknutím spustíte)",
+    "dev_preferences_migration_status_not_started": "neznámý",
     "dev_preferences_import_history_title": "Historie importu",
     "@dev_preferences_import_history_title": {
         "description": "User dev preferences - Import history - Title"
@@ -1058,7 +1058,7 @@
     "@dev_mode_scan_mode_title": {
         "description": "User dev preferences - Scan mode - Title"
     },
-    "dev_mode_scan_mode_subtitle": "Current scan mode is :\"{mode}\"",
+    "dev_mode_scan_mode_subtitle": "Aktuální režim skenování je:\"{mode}\"",
     "@dev_mode_scan_mode_subtitle": {
         "description": "User dev preferences - Scan mode - Subtitle",
         "placeholders": {
@@ -1075,11 +1075,11 @@
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
     },
-    "dev_mode_scan_camera_only": "Only camera stream, no scanning",
+    "dev_mode_scan_camera_only": "Pouze přenos kamery, žádné skenování",
     "@dev_mode_scan_camera_only": {
         "description": "Scan mode - Camera only"
     },
-    "dev_mode_scan_preprocess_full_image": "Camera stream and full image preprocessing, no scanning",
+    "dev_mode_scan_preprocess_full_image": "Přenos z kamery a předzpracování celého obrazu, žádné skenování",
     "@dev_mode_scan_preprocess_full_image": {
         "description": "Scan mode - Preprocess full image"
     },
@@ -1095,7 +1095,7 @@
     "@dev_mode_scan_scan_half_image": {
         "description": "Scan mode - Scan half image"
     },
-    "product_search_no_more_results": "You've downloaded all the {totalSize} products.",
+    "product_search_no_more_results": "Stáhli jste všech {totalSize} produktů.",
     "@product_search_no_more_results": {
         "description": "Product search list - No more results available",
         "placeholders": {
@@ -1104,7 +1104,7 @@
             }
         }
     },
-    "product_search_button_download_more": "Download {count} more products\nAlready downloaded {downloaded} out of {totalSize}.",
+    "product_search_button_download_more": "Stáhnout {count} dalších produktů\nJiž staženo {downloaded} ze {totalSize}.",
     "@product_search_button_download_more": {
         "description": "Product search list - Button to download more results",
         "placeholders": {
@@ -1189,7 +1189,7 @@
     "@confirm_clear": {
         "description": "Asking about whether to clear the list or not"
     },
-    "importance_label": "{name} importance: {id}",
+    "importance_label": "{name} důležitosti: {id}",
     "@importance_label": {
         "description": "Used when user selects a food preference. example: Vegan importance; mandatory",
         "placeholders": {
@@ -1199,6 +1199,21 @@
             "id": {
                 "type": "String"
             }
+        }
+    },
+    "user_list_all_title": "Seznamy",
+    "@user_list_all_title": {
+        "description": "Title about the user lists in the user preferences"
+    },
+    "user_list_all_empty": "Create your first list!",
+    "@user_list_all_empty": {
+        "description": "Small message when there are no user lists"
+    },
+    "user_list_length": "{count,plural, =0{Empty list} =1{One product} other{{count} products}}",
+    "@user_list_length": {
+        "description": "Length of a user product list",
+        "placeholders": {
+            "count": {}
         }
     }
 }
