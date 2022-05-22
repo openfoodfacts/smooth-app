@@ -1200,5 +1200,20 @@
                 "type": "String"
             }
         }
+    },
+    "user_list_all_title": "Listes",
+    "@user_list_all_title": {
+        "description": "Title about the user lists in the user preferences"
+    },
+    "user_list_all_empty": "Créez votre première liste !",
+    "@user_list_all_empty": {
+        "description": "Small message when there are no user lists"
+    },
+    "user_list_length": "{count,plural, =0{Liste vide} =1{Un produit} other{{count} produits}}",
+    "@user_list_length": {
+        "description": "Length of a user product list",
+        "placeholders": {
+            "count": {}
+        }
     }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:provider/provider.dart';
@@ -8,6 +10,8 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/data_importer/product_list_import_export.dart';
 import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
@@ -15,6 +19,7 @@ import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dialog_editor.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/scan/ml_kit_scan_page.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Collapsed/expanded display of "dev mode" for the preferences page.
 ///
@@ -53,6 +58,12 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
 
   final TextEditingController _textFieldController = TextEditingController();
 
+  static const LocalizationsDelegate<MaterialLocalizations> delegate =
+      GlobalMaterialLocalizations.delegate;
+  final List<Locale> _supportedLanguageCodes = AppLocalizations.supportedLocales
+      .where((Locale locale) => delegate.isSupported(locale))
+      .toList();
+
   @override
   PreferencePageType? getPreferencePageType() => PreferencePageType.DEV_MODE;
 
@@ -85,6 +96,13 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             ProductQuery.setQueryType(userPreferences);
             setState(() {});
           },
+        ),
+        ListTile(
+          title: const Text('Choose primary color'),
+          onTap: () => _changePrimaryColor(
+            context,
+            userPreferences,
+          ),
         ),
         ListTile(
           title: Text(
@@ -337,7 +355,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               await userPreferences.setAppLanguageCode(languageCode);
               setState(() {});
             },
-            items: AppLocalizations.supportedLocales.map((Locale locale) {
+            items: _supportedLanguageCodes.map((Locale locale) {
               final String localeString = locale.toString();
               return DropdownMenuItem<String>(
                 value: localeString,
@@ -388,6 +406,46 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         content: Text(appLocalizations.dev_preferences_button_positive),
       ),
     );
+  }
+
+  Future<void> _changePrimaryColor(
+    BuildContext context,
+    UserPreferences userPreferences,
+  ) async {
+    Color? newColor;
+
+    void changeColor(Color color) {
+      newColor = color;
+    }
+
+    final ThemeProvider themeProvider = context.read<ThemeProvider>();
+
+    final bool? apply = await showDialog<bool>(
+      context: context,
+      builder: (BuildContext context) {
+        return SmoothAlertDialog(
+          title: 'Pick a color!',
+          body: SingleChildScrollView(
+            child: ColorPicker(
+              pickerColor: themeProvider.color,
+              onColorChanged: changeColor,
+            ),
+          ),
+          actions: <SmoothActionButton>[
+            SmoothActionButton(
+              text: 'Got it',
+              onPressed: () {
+                Navigator.of(context).pop(true);
+              },
+            ),
+          ],
+        );
+      },
+    );
+
+    if (apply != null && newColor != null) {
+      await themeProvider.setColor(newColor!);
+    }
   }
 
   Future<void> _changeTestEnvHost() async {

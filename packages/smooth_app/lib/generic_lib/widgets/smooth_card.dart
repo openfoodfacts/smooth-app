@@ -45,7 +45,10 @@ class SmoothCard extends StatelessWidget {
       elevation: elevation,
       shadowColor: const Color.fromARGB(25, 0, 0, 0),
       borderRadius: ROUNDED_BORDER_RADIUS,
-      color: color ?? Theme.of(context).colorScheme.surface,
+      color: color ??
+          (Theme.of(context).brightness == Brightness.light
+              ? Colors.white
+              : Colors.black),
       child: Container(
         padding: padding,
         child: child,
