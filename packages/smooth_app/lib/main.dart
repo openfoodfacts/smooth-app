@@ -88,7 +88,6 @@ Future<bool> _init1() async {
   _userPreferences = await UserPreferences.getUserPreferences();
   _localDatabase = await LocalDatabase.getLocalDatabase();
   _appDataImporter = SmoothAppDataImporter(_localDatabase);
-  _appDataImporter.startMigrationAsync();
   await _continuousScanModel.load(_localDatabase);
   _productPreferences = ProductPreferences(
     ProductPreferencesSelection(
@@ -205,11 +204,11 @@ class _SmoothAppState extends State<SmoothApp> {
       ],
       theme: SmoothTheme.getThemeData(
         Brightness.light,
-        themeProvider.colorTag,
+        themeProvider,
       ),
       darkTheme: SmoothTheme.getThemeData(
         Brightness.dark,
-        themeProvider.colorTag,
+        themeProvider,
       ),
       themeMode: themeProvider.currentThemeMode,
       home: SmoothAppGetLanguage(appWidget),
@@ -244,6 +243,9 @@ class SmoothAppGetLanguage extends StatelessWidget {
 
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     AnalyticsHelper.trackStart(localDatabase, context);
+
+    // The migration requires the language to be set in the app
+    _appDataImporter.startMigrationAsync();
 
     return appWidget;
   }
