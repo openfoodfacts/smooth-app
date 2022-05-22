@@ -17,11 +17,9 @@ import 'package:smooth_app/pages/scan/search_page.dart';
 class SmoothProductCarousel extends StatefulWidget {
   const SmoothProductCarousel({
     this.containSearchCard = false,
-    required this.height,
   });
 
   final bool containSearchCard;
-  final double height;
 
   static const EdgeInsets carouselItemHorizontalPadding =
       EdgeInsets.symmetric(horizontal: 20.0);
@@ -81,39 +79,45 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
   @override
   Widget build(BuildContext context) {
     barcodes = _model.getBarcodes();
-    return CarouselSlider.builder(
-      itemCount: barcodes.length + _searchCardAdjustment,
-      itemBuilder: (BuildContext context, int itemIndex, int itemRealIndex) {
-        return Padding(
-          padding: SmoothProductCarousel.carouselItemInternalPadding,
-          child: widget.containSearchCard && itemIndex == 0
-              ? SearchCard(height: widget.height)
-              : _getWidget(itemIndex - _searchCardAdjustment),
+
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        return CarouselSlider.builder(
+          itemCount: barcodes.length + _searchCardAdjustment,
+          itemBuilder:
+              (BuildContext context, int itemIndex, int itemRealIndex) {
+            return Padding(
+              padding: SmoothProductCarousel.carouselItemInternalPadding,
+              child: widget.containSearchCard && itemIndex == 0
+                  ? SearchCard(height: constraints.maxHeight)
+                  : _getWidget(itemIndex - _searchCardAdjustment),
+            );
+          },
+          carouselController: _controller,
+          options: CarouselOptions(
+            enlargeCenterPage: false,
+            viewportFraction: SmoothProductCarousel.carouselViewPortFraction,
+            height: constraints.maxHeight,
+            enableInfiniteScroll: false,
+            onPageChanged: (int index, CarouselPageChangedReason reason) {
+              _lastIndex = index;
+              final InheritedDataManagerState inheritedDataManager =
+                  InheritedDataManager.of(context);
+              if (inheritedDataManager.showSearchCard) {
+                inheritedDataManager.resetShowSearchCard(false);
+              }
+              if (index > 0) {
+                if (reason == CarouselPageChangedReason.manual) {
+                  _model.lastConsultedBarcode =
+                      barcodes[index - _searchCardAdjustment];
+                }
+              } else if (index == 0) {
+                _model.lastConsultedBarcode = null;
+              }
+            },
+          ),
         );
       },
-      carouselController: _controller,
-      options: CarouselOptions(
-        enlargeCenterPage: false,
-        viewportFraction: SmoothProductCarousel.carouselViewPortFraction,
-        height: widget.height,
-        enableInfiniteScroll: false,
-        onPageChanged: (int index, CarouselPageChangedReason reason) {
-          _lastIndex = index;
-          final InheritedDataManagerState inheritedDataManager =
-              InheritedDataManager.of(context);
-          if (inheritedDataManager.showSearchCard) {
-            inheritedDataManager.resetShowSearchCard(false);
-          }
-          if (index > 0) {
-            if (reason == CarouselPageChangedReason.manual) {
-              _model.lastConsultedBarcode =
-                  barcodes[index - _searchCardAdjustment];
-            }
-          } else if (index == 0) {
-            _model.lastConsultedBarcode = null;
-          }
-        },
-      ),
     );
   }
 
