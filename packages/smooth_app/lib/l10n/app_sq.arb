@@ -292,6 +292,7 @@
     "myPreferences_settings_subtitle": "Modaliteti i errët, Tema, ...",
     "myPreferences_food_title": "Preferencat ushqimore",
     "myPreferences_food_subtitle": "Zgjidhni cfare informacioni rreth ushqimit eshte me i rendesishmi per ju.",
+    "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
     "confirmResetPreferences": "Rinis, rivendos preferencat ushqimore?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"

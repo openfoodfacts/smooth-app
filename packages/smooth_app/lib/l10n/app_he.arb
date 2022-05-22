@@ -292,6 +292,7 @@
     "myPreferences_settings_subtitle": "מצב כהה, ערכת עיצוב…",
     "myPreferences_food_title": "העדפות מזון",
     "myPreferences_food_subtitle": "נא לבחור איזה מידע על מזון הכי חשוב לך.",
+    "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
     "confirmResetPreferences": "לאפס את העדפות המזון שלך?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"

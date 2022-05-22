@@ -292,6 +292,7 @@
     "myPreferences_settings_subtitle": "Tema, Modul Întunecat, ...",
     "myPreferences_food_title": "Preferințe alimentare",
     "myPreferences_food_subtitle": "Alegeți ce informații despre alimente contează cel mai mult pentru dvs.",
+    "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
     "confirmResetPreferences": "Resetați preferințele alimentare?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"

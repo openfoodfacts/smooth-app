@@ -292,6 +292,7 @@
     "myPreferences_settings_subtitle": "다크 모드, 테마, ...",
     "myPreferences_food_title": "식품 설정",
     "myPreferences_food_subtitle": "당신에게 가장 중요한 음식 정보를 선택하십시오.",
+    "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
     "confirmResetPreferences": "식품 설정을 초기화하시겠습니까?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"

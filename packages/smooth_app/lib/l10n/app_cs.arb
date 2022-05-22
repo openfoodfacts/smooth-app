@@ -292,6 +292,7 @@
     "myPreferences_settings_subtitle": "Tmavý režim, téma,...",
     "myPreferences_food_title": "Předvolby jídla",
     "myPreferences_food_subtitle": "Vyberte si, které informace o jídle jsou pro vás nejdůležitější.",
+    "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
     "confirmResetPreferences": "Obnovit předvolby jídla?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -1205,7 +1206,7 @@
     "@user_list_all_title": {
         "description": "Title about the user lists in the user preferences"
     },
-    "user_list_all_empty": "Create your first list!",
+    "user_list_all_empty": "Vytvořte svůj první seznam!",
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },

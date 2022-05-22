@@ -292,6 +292,7 @@
     "myPreferences_settings_subtitle": "Karanlık mod, Tema, ...",
     "myPreferences_food_title": "Yiyecek tercihleri",
     "myPreferences_food_subtitle": "Yiyeceklerle ilgili hangi bilgilerin sizin için en önemli olduğunu seçin.",
+    "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
     "confirmResetPreferences": "Yiyecek tercihleriniz sıfırlansın mı?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"

@@ -292,7 +292,7 @@
     "myPreferences_settings_subtitle": "Mode sombre, Thème, ...",
     "myPreferences_food_title": "Préférences alimentaires",
     "myPreferences_food_subtitle": "Choisissez les informations sur la nourriture qui vous importent le plus.",
-    "myPreferences_food_comment": "Choisissez les informations sur la nourriture qui vous importent le plus, pour exclure les aliments mauvais pour vous et trier seulement les bons !",
+    "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
     "confirmResetPreferences": "Réinitialiser vos préférences alimentaires ?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -673,7 +673,7 @@
     "@authorize": {
         "description": "Button to accept the request of sending the anonymous analytics"
     },
-    "refuse_button_label": "Refuse",
+    "refuse_button_label": "Refuser",
     "@refuse": {
         "description": "Button to decline the request of sending the anonymous analytics"
     },
@@ -1206,11 +1206,11 @@
     "@user_list_all_title": {
         "description": "Title about the user lists in the user preferences"
     },
-    "user_list_all_empty": "Create your first list!",
+    "user_list_all_empty": "Créez votre première liste !",
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
-    "user_list_length": "{count,plural, =0{Empty list} =1{One product} other{{count} products}}",
+    "user_list_length": "{count,plural, =0{Liste vide} =1{Un produit} other{{count} produits}}",
     "@user_list_length": {
         "description": "Length of a user product list",
         "placeholders": {
