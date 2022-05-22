@@ -292,6 +292,7 @@
     "myPreferences_settings_subtitle": "Ночной режим, тема, ...",
     "myPreferences_food_title": "Предпочтения в еде",
     "myPreferences_food_subtitle": "Выберите, какая информация о еде представляет для вас наибольший интерес.",
+    "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
     "confirmResetPreferences": "Сбросить предпочтения?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"

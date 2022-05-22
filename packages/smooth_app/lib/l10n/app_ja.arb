@@ -292,6 +292,7 @@
     "myPreferences_settings_subtitle": "ダークモード、テーマ...",
     "myPreferences_food_title": "食品設定",
     "myPreferences_food_subtitle": "あなたにとって最も重要な食品に関する情報を選択してください。",
+    "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
     "confirmResetPreferences": "食品の設定をリセットしますか？",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"

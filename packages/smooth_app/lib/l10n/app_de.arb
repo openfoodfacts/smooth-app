@@ -292,6 +292,7 @@
     "myPreferences_settings_subtitle": "Dunkler Modus, Farbschema, …",
     "myPreferences_food_title": "Lebensmittelvorlieben",
     "myPreferences_food_subtitle": "Wählen Sie aus, welche Informationen über Lebensmittel für Sie am wichtigsten sind.",
+    "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
     "confirmResetPreferences": "Lebensmittelvorlieben zurücksetzen?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -1205,11 +1206,11 @@
     "@user_list_all_title": {
         "description": "Title about the user lists in the user preferences"
     },
-    "user_list_all_empty": "Create your first list!",
+    "user_list_all_empty": "Erstellen Sie Ihre erste Liste!",
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
-    "user_list_length": "{count,plural, =0{Empty list} =1{One product} other{{count} products}}",
+    "user_list_length": "{count,plural, =0{Leere Liste} =1{Ein Produkt} other{{count} Produkte}}",
     "@user_list_length": {
         "description": "Length of a user product list",
         "placeholders": {
