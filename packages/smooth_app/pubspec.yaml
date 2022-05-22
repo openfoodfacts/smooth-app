@@ -70,8 +70,6 @@ dependencies:
     path: ../data_importer_shared
   data_importer:
     path: ../data_importer
-  # Dependency used in data_importer, but as it's transitive, the only solution is to embed it here
-  realm: 0.2.1+alpha
 
 dev_dependencies:
   integration_test:
