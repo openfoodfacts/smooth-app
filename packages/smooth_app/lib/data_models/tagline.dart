@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 /// A tagline is the text displayed on the homepage
-/// It may contains a link to an external resource
+/// It may contain a link to an external resource
 /// No cache is expected here
 /// API URL: [https://world.openfoodfacts.org/files/tagline/tagline-off.json]
 Future<TagLineItem?> fetchTagLine(String locale) {
@@ -39,7 +39,7 @@ class _TagLine {
   /// Taglines by their locale
   final Map<String, TagLineItem> _items;
 
-  /// Find a tagline with its locale
+  /// Finds a tagline with its locale
   TagLineItem? operator [](String key) =>
       _items[key] ?? _items[key.substring(0, 2)];
 }
