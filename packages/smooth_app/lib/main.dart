@@ -242,7 +242,7 @@ class SmoothAppGetLanguage extends StatelessWidget {
 
     // The migration requires the language to be set in the app
     _appDataImporter.startMigrationAsync();
-    
+
     return appWidget;
   }
 }
