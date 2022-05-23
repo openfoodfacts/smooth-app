@@ -233,11 +233,19 @@ class _MLKitScanDecoderIsolate {
 
     port.send(
       barcodes
-          .map((Barcode barcode) => barcode.rawValue)
+          .map((Barcode barcode) => _changeBarcodeType(barcode))
           .where((String? barcode) => barcode?.isNotEmpty == true)
           .cast<String>()
           .toList(growable: false),
     );
+  }
+
+  static String? _changeBarcodeType(Barcode barcode) {
+    //EAN13 begins with 0 is detected as UPC-A by google_mlkit_barcode_scanning v0.3.0
+    if (barcode.rawValue != null && barcode.format == BarcodeFormat.upca) {
+      return '0${barcode.rawValue}';
+    }
+    return barcode.rawValue;
   }
 
   static InputImage _cropImage(CameraImage image) {

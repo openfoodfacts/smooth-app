@@ -46,7 +46,7 @@ class ScoreCard extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       decoration: BoxDecoration(
         color: backgroundColor,
-        borderRadius: ROUNDED_BORDER_RADIUS,
+        borderRadius: ANGULAR_BORDER_RADIUS,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

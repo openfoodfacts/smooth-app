@@ -111,7 +111,8 @@ class UserPreferencesSettings extends AbstractUserPreferences {
     final ThemeProvider themeProvider,
   ) =>
       TextButton(
-        onPressed: () async => themeProvider.setColorTag(colorTag),
+        onPressed: () async =>
+            themeProvider.setColor(SmoothTheme.MATERIAL_COLORS[colorTag]!),
         style: TextButton.styleFrom(
           backgroundColor: SmoothTheme.getColor(
             colorScheme,
