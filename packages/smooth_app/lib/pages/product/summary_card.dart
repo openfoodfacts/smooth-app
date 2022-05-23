@@ -4,6 +4,7 @@ import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/personalized_search/matched_product_v2.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
@@ -23,7 +24,6 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
-import 'package:smooth_app/helpers/smooth_matched_product.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
@@ -332,10 +332,9 @@ class _SummaryCardState extends State<SummaryCard> {
   }
 
   Widget _buildProductCompatibilityHeader(BuildContext context) {
-    final MatchedProduct matchedProduct = MatchedProduct.getMatchedProduct(
+    final MatchedProductV2 matchedProduct = MatchedProductV2(
       widget._product,
       widget._productPreferences,
-      context.watch<UserPreferences>(),
     );
     final ProductCompatibilityHelper helper =
         ProductCompatibilityHelper(matchedProduct);
@@ -361,8 +360,12 @@ class _SummaryCardState extends State<SummaryCard> {
           ),
           Expanded(
             child: Center(
-              child: Text(helper.getHeaderText(AppLocalizations.of(context)),
-                  style: Theme.of(context).textTheme.subtitle1),
+              child: Text(
+                helper.getHeaderText(AppLocalizations.of(context)),
+                style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                      color: helper.getHeaderForegroundColor(isDarkMode),
+                    ),
+              ),
             ),
           ),
           IconButton(
