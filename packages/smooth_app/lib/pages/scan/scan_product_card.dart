@@ -15,7 +15,6 @@ class ScanProductCard extends StatelessWidget {
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
     return GestureDetector(
-      onTap: () => _openProductPage(context),
       onVerticalDragEnd: (DragEndDetails details) {
         if (details.primaryVelocity == null) {
           return;

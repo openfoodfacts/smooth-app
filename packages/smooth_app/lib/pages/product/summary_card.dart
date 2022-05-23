@@ -28,6 +28,7 @@ import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
+import 'package:smooth_app/pages/product/new_product_page.dart';
 import 'package:smooth_app/pages/question_page.dart';
 
 const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
@@ -148,12 +149,25 @@ class _SummaryCardState extends State<SummaryCard> {
                       const BorderRadius.vertical(bottom: ROUNDED_RADIUS),
                 ),
                 child: Center(
-                  child: Text(
-                    AppLocalizations.of(context).tab_for_more,
-                    style:
-                        Theme.of(context).primaryTextTheme.bodyText1?.copyWith(
-                              color: PRIMARY_BLUE_COLOR,
-                            ),
+                  child: InkWell(
+                    onTap: () async {
+                      await Navigator.push<Widget>(
+                        context,
+                        MaterialPageRoute<Widget>(
+                          builder: (BuildContext context) =>
+                              ProductPage(widget._product),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      AppLocalizations.of(context).tab_for_more,
+                      style: Theme.of(context)
+                          .primaryTextTheme
+                          .bodyText1
+                          ?.copyWith(
+                            color: PRIMARY_BLUE_COLOR,
+                          ),
+                    ),
                   ),
                 ),
               ),
@@ -314,14 +328,17 @@ class _SummaryCardState extends State<SummaryCard> {
         ),
         for (final Attribute attribute in scoreAttributes)
           InkWell(
-            onTap: () async => openFullKnowledgePanel(
-              attribute: attribute,
-            ),
+            onTap: widget.isFullVersion
+                ? () async => openFullKnowledgePanel(
+                      attribute: attribute,
+                    )
+                : null,
             child: ScoreCard(
               iconUrl: attribute.iconUrl,
               description:
                   attribute.descriptionShort ?? attribute.description ?? '',
               cardEvaluation: getCardEvaluationFromAttribute(attribute),
+              isClickable: widget.isFullVersion,
             ),
           ),
         if (widget.isFullVersion) _buildProductQuestionsWidget(),
