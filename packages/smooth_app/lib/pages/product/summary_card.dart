@@ -555,7 +555,7 @@ class _SummaryCardState extends State<SummaryCard> {
                   ),
                 );
               },
-              child: SmoothCard(
+              child: SmoothCard.angular(
                 margin: EdgeInsets.zero,
                 color: Theme.of(context).colorScheme.primary,
                 elevation: 0,
