@@ -29,6 +29,7 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_CRASH_REPORTS = 'crash_reports';
   static const String _TAG_ANALYTICS_REPORTS = 'analytics_reports';
   static const String _TAG_EXCLUDED_ATTRIBUTE_IDS = 'excluded_attributes';
+  static const String _TAG_IS_FIRST_SCAN = 'is_first_scan';
 
   Future<void> init(final ProductPreferences productPreferences) async {
     if (_sharedPreferences.getBool(_TAG_INIT) != null) {
@@ -91,6 +92,16 @@ class UserPreferences extends ChangeNotifier {
         ? OnboardingPage.NOT_STARTED
         : OnboardingPage.values[pageIndex];
   }
+
+  Future<void> setFirstScanAchieved() async {
+    if (isFirstScan) {
+      await _sharedPreferences.setBool(_TAG_IS_FIRST_SCAN, false);
+      notifyListeners();
+    }
+  }
+
+  bool get isFirstScan =>
+      _sharedPreferences.getBool(_TAG_IS_FIRST_SCAN) ?? true;
 
   Future<void> setAppLanguageCode(String? languageCode) async {
     if (languageCode == null) {
