@@ -491,12 +491,10 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
 class _BackButton extends StatelessWidget {
   const _BackButton({
     required this.color,
-    this.onPressed,
     Key? key,
   }) : super(key: key);
 
   final Color color;
-  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -504,11 +502,7 @@ class _BackButton extends StatelessWidget {
       icon: Icon(ConstantIcons.instance.getBackIcon()),
       color: color,
       onPressed: () {
-        if (onPressed != null) {
-          onPressed!();
-        } else {
-          Navigator.maybePop(context);
-        }
+        Navigator.maybePop(context);
       },
     );
   }
